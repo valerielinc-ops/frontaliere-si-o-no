@@ -1631,8 +1631,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1648,12 +1647,10 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1665,7 +1662,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",

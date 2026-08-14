@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "schindler-7edfc2c56f83",
-      "slug": "chef-d-equipe-maintenance-region-fribourgeoise-h-f-d-80-100-schindler-le-mont-sur-lausanne",
+      "slug": "caposquadra-manutenzione-regione-di-friburgo-m-f-d-80-100-schindler-le-mont-sur-lausanne",
       "slugByLocale": {
-        "it": "chef-d-equipe-maintenance-region-fribourgeoise-h-f-d-80-100-schindler-le-mont-sur-lausanne",
+        "fr": "chef-d-equipe-maintenance-region-fribourgeoise-h-f-d-80-100-schindler-le-mont-sur-lausanne",
+        "it": "caposquadra-manutenzione-regione-di-friburgo-m-f-d-80-100-schindler-le-mont-sur-lausanne",
         "en": "team-leader-maintenance-fribourg-region-m-f-d-80-100-schindler-le-mont-sur-lausanne",
-        "de": "teamleiter-wartung-fribourg-region-m-w-d-80-100-schindler-le-mont-sur-lausanne",
-        "fr": "chef-d-equipe-maintenance-region-fribourgeoise-h-f-d-80-100-schindler-le-mont-sur-lausanne"
+        "de": "teamleiter-wartung-fribourg-region-m-w-d-80-100-schindler-le-mont-sur-lausanne"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -64,7 +64,15 @@
         }
       },
       "firstSeenAt": "2026-08-13T10:20:15.626Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-equipe-maintenance-region-fribourgeoise-h-f-d-80-100-schindler-le-mont-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-equipe-maintenance-region-fribourgeoise-h-f-d-80-100-schindler-le-mont-sur-lausanne"
+      ]
     },
     {
       "id": "schindler-76c469d8faf2",

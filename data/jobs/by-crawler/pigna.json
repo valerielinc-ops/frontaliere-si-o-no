@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "pigna-53e6c00f9b23",
-      "slug": "fachverantwortung-hr-administration-80-pigna-kloten",
+      "slug": "responsabilita-tecnica-amministrazione-hr-80-stiftung-pigna-kloten",
       "slugByLocale": {
-        "it": "fachverantwortung-hr-administration-80-pigna-kloten",
-        "en": "professional-responsibility-hr-administration-80-stiftung-pigna-kloten",
         "de": "fachverantwortung-hr-administration-80-pigna-kloten",
+        "it": "responsabilita-tecnica-amministrazione-hr-80-stiftung-pigna-kloten",
+        "en": "professional-responsibility-hr-administration-80-stiftung-pigna-kloten",
         "fr": "fachverantwortung-hr-administration-80-pigna-kloten"
       },
       "company": "Stiftung Pigna",
@@ -64,7 +64,15 @@
         }
       },
       "firstSeenAt": "2026-08-13T10:42:14.664Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortung-hr-administration-80-pigna-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortung-hr-administration-80-pigna-kloten"
+      ]
     },
     {
       "id": "pigna-59a6fd7f2da6",

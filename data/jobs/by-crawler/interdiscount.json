@@ -10228,6 +10228,7 @@
           "• Du hast Freude daran, im Team zu arbeiten und kannst entscheidende Beiträge zum Erfolg leisten."
         ]
       },
+      "firstSeenAt": "2026-08-11T22:16:05.052Z",
       "previousSlugsByLocale": {
         "de": [
           "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
@@ -10247,8 +10248,6 @@
         "junior-lieferkette-manager-distribution-interdiscount-jegenstorf-bern-195e42",
         "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
       ],
-      "firstSeenAt": "2026-08-11T22:16:05.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10260,16 +10259,17 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "interdiscount-2ac04398-090",
       "slug": "consulente-commerciale-in-interdiscount-thalwil",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-thalwil",
-        "en": "sales-consultant-in-interdiscount-thalwil",
         "de": "verkaufsberater-in-interdiscount-thalwil",
-        "fr": "consultant-en-ventes-interdiscount-thalwil"
+        "it": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a",
+        "en": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a",
+        "fr": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10326,26 +10326,7 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-thalwil-q17yod",
-        "verkaufsberater-in-interdiscount-thalwil",
-        "consulente-commerciale-in-interdiscount-thalwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-interdiscount-thalwil-q17yod",
-          "verkaufsberater-in-interdiscount-thalwil",
-          "consulente-commerciale-in-interdiscount-thalwil"
-        ],
-        "en": [
-          "verkaufsberater-in-interdiscount-thalwil"
-        ],
-        "fr": [
-          "verkaufsberater-in-interdiscount-thalwil"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:17:26.267Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10357,7 +10338,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-thalwil-q17yod",
+          "verkaufsberater-in-interdiscount-thalwil",
+          "consulente-commerciale-in-interdiscount-thalwil"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-thalwil",
+          "sales-consultant-in-interdiscount-thalwil"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-thalwil",
+          "consultant-en-ventes-interdiscount-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-thalwil-q17yod",
+        "verkaufsberater-in-interdiscount-thalwil",
+        "consulente-commerciale-in-interdiscount-thalwil",
+        "sales-consultant-in-interdiscount-thalwil",
+        "consultant-en-ventes-interdiscount-thalwil"
+      ]
     },
     {
       "id": "interdiscount-885b17c6-aec",
@@ -10463,10 +10467,10 @@
       "id": "interdiscount-bb8a08c2-c15",
       "slug": "consulente-commerciale-in-interdiscount-davos",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-davos",
-        "en": "sales-consultant-in-interdiscount-davos",
         "de": "verkaufsberater-in-interdiscount-davos",
-        "fr": "consultant-en-ventes-interdiscount-davos"
+        "it": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51",
+        "en": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51",
+        "fr": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10523,24 +10527,7 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-davos",
-        "consulente-commerciale-in-interdiscount-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-interdiscount-davos",
-          "consulente-commerciale-in-interdiscount-davos"
-        ],
-        "en": [
-          "verkaufsberater-in-interdiscount-davos"
-        ],
-        "fr": [
-          "verkaufsberater-in-interdiscount-davos"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:17:26.266Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10552,16 +10539,37 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.266Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-davos",
+          "consulente-commerciale-in-interdiscount-davos"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-davos",
+          "sales-consultant-in-interdiscount-davos"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-davos",
+          "consultant-en-ventes-interdiscount-davos"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-davos",
+        "consulente-commerciale-in-interdiscount-davos",
+        "sales-consultant-in-interdiscount-davos",
+        "consultant-en-ventes-interdiscount-davos"
+      ]
     },
     {
       "id": "interdiscount-33d9003c-541",
       "slug": "consulente-commerciale-in-interdiscount-wadenswil",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-wadenswil",
-        "en": "sales-consultant-in-interdiscount-wadenswil",
         "de": "verkaufsberater-in-interdiscount-wadenswil",
-        "fr": "consultant-en-ventes-interdiscount-wadenswil"
+        "it": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6",
+        "en": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6",
+        "fr": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10618,26 +10626,7 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-wadenswil-ulf6vn",
-        "verkaufsberater-in-interdiscount-wadenswil",
-        "consulente-commerciale-in-interdiscount-wadenswil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-interdiscount-wadenswil-ulf6vn",
-          "verkaufsberater-in-interdiscount-wadenswil",
-          "consulente-commerciale-in-interdiscount-wadenswil"
-        ],
-        "en": [
-          "verkaufsberater-in-interdiscount-wadenswil"
-        ],
-        "fr": [
-          "verkaufsberater-in-interdiscount-wadenswil"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:17:26.265Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10649,16 +10638,39 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-wadenswil-ulf6vn",
+          "verkaufsberater-in-interdiscount-wadenswil",
+          "consulente-commerciale-in-interdiscount-wadenswil"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-wadenswil",
+          "sales-consultant-in-interdiscount-wadenswil"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-wadenswil",
+          "consultant-en-ventes-interdiscount-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-wadenswil-ulf6vn",
+        "verkaufsberater-in-interdiscount-wadenswil",
+        "consulente-commerciale-in-interdiscount-wadenswil",
+        "sales-consultant-in-interdiscount-wadenswil",
+        "consultant-en-ventes-interdiscount-wadenswil"
+      ]
     },
     {
       "id": "interdiscount-0b0e3643-d78",
       "slug": "direttore-di-filiale-in-interdiscount-chur",
       "slugByLocale": {
-        "it": "direttore-di-filiale-in-interdiscount-chur",
-        "en": "branch-manager-in-interdiscount-chur",
         "de": "filialleiter-in-interdiscount-chur",
-        "fr": "directeur-de-branche-interdiscount-chur"
+        "it": "filialleiter-in-interdiscount-chur-graubunden-kd65dp",
+        "en": "filialleiter-in-interdiscount-chur-graubunden-kd65dp",
+        "fr": "filialleiter-in-interdiscount-chur-graubunden-kd65dp"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10714,24 +10726,7 @@
           "• Du hast sehr gute Team- und Kommunikationsfähigkeiten"
         ]
       },
-      "previousSlugs": [
-        "filialleiter-in-interdiscount-chur",
-        "direttore-di-filiale-in-interdiscount-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "filialleiter-in-interdiscount-chur",
-          "direttore-di-filiale-in-interdiscount-chur"
-        ],
-        "en": [
-          "filialleiter-in-interdiscount-chur"
-        ],
-        "fr": [
-          "filialleiter-in-interdiscount-chur"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:17:26.262Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -10743,16 +10738,37 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiter-in-interdiscount-chur",
+          "direttore-di-filiale-in-interdiscount-chur"
+        ],
+        "en": [
+          "filialleiter-in-interdiscount-chur",
+          "branch-manager-in-interdiscount-chur"
+        ],
+        "fr": [
+          "filialleiter-in-interdiscount-chur",
+          "directeur-de-branche-interdiscount-chur"
+        ]
+      },
+      "previousSlugs": [
+        "filialleiter-in-interdiscount-chur",
+        "direttore-di-filiale-in-interdiscount-chur",
+        "branch-manager-in-interdiscount-chur",
+        "directeur-de-branche-interdiscount-chur"
+      ]
     },
     {
       "id": "interdiscount-9c0081ba-31d",
       "slug": "personale-in-registro-80-100-interdiscount-jegenstorf",
       "slugByLocale": {
-        "it": "personale-in-registro-80-100-interdiscount-jegenstorf",
-        "en": "personnel-in-ledger-80-100-interdiscount-jegenstorf",
         "de": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
-        "fr": "personnel-dans-le-grand-livre-80-100-interdiscount-jegenstorf"
+        "it": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw",
+        "en": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw",
+        "fr": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10809,24 +10825,7 @@
           "• Belastbare, flexible, selbständige und teamfähige Persönlichkeit"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
-        "personale-in-registro-80-100-interdiscount-jegenstorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
-          "personale-in-registro-80-100-interdiscount-jegenstorf"
-        ],
-        "en": [
-          "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf"
-        ],
-        "fr": [
-          "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:17:26.262Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10838,7 +10837,28 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
+          "personale-in-registro-80-100-interdiscount-jegenstorf"
+        ],
+        "en": [
+          "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
+          "personnel-in-ledger-80-100-interdiscount-jegenstorf"
+        ],
+        "fr": [
+          "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
+          "personnel-dans-le-grand-livre-80-100-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
+        "personale-in-registro-80-100-interdiscount-jegenstorf",
+        "personnel-in-ledger-80-100-interdiscount-jegenstorf",
+        "personnel-dans-le-grand-livre-80-100-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "interdiscount-6b1179cc-873",
@@ -10925,10 +10945,10 @@
       "id": "interdiscount-e32e4391-8ec",
       "slug": "consulente-commerciale-in-interdiscount-lachen",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-lachen",
-        "en": "sales-consultant-in-interdiscount-lachen",
         "de": "verkaufsberater-in-interdiscount-lachen",
-        "fr": "consultant-en-ventes-interdiscount-lachen"
+        "it": "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
+        "en": "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
+        "fr": "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -10985,24 +11005,7 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-lachen",
-        "consulente-commerciale-in-interdiscount-lachen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-interdiscount-lachen",
-          "consulente-commerciale-in-interdiscount-lachen"
-        ],
-        "en": [
-          "verkaufsberater-in-interdiscount-lachen"
-        ],
-        "fr": [
-          "verkaufsberater-in-interdiscount-lachen"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:17:26.261Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -11014,16 +11017,37 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-lachen",
+          "consulente-commerciale-in-interdiscount-lachen"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-lachen",
+          "sales-consultant-in-interdiscount-lachen"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-lachen",
+          "consultant-en-ventes-interdiscount-lachen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-lachen",
+        "consulente-commerciale-in-interdiscount-lachen",
+        "sales-consultant-in-interdiscount-lachen",
+        "consultant-en-ventes-interdiscount-lachen"
+      ]
     },
     {
       "id": "interdiscount-1c7f758f-bac",
       "slug": "collaboratore-trice-prozessleitstand-interdiscount-jegenstorf",
       "slugByLocale": {
-        "it": "collaboratore-trice-prozessleitstand-interdiscount-jegenstorf",
-        "en": "associate-prozessleitstand-interdiscount-jegenstorf",
         "de": "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf",
-        "fr": "collaborateur-trice-prozessleitstand-interdiscount-jegenstorf"
+        "it": "collaboratore-trice-prozessleitstand-interdiscount-jegenstorf",
+        "en": "associate-prozessleitstand-interdiscount-jegenstorf-bern-la1253",
+        "fr": "collaborateur-trice-prozessleitstand-interdiscount-jegenstorf-bern-la1253"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -11082,24 +11106,26 @@
           "• Sehr gute Deutschkenntnisse in Word und Schrift runden dein Profil ab."
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf",
-        "collaboratore-trice-prozessleitstand-interdiscount-jegenstorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf",
           "collaboratore-trice-prozessleitstand-interdiscount-jegenstorf"
         ],
         "en": [
-          "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf"
+          "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf",
+          "associate-prozessleitstand-interdiscount-jegenstorf"
         ],
         "fr": [
-          "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf"
+          "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf",
+          "collaborateur-trice-prozessleitstand-interdiscount-jegenstorf"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:17:26.258Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-prozessleitstand-interdiscount-jegenstorf",
+        "collaboratore-trice-prozessleitstand-interdiscount-jegenstorf",
+        "associate-prozessleitstand-interdiscount-jegenstorf",
+        "collaborateur-trice-prozessleitstand-interdiscount-jegenstorf"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11111,7 +11137,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-13T10:17:26.258Z",
+      "needsRetranslation": true
     },
     {
       "id": "interdiscount-06af02a4-067",
