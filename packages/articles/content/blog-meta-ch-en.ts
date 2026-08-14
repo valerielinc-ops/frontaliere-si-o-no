@@ -2632,6 +2632,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abort-topical-relevance-trump-health.title': 'News not relevant',
     'blog.article.abort-topical-relevance-trump-health.excerpt': 'The source treated does not have a real link with the life of those who live or work in Switzerland.',
     'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Economic news newsroom in Switzerland',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Cantonal taxes canton Lucerne: rates and deductions',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Guide to cantonal and municipal taxes in the Canton of Lucerne with rates, brackets, deductions and official portal of the tax administration.',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Canton Lucerne cantonal taxes and deductions',
 };
 
 export default blogMetaChEn;

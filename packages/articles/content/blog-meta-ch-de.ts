@@ -2632,6 +2632,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abort-topical-relevance-trump-health.title': 'Nicht zutreffende Nachrichten',
     'blog.article.abort-topical-relevance-trump-health.excerpt': 'Die verarbeitete Quelle hat keinen wirklichen Zusammenhang mit dem Leben derer, die in der Schweiz leben oder arbeiten.',
     'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Wirtschaftsredaktion in der Schweiz',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Kantonale Steuern Kanton Luzern: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Leitfaden zu den Kantons- und Gemeindesteuern im Kanton Luzern mit Steuersätzen, Staffelungen, Abzügen und dem offiziellen Portal der Steuerverwaltung.',
+    'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Kantonssteuern im Kanton Luzern Abzüge und Sätze',
 };
 
 export default blogMetaChDe;
