@@ -1105,7 +1105,7 @@ describe('what the displayed formulas may and may not say', () => {
       expect(MATCHER_OPT_OUT_FIELD, 'the two spellings of the field must agree').toBe(
         ADVERTISING_OPT_OUT_FIELD,
       );
-      expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the version floor must agree').toBe(
+      expect(MATCHER_ADVERTISING_FROM, 'the two spellings of the naming date must agree').toBe(
         ADVERTISING_NAMED_FROM_PAGE_VERSION,
       );
     });
