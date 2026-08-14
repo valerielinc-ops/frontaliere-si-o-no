@@ -9923,6 +9923,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Al via i lavori preparatori per il piazzale ex Scuole a Lugano',
     'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'A partire da lunedì 17 agosto si inizierà a predisporre i cinque punti di interscambio temporanei che sostituiranno la pensilina Botta.',
     'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Lavori preparatori per il piazzale ex Scuole a Lugano.',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'Come registrarsi alla cassa di disoccupazione OCST',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'Nessun appuntamento necessario. Puoi annunciarti online da casa in pochi minuti.',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Immagine editoriale relativa a: Come registrarsi alla cassa di disoccupazione OCST',
 };
 
 export default blogMetaIt;

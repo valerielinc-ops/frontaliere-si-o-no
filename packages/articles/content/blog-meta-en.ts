@@ -9922,6 +9922,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-preparatori-piazzale-ex-scuole.title': 'Preparatory work for the former Schools square in Lugano is underway',
     'blog.article.lavori-preparatori-piazzale-ex-scuole.excerpt': 'Starting on Monday, August 17, the five temporary interchange points that will replace the Botta canopy will begin to be prepared.',
     'blog.article.lavori-preparatori-piazzale-ex-scuole.imageAlt': 'Preparatory works for the ex Schools square in Lugano.',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.title': 'How to register with the OCST unemployment fund',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.excerpt': 'No appointments needed. You can advertise online from home in minutes.',
+    'blog.article.registrarsi-alla-cassa-di-disoccupazione-ocst.imageAlt': 'Editorial image related to: Come registrarsi alla cassa di disoccupazione OCST',
 };
 
 export default blogMetaEn;
