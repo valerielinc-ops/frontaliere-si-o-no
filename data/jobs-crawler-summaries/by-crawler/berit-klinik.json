@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-08-14T10:21:02.501Z",
+  "generatedAt": "2026-08-14T21:43:57.425Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4677,
-  "avgDurationMs": 4677,
+  "durationMs": 5037,
+  "avgDurationMs": 5037,
   "durationHistory": [
-    4677
+    5037
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -302,11 +302,11 @@
       },
       "id": "berit-klinik-588055e55389",
       "firstSeenAt": "2026-08-13T22:03:05.455Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
