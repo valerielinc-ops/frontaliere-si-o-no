@@ -10653,7 +10653,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 88
+          "impressions": 92
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10731,7 +10731,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 119,
+      "totalImpressions": 123,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -29173,10 +29173,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-winterthur-892722"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-winterthur-892722",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-winterthur-892722",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-winterthur-892722",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-winterthur-892722"
+        "it": "/cerca-lavoro-zurigo/food-sales-assistant-coop-genossenschaft-winterthur-892722",
+        "en": "/en/find-jobs-zurich/food-sales-assistant-coop-genossenschaft-winterthur-892722",
+        "de": "/de/jobs-in-zurich/food-sales-assistant-coop-genossenschaft-winterthur-892722",
+        "fr": "/fr/trouver-emploi-zurich/food-sales-assistant-coop-genossenschaft-winterthur-892722"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41668,7 +41668,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 27
+          "impressions": 29
         },
         {
           "query": "job mendrisio",
@@ -41716,7 +41716,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 43,
+      "totalImpressions": 45,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -51897,6 +51897,94 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich/"
+      },
+      "queries": [
+        {
+          "query": "lavoro zurigo",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "agence immobilière",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "case in vendita a zurigo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "gewerbe kaufen",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "gewerbeimmobilien",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavori a zurigo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro zurigo",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "topQuery": "lavoro zurigo",
+      "title": "Regional manager commercial real estate region east zurigo opfikon implenia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+        "en": "regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+        "de": "regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+        "fr": "regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+        "en": "/en/find-jobs-zurich/regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+        "de": "/de/jobs-im-zurich/regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich",
+        "fr": "/fr/trouver-emploi-zurich/regional-manager-commercial-real-estate-region-east-m-f-d-zurigo-opfikon-80-100-implenia-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
