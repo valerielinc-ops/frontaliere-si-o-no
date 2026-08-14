@@ -2626,6 +2626,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Spitalrechnungen in der Schweiz: Was das Gesetz vorsieht',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'In der Schweiz erhält jeder Patient per Gesetz eine Kopie der in seinem Namen ausgestellten Rechnungen, für Laien bleibt das Verständnis jedoch schwierig.',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Dokumente und Rechnungen in einem Schweizer Büro',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'Neue Benachrichtigungen über die Einstellung der Anfragen (Luftfahrt) der SISI',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'Die Meldungen über die Einstellung der Untersuchungen (Luftfahrt) der SISI wurden auf der Website der Schweizerischen Sicherheitsuntersuchungsstelle veröffentlicht.',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Veröffentlichung einer neuen Benachrichtigung über die Einstellung der Ermittlungen (Luftfahrt) des SISI',
 };
 
 export default blogMetaChDe;

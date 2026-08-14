@@ -2626,6 +2626,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Hospital bills in Switzerland: what the law requires',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'By law in Switzerland every patient receives a copy of the invoices issued in their name, but understanding remains complex for non-attendants.',
     'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Documents and invoices in a Swiss office',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'New notifications of termination of investigations (aviation) of SISI',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'SISI\'s termination notices (aviation) were published on the website of the Swiss Security Investigation Service.',
+    'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Publication of a new notice of cessation of investigations (aviation) of the SISI',
 };
 
 export default blogMetaChEn;
