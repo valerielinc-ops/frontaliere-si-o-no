@@ -55,32 +55,25 @@
  */
 
 import np from 'node:path';
-import { buildSimplePage, esc, type SimplePageOpts } from '../htmlTemplate';
+import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
-import { buildTitleWithBrand, TITLE_BRAND_SUFFIX } from './titleSuffix';
+import { normalizeShellTitle } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
 
-/**
- * Strip any pre-existing " | Frontaliere Ticino" suffix from a callsite-
- * provided title so it can be re-applied uniformly via buildTitleWithBrand
- * (which guarantees the 70-char SERP cap and word-aware headline truncation).
- *
- * Many feature plugins ship copy bundles with the brand baked into the
- * title string. Without this strip+re-apply, those titles bypass the cap
- * and trip audit:title-length on long headlines.
- */
-const BRAND_SUFFIX_RX = /\s*\|\s*Frontaliere Ticino\s*$/i;
-function normalizeShellTitle(rawTitle: string): string {
-  const stripped = String(rawTitle || '').replace(BRAND_SUFFIX_RX, '').trim();
-  // htmlTemplate.ts renders this title through `esc(title)` exactly once
-  // (single-escape shell) — budget on the ESCAPED length so a raw `&`/`<`/
-  // `>`/`"` in a callsite-provided headline (company/city name interpolated
-  // upstream, e.g. generateComboPage in jobsSeoPagesPlugin.ts) can't expand
-  // past TITLE_MAX_CHARS after this decision is already made. The string
-  // itself stays unescaped here — htmlTemplate.ts does the actual escape.
-  return buildTitleWithBrand(stripped, TITLE_BRAND_SUFFIX, undefined, (s) => esc(s).length);
-}
+// `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
+// che l'invariante di round-trip col confronto h1/title di
+// `differentiateH1FromTitle` sia testabile senza trascinarsi dietro la
+// superficie di asset SSG di questo modulo (htmlTemplate → constants legge
+// `public/assets/**` a module scope). Vedi il suo docblock e
+// `tests/seo/h1-title-brand-roundtrip.test.ts` — #5831 item 4.
+//
+// Il default di `measureLength` la' dentro e' un escape inline byte-identico
+// all' `esc` di htmlTemplate usato prima qui (stesse quattro sostituzioni,
+// stesso ordine): il budget resta misurato sulla stringa ESCAPED. E' inline e
+// non importato perche' titleSuffix.ts e' `mode: identical` e va copiato a
+// mano sul corpus, dove `shared/htmlEscape.ts` non esiste — vedi il suo
+// docblock. L'equivalenza fra le due copie e' pinnata dal test.
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
