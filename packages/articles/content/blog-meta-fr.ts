@@ -9933,6 +9933,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.no-rimborso-ticino-2020.title': 'Ticino 2020 : responsabilité partagée',
     'blog.article.no-rimborso-ticino-2020.excerpt': 'Le gouvernement répond pique à ceux qui demandaient une indemnisation pour l\'argent dépensé en faveur du projet qui s\'est ensuite effondré.',
     'blog.article.no-rimborso-ticino-2020.imageAlt': 'Pas de remboursement pour les frontaliers du Tessin',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Crise d\'entreprise, au Mimit 37 tables actives : Beko Europe sous observation',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'Les tables de crise d\'entreprise au ministère des Entreprises et du Made in Italy tombent à 37, tandis que les tables de surveillance montent à 46.',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Réunion au ministère des Entreprises et du Made in Italy sur les crises d\'entreprise',
 };
 
 export default blogMetaFr;

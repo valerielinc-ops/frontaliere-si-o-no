@@ -9930,6 +9930,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.no-rimborso-ticino-2020.title': 'Tessin 2020: Keine Rückerstattung an die Gemeinden. ‘Haftung auf beiden Seiten’',
     'blog.article.no-rimborso-ticino-2020.excerpt': 'Die Regierung antwortet denjenigen, die eine Entschädigung für das Geld verlangten, das für das später gescheiterte Projekt ausgegeben wurde.',
     'blog.article.no-rimborso-ticino-2020.imageAlt': 'Keine Entschädigung für Pendler in der Schweiz',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Unternehmenskrisen im Mimit 37 aktive Tische: BEKO Europe unter Beobachtung',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'Die Zahl der Unternehmenskrisentische im Ministerium für Unternehmen und Made in Italy sinkt auf 37, während die Zahl der Überwachungstische auf 46 ansteigt.',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Sitzung im Ministerium für Unternehmen und Made in Italy zu Unternehmenskrise',
 };
 
 export default blogMetaDe;

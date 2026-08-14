@@ -67697,6 +67697,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crisi-aziendali-mimit-tavoli-monitoraggio-2026': {
+    title: 'Crisi aziendali, al Mimit 37 tavoli attivi: Beko Europe sotto osservazione',
+    description: 'Crisi aziendali al Mimit: i tavoli attivi scendono a 37 e i lavoratori a rischio calano sotto i 30 mila. Monitoraggio rafforzato per Beko Europe.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, aziendali, mimit, tavoli',
+    ogTitle: 'Crisi aziendali al Mimit: 37 tavoli attivi e Beko Europe',
+    ogDescription: 'Il quadro del ministero delle Imprese e del Made in Italy sulle crisi aziendali: 37 tavoli attivi, lavoratori a rischio sotto i 30 mila e 46 tavoli di monitoraggio.',
+    canonicalPath: '/articoli-frontaliere/crisi-aziendali-mimit-tavoli-monitoraggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi aziendali, al Mimit 37 tavoli attivi: Beko Europe sotto osservazione",
+      "description": "Crisi aziendali al Mimit: i tavoli attivi scendono a 37 e i lavoratori a rischio calano sotto i 30 mila. Monitoraggio rafforzato per Beko Europe.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crisi-aziendali-mimit-tavoli-monitoraggio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione al ministero delle Imprese e del Made in Italy sulle crisi aziendali"
+      },
+      "datePublished": "2026-08-14T01:41:49+00:00",
+      "dateModified": "2026-08-14T01:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-aziendali-mimit-tavoli-monitoraggio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
