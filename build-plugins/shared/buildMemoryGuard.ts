@@ -398,6 +398,13 @@ export function buildMemoryGuardPlugin(): Plugin {
   return {
     name: 'build-memory-guard',
     enforce: 'pre',
+    // Solo `vite build`. In serve mode `buildStart` viene invocato lo stesso
+    // (una volta, all'avvio del dev server) ma `closeBundle` non arriva mai:
+    // il campionatore resterebbe armato per tutta la sessione di sviluppo, e
+    // su una macchina gia' carica potrebbe far morire il DEV SERVER con un
+    // errore pensato per la CI. Il picco che questo modulo presidia esiste
+    // solo nella build.
+    apply: 'build',
     buildStart() {
       if (timer) return;
       if (thresholds.ignoredOverrides.length > 0) {
