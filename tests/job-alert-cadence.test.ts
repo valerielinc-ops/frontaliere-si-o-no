@@ -123,24 +123,43 @@ describe('the scale and the ceiling', () => {
     expect(normalizeCadenceTier(undefined)).toBe(null);
   });
 
-  it('collapses every engine tier to the 7-day ceiling — the owner decision, not a bug', () => {
-    expect(JOB_ALERT_CADENCE_CEILING_DAYS).toBe(7);
+  // The ceiling was 7 for one day (owner, 2026-08-13) and is OFF since
+  // 2026-08-14: the owner disagreed once it was spelled out that a ceiling of 7
+  // collapses the whole table, i.e. nobody gets the cadence the table describes.
+  // Both directions stay covered here, because the lever is one value and the
+  // day it goes back up this file must already know what to expect.
+  it('runs the owner table by default, because the ceiling is off', () => {
+    expect(JOB_ALERT_CADENCE_CEILING_DAYS).toBe(null);
+    expect(resolveJobAlertCadence(backfilledAlert(), sub(clickedAJob(1)), NOW).intervalDays).toBe(1);
+    expect(resolveJobAlertCadence(backfilledAlert(), sub({ last_open_at: daysAgo(2) }), NOW).intervalDays).toBe(3);
+    expect(resolveJobAlertCadence(backfilledAlert(), sub(), NOW).intervalDays).toBe(7);
+  });
+
+  it('collapses every engine tier onto the ceiling when one is set', () => {
     for (const profile of [clickedAJob(1), { last_open_at: daysAgo(2) }, {}]) {
-      const decision = resolveJobAlertCadence(backfilledAlert(), sub(profile), NOW);
+      const decision = resolveJobAlertCadence(backfilledAlert(), sub(profile), NOW, { ceilingDays: 7 });
       expect(decision.intervalDays).toBe(7);
+      // `ceilingApplied` dice se il soffitto ha MORSO, non se era impostato:
+      // per chi sta gia' sulla fascia da 7 giorni il tetto non cambia nulla e
+      // resta false. E' la distinzione che rende il flag utile a contare
+      // quanti destinatari il soffitto sta effettivamente rallentando.
+      expect(decision.ceilingApplied).toBe(decision.tierDays < 7);
     }
   });
 
-  it('keeps the engine tier underneath uncapped, so raising the ceiling needs no migration', () => {
+  it('keeps the engine tier underneath the ceiling, so moving the lever needs no migration', () => {
+    // Ceiling off: tier and effective interval coincide, nothing is applied.
     const clicker = resolveJobAlertCadence(backfilledAlert(), sub(clickedAJob(1)), NOW);
     expect(clicker.tierDays).toBe(1);
-    expect(clicker.intervalDays).toBe(7);
-    expect(clicker.ceilingApplied).toBe(true);
-    // Lift the lever and the table differentiates again — which is the whole
-    // reason the tiers are still computed while the ceiling swallows them.
-    expect(resolveJobAlertCadence(backfilledAlert(), sub(clickedAJob(1)), NOW, { ceilingDays: null }).intervalDays).toBe(1);
-    expect(resolveJobAlertCadence(backfilledAlert(), sub({ last_open_at: daysAgo(2) }), NOW, { ceilingDays: null }).intervalDays).toBe(3);
-    expect(resolveJobAlertCadence(backfilledAlert(), sub(), NOW, { ceilingDays: null }).intervalDays).toBe(7);
+    expect(clicker.intervalDays).toBe(1);
+    expect(clicker.ceilingApplied).toBe(false);
+    // Drop the lever back and the same stored state collapses again, with the
+    // tier untouched underneath — which is why raising or lowering it is a
+    // value and never a data migration.
+    const capped = resolveJobAlertCadence(backfilledAlert(), sub(clickedAJob(1)), NOW, { ceilingDays: 7 });
+    expect(capped.tierDays).toBe(1);
+    expect(capped.intervalDays).toBe(7);
+    expect(capped.ceilingApplied).toBe(true);
   });
 
   it('never speeds anybody up: the effective interval is max(tier, ceiling)', () => {
@@ -154,10 +173,16 @@ describe('the scale and the ceiling', () => {
   });
 
   // SHAPE 7 — the ceiling is a channel rule, not a backfill rule.
-  it('holds a backfilled alert and one a person created to the SAME ceiling', () => {
+  it('treats a backfilled alert and one a person created identically, ceiling or no ceiling', () => {
     const profile = sub(clickedAJob(1));
-    expect(resolveJobAlertCadence(backfilledAlert(), profile, NOW).intervalDays).toBe(7);
-    expect(resolveJobAlertCadence(personAlert(), profile, NOW).intervalDays).toBe(7);
+    // Ceiling off: both run on the tier.
+    expect(resolveJobAlertCadence(backfilledAlert(), profile, NOW).intervalDays).toBe(1);
+    expect(resolveJobAlertCadence(personAlert(), profile, NOW).intervalDays).toBe(1);
+    // Ceiling on: both collapse onto it. The rule is a channel rule, not a
+    // backfill rule — that is what this shape exists to pin, and it holds
+    // whichever way the lever points.
+    expect(resolveJobAlertCadence(backfilledAlert(), profile, NOW, { ceilingDays: 7 }).intervalDays).toBe(7);
+    expect(resolveJobAlertCadence(personAlert(), profile, NOW, { ceilingDays: 7 }).intervalDays).toBe(7);
     expect(isBackfilledAlert(backfilledAlert())).toBe(true);
     expect(isBackfilledAlert(personAlert())).toBe(false);
   });
