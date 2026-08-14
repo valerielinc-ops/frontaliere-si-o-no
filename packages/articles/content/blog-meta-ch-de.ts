@@ -2650,6 +2650,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-lucerna.title': 'Erlaubt IN Luzern: Dauer, Verlängerung und Einschränkungen',
     'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Vollständiger Leitfaden zur Kurzzeitbewilligung L im Kanton Luzern: Gültigkeit, Verlängerungsbedingungen und regulatorische Schritte.',
     'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Kurzaufenthaltsbewilligung L im Kanton Luzern',
+    'blog.article.assegni-familiari-canton-lucerna.title': 'Familienzulagen im Kanton Luzern: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Wer im Kanton Luzern Familienzulagen beantragen kann und wie es weitergeht.',
+    'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari im Kanton Luzern: Beträge und Antragstellung',
 };
 
 export default blogMetaChDe;

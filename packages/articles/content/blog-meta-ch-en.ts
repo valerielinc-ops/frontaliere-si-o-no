@@ -2650,6 +2650,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-lucerna.title': 'L Lucerne permit: duration, extension and restrictions',
     'blog.article.permesso-l-breve-durata-lucerna.excerpt': 'Complete Guide to Short-Term L Permit in the Canton of Lucerne: Validity, Conditions of Extension and Regulatory Steps.',
     'blog.article.permesso-l-breve-durata-lucerna.imageAlt': 'Short-term L permit in Canton Lucerne',
+    'blog.article.assegni-familiari-canton-lucerna.title': 'Family allowances in the Canton of Lucerne: amounts and application',
+    'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Who can claim family allowances in the Canton of Lucerne and how to proceed.',
+    'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari in the Canton of Lucerne: import and application',
 };
 
 export default blogMetaChEn;
