@@ -9951,6 +9951,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Gazzada récompensé pour ses emballages innovants',
     'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum parmi les 60 premières mini-entreprises d\'Italie à la finale nationale de Rome les 4-5 juin 2026. Reconnaissance européenne \'The Entrepreneurial School\' reçue à Riga pour collaboration avec des universités et des entreprises.',
     'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Étudiants de l\'institut Keynes de Gazzada présentant des emballages à base de mycélium lors d\'un projet scolaire',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello : le sentier Rio dei Gioghi rouvrira après l\'été',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Travaux de récupération achevés sur le sentier Rio dei Gioghi à Ligurie, qui fait partie du Sentier Italie CAI et du plis Valle della Bevera, financés par Interreg Italie-Suisse SINTAB.',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Sentier Rio des Gioghi restauré à Ligurno avec palissades en bois et canal en pierre',
 };
 
 export default blogMetaFr;

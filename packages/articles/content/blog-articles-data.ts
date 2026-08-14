@@ -29829,6 +29829,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cantello-rio-dei-gioghi-sentiero-riapertura',
+ category: 'novita',
+ date: '2026-08-14T03:35:19.453Z',
+ image: '/images/blog/cantello-rio-dei-gioghi-sentiero-riapertura.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
