@@ -33986,6 +33986,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasparenza-fatture-ospedaliere-svizzera': {
+    title: 'Fatture ospedaliere in Svizzera: cosa prevede la legge',
+    description: 'Scopri cosa prevede la legge svizzera sulla ricezione delle fatture ospedaliere e perché la loro decifrazione risulta spesso complessa per i pazienti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fatture, ospedaliere, cosa, prevede',
+    ogTitle: 'Fatture ospedaliere in Svizzera: cosa prevede la legge',
+    ogDescription: 'Approfondimento sulla trasparenza delle fatture ospedaliere in Svizzera e sul diritto dei pazienti di ricevere una copia dei documenti emessi a proprio nome.',
+    canonicalPath: '/articoli-svizzera/trasparenza-fatture-ospedaliere-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fatture ospedaliere in Svizzera: cosa prevede la legge",
+      "description": "Scopri cosa prevede la legge svizzera sulla ricezione delle fatture ospedaliere e perché la loro decifrazione risulta spesso complessa per i pazienti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasparenza-fatture-ospedaliere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e fatture in un ufficio svizzero"
+      },
+      "datePublished": "2026-08-14T01:20:16+00:00",
+      "dateModified": "2026-08-14T01:20:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasparenza-fatture-ospedaliere-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

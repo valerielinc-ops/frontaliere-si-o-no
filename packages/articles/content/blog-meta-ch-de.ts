@@ -2623,6 +2623,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Erbschaftssteuern im Kanton Bern',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Kennen Sie die Sätze nach Verwandtschaftsgrad und die Befreiungen für Ehepartner und Nachkommen',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Familie diskutiert Erbschafts- und Schenkungssteuer in Bern',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Spitalrechnungen in der Schweiz: Was das Gesetz vorsieht',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'In der Schweiz erhält jeder Patient per Gesetz eine Kopie der in seinem Namen ausgestellten Rechnungen, für Laien bleibt das Verständnis jedoch schwierig.',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Dokumente und Rechnungen in einem Schweizer Büro',
 };
 
 export default blogMetaChDe;

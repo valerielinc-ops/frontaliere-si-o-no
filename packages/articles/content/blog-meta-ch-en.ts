@@ -2623,6 +2623,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Inheritance taxes in the Canton of Bern',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Know the kinship rates and exemptions for spouses and descendants',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Family discussing inheritance and donation tax in Bern',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Hospital bills in Switzerland: what the law requires',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'By law in Switzerland every patient receives a copy of the invoices issued in their name, but understanding remains complex for non-attendants.',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Documents and invoices in a Swiss office',
 };
 
 export default blogMetaChEn;

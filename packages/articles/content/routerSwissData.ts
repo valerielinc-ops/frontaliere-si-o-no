@@ -900,6 +900,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'intelligenza-animali-domestici-ricerca': { it: 'intelligenza-animali-domestici-ricerca', en: 'intelligence-dogs-cats-research', de: 'intelligenz-hunde-katzen-forschung', fr: 'intelligence-chiens-chats-recherche' },
  'imposta-successione-donazione-berna': { it: 'imposta-successione-donazione-berna', en: 'inheritance-gift-tax-bern-rates', de: 'erbschafts-schenkungssteuer-bern-steuersatz', fr: 'impot-succession-donation-berne-taux' },
  'imposta-di-succesione-e-donazione-canton-berna-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-berna-aliquote', en: 'inheritance-and-donation-tax-canton-berne-rates', de: 'erbschafts-und-schenkungssteuer-kanton-bern-zahlungen', fr: 'taxe-sur-la-succesions-et-la-donation-canton-de-berne' },
+ 'trasparenza-fatture-ospedaliere-svizzera': { it: 'trasparenza-fatture-ospedaliere-svizzera', en: 'hospital-invoice-transparency-switzerland', de: 'transparenz-hospitalrechnungen-schweiz', fr: 'transparence-factures-hospitalieres-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

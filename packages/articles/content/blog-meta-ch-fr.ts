@@ -2623,6 +2623,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.title': 'Impôts sur les successions dans le canton de Berne',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.excerpt': 'Connaître les taux par degré de parenté et les exemptions pour conjoint et descendants',
     'blog.article.imposta-di-succesione-e-donazione-canton-berna-aliquote.imageAlt': 'Famille discutant la taxe sur la succession et la donation à Berne',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.title': 'Factures hospitalières en Suisse : ce que prévoit la loi',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.excerpt': 'En droit suisse, chaque patient reçoit une copie des factures émises en son nom, mais la compréhension reste complexe pour les non-professionnels.',
+    'blog.article.trasparenza-fatture-ospedaliere-svizzera.imageAlt': 'Documents et factures dans un bureau suisse',
 };
 
 export default blogMetaChFr;
