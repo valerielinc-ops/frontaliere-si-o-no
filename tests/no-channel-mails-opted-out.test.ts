@@ -103,11 +103,14 @@ const THEIR_ALERT = { id: 'backfill-newsletter', active: true, keywords: [], loc
  * A subscriber who never opted out, used as the control in every drive below.
  *
  * `consent_text` is here for the paid-ad matcher and for no other reader in
- * this file. Since #5759 that matcher also asks whether the stored disclosure
- * named third-party advertising, so a control document without one would be
- * dropped for a reason that has nothing to do with the opt-out — and the blast
- * assertion below would pass while asserting nothing at all about opting out.
- * The version is the one that first named advertising.
+ * this file. #5759 had that matcher drop anyone whose stored disclosure did not
+ * name third-party advertising, so a control without one would have been
+ * dropped for a reason unconnected to the opt-out and the blast assertion below
+ * would have passed while asserting nothing about opting out. The owner removed
+ * that filter on 2026-08-14 (`consentCoversAdvertising`), so the field is no
+ * longer load-bearing here — it stays because a control that is admitted under
+ * BOTH rules keeps this file's subject unchanged either way, which is what a
+ * control is for.
  */
 const STILL_SUBSCRIBED = {
   email: STILL_IN,

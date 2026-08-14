@@ -95,8 +95,15 @@ async function main() {
     const audience = isCanaryJob(ad)
       ? [{ email: OWNER_EMAIL, locale: ad.sourceLang || 'it', score: 999 }]
       : matchSubscribersForAd(ad, subscribers, { minScore: 5, max: PER_AD_CAP });
+    // The second number is what the owner's 2026-08-14 decision costs, counted
+    // rather than estimated: recipients whose own stored disclosure never named
+    // third-party advertising. It stopped excluding them that day (see
+    // `consentCoversAdvertising`), so this line is the only place the size of
+    // that cohort is ever written down.
+    const untold = audience.filter((r) => r.toldAboutAdvertising === false).length;
     console.log(
-      `[blast] ad "${ad.title}" (${ad.id})${isCanaryJob(ad) ? ' [CANARY → owner only]' : ''} → ${audience.length} matched subscriber(s)`,
+      `[blast] ad "${ad.title}" (${ad.id})${isCanaryJob(ad) ? ' [CANARY → owner only]' : ''} → ${audience.length} matched subscriber(s)` +
+        (untold ? `, ${untold} of them with a consent proof that predates the advertising disclosure` : ''),
     );
     if (!SEND) continue;
     if (audience.length === 0) {
