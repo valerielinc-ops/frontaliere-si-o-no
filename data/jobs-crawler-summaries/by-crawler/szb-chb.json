@@ -1,18 +1,92 @@
 {
   "key": "szb-chb",
   "label": "Spitalzentrum Biel / Centre hospitalier Bienne",
-  "generatedAt": "2026-08-14T10:22:39.450Z",
-  "total": 11,
-  "newCount": 1,
-  "updatedCount": 9,
+  "generatedAt": "2026-08-14T21:33:46.082Z",
+  "total": 13,
+  "newCount": 2,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11469,
-  "avgDurationMs": 11469,
+  "unchangedCount": 3,
+  "durationMs": 10927,
+  "avgDurationMs": 10927,
   "durationHistory": [
-    11469
+    10927
   ],
   "newJobs": [
+    {
+      "id": "szb-chb-99543441f47a",
+      "slug": "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
+      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "companyKey": "szb-chb",
+      "companyDomain": "szb-chb.ch",
+      "title": "Sachbearbeiter/in Human Resources 80-100%",
+      "needsRetranslation": true,
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://jobs.szb-chb.ch/Vacancies/4582/Description/1",
+      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T21:33:37.541Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4582/Application/CheckLogin/1",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "szb-chb-4f34e72721fb",
+      "slug": "teamleiterin-teamleiter-stroke-unit-80-100-szb-chb-biel-bienne",
+      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "companyKey": "szb-chb",
+      "companyDomain": "szb-chb.ch",
+      "title": "Teamleiterin / Teamleiter Stroke Unit (80-100%)",
+      "needsRetranslation": true,
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://jobs.szb-chb.ch/Vacancies/4559/Description/1",
+      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-14T21:33:38.246Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4559/Application/CheckLogin/1",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "szb-chb-e960e50e7ea8",
       "slug": "medizinische-r-praxisassistent-in-fage-100-gefasszentrum-szb-chb-biel-bienne",
@@ -26,7 +100,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4562/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:30.306Z",
+      "crawledAt": "2026-08-14T21:33:38.924Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -41,16 +115,15 @@
       "featured": false,
       "postedDate": "2026-08-14",
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4562/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-14T10:22:30.306Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "szb-chb-eb91a3bbc5b6",
       "slug": "ernahrungsberater-in-fur-adipositaszentrum-40-100-jobsharing-moglich-szb-chb-biel-bienne",
@@ -64,7 +137,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4576/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:31.044Z",
+      "crawledAt": "2026-08-14T21:33:39.601Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +174,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4580/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:31.798Z",
+      "crawledAt": "2026-08-14T21:33:40.077Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +211,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4561/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:32.542Z",
+      "crawledAt": "2026-08-14T21:33:40.800Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +248,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4556/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:33.286Z",
+      "crawledAt": "2026-08-14T21:33:41.520Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +285,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4056/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:34.029Z",
+      "crawledAt": "2026-08-14T21:33:42.298Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +322,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4532/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:34.763Z",
+      "crawledAt": "2026-08-14T21:33:43.013Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +359,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4531/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:22:35.582Z",
+      "crawledAt": "2026-08-14T21:33:43.733Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -309,10 +382,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "szb-chb-2cd3d8739581",
-      "slug": "mitarbeiterin-mitarbeiter-gastronomie-60-80-szb-chb-biel-bienne",
+      "slug": "mitarbeiterin-collaboratore-trice-gastronomie-60-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
       "companyDomain": "szb-chb.ch",
@@ -339,22 +415,24 @@
       "postedDate": "2026-08-04",
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4398/Application/CheckLogin/1",
       "firstSeenAt": "2026-08-04T22:18:35.405Z",
-      "_qualityScore": 85,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "szb-chb-a4a6a5cb5d20",
-      "slug": "arztsekretar-in-kinderklinik-80-szb-chb-biel-bienne",
+      "slug": "segreteria-medica-clinica-per-bambini-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
       "companyDomain": "szb-chb.ch",
       "title": "Arztsekretär/in Kinderklinik 80%",
-      "needsRetranslation": false,
       "location": "Biel/Bienne",
       "canton": "BE",
       "url": "https://jobs.szb-chb.ch/Vacancies/4552/Description/1",
@@ -376,17 +454,17 @@
       "postedDate": "2026-07-30",
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4552/Application/CheckLogin/1",
       "firstSeenAt": "2026-07-30T11:20:49.976Z",
-      "_qualityScore": 85,
+      "salaryMin": 54800,
+      "salaryMax": 83200,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "szb-chb-934b7cd58692",
       "slug": "jurist-in-vertrags-e-datenschutzrecht-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -418,7 +496,7 @@
       "firstSeenAt": "2026-07-29T11:42:55.134Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
