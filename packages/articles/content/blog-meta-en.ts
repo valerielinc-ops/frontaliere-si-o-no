@@ -8910,7 +8910,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'A view of Lugano with the Swiss currency.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Who are the frontier workers in Ticino? The answer is here.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'There are about 25,000 border workers working in Ticino, but who are they and what do they do?',
-    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'A restaurant in Lugano, Ticino, with waiters in service. Max 125 char',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'A restaurant in Lugano, Ticino, with waiters in service',
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP: mobility development between Lombardy and Graubünden',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'The TRIP project aims to develop mobility between Lombardy and Graubünden.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'A transfrontier train in motion through the Alps.',

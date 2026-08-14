@@ -8912,7 +8912,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-digitale-bns-dice-no.imageAlt': 'Une vue de Lugano avec la monnaie suisse.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.title': 'Qui sont les frontaliers au Tessin ? La réponse est ici.',
     'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.excerpt': 'Environ 25000 frontaliers travaillent au Tessin, mais qui sont-ils et que font-ils ?',
-    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un restaurant à Lugano, Ticino, avec des serveurs en service. Max 125 Char',
+    'blog.article.frontaliereticino-chi-sono-i-frontalieri-ticino.imageAlt': 'Un restaurant à Lugano, Ticino, avec des serveurs en service',
     'blog.article.trip-progetto-treni-retici-in-progress.title': 'TRIP : développement de la mobilité entre la Lombardie et les Grisons',
     'blog.article.trip-progetto-treni-retici-in-progress.excerpt': 'Le projet TRIP vise à développer la mobilité entre la Lombardie et les Grisons.',
     'blog.article.trip-progetto-treni-retici-in-progress.imageAlt': 'Un train transfrontalier en mouvement à travers les Alpes.',
