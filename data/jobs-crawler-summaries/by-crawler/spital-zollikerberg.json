@@ -1,32 +1,33 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-14T10:12:41.116Z",
-  "total": 8,
+  "generatedAt": "2026-08-14T21:28:30.778Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 49250,
-  "avgDurationMs": 49250,
+  "durationMs": 44247,
+  "avgDurationMs": 44247,
   "durationHistory": [
-    49250
+    44247
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "id": "spital-zollikerberg-33ee5985c09f",
-      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
+      "id": "spital-zollikerberg-58e3f3245760",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-zollikerberg-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Alterszentrum Hottingen Dipl. Pflegefachfrau / Dipl. Pflegefachmann – Spitex Alterszentrum Hottingen",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=86a46fb5-00a3-4095-9ba9-ed433456a799,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=04ad0c56-b519-4611-9463-95c7933900c2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-13T10:16:31.427Z",
+      "crawledAt": "2026-08-14T21:28:28.508Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,17 +41,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=86a46fb5-00a3-4095-9ba9-ed433456a799,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=04ad0c56-b519-4611-9463-95c7933900c2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
   ],
