@@ -33,6 +33,8 @@
  * load-bearing, quindi e' quella a essere asserita.
  */
 
+import { readFileSync } from 'node:fs';
+
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -104,7 +106,10 @@ describe('classifyExhaustionCause — le cause di skip finiscono nel secchio giu
   const PERSISTENTI = [
     'sn/gpt-oss-120b: skipped — exhausted (non-retryable provider error (HTTP 402))',
     'gemini-2.0-flash: skipped — exhausted (non-retryable provider error (HTTP 404))',
-    'hf/Qwen/Qwen2.5-72B-Instruct: skipped — exhausted (stale credentials (HTTP 401))',
+    // `stale` = il provider non offre piu' quell'id nel suo listing live, NON una
+    // credenziale scaduta: vedi il commento su _exhaustSkipCause. Resta persistente
+    // (un modello ritirato non torna alla prossima finestra di quota).
+    'hf/Qwen/Qwen2.5-72B-Instruct: skipped — exhausted (model no longer offered by provider)',
     'groq/compound: skipped — exhausted (repeated unusable content)',
   ];
   const TRANSITORIE = [
@@ -210,5 +215,51 @@ describe('roster — nessun modello ritirato, nessun buco', () => {
     const seen = new Set();
     const dup = DEFAULT_CHAIN.filter((m) => (seen.has(m) ? true : (seen.add(m), false)));
     assert.deepEqual(dup, [], `DEFAULT_CHAIN ha duplicati: ${JSON.stringify(dup)}`);
+  });
+});
+
+describe('nessun id Gemini ritirato hardcoded fuori dal roster', () => {
+  // Il matcher del 404 protegge solo chi passa da `callLLM`. `functions/` chiama
+  // l'endpoint Gemini direttamente con `fetch`, quindi un id ritirato li' costa
+  // un 404 garantito a OGNI richiesta e nessuna guardia lo vede — il chatbot
+  // sitewide ne pagava due, in cascata, prima del fallback.
+  //
+  // La lista e' verificata contro il listing live dell'API il 2026-08-14
+  // (`GET /v1beta/models`, 54 modelli offerti): nessuno dei quattro compare.
+  // Non si estende a occhio: si rimisura con quella chiamata.
+  const RITIRATI = [
+    'gemini-2.0-flash',
+    'gemini-2.0-flash-lite',
+    'gemini-3-pro-preview',
+    'gemini-1.5-flash-8b',
+  ];
+
+  // `ai-models.mjs` li tiene di proposito: li' il matcher del 404 li esaurisce
+  // al primo tentativo. Ovunque altro sono un 404 puro.
+  const ESENTI = ['scripts/lib/ai-models.mjs'];
+
+  const FILES = [
+    'functions/src/chatbotInference.js',
+    'functions/src/geminiGenerate.js',
+  ];
+
+  for (const rel of FILES) {
+    it(`${rel} non nomina un modello ritirato`, () => {
+      const src = readFileSync(new URL(`../${rel}`, import.meta.url), 'utf-8');
+      // Solo le righe di CODICE: i commenti che spiegano perche' un id e' stato
+      // sostituito devono poterlo nominare, altrimenti la storia si perde.
+      const codice = src.split('\n')
+        .filter((l) => !l.trim().startsWith('//') && !l.trim().startsWith('*'))
+        .join('\n');
+      for (const dead of RITIRATI) {
+        expect(codice, `${rel} usa ${dead}, ritirato dall'API Gemini`).not.toContain(`'${dead}'`);
+      }
+    });
+  }
+
+  it('la lista degli esenti resta minima', () => {
+    // Se qualcuno aggiunge un'esenzione, deve motivarla qui. Un elenco che
+    // cresce e' il segnale che la guardia sta diventando decorativa.
+    expect(ESENTI).toEqual(['scripts/lib/ai-models.mjs']);
   });
 });
