@@ -93,6 +93,33 @@ describe('baronie-job-parser / parseBaronieDetailHtml — @graph JSON-LD', () =>
     expect(isSwissJob(result)).toBe(true);
   });
 
+  it('finds the CH entry when jobLocation lists a non-Swiss office first', () => {
+    const multiLocationJsonLd = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'JobPosting',
+          title: 'Regional Sales Manager',
+          hiringOrganization: { '@type': 'Organization', name: 'Baronie Group' },
+          jobLocation: [
+            {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressCountry: 'BE', addressLocality: 'Bruges' },
+            },
+            {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressCountry: 'CH', addressLocality: 'Caslano' },
+            },
+          ],
+        },
+      ],
+    });
+    const result = parseBaronieDetailHtml(detailHtml({ jsonLd: multiLocationJsonLd }));
+    expect(result?.addressCountry).toBe('CH');
+    expect(result?.location).toBe('Caslano');
+    expect(isSwissJob(result)).toBe(true);
+  });
+
   it('still supports the legacy flat JobPosting shape (no @graph)', () => {
     const flatJsonLd = JSON.stringify({
       '@context': 'https://schema.org',
