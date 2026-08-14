@@ -214,6 +214,36 @@ jobs:
             --label bug \
             --reopen-within-hours 720
 
+      # L'articolo esiste gia'? (#5846, differita da #5817)
+      #
+      # Lo step qui sotto aveva come UNICA condizione `new_quarter != ''` e non
+      # verificava mai che l'articolo di annuncio esistesse. Poiche' chiama
+      # `github-issue-creator.mjs --reopen-within-hours 720`, un run creato DOPO
+      # la chiusura manuale RIAPRE la issue: e' successo il 2026-08-12 alle
+      # 20:02:04Z mentre l'articolo del trimestre era gia' live (20:21:13Z).
+      # Nessun guard sulla staleness l'avrebbe trattenuto — quel run era
+      # legittimamente piu' recente della chiusura. La condizione che mancava
+      # riguarda l'ARTICOLO, non il tempo.
+      #
+      # La prova e' esatta, non euristica: `create-article.mjs` registra ogni
+      # articolo nel ledger `data/article-source-urls.json` del corpus come
+      # `<source URL normalizzata> → <id>`, e per un articolo BFS la source URL
+      # e' la stessa chiave sintetica `stats-bfs://<trimestre>` che lo step di
+      # dispatch qui sopra manda. L'API pubblicata non espone `sourceUrl`,
+      # quindi il ledger nel repo del corpus e' l'unico posto che risponde.
+      #
+      # Fail open by construction: qualunque errore (token assente, rete, 404,
+      # JSON rotto) da' `exists=false` e lo step successivo parte lo stesso.
+      # Un segnale ridondante costa una issue che si dedupa da sola; un segnale
+      # soppresso perde l'annuncio di un trimestre in silenzio.
+      - name: Probe the corpus for an existing announcement article
+        id: article_probe
+        if: steps.refresh.outputs.new_quarter != ''
+        continue-on-error: true
+        env:
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+        run: node scripts/ci/bfs-announcement-article-exists.mjs
+
       # Segnale editoriale, complementare al dispatch qui sopra: il dispatch avvia la
       # generazione, questa issue traccia il trimestre e SOPRAVVIVE a un run fallito,
       # cosa che un dispatch fire-and-forget non fa. Era `gh workflow run
@@ -227,7 +257,7 @@ jobs:
       # entity — it belongs in the body, which the helper replays verbatim in
       # the `🔁 Recurrence` comment, so a reader still sees which quarter fired.
       - name: Raise editorial signal for the new quarter (new quarter only)
-        if: steps.refresh.outputs.new_quarter != ''
+        if: steps.refresh.outputs.new_quarter != '' && steps.article_probe.outputs.exists != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -259,6 +289,25 @@ jobs:
             echo "La generazione vive in \`nanakokyobashi-rgb/frontaliere-articles\` (#4974 item 3):"
             echo "questo workflow dispaccia **sul corpus**, mai il \`generate-article.yml\` locale (#5289)."
             echo "Esito del dispatch al corpus in questo run: \`${DISPATCH_OUTCOME}\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Una soppressione non deve mai essere invisibile: senza questo step, un
+      # trimestre senza segnale editoriale sarebbe indistinguibile — nel job
+      # summary — da un trimestre in cui il segnale e' stato alzato. Qui si legge
+      # PERCHE' non e' stato alzato e QUALE articolo lo ha reso superfluo.
+      - name: Note the suppressed editorial signal (article already exists)
+        if: steps.refresh.outputs.new_quarter != '' && steps.article_probe.outputs.exists == 'true'
+        continue-on-error: true
+        env:
+          NEW_QUARTER: ${{ steps.refresh.outputs.new_quarter }}
+          ARTICLE_ID: ${{ steps.article_probe.outputs.article_id }}
+        run: |
+          {
+            echo "## 🔇 Segnale editoriale NON alzato — l'articolo esiste gia'"
+            echo ""
+            echo "Trimestre: \`${NEW_QUARTER}\` — articolo trovato nel ledger del corpus: \`${ARTICLE_ID}\`."
+            echo "Chiave: \`stats-bfs://$(printf '%s' "${NEW_QUARTER}" | tr '[:upper:]' '[:lower:]')\` in \`data/article-source-urls.json\`."
+            echo "Vedi #5846: prima di questo guard lo step riapriva la issue anche ad articolo pubblicato."
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report failure to GitHub Issues
