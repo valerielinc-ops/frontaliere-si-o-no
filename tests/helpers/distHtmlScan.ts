@@ -88,6 +88,16 @@ export interface DistScanResult {
   readonly aborted: boolean;
   /** The budget that was applied, echoed for the failure message. */
   readonly budgetMs: number;
+  /**
+   * Dist-relative paths of `.html` files the walk found but could not
+   * `readFileSync` (permission error, race with a concurrent rehydrate,
+   * encoding issue). Non-empty means the scan silently skipped pages that
+   * were never handed to `onFile` — every pre-migration per-file loop this
+   * helper replaces let that read throw and failed the gate instead. Assert
+   * this is empty (see {@link assertScanCompleted}) rather than trusting
+   * `filesScanned` alone.
+   */
+  readonly filesUnreadable: readonly string[];
 }
 
 export interface DistScanOptions {
@@ -124,9 +134,10 @@ export function scanDistHtml(
 
   let filesScanned = 0;
   let aborted = false;
+  const filesUnreadable: string[] = [];
 
   if (!existsSync(distDir)) {
-    return { filesScanned: 0, elapsedMs: 0, aborted: false, budgetMs };
+    return { filesScanned: 0, elapsedMs: 0, aborted: false, budgetMs, filesUnreadable };
   }
 
   const stack: string[] = [distDir];
@@ -155,6 +166,7 @@ export function scanDistHtml(
       try {
         html = readFileSync(full, 'utf-8');
       } catch {
+        filesUnreadable.push(full.slice(distDir.length));
         continue;
       }
       onFile(full.slice(distDir.length), html);
@@ -170,7 +182,13 @@ export function scanDistHtml(
     }
   }
 
-  return { filesScanned, elapsedMs: Date.now() - started, aborted, budgetMs };
+  return {
+    filesScanned,
+    elapsedMs: Date.now() - started,
+    aborted,
+    budgetMs,
+    filesUnreadable,
+  };
 }
 
 /**
@@ -181,8 +199,9 @@ export function scanDistHtml(
  * could name "2065613ms across 3798763 HTML files" instead of leaving another
  * bisection to a human. The defect was that only one of the five gates had
  * it; the other four still failed opaquely. Call this first in every gate,
- * BEFORE asserting on offenders: a scan that aborted has not proved the
- * absence of anything, so its content assertions must not run.
+ * BEFORE asserting on offenders: a scan that aborted, or that silently
+ * skipped pages it could not read, has not proved the absence of anything,
+ * so its content assertions must not run.
  *
  * @param result   what {@link scanDistHtml} returned
  * @param gateName the gate's name, for the failure message
@@ -194,6 +213,20 @@ export function assertScanCompleted(
   gateName: string,
   partial?: readonly string[],
 ): void {
+  if (result.filesUnreadable.length > 0) {
+    const preview = result.filesUnreadable
+      .slice(0, 20)
+      .map((p) => `  - ${p}`)
+      .join('\n');
+    throw new Error(
+      `${gateName}: dist scan could not read ${result.filesUnreadable.length} HTML ` +
+        `file(s) it found (permission error, race with a concurrent rehydrate, or ` +
+        `encoding issue) and skipped them instead of asserting on their content:\n` +
+        `${preview}\n\n` +
+        `A page that fails to read is not proven clean — fix the read failure or the ` +
+        `dist emit that produced it, do not widen this check to tolerate it.`,
+    );
+  }
   if (!result.aborted) return;
 
   const rate = result.filesScanned > 0 ? result.elapsedMs / result.filesScanned : 0;
