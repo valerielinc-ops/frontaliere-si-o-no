@@ -2662,6 +2662,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-lucerna.title': 'Lehre und Berufsausbildung im Kanton Luzern',
     'blog.article.apprendistato-lucerna.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Luzern.',
     'blog.article.apprendistato-lucerna.imageAlt': 'Junge Menschen in Luzern lernen ein Handwerk in einer Berufsschule.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.title': 'Kantonsstipendien Luzern: Voraussetzungen und Beträge',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.excerpt': 'Informieren Sie sich über die Anforderungen und die Höhe der Stipendien des Kantons Luzern.',
+    'blog.article.borsedi-studio-lucerne-requisiti-e-importi.imageAlt': 'Bild von Luzern, mit einem Focus auf akademisches Leben und Studierende.',
 };
 
 export default blogMetaChDe;

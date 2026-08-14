@@ -7984,6 +7984,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borsedi-studio-lucerne-requisiti-e-importi',
+    category: 'fiscale',
+    date: '2026-08-14T03:21:47.909Z',
+    image: '/images/blog/borsedi-studio-lucerne-requisiti-e-importi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
