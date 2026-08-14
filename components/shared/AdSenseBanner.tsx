@@ -12,6 +12,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
+import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import {
  MULTIPLEX_DESKTOP_MIN_HEIGHT,
  MULTIPLEX_DESKTOP_MIN_WIDTH,
@@ -149,6 +150,12 @@ export default function AdSenseBanner({
  const [state, setState] = useState<AdState>('idle');
  const [scriptReady, setScriptReady] = useState(false);
  const [scriptFailed, setScriptFailed] = useState(false);
+ // Bumped when the visitor answers the ads-consent banner (#5842). It is a dep
+ // of the lazy-load effect below, so accepting re-arms the IntersectionObserver
+ // and this slot fills in the same page view instead of only after a reload —
+ // which is what protects the fill rate for visitors who accept.
+ const [adsConsentTick, setAdsConsentTick] = useState(0);
+ useEffect(() => onAdsConsentChange(() => setAdsConsentTick((t) => t + 1)), []);
  const placeholderMinHeight =
  minHeight ??
  resolvePlaceholderMinHeight(
@@ -210,6 +217,18 @@ export default function AdSenseBanner({
  // ── Load the AdSense script (singleton) ──────────────────
  const loadAdSenseScript = useCallback(() => {
  if (typeof document === 'undefined') return;
+ // ── ADVERTISING CONSENT GATE (#5842) ──────────────────────
+ // The single choke point for adsbygoogle.js in the SPA. Deliberately here and
+ // not only in the effect below: this function is reached from four
+ // independent paths (IntersectionObserver fill, already-present-script,
+ // requestIdleCallback fallback, first-interaction listener), and a guard in
+ // the effect would have to be repeated four times to be equivalent — one
+ // missed path is a silent bypass. Also kept separate from the
+ // `hasActiveReaderNoAdsEntitlement()` early return in that effect, which
+ // never sees the idle/interaction callbacks that fire later.
+ // Fails closed: any read failure means "no consent". See services/adsConsent.ts.
+ // Analytics / PostHog / Clarity are NOT gated here — owner decision in #5842.
+ if (!isAdsConsentGranted()) return;
  const existing = document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
  if (existing) {
  // adsbygoogle global means the script has already loaded (e.g. via
@@ -366,7 +385,7 @@ export default function AdSenseBanner({
  if (idleTimer !== undefined) clearTimeout(idleTimer);
  removeInteractionListeners();
  };
- }, [enabled, adSlot, loadAdSenseScript]);
+ }, [enabled, adSlot, loadAdSenseScript, adsConsentTick]);
 
  // ── Wait for measurable width, then push ─────────────────
  useEffect(() => {
