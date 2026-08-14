@@ -20,8 +20,13 @@
  * work without a build. CI builds dist first and sets the env var.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  SCAN_TEST_TIMEOUT_MS,
+  assertScanCompleted,
+  scanDistHtml,
+} from './helpers/distHtmlScan';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
 
@@ -42,43 +47,6 @@ const DIST_DIR = resolve(__dirname, '..', 'dist');
 const UNIQUE_TYPES: ReadonlySet<string> = new Set([
  'FAQPage',
 ]);
-
-/**
- * `readdirSync(dir)` + a `statSync` per entry issues two syscalls per dist
- * node (one to list the directory, one per child to learn its type). Across
- * the rehydrated dist/ tree (locale shards included — tests/seo/breadcrumb-
- * coverage.test.ts measured ~2M entries in that same walk before its own fix)
- * that doubling was most of this test's wall time, and is why it went red on
- * a 60s ceiling (#5729) rather than the FAQPage logic itself being slow.
- * `withFileTypes: true` reports the dirent kind for free from the single
- * `readdir` syscall, so the type check below costs nothing extra — same fix
- * already applied in tests/seo/breadcrumb-coverage.test.ts's `walkHtml`.
- * Iterative (stack) rather than recursive for the same reason that one is:
- * no call-stack growth proportional to tree depth.
- */
-function walkHtml(dir: string): string[] {
- if (!existsSync(dir)) return [];
- const out: string[] = [];
- const stack: string[] = [dir];
- while (stack.length) {
- const cur = stack.pop() as string;
- let entries: import('node:fs').Dirent[];
- try {
- entries = readdirSync(cur, { withFileTypes: true });
- } catch {
- continue;
- }
- for (const ent of entries) {
- const full = join(cur, ent.name);
- if (ent.isDirectory()) {
- stack.push(full);
- } else if (ent.isFile() && ent.name.endsWith('.html')) {
- out.push(full);
- }
- }
- }
- return out;
-}
 
 /**
  * Extract every `<script type="application/ld+json">…</script>` body
@@ -118,15 +86,12 @@ describe('dist HTML — duplicate structured data gate (GSC rich-results)', () =
 
  // Scanning ~50k dist HTML files + JSON parsing each ld+json block is slow.
  // 60s ceiling matches dist-duplicate-meta-description's footprint.
- it('no UNIQUE_TYPES @type appears in two separate JSON-LD scripts on the same page', { timeout: 60_000 }, () => {
- const scanStart = Date.now();
- const files = walkHtml(DIST_DIR);
+ it('no UNIQUE_TYPES @type appears in two separate JSON-LD scripts on the same page', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
  const offenders: { file: string; type: string; count: number }[] = [];
 
- for (const file of files) {
- const html = readFileSync(file, 'utf-8');
+ const scan = scanDistHtml(DIST_DIR, (relPath, html) => {
  const blocks = extractLdJsonBlocks(html);
- if (blocks.length < 2) continue;
+ if (blocks.length < 2) return;
 
  const counts = new Map<string, number>();
  for (const body of blocks) {
@@ -137,11 +102,16 @@ describe('dist HTML — duplicate structured data gate (GSC rich-results)', () =
  }
  for (const [type, count] of counts) {
  if (count > 1) {
- offenders.push({ file: file.replace(DIST_DIR, ''), type, count });
+ offenders.push({ file: relPath, type, count });
  }
  }
- }
- const scanElapsedMs = Date.now() - scanStart;
+ });
+ assertScanCompleted(
+ scan,
+ 'duplicate structured data',
+ offenders.map((o) => `${o.file}: ${o.type}×${o.count}`),
+ );
+ const scanElapsedMs = scan.elapsedMs;
 
  /**
   * OBSERVER for #5729: a bare "Test timed out in 60000ms" names no cause —
@@ -155,10 +125,12 @@ describe('dist HTML — duplicate structured data gate (GSC rich-results)', () =
  const SOFT_BUDGET_MS = 30_000;
  expect(
  scanElapsedMs,
- `dist scan+parse took ${scanElapsedMs}ms across ${files.length} HTML files ` +
- `(soft budget ${SOFT_BUDGET_MS}ms, hard timeout 60000ms). If dist/ grew, ` +
- `speed up walkHtml/extractLdJsonBlocks — do not just raise the timeout ` +
- `(#5729 is exactly that mistake, one corpus-size increase away from recurring).`,
+ `dist scan+parse took ${scanElapsedMs}ms across ${scan.filesScanned} HTML files ` +
+ `(soft budget ${SOFT_BUDGET_MS}ms, scan budget ${scan.budgetMs}ms). If dist/ grew, ` +
+ `reduce the work — sample via AUDIT_SAMPLE_RATE, or register this invariant as an ` +
+ `auditor in scripts/audit-all.mjs so it rides the single shared walk. Do NOT just ` +
+ `raise the budget (#5729 is exactly that mistake, one corpus-size increase away ` +
+ `from recurring).`,
  ).toBeLessThan(SOFT_BUDGET_MS);
 
  if (offenders.length > 0) {

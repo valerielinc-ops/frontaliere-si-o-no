@@ -17,8 +17,13 @@
  * exist locally so `npm test` continues to work without a build.
  */
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  SCAN_TEST_TIMEOUT_MS,
+  assertScanCompleted,
+  scanDistHtml,
+} from './helpers/distHtmlScan';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
 
@@ -29,17 +34,6 @@ const DIST_DIR = resolve(__dirname, '..', 'dist');
  * GitHub issue reference explaining why.
  */
 const ALLOWLIST_PATHS: readonly string[] = [];
-
-function walkHtml(dir: string, out: string[] = []): string[] {
- if (!existsSync(dir)) return out;
- for (const entry of readdirSync(dir)) {
- const full = join(dir, entry);
- const st = statSync(full);
- if (st.isDirectory()) walkHtml(full, out);
- else if (entry.endsWith('.html')) out.push(full);
- }
- return out;
-}
 
 /**
  * Counts `<h1>` opening tags in the static HTML, ignoring tags that
@@ -66,17 +60,19 @@ describe('dist HTML — single H1 per page gate (Semrush W6)', () => {
  return;
  }
 
- it('every emitted page has at most one <h1>', () => {
- const files = walkHtml(DIST_DIR);
+ it('every emitted page has at most one <h1>', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
  const offenders: { path: string; count: number }[] = [];
 
- for (const file of files) {
- const path = file.replace(DIST_DIR, '');
- if (ALLOWLIST_PATHS.includes(path)) continue;
- const html = readFileSync(file, 'utf-8');
+ const scan = scanDistHtml(DIST_DIR, (path, html) => {
+ if (ALLOWLIST_PATHS.includes(path)) return;
  const count = countH1Tags(html);
  if (count > 1) offenders.push({ path, count });
- }
+ });
+ assertScanCompleted(
+ scan,
+ 'single H1 per page',
+ offenders.map((o) => `${o.path} → ${o.count} <h1> tags`),
+ );
 
  if (offenders.length > 0) {
  const report = offenders
