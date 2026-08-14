@@ -2160,9 +2160,15 @@ jobs:
           # non si attiva su questo ramo e la issue legacy si riapre su build
           # che precedono la propria fix. È lo STESSO valore che il body qui
           # sotto stampa come **Build SHA** — il commit della BUILD, non
-          # l'head_sha della validazione. Se `inputs.deploy_ref` è vuoto la
+          # l'head_sha della validazione. Se l'input `deploy_ref` è vuoto la
           # CLI riceve una stringa vuota e torna al reopen incondizionato,
           # che è il fail-safe voluto: mai astenersi su un dato assente.
+          # (Qui e sopra l'input e' nominato senza prefisso di proposito:
+          # check-workflow-input-injection.mjs conta i riferimenti a un input
+          # su TUTTO il testo del run:, commenti compresi, e fallisce CLOSED su
+          # quelli che non trova dentro un'espressione Actions che ha saputo
+          # parsare. Non puo' distinguere la prosa da un'interpolazione sfuggita
+          # al parser, e non deve: un commento non ferma un valore multiriga.)
           if [ -f scripts/ci/report-validate-dist-failure.mjs ]; then
             node scripts/ci/report-validate-dist-failure.mjs --mode report
           else
