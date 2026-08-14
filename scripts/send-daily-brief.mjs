@@ -474,6 +474,10 @@ export function cadenceStateOf(recipient) {
     daily_brief_sends_since_engagement: nl.daily_brief_sends_since_engagement,
     daily_brief_frequency_override: nl.daily_brief_frequency_override,
     daily_brief_last_send_provider: nl.daily_brief_last_send_provider,
+    // The two-cron-slot guard for a send aimed at a later instant today (#5870
+    // — isDueToday reads this to refuse the second slot a message the first
+    // one already scheduled but the ESP has not delivered yet).
+    daily_brief_scheduled_for: nl.daily_brief_scheduled_for ?? null,
     last_click_at: nl.last_click_at ?? ja.last_click_at ?? null,
     last_open_at: nl.last_open_at ?? ja.last_open_at ?? null,
     // The URL travels WITH the timestamp or the pair is useless: a bare
@@ -590,10 +594,10 @@ async function fetchBriefClicks(db, sinceMs) {
 }
 
 /** Persist the recipient's new cadence state next to their delivery record. */
-async function persistCadence(db, { email, state, engaged, opened, provider, sentAtIso }) {
+async function persistCadence(db, { email, state, engaged, opened, provider, sentAtIso, scheduledFor = null }) {
   try {
     await db.collection('newsletter_subscribers').doc(email).set(
-      nextCadenceState({ sub: state, engaged, opened, sentAtIso, provider }),
+      nextCadenceState({ sub: state, engaged, opened, sentAtIso, provider, scheduledFor }),
       { merge: true },
     );
   } catch (e) {
@@ -716,7 +720,7 @@ async function main() {
         ],
         headers: buildBriefHeaders({ email: recipient.email, campaignId, unsubscribeUrl: built.unsubscribeUrl }),
       },
-      recipient: { email: recipient.email, state: recipient.state, engaged: recipient.engaged, opened: recipient.opened },
+      recipient: { email: recipient.email, state: recipient.state, engaged: recipient.engaged, opened: recipient.opened, scheduledAt },
       meta: { type: 'daily-brief', campaignId, scheduledAt, tierDays: recipient.cadence.tierDays },
     };
   });
@@ -749,9 +753,9 @@ async function main() {
   const result = await sendEmailCascade(emails, {
     concurrency: 3,
     onSent: async (item, sendResult) => {
-      const { email, state, engaged, opened } = item.recipient;
+      const { email, state, engaged, opened, scheduledAt } = item.recipient;
       await persistDelivery(db, { email, campaignId }, sendResult);
-      await persistCadence(db, { email, state, engaged, opened, provider: sendResult?.provider || null, sentAtIso });
+      await persistCadence(db, { email, state, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
       await resume.record(email);
     },
   });

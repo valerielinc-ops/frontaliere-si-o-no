@@ -353,6 +353,18 @@ export function resolveTier(sub, nowMs) {
  * makes a same-day rerun a no-op: everyone served already carries today's
  * `daily_brief_last_sent_at`.
  *
+ * TWO FAIL-OPEN BRANCHES, DELIBERATELY UNCHANGED (issue #5870).
+ * `!lastIso` below answers `due: true` both for someone who has genuinely never
+ * been sent an edition and for someone whose `daily_brief_last_sent_at` IS set
+ * but `utcDayOf` cannot read it — `toMillis` collapses both into `null`, so
+ * this function cannot tell them apart. Flipping that branch fail-closed would
+ * change WHO RECEIVES the brief on an already-consented channel, which is a
+ * product decision, not a bug fix, and it needs the number #5870 asks for
+ * first: how many `newsletter_subscribers` actually carry an unreadable stamp.
+ * That is a production Firestore read this fix could not obtain in CI — left
+ * as-is on purpose; see the PR for #5870. `tests/daily-brief-cadence.test.ts`
+ * locks in today's answer so a future change here is a deliberate diff.
+ *
  * @param {object} sub
  * @param {string} todayIso YYYY-MM-DD
  * @param {number} nowMs
@@ -366,6 +378,34 @@ export function isDueToday(sub, todayIso, nowMs) {
   if (tierDays == null) {
     return { ...verdict, due: false, reason: 'channel off (user preference)', waitDays: Infinity };
   }
+
+  // THE SCHEDULED-BUT-NOT-SENT CASE (issue #5870), same defence as
+  // scripts/lib/jobAlertCadence.mjs's alreadyServedToday for the job-alert
+  // channel. send-daily-brief.mjs stamps `daily_brief_last_sent_at` at CASCADE
+  // HANDOFF time, whether the message went out immediately or was aimed at a
+  // later instant today via computeScheduledSendAt — so the same-day check
+  // below already protects the 06:33/09:33 pair for a send scheduled today.
+  // What it cannot see is a schedule stamp a run failed to advance, or one this
+  // run cannot parse: fail-closed here costs nobody the brief they would
+  // otherwise get — `daily_brief_scheduled_for` is a new field (#5870), so
+  // every existing document reads it as absent and this branch never fires
+  // until a run starts writing it (nextCadenceState writes it on EVERY send,
+  // null included, precisely so a stale future stamp cannot gag someone).
+  if (sub?.daily_brief_scheduled_for != null) {
+    const scheduledForMs = toMillis(sub.daily_brief_scheduled_for);
+    if (scheduledForMs == null) {
+      return { ...verdict, due: false, reason: `${reason}; unreadable scheduled stamp — treated as a send in flight`, waitDays: 0 };
+    }
+    if (scheduledForMs > nowMs) {
+      return {
+        ...verdict,
+        due: false,
+        reason: `${reason}; a send is scheduled for ${new Date(scheduledForMs).toISOString()} and has not left yet`,
+        waitDays: 0,
+      };
+    }
+  }
+
   const lastIso = utcDayOf(sub?.daily_brief_last_sent_at);
   if (!lastIso) {
     return { ...verdict, due: true, reason: `${reason}; never sent`, waitDays: 0 };
@@ -442,12 +482,19 @@ export function blockedByAnotherChannelToday({ nlDoc, jaDoc, todayIso }) {
  *        HOLDS the current tier but never promotes (§3.2b)
  * @param {string} args.sentAtIso ISO timestamp of the send being recorded
  * @param {string} args.provider the cascade provider that carried it
+ * @param {string|null} [args.scheduledFor] ISO instant this send was aimed at
+ *        (send-daily-brief.mjs's `scheduledAt`), or `null` when it went out
+ *        immediately. Written on EVERY send, null included — the one way this
+ *        fail-closed field (see `isDueToday`) could do harm is a stale future
+ *        instant left over from a previous run, and only writing it every time
+ *        prevents that (issue #5870).
  * @returns {{ daily_brief_tier: number, daily_brief_last_sent_at: string,
  *             daily_brief_sends_since_engagement: number,
  *             daily_brief_tier_updated_at: string|undefined,
- *             daily_brief_last_send_provider: string|null }}
+ *             daily_brief_last_send_provider: string|null,
+ *             daily_brief_scheduled_for: string|null }}
  */
-export function nextCadenceState({ sub, engaged, opened = false, sentAtIso, provider }) {
+export function nextCadenceState({ sub, engaged, opened = false, sentAtIso, provider, scheduledFor = null }) {
   // The ENGINE tier, not the effective one: a recipient who pinned a frequency
   // still has their engine tier tracked underneath, so removing the pin later
   // lands them on a current estimate instead of a stale one.
@@ -481,6 +528,7 @@ export function nextCadenceState({ sub, engaged, opened = false, sentAtIso, prov
     daily_brief_sends_since_engagement: streak,
     ...(tier !== current ? { daily_brief_tier_updated_at: sentAtIso } : {}),
     daily_brief_last_send_provider: provider ?? null,
+    daily_brief_scheduled_for: scheduledFor ?? null,
   };
 }
 

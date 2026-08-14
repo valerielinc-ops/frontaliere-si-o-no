@@ -124,6 +124,56 @@ describe('isDueToday', () => {
     const sub = { ...CONSENT_DAILY, daily_brief_tier: 1, daily_brief_last_sent_at: '2026-08-07T23:50:00Z' };
     expect(isDueToday(sub, TODAY, NOW).due).toBe(true);
   });
+
+  // #5870 locks in TODAY's answer on purpose, without changing it: an unreadable
+  // `daily_brief_last_sent_at` is indistinguishable here from "never sent" (both
+  // collapse through `toMillis`/`utcDayOf` to null), and flipping that to
+  // fail-closed is a product decision the issue says needs a production count of
+  // how many `newsletter_subscribers` actually carry a stamp like this — not
+  // available in this environment. This test exists so a future change to the
+  // branch below is a deliberate diff against a documented baseline, not a
+  // silent one.
+  it('#5870: reads an unreadable last-send stamp as "never sent" (deliberately unchanged)', () => {
+    const sub = { ...CONSENT_DAILY, daily_brief_tier: 1, daily_brief_last_sent_at: 'not-a-timestamp' };
+    const verdict = isDueToday(sub, TODAY, NOW);
+    expect(verdict.due).toBe(true);
+    expect(verdict.reason).toContain('never sent');
+  });
+
+  // #5870: a message the cascade accepted for LATER delivery today must not
+  // read as "sent" to the second cron slot just because it left this run's
+  // hands — this is the gap the issue found: the 06:33 slot hands a message to
+  // the ESP with a future `scheduledAt`, and without this guard the 09:33 slot
+  // (or 06:33 tomorrow, before the ESP actually delivers) has no way to tell
+  // that apart from an edition nobody is waiting on.
+  describe('#5870: the scheduled-but-not-sent guard', () => {
+    it('holds off both cron slots while a scheduled send has not left yet', () => {
+      const scheduledFor = '2026-08-08T11:00:00Z'; // later today, after both 06:33 and 09:33
+      const sub = { ...CONSENT_DAILY, daily_brief_tier: 1, daily_brief_scheduled_for: scheduledFor };
+      const morning = isDueToday(sub, TODAY, Date.parse('2026-08-08T06:33:00Z'));
+      const midMorning = isDueToday(sub, TODAY, Date.parse('2026-08-08T09:33:00Z'));
+      expect(morning).toMatchObject({ due: false, waitDays: 0 });
+      expect(morning.reason).toContain('has not left yet');
+      expect(midMorning).toMatchObject({ due: false, waitDays: 0 });
+    });
+
+    it('stops blocking once the scheduled instant is in the past', () => {
+      const sub = { ...CONSENT_DAILY, daily_brief_tier: 1, daily_brief_scheduled_for: daysAgo(3), daily_brief_last_sent_at: daysAgo(3) };
+      expect(isDueToday(sub, TODAY, NOW).due).toBe(true);
+    });
+
+    it('treats an unreadable scheduled stamp as a send in flight, fail-closed', () => {
+      const sub = { ...CONSENT_DAILY, daily_brief_tier: 1, daily_brief_scheduled_for: 'whenever' };
+      const verdict = isDueToday(sub, TODAY, NOW);
+      expect(verdict.due).toBe(false);
+      expect(verdict.reason).toContain('unreadable scheduled stamp');
+    });
+
+    it('does not block on a null scheduled_for (the shape every send now writes)', () => {
+      const sub = { ...CONSENT_DAILY, daily_brief_tier: 1, daily_brief_scheduled_for: null, daily_brief_last_sent_at: daysAgo(2) };
+      expect(isDueToday(sub, TODAY, NOW).due).toBe(true);
+    });
+  });
 });
 
 describe('promotion and demotion', () => {
@@ -207,6 +257,21 @@ describe('promotion and demotion', () => {
       daily_brief_last_sent_at: daysAgo(1), daily_brief_sends_since_engagement: 0,
     };
     expect(nextCadenceState({ sub, engaged: true, sentAtIso, provider: 'mailgun' }).daily_brief_tier).toBe(2);
+  });
+
+  // #5870: written on EVERY call, null included — a stale future stamp left
+  // over from a prior scheduled send must not survive into the new state and
+  // gag a recipient who is otherwise due.
+  it('#5870: writes daily_brief_scheduled_for verbatim, and explicit null when omitted', () => {
+    const withSchedule = nextCadenceState({
+      sub: { daily_brief_tier: 1 }, engaged: false, sentAtIso, provider: 'mailgun',
+      scheduledFor: '2026-08-08T09:00:00Z',
+    });
+    expect(withSchedule.daily_brief_scheduled_for).toBe('2026-08-08T09:00:00Z');
+
+    const stale = { daily_brief_tier: 1, daily_brief_scheduled_for: '2026-08-09T09:00:00Z' };
+    const cleared = nextCadenceState({ sub: stale, engaged: false, sentAtIso, provider: 'mailgun' });
+    expect(cleared.daily_brief_scheduled_for).toBeNull();
   });
 });
 
