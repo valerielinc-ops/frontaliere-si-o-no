@@ -2643,10 +2643,10 @@
       "id": "migrolino-73b93a8f01e9",
       "slug": "personale-di-vendita-migrolino-romanshorn",
       "slugByLocale": {
-        "it": "personale-di-vendita-migrolino-romanshorn",
-        "en": "sales-staff-migrolino-romanshorn",
+        "it": "personale-di-vendita-migrolino-romanshorn-88a904",
+        "en": "sales-staff-migrolino-romanshorn-88a904",
         "de": "verkaufsmitarbeiter-in-migrolino-romanshorn",
-        "fr": "personnel-de-vente-migrolino-romanshorn"
+        "fr": "personnel-de-vente-migrolino-romanshorn-88a904"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -2689,7 +2689,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-romanshorn",
-        "personale-di-vendita-migrolino-romanshorn"
+        "personale-di-vendita-migrolino-romanshorn",
+        "sales-staff-migrolino-romanshorn",
+        "personnel-de-vente-migrolino-romanshorn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2697,10 +2699,12 @@
           "personale-di-vendita-migrolino-romanshorn"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-migrolino-romanshorn"
+          "verkaufsmitarbeiter-in-migrolino-romanshorn",
+          "sales-staff-migrolino-romanshorn"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-migrolino-romanshorn"
+          "verkaufsmitarbeiter-in-migrolino-romanshorn",
+          "personnel-de-vente-migrolino-romanshorn"
         ]
       },
       "firstSeenAt": "2026-08-13T10:23:51.607Z",
