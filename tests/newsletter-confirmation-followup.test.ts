@@ -86,6 +86,16 @@ import {
   MACHINE_INFERRED_SUPPRESSIONS,
 } from '../functions/src/lib/subscriberReactivation.js';
 import { planConfirmationFollowups, buildFollowupRequest, maskEmail } from '../scripts/newsletter-confirmation-followups.mjs';
+import {
+  planConfirmedStatusBackfill,
+  applyConfirmedStatusBackfill,
+  buildConfirmedStatusFields,
+  confirmationProofSource,
+  hasConfirmEvent,
+  assessCohortDrift,
+  CONFIRMED_STATUS,
+  EXPECTED_REPAIR_COHORT,
+} from '../scripts/newsletter-confirmed-status-backfill.mjs';
 import { captureNewsletterSubscriber, upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { FUNCTIONS_BASE } from '@/services/functionsBase';
 
@@ -986,5 +996,275 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
       expect(result.hadConfirmationProof, JSON.stringify(extra)).toBe(hasConfirmationProof(data));
       setDocMock.mockClear();
     }
+  });
+});
+
+/**
+ * ── THE REPAIR SIDE OF THE SAME 848 ────────────────────────────────────────
+ *
+ * The blocks above prove the follow-up cycle never TOUCHES them. These prove
+ * the opposite motion is equally bounded: `scripts/newsletter-confirmed-status-
+ * backfill.mjs` corrects the `status` word on those documents — 843 of them
+ * when re-measured on 2026-08-14 — and must never widen past it.
+ *
+ * Two failures are possible here and they are not symmetric. Writing `confirmed`
+ * on a document with NO proof fabricates a consent on somebody who never gave
+ * one, which is the failure the whole area exists to prevent; writing a SECOND
+ * field moves a clock or a flag that other senders read. Each has its own
+ * block below, and each was checked by mutation: removing the proof gate from
+ * `planConfirmedStatusBackfill` and widening `buildConfirmedStatusFields` both
+ * turn these red.
+ */
+
+/** A repair candidate: `pending`, with the stamp a confirmation click leaves. */
+const reProbeDoc = (id: string, overrides: Record<string, any> = {}) => ({
+  id,
+  ref: strictRef(id),
+  data: {
+    email: id,
+    status: 'pending',
+    isActive: true,
+    confirmed_at: daysAgo(200),
+    suppressed_at: daysAgo(30),
+    reactivated_at: daysAgo(29),
+    ...overrides,
+  },
+});
+
+/**
+ * A ref that refuses everything except being written to.
+ *
+ * `.collection()` throwing is the assertion: it is the only way this script
+ * could reach the event log, and an event written by a repair would be
+ * fabricated evidence of a click that did not happen today.
+ */
+function strictRef(id: string) {
+  return {
+    id,
+    collection: () => {
+      throw new Error(`refused: ${id} must not have a subcollection touched by a status repair`);
+    },
+  };
+}
+
+/** A Firestore double that records every operation instead of performing one. */
+function recordingDb() {
+  const ops: Array<{ ref: any; data: any; opts: any; kind: string }> = [];
+  let commits = 0;
+  return {
+    ops,
+    commits: () => commits,
+    db: {
+      batch: () => ({
+        set: (ref: any, data: any, opts: any) => ops.push({ ref, data, opts, kind: 'set' }),
+        update: (ref: any, data: any) => ops.push({ ref, data, opts: null, kind: 'update' }),
+        delete: (ref: any) => ops.push({ ref, data: null, opts: null, kind: 'delete' }),
+        commit: async () => {
+          commits += 1;
+        },
+      }),
+    },
+  };
+}
+
+describe('repairing the 843: proof selects, and nothing else does', () => {
+  it('never selects a `pending` document with no proof at all — the fabricated-consent case', () => {
+    // MUTATION CHECKED: delete the `if (!proof)` gate in
+    // planConfirmedStatusBackfill and every one of these lands in `repair`.
+    const noProof = [
+      // Asked and never answered — the cohort the follow-up cycle is FOR.
+      { id: 'asked@example.com', ref: strictRef('asked@example.com'), data: { status: 'pending', confirmation_sent_at: daysAgo(3), confirmation_attempts: 2 } },
+      // `never_asked_backlog`: 0 today, and excluded whatever it becomes.
+      // The confirmation was never even requested, so there is nothing to
+      // reconstruct — including them would be a decision nobody has taken.
+      { id: 'never@example.com', ref: strictRef('never@example.com'), data: { status: 'pending', created_at: daysAgo(400) } },
+      // An event log that exists and says something else. Presence is not proof.
+      { id: 'bounced@example.com', ref: strictRef('bounced@example.com'), data: { status: 'pending' }, events: [{ event_type: 'delivered' }, { event_type: 'bounce' }] },
+      // An empty log is not proof either.
+      { id: 'empty@example.com', ref: strictRef('empty@example.com'), data: { status: 'pending' }, events: [] },
+    ];
+
+    const plan = planConfirmedStatusBackfill(noProof);
+
+    expect(plan.repair).toEqual([]);
+    expect(plan.skipped['no-confirmation-proof']).toBe(noProof.length);
+  });
+
+  it('and the apply path writes nothing for them, end to end', async () => {
+    // The same guarantee one layer down: the planner is what the runner feeds
+    // to the writer, so a set of no-proof documents must produce zero writes
+    // and zero commits — not "writes that happen to be harmless".
+    const { db, ops, commits } = recordingDb();
+    const plan = planConfirmedStatusBackfill([
+      { id: 'a@example.com', ref: strictRef('a@example.com'), data: { status: 'pending' } },
+      { id: 'b@example.com', ref: strictRef('b@example.com'), data: { status: 'pending', confirmation_sent_at: daysAgo(1) } },
+    ]);
+
+    const written = await applyConfirmedStatusBackfill(db, plan.repair);
+
+    expect(written).toBe(0);
+    expect(ops).toEqual([]);
+    expect(commits()).toBe(0);
+  });
+
+  it('accepts the flat stamp in either spelling, and the `confirm` event on its own', () => {
+    // The owner's rule: reconstruct the true state from the EVENTS, not from
+    // the status. The flat stamp is the second reading of the same click and
+    // the two coincided exactly at the time of writing — but the event is the
+    // append-only one, so it must be sufficient by itself, without a stamp.
+    expect(confirmationProofSource({ data: { confirmed_at: daysAgo(3) } })).toBe('flat');
+    expect(confirmationProofSource({ data: { confirmedAt: daysAgo(3) } })).toBe('flat');
+    expect(confirmationProofSource({ data: {}, events: [{ event_type: 'confirm' }] })).toBe('event');
+    expect(confirmationProofSource({ data: { confirmed_at: daysAgo(3) }, events: [{ event_type: 'confirm' }] })).toBe('both');
+    expect(confirmationProofSource({ data: { status: 'pending' } })).toBeNull();
+
+    // The event is matched on its type and nothing else — `confirmation_email_sent`
+    // is the record of US writing to them, the exact opposite of consent.
+    expect(hasConfirmEvent([{ event_type: 'confirmation_email_sent' }])).toBe(false);
+    expect(hasConfirmEvent([{ event_type: 'CONFIRM' }])).toBe(true);
+    expect(hasConfirmEvent(undefined)).toBe(false);
+  });
+
+  it('selects an event-only document and counts it as the divergence signal', () => {
+    // Zero of these existed when this was written. The count is reported by the
+    // run precisely so a non-zero is noticed rather than assumed away.
+    const plan = planConfirmedStatusBackfill([
+      { id: 'evt@example.com', ref: strictRef('evt@example.com'), data: { status: 'pending' }, events: [{ event_type: 'confirm' }] },
+      reProbeDoc('flat@example.com'),
+    ]);
+
+    expect(plan.repair.map((r: any) => r.id)).toEqual(['evt@example.com', 'flat@example.com']);
+    expect(plan.eventOnly).toBe(1);
+    expect(plan.proofSources).toMatchObject({ event: 1, flat: 1 });
+  });
+
+  it('leaves every status that is not `pending` alone, in both directions', () => {
+    // Including the 392 that say `confirmed` with nothing behind them: this
+    // script has no branch that writes `pending`, and repairing THAT is a
+    // different decision with a different risk.
+    const plan = planConfirmedStatusBackfill([
+      { id: 'fabricated@example.com', ref: strictRef('fabricated@example.com'), data: { status: 'confirmed', restore_marker: 'mailtrap_suspension_mismapped' } },
+      { id: 'gone@example.com', ref: strictRef('gone@example.com'), data: { status: 'unsubscribed', confirmed_at: daysAgo(9) } },
+      { id: 'closed@example.com', ref: strictRef('closed@example.com'), data: { status: CONFIRMATION_EXPIRED_STATUS, confirmed_at: daysAgo(9) } },
+    ]);
+
+    expect(plan.repair).toEqual([]);
+    expect(plan.skipped['not-pending']).toBe(3);
+  });
+
+  it('refuses to make a recorded opt-out mailable, the case the follow-up policy cannot see', () => {
+    // `decideConfirmationFollowup` asks for proof BEFORE it asks about
+    // opt-outs, so a document that confirmed once and later unsubscribed never
+    // reaches its opt-out branch and is invisible in that runner's counts.
+    // Writing `confirmed` over its `pending` hands the senders a mailable
+    // status for somebody who asked to be left alone.
+    const optedOut = reProbeDoc('left@example.com', {
+      unsubscribed_at: daysAgo(10),
+      confirmed_at: daysAgo(200),
+    });
+
+    const plan = planConfirmedStatusBackfill([optedOut]);
+
+    expect(plan.repair).toEqual([]);
+    expect(plan.skipped['opt-out-bound']).toBe(1);
+    // Still counted as proven — the divergence measurement covers every proven
+    // document, including the ones deliberately left where they are.
+    expect(plan.proofSources.flat).toBe(1);
+  });
+
+  it('is idempotent because the repaired state is not selectable', () => {
+    // Not a promise: `confirmed` is not `pending`, so the selection predicate
+    // is its own completion check. A second run finds nothing to do.
+    const doc = reProbeDoc('twice@example.com');
+    expect(planConfirmedStatusBackfill([doc]).repair).toHaveLength(1);
+
+    const afterRepair = { ...doc, data: { ...doc.data, ...buildConfirmedStatusFields() } };
+    expect(planConfirmedStatusBackfill([afterRepair]).repair).toEqual([]);
+    expect(planConfirmedStatusBackfill([afterRepair]).skipped['not-pending']).toBe(1);
+  });
+});
+
+describe('repairing the 843: `status` is the only field that may be written', () => {
+  it('the write payload carries exactly one key', () => {
+    // MUTATION CHECKED: add any second key to buildConfirmedStatusFields — the
+    // tempting ones are `isActive`, `updated_at`, `confirmed_at` — and this
+    // fails. `updated_at` is not cosmetic: other readers time re-engagement off
+    // it, and `confirmed_at` is the evidence the selection depends on, so a
+    // repair that wrote it would be proving its own premise.
+    expect(Object.keys(buildConfirmedStatusFields())).toEqual(['status']);
+    expect(buildConfirmedStatusFields()).toEqual({ status: CONFIRMED_STATUS });
+    expect(CONFIRMED_STATUS).toBe('confirmed');
+  });
+
+  it('and the real write path carries exactly that, merged, with no subcollection touched', async () => {
+    // Asserted against the path the runner calls, not against the builder
+    // alone: a builder can be correct and unused. The refs throw on
+    // `.collection()`, so an event write would surface as a thrown error here
+    // rather than as fabricated evidence in production.
+    const { db, ops, commits } = recordingDb();
+    const plan = planConfirmedStatusBackfill([
+      reProbeDoc('one@example.com'),
+      reProbeDoc('two@example.com', { confirmedAt: daysAgo(150), confirmed_at: undefined }),
+    ]);
+
+    const written = await applyConfirmedStatusBackfill(db, plan.repair);
+
+    expect(written).toBe(2);
+    expect(commits()).toBe(1);
+    expect(ops).toHaveLength(2);
+    for (const op of ops) {
+      expect(op.kind).toBe('set');
+      expect(Object.keys(op.data)).toEqual(['status']);
+      expect(op.data.status).toBe(CONFIRMED_STATUS);
+      // Merge, never a replace: a `.set()` without it would delete
+      // `confirmed_at` — the proof — along with everything else on the document.
+      expect(op.opts).toEqual({ merge: true });
+    }
+    expect(ops.map((o) => o.ref.id)).toEqual(['one@example.com', 'two@example.com']);
+  });
+
+  it('never emits an update or a delete', async () => {
+    // The only two other operations a batch offers. Neither has a use here, and
+    // a delete on this collection is the one thing #5764 settled: the record IS
+    // the evidence and is KEPT.
+    const { db, ops } = recordingDb();
+    await applyConfirmedStatusBackfill(db, planConfirmedStatusBackfill([reProbeDoc('k@example.com')]).repair);
+    expect(ops.filter((o) => o.kind !== 'set')).toEqual([]);
+  });
+});
+
+describe('repairing the 843: it stops when the cohort is not the cohort', () => {
+  it('accepts the measured population and the band around it', () => {
+    expect(assessCohortDrift({ found: EXPECTED_REPAIR_COHORT })).toMatchObject({ ok: true, drift: 0 });
+    expect(assessCohortDrift({ found: EXPECTED_REPAIR_COHORT - 40 }).ok).toBe(true);
+    expect(assessCohortDrift({ found: EXPECTED_REPAIR_COHORT + 40 }).ok).toBe(true);
+  });
+
+  it('refuses a population that is far smaller — the truncated-read shape', () => {
+    // A short read is the failure mode that looks like success: fewer documents
+    // to repair reads as "less work", and `manifest.json`'s `counts` exists in
+    // the sibling repo for exactly this reason.
+    const verdict = assessCohortDrift({ found: 12 });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.reason).toBe('cohort-smaller-than-expected');
+    expect(verdict.min).toBeGreaterThan(12);
+  });
+
+  it('refuses a population that is far larger — something is writing `pending` again', () => {
+    // The cohort can only shrink on its own: its writer is retired and a member
+    // leaves it by confirming, unsubscribing or expiring. Growth means a writer
+    // nobody knows about, and repairing over it would hide that.
+    const verdict = assessCohortDrift({ found: 4000 });
+    expect(verdict.ok).toBe(false);
+    expect(verdict.reason).toBe('cohort-larger-than-expected');
+  });
+
+  it('keeps a usable band when an operator narrows `--expected`', () => {
+    // The floor exists so a later run against a partially-repaired population
+    // does not get a band of ±1.
+    const verdict = assessCohortDrift({ found: 30, expected: 60 });
+    expect(verdict.ok).toBe(true);
+    expect(verdict.min).toBe(10);
+    expect(verdict.max).toBe(110);
   });
 });
