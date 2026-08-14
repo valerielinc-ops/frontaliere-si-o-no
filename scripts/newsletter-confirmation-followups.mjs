@@ -216,25 +216,40 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
  * Send the requests the plan says are due, then record each one.
  *
  * The ledger writes come from lib/confirmationFollowup.js — the same two
- * builders the Cloud Function uses for request #1 — and they run over `sent`,
- * never over the plan: a request that the cascade could not deliver must not
- * consume one of the three. A failure therefore costs a day, not an attempt,
- * and the next run offers it again.
+ * builders the Cloud Function uses for request #1 — and they run over what
+ * actually left, never over the plan: a request the cascade could not deliver
+ * must not consume one of the three. A failure therefore costs a day, not an
+ * attempt, and the next run offers it again.
+ *
+ * ── `ambiguousDelivery` COUNTS, AND THAT ASYMMETRY IS THE POINT ─────────────
+ *
+ * The cascade distinguishes "never sent" from "the provider may already have
+ * sent it and then failed on the response" (#4911). Treating the ambiguous case
+ * as a non-send is the intuitive choice and the wrong one here: the ledger would
+ * say two while the person has three messages in their inbox, and the cycle
+ * would go on to send a fourth. Counting it instead costs at most one reminder
+ * that a person who never consented does not receive — which is the direction
+ * this whole feature errs in by design. `confirmation_message_id` stays null, so
+ * the two cases remain distinguishable afterwards.
  *
  * @param {unknown} db
  * @param {Array<object>} due
  * @param {{nowIso: string, secret: string, tokenPolicy?: object}} ctx
- * @returns {Promise<{sent: number, failed: number}>}
+ * @returns {Promise<{sent: number, ambiguous: number, failed: number}>}
  */
 async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }) {
   const items = due.map((it) => buildFollowupRequest(it, { secret, tokenPolicy }));
   const { sent, failed } = await sendEmailCascade(items);
 
-  if (sent.length) {
+  const ambiguous = failed.filter((f) => f.ambiguousDelivery);
+  const definitelyNotSent = failed.filter((f) => !f.ambiguousDelivery);
+  const counted = [...sent, ...ambiguous];
+
+  if (counted.length) {
     // Two passes: commitInChunks contracts for at most ONE operation per item.
     // The counter first — it is what the cap reads, and a request that went out
     // without being counted is a fourth request waiting to happen.
-    await commitInChunks(db, sent, (batch, s) => {
+    await commitInChunks(db, counted, (batch, s) => {
       batch.set(
         s.meta.ref,
         buildConfirmationSentFields({
@@ -248,7 +263,7 @@ async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }
       );
     });
 
-    await commitInChunks(db, sent, (batch, s) => {
+    await commitInChunks(db, counted, (batch, s) => {
       batch.set(
         s.meta.ref.collection('events').doc(),
         buildConfirmationSentEvent({
@@ -263,10 +278,13 @@ async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }
     });
   }
 
-  for (const f of failed) {
+  for (const f of ambiguous) {
+    console.warn(`[confirmation-followups] ambiguous delivery, attempt COUNTED to avoid a fourth: ${maskEmail(f.recipient?.email)} — ${f.error}`);
+  }
+  for (const f of definitelyNotSent) {
     console.warn(`[confirmation-followups] not delivered, attempt NOT counted: ${maskEmail(f.recipient?.email)} — ${f.error}`);
   }
-  return { sent: sent.length, failed: failed.length };
+  return { sent: sent.length, ambiguous: ambiguous.length, failed: definitelyNotSent.length };
 }
 
 async function initFirebase() {
@@ -378,7 +396,9 @@ async function main() {
     } else {
       const requests = limit ? plan.send.slice(0, limit) : plan.send;
       const result = await sendConfirmationRequests(db, requests, { nowIso, secret, tokenPolicy });
-      console.log(`✉️  confirmation requests sent: ${result.sent}, not delivered: ${result.failed}`);
+      console.log(
+        `✉️  confirmation requests sent: ${result.sent}, ambiguous (counted): ${result.ambiguous}, not delivered: ${result.failed}`,
+      );
     }
   } else if (plan.send.length) {
     console.log(`✉️  ${plan.send.length} request(s) due and skipped by --no-send.`);

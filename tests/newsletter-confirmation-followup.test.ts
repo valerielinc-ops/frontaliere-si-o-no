@@ -650,13 +650,30 @@ describe('the runner plans, it does not remember', () => {
   });
 
   it('counts an attempt only against a message that actually left', () => {
-    // The ledger writes run over the cascade's `sent`, never over the plan. A
-    // provider failure must cost a day, not one of the three: the opposite
+    // The ledger writes run over what the cascade returned, never over the plan.
+    // A provider failure must cost a day, not one of the three: the opposite
     // ordering would spend somebody's whole cycle on an outage.
     const src = read('scripts/newsletter-confirmation-followups.mjs');
     const fn = src.slice(src.indexOf('async function sendConfirmationRequests'));
-    expect(fn).toMatch(/commitInChunks\(db, sent,/);
+    expect(fn).toMatch(/commitInChunks\(db, counted,/);
     expect(fn).not.toMatch(/commitInChunks\(db, (due|items|requests),/);
+  });
+
+  it('an ambiguous delivery counts, so the cycle cannot produce a fourth email', () => {
+    // The shape neither sender had ever been shown: #4911's third outcome, where
+    // the provider may already have sent the message and then failed on the
+    // response. Treating it as a non-send is the intuitive reading and the wrong
+    // one — the ledger would say two while three messages sit in an inbox, and
+    // the run after next would send a fourth to somebody who never consented to
+    // the first. The asymmetry is deliberate and it is asserted here, because
+    // nothing else in the file would notice it being "simplified" away.
+    const src = read('scripts/newsletter-confirmation-followups.mjs');
+    const fn = src.slice(src.indexOf('async function sendConfirmationRequests'));
+    expect(fn).toMatch(/const ambiguous = failed\.filter\(\(f\) => f\.ambiguousDelivery\)/);
+    expect(fn).toMatch(/const counted = \[\.\.\.sent, \.\.\.ambiguous\]/);
+    // …and the two cases stay distinguishable afterwards: no message id is
+    // invented for a send nobody can confirm happened.
+    expect(fn).toMatch(/messageId: s\.messageId \|\| null/);
   });
 });
 
