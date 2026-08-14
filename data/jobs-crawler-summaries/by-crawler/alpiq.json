@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-08-14T10:44:02.450Z",
+  "generatedAt": "2026-08-14T21:55:51.613Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4438,
-  "avgDurationMs": 4438,
+  "durationMs": 5423,
+  "avgDurationMs": 5423,
   "durationHistory": [
-    4438
+    5423
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:43:59.929Z",
+      "crawledAt": "2026-08-14T21:55:48.778Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:43:59.931Z",
+      "crawledAt": "2026-08-14T21:55:48.779Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -83,85 +83,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "alpiq-e1fbe0ada2de",
-      "slug": "archivist-in-all-100-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Archivist:in (all) 100%",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9601",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-12T22:18:49.339Z",
-      "firstSeenAt": "2026-07-06T12:57:17.444Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Electricien(ne) - automaticien(ne)",
-      "location": "Martigny",
-      "canton": "",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressLocality": "Martigny",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9518",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-12T22:18:49.337Z",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 61,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 59,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 15,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -187,7 +109,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T10:43:59.929Z",
+      "crawledAt": "2026-08-14T21:55:48.778Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -221,7 +143,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:43:59.931Z",
+      "crawledAt": "2026-08-14T21:55:48.779Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {

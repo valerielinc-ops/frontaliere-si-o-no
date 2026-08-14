@@ -69,10 +69,12 @@
     "https://jobs.ruag.ch/offene-stellen/junior-project-management-officer-c5i/0b8d6b0b-7f3b-4c80-a87b-e0b254e42dfd",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-polymechaniker-in-efz-2027/11314101-7c63-4d7c-b2d4-d33a06bacb32",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-2027/70bc6896-64bf-4480-8dd5-a7371139c9a1",
-    "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-2027/452d3536-37f3-48e2-85da-2917ba1b552a"
+    "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-2027/452d3536-37f3-48e2-85da-2917ba1b552a",
+    "https://jobs.ruag.ch/offene-stellen/system-engineer-c5i/0c7661c7-4bec-4443-a9b4-5e8c8525ea31",
+    "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-14T10:33:49.313Z",
+  "updatedAt": "2026-08-14T21:55:03.153Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -433,6 +435,18 @@
       "canton": "NW",
       "company": "RUAG AG",
       "postedDate": "2026-06-01"
+    },
+    "https://jobs.ruag.ch/offene-stellen/system-engineer-c5i/0c7661c7-4bec-4443-a9b4-5e8c8525ea31": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-08-14"
+    },
+    "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-05-12"
     }
   }
 }

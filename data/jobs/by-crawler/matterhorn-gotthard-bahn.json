@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-08-14T10:33:33.604Z",
+  "assembledAt": "2026-08-14T21:54:30.559Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-c688e36be262",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Umbau-Montagemitarbeiter-mwd-de-j718.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:30.631Z",
+      "crawledAt": "2026-08-14T21:54:26.957Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -91,6 +91,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T12:05:27.617Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -136,7 +137,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j717.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:29.621Z",
+      "crawledAt": "2026-08-14T21:54:26.008Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -227,7 +228,7 @@
       "title": "Praktikum Berufsmatura im Personalmanagement (m/w/d) - BM WDW",
       "titleByLocale": {
         "it": "Laurea professionale nella gestione delle risorse umane (m/f/d) - BM WDW",
-        "en": "Internship Professional Master in Human Resources Management (m/f/d) - BM WDW",
+        "en": "Praktikum Berufsmatura im Personalmanagement (m/w/d) - BM WDW",
         "de": "Praktikum Berufsmatura im Personalmanagement (m/w/d) - BM WDW",
         "fr": "Diplôme professionnel en gestion des ressources humaines (m/f/j) - BM WDW"
       },
@@ -243,7 +244,7 @@
       "url": "https://jobs.bvzholding.ch/Praktikum-Berufsmatura-im-Personalmanagement-mwd-BM-WDW-de-j721.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:28.664Z",
+      "crawledAt": "2026-08-14T21:54:25.120Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -298,6 +299,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:57:36.482Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -327,7 +329,7 @@
       "title": "Praktikum Berufsmatura im Marketing & Vertrieb (m/w/d) - BM WDW",
       "titleByLocale": {
         "it": "Laurea professionale in Marketing e Vendite (m/f/d) - BM WDW",
-        "en": "Professional degree in Marketing & Sales (m/f/d) - BM WDW",
+        "en": "Praktikum Berufsmatura im Marketing & Vertrieb (m/w/d) - BM WDW",
         "de": "Praktikum Berufsmatura im Marketing & Vertrieb (m/w/d) - BM WDW",
         "fr": "Diplôme professionnel en marketing et vente (m/f/j) - BM WDW"
       },
@@ -343,7 +345,7 @@
       "url": "https://jobs.bvzholding.ch/Praktikum-Berufsmatura-im-Marketing-Vertrieb-mwd-BM-WDW-de-j720.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:27.542Z",
+      "crawledAt": "2026-08-14T21:54:24.114Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -398,6 +400,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:57:35.399Z",
+      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "baseSalary": {
@@ -443,7 +446,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Instandhaltung-MGB-mwd-de-j705.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:26.569Z",
+      "crawledAt": "2026-08-14T21:54:23.220Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -540,7 +543,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:25.444Z",
+      "crawledAt": "2026-08-14T21:54:22.199Z",
       "addressLocality": "Herbriggen",
       "addressCountry": "CH",
       "country": "CH",
@@ -642,7 +645,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:24.339Z",
+      "crawledAt": "2026-08-14T21:54:21.191Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -745,7 +748,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Logistiker-EFZ-Lager-mwd-de-j710.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:23.214Z",
+      "crawledAt": "2026-08-14T21:54:20.174Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -846,7 +849,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Kaufmann-Kauffrau-EFZ-de-j708.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:22.099Z",
+      "crawledAt": "2026-08-14T21:54:19.165Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -930,7 +933,7 @@
       "title": "Guide \"Dining with the Stars\" (m/w/d) Gornergrat Bahn – Saison Januar bis März",
       "titleByLocale": {
         "it": "Guida \"Dining with the Stars\" (m/f/d) Gornergrat ferrovia - stagione gennaio a marzo",
-        "en": "Guide \"Dining with the Stars\" (m/f/d) Gornergrat railway - season January to March",
+        "en": "Guide \"Dining with the Stars\" (m/w/d) Gornergrat Bahn – Saison Januar bis März",
         "de": "Guide \"Dining with the Stars\" (m/w/d) Gornergrat Bahn – Saison Januar bis März",
         "fr": "Guide \"Dîner avec les étoiles\" (h/f/d) Gornergrat chemin de fer - saison Janvier à Mars"
       },
@@ -946,7 +949,7 @@
       "url": "https://jobs.bvzholding.ch/Guide-Dining-with-the-Stars-mwd-Gornergrat-Bahn-Saison-Jan-de-j722.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:20.977Z",
+      "crawledAt": "2026-08-14T21:54:18.156Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -1049,7 +1052,7 @@
       "url": "https://jobs.bvzholding.ch/Flottenmanager-Rollmaterial-mwd-de-j716.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:20.171Z",
+      "crawledAt": "2026-08-14T21:54:17.395Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1106,6 +1109,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:27:22.464Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1151,7 +1155,7 @@
       "url": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-j623.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:19.183Z",
+      "crawledAt": "2026-08-14T21:54:16.476Z",
       "addressLocality": "Ulrichen, Fiesch",
       "addressCountry": "CH",
       "country": "CH",
@@ -1202,6 +1206,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:43:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1247,7 +1252,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:33:18.194Z",
+      "crawledAt": "2026-08-14T21:54:15.552Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
