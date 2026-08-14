@@ -31,6 +31,7 @@ import {
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
+import { forceGc } from './shared/forceGc';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -1251,9 +1252,7 @@ export function borderMunicipalityPagesPlugin(rootDir: string): Plugin {
       // closeBundle RSS plateau with static-pages and other SSG plugins —
       // freeing the loop's non-retained garbage here trims the peak this
       // plugin adds on top of that shared plateau.
-      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
-        (globalThis as { gc: () => void }).gc();
-      }
+      forceGc();
 
       const sitemapXml = buildSitemap(municipalities.map((municipality) => ({ municipality, dateStamp })));
       fs.mkdirSync(distDir, { recursive: true });

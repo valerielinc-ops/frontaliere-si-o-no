@@ -195,6 +195,7 @@ import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJ
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { forceGc } from './shared/forceGc';
 import {
   resolveCantonSection as sharedResolveCantonSection,
   resolveJobCanton as sharedResolveJobCanton,
@@ -13154,9 +13155,7 @@ ${staticAnalyticsHtml}
  // instead of waiting for the next idle scavenge. `global.gc` is exposed by
  // NODE_OPTIONS=--expose-gc in `build:ci` (see PR #627); guarded for local
  // dev runs without the flag.
- if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
- (globalThis as { gc: () => void }).gc();
- }
+ forceGc();
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
  // Serve identical full-content pages at old URLs (bookmarks, search engines).
@@ -13651,9 +13650,7 @@ ${staticAnalyticsHtml}
  // so the tail of the build isn't carrying tens of thousands of
  // full-HTML strings it no longer needs.
  jobHtmlCache.clear();
- if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
- (globalThis as { gc: () => void }).gc();
- }
+ forceGc();
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
