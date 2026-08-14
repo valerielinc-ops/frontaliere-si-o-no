@@ -63,6 +63,17 @@ describe('decideGoalAction', () => {
 });
 
 describe('runCampaignGoalCheck (orchestration, injected goals — no network)', () => {
+  // The PostHog vitality guard (scripts/lib/source-liveness.mjs) now runs
+  // before any `source: 'posthog'` goal is evaluated, and abstains when the
+  // source is dead. These orchestration tests are about the state machine,
+  // not the guard, so they inject a live source; the guard's own abstention
+  // behaviour is covered in tests/monitor-source-liveness-guard.test.ts and
+  // by the dedicated case at the end of this block.
+  const aliveSource = async () => ({
+    alive: true, reason: 'test: source alive', windowDays: 30, floor: 500,
+    daysEvaluated: [], deadDays: [], totalEvents: 1_000_000, source: 'posthog',
+    dailyCounts: new Map(),
+  });
   it('marks immature goals as observing without calling evaluate', async () => {
     const evaluate = vi.fn();
     const goals = [{ id: 'g1', title: 'G1', source: 'posthog', matureAfterDays: 14, issueRef: '#1', evaluate }];
@@ -72,6 +83,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(1), // matures in 13 days
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl: vi.fn(),
     });
     expect(evaluate).not.toHaveBeenCalled();
@@ -89,6 +101,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl,
     });
     expect(results[0].state).toBe('passed');
@@ -106,6 +119,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl,
     });
     expect(results[0].state).toBe('failing');
@@ -123,6 +137,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => priorState,
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl: vi.fn(),
     });
     expect(evaluate).not.toHaveBeenCalled();
@@ -144,12 +159,46 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl,
     });
     expect(results.find((r) => r.id === 'g5')?.state).toBe('error');
     expect(createIssueImpl).not.toHaveBeenCalled();
     // g6 (same source) succeeded, so posthog is NOT flagged dead this run.
     expect(deadSources).toEqual([]);
+  });
+
+  it('never evaluates a PostHog goal when the vitality guard says the source is dead', async () => {
+    // Regression cover for #5606/#5607/#5608: during the 2026-07-23 → 08-10
+    // outage evalAlertFunnelConversion and evalCalcDeeplinkInputStart turned
+    // "0 events" into passed:false and opened "Campaign goal FAILED" issues,
+    // while evalDeadClicksReduction read 0 as beating its target and latched
+    // `passed` permanently. The goal must not be evaluated at all.
+    const evaluate = vi.fn();
+    const goals = [
+      { id: 'ph1', title: 'PH1', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate },
+      { id: 'gsc1', title: 'GSC1', source: 'gsc', matureAfterDays: 14, issueRef: '#2', evaluate: vi.fn().mockResolvedValue({ passed: true, value: {}, targetDescription: 't', detail: 'd' }) },
+    ];
+    const createIssueImpl = vi.fn();
+    const { results } = await runCampaignGoalCheck({
+      goals,
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: {} }),
+      saveStateImpl: vi.fn(),
+      createIssueImpl,
+      checkLivenessImpl: async () => ({
+        alive: false, reason: 'posthog ingested < 500 events/day on 14 of 14 complete day(s)',
+        windowDays: 30, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 70,
+        source: 'posthog', dailyCounts: new Map(),
+      }),
+    });
+
+    expect(evaluate).not.toHaveBeenCalled();
+    expect(results.find((r) => r.id === 'ph1')?.state).toBe('unmeasurable');
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    // A dead PostHog must not blind the goals sourced from somewhere else.
+    expect(results.find((r) => r.id === 'gsc1')?.state).toBe('passed');
   });
 
   it('flags a source as dead when every attempted goal for it errors this run', async () => {
@@ -164,6 +213,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl: vi.fn(),
     });
     expect(deadSources).toEqual(['gsc']);
@@ -179,6 +229,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       campaignStart: isoDaysAgo(20),
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl: vi.fn(),
+      checkLivenessImpl: aliveSource,
       createIssueImpl,
     });
     expect(results[0].state).toBe('unmeasurable');
@@ -197,6 +248,7 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
       loadStateImpl: () => ({ goals: {} }),
       saveStateImpl,
       createIssueImpl,
+      checkLivenessImpl: aliveSource,
       dryRun: true,
     });
     expect(results[0].state).toBe('failing');

@@ -153,6 +153,6 @@ jobs:
           - Rigenerato \`tests/shard-weights.json\` (input del BalancedSequencer LPT) dalle durate per-file reali dell'ultima run \`tests\` verde su main. Merge sui pesi esistenti: un file assente dagli artifact (es. shard uccisa dal timeout) mantiene il peso noto invece di cadere a DEFAULT.
 
           ## Non implementato (ancora)
-          - Niente — chore data update. La logica di generazione vive in \`scripts/ci/generate-shard-weights.mjs\` su \`main\`.
+          Nessuno — chore data update, nessun residuo. La logica di generazione vive in \`scripts/ci/generate-shard-weights.mjs\` su \`main\`, ed è un task a sé.
           EOF
           )"

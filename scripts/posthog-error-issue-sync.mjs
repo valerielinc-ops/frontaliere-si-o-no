@@ -16,6 +16,7 @@
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { abstainIfSourceDead } from './lib/source-liveness.mjs';
 
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -53,6 +54,14 @@ export async function main() {
     console.log('[posthog-error-issue-sync] POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing — skip');
     return;
   }
+
+  // Vitality guard (scripts/lib/source-liveness.mjs). Without it, "no
+  // $exception above MIN_COUNT" below reads identically whether the app threw
+  // nothing or PostHog ingested nothing — the second is what happened for the
+  // three weeks from 2026-07-23, and the resulting `$exception` counts fed
+  // #5606/#5607/#5608. Abstain rather than sync issues off a dead source.
+  const notMeasurable = await abstainIfSourceDead('posthog-error-issue-sync', { windowDays: Number(WINDOW_DAYS) });
+  if (notMeasurable) return;
 
   const query = `
     SELECT

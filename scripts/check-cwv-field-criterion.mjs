@@ -25,10 +25,23 @@
  *
  * WHY CrUX AND NOT THE FIRST-PARTY RUM
  * ------------------------------------
- * The site's own telemetry cannot currently answer the question:
+ * CrUX remains the criterion, but the reason below is HISTORICAL — do not
+ * quote it as a current fact. It was written on 2026-08-07 and stopped being
+ * true on 2026-08-10; between those dates it was cited to close #5607 and
+ * #5670, which had to be reopened on 2026-08-14. Re-measure before reusing it.
+ *
+ * The state of the first-party telemetry when this script was written:
  *   - PostHog ingestion stopped 2026-07-23 (all events fell from ~90-100k/day
  *     to <30/day). data/cwv-monitor-history.json records n=0 for every page on
- *     2026-08-05 — scripts/cwv-monitor-check.mjs has been blind since then.
+ *     2026-08-05 — scripts/cwv-monitor-check.mjs was blind from then on.
+ *
+ *     RESOLVED 2026-08-10: ingestion resumed the same day and has been healthy
+ *     since. Measured 2026-08-14 (events/day): 08-09 = 7, 08-10 = 65.975,
+ *     08-11 = 102.449, 08-12 = 104.651, 08-13 = 116.003. PostHog is NOT blind
+ *     today. The three-week hole is now detected rather than assumed:
+ *     scripts/lib/source-liveness.mjs makes every PostHog monitor prove its
+ *     source is alive over the window it measures, and abstain out loud if it
+ *     is not.
  *   - GA4 has never received a single `web_vitals` event (0 in 90 days) because
  *     services/webVitals.ts called `(Analytics as any).log?.(...)` and
  *     `Analytics` has no `log` member, so the optional call silently no-opped.

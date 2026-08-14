@@ -33,7 +33,9 @@ Companion locale di `issue-fix.yml` (CI). Usalo per issue HIGH-risk dove vuoi co
 4. Fix chirurgico: no drive-by, no speculative abstraction. Mai abbassare gate, mai disabilitare Auto Ads.
 5. STOP — mostra il diff e attendi approvazione umana prima di commit/push.
 6. Dopo OK: `gitnexus_detect_changes()`, poi commit (identity `Valerie Linc <valerielinc@gmail.com>`, no path home, no email personali).
-7. Push + `gh pr create`. Body `## Implementato` (`Closes #$ARGUMENTS`) + `## Non implementato (ancora)`.
+7. Push + `gh pr create`. Body `## Implementato` + `## Non implementato (ancora)`.
+   - **Riga di chiusura — NON scriverla a mano.** Calcolala: `gh issue view $ARGUMENTS --json number,title,body,labels | node scripts/lib/pr-body-generator-contract.mjs --closing-ref`. Stampa `Closes #N` oppure `Addresses #N`: `Addresses` quando la issue è una follow-up **aggregata multi-item**, su cui `pr-body-contract.yml` fallisce ogni `Closes` (la PR nasce rossa — successo reale #5848 e #5862) perché al merge chiuderebbe un'aggregata con item ancora dovuti.
+   - **Ogni bullet di `## Non implementato (ancora)` vuole uno STATO LETTERALE**, scritto esattamente così (AGENTS.md #8; `out of scope` / `follow-up` / `posposto` sono la tassonomia ABOLITA): `in questa PR` · `PR concatenata #N` (col numero) · `per scelta` · `by construction` · `blocked: <causa esterna reale>`. Senza stato, `scripts/ci/followup-has-candidates.mjs` riapre il bullet come issue di follow-up nuova — anche se il lavoro è già chiuso.
 8. PR → `pr-review-loop` → `## LGTM` → auto-merge. Attendi `MERGED`, poi rimuovi worktree + branch + ref remoto.
 9. **Rilascia il claim** (a lavoro concluso o se abbandoni prima): `gh issue edit $ARGUMENTS --remove-label agent:in-progress`. Mai lasciarla stale — blocca il fixer CI su questa issue finché resta.
 

@@ -9,6 +9,13 @@
     Closes #34
   MAI `Closes #12 #34 #56` su una riga: GitHub chiude solo #12, il resto resta
   aperto (cfr. PR #1320). pr-body-contract.yml flagga la riga multi-issue.
+  MAI `Closes #N` se #N è una follow-up AGGREGATA multi-item: `Closes` scatta al
+  merge e chiuderebbe l'aggregata con item ancora dovuti — pr-body-contract.yml
+  la flagga e la PR nasce rossa (cfr. #5848, #5862). Scrivi `Addresses #N`
+  (l'aggregata la chiude reconcile-followups.mjs quando TUTTI gli item sono fatti).
+  Nel dubbio non tirare a indovinare, calcolala:
+    gh issue view N --json number,title,body,labels \
+      | node scripts/lib/pr-body-generator-contract.mjs --closing-ref
 -->
 
 ## Implementato
