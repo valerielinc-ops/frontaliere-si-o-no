@@ -13642,6 +13642,19 @@ ${staticAnalyticsHtml}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleCount} cross-locale reconciliation pages`);
  }
 
+ // `jobHtmlCache` (populated during the ~85k active-job-page render
+ // phase) was read for the last time above, in the cross-locale-active
+ // bridge loop — the self-heal pass and final flush below never touch
+ // it again. Issue #5864 / run 31798646143 OOM'd (exit 134, V8 heap
+ // ~10.6 GB) right after the self-heal log line, the same failure shape
+ // already fixed once for `expiredSoftLandingCache` above. Free it here
+ // so the tail of the build isn't carrying tens of thousands of
+ // full-HTML strings it no longer needs.
+ jobHtmlCache.clear();
+ if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+ (globalThis as { gc: () => void }).gc();
+ }
+
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
  // or bridge pages gets a minimal redirect page pointing to the job listing.
