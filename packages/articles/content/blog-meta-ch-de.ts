@@ -2635,6 +2635,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Kantonale Steuern Kanton Luzern: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Leitfaden zu den Kantons- und Gemeindesteuern im Kanton Luzern mit Steuersätzen, Staffelungen, Abzügen und dem offiziellen Portal der Steuerverwaltung.',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Kantonssteuern im Kanton Luzern Abzüge und Sätze',
+    'blog.article.premi-cassa-malati-lucerna-2026.title': 'Krankenkassenprämien Kanton Luzern und Prämienverbilligung',
+    'blog.article.premi-cassa-malati-lucerna-2026.excerpt': 'Das Gesetz über die obligatorischen Krankenversicherungen im Kanton Luzern: Prämienklassen, Franchisen, alternative Modelle und Voraussetzungen für die Prämienverbilligung.',
+    'blog.article.premi-cassa-malati-lucerna-2026.imageAlt': 'Schweizer Lebensstil mit Wohnungen und lokalen Märkten',
 };
 
 export default blogMetaChDe;

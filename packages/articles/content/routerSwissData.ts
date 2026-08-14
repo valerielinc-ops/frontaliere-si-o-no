@@ -904,6 +904,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'nuova-notifiche-di-cessazione-delle-inquieste-del-sisi': { it: 'nuova-notifiche-di-cessazione-delle-inquieste-del-sisi', en: 'new-notice-of-cessation-of-investigations-of-the-sisi', de: 'neue-benachrichtigung-uber-die-einstellung-der-ermittlungen-des-sisi', fr: 'nouvelle-notification-de-cessation-des-enquetes-du-sisi' },
  'abort-topical-relevance-trump-health': { it: 'abort-topical-relevance-trump-health', en: 'news-not-relevant', de: 'nicht-zutreffende-nachrichten', fr: 'information-non-pertinente' },
  'imposte-cantonali-canton-lucerna-aliquote': { it: 'imposte-cantonali-canton-lucerna-aliquote', en: 'canton-lucerne-cantonal-taxes-deductions', de: 'kantonssteuern-kanton-luzern-abzuege', fr: 'impots-cantonaux-canton-lucerne-baremes' },
+ 'premi-cassa-malati-lucerna-2026': { it: 'premi-cassa-malati-lucerna-2026', en: 'health-insurance-premiums-lucerne', de: 'krankenversicherungspramien-luzern', fr: 'primes-maladie-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
