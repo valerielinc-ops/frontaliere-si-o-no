@@ -9945,6 +9945,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Schwerer Unfall auf der Alm: 27-Jähriger fällt im Maggiatal',
     'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Ein 27-jähriger Italiener stürzte etwa zehn Meter in einem unwegsamen Gebiet auf der Robiei-Alm im Maggiatal (Tessin) ab. Sein Zustand ist ernst und sein Leben ist in Gefahr.',
     'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Rettungskräfte in einem Helikopter während eines Bergrettungseinsatzes im Maggiatal, Tessin.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Gazzada für innovative Verpackungen ausgezeichnet',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum unter den ersten 60 Mini-Unternehmen Italiens beim nationalen Finale in Rom am 4.-5. Juni 2026. Europäische Auszeichnung \'The Entrepreneurial School\' in Riga für die Zusammenarbeit mit Universitäten und Unternehmen.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Schüler des Keynes-Instituts Gazzada präsentieren Pilz-basierte Verpackungen im Schulprojekt',
 };
 
 export default blogMetaDe;

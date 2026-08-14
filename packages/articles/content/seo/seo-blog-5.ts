@@ -67892,6 +67892,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-istituto-keynes-gazzada-micelio-imballaggi': {
+    title: 'Gazzada premiato per imballaggi innovativi | Frontaliere Ticino',
+    description: 'L\'Istituto Keynes di Gazzada Schianno ottiene riconoscimento nazionale ed europeo: Nycelyum tra le prime 60 mini-imprese d\'Italia e premio \'The Entrepreneurial',
+    keywords: 'frontalieri, ticino, svizzera, italia, gazzada, premiato, imballaggi, innovativi',
+    ogTitle: 'Istituto Keynes di Gazzada premiato in Europa per imballaggi con micelio',
+    ogDescription: 'Doppio riconoscimento per l\'Istituto Keynes di Gazzada Schianno: la mini-impresa studentesca Nycelyum raggiunge la finale nazionale di Impresa in Azione a Roma tra le prime 60 d\'Italia e la scuola ottiene il premio europeo \'The Entrepreneurial',
+    canonicalPath: '/articoli-frontaliere/istituto-keynes-gazzada-micelio-imballaggi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gazzada premiato per imballaggi innovativi",
+      "description": "L'Istituto Keynes di Gazzada Schianno ottiene riconoscimento nazionale ed europeo: Nycelyum tra le prime 60 mini-imprese d'Italia e premio 'The Entrepreneurial",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/istituto-keynes-gazzada-micelio-imballaggi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti dell'Istituto Keynes di Gazzada presentano imballaggi realizzati con micelio durante progetto scolastico"
+      },
+      "datePublished": "2026-08-14T03:18:02+00:00",
+      "dateModified": "2026-08-14T03:18:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/istituto-keynes-gazzada-micelio-imballaggi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
