@@ -13,7 +13,7 @@ import {
   orphanFaqLocales,
   sanitizePromptPlaceholders,
 } from '../../scripts/lib/prompt-placeholder-guard.mjs';
-import { unescapeTsString, tsStringEscapesWithNewlineAs } from '../../scripts/lib/unescape-ts-string.mjs';
+import { unescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../../scripts/lib/unescape-ts-string.mjs';
 
 /**
  * prompt-placeholder-guard.test.ts — banco del GEMELLO SITO del guard sui
@@ -554,7 +554,18 @@ describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittu
       let m: RegExpExecArray | null;
       while ((m = rx.exec(src)) !== null) {
         const [, id, field, raw] = m;
-        const value = unescapeTsString(raw, tsStringEscapesWithNewlineAs(' '));
+        // Decode allineato al lettore di produzione in staticPagesPlugin.ts
+        // (parseBlogBodyLocale): unescapeTsString gira PRIMA, sul testo grezzo
+        // catturato tra le virgolette, con lo stesso escape set con \n -> ' '
+        // usato per i campi single-line di questo gate.
+        // repairLegacyDoubleEscapedBreaks gira DOPO, sull'output gia' decodificato
+        // (mai sul sorgente grezzo): ripara il residuo di un vecchio bug di
+        // scrittura del corpus (\\n doppiamente sfuggito) collassandolo allo
+        // stesso spazio target, invece di lasciare un backslash visibile.
+        // Nessuna delle due chiamate va invertita: l'ordine e' quello che
+        // decide se un `\\n` legacy diventa uno spazio o resta un backslash.
+        // Vedi unescape-ts-string.mjs per il dettaglio del perche'.
+        const value = repairLegacyDoubleEscapedBreaks(unescapeTsString(raw, tsStringEscapesWithNewlineAs(' ')), ' ');
         totalFields += 1;
         const hits = findPromptPlaceholders(value);
         if (hits.length) {
