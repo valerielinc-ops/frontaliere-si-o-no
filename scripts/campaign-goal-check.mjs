@@ -41,6 +41,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { runHogQL } from './lib/posthog-client.mjs';
+import { checkPostHogLiveness, declareNotMeasurable, evaluateLiveness } from './lib/source-liveness.mjs';
 import { aggregateFamilyRows } from './lib/seo-ctr-curve.mjs';
 import { computeCtr } from './lib/analytics-opportunity-utils.mjs';
 import { getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
@@ -56,6 +57,11 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 // campaign kickoff for issues #4298-#4307). Every maturity check derives
 // from this + matureAfterDays, never from a second hardcoded date.
 export const CAMPAIGN_START = '2026-07-17';
+
+// Widest lookback any PostHog goal queries (evalErrorRate /
+// evalCalcDeeplinkInputStart use 30 DAY; the two 14d goals declare
+// `windowDays: 14` and are ruled on over their own window).
+const POSTHOG_MAX_GOAL_WINDOW_DAYS = 30;
 
 // ---------------------------------------------------------------------------
 // Pure date/state-machine helpers (exported for unit tests — no I/O, no env).
@@ -462,10 +468,10 @@ async function evalBingClicks() {
 // ---------------------------------------------------------------------------
 
 export const GOALS = [
-  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'posthog', matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversion },
-  { id: 'dead_clicks_reduction', title: 'Dead click $dead_click -50% (14gg)', source: 'posthog', matureAfterDays: 14, issueRef: '#4304', evaluate: evalDeadClicksReduction },
-  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'posthog', matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRate },
-  { id: 'calc_deeplink_input_start', title: 'Calcolatore deep-link → input start >= 25%', source: 'posthog', matureAfterDays: 30, issueRef: '#4307', evaluate: evalCalcDeeplinkInputStart },
+  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversion },
+  { id: 'dead_clicks_reduction', title: 'Dead click $dead_click -50% (14gg)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4304', evaluate: evalDeadClicksReduction },
+  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRate },
+  { id: 'calc_deeplink_input_start', title: 'Calcolatore deep-link → input start >= 25%', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4307', evaluate: evalCalcDeeplinkInputStart },
   { id: 'canton_hub_positions', title: 'Hub cantonali: svizzera<20 E zurigo<14', source: 'gsc', matureAfterDays: 30, issueRef: '#4303', evaluate: evalCantonHubPositions },
   { id: 'brand_query_ctr', title: 'CTR query brand > 2%', source: 'gsc', matureAfterDays: 30, issueRef: '#4306', evaluate: evalBrandQueryCtr },
   { id: 'email_sessions', title: 'Sessioni canale Email >= 7.350 (90gg)', source: 'ga4', matureAfterDays: 90, issueRef: '#4299', evaluate: evalEmailSessions },
@@ -525,12 +531,57 @@ export async function runCampaignGoalCheck({
   loadStateImpl = loadState,
   saveStateImpl = (path, state) => writeJsonAtomic(path, state),
   createIssueImpl = defaultCreateIssue,
+  checkLivenessImpl = checkPostHogLiveness,
   dryRun = false,
 } = {}) {
   const state = loadStateImpl(stateFilePath);
   state.goals = state.goals || {};
   const results = [];
   const sourceStats = new Map(); // source -> {attempted, errored}
+
+  // Vitality guard (scripts/lib/source-liveness.mjs), probed lazily so a run
+  // where no PostHog goal is mature never pays for the query.
+  //
+  // Only evalErrorRate had a zero-events guard; evalAlertFunnelConversion and
+  // evalCalcDeeplinkInputStart turned "0 events" into rate=null → passed:false
+  // → a "Campaign goal FAILED" issue, and evalDeadClicksReduction read 0 as
+  // beating its 5991 target and latched `passed` forever (skip-passed never
+  // re-evaluates). During the 2026-07-23 → 08-10 outage all three were reading
+  // a dead source. `unmeasurable` is the honest verdict and opens no issue.
+  // Probed once at the widest goal window; each goal is then ruled on over
+  // its OWN window from the same daily counts, so a hole older than a 14d
+  // goal's lookback doesn't make that goal abstain for nothing.
+  let posthogProbe;
+  // Declared at most once per run per window: four goals sharing one dead
+  // source is one outage, not four alarms.
+  const declaredWindows = new Set();
+  const posthogNotMeasurable = async (goalWindowDays) => {
+    if (posthogProbe === undefined) {
+      posthogProbe = await checkLivenessImpl({ windowDays: POSTHOG_MAX_GOAL_WINDOW_DAYS, now });
+    }
+    const declareOnce = (verdict) => {
+      if (!declaredWindows.has(verdict.windowDays)) {
+        declaredWindows.add(verdict.windowDays);
+        declareNotMeasurable('campaign-goal-check', verdict);
+      }
+      return verdict;
+    };
+    if (posthogProbe.credentialsMissing || posthogProbe.probeFailed) return declareOnce(posthogProbe);
+    // Per-window re-ruling needs the daily counts. Without them (an injected
+    // probe in a test, or a future source that reports only a verdict) the
+    // probe's own answer stands — re-deriving from an empty map would read
+    // "no data" as "dead" and abstain on a healthy source.
+    if (!(posthogProbe.dailyCounts instanceof Map) || posthogProbe.dailyCounts.size === 0) {
+      return posthogProbe.alive ? null : declareOnce(posthogProbe);
+    }
+    const verdict = evaluateLiveness({
+      dailyCounts: posthogProbe.dailyCounts,
+      windowDays: goalWindowDays ?? POSTHOG_MAX_GOAL_WINDOW_DAYS,
+      now,
+      source: 'posthog',
+    });
+    return verdict.alive ? null : declareOnce(verdict);
+  };
 
   for (const goal of goals) {
     const prior = state.goals[goal.id] || {};
@@ -551,6 +602,16 @@ export async function runCampaignGoalCheck({
     }
 
     // action === 'evaluate'
+    if (goal.source === 'posthog') {
+      const dead = await posthogNotMeasurable(goal.windowDays);
+      if (dead) {
+        const note = `sorgente non misurabile: ${dead.reason}`;
+        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
+        results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
+        continue;
+      }
+    }
+
     const stat = sourceStats.get(goal.source) || { attempted: 0, errored: 0 };
     stat.attempted += 1;
     sourceStats.set(goal.source, stat);

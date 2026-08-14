@@ -252,6 +252,39 @@ describe('app-error-issue-sync.mjs', () => {
 });
 
 describe('posthog-error-issue-sync.mjs', () => {
+  /**
+   * main() now runs the PostHog vitality guard (scripts/lib/source-liveness.mjs)
+   * before its $exception query, and the guard reaches PostHog through the same
+   * global fetch these tests stub. A flat stub would answer the liveness probe
+   * with the $exception rows, which parse to zero events/day — the monitor would
+   * correctly abstain and every assertion below would fail for the wrong reason.
+   *
+   * So the stub dispatches on the query: liveness probes get a healthy 45 days
+   * at the last measured pre-outage volume (90.027/day on 2026-07-22), the
+   * $exception query gets `rows`. The guard's abstention behaviour itself is
+   * covered in tests/monitor-source-liveness-guard.test.ts.
+   */
+  const livenessProbeDays = () => {
+    const out: Array<[string, number]> = [];
+    const now = new Date();
+    for (let back = 0; back <= 45; back += 1) {
+      const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+      d.setUTCDate(d.getUTCDate() - back);
+      out.push([d.toISOString().slice(0, 10), 90027]);
+    }
+    return out;
+  };
+
+  const stubPostHogFetch = (rows: unknown[]) => {
+    const mock = vi.fn(async (_url: string, init?: { body?: string }) => {
+      const body = String(init?.body ?? '');
+      const isProbe = body.includes('GROUP BY d') && body.includes('toDate(timestamp)');
+      return { ok: true, json: async () => ({ results: isProbe ? livenessProbeDays() : rows }) };
+    });
+    vi.stubGlobal('fetch', mock);
+    return mock;
+  };
+
   it('exits silently (no fetch, no gh call) when credentials are missing', async () => {
     const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
@@ -280,15 +313,10 @@ describe('posthog-error-issue-sync.mjs', () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'k';
     process.env.POSTHOG_PROJECT_ID = 'p';
     issueListEmptyThenCreate(201);
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        results: [
+    stubPostHogFetch([
           ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
           ['rare one-off', 'Error', 1, 1, 'https://frontaliereticino.ch/it/x/'],
-        ],
-      }),
-    }));
+        ]);
 
     await posthogSync.main();
 
@@ -301,10 +329,7 @@ describe('posthog-error-issue-sync.mjs', () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'k';
     process.env.POSTHOG_PROJECT_ID = 'p';
     issueListEmptyThenCreate(203);
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        results: [
+    stubPostHogFetch([
           // Denied: link-time version-skew wordings across engines — already
           // self-healed client-side (cache-bust + budgeted reload) and kept in
           // PostHog for chunk-load dashboards.
@@ -318,9 +343,7 @@ describe('posthog-error-issue-sync.mjs', () => {
           ['Script error.', 'Error', 41, 12, 'https://frontaliereticino.ch/vita-in-ticino/vacanze-scolastiche-ticino-2026/'],
           // Real actionable error — must still be synced.
           ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
-        ],
-      }),
-    }));
+        ]);
 
     await posthogSync.main();
 
@@ -336,17 +359,12 @@ describe('posthog-error-issue-sync.mjs', () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'k';
     process.env.POSTHOG_PROJECT_ID = 'p';
     issueListEmptyThenCreate(202);
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        results: [
+    stubPostHogFetch([
           // Denied: kept in PostHog for chunk-load dashboards but not a backlog ticket.
           ['Importing a module script failed.', 'TypeError', 13, 10, 'https://frontaliereticino.ch/en/find-jobs-ticino/'],
           // Real actionable error — must still be synced.
           ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
-        ],
-      }),
-    }));
+        ]);
 
     await posthogSync.main();
 

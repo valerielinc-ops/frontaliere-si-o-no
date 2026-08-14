@@ -28,6 +28,7 @@ import { dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { runHogQL } from './lib/posthog-client.mjs';
+import { abstainIfSourceDead } from './lib/source-liveness.mjs';
 
 /**
  * #4302 target pages with their CLS (unitless) / INP (ms) field p75
@@ -138,6 +139,14 @@ const MIN_SAMPLES_PER_METRIC = 30;
     console.log('[cwv-monitor-check] POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing — skip');
     return;
   }
+
+  // Vitality guard (scripts/lib/source-liveness.mjs). MIN_SAMPLES_PER_METRIC
+  // below suppresses a low-sample p75, which is right for a quiet page but is
+  // exactly what turned the 2026-07-23 → 08-10 PostHog outage into three weeks
+  // of green runs recording n=0. A dead source is not "no regression", it is
+  // no measurement — abstain loudly instead of writing zeros into history.
+  const notMeasurable = await abstainIfSourceDead('cwv-monitor-check', { windowDays: Number(WINDOW_DAYS) });
+  if (notMeasurable) return;
 
   const history = loadHistory(HISTORY_FILE);
   const today = new Date().toISOString().slice(0, 10);

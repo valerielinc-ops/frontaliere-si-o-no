@@ -54,6 +54,7 @@ import {
 } from './lib/keyword-page-paths.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
 import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
+import { abstainIfSourceDead } from './lib/source-liveness.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data/jobs.json');
@@ -94,6 +95,13 @@ async function fetchOnsiteSearchTerms() {
     console.error('[signal A] --skip-posthog: on-site search signal disabled');
     return null;
   }
+  // Vitality guard (scripts/lib/source-liveness.mjs): a dead PostHog returns
+  // an empty term list on an HTTP 200, which reads as "no user searched for
+  // this profession" — the opposite of the truth, and the workflow then opens
+  // a deduped SEO issue built on it. Returning null puts the signal in the
+  // same state as --skip-posthog: reported as disabled, never as zero.
+  const notMeasurable = await abstainIfSourceDead('profession-keyword-opportunities', { windowDays: WINDOW_DAYS });
+  if (notMeasurable) return null;
   return fetchOnsiteSearchTermsShared({ windowDays: WINDOW_DAYS, limit: 1000 });
 }
 
