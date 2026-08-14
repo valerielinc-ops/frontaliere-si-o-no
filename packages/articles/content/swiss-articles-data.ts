@@ -7885,6 +7885,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'abort-topical-relevance-trump-health',
+    category: 'pratico',
+    date: '2026-08-14T01:37:12.368Z',
+    image: '/images/blog/abort-topical-relevance-trump-health.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

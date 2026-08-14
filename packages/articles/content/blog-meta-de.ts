@@ -9927,6 +9927,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ocst-donna-lavoro-servizi.title': 'OCST Frau-Arbeit: Schutz und Unterstützung',
     'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Unterstützungs-, Beratungs- und Rechtsschutzdienste für Arbeitnehmerinnen in Schwierigkeiten, mit Kursen und Berufsberatung.',
     'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Unterstützungsschalter für Arbeitnehmer im Tessin',
+    'blog.article.no-rimborso-ticino-2020.title': 'Tessin 2020: Keine Rückerstattung an die Gemeinden. ‘Haftung auf beiden Seiten’',
+    'blog.article.no-rimborso-ticino-2020.excerpt': 'Die Regierung antwortet denjenigen, die eine Entschädigung für das Geld verlangten, das für das später gescheiterte Projekt ausgegeben wurde.',
+    'blog.article.no-rimborso-ticino-2020.imageAlt': 'Keine Entschädigung für Pendler in der Schweiz',
 };
 
 export default blogMetaDe;

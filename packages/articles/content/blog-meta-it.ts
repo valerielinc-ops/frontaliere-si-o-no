@@ -9929,6 +9929,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ocst-donna-lavoro-servizi.title': 'OCST donna-lavoro: tutela e supporto',
     'blog.article.ocst-donna-lavoro-servizi.excerpt': 'Servizi di supporto, consulenza e tutela legale per le lavoratrici in difficoltà, con corsi e orientamento professionale.',
     'blog.article.ocst-donna-lavoro-servizi.imageAlt': 'Sportello di supporto per i lavoratori in Ticino',
+    'blog.article.no-rimborso-ticino-2020.title': 'Ticino 2020: nessun rimborso ai Comuni. ‘Responsabilità da entrambe le parti’',
+    'blog.article.no-rimborso-ticino-2020.excerpt': 'Il governo risponde picche a chi chiedeva un risarcimento per i soldi spesi a favore del progetto poi naufragato.',
+    'blog.article.no-rimborso-ticino-2020.imageAlt': 'Frontalieri ticinesi in attesa di risarcimento',
 };
 
 export default blogMetaIt;

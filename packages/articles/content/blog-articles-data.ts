@@ -29766,6 +29766,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'no-rimborso-ticino-2020',
+ category: 'novita',
+ date: '2026-08-14T01:34:24.303Z',
+ image: '/images/blog/no-rimborso-ticino-2020.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

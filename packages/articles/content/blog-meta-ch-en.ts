@@ -2629,6 +2629,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'New notifications of termination of investigations (aviation) of SISI',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'SISI\'s termination notices (aviation) were published on the website of the Swiss Security Investigation Service.',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Publication of a new notice of cessation of investigations (aviation) of the SISI',
+    'blog.article.abort-topical-relevance-trump-health.title': 'News not relevant',
+    'blog.article.abort-topical-relevance-trump-health.excerpt': 'The source treated does not have a real link with the life of those who live or work in Switzerland.',
+    'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Economic news newsroom in Switzerland',
 };
 
 export default blogMetaChEn;
