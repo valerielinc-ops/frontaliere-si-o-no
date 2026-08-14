@@ -11,8 +11,8 @@ import { Analytics } from '@/services/analytics';
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import { Users, TrendingUp, TrendingDown, Minus, AlertTriangle, Download, Info, Sparkles, CheckSquare, ExternalLink, FileText } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, NEW_FRONTIER_WITHIN_20KM_CH_SHARE } from '@/services/calculationService';
-import { DEFAULT_EXCHANGE_RATE } from '@/constants';
+import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, getTicinoTaxRate, NEW_FRONTIER_WITHIN_20KM_CH_SHARE } from '@/services/calculationService';
+import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // ── G permit type ──
 type GPermitType = 'new_within_20km' | 'new_beyond_20km' | 'old';
@@ -42,20 +42,28 @@ const IJM = 0.008;
 const LPP_AVG = 0.06; // average across ages for simplified comparison
 const SOCIAL_TOTAL = AVS + AD + AINF + IJM + LPP_AVG;
 
-// Ticino withholding tax (simplified interpolation for quick comparison)
-const TABLE_A: [number, number][] = [[0, 0], [30000, 3.2], [50000, 6.0], [80000, 11.3], [100000, 13.2], [140000, 16.5], [200000, 19.4]];
-const TABLE_B: [number, number][] = [[0, 0], [40000, 1.1], [60000, 2.5], [80000, 5.1], [100000, 8.7], [140000, 12.8], [200000, 16.5]];
-
-function interpolate(value: number, pts: [number, number][]): number {
- if (value <= pts[0][0]) return pts[0][1];
- if (value >= pts[pts.length - 1][0]) return pts[pts.length - 1][1];
- for (let i = 0; i < pts.length - 1; i++) {
- const [x0, y0] = pts[i];
- const [x1, y1] = pts[i + 1];
- if (value >= x0 && value < x1) return y0 + (value - x0) * (y1 - y0) / (x1 - x0);
- }
- return 0;
-}
+// Ticino withholding tax — single source of truth: `getTicinoTaxRate` in
+// `@/services/calculationService`.
+//
+// This file used to carry its OWN copy of barème A and B, calibrated on 7 points
+// against the 20 of `calculationService` (issue #5375). Same linear-interpolation
+// algorithm, different tables, so the same gross salary produced two different
+// withholding rates depending on which page the user opened: 45.000 CHF read
+// 5,300% here and 5,600% in `TaxCreditCalculator`/`WithholdingRatesHub`.
+//
+// The fix consumes the EXPORTED `getTicinoTaxRate` rather than re-exporting the
+// point tables or the `interpolate` helper: the tables stay module-private in
+// `calculationService`, so there is nothing here to fork again, and the
+// marital-status → barème mapping lives in exactly one place. `getTicinoTaxRate`
+// already returns the rate as a fraction, which is what the model below wants.
+//
+// The G/B comparison is deliberately simplified: barème A for permit G (single),
+// barème B for permit B (married, spouse not working), no children. Those are the
+// arguments below — they are the simplification, not a duplicated table.
+export const getPermitGSwissTaxRate = (grossCHF: number): number =>
+ getTicinoTaxRate(grossCHF, 'SINGLE', 0, false).rate;
+export const getPermitBSwissTaxRate = (grossCHF: number): number =>
+ getTicinoTaxRate(grossCHF, 'MARRIED', 0, false).rate;
 
 
 // The CHF→EUR fallback rate is imported from `@/constants` (see the import
@@ -114,7 +122,7 @@ function buildTemplateContent(
 function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_CITIES[0], EXCHANGE_RATE: number = DEFAULT_EXCHANGE_RATE, gType: GPermitType = 'new_beyond_20km'): ComparisonResult {
  // ── Permit G (frontaliere) ──
  const socialG = grossCHF * SOCIAL_TOTAL;
- const swissTaxRateG = interpolate(grossCHF, TABLE_A) / 100; // single barème A for simplicity
+ const swissTaxRateG = getPermitGSwissTaxRate(grossCHF); // single barème A for simplicity
  // NEW within 20km: CH retains only 80% of withholding; others: 100%
  const chTaxShare = gType === 'new_within_20km' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
  const swissTaxG = grossCHF * swissTaxRateG * chTaxShare;
@@ -128,8 +136,8 @@ function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_C
  // OLD agreement: 100% taxed at source in CH, no Italian IRPEF, no franchigia
  totalItalianTax = 0;
  } else {
- // NEW agreement 2026: franchigia €10k, social deductions, detrazioni Art. 13 TUIR
- const franchigia = 10000;
+ // NEW agreement 2026: franchigia, social deductions, detrazioni Art. 13 TUIR
+ const franchigia = FRANCHIGIA_NUOVI_FRONTALIERI;
  const taxableIT = Math.max(0, grossEUR - socialEUR - franchigia);
  const irpefGross = calculateIrpefGross(taxableIT);
  const detrazioni = calculateProgressiveWorkDeduction(taxableIT);
@@ -152,7 +160,7 @@ function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_C
 
  // ── Permit B (resident in CH) ──
  const socialB = grossCHF * SOCIAL_TOTAL;
- const swissTaxRateB = interpolate(grossCHF, TABLE_B) / 100; // married barème B for more favorable comparison
+ const swissTaxRateB = getPermitBSwissTaxRate(grossCHF); // married barème B for more favorable comparison
  const swissTaxB = grossCHF * swissTaxRateB;
  // No Italian taxes for Permit B residents
 
@@ -208,11 +216,11 @@ function compare_simple_net(grossCHF: number, muni: Municipality, swissCity: typ
  const grossEUR = grossCHF * EXCHANGE_RATE;
  const socialG = grossCHF * SOCIAL_TOTAL;
  const chTaxShare = gType === 'new_within_20km' ? NEW_FRONTIER_WITHIN_20KM_CH_SHARE : 1.0;
- const swissTaxG = grossCHF * (interpolate(grossCHF, TABLE_A) / 100) * chTaxShare;
+ const swissTaxG = grossCHF * getPermitGSwissTaxRate(grossCHF) * chTaxShare;
 
  let italianTax = 0;
  if (gType !== 'old') {
- const taxableIT = Math.max(0, grossEUR - 10000);
+ const taxableIT = Math.max(0, grossEUR - FRANCHIGIA_NUOVI_FRONTALIERI);
  const irpef = calculateIrpefGross(taxableIT);
  const addRegionale = taxableIT * 0.0173;
  const addComunale = taxableIT * (muni.irpefAddizionale / 100);
@@ -223,7 +231,7 @@ function compare_simple_net(grossCHF: number, muni: Municipality, swissCity: typ
  const netG = grossEUR - totalCostsG;
 
  const socialB = grossCHF * SOCIAL_TOTAL;
- const swissTaxB = grossCHF * (interpolate(grossCHF, TABLE_B) / 100);
+ const swissTaxB = grossCHF * getPermitBSwissTaxRate(grossCHF);
  const totalCostsBCHF = socialB + swissTaxB + swissCity.rentCHF * 12 + 600 * 12 + 100 * 12 + swissCity.healthCHF * 12;
  const netB = (grossCHF - totalCostsBCHF) * EXCHANGE_RATE;
 
