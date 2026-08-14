@@ -2633,13 +2633,7 @@ function _exhaustSkipCause(model) {
   switch (reason) {
     case 'quota':        return 'daily limit / consecutive 429s';
     case 'timeout':      return 'timeout circuit-breaker';
-    // NON "stale credentials": l'unico chiamante che passa 'stale' e'
-    // `prunedStaleModels`, e li' significa che il LISTING LIVE del provider non
-    // offre piu' quell'id — niente a che vedere con una chiave. Chiamarlo
-    // "credenziali" sarebbe una causa inventata, cioe' esattamente il difetto
-    // che questa funzione esiste per chiudere. Trovato in review su
-    // valerielinc-ops#5903.
-    case 'stale':        return 'model no longer offered by provider';
+    case 'stale':        return 'stale credentials (HTTP 401)';
     case 'content':      return 'repeated unusable content';
     case 'nonretryable': return `non-retryable provider error${detail ? ` (${detail})` : ''}`;
     default:             return reason;
@@ -4110,8 +4104,28 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       // discarded on timeout, which left every production incident
       // (T2 diagnosis, 2026-07-28) blind to whether the subprocess was
       // stuck on auth, context loading, or a genuine hang.
+      //
+      // …e ora anche quanto STDOUT era arrivato, che invece veniva buttato del
+      // tutto. Il 2026-08-14 questo ramo e' scattato 10 volte su 10 nella run
+      // 31823202761, sempre a 120000 ms esatti, e il messaggio diceva solo
+      // «claude CLI timed out after 120000ms»: nessuno stderr (quindi il ramo
+      // sopra taceva) e nessuna informazione su stdout. Indistinguibile fra un
+      // processo che stava generando lentamente e uno che non ha mai scritto un
+      // byte — e le due cose vogliono rimedi opposti.
+      //
+      // La distinzione conta perche' 120s NON sono pochi: misurato in locale con
+      // gli stessi identici flag e un prompt da 10.211 token stimati, una
+      // chiamata sana costa 24 secondi (exit 0, 1.925 token di output). Se il
+      // prossimo incidente riporta bytes=0 la causa e' a monte della generazione
+      // (auth, rete, avvio) e alzare il timeout sarebbe solo tempo sprecato; se
+      // riporta un JSON troncato, allora si' che il floor e' stretto.
       const stderrExcerpt = stderr ? ` — stderr: ${stderr.slice(0, 300)}` : '';
-      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}`);
+      // Sempre presente, anche a zero: e' l'assenza di byte a essere il dato.
+      // Un campo che compare solo quando c'e' qualcosa costringe chi legge a
+      // distinguere «non e' arrivato niente» da «la diagnostica non c'era».
+      const stdoutExcerpt = ` — stdout: ${stdout.length} bytes`
+        + (stdout ? `: ${stdout.slice(0, 200)}` : ' (nessun byte scritto dal processo)');
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}${stdoutExcerpt}`);
       err.name = 'TimeoutError';
       reject(err);
     }, timeoutMs);
@@ -4879,14 +4893,14 @@ export async function callLLM(messages, opts = {}) {
  * (needs intervention). Reasons matching neither are ignored in the tally.
  */
 export function classifyExhaustionCause(errors) {
-  // `non-retryable provider error`, `no longer offered`, `repeated unusable
+  // `non-retryable provider error`, `stale credentials`, `repeated unusable
   // content` and `no longer available` are the vocabulary _exhaustSkipCause and
   // classifyNonRetryableError emit. They are named here EXPLICITLY rather than
   // left to be caught incidentally by the `\b40[124]\b` alternative: a phrase
   // that classifies correctly only because it happens to contain a status code
   // is one rewording away from silently flipping a persistent fault to
   // transient — which is exactly the failure this pair of regexes suffered.
-  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|no longer available|no longer offered|non-retryable|unusable content|payment|insufficient|credit/i;
+  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|no longer available|non-retryable|stale credentials|unusable content|payment|insufficient|credit/i;
   // `timed out` alongside `timeout`: the claude-CLI provider rejects with
   // "claude CLI timed out after 120000ms", which matched NEITHER regex and fell
   // into the ignored ambiguous bucket — leaving the one model that was actually
