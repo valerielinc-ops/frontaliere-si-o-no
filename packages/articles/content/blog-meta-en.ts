@@ -9949,6 +9949,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Award-winning magazine for innovative packaging',
     'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum is among the top 60 mini-companies in Italy at the national final in Rome on 4-5 June 2026. European recognition \'The Entrepreneurial School\' received in Riga for collaboration with universities and companies.',
     'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Students from Keynes Institute of Gazzada presenting mushroom-based packaging during school project',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.title': 'Cantello: the Rio dei Gioghi trail will reopen after the summer',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.excerpt': 'Finished recovery works on the Rio dei Gioghi trail in Ligurno, part of the Sentiero Italia CAI and the PLIs Valle della Bevera, financed by Interreg Italia-Svizzera SINTAB.',
+    'blog.article.cantello-rio-dei-gioghi-sentiero-riapertura.imageAlt': 'Restored Rio dei Gioghi trail in Ligurno with wooden palisades and stone drainage channel',
 };
 
 export default blogMetaEn;
