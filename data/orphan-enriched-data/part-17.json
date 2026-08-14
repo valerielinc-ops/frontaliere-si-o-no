@@ -70970,9 +70970,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-caisses-services-coop-genossenschaft-zurich",
-        "en": "vendeur-vendeuse-caisses-services-coop-genossenschaft-zurich",
-        "de": "vendeur-vendeuse-caisses-services-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-nywdyi",
+        "it": "addetto-addetta-casse-e-servizi-coop-genossenschaft-zurich",
+        "en": "sales-assistant-cashier-services-coop-genossenschaft-zurich",
         "fr": "vendeur-vendeuse-caisses-services-coop-genossenschaft-zurich"
       },
       "localePaths": {
@@ -70987,6 +70987,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
