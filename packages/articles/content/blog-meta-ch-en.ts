@@ -2653,6 +2653,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-lucerna.title': 'Family allowances in the Canton of Lucerne: amounts and application',
     'blog.article.assegni-familiari-canton-lucerna.excerpt': 'Who can claim family allowances in the Canton of Lucerne and how to proceed.',
     'blog.article.assegni-familiari-canton-lucerna.imageAlt': 'Assegni familiari in the Canton of Lucerne: import and application',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.title': 'Lucerne cantonal school system: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.excerpt': 'Find out about the school cycles, enrolment age and school calendar for the Canton of Lucerne',
+    'blog.article.sistema-scolastico-canton-lucerna-iscrizione-e-cicli.imageAlt': 'scenic school in a lucerne institute',
 };
 
 export default blogMetaChEn;

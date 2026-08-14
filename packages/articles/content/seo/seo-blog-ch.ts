@@ -34376,6 +34376,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-scolastico-canton-lucerna-iscrizione-e-cicli': {
+    title: 'Sistema scolastico cantonale di Lucerna: iscrizione e cicli',
+    description: 'Informazioni sulla scuola dell\'obbligo al Cantone di Lucerna, inclusa l\'età di iscrizione, la durata della scuola e il calendario scolastico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, cantonale, lucerna',
+    ogTitle: 'Sistema scolastico cantonale di Lucerna: iscrizione e cicli',
+    ogDescription: 'Informazioni sulla scuola dell\'obbligo al Cantone di Lucerna, inclusa l\'età di iscrizione, la durata della scuola e il calendario scolastico.',
+    canonicalPath: '/articoli-svizzera/sistema-scolastico-canton-lucerna-iscrizione-e-cicli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico cantonale di Lucerna: iscrizione e cicli",
+      "description": "Informazioni sulla scuola dell'obbligo al Cantone di Lucerna, inclusa l'età di iscrizione, la durata della scuola e il calendario scolastico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-scolastico-canton-lucerna-iscrizione-e-cicli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "immagine scolastica in un istituto lucernese"
+      },
+      "datePublished": "2026-08-14T02:37:30+00:00",
+      "dateModified": "2026-08-14T02:37:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-scolastico-canton-lucerna-iscrizione-e-cicli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
