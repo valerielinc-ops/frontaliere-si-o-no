@@ -9931,6 +9931,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.no-rimborso-ticino-2020.title': 'Ticino 2020: no reimbursement to the Municipalities. ‘Liability on both sides’',
     'blog.article.no-rimborso-ticino-2020.excerpt': 'The government responds to those who asked for compensation for the money spent on the project that was then shipwrecked.',
     'blog.article.no-rimborso-ticino-2020.imageAlt': 'Ticino 2020: no reimbursement for commuters',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.title': 'Business crises, at Mimit 37 active tables: Beko Europe under observation',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.excerpt': 'The company crisis tables at the Ministry of Business and Made in Italy fall to 37, while the monitoring tables rise to 46.',
+    'blog.article.crisi-aziendali-mimit-tavoli-monitoraggio-2026.imageAlt': 'Meeting at the Ministry of Enterprises and Made in Italy on corporate crises',
 };
 
 export default blogMetaEn;
