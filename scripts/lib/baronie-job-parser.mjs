@@ -206,8 +206,9 @@ export function parseBaronieDetailHtml(html) {
       const candidates = Array.isArray(ld) ? ld : Array.isArray(ld?.['@graph']) ? ld['@graph'] : [ld];
       const job = candidates.find((node) => node && node['@type'] === 'JobPosting') || null;
       if (job) {
-        if (job.jobLocation?.address) {
-          const addr = job.jobLocation.address;
+        const jobLocation = Array.isArray(job.jobLocation) ? job.jobLocation[0] : job.jobLocation;
+        if (jobLocation?.address) {
+          const addr = jobLocation.address;
           location = normalizeSpace(addr.addressLocality || '');
           addressCountry = normalizeSpace(addr.addressCountry || '');
         }
