@@ -528,51 +528,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "dipendente-del-dogano-stadler-rail-altenrhein",
-    "title": "Mitarbeiter:in Zollabwicklung",
-    "titleByLocale": {
-      "it": "Dipendente del Dogano",
-      "en": "Associate Zollabwicklung",
-      "de": "Mitarbeiter:in Zollabwicklung",
-      "fr": "Employé du dédouanement"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "Altenrhein",
-    "addressLocality": "Altenrhein",
-    "descriptionByLocale": {
-      "it": "PROFILO\n• Formazione commerciale completa, possibilmente con perfezionamento nel settore doganale\n• Esperienza nelle pratiche doganali nel settore dell'importazione e dell'esportazione\n• Buona conoscenza del diritto doganale e della materia degli accordi preferenziali\n• L'esperienza nell'utilizzo di SAP GTS è un vantaggio\n• Elevata precisione e un modo di lavorare strutturato e indipendente\n• Personalità resiliente, responsabile e affidabile\n• Ottimo tedesco e buona conoscenza dell'inglese scritto e parlato COMPITI\n• Preparazione di documenti doganali (dichiarazioni doganali di esportazione e carnet ATA), certificati di circolazione delle merci e istruzioni di sdoganamento\n• Controllo delle dichiarazioni doganali di importazione ed esportazione\n• Classificazione delle merci secondo le tariffe doganali CH, UE e Regno Unito\n• Ottenimento e controllo della prova dell'origine (ad es. EUR.1, dichiarazioni dei fornitori)\n• Collaborazione attiva con autorità doganali, spedizionieri doganali, fornitori e servizi interni\n• Monitoraggio delle scadenze e dei processi rilevanti per la dogana\n• Aggiornamento dei dati anagrafici rilevanti per la dogana\n• Garantire il rispetto dei requisiti legali",
-      "en": "PROFILE\n• Completed commercial training, ideally with further training in the customs sector\n• Experience in customs processing in the import and export sector\n• Good knowledge of customs law and the subject of preferential agreements\n• Experience in dealing with SAP GTS is an advantage\n• High accuracy as well as a structured and independent way of working\n• Resilient, responsible and reliable personality\n• Very good German and good written and spoken English skills TASKS\n• Preparation of customs documents (export customs declarations and ATA Carnet), Movement of goods certificates and customs clearance instructions\n• Checking import and export customs declarations\n• Classification of goods according to the CH, EU and UK customs tariffs\n• Obtaining and checking proof of origin (e.g. EUR.1, supplier declarations)\n• Active cooperation with customs authorities, customs agents, suppliers and internal departments\n• Monitoring of customs-relevant deadlines and processes\n• Maintenance of customs-relevant master data\n• Ensuring compliance with legal requirements",
-      "de": "PROFIL\n\n• Abgeschlossene kaufmännische Ausbildung, idealerweise mit Weiterbildung im Zollbereich\n\n•\nErfahrung in der Zollabwicklung im Import- und Exportbereich\n\n• Gute Kenntnisse im Zollrecht sowie zum Thema Präferenzabkommen\n\n• Erfahrung im Umgang mit SAP GTS von Vorteil\n\n•\nHohe Genauigkeit sowie eine strukturierte und selbstständige Arbeitsweise\n\n•\nBelastbare, verantwortungsbewusste und zuverlässige Persönlichkeit\n\n• Sehr gute Deutsch- sowie gute Englischkenntnisse in Wort und Schrift\n\nAUFGABEN\n\n• Erstellung von Zolldokumenten (Exportzollanmeldungen und Carnet ATA), Warenverkehrsbescheinigungen und Verzollungsinstruktionen\n\n• Prüfung von Import- und Exportzollanmeldungen\n\n• Tarifierung von Waren gemäss CH-, EU- und UK-Zolltarif\n\n• Einholung und Prüfung von Ursprungsnachweisen (z. B. EUR.1, Lieferantenerklärungen)\n\n• Aktive Zusammenarbeit mit Zollbehörden, Zollagenten, Lieferanten und internen Stellen\n\n• Überwachung zollrelevanter Fristen und Prozesse\n\n• Pflege zollrelevanter Stammdaten\n\n• Sicherstellung der Einhaltung gesetzlicher Vorgaben",
-      "fr": "PROFIL\n• Formation commerciale terminée, idéalement complétée par une formation complémentaire dans le secteur douanier\n• Expérience dans le traitement douanier dans le secteur de l'import et de l'export\n• Bonne connaissance du droit douanier et du sujet des accords préférentiels\n• Une expérience dans la gestion de SAP GTS est un avantage\n• Grande précision ainsi qu'une manière de travailler structurée et indépendante\n• Personnalité résiliente, responsable et fiable\n• Très bonne maîtrise de l'allemand et de l'anglais écrit et parlé TÂCHES\n• Préparation des documents douaniers (déclarations en douane d'exportation et Carnet ATA), certificats de circulation des marchandises et instructions de dédouanement\n• Contrôle des déclarations en douane d'importation et d'exportation\n• Classification des marchandises selon les tarifs douaniers de la Suisse, de l'UE et du Royaume-Uni\n• Obtention et contrôle des preuves d'origine (par ex. EUR.1, déclarations des fournisseurs)\n• Coopération active avec les autorités douanières, les agents en douane, les fournisseurs et les services internes\n• Surveillance des délais et des processus pertinents pour les douanes\n• Gestion des données de base pertinentes pour les douanes\n• Garantir le respect des exigences légales"
-    },
-    "slugByLocale": {
-      "it": "dipendente-del-dogano-stadler-rail-altenrhein",
-      "en": "associate-zollabwicklung-stadler-rail-altenrhein",
-      "de": "mitarbeiter-in-zollabwicklung-stadler-rail-ch",
-      "fr": "employe-du-dedouanement-stadler-rail-altenrhein"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-08-05T11:38:37.657Z",
-    "previousSlugs": [
-      "mitarbeiter-in-zollabwicklung-stadler-rail-ch",
-      "customs-clearance-employee-stadler-rail-altenrhein"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "mitarbeiter-in-zollabwicklung-stadler-rail-ch"
-      ],
-      "en": [
-        "customs-clearance-employee-stadler-rail-altenrhein"
-      ]
-    },
-    "postalCode": "9423",
-    "salaryMin": 57500,
-    "salaryMax": 87000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "collaboratore-trice-transportadministration-stadler-rail-altenrhein",
     "title": "Mitarbeiter:in Transportadministration",
     "titleByLocale": {
