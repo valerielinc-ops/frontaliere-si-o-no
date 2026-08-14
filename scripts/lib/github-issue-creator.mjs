@@ -34,6 +34,11 @@
  * the index is eventually consistent and does not see an issue opened seconds
  * ago, so search alone lets two near-simultaneous reporters both believe they
  * are the first (how #5305/#5306 were minted 3s apart).
+ *
+ * When there is no OPEN duplicate the dedup then looks among the RECENTLY
+ * CLOSED issues (default DEFAULT_REOPEN_WITHIN_HOURS) and REOPENS the twin
+ * instead of minting a new number. See the `reopenWithinHours` option for the
+ * measurement that made this the default rather than an opt-in.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -99,6 +104,32 @@ const LBL_NO_AGE_OUT = 'agent:no-age-out';
 // PR that merely mentioned the issue. Widening this trades precision for the
 // risk of attributing the close to a commit that did not cause it.
 const CLOSING_REFERENCE_WINDOW_MS = 5 * 60 * 1000;
+
+// Default reopen window, applied when a caller does not name one.
+//
+// WHY IT IS A DEFAULT AND NOT AN OPT-IN. `reopenWithinHours` shipped opt-in and
+// nothing ever opted in outside the post-deploy validators, so every recurring
+// monitor whose issue had been CLOSED in the meantime minted a NEW number: the
+// closed twin is invisible to a dedup that only searches `--state open`.
+// Measured 2026-08-14 across both repos — 11 open issues share their 60-char
+// title prefix with a closed one, of which 8 are genuine recurrences:
+//
+//   comm -12 <(gh issue list -R <r> --state open   --limit 300 --json title -q '.[].title[0:60]'|sort -u) \
+//            <(gh issue list -R <r> --state closed --limit 500 --json title -q '.[].title[0:60]'|sort -u)
+//
+//   site   #5427←#5039 · #5480←#4357 · #5670←#4677 · #5691←#5136,#4947
+//   corpus #311←#271,#250,#240 · #312←#273 · #313←#266,#206
+//
+// The remaining 3 are rolling TRACKERS (site #1951/#5198, corpus #25) carrying
+// `agent:no-age-out`; they are excluded by construction below, not by count.
+//
+// 30 days, not the 6h the validators use: those collapse a red→green→red flap
+// inside one deploy cycle, whereas a watchdog re-observes its condition on a
+// weekly/monthly cadence — a 6h window would have caught none of the 8 above
+// (#5039 was closed weeks before #5427 was opened). Long enough to catch the
+// slow cadences, short enough that a condition genuinely settled for a month
+// gets a fresh issue with a fresh discussion.
+const DEFAULT_REOPEN_WITHIN_HOURS = 30 * 24; // 720h
 
 /**
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
@@ -216,7 +247,11 @@ function ghIssueList(state, extraArgs) {
     'issue', 'list',
     '--state', state,
     ...extraArgs,
-    '--json', 'number,title,url,closedAt,state',
+    // `stateReason` and `labels` are read ONLY by the reopen path (a closed
+    // twin must be provably `COMPLETED` and provably not a tracker before it is
+    // resurrected). Requested on every listing so the two call sites share one
+    // shape; the open-dedup path ignores both fields.
+    '--json', 'number,title,url,closedAt,state,stateReason,labels',
     ...repoFlag(),
   ], { allowFailure: true });
   if (!out) return [];
@@ -230,7 +265,17 @@ function ghIssueList(state, extraArgs) {
 
 // `fullTitle` is the complete issue title (callers must NOT pre-slice it — the
 // mid-word-cut detection in searchSafePrefix needs the char at the ceiling).
-function searchIssuesByTitlePrefix(fullTitle, state) {
+// Quante voci chiede la query sull'indice. 10 basta per il ramo APERTE (di
+// canonical aperti con lo stesso prefisso ce n'è uno), ma non per le CHIUSE:
+// lì si accumulano tutti i giri passati della stessa famiglia, e la famiglia
+// `escalation(harvester)` ne ha già 8 chiuse contro un tetto di 10 — un tetto
+// che sfiora il vero. Se la gemella vera cade fuori dalla pagina il filtro
+// sulla firma non trova nulla e si apre una issue nuova: fail-safe, ma è
+// recall persa in silenzio. 50 la ricompra al costo della stessa singola
+// chiamata (è la dimensione di pagina, non il numero di richieste).
+const CLOSED_SEARCH_LIMIT = 50;
+
+function searchIssuesByTitlePrefix(fullTitle, state, searchLimit = 10) {
   const safePrefix = searchSafePrefix(fullTitle);
   // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
   // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
@@ -244,7 +289,7 @@ function searchIssuesByTitlePrefix(fullTitle, state) {
 
   const viaSearch = matching(ghIssueList(state, [
     '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
-    '--limit', '10',
+    '--limit', String(searchLimit),
   ]));
   if (viaSearch.length > 0) return viaSearch;
 
@@ -265,6 +310,44 @@ function findOpenIssueByTitlePrefix(fullTitle) {
 }
 
 /**
+ * Collapse a title to the CONDITION it names, discarding whatever varies run to
+ * run. Digits become `#` (counts, ordinals, dates, percentages, issue numbers),
+ * everything that is not a letter or a digit becomes a single space, case is
+ * folded. `pool news svuotato da 3 giorni` and `… da 11 giorni` collapse to the
+ * same signature; `sezione frontaliere` and `sezione svizzera` do not.
+ *
+ * This is the SECOND discriminator the reopen path needs, and the reason is in
+ * searchSafePrefix above: the search prefix is a 60-char cut that drops the
+ * token it split, so two DIFFERENT conditions routinely share it. Measured on
+ * the corpus, `Watchdog generazione, sezione frontaliere: pool news svuotat`
+ * and its `sezione svizzera` twin are 47 chars of common prefix apart — they
+ * only diverge later — and on the site the four `escalation(harvester): …`
+ * buckets share everything up to the cut. Reopening on the prefix alone would
+ * resurrect the WRONG issue, which is strictly worse than opening a new one:
+ * a spurious new issue is triaged and closed, a wrongly-reopened issue puts a
+ * measurement under a title that does not describe it.
+ *
+ * Deliberately asymmetric: only the CLOSED lookup applies it. The open-dedup
+ * path keeps prefix-only matching, because commenting on a live sibling is a
+ * recoverable mistake and tightening it would change behaviour this change did
+ * not measure.
+ */
+export function conditionSignature(title) {
+  return String(title)
+    .toLowerCase()
+    .replace(/\d+/g, '#')
+    .replace(/[^\p{L}#]+/gu, ' ')
+    .trim();
+}
+
+/** Label names of an issue as returned by `gh issue list --json labels`. */
+function issueLabelNames(issue) {
+  return (Array.isArray(issue?.labels) ? issue.labels : [])
+    .map((l) => (typeof l === 'string' ? l : l?.name))
+    .filter(Boolean);
+}
+
+/**
  * Find a recently-closed issue with the same stable title prefix, closed within
  * `withinHours`. Collapses FLAPPING transient failures (fail → auto-close on
  * green → fail again) onto a single canonical issue instead of spawning a new
@@ -272,14 +355,86 @@ function findOpenIssueByTitlePrefix(fullTitle) {
  * post-deploy validation titles were already stable, but the dedup matched only
  * OPEN issues, so each per-deploy transient that had been closed reopened as a
  * brand-new issue. Returns the most-recently-closed matching issue, or null.
+ *
+ * Three filters stand between a prefix match and a reopen, all of which fail
+ * CLOSED (skip the candidate → the caller opens a fresh issue, i.e. today's
+ * behaviour) rather than resurrecting something:
+ *
+ *  1. same condition signature — see conditionSignature: the prefix alone is
+ *     not a discriminator, it drops the token it split;
+ *  2. closed as COMPLETED — a `NOT_PLANNED` close is a human saying "don't
+ *     track this"; reopening it every run for 30 days would overrule them;
+ * COSTO. 1 chiamata `gh` per tentativo di apertura, 2 nel caso peggiore (la
+ * seconda solo se l'indice non ha risposto nulla). Nessuna paginazione: il
+ * costo è limitato dalla DIMENSIONE DI PAGINA, non dalla finestra dei 30
+ * giorni, che filtra soltanto ciò che è già tornato — sono cose diverse e vale
+ * la pena non confonderle. E si paga solo sul ramo in cui si stava per aprire
+ * una issue nuova (nessun duplicato APERTO), che è la minoranza dei passaggi.
+ * Sul volume misurato nella finestra 2026-08-07..14 — 244 issue aperte da
+ * monitor/watchdog/validation sui due repo — il tetto è ~244-488 chiamate in
+ * più a settimana, ~1,5-3/ora: irrilevante contro il rate limit.
+ *
+ * NOTA sul ripiego: `LISTING_FALLBACK_LIMIT` (100, senza `--search`) esiste per
+ * la latenza dell'indice, cioè per una issue nata SECONDI fa. Sul ramo delle
+ * chiuse non è quello il modo di fallire, e su questo repo quelle 100 coprono
+ * circa un giorno e mezzo (505 issue chiuse in una settimana): la recall sulle
+ * gemelle vecchie la porta la query sull'indice, non il ripiego.
+ *
+ *  3. not a rolling tracker/counter — a CLOSED one was retired deliberately.
+ *     TWO signals, because neither alone holds: the `agent:no-age-out` label,
+ *     AND this module's own singleton titles. The label alone is not enough,
+ *     measured 2026-08-14: the corpus crawler-transient ledger carries it on
+ *     the SITE (#5198) but not on the corpus (#25, and neither do its closed
+ *     predecessors #24/#21) — so a label-only guard would have judged #21
+ *     reopenable. The ledger is unreachable from here today by construction
+ *     (findOrCreateTransientLedger calls `gh issue create` directly and never
+ *     routes through createGithubIssue), and that is exactly the kind of
+ *     contract-without-an-import-form this repo has been bitten by: it holds
+ *     until one caller passes the ledger title in, and then nothing catches it.
  */
+const NEVER_REOPEN_TITLES = new Set([TRANSIENT_LEDGER_TITLE]);
+
 function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours) {
   if (!withinHours || withinHours <= 0) return null;
   const cutoff = Date.now() - withinHours * 3600 * 1000;
-  const matches = searchIssuesByTitlePrefix(fullTitle, 'closed')
+  const wantedSignature = conditionSignature(fullTitle);
+  const inWindow = searchIssuesByTitlePrefix(fullTitle, 'closed', CLOSED_SEARCH_LIMIT)
     .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
     .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
-  return matches[0] || null;
+
+  for (const candidate of inWindow) {
+    if (conditionSignature(candidate.title) !== wantedSignature) {
+      console.log(
+        `[github-issue-creator] Closed #${candidate.number} shares the `
+        + `${DEDUP_TITLE_PREFIX_LEN}-char prefix but names a different condition `
+        + `("${candidate.title}") — not reopening it.`,
+      );
+      continue;
+    }
+    if (candidate.stateReason && candidate.stateReason !== 'COMPLETED') {
+      console.log(
+        `[github-issue-creator] Closed #${candidate.number} was closed as `
+        + `${candidate.stateReason}, not COMPLETED — leaving it closed.`,
+      );
+      continue;
+    }
+    const trackerBy = issueLabelNames(candidate).includes(LBL_NO_AGE_OUT)
+      ? LBL_NO_AGE_OUT
+      : (NEVER_REOPEN_TITLES.has(candidate.title) ? 'singleton title' : null);
+    if (trackerBy) {
+      console.log(
+        `[github-issue-creator] Closed #${candidate.number} is a rolling tracker `
+        + `(${trackerBy}) — not reopening it.`,
+      );
+      appendStepSummary(
+        `↩︎ **Riapertura saltata** — #${candidate.number} è un tracker rotolante `
+        + `(${trackerBy}). Apro una issue nuova, come prima.`,
+      );
+      continue;
+    }
+    return candidate;
+  }
+  return null;
 }
 
 // `gh api` resolves the literal placeholders `{owner}/{repo}` from the cwd's
@@ -645,12 +800,16 @@ export async function createGithubIssue({
   priority = 3,
   labels = [],
   workflow,
-  // When set (hours), a recently-closed issue with the same stable title prefix
-  // is REOPENED + commented instead of opening a fresh duplicate. Use for
-  // transient per-run reporters (post-deploy validation) where the issue may
-  // have been auto-closed on a green run and then flaps red again. CLI:
-  // --reopen-within-hours N. Default 0 = disabled (legacy behaviour preserved).
-  reopenWithinHours = 0,
+  // Hours: a closed issue naming the SAME condition, closed no longer ago than
+  // this, is REOPENED + commented instead of opening a fresh duplicate.
+  //
+  // DEFAULT-ON since 2026-08-14. Omitting it (or passing null/undefined) means
+  // DEFAULT_REOPEN_WITHIN_HOURS — see that constant for the 8-issue measurement
+  // that motivated the flip. Opting OUT is now the explicit act: pass 0 (CLI:
+  // --no-reopen) to get the always-a-new-issue behaviour, which is right only
+  // for a reporter whose every occurrence is a genuinely distinct incident
+  // deserving its own thread.
+  reopenWithinHours = null,
   // Commit the CURRENT run actually validated (e.g. `deploy_ref` for a
   // post-deploy validation triggered by workflow_run, NOT `github.sha`).
   // Optional — only reporters that can tell "build commit" apart from "the run
@@ -686,6 +845,13 @@ export async function createGithubIssue({
   // stays for logging/gate messages only.
   const titlePrefix = title.slice(0, DEDUP_TITLE_PREFIX_LEN);
   const existing = findOpenIssueByTitlePrefix(title);
+
+  // null/undefined → the default window; an explicit number (0 included) wins.
+  // Written as a null-check and NOT as `reopenWithinHours || DEFAULT`, because
+  // `|| DEFAULT` would swallow the explicit 0 that is the documented opt-out.
+  const reopenWindowHours = reopenWithinHours == null
+    ? DEFAULT_REOPEN_WITHIN_HOURS
+    : Number(reopenWithinHours);
 
   // Auto-enable the consecutive-failure gate for the stable crawler-failure
   // reporter title, unless a caller explicitly opted out (consecutiveGate < 0).
@@ -801,8 +967,8 @@ export async function createGithubIssue({
   // issue was recently closed (e.g. auto-closed on a green deploy) and is now
   // flapping red again. Reopen + comment instead of minting a new issue — this
   // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
-  if (reopenWithinHours > 0) {
-    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWithinHours);
+  if (Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
+    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours);
     if (recentlyClosed) {
       // Deploy-latency guard (#5539): a build started BEFORE the fix that closed
       // this issue merged cannot possibly contain it — a validation failing on
@@ -853,13 +1019,31 @@ export async function createGithubIssue({
         { allowFailure: true },
       );
       if (reopened !== null) {
+        // The recurrence comment carries the DATE and the CURRENT measurement
+        // (`body` is the caller's freshly-collected description). Without both,
+        // a reopened issue reads as if nothing had changed since it was closed
+        // and the reader cannot tell the new observation from the old one. The
+        // 🔁 marker is load-bearing: countRecentFailureEvents counts comments
+        // carrying it to drive the consecutive-failure gate.
+        const now = new Date().toISOString();
+        const header = [
+          `${RECURRENCE_MARKER} **Reopened** — ricorrenza il ${now}: la stessa`,
+          `condizione si è ripresentata entro ${reopenWindowHours}h dalla chiusura`,
+          recentlyClosed.closedAt ? `(chiusa il ${recentlyClosed.closedAt})` : '',
+          '— riaperta invece di aprire una issue nuova, così la storia della',
+          'condizione resta in un solo thread.',
+        ].filter(Boolean).join(' ');
         gh([
           'issue', 'comment', String(recentlyClosed.number),
-          '--body', `🔁 Reopened — same failure recurred within ${reopenWithinHours}h of being closed.\n\n${body}`,
+          '--body', `${header}\n\n**Misura corrente:**\n\n${body}`,
           ...repoFlag(),
         ], { allowFailure: true });
+        appendStepSummary(
+          `${RECURRENCE_MARKER} **Riaperta #${recentlyClosed.number}** — ricorrenza della stessa `
+          + 'condizione, nessuna issue nuova aperta.',
+        );
         console.log(`[github-issue-creator] Reopened #${recentlyClosed.number} — ${recentlyClosed.title}`);
-        return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url };
+        return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url, reopened: true };
       }
       // Reopen failed (e.g. closed-as-duplicate locked) → fall through to create.
       console.error(`[github-issue-creator] Could not reopen #${recentlyClosed.number}; creating fresh issue.`);
@@ -915,7 +1099,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--resolve]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--resolve]');
     process.exit(1);
   }
 
@@ -942,7 +1126,16 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
       return many.length > 0 ? many : (single ? [single] : ['bug']);
     })(),
     workflow: get('--workflow'),
-    reopenWithinHours: Number(get('--reopen-within-hours') || 0),
+    // Absent flag → null → DEFAULT_REOPEN_WITHIN_HOURS. It must NOT collapse to
+    // 0 here: `Number(undefined || 0)` was the line that kept every workflow
+    // reporter on the always-a-new-issue path unless it spelled the flag out,
+    // which is exactly the opt-in this change removes. `--no-reopen` is the
+    // explicit way back.
+    reopenWithinHours: (() => {
+      if (args.includes('--no-reopen')) return 0;
+      const raw = get('--reopen-within-hours');
+      return raw === undefined ? null : Number(raw);
+    })(),
     // Same semantics as the `buildSha` option: the commit the BUILD was made
     // from (`workflow_run.head_sha` / `deploy_ref`), NEVER the head_sha of the
     // run that observed the failure — for a workflow_run-triggered validation

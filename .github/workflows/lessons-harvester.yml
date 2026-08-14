@@ -138,8 +138,11 @@ jobs:
                ## Implementato
                - <regola aggiunta> ← cluster <source/bucket> ×<count> (es. PR/issue #...)
                ## Non implementato (ancora)
-               - <cluster scartati e perché: già coperto / troppo vago / volume non-istruzione>
+               - <cluster scartati> — per scelta: <già coperto / troppo vago / volume non-istruzione>
                ```
+               Lo stato letterale (`per scelta` qui, o `in questa PR` / `PR concatenata #N` /
+               `by construction` / `blocked: <causa>`) è obbligatorio su ogni bullet: senza,
+               `scripts/ci/followup-has-candidates.mjs` riapre il cluster scartato come issue.
                Aggiungi in fondo: "⚠️ Proposta auto-generata dal lessons-harvester. Human-gated: rivedere prima di mergere. Se modifica `.github/workflows/` non è prevista (solo `.md`)."
             7. NON mergiare. È una proposta: la rivede un umano.
 
