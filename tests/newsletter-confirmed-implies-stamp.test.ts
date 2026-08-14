@@ -41,6 +41,15 @@
  * scan is the wrong instrument for a value computed at runtime. The blind spot
  * in the SCANNER is still real and still recorded below; what changed is that
  * nothing dangerous is hiding in it.
+ *
+ * There are now TWO scripts in that blind spot. `scripts/newsletter-confirmed-
+ * status-backfill.mjs` (#5692) writes `status: CONFIRMED_STATUS`, a bare
+ * identifier the regex cannot follow, and it is recorded below for the same
+ * reason `suppression-decay.mjs` is: a script that passes a guard through the
+ * guard's documented hole and says nothing about it has not been checked, it
+ * has been missed. Its cover is behavioural too — it may only write onto a
+ * document that ALREADY carries the proof, so it cannot fabricate the consent
+ * this file exists to protect, and it never writes the stamp itself.
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -48,6 +57,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 import { recoveredStatus } from '../scripts/lib/suppressionDecay.mjs';
+import {
+  planConfirmedStatusBackfill,
+  buildConfirmedStatusFields,
+} from '../scripts/newsletter-confirmed-status-backfill.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (rel: string) => readFileSync(path.join(ROOT, rel), 'utf8');
@@ -128,6 +141,50 @@ describe('no top-level script writes the literal or ternary status: confirmed', 
     expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'subscribe_completed' }])).toBe('pending');
     expect(recoveredStatus('newsletter_subscribers', doc, [{ event_type: 'confirm' }])).toBe('confirmed');
     expect(recoveredStatus('newsletter_subscribers', { ...doc, confirmed_at: '2026-01-01T00:00:00Z' })).toBe('confirmed');
+  });
+
+  it('the SECOND script in the blind spot is recorded here too, not left to be found', () => {
+    // scripts/newsletter-confirmed-status-backfill.mjs (#5692) reaches
+    // `confirmed` through the constant CONFIRMED_STATUS, so the scan above does
+    // not see it either — the same shape as `status: restoredStatus`, and the
+    // reason it is written down HERE instead of being quietly enjoyed. A script
+    // that slips past a guard through the guard's own documented hole, and says
+    // nothing, is how `alert-pat-down.mjs` came to name a workflow that did not
+    // exist behind a green CI.
+    //
+    // It is not an exception to the rule the describe states. The rule is that a
+    // script may not FABRICATE a consent it cannot witness; this one writes only
+    // where the witness is already on the document, and that is asserted
+    // immediately below rather than claimed.
+    const src = stripComments(read('scripts/newsletter-confirmed-status-backfill.mjs'));
+    expect(writesConfirmed(src)).toBe(false);
+    expect(src).toMatch(/status:\s*CONFIRMED_STATUS/);
+    expect(src).toMatch(/CONFIRMED_STATUS = 'confirmed'/);
+  });
+
+  it('and the blind spot is not load-bearing there either — proof gates the write', () => {
+    // The behavioural cover, next to the blind spot it covers, exactly as the
+    // `recoveredStatus` assertion above sits next to its own. The planner is
+    // the only producer of the items the writer consumes, so a document it
+    // refuses can never reach a `batch.set`.
+    const ref = {};
+    const pendingNoProof = { id: 'x@example.com', ref, data: { status: 'pending', confirmation_sent_at: '2026-08-01T00:00:00Z' } };
+    const withStamp = { id: 'y@example.com', ref, data: { status: 'pending', confirmed_at: '2026-01-01T00:00:00Z' } };
+    const withEvent = { id: 'z@example.com', ref, data: { status: 'pending' }, events: [{ event_type: 'confirm' }] };
+
+    expect(planConfirmedStatusBackfill([pendingNoProof]).repair).toEqual([]);
+    expect(planConfirmedStatusBackfill([withStamp]).repair).toHaveLength(1);
+    // The `confirm` EVENT alone is enough, which is the same standard #5717
+    // reduced hasConsentEvidence() to. Both are records of a click.
+    expect(planConfirmedStatusBackfill([withEvent]).repair).toHaveLength(1);
+
+    // …and the write it produces is the status word alone: it never mints the
+    // stamp this whole file is about. `confirmed` here is only ever written
+    // ONTO a document that already carries the proof, so the invariant
+    // «confirmed implies confirmed_at» is preserved by construction — a repair
+    // that wrote its own evidence would satisfy the invariant while destroying
+    // the thing the invariant is for.
+    expect(Object.keys(buildConfirmedStatusFields())).toEqual(['status']);
   });
 
   it('the restore pass writes the literal pending, with no branch that could widen', () => {
