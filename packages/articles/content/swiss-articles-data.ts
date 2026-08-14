@@ -7840,6 +7840,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'intelligenza-animali-domestici-ricerca',
+    category: 'novita',
+    date: '2026-08-14T00:45:12.522Z',
+    image: '/images/blog/intelligenza-animali-domestici-ricerca.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
