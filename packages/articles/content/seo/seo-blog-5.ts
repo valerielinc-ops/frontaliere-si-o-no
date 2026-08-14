@@ -54693,7 +54693,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/frontaliereticino-chi-sono-i-frontalieri-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Un ristorante in Lugano, Ticino, con camerieri in servizio. Max 125 char"
+        "caption": "Un ristorante in Lugano, Ticino, con camerieri in servizio"
       },
       "datePublished": "2026-07-24T15:31:34+00:00",
       "dateModified": "2026-07-24T15:31:34+00:00",

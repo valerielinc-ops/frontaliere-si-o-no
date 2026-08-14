@@ -18915,7 +18915,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/terzo-pilastro-3a-vantaggi-2026-basilea.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Descrizione dell'immagine in italiano, massimo 125 caratteri"
+        "caption": "Immagine editoriale relativa a: Terzo pilastro 3a: vantaggi per i frontalieri nel canton Basilea"
       },
       "datePublished": "2026-07-23T05:15:40+00:00",
       "dateModified": "2026-07-23T05:15:40+00:00",
@@ -30576,7 +30576,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/images/blog/trenino-rossoschanf-livigno.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Una galleria ferroviaria in Svizzera con una vista panoramica del lago di Lugano, con un treno in arrivo o in partenza. Max 125 char."
+        "caption": "Una galleria ferroviaria in Svizzera con una vista panoramica del lago di Lugano, con un treno in arrivo o in partenza"
       },
       "datePublished": "2026-08-12T22:12:43+00:00",
       "dateModified": "2026-08-12T22:12:43+00:00",
