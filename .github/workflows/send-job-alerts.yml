@@ -65,6 +65,27 @@ on:
     # AFTER the newsletter. The two workflows have no data dependency and
     # separate `concurrency` groups, so the ordering is not required.
     - cron: '33 0 * * *'
+    # SECONDO SLOT — 15:07 UTC. Aggiunto il 2026-08-14 su decisione del
+    # proprietario, ora che il soffitto di cadenza e' tolto e la tabella
+    # [1, 3, 7] e' di nuovo in vigore: chi clicca ha diritto a un invio al
+    # giorno, e un solo giro che parte in media alle 04:33 lascia indietro
+    # tutti quelli la cui ora preferita cade dopo.
+    #
+    # Perche' le 15:00, con la misura gia' in questo file: il ritardo mediano
+    # di dispatch per ora nominale e' 00h 240m, 02h 199m, 03h 159m, 05h 147m,
+    # 10h 109m, 15h 65m, 21h 62m, 22h 51m. Le 15h stanno nella banda a basso
+    # ritardo (~65m -> partenza effettiva ~16:12) e restano abbastanza presto
+    # da lasciare mezza giornata utile a computeScheduledSendAt, che schedula
+    # ogni iscritto alla PROSSIMA occorrenza della sua ora preferita: piu'
+    # tardi parte il giro, piu' gente ha gia' passato la propria ora e slitta a
+    # domani. 21h e 22h hanno ritardo minore ma partirebbero di sera, quando
+    # quasi tutte le ore preferite sono passate — il ritardo piu' basso
+    # comprerebbe la copertura peggiore.
+    #
+    # Il minuto :07 vale solo a non impilarsi sugli altri cron: lo stesso audit
+    # dice che il minuto NON e' load-bearing (150m a :00, 149m a :15/:30/:45,
+    # 158m fuori).
+    - cron: '7 15 * * *'
   workflow_dispatch:
     inputs:
       target_email:
@@ -75,7 +96,16 @@ on:
 
 concurrency:
   group: job-alerts
-  cancel-in-progress: true
+  # CANCEL-IN-PROGRESS: FALSE dal 2026-08-14, ed e' la meta' che rende sicuro il
+  # secondo slot. Con `true`, un secondo giro che parte mentre il primo sta
+  # ancora spedendo lo CANCELLA a meta': i destinatari gia' serviti hanno il
+  # timbro, quelli non ancora serviti restano scoperti fino al giorno dopo, e
+  # nessuno se ne accorge, perche' un run cancellato non e' un fallimento.
+  # I due cron distano ~15h nominali, ma il ritardo di dispatch misurato qui
+  # sopra arriva a 590m: la sovrapposizione non e' teorica. Con `false` il
+  # secondo giro aspetta, e quando parte trova gia' scritto lo stato del primo
+  # — che e' esattamente cio' su cui si regge la protezione dal doppio invio.
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -83,6 +113,18 @@ permissions:
 
 jobs:
   send-alerts:
+    # GATE DEL SECONDO SLOT. Il giro delle 15:07 spedisce solo se la
+    # repo-variable JOB_ALERT_SECOND_SLOT_ARMED vale 'true'; il giro delle 00:33
+    # e il dispatch manuale non sono mai gated.
+    #
+    # Serve perche' due slot senza la protezione anti-doppione nella LOGICA
+    # sono un doppio invio, e quella protezione non puo' stare nella spaziatura
+    # dei cron: su questo repo slittano fino a 590 minuti. Finche' la variabile
+    # non e' armata, questo workflow si comporta esattamente come prima.
+    #
+    # Da armare solo dopo che e' su main la logica che tratta un avviso gia'
+    # spedito — o gia' PROGRAMMATO e non ancora partito — come non piu' dovuto.
+    if: github.event.schedule != '7 15 * * *' || vars.JOB_ALERT_SECOND_SLOT_ARMED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
