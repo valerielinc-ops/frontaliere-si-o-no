@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-oberentfelden",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-oberentfelden",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-oberentfelden",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-oberentfelden"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       },
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-08-13T22:00:30.262Z"
+      "firstSeenAt": "2026-08-13T22:00:30.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74497-de_DE",
@@ -403,7 +417,7 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
         "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
         "fr": "pilote-postbus-in-postauto-ag-reichenburg"
@@ -444,8 +458,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg",
-          "postbus-driver-in-postauto-ag-reichenburg"
+          "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
           "postauto-fahrer-in-post",
@@ -458,8 +471,7 @@
       "previousSlugs": [
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-ag-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg"
       ]
     },
     {
@@ -2423,8 +2435,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-6cm90n"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ]
     },
     {
@@ -4176,8 +4187,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jvxvay",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jvxvay"
         ]
       },
       "previousSlugs": [
@@ -4210,7 +4220,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -4236,7 +4246,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -4250,7 +4259,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -4951,12 +4959,12 @@
         "en": "Teaching as a merchant EFZ Service and Administration",
         "fr": "Enseignement en tant que marchand EFZ Service et Administration"
       },
-      "slug": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
+      "slug": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen",
       "slugByLocale": {
-        "it": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
-        "en": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
+        "it": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen",
+        "en": "teaching-as-a-merchant-efz-service-and-administration-die-schweizerische-post-niederurnen",
         "de": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
-        "fr": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        "fr": "enseignement-en-tant-que-marchand-efz-service-et-administration-die-schweizerische-post-niederurnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -4990,7 +4998,21 @@
       },
       "addressLocality": "Niederurnen",
       "addressRegion": "GL",
-      "firstSeenAt": "2026-08-13T22:00:30.262Z"
+      "firstSeenAt": "2026-08-13T22:00:30.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ],
+        "en": [
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ],
+        "fr": [
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Lager/73854-de_DE",
@@ -6410,8 +6432,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-1jzom3"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-e51d500967f4",
       "salaryMin": 62000,
@@ -7552,8 +7573,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-k44uwj",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-k44uwj"
         ]
       },
       "previousSlugs": [
@@ -7671,12 +7691,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-4faab8",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-4faab8",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-wadenswil",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-4faab8"
       },
       "sourceLang": "de",
       "department": "",
@@ -7709,7 +7729,21 @@
       },
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-13T22:00:30.262Z"
+      "firstSeenAt": "2026-08-13T22:00:30.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Fachmann-frau-Betriebsunterhalt-EFZ/73922-de_DE",
@@ -7804,12 +7838,12 @@
         "en": "Apprenticeship as a retail trade expert EFZ",
         "fr": "Apprentissage en tant qu'expert en commerce de détail EFZ"
       },
-      "slug": "lehre-als-detailhandelsfachmann-frau-efz-post",
+      "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-horgen",
       "slugByLocale": {
-        "it": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-horgen",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-horgen",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-horgen"
       },
       "sourceLang": "de",
       "department": "",
@@ -7842,7 +7876,21 @@
       },
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-13T22:00:30.262Z"
+      "firstSeenAt": "2026-08-13T22:00:30.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-Paketzustellung/73926-de_DE",
@@ -8339,8 +8387,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-z68q2u",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-z68q2u"
         ]
       },
       "previousSlugs": [
@@ -10742,7 +10789,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -10766,7 +10813,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -10775,8 +10821,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -11064,8 +11109,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "lehre-als-detailhandelsfachmann-frau-efz-post-5tg5ms"
+        "lehre-als-detailhandelsfachmann-frau-efz-post"
       ],
       "id": "posta-svizzera-centro-regionale-aaa0b0e48c62",
       "salaryMin": 62000,
@@ -12723,8 +12767,7 @@
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-cj56ww"
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "needsRetranslation": true
     },
@@ -13008,11 +13051,11 @@
         "en": "CarPostal Driver",
         "de": "CarPostal Fahrer"
       },
-      "slug": "conductrice-conducteur-carpostal-post",
+      "slug": "driver-per-il-dispositivo-carpostal-carpostal-veysonnaz",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-post",
-        "en": "conductrice-conducteur-carpostal-post",
-        "de": "conductrice-conducteur-carpostal-post",
+        "it": "driver-per-il-dispositivo-carpostal-carpostal-veysonnaz",
+        "en": "carpostal-driver-carpostal-veysonnaz",
+        "de": "carpostal-fahrer-carpostal-veysonnaz",
         "fr": "conductrice-conducteur-carpostal-carpostal-veysonnaz"
       },
       "sourceLang": "fr",
@@ -13046,7 +13089,21 @@
       },
       "addressLocality": "Veysonnaz",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-13T22:00:30.262Z"
+      "firstSeenAt": "2026-08-13T22:00:30.262Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/G%C3%A9ranteG%C3%A9rant-d'immeubles-R%C3%A9gion-nord-vaudoise-et-neuch%C3%A2teloise/74461-fr_FR",
@@ -14414,7 +14471,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14438,7 +14495,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
