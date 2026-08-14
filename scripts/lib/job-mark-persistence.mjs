@@ -67,6 +67,32 @@ import { writeJsonAtomic } from './atomic-write-json.mjs';
 export const MAX_SLICE_WRITE_ATTEMPTS = 5;
 
 /**
+ * Backoff between CAS retries (#5889 item 1): without it, 5 retries fire
+ * back-to-back in the time it takes to do a few file reads — far shorter than
+ * the write the other side of the race is still making. A losing writer that
+ * spins immediately can burn all 5 attempts before the other writer's rename
+ * ever lands, turning a resolvable race into a reported `racesLost` for no
+ * reason other than timing. Linear-with-jitter (not exponential): the
+ * contended write on the other side is a single `writeJsonAtomic` call, not a
+ * growing outage, so there is no reason to back off further than a few write
+ * durations.
+ */
+const SLICE_RETRY_BACKOFF_BASE_MS = 15;
+const SLICE_RETRY_BACKOFF_JITTER_MS = 15;
+
+/**
+ * Block the current thread for `ms` milliseconds. These callers are
+ * synchronous CLI scripts (mark-mistranslated-jobs.mjs and friends) with no
+ * event loop work to yield to during a CAS retry, so a real (non-async) sleep
+ * is what actually delays the next read — `setTimeout` would require the
+ * whole call chain to become async for no benefit here.
+ */
+function sleepSync(ms) {
+  if (!(ms > 0)) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+/**
  * Apply `needsRetranslation` to every record whose slug is in `slugs`.
  * Monotone (never clears a flag) and no-ops on an unchanged list, so calling it
  * twice writes once.
@@ -210,6 +236,12 @@ export function updateSliceCompareAndSwap(filePath, mutate, { dryRun = false } =
       // Someone else committed to this slice while we were working. Their
       // document is the current truth; ours is stale by exactly their write.
       retries += 1;
+      // Give the other writer's in-flight rename a chance to finish instead
+      // of racing it again immediately — skip on the last attempt, where
+      // there is no further read to delay.
+      if (attempt < MAX_SLICE_WRITE_ATTEMPTS) {
+        sleepSync(SLICE_RETRY_BACKOFF_BASE_MS * attempt + Math.floor(Math.random() * SLICE_RETRY_BACKOFF_JITTER_MS));
+      }
       continue;
     }
 

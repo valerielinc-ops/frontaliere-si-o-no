@@ -202,8 +202,8 @@ const VERDICTS: Record<string, Verdict> = {
   'components/community/JobExpiredView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
   'components/community/CompanyFollowButton.tsx': {
     verdict: 'shown',
-    notices: 1,
-    why: 'notice inside the email-capture form',
+    notices: 2,
+    why: 'two gate surfaces, one notice each: the email-capture form (anonymous) and the signed-in "Segui" button, which records a job-alert consent-upgrade proof on the same click (#5902)',
   },
   'components/community/SaveSignInPromptModal.tsx': {
     verdict: 'shown',

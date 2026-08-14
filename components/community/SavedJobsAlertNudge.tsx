@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 
 /**
@@ -49,6 +50,8 @@ export interface SavedJobsAlertNudgeProps {
   onErrored?: (error: unknown) => void;
   /** Injectable for tests. */
   subscribe?: typeof subscribeJobAlertOneTap;
+  /** Optional override for the consent-proof upgrade (used by tests). */
+  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
 
 const SUCCESS_AUTO_DISMISS_MS = 6000;
@@ -68,6 +71,7 @@ export default function SavedJobsAlertNudge({
   onDismissed,
   onErrored,
   subscribe = subscribeJobAlertOneTap,
+  upgradeConsent = upgradeBackfilledAlertConsent,
 }: SavedJobsAlertNudgeProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<SavedJobsAlertNudgeStatus>('idle');
@@ -84,12 +88,16 @@ export default function SavedJobsAlertNudge({
     try {
       await subscribe(userId, email, categoryLabel, locale, undefined, cantonCode);
       setStatus('success');
+      // #5876 — an explicit "Sì, avvisami" under the notice below. Records the
+      // consent proof on this person's travaso alerts, never awaited into the
+      // error path.
+      void upgradeConsent(email, locale).catch(() => {});
       onAccepted();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [status, userId, email, categoryLabel, cantonCode, locale, onAcceptTapped, onAccepted, onAnonymousAccept, onClose, onErrored, subscribe]);
+  }, [status, userId, email, categoryLabel, cantonCode, locale, onAcceptTapped, onAccepted, onAnonymousAccept, onClose, onErrored, subscribe, upgradeConsent]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();
@@ -159,6 +167,13 @@ export default function SavedJobsAlertNudge({
               {title}
             </h3>
             <p className="mt-1 text-xs text-subtle">{body}</p>
+            {(status === 'idle' || status === 'error') && (
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[11px] text-muted leading-relaxed block"
+              />
+            )}
             <div className="mt-3 flex items-center gap-2">
               {(status === 'idle' || status === 'submitting') && (
                 <>

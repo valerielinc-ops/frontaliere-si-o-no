@@ -33,7 +33,15 @@ export type AdEvent =
   | 'ad_unfilled'
   | 'ad_collapsed'
   | 'ad_bot_skip'
-  | 'ad_viewable';
+  | 'ad_viewable'
+  // Ads-consent banner outcomes (#5842). These make the post-deploy fill-rate
+  // change *decomposable*: fill rate alone cannot distinguish "the gate is
+  // costing us X%" from "AdSense demand dropped". With these, the drop is
+  // attributable — consent_rate = granted / (granted + denied), and expected
+  // fill ≈ baseline_fill × consent_rate.
+  | 'ad_consent_shown'
+  | 'ad_consent_granted'
+  | 'ad_consent_denied';
 
 export interface AdEventProps {
   slot: string;
