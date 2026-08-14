@@ -1,51 +1,18 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-08-14T10:29:24.874Z",
-  "total": 12,
-  "newCount": 1,
-  "updatedCount": 11,
+  "generatedAt": "2026-08-14T21:53:11.382Z",
+  "total": 11,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 14899,
-  "avgDurationMs": 14899,
+  "unchangedCount": 1,
+  "durationMs": 14032,
+  "avgDurationMs": 14032,
   "durationHistory": [
-    14899
+    14032
   ],
-  "newJobs": [
-    {
-      "title": "Technicien de service (a) Région Fribourg, Bulle, Yverdon et environ",
-      "slug": "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-romandie",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-14",
-      "employmentType": "other",
-      "contractType": "other",
-      "validThrough": "",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -115,6 +82,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -152,6 +120,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -189,43 +158,6 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Projektleiter (a) Wasserkraftwerke",
-      "slug": "projektleiter-a-wasserkraftwerke-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/projektleiter-wasserkraftwerke-a/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-14",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "rittmeyer-ag-540c61565882",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -459,9 +391,9 @@
   ],
   "removedJobs": [
     {
-      "title": "Schaltanlagenmonteur (a) temporär",
-      "slug": "montatore-di-quadri-elettrici-a-temporaneo-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/schaltanlagenmonteur-a-temporaer/",
+      "title": "Projektleiter (a) Wasserkraftwerke",
+      "slug": "project-manager-a-impianti-idroelettrici-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/projektleiter-wasserkraftwerke-a/",
       "applyUrl": "",
       "company": "Rittmeyer AG",
       "companyKey": "rittmeyer-ag",
@@ -478,15 +410,15 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-07-15",
-      "employmentType": "other",
-      "contractType": "other",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
       "validThrough": "",
-      "id": "rittmeyer-ag-b536535d5b86",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "id": "rittmeyer-ag-540c61565882",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-07-15T22:21:55.552Z",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -496,5 +428,44 @@
       }
     }
   ],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Technicien de service (a) Région Fribourg, Bulle, Yverdon et environ",
+      "slug": "technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ-rittmeyer-ag-romandie",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/technicien-de-service-a-region-fribourg-bulle-yverdon-et-environ/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-14",
+      "employmentType": "other",
+      "contractType": "other",
+      "validThrough": "",
+      "id": "rittmeyer-ag-c43f7de101f9",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-14T10:29:24.869Z",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
