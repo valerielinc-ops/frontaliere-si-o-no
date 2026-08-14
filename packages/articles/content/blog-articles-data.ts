@@ -29820,6 +29820,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'istituto-keynes-gazzada-micelio-imballaggi',
+ category: 'novita',
+ date: '2026-08-14T03:18:02.287Z',
+ image: '/images/blog/istituto-keynes-gazzada-micelio-imballaggi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -9947,6 +9947,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Grave incidente in alpeggio: 27enne cade in Vallemaggia',
     'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'Un giovane italiano di 27 anni è precipitato per circa dieci metri in una zona impervia sull\'alpe Robiei, in Vallemaggia (Ticino). Le sue condizioni sono gravi e la vita è in pericolo.',
     'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Soccorritori in elicottero durante un intervento di salvataggio in montagna in Vallemaggia, Ticino.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Gazzada premiato per imballaggi innovativi',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum tra le prime 60 mini-imprese d\'Italia alla finale nazionale di Roma il 4-5 giugno 2026. Riconoscimento europeo \'The Entrepreneurial School\' ricevuto a Riga per collaborazione con università e aziende.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Studenti dell\'Istituto Keynes di Gazzada presentano imballaggi realizzati con micelio durante progetto scolastico',
 };
 
 export default blogMetaIt;

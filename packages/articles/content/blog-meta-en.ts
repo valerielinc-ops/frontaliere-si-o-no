@@ -9946,6 +9946,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-alpeggio-vallemaggia-2026.title': 'Serious accident in the mountain range: 27-year-old falls in Vallemaggia',
     'blog.article.incidente-alpeggio-vallemaggia-2026.excerpt': 'A 27-year-old Italian crashed for about ten meters in a rugged area on the Robiei Alps, in Vallemaggia (Ticino). His condition is serious and his life is in danger.',
     'blog.article.incidente-alpeggio-vallemaggia-2026.imageAlt': 'Rescue workers in a helicopter during a mountain rescue operation in Vallemaggia, Ticino.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.title': 'Award-winning magazine for innovative packaging',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.excerpt': 'Nycelyum is among the top 60 mini-companies in Italy at the national final in Rome on 4-5 June 2026. European recognition \'The Entrepreneurial School\' received in Riga for collaboration with universities and companies.',
+    'blog.article.istituto-keynes-gazzada-micelio-imballaggi.imageAlt': 'Students from Keynes Institute of Gazzada presenting mushroom-based packaging during school project',
 };
 
 export default blogMetaEn;
