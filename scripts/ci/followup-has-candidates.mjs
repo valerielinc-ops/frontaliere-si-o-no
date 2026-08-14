@@ -32,6 +32,12 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+// Direzione dell'import voluta: questo file è site-only (non compare nel
+// manifest del ciclo), `pr-body-sections-check.mjs` è `mode: identical`. Un
+// file `identical` che importasse un file site-only arriverebbe sul corpus
+// senza la sua dipendenza (ERR_MODULE_NOT_FOUND con la CI verde); così invece
+// è il file che NON viaggia a dipendere da quello che viaggia.
+import { bulletState } from '../lib/pr-body-sections-check.mjs';
 
 const PR = process.env.PR_NUMBER;
 const repoArgs = (process.env.GH_REPO || process.env.GITHUB_REPOSITORY)
@@ -91,11 +97,53 @@ export function extractNonImplementedItems(body) {
     .filter((l) => l.length > 0 && !/^##/.test(l));
 }
 
+/**
+ * Gli stati che CHIUDONO una voce: dichiarano che non c'è lavoro residuo da
+ * riaprire come follow-up.
+ *
+ *   `in questa PR`      — è già dentro il diff che si sta mergiando;
+ *   `PR concatenata #N` — ha già il suo tracciamento, la issue sarebbe un doppione;
+ *   `per scelta` / `by construction`         — è un no motivato, non un rinvio;
+ *   `blocked: decisione del proprietario`    — idem, deciso da chi decide.
+ *
+ * Restano candidati `blocked: <causa tecnica>` (lavoro sospeso su una causa
+ * esterna: va riaperto) e — deliberatamente — i bullet SENZA stato.
+ *
+ * SUL BULLET SENZA STATO, che è il punto che decide se questo filtro è sicuro:
+ * resta ATTIVO, cioè continua a generare follow-up. Misurato il 2026-08-14
+ * sulle ultime 60 PR mergiate: 604 bullet su 830 (73%) non dichiarano stato.
+ * Filtrarli qui aprirebbe una finestra
+ * cieca proprio sulla classe più numerosa, per giunta senza che nessuno se ne
+ * accorga. Spariranno alla fonte quando l'advisory di
+ * `scripts/lib/pr-body-sections-check.mjs` (classe `bullet-without-state`) avrà
+ * ripulito i generatori; fino ad allora il fail-safe è tenerli.
+ *
+ * RESA MISURATA OGGI: 2 PR su 60 passano da «apri follow-up» a «non aprire
+ * nulla». È poco, ed è voluto:
+ * il guadagno vero arriva quando i bullet senza stato spariscono e la classe
+ * «chiusa per decisione» diventa la maggioranza dichiarata.
+ *
+ * La tassonomia NON è riscritta qui: `bulletState()` è importata da
+ * `pr-body-sections-check.mjs`, che è il modulo che la definisce e la valida.
+ * Due copie divergerebbero al primo stato nuovo — e divergerebbero in silenzio,
+ * perché nessun test le confronta.
+ */
+const CLOSING_STATES = new Set([
+  'in-this-pr',
+  'chained-pr',
+  'by-choice',
+  'by-construction',
+  'blocked-owner',
+]);
+
 /** True if a `## Non implementato` item is a real, non-excluded candidate. */
 export function isCandidateItem(item) {
   const s = String(item || '').trim();
   if (!s || EMPTY_NI_RE.test(s)) return false;
   if (HARD_EXCLUDE_RES.some((re) => re.test(s))) return false;
+  // Stato letterale che chiude la voce → niente follow-up. `null` (nessuno
+  // stato) NON è in CLOSING_STATES: resta candidato, per progetto.
+  if (CLOSING_STATES.has(bulletState(s))) return false;
   return true;
 }
 
