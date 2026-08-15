@@ -4110,8 +4110,28 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       // discarded on timeout, which left every production incident
       // (T2 diagnosis, 2026-07-28) blind to whether the subprocess was
       // stuck on auth, context loading, or a genuine hang.
+      //
+      // …e ora anche quanto STDOUT era arrivato, che invece veniva buttato del
+      // tutto. Il 2026-08-14 questo ramo e' scattato 10 volte su 10 nella run
+      // 31823202761, sempre a 120000 ms esatti, e il messaggio diceva solo
+      // «claude CLI timed out after 120000ms»: nessuno stderr (quindi il ramo
+      // sopra taceva) e nessuna informazione su stdout. Indistinguibile fra un
+      // processo che stava generando lentamente e uno che non ha mai scritto un
+      // byte — e le due cose vogliono rimedi opposti.
+      //
+      // La distinzione conta perche' 120s NON sono pochi: misurato in locale con
+      // gli stessi identici flag e un prompt da 10.211 token stimati, una
+      // chiamata sana costa 24 secondi (exit 0, 1.925 token di output). Se il
+      // prossimo incidente riporta bytes=0 la causa e' a monte della generazione
+      // (auth, rete, avvio) e alzare il timeout sarebbe solo tempo sprecato; se
+      // riporta un JSON troncato, allora si' che il floor e' stretto.
       const stderrExcerpt = stderr ? ` — stderr: ${stderr.slice(0, 300)}` : '';
-      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}`);
+      // Sempre presente, anche a zero: e' l'assenza di byte a essere il dato.
+      // Un campo che compare solo quando c'e' qualcosa costringe chi legge a
+      // distinguere «non e' arrivato niente» da «la diagnostica non c'era».
+      const stdoutExcerpt = ` — stdout: ${stdout.length} bytes`
+        + (stdout ? `: ${stdout.slice(0, 200)}` : ' (nessun byte scritto dal processo)');
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}${stdoutExcerpt}`);
       err.name = 'TimeoutError';
       reject(err);
     }, timeoutMs);
