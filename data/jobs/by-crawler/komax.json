@@ -17,7 +17,7 @@
       "title": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
       "titleByLocale": {
         "it": "Sales Switzerland / Technical Sales Ingegnere (w/m/d)",
-        "en": "Sales Switzerland / Technical Sales Engineer (w/m/d)",
+        "en": "Sales Switzerland / Technical Sales Engineer (m/f/d)",
         "de": "Sales Switzerland / Technical Sales Ingenieur (w/m/d)",
         "fr": "Sales Switzerland / Technical Sales Ingénieur (w/m/d)"
       },
@@ -301,18 +301,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-logistiker-in-efz-2027-komax-ch",
-        "apprendistato-logistiker-in-cfc-2027-komax-dierikon"
+        "apprendistato-logistiker-in-cfc-2027-komax-dierikon",
+        "logistiker-in-cfc-100-komax-dierikon",
+        "efz-logistician-100-komax-dierikon",
+        "logistiker-in-efz-100-komax-ch",
+        "logistique-efz-100-komax-dierikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-2027-komax-ch",
-          "apprendistato-logistiker-in-cfc-2027-komax-dierikon"
+          "apprendistato-logistiker-in-cfc-2027-komax-dierikon",
+          "logistiker-in-cfc-100-komax-dierikon",
+          "efz-logistician-100-komax-dierikon",
+          "logistiker-in-efz-100-komax-ch",
+          "logistique-efz-100-komax-dierikon"
         ],
         "en": [
-          "lehrstelle-logistiker-in-efz-2027-komax-ch"
+          "lehrstelle-logistiker-in-efz-2027-komax-ch",
+          "efz-logistician-100-komax-dierikon"
         ],
         "fr": [
-          "lehrstelle-logistiker-in-efz-2027-komax-ch"
+          "lehrstelle-logistiker-in-efz-2027-komax-ch",
+          "logistique-efz-100-komax-dierikon"
+        ],
+        "de": [
+          "logistiker-in-efz-100-komax-ch"
         ]
       },
       "needsRetranslation": true,
@@ -763,7 +776,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:57:50.072Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -792,7 +804,7 @@
       "title": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
       "titleByLocale": {
         "it": "Risorse Umane Operations Specialista 60-100% (Mutterschaftsvertretung)",
-        "en": "HR Operations Specialist 60-100% (Mutterschaftsvertretung)",
+        "en": "HR Operations Specialist 60-100% (Maternity Representation)",
         "de": "Personalwesen Operations Spezialist 60-100% (Mutterschaftsvertretung)",
         "fr": "Ressources Humaines Operations Spécialiste 60-100% (Mutterschaftsvertretung)"
       },

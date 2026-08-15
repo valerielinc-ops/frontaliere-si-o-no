@@ -205374,7 +205374,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alla-vendita-food-coop-genossenschaft-zug",
           "addetto-a-alle-vendite-food-coop-genossenschaft-winterthur",
           "food-sales-assistant-coop-genossenschaft-andermatt",
           "food-sales-assistant-coop-genossenschaft-andermatt-096451",
@@ -205393,7 +205392,8 @@
           "venditore-in-food-coop-genossenschaft-winterthur-zurich",
           "addetto-a-alla-vendita-food-coop-genossenschaft-menzingen",
           "addetto-a-alla-vendita-food-coop-genossenschaft-seuzach",
-          "verkaufer-in-food-coop-winterthur-zurich"
+          "verkaufer-in-food-coop-winterthur-zurich",
+          "addetto-a-alla-vendita-food-coop-genossenschaft-suhr"
         ],
         "en": [
           "verkaufer-in-food-coop-city-winterthur-zurich-c93u01",
@@ -217527,7 +217527,6 @@
         "de": "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-oftringen"
       },
-      "needsRetranslation": true,
       "addressLocality": "Oftringen",
       "sourceLang": "de",
       "addressRegion": "AG",
@@ -217556,7 +217555,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Argovia",
@@ -217604,7 +217602,6 @@
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -217634,7 +217631,6 @@
         "produktionsmitarbeiter-in-80-100-nachtschicht-two-spice-ag-dietlikon-ob3im5",
         "produktionsmitarbeiter-in-80-100-nachtschicht-two-spice-ag-dietlikon"
       ],
-      "retranslationAttempts": 1,
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
@@ -218110,7 +218106,6 @@
       },
       "addressLocality": "Schwarzenburg",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218139,8 +218134,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-schwarzenburg-bern-3fm2ri",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-schwarzenburg-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-tecyxm",
@@ -218188,7 +218182,6 @@
       },
       "addressLocality": "Heimberg",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218217,8 +218210,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-heimberg-bern-tecyxm",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-heimberg-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-dtmpz8",
@@ -218433,7 +218425,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218462,8 +218453,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-piu3oa",
         "verkaufer-in-food-coop-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-kiugs8",
@@ -218624,7 +218614,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218653,8 +218642,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-sw5dik",
         "verkaufer-in-food-coop-bern-2"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-p7go9p",
@@ -218711,7 +218699,6 @@
       },
       "addressLocality": "Langendorf",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SO",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218740,8 +218727,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-langendorf-solothurn-p7go9p",
         "verkaufer-in-food-coop-langendorf-solothurn"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-7sdenk",
@@ -218798,7 +218784,6 @@
       },
       "addressLocality": "Appenzell",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AI",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -218827,8 +218812,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-appenzell-innerrhoden-7sdenk",
         "verkaufer-in-food-coop-appenzell-innerrhoden"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-6xv2hw",
@@ -219055,7 +219039,6 @@
       },
       "addressLocality": "Kerzers",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "FR",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -219084,8 +219067,7 @@
       "previousSlugs": [
         "rayonleiter-in-wein-getranke-coop-kerzers-freiburg-bg7ucu",
         "rayonleiter-in-wein-getranke-coop-kerzers-freiburg"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-cg40b4",
@@ -219133,7 +219115,6 @@
       },
       "addressLocality": "Feuerthalen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219162,8 +219143,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-feuerthalen-zurich-cg40b4",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-feuerthalen-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-e9hyab",
@@ -219220,7 +219200,6 @@
       },
       "addressLocality": "Zollikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219262,8 +219241,7 @@
         "verkaufer-in-food-coop-zollikon-zurich-o1vb1p",
         "food-sales-assistant-coop-genossenschaft-zollikon-o1vb1p",
         "assistant-commercial-alimentaire-coop-genossenschaft-zollikon-o1vb1p"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-1ac501",
@@ -219320,7 +219298,6 @@
       },
       "addressLocality": "Zumikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219362,8 +219339,7 @@
         "verkaufer-in-food-coop-zumikon-zurich-wo001b",
         "food-sales-assistant-coop-genossenschaft-zumikon-wo001b",
         "assistant-commercial-alimentaire-coop-genossenschaft-zumikon-wo001b"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-j6n5zj",
@@ -219411,7 +219387,6 @@
       },
       "addressLocality": "Zumikon",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219442,8 +219417,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-zumikon-zurich-j6n5zj",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-zumikon-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-7pwjtg",
@@ -219498,7 +219472,6 @@
         "de": "magaziner-in-verkauf-coop-oftringen-aargau-7pwjtg",
         "fr": "magaziner-in-vente-coop-oftringen-aargau-7pwjtg"
       },
-      "needsRetranslation": true,
       "addressLocality": "Oftringen",
       "sourceLang": "de",
       "addressRegion": "AG",
@@ -219521,8 +219494,7 @@
       },
       "previousSlugs": [
         "magaziner-in-verkauf-coop-oftringen-aargau"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-vyk8tq",
@@ -219665,7 +219637,6 @@
       },
       "addressLocality": "Erlenbach",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -219694,8 +219665,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-erlenbach-zurich-g0vv9q",
         "verkaufer-in-food-coop-erlenbach-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-s8wtio",
@@ -219841,7 +219811,6 @@
       },
       "addressLocality": "Balsthal",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SO",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -219870,8 +219839,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-balsthal-solothurn-gqwmrt",
         "verkaufer-in-food-coop-balsthal-solothurn"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-kk860u",
@@ -219928,7 +219896,6 @@
       },
       "addressLocality": "Unterentfelden",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AG",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -219972,8 +219939,7 @@
         "verkaufer-in-blumen-kiosk-coop-unterentfelden-aargau-9h15nh",
         "flower-seller-kiosk-coop-genossenschaft-unterentfelden-9h15nh",
         "vendeur-de-fleurs-kiosque-coop-genossenschaft-unterentfelden-9h15nh"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-x10a9l",
@@ -220021,7 +219987,6 @@
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -220050,8 +220015,7 @@
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-x10a9l",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-x71vq1",
@@ -220301,7 +220265,6 @@
       },
       "addressLocality": "Dielsdorf",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -220330,8 +220293,7 @@
       "previousSlugs": [
         "rayonleiter-in-wein-getranke-coop-dielsdorf-zurich-aquu0y",
         "rayonleiter-in-wein-getranke-coop-dielsdorf-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-a0v8l9",
@@ -220475,7 +220437,6 @@
       },
       "addressLocality": "Sins",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AG",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -220504,8 +220465,7 @@
       "previousSlugs": [
         "rayonleiter-in-wein-getranke-coop-sins-aargau-mwrkp7",
         "rayonleiter-in-wein-getranke-coop-sins-aargau"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-75d29c",
@@ -220562,7 +220522,6 @@
       },
       "addressLocality": "Bäretswil",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -220604,8 +220563,7 @@
         "verkaufer-in-food-coop-baretswil-zurich-jtfjll",
         "food-sales-assistant-coop-genossenschaft-baretswil-jtfjll",
         "assistant-commercial-alimentaire-coop-genossenschaft-baretswil-jtfjll"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-yf5fm0",
@@ -220651,7 +220609,6 @@
         "de": "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-yf5fm0",
         "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-et-cuisiner-cuisiner-h-f-d-coop-genossenschaft-bern"
       },
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "sourceLang": "de",
       "addressRegion": "BE",
@@ -220698,8 +220655,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-w-m-d-coop-genossenschaft-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-w-m-d-coop-genossenschaft-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-jhxpwk",
@@ -220756,7 +220712,6 @@
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -220800,8 +220755,7 @@
         "rayonleiter-in-brot-backwaren-coop-genossenschaft-winterthur-zurich-mbvbte",
         "conducteur-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-winterthur",
         "rayonleiter-in-brot-backwaren-coop-genossenschaft-winterthur-zurich"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-kqhumo",
@@ -220858,7 +220812,6 @@
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BS",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -220887,8 +220840,7 @@
       "previousSlugs": [
         "rayonleiter-in-grundnahrungsmittel-coop-basel-landschaft-kqhumo",
         "rayonleiter-in-grundnahrungsmittel-coop-basel-landschaft"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-7au69x",

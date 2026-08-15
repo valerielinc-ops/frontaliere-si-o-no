@@ -1686,7 +1686,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T12:06:18.268Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1790,7 +1789,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
       "titleByLocale": {
-        "it": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
+        "it": "Intermedio dell'Onore di Classe aggiunto (24.33 lezioni)",
         "en": "Deputy Class Honor Person Intermediate (24.33 lessons)",
         "de": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
         "fr": "Vice-classe Personne d'honneur Intermédiaire (24,33 leçons)"
@@ -1849,7 +1848,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.851Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2259,23 +2257,36 @@
         "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
         "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974",
         "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974",
-        "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+        "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "stellvertretung-per-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil",
+        "deputy-for-maternity-leave-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil-39702",
+        "stellvertretung-fur-mutterschaftsurlaub-schule-busswil-lyss-busswil-39702",
+        "depute-pour-conge-de-maternite-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil-39702",
+        "stellvertretung-fur-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswi-39702"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-if-schule-brunnmatt-steigerhubel-bern-39974",
           "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
           "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974",
-          "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+          "deputato-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+          "stellvertretung-per-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil",
+          "deputy-for-maternity-leave-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil-39702",
+          "stellvertretung-fur-mutterschaftsurlaub-schule-busswil-lyss-busswil-39702",
+          "depute-pour-conge-de-maternite-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil-39702",
+          "stellvertretung-fur-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswi-39702"
         ],
         "en": [
-          "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974"
+          "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974",
+          "deputy-for-maternity-leave-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil-39702"
         ],
         "fr": [
-          "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974"
+          "stellvertretung-if-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39974",
+          "depute-pour-conge-de-maternite-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-busswil-39702"
         ],
         "de": [
-          "stellvertretung-if-schule-brunnmatt-steigerhubel-bern-39974"
+          "stellvertretung-if-schule-brunnmatt-steigerhubel-bern-39974",
+          "stellvertretung-fur-mutterschaftsurlaub-schule-busswil-lyss-busswil-39702"
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:05.026Z",
@@ -2490,7 +2501,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Fachlehrperson mehrere Klassen, 16 - 21 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Fachlehrperson mehrere Klassen, 16 - 21 Lektionen",
+        "it": "Professore aggiunto diverse classi, 16 - 21 lezioni",
         "en": "Deputy teacher several classes, 16 - 21 lessons",
         "de": "Stellvertretung Fachlehrperson mehrere Klassen, 16 - 21 Lektionen",
         "fr": "Professeur adjoint plusieurs classes, 16 - 21 leçons"
@@ -2545,7 +2556,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:31:36.247Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2632,7 +2642,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:41:32.765Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3237,7 +3246,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:59:23.689Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3266,7 +3274,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung 3./4. Klasse, 18.75 Lektionen + KLP (14.12.26 - 14.02.27)",
       "titleByLocale": {
-        "it": "Stellvertretung 3./4. Klasse, 18.75 Lektionen + KLP (14.12.26 - 14.02.27)",
+        "it": "Deputato 3./4. Classe, 18.75 lezioni + KLP (14.12.26 - 14.02.27)",
         "en": "Deputy 3./4. Class, 18.75 lessons + KLP (14.12.26 - 14.02.27)",
         "de": "Stellvertretung 3./4. Klasse, 18.75 Lektionen + KLP (14.12.26 - 14.02.27)",
         "fr": "Adjoint 3./4. Classe, 18.75 leçons + KLP (14.12.26 - 14.02.27)"
@@ -3321,7 +3329,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:19:21.526Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3446,7 +3453,7 @@
       "title": "Stellvertretende Gymnasiallehrperson Mathematik (02.11. bis 24.12.2026), 19 Lektionen/Woche (ggf. aufteilbar)",
       "titleByLocale": {
         "it": "Matematica degli insegnanti delle scuole superiori (02.11.-24.12.2026), 19 lezioni/settimana (se applicabile)",
-        "en": "Stellvertretende Gymnasiallehrperson Mathematik (02.11. bis 24.12.2026), 19 Lektionen/Woche (ggf. aufteilbar)",
+        "en": "Deputy High School Teacher Mathematics (02.11. to 24.12.2026), 19 lessons/week (if applicable)",
         "de": "Stellvertretende Gymnasiallehrperson Mathematik (02.11. bis 24.12.2026), 19 Lektionen/Woche (ggf. aufteilbar)",
         "fr": "Professeur adjoint de mathématiques au secondaire (02.11. au 24.12.2026), 19 leçons/semaine (le cas échéant)"
       },
@@ -3499,7 +3506,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:59:23.688Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3529,7 +3535,7 @@
       "title": "Sportlehrperson, 91.28 %",
       "titleByLocale": {
         "it": "Istruttore sportivo, 91,28 %",
-        "en": "Sportlehrperson, 91.28 %",
+        "en": "Sports instructor, 91.28 %",
         "de": "Sportlehrperson, 91.28 %",
         "fr": "instructeur sportif, 91,28 %"
       },
@@ -3586,7 +3592,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:52:08.066Z",
-      "needsRetranslation": true,
       "salaryMin": 19200,
       "salaryMax": 29100,
       "baseSalary": {
@@ -3789,7 +3794,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:30:23.041Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4033,7 +4037,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:33:47.002Z",
-      "needsRetranslation": true,
       "salaryMin": 66200,
       "salaryMax": 100100,
       "baseSalary": {
@@ -4233,7 +4236,7 @@
       "title": "Psychomotoriktherapeut/in 10-14 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 10-14 Lektionen",
+        "en": "Psychomotor therapist in 10-14 lessons",
         "de": "Psychomotoriktherapeut/in 10-14 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -4287,7 +4290,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:38:11.006Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5270,7 +5272,6 @@
         "mr-lp-da-sj-2026-27-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
       ],
       "firstSeenAt": "2026-08-13T10:41:32.761Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6029,7 +6030,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6706,7 +6706,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.836Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6887,7 +6886,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:47:02.142Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7149,7 +7147,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:31:36.239Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7179,7 +7176,7 @@
       "title": "Klassenlehrperson 3. Klasse",
       "titleByLocale": {
         "it": "Istruttore di classe 3a classe",
-        "en": "Klassenlehrperson 3. Klasse",
+        "en": "Class instructor 3rd class",
         "de": "Klassenlehrperson 3. Klasse",
         "fr": "instructeur de classe 3e classe"
       },
@@ -7236,7 +7233,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:31:36.240Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7426,7 +7422,7 @@
       "title": "Klassenlehrperson",
       "titleByLocale": {
         "it": "Istruttore di classe",
-        "en": "Klassenlehrperson",
+        "en": "Class instructor",
         "de": "Klassenlehrperson",
         "fr": "instructeur de classe"
       },
@@ -7481,7 +7477,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:43:19.500Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7595,7 +7590,7 @@
       "title": "IF-Lehrperson Sek 1, ab 12.10. bis Ende Schuljahr 2026/2027 (17 L)",
       "titleByLocale": {
         "it": "IF insegnante Sek 1, dal 12.10. alla fine dell'anno scolastico 2026/2027 (17 L)",
-        "en": "IF-Lehrperson Sek 1, ab 12.10. bis Ende Schuljahr 2026/2027 (17 L)",
+        "en": "IF teacher Sek 1, from 12.10. to the end of school year 2026/2027 (17 L)",
         "de": "IF-Lehrperson Sek 1, ab 12.10. bis Ende Schuljahr 2026/2027 (17 L)",
         "fr": "IF enseignant Sek 1, du 12.10. à la fin de l'année scolaire 2026/2027 (17 L)"
       },
@@ -7651,7 +7646,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.833Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8766,7 +8760,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Professeur flexible, créatif et polyvalent (Z2/3) 50 %"
       },
@@ -8900,7 +8894,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:50:26.085Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9798,7 +9791,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.830Z",
-      "needsRetranslation": true,
       "salaryMin": 85100,
       "salaryMax": 128700,
       "baseSalary": {
@@ -9917,7 +9909,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -10639,7 +10631,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.829Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10790,7 +10781,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:36:51.579Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -11232,7 +11222,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.829Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -12194,7 +12183,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.450Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -12518,8 +12506,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

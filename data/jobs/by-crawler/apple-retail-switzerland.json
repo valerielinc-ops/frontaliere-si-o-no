@@ -242,8 +242,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-51c21d56955d",
@@ -398,8 +397,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-99675b310169",
@@ -464,7 +462,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -619,7 +616,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.767Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -770,7 +766,7 @@
           "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:19:38.766Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -784,7 +780,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 0
     },
     {
       "id": "apple-retail-switzerland-368e54d9d7c1",
@@ -1009,7 +1006,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T23:03:17.856Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1081,7 +1077,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T12:13:45.027Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1219,7 +1214,6 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200678120/aiml-researcher-foundation-model-post-training?team=MLAI",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1316,7 +1310,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.761Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1390,7 +1383,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
