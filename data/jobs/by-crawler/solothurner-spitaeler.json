@@ -14399,10 +14399,10 @@
       "id": "solothurner-spitaeler-ea29f249b66c",
       "slug": "assistente-medico-assista-psichiatria-ambulante-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "assistente-medico-assista-psichiatria-ambulante-m-f-d-solothurner-spitaler-soh-solothurn",
-        "en": "assistant-doctor-assistant-psychiatry-outpatient-m-f-d-solothurner-spitaler-soh-solothurn",
+        "it": "assistente-medico-assista-psichiatria-ambulante-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "assistant-doctor-assistant-psychiatry-outpatient-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "assistenzarztin-assistenzarzt-psychiatrie-ambulant-w-m-d-soh-ch",
-        "fr": "assistant-medecin-assistant-psychiatrie-externe-h-f-d-solothurner-spitaler-soh-solothurn"
+        "fr": "assistant-medecin-assistant-psychiatrie-externe-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -14421,7 +14421,6 @@
         "de": "Aufgaben\n• Mitarbeit in einer sich dynamisch entwickelnden Psychiatrie\n• Integrierte psychiatrisch-psychotherapeutische Behandlung ambulanter Patientinnen und Patienten inkl. Dokumentation, Berichten und Koordination mit internen und externen Stellen\n• Je nach Weiterbildungsstand Mitarbeit in Spezialsprechstunden\n• Beteiligung am Dienstsystem der KPPP (2-3x/ Jahr 2 Wochen Nacht- und Wochenenddienste im Block, keine Tagdienste)\n• Bei Interesse besteht die Möglichkeit zur Mitarbeit im Konsiliar- und Liaisondienst am Bürgerspital inkl. Anerkennung für die Weiterbildung K+L Psychiatrie und -psychotherapie (Weiterbildungsstätte Kat. A) sowie weiteren internen Rotationen\n\nProfil\n• Eidgenössisches Arztdiplom bzw. äquivalenter Studienabschluss (bei ausländischem Diplom mit MEBEKO-Anerkennung)\n• In Facharztausbildung für Psychiatrie und Psychotherapie\n• Mehrere Jahre Erfahrung als Assistenzarzt / -ärztin in der stationären Psychiatrie\n• Begonnene Psychotherapie-Ausbildung\n\n• Bereich: Ärzteschaft\n• Standort: Psychiatrische Dienste\n• Abteilung: Ambulatorium Solothurn oder Grenchen\n• Pensum: 100%",
         "fr": "Tâche\n• Travailler dans une psychiatrie en développement dynamique\n• Traitement psychiatrique et psychothérapeutique intégré des patients externes, y compris: Documentation, rapports et coordination avec les organes internes et externes\n• Selon le niveau de formation, participation à des heures de consultation spéciales\n• Participation au système de services du PPPK (2-3x/an 2 semaines de services de nuit et de fin de semaine, pas de services de jour)\n• Si vous êtes intéressé, il y a la possibilité de participer au service de conseil et de liaison au Bürgerspital incl. Reconnaissance de la formation continue en psychiatrie et en psychothérapie K+L (Cat. A) et autres rotations internes\n\nProfil\n• Diplôme fédéral de médecine ou diplôme équivalent (pour diplôme étranger reconnu MEBEKO)\n• Formation spécialisée en psychiatrie et psychothérapie\n• Plusieurs années d'expérience en tant que médecin adjoint en psychiatrie hospitalisée\n• Début de la psychothérapie\n\n• Domaine: Médecin\n• Lieu: Services psychiatriques\n• Département: Ambulatorium Soleure ou Grenchen\n• Pensum: 100%"
       },
-      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/assistenzaerztin-assistenzarzt-psychiatrie-ambulant-w-m-d/fb301cd0-d7c9-49d5-b716-6285dbf2afbe",
@@ -14448,7 +14447,9 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-psychiatrie-ambulant-w-m-d-soh-ch",
-        "assistente-medico-assista-psichiatria-ambulante-m-f-d-solothurner-spitaler-soh-solothurn"
+        "assistente-medico-assista-psichiatria-ambulante-m-f-d-solothurner-spitaler-soh-solothurn",
+        "assistant-doctor-assistant-psychiatry-outpatient-m-f-d-solothurner-spitaler-soh-solothurn",
+        "assistant-medecin-assistant-psychiatrie-externe-h-f-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14456,10 +14457,12 @@
           "assistente-medico-assista-psichiatria-ambulante-m-f-d-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-psychiatrie-ambulant-w-m-d-soh-ch"
+          "assistenzarztin-assistenzarzt-psychiatrie-ambulant-w-m-d-soh-ch",
+          "assistant-doctor-assistant-psychiatry-outpatient-m-f-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-psychiatrie-ambulant-w-m-d-soh-ch"
+          "assistenzarztin-assistenzarzt-psychiatrie-ambulant-w-m-d-soh-ch",
+          "assistant-medecin-assistant-psychiatrie-externe-h-f-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-10T21:46:09.984Z",
@@ -14474,16 +14477,17 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "solothurner-spitaeler-78a7ff42ade5",
       "slug": "mpa-o-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-m-w-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "mpa-o-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-m-w-d-solothurner-spitaler-soh-olten",
-        "en": "mpa-or-specialist-health-specialist-surgical-consultation-hours-f-m-d-solothurner-spitaler-soh-olten",
+        "it": "mpa-o-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-m-w-d-solothurner-spitaler-ag-soh-olten",
+        "en": "mpa-or-specialist-health-specialist-surgical-consultation-hours-f-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-        "fr": "mpa-ou-specialiste-specialiste-de-la-sante-heures-de-consultation-chirurgicale-f-m-d-solothurner-spitaler-soh-olten"
+        "fr": "mpa-ou-specialiste-specialiste-de-la-sante-heures-de-consultation-chirurgicale-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -14532,7 +14536,9 @@
         "orari-di-consultazione-medica-mpa-w-m-d-solothurner-spitaler-soh-olten",
         "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten",
         "mpa-medizinische-sprechstunden-w-m-d-soh-ch",
-        "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten"
+        "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten",
+        "mpa-or-specialist-health-specialist-surgical-consultation-hours-f-m-d-solothurner-spitaler-soh-olten",
+        "mpa-ou-specialiste-specialiste-de-la-sante-heures-de-consultation-chirurgicale-f-m-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14544,14 +14550,16 @@
         ],
         "en": [
           "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-          "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten"
+          "mpa-medical-consultation-hours-w-m-d-solothurner-spitaler-soh-olten",
+          "mpa-or-specialist-health-specialist-surgical-consultation-hours-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "de": [
           "mpa-medizinische-sprechstunden-w-m-d-soh-ch"
         ],
         "fr": [
           "mpa-oder-fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-          "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten"
+          "heures-de-consultation-medicale-de-la-zpm-w-m-d-solothurner-spitaler-soh-olten",
+          "mpa-ou-specialiste-specialiste-de-la-sante-heures-de-consultation-chirurgicale-f-m-d-solothurner-spitaler-soh-olten"
         ]
       },
       "firstSeenAt": "2026-08-07T10:12:06.642Z",
@@ -14572,10 +14580,10 @@
       "id": "solothurner-spitaeler-617569d5bd03",
       "slug": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
-        "en": "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-soh-olten",
+        "it": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "en": "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-soh-olten"
+        "fr": "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -14594,7 +14602,6 @@
         "de": "Aufgaben\n• Arbeit von Montag bis Samstag, Sonntag Frei, kein Nachtdienst\n• Selbstständige Durchführung der Dialysebehandlung\n• Dokumentation im elektronischen Patientendossier\n• Instruktion und Durchführung der Peritonealdialyse (nach Einarbeitung)\n\nProfil\n• Dipl. Pflegefachfrau oder Pflegefachmann HF/FH, DN II, AK (bei ausländischem Diplom mit SRK-Anerkennung)\n• Erfahrung in der Dialyse\n• Freude an der Arbeit mit chronisch kranken Patientinnen und Patienten\n• Offenheit gegenüber Veränderungen und Freude an einem lebhaften Umfeld\n• Teamfähige, empathische und belastbare Persönlichkeit\n\n• Bereich: Pflege\n• Standort: Kantonsspital Olten\n• Abteilung: Dialyse / Nephrologie\n• Pensum: 60%",
         "fr": "Tâche\n• Travail du lundi au samedi, dimanche Gratuit, pas de service de nuit\n• Performance indépendante du traitement de dialyse\n• Documentation dans le dossier électronique du patient\n• Instruction et performance de la dialyse péritonéale (après incorporation)\n\nProfil\n• Dipl. Spécialiste des soins infirmiers HF/FH, DN II, AK (pour un diplôme étranger reconnu par le SRC)\n• Expérience en dialyse\n• Joy de travailler avec des patients souffrant de maladies chroniques\n• Ouverture au changement et à la joie dans un environnement animé\n• Personnalité capable, empathique et résiliente\n\n• Domaine: Soins\n• Lieu: Hôpital cantonal Olten\n• Département: Dialyse / Néphrologie\n• Pensum: 60%"
       },
-      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d/ed0779b1-cc1c-4fef-9a09-1c2a87422380",
@@ -14624,7 +14631,9 @@
         "dipl-infermiera-oncologia-f-m-d-solothurner-spitaler-soh-olten",
         "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
         "dipl-pflegefachfrau-pflegefachmann-onkologie-w-m-d-soh-solothurner-spitaeler-olten",
-        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten"
+        "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten",
+        "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-soh-olten",
+        "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14635,13 +14644,15 @@
           "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch"
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
+          "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-soh-olten"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch"
+          "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-ch",
+          "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-soh-olten"
         ]
       },
       "firstSeenAt": "2026-08-06T11:35:14.791Z",
@@ -14656,7 +14667,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "solothurner-spitaeler-2fd9a191f419",
@@ -15150,10 +15162,10 @@
       "id": "solothurner-spitaeler-3b5520ef4cf7",
       "slug": "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-soh-olten",
-        "en": "dipl-nursing-professional-imo-m-f-d-solothurner-spitaler-soh-olten",
+        "it": "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "dipl-nursing-professional-imo-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-ch",
-        "fr": "dipl-specialiste-des-soins-infirmiers-imo-h-f-d-solothurner-spitaler-soh-olten"
+        "fr": "dipl-specialiste-des-soins-infirmiers-imo-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15172,7 +15184,6 @@
         "de": "Aufgaben\n• Pflege und Begleitung von überwachungspflichtigen Patientinnen und Patienten\n• Individuelle und ganzheitliche Betreuung und Pflege der Patientinnen und Patienten im Drei-Schichten-Betrieb\n• Interprofessionelle Zusammenarbeit im Fachbereich Intensivmedizin Olten\n• Mitgestaltung einer aktiven und positiven Teamkultur\n\nProfil\n• Dipl. Pflegefachmann oder Pflegefachfrau HF/FH, DN II, AKP (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung auf der Akutabteilung eines Spitals (von Vorteil)\n• NDK Überwachungspflege oder Bereitschaft diesen zu absolvieren\n• Belastbare und flexible Persönlichkeit, die gerne in einem starken, vielfältigen Team arbeitet\n\n• Bereich: Pflege\n• Standort: Kantonsspital Olten\n• Abteilung: Intensiv Medizin Olten (IMO)\n• Pensum: 60% - 100%",
         "fr": "Tâche\n• Soins et soutien des patients soumis à la surveillance\n• Soins individuels et holistiques et soins aux patients en trois équipes\n• Coopération interprofessionnelle dans le domaine de la médecine intensive Olten\n• Créer une culture d'équipe active et positive\n\nProfil\n• Dipl. Spécialiste des soins infirmiers HF/FH, DN II, AKP (pour un diplôme étranger reconnu par le SRC)\n• Expérience professionnelle dans le service aigu d'un hôpital (avantages)\n• NDK supervision soin ou volonté de le compléter\n• Personnalité résiliente et flexible qui aime travailler dans une équipe forte et diversifiée\n\n• Domaine: Soins\n• Lieu: Hôpital cantonal Olten\n• Département de médecine intensive Olten (IMO)\n• Pensum: 60% - 100%"
       },
-      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-imo-w-m-d/6b57bd53-5782-4a6d-804d-14e302bb79d2",
@@ -15199,7 +15210,9 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-ch",
-        "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-soh-olten"
+        "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-soh-olten",
+        "dipl-nursing-professional-imo-m-f-d-solothurner-spitaler-soh-olten",
+        "dipl-specialiste-des-soins-infirmiers-imo-h-f-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15207,10 +15220,12 @@
           "dipl-infermieristica-professionale-imo-m-f-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-ch"
+          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-ch",
+          "dipl-nursing-professional-imo-m-f-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-ch"
+          "dipl-pflegefachfrau-pflegefachmann-imo-w-m-d-soh-ch",
+          "dipl-specialiste-des-soins-infirmiers-imo-h-f-d-solothurner-spitaler-soh-olten"
         ]
       },
       "firstSeenAt": "2026-08-12T21:52:45.904Z",
@@ -15225,16 +15240,17 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "solothurner-spitaeler-2c1eedf3e40e",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-m-f-d-solothurner-spitaler-soh-solothurn",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-m-w-d-solothurner-spitaler-soh-solothurn",
+        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "medical-device-technologist-medical-device-technologist-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-w-m-d-soh-ch",
-        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-h-f-d-solothurner-spitaler-soh-solothurn"
+        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15253,7 +15269,6 @@
         "de": "Aufgaben\n• Aufbereitung, Reinigung und Desinfektion von Medizinprodukten\n• Zusammenstellen, verpacken und sterilisieren von Medizinprodukten\n• Massnahmen und Vorschriften der Arbeitssicherheit und des Gesundheitsschutzes sicherstellen\n• Massnahmen und Vorschriften des Umweltschutzes umsetzen und Gerätetests durchführen\n\nProfil\n• Medizinproduktetechnologin oder Medizinproduktetechnologe EFZ\n• Abschluss des Fachkundelehrgangs Technische Sterilisationsassistentin oder Technischer Sterilisationsassistent oder die Bereitschaft, eine gleichwertige Ausbildung zu absolvieren\n• EDV Anwenderkenntnisse\n• Sorgfältiges Arbeiten in Eigenverantwortung\n\n• Bereich: Medizinisch-technische Berufe\n• Standort: Bürgerspital Solothurn\n• Abteilung: AEMP\n• Pensum: 80% - 100%",
         "fr": "Tâches\n• Traitement, nettoyage et désinfection des dispositifs médicaux\n• Composition, emballage et stérilisation des dispositifs médicaux\n• Assurer des mesures et des réglementations en matière de sécurité et de santé au travail\n• Mettre en œuvre des mesures et des règlements de protection de l'environnement et effectuer des essais d'équipement\n\nProfil\n• Technologue des dispositifs médicaux EFZ\n• Achèvement du cours d'aptitude Assistant de stérilisation technique ou volonté d'entreprendre une formation équivalente\n• Compétences des utilisateurs de PDE\n• Travail soigné sous responsabilité personnelle\n\n• Domaine: professions médicales et techniques\n• Lieu: Bürgerspital Solothurn\n• Division: AEMP\n• Pensum: 80% - 100%"
       },
-      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/medizinproduktetechnologin-medizinproduktetechnologe-w-m-d/c88c0228-61c0-40cd-a298-1b0477b9fe2c",
@@ -15283,7 +15298,8 @@
         "medizinproduktetechnologin-medizinproduktetechnologe-w-m-d-solothurner-spitaler-soh-solothurn",
         "medical-device-technologist-medical-device-technologist-m-f-d-solothurner-spitaler-soh-solothurn",
         "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-m-f-d-solothurner-spitaler-soh-solothurn",
-        "medizinproduktetechnologin-medizinproduktetechnologe-m-w-d-solothurner-spitaler-soh-solothurn"
+        "medizinproduktetechnologin-medizinproduktetechnologe-m-w-d-solothurner-spitaler-soh-solothurn",
+        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-h-f-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15297,7 +15313,8 @@
           "medizinproduktetechnologin-medizinproduktetechnologe-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-w-m-d-solothurner-spitaler-soh-solothurn"
+          "medizinproduktetechnologin-medizinproduktetechnologe-w-m-d-solothurner-spitaler-soh-solothurn",
+          "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-h-f-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-11T22:06:03.229Z",
@@ -15312,16 +15329,17 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "solothurner-spitaeler-2799e4069c08",
       "slug": "medico-senior-medico-senior-psichiatria-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "medico-senior-medico-senior-psichiatria-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn",
-        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn",
+        "it": "medico-senior-medico-senior-psichiatria-ambulatorium-olten-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-olten-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "oberarztin-oberarzt-psychiatrie-ambulatorium-olten-w-m-d-soh-ch",
-        "fr": "medecin-principal-medecin-principal-psychiatrie-ambulatoire-olten-h-f-d-solothurner-spitaler-soh-solothurn"
+        "fr": "medecin-principal-medecin-principal-psychiatrie-ambulatoire-olten-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15367,7 +15385,9 @@
       "workplace": "Psychiatrische Dienste",
       "previousSlugs": [
         "oberarztin-oberarzt-psychiatrie-ambulatorium-olten-w-m-d-soh-ch",
-        "medico-senior-medico-senior-psichiatria-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn"
+        "medico-senior-medico-senior-psichiatria-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn",
+        "senior-physician-senior-physician-psychiatry-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn",
+        "medecin-principal-medecin-principal-psychiatrie-ambulatoire-olten-h-f-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15375,10 +15395,12 @@
           "medico-senior-medico-senior-psichiatria-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-olten-w-m-d-soh-ch"
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-olten-w-m-d-soh-ch",
+          "senior-physician-senior-physician-psychiatry-ambulatorium-olten-m-f-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-olten-w-m-d-soh-ch"
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-olten-w-m-d-soh-ch",
+          "medecin-principal-medecin-principal-psychiatrie-ambulatoire-olten-h-f-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-10T21:46:09.983Z",
@@ -15399,10 +15421,10 @@
       "id": "solothurner-spitaeler-2da968f8e808",
       "slug": "interno-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "interno-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten",
-        "en": "intern-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten",
+        "it": "interno-medical-engineering-intern-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "intern-medical-engineering-intern-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "praktikantin-praktikant-medizintechnik-w-m-d-soh-ch",
-        "fr": "stagiaire-genie-medical-stagiaire-h-f-d-solothurner-spitaler-soh-olten"
+        "fr": "stagiaire-genie-medical-stagiaire-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15421,7 +15443,6 @@
         "de": "Aufgaben\n• Zuständig für die Grundlagenarbeit rund um die Unterweisungs- und Einweisungspflicht bei Medizingeräten\n• Einholen der aktuellen Gebrauchsanweisungen (IFU) für alle relevanten Gerätemodelle bei den Herstellern, Prüfung auf Aktualität sowie strukturierte Ablage\n• Modellbezogene Klärung mit den Herstellern, ob eine Einweisungspflicht besteht, in welcher Form die Einweisung erfolgen muss und wer dazu befugt ist\n• Ermittlung, ob und in welchen Abständen eine Unterweisung im sicheren Umgang mit dem jeweiligen Gerät erforderlich ist, sowie Vorbereitung der Grundlagen für die spätere Schulungszuteilung\n• Unterstützung der Projektleitung bei administrativen und organisatorischen Aufgaben sowie nachvollziehbare Dokumentation der Ergebnisse für die spätere Überführung in eine digitale Lösung und langfristige Archivierung (Homeoffice bis zu 50% des Pensums möglich)\n\nProfil\n• Technisches Interesse und ein laufendes Studium in eine passende Richtung (z.B. Medizintechnik oder eine vergleichbare technische Fachrichtung)\n• Freude an Dokumentation, Datenqualität und strukturierter, sorgfältiger Arbeit\n• Affinität für Prozesse sowie regulatorische und qualitätsrelevante Anforderungen\n• Gute Anwenderkenntnisse in MS Office, insbesondere Excel\n• Selbstständige, zuverlässige Arbeitsweise und gutes Organisationsgeschick\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\n• Bereich: Medizinisch-technische Berufe\n• Standort: Kantonsspital Olten\n• Abteilung: Medizintechnik\n• Pensum: 100%",
         "fr": "Tâche\n• Responsable du travail de base sur le devoir d'instruction et d'instruction dans les dispositifs médicaux\n• Obtenir des fabricants les instructions d'utilisation actuelles (IFU) pour tous les modèles d'appareils pertinents, vérifier la mise à jour et le stockage structuré\n• Clarification des modèles avec les fabricants quant à l'obligation de fournir une formation, sous quelle forme la formation doit avoir lieu et qui est habilité à le faire\n• Détermination de la nécessité et de la fréquence d'une formation à l'utilisation sûre de l'équipement et préparation de la base pour l'affectation ultérieure de la formation\n• Soutien à la gestion de projets dans les tâches administratives et organisationnelles ainsi qu'une documentation compréhensible des résultats pour un transfert ultérieur vers une solution numérique et un archivage à long terme (bureau d'accueil jusqu'à 50% de la charge de travail possible)\n\nProfil\n• Intérêt technique et études en cours dans une direction appropriée (p. ex. technologie médicale ou discipline technique comparable)\n• Profitez de la documentation, de la qualité des données et d'un travail structuré et soigné\n• Affinité des procédés ainsi que des exigences réglementaires et de qualité\n• Bonne connaissance utilisateur dans MS Office, en particulier Excel\n• Méthodes de travail indépendantes et fiables et bonnes compétences organisationnelles\n• Force de communication et plaisir de travailler avec les différentes parties prenantes\n\n• Domaine: professions médicales et techniques\n• Lieu: Hôpital cantonal Olten\n• Département de génie médical\n• Pensum: 100%"
       },
-      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.so-h.ch/offene-stellen/praktikantin-praktikant-medizintechnik-w-m-d/ea024f08-bd7f-46a4-b808-814388142f2f",
@@ -15448,7 +15469,9 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugs": [
         "praktikantin-praktikant-medizintechnik-w-m-d-soh-ch",
-        "interno-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten"
+        "interno-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten",
+        "intern-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten",
+        "stagiaire-genie-medical-stagiaire-h-f-d-solothurner-spitaler-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15456,10 +15479,12 @@
           "interno-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
-          "praktikantin-praktikant-medizintechnik-w-m-d-soh-ch"
+          "praktikantin-praktikant-medizintechnik-w-m-d-soh-ch",
+          "intern-medical-engineering-intern-m-f-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
-          "praktikantin-praktikant-medizintechnik-w-m-d-soh-ch"
+          "praktikantin-praktikant-medizintechnik-w-m-d-soh-ch",
+          "stagiaire-genie-medical-stagiaire-h-f-d-solothurner-spitaler-soh-olten"
         ]
       },
       "firstSeenAt": "2026-08-13T21:52:06.029Z",
@@ -15474,7 +15499,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

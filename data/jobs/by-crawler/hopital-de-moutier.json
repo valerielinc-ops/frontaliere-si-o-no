@@ -591,9 +591,9 @@
       "slug": "capo-del-centro-di-billing-ambulatorio-70-100-hopital-de-moutier-moutier",
       "slugByLocale": {
         "fr": "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier",
-        "it": "capo-del-centro-di-billing-ambulatorio-70-100-hopital-de-moutier-moutier",
-        "en": "head-of-the-ambulatory-billing-centre-70-to-100-hopital-de-moutier-moutier",
-        "de": "leiter-des-ambulatory-billing-centre-70-bis-100-hopital-de-moutier-moutier"
+        "it": "capo-del-centro-di-billing-ambulatorio-70-100-swiss-medical-network-moutier",
+        "en": "head-of-the-ambulatory-billing-centre-70-to-100-swiss-medical-network-moutier",
+        "de": "leiter-des-ambulatory-billing-centre-70-bis-100-swiss-medical-network-moutier"
       },
       "company": "Hôpital de Moutier",
       "companyKey": "hopital-de-moutier",
@@ -655,14 +655,18 @@
           "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier"
         ],
         "en": [
-          "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier"
+          "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier",
+          "head-of-the-ambulatory-billing-centre-70-to-100-hopital-de-moutier-moutier"
         ],
         "de": [
-          "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier"
+          "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier",
+          "leiter-des-ambulatory-billing-centre-70-bis-100-hopital-de-moutier-moutier"
         ]
       },
       "previousSlugs": [
-        "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier"
+        "responsable-du-pole-facturation-ambulatoire-70-a-100-hopital-de-moutier",
+        "head-of-the-ambulatory-billing-centre-70-to-100-hopital-de-moutier-moutier",
+        "leiter-des-ambulatory-billing-centre-70-bis-100-hopital-de-moutier-moutier"
       ],
       "crawlerMissStreak": 2
     }

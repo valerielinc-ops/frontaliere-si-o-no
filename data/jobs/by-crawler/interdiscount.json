@@ -10958,10 +10958,10 @@
       "id": "interdiscount-06af02a4-067",
       "slug": "consulente-commerciale-in-interdiscount-heimberg-2f490d",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-heimberg-2f490d",
-        "en": "sales-consultant-in-interdiscount-heimberg-2f490d",
+        "it": "consulente-commerciale-in-interdiscount-heimberg",
+        "en": "sales-consultant-in-interdiscount-heimberg",
         "de": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
-        "fr": "consultant-en-ventes-interdiscount-heimberg-2f490d"
+        "fr": "consultant-en-ventes-interdiscount-heimberg"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -11030,16 +11030,20 @@
           "verkaufsberater-in-interdiscount-heimberg-bern-fzz950"
         ],
         "en": [
-          "verkaufsberater-in-interdiscount-heimberg"
+          "verkaufsberater-in-interdiscount-heimberg",
+          "sales-consultant-in-interdiscount-heimberg-2f490d"
         ],
         "fr": [
-          "verkaufsberater-in-interdiscount-heimberg"
+          "verkaufsberater-in-interdiscount-heimberg",
+          "consultant-en-ventes-interdiscount-heimberg-2f490d"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-interdiscount-heimberg",
         "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
-        "consulente-commerciale-in-interdiscount-heimberg-2f490d"
+        "consulente-commerciale-in-interdiscount-heimberg-2f490d",
+        "sales-consultant-in-interdiscount-heimberg-2f490d",
+        "consultant-en-ventes-interdiscount-heimberg-2f490d"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -11154,10 +11158,10 @@
       "id": "interdiscount-de06fcad-196",
       "slug": "junior-supply-chain-manager-interdiscount-jegenstorf",
       "slugByLocale": {
-        "it": "junior-supply-chain-manager-interdiscount-jegenstorf",
-        "en": "junior-supply-chain-manager-interdiscount-jegenstorf",
         "de": "junior-supply-chain-manager-interdiscount-jegenstorf",
-        "fr": "junior-chaine-d-approvisionnement-manager-interdiscount-jegenstorf"
+        "it": "junior-supply-chain-manager-interdiscount-jegenstorf-bern-gwiiuv",
+        "en": "junior-supply-chain-manager-interdiscount-jegenstorf-bern-gwiiuv",
+        "fr": "junior-chaine-d-approvisionnement-manager-interdiscount-jegenstorf-bern-gwiiuv"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -11215,8 +11219,6 @@
           "• Du kommunizierst stilsicher auf Deutsch in Wort und Schrift."
         ]
       },
-      "firstSeenAt": "2026-08-14T10:14:23.603Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -11228,7 +11230,17 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T10:14:23.603Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "junior-chaine-d-approvisionnement-manager-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "junior-chaine-d-approvisionnement-manager-interdiscount-jegenstorf"
+      ]
     }
   ]
 }

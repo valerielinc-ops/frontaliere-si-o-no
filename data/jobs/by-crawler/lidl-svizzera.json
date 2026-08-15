@@ -339,7 +339,7 @@
     },
     {
       "id": "company-likphn",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn",
+      "slug": "stv-branch-manager-stv-branch-manager-m-f-d-100-lidl-svizzera-zurich",
       "company": "Lidl Svizzera",
       "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 100%",
       "location": "Zürich",
@@ -376,21 +376,26 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn",
+        "it": "stv-branch-manager-stv-branch-manager-m-f-d-100-lidl-svizzera-zurich",
         "en": "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn",
-        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn"
+        "fr": "gestionnaire-de-succursales-stv-gestionnaire-de-succursales-stv-h-f-d-100-lidl-svizzera-zurich"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn"
+        ],
+        "fr": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-100-lidl-svizzera-zurich-likphn"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -410,7 +415,7 @@
     },
     {
       "id": "company-bnzuf4",
-      "slug": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4",
+      "slug": "venditore-venditore-m-f-d-40-60-zurigo-lidl-svizzera-zurich",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Zürich",
       "location": "Zürich",
@@ -446,21 +451,29 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transfert et entretien de biens au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5h00 et 22h00);\n\n- Bonne condition physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4",
-        "en": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4",
+        "it": "venditore-venditore-m-f-d-40-60-zurigo-lidl-svizzera-zurich",
+        "en": "seller-seller-m-f-d-40-60-zurich-lidl-svizzera-zurich",
         "de": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4",
-        "fr": "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4"
+        "fr": "vendeur-vendeur-h-f-d-40-60-zurich-lidl-svizzera-zurich"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich"
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich"
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-zurich-bnzuf4"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -480,7 +493,7 @@
     },
     {
       "id": "company-jknedj",
-      "slug": "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj",
+      "slug": "venditore-venditore-m-f-d-60-80-zurigo-lidl-svizzera-zurich",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 60-80% — Zürich",
       "location": "Zürich",
@@ -516,21 +529,29 @@
         "fr": "Présentation\n\nVendre est votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Contribution à une expérience d'achat positive de nos clients\n\n- Activités de trésorerie\n\n- Transfert et entretien de biens au sein de la succursale\n\n- Contribution à l'aspect propre de la zone de vente\nVotre profil\n\n- Expérience professionnelle dans les ventes ou l'industrie comparable est bénéfique\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5h00 et 22h00);\n\n- Bonne condition physique\n\n- Aspect amical et soigné\n\n- Fiabilité et sens des responsabilités\n\n- Bonne connaissance de l'allemand\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj",
-        "en": "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj",
+        "it": "venditore-venditore-m-f-d-60-80-zurigo-lidl-svizzera-zurich",
+        "en": "seller-seller-m-f-d-60-80-zurich-lidl-svizzera-zurich",
         "de": "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj",
-        "fr": "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj"
+        "fr": "vendeur-vendeur-h-f-d-60-80-zurich-lidl-svizzera-zurich"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich"
+          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich",
+          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj"
+        ],
+        "en": [
+          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich"
+        "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-m-w-d-60-80-lidl-svizzera-zurich-jknedj"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -588,9 +609,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
+        "en": "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -598,10 +619,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich"
+        ],
+        "en": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h"
+        ],
+        "fr": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h"
         ]
       },
       "previousSlugs": [
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -660,9 +688,9 @@
       },
       "slugByLocale": {
         "it": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "en": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "de": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl",
-        "fr": "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-5hbbrl"
+        "en": "salesman-salesman-m-f-d-20-40-lidl-svizzera-lugano",
+        "de": "verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-lugano",
+        "fr": "vendeur-vendeur-h-f-d-20-40-lidl-svizzera-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1626,8 +1654,7 @@
         "en": [
           "all-rounder-sale-m-f-d-20-40-muri-ag-lidl-svizzera-muri-ag",
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-muri-ag-94cyyw",
-          "all-rounder-sale-m-f-d-20-40-1-muri-ag-lidl-svizzera-muri-ag",
-          "allrounder-verkauf-m-w-d-20-40-1-muri-ag-lidl-svizzera-muri-ag"
+          "all-rounder-sale-m-f-d-20-40-1-muri-ag-lidl-svizzera-muri-ag"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-muri-ag-f2cc15"
@@ -1645,8 +1672,7 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-muri-ag",
         "allrounder-verkauf-m-w-d-20-40-muri-ag-lidl-svizzera-muri-ag",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-muri-ag-94cyyw",
-        "all-rounder-sale-m-f-d-20-40-1-muri-ag-lidl-svizzera-muri-ag",
-        "allrounder-verkauf-m-w-d-20-40-1-muri-ag-lidl-svizzera-muri-ag"
+        "all-rounder-sale-m-f-d-20-40-1-muri-ag-lidl-svizzera-muri-ag"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1724,8 +1750,7 @@
         "en": [
           "all-rounder-sale-m-f-d-20-40-reinach-ag-lidl-svizzera-reinach-ag",
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-reinach-ag-4fgzbi",
-          "all-rounder-sale-m-f-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag",
-          "allrounder-verkauf-m-w-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag"
+          "all-rounder-sale-m-f-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-reinach-ag-5z3c79"
@@ -1743,8 +1768,7 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-reinach-ag",
         "allrounder-verkauf-m-w-d-20-40-reinach-ag-lidl-svizzera-reinach-ag",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-reinach-ag-4fgzbi",
-        "all-rounder-sale-m-f-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag",
-        "allrounder-verkauf-m-w-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag"
+        "all-rounder-sale-m-f-d-20-40-1-reinach-ag-lidl-svizzera-reinach-ag"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -6690,8 +6714,7 @@
         "allrounder-vendita-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8gwrkx",
-        "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
-        "allrounder-verkauf-m-w-d-20-40-luzern-lidl-svizzera-luzern"
+        "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6701,8 +6724,7 @@
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz",
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8gwrkx",
-          "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern",
-          "allrounder-verkauf-m-w-d-20-40-luzern-lidl-svizzera-luzern"
+          "all-rounder-sale-m-f-d-20-40-lucerne-lidl-svizzera-luzern"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-luzern-8g8gnz"
@@ -6801,14 +6823,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
-          "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
           "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
-        "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
         "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon"
       ],
       "baseSalary": {
@@ -7630,14 +7650,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-          "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
           "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
       ],
       "baseSalary": {
@@ -8232,7 +8250,7 @@
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
         "en": "customer-care-provider-self-checkout-20-30-lidl-svizzera-ostermundigen",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-        "fr": "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
+        "fr": "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
       },
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout 20-30 — Ostermundigen",
@@ -8277,7 +8295,6 @@
         ],
         "fr": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-          "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
           "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
         ]
       },
@@ -8288,7 +8305,6 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen",
-        "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
         "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       ],
       "salaryMin": 68500,
@@ -8759,14 +8775,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
-          "all-rounder-sale-m-f-d-20-40-1-dietikon-lidl-svizzera-dietikon",
           "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
-        "all-rounder-sale-m-f-d-20-40-1-dietikon-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
       ],
       "baseSalary": {
@@ -8828,7 +8842,7 @@
         "it": "cassiera-cassiera-lun-f-due-40-60-lidl-svizzera-bern",
         "en": "cashier-m-f-d-40-60-lidl-svizzera-bern",
         "de": "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "fr": "caissier-m-w-d-40-60-lidl-svizzera-bern"
+        "fr": "caisse-m-f-j-40-60-lidl-svizzera-bern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -8843,14 +8857,12 @@
         ],
         "fr": [
           "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-          "caisse-m-f-j-40-60-lidl-svizzera-bern",
           "caissier-m-w-d-40-60-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern",
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "caisse-m-f-j-40-60-lidl-svizzera-bern",
         "caissier-m-w-d-40-60-lidl-svizzera-bern"
       ],
       "baseSalary": {
@@ -9179,15 +9191,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
-          "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg",
-          "allrounder-verkauf-m-w-d-20-40-1-brugg-lidl-svizzera-brugg"
+          "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-brugg-kpbv0p",
-        "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg",
-        "allrounder-verkauf-m-w-d-20-40-1-brugg-lidl-svizzera-brugg"
+        "all-rounder-sale-m-f-d-20-40-1-brugg-lidl-svizzera-brugg"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600
@@ -9259,15 +9269,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
-          "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
-          "allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
+          "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-hunzenschwil-az9oi8",
-        "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil",
-        "allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
+        "all-rounder-sale-m-f-d-20-40-1-hunzenschwil-lidl-svizzera-hunzenschwil"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600
@@ -9339,15 +9347,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
-          "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen",
-          "allrounder-verkauf-m-w-d-20-40-1-wettingen-lidl-svizzera-wettingen"
+          "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-wettingen-xms4ke",
-        "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen",
-        "allrounder-verkauf-m-w-d-20-40-1-wettingen-lidl-svizzera-wettingen"
+        "all-rounder-sale-m-f-d-20-40-1-wettingen-lidl-svizzera-wettingen"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600
@@ -9505,8 +9511,7 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz9",
-          "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
-          "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
+          "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen"
         ]
       },
       "previousSlugs": [
@@ -9515,8 +9520,7 @@
         "allrounder-vendita-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-wallisellen-jmljz3",
-        "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
-        "allrounder-verkauf-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
+        "all-rounder-sale-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600
@@ -9939,8 +9943,7 @@
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden-jylox9",
         "allrounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden",
-        "all-rounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden",
-        "allrounder-verkauf-m-w-d-20-40-1-baden-lidl-svizzera-baden"
+        "all-rounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9951,8 +9954,7 @@
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl",
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden-jylox9",
           "allrounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden",
-          "all-rounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden",
-          "allrounder-verkauf-m-w-d-20-40-1-baden-lidl-svizzera-baden"
+          "all-rounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl"
@@ -10065,15 +10067,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
-          "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen",
-          "allrounder-verkauf-m-w-d-20-40-sarnen-lidl-svizzera-sarnen"
+          "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-sarnen-vat7e7",
-        "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen",
-        "allrounder-verkauf-m-w-d-20-40-sarnen-lidl-svizzera-sarnen"
+        "all-rounder-sale-m-f-d-20-40-sarnen-lidl-svizzera-sarnen"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400
@@ -10290,8 +10290,7 @@
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-dmpi4k",
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2",
           "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil-3ad637",
-          "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil",
-          "allrounder-verkauf-m-w-d-20-40-adliswil-lidl-svizzera-adliswil"
+          "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil"
         ],
         "de": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2"
@@ -10307,8 +10306,7 @@
         "allrounder-vendita-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2",
         "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil-3ad637",
         "allrounder-vente-m-w-d-20-40-lidl-svizzera-adliswil-d9igq2",
-        "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil",
-        "allrounder-verkauf-m-w-d-20-40-adliswil-lidl-svizzera-adliswil"
+        "all-rounder-sale-m-f-d-20-40-adliswil-lidl-svizzera-adliswil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12452,8 +12450,7 @@
         "fr": [
           "ch-vendeur-vendeur-responsable-du-quart-m-f-d-60-80-lidl-svizzera-st-moritz",
           "ch-vendeur-vendeur-responsable-du-poste-m-f-d-60-80-lidl-svizzera-st-moritz",
-          "ch-vendeur-vendeur-responsable-du-poste-h-f-d-60-80-lidl-svizzera-st-moritz",
-          "ch-venditore-venditrice-con-responsabilita-del-turno-m-w-d-60-80-lidl-svizzera-st-moritz"
+          "ch-vendeur-vendeur-responsable-du-poste-h-f-d-60-80-lidl-svizzera-st-moritz"
         ]
       },
       "previousSlugs": [
@@ -13481,8 +13478,7 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach-dd6j6x",
-          "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach",
-          "allrounder-verkauf-m-w-d-40-60-lidl-svizzera-bachenbulach"
+          "all-rounder-sale-m-f-d-40-60-lidl-svizzera-bachenbulach"
         ]
       },
       "previousSlugs": [
@@ -21268,7 +21264,7 @@
         "it": "ch-customer-manager-gestione-clienti-self-checkout-lidl-svizzera-stans",
         "en": "ch-customer-manager-gestione-clienti-self-checkout-lidl-svizzera-stans",
         "de": "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
-        "fr": "ch-customer-manager-self-check-out-lidl-svizzera-stans"
+        "fr": "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans"
       },
       "titleByLocale": {
         "it": "CH Customer Manager / Gestione clienti Self-Checkout",
@@ -21295,7 +21291,6 @@
         ],
         "fr": [
           "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
-          "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans",
           "ch-customer-manager-self-check-out-lidl-svizzera-stans"
         ]
       },
@@ -21303,7 +21298,6 @@
         "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
         "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans",
         "ch-kundenbetreuer-customer-service-representative-self-checkout-lidl-svizzera-stans-zc9hcc",
-        "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans",
         "ch-customer-manager-self-check-out-lidl-svizzera-stans"
       ],
       "country": "CH",
