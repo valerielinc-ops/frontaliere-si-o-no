@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-08-15T09:44:20.809Z",
+  "assembledAt": "2026-08-15T21:28:49.449Z",
   "jobs": [
     {
       "id": "denner-95dce1672fce",
@@ -64,7 +64,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b8e3c46b-cbc6-4ff3-ad34-c0b9aec35b2f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:16.334Z",
+      "crawledAt": "2026-08-15T21:28:45.215Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-ruti-zh",
@@ -74,7 +74,8 @@
         "venditore-denner-ag-ruti-zh-855b89",
         "venditore-denner-ag-ruti-zh-t7zg1v",
         "verkaufer-in-denner-ag-ruti-zh-2",
-        "verkaufer-in-denner-ag-ruti-zh-t7zg1v"
+        "verkaufer-in-denner-ag-ruti-zh-t7zg1v",
+        "venditore-denner-ag-ruti-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -85,7 +86,8 @@
           "venditore-denner-ag-ruti-zh-855b89",
           "venditore-denner-ag-ruti-zh-t7zg1v",
           "verkaufer-in-denner-ag-ruti-zh-2",
-          "verkaufer-in-denner-ag-ruti-zh-t7zg1v"
+          "verkaufer-in-denner-ag-ruti-zh-t7zg1v",
+          "venditore-denner-ag-ruti-zh"
         ],
         "en": [
           "verkaufer-in-denner-ruti-zh"
@@ -95,6 +97,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:20:52.223Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -170,20 +173,22 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/7a92f74a-7209-411d-b325-beffe3ee1494",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:16.331Z",
+      "crawledAt": "2026-08-15T21:28:45.213Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-pfaffikon-zh",
         "seller-denner-pfaffikon-zh",
         "vendeur-denner-pfaffikon-zh",
-        "venditore-denner-pfaffikon-zh"
+        "venditore-denner-pfaffikon-zh",
+        "venditore-denner-ag-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "seller-denner-pfaffikon-zh",
           "vendeur-denner-pfaffikon-zh",
-          "venditore-denner-pfaffikon-zh"
+          "venditore-denner-pfaffikon-zh",
+          "venditore-denner-ag-pfaffikon-zh"
         ],
         "en": [
           "verkaufer-in-denner-pfaffikon-zh"
@@ -193,6 +198,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:20:52.159Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -268,19 +274,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/071eef91-4bcd-4a9f-aff1-7e7d14ca486b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:15.784Z",
+      "crawledAt": "2026-08-15T21:28:44.794Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-schaffhausen",
         "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1"
+        "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
+        "venditore-con-salario-orario-denner-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-schaffhausen",
           "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-          "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1"
+          "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
+          "venditore-con-salario-orario-denner-ag-schaffhausen"
         ]
       },
       "needsRetranslation": true,
@@ -359,7 +367,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/add7f3e9-2e73-4d7c-963b-56ea821c665b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:44:15.781Z",
+      "crawledAt": "2026-08-15T21:28:44.791Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner-2",
         "vendeur-vendeuse-denner-avenches",
@@ -373,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:20:51.412Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -447,16 +456,19 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/73957d58-1fe1-42c5-9c7b-d15103e704de",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:44:15.778Z",
+      "crawledAt": "2026-08-15T21:28:44.789Z",
       "previousSlugs": [
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-sa-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-sa-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-08-13T10:21:45.272Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -474,10 +486,10 @@
       "id": "denner-491b0418c963",
       "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-wadenswil-f723d1",
+        "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
         "en": "assistant-branch-manager-denner-ag-wadenswil",
         "de": "assistent-in-filialleitung-denner-ag-wadenswil-ocrq9v",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-wadenswil"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -533,18 +545,24 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bd31fa1d-3369-423e-968c-1ea8e603f55b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:14.802Z",
+      "crawledAt": "2026-08-15T21:28:44.257Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-wadenswil",
+        "vice-direttore-di-filiale-denner-ag-wadenswil-f723d1",
+        "directeur-adjoint-de-succursale-denner-ag-wadenswil",
+        "assistente-nella-gestione-delle-branche-denner-wadenswil",
         "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-wadenswil"
+          "assistent-in-filialleitung-denner-wadenswil",
+          "vice-direttore-di-filiale-denner-ag-wadenswil-f723d1",
+          "assistente-nella-gestione-delle-branche-denner-wadenswil"
         ],
         "fr": [
+          "directeur-adjoint-de-succursale-denner-ag-wadenswil",
           "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
         ]
       },
@@ -567,7 +585,7 @@
       "id": "denner-beea6c5dbbd2",
       "slug": "stv-branch-manager-in-denner-wadenswil",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-wadenswil",
+        "it": "stv-branch-manager-in-denner-wadenswil",
         "en": "deputy-branch-manager-denner-ag-wadenswil",
         "de": "stv-filialleiter-in-denner-ag-wadenswil-idrc05",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-wadenswil"
@@ -625,21 +643,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/482bed73-99bb-477b-a7bc-dc53ffb2a895",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:14.797Z",
+      "crawledAt": "2026-08-15T21:28:44.253Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-wadenswil",
         "vice-direttore-di-filiale-denner-ag-wadenswil",
-        "stv-branch-manager-in-denner-wadenswil",
-        "deputy-branch-manager-denner-ag-aarau"
+        "deputy-branch-manager-denner-ag-aarau",
+        "stv-branch-manager-in-denner-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-wadenswil",
           "vice-direttore-di-filiale-denner-ag-wadenswil",
-          "stv-branch-manager-in-denner-wadenswil",
-          "deputy-branch-manager-denner-ag-aarau"
+          "deputy-branch-manager-denner-ag-aarau",
+          "stv-branch-manager-in-denner-wadenswil"
         ]
       },
       "needsRetranslation": true,
@@ -661,7 +679,7 @@
       "id": "denner-36fccfa6a6dd",
       "slug": "stv-branch-manager-in-denner-wollerau",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-wollerau",
+        "it": "stv-branch-manager-in-denner-wollerau",
         "en": "deputy-branch-manager-denner-ag-wollerau",
         "de": "stv-filialleiter-in-denner-ag-wollerau-wwdtv1",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-wollerau"
@@ -719,15 +737,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/da40e4d3-6017-4db1-b70a-08edb2919cf5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:14.792Z",
+      "crawledAt": "2026-08-15T21:28:44.246Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-wollerau"
+        "stv-filialleiter-in-denner-wollerau",
+        "vice-direttore-di-filiale-denner-ag-wollerau",
+        "stv-branch-manager-in-denner-wollerau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-wollerau"
+          "stv-filialleiter-in-denner-wollerau",
+          "vice-direttore-di-filiale-denner-ag-wollerau",
+          "stv-branch-manager-in-denner-wollerau"
         ]
       },
       "needsRetranslation": true,
@@ -807,18 +829,20 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/b6e9786e-b1b3-4c95-b3ce-a57df7dadc5e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:13.820Z",
+      "crawledAt": "2026-08-15T21:28:43.620Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-emmenbrucke",
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "stv-branch-manager-in-denner-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-3",
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-2"
+          "stv-filialleiter-in-denner-2",
+          "stv-branch-manager-in-denner-emmenbrucke"
         ],
         "en": [
           "stv-filialleiter-in-denner-emmenbrucke"
@@ -846,10 +870,10 @@
       "id": "denner-9bfcab5fe0ec",
       "slug": "assistente-nella-gestione-delle-branche-denner-ebikon",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-ebikon",
+        "it": "assistente-nella-gestione-delle-branche-denner-ebikon",
         "en": "assistant-branch-manager-denner-ag-ebikon",
         "de": "assistent-in-filialleitung-denner-ag-ebikon-3lj55e",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-ebikon"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -905,18 +929,24 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c6037c52-7469-40da-ac74-1ff87c1ccd53",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:13.815Z",
+      "crawledAt": "2026-08-15T21:28:43.616Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-ebikon",
+        "vice-direttore-di-filiale-denner-ag-ebikon",
+        "directeur-adjoint-de-succursale-denner-ag-ebikon",
+        "assistente-nella-gestione-delle-branche-denner-ebikon",
         "assistant-dans-la-gestion-des-succursales-denner-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-ebikon"
+          "assistent-in-filialleitung-denner-ebikon",
+          "vice-direttore-di-filiale-denner-ag-ebikon",
+          "assistente-nella-gestione-delle-branche-denner-ebikon"
         ],
         "fr": [
+          "directeur-adjoint-de-succursale-denner-ag-ebikon",
           "assistant-dans-la-gestion-des-succursales-denner-ebikon"
         ]
       },
@@ -997,12 +1027,11 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/e2db60ff-76cf-42bd-a915-f26633472203",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:13.811Z",
+      "crawledAt": "2026-08-15T21:28:43.613Z",
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
         "filialleiter-in-ausbildung-denner-ebikon",
         "filialleiter-in-in-ausbildung-denner-ag-ebikon",
-        "responsabile-della-filiale-nella-formazione-denner-ag-ebikon",
         "directeur-de-branche-en-formation-denner-kirchberg",
         "directeur-de-branche-en-formation-denner-netstal",
         "directeur-de-branche-en-formation-denner-wadenswil",
@@ -1038,13 +1067,11 @@
         "branch-manager-in-training-denner-netstal",
         "branch-manager-in-training-denner-wadenswil",
         "branch-manager-in-training-denner-winterthur",
-        "branch-manager-in-training-denner-wollerau"
+        "branch-manager-in-training-denner-wollerau",
+        "responsabile-della-filiale-nella-formazione-denner-ag-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-di-filiale-in-formazione-denner-buchs-sg",
-          "responsabile-di-filiale-in-formazione-denner-burgdorf",
-          "responsabile-di-filiale-in-formazione-denner-chur",
           "responsabile-di-filiale-in-formazione-denner-horw",
           "responsabile-di-filiale-in-formazione-denner-kirchberg",
           "responsabile-di-filiale-in-formazione-denner-lyssach",
@@ -1061,10 +1088,16 @@
           "branch-manager-in-training-denner-netstal",
           "branch-manager-in-training-denner-wadenswil",
           "branch-manager-in-training-denner-winterthur",
-          "branch-manager-in-training-denner-wollerau"
+          "branch-manager-in-training-denner-wollerau",
+          "filialleiter-in-in-ausbildung-denner",
+          "responsabile-di-filiale-in-formazione-denner-burgdorf",
+          "responsabile-della-filiale-nella-formazione-denner-ag-ebikon"
         ],
         "en": [
           "filialleiter-in-ausbildung-denner-ebikon"
+        ],
+        "de": [
+          "branch-manager-in-training-denner-steinhausen"
         ],
         "fr": [
           "filialleiter-in-ausbildung-denner-ebikon",
@@ -1077,9 +1110,6 @@
           "directeur-de-branche-en-formation-denner-winterthur",
           "directeur-de-branche-en-formation-denner-wollerau",
           "directeur-de-la-branche-stv-en-formation-denner-chur"
-        ],
-        "de": [
-          "branch-manager-in-training-denner-steinhausen"
         ]
       },
       "needsRetranslation": true,
@@ -1155,20 +1185,22 @@
       "workPercentage": "80-100%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-13T19:47:41+0200",
+      "postedDate": "2026-08-13T16:13:19+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/0541905f-766e-4112-aa32-c93336bf6f7e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:12.848Z",
+      "crawledAt": "2026-08-15T21:28:43.009Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-ibach"
+        "stv-filialleiter-in-denner-ibach",
+        "stv-branch-manager-in-denner-ibach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-3",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ibach"
         ],
         "en": [
           "stv-filialleiter-in-denner-ibach"
@@ -1254,14 +1286,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/927fdf7d-cf1d-4b68-81fa-c6a700dcc371",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:12.842Z",
+      "crawledAt": "2026-08-15T21:28:42.990Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-ibach"
+        "verkaufer-in-denner-ibach",
+        "venditore-denner-ag-ibach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-ibach"
         ],
         "en": [
           "verkaufer-in-denner-ibach"
@@ -1271,6 +1305,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:03:52.429Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1347,15 +1382,17 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cd5fcde7-d8cc-469b-b85b-182139cdaede",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:12.836Z",
+      "crawledAt": "2026-08-15T21:28:42.978Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-luzern"
+        "assistent-in-filialleitung-denner-luzern",
+        "assistente-nella-gestione-delle-branche-denner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-luzern"
+          "assistent-in-filialleitung-denner-luzern",
+          "assistente-nella-gestione-delle-branche-denner-ag-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -1435,20 +1472,23 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/646e1a8c-98fa-4f9b-a67b-8512f3d66a65",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:11.866Z",
+      "crawledAt": "2026-08-15T21:28:42.386Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-stans",
-        "venditore-denner-ag-meilen"
+        "venditore-denner-ag-meilen",
+        "venditore-denner-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-stans",
-          "venditore-denner-ag-meilen"
+          "venditore-denner-ag-meilen",
+          "venditore-denner-ag-stans"
         ]
       },
       "firstSeenAt": "2026-08-13T22:03:51.824Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1524,22 +1564,25 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/911abbcb-f3ba-49f6-828b-732715c310ed",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:11.864Z",
+      "crawledAt": "2026-08-15T21:28:42.384Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-luzern",
         "seller-denner-luzern",
-        "vendeur-denner-luzern"
+        "vendeur-denner-luzern",
+        "venditore-denner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-luzern",
           "seller-denner-luzern",
-          "vendeur-denner-luzern"
+          "vendeur-denner-luzern",
+          "venditore-denner-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-08-13T22:03:51.821Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1615,16 +1658,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/0663be85-be66-49ec-9221-1638b39d0397",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:11.862Z",
+      "crawledAt": "2026-08-15T21:28:42.383Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-luzern-7f4c33"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-luzern-7f4c33"
         ]
       },
       "firstSeenAt": "2026-08-13T22:03:51.819Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -1701,19 +1747,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c8f651be-0757-41c5-8e77-fab28c80d0a2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:10.899Z",
+      "crawledAt": "2026-08-15T21:28:41.803Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-richterswil",
-        "assistente-nella-gestione-delle-branche-denner-ag-richterswil",
-        "assistant-in-branch-management-denner-bremgarten-ag"
+        "assistant-in-branch-management-denner-bremgarten-ag",
+        "assistente-nella-gestione-delle-branche-denner-ag-richterswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-richterswil",
-          "assistente-nella-gestione-delle-branche-denner-ag-richterswil",
-          "assistant-in-branch-management-denner-bremgarten-ag"
+          "assistant-in-branch-management-denner-bremgarten-ag",
+          "assistente-nella-gestione-delle-branche-denner-ag-richterswil"
         ]
       },
       "needsRetranslation": true,
@@ -1793,13 +1839,15 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/70a5bd89-1b89-4627-98dd-ab900cf4e299",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:10.890Z",
+      "crawledAt": "2026-08-15T21:28:41.799Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-richterswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-richterswil"
         ]
       },
       "needsRetranslation": true,
@@ -1879,7 +1927,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/b641adb5-b8c1-41cf-a41f-d309ee2d5619",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:10.880Z",
+      "crawledAt": "2026-08-15T21:28:41.794Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-3",
         "verkaufer-in-im-stundenlohn-denner-4",
@@ -2002,13 +2050,14 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/79deb81a-abdf-49aa-915e-4a6eeafbdb70",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:09.820Z",
+      "crawledAt": "2026-08-15T21:28:41.210Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-denner-ag-basel-3",
         "verkaufer-in-denner-ag-basel-6",
         "verkaufer-in-im-stundenlohn-denner-ag-basel-2",
-        "verkaufer-in-im-stundenlohn-denner-basel"
+        "verkaufer-in-im-stundenlohn-denner-basel",
+        "venditore-nel-salario-orario-denner-ag-basel-790eab"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2016,7 +2065,8 @@
           "verkaufer-in-denner-ag-basel-3",
           "verkaufer-in-denner-ag-basel-6",
           "verkaufer-in-im-stundenlohn-denner-ag-basel-2",
-          "verkaufer-in-im-stundenlohn-denner-basel"
+          "verkaufer-in-im-stundenlohn-denner-basel",
+          "venditore-nel-salario-orario-denner-ag-basel-790eab"
         ]
       },
       "needsRetranslation": true,
@@ -2095,16 +2145,19 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/2d1dd5fa-06ea-46f4-84dc-2e68332931e0",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:44:09.818Z",
+      "crawledAt": "2026-08-15T21:28:41.208Z",
       "previousSlugs": [
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-sa-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-sa-etoy"
         ]
       },
       "firstSeenAt": "2026-08-13T22:03:50.356Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2179,16 +2232,19 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/1e9d0b52-9c93-499b-9bc5-26b69ba8400a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:44:09.811Z",
+      "crawledAt": "2026-08-15T21:28:41.204Z",
       "previousSlugs": [
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-sa-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-sa-gland"
         ]
       },
       "firstSeenAt": "2026-08-13T22:03:50.350Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2265,7 +2321,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3fac24cc-045a-42e3-8776-46b766e03945",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:08.867Z",
+      "crawledAt": "2026-08-15T21:28:40.613Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner-2",
         "assistent-in-filialleitung-denner-4",
@@ -2361,7 +2417,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/5548f6f5-b684-427d-bba3-e4bafed91606",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:08.864Z",
+      "crawledAt": "2026-08-15T21:28:40.611Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-4",
         "stv-filialleiter-in-denner-15ags6",
@@ -2373,7 +2429,8 @@
         "stv-filialleiter-in-denner-luzern",
         "stv-filialleiter-in-denner-schaffhausen",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-egg-b-zurich"
+        "stv-filialleiter-in-denner-egg-b-zurich",
+        "stv-branch-manager-in-denner-egg-b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2386,7 +2443,8 @@
           "stv-filialleiter-in-denner-frauenfeld",
           "stv-filialleiter-in-denner-luzern",
           "stv-filialleiter-in-denner-schaffhausen",
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-egg-b"
         ],
         "en": [
           "stv-filialleiter-in-denner-egg-b-zurich"
@@ -2472,7 +2530,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/864f323a-cbda-4158-955e-b2776fe8a71e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:08.861Z",
+      "crawledAt": "2026-08-15T21:28:40.609Z",
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner-4",
@@ -2503,6 +2561,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:21:43.827Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2578,18 +2637,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b5464638-0556-405e-96c2-e0b5a3226159",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:07.913Z",
+      "crawledAt": "2026-08-15T21:28:39.888Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-monchaltorf"
+        "verkaufer-in-denner-monchaltorf",
+        "venditore-denner-ag-monchaltorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-monchaltorf"
+          "verkaufer-in-denner-monchaltorf",
+          "venditore-denner-ag-monchaltorf"
         ]
       },
       "firstSeenAt": "2026-08-14T10:19:59.760Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2665,19 +2727,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/2e9a542a-6e43-40ef-9d3e-375404fb010f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:07.907Z",
+      "crawledAt": "2026-08-15T21:28:39.880Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-gossau-zh",
-        "venditore-nel-salario-orario-denner-ag-gossau-zh",
-        "seller-in-the-hourly-wage-denner-stein-ag"
+        "seller-in-the-hourly-wage-denner-stein-ag",
+        "venditore-nel-salario-orario-denner-ag-gossau-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-gossau-zh",
-          "venditore-nel-salario-orario-denner-ag-gossau-zh",
-          "seller-in-the-hourly-wage-denner-stein-ag"
+          "seller-in-the-hourly-wage-denner-stein-ag",
+          "venditore-nel-salario-orario-denner-ag-gossau-zh"
         ]
       },
       "needsRetranslation": true,
@@ -2757,13 +2819,15 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/d77e4d6f-f6e9-43d1-813e-b4b2b97d315d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:07.905Z",
+      "crawledAt": "2026-08-15T21:28:39.875Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-gossau-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-gossau-zh"
         ]
       },
       "needsRetranslation": true,
@@ -2783,11 +2847,11 @@
     },
     {
       "id": "denner-818822dccefd",
-      "slug": "verkaufer-in-denner-rumlang",
+      "slug": "venditore-denner-ag-rumlang",
       "slugByLocale": {
         "it": "venditore-denner-ag-rumlang",
-        "de": "verkaufer-in-denner-ag-rumlang",
         "en": "seller-denner-ag-rumlang",
+        "de": "verkaufer-in-denner-ag-rumlang",
         "fr": "vendeur-denner-ag-rumlang"
       },
       "company": "Denner",
@@ -2796,15 +2860,15 @@
       "title": "Verkäufer*in",
       "titleByLocale": {
         "it": "Venditore*",
-        "de": "Verkäufer*in",
         "en": "Seller*",
+        "de": "Verkäufer*in",
         "fr": "Vendeur*"
       },
       "description": "Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 60-80%",
       "descriptionByLocale": {
         "it": "Prodotti freschi che meritano il loro nome. Scaffali pieni. Ordini attivati in tempo. Zona pulita. Il cassiere ha ragione. Clienti soddisfatti. Questo e' il nostro negozio. E presto anche il tuo. Ora passare alla nuova squadra vincente.\n\n## Mansioni\n- Deposito e contabilità\n- Accettare prodotti freschi e, naturalmente, tutte le altre merci, controllarli e riempirli sugli scaffali del tuo negozio\n- Controllare i dati di durata minima sui prodotti\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Specifiche di esecuzione correttamente nel layout del negozio\n\n## Requisiti\n- Idealmente più di due anni di esperienza professionale: nel commercio al dettaglio (cibo)\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Pronti a lavorare oltre “da nove a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Familiare con PC, tablet e smartphone - e con altri helper digitali (ad esempio per la gestione delle merci) si fanno rapidamente amici\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- Tedesco (buona conoscenza)\n\n## Cosa di Friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Sconti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: Vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n\n## Contatto\n## Applicazione & Contatto Gianluca Morciano Recruiter Vendita Svizzera orientale - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica personale o video per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 60-80 %",
-        "de": "Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 60-80%",
         "en": "Fresh products that deserve their name. Shelves filled. Orders triggered in time. Area clean. Cashier is right. Customers satisfied. This is our store. And soon yours too. Now switch to the fresh winning team.\n\n## Mansioni\n- Depository and accounting\n- Accept fresh produce and of course all other goods, check and fill them on the shelves in your store\n- Checking minimum durability data on products\n- Ensure order and cleanliness in the store and warehouse\n- Implement specifications correctly in the store layout\n\n## Requirements\n- Ideally more than two years of professional experience: in the retail trade (food)\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Familiar with PC, tablet and smartphone - and with other digital helpers (e.g. for goods management) you quickly make friends\n- Like among people, a good portion of warmth and a positive attitude\n- German (good knowledge)\n\n## Cosa of Friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n\n## Contatto\n## Application & Contact Gianluca Morciano Recruiter Sale Eastern Switzerland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.\n\n**Grado di occupazione:** 60-80 %",
+        "de": "Frischprodukte, die ihren Namen verdienen. Regale gefüllt. Bestellungen rechtzeitig ausgelöst. Fläche sauber. Kasse stimmt. Kundinnen und Kunden zufrieden. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel (Lebensmittel)\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 60-80%",
         "fr": "Des produits frais qui méritent leur nom. Des étagères remplies. Ordres déclenchés à temps. Zone propre. Caissier a raison. Les clients sont satisfaits. C'est notre magasin. Et bientôt le tien aussi. Maintenant, passez à la nouvelle équipe gagnante.\n\n## Mansioni\n- Dépôt et comptabilité\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez et remplissez-les sur les étagères de votre magasin\n- Vérification des données minimales de durabilité des produits\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Implémenter les spécifications correctement dans la disposition du magasin\n\n## Exigences\n- Idéalement plus de deux ans d'expérience professionnelle: dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et bien d'autres zones.\n\n## Contatto\n## Demande et contact Gianluca Morciano Recrutement Vente Suisse de l'Est - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 60-80 %"
       },
       "requirements": [
@@ -2822,7 +2886,6 @@
           "Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal",
           "Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten",
           "Körperlich fit, manche Colis sind bis zu 10 Kilo schwer",
-          "Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an",
           "Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung",
           "Deutsch (gute Kenntnisse)"
         ]
@@ -2844,15 +2907,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b3601652-9050-4485-90e1-8cbaa52e7fe5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:06.943Z",
+      "crawledAt": "2026-08-15T21:28:39.155Z",
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-rumlang"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-rumlang"
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-denner"
-      ],
+      "firstSeenAt": "2026-08-15T09:44:06.943Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2864,16 +2931,15 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-15T09:44:06.943Z"
+      }
     },
     {
       "id": "denner-3ff437db96ea",
-      "slug": "verkaufer-in-im-stundenlohn-denner-rumlang",
+      "slug": "venditore-nel-salario-orario-denner-ag-rumlang",
       "slugByLocale": {
         "it": "venditore-nel-salario-orario-denner-ag-rumlang",
-        "de": "verkaufer-in-im-stundenlohn-denner-ag-rumlang-cddmyi",
         "en": "seller-in-the-hourly-wage-denner-ag-rumlang",
+        "de": "verkaufer-in-im-stundenlohn-denner-ag-rumlang-cddmyi",
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-rumlang"
       },
       "company": "Denner",
@@ -2882,15 +2948,15 @@
       "title": "Verkäufer*in im Stundenlohn",
       "titleByLocale": {
         "it": "Venditore* nel salario orario",
-        "de": "Verkäufer*in im Stundenlohn",
         "en": "Seller*in the hourly wage",
+        "de": "Verkäufer*in im Stundenlohn",
         "fr": "Vendeur* dans le salaire horaire"
       },
       "description": "Anpacken. Vorwärts machen. Etwas bewegen. Viel Herzlichkeit und ein «hey, kann ich dir helfen? – Teamgeist». Und immer gemeinsam durchs Ziel gehen. Das ist Denner. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel ist von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung ist von Vorteil\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 36%",
       "descriptionByLocale": {
         "it": "Iniziate. Andiamo avanti. Qualcosa si muove. Un sacco di calore e un “gioia, posso aiutarvi?” – spirito di squadra. E sempre passare attraverso l'obiettivo insieme. Sono Denner. Questo e' il nostro negozio. E presto anche il tuo. Ora passare alla nuova squadra vincente.\n\n## Mansioni\n- Deposito e contabilità\n- Accettare prodotti freschi e, naturalmente, tutte le altre merci, controllarli e riempirli sugli scaffali del tuo negozio\n- Controllare i dati di durata minima sui prodotti\n- Assicurare ordine e pulizia nel negozio e nel magazzino\n- Specifiche di esecuzione correttamente nel layout del negozio\n\n## Requisiti\n- Idealmente, più di due anni di esperienza professionale: nel commercio al dettaglio è un vantaggio\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata è un vantaggio\n- Pronti a lavorare oltre “da nove a cinque” – e godere del tempo libero quando altri lavorano\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Familiare con PC, tablet e smartphone - e con altri helper digitali (ad esempio per la gestione delle merci) si fanno rapidamente amici\n- Come tra le persone, una buona porzione di calore e un atteggiamento positivo\n- Tedesco (buona conoscenza)\n\n## Cosa di Friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Sconti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: Vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n\n## Contatto\n## Applicazione & Contatto Gianluca Morciano Recruiter Vendita Svizzera orientale - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica personale o video per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 36 %",
-        "de": "Anpacken. Vorwärts machen. Etwas bewegen. Viel Herzlichkeit und ein «hey, kann ich dir helfen? – Teamgeist». Und immer gemeinsam durchs Ziel gehen. Das ist Denner. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel ist von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung ist von Vorteil\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 36%",
         "en": "Get started. Moving forward. Something moving. A lot of warmth and a “hey, can I help you?” – team spirit. And always go through the goal together. This is Denner. This is our store. And soon yours too. Now switch to the fresh winning team.\n\n## Mansioni\n- Depository and accounting\n- Accept fresh produce and of course all other goods, check and fill them on the shelves in your store\n- Checking minimum durability data on products\n- Ensure order and cleanliness in the store and warehouse\n- Implement specifications correctly in the store layout\n\n## Requirements\n- Ideally, more than two years of professional experience: in the retail trade is an advantage\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession is an advantage\n- Ready to work beyond “nine to five” – and enjoy free time when others work\n- Physically fit, some colis are up to 10 pounds heavy\n- Familiar with PC, tablet and smartphone - and with other digital helpers (e.g. for goods management) you quickly make friends\n- Like among people, a good portion of warmth and a positive attitude\n- German (good knowledge)\n\n## Cosa of Friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n\n## Contatto\n## Application & Contact Gianluca Morciano Recruiter Sale Eastern Switzerland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.\n\n**Grado di occupazione:** 36 %",
+        "de": "Anpacken. Vorwärts machen. Etwas bewegen. Viel Herzlichkeit und ein «hey, kann ich dir helfen? – Teamgeist». Und immer gemeinsam durchs Ziel gehen. Das ist Denner. Das ist unser Laden. Und bald auch deiner. Wechsle jetzt ins frische Siegerteam.\n\n## Mansioni\n- Kasse bedienen und abrechnen\n- Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen\n- Mindesthaltbarkeitsdaten bei den Produkten kontrollieren\n- Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen\n- Vorgaben im Ladenlayout korrekt umsetzen\n\n## Requisiti\n- Idealerweise mehr als zwei Jahre Berufserfahrung: im Detailhandel ist von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung ist von Vorteil\n- Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung\n- Deutsch (gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 36%",
         "fr": "Commencez. Avancer. Quelque chose bouge. Beaucoup de chaleur et un \"hey\", puis-je vous aider? Et toujours passer par le but ensemble. Voici Denner. C'est notre magasin. Et bientôt le tien aussi. Maintenant, passez à la nouvelle équipe gagnante.\n\n## Mansioni\n- Dépôt et comptabilité\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez et remplissez-les sur les étagères de votre magasin\n- Vérification des données minimales de durabilité des produits\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Implémenter les spécifications correctement dans la disposition du magasin\n\n## Exigences\n- Idéalement, plus de deux ans d'expérience professionnelle: dans le commerce de détail est un avantage\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe est un avantage\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et bien d'autres zones.\n\n## Contatto\n## Demande et contact Gianluca Morciano Recrutement Vente Suisse de l'Est - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 36 %"
       },
       "requirements": [
@@ -2908,7 +2974,6 @@
           "Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung ist von Vorteil",
           "Bereit, schon auch mal jenseits von «nine to five» zu arbeiten – und die Freizeit zu geniessen, wenn andere arbeiten",
           "Körperlich fit, manche Colis sind bis zu 10 Kilo schwer",
-          "Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an",
           "Gerne unter Menschen, eine gute Portion Herzlichkeit und eine positive Grundhaltung",
           "Deutsch (gute Kenntnisse)"
         ]
@@ -2930,16 +2995,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/044423e4-82e2-4620-833c-34fbe483af36",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:06.938Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-08-15T21:28:39.149Z",
+      "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-rumlang"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-rumlang"
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-15T09:44:06.938Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2951,8 +3019,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-15T09:44:06.938Z"
+      }
     },
     {
       "id": "denner-a97dfa70120a",
@@ -3017,20 +3084,22 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/data-engineer-microsoft-fabric/b9bb0fae-bfe0-4bed-b3c6-6041819a4436",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:44:06.874Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:51:58.389Z",
+      "crawledAt": "2026-08-15T21:28:39.103Z",
+      "previousSlugs": [
+        "data-engineer-microsoft-fabric-denner",
+        "data-ingegnere-microsoft-fabric-denner-ag-zurich-ffb397"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-microsoft-fabric-denner"
+          "data-engineer-microsoft-fabric-denner",
+          "data-ingegnere-microsoft-fabric-denner-ag-zurich-ffb397"
         ],
         "de": [
           "data-engineer-microsoft-fabric-denner"
         ]
       },
-      "previousSlugs": [
-        "data-engineer-microsoft-fabric-denner"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:51:58.389Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -3043,93 +3112,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "denner-7bcb18dfc5a0",
-      "slug": "stv-branch-manager-in-denner-ag-uster",
-      "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-ag-uster",
-        "en": "stv-branch-manager-in-denner-ag-uster",
-        "de": "stv-filialleiter-in-denner-ag-uster-ec7jab",
-        "fr": "directeur-de-succursale-stv-denner-ag-uster"
-      },
-      "company": "Denner",
-      "companyKey": "denner",
-      "companyDomain": "denner.ch",
-      "title": "Stv. Filialleiter*in",
-      "titleByLocale": {
-        "it": "Stv. branch manager*in",
-        "en": "Stv. branch manager*in",
-        "de": "Stv. Filialleiter*in",
-        "fr": "Directeur de succursale Stv.*in"
-      },
-      "description": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\n## Requisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-      "descriptionByLocale": {
-        "it": "Branch manager*? Allora abbiamo il trampolino perfetto per te. Qui puoi dimostrare quello che hai. Condividi le tue conoscenze. Qualcosa si muove. Guadagnare esperienza di leadership. E, naturalmente, un sacco di apprendimento. Denner. Questo e' il nostro negozio.\n\n## Mansioni\n- Prestare particolare attenzione alla freschezza di frutta, verdura e pane e dire rifiuti alimentari con ordini lungimiranti la lotta\n- Ordina prodotti freschi e naturalmente tutte le altre merci, accetta, controlla e riempili sugli scaffali del tuo negozio\n- Specifiche di esecuzione correttamente nel layout del negozio\n- Controllare i dati di durata minima nel gruppo di prodotti\n- Come vice, guida, promuovere e anticipare i dipendenti – e essere un esempio per loro\n- Come deputato, assumersi la responsabilità congiunta dei dati – in termini di fatturato, costi del personale e inventario\n\n## Requisiti\n- Tre o più anni di esperienza professionale: nel commercio al dettaglio come specialista, gestione divisionale o rayon di vantaggio\n- Apprendistato professionale completo (EBA): nel commercio al dettaglio (cibo) o nella professione correlata sarebbe ideale\n- Gioia di prodotti freschi e idealmente già esperienza professionale con loro\n- Fisicamente in forma, alcuni colis sono fino a 10 libbre pesanti\n- Possibilità di pianificare e organizzare i compiti e di interpretare le figure chiave\n- Familiare con PC, tablet e smartphone - e con altri helper digitali (ad esempio per la gestione delle merci) si fanno rapidamente amici\n- tedesco (molto buona conoscenza)\n\n## Cosa di Friamo\n- Parte del Gruppo Migros: Forte marchio ancorato nel commercio al dettaglio sotto l'ombrello del Gruppo Migros\n- Lavoro sano: elevati standard nella sicurezza del lavoro, nell'ergonomia e nell'igiene.\n- congedo di maternità / congedo di paternità: 5 settimane più lunga baby break (19 settimane) per le madri al 100% salario. I padri godono la prole 4 settimane pagate.\n- Sconti equi: 13 salari mensili e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca.\n- I dipendenti offrono: 10 per cento sul prossimo acquisto principale (due volte all'anno).\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Offerte per il tempo libero e culturale: Vari sconti per noleggio auto, hotel, eventi e molte altre aree.\n- Promozione mirata: dalla lavastoviglie al milionario? Forse non esattamente, ma: Chi ha morso e talento, arriva rapidamente.\n\n## Contatto\n## Applicazione & Contatto Gianluca Morciano Recruiter Vendita Svizzera orientale - LinkedIn ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: Fino a tre settimane Video personale o conversazione telefonica Conduciamo facoltativamente una conversazione telefonica personale o video per un gran numero di candidati. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane di discussione con HR & reparto specializzato La discussione è condotta virtualmente o in loco con la persona responsabile delle risorse umane e/o del reparto specializzato. Si tratta principalmente di imparare di più sul personale e le competenze specialistiche e dà a entrambi i lati l'opportunità di valutare la dimensione culturale in azienda e team. Durata fino al feedback: fino a tre settimane offrono emissione di contratti Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.\n\n**Grado di occupazione: ** 80-100 %",
-        "en": "Career goal Branch manager*? Then we have the perfect springboard for you. Here you can prove what you got. Share your knowledge. Something moving. Gaining leadership experience. And of course, a lot of learning. Denner. This is our store.\n\n## Mansioni\n- You pay special attention to the freshness of fruits, vegetables and bread and say food waste with far-sighted orders the fight\n- Order fresh produce and of course all other goods, accept, check and fill them on the shelves in your store\n- Implement specifications correctly in the store layout\n- Check minimum durability data in product group Freshness\n- As a deputy, guide, promote and advance employees – and be an example to them\n- As a deputy, take on joint responsibility for the figures – in terms of turnover, personnel costs and inventory\n\n## Requirements\n- Three or more years of professional experience: in the retail trade as specialist, divisional or rayon management of advantage\n- Completed vocational apprenticeship (EBA): in the retail trade (food) or related profession would be ideal\n- Joy of fresh products and ideally already professional experience with them\n- Physically fit, some colis are up to 10 pounds heavy\n- Ability to plan and organize tasks and a flair for interpreting key figures\n- Familiar with PC, tablet and smartphone - and with other digital helpers (e.g. for goods management) you quickly make friends\n- German (very good knowledge)\n\n## Cosa of Friamo\n- Part of the Migros Group: Strong brand anchored in the retail trade under the Migros Group umbrella\n- Healthy work: High standards in occupational safety, ergonomics and hygiene.\n- Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers at 100% wage. Fathers enjoy the offspring 4 paid weeks.\n- Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for a few.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts.\n- Employee offers: 10 percent on the next major purchase (twice a year).\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more areas.\n- Targeted promotion: From dishwasher to millionaire? Maybe not exactly, but: Who has bite and talent, comes quickly.\n\n## Contatto\n## Application & Contact Gianluca Morciano Recruiter Sale Eastern Switzerland - LinkedIn ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks Personal video or telephone conversation We optionally conduct a personal telephone or video conversation for a large number of applicants. This gives us the opportunity to get to know more candidates within a short time in order to invite suitable people for the next round. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks of discussion with HR & specialist department The discussion is conducted virtually or on site with the responsible person from HR and/or the specialist department. It is primarily about learning more about the personnel and specialist skills and gives both sides the opportunity to assess the cultural fit into the company and team. Duration until feedback: Up to three weeks offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.\n\n**Grado di occupazione:** 80-100 %",
-        "de": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\n## Mansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\n## Requisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\n## Contatto\n## Bewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 80-100%",
-        "fr": "Objectif de carrière Gestionnaire de direction*? Alors nous avons le tremplin parfait pour vous. Ici vous pouvez prouver ce que vous avez. Partagez vos connaissances. Quelque chose bouge. Acquérir une expérience de leadership. Et bien sûr, beaucoup d'apprentissage. Denner. C'est notre magasin.\n\n## Mansioni\n- Vous prêtez une attention particulière à la fraîcheur des fruits, légumes et pain et dites gaspiller les aliments avec les ordres à la vue lointaine le combat\n- Commandez des produits frais et bien sûr toutes les autres marchandises, acceptez, vérifiez et remplissez les étagères dans votre magasin\n- Implémenter les spécifications correctement dans la disposition du magasin\n- Vérifier les données minimales de durabilité dans le groupe de produits Freshness\n- En tant que sous-ministre, guider, promouvoir et faire progresser les employés – et être un exemple pour eux\n- En tant qu'adjoint, assumer la responsabilité conjointe des chiffres – en termes de chiffre d'affaires, de coûts de personnel et d'inventaire\n\n## Exigences\n- Trois ans ou plus d'expérience professionnelle: dans le commerce de détail comme spécialiste, division ou gestion de rayon de l'avantage\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Joy des produits frais et idéalement déjà expérience professionnelle avec eux\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Capacité de planifier et d'organiser les tâches et un style pour interpréter les chiffres clés\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et bien d'autres zones.\n- Promotion ciblée : du lave-vaisselle au millionnaire ? Peut-être pas exactement, mais: Qui a mordu et talent, vient rapidement.\n\n## Contatto\n## Demande et contact Gianluca Morciano Recrutement Vente Suisse de l'Est - LinkedIn ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines Vidéo personnelle ou conversation téléphonique Nous effectuons en option une conversation téléphonique ou vidéo personnelle pour un grand nombre de candidats. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à la rétroaction : Jusqu'à trois semaines de discussions avec les RH et le département spécialisé La discussion est menée pratiquement ou sur place avec la personne responsable des RH ou le département spécialisé. Il s'agit avant tout d'en apprendre davantage sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes.\n\n**Grade di occupation:** 80-100 %"
-      },
-      "requirements": [
-        "Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil",
-        "Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal",
-        "Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit",
-        "Körperlich fit, manche Colis sind bis zu 10 Kilo schwer",
-        "Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen",
-        "Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an",
-        "Deutsch (sehr gute Kenntnisse)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil",
-          "Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal",
-          "Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit",
-          "Körperlich fit, manche Colis sind bis zu 10 Kilo schwer",
-          "Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen",
-          "Deutsch (sehr gute Kenntnisse)"
-        ]
-      },
-      "location": "Uster",
-      "postalCode": "8610",
-      "canton": "ZH",
-      "addressLocality": "Uster",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "streetAddress": "Denner Uster",
-      "employmentType": "FULL_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "80-100%",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12T08:56:12+0200",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/dd0a4e4a-2463-470c-b6d1-f97cad94c9a7",
-      "source": "Denner/Migros Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-14T10:20:07.155Z",
-      "previousSlugs": [
-        "stv-filialleiter-in-denner"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleiter-in-denner"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T10:20:52.908Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 117000,
-          "maxValue": 180000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
