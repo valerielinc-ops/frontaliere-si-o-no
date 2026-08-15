@@ -802,35 +802,6 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3753/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "psychologen-in-stgag-munsterlingen",
-          "psychologen-in-stgag-ch"
-        ],
-        "it": [
-          "psychologen-in-stgag-ch",
-          "psychologen-in-stgag-munsterlingen",
-          "psicologi-in-spital-thurgau-stgag-munsterlingen"
-        ],
-        "en": [
-          "psychologen-in-stgag-ch",
-          "psychologen-in-stgag-munsterlingen",
-          "psychologists-in-spital-thurgau-stgag-munsterlingen"
-        ],
-        "fr": [
-          "psychologen-in-stgag-ch",
-          "psychologen-in-stgag-munsterlingen",
-          "psychologues-in-spital-thurgau-stgag-munsterlingen"
-        ]
-      },
-      "previousSlugs": [
-        "psychologen-in-stgag-ch",
-        "psychologen-in-stgag-munsterlingen",
-        "psicologi-in-spital-thurgau-stgag-munsterlingen",
-        "psychologists-in-spital-thurgau-stgag-munsterlingen",
-        "psychologues-in-spital-thurgau-stgag-munsterlingen"
-      ],
-      "firstSeenAt": "2026-08-14T10:26:07.916Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -842,7 +813,42 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T10:26:07.916Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologen-in-stgag-ch",
+          "psychologen-in-stgag-munsterlingen",
+          "psicologi-in-spital-thurgau-stgag-munsterlingen",
+          "psicologi-in-spital-thurgau-stgag-weinfelden"
+        ],
+        "en": [
+          "psychologen-in-stgag-ch",
+          "psychologen-in-stgag-munsterlingen",
+          "psychologists-in-spital-thurgau-stgag-munsterlingen",
+          "psychologists-in-spital-thurgau-stgag-weinfelden"
+        ],
+        "de": [
+          "psychologen-in-stgag-munsterlingen",
+          "psychologen-in-stgag-ch"
+        ],
+        "fr": [
+          "psychologen-in-stgag-ch",
+          "psychologen-in-stgag-munsterlingen",
+          "psychologues-in-spital-thurgau-stgag-munsterlingen",
+          "psychologues-in-spital-thurgau-stgag-weinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "psychologen-in-stgag-ch",
+        "psychologen-in-stgag-munsterlingen",
+        "psicologi-in-spital-thurgau-stgag-munsterlingen",
+        "psychologists-in-spital-thurgau-stgag-munsterlingen",
+        "psychologues-in-spital-thurgau-stgag-munsterlingen",
+        "psicologi-in-spital-thurgau-stgag-weinfelden",
+        "psychologists-in-spital-thurgau-stgag-weinfelden",
+        "psychologues-in-spital-thurgau-stgag-weinfelden"
+      ]
     },
     {
       "id": "stgag-161fa634382c",

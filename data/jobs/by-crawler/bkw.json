@@ -14101,7 +14101,6 @@
           "brandschutzfachmann-frau-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -14114,7 +14113,10 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1352
     },
     {
       "id": "bkw-81ce43073642",

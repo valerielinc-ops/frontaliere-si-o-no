@@ -14673,12 +14673,14 @@
       "jobReqId": "R78480",
       "previousSlugs": [
         "associate-director-manufacturing-dsp-lonza-ch",
-        "associate-direttore-manufacturing-dsp-lonza-ch"
+        "associate-direttore-manufacturing-dsp-lonza-ch",
+        "associate-direttore-manufacturing-dsp-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-director-manufacturing-dsp-lonza-ch",
-          "associate-direttore-manufacturing-dsp-lonza-ch"
+          "associate-direttore-manufacturing-dsp-lonza-ch",
+          "associate-direttore-manufacturing-dsp-lonza-visp"
         ],
         "de": [
           "associate-director-manufacturing-dsp-lonza-ch"
@@ -14688,7 +14690,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:51:33.870Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "baseSalary": {
@@ -14701,7 +14702,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-0615066fa655",

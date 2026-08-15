@@ -44,24 +44,7 @@
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-14T21:46:37.301Z",
-      "previousSlugs": [
-        "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos",
-        "responsabile-del-personale-in-davos-klosters-bergbahnen-ag-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos",
-          "responsabile-del-personale-in-davos-klosters-bergbahnen-ag-davos"
-        ],
-        "en": [
-          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos"
-        ],
-        "fr": [
-          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:37:41.254Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -74,7 +57,31 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-14T10:37:41.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos",
+          "responsabile-del-personale-in-davos-klosters-bergbahnen-ag-davos",
+          "technischer-responsabile-davos-klosters-bergbahnen-ag-davos",
+          "technischer-leiter-in-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos"
+        ],
+        "de": [
+          "technischer-leiter-in-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos",
+        "responsabile-del-personale-in-davos-klosters-bergbahnen-ag-davos",
+        "technischer-responsabile-davos-klosters-bergbahnen-ag-davos",
+        "technischer-leiter-in-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-7616c1c8e0b7",

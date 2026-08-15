@@ -1788,7 +1788,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:07.832Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2214,7 +2213,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:53:16.894Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2962,7 +2960,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vendeur-vendeuse-migrolino-sierre-q8ywks"
+        ]
+      },
+      "previousSlugs": [
+        "vendeur-vendeuse-migrolino-sierre-q8ywks"
+      ]
     },
     {
       "id": "migrolino-0576b1008778",

@@ -268,17 +268,20 @@
       "previousSlugs": [
         "bid-capture-manager-defense-liebherr-nussbaumen",
         "bid-capture-manager-defense-m-w-d-liebherr-nussbaumen",
-        "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-nussbaumen"
+        "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-nussbaumen",
+        "bid-capture-manager-defense-m-w-d-liebherr-baden",
+        "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bid-capture-manager-defense-liebherr-nussbaumen",
           "bid-capture-manager-defense-m-w-d-liebherr-nussbaumen",
-          "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-nussbaumen"
+          "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-nussbaumen",
+          "bid-capture-manager-defense-m-w-d-liebherr-baden",
+          "responsabile-offerte-e-acquisizioni-difesa-m-f-d-liebherr-baden"
         ]
       },
       "firstSeenAt": "2026-07-22T22:13:10.991Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -290,7 +293,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-f9f51e8cbbcd",

@@ -3813,15 +3813,11 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40 - 50%",
-      "previousSlugs": [
-        "mitarbeiter-in-gastronomie-pdgr-ch",
-        "mitarbeiter-in-gastronomie-psychiatrische-dienste-graubunden-cazis",
-        "collaboratore-trice-gastronomie-psychiatrische-dienste-graubunden-cazis"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-pdgr-ch",
-          "collaboratore-trice-gastronomie-psychiatrische-dienste-graubunden-cazis"
+          "collaboratore-trice-gastronomie-psychiatrische-dienste-graubunden-cazis",
+          "employe-hotel-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
           "mitarbeiter-in-gastronomie-psychiatrische-dienste-graubunden-cazis"
@@ -3830,8 +3826,12 @@
           "mitarbeiter-in-gastronomie-psychiatrische-dienste-graubunden-cazis"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:31:32.052Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-pdgr-ch",
+        "mitarbeiter-in-gastronomie-psychiatrische-dienste-graubunden-cazis",
+        "collaboratore-trice-gastronomie-psychiatrische-dienste-graubunden-cazis",
+        "employe-hotel-psychiatrische-dienste-graubunden-cazis"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3844,7 +3844,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-14T10:31:32.052Z",
+      "needsRetranslation": true
     }
   ]
 }

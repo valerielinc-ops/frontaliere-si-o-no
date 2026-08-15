@@ -844,10 +844,10 @@
       "id": "richemont-b3c007f75021",
       "slug": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
       "slugByLocale": {
-        "it": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
-        "en": "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
         "de": "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
-        "fr": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
+        "en": "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
+        "it": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
+        "fr": "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel"
       },
       "company": "Panerai",
       "companyKey": "richemont",
@@ -889,23 +889,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
+          "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
+          "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
+          "cad-plm-fao-spezialist-creo-windchill-panerai-neuchatel"
+        ],
         "de": [
           "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
           "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel"
         ],
-        "it": [
-          "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
-          "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
+        "fr": [
           "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
         "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
-        "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
+        "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
+        "cad-plm-fao-spezialist-creo-windchill-panerai-neuchatel"
       ],
-      "firstSeenAt": "2026-08-14T10:24:15.468Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -917,7 +920,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T10:24:15.468Z",
+      "needsRetranslation": true
     },
     {
       "id": "richemont-af6074ac5f13",
@@ -2856,7 +2861,6 @@
           "Fähigkeit, Communities zu animieren und um gemeinsame Ziele zusammenzuführen"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "project-manager-r-i-qualita-richemont-neuchatel",
@@ -2864,7 +2868,8 @@
           "chef-de-progetto-r-i-qualita-richemont-neuchatel",
           "responsabile-progetto-r-i-qualita-richemont-neuchatel",
           "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
-          "project-leader-r-i-qualita-richemont-neuchatel"
+          "project-leader-r-i-qualita-richemont-neuchatel",
+          "chef-de-projet-r-i-qualite-richemont-neuchatel"
         ],
         "de": [
           "projektleiter-r-i-qualitat-richemont-neuchatel",
@@ -2883,7 +2888,8 @@
         "projektleiter-r-i-qualitat-richemont-neuchatel",
         "project-leader-r-i-qualita-richemont-neuchatel",
         "r-i-quality-project-manager-richemont-neuchatel",
-        "r-i-qualitatsprojektleiter-richemont-neuchatel"
+        "r-i-qualitatsprojektleiter-richemont-neuchatel",
+        "chef-de-projet-r-i-qualite-richemont-neuchatel"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
       "salaryMin": 60500,
@@ -2897,7 +2903,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-b60a3cd903fe",
@@ -4677,7 +4684,6 @@
       "jobReqId": "jr129843",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "finances-internationales-a-p-controleur-principal-cartier-meyrin",
@@ -4686,7 +4692,8 @@
         ],
         "it": [
           "international-finance-a-p-senior-controller-richemont-meyrin",
-          "international-finanza-a-p-senior-controller-cartier-meyrin"
+          "international-finanza-a-p-senior-controller-cartier-meyrin",
+          "international-senior-finanzen-controller-cartier-meyrin"
         ],
         "de": [
           "international-finance-a-p-senior-controller-richemont-meyrin"
@@ -4696,7 +4703,8 @@
         "international-finance-a-p-senior-controller-richemont-meyrin",
         "finances-internationales-a-p-controleur-principal-cartier-meyrin",
         "international-finance-a-p-senior-controller-cartier-meyrin",
-        "international-finanza-a-p-senior-controller-cartier-meyrin"
+        "international-finanza-a-p-senior-controller-cartier-meyrin",
+        "international-senior-finanzen-controller-cartier-meyrin"
       ],
       "firstSeenAt": "2026-07-17T11:30:23.929Z",
       "salaryMin": 83500,
@@ -4710,7 +4718,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-33fa20377d72",
@@ -5644,7 +5653,6 @@
       "jobReqId": "jr130115",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
         "procurement-category-manager-richemont-plan-les-ouates",
@@ -5674,7 +5682,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-d82582a2cf6f",
@@ -8511,11 +8520,11 @@
       "jobReqId": "jr130947",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polivalente-di-operateur-richemont-delemont",
-          "operatore-multivalente-richemont-delemont"
+          "operatore-multivalente-richemont-delemont",
+          "operateur-polyvalent-richemont-delemont"
         ],
         "en": [
           "multivalent-operator-richemont-delemont"
@@ -8528,7 +8537,8 @@
         "polivalente-di-operateur-richemont-delemont",
         "operatore-multivalente-richemont-delemont",
         "multivalent-operator-richemont-delemont",
-        "multiplikator-richemont-delemont"
+        "multiplikator-richemont-delemont",
+        "operateur-polyvalent-richemont-delemont"
       ],
       "firstSeenAt": "2026-07-03T23:30:36.680Z",
       "salaryMin": 60500,
@@ -8542,7 +8552,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-0cb070f600af",
@@ -14794,12 +14805,14 @@
       "previousSlugsByLocale": {
         "it": [
           "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
-          "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin"
+          "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin",
+          "general-accountant-internal-control-fixed-term-contract-cartier-meyrin"
         ]
       },
       "previousSlugs": [
         "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
-        "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin"
+        "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin",
+        "general-accountant-internal-control-fixed-term-contract-cartier-meyrin"
       ],
       "firstSeenAt": "2026-07-13T22:08:58.330Z",
       "salaryMin": 60500,
@@ -14814,7 +14827,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 1
     }
   ]
 }
