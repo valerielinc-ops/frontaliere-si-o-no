@@ -51730,10 +51730,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "projektleiter-agie-charmilles-sa-losone",
-        "en": "projektleiter-agie-charmilles-sa-losone",
+        "it": "leader-del-progetto-agie-charmilles-sa-losone",
+        "en": "project-leader-agie-charmilles-losone",
         "de": "projektleiter-agie-charmilles-sa-losone",
-        "fr": "projektleiter-agie-charmilles-sa-losone"
+        "fr": "chef-de-projet-agie-charmilles-sa-losone"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/projektleiter-agie-charmilles-sa-losone",
@@ -51741,12 +51741,13 @@
         "de": "/de/jobs-im-tessin/projektleiter-agie-charmilles-sa-losone",
         "fr": "/fr/trouver-emploi-tessin/projektleiter-agie-charmilles-sa-losone"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-project-leader",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
