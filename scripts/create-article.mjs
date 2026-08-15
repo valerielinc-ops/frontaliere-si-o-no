@@ -65,7 +65,18 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary, estimateRequestTokens } from './lib/ai-models.mjs';
+// La disposizione di una cascata svuotata: differire o gridare. Il gemello del
+// corpus (`generator/scripts/lib/exhaustion-disposition.mjs`, issue #313/#348)
+// e' byte-identico a questo — vedi l'intestazione del modulo per le due misure
+// che lo hanno reso necessario (run 31817957722 e 31823202761).
+import {
+  EXIT_ROSTER_CANNOT_SERVE_PROMPT,
+  isInputCapDeferralVeto,
+  inputCapVetoSummary,
+  isLegitimateQuotaDeferral,
+  quotaDeferralShare,
+} from './lib/exhaustion-disposition.mjs';
 // Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
 // local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
 // (scripts/lib/dedicated-crawler-common.mjs, batch-add-faq-to-articles.mjs).
@@ -5073,6 +5084,84 @@ export function parseArticleIdentityField(raw, opts = {}) {
   return { ok: true, value };
 }
 
+/**
+ * Il bersaglio del PRIMO tentativo — quando nessun modello ha ancora rifiutato
+ * e quindi `err.retryRequestTokenBudget` non esiste. Serve comunque: misurato
+ * sul gemello del corpus, anche l'attempt 1 sfora (est=8274 contro 8000),
+ * quindi partire senza un bersaglio significa spendere il primo giro per
+ * scoprire una cosa gia' nota.
+ *
+ * 8000 e' il cap PIU' PERMISSIVO del roster, non una media, e va letto per
+ * quello che promette: sotto questo numero il pre-flight smette di saltare i
+ * modelli col contesto PIU' LARGO. NON vuol dire «nessun modello saltato» —
+ * il roster contiene cap piu' stretti (4000, 3000) e quei modelli restano
+ * fuori anche a 7999. E' il bersaglio giusto lo stesso, perche' rientrare sotto
+ * il cap minimo costringerebbe a un prompt che non ha piu' abbastanza fonte da
+ * riscrivere; il valore vero del budget dettato dalla flotta e' che, dopo un
+ * rifiuto, il numero non e' piu' questa stima ma il cap OSSERVATO.
+ */
+const PROMPT_TOKEN_BUDGET = 8000;
+
+/**
+ * Il `maxTokens` che le due chiamate di generazione IT passano davvero a
+ * `callLLM` piu' sotto. Estratto in una costante perche' le due chiamate non
+ * possano divergere fra loro.
+ *
+ * NON entra nella stima del pre-flight, ed e' bene saperlo prima di dedurne
+ * qualcosa: `estimateRequestTokens` conta solo l'INPUT (i `content` dei
+ * messaggi piu' lo schema JSON serializzato) e ignora `opts.maxTokens`. Viene
+ * passato lo stesso, per restare parallelo al gemello del corpus e perche' se
+ * un giorno la stima includesse anche l'output userebbe gia' il numero della
+ * chiamata vera invece di uno inventato.
+ */
+const IT_GENERATION_MAX_TOKENS = 8000;
+
+/**
+ * Accorcia il testo di RIMEDIO (refinement di headline e fact-check) che i
+ * tentativi successivi al primo aggiungono al prompt.
+ *
+ * E' il gradino che precede il taglio della fonte nella scala di riduzione, per
+ * una ragione precisa: il rimedio e' testo DERIVATO — lo produciamo noi
+ * riassumendo cosa non andava — mentre la fonte e' il materiale su cui il gate
+ * di fedelta' giudica. A parita' di token risparmiati, toglierne al rimedio
+ * costa meno che toglierne alla notizia.
+ *
+ * Conserva la testa (dove stanno le istruzioni piu' importanti: quante ancore
+ * mancano e in che forma) e dichiara il taglio, cosi' il writer sa che l'elenco
+ * non finisce li'.
+ */
+function _clampRemediation(text, maxChars) {
+  const t = String(text || '');
+  if (t.length <= maxChars) return t;
+  return `${t.slice(0, maxChars)}\n[...elenco correzioni troncato: applica la stessa logica ai punti rimanenti]`;
+}
+
+/**
+ * Accorcia il CORPO della fonte gia' troncato, conservandone il marcatore.
+ *
+ * Usato solo dalla scala di riduzione del budget dentro `callGemini`: il
+ * troncamento ordinario resta quello di `MAX_SOURCE_CHARS`, che non cambia.
+ *
+ * Taglia sull'ultimo confine di frase disponibile invece che a carattere, ma
+ * solo se cade oltre meta' del budget concesso — altrimenti una fonte senza
+ * punteggiatura (le pagine scrapate spesso lo sono) si ridurrebbe a una riga.
+ * Il marcatore `[...contenuto troncato per brevità]` viene riappeso sempre: e'
+ * cio' che dice al writer che il testo non finisce li'.
+ */
+function _clampSourceBody(body, maxChars) {
+  const MARK = '\n[...contenuto troncato per brevità]';
+  const text = String(body || '');
+  const bare = text.endsWith(MARK) ? text.slice(0, -MARK.length) : text;
+  if (bare.length <= maxChars) return text;
+  const cut = bare.slice(0, maxChars);
+  const lastStop = Math.max(
+    cut.lastIndexOf('. '), cut.lastIndexOf('.\n'),
+    cut.lastIndexOf('! '), cut.lastIndexOf('? '),
+  );
+  const head = lastStop > maxChars / 2 ? cut.slice(0, lastStop + 1) : cut;
+  return head + MARK;
+}
+
 // ── Step 2: Generate article via GitHub Models (multi-call) ─
 async function callGemini(pageContent, url, sourceContext = null) {
   // Get existing article IDs to avoid duplicates (all sections — shared id/SEO/i18n namespace)
@@ -5305,22 +5394,31 @@ Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni
     publishedAt: new Date().toISOString(),
   });
 
-  // Fuori anche quando la flotta ha dettato un budget: e' il blocco piu' grande
-  // che NON e' la fonte — «materiale di riferimento per contesto, SEPARATO
-  // dalla notizia» — e il ramo evergreen lo azzera gia' per costruzione.
-  // Misurato sul gemello del corpus: vale 497 token, e l'attempt 1 li' sforava
-  // di 274. Toglierlo sotto pressione e' anche piu' SICURO che tenerlo: il
-  // commento a MAX_DOMAIN_FACTS_CHARS registra la contraddizione di grounding
-  // che produceva (scaglioni IRPEF offerti come «fatti» a un articolo svizzero).
-  const _promptBudgetDettato = Number(sourceContext?._promptTokenBudget) > 0;
-  const domainFactsBlock = (isSyntheticSource || _promptBudgetDettato) ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
+  // ── Il budget: quello che la flotta ha DETTO, non quello che assumiamo ──
+  //
+  // `callLLM` allega a `ALL_MODELS_EXHAUSTED` il numero esatto sotto cui il
+  // prompt deve rientrare — `err.retryRequestTokenBudget`, cioe' il cap PIU'
+  // PERMISSIVO fra i modelli che hanno rifiutato — e il messaggio dice
+  // testualmente «A retry must rebuild the prompt under N tokens — resending
+  // the same messages cannot succeed». Il catch del ciclo di generazione lo
+  // legge gia' e lo inoltra qui via `_promptTokenBudget`; fino a questo giro
+  // pero' l'unica risposta era togliere i fatti di dominio, una volta sola,
+  // senza MISURARE se fosse bastato. Al primo tentativo il budget dettato non
+  // c'e' ancora, e allora vale il cap dichiarato dalla flotta.
+  const _promptTokenTarget = Number(sourceContext?._promptTokenBudget) > 0
+    ? Number(sourceContext._promptTokenBudget)
+    : PROMPT_TOKEN_BUDGET;
 
-  const prompt = `${systemRoleLine}
+  // I fatti di dominio NON sono piu' spenti dal solo fatto che un budget esista:
+  // e' la scala qui sotto a decidere, gradino per gradino, se toglierli basta.
+  const domainFactsBlock = isSyntheticSource ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
+
+  const buildPrompt = ({ sourceBody, domainFacts }) => `${systemRoleLine}
 
 SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html (BFS)' : url}
 SOURCE CONTENT:
-${truncatedContent}
-${domainFactsBlock}
+${sourceBody}
+${domainFacts}
 ${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
 ${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
 
@@ -5567,7 +5665,7 @@ ISTRUZIONI TASSATIVE per questo tentativo:
   const systemRoleQualifier = IS_FRONTALIERE
     ? 'di lavoro transfrontaliero in Ticino'
     : 'di affari svizzeri a livello nazionale';
-  const llmMessages = [
+  const buildMessages = (promptText, remediation) => [
     { role: 'system', content: `${systemStem} ${systemRoleQualifier} che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
 
 REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo articolo DEVE provenire dal testo SOURCE CONTENT fornito. Se un'informazione NON è nella fonte, NON includerla. Mai inventare, dedurre o "completare" dati mancanti.
@@ -5581,19 +5679,133 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     // Skipped when data/article-performance.json is missing or empty so the
     // prompt is byte-identical to today's behavior.
     ...(_winnerFingerprintMessage ? [{ role: 'system', content: _winnerFingerprintMessage }] : []),
-    { role: 'user', content: prompt + minWordsInstruction + headlineRefinementInstruction + factCheckRefinementInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
+    { role: 'user', content: promptText + minWordsInstruction + remediation + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
   ];
 
   // Pass a strict JSON schema so providers that support it (OpenAI/GitHub
   // Models, Groq, Mistral, Gemini) server-enforce body1/body2/body3 presence
   // and we don't burn 5 retries when a weak model silently drops body2/body3.
+  //
+  // Sale sopra la scala di riduzione perche' `estimateRequestTokens` lo conta:
+  // lo schema fa parte della richiesta, e stimare senza di esso darebbe un
+  // numero piu' basso del vero proprio nel caso in cui il numero deve mordere.
   const articleSchema = buildArticleJsonSchema(primaryLocale);
+
+  // ── La scala di riduzione, dichiarata e nell'ordine in cui morde ────────
+  //
+  // PERCHE' domainFacts PER PRIMO: e' «materiale di riferimento per
+  // contesto/implicazioni pratiche, SEPARATO dalla notizia», non la fonte, e il
+  // ramo evergreen lo azzera gia' per costruzione. Toglierlo sotto pressione di
+  // budget e' anche piu' SICURO che tenerlo: il commento a
+  // MAX_DOMAIN_FACTS_CHARS registra la contraddizione di grounding che
+  // produceva (scaglioni IRPEF offerti come «fatti» a un articolo svizzero).
+  //
+  // PERCHE' IL RIMEDIO PRIMA DELLA FONTE: e' testo derivato — lo scriviamo noi
+  // riassumendo cosa non andava — mentre la fonte e' il materiale su cui il gate
+  // di fedelta' giudica.
+  //
+  // PERCHE' `sourceContract` NON E' NELLA SCALA, pur pesando ~230 token: e'
+  // costruito sulla fonte INTERA apposta, ed e' cio' che rende soddisfacibili le
+  // ancore che stanno oltre il troncamento. Toglierlo mentre si accorcia il
+  // corpo e' la combinazione che rende il gate di recall impossibile —
+  // esattamente il difetto che buildSourceContract esiste per chiudere.
+  //
+  // PERCHE' UN PAVIMENTO SULLA FONTE: sotto una certa soglia l'articolo non ha
+  // piu' sostanza da riscrivere e il gate di fedelta' non e' soddisfacibile
+  // comunque. Meglio restare sopra budget e degradare ai modelli grandi che
+  // consegnare al writer una fonte inutilizzabile. Il pavimento vale su ENTRAMBI
+  // i gradini che toccano la fonte: senza il `Math.max` il gradino al 60%
+  // scenderebbe sotto il minimo ogni volta che la fonte parte gia' corta
+  // (< 5000 char), cioe' proprio quando c'e' meno da togliere.
+  //
+  // CONSEGUENZA NOTA, e voluta: dal secondo tentativo in poi `MAX_SOURCE_CHARS`
+  // scende a 4500, il 60% fa 2700, il pavimento lo rialza a 3000 — e i gradini
+  // 3 e 4 diventano lo STESSO gradino. Non e' uno spreco da correggere: il
+  // ciclo si ferma al primo che rientra, quindi un gradino ripetuto costa una
+  // stima e nient'altro, mentre allargare il 60% o abbassare il pavimento per
+  // «differenziarli» significherebbe consegnare al writer meno fonte del minimo
+  // che abbiamo dichiarato sostenibile. La scala e' tarata sul primo tentativo,
+  // dove la fonte e' 6000 e i due gradini sono davvero distinti.
+  //
+  // QUANTO RECUPERA, misurato sul caso peggiore del corpus: ~1354 token fra
+  // tutti e quattro i gradini, contro un overshoot osservato di 1740. NON basta
+  // da sola a rientrare in quel caso — serve anche che la flotta detti un cap,
+  // ed e' per questo che questa scala e la lettura di `retryRequestTokenBudget`
+  // sono la stessa fix e non due. Cio' che elimina e' il giro di tentativi
+  // IDENTICI: senza, gli attempt 2→6 rispedivano un payload che la libreria
+  // aveva gia' dimostrato non poter riuscire (run 31833016113, 28,8 minuti).
+  const PROMPT_SOURCE_FLOOR_CHARS = 3000;
+  const PROMPT_REMEDIATION_CAP_CHARS = 1200;
+  const _remediationFull = headlineRefinementInstruction + factCheckRefinementInstruction;
+  const _remediationShort = _clampRemediation(_remediationFull, PROMPT_REMEDIATION_CAP_CHARS);
+  const _shrinkLadder = [
+    { label: 'intero', sourceBody: truncatedContent, domainFacts: domainFactsBlock, remediation: _remediationFull },
+    { label: 'senza fatti-di-dominio', sourceBody: truncatedContent, domainFacts: '', remediation: _remediationFull },
+    {
+      label: 'senza fatti-di-dominio + rimedio troncato',
+      sourceBody: truncatedContent,
+      domainFacts: '',
+      remediation: _remediationShort,
+    },
+    {
+      label: 'senza fatti-di-dominio + rimedio troncato + fonte al 60%',
+      sourceBody: _clampSourceBody(
+        truncatedContent,
+        Math.max(PROMPT_SOURCE_FLOOR_CHARS, Math.round(truncatedContent.length * 0.6)),
+      ),
+      domainFacts: '',
+      remediation: _remediationShort,
+    },
+    {
+      label: `senza fatti-di-dominio + rimedio troncato + fonte al minimo (${PROMPT_SOURCE_FLOOR_CHARS}ch)`,
+      sourceBody: _clampSourceBody(truncatedContent, PROMPT_SOURCE_FLOOR_CHARS),
+      domainFacts: '',
+      remediation: _remediationShort,
+    },
+  ];
+
+  let prompt = null;
+  let llmMessages = null;
+  let _promptEstTokens = 0;
+  let _promptShrinkStep = 0;
+  let _promptShrinkLabel = 'intero';
+  for (let i = 0; i < _shrinkLadder.length; i++) {
+    const step = _shrinkLadder[i];
+    prompt = buildPrompt({ sourceBody: step.sourceBody, domainFacts: step.domainFacts });
+    llmMessages = buildMessages(prompt, step.remediation);
+    _promptEstTokens = estimateRequestTokens(llmMessages, {
+      jsonSchema: articleSchema,
+      maxTokens: IT_GENERATION_MAX_TOKENS,
+    });
+    _promptShrinkStep = i;
+    _promptShrinkLabel = step.label;
+    if (_promptEstTokens <= _promptTokenTarget) break;
+  }
+
+  // Marker machine-readable e STABILE: chi costruisce un watchdog legge questa
+  // riga, non il testo attorno. E' la ragione per cui il difetto e' sopravvissuto
+  // finora — ogni riga di skip nomina un modello, nessuna nominava il prompt.
+  const _promptOverBudget = _promptEstTokens > _promptTokenTarget;
+  console.error(
+    `[prompt-budget] branch=${isSyntheticSource ? 'evergreen' : 'news'} section=${SECTION_NAME} `
+    + `attempt=${generationAttempt} est=${_promptEstTokens} budget=${_promptTokenTarget} `
+    + `over=${_promptOverBudget ? 1 : 0} shrink=${_promptShrinkStep} (${_promptShrinkLabel})`,
+  );
+  if (_promptOverBudget) {
+    // Warning, non throw: sopra budget la catena degrada ai modelli che il
+    // payload lo reggono, e rompere la pipeline sarebbe peggio del degrado.
+    console.error(
+      `  ⚠️  prompt ancora sopra budget dopo ${_shrinkLadder.length} gradini di riduzione `
+      + `(${_promptEstTokens} > ${_promptTokenTarget}): i modelli col contesto piu' stretto verranno saltati dal pre-flight.`,
+    );
+  }
+
   let itRaw;
   if (useGeminiDirect) {
-    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: 8000, jsonMode: true, jsonSchema: articleSchema });
+    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
     console.error(`  ↪ Completato con Gemini ${AI_MODELS.GEMINI_FLASH}`);
   } else {
-    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature, maxTokens: 8000, jsonMode: true, jsonSchema: articleSchema });
+    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
   }
   let itData;
   const itRepaired = repairLlmJson(itRaw);
@@ -11287,10 +11499,87 @@ if (invokedDirectly) {
   // back-off retries later instead of marking the run failed and raising a
   // false-positive "Workflow Failure: Generate Blog Article" Bug issue (#1652).
   // Mirrors the graceful quota-exhausted handling in dedicated-crawler-common.mjs.
+  //
+  // ISSUE #359 (gemello di nanakokyobashi-rgb/frontaliere-articles#313/#348) —
+  // il veto viene PRIMA del differimento, non dopo: e' il solo ordine in cui
+  // puo' impedirlo. `isQuotaExhaustedError` si fida di `transientExhaustion`,
+  // che `classifyExhaustionCause()` calcola come `transient >= persistent` —
+  // un voto di maggioranza col PAREGGIO che va al transitorio. Quando almeno un
+  // modello ha rifiutato sulla TAGLIA quel pareggio e' una diagnosi sbagliata:
+  // nessuna finestra di quota rimpicciolisce un prompt, quindi differire qui e'
+  // un ciclo infinito che maschera un bug di prompt da esaurimento di quota.
+  // Vedi isInputCapDeferralVeto() per la misura (53/53 sulla run 31817957722).
+  if (isInputCapDeferralVeto(e)) {
+    const { estimatedRequestTokens, maxSkippedReqLimit, over, refusals } = inputCapVetoSummary(e);
+    finalizeRunReport('error', {
+      notes: [...RUN_REPORT.notes, `Roster cannot serve this prompt (input cap): ${e.message}`],
+    });
+    console.error(
+      `\n❌ Il roster non puo' servire questo prompt: ${refusals} modelli hanno rifiutato ~${estimatedRequestTokens} token`
+      + ` contro un cap massimo di ${maxSkippedReqLimit} (oltre di ~${over}).`
+      + ` NON e' un esaurimento di quota: nessuna finestra oraria rimpicciolisce un prompt, quindi differire qui e' un ciclo infinito`
+      + ` (issue #313: 60+ run 'success' consecutive senza un articolo). Accorciare il prompt di almeno ${over} token,`
+      + ` oppure rendere raggiungibile un modello con contesto adeguato (claude-cli/haiku).`,
+    );
+    console.error(`::error::roster-cannot-serve-prompt: est=${estimatedRequestTokens} best_cap=${maxSkippedReqLimit} over=${over} refusals=${refusals}`);
+    process.exit(EXIT_ROSTER_CANNOT_SERVE_PROMPT);
+  }
+  // ISSUE #359 — «tutti i modelli sono temporaneamente esauriti» va DIMOSTRATO,
+  // non asserito. Il ramo di differimento resta quello di prima
+  // (`isQuotaExhaustedError`, il voto di maggioranza a monte), ma per uscire
+  // VERDE la quota deve essere la causa DOMINANTE della cascata: il quoziente
+  // si prende sul totale, ambigui inclusi, e la maggioranza e' stretta. Vedi
+  // isLegitimateQuotaDeferral() per la riclassificazione della run 31823202761,
+  // dove era il 50,0% esatto e il verde fu deciso da una riga ambigua.
+  //
+  // NOTA SUL CODICE DI USCITA, ed e' la differenza deliberata col gemello del
+  // corpus: la' il ramo legittimo esce `EXIT_NO_ARTICLE_DECLARED` (4) perche'
+  // lo step di `generate-article.yml` di QUEL repo assorbe il 4 e fallisce su
+  // tutto il resto. Lo step di questo repo fa `exit "$rc"` verbatim (solo 124 e
+  // 137 sono assorbiti), quindi qui un 4 renderebbe rossa ogni notte di quota
+  // vera. Il differimento legittimo resta exit 0; cambia solo cio' che oggi
+  // usciva 0 SENZA esserlo. L'inversione «fallisci tutto tranne i casi
+  // nominati» richiede il contratto nel workflow ed e' lavoro concatenato.
   if (isQuotaExhaustedError(e)) {
-    finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (all free models exhausted): ${e.message}`] });
-    console.error(`\n⚠️  Differito: tutti i modelli AI gratuiti sono temporaneamente esauriti (quota giornaliera). Riprovo al prossimo run. ${e.message}`);
-    process.exit(0);
+    const share = quotaDeferralShare(e);
+    const pct = (share.share * 100).toFixed(1);
+    // ── PERCHE' IL RAMO ROSSO E' GATEATO SUL `code` ─────────────────────────
+    //
+    // `isQuotaExhaustedError` ha DUE rami: la cascata (`ALL_MODELS_EXHAUSTED`,
+    // che porta `exhaustionBreakdown`) e un match sul MESSAGGIO — «daily
+    // limit», «exceeded your current quota», … — per gli errori GREZZI di un
+    // singolo provider, che `dedicated-crawler-common.mjs` gli passa cosi'
+    // com'e' e che non hanno ne' `code` ne' breakdown.
+    //
+    // Su quel secondo ramo `quotaDeferralShare` legge `total = 0`, e un
+    // quoziente senza denominatore non e' una prova di niente:
+    // `isLegitimateQuotaDeferral` risponde `false` per costruzione — cioe' la
+    // risposta giusta alla domanda «e' dimostrato?», ma la risposta SBAGLIATA
+    // alla domanda «va reso rosso?». Senza questo gate ogni «daily limit»
+    // grezzo uscirebbe 1 dove oggi esce 0, su un job che gira ogni 15 minuti.
+    //
+    // La riclassificazione ha senso solo dove c'e' una cascata da
+    // riclassificare; tutto il resto resta il differimento di prima.
+    const cascataMisurabile = e?.code === 'ALL_MODELS_EXHAUSTED' && share.total > 0;
+    if (!cascataMisurabile || isLegitimateQuotaDeferral(e)) {
+      finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (all free models exhausted): ${e.message}`] });
+      // Il conteggio si stampa solo quando esiste: su un errore grezzo sarebbe
+      // «0/0 = 0.0%», che sembra una misura e non lo e'.
+      const quota = cascataMisurabile ? ` (quota giornaliera, ${share.transient}/${share.total} = ${pct}%)` : ' (quota giornaliera)';
+      console.error(`\n⚠️  Differito: tutti i modelli AI gratuiti sono temporaneamente esauriti${quota}. Riprovo al prossimo run. ${e.message}`);
+      process.exit(0);
+    }
+    finalizeRunReport('error', {
+      notes: [...RUN_REPORT.notes, `Roster down, not deferrable (transient ${share.transient}/${share.total}): ${e.message}`],
+    });
+    console.error(
+      `\n❌ NON differibile: solo ${share.transient} fallimenti su ${share.total} (${pct}%) sono transitori`
+      + ` — ne servono piu' del ${(share.required * 100).toFixed(0)}% perche' «riprovo al prossimo run» sia una descrizione vera.`
+      + ` Persistenti: ${share.persistent} (prompt sopra il cap, chiavi assenti, modelli rimossi). Ambigui: ${share.ambiguous}.`
+      + ` Nessuna finestra di quota ripara quella meta' del roster, quindi il run successivo rifarebbe identico. ${e.message}`,
+    );
+    console.error(`::error::roster-down-not-deferrable: transient=${share.transient} persistent=${share.persistent} ambiguous=${share.ambiguous} total=${share.total} share=${pct}%`);
+    process.exit(1);
   }
   // Content/quality rejection that bubbled all the way up (e.g. manual-URL mode,
   // or every headline/keyword in a loop exhausted on quality grounds). The slop

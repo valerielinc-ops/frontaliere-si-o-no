@@ -113,6 +113,39 @@ export const WHOLE_SLUG_LEAKS = Object.freeze(new Set([
  */
 export const WHOLE_SLUG_LEAK_PATTERNS = Object.freeze([
   { name: 'locale-slug-placeholder', re: /^slug[-_][a-z]{2,12}$/i },
+  // ── La forma NUDA: un numero incollato all'unita', senza `max` e senza un
+  //    secondo numero davanti (`40-chars`, `5-words`).
+  //
+  // MISURATO (issue #382 item 2, 2026-08-15): e' l'UNICA differenza fra questo
+  // guard e `inspectSlugForPromptPlaceholder()` del corpus. Su una batteria di
+  // 30 valori — tutti i `SLUG_OWNED_LITERALS` di entrambi i repo, l'intera
+  // famiglia di `ID_PLACEHOLDER` (`id-kebab-case-ascii-3-5-parole-max-40-char`),
+  // i dodici prefissi mezzo-obbediti osservati in produzione e sei slug VERI
+  // scelti per essere ambigui — i due classificatori concordavano su 29/30. Il
+  // trentesimo era `40-chars`: `char-limit` pretende `max` da un lato o
+  // dall'altro del numero, quindi la forma nuda passava.
+  //
+  // ── PERCHE' QUI E NON FRA I PATTERN ANYWHERE ─────────────────────────────
+  //
+  // Perche' `\d+-words` come SOTTOSTRINGA non e' un segnaposto, e' inglese.
+  // `deriveAndSanitizeArticleSlugs` passa a questo guard anche gli slug
+  // `en`/`de`/`fr`, che sono titoli TRADOTTI: `10-words-every-cross-border-worker-should-know`,
+  // `5-words-that-change-your-swiss-payslip`, `permit-g-in-5-words` sono tutti
+  // slug legittimi e perfettamente ordinari, e una regola a sottostringa li
+  // scarterebbe con un throw — cioe' bloccherebbe l'articolo. Lo sweep sui due
+  // registri pubblicati non lo avrebbe visto: riguarda gli slug FUTURI, e i
+  // registri contengono il passato.
+  //
+  // La misura diceva `40-chars` DA SOLO, e questa riga dice esattamente quello:
+  // il valore intero, nient'altro. E' anche il solo caso in cui la forma nuda
+  // e' decidibile — un numero e un'unita' e basta non sono mai un titolo.
+  //
+  // Le unita' restano solo inglesi anche qui: `5-parole` come valore intero e'
+  // altrettanto improbabile, ma `parole`/`caratteri` compaiono in prosa
+  // italiana e le due regole sopra (che pretendono `max` o un range) le
+  // coprono gia' senza ambiguita'. `ID_PLACEHOLDER` porta comunque sempre
+  // anche `max-40-char`, inglese, ed e' quindi coperto due volte.
+  { name: 'schema-hint-bare', re: /^\d+[-_](?:words?|chars?|characters?)$/i },
 ]);
 
 /**

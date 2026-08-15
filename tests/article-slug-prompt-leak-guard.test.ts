@@ -272,6 +272,87 @@ describe('deriveAndSanitizeArticleSlugs refuses to hand a contaminated slug down
   });
 });
 
+/**
+ * ── LA FORMA NUDA, E PERCHE' E' L'UNICA COSA CHE MANCAVA (issue #382 item 2) ─
+ *
+ * La issue chiedeva di portare qui `inspectSlugForPromptPlaceholder()` dal
+ * corpus. La misura preliminare che la issue stessa prescrive («MISURA le
+ * differenze fra i due gemelli nel punto dove lo slug entra, PRIMA di portare»)
+ * ha detto che il port letterale sarebbe stato un secondo classificatore
+ * ridondante: su una batteria di 30 valori — tutti i `SLUG_OWNED_LITERALS` di
+ * entrambi i repo, l'intera famiglia di `ID_PLACEHOLDER`, i dodici prefissi
+ * mezzo-obbediti osservati in produzione, e sei slug VERI scelti apposta per
+ * essere ambigui — i due classificatori concordavano su 29 casi su 30, e in
+ * nessuno dei 29 il corpus era piu' severo di questo lato.
+ *
+ * Il trentesimo era la forma NUDA: un numero incollato all'unita', senza `max`
+ * e senza un secondo numero davanti. Questo blocco e' la rete su quel caso, e
+ * sulla ragione per cui la regola aggiunta e' SOLO inglese.
+ */
+describe('forma nuda numero+unita (la sola differenza misurata col gemello del corpus)', () => {
+  it.each([
+    ['40-chars', 'il caso misurato: unita al plurale, nessun max'],
+    ['40-char', 'singolare — e la forma che ID_PLACEHOLDER porta davvero'],
+    ['5-words', 'conteggio parole nudo'],
+    ['3_words', 'con underscore invece del trattino'],
+    ['40-characters', 'unita estesa'],
+  ])('scarta "%s" (%s)', (slug) => {
+    expect(findSlugPromptLeak(slug), `"${slug}" e' passato: la forma nuda non e' coperta`).toBeTruthy();
+  });
+
+  // ── IL CONTRAPPESO CHE VALE PIU' DELLA REGOLA ──────────────────────────
+  //
+  // La regola e' ancorata al valore INTERO, e questi sono i casi che spiegano
+  // perche'. `deriveAndSanitizeArticleSlugs` passa a questo guard anche gli
+  // slug en/de/fr, che sono titoli TRADOTTI: in inglese `10-words` e
+  // `5-words` sono prosa ordinaria, non segnaposto. Una regola a sottostringa
+  // — la prima versione di questa PR — li scartava tutti con un throw, cioe'
+  // bloccava l'articolo. Lo sweep sui registri pubblicati non poteva vederlo:
+  // riguarda gli slug futuri, e i registri contengono il passato.
+  it.each([
+    '10-words-every-cross-border-worker-should-know',
+    '5-words-that-change-your-swiss-payslip',
+    'permit-g-in-5-words',
+    'the-40-chars-that-broke-the-url',
+    '5-parole-chiave-per-la-ricerca-lavoro',
+    '10-caratteri-tipici-del-contratto-svizzero',
+    '3-parole-che-cambiano-la-busta-paga',
+    'frontalieri-ticino-40-anni-di-accordi',
+    'permesso-g-5-giorni-lavorativi',
+  ])('lascia passare lo slug legittimo "%s"', (slug) => {
+    expect(findSlugPromptLeak(slug), `"${slug}" e' un falso positivo`).toBeNull();
+  });
+
+  it('un articolo con titoli tradotti veri non viene bloccato', () => {
+    // La forma end-to-end del falso positivo: e' `deriveAndSanitizeArticleSlugs`
+    // a fare il throw, quindi e' li' che va dimostrato che non lo fa.
+    expect(() =>
+      deriveAndSanitizeArticleSlugs({
+        id: 'cinque-parole-che-cambiano-la-busta-paga',
+        slugs: {},
+        content: {
+          it: { title: 'Cinque parole che cambiano la busta paga' },
+          en: { title: '5 words that change your Swiss payslip' },
+          de: { title: '10 Words jeder Grenzgaenger kennen sollte' },
+        },
+      }),
+    ).not.toThrow();
+  });
+
+  // Il gate a valle deve vedere la stessa cosa che vede il matcher: una regola
+  // aggiunta ai pattern e mai raggiunta dal punto di scrittura sarebbe il
+  // difetto «un normalizzatore che nessuno chiama», con un file in piu'.
+  it('la forma nuda ferma anche deriveAndSanitizeArticleSlugs', () => {
+    expect(() =>
+      deriveAndSanitizeArticleSlugs({
+        id: '40-chars',
+        slugs: {},
+        content: { it: { title: 'Nuovo accordo frontalieri' } },
+      }),
+    ).toThrow(/#5334/);
+  });
+});
+
 describe('published-corpus sweep (the check that actually runs in CI)', () => {
   // `npm run audit:slug-prompt-leaks` is the operator-facing form of this, but
   // vitest is what runs on every PR, so the enforcement lives here and imports
