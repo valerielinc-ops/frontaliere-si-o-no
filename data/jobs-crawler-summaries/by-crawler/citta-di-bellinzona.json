@@ -1,19 +1,60 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-08-14T21:37:19.822Z",
+  "generatedAt": "2026-08-15T09:45:03.767Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4269,
-  "avgDurationMs": 4269,
+  "durationMs": 4141,
+  "avgDurationMs": 4141,
   "durationHistory": [
-    4269
+    4141
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "citta-di-bellinzona-responsabile-ufficio-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
+      "slug": "responsabile-ufficio-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Responsabile ufficio, presso l'Ente autonomo Bellinzona Sport",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=711f4932-6cc2-41e0-b765-06f45677da4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=711f4932-6cc2-41e0-b765-06f45677da4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-14T21:37:16.716Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
       "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
@@ -39,7 +80,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:37:16.717Z",
+      "crawledAt": "2026-08-15T09:45:00.653Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -48,10 +89,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "citta-di-bellinzona-comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
       "slug": "comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
@@ -79,12 +117,15 @@
       "sourceLang": "it",
       "crawledAt": "2026-08-14T21:37:16.715Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -114,12 +155,15 @@
       "sourceLang": "it",
       "crawledAt": "2026-08-14T21:37:16.716Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -149,47 +193,15 @@
       "sourceLang": "it",
       "crawledAt": "2026-08-14T21:37:16.716Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-      "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:37:16.717Z",
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ]
