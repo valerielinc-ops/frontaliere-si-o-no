@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-08-15T09:38:20.802Z",
+  "generatedAt": "2026-08-15T21:31:03.105Z",
   "total": 99,
   "newCount": 0,
   "updatedCount": 99,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11171,
-  "avgDurationMs": 11171,
+  "durationMs": 18670,
+  "avgDurationMs": 18670,
   "durationHistory": [
-    11171
+    18670
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,8 +44,8 @@
       "streetAddress": "",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -84,6 +84,8 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -122,6 +124,8 @@
       "streetAddress": "",
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1049,8 +1053,8 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
