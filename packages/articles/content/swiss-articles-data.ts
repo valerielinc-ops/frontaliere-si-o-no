@@ -8119,6 +8119,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-lucerna-cassa-di-compensazione',
+    category: 'fiscale',
+    date: '2026-08-15T18:43:52.575Z',
+    image: '/images/blog/avs-prestazioni-complementari-lucerna-cassa-di-compensazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

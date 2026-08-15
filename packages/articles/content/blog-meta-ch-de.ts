@@ -2707,6 +2707,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.title': 'Einbürgerung Kanton Luzern: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.excerpt': 'Um die Schweizer Staatsbürgerschaft im Kanton Luzern zu erhalten, müssen bestimmte Voraussetzungen erfüllt und ein präzises Verfahren eingehalten werden.',
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.imageAlt': 'Naturalisierungsprozess im Kanton Luzern',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.title': 'Kompensation in Luzern: Lückendeckung und Ergänzungsleistungen',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.excerpt': 'Die Ausgleichskasse ist eine Massnahme zur Deckung von Beitragslücken und zur Sicherstellung der Ergänzungsleistungen im Kanton Luzern.',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.imageAlt': 'Bild eines Sees in der Schweiz',
 };
 
 export default blogMetaChDe;

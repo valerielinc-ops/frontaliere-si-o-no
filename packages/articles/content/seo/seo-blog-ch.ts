@@ -35081,6 +35081,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-lucerna-cassa-di-compensazione': {
+    title: 'Compensazione in Lucerna: copertura lacune e prestazioni complementari',
+    description: 'La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, compensazione, lucerna, copertura, lacune',
+    ogTitle: 'La Cassa di compensazione nel Canton di Lucerna: copertura delle lacune contributive e prestazioni complementari',
+    ogDescription: 'La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-lucerna-cassa-di-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Compensazione in Lucerna: copertura lacune e prestazioni complementari",
+      "description": "La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-lucerna-cassa-di-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un lago in Svizzera"
+      },
+      "datePublished": "2026-08-15T18:43:52+00:00",
+      "dateModified": "2026-08-15T18:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-lucerna-cassa-di-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2707,6 +2707,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.title': 'Naturalizzazione Cantone di Lucerna: requisiti e procedura',
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.excerpt': 'Per ottenere la cittadinanza svizzera nel Cantone di Lucerna, è necessario soddisfare determinati requisiti e seguire un preciso procedimento.',
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.imageAlt': 'Il processo di naturalizzazione nel Cantone di Lucerna',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.title': 'Compensazione in Lucerna: copertura lacune e prestazioni complementari',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.excerpt': 'La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna.',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.imageAlt': 'Immagine di un lago in Svizzera',
 };
 
 export default blogMetaChIt;
