@@ -2719,6 +2719,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-lucerna-conversione-ed-esami.title': 'Führerschein in Luzern: was zu tun und zu wissen ist',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.excerpt': 'Die Umstellung des Führerscheins im Kanton Luzern: Voraussetzungen, Verfahren und Fristen.',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.imageAlt': 'Panoramische Ansicht des Lago di Lucerna in der Schweiz, mit einem Fokus auf die Infrastruktur und die Verkehrssysteme des Kantons.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.title': 'ÖV-Abos Kanton Luzern Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.excerpt': 'Die VBL bietet verschiedene Arten von Abonnements, einschließlich Monats- und Jahresabonnements, für Bewohner und Studenten an.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.imageAlt': 'Bild eines öffentlichen Verkehrsmittels im Kanton Luzern, mit Menschen, die Busse und Züge benutzen',
 };
 
 export default blogMetaChDe;

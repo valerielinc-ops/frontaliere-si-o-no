@@ -2719,6 +2719,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-lucerna-conversione-ed-esami.title': 'Permis de conduire à Lucerne : que faire et que savoir',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.excerpt': 'La conversion du permis de conduire dans le canton de Lucerne : exigences, procédures et délais.',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.imageAlt': 'Vue panoramique du lac de Lucerne en Suisse, avec un focus sur l\'infrastructure et les systèmes de transport du canton.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.title': 'Abonnements transports publics Canton Lucerne zones et tarifs',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.excerpt': 'La VBL propose différents types d\'abonnements, dont l\'abonnement mensuel et annuel, pour les résidents et les étudiants.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.imageAlt': 'Image d\'un transport public dans le canton de Lucerne, avec des personnes qui utilisent des bus et des trains',
 };
 
 export default blogMetaChFr;

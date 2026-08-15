@@ -2719,6 +2719,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-lucerna-conversione-ed-esami.title': 'Driver\'s license in Lucerne: what to do and know',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.excerpt': 'The conversion of the driving licence in the Canton of Lucerne: requirements, procedures and timelines.',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.imageAlt': 'Scenic view of Lake Lucerne in Switzerland, with a focus on the canton\'s infrastructure and transportation systems.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.title': 'Public transport passes Canton Lucerne zones and fares',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.excerpt': 'The VBL offers different types of subscriptions, including monthly and annual subscription, for residents and students.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.imageAlt': 'Image of public transportation in Canton Lucerne, with people using buses and trains',
 };
 
 export default blogMetaChEn;
