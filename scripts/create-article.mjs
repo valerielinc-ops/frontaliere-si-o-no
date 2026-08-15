@@ -5085,22 +5085,34 @@ export function parseArticleIdentityField(raw, opts = {}) {
 }
 
 /**
- * Il cap dichiarato dalla flotta, usato al PRIMO tentativo — quando nessun
- * modello ha ancora rifiutato e quindi `err.retryRequestTokenBudget` non
- * esiste. Serve comunque: misurato sul gemello del corpus, anche l'attempt 1
- * sfora (est=8274 contro 8000), quindi partire senza un bersaglio significa
- * spendere il primo giro per scoprire una cosa gia' nota.
+ * Il bersaglio del PRIMO tentativo — quando nessun modello ha ancora rifiutato
+ * e quindi `err.retryRequestTokenBudget` non esiste. Serve comunque: misurato
+ * sul gemello del corpus, anche l'attempt 1 sfora (est=8274 contro 8000),
+ * quindi partire senza un bersaglio significa spendere il primo giro per
+ * scoprire una cosa gia' nota.
  *
- * 8000 e' il cap PIU' PERMISSIVO del roster, non una media: sotto quel numero
- * il pre-flight di `callLLM` non salta nessun modello per dimensione.
+ * 8000 e' il cap PIU' PERMISSIVO del roster, non una media, e va letto per
+ * quello che promette: sotto questo numero il pre-flight smette di saltare i
+ * modelli col contesto PIU' LARGO. NON vuol dire «nessun modello saltato» —
+ * il roster contiene cap piu' stretti (4000, 3000) e quei modelli restano
+ * fuori anche a 7999. E' il bersaglio giusto lo stesso, perche' rientrare sotto
+ * il cap minimo costringerebbe a un prompt che non ha piu' abbastanza fonte da
+ * riscrivere; il valore vero del budget dettato dalla flotta e' che, dopo un
+ * rifiuto, il numero non e' piu' questa stima ma il cap OSSERVATO.
  */
 const PROMPT_TOKEN_BUDGET = 8000;
 
 /**
  * Il `maxTokens` che le due chiamate di generazione IT passano davvero a
- * `callLLM` piu' sotto. Estratto in una costante per un motivo solo: la stima
- * del pre-flight lo include nel conto, e una stima che usasse un numero diverso
- * da quello della chiamata vera mentirebbe in silenzio.
+ * `callLLM` piu' sotto. Estratto in una costante perche' le due chiamate non
+ * possano divergere fra loro.
+ *
+ * NON entra nella stima del pre-flight, ed e' bene saperlo prima di dedurne
+ * qualcosa: `estimateRequestTokens` conta solo l'INPUT (i `content` dei
+ * messaggi piu' lo schema JSON serializzato) e ignora `opts.maxTokens`. Viene
+ * passato lo stesso, per restare parallelo al gemello del corpus e perche' se
+ * un giorno la stima includesse anche l'output userebbe gia' il numero della
+ * chiamata vera invece di uno inventato.
  */
 const IT_GENERATION_MAX_TOKENS = 8000;
 
@@ -5705,6 +5717,23 @@ Rispondi SOLO con JSON valido, senza markdown.` },
   // i gradini che toccano la fonte: senza il `Math.max` il gradino al 60%
   // scenderebbe sotto il minimo ogni volta che la fonte parte gia' corta
   // (< 5000 char), cioe' proprio quando c'e' meno da togliere.
+  //
+  // CONSEGUENZA NOTA, e voluta: dal secondo tentativo in poi `MAX_SOURCE_CHARS`
+  // scende a 4500, il 60% fa 2700, il pavimento lo rialza a 3000 — e i gradini
+  // 3 e 4 diventano lo STESSO gradino. Non e' uno spreco da correggere: il
+  // ciclo si ferma al primo che rientra, quindi un gradino ripetuto costa una
+  // stima e nient'altro, mentre allargare il 60% o abbassare il pavimento per
+  // «differenziarli» significherebbe consegnare al writer meno fonte del minimo
+  // che abbiamo dichiarato sostenibile. La scala e' tarata sul primo tentativo,
+  // dove la fonte e' 6000 e i due gradini sono davvero distinti.
+  //
+  // QUANTO RECUPERA, misurato sul caso peggiore del corpus: ~1354 token fra
+  // tutti e quattro i gradini, contro un overshoot osservato di 1740. NON basta
+  // da sola a rientrare in quel caso — serve anche che la flotta detti un cap,
+  // ed e' per questo che questa scala e la lettura di `retryRequestTokenBudget`
+  // sono la stessa fix e non due. Cio' che elimina e' il giro di tentativi
+  // IDENTICI: senza, gli attempt 2→6 rispedivano un payload che la libreria
+  // aveva gia' dimostrato non poter riuscire (run 31833016113, 28,8 minuti).
   const PROMPT_SOURCE_FLOOR_CHARS = 3000;
   const PROMPT_REMEDIATION_CAP_CHARS = 1200;
   const _remediationFull = headlineRefinementInstruction + factCheckRefinementInstruction;
@@ -11514,9 +11543,30 @@ if (invokedDirectly) {
   if (isQuotaExhaustedError(e)) {
     const share = quotaDeferralShare(e);
     const pct = (share.share * 100).toFixed(1);
-    if (isLegitimateQuotaDeferral(e)) {
+    // ── PERCHE' IL RAMO ROSSO E' GATEATO SUL `code` ─────────────────────────
+    //
+    // `isQuotaExhaustedError` ha DUE rami: la cascata (`ALL_MODELS_EXHAUSTED`,
+    // che porta `exhaustionBreakdown`) e un match sul MESSAGGIO — «daily
+    // limit», «exceeded your current quota», … — per gli errori GREZZI di un
+    // singolo provider, che `dedicated-crawler-common.mjs` gli passa cosi'
+    // com'e' e che non hanno ne' `code` ne' breakdown.
+    //
+    // Su quel secondo ramo `quotaDeferralShare` legge `total = 0`, e un
+    // quoziente senza denominatore non e' una prova di niente:
+    // `isLegitimateQuotaDeferral` risponde `false` per costruzione — cioe' la
+    // risposta giusta alla domanda «e' dimostrato?», ma la risposta SBAGLIATA
+    // alla domanda «va reso rosso?». Senza questo gate ogni «daily limit»
+    // grezzo uscirebbe 1 dove oggi esce 0, su un job che gira ogni 15 minuti.
+    //
+    // La riclassificazione ha senso solo dove c'e' una cascata da
+    // riclassificare; tutto il resto resta il differimento di prima.
+    const cascataMisurabile = e?.code === 'ALL_MODELS_EXHAUSTED' && share.total > 0;
+    if (!cascataMisurabile || isLegitimateQuotaDeferral(e)) {
       finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (all free models exhausted): ${e.message}`] });
-      console.error(`\n⚠️  Differito: tutti i modelli AI gratuiti sono temporaneamente esauriti (quota giornaliera, ${share.transient}/${share.total} = ${pct}%). Riprovo al prossimo run. ${e.message}`);
+      // Il conteggio si stampa solo quando esiste: su un errore grezzo sarebbe
+      // «0/0 = 0.0%», che sembra una misura e non lo e'.
+      const quota = cascataMisurabile ? ` (quota giornaliera, ${share.transient}/${share.total} = ${pct}%)` : ' (quota giornaliera)';
+      console.error(`\n⚠️  Differito: tutti i modelli AI gratuiti sono temporaneamente esauriti${quota}. Riprovo al prossimo run. ${e.message}`);
       process.exit(0);
     }
     finalizeRunReport('error', {

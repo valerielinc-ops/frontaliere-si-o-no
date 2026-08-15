@@ -273,6 +273,20 @@ describe('la scala di riduzione del prompt', () => {
     }
   });
 
+  it('sui retry i gradini 3 e 4 coincidono, ed e\' documentato', () => {
+    // Dal secondo tentativo MAX_SOURCE_CHARS scende a 4500: il 60% fa 2700 e il
+    // pavimento lo rialza a 3000, cioe' esattamente l'ultimo gradino. Il test
+    // esiste perche' la coincidenza sia una scelta registrata e non una
+    // scoperta: il ciclo si ferma al primo gradino che rientra, quindi ripeterne
+    // uno costa una stima, mentre «differenziarli» costerebbe fonte sotto il
+    // minimo dichiarato sostenibile.
+    const { _shrinkLadder } = scalaCon(4500);
+    expect(_shrinkLadder[3].sourceBody).toBe(_shrinkLadder[4].sourceBody);
+    // E sul primo tentativo (6000) restano distinti, che e' dove la scala e' tarata.
+    const primo = scalaCon(6000)._shrinkLadder;
+    assert.notEqual(primo[3].sourceBody, primo[4].sourceBody, 'a 6000 char i due gradini devono differire');
+  });
+
   it('l\'ultimo gradino e\' al minimo dichiarato', () => {
     const { _shrinkLadder, PROMPT_SOURCE_FLOOR_CHARS } = scalaCon(20000);
     const ultimo = _shrinkLadder[4].sourceBody.replace(/\n\[\.\.\.[^\]]*\]$/, '');

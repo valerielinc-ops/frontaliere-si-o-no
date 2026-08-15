@@ -294,17 +294,26 @@ describe('forma nuda numero+unita (la sola differenza misurata col gemello del c
     ['40-chars', 'il caso misurato: unita al plurale, nessun max'],
     ['40-char', 'singolare — e la forma che ID_PLACEHOLDER porta davvero'],
     ['5-words', 'conteggio parole nudo'],
-    ['titolo-40-chars', 'in coda a del testo'],
-    ['40-chars-titolo', 'in testa a del testo'],
+    ['3_words', 'con underscore invece del trattino'],
+    ['40-characters', 'unita estesa'],
   ])('scarta "%s" (%s)', (slug) => {
     expect(findSlugPromptLeak(slug), `"${slug}" e' passato: la forma nuda non e' coperta`).toBeTruthy();
   });
 
-  // Il contrappeso, ed e' la ragione per cui la regola NON accetta le unita'
-  // italiane: `parole` e `caratteri` sono parole italiane comuni, e uno slug
-  // legittimo puo' contenerle preceduta da un numero senza essere un
-  // segnaposto. Una versione "simmetrica" di questa regola le mangerebbe.
+  // ── IL CONTRAPPESO CHE VALE PIU' DELLA REGOLA ──────────────────────────
+  //
+  // La regola e' ancorata al valore INTERO, e questi sono i casi che spiegano
+  // perche'. `deriveAndSanitizeArticleSlugs` passa a questo guard anche gli
+  // slug en/de/fr, che sono titoli TRADOTTI: in inglese `10-words` e
+  // `5-words` sono prosa ordinaria, non segnaposto. Una regola a sottostringa
+  // — la prima versione di questa PR — li scartava tutti con un throw, cioe'
+  // bloccava l'articolo. Lo sweep sui registri pubblicati non poteva vederlo:
+  // riguarda gli slug futuri, e i registri contengono il passato.
   it.each([
+    '10-words-every-cross-border-worker-should-know',
+    '5-words-that-change-your-swiss-payslip',
+    'permit-g-in-5-words',
+    'the-40-chars-that-broke-the-url',
     '5-parole-chiave-per-la-ricerca-lavoro',
     '10-caratteri-tipici-del-contratto-svizzero',
     '3-parole-che-cambiano-la-busta-paga',
@@ -312,6 +321,22 @@ describe('forma nuda numero+unita (la sola differenza misurata col gemello del c
     'permesso-g-5-giorni-lavorativi',
   ])('lascia passare lo slug legittimo "%s"', (slug) => {
     expect(findSlugPromptLeak(slug), `"${slug}" e' un falso positivo`).toBeNull();
+  });
+
+  it('un articolo con titoli tradotti veri non viene bloccato', () => {
+    // La forma end-to-end del falso positivo: e' `deriveAndSanitizeArticleSlugs`
+    // a fare il throw, quindi e' li' che va dimostrato che non lo fa.
+    expect(() =>
+      deriveAndSanitizeArticleSlugs({
+        id: 'cinque-parole-che-cambiano-la-busta-paga',
+        slugs: {},
+        content: {
+          it: { title: 'Cinque parole che cambiano la busta paga' },
+          en: { title: '5 words that change your Swiss payslip' },
+          de: { title: '10 Words jeder Grenzgaenger kennen sollte' },
+        },
+      }),
+    ).not.toThrow();
   });
 
   // Il gate a valle deve vedere la stessa cosa che vede il matcher: una regola

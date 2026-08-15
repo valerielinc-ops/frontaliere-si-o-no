@@ -45,9 +45,48 @@ import {
   isLegitimateQuotaDeferral,
   quotaDeferralShare,
 } from '../scripts/lib/exhaustion-disposition.mjs';
+import { classifyExhaustionCause, isQuotaExhaustedError } from '../scripts/lib/ai-models.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SRC = readFileSync(path.resolve(HERE, '../scripts/create-article.mjs'), 'utf-8');
+
+/**
+ * ── PERCHE' ESISTONO DUE COSTRUTTORI DI FIXTURE ─────────────────────────────
+ *
+ * `cascata()` prende i tre numeri e serve alle unit del modulo: li' il
+ * breakdown E' l'input, e fabbricarlo a mano e' corretto.
+ *
+ * `cascataReale()` invece parte dai MESSAGGI e li fa passare per
+ * `classifyExhaustionCause()` vero. Serve a tutto cio' che pretende di
+ * descrivere una run: un breakdown scritto a mano congela la classificazione
+ * del giorno in cui e' stato scritto, e questa e' esattamente la trappola in
+ * cui la prima versione di questo file e' caduta. Citava la run 31823202761
+ * come «53 transitori su 106, il 50,0% esatto, quindi rossa» — numeri veri il
+ * 2026-08-14 e gia' superati: `transientRe` ha nel frattempo imparato
+ * `timed out` (la fix e' su main, e il suo commento cita proprio quella run),
+ * quindi la riga ambigua di Haiku oggi conta come transitoria e il rapporto e'
+ * 54/106 = 50,9% → differimento LEGITTIMO. Il test restava verde perche' non
+ * chiedeva niente al classificatore.
+ */
+const REASON_QUOTA = 'gemini-2.0-flash: daily limit reached (429)';
+const REASON_INPUT_CAP = 'phi-4-mini: request exceeds max input cap for this model';
+const REASON_NO_KEY = 'mistral-large: no API key configured';
+const REASON_TIMEOUT_CLI = 'claude-cli/haiku: claude CLI timed out after 120000ms';
+
+/** Costruisce la cascata dai MESSAGGI, passando per il classificatore vero. */
+function cascataReale(reasons: string[], { capCount = 0, est = 9740, best = 8000 } = {}) {
+  const e: any = new Error(`All AI models failed. Chain: [...] | ${reasons.length} errors`);
+  e.code = 'ALL_MODELS_EXHAUSTED';
+  e.exhaustionBreakdown = classifyExhaustionCause(reasons);
+  e.transientExhaustion = e.exhaustionBreakdown.transient > 0
+    && e.exhaustionBreakdown.transient >= e.exhaustionBreakdown.persistent;
+  e.inputCapReport = capCount > 0
+    ? { count: capCount, maxSkippedReqLimit: best, minSkippedReqLimit: 3000, estimatedRequestTokens: est }
+    : null;
+  return e;
+}
+
+const ripeti = (s: string, n: number) => Array.from({ length: n }, () => s);
 
 /** Un errore della forma che `callLLM` produce davvero su ALL_MODELS_EXHAUSTED. */
 function cascata({
@@ -105,14 +144,43 @@ describe('isInputCapDeferralVeto — il pareggio non differisce piu\'', () => {
 });
 
 describe('isLegitimateQuotaDeferral — il denominatore include gli ambigui', () => {
-  it('rifiuta la run 31823202761: 53 transitori su 106, cioe\' il 50,0% esatto', () => {
-    // UN VOTO. E il voto che decide e' quello che manca: la riga ambigua e' il
-    // timeout di Haiku, che `transientRe` non matcha perche' cerca `timeout`
-    // mentre il messaggio dice `timed out`. Dieci ore decise da una `d`.
-    const e = cascata({ transient: 53, persistent: 52, total: 106 });
+  it('la run 31823202761 col classificatore di OGGI e\' un differimento legittimo', () => {
+    // Il caso storico, ricostruito dai messaggi e classificato dal codice VERO.
+    // Il 2026-08-14 la riga di Haiku cadeva nel secchio ambiguo e il rapporto
+    // era 53/106 = 50,0% → rosso. Poi `transientRe` ha imparato `timed out`
+    // (fix su main), quella riga e' diventata transitoria, e oggi il rapporto
+    // e' 54/106 = 50,9% → VERDE. Il test lo dice invece di fingere il contrario:
+    // e' il classificatore la fonte di verita', non un numero copiato.
+    const e = cascataReale([
+      ...ripeti(REASON_QUOTA, 53),
+      ...ripeti(REASON_INPUT_CAP, 38),
+      ...ripeti(REASON_NO_KEY, 12),
+      REASON_TIMEOUT_CLI,
+      ...ripeti('openrouter/x: HTTP 404 model not found', 2),
+    ], { capCount: 38 });
+    expect(e.exhaustionBreakdown.total).toBe(106);
+    expect(e.exhaustionBreakdown.transient).toBe(54);
+    expect(quotaDeferralShare(e).ambiguous).toBe(0);
+    expect(isLegitimateQuotaDeferral(e)).toBe(true);
+    // Ma il VETO scatta lo stesso, ed e' la ragione per cui #359 non dipende
+    // da questa soglia: 54 non supera strettamente 52? Lo supera — quindi qui
+    // il veto NON scatta e la run resta un differimento. E' il caso in cui la
+    // seconda meta' della fix non ha niente da dire, e va bene cosi'.
+    expect(isInputCapDeferralVeto(e)).toBe(false);
+  });
+
+  it('rifiuta una cascata in cui la quota NON e\' la causa dominante', () => {
+    // Il caso che il gate esiste per prendere, coi messaggi veri: meta' roster
+    // fuori quota, l'altra meta' con un prompt sopra il cap e chiavi assenti.
+    // Nessuna finestra di quota ripara quella meta'.
+    const e = cascataReale([
+      ...ripeti(REASON_QUOTA, 40),
+      ...ripeti(REASON_INPUT_CAP, 38),
+      ...ripeti(REASON_NO_KEY, 12),
+    ]);
+    expect(e.exhaustionBreakdown).toEqual({ transient: 40, persistent: 50, total: 90 });
     expect(isLegitimateQuotaDeferral(e)).toBe(false);
-    expect(quotaDeferralShare(e).share).toBe(0.5);
-    expect(quotaDeferralShare(e).ambiguous).toBe(1);
+    expect(quotaDeferralShare(e).share).toBeCloseTo(0.4444, 3);
   });
 
   it('accetta una notte di quota vera (ogni modello dice «daily limit»)', () => {
@@ -172,8 +240,10 @@ describe('il catch di primo livello sceglie il codice di uscita giusto', () => {
     try {
       return fn(
         e, isInputCapDeferralVeto, inputCapVetoSummary,
-        // Il predicato a monte, riprodotto come lo calcola ai-models.mjs.
-        (err: any) => Boolean(err?.code === 'ALL_MODELS_EXHAUSTED' && err?.transientExhaustion),
+        // Il predicato a monte VERO, non una riproduzione: e' il suo secondo
+        // ramo — quello che matcha sul messaggio — ad aver prodotto il caso
+        // rosso di troppo, e una riproduzione scritta a mano non lo avrebbe.
+        isQuotaExhaustedError,
         isLegitimateQuotaDeferral, quotaDeferralShare, EXIT_ROSTER_CANNOT_SERVE_PROMPT,
         (s: string) => { stato = s; },
         { notes: note },
@@ -210,11 +280,51 @@ describe('il catch di primo livello sceglie il codice di uscita giusto', () => {
   it('roster meta\' giu\' senza rifiuti su taglia → exit 1', () => {
     // La seconda meta' della fix: nessun rifiuto su taglia, quindi il veto non
     // scatta, ma la quota non e' la causa dominante e «riprovo al prossimo run»
-    // resta una descrizione falsa.
-    const out: any = decidi(cascata({ transient: 53, persistent: 52, total: 106 }));
+    // resta una descrizione falsa. Fixture dai MESSAGGI, classificata dal
+    // codice vero — vedi il commento su cascataReale().
+    const e = cascataReale([
+      ...ripeti(REASON_QUOTA, 40),
+      ...ripeti(REASON_INPUT_CAP, 38),
+      ...ripeti(REASON_NO_KEY, 12),
+    ]);
+    // `transientExhaustion` e' false qui (40 < 50), quindi il ramo a monte non
+    // scatterebbe: lo forziamo per misurare il ramo che ci interessa.
+    e.transientExhaustion = true;
+    const out: any = decidi(e);
     expect(out.exit).toBe(1);
     expect(out.stato).toBe('error');
-    expect(out.righe.join('\n')).toMatch(/roster-down-not-deferrable: transient=53 persistent=52 ambiguous=1 total=106/);
+    expect(out.righe.join('\n')).toMatch(/roster-down-not-deferrable: transient=40 persistent=50 ambiguous=0 total=90/);
+  });
+
+  // ── IL CASO CHE LA PRIMA VERSIONE DI QUESTA PR RENDEVA ROSSO ────────────
+  //
+  // `isQuotaExhaustedError` ha un secondo ramo che matcha sul MESSAGGIO, per
+  // gli errori GREZZI di un singolo provider — quelli che
+  // `dedicated-crawler-common.mjs` gli passa cosi' come sono. Non hanno `code`
+  // ne' `exhaustionBreakdown`, quindi `total` e' 0 e
+  // `isLegitimateQuotaDeferral` risponde `false` per costruzione: la risposta
+  // giusta a «e' dimostrato?», quella sbagliata a «va reso rosso?».
+  //
+  // Senza il gate sul `code` questi uscivano 1 dove oggi escono 0, su un job
+  // che gira ogni 15 minuti.
+  describe('un errore grezzo che parla di quota resta un differimento', () => {
+    it.each([
+      'Gemini: You exceeded your current quota, please check your plan and billing details',
+      'daily limit reached for this API key',
+      'openrouter: free-models-per-day exhausted',
+    ])('«%s» → exit 0', (messaggio) => {
+      const grezzo = new Error(messaggio);
+      const out: any = decidi(grezzo);
+      expect(out.exit, 'un errore grezzo di quota non deve diventare rosso').toBe(0);
+      expect(out.stato).toBe('deferred');
+    });
+
+    it('non stampa una percentuale che non ha misurato', () => {
+      // «0/0 = 0.0%» sembra una misura e non lo e'.
+      const out: any = decidi(new Error('daily limit reached for this API key'));
+      expect(out.righe.join('\n')).not.toMatch(/0\/0/);
+      expect(out.righe.join('\n')).toMatch(/quota giornaliera/);
+    });
   });
 
   it('quota schiacciante CON qualche rifiuto su taglia resta un differimento', () => {
