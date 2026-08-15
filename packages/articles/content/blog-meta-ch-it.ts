@@ -2701,6 +2701,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione',
     'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità di conciliazione.',
     'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'Una foto di una casa svizzera tipica a Lucerna, Svizzera',
+    'blog.article.cfa-altstaetten-aperte.title': '47 milioni di franchi, 11\'500 metri quadri e 106 dipendenti per il nuovo CFA',
+    'blog.article.cfa-altstaetten-aperte.excerpt': 'Il nuovo Centro federale d\'asilo di Altstätten (SG) sarà inaugurato a settembre con una superficie di 11\'500 metri quadri e 106 dipendenti.',
+    'blog.article.cfa-altstaetten-aperte.imageAlt': 'Vista aerea del nuovo CFA di Altstätten, Svizzera, con le montagne circostanti e un edificio moderno.',
 };
 
 export default blogMetaChIt;

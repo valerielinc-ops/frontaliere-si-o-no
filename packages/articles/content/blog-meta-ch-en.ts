@@ -2701,6 +2701,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Rental market in the canton of Lucerne: average fees and rental rights',
     'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'The rental market in the Canton of Lucerne: average rents by area, security deposit, dispute of the initial rent, cancellation and conciliation authority.',
     'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'A photo of a typical Swiss-style house in Lucerne, Switzerland',
+    'blog.article.cfa-altstaetten-aperte.title': '47 million francs, 11,500 square meters and 106 employees for the new CFA',
+    'blog.article.cfa-altstaetten-aperte.excerpt': 'The new Federal Asylum Center in Altstätten (SG) will be inaugurated in September with an area of 11,500 square meters and 106 employees.',
+    'blog.article.cfa-altstaetten-aperte.imageAlt': 'Aerial view of the new CFA in Altstätten, Switzerland, with the surrounding mountains and a modern building.',
 };
 
 export default blogMetaChEn;

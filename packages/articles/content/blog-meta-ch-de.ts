@@ -2701,6 +2701,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Mietmarkt im Kanton Luzern: Durchschnittsmieten und Mietrecht',
     'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'Der Mietmarkt im Kanton Luzern: Durchschnittsmieten pro Zone, Kaution, Anfechtung der Erstmiete, Kündigung und Schlichtungsstelle.',
     'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'Ein Foto eines typischen schweizerhaften Hauses in Luzern, Schweiz',
+    'blog.article.cfa-altstaetten-aperte.title': '47 Mio. Franken für neuen CFA',
+    'blog.article.cfa-altstaetten-aperte.excerpt': 'Das neue Bundesasylzentrum Altstätten (SG) wird im September mit einer Fläche von 11\'500 Quadratmetern und 106 Mitarbeitenden eingeweiht.',
+    'blog.article.cfa-altstaetten-aperte.imageAlt': 'Luftaufnahme des neuen CFA in Altstätten, Schweiz, mit den umliegenden Bergen und einem modernen Gebäude.',
 };
 
 export default blogMetaChDe;
