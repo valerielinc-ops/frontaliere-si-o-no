@@ -1,16 +1,16 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-14T21:30:29.632Z",
+  "generatedAt": "2026-08-15T09:39:21.430Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4392,
-  "avgDurationMs": 4392,
+  "unchangedCount": 1,
+  "durationMs": 4111,
+  "avgDurationMs": 4111,
   "durationHistory": [
-    4392
+    4111
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/secretaire-hf-gestion-dossier-medicalarchives-centrales",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T21:30:27.478Z",
+      "crawledAt": "2026-08-15T09:39:19.115Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T21:30:27.505Z",
+      "crawledAt": "2026-08-15T09:39:19.135Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -87,15 +87,18 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "hrc-5d469c582dc7",
-      "slug": "assistant-en-soins-et-sante-communautaire-assc-h-f-sites-de-monthey-et-vevey-a-80-100-hrc",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-80-100-h-f-hopital-riviera-chablais-hrc-rennaz",
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
       "companyDomain": "hopitalrivierachablais.ch",
       "title": "Assistant en soins et santé communautaire (ASSC) H/F, sites de Monthey et Vevey à 80%-100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Rennaz",
       "canton": "VD",
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
@@ -117,15 +120,16 @@
       "postedDate": "2026-07-26",
       "applyUrl": "https://emploi.hopitalrivierachablais.ch/nos-offres/assistant-en-soins-et-sante-communautaire-assc-hf-a-80-100",
       "firstSeenAt": "2026-07-28T11:26:04.362Z",
-      "_qualityScore": 85,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
