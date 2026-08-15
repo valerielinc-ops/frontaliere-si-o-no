@@ -35315,6 +35315,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-di-succesione-e-donazione-canton-lucerna': {
+    title: 'Imposta di successione e donazione nel Cantone di Lucerna',
+    description: 'La legge sulle imposte di successione e donazione nel Cantone di Lucerna prevede aliquote diverse in base al grado di parentela tra i beneficiari e i donanti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Lucerna',
+    ogDescription: 'La legge sulle imposte di successione e donazione nel Cantone di Lucerna prevede aliquote diverse in base al grado di parentela tra i beneficiari e i donanti.',
+    canonicalPath: '/articoli-svizzera/imposta-di-succesione-e-donazione-canton-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione nel Cantone di Lucerna",
+      "description": "La legge sulle imposte di successione e donazione nel Cantone di Lucerna prevede aliquote diverse in base al grado di parentela tra i beneficiari e i donanti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un notabile lucernese in un'attività finanziaria"
+      },
+      "datePublished": "2026-08-15T22:49:24+00:00",
+      "dateModified": "2026-08-15T22:49:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-succesione-e-donazione-canton-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
