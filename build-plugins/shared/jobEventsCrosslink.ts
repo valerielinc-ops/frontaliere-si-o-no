@@ -28,6 +28,7 @@ import {
   eventsBasePathForCanton,
 } from '../../scripts/lib/events-utils.mjs';
 import { escHtml } from './htmlEscape';
+import { BUILD_DATE_STAMP } from '../constants';
 
 export type CrosslinkLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -158,7 +159,11 @@ let cachedUpcomingEvents: NearbyEventSourceEvent[] | null = null;
 function getUpcomingEventsCached(): NearbyEventSourceEvent[] {
   if (!cachedUpcomingEvents) {
     const dataset = loadEventsDataset();
-    cachedUpcomingEvents = upcomingEvents(dataset.events ?? []) as NearbyEventSourceEvent[];
+    // #5911: explicit BUILD_DATE_STAMP, not the implicit `new Date()` fallback
+    // inside upcomingEvents() — this crosslink and eventsSeoPagesPlugin.ts both
+    // decide "does this comune have an upcoming event" from the same dataset,
+    // and must agree on "today" for the same reason (see constants.ts doc).
+    cachedUpcomingEvents = upcomingEvents(dataset.events ?? [], BUILD_DATE_STAMP) as NearbyEventSourceEvent[];
   }
   return cachedUpcomingEvents;
 }
