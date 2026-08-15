@@ -214,21 +214,41 @@ export function gateToRepro(gate, scripts = {}) {
 }
 
 /**
- * Argomento `audits` per il replay `gh workflow run audit-dist-from-run.yml`:
- * quel workflow esegue `npm run audit:<nome>`, quindi il nome è lo script npm
- * senza prefisso `audit:`. Non-audit (validate:*) → null: servirebbe una
- * rebuild, non un replay da artifact.
+ * Argomento `audits` per il replay `gh workflow run audit-dist-from-run.yml`.
+ *
+ * Quel workflow prefissa `audit:` ai nomi NUDI e invoca LETTERALMENTE i nomi
+ * che portano già un namespace canonico (`audit:`, `validate:`, `lint:`,
+ * `gate:`, `check:` — la KNOWN_PREFIXES del suo step, allineata a GATE_NS_RE).
+ * Quindi per un `audit:*` si passa il nome senza prefisso, per un `gate:*` il
+ * nome intero.
+ *
+ * `gate:*` tornava `null` (issue #5918, seconda metà): il CONSUMATORE sapeva
+ * rigiocare i gate ma il produttore del body non lo diceva a nessuno, e la
+ * issue auto-aperta per `gate:dist-quality` stampava «non è un audit
+ * rieseguibile da artifact: serve una rebuild» — falso da quando il replay li
+ * accetta. Chi la leggeva pagava una rebuild da 40 minuti per niente.
+ *
+ * `validate:*` / `lint:*` / `check:*` restano `null` di proposito, ed è una
+ * scelta di SEMANTICA, non di sintassi: il workflow li invocherebbe, ma
+ * validano il SORGENTE o pretendono una build fresca, non il `dist/`
+ * rehydratato dall'artifact — annunciare quel replay significherebbe annunciare
+ * un verdetto su un albero diverso da quello sotto indagine.
  */
 export function replayAuditsArg(gate, scripts = {}) {
   const g = String(gate);
-  if (!g.startsWith('audit:')) return null;
   const has = (k) => Object.prototype.hasOwnProperty.call(scripts, k);
   if (g.startsWith('audit:all/')) {
     const sub = g.slice('audit:all/'.length);
     return has(`audit:${sub}`) ? sub : 'all';
   }
-  const rest = g.slice('audit:'.length);
-  return has(g) || rest === 'all' ? rest : null;
+  if (g.startsWith('audit:')) {
+    const rest = g.slice('audit:'.length);
+    return has(g) || rest === 'all' ? rest : null;
+  }
+  // Un gate replayabile dall'artifact: nome intero, e solo se è davvero uno
+  // script (un nome inventato qui diventerebbe un `Missing script` nel replay).
+  if (g.startsWith('gate:')) return has(g) ? g : null;
+  return null;
 }
 
 function runUrl(repo, id) {
@@ -330,7 +350,7 @@ export function buildIssuePayloads(input) {
     } else if (auditsArg) {
       lines.push('- Replay possibile via `gh workflow run audit-dist-from-run.yml -f deploy_run_id=<run della build> -f audits=' + auditsArg + '` — il deploy_run_id non era disponibile a questo reporter.');
     } else {
-      lines.push('- Il gate non è un audit rieseguibile da artifact: serve una rebuild per riprodurlo in CI.');
+      lines.push('- Il gate non è rieseguibile dall\'artifact di deploy (valida il sorgente o pretende una build fresca, non il `dist/` rehydratato): serve una rebuild per riprodurlo in CI. I gate `audit:*` e `gate:*` invece si rigiocano — se ne vedi uno qui, il nome non è fra gli script di `package.json`.');
     }
     return lines;
   }
