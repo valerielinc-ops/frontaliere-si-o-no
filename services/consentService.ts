@@ -11,11 +11,44 @@
  * - ad_user_data: sending user data to Google for advertising
  * - functionality_storage: preferences (theme, locale) — always granted (essential)
  *
+ * ── The three ad_* signals are DERIVED, not stored here (#5893) ───────
+ *
+ * They do NOT come from `ConsentState.advertising` any more. That flag is
+ * written `true` by `setDefaultConsent()` on the first page load of every
+ * visitor, silently, with no UI ever shown — so reading it would announce
+ * "advertising granted" to Google for essentially the whole audience, while
+ * `services/adsConsent.ts` (the opt-in gate shipped in #5842) is at the very
+ * same moment refusing to load a single ad script. Two sources of truth that
+ * contradict each other, and the wrong one talking to Google.
+ *
+ * So `ad_storage` / `ad_personalization` / `ad_user_data` are now computed from
+ * `getAdsConsent() === 'granted'` — the same three-valued, fail-closed reading
+ * the gate itself uses. No decision and an explicit refusal both publish
+ * `denied`. `ConsentState.advertising` stays in the localStorage blob for
+ * backwards compatibility with `getConsent()`/`isAdvertisingGranted()` readers,
+ * but it no longer feeds the Consent Mode signal.
+ *
+ * A module-scope `onAdsConsentChange` subscription re-publishes a
+ * `('consent', 'update', …)` whenever the decision changes — from the banner,
+ * from the privacy page, or from another tab — so Google learns about an
+ * acceptance or a revocation without a page reload.
+ *
+ * ── Why analytics_storage is deliberately NOT gated ───────────────────
+ *
+ * `analytics_storage` stays `granted` by default. That is an explicit owner
+ * decision (#5842, on top of the honest disclosure shipped in #5832): the
+ * opt-in gate covers ADVERTISING scripts only, and GA4 / PostHog / Clarity
+ * remain active from the first page load. Do not widen the derivation above to
+ * analytics without a new owner decision.
+ *
  * Flow:
- * 1. On load, setDefaultConsent() grants everything by default (silent activation)
+ * 1. On load, setDefaultConsent() publishes the stored analytics preference
+ *    (granted by default) plus the ad_* trio derived from the ads gate
  * 2. If user previously had stored preferences, those are applied instead
- * 3. No consent banner — all analytics/advertising active from first page load
+ * 3. The ads banner (#5842) is the only consent UI; analytics is not gated
  */
+
+import { getAdsConsent, onAdsConsentChange, ADS_CONSENT_GRANTED } from './adsConsent';
 
 const STORAGE_KEY = 'frontaliere_consent';
 
@@ -37,33 +70,51 @@ const DEFAULT_STATE: ConsentState = {
 
 // ─── Google Consent Mode v2 bridge ──────────────────────────
 
+/**
+ * The Consent Mode v2 payload. `analytics_storage` follows the stored blob;
+ * the ad_* trio follows the opt-in gate, never the blob — see the file header.
+ */
+function consentPayload(state: ConsentState) {
+ const ads = getAdsConsent() === ADS_CONSENT_GRANTED ? 'granted' : 'denied';
+ return {
+ analytics_storage: state.analytics ? 'granted' : 'denied',
+ ad_storage: ads,
+ ad_personalization: ads,
+ ad_user_data: ads,
+ functionality_storage: 'granted',
+ security_storage: 'granted',
+ };
+}
+
 function gtagConsent(command: 'default' | 'update', state: ConsentState) {
  const w = window as any;
+ const payload = consentPayload(state);
 
  // Consent Mode v2: use gtag() when available (defined in index.html).
  // This is the authoritative path — gtag pushes to dataLayer internally.
  if (typeof w.gtag === 'function') {
- w.gtag('consent', command, {
- analytics_storage: state.analytics ? 'granted' : 'denied',
- ad_storage: state.advertising ? 'granted' : 'denied',
- ad_personalization: state.advertising ? 'granted' : 'denied',
- ad_user_data: state.advertising ? 'granted' : 'denied',
- functionality_storage: 'granted',
- security_storage: 'granted',
- });
+ w.gtag('consent', command, payload);
  return;
  }
 
  // Fallback: gtag() not yet defined (shouldn't happen — index.html defines it).
  // Push directly to dataLayer in the format Google Tag expects.
  if (!w.dataLayer) w.dataLayer = [];
- w.dataLayer.push('consent', command, {
- analytics_storage: state.analytics ? 'granted' : 'denied',
- ad_storage: state.advertising ? 'granted' : 'denied',
- ad_personalization: state.advertising ? 'granted' : 'denied',
- ad_user_data: state.advertising ? 'granted' : 'denied',
- functionality_storage: 'granted',
- security_storage: 'granted',
+ w.dataLayer.push('consent', command, payload);
+}
+
+// ─── Ads gate → Consent Mode bridge ─────────────────────────
+//
+// Installed once, at module scope, guarded for SSR/prerender where there is no
+// `window` (and therefore no localStorage and no listener target). Without this
+// subscription a visitor who accepts from the banner — or revokes from the
+// privacy page — would keep the `denied` trio published at page load until the
+// next full reload, i.e. Google would be told the opposite of what the gate is
+// actually doing for the rest of the session.
+
+if (typeof window !== 'undefined') {
+ onAdsConsentChange(() => {
+ gtagConsent('update', loadState() || DEFAULT_STATE);
  });
 }
 
@@ -109,14 +160,22 @@ export function isAnalyticsGranted(): boolean {
  return loadState()?.analytics ?? false;
 }
 
-/** Whether advertising consent is granted */
+/**
+ * Legacy blob flag. NOT the ad gate and NOT what Consent Mode publishes: it is
+ * `true` for every visitor since their first page load. For "may we load an ad
+ * script / what did the visitor answer", use `isAdsConsentGranted()` from
+ * `services/adsConsent.ts`.
+ */
 export function isAdvertisingGranted(): boolean {
  return loadState()?.advertising ?? false;
 }
 
 /**
  * Set default consent on page load.
- * Silent activation: analytics + advertising are granted by default.
+ * Analytics is granted by default (owner decision, #5842); the ad_* trio is
+ * derived from the ads gate inside `gtagConsent`, so a visitor who has not
+ * answered the banner gets `denied` published for advertising regardless of
+ * what the blob below says.
  * If no stored preference exists, persist the granted state immediately.
  */
 export function setDefaultConsent() {
