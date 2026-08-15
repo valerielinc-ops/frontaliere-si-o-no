@@ -9959,6 +9959,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-14.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 14. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-14.seoDescription': 'Grenzgänger-Bulletin vom 14. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-14.ogDescription': 'Die Zahlen vom 14. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.turismo-internazionale-italia-2026.title': 'Italien konsolidiert den Überschuss im internationalen Tourismus',
+    'blog.article.turismo-internazionale-italia-2026.excerpt': 'Die Ausgaben der ausländischen Reisenden in Italien stiegen im Vergleich zum Vorjahr um 4,3%, während die der Italiener im Ausland 2,7 Milliarden erreichten',
+    'blog.article.turismo-internazionale-italia-2026.imageAlt': 'Lago di Lugano in estate',
+    'blog.article.storia-sindacale-ticino-ocst.title': 'OCST: Über hundert Jahre Gewerkschaftsgeschichte im Tessin',
+    'blog.article.storia-sindacale-ticino-ocst.excerpt': 'Von den landwirtschaftlichen Ursprüngen bis zur Gründung der OCST im Jahr 1919: Wir verfolgen die grundlegenden Etappen des christlich-sozialen Gewerkschaftswesens im Kanton Tessin.',
+    'blog.article.storia-sindacale-ticino-ocst.imageAlt': 'Historische Ansicht von Bellinzona, dem Gründungsort der OCST.',
 };
 
 export default blogMetaDe;
