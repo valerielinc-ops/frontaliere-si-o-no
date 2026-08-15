@@ -9958,12 +9958,11 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_Ztb8yMz2qN1JyezuM9",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
+          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch",
+          "specialist-in-occupational-safety-and-health-m-f-d-eth-zurich-zurich"
         ],
         "en": [
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
@@ -9972,8 +9971,10 @@
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:12:35.609Z",
+      "previousSlugs": [
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch",
+        "specialist-in-occupational-safety-and-health-m-f-d-eth-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9986,7 +9987,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-14T10:12:35.609Z"
     },
     {
       "id": "eth-zurich-41f609c44a84",
