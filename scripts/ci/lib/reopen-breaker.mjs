@@ -64,6 +64,8 @@
  * esattamente i tre eventi che rendono il reopen di nuovo sensato.
  */
 
+import { VITEST_CHECK_NAME } from './constants.mjs';
+
 /** Marker del commento sticky che porta il contatore. */
 export const REOPEN_BUDGET_MARKER = '<!-- AUTOREBASE_REOPEN_BUDGET -->';
 
@@ -161,7 +163,7 @@ export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAU
     return {
       action: 'skip-failing-check',
       count: carried,
-      reason: `il check richiesto \`vitest (unit + integration)\` è FAILURE: `
+      reason: `il check richiesto \`${VITEST_CHECK_NAME}\` è FAILURE: `
         + `con vitest rosso pr-review-loop non parte (gira solo su tests success), `
         + `quindi nessun reopen può produrre l'\`## LGTM\` che manca — il riciclo è `
         + `inutile per costruzione. Serve far passare i test.`,
@@ -258,7 +260,7 @@ export function renderReopenBudget({ count, max, fingerprint, action, reason }) 
         + `Appena arriva un commit nuovo (o il vitest cambia verdetto, o arriva una review) `
         + `parte automaticamente UNA passata piena — rebase su main e ri-esecuzione dei test — `
         + `così chi arriva a guardarla trova un risultato riferito allo stato attuale.`
-      : `Cosa serve per sbloccarla: **far passare \`vitest (unit + integration)\`**. `
+      : `Cosa serve per sbloccarla: **far passare \`${VITEST_CHECK_NAME}\`**. `
         + `Appena arriva un commit nuovo (o il check torna verde) il contatore si azzera `
         + `da solo e il ciclo la riprende — non serve toccare niente qui.`;
   return `${REOPEN_BUDGET_MARKER}\n${head}\n\n${reason}\n\n${tail}\n\n`
