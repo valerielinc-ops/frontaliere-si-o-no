@@ -2698,6 +2698,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Krankenkassen, eine Lohnobergrenze? \'Symbolische Politik\'',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'Der Bundesrat schlägt vor, die Löhne von Krankenkassenleitern zu begrenzen. Die Versicherer argumentieren jedoch, dass dies keine signifikanten Auswirkungen auf die Prämien haben wird.',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'Ein Foto einer Sitzung des Schweizer Bundesrates.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Mietmarkt im Kanton Luzern: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'Der Mietmarkt im Kanton Luzern: Durchschnittsmieten pro Zone, Kaution, Anfechtung der Erstmiete, Kündigung und Schlichtungsstelle.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'Ein Foto eines typischen schweizerhaften Hauses in Luzern, Schweiz',
 };
 
 export default blogMetaChDe;

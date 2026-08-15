@@ -2698,6 +2698,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Casse malattia, un tetto agli stipendi? \'Politica simbolica\'',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto significativo sui premi.',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'Una foto di una riunione del Consiglio federale.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione',
+    'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità di conciliazione.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'Una foto di una casa svizzera tipica a Lucerna, Svizzera',
 };
 
 export default blogMetaChIt;

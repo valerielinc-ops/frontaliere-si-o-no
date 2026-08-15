@@ -34964,6 +34964,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-gli-affitti-canton-lucerna': {
+    title: 'Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione',
+    description: 'Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, canton, lucerna',
+    ogTitle: 'Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione',
+    ogDescription: 'Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità di conciliazione.',
+    canonicalPath: '/articoli-svizzera/mercato-gli-affitti-canton-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione",
+      "description": "Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-gli-affitti-canton-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di una casa svizzera tipica a Lucerna, Svizzera"
+      },
+      "datePublished": "2026-08-15T18:11:18+00:00",
+      "dateModified": "2026-08-15T18:11:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-gli-affitti-canton-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

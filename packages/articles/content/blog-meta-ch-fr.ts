@@ -2698,6 +2698,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Caisses-maladie, un plafond salarial ? \'Politique symbolique\'',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'Le Conseil fédéral propose de limiter les salaires des dirigeants des caisses-maladie. Mais les assureurs soutiennent que cela n\'aura pas d\'impact significatif sur les primes.',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'Une photo d\'une réunion du Conseil fédéral suisse.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Marché locatif dans le canton de Lucerne : loyers moyens et droit de location',
+    'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'Le marché locatif dans le canton de Lucerne : loyers moyens par zone, dépôt de garantie, contestation du loyer initial, résiliation et autorité de conciliation.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'Une photo d\'une maison typique en style suisse à Lucerne, Suisse',
 };
 
 export default blogMetaChFr;
