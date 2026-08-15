@@ -21,6 +21,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   decideReopen,
+  decideNeedsHumanPass,
   reopenFingerprint,
   parseReopenBudget,
   renderReopenBudget,
@@ -158,6 +159,66 @@ describe('il contatore sopravvive al close+reopen', () => {
     expect(parseReopenBudget('')).toBeNull();
     expect(parseReopenBudget('nessun marker qui')).toBeNull();
     expect(parseReopenBudget('<!-- reopen-budget-state {rotto -->')).toBeNull();
+  });
+});
+
+describe('needs-human: una passata sola, non 48 al giorno', () => {
+  // Fermare il close+reopen lasciava in piedi la metà più cara: il ramo
+  // needs-human viene DOPO `pushBranch`, quindi ogni tick del cron `*/30`
+  // rebasava, pushava e lanciava la suite — 48 tick/giorno × ~18min ≈ 14,4h di
+  // CI al giorno per UNA PR che aspetta una persona, su una coda serializzata.
+  it('stato invariato → nessun lavoro: niente rebase, niente CI', () => {
+    const fp = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+    const d = decideNeedsHumanPass({ fingerprint: fp, prior: { count: 0, fingerprint: fp } });
+    expect(d.action).toBe('skip-idle');
+  });
+
+  it('48 tick su uno stato fermo producono ZERO passate', () => {
+    const fp = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+    let prior: { count: number; fingerprint: string } | null = { count: 0, fingerprint: fp };
+    let passes = 0;
+    for (let tick = 0; tick < 48; tick++) {
+      if (decideNeedsHumanPass({ fingerprint: fp, prior }).action === 'pass') passes++;
+      prior = { count: 0, fingerprint: fp };
+    }
+    expect(passes).toBe(0);
+  });
+
+  it('stato cambiato → UNA passata piena, poi di nuovo silenzio', () => {
+    // L'intento del dispatchTests si preserva: chi arriva a guardare la PR
+    // trova un risultato riferito allo stato attuale. Ma una volta, non 48.
+    const stale = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+    let prior: { count: number; fingerprint: string } | null = { count: 0, fingerprint: stale };
+    const fresh = reopenFingerprint({ ...green, additions: 61, vitestConclusion: 'failure' });
+    let passes = 0;
+    for (let tick = 0; tick < 12; tick++) {
+      const d = decideNeedsHumanPass({ fingerprint: fresh, prior });
+      if (d.action === 'pass') passes++;
+      prior = { count: 0, fingerprint: fresh }; // l'impronta si registra alla passata
+    }
+    expect(passes).toBe(1);
+  });
+
+  it('senza stato registrato la prima passata si fa (fail-open)', () => {
+    const fp = reopenFingerprint(green);
+    expect(decideNeedsHumanPass({ fingerprint: fp, prior: null }).action).toBe('pass');
+  });
+
+  it('il gate è PRIMA del rebase, non sul dispatchTests', () => {
+    // Se stesse sul `dispatchTests` il costo resterebbe: il push del rebase è
+    // autenticato App/PAT e ri-triggera da sé `pull_request` (#3038), quindi
+    // tests.yml — e pr-review-loop, cioè quota Claude — partirebbero comunque.
+    // `decideNeedsHumanPass(` con la parentesi: cercare il solo identificatore
+    // trova l'IMPORT in cima al file, che precede qualunque cosa — il test
+    // resterebbe verde anche col gate spostato dopo il push (verificato per
+    // mutazione: senza la parentesi, M3b passava).
+    const gate = script.indexOf('decideNeedsHumanPass({');
+    const push = script.indexOf('const pushed = pushBranch(branch)');
+    const dispatchOnNeedsHuman = script.indexOf("labels.includes('needs-human')", push);
+    expect(gate).toBeGreaterThan(-1);
+    expect(push).toBeGreaterThan(-1);
+    expect(gate).toBeLessThan(push);
+    expect(gate).toBeLessThan(dispatchOnNeedsHuman);
   });
 });
 

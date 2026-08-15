@@ -67,6 +67,7 @@ import {
   reopenFingerprint,
   parseReopenBudget,
   decideReopen,
+  decideNeedsHumanPass,
   renderReopenBudget,
 } from './lib/reopen-breaker.mjs';
 
@@ -617,6 +618,43 @@ async function processPR(pr) {
   const branch = pr.headRefName;
   const head = pr.headRefOid;
   const labels = (pr.labels || []).map((l) => l.name);
+
+  // GATE `needs-human`: una passata SOLO se lo stato è cambiato.
+  //
+  // Deve stare QUI, prima di tutto il resto, e non sul `dispatchTests` del ramo
+  // needs-human più sotto. Quel ramo viene DOPO `pushBranch`, e il push del
+  // rebase — autenticato App/PAT — ri-triggera da sé i workflow `pull_request`
+  // (#3038, vedi header): togliere il solo dispatch lascerebbe in piedi sia la
+  // vitest sia `pr-review-loop`, cioè quota Claude, su una PR che aspetta una
+  // persona. Il lavoro da non fare è la passata intera.
+  //
+  // Costo evitato: cron `*/30` = 48 tick/giorno × ~18 min di vitest ≈ 14,4 h di
+  // CI al giorno per UNA PR ferma. La coda è serializzata: le pagano le altre.
+  //
+  // Le tre chiamate API dell'impronta costano ~1s e sostituiscono ~18 min di CI.
+  if (labels.includes('needs-human')) {
+    const vc = normalizedVitestConclusion(head);
+    const fp = reopenStateFingerprint(num, vc);
+    const body = readReopenBudgetBody(num);
+    const prior = parseReopenBudget(body);
+    const d = decideNeedsHumanPass({ fingerprint: fp, prior });
+    if (d.action === 'skip-idle') {
+      console.log(`PR #${num}: ${d.reason}`);
+      return;
+    }
+    // Stato cambiato → si prosegue con UNA passata piena (rebase + dispatch dal
+    // ramo needs-human più sotto). L'impronta si registra ORA: se la passata
+    // muore a metà non si ripete comunque a raffica, e l'umano che arriva vede
+    // perché. `count: 0` è coerente — il breaker riparte da zero su uno stato
+    // nuovo, esattamente come nel reset normale.
+    const next = renderReopenBudget({
+      count: 0, max: MAX_REOPENS, fingerprint: fp, action: 'needs-human-pass', reason: d.reason,
+    });
+    if (body !== next) {
+      upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+    }
+    console.log(`PR #${num}: ${d.reason}`);
+  }
 
   // GATE frugalità: solo near-merge.
   const lgtm = hasLgtmReview(num);
