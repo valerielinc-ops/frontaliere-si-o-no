@@ -3613,7 +3613,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "epfl-21f4bd7990d1",
@@ -3745,11 +3747,13 @@
       "previousSlugs": [
         "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
         "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne-255f45",
-        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r"
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r",
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r"
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hu0r",
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
         ],
         "de": [
           "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",

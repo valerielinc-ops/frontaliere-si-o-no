@@ -3854,13 +3854,15 @@
       "previousSlugs": [
         "associate-director-technical-development-novartis-ch",
         "associate-director-extractables-leachables-technical-development-novartis-ch",
-        "associate-direttore-technical-development-novartis-basel-city"
+        "associate-direttore-technical-development-novartis-basel-city",
+        "associate-direttore-technical-development-novartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-director-technical-development-novartis-ch",
           "associate-director-extractables-leachables-technical-development-novartis-ch",
-          "associate-direttore-technical-development-novartis-basel-city"
+          "associate-direttore-technical-development-novartis-basel-city",
+          "associate-direttore-technical-development-novartis-basel"
         ],
         "de": [
           "associate-director-technical-development-novartis-ch"
@@ -3870,7 +3872,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:06:39.134Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3883,7 +3884,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "novartis-18a295955ed3",

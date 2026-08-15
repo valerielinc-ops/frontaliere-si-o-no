@@ -14481,10 +14481,10 @@
       "id": "spital-thurgau-750bd713bdfb",
       "slug": "psicologi-in-spital-thurgau-stgag-weinfelden",
       "slugByLocale": {
-        "it": "psicologi-in-spital-thurgau-stgag-weinfelden",
-        "en": "psychologists-in-spital-thurgau-stgag-weinfelden",
         "de": "psychologen-in-stgag-ch",
-        "fr": "psychologues-in-spital-thurgau-stgag-weinfelden"
+        "it": "psicologi-in-spital-thurgau-stgag-munsterlingen",
+        "en": "psychologists-in-spital-thurgau-stgag-munsterlingen",
+        "fr": "psychologues-in-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14527,24 +14527,7 @@
       "requirementsByLocale": {},
       "department": "Psychologie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "psychologen-in-stgag-ch",
-        "psicologi-in-spital-thurgau-stgag-weinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologen-in-stgag-ch",
-          "psicologi-in-spital-thurgau-stgag-weinfelden"
-        ],
-        "en": [
-          "psychologen-in-stgag-ch"
-        ],
-        "fr": [
-          "psychologen-in-stgag-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:26:06.086Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -14556,7 +14539,28 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T10:26:06.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologen-in-stgag-ch",
+          "psicologi-in-spital-thurgau-stgag-weinfelden"
+        ],
+        "en": [
+          "psychologen-in-stgag-ch",
+          "psychologists-in-spital-thurgau-stgag-weinfelden"
+        ],
+        "fr": [
+          "psychologen-in-stgag-ch",
+          "psychologues-in-spital-thurgau-stgag-weinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "psychologen-in-stgag-ch",
+        "psicologi-in-spital-thurgau-stgag-weinfelden",
+        "psychologists-in-spital-thurgau-stgag-weinfelden",
+        "psychologues-in-spital-thurgau-stgag-weinfelden"
+      ]
     },
     {
       "id": "spital-thurgau-8835a71a2215",
