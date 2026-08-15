@@ -35198,6 +35198,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-lucerna-conversione-ed-esami': {
+    title: 'Patente di guida a Lucerna: cosa fare e sapere',
+    description: 'La conversione della patente di guida nel Cantone di Lucerna: requisiti, procedure e tempistiche. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, lucerna, cosa, fare',
+    ogTitle: 'Conversione della patente di guida nel Cantone di Lucerna: cosa fare e cosa sapere',
+    ogDescription: 'La conversione della patente di guida nel Cantone di Lucerna: requisiti, procedure e tempistiche.',
+    canonicalPath: '/articoli-svizzera/patente-guida-lucerna-conversione-ed-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida a Lucerna: cosa fare e sapere",
+      "description": "La conversione della patente di guida nel Cantone di Lucerna: requisiti, procedure e tempistiche. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-lucerna-conversione-ed-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lucerna in Svizzera, con un focus sull'infrastruttura e i sistemi di trasporto del Cantone."
+      },
+      "datePublished": "2026-08-15T20:25:03+00:00",
+      "dateModified": "2026-08-15T20:25:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-lucerna-conversione-ed-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
