@@ -1,13 +1,13 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-08-15T09:40:15.478Z",
+  "assembledAt": "2026-08-15T21:31:14.809Z",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-590b2fbd4310",
       "slug": "driver-di-ambulanza-ivr-primo-livello-di-risposta-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "driver-di-ambulanza-ivr-primo-livello-di-risposta-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "ambulance-driver-ivr-first-responder-level-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "niveau-3-du-premier-repondeur-ivr-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -17,7 +17,7 @@
       "title": "Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d)",
       "titleByLocale": {
         "it": "Driver di ambulanza IVR primo livello di risposta 3 (m/f/d)",
-        "en": "Ambulance driver IVR first responder level 3 (m/f/d)",
+        "en": "Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d)",
         "de": "Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d)",
         "fr": "Niveau 3 du premier répondeur IVR (m/f/d)"
       },
@@ -28,12 +28,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 04.08.2026 Arbeitsort : Rettungsdienst Eiken\n• Wenn jede Minute zählt, sind Sie zur Stelle. Mit Ihrem Engagement, Ihrer Ruhe und Ihrem Fachwissen sorgen Sie dafür, dass Menschen in herausfordernden Situationen sicher begleitet werden. Werden Sie Teil unseres Teams als Ambulanzfahrer IVR Ersthelfer Stufe 3 (m/w/d).\n\n• Du bist für die Verlegung von Patient:innen in stabilem Gesundheitszustand verantwortlich\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 16.07.2026 Lieu de travail : Service d'urgence Eiken\n• Si chaque minute compte, vous êtes là. Avec votre engagement, votre calme et votre expertise, vous veillez à ce que les gens soient accompagnés en toute sécurité dans des situations difficiles. Faites partie de notre équipe en tant que conducteur d'ambulance IVR premier répondeur niveau 3 (m/f/d).\n\n• Vous êtes responsable du transfert des patients: à l'intérieur en santé stable\n\n• Type: Temps plein\n• Terme temporaire : perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2337/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:11.734Z",
+      "crawledAt": "2026-08-15T21:31:10.494Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -52,6 +53,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "ambulance-driver-ivr-first-responder-level-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "driver-di-ambulanza-ivr-primo-livello-di-risposta-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
@@ -60,6 +62,7 @@
           "driver-di-ambulanza-ivr-primo-livello-di-risposta-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
+          "ambulance-driver-ivr-first-responder-level-3-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
           "ambulanzfahrer-ivr-ersthelfer-stufe-3-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
@@ -112,7 +115,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2331/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:10.687Z",
+      "crawledAt": "2026-08-15T21:31:09.669Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -189,7 +192,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2198/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:09.713Z",
+      "crawledAt": "2026-08-15T21:31:08.858Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -270,7 +273,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2148/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:08.830Z",
+      "crawledAt": "2026-08-15T21:31:08.020Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -333,7 +336,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2130/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:08.033Z",
+      "crawledAt": "2026-08-15T21:31:07.204Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -412,7 +415,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2120/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:07.174Z",
+      "crawledAt": "2026-08-15T21:31:06.408Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -491,7 +494,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2345/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:06.127Z",
+      "crawledAt": "2026-08-15T21:31:05.605Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -570,7 +573,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:05.083Z",
+      "crawledAt": "2026-08-15T21:31:04.789Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -658,7 +661,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:04.432Z",
+      "crawledAt": "2026-08-15T21:31:04.425Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -737,7 +740,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:03.386Z",
+      "crawledAt": "2026-08-15T21:31:03.582Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
