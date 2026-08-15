@@ -830,7 +830,7 @@
       "slugByLocale": {
         "it": "responsabile-delle-entrate-marriott-international-zurich",
         "en": "revenue-manager-marriott-zurich",
-        "de": "revenue-manager-marriott-zurich",
+        "de": "einnahmenmanager-marriott-international-zurich",
         "fr": "gestionnaire-des-recettes-marriott-international-zurich"
       },
       "company": "Marriott International",
@@ -891,6 +891,9 @@
           "responsabile-delle-entrate-marriott-international-zurich"
         ],
         "fr": [
+          "revenue-manager-marriott-zurich"
+        ],
+        "de": [
           "revenue-manager-marriott-zurich"
         ]
       },
@@ -1102,11 +1105,11 @@
     },
     {
       "id": "marriott-9602896187d4",
-      "slug": "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slug": "addetto-polivalente-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
-        "de": "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
+        "it": "addetto-polivalente-inverno-26-27-w-verbier-marriott-international-verbier",
+        "de": "multifunktionsmitarbeiter-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "equipement-polyvalent-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -1173,11 +1176,16 @@
       "firstSeenAt": "2026-08-14T21:48:30.756Z",
       "previousSlugsByLocale": {
         "it": [
+          "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
+          "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "de": [
           "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "previousSlugs": [
-        "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier"
+        "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
+        "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier"
       ]
     },
     {

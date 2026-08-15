@@ -216305,7 +216305,6 @@
           "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur-zurich-eb1c6a"
         ],
         "de": [
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-s65dlj",
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-winterthur-zurich-s65dlj"
         ]
       },
@@ -217656,9 +217655,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "chauffeur-in-strasse-kat-c-zurich-o-schafisheim-railcare-zurich-jjl6fh",
-        "en": "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
+        "en": "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
         "de": "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-        "fr": "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
+        "fr": "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -217678,10 +217677,17 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich"
+        ],
+        "en": [
+          "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
+        ],
+        "fr": [
+          "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
         ]
       },
       "previousSlugs": [
-        "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich"
+        "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich",
+        "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
       ]
     },
     {
