@@ -35276,6 +35276,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-lucerna-settori-livelli': {
+    title: 'Salari e mercato del lavoro nel Cantone di Lucerna: settori e livelli',
+    description: 'Il Cantone di Lucerna offre una varietà di settori che assumono e livelli salariali diversi, a seconda del grado di formazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, cantone',
+    ogTitle: 'Salari e mercato del lavoro nel Cantone di Lucerna: settori e livelli',
+    ogDescription: 'Il Cantone di Lucerna offre una varietà di settori che assumono e livelli salariali diversi, a seconda del grado di formazione.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-lucerna-settori-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro nel Cantone di Lucerna: settori e livelli",
+      "description": "Il Cantone di Lucerna offre una varietà di settori che assumono e livelli salariali diversi, a seconda del grado di formazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-lucerna-settori-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lucerna, Svizzera"
+      },
+      "datePublished": "2026-08-15T22:38:13+00:00",
+      "dateModified": "2026-08-15T22:38:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-lucerna-settori-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

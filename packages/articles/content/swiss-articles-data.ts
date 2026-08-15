@@ -8164,6 +8164,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salari-mercato-lavoro-lucerna-settori-livelli',
+    category: 'fiscale',
+    date: '2026-08-15T22:38:13.578Z',
+    image: '/images/blog/salari-mercato-lavoro-lucerna-settori-livelli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
