@@ -204,6 +204,26 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/cross-border-articles/live-maslianico-work-ticino-cross-border/': '/en/living-in-ticino/border-municipalities/maslianico/',
  '/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/': '/de/leben-im-tessin/grenzgemeinden/maslianico/',
  '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/': '/fr/vivre-au-tessin/communes-frontiere/maslianico/',
+ // ── Cross-section duplicate retirements, nanako#356 (2026-08-14) — three svizzera
+ // articles retired in favour of a frontaliere-section winner chosen on GA4 (the
+ // retired side was 0/0/0 pageviews/sessions/users in all three). This entry is
+ // also what `scripts/lib/corpus-removal-guard.mjs` reads before it will let
+ // `pull-articles-corpus.mjs` remove these ids from packages/articles/content/ —
+ // without it here the next sync refuses the removal outright rather than risk an
+ // undeclared deletion. See infra/cloudflare-worker/locale-router.js
+ // EDGE_RETIRED_PATHS for the serving-path half.
+ '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
+ '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
+ '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+ '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
+ '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
+ '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',
+ '/de/schweiz-artikel/domino-effekt-gefallene-unternehmen-schweiz/': '/de/grenzgaenger-artikel/unternehmenspleiten-schweiz-1994/',
+ '/fr/articles-suisse/effet-domino-filiale-dentreprise-suisse/': '/fr/articles-frontalier/faillites-entreprises-suisse-1994/',
+ '/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/': '/articoli-frontaliere/matrimonio-aziendale-vallemaggia-100/',
+ '/en/swiss-articles/a-union-of-four-construction-companies-in-vallemaggia/': '/en/cross-border-articles/vallemaggia-business-merger-100-jobs/',
+ '/de/schweiz-artikel/eine-verbindung-von-vier-bauunternehmen-in-vallemaggia/': '/de/grenzgaenger-artikel/vallemaggia-firmenfusion-100-jobs/',
+ '/fr/articles-suisse/un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia/': '/fr/articles-frontalier/fusion-entreprise-vallemaggia-100-emplois/',
  // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
  // IT: category or slug renames
  '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',

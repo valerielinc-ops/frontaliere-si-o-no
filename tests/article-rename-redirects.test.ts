@@ -280,7 +280,7 @@ describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
  * Review round 1 on PR #5537. `parseArticleRedirects` forbids chains INSIDE the
  * data file, but the two maps are merged into one before anything is emitted,
  * and a chain forms just as well across the seam. It is not a hypothetical
- * shape: 34 of the 156 hardcoded pairs are article → article, i.e. 34 targets a
+ * shape: 46 of the 168 hardcoded pairs are article → article, i.e. 46 targets a
  * future rename can move, and four of those targets have three sources each
  * (the `frontalieri-ticino-*-2025` group, in all four locales).
  *
@@ -431,7 +431,7 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    expect(Object.keys(HARDCODED).length).toBe(156);
+    expect(Object.keys(HARDCODED).length).toBe(168);
   });
 });
 
