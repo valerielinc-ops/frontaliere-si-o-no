@@ -382,6 +382,13 @@ describe('nextCrawlerState', () => {
       priorNonZero: 14,
       emptyStreak: 7,
     },
+    {
+      slug: 'baronie',
+      issue: '#5851',
+      why: 'parser already repaired by #5860; careers page still yields all 4 /en/jobs/ anchors and every detail page parses end-to-end, but all 4 openings are BE/DE/UK so isSwissJob keeps 0/4',
+      priorNonZero: 1,
+      emptyStreak: 3,
+    },
   ];
 
   for (const { slug, issue, why, priorNonZero, emptyStreak } of emptyOkCohort) {
