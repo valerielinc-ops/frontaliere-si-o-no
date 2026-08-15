@@ -15270,9 +15270,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "charpentier-de-laboratoire-ebaniste-pemsa-geneve",
-        "en": "charpentier-de-laboratoire-ebaniste-pemsa-geneve",
-        "de": "charpentier-de-laboratoire-ebaniste-pemsa-geneve",
+        "it": "falegname-a-ebanista-di-laboratorio-pemsa-geneve",
+        "en": "laboratory-carpenter-a-ebanist-pemsa-geneve",
+        "de": "labor-zimmermann-ein-ebanist-pemsa-geneve",
         "fr": "charpentier-de-laboratoire-ebaniste-pemsa-geneve"
       },
       "localePaths": {
@@ -15281,12 +15281,13 @@
         "de": "/de/jobs-im-genf/charpentier-de-laboratoire-ebaniste-pemsa-geneve",
         "fr": "/fr/trouver-emploi-geneve/charpentier-de-laboratoire-ebaniste-pemsa-geneve"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2687245",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
