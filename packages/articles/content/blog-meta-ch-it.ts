@@ -2704,6 +2704,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cfa-altstaetten-aperte.title': '47 milioni di franchi, 11\'500 metri quadri e 106 dipendenti per il nuovo CFA',
     'blog.article.cfa-altstaetten-aperte.excerpt': 'Il nuovo Centro federale d\'asilo di Altstätten (SG) sarà inaugurato a settembre con una superficie di 11\'500 metri quadri e 106 dipendenti.',
     'blog.article.cfa-altstaetten-aperte.imageAlt': 'Vista aerea del nuovo CFA di Altstätten, Svizzera, con le montagne circostanti e un edificio moderno.',
+    'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.title': 'Naturalizzazione Cantone di Lucerna: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.excerpt': 'Per ottenere la cittadinanza svizzera nel Cantone di Lucerna, è necessario soddisfare determinati requisiti e seguire un preciso procedimento.',
+    'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.imageAlt': 'Il processo di naturalizzazione nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

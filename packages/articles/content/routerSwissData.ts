@@ -927,6 +927,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'casse-malattia-tetto-stipendi-politica-simbolica': { it: 'casse-malattia-tetto-stipendi-politica-simbolica', en: 'sickness-funds-a-salary-cap-symbolic-policy', de: 'kassen-krankenversicherung-grenzverdienst-politische-simbolik', fr: 'caisses-maladie-plafond-salaire-politique-symb' },
  'mercato-gli-affitti-canton-lucerna': { it: 'mercato-gli-affitti-canton-lucerna', en: 'lucerne-cantonal-rental-market', de: 'mietmarkt-kanton-luzern', fr: 'marche-du-location-canton-de-lucerne' },
  'cfa-altstaetten-aperte': { it: 'cfa-altstaetten-aperte', en: 'cfa-altstaetten-open', de: 'cfa-altstaetten-geoeffnet', fr: 'cfa-altstaetten-ouvert' },
+ 'naturalizzazione-canton-lucerna-requisiti-e-procedura': { it: 'naturalizzazione-canton-lucerna-requisiti-e-procedura', en: 'naturalization-canton-lucerne-requirements-and-procedure', de: 'naturalisierung-kanton-luzern-anforderungen-und-verfahren', fr: 'procedure-dnaturalisation-canton-de-lucerne-exigences-et-procedures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

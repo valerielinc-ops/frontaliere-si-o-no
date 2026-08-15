@@ -2704,6 +2704,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cfa-altstaetten-aperte.title': '47 Mio. Franken für neuen CFA',
     'blog.article.cfa-altstaetten-aperte.excerpt': 'Das neue Bundesasylzentrum Altstätten (SG) wird im September mit einer Fläche von 11\'500 Quadratmetern und 106 Mitarbeitenden eingeweiht.',
     'blog.article.cfa-altstaetten-aperte.imageAlt': 'Luftaufnahme des neuen CFA in Altstätten, Schweiz, mit den umliegenden Bergen und einem modernen Gebäude.',
+    'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.title': 'Einbürgerung Kanton Luzern: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.excerpt': 'Um die Schweizer Staatsbürgerschaft im Kanton Luzern zu erhalten, müssen bestimmte Voraussetzungen erfüllt und ein präzises Verfahren eingehalten werden.',
+    'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.imageAlt': 'Naturalisierungsprozess im Kanton Luzern',
 };
 
 export default blogMetaChDe;
