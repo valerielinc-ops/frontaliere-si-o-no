@@ -934,6 +934,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-lucerna-conversione-ed-esami': { it: 'patente-guida-lucerna-conversione-ed-esami', en: 'driver-s-license-in-lucerne-what-to-do-and-know', de: 'fuhrerschein-in-luzern-was-zu-tun-und-zu-wissen-ist', fr: 'permis-de-conduire-a-lucerne-que-faire-et-que-savoir' },
  'abbonamenti-trasporti-pubblici-canton-lucerna': { it: 'abbonamenti-trasporti-pubblici-canton-lucerna', en: 'public-transport-passes-canton-lucerne-zones-and-fares', de: 'ov-abos-kanton-luzern-zonen-und-tarife', fr: 'abonnements-transports-publics-canton-lucerne-zones-et-tarifs' },
  'salari-mercato-lavoro-lucerna-settori-livelli': { it: 'salari-mercato-lavoro-lucerna-settori-livelli', en: 'salaries-labor-market-lucerne-sectors-levels', de: 'gehalte-arbeitsmarkt-luzern-sektoren-stufen', fr: 'salaires-marche-du-travail-lucerne-secteurs-niveaux' },
+ 'imposta-di-succesione-e-donazione-canton-lucerna': { it: 'imposta-di-succesione-e-donazione-canton-lucerna', en: 'imposta-di-succesione-e-donazione-canton-lucerna-en', de: 'imposta-di-succesione-e-donazione-canton-lucerna-de', fr: 'imposta-di-succesione-e-donazione-canton-lucerna-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

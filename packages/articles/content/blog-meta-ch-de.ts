@@ -2725,6 +2725,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.title': 'Löhne und Arbeitsmarkt im Kanton Luzern: Branchen und Niveaus',
     'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.excerpt': 'Der Kanton Luzern bietet je nach Bildungsgrad eine Vielzahl von Einstellungsbranchen und unterschiedliche Lohnniveaus.',
     'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.imageAlt': 'Luftaufnahme von Luzern, Schweiz',
+    'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.title': 'Erbschafts- und Schenkungssteuer im Kanton Luzern',
+    'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.excerpt': 'Je nach Verwandtschaftsgrad zwischen den Begünstigten und den Spendern gibt es unterschiedliche Sätze.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.imageAlt': 'Ein Lucernesischer Beamter in einer finanziellen Aktivität',
 };
 
 export default blogMetaChDe;

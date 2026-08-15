@@ -2725,6 +2725,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.title': 'Wages and the labour market in the Canton of Lucerne: sectors and levels',
     'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.excerpt': 'The Canton of Lucerne offers a variety of hiring sectors and different salary levels, depending on the degree of training.',
     'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.imageAlt': 'Aerial view of Lucerne, Switzerland',
+    'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.title': 'Inheritance and gift tax in the Canton of Lucerne',
+    'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.excerpt': 'Different rates are provided according to the degree of kinship between beneficiaries and donors.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.imageAlt': 'A Lucerne official in a financial activity',
 };
 
 export default blogMetaChEn;
