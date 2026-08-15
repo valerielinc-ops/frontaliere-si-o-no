@@ -217281,9 +217281,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "chauffeur-in-strasse-kat-c-zurich-o-schafisheim-railcare-zurich-jjl6fh",
-        "en": "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
+        "en": "road-driver-cat-c-in-zurich-or-schafisheim-railcare-zurich",
         "de": "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-        "fr": "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
+        "fr": "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -217305,15 +217305,19 @@
           "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich"
         ],
         "en": [
-          "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
+          "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
+          "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich"
         ],
         "fr": [
-          "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
+          "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
+          "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich",
-        "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh"
+        "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
+        "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
+        "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",

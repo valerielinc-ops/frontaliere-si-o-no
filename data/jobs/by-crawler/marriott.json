@@ -1109,7 +1109,7 @@
       "slugByLocale": {
         "en": "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
         "it": "addetto-polivalente-inverno-26-27-w-verbier-marriott-international-verbier",
-        "de": "multifunktionsmitarbeiter-winter-26-27-w-verbier-marriott-international-verbier",
+        "de": "allrounder-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "equipement-polyvalent-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -1180,12 +1180,14 @@
           "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
-          "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier"
+          "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
+          "multifunktionsmitarbeiter-winter-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
         "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
-        "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier"
+        "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
+        "multifunktionsmitarbeiter-winter-26-27-w-verbier-marriott-international-verbier"
       ]
     },
     {
@@ -1361,10 +1363,10 @@
       "id": "marriott-56a407733f85",
       "slug": "lenox-bar-shiftleader-marriott-zurich",
       "slugByLocale": {
-        "it": "lenox-bar-shiftleader-marriott-zurich",
         "en": "lenox-bar-shiftleader-marriott-zurich",
+        "it": "lenox-bar-shiftleader-marriott-zurich",
         "de": "lenox-bar-shiftleader-marriott-zurich",
-        "fr": "lenox-bar-shiftleader-marriott-zurich"
+        "fr": "chef-d-equipe-bar-lenox-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
