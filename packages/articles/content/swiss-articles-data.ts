@@ -8083,6 +8083,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'casse-malattia-tetto-stipendi-politica-simbolica',
+    category: 'fiscale',
+    date: '2026-08-15T17:59:11.198Z',
+    image: '/images/blog/casse-malattia-tetto-stipendi-politica-simbolica.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

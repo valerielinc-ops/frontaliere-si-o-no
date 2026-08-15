@@ -2695,6 +2695,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sindacati-delusi.title': 'Syndicats déçus : nous pourrions retirer notre soutien',
     'blog.article.sindacati-delusi.excerpt': 'La décision de la Commission économie au Conseil des Etats de ne pas modifier les mesures sur la protection des salaires irrite le président de Travail Suisse Adrian Wüthrich',
     'blog.article.sindacati-delusi.imageAlt': 'Président de Travail Suisse Adrian Wüthrich',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Caisses-maladie, un plafond salarial ? \'Politique symbolique\'',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'Le Conseil fédéral propose de limiter les salaires des dirigeants des caisses-maladie. Mais les assureurs soutiennent que cela n\'aura pas d\'impact significatif sur les primes.',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'Une photo d\'une réunion du Conseil fédéral suisse.',
 };
 
 export default blogMetaChFr;

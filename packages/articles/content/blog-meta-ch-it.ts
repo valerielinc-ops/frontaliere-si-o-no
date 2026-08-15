@@ -2695,6 +2695,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sindacati-delusi.title': 'Sindacati delusi: potremmo togliere il nostro sostegno',
     'blog.article.sindacati-delusi.excerpt': 'La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse Adrian Wüthrich',
     'blog.article.sindacati-delusi.imageAlt': 'Presidente di Travail Suisse Adrian Wüthrich',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Casse malattia, un tetto agli stipendi? \'Politica simbolica\'',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto significativo sui premi.',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'Una foto di una riunione del Consiglio federale.',
 };
 
 export default blogMetaChIt;

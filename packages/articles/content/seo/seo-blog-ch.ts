@@ -34925,6 +34925,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-malattia-tetto-stipendi-politica-simbolica': {
+    title: 'Casse malattia, un tetto agli stipendi? \'Politica simbolica\'',
+    description: 'Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malattia, tetto, agli',
+    ogTitle: 'Casse malattia, un tetto agli stipendi? \'Politica simbolica\'',
+    ogDescription: 'Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto significativo sui premi.',
+    canonicalPath: '/articoli-svizzera/casse-malattia-tetto-stipendi-politica-simbolica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malattia, un tetto agli stipendi? 'Politica simbolica'",
+      "description": "Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casse-malattia-tetto-stipendi-politica-simbolica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di una riunione del Consiglio federale."
+      },
+      "datePublished": "2026-08-15T17:59:11+00:00",
+      "dateModified": "2026-08-15T17:59:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casse-malattia-tetto-stipendi-politica-simbolica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
