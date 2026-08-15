@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-08-14T21:29:30.355Z",
+  "assembledAt": "2026-08-15T08:25:13.227Z",
   "jobs": [
     {
       "id": "ikea-b15ea684758f",
@@ -2919,74 +2919,6 @@
         }
       },
       "firstSeenAt": "2026-08-14T21:29:27.410Z"
-    },
-    {
-      "id": "ikea-321e7d4a21ac",
-      "slug": "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach",
-      "slugByLocale": {
-        "it": "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach",
-        "en": "associate-visual-merchandising-80-100-ikea-lyssach",
-        "de": "mitarbeiter-in-visual-merchandising-80-100-ikea-ch",
-        "fr": "collaborateur-trice-visual-merchandising-80-100-ikea-lyssach"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Mitarbeiter:in Visual Merchandising 80-100%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Visual Merchandising 80-100%",
-        "en": "Associate Visual Merchandising 80-100%",
-        "de": "Mitarbeiter:in Visual Merchandising 80-100%",
-        "fr": "Collaborateur/trice Visual Merchandising 80-100%"
-      },
-      "description": "Mitarbeiter:in Visual Merchandising 80-100% — IKEA",
-      "descriptionByLocale": {
-        "de": "Mitarbeiter:in Visual Merchandising 80-100% — IKEA"
-      },
-      "location": "Spreitenbach, Aargau, Switzerland",
-      "canton": "AG",
-      "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-visual-merchandising-80-100/24107/98133935680",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:29:27.407Z",
-      "addressLocality": "Spreitenbach",
-      "postalCode": "8957",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-visual-merchandising-80-100/24107/98133935680",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-visual-merchandising-80-100-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-visual-merchandising-80-100-ikea-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:25:47.003Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
     }
   ]
 }
