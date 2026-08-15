@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "en": "vp-system-architecture-anybotics-ch",
-        "de": "vp-system-architecture-anybotics-zurich-switzerland",
+        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
         "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP System Architecture",
+        "de": "VP Systemarchitektur",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -50,17 +50,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
-        "vp-systemarchitektur-anybotics-zurich-switzerland",
-        "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "vp-system-architecture-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch",
-          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
+          "vp-system-architecture-anybotics-ch"
         ],
         "de": [
-          "vp-systemarchitektur-anybotics-zurich-switzerland",
           "vp-system-architecture-anybotics-zurich-switzerland"
         ],
         "fr": [
@@ -68,7 +64,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -130,13 +125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verification-testing-engineer-anybotics-ch",
-        "verification-testing-ingegnere-anybotics-zurich"
+        "verification-testing-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verification-testing-engineer-anybotics-ch",
-          "verification-testing-ingegnere-anybotics-zurich"
+          "verification-testing-engineer-anybotics-ch"
         ],
         "de": [
           "verification-testing-engineer-anybotics-ch"
@@ -212,15 +205,13 @@
         "elektrotechnik-praktikum-anybotics-zurich",
         "genie-electrique-stage-anybotics-zurich",
         "software-engineering-internship-anybotics-ch",
-        "software-engineering-internship-ai-platform-anybotics-ch",
-        "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
+        "software-engineering-internship-ai-platform-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegneria-elettrica-stage-anybotics-zurich",
           "software-engineering-internship-anybotics-ch",
-          "software-engineering-internship-ai-platform-anybotics-ch",
-          "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
+          "software-engineering-internship-ai-platform-anybotics-ch"
         ],
         "en": [
           "electrical-engineering-internship-anybotics-ch"
@@ -235,7 +226,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -297,13 +287,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch",
-        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
+        "senior-reinforcement-learning-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch",
-          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
+          "senior-reinforcement-learning-engineer-anybotics-ch"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -374,17 +362,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch",
-        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
+        "senior-product-quality-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch",
-          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
+          "senior-product-quality-engineer-anybotics-ch"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -446,13 +431,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-procurement-specialist-anybotics-ch",
-        "senior-procurement-specialista-anybotics-zurich"
+        "senior-procurement-specialist-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-procurement-specialist-anybotics-ch",
-          "senior-procurement-specialista-anybotics-zurich"
+          "senior-procurement-specialist-anybotics-ch"
         ],
         "de": [
           "senior-procurement-specialist-anybotics-ch"
@@ -523,13 +506,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
-        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
-          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -539,7 +520,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -602,14 +582,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-electronics-engineer-anybotics-ch",
-        "senior-electrical-engineer-anybotics-ch",
-        "senior-electronics-ingegnere-anybotics-zurich-switzerland"
+        "senior-electrical-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-electronics-engineer-anybotics-ch",
-          "senior-electrical-engineer-anybotics-ch",
-          "senior-electronics-ingegnere-anybotics-zurich-switzerland"
+          "senior-electrical-engineer-anybotics-ch"
         ],
         "en": [
           "senior-electronics-engineer-anybotics-ch"
@@ -683,13 +661,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-test-engineer-anybotics-ch",
-        "robotics-test-ingegnere-anybotics-zurich"
+        "robotics-test-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-test-engineer-anybotics-ch",
-          "robotics-test-ingegnere-anybotics-zurich"
+          "robotics-test-engineer-anybotics-ch"
         ],
         "de": [
           "robotics-test-engineer-anybotics-ch"
@@ -760,17 +736,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-lab-technician-intern-anybotics-ch",
-        "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
+        "robotics-lab-technician-intern-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-lab-technician-intern-anybotics-ch",
-          "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
+          "robotics-lab-technician-intern-anybotics-ch"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:20.867Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -832,13 +805,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch",
-        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
+        "production-technician-ii-robotics-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch",
-          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
+          "production-technician-ii-robotics-anybotics-ch"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -909,13 +880,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch",
-        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
+        "product-data-management-internship-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch",
-          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
+          "product-data-management-internship-anybotics-ch"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -986,13 +955,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pcb-layout-designer-ecad-engineer-anybotics-ch",
-        "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
+        "pcb-layout-designer-ecad-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pcb-layout-designer-ecad-engineer-anybotics-ch",
-          "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
+          "pcb-layout-designer-ecad-engineer-anybotics-ch"
         ],
         "de": [
           "pcb-layout-designer-ecad-engineer-anybotics-ch"
@@ -1064,13 +1031,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-engineer-anybotics-ch",
-        "manufacturing-engineer-anybotics-zurich-switzerland",
-        "manufacturing-ingegnere-anybotics-zurich-switzerland"
+        "manufacturing-engineer-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch",
-          "manufacturing-ingegnere-anybotics-zurich-switzerland"
+          "manufacturing-engineer-anybotics-ch"
         ],
         "en": [
           "manufacturing-engineer-anybotics-zurich-switzerland"
@@ -1144,13 +1109,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-reinforcement-learning-for-navigation-anybotics-ch",
-        "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland"
+        "internship-reinforcement-learning-for-navigation-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-reinforcement-learning-for-navigation-anybotics-ch",
-          "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland"
+          "internship-reinforcement-learning-for-navigation-anybotics-ch"
         ],
         "de": [
           "internship-reinforcement-learning-for-navigation-anybotics-ch"
@@ -1160,7 +1123,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:56:05.657Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1222,13 +1184,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrialization-electronics-test-engineer-anybotics-ch",
-        "industrialization-electronics-test-ingegnere-anybotics-zurich"
+        "industrialization-electronics-test-engineer-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "industrialization-electronics-test-engineer-anybotics-ch",
-          "industrialization-electronics-test-ingegnere-anybotics-zurich"
+          "industrialization-electronics-test-engineer-anybotics-ch"
         ],
         "de": [
           "industrialization-electronics-test-engineer-anybotics-ch"
@@ -1299,13 +1259,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-field-engineer-industrial-robotics-anybotics-ch",
-        "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
+        "senior-field-engineer-industrial-robotics-anybotics-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-field-engineer-industrial-robotics-anybotics-ch",
-          "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
+          "senior-field-engineer-industrial-robotics-anybotics-ch"
         ],
         "de": [
           "senior-field-engineer-industrial-robotics-anybotics-ch"
@@ -1327,8 +1285,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     }
   ]
 }
