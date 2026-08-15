@@ -300,13 +300,24 @@ function normalizedVitestConclusion(head) {
  * emette `reopened`, e `tests.yml` ha `on: pull_request` senza `types:` →
  * eredita `[opened, synchronize, reopened]`, quindi OGNI giro sbagliato costa
  * una vitest intera (~18min) su una coda serializzata.
+ *
+ * `stuckRedReason`: la reason di `stuckRedRescueReason(head)` quando la PR è
+ * nel flusso come rescue STUCK-RED — cioè quando questo stesso run ha PROVATO
+ * che il `failure` sull'head non è della PR (red-main/stale). In quel caso la
+ * precondizione non deve scattare: il reopen È la ri-esecuzione promessa dal
+ * commento STUCK_RED, e negarlo lascerebbe la PR (senza label near-merge, col
+ * marker one-shot già consumato) in uno stato assorbente se il push-trigger
+ * non parte — la stessa classe «zero archi uscenti» che lo stuck-red chiude.
  */
-function guardedReopen(num, head) {
+function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   const vitestConclusion = normalizedVitestConclusion(head);
   const fingerprint = reopenStateFingerprint(num, vitestConclusion);
   const body = readReopenBudgetBody(num);
   const prior = parseReopenBudget(body);
-  const d = decideReopen({ vitestConclusion, fingerprint, prior, max: MAX_REOPENS });
+  const d = decideReopen({
+    vitestConclusion, fingerprint, prior, max: MAX_REOPENS,
+    failureNotAttributable: stuckRedReason,
+  });
 
   if (d.action !== 'reopen') {
     // Segnalazione UNA SOLA: commento STICKY riscritto in place (non un
@@ -944,7 +955,11 @@ async function processPR(pr) {
     // riaperture di #5896/#5906. `!lgtm` con vitest rosso è una condizione che
     // il reopen non può cambiare (pr-review-loop gira solo su tests success),
     // quindi senza guardia si ripete a ogni tick per sempre.
-    if (guardedReopen(num, head)) {
+    // ECCEZIONE: se la PR è qui come rescue STUCK-RED, il `failure` sull'head
+    // è appena stato PROVATO non attribuibile (red-main/stale) e il reopen è
+    // esattamente la ri-esecuzione promessa — `stuckRedReason` disattiva la
+    // sola precondizione (il budget del breaker conta comunque).
+    if (guardedReopen(num, head, { stuckRedReason })) {
       console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (${why}) → review+redflag ri-triggerati drift-free.`);
     }
     return;
