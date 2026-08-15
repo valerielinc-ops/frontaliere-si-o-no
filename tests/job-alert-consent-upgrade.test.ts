@@ -388,6 +388,10 @@ describe('what is stored is what was on screen', () => {
     'components/community/JobAlertForm.tsx',
     'components/community/CompanyFollowButton.tsx',
     'components/calculator/SalaryAlertCTA.tsx',
+    // The consent-banner panel (#5842): not an activation CTA — it upgrades the
+    // travaso alerts on its own act (see `buildJobAlertConsentProof`'s `act`
+    // override), and it renders the same notice, so the pairing holds.
+    'components/shared/CommunicationsConsentBanner.tsx',
   ];
 
   it('the register entry these surfaces render is the one the proof stores', () => {

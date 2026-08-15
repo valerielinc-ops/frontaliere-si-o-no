@@ -187,6 +187,16 @@ export function buildJobAlertConsentProof(opts: {
   sourceUrl?: string | null;
   /** Whatever the caller's clock is — `serverTimestamp()` in the browser, a fixed value in tests. */
   stampedAt: unknown;
+  /**
+   * What the person physically did, when it was NOT an alert-activation click.
+   * The consent banner (#5842) upgrades the same travaso alerts on a different
+   * act — a dedicated confirm button — and recording
+   * `job_alert_activation_click` for it would overstate the act, which the
+   * register's own header calls worth less than no record. Defaults to
+   * `JOB_ALERT_CONSENT_ACT` so the eight activation CTAs stay exactly as they
+   * were.
+   */
+  act?: string;
 }): JobAlertConsentProof {
   const entry = CONSENT_TEXTS[JOB_ALERT_CONSENT_KEY];
   return {
@@ -194,7 +204,7 @@ export function buildJobAlertConsentProof(opts: {
     consent_text_version: entry.version,
     consent_text_displayed: entry.displayed,
     consent_page_version: COMMUNICATIONS_PAGE_VERSION,
-    consent_act: JOB_ALERT_CONSENT_ACT,
+    consent_act: opts.act || JOB_ALERT_CONSENT_ACT,
     consent_origin: CONSENT_ORIGIN_BACKFILL_UPGRADE,
     consent_source_url: opts.sourceUrl ?? null,
     consent_upgraded_at: opts.stampedAt,
