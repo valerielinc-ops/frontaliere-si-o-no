@@ -35060,10 +35060,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "labor-zimmermann-ein-ebanist-pemsa-geneve",
-        "en": "labor-zimmermann-ein-ebanist-pemsa-geneve",
+        "it": "falegname-a-ebanista-di-laboratorio-pemsa-geneve",
+        "en": "laboratory-carpenter-a-ebanist-pemsa-geneve",
         "de": "labor-zimmermann-ein-ebanist-pemsa-geneve",
-        "fr": "labor-zimmermann-ein-ebanist-pemsa-geneve"
+        "fr": "charpentier-de-laboratoire-ebaniste-pemsa-geneve"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ginevra/labor-zimmermann-ein-ebanist-pemsa-geneve",
@@ -35071,12 +35071,13 @@
         "de": "/de/jobs-im-genf/labor-zimmermann-ein-ebanist-pemsa-geneve",
         "fr": "/fr/trouver-emploi-geneve/labor-zimmermann-ein-ebanist-pemsa-geneve"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2687245",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -54157,7 +54158,7 @@
         {
           "query": "offerte di lavoro ticino ristorazione",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 23
         },
         {
           "query": "offerte lavoro ristorazione ticino",
@@ -54172,12 +54173,12 @@
         {
           "query": "offerte di lavoro ristorazione ticino",
           "clicks": 1,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "lavoro ticino ristorazione",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "pranzo di lavoro ticino",
@@ -54185,12 +54186,17 @@
           "impressions": 8
         },
         {
-          "query": "tutti ch lavoro ristorazione",
+          "query": "tutti ch lavoro ticino ristorazione",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "lavoro svizzera ristorazione",
           "clicks": 0,
           "impressions": 7
         },
         {
-          "query": "tutti ch lavoro ticino ristorazione",
+          "query": "tutti ch lavoro ristorazione",
           "clicks": 0,
           "impressions": 7
         },
@@ -54201,11 +54207,6 @@
         },
         {
           "query": "lavoro ristorazione ticino",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "lavoro svizzera ristorazione",
           "clicks": 0,
           "impressions": 6
         },
@@ -54255,7 +54256,7 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 242,
+      "totalImpressions": 250,
       "totalClicks": 6,
       "topQuery": "offerte di lavoro ticino ristorazione",
       "title": "Ristorazione",
@@ -61635,6 +61636,64 @@
       ]
     },
     {
+      "slug": "sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+      "locale": "de",
+      "path": "/de/jobs-in-graubunden/sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart/",
+      "observedPaths": {
+        "de": "/de/jobs-in-graubunden/sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart/"
+      },
+      "queries": [
+        {
+          "query": "sozialamt landquart",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "sozialamt landquart",
+      "title": "Sozialarbeiter in kantonale verwaltung graubunden",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Landquart",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+        "en": "sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+        "de": "sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+        "fr": "sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+        "en": "/en/find-jobs-graubunden/sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+        "de": "/de/jobs-im-graubunden/sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart",
+        "fr": "/fr/trouver-emploi-grisons/sozialarbeiter-in-kantonale-verwaltung-graubunden-landquart"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "sozialbetreuer-in-kindheit-lis-lugano-istituti-sociali-lugano",
       "locale": "en",
       "path": "/en/find-jobs-ticino/sozialbetreuer-in-kindheit-lis-lugano-istituti-sociali-lugano",
@@ -68939,10 +68998,10 @@
         "fr": "trainee-operational-excellence-cartier-manufacture-glovelier"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/trainee-operational-excellence-cartier-manufacture-glovelier",
-        "en": "/en/find-jobs-ticino/trainee-operational-excellence-cartier-manufacture-glovelier",
-        "de": "/de/jobs-im-tessin/trainee-operational-excellence-cartier-manufacture-glovelier",
-        "fr": "/fr/trouver-emploi-tessin/trainee-operational-excellence-cartier-manufacture-glovelier"
+        "it": "/cerca-lavoro-neuchatel/trainee-operational-excellence-cartier-manufacture-glovelier",
+        "en": "/en/find-jobs-neuchatel/trainee-operational-excellence-cartier-manufacture-glovelier",
+        "de": "/de/jobs-in-neuenburg/trainee-operational-excellence-cartier-manufacture-glovelier",
+        "fr": "/fr/trouver-emploi-neuchatel/trainee-operational-excellence-cartier-manufacture-glovelier"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

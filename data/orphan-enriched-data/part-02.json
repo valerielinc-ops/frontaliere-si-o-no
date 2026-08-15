@@ -2674,9 +2674,14 @@
           "query": "salaire d'une aide soignante en suisse en euros",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "emploi en suisse pour frontalier",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 20,
+      "totalImpressions": 21,
       "totalClicks": 2,
       "topQuery": "aide soignante en suisse",
       "title": "Aides soignants",
@@ -72505,6 +72510,64 @@
         "gsc",
         "slug-registry",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+      "locale": "en",
+      "path": "/en/find-jobs-solothurn/technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen/",
+      "observedPaths": {
+        "en": "/en/find-jobs-solothurn/technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen/"
+      },
+      "queries": [
+        {
+          "query": "bobst grenchen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "bobst grenchen",
+      "title": "Technical support specialist maschinen anlagenbau bobst",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Grenchen",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "en": "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "de": "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "fr": "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "en": "/en/find-jobs-solothurn/technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "de": "/de/jobs-im-solothurn/technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
+        "fr": "/fr/trouver-emploi-soleure/technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {

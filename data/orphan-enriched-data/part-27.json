@@ -19362,10 +19362,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "department-assistant-economic-crime-confederazione-svizzera-zurich",
+        "de": "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich",
+        "it": "assistente-del-dipartimento-crimine-economico-confederazione-svizzera-zurich",
         "en": "department-assistant-economic-crime-confederazione-svizzera-zurich",
-        "de": "department-assistant-economic-crime-confederazione-svizzera-zurich",
-        "fr": "department-assistant-economic-crime-confederazione-svizzera-zurich"
+        "fr": "assistant-du-departement-criminalite-economique-confederazione-svizzera-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/department-assistant-economic-crime-confederazione-svizzera-zurich",
@@ -19379,6 +19379,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -44052,7 +44053,7 @@
         {
           "query": "nursing jobs",
           "clicks": 0,
-          "impressions": 442
+          "impressions": 458
         },
         {
           "query": "kantonsspital aarau ksa",
@@ -44150,7 +44151,7 @@
           "impressions": 3
         }
       ],
-      "totalImpressions": 772,
+      "totalImpressions": 791,
       "totalClicks": 1,
       "topQuery": "nursing jobs",
       "title": "Nurses",

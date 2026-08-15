@@ -40287,10 +40287,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-zurich-7dcbfe",
-          "seller-fresh-products-coop-genossenschaft-zurich-0ae45f",
-          "seller-fresh-products-coop-genossenschaft-zurich-oxheai",
-          "vendeur-vendeuse-produits-frais-coop-genossenschaft-zurich-445980",
           "seller-fresh-products-coop-genossenschaft-zurich-xi9ofq",
           "vendeur-de-produits-frais-coop-genossenschaft-zurich-47c92b",
           "salesperson-fresh-products-coop-genossenschaft-zurich",
@@ -40306,7 +40302,11 @@
           "vendeur-euse-produits-frais-coop-genossenschaft-zurich-1dc0ee",
           "vendeur-produits-frais-coop-genossenschaft-zurich-4r2uph",
           "seller-fresh-products-coop-genossenschaft-zurich-2a9663",
-          "vendeur-de-produits-frais-coop-genossenschaft-zurich-sysm6p"
+          "vendeur-de-produits-frais-coop-genossenschaft-zurich-sysm6p",
+          "vendeur-en-produits-frais-coop-genossenschaft-zurich-d8275d",
+          "vendeur-en-produits-frais-coop-genossenschaft-zurich-n5twea",
+          "vendeur-produits-frais-coop-genossenschaft-zurich-v8nef4",
+          "vendeur-de-produits-frais-coop-genossenschaft-zurich-f8b2c7"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-zurich-okmjz4",
@@ -40323,9 +40323,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "vendeur-de-produits-frais-coop-genossenschaft-zurich-f8b2c7",
-        "verkaufer-in-frischprodukte-coop-zurich-5-2",
         "vendeur-de-produits-frais-coop-genossenschaft-zurich-n5twea",
         "vendeur-de-produits-frais-coop-genossenschaft-zurich-mrf3w6",
         "seller-fresh-products-coop-genossenschaft-zurich-pmzyuw",
@@ -40402,7 +40399,10 @@
         "vendeur-se-produits-frais-coop-genossenschaft-zurich-ed7cf3",
         "vendeur-de-produits-frais-coop-genossenschaft-zurich-567d1a",
         "vendeur-de-produits-frais-coop-genossenschaft-zurich-d8275d",
-        "vendeur-produits-frais-coop-genossenschaft-zurich-0ae45f"
+        "vendeur-produits-frais-coop-genossenschaft-zurich-0ae45f",
+        "vendeur-en-produits-frais-coop-genossenschaft-zurich-d8275d",
+        "vendeur-en-produits-frais-coop-genossenschaft-zurich-n5twea",
+        "vendeur-produits-frais-coop-genossenschaft-zurich-v8nef4"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -222298,6 +222298,16 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "verkaufer-in-frischprodukte-coop-zurich-5-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-frischprodukte-coop-zurich-4-2",
+          "verkaufer-in-frischprodukte-coop-zurich-5-2"
+        ]
       }
     },
     {
