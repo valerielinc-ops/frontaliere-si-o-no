@@ -121,6 +121,17 @@ describe('buildNewsletterConsentProof — what is stored is what was on screen',
     const proof = buildNewsletterConsentProof({ locale: 'it', stampedAt: STAMP });
     expect('consent_given' in proof).toBe(false);
   });
+
+  it('never touches consent_method: the banner is not how the address reached us', () => {
+    // `consent_method` is the closed ConsentMethod union of the ORIGINAL
+    // signup (email_checkbox, google_oauth, …), printed by the art. 25 export
+    // (scripts/lib/subscriberExport.mjs). The write path spreads the whole
+    // proof into `updateDoc`, so a consent_method key here would OVERWRITE the
+    // document's real provenance with this surface's name — the reviewer
+    // caught exactly that in the first cut of this module.
+    const proof = buildNewsletterConsentProof({ locale: 'it', stampedAt: STAMP });
+    expect('consent_method' in proof).toBe(false);
+  });
 });
 
 describe('the act override on the alert-side builder', () => {

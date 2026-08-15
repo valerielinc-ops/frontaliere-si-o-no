@@ -92,14 +92,23 @@ export function planNewsletterConsentUpgrade(subscriber: DocData): NewsletterCon
   return { write: true };
 }
 
-/** The proof, in the field names the existing subscriber-document readers read. */
+/**
+ * The proof, in the field names the existing subscriber-document readers read.
+ *
+ * `consent_method` is absent ON PURPOSE, alongside `consent_given`: it is the
+ * closed `ConsentMethod` union describing HOW the address reached us
+ * (`email_checkbox`, `google_oauth`, …), it already sits on the document from
+ * the original signup, and `scripts/lib/subscriberExport.mjs` prints it in an
+ * art. 25 export. A banner act that overwrote it would erase the very
+ * provenance the export exists to attest. `consent_origin` below is where this
+ * surface names itself.
+ */
 export interface NewsletterConsentProof {
   readonly consent_text: string;
   readonly consent_text_version: string;
   readonly consent_text_displayed: boolean;
   readonly consent_page_version: string;
   readonly consent_act: string;
-  readonly consent_method: string;
   readonly consent_origin: string;
   readonly consent_source_url: string | null;
   readonly consent_user_agent: string | null;
@@ -124,7 +133,6 @@ export function buildNewsletterConsentProof(opts: {
     consent_text_displayed: entry.displayed,
     consent_page_version: COMMUNICATIONS_PAGE_VERSION,
     consent_act: COMMUNICATIONS_BANNER_CONSENT_ACT,
-    consent_method: CONSENT_ORIGIN_COMMS_BANNER,
     consent_origin: CONSENT_ORIGIN_COMMS_BANNER,
     consent_source_url: opts.sourceUrl ?? null,
     consent_user_agent:
