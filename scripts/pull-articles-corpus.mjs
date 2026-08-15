@@ -75,6 +75,7 @@ import {
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
+import { collectPreserveSnapshots, dropLedgeredRetirements } from './lib/corpus-local-preserve.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
@@ -422,20 +423,20 @@ try {
         .map((p) => fs.readFileSync(p, 'utf-8')),
     });
 
+    // A ledgered retirement is local-only by definition, but it must NOT be
+    // preserved: the registry gate above has just approved its removal, and
+    // the mirror is about to delete its body on purpose. Preserving it would
+    // resurrect a registry row whose module no longer exists — forever, since
+    // the id stays local-only on every subsequent sync.
+    dropLedgeredRetirements(preserveIds, verdict.removals);
+
     const snapshots = [];
     if (preserveIds.size > 0) {
       console.log(
         `[pull-articles-corpus] ${preserveIds.size} article id(s) exist only downstream: `
         + `${[...preserveIds].join(', ')}`,
       );
-      for (const rel of srcFiles) {
-        if (!dstFiles.has(rel)) continue; // upstream-only: nothing of ours to lose
-        const abs = path.join(DEST, rel);
-        let text;
-        try { text = fs.readFileSync(abs, 'utf-8'); } catch { continue; }
-        const ids = [...preserveIds].filter((id) => text.includes(id));
-        if (ids.length > 0) snapshots.push({ rel, text, ids });
-      }
+      snapshots.push(...collectPreserveSnapshots({ src, dest: DEST, preserveIds }));
     }
 
 
