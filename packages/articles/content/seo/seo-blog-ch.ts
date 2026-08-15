@@ -34886,6 +34886,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacati-delusi': {
+    title: 'Sindacati delusi: potremmo togliere il nostro sostegno',
+    description: 'La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, delusi, potremmo, togliere',
+    ogTitle: 'Sindacati delusi: potremmo togliere il nostro sostegno',
+    ogDescription: 'La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse Adrian Wüthrich.',
+    canonicalPath: '/articoli-svizzera/sindacati-delusi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sindacati delusi: potremmo togliere il nostro sostegno",
+      "description": "La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sindacati-delusi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Presidente di Travail Suisse Adrian Wüthrich"
+      },
+      "datePublished": "2026-08-15T17:00:24+00:00",
+      "dateModified": "2026-08-15T17:00:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sindacati-delusi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casse-malattia-tetto-stipendi-politica-simbolica': {
+    title: 'Casse malattia, un tetto agli stipendi? \'Politica simbolica\'',
+    description: 'Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malattia, tetto, agli',
+    ogTitle: 'Casse malattia, un tetto agli stipendi? \'Politica simbolica\'',
+    ogDescription: 'Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto significativo sui premi.',
+    canonicalPath: '/articoli-svizzera/casse-malattia-tetto-stipendi-politica-simbolica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malattia, un tetto agli stipendi? 'Politica simbolica'",
+      "description": "Il Consiglio federale propone di limitare gli stipendi dei dirigenti delle casse malattia. Ma gli assicuratori sostengono che questo non avrà un impatto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casse-malattia-tetto-stipendi-politica-simbolica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di una riunione del Consiglio federale."
+      },
+      "datePublished": "2026-08-15T17:59:11+00:00",
+      "dateModified": "2026-08-15T17:59:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casse-malattia-tetto-stipendi-politica-simbolica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-gli-affitti-canton-lucerna': {
+    title: 'Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione',
+    description: 'Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, canton, lucerna',
+    ogTitle: 'Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione',
+    ogDescription: 'Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità di conciliazione.',
+    canonicalPath: '/articoli-svizzera/mercato-gli-affitti-canton-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato degli affitti nel Canton di Lucerna: canoni medi e diritto di locazione",
+      "description": "Il mercato degli affitti nel Canton di Lucerna: canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-gli-affitti-canton-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una foto di una casa svizzera tipica a Lucerna, Svizzera"
+      },
+      "datePublished": "2026-08-15T18:11:18+00:00",
+      "dateModified": "2026-08-15T18:11:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-gli-affitti-canton-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cfa-altstaetten-aperte': {
+    title: '47 milioni di franchi, 11\'500 metri quadri e 106 dipendenti per il nuovo CFA',
+    description: 'Il nuovo Centro federale d\'asilo di Altstätten (SG) sarà inaugurato a settembre con una superficie di 11\'500 metri quadri e 106 dipendenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, franchi, metri, quadri',
+    ogTitle: '47 milioni di franchi, 11\'500 metri quadri e 106 dipendenti per il nuovo CFA',
+    ogDescription: 'Il nuovo Centro federale d\'asilo di Altstätten (SG) sarà inaugurato a settembre con una superficie di 11\'500 metri quadri e 106 dipendenti.',
+    canonicalPath: '/articoli-svizzera/cfa-altstaetten-aperte/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "47 milioni di franchi, 11'500 metri quadri e 106 dipendenti per il nuovo CFA",
+      "description": "Il nuovo Centro federale d'asilo di Altstätten (SG) sarà inaugurato a settembre con una superficie di 11'500 metri quadri e 106 dipendenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cfa-altstaetten-aperte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del nuovo CFA di Altstätten, Svizzera, con le montagne circostanti e un edificio moderno."
+      },
+      "datePublished": "2026-08-15T18:21:18+00:00",
+      "dateModified": "2026-08-15T18:21:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cfa-altstaetten-aperte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-canton-lucerna-requisiti-e-procedura': {
+    title: 'Naturalizzazione Cantone di Lucerna: requisiti e procedura',
+    description: 'Per ottenere la cittadinanza svizzera nel Cantone di Lucerna, è necessario soddisfare determinati requisiti e seguire un preciso procedimento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, cantone, lucerna, requisiti',
+    ogTitle: 'Naturalizzazione Cantone di Lucerna: requisiti e procedura',
+    ogDescription: 'Per ottenere la cittadinanza svizzera nel Cantone di Lucerna, è necessario soddisfare determinati requisiti e seguire un preciso procedimento.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-lucerna-requisiti-e-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Cantone di Lucerna: requisiti e procedura",
+      "description": "Per ottenere la cittadinanza svizzera nel Cantone di Lucerna, è necessario soddisfare determinati requisiti e seguire un preciso procedimento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-lucerna-requisiti-e-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il processo di naturalizzazione nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-08-15T18:30:02+00:00",
+      "dateModified": "2026-08-15T18:30:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-lucerna-requisiti-e-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-lucerna-cassa-di-compensazione': {
+    title: 'Compensazione in Lucerna: copertura lacune e prestazioni complementari',
+    description: 'La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, compensazione, lucerna, copertura, lacune',
+    ogTitle: 'La Cassa di compensazione nel Canton di Lucerna: copertura delle lacune contributive e prestazioni complementari',
+    ogDescription: 'La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-lucerna-cassa-di-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Compensazione in Lucerna: copertura lacune e prestazioni complementari",
+      "description": "La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-lucerna-cassa-di-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un lago in Svizzera"
+      },
+      "datePublished": "2026-08-15T18:43:52+00:00",
+      "dateModified": "2026-08-15T18:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-lucerna-cassa-di-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-e-prestazioni-complementari-canton-lucerne': {
+    title: 'avs e prestazioni complementari canton Lucerna cassa di compensazione',
+    description: 'Il Cantone di Lucerna gestisce la cassa di compensazione per garantire il minimo vitale per i suoi cittadini. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, lucerna',
+    ogTitle: 'avs e prestazioni complementari canton Lucerna cassa di compensazione',
+    ogDescription: 'Il Cantone di Lucerna gestisce la cassa di compensazione per garantire il minimo vitale per i suoi cittadini.',
+    canonicalPath: '/articoli-svizzera/avs-e-prestazioni-complementari-canton-lucerne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "avs e prestazioni complementari canton Lucerna cassa di compensazione",
+      "description": "Il Cantone di Lucerna gestisce la cassa di compensazione per garantire il minimo vitale per i suoi cittadini. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-e-prestazioni-complementari-canton-lucerne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista panoramica del lago di Lugano, con le montagne circostanti"
+      },
+      "datePublished": "2026-08-15T18:52:25+00:00",
+      "dateModified": "2026-08-15T18:52:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-e-prestazioni-complementari-canton-lucerne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

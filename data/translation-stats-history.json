@@ -11714,5 +11714,161 @@
         "pending": 187
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-15T13:47:05.051Z",
+    "label": "before",
+    "total": 27097,
+    "needsRetranslation": 10778,
+    "suppressed": 57,
+    "incomplete": 11773,
+    "complete": 15324,
+    "slotsPresent": 15324,
+    "flaggedAmongSlotsPresent": 369,
+    "verifiedTranslated": 14955,
+    "sourceCopyExcused": 564,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 67,
+      "en": 39,
+      "de": 53,
+      "fr": 56
+    },
+    "queueAge": {
+      "count": 10778,
+      "withTimestamp": 10778,
+      "oldestAgeDays": 124.2,
+      "p50AgeDays": 18,
+      "p90AgeDays": 71.9,
+      "buckets": {
+        "0-7d": 1619,
+        "7-30d": 5152,
+        "30-90d": 3637,
+        "90-180d": 370,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2115
+      },
+      {
+        "company": "Roche",
+        "pending": 574
+      },
+      {
+        "company": "Genossenschaft Migros Luzern",
+        "pending": 487
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 275
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 273
+      },
+      {
+        "company": "VOLG",
+        "pending": 268
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 262
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 231
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 187
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-15T16:09:43.251Z",
+    "label": "after",
+    "total": 27097,
+    "needsRetranslation": 10394,
+    "suppressed": 61,
+    "incomplete": 11758,
+    "complete": 15339,
+    "slotsPresent": 15339,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15339,
+    "sourceCopyExcused": 564,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 68,
+      "en": 39,
+      "de": 53,
+      "fr": 55
+    },
+    "queueAge": {
+      "count": 10394,
+      "withTimestamp": 10394,
+      "oldestAgeDays": 124.3,
+      "p50AgeDays": 17.7,
+      "p90AgeDays": 67.2,
+      "buckets": {
+        "0-7d": 1545,
+        "7-30d": 5034,
+        "30-90d": 3470,
+        "90-180d": 345,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2110
+      },
+      {
+        "company": "Roche",
+        "pending": 574
+      },
+      {
+        "company": "Genossenschaft Migros Luzern",
+        "pending": 487
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 275
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 273
+      },
+      {
+        "company": "VOLG",
+        "pending": 266
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 262
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 231
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 187
+      }
+    ]
   }
 ]
