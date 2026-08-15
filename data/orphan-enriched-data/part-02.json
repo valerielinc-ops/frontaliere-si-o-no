@@ -2740,9 +2740,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
-        "en": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
-        "de": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
-        "fr": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich"
+        "en": "aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning-apple-retail",
+        "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
+        "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
@@ -2756,6 +2756,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -63316,9 +63317,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo",
-        "en": "senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo",
-        "de": "senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo",
-        "fr": "senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo"
+        "en": "senior-advisor-for-academic-strategy-and-accreditation-temporary-assignment-sorengo",
+        "de": "senior-berater-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo",
+        "fr": "senior-conseiller-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo",
@@ -63326,12 +63327,13 @@
         "de": "/de/jobs-im-tessin/senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo",
         "fr": "/fr/trouver-emploi-tessin/senior-consulente-for-academic-strategy-and-accreditation-temporary-assignment-franklin-university-switzerland-sorengo"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.fus.edu/about-franklin/job-opportunities",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -74482,7 +74484,7 @@
         "de": "/de/jobs-im-genf/tecnico-telematico-pemsa-geneve",
         "fr": "/fr/trouver-emploi-geneve/tecnico-telematico-pemsa-geneve"
       },
-      "sourceUrl": "https://www.pemsa.ch/it/job/tecnico-telematico-2683756",
+      "sourceUrl": "https://www.pemsa.ch/it/job/tecnico-telematico-2686839",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",

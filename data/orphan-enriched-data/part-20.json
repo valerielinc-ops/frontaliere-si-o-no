@@ -50016,10 +50016,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern",
-        "en": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern",
-        "de": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern",
-        "fr": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern"
+        "en": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
+        "de": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/qualitatsmanager-m-w-d-galenica-ag-galenica-bern",
@@ -50033,6 +50031,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -64736,10 +64735,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "study-coordinator-universitat-zurich-zurich",
+        "it": "study-coordinatore-universitat-zurich-zurich",
         "en": "study-coordinator-universitat-zurich-zurich",
-        "de": "study-coordinator-universitat-zurich-zurich",
-        "fr": "study-coordinator-universitat-zurich-zurich"
+        "de": "study-coordinator-uzh-zurich",
+        "fr": "study-coordinateur-universitat-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/study-coordinator-universitat-zurich-zurich",
@@ -64753,6 +64752,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

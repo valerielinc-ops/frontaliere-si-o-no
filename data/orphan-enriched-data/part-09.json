@@ -52359,7 +52359,8 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "de": "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
-        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano"
+        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
@@ -63504,10 +63505,10 @@
         "fr": "stv-filialleiter-in-in-ausbildung-denner"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/stv-filialleiter-in-in-ausbildung-denner",
-        "en": "/en/find-jobs-graubunden/stv-filialleiter-in-in-ausbildung-denner",
-        "de": "/de/jobs-in-graubunden/stv-filialleiter-in-in-ausbildung-denner",
-        "fr": "/fr/trouver-emploi-grisons/stv-filialleiter-in-in-ausbildung-denner"
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-in-ausbildung-denner",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-in-ausbildung-denner",
+        "de": "/de/jobs-in-zurich/stv-filialleiter-in-in-ausbildung-denner",
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-in-ausbildung-denner"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67377,9 +67378,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "travailleur-social-travailleur-social-fh-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "travailleur-social-travailleur-social-fh-psychiatrische-dienste-aargau-pdag-windisch",
-        "de": "travailleur-social-travailleur-social-fh-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "social-worker-social-worker-fh-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "social-worker-social-worker-fh-psychiatrische-dienste-aargau-pdag-windisch",
+        "de": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
         "fr": "travailleur-social-travailleur-social-fh-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "localePaths": {
@@ -67394,6 +67395,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

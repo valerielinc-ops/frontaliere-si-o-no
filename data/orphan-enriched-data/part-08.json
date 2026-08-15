@@ -37679,9 +37679,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "manor-boulanger-ere-100-geneve-1-boulangerere-100",
-        "en": "manor-boulanger-ere-100-geneve-1-boulangerere-100",
-        "de": "manor-boulanger-ere-100-geneve-1-boulangerere-100",
+        "it": "pane-orecchie-100-manor-ag-geneve-1-boulangerere-100",
+        "en": "baker-ear-100-manor-ag-geneve-1-boulangerere-100",
+        "de": "backer-ohr-100-manor-ag-geneve-1-boulangerere-100",
         "fr": "manor-boulanger-ere-100-geneve-1-boulangerere-100"
       },
       "localePaths": {
@@ -37697,6 +37697,7 @@
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

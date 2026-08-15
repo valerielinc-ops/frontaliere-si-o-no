@@ -6674,10 +6674,10 @@
         "fr": "assistent-in-filialleitung-denner-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/assistent-in-filialleitung-denner-luzern",
-        "en": "/en/find-jobs-ticino/assistent-in-filialleitung-denner-luzern",
-        "de": "/de/jobs-im-tessin/assistent-in-filialleitung-denner-luzern",
-        "fr": "/fr/trouver-emploi-tessin/assistent-in-filialleitung-denner-luzern"
+        "it": "/cerca-lavoro-lucerna/assistent-in-filialleitung-denner-luzern",
+        "en": "/en/find-jobs-lucerne/assistent-in-filialleitung-denner-luzern",
+        "de": "/de/jobs-in-luzern/assistent-in-filialleitung-denner-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/assistent-in-filialleitung-denner-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20184,10 +20184,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "countries-lwp-ledermann-wieting-partners-lugano",
+        "it": "consulente-patrimoniale-senior-ch-lwp-ledermann-wieting-partners-lugano",
         "en": "countries-lwp-ledermann-wieting-partners-lugano",
-        "de": "countries-lwp-ledermann-wieting-partners-lugano",
-        "fr": "countries-lwp-ledermann-wieting-partners-lugano"
+        "de": "lander-lwp-ledermann-wieting-partners-lugano",
+        "fr": "pays-lwp-ledermann-wieting-partners-lugano"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/countries-lwp-ledermann-wieting-partners-lugano",
@@ -20195,12 +20195,13 @@
         "de": "/de/jobs-im-tessin/countries-lwp-ledermann-wieting-partners-lugano",
         "fr": "/fr/trouver-emploi-tessin/countries-lwp-ledermann-wieting-partners-lugano"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_patrimoniale_senior.pdf",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -29901,9 +29902,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich",
-        "en": "global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich",
-        "de": "global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich",
+        "it": "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich",
+        "en": "banca-del-sempione-private-banking-assistant",
+        "de": "global-wealth-management-private-banking-assistent-zurich-banca-del-sempione-zurich",
         "fr": "global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich"
       },
       "localePaths": {
@@ -29912,12 +29913,13 @@
         "de": "/de/jobs-im-genf/global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich",
         "fr": "/fr/trouver-emploi-zurich/global-wealth-management-assistant-banque-privee-zurich-banca-del-sempione-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.bancasempione.ch/job/private-banking-assistant",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

@@ -69918,9 +69918,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "system-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "en": "system-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "de": "system-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "fr": "system-ingegnere-union-bancaire-privee-geneva-switzerland"
+        "en": "system-engineer-ubp-ch",
+        "de": "system-ingenieur-union-bancaire-privee-geneva-switzerland",
+        "fr": "system-ingenieur-union-bancaire-privee-geneva-switzerland"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ginevra/system-ingegnere-union-bancaire-privee-geneva-switzerland",
@@ -69934,6 +69934,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
