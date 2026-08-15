@@ -2698,6 +2698,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Sickness funds, a salary cap? \'Symbolic policy\'',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'The Federal Council proposes to limit the salaries of sickness fund managers. But insurers say this won\'t have a significant impact on premiums.',
     'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'A photo of a meeting of the Swiss Federal Council.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.title': 'Rental market in the canton of Lucerne: average fees and rental rights',
+    'blog.article.mercato-gli-affitti-canton-lucerna.excerpt': 'The rental market in the Canton of Lucerne: average rents by area, security deposit, dispute of the initial rent, cancellation and conciliation authority.',
+    'blog.article.mercato-gli-affitti-canton-lucerna.imageAlt': 'A photo of a typical Swiss-style house in Lucerne, Switzerland',
 };
 
 export default blogMetaChEn;

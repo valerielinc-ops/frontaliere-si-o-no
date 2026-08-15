@@ -925,6 +925,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'centro-asilo-altstaetten': { it: 'centro-asilo-altstaetten', en: 'altstaetten-asylum-center', de: 'altstaetten-asylzentrum', fr: 'centre-d-asile-altstaetten' },
  'sindacati-delusi': { it: 'sindacati-delusi', en: 'disillusioned-unions-we-may-withdraw-our-support', de: 'enttauschte-gewerkschaften-wir-konnten-unsere-unterstutzung-zuruckziehen', fr: 'syndicats-decus-nous-pourrions-retirer-notre-soutien' },
  'casse-malattia-tetto-stipendi-politica-simbolica': { it: 'casse-malattia-tetto-stipendi-politica-simbolica', en: 'sickness-funds-a-salary-cap-symbolic-policy', de: 'kassen-krankenversicherung-grenzverdienst-politische-simbolik', fr: 'caisses-maladie-plafond-salaire-politique-symb' },
+ 'mercato-gli-affitti-canton-lucerna': { it: 'mercato-gli-affitti-canton-lucerna', en: 'lucerne-cantonal-rental-market', de: 'mietmarkt-kanton-luzern', fr: 'marche-du-location-canton-de-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
