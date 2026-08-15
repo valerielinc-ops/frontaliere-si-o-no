@@ -299,3 +299,68 @@ describe('headline-selection-protocol — strato 2: il cablaggio in create-artic
     }
   });
 });
+
+// requestHeadlineSelection non è esportato: la stessa ragione per cui il
+// prompt vero viene ESTRATTO ed eseguito sopra (create-article.mjs chiama
+// main() al caricamento) vale qui. La funzione reale viene ritagliata dal
+// sorgente con cutDecl e rieseguita con new Function, iniettando un callLLM
+// finto — non una riscrittura della logica, la logica VERA sotto test.
+describe('headline-selection-protocol — strato 2: requestHeadlineSelection e la cascata esaurita (#5849, nanako#391)', () => {
+  const requestHeadlineSelectionSrc = cutDecl(
+    'async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAttempts) {',
+  );
+  expect(requestHeadlineSelectionSrc.length, 'estrazione di requestHeadlineSelection sospettosamente corta').toBeGreaterThan(300);
+
+  function makeRequestHeadlineSelection(callLLM: (...args: unknown[]) => Promise<string>) {
+    const RUN_REPORT = { selectionUsage: { responsesRejected: 0, rejectionReasons: {} as Record<string, number> } };
+    const factory = new Function(
+      '__d',
+      `const { callLLM, GH_MODEL_LIGHT, parseHeadlineSelection, selectionCorrectionNote, SELECTION_REJECTION, RUN_REPORT } = __d;\n`
+      + `return ${requestHeadlineSelectionSrc};`,
+    ) as (deps: Record<string, unknown>) => (
+      basePrompt: string, candidateCount: number, label: string, maxAttempts: number,
+    ) => Promise<{ ok: boolean; rejection?: string; index?: number }>;
+    const fn = factory({
+      callLLM, GH_MODEL_LIGHT: 'test-model', parseHeadlineSelection, selectionCorrectionNote,
+      SELECTION_REJECTION, RUN_REPORT,
+    });
+    return { fn, RUN_REPORT };
+  }
+
+  it('un errore infrastrutturale consuma UN tentativo per chiamata e ritenta fino al tetto', async () => {
+    let calls = 0;
+    const { fn, RUN_REPORT } = makeRequestHeadlineSelection(async () => {
+      calls += 1;
+      throw new Error('rete non raggiungibile');
+    });
+    const result = await fn('prompt base', 2, 'test', 3);
+    expect(calls, 'ogni tentativo deve richiamare callLLM una volta').toBe(3);
+    expect(result.ok).toBe(false);
+    expect(result.rejection).toBe(SELECTION_REJECTION.INFRA_ERROR);
+    expect(RUN_REPORT.selectionUsage.responsesRejected, 'un tentativo consumato per ogni chiamata fallita').toBe(3);
+    expect(RUN_REPORT.selectionUsage.rejectionReasons[SELECTION_REJECTION.INFRA_ERROR]).toBe(3);
+  });
+
+  it('tentativi esauriti su risposte non valide: rigetto pulito, nessuna eccezione non gestita', async () => {
+    const { fn } = makeRequestHeadlineSelection(async () => '{"reason": "manca il riferimento"}');
+    await expect(fn('prompt base', 2, 'test', 3)).resolves.toMatchObject({
+      ok: false,
+      rejection: SELECTION_REJECTION.MISSING_REFERENCE,
+    });
+  });
+
+  it('ALL_MODELS_EXHAUSTED risale INTATTO al primo tentativo, senza ritentare (#5849)', async () => {
+    let calls = 0;
+    const exhausted = Object.assign(new Error('cascata modelli esaurita'), { code: 'ALL_MODELS_EXHAUSTED' });
+    const { fn } = makeRequestHeadlineSelection(async () => {
+      calls += 1;
+      throw exhausted;
+    });
+    // Stesso oggetto — non un clone con lo stesso `.code` — perché prima
+    // della fix l'errore veniva assorbito e sostituito da un rigetto
+    // `infra_error` costruito da `String(err?.message)`: il code andava
+    // perso insieme all'identità dell'errore.
+    await expect(fn('prompt base', 2, 'test', 3)).rejects.toBe(exhausted);
+    expect(calls, 'la cascata esaurita non deve essere ritentata: nessun modello resta da provare').toBe(1);
+  });
+});

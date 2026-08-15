@@ -128,7 +128,9 @@ export function formatPublishedDigest(entries, { excerptChars = 100 } = {}) {
 // vede mai esemplificato, un'asimmetria fra ciò che il parser tollera e ciò
 // che il prompt promette. Allineare aggiungendo `h1` agli esempi del prompt
 // avrebbe aggiunto byte a un prompt già oltre la soglia token di ogni modello
-// del roster (8898 token, 2026-08-14) — la correzione va sul lato che non
+// del roster (~3500 token, 2026-08-15 — la stima precedente di 8898 era
+// gonfiata: misurata su un pool di headline non ancora troncato a
+// MAX_HEADLINES_PER_BATCH) — la correzione va sul lato che non
 // costa: il parser accetta esattamente quello che il prompt mostra.
 const CANDIDATE_KEY_RE = new RegExp(`^\\s*${CANDIDATE_KEY_PREFIX}\\s*(\\d+)\\s*$`);
 const BARE_NUMBER_RE = /^\s*[+-]?\d+\s*$/;
