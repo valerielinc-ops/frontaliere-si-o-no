@@ -1455,17 +1455,45 @@ jobs:
               >> /tmp/post-build-timings.txt
           ) &
 
-          # dist:quality-tests — REAL GATE (issue #5656 item 1). Five vitest
-          # files (`npm run gate:dist-quality`) each assert a dist/**/*.html
-          # invariant — duplicate meta descriptions, duplicate page-scoped
-          # JSON-LD types, anchor-text accessibility budget, single-H1-per-
-          # page, related-search-cluster contract — and were all written
+          # dist:quality-tests — REAL GATE (issue #5656 item 1). It used to run
+          # FIVE vitest files (`npm run gate:dist-quality`), each asserting a
+          # dist/**/*.html invariant — duplicate meta descriptions, duplicate
+          # page-scoped JSON-LD types, anchor-text accessibility budget,
+          # single-H1-per-page, related-search-cluster contract — all written
           # behind an opt-in switch, `RUN_DIST_GATES=1`, that no workflow or
           # npm script ever set (tests/gate-wiring.test.ts baseline: 7 files
           # skipping on a switch nobody flips). They never ran against real
           # output. This job already has dist/ downloaded and extracted (see
           # "Extract dist/" above), same reasoning that put the
           # seo/meta-description-audit report just above onto this job.
+          #
+          # FOUR OF THE FIVE ARE GONE FROM HERE as of #5845 item 6. Once they
+          # did run against real output they could not finish: run 31891126686
+          # measured 4 of 5 files failed and the pool dying
+          # `ERR_WORKER_OUT_OF_MEMORY` after 597.95 s under
+          # --max-old-space-size=4096, five full-corpus scans of the 3,798,763
+          # HTML files dist/ held on 2026-08-14. Vitest has no lever that
+          # bounds that; `audit:all` does. So single-h1-per-page,
+          # duplicate-structured-data, link-anchor-text and
+          # duplicate-meta-description are now auditors in
+          # scripts/audit-all.mjs (REGISTRY), riding the ONE walk this job
+          # already pays for, under the same AUDIT_SAMPLE_RATE=0.25 /
+          # AUDIT_SAMPLE_SALT=run_number rotation as their registered
+          # siblings — 25% per run, full corpus over ~4 consecutive runs.
+          # Same disposition PR #5883 gave breadcrumb-coverage, same reason
+          # the two tests named below are kept out of this script.
+          #
+          # Their thresholds crossed unchanged except ONE, documented at the
+          # top of scripts/audit-link-anchor-text.mjs: its
+          # MAX_LINKS_WITHOUT_ANCHOR_TEXT=1100 was an ABSOLUTE corpus-wide
+          # count, which under a 25% sample reads ~4x low and drifts with
+          # corpus growth, so it became a RATE (1100/3,798,763 offending
+          # anchors per page). duplicate-meta-description's group threshold
+          # is cumulative and stays at 2 applied WITHIN the sampled slice:
+          # no false positives, reduced recall, stated in its report `extra`.
+          #
+          # What is LEFT here is the fifth file. Its multi-invariant construct
+          # is not one auditor, and it is out of scope of that fold.
           #
           # Unlike that report, this one is a REAL gate: non-zero rc is
           # appended to /tmp/post-build-failures.txt like every spawn_capped

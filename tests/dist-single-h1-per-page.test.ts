@@ -10,8 +10,20 @@
  * is mobile-vs-desktop conditional rendering inside an SPA component
  * that outputs both variants; the fix is to demote one to `<h2>` or
  * to use `class="visually-hidden"` so only one H1 is in the rendered
- * tree at any breakpoint. Until the source pattern is identified and
- * fixed, this test acts as a CI gate so the count cannot grow.
+ * tree at any breakpoint.
+ *
+ * THIS FILE IS NO LONGER THE GATE (#5845 item 6). The gate is
+ * `scripts/audit-single-h1-per-page.mjs`, registered in
+ * `scripts/audit-all.mjs`'s REGISTRY and running blocking against the same
+ * dist/ inside `npm run audit:all` — one shared, sampled walk instead of a
+ * full-corpus vitest scan. This copy stays as a standalone/manual check
+ * behind `RUN_DIST_GATES=1`, exactly the disposition PR #5883 gave
+ * `tests/seo/breadcrumb-coverage.test.ts`, and it is NOT in
+ * `gate:dist-quality` any more: five files there scanned 3,798,763 HTML
+ * files in one worker pool and died `ERR_WORKER_OUT_OF_MEMORY` after
+ * 597.95 s (run 31891126686). Behaviour is verified against the auditor in
+ * `tests/audit-dist-quality-folded.test.ts`; `countH1Tags` below must stay
+ * one edit apart from the auditor's copy.
  *
  * The test is dist-driven: it skips silently when `dist/` does not
  * exist locally so `npm test` continues to work without a build.
