@@ -2728,6 +2728,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.title': 'Erbschafts- und Schenkungssteuer im Kanton Luzern',
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.excerpt': 'Je nach Verwandtschaftsgrad zwischen den Begünstigten und den Spendern gibt es unterschiedliche Sätze.',
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.imageAlt': 'Ein Lucernesischer Beamter in einer finanziellen Aktivität',
+    'blog.article.premi-cassa-malati-cantone-uri.title': 'Krankenkassenprämien Kanton Uri und Prämienverbilligung',
+    'blog.article.premi-cassa-malati-cantone-uri.excerpt': 'Die Krankenkassenprämien im Kanton Uri und die Bedingungen für die Prämienverbilligung.',
+    'blog.article.premi-cassa-malati-cantone-uri.imageAlt': 'Die Schweiz ist ein multilinguales Land in Zentral-Europa.',
 };
 
 export default blogMetaChDe;
