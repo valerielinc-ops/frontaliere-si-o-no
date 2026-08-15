@@ -250,3 +250,64 @@ describe("la guardia è sul percorso, non accanto ad esso", () => {
     expect(guard).toContain('body !== next');
   });
 });
+
+describe('stuck-red: un failure PROVATO non attribuibile non blocca il reopen', () => {
+  // Il rescue STUCK-RED entra nel flusso con vitest=failure PER DEFINIZIONE —
+  // ma è un failure che `vitestFailureIsNotAttributableToPr` ha appena provato
+  // non essere della PR (red-main/stale), e il commento STUCK_RED dello stesso
+  // run promette «rebase + ri-esecuzione dei test, una sola volta». Senza
+  // l'eccezione, la precondizione negava il reopen, etichettava `needs-human`
+  // e il marker one-shot restava consumato: se il push-trigger non riparte
+  // (head a zero check-run, classe #1587/#1526), la PR — senza label
+  // near-merge — finisce in uno stato assorbente a zero segnali, la stessa
+  // classe «zero archi uscenti» che lo stuck-red esiste per chiudere.
+  it('failure + failureNotAttributable → reopen consentito, e conta nel budget', () => {
+    const fp = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+    const d = decideReopen({
+      vitestConclusion: 'failure', fingerprint: fp, prior: null,
+      failureNotAttributable: 'red-main',
+    });
+    expect(d.action).toBe('reopen');
+    expect(d.count).toBe(1); // consuma budget: nemmeno uno stuck-red si ricicla all'infinito
+  });
+
+  it('senza la prova, lo stesso failure resta bloccato (nessuna scappatoia di default)', () => {
+    const fp = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+    for (const failureNotAttributable of [undefined, '']) {
+      expect(decideReopen({
+        vitestConclusion: 'failure', fingerprint: fp, prior: null, failureNotAttributable,
+      }).action).toBe('skip-failing-check');
+    }
+  });
+
+  it('il breaker vale anche per gli stuck-red: budget esaurito → stop comunque', () => {
+    const fp = reopenFingerprint({ ...green, vitestConclusion: 'failure' });
+    const exhausted = { count: DEFAULT_MAX_REOPENS, fingerprint: fp };
+    expect(decideReopen({
+      vitestConclusion: 'failure', fingerprint: fp, prior: exhausted,
+      failureNotAttributable: 'red-main',
+    }).action).toBe('skip-breaker');
+  });
+
+  it('WIRING: il call-site post-rebase passa stuckRedReason a guardedReopen', () => {
+    // La decisione pura sopra non basta: senza il wiring il call-site
+    // chiamerebbe `guardedReopen(num, head)` e l'eccezione non scatterebbe
+    // mai — guardia presente, buco intatto, la stessa forma della guardia
+    // morta trovata su M3b (identificatore giusto, punto sbagliato).
+    expect(script).toContain('guardedReopen(num, head, { stuckRedReason })');
+    expect(script).toMatch(/failureNotAttributable:\s*stuckRedReason/);
+  });
+
+  it('lo sticky di skip-breaker non chiede di «far passare» un vitest già verde', () => {
+    // Il breaker scatta tipicamente su PR VERDI (le rosse le ferma la
+    // precondizione): il canale di escalation non deve indicare all'umano
+    // un'azione già soddisfatta. Gli sblocchi veri: commit nuovo o review.
+    const fp = reopenFingerprint(green);
+    const body = renderReopenBudget({
+      count: DEFAULT_MAX_REOPENS, max: DEFAULT_MAX_REOPENS, fingerprint: fp,
+      action: 'skip-breaker', reason: 'x',
+    });
+    expect(body).toContain('un commit nuovo, o una review');
+    expect(body).not.toContain('far passare');
+  });
+});
