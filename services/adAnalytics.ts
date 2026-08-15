@@ -34,11 +34,18 @@ export type AdEvent =
   | 'ad_collapsed'
   | 'ad_bot_skip'
   | 'ad_viewable'
-  // Ads-consent banner outcomes (#5842). These make the post-deploy fill-rate
-  // change *decomposable*: fill rate alone cannot distinguish "the gate is
-  // costing us X%" from "AdSense demand dropped". With these, the drop is
-  // attributable — consent_rate = granted / (granted + denied), and expected
-  // fill ≈ baseline_fill × consent_rate.
+  // Ads-consent outcomes (#5842, CMP-single-surface rework). These make the
+  // post-deploy fill-rate change *decomposable*: fill rate alone cannot
+  // distinguish "the gate is costing us X%" from "AdSense demand dropped".
+  // With these, the drop is attributable — consent_rate = granted / (granted
+  // + denied), and expected fill ≈ baseline_fill × consent_rate.
+  // granted/denied are now emitted at the gate (services/consentService.ts,
+  // slot 'cmp_gate') whenever the decision changes — whatever wrote it (CMP
+  // bridge, privacy page, other tab). `ad_consent_shown` has NO emitter since
+  // the custom banner was removed: the prompt is the Google-rendered CMP and
+  // its render is not observable from our code. Kept in the union so
+  // historical dashboards keep type-checking; impression counts come from FC
+  // reporting in AdSense Privacy & Messaging.
   | 'ad_consent_shown'
   | 'ad_consent_granted'
   | 'ad_consent_denied';

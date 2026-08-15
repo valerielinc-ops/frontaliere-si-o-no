@@ -477,6 +477,16 @@
       })();
     </script>
 
+    <!-- CMP → ads-gate bridge: maps the Funding Choices (TCF) outcome onto the
+         `frontaliere_ads_consent` gate that every ad-script loader reads. The
+         blocking Google consent message is the ONE consent surface of the site
+         (the custom AdsConsentBanner was removed with it). Byte-identical copy
+         of FC_CONSENT_BRIDGE_JS in build-plugins/constants.ts — index.html
+         cannot import that module, so tests/ads-consent-gate.test.tsx pins the
+         two strings against each other. Registered BEFORE the loader below;
+         googlefc.callbackQueue accepts pushes before and after FC runs. -->
+    <script>(function(){if(window.__ftFcConsentBridge)return;window.__ftFcConsentBridge=1;function prev(){try{return window.localStorage.getItem('frontaliere_ads_consent');}catch(e){return null;}}function record(g){var v=g?'granted':'denied';if(prev()===v)return;try{window.localStorage.setItem('frontaliere_ads_consent',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('frontaliere:ads-consent',{detail:v}));}catch(e){}}function grant(act){if(act||prev()!=='denied')record(true);}var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){record(false);return;}if(prev()==='granted')record(false);});}});})();</script>
+
     <!-- PERF: Funding Choices scripts (loader + anti-adblock fallback below) are
          deferred until after first paint to fix mobile LCP (was 11.3s). The
          original ~19KB inline obfuscated IIFE was parser-blocking on slow CPUs.
@@ -485,19 +495,14 @@
          message still renders if an ad-blocker is detected. -->
     <script>
       (function(){
-        // Fail-closed advertising-consent read, same contract as
-        // ADSENSE_LOADER_CONTENT (build-plugins/constants.ts) and
-        // services/adsConsent.ts (#5842/#5894) — only a literal 'granted'
-        // opens the gate; anything else (null, 'denied', a thrown read) blocks.
-        function hasAdsConsent(){
-          try { return window.localStorage.getItem('frontaliere_ads_consent') === 'granted'; } catch(e) { return false; }
-        }
         function loadFc(){
-          // 1. Inject FundingChoices loader (ad-blocking recovery message).
-          // Gated behind the same advertising consent as AdSense/GPT/Prebid:
-          // this is the CMP/ad script the ads-consent-gate test suite's
-          // injectedAdScripts() helper matches against fundingchoicesmessages.google.com.
-          if (!document.querySelector('script[data-fc-loader]') && hasAdsConsent()) {
+          // 1. Inject FundingChoices loader — the CMP that renders BOTH the
+          // blocking TCF consent message and the ad-blocking recovery message.
+          // Deliberately NOT gated on `frontaliere_ads_consent`: the CMP is the
+          // surface that COLLECTS that consent (via the bridge above), so
+          // gating it behind its own output deadlocked cold visitors into a
+          // no-ads session (#5894's double-consent regression).
+          if (!document.querySelector('script[data-fc-loader]')) {
             var s = document.createElement('script');
             s.async = true;
             // NOTE: do NOT set crossOrigin. Google FC `/i/pub-XXX` does not serve
@@ -526,12 +531,16 @@
           // 3. Run the inline anti-adblock fallback IIFE (defined as inert
           //    text/plain script below — we eval its body once via new Function
           //    so the parser never sees it as executable JS during LCP).
-          //    Gated behind the same hasAdsConsent() as step 1: this IIFE
-          //    fetches from fundingchoicesmessages.google.com and can render
-          //    the "disable ad blocker" overlay — same CMP/ad script as the
-          //    loader, so it cannot run before consent either (#5894 review).
+          //    Unlike step 1 (the CMP loader, which must stay ungated because
+          //    it is the consent collector AND the revocation surface), the
+          //    "disable ad blocker" recovery nag is pure monetization: for a
+          //    visitor whose stored decision is an explicit 'denied' it has
+          //    nothing to recover, so it is the one piece that stays gated.
+          function storedDenied(){
+            try { return window.localStorage.getItem('frontaliere_ads_consent') === 'denied'; } catch(e) { return false; }
+          }
           var inert = document.getElementById('fc-fallback-src');
-          if (inert && !inert.dataset.fcRan && hasAdsConsent()) {
+          if (inert && !inert.dataset.fcRan && !storedDenied()) {
             inert.dataset.fcRan = '1';
             try { (new Function(inert.textContent))(); } catch(e) { /* fail-soft */ }
           }
