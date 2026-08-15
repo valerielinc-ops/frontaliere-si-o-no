@@ -31,12 +31,15 @@
  *
  * The formula on screen is `<ConsentNotice consentKey="communicationsOptIn">`
  * — the same function that produces the stored bytes, so what was shown and
- * what was recorded cannot drift. Accepting stamps the newsletter document
- * (`recordCommunicationsConsent`) and the travaso alerts
- * (`upgradeBackfilledAlertConsent` with this surface's own act — recording an
- * activation click that did not happen would fabricate the fact the register
- * exists to establish). Declining writes NOTHING: "not now" is not an opt-out,
- * and the organic surfaces remain.
+ * what was recorded cannot drift. Accepting stamps the newsletter document —
+ * server-side through `recordConsentViaEndpoint` when Firebase can prove
+ * possession (`email_verified === true`), which also records the network of
+ * origin; and, for the shell-account cohort the server refuses, falling back
+ * to the client-side `recordCommunicationsConsent` unchanged (#5928, phase 2).
+ * Either way it also stamps the travaso alerts (`upgradeBackfilledAlertConsent`
+ * with this surface's own act — recording an activation click that did not
+ * happen would fabricate the fact the register exists to establish). Declining
+ * writes NOTHING: "not now" is not an opt-out, and the organic surfaces remain.
  */
 
 import { useCallback, useEffect, useState } from 'react';
@@ -45,6 +48,7 @@ import ConsentNotice from '@/components/shared/ConsentNotice';
 import { captureEvent } from '@/services/posthog';
 import { needsAdsConsentDecision, onAdsConsentChange } from '@/services/adsConsent';
 import { upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import { recordConsentViaEndpoint } from '@/services/newsletterRecordConsent';
 import {
   COMMS_CONSENT_PROMPT_STORAGE_KEY,
   COMMUNICATIONS_BANNER_CONSENT_ACT,
@@ -123,6 +127,7 @@ export interface CommunicationsConsentBannerProps {
   email: string | null;
   /** Optional overrides (used by tests). */
   checkEligibility?: typeof shouldOfferCommunicationsConsent;
+  recordViaServer?: typeof recordConsentViaEndpoint;
   recordConsent?: typeof recordCommunicationsConsent;
   upgradeConsent?: typeof upgradeBackfilledAlertConsent;
 }
@@ -130,6 +135,7 @@ export interface CommunicationsConsentBannerProps {
 export default function CommunicationsConsentBanner({
   email,
   checkEligibility = shouldOfferCommunicationsConsent,
+  recordViaServer = recordConsentViaEndpoint,
   recordConsent = recordCommunicationsConsent,
   upgradeConsent = upgradeBackfilledAlertConsent,
 }: CommunicationsConsentBannerProps) {
@@ -180,29 +186,60 @@ export default function CommunicationsConsentBanner({
     if (!email) return;
     setStatus('saving');
     writePromptAnswer('accepted');
-    // The newsletter stamp is awaited so the telemetry can tell the truth: the
-    // accepted event carries the write's real outcome, because a device whose
-    // write failed never re-prompts (the marker above) — without `recorded`
-    // that loss would be permanent AND invisible. The alert-side upgrade stays
-    // fire-and-forget like every activation CTA — a proof that fails to land
-    // must not surface an error.
-    let outcome: Awaited<ReturnType<typeof recordConsent>> = {
-      recorded: false,
-      reason: 'write-failed',
-    };
+    // The write is awaited so the telemetry can tell the truth: the accepted
+    // event carries the write's real outcome, because a device whose write
+    // failed never re-prompts (the marker above) — without `recorded` that
+    // loss would be permanent AND invisible.
+    //
+    // TRUSTED PATH FIRST (#5928): try the server, which writes the proof AND
+    // the network of origin only when Firebase says `email_verified === true`
+    // for this account. If it takes the write (`serverHandled`), the client
+    // must NOT also write — the server already recorded it, with the IP a
+    // browser cannot see. It refuses the shell-account cohort
+    // (`email_verified: false`, the banner's majority), and for them we FALL
+    // BACK to the exact client-side write of before, unchanged, minus the IP:
+    // trusting their claim is the forgery the gate exists to stop.
+    let recorded = false;
+    let reason: string | null = null;
+    let via: 'server' | 'client' = 'client';
+    let server: Awaited<ReturnType<typeof recordViaServer>> = { serverHandled: false };
     try {
-      outcome = await recordConsent(email, locale);
+      server = await recordViaServer(email, locale);
     } catch {
-      /* recordConsent never throws by contract; belt and braces. */
+      /* recordConsentViaEndpoint never throws by contract; belt and braces. */
+    }
+    if (server.serverHandled) {
+      via = 'server';
+      recorded = server.recorded;
+      reason = server.reason ?? null;
+    } else {
+      // Fallback: the current client-side write. Same contract as before —
+      // never throws, never creates, never overwrites an existing proof.
+      let outcome: Awaited<ReturnType<typeof recordConsent>> = {
+        recorded: false,
+        reason: 'write-failed',
+      };
+      try {
+        outcome = await recordConsent(email, locale);
+      } catch {
+        /* recordConsent never throws by contract; belt and braces. */
+      }
+      recorded = outcome.recorded;
+      reason = outcome.reason ?? null;
     }
     captureEvent('comms_consent_accepted', {
       surface: 'consent_banner',
-      recorded: outcome.recorded,
-      reason: outcome.reason ?? null,
+      recorded,
+      reason,
+      via,
     });
+    // The alert-side upgrade stays fire-and-forget like every activation CTA —
+    // a proof that fails to land must not surface an error — and runs on both
+    // paths: it stamps the travaso ALERT documents, which the newsletter write
+    // above (server or client) does not touch.
     void upgradeConsent(email, locale, { act: COMMUNICATIONS_BANNER_CONSENT_ACT }).catch(() => {});
     setStatus('thanks');
-  }, [email, locale, recordConsent, upgradeConsent]);
+  }, [email, locale, recordViaServer, recordConsent, upgradeConsent]);
 
   const decline = useCallback(() => {
     writePromptAnswer('dismissed');

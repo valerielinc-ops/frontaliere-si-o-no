@@ -25,6 +25,23 @@ import { buildUnsubscribeForensics } from './src/lib/requestForensics.js';
 // its guard ("one helper, no drift" for the proxy chain) is worth more intact
 // than the cosmetic tidiness of a single line.
 import { buildConsentIpStamp } from './src/lib/requestForensics.js';
+// The user-agent truncator, reused so the banner's server-written proof stores
+// the UA exactly as the unsubscribe forensics do — one rule, one function.
+import { truncateUserAgent } from './src/lib/requestForensics.js';
+// Proof-of-possession gate + write plan for the consent-record endpoint
+// (#5928, phase 1). Pure and separate so "may this caller deposit a consent,
+// and what may it contain?" is testable without a signed token — see the
+// module header for why `email_verified === true` is the whole point.
+import {
+  decideRecordConsent,
+  planNewsletterConsentWrite,
+  pickConsentProofFields,
+} from './src/lib/newsletterRecordConsentAuth.js';
+// Token verification for that endpoint. `getAuth().verifyIdToken` is the same
+// path githubProxy/adminEmployerInsights use; the admin app is initialized by
+// `ensureAdminApp()` (via getAdminDb below) before it is reached.
+import { getAuth } from 'firebase-admin/auth';
+import { FieldValue } from 'firebase-admin/firestore';
 // The out-of-URL transport for address + credential (#5746). Every endpoint that
 // used to read `req.method === 'GET' ? req.query : { ...req.query, ...req.body }`
 // goes through resolveRequestParams instead — see that module for why the
@@ -766,6 +783,116 @@ export const newsletterSendWelcome = onRequest(
  res.status(200).json({ success: true });
  } catch (error) {
  console.error('[newsletterSendWelcome] Error:', error);
+ res.status(500).json({ success: false, error: 'internal_error' });
+ }
+ },
+);
+
+// The trusted write path for a client-side consent act (#5928, phase 1).
+//
+// The consent banner (#5842/#5920) records its proof with a browser
+// `updateDoc`, and `firestore.rules` still carries `allow write: if true` on
+// `newsletter_subscribers` — so the `consent_text`, the one field the art. 25
+// register exists to establish, is fabricable by anyone with the project id.
+// This endpoint is the server-side alternative the rules can later trust: it
+// writes the proof (and the IP a browser cannot see) ONLY behind a real proof
+// of possession, and ONLY the allowlisted evidence fields.
+//
+// PROOF OF POSSESSION = `email_verified === true`, ratified by the owner
+// 2026-08-15 (no nonce, no new state). That single claim excludes the two
+// token paths that mint an arbitrary, unverified `email`
+// (newsletterSubscriberAuthSync shell accounts, stripeReaderCore guest emails),
+// both `email_verified: false`. The gate, the write plan and the field
+// allowlist live in src/lib/newsletterRecordConsentAuth.js, pure and tested;
+// this handler only executes them and adds what only the server can observe.
+//
+// The banner's majority cohort (`ac`-redeemed shells) is `email_verified:
+// false`: this refuses them, and the banner falls back to the existing
+// client-side write for them — see components/shared/CommunicationsConsentBanner.
+const RECORD_CONSENT_EXPECTED_ACT = 'communications_banner_confirm_click';
+const RECORD_CONSENT_EXPECTED_ORIGIN = 'communications_consent_banner';
+export const newsletterRecordConsent = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ let token = null;
+ try {
+ const header = req.get('Authorization') || req.get('authorization') || '';
+ const match = header.match(/^Bearer\s+(.+)$/i);
+ // A rejected token is indistinguishable from no token, by design — the
+ // same shape as githubProxy/assertAdmin and the neighbours above.
+ if (match) token = await getAuth().verifyIdToken(match[1]);
+ } catch {
+ token = null;
+ }
+
+ // Gate: method, auth, email_verified, address, claim match — in that order.
+ const decision = decideRecordConsent({
+ method: req.method,
+ token,
+ bodyEmail: req.body?.email,
+ });
+ if (!decision.ok) {
+ res.status(decision.status).json({ success: false, error: decision.error });
+ return;
+ }
+
+ // Only the allowlisted proof fields, act/origin pinned to this surface.
+ // A `status`, `active`, `consent_given` or `consent_method` in the body is
+ // dropped here (not a key in the allowlist), so the write can never assert
+ // them — the register's rule that only a real checkbox claims consent.
+ const picked = pickConsentProofFields(req.body?.proof, {
+ expectedAct: RECORD_CONSENT_EXPECTED_ACT,
+ expectedOrigin: RECORD_CONSENT_EXPECTED_ORIGIN,
+ });
+ if (!picked.ok) {
+ res.status(400).json({ success: false, error: picked.error });
+ return;
+ }
+
+ const email = decision.email;
+ try {
+ const ref = getAdminDb().collection('newsletter_subscribers').doc(email);
+ const snap = await ref.get();
+ // Plan mirrors planNewsletterConsentUpgrade: opt-out first, never create,
+ // never overwrite an existing proof. A gate-passed caller who is opted
+ // out or already has proof gets a truthful `recorded: false` and NO write.
+ const plan = planNewsletterConsentWrite(snap.exists ? snap.data() : null);
+ if (plan.write !== true) {
+ res.status(200).json({ success: true, recorded: false, reason: plan.reason });
+ return;
+ }
+
+ // Fields only the server can honestly supply: the network of origin (a
+ // value the browser cannot see and a value it was TOLD is worthless —
+ // see requestForensics), the UA it actually received, and the act's clock.
+ const ipStamp = buildConsentIpStamp(req, new Date().toISOString()) || {};
+ const existingIp = snap.data()?.consent_ip;
+ if (typeof existingIp === 'string' && existingIp.trim()) {
+ delete ipStamp.consent_ip;
+ delete ipStamp.consent_ip_recorded_at;
+ }
+ const write = {
+ ...picked.fields,
+ consent_source_url:
+ typeof req.body?.sourceUrl === 'string' && req.body.sourceUrl.trim()
+ ? req.body.sourceUrl.trim()
+ : null,
+ consent_user_agent: truncateUserAgent(req.get('user-agent')),
+ consent_upgraded_at: FieldValue.serverTimestamp(),
+ ...ipStamp,
+ };
+ // Field-level merge: `status`, `active` and every counter are left exactly
+ // as they are, and a missing document is impossible here (plan returned
+ // `no-document` above) so this never creates one.
+ await ref.set(write, { merge: true });
+ res.status(200).json({ success: true, recorded: true });
+ } catch (error) {
+ console.error('[newsletterRecordConsent] Error:', error?.message || error);
  res.status(500).json({ success: false, error: 'internal_error' });
  }
  },
