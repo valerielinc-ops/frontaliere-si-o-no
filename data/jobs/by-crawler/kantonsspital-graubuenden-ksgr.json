@@ -3662,12 +3662,13 @@
           "praktikant-in-kauffrau-kaufmann-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 63000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z"
+      "firstSeenAt": "2026-05-04T11:09:50.180Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "10020399",
