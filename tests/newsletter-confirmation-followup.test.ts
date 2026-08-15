@@ -85,7 +85,12 @@ import {
   HUMAN_DECLARED_SUPPRESSIONS,
   MACHINE_INFERRED_SUPPRESSIONS,
 } from '../functions/src/lib/subscriberReactivation.js';
-import { planConfirmationFollowups, buildFollowupRequest, maskEmail } from '../scripts/newsletter-confirmation-followups.mjs';
+import {
+  planConfirmationFollowups,
+  buildFollowupRequest,
+  maskEmail,
+  confirmationReturnPath,
+} from '../scripts/newsletter-confirmation-followups.mjs';
 import {
   planConfirmedStatusBackfill,
   applyConfirmedStatusBackfill,
@@ -806,6 +811,40 @@ describe('the words of a reminder: the confirmation email, re-framed and nothing
     expect(formatConfirmationDate(lateEvening, 'it')).toBe('21 agosto 2026');
     expect(formatConfirmationDate(null, 'it')).toBeNull();
     expect(formatConfirmationDate(undefined, 'de')).toBeNull();
+  });
+});
+
+describe('confirmationReturnPath: the pathname a reminder link returns to (#5843)', () => {
+  it('keeps the pathname and drops query and fragment', () => {
+    expect(confirmationReturnPath({ source_page: '/it/lavoro?x=1#y' })).toBe('/it/lavoro');
+  });
+
+  it('is null when there is no source page at all — the link stays on the root', () => {
+    expect(confirmationReturnPath({})).toBeNull();
+    expect(confirmationReturnPath(undefined)).toBeNull();
+  });
+
+  it('refuses a protocol-relative value — that would redirect off-site', () => {
+    expect(confirmationReturnPath({ source_page: '//evil.com' })).toBeNull();
+  });
+
+  it('refuses an absolute URL', () => {
+    expect(confirmationReturnPath({ source_page: 'https://evil.com' })).toBeNull();
+  });
+
+  it('falls back to the historical camelCase sourcePage', () => {
+    expect(confirmationReturnPath({ sourcePage: '/en/jobs' })).toBe('/en/jobs');
+  });
+
+  it('is wired into the confirm link the reminder actually sends', () => {
+    const item = {
+      id: 'r2@example.com',
+      data: { preferred_locale: 'it', source_page: '/it/lavoro?ref=footer' },
+      decision: { action: 'send', attempt: 1, attempts: 0 },
+    };
+    const { payload } = buildFollowupRequest(item, { secret: 'test-secret' });
+    expect(payload.html).toContain('href="https://frontaliereticino.ch/it/lavoro?action=confirm_newsletter');
+    expect(payload.html).not.toContain('ref=footer');
   });
 });
 

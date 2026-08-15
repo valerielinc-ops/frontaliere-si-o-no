@@ -176,6 +176,34 @@ export function planConfirmationFollowups(docs, { now, epochMs }) {
 }
 
 /**
+ * The pathname a follow-up's confirm link should return to, derived from the
+ * `source_page` stamped on the subscriber document at signup
+ * (`captureNewsletterSubscriber`, services/newsletterSubscribers.ts) — falling
+ * back to the historical camelCase `sourcePage`.
+ *
+ * Deliberately conservative: any shape this does not recognize as a plain
+ * in-site pathname degrades to `null`, which is the current behaviour (the
+ * link lands on the root) rather than a broken or off-site link. That rules
+ * out three things a raw field is not safe to trust: a query string riding
+ * along and producing a doubled `?` in `confirmationConfirmUrl`, a
+ * protocol-relative `//host/...` value that would redirect off-site, and a
+ * backslash, which some browsers still treat as a path separator.
+ *
+ * @param {Record<string, any> | undefined | null} data
+ * @returns {string | null}
+ */
+export function confirmationReturnPath(data) {
+  const raw = data?.source_page ?? data?.sourcePage;
+  if (!raw || typeof raw !== 'string') return null;
+  const pathOnly = raw.split('?')[0].split('#')[0];
+  if (!pathOnly) return null;
+  if (!pathOnly.startsWith('/')) return null;
+  if (pathOnly.startsWith('//')) return null;
+  if (pathOnly.includes('\\')) return null;
+  return pathOnly;
+}
+
+/**
  * Compose one confirmation request for a document the plan says is due.
  *
  * Exported and pure so a test can read the words that would actually be sent —
@@ -197,7 +225,7 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
   const frame = confirmationFrameForAttempt(item.decision.attempt);
   const { subject, html, tags } = buildConfirmationRequestEmail({
     locale,
-    confirmUrl: confirmationConfirmUrl({ email, token }),
+    confirmUrl: confirmationConfirmUrl({ email, token, sourcePath: confirmationReturnPath(item.data) }),
     frame,
     // Strictly the FIRST send, never the last one — the banner states a date to
     // somebody who has not consented to hear from us, so it is either right or
