@@ -923,6 +923,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lavorare-amministrazione-federale-svizzera': { it: 'lavorare-amministrazione-federale-svizzera', en: 'working-for-swiss-federal-administration', de: 'arbeiten-bei-der-schweizer-bundesverwaltung', fr: 'travailler-pour-l-administration-federale-suisse' },
  'comprare-casa-lucerna-prezzi-mutuo': { it: 'comprare-casa-lucerna-prezzi-mutuo', en: 'buy-house-lucerne-prices-mortgage', de: 'immobilienkauf-luzern-preise-mauskredit', fr: 'vente-achat-maison-lucerne-prix-pret-hippique' },
  'centro-asilo-altstaetten': { it: 'centro-asilo-altstaetten', en: 'altstaetten-asylum-center', de: 'altstaetten-asylzentrum', fr: 'centre-d-asile-altstaetten' },
+ 'sindacati-delusi': { it: 'sindacati-delusi', en: 'disillusioned-unions-we-may-withdraw-our-support', de: 'enttauschte-gewerkschaften-wir-konnten-unsere-unterstutzung-zuruckziehen', fr: 'syndicats-decus-nous-pourrions-retirer-notre-soutien' },
+ 'casse-malattia-tetto-stipendi-politica-simbolica': { it: 'casse-malattia-tetto-stipendi-politica-simbolica', en: 'sickness-funds-a-salary-cap-symbolic-policy', de: 'kassen-krankenversicherung-grenzverdienst-politische-simbolik', fr: 'caisses-maladie-plafond-salaire-politique-symb' },
+ 'mercato-gli-affitti-canton-lucerna': { it: 'mercato-gli-affitti-canton-lucerna', en: 'lucerne-cantonal-rental-market', de: 'mietmarkt-kanton-luzern', fr: 'marche-du-location-canton-de-lucerne' },
+ 'cfa-altstaetten-aperte': { it: 'cfa-altstaetten-aperte', en: 'cfa-altstaetten-open', de: 'cfa-altstaetten-geoeffnet', fr: 'cfa-altstaetten-ouvert' },
+ 'naturalizzazione-canton-lucerna-requisiti-e-procedura': { it: 'naturalizzazione-canton-lucerna-requisiti-e-procedura', en: 'naturalization-canton-lucerne-requirements-and-procedure', de: 'naturalisierung-kanton-luzern-anforderungen-und-verfahren', fr: 'procedure-dnaturalisation-canton-de-lucerne-exigences-et-procedures' },
+ 'avs-prestazioni-complementari-lucerna-cassa-di-compensazione': { it: 'avs-prestazioni-complementari-lucerna-cassa-di-compensazione', en: 'avs-complementary-benefits-lucerne-compensation-fund', de: 'avs-erganzungsleistungen-luzern-kompensationsfonds', fr: 'avs-prestations-complementaires-lucerne-fonds-de-compensation' },
+ 'avs-e-prestazioni-complementari-canton-lucerne': { it: 'avs-e-prestazioni-complementari-canton-lucerne', en: 'avs-and-complementary-benefits-canton-lucerne', de: 'avs-und-komplementaere-leistungen-kanton-lucerne', fr: 'avs-et-prestations-complementaires-canton-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
