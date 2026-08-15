@@ -923,14 +923,12 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ]
     },
@@ -1745,7 +1743,7 @@
       "slugByLocale": {
         "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -1776,13 +1774,15 @@
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano"
+          "schaltnetzbetreiber-efg-international-ag-lugano",
+          "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
         "schaltnetzbetreiber-efg-international-ag-lugano",
-        "switchboard-operator-efg-international-ag-lugano"
+        "switchboard-operator-efg-international-ag-lugano",
+        "schaltstelle-operator-efg-international-ag-lugano"
       ]
     },
     {
@@ -2446,7 +2446,7 @@
     },
     {
       "id": "efg-6456",
-      "slug": "risk-manager-efg-geneve",
+      "slug": "responsabile-del-rischio-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Risk Manager",
       "location": "Geneve",
@@ -2562,10 +2562,10 @@
       },
       "crawledAt": "2026-08-14T21:27:59.827Z",
       "slugByLocale": {
-        "it": "risk-manager-efg-geneve",
+        "it": "responsabile-del-rischio-efg-international-ag-geneve",
         "en": "risk-manager-efg-geneve",
-        "de": "risk-manager-efg-geneve",
-        "fr": "risk-manager-efg-geneve"
+        "de": "risikomanager-efg-international-ag-geneve",
+        "fr": "gestionnaire-des-risques-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2584,7 +2584,21 @@
       },
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-14T21:27:59.827Z"
+      "firstSeenAt": "2026-08-14T21:27:59.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-efg-geneve"
+        ],
+        "de": [
+          "risk-manager-efg-geneve"
+        ],
+        "fr": [
+          "risk-manager-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "risk-manager-efg-geneve"
+      ]
     },
     {
       "id": "efg-6413",

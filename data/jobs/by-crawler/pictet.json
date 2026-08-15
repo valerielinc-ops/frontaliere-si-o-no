@@ -114,13 +114,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "group-tax-expert-pictet-geneva",
-        "group-tax-expert-pictet-group-geneva",
-        "esperto-fiscale-di-gruppo-pictet-group-geneva"
+        "group-tax-expert-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-tax-expert-pictet-geneva",
-          "esperto-fiscale-di-gruppo-pictet-group-geneva"
+          "group-tax-expert-pictet-geneva"
         ],
         "de": [
           "group-tax-expert-pictet-group-geneva"
@@ -253,13 +251,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "risk-compliance-analytics-engineer-pictet-geneva",
-        "risk-compliance-analytics-ingegnere-pictet-group-geneva"
+        "risk-compliance-analytics-engineer-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "risk-compliance-analytics-engineer-pictet-geneva",
-          "risk-compliance-analytics-ingegnere-pictet-group-geneva"
+          "risk-compliance-analytics-engineer-pictet-geneva"
         ],
         "de": [
           "risk-compliance-analytics-engineer-pictet-geneva"
@@ -331,13 +327,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-        "assistente-di-conformita-aziendale-7-mesi-pictet-group-hong-kong"
+        "business-compliance-assistant-7-month-contract-pictet-hong-kong"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-compliance-assistant-7-month-contract-pictet-hong-kong",
-          "assistente-di-conformita-aziendale-7-mesi-pictet-group-hong-kong"
+          "business-compliance-assistant-7-month-contract-pictet-hong-kong"
         ],
         "fr": [
           "business-compliance-assistant-7-month-contract-pictet-hong-kong"
@@ -406,13 +400,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-project-manager-pictet-geneva",
-        "responsabile-del-progetto-strategico-pictet-group-geneva"
+        "strategic-project-manager-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-project-manager-pictet-geneva",
-          "responsabile-del-progetto-strategico-pictet-group-geneva"
+          "strategic-project-manager-pictet-geneva"
         ],
         "de": [
           "strategic-project-manager-pictet-geneva"
@@ -484,13 +476,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineer-pictet-geneva",
-        "software-ingegnere-pictet-group-geneva"
+        "software-engineer-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-pictet-geneva",
-          "software-ingegnere-pictet-group-geneva"
+          "software-engineer-pictet-geneva"
         ],
         "de": [
           "software-engineer-pictet-geneva"
@@ -562,13 +552,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet",
-        "lavoro-student-financial-risk-management-m-f-d-in-loco-a-francoforte-sul-meno-pictet-group-frankfurt"
+        "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet",
-          "lavoro-student-financial-risk-management-m-f-d-in-loco-a-francoforte-sul-meno-pictet-group-frankfurt"
+          "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet"
         ],
         "de": [
           "working-student-financial-risk-management-m-f-d-on-site-in-frankfurt-am-main-pictet"
@@ -641,13 +629,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg",
-        "funzionamento-bancario-trasferimenti-in-contanti-contratto-a-scadenza-12-mesi-pictet-group-luxembourg"
+        "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg",
-          "funzionamento-bancario-trasferimenti-in-contanti-contratto-a-scadenza-12-mesi-pictet-group-luxembourg"
+          "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "banking-operations-officer-cash-transfers-fixed-term-contract-12-months-pictet-luxembourg"
@@ -672,12 +658,12 @@
     },
     {
       "id": "pictet-73ef067c6a43",
-      "slug": "internship-publishing-12-months-pictet-luxembourg",
+      "slug": "stage-pubblicazione-12-mesi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "internship-publishing-12-months-pictet-luxembourg",
-        "it": "internship-publishing-12-months-pictet-luxembourg",
-        "de": "internship-publishing-12-months-pictet-luxembourg",
-        "fr": "internship-publishing-12-months-pictet-luxembourg"
+        "it": "stage-pubblicazione-12-mesi-pictet-group-luxembourg",
+        "de": "praktikum-publishing-12-monate-pictet-group-luxembourg",
+        "fr": "stage-edition-12-mois-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -732,7 +718,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-14T21:29:35.863Z"
+      "firstSeenAt": "2026-08-14T21:29:35.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-publishing-12-months-pictet-luxembourg"
+        ],
+        "de": [
+          "internship-publishing-12-months-pictet-luxembourg"
+        ],
+        "fr": [
+          "internship-publishing-12-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "internship-publishing-12-months-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-00456a3b5882",
@@ -783,13 +783,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg",
-        "agente-transfert-contratto-a-termine-6-mesi-pictet-group-luxembourg"
+        "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg",
-          "agente-transfert-contratto-a-termine-6-mesi-pictet-group-luxembourg"
+          "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg"
         ],
         "de": [
           "transfert-agent-fixed-term-contract-6-months-pictet-luxembourg"

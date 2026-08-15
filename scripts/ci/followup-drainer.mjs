@@ -499,6 +499,26 @@ export function isQueueManaged(iss) {
 }
 
 /**
+ * Tracker / issue-contatore PERMANENTE (`agent:no-age-out`, #5615).
+ *
+ * Esiste per essere una condizione permanentemente visibile: non si chiude mai e
+ * NON ha una causa singola da riparare. Due conseguenze, e fino a #5544 il codice
+ * ne applicava una sola:
+ *  • non va CHIUSA per age-out — già coperto da `isAgeOutEligible`;
+ *  • non va PROMOSSA a `agent:fix` — non era coperto da nessuna parte. Mandare il
+ *    fixer su un tracker brucia un run su qualcosa che non è riparabile e rischia
+ *    che venga chiuso, cioè il contrario di ciò che il tracker deve fare.
+ *
+ * La discriminante è la LABEL, mai il titolo: i tracker non vanno rititolati
+ * perché il dedup delle issue auto-aperte lavora sul titolo, e un titolo diverso
+ * fa nascere una issue nuova invece di ritrovare quella esistente.
+ * @param {{labels?: Array<{name:string}>}} iss
+ */
+export function isPermanentTracker(iss) {
+  return (iss?.labels || []).map((l) => l.name).includes(LBL_NO_AGE_OUT);
+}
+
+/**
  * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
  * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
  * solo follow-up), NON marcata `agent:no-age-out` (issue-contatore/tracker
@@ -513,7 +533,7 @@ export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
-  if (ls.includes(LBL_NO_AGE_OUT)) return false; // issue-contatore/tracker permanente, mai eleggibile
+  if (isPermanentTracker(iss)) return false; // issue-contatore/tracker permanente, mai eleggibile
   if (ls.includes(LBL_FIX) || ls.includes(LBL_QUEUED)) return false; // in lavorazione/coda
   const created = Date.parse(iss?.createdAt);
   const updated = Date.parse(iss?.updatedAt);
@@ -752,6 +772,29 @@ const reparkGenOf = (iss) => {
   const m = names(iss).map((n) => /^fu-reparked:(\d+)$/.exec(n)).find(Boolean);
   return m ? parseInt(m[1], 10) : 0;
 };
+
+/**
+ * Filtro di ammissione al pool del PARKED-RETRY, sulle sole label (puro, niente
+ * `gh`) → testabile. Estratto dalla catena di `.filter()` inline (#5544) perché
+ * «un tracker non entra mai nel pool» dev'essere un'asserzione vera su questa
+ * funzione, non un controllo sul testo del sorgente.
+ *
+ * Esclude: chi non è queue-managed; chi è già in lavorazione o in coda; chi è già
+ * escalato a `needs-human` (too-large); i tracker permanenti (vedi
+ * `isPermanentTracker`); chi ha esaurito il generation-cap.
+ *
+ * NB: nessuna di queste condizioni dipende dalla capacità del token. Il
+ * capability-guard (WF-scope / secrets-scope) è una decisione DIVERSA e si applica
+ * dopo, per candidata, in `isCapabilityScoped`.
+ * @param {{number?: number, title?: string, labels?: Array<{name:string}>}} iss
+ */
+export function isReparkableCandidate(iss) {
+  if (!isQueueManaged(iss)) return false;
+  if (has(iss, LBL_FIX) || has(iss, LBL_QUEUED)) return false; // già in lavoro/coda
+  if (has(iss, 'needs-human')) return false;                   // già escalato (too-large)
+  if (isPermanentTracker(iss)) return false;                   // tracker permanente (#5615/#5544)
+  return reparkGenOf(iss) < MAX_REPARK_GEN;                    // generation-cap
+}
 /** WF-scope = il fix toccherebbe .github/workflows (capability-guard) → non
  * auto-fixabile. Riusa `detectWorkflowScoped` (stesso detector di
  * `check-workflows-scope.mjs`, vedi `scripts/lib/workflow-scope-detect.mjs`)
@@ -789,8 +832,42 @@ function isSecretsScoped(iss) {
 }
 
 /**
+ * Il fixer PUÒ pushare `.github/workflows/**` in questo run? (#5544)
+ *
+ * Stesso identico segnale del pre-flight di promozione qui sotto e del capability
+ * guard di `issue-fix.yml`: `APP_TOKEN_WORKFLOWS`, che `scripts/ci/mint-app-token.mjs`
+ * scrive su `$GITHUB_ENV` leggendo `permissions.workflows === 'write'` DALLA RISPOSTA
+ * API del conio del token.
+ *
+ * NON è la presenza del token (#5288): il conio riesce — 201, token valido — anche
+ * quando `workflows` è stato richiesto sull'installazione ma mai approvato; il permesso
+ * semplicemente non compare fra i `permissions`. Gatare sulla presenza sbloccherebbe
+ * candidate che il `git push` rifiuterebbe comunque, cioè la spesa che il parcheggio
+ * esiste per evitare.
+ *
+ * Fail-closed: env non scritta o diversa da `'true'` → `false` → si parcheggia come
+ * prima del 2026-08-06. Letta a ogni chiamata (non a load del modulo) perché
+ * `mint-app-token.mjs` gira in uno step precedente dello stesso job.
+ */
+export function canPushWorkflowsFromEnv(env = process.env) {
+  return env?.APP_TOKEN_WORKFLOWS === 'true';
+}
+
+/**
  * Capability-guard UNICO per il parked-retry: WF-scope **o** secrets-scope, con una
  * sola `gh issue view` invece di due.
+ *
+ * Il ramo WF-scope è CONDIZIONATO alla capacità reale (#5544). Fino ad allora era
+ * incondizionato: escludeva ogni candidata workflow-scoped anche con `workflows: write`
+ * concesso (2026-08-06) e verificato in run reali (`APP_TOKEN_WORKFLOWS: true`), mentre
+ * `issue-fix.yml` aveva già smesso di bloccare a priori (#5288). Misurato: 13 run
+ * consecutivi con `1 skip WF-scope` e **pool 0** per l'intera giornata — l'unica
+ * candidata che superava tutti gli altri filtri veniva scartata proprio qui.
+ * Il guard NON è stato rimosso: senza la capacità concessa esclude esattamente come
+ * prima, e a valle resta comunque il pre-flight di `issue-fix` che rifiuta da solo.
+ *
+ * Il ramo secrets-scope resta INCONDIZIONATO per scelta (#5057): quelle credenziali
+ * non sono mai disponibili al fixer, nessun permesso GitHub le concede.
  *
  * Prima di #5838 il secrets-scope qui era puro sulle label gia' in mano, quindi
  * gratis — ma per questo non vedeva la forma Remote Config, che vive nel TESTO. Fare
@@ -806,11 +883,17 @@ function isSecretsScoped(iss) {
  * Fail-closed su errore (`true` = resta parked), come `isWorkflowScoped`: un re-fail
  * garantito costa piu' di un retry mancato.
  */
-function isCapabilityScoped(iss) {
+export function isCapabilityScoped(iss, {
+  // Seam di test (#5544): entrambe le direzioni del guard vanno provate senza rete.
+  // Default = comportamento di produzione, invariato.
+  fetchIssue = (num) => gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']),
+  canPushWorkflows = canPushWorkflowsFromEnv(),
+} = {}) {
   if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
   try {
-    const d = gh(['issue', 'view', String(iss.number), '--repo', REPO, '--json', 'title,body,labels']);
-    if (isWorkflowScoped(iss.number, d)) return true;
+    const d = fetchIssue(iss.number);
+    // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).
+    if (!canPushWorkflows && isWorkflowScoped(iss.number, d)) return true;
     return Boolean(matchSecretsScopedShape({
       labels: names(d),
       text: `${d?.title || ''}\n${d?.body || ''}`,
@@ -1129,11 +1212,18 @@ export function runDrain() {
   if (RETRY_COOLDOWN_DAYS > 0) {
     const now = Date.now();
     const cooldownMin = RETRY_COOLDOWN_DAYS * 1440;
-    const pool = listIssues(LBL_PARKED)
-      .filter((iss) => isQueueManaged(iss))
-      .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED)) // non già in lavoro/coda
-      .filter((iss) => !has(iss, 'needs-human'))                    // già escalato (too-large) → fuori dal retry
-      .filter((iss) => reparkGenOf(iss) < MAX_REPARK_GEN);           // generation-cap
+    // Ammissione al pool: tutta in `isReparkableCandidate` (pura, testabile).
+    // Include l'esclusione dei tracker permanenti, che fino a #5544 non esisteva
+    // qui: `agent:no-age-out` era letto solo da `isAgeOutEligible`, cioè salvava i
+    // tracker dalla CHIUSURA ma non dalla PROMOZIONE. Misurato sul set reale: 4
+    // tracker (#5617, #5429, #5323, #5321) entravano già nel pool prima di #5544
+    // perché non workflow-scoped; rendere condizionato il guard WF-scope ne
+    // avrebbe aggiunto un quinto (#1951, «Loop health report»), tenuto fuori fino
+    // ad allora SOLO dall'incondizionatezza di quel guard — un effetto collaterale
+    // su una protezione che non deve dipendere da quale token stia girando.
+    // L'esclusione precede il cooldown anche per costo: i tracker sono i più
+    // ri-commentati dai bot, e qui si risparmiano le `gh issue view` dello scan.
+    const pool = listIssues(LBL_PARKED).filter(isReparkableCandidate);
     // Cooldown (vedi `lastSignificantActivityAt`): lo scarto è fra chi è quieto
     // DAVVERO e chi lo sembra soltanto perché nessun bot lo sta ri-commentando.
     // `updatedAt` è un limite superiore dell'ultimo evento significativo, quindi
@@ -1200,7 +1290,14 @@ export function runDrain() {
       console.log(`PARKED-RETRY #${iss.number} → agent:fix-queued (gen ${gen}/${MAX_REPARK_GEN}, attempts reset) — "${iss.title?.slice(0, 50)}"`);
       retried++;
     }
-    if (skippedWf) console.log(`parked-retry: ${skippedWf} skip WF-scope (capability-guard → restano parked/age-out).`);
+    if (skippedWf) {
+      // #5544: la capacità va STAMPATA accanto al conteggio. Senza, un `1 skip
+      // WF-scope` è ambiguo — non si distingue «parcheggiata perché manca il
+      // permesso» da «parcheggiata per secrets-scope», ed è esattamente
+      // l'ambiguità che ha tenuto il difetto invisibile per 13 run.
+      const cap = canPushWorkflowsFromEnv() ? 'concessa' : 'assente';
+      console.log(`parked-retry: ${skippedWf} skip capability-guard (workflows: write ${cap} — APP_TOKEN_WORKFLOWS; secrets-scope sempre escluso) → restano parked/age-out.`);
+    }
   }
 
   // (Il pass crawler — ex `CRAWLER MAX-TURNS PARK` #3886, ora rescue completo

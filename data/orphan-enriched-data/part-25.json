@@ -44105,16 +44105,13 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
-        "en": "messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
-        "de": "messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
-        "fr": "messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen"
+        "de": "messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
-        "en": "/en/find-jobs-ticino/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
-        "de": "/de/jobs-im-tessin/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
-        "fr": "/fr/trouver-emploi-tessin/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen"
+        "it": "/cerca-lavoro-lucerna/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
+        "en": "/en/find-jobs-lucerne/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
+        "de": "/de/jobs-in-luzern/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen",
+        "fr": "/fr/trouver-emploi-lucerne/messtechnik-spezialist-dms-80-100-w-m-d-ruag-ag-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -44122,6 +44119,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
