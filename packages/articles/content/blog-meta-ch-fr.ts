@@ -2713,6 +2713,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-lucerne.title': 'avs et prestations complémentaires canton Lucerne caisse de compensation',
     'blog.article.avs-e-prestazioni-complementari-canton-lucerne.excerpt': 'Le premier pilier dans le canton de Lucerne : caisse de compensation cantonale, calcul de la rente AVS, lacunes contributives et prestations complémentaires couvrant le minimum vital.',
     'blog.article.avs-e-prestazioni-complementari-canton-lucerne.imageAlt': 'Une vue panoramique du lac de Lugano, avec les montagnes environnantes',
+    'blog.article.aprire-un-attivita-canton-lucerna.title': 'Ouvrir une entreprise à Lucerne : choix de la forme juridique et obligations',
+    'blog.article.aprire-un-attivita-canton-lucerna.excerpt': 'Choisir la forme juridique appropriée, s\'inscrire au registre du commerce, déterminer le capital minimum, payer les frais d\'inscription et remplir les obligations d\'assurance ne sont que quelques-unes des étapes nécessaires pour ouvrir une entreprise dans le canton de Lucerne.',
+    'blog.article.aprire-un-attivita-canton-lucerna.imageAlt': 'Vue panoramique de Lucerne, Suisse',
 };
 
 export default blogMetaChFr;
