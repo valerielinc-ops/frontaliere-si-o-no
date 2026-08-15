@@ -68,13 +68,11 @@
         "hiringOrganization": "Somedia AG"
       },
       "previousSlugs": [
-        "fachperson-personalentwicklung-kultur-100-somedia-ch",
-        "personale-sviluppo-cultura-specialista-100-somedia-ag-chur"
+        "fachperson-personalentwicklung-kultur-100-somedia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-personalentwicklung-kultur-100-somedia-ch",
-          "personale-sviluppo-cultura-specialista-100-somedia-ag-chur"
+          "fachperson-personalentwicklung-kultur-100-somedia-ch"
         ],
         "en": [
           "fachperson-personalentwicklung-kultur-100-somedia-ch"
@@ -265,13 +263,11 @@
         "hiringOrganization": "communicaziun.ch ag"
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
-        "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz"
+        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
-          "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz"
+          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
         ],
         "en": [
           "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
@@ -366,13 +362,11 @@
       },
       "previousSlugs": [
         "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
-        "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ag-ilanz",
-        "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz"
+        "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
-          "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz"
+          "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch"
         ],
         "en": [
           "lehrstelle-als-kaufmann-frau-efz-marketing-kommunikation-2027-somedia-ch",
@@ -399,12 +393,12 @@
     },
     {
       "id": "somedia-b7be37f17198",
-      "slug": "verlagsleiter-in-80-100-somedia-ch",
+      "slug": "direttore-editoriale-80-100-somedia-ag-chur-glarus",
       "slugByLocale": {
         "de": "verlagsleiter-in-80-100-somedia-ch",
-        "it": "verlagsleiter-in-80-100-somedia-ch",
-        "en": "verlagsleiter-in-80-100-somedia-ch",
-        "fr": "verlagsleiter-in-80-100-somedia-ch"
+        "it": "direttore-editoriale-80-100-somedia-ag-chur-glarus",
+        "en": "publishing-manager-80-100-somedia-ag-chur-glarus",
+        "fr": "directeur-de-l-edition-80-100-somedia-ag-chur-glarus"
       },
       "company": "Somedia AG",
       "companyKey": "somedia",
@@ -482,7 +476,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-14T21:32:05.410Z"
+      "firstSeenAt": "2026-08-14T21:32:05.410Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verlagsleiter-in-80-100-somedia-ch"
+        ],
+        "en": [
+          "verlagsleiter-in-80-100-somedia-ch"
+        ],
+        "fr": [
+          "verlagsleiter-in-80-100-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verlagsleiter-in-80-100-somedia-ch"
+      ]
     }
   ]
 }
