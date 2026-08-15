@@ -1,0 +1,258 @@
+#!/usr/bin/env node
+/**
+ * audit-duplicate-meta-description.mjs
+ *
+ * Post-build gate (Semrush E6 / issue 6): no `<meta name="description">`
+ * string may be shared by more than `MAX_DUPLICATE_PAGES_PER_DESCRIPTION`
+ * URLs. The recurring offender is a plugin fallback ("Calcolatore stipendio…")
+ * emitted verbatim on a whole family of pages.
+ *
+ * Mirror of `tests/dist-duplicate-meta-description.test.ts`, migrated into the
+ * unified `audit-all` runner (issue #5845 item 6) on the pattern
+ * `scripts/audit-breadcrumb-coverage.mjs` established (#5874 / PR #5883).
+ * The vitest copy stays behind `RUN_DIST_GATES=1` as a manual mirror; the
+ * REAL gate is this auditor, riding the single shared dist/ walk.
+ *
+ * WHY THE MIGRATION. `npm run gate:dist-quality` ran five full-corpus vitest
+ * scans in one worker pool. Measured on run 31891126686 (2026-08-15): 4 of 5
+ * files failed and the pool died `ERR_WORKER_OUT_OF_MEMORY` after 597.95 s.
+ *
+ * ─── THE SAMPLING SEMANTICS, DECLARED ──────────────────────────────────────
+ *
+ * This is the one invariant of the four that is CUMULATIVE: its subject is a
+ * GROUP of pages sharing a string, not a page. Under CI's
+ * `AUDIT_SAMPLE_RATE=0.25` a group of 8 real pages shows up as ~2 sampled
+ * ones, so the threshold cannot be carried over naively and cannot be
+ * converted to a rate either — "descriptions duplicated per page scanned" is
+ * not a quantity anyone can act on, and scaling the group threshold down
+ * (`ceil(2 × 0.25)` = 1) would fail every page that merely HAS a description.
+ *
+ * What is done instead, and what it costs, stated plainly:
+ *
+ *   The threshold stays 2, applied to group sizes WITHIN THE SCANNED SET.
+ *   A group of >2 pages in the sample is a group of >2 pages in dist/ (the
+ *   sample is a subset), so the gate NEVER fires on a duplication that does
+ *   not exist: no false positives, ever, at any sample rate.
+ *   What it loses is RECALL: a group of 3-8 pages split across buckets may go
+ *   unseen in a given run. The salt rotation does not fully repair that —
+ *   buckets are disjoint, so a group is only ever seen through one bucket at
+ *   a time. Concretely at rate 0.25 the gate reliably catches the wide
+ *   fallback families it exists for (a 14-page family shows ~3-4 sampled) and
+ *   under-reports the narrow ones near the threshold.
+ *
+ * That is the same direction of error every sampled gate in this runner
+ * already accepts — under-report, never over-report — and it is stated in the
+ * report `extra` (`samplingSemantics`) so nobody reads a green run as proof
+ * the corpus is clean.
+ *
+ * Two execution modes:
+ *   1. Standalone CLI:  node scripts/audit-duplicate-meta-description.mjs [--json] [--limit N]
+ *   2. Unified runner:  imported by scripts/audit-all.mjs via factory().
+ */
+
+import { readFile, stat } from 'node:fs/promises';
+import { relative } from 'node:path';
+import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
+import { writeAuditReport } from './lib/auditReport.mjs';
+import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+
+export const MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2;
+
+/**
+ * Description prefixes duplicated BY DESIGN (404 / soft-404 stubs share one
+ * noindex description). Kept byte-identical to the vitest mirror's
+ * `ALLOWLIST_PREFIXES`.
+ */
+export const ALLOWLIST_PREFIXES = Object.freeze([
+  'Pagina non trovata',
+  'Page not found',
+  'Seite nicht gefunden',
+  'Page introuvable',
+]);
+
+export function createAuditor(opts = {}) {
+  const limit = opts.limit ?? 20;
+  const maxPages = opts.maxPagesPerDescription ?? MAX_DUPLICATE_PAGES_PER_DESCRIPTION;
+  const sampleRate = opts.sampleRate ?? (() => {
+    const v = Number(process.env.AUDIT_SAMPLE_RATE);
+    return v > 0 && v <= 1 ? v : 1;
+  })();
+
+  /**
+   * hash(description) → { count, paths, sample }.
+   *
+   * KEYED BY HASH, NOT BY THE DESCRIPTION. This auditor shares ONE Node
+   * process (and one `--max-old-space-size=4096`) with sixteen other
+   * accumulating auditors, and its entry count is inherently the number of
+   * DISTINCT descriptions — near-unique on job and article pages, so ~950k
+   * entries on a 25% sample of a 3.8M-file corpus. Retaining the full
+   * description string as the key made each of those entries carry its own
+   * 150-300 char string: hundreds of MB of live heap, the same accumulator
+   * shape as the OOM this migration exists to fix, only divided by four.
+   * `scripts/audit-content-duplicates.mjs` hit this first and stores a
+   * `sha256` for the same reason.
+   *
+   * What is bounded here and what is NOT, stated so the next reader does not
+   * have to re-derive it: per-entry size IS bounded (a 16-char key, a counter,
+   * ≤5 paths, a ≤100-char sample); the NUMBER of entries is not — it is the
+   * distinct-description count, and no single-pass duplicate detector can
+   * avoid that. `PATHS_PER_DESCRIPTION_CAP` bounds only the path list, which
+   * was never the dominant term.
+   */
+  const byDescription = new Map();
+  const PATHS_PER_DESCRIPTION_CAP = 5;
+  const DESCRIPTION_SAMPLE_CHARS = 100;
+  let filesScanned = 0;
+
+  // 64-bit FNV-1a as 16 hex chars. Non-cryptographic is right here: the input
+  // is our own build output, not adversarial, and at ~1M distinct keys the
+  // 64-bit birthday collision probability is ~3e-7 — orders of magnitude below
+  // the recall this gate already gives up to sampling.
+  const hashKey = (s) => {
+    let h1 = 0x811c9dc5;
+    let h2 = 0x01000193;
+    for (let i = 0; i < s.length; i++) {
+      const c = s.charCodeAt(i);
+      h1 = Math.imul(h1 ^ c, 0x01000193) >>> 0;
+      h2 = Math.imul(h2 ^ c, 0x85ebca6b) >>> 0;
+    }
+    return `${h1.toString(16).padStart(8, '0')}${h2.toString(16).padStart(8, '0')}`;
+  };
+
+  return {
+    name: 'duplicate-meta-description',
+    collect(file, html) {
+      if (html.length === 0) return;
+      filesScanned += 1;
+      const desc = extractMetaDescriptionRaw(html);
+      if (!desc) return;
+      if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) return;
+      const path = relative(ROOT, file).replace(/^dist\//, '');
+      const key = hashKey(desc);
+      const entry = byDescription.get(key);
+      if (entry) {
+        entry.count += 1;
+        if (entry.paths.length < PATHS_PER_DESCRIPTION_CAP) entry.paths.push(path);
+      } else {
+        // `.slice()` on a substring can retain the parent string in V8; the
+        // template literal forces a flat copy, so the full 300-char
+        // description is not kept alive by the 100-char sample.
+        byDescription.set(key, {
+          count: 1,
+          paths: [path],
+          sample: `${desc.slice(0, DESCRIPTION_SAMPLE_CHARS)}`,
+        });
+      }
+    },
+    report() {
+      const offenders = [];
+      for (const { count, paths, sample } of byDescription.values()) {
+        if (count > maxPages) {
+          offenders.push({
+            path: paths[0],
+            description: sample,
+            metric: count,
+            pages: paths.slice(0, 5),
+          });
+        }
+      }
+      offenders.sort((a, b) => b.metric - a.metric);
+      const passed = offenders.length === 0;
+      return {
+        passed,
+        offendersTotal: offenders.length,
+        // Deliberately NOT sliced: writeAuditReport derives the report's own
+        // `offendersTotal` from this array's length and truncates
+        // `topOffenders` itself (flagging it via `topOffendersTruncated`).
+        // Slicing here would under-report the total in the artifact, which is
+        // the surface people actually debug from. The list is bounded by
+        // construction — only descriptions ALREADY over the threshold.
+        offenders,
+        threshold: { metric: 'pagesPerDescription', value: maxPages, comparator: '<= (within the scanned set)' },
+        extra: {
+          limit,
+          filesScanned,
+          sampleRate,
+          distinctDescriptions: byDescription.size,
+          samplingSemantics:
+            sampleRate < 1
+              ? `group sizes are counted WITHIN the ${(sampleRate * 100).toFixed(0)}% sampled slice: no false positives (a sampled group is a real group), reduced recall (a real group may be split across buckets and never seen whole). A green run is not proof the corpus is clean.`
+              : 'full walk: group sizes are corpus-exact.',
+        },
+        humanSummary: passed
+          ? `duplicate meta-description gate: 0 description(s) on more than ${maxPages} of ${filesScanned} scanned page(s)`
+          : `${offenders.length} description(s) shared by more than ${maxPages} pages (worst: ${offenders[0].metric} pages)`,
+      };
+    },
+  };
+}
+
+export const factory = createAuditor;
+export const auditor = factory();
+
+// ─── Standalone CLI ──────────────────────────────────────────────────────────
+
+async function standalone() {
+  const args = process.argv.slice(2);
+  const getArg = (name) => {
+    const eq = args.find((a) => a.startsWith(`${name}=`));
+    if (eq) return eq.slice(name.length + 1);
+    const idx = args.indexOf(name);
+    return idx === -1 ? undefined : args[idx + 1];
+  };
+  const limit = Number(getArg('--limit') ?? 20);
+  const JSON_OUT = args.includes('--json');
+
+  const s = await stat(DEFAULT_DIST).catch(() => null);
+  if (!s || !s.isDirectory()) {
+    console.error(`[audit-duplicate-meta-description] ${DEFAULT_DIST} not found — run \`npm run build\` first.`);
+    process.exit(2);
+  }
+
+  const a = createAuditor({ limit });
+  const files = await walkHtmlFiles(DEFAULT_DIST);
+  for (const file of files) {
+    let html;
+    try { html = await readFile(file, 'utf8'); }
+    catch (err) {
+      if (err.code === 'ENOENT') continue;
+      throw err;
+    }
+    a.collect(file, html);
+  }
+  const result = await a.report();
+  await writeAuditReport({
+    audit: a.name,
+    passed: result.passed,
+    threshold: result.threshold,
+    offenders: result.offenders,
+    extra: result.extra,
+  });
+
+  if (JSON_OUT) {
+    console.log(JSON.stringify({ total: result.offendersTotal, extra: result.extra, offenders: result.offenders.slice(0, limit) }, null, 2));
+  } else if (result.passed) {
+    console.log(`✅ ${result.humanSummary}.`);
+  } else {
+    console.error(`❌ ${result.humanSummary}.`);
+    console.error('');
+    for (const o of result.offenders.slice(0, limit)) {
+      console.error(`  - "${o.description}…" on ${o.metric} pages: ${o.pages.join(', ')}${o.metric > o.pages.length ? ', …' : ''}`);
+    }
+    console.error('');
+    console.error('Fix: parameterise the plugin fallback with path-specific keywords (staticPagesPlugin, ogPagesPlugin, jobsSeoPagesPlugin).');
+  }
+  process.exit(result.passed ? 0 : 1);
+}
+
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  standalone().catch((err) => {
+    console.error('[audit-duplicate-meta-description] fatal', err);
+    process.exit(2);
+  });
+}

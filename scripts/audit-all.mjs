@@ -70,6 +70,15 @@ import { factory as faqpageValidity } from './audit-faqpage-validity.mjs';
 import { factory as imageObjectLicense } from './audit-image-object-license.mjs';
 import { factory as noLiteralMarkdown } from './audit-no-literal-markdown.mjs';
 import { factory as breadcrumbCoverage } from './audit-breadcrumb-coverage.mjs';
+// The four gate:dist-quality invariants folded in by #5845 item 6. They were
+// vitest files scanning the full 3.8M-file dist/ in one worker pool, which
+// died ERR_WORKER_OUT_OF_MEMORY at 597.95 s on run 31891126686; here they ride
+// the single sampled walk instead. Only `link-anchor-text` needed a threshold
+// conversion (absolute cap → rate) — its header says why.
+import { factory as singleH1PerPage } from './audit-single-h1-per-page.mjs';
+import { factory as duplicateStructuredData } from './audit-duplicate-structured-data.mjs';
+import { factory as linkAnchorText } from './audit-link-anchor-text.mjs';
+import { factory as duplicateMetaDescription } from './audit-duplicate-meta-description.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
@@ -85,6 +94,10 @@ const REGISTRY = [
   { factory: imageObjectLicense, name: 'image-object-license' },
   { factory: noLiteralMarkdown, name: 'no-literal-markdown' },
   { factory: breadcrumbCoverage, name: 'breadcrumb-coverage' },
+  { factory: singleH1PerPage, name: 'single-h1-per-page' },
+  { factory: duplicateStructuredData, name: 'duplicate-structured-data' },
+  { factory: linkAnchorText, name: 'link-anchor-text' },
+  { factory: duplicateMetaDescription, name: 'duplicate-meta-description' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────
@@ -112,8 +125,19 @@ async function main() {
     process.exit(2);
   }
 
-  // Instantiate fresh auditors from factories
-  const auditors = REGISTRY.map((r) => r.factory());
+  // Instantiate fresh auditors from factories.
+  //
+  // `sampleRate` is HANDED to the factories rather than left for each auditor
+  // to re-read from AUDIT_SAMPLE_RATE. The two are not the same number: the
+  // CLI flag documented above takes precedence over the env var precisely so a
+  // developer can reproduce a CI slice locally, and `runAudits` samples on
+  // THIS value. An auditor that re-parsed the env would then annotate its
+  // report with a rate the run did not use — `--sample-rate=0.25` with the env
+  // unset would scan a quarter of dist/ while the report said "full walk,
+  // corpus-exact", which is an affirmatively false statement in the field that
+  // exists to prevent that exact misreading. Auditors that do not take the
+  // option ignore it.
+  const auditors = REGISTRY.map((r) => r.factory({ sampleRate }));
 
   // Optional filter
   const selected = filterAuditors(auditors, auditFilter);
