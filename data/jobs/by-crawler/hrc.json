@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-08-15T09:39:21.429Z",
+  "assembledAt": "2026-08-15T21:23:36.507Z",
   "jobs": [
     {
       "id": "hrc-f1a0a3efa5ca",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:39:19.135Z",
+      "crawledAt": "2026-08-15T21:23:34.192Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/secretaire-hf-gestion-dossier-medicalarchives-centrales",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:39:19.115Z",
+      "crawledAt": "2026-08-15T21:23:34.172Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -240,7 +240,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
