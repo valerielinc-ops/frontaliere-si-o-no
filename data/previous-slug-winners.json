@@ -3511,11 +3511,11 @@
   },
   "AG::it::rayonleiter-in-wein-getranke-coop-sins-aargau": {
     "winnerJobIdentifier": "company-mwrkp7",
-    "winnerCanonical": "rayonleiter-in-wein-getranke-coop-sins-aargau-mwrkp7",
+    "winnerCanonical": "conduttore-rayon-in-vino-bevande-coop-genossenschaft-sins-e2dbc9",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.2308,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::salesperson-cashier-services-coop-genossenschaft-baden": {
@@ -3754,11 +3754,11 @@
   },
   "AG::it::verkaufer-in-blumen-kiosk-coop-unterentfelden-aargau": {
     "winnerJobIdentifier": "company-kk860u",
-    "winnerCanonical": "verkaufer-in-blumen-kiosk-coop-genossenschaft-unterentfelden",
+    "winnerCanonical": "venditore-in-fiori-kiosk-coop-genossenschaft-unterentfelden-ea4b68",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::verkaufer-in-denner": {
@@ -4150,11 +4150,11 @@
   },
   "AG::it::verkaufer-in-kassen-services-coop-sins-aargau": {
     "winnerJobIdentifier": "company-s8wtio",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-sins",
+    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-sins-a557d7",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::verkaufer-in-kassen-services-coop-volketswil-zurich": {
@@ -8920,11 +8920,11 @@
   },
   "BASILEA::it::rayonleiter-in-grundnahrungsmittel-coop-basel-landschaft": {
     "winnerJobIdentifier": "company-kqhumo",
-    "winnerCanonical": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-basel",
+    "winnerCanonical": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-basel-ab2ca6",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.2308,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::regional-account-specialist-roche-ch": {
@@ -15563,7 +15563,7 @@
   "BE::it::junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern": {
     "winnerJobIdentifier": "company-195e42",
     "winnerCanonical": "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
-    "decidedAt": "2026-08-15T00:00:00.000Z",
+    "decidedAt": "2026-08-13T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
@@ -19702,11 +19702,11 @@
   },
   "FR::it::rayonleiter-in-wein-getranke-coop-kerzers-freiburg": {
     "winnerJobIdentifier": "company-bg7ucu",
-    "winnerCanonical": "rayonleiter-in-wein-getranke-coop-kerzers-freiburg-bg7ucu",
+    "winnerCanonical": "conduttore-rayon-in-vino-bevande-coop-genossenschaft-kerzers-d43453",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.2308,
+    "candidatesCount": 1,
     "canton": "FR"
   },
   "FR::it::stockiste-h-f-rituals-cosmetics-ch": {
@@ -25183,11 +25183,11 @@
   },
   "GR::it::rayonleiter-in-nonfood-coop-chur-graubunden": {
     "winnerJobIdentifier": "company-eonhdk",
-    "winnerCanonical": "rayonleiter-in-nonfood-coop-chur-graubunden-eonhdk",
+    "winnerCanonical": "rayon-leader-in-nonfood-coop-genossenschaft-chur-b43401",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::rayonleiter-in-nonfood-coop-klosters-serneus-graubunden": {
@@ -49004,6 +49004,15 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::de::galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vevey": {
+    "winnerJobIdentifier": "galenica-41f870d97a31",
+    "winnerCanonical": "apothekenassistent-afc-sun-store-apotheke-galenica-vevey",
+    "decidedAt": "2026-08-15T00:00:00.000Z",
+    "lastSeenAt": "2026-08-15T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::de::gestionnaire-de-dossiers-specialises-domaine-judiciaire-etat-de-vaud-lausanne": {
     "winnerJobIdentifier": "etat-de-vaud-5679",
     "winnerCanonical": "specialist-file-manager-justizbereich-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -64737,11 +64746,11 @@
     "canton": "ZH"
   },
   "ZH::it::agent-name-kassen-services-coop-genossenschaft-volketswil-1a55a8": {
-    "winnerJobIdentifier": "company-x71vq1",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-volketswil",
-    "decidedAt": "2026-08-15T00:00:00.000Z",
-    "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-ynm7hh",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dielsdorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "score": 0.1429,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -69013,11 +69022,11 @@
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-feuerthalen-zurich": {
     "winnerJobIdentifier": "company-cg40b4",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen",
+    "winnerCanonical": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-feuerthalen-c8d647",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dielsdorf": {
@@ -69112,11 +69121,11 @@
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-zumikon-zurich": {
     "winnerJobIdentifier": "company-j6n5zj",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
+    "winnerCanonical": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-zumikon-9a5635",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-zurich": {
@@ -69129,20 +69138,20 @@
     "canton": "ZH"
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-2": {
-    "winnerJobIdentifier": "company-x10a9l",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
-    "decidedAt": "2026-08-15T00:00:00.000Z",
-    "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "company-8g7x51",
+    "winnerCanonical": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-zurich-23d8b5",
+    "decidedAt": "2026-07-24T00:00:00.000Z",
+    "lastSeenAt": "2026-08-14T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-bt5q98": {
-    "winnerJobIdentifier": "company-x10a9l",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zurich",
-    "decidedAt": "2026-08-15T00:00:00.000Z",
-    "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "company-v8gxkv",
+    "winnerCanonical": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-kusnacht",
+    "decidedAt": "2026-08-05T00:00:00.000Z",
+    "lastSeenAt": "2026-08-13T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -69354,11 +69363,11 @@
     "canton": "ZH"
   },
   "ZH::it::nom-de-l-agent-kassen-services-coop-genossenschaft-volketswil-1a55a8": {
-    "winnerJobIdentifier": "company-x71vq1",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-volketswil",
-    "decidedAt": "2026-08-15T00:00:00.000Z",
-    "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.4167,
+    "winnerJobIdentifier": "company-ynm7hh",
+    "winnerCanonical": "addetto-a-alle-casse-servizi-coop-genossenschaft-dielsdorf",
+    "decidedAt": "2026-07-06T00:00:00.000Z",
+    "lastSeenAt": "2026-07-27T00:00:00.000Z",
+    "score": 0.125,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -72982,11 +72991,11 @@
   },
   "ZH::it::verkaufer-in-food-coop-baretswil-zurich": {
     "winnerJobIdentifier": "company-75d29c",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-baretswil",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-baretswil-553e06",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-dietikon-zurich": {
@@ -73081,11 +73090,11 @@
   },
   "ZH::it::verkaufer-in-food-coop-zumikon-zurich": {
     "winnerJobIdentifier": "company-1ac501",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-zumikon",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-zumikon-6c5c5d",
     "decidedAt": "2026-08-15T00:00:00.000Z",
     "lastSeenAt": "2026-08-15T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-frischprodukte-coop-genossenschaft-schubelbach": {
