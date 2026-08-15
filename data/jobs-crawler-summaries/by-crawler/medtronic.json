@@ -1,16 +1,16 @@
 {
   "key": "medtronic",
   "label": "Medtronic",
-  "generatedAt": "2026-08-15T09:40:13.080Z",
-  "total": 8,
+  "generatedAt": "2026-08-15T21:31:13.032Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10478,
-  "avgDurationMs": 10478,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9837,
+  "avgDurationMs": 9837,
   "durationHistory": [
-    10478
+    9837
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Western-Europe-Deformity-Team-Leader_R72734",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:40:05.394Z",
+      "crawledAt": "2026-08-15T21:31:05.417Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Luzern-Luzern-Switzerland/Sales-Representative-Endoscopy--m-w-d-_R70257-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:04.616Z",
+      "crawledAt": "2026-08-15T21:31:04.820Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Genve-Genve-Switzerland/Technical-Consultant---Cardiac-Rhythm-management--m-f-d-_R70681-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:40:06.211Z",
+      "crawledAt": "2026-08-15T21:31:06.098Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lugano-Lugano-Switzerland/Technical-Consultant---Cardiac-Rhythm-management--m-f-d-_R70636-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:40:06.873Z",
+      "crawledAt": "2026-08-15T21:31:06.806Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Senior-Technical-Consultant-Manager---m-f-d-_R70585-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:40:07.794Z",
+      "crawledAt": "2026-08-15T21:31:07.482Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Market-Developer-Specialist--m-w-d-_R69334-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:40:08.574Z",
+      "crawledAt": "2026-08-15T21:31:08.145Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Representative--m-w-d----Patient-Monitoring---Digital-Health_R69063-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:40:09.360Z",
+      "crawledAt": "2026-08-15T21:31:08.811Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -274,8 +274,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "medtronic-a86a67636076",
       "slug": "therapy-sales-specialista-m-f-d-medtronic-tolochenaz",
@@ -315,5 +314,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
