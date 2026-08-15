@@ -2716,6 +2716,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-lucerna.title': 'Geschäft in Luzern eröffnen: Wahl der Rechtsform und Pflichten',
     'blog.article.aprire-un-attivita-canton-lucerna.excerpt': 'Die Wahl der geeigneten Rechtsform, die Eintragung ins Handelsregister, die Festlegung des Mindestkapitals, die Zahlung der Einschreibegebühren und die Erfüllung der Versicherungspflichten sind nur einige der Schritte, die für die Gründung eines Unternehmens im Kanton Luzern erforderlich sind.',
     'blog.article.aprire-un-attivita-canton-lucerna.imageAlt': 'Panoramablick auf Luzern, Schweiz',
+    'blog.article.patente-guida-lucerna-conversione-ed-esami.title': 'Führerschein in Luzern: was zu tun und zu wissen ist',
+    'blog.article.patente-guida-lucerna-conversione-ed-esami.excerpt': 'Die Umstellung des Führerscheins im Kanton Luzern: Voraussetzungen, Verfahren und Fristen.',
+    'blog.article.patente-guida-lucerna-conversione-ed-esami.imageAlt': 'Panoramische Ansicht des Lago di Lucerna in der Schweiz, mit einem Fokus auf die Infrastruktur und die Verkehrssysteme des Kantons.',
 };
 
 export default blogMetaChDe;

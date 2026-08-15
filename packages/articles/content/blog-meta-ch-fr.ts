@@ -2716,6 +2716,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-lucerna.title': 'Ouvrir une entreprise à Lucerne : choix de la forme juridique et obligations',
     'blog.article.aprire-un-attivita-canton-lucerna.excerpt': 'Choisir la forme juridique appropriée, s\'inscrire au registre du commerce, déterminer le capital minimum, payer les frais d\'inscription et remplir les obligations d\'assurance ne sont que quelques-unes des étapes nécessaires pour ouvrir une entreprise dans le canton de Lucerne.',
     'blog.article.aprire-un-attivita-canton-lucerna.imageAlt': 'Vue panoramique de Lucerne, Suisse',
+    'blog.article.patente-guida-lucerna-conversione-ed-esami.title': 'Permis de conduire à Lucerne : que faire et que savoir',
+    'blog.article.patente-guida-lucerna-conversione-ed-esami.excerpt': 'La conversion du permis de conduire dans le canton de Lucerne : exigences, procédures et délais.',
+    'blog.article.patente-guida-lucerna-conversione-ed-esami.imageAlt': 'Vue panoramique du lac de Lucerne en Suisse, avec un focus sur l\'infrastructure et les systèmes de transport du canton.',
 };
 
 export default blogMetaChFr;

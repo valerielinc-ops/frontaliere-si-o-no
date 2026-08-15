@@ -8146,6 +8146,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-guida-lucerna-conversione-ed-esami',
+    category: 'fiscale',
+    date: '2026-08-15T20:25:03.719Z',
+    image: '/images/blog/patente-guida-lucerna-conversione-ed-esami.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
