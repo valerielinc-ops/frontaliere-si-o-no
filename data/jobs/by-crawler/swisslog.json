@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-08-14T21:28:35.690Z",
+  "assembledAt": "2026-08-15T09:34:17.061Z",
   "jobs": [
     {
       "id": "swisslog-34572dec2de5",
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.089Z",
+      "crawledAt": "2026-08-15T09:34:14.663Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -116,7 +116,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.089Z",
+      "crawledAt": "2026-08-15T09:34:14.663Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -181,7 +181,7 @@
       "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
       "titleByLocale": {
         "it": "Controls Software Service Ingegnere (Siemens) (m/w/d)",
-        "en": "Controls Software Service Engineer (Siemens) (m/f/d)",
+        "en": "Controls Software Service Engineer (Siemens) (m/w/d)",
         "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
         "fr": "Controls Software Service Ingénieur (Siemens) (m/w/d)"
       },
@@ -197,7 +197,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.088Z",
+      "crawledAt": "2026-08-15T09:34:14.662Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -285,7 +285,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/working-student-quality-60-mwd-4396",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.087Z",
+      "crawledAt": "2026-08-15T09:34:14.661Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -322,6 +322,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:12.590Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -366,7 +367,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.087Z",
+      "crawledAt": "2026-08-15T09:34:14.661Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -430,7 +431,7 @@
       "title": "Apprentice Computer Scientist (m/w/d)",
       "titleByLocale": {
         "it": "Apprendista informatico (m/f/d)",
-        "en": "Apprentice Computer Scientist (m/f/d)",
+        "en": "Apprentice Computer Scientist (m/w/d)",
         "de": "Apprentice Computer Scientist (m/w/d)",
         "fr": "Apprentis en informatique (m/f/d)"
       },
@@ -446,7 +447,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.086Z",
+      "crawledAt": "2026-08-15T09:34:14.660Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -479,6 +480,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:21.809Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -507,7 +509,7 @@
       "title": "Software Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Software Project Manager (m/f/d)",
-        "en": "Software Project Manager (m/f/d)",
+        "en": "Software Project Manager (m/w/d)",
         "de": "Software Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet logiciel (m/f/d)"
       },
@@ -523,7 +525,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.085Z",
+      "crawledAt": "2026-08-15T09:34:14.659Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -561,6 +563,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {

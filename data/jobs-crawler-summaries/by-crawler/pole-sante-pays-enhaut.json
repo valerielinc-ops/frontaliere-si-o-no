@@ -1,56 +1,19 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-08-14T21:27:38.610Z",
+  "generatedAt": "2026-08-15T09:34:09.751Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4786,
-  "avgDurationMs": 4786,
+  "unchangedCount": 1,
+  "durationMs": 4824,
+  "avgDurationMs": 4824,
   "durationHistory": [
-    4786
+    4824
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "pole-sante-pays-enhaut-7c4043f73d9f",
-      "slug": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
-      "company": "Pôle Santé Pays-d'Enhaut",
-      "companyKey": "pole-sante-pays-enhaut",
-      "companyDomain": "pspe.ch",
-      "title": "Auxiliaire de santé polyvalent·e Taux d’activité de 70%, de suite ou à convenir",
-      "needsRetranslation": false,
-      "location": "Château d'Oex",
-      "canton": "VD",
-      "url": "https://www.jobup.ch/fr/emplois/detail/1c3afcf6-ccbe-4004-8799-de44be28ff97/",
-      "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-14T21:27:34.774Z",
-      "addressLocality": "Château d'Oex",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1660",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/1c3afcf6-ccbe-4004-8799-de44be28ff97/",
-      "firstSeenAt": "2026-07-30T11:14:37.655Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "id": "pole-sante-pays-enhaut-295c404754f0",
       "slug": "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
@@ -64,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-14T21:27:35.130Z",
+      "crawledAt": "2026-08-15T09:34:06.036Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -90,5 +53,45 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "pole-sante-pays-enhaut-7c4043f73d9f",
+      "slug": "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex",
+      "company": "Pôle Santé Pays-d'Enhaut",
+      "companyKey": "pole-sante-pays-enhaut",
+      "companyDomain": "pspe.ch",
+      "title": "Auxiliaire de santé polyvalent·e Taux d’activité de 70%, de suite ou à convenir",
+      "location": "Château d'Oex",
+      "canton": "VD",
+      "url": "https://www.jobup.ch/fr/emplois/detail/1c3afcf6-ccbe-4004-8799-de44be28ff97/",
+      "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-14T21:27:34.774Z",
+      "addressLocality": "Château d'Oex",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1660",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/1c3afcf6-ccbe-4004-8799-de44be28ff97/",
+      "firstSeenAt": "2026-07-30T11:14:37.655Z",
+      "salaryMin": 42400,
+      "salaryMax": 64000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
