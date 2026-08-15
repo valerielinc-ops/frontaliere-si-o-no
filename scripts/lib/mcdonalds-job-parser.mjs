@@ -108,8 +108,9 @@ export function inferCanton(addressRegion = '', city = '') {
  *
  * The source expresses employment type in two different shapes: the detail
  * page JSON-LD now carries a localized STRING ("Contrat plein temps",
- * "Vollzeit", …) rather than the array the SPA used, and the listing array
- * carries a `type_name` category instead. Accept both, then fall back to
+ * "Vollzeit", …) rather than the array the SPA used, and the McHire listing
+ * entries carry an `employmentType` array that is usually empty. Accept both
+ * shapes, then fall back to
  * title heuristics (apprenticeships are the main full-time-ish exception).
  */
 export function inferEmploymentType(title = '', ldEmploymentType = []) {
@@ -309,8 +310,19 @@ export function listingPageUrl(pageNum) {
 
 async function fetchListingPage(pageNum, { userAgent, timeoutMs }) {
   const html = await fetchText(listingPageUrl(pageNum), { userAgent, timeoutMs });
-  if (!html) return { jobs: [], totalJob: 0 };
-  return extractListingJobs(html);
+  if (!html) {
+    console.warn(`[mcdonalds] listing page ${pageNum}: fetch fallito — contata come vuota`);
+    return { jobs: [], totalJob: 0 };
+  }
+  const out = extractListingJobs(html);
+  // "200 senza __PRELOAD_STATE__" NON e' "zero job": e' la firma del prossimo
+  // format drift (classe #5852). Il guard anti-wipe dell'updater impedisce la
+  // perdita dati, ma senza questo warn la diagnosi resterebbe muta per i 3 run
+  // che servono al monitor.
+  if (out.jobs.length === 0 && out.totalJob === 0 && !html.includes('__PRELOAD_STATE__')) {
+    console.warn(`[mcdonalds] listing page ${pageNum}: 200 ma nessun __PRELOAD_STATE__ — probabile cambio di formato del portale`);
+  }
+  return out;
 }
 
 /**
@@ -325,7 +337,12 @@ async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 1
   if (first.jobs.length === 0) return { entries: [], pageCount: 0 };
 
   const perPage = first.jobs.length;
-  const totalPages = Math.max(1, Math.ceil((first.totalJob || perPage) / perPage));
+  // totalJob arriva dal JSON del portale e va creduto solo fino a un punto:
+  // un valore assurdo (bug loro, semantica cambiata, tarpit) non deve
+  // trasformarsi in una tempesta di fetch. 100 pagine = ~1000 job, oltre 6x
+  // il massimo storico osservato (165 job il 2026-08-15).
+  const MAX_LISTING_PAGES = 100;
+  const totalPages = Math.max(1, Math.min(MAX_LISTING_PAGES, Math.ceil((first.totalJob || perPage) / perPage)));
   const all = [...first.jobs];
 
   if (totalPages > 1) {
@@ -336,6 +353,12 @@ async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 1
       4
     );
     for (const page of rest) all.push(...page.jobs);
+  }
+  // Un raccolto parziale (pagina intermedia fallita, o totale mendace) non e'
+  // uno zero: il monitor non lo vede, e nel merge dell'updater i job mancanti
+  // uscirebbero come "removed". Almeno il log deve dirlo.
+  if (all.length < (first.totalJob || 0)) {
+    console.warn(`[mcdonalds] raccolto parziale: ${all.length}/${first.totalJob} job — pagina fallita o totalJob mendace`);
   }
   return { entries: all, pageCount: totalPages };
 }
