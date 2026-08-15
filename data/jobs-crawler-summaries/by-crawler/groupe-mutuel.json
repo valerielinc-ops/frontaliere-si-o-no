@@ -1,16 +1,19 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-08-15T09:40:06.365Z",
-  "total": 0,
+  "generatedAt": "2026-08-15T21:31:10.495Z",
+  "total": 36,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 5239,
+  "avgDurationMs": 5239,
+  "durationHistory": [
+    5239
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
