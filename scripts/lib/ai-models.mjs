@@ -2633,7 +2633,13 @@ function _exhaustSkipCause(model) {
   switch (reason) {
     case 'quota':        return 'daily limit / consecutive 429s';
     case 'timeout':      return 'timeout circuit-breaker';
-    case 'stale':        return 'stale credentials (HTTP 401)';
+    // NON "stale credentials": l'unico chiamante che passa 'stale' e'
+    // `prunedStaleModels`, e li' significa che il LISTING LIVE del provider non
+    // offre piu' quell'id — niente a che vedere con una chiave. Chiamarlo
+    // "credenziali" sarebbe una causa inventata, cioe' esattamente il difetto
+    // che questa funzione esiste per chiudere. Trovato in review su
+    // valerielinc-ops#5903.
+    case 'stale':        return 'model no longer offered by provider';
     case 'content':      return 'repeated unusable content';
     case 'nonretryable': return `non-retryable provider error${detail ? ` (${detail})` : ''}`;
     default:             return reason;
@@ -4893,14 +4899,14 @@ export async function callLLM(messages, opts = {}) {
  * (needs intervention). Reasons matching neither are ignored in the tally.
  */
 export function classifyExhaustionCause(errors) {
-  // `non-retryable provider error`, `stale credentials`, `repeated unusable
+  // `non-retryable provider error`, `no longer offered`, `repeated unusable
   // content` and `no longer available` are the vocabulary _exhaustSkipCause and
   // classifyNonRetryableError emit. They are named here EXPLICITLY rather than
   // left to be caught incidentally by the `\b40[124]\b` alternative: a phrase
   // that classifies correctly only because it happens to contain a status code
   // is one rewording away from silently flipping a persistent fault to
   // transient — which is exactly the failure this pair of regexes suffered.
-  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|no longer available|non-retryable|stale credentials|unusable content|payment|insufficient|credit/i;
+  const persistentRe = /\b40[124]\b|tokens?_limit_reached|context.?length|maximum context|too many tokens|exceeds .*input cap|max output \d+ <|no API key|unknown.?model|no such model|does not exist|decommissioned|deprecated|no longer supported|no longer available|no longer offered|non-retryable|unusable content|payment|insufficient|credit/i;
   // `timed out` alongside `timeout`: the claude-CLI provider rejects with
   // "claude CLI timed out after 120000ms", which matched NEITHER regex and fell
   // into the ignored ambiguous bucket — leaving the one model that was actually
