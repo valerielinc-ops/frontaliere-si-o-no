@@ -1,115 +1,18 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-08-14T21:28:03.577Z",
+  "generatedAt": "2026-08-15T09:34:51.058Z",
   "total": 35,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 33,
-  "durationMs": 23730,
-  "avgDurationMs": 23730,
+  "unchangedCount": 34,
+  "durationMs": 20820,
+  "avgDurationMs": 20820,
   "durationHistory": [
-    23730
+    20820
   ],
-  "newJobs": [
-    {
-      "id": "efg-6456",
-      "slug": "risk-manager-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Risk Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6456",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "At least 5 years of experience as a Risk Manager or Auditor in a financial institution, a Swiss bank, or an audit firm in the relevant areas;",
-              "Excellent knowledge of the banking regulatory framework; experience in managing audits related to the above domains is a plus;",
-              "Strong understanding of financial instruments and operational technical aspects of banking;",
-              "Excellent command of Excel and proficiency in Microsoft Office tools;",
-              "Methodical, rigorous, and autonomous work approach;",
-              "Strong interpersonal skills and effective communication;",
-              "Fluency in French and English; German would be an asset;"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "process": [],
-            "highlights": [
-              "At least 5 years of experience as a Risk Manager or Auditor in a financial institution, a Swiss bank, or an audit firm in the relevant areas;",
-              "Excellent knowledge of the banking regulatory framework; experience in managing audits related to the above domains is a plus;",
-              "Strong understanding of financial instruments and operational technical aspects of banking;",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "At least 5 years of experience as a Risk Manager or Auditor in a financial institution",
-              "Excellent knowledge of the banking regulatory framework",
-              "Strong understanding of financial instruments and operational technical aspects of banking",
-              "Excellent command of Excel and proficiency in Microsoft Office tools",
-              "Methodical"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
-                  "<br><span><strong>Job Description</strong></span>",
-                  "<span>As part of our talent pool, your profile will be reviewed for a variety of Risk opportunities as they become available. </span>",
-                  "<span><strong>Main Responsibilities</strong></span>",
-                  "Participate in the Second Line of Defense (SLOD) function by providing independent oversight of operational, market, and financial risks. Contribute to fostering a pragmatic and effective risk culture, while ensuring robust design and effectiveness of the control framework. You will work within a team of specialists and handle the following tasks:"
-                ],
-                "bullets": [
-                  "Independent controls of investment risks such as suitability and appropriateness: analyse portfolios by identifying concentrations and deviations from risk profiles; perform risk due diligence on specific products; monitor investment constraints for client portfolios and financial products (UCITS funds, certificates, life insurance, etc.);",
-                  "Independent oversight of operational risk controls, including IT security, transaction monitoring, fraud prevention, and key risk processes; execution of thematic reviews and deep-dive analyses on high-risk areas, and validation of control design and operating effectiveness;",
-                  "Management of direct financial risks such as balance sheet management risks (Treasury & ALM - liquidity and interest rates), credit risks arising from Lombard loans, guarantees, and the use of derivatives and margin-call products;",
-                  "Comprehensive management and independent monitoring of financial risks, including balance sheet risks (Treasury, ALM - liquidity and interest rate risk), credit risks (Lombard lending, guarantees), and risks related to derivatives and margin products, including regular challenge of methodologies, limits, and usage practices;",
-                  "Regulatory watch and impact analysis of regulatory developments in the context of risk management;",
-                  "Support and backup for the Head of Risk in preparing risk management reports, dashboards, and audits;",
-                  "Training and awareness for first-line control staff and promotion of a strong risk culture;"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-14T21:27:59.827Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-08-14",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "efg-5984",
@@ -145,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.852Z",
+      "crawledAt": "2026-08-15T09:34:47.433Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -269,7 +172,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.871Z",
+      "crawledAt": "2026-08-15T09:34:47.479Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -433,7 +336,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.870Z",
+      "crawledAt": "2026-08-15T09:34:47.478Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -555,7 +458,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.868Z",
+      "crawledAt": "2026-08-15T09:34:47.473Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -662,7 +565,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.867Z",
+      "crawledAt": "2026-08-15T09:34:47.471Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -715,7 +618,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.865Z",
+      "crawledAt": "2026-08-15T09:34:47.467Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -770,7 +673,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.864Z",
+      "crawledAt": "2026-08-15T09:34:47.464Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -899,7 +802,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.862Z",
+      "crawledAt": "2026-08-15T09:34:47.461Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1000,7 +903,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.860Z",
+      "crawledAt": "2026-08-15T09:34:47.456Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1055,7 +958,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.858Z",
+      "crawledAt": "2026-08-15T09:34:47.451Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1179,7 +1082,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.856Z",
+      "crawledAt": "2026-08-15T09:34:47.447Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1234,7 +1137,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.854Z",
+      "crawledAt": "2026-08-15T09:34:47.442Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1361,7 +1264,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.846Z",
+      "crawledAt": "2026-08-15T09:34:47.416Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1417,7 +1320,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.845Z",
+      "crawledAt": "2026-08-15T09:34:47.412Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1564,7 +1467,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.843Z",
+      "crawledAt": "2026-08-15T09:34:47.406Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1673,7 +1576,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.839Z",
+      "crawledAt": "2026-08-15T09:34:47.395Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-08-04",
@@ -1692,6 +1595,107 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6456",
+      "slug": "responsabile-del-rischio-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Risk Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6456",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "At least 5 years of experience as a Risk Manager or Auditor in a financial institution, a Swiss bank, or an audit firm in the relevant areas;",
+              "Excellent knowledge of the banking regulatory framework; experience in managing audits related to the above domains is a plus;",
+              "Strong understanding of financial instruments and operational technical aspects of banking;",
+              "Excellent command of Excel and proficiency in Microsoft Office tools;",
+              "Methodical, rigorous, and autonomous work approach;",
+              "Strong interpersonal skills and effective communication;",
+              "Fluency in French and English; German would be an asset;"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "At least 5 years of experience as a Risk Manager or Auditor in a financial institution, a Swiss bank, or an audit firm in the relevant areas;",
+              "Excellent knowledge of the banking regulatory framework; experience in managing audits related to the above domains is a plus;",
+              "Strong understanding of financial instruments and operational technical aspects of banking;",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "At least 5 years of experience as a Risk Manager or Auditor in a financial institution",
+              "Excellent knowledge of the banking regulatory framework",
+              "Strong understanding of financial instruments and operational technical aspects of banking",
+              "Excellent command of Excel and proficiency in Microsoft Office tools",
+              "Methodical"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
+                  "<br><span><strong>Job Description</strong></span>",
+                  "<span>As part of our talent pool, your profile will be reviewed for a variety of Risk opportunities as they become available. </span>",
+                  "<span><strong>Main Responsibilities</strong></span>",
+                  "Participate in the Second Line of Defense (SLOD) function by providing independent oversight of operational, market, and financial risks. Contribute to fostering a pragmatic and effective risk culture, while ensuring robust design and effectiveness of the control framework. You will work within a team of specialists and handle the following tasks:"
+                ],
+                "bullets": [
+                  "Independent controls of investment risks such as suitability and appropriateness: analyse portfolios by identifying concentrations and deviations from risk profiles; perform risk due diligence on specific products; monitor investment constraints for client portfolios and financial products (UCITS funds, certificates, life insurance, etc.);",
+                  "Independent oversight of operational risk controls, including IT security, transaction monitoring, fraud prevention, and key risk processes; execution of thematic reviews and deep-dive analyses on high-risk areas, and validation of control design and operating effectiveness;",
+                  "Management of direct financial risks such as balance sheet management risks (Treasury & ALM - liquidity and interest rates), credit risks arising from Lombard loans, guarantees, and the use of derivatives and margin-call products;",
+                  "Comprehensive management and independent monitoring of financial risks, including balance sheet risks (Treasury, ALM - liquidity and interest rate risk), credit risks (Lombard lending, guarantees), and risks related to derivatives and margin products, including regular challenge of methodologies, limits, and usage practices;",
+                  "Regulatory watch and impact analysis of regulatory developments in the context of risk management;",
+                  "Support and backup for the Head of Risk in preparing risk management reports, dashboards, and audits;",
+                  "Training and awareness for first-line control staff and promotion of a strong risk culture;"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-08-15T09:34:47.375Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-08-14",
+      "salaryMin": 174500,
+      "salaryMax": 306000,
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-14T21:27:59.827Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -1728,7 +1732,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-14T21:27:59.814Z",
+      "crawledAt": "2026-08-15T09:34:47.342Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -2883,130 +2887,6 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.905Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-5799",
-      "slug": "business-analista-legal-compliance-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Business Analyst Legal & Compliance",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5799",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
-              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
-              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
-              "Map end-to-end processes and highlight regional variations for harmonization",
-              "Systems Oversight & Operational Support: <ul> <li>Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras",
-              "Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations",
-              "Support UAT processes, system documentation, and global roll-out coordination",
-              "Governance: <ul> <li>Contribute to governance forums by preparing consistent, global-level reporting and status updates"
-            ],
-            "requirements": [
-              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
-              "Strong analytical, documentation, and stakeholder management capabilities",
-              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
-              "Global mindset with excellent cross-cultural communication skills.",
-              "Fluency in English",
-              "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
-              "Technically fluent in compliance tool functionality, system workflows, and data flows",
-              "University degree in Law, Economics, Business Administration, or related field.",
-              "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
-              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
-              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
-              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
-              "Strong analytical, documentation, and stakeholder management capabilities",
-              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
-              "Strong analytical",
-              "Autonomy",
-              "Global mindset with excellent cross-cultural communication skills.",
-              "Fluency in English",
-              "Global Business & Functional Analysis",
-              "Assists in identifying",
-              "Serve as a key interface between global and local teams",
-              "Map end-to-end processes and highlight regional variations for harmonization"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Role",
-                "paragraphs": [
-                  "As part of the Global Legal & Compliance Transformation team in the Global COO Legal & Compliance Unit, the role focuses on evaluating business problems and relevant solutions, improving data consistency, and reporting capabilities across jurisdictions, with a particular focus on SAS AML, GTExchange, Firco Continuity, and Pythagoras."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-22T22:35:37.118Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-14",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.883Z",
       "country": "CH",
       "needsRetranslation": true,
       "_qualityScore": 97,
