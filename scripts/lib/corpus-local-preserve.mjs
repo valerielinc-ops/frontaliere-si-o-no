@@ -5,10 +5,11 @@
  * Extracted out of pull-articles-corpus.mjs (2026-08-15) so the snapshot step can be
  * exercised in a test without running the rest of the script — the clone, the manifest
  * fetch, the registry gate. This is the exact logic that used two undefined variables
- * (`srcFiles`, `dstFiles`) at runtime from 2026-08-13 to 2026-08-15: `node --check`
- * cannot catch a ReferenceError that only fires when the branch actually runs, and the
- * branch only runs when `preserveIds.size > 0` — i.e. only when a locally-published
- * article's id is not yet upstream, not on every sync.
+ * (`srcFiles`, `dstFiles`): the loop shipped with PR #5357 (2026-08-08, the sync pin)
+ * and sat dormant, because it only runs when `preserveIds.size > 0` — i.e. only when a
+ * local registry id is missing upstream. `node --check` cannot catch a ReferenceError
+ * that only fires when the branch actually executes, and the branch first executed on
+ * 2026-08-15, when three bridged retirements made three ids local-only.
  */
 
 import fs from 'node:fs';
@@ -32,6 +33,27 @@ export function listRelFiles(dir) {
   };
   walk(dir, '');
   return out;
+}
+
+/**
+ * Drop from `preserveIds` every id whose absence upstream is a *deliberate,
+ * bridged retirement* — the registry gate has already approved its removal,
+ * and the mirror is about to delete its body module on purpose.
+ *
+ * Without this, a retired id is indistinguishable from a locally-published
+ * one (both are "present local, absent upstream"): the merge-back would put
+ * its registry entries back while its body is gone — a registry row with no
+ * module (red of class #5298) — and since the id stays local-only forever,
+ * every subsequent sync would re-preserve it.
+ *
+ * `removals` is `verdict.removals` from `evaluateCorpusRemoval()`: entries
+ * with `ledgered === true` carry a bridge in the retirement ledger.
+ */
+export function dropLedgeredRetirements(preserveIds, removals) {
+  for (const r of removals ?? []) {
+    if (r?.ledgered) preserveIds.delete(r.id);
+  }
+  return preserveIds;
 }
 
 /**
