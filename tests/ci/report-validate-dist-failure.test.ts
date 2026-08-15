@@ -256,6 +256,25 @@ describe('gateToRepro / replayAuditsArg — mappature da package.json', () => {
     expect(replayAuditsArg('validate:sitemap', PKG_SCRIPTS)).toBeNull();
   });
 
+  it('replayAuditsArg: gate:* → nome INTERO (audit-dist-from-run lo invoca letteralmente)', () => {
+    // Il produttore del body taceva sui `gate:*` mentre il replay li accettava:
+    // la issue auto-aperta per gate:dist-quality stampava «serve una rebuild»
+    // e chi la leggeva pagava 40 minuti di build per niente (#5918). Il nome va
+    // passato intero — il workflow prefissa `audit:` SOLO ai nomi nudi.
+    expect(replayAuditsArg('gate:dist-quality', PKG_SCRIPTS)).toBe('gate:dist-quality');
+    expect(replayAuditsArg('gate:seo-source', PKG_SCRIPTS)).toBe('gate:seo-source');
+    // Un `gate:` inventato non è annunciabile: nel replay sarebbe `Missing script`.
+    expect(replayAuditsArg('gate:non-esiste', PKG_SCRIPTS)).toBeNull();
+  });
+
+  it('la sezione Replay annuncia il comando per un gate:, non la rebuild', () => {
+    const base = bfsInput();
+    const job = { ...base.failedJobs[0], gates: [{ gate: 'gate:dist-quality', rc: 1, seconds: 12 }] };
+    const [payload] = buildIssuePayloads({ ...base, failedJobs: [job] });
+    expect(payload.body).toMatch(/-f audits=gate:dist-quality/);
+    expect(payload.body).not.toMatch(/non è rieseguibile dall'artifact/);
+  });
+
   it('gateLabel: slug kebab-case sanitizzato', () => {
     expect(gateLabel('audit:max-bfs-depth')).toBe('ci-gate:audit-max-bfs-depth');
     expect(gateLabel('audit:all/text-html-ratio')).toBe('ci-gate:audit-all-text-html-ratio');
