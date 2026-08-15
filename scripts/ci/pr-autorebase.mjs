@@ -58,8 +58,17 @@ import {
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
 } from './lib/vitestCheck.mjs';
-import { hasCommentMarker as hasCommentMarkerShared } from './lib/prComments.mjs';
+import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
+import {
+  REOPEN_BUDGET_MARKER,
+  BREAKER_LABEL,
+  DEFAULT_MAX_REOPENS,
+  reopenFingerprint,
+  parseReopenBudget,
+  decideReopen,
+  renderReopenBudget,
+} from './lib/reopen-breaker.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -92,6 +101,8 @@ const REOPEN_COST_MS = Number(process.env.AUTOREBASE_REOPEN_COST_MS
  * la chiusura si recupera a mano, la perdita del branch no.
  */
 const REOPEN_FAILED_LABEL = 'autorebase-reopen-failed';
+/** Tetto di riaperture sullo STESSO stato — vedi lib/reopen-breaker.mjs. */
+const MAX_REOPENS = Number(process.env.AUTOREBASE_MAX_REOPENS || DEFAULT_MAX_REOPENS);
 
 const budget = runBudgetFromEnv();
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
@@ -246,6 +257,101 @@ function reopenToRetrigger(num) {
     }
   }
   return false;
+}
+
+/**
+ * Impronta dello stato della PR per il breaker. Vedi il razionale completo in
+ * lib/reopen-breaker.mjs: NIENTE head OID e NIENTE conteggio commit, perché
+ * questo stesso script pusha un merge commit di main a ogni tick e li
+ * cambierebbe SEMPRE, azzerando il contatore a ogni giro.
+ */
+function reopenStateFingerprint(num, vitestConclusion) {
+  const d = gh(['pr', 'view', String(num), '--repo', REPO, '--json',
+    'additions,deletions,changedFiles'], { allowFail: true }) || {};
+  const reviews = gh(['api', `repos/${REPO}/pulls/${num}/reviews`, '--paginate',
+    '--jq', 'length'], { json: false, allowFail: true });
+  return reopenFingerprint({
+    additions: d.additions,
+    deletions: d.deletions,
+    changedFiles: d.changedFiles,
+    vitestConclusion,
+    reviewCount: parseInt((reviews || '0').trim(), 10) || 0,
+  });
+}
+
+/** Ultimo verdetto vitest sull'head, NORMALIZZATO: una cancellazione da
+ * concurrency non è un verdetto sul codice e non deve valere come `failure`
+ * per la precondizione (altrimenti bloccherebbe PR sane). */
+function normalizedVitestConclusion(head) {
+  const out = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
+    { json: true, allowFail: true });
+  const runs = (out && out.check_runs) || [];
+  if (vitestVerdictIsTransientCancellation(runs)) return 'transient';
+  return latestCompletedVitestConclusion(runs) || '';
+}
+
+/**
+ * `reopenToRetrigger` con precondizione + circuit breaker davanti.
+ *
+ * TUTTE le riaperture passano di qui: chiamare `reopenToRetrigger` direttamente
+ * rimetterebbe in piedi il loop misurato su #5896/#5906 (12 e 10 riaperture,
+ * 55% di tutta la CI del repo in 8h). Il breaker non è un extra: il close+reopen
+ * emette `reopened`, e `tests.yml` ha `on: pull_request` senza `types:` →
+ * eredita `[opened, synchronize, reopened]`, quindi OGNI giro sbagliato costa
+ * una vitest intera (~18min) su una coda serializzata.
+ */
+function guardedReopen(num, head) {
+  const vitestConclusion = normalizedVitestConclusion(head);
+  const fingerprint = reopenStateFingerprint(num, vitestConclusion);
+  const body = readReopenBudgetBody(num);
+  const prior = parseReopenBudget(body);
+  const d = decideReopen({ vitestConclusion, fingerprint, prior, max: MAX_REOPENS });
+
+  if (d.action !== 'reopen') {
+    // Segnalazione UNA SOLA: commento STICKY riscritto in place (non un
+    // commento nuovo a ogni giro, non una issue nuova a ogni giro). Se il body
+    // è già identico non si riscrive nemmeno quello — N tick = 0 notifiche in
+    // più. Una segnalazione ripetuta sarebbe lo stesso difetto in altra forma.
+    const next = renderReopenBudget({
+      count: d.count, max: MAX_REOPENS, fingerprint, action: d.action, reason: d.reason,
+    });
+    console.log(`PR #${num}: NO reopen (${d.action}) — ${d.reason}`);
+    if (!DRY && !labelsOf(num).includes(BREAKER_LABEL)) {
+      gh(['pr', 'edit', String(num), '--repo', REPO, '--add-label', BREAKER_LABEL],
+        { json: false, allowFail: true });
+    }
+    if (body !== next) {
+      upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+    }
+    return false;
+  }
+
+  // Il contatore si scrive PRIMA della coppia close+reopen: se il job muore in
+  // mezzo il tentativo è comunque contato. Contarlo dopo renderebbe il breaker
+  // cieco proprio ai giri che falliscono, cioè quelli che contano di più.
+  const next = renderReopenBudget({
+    count: d.count, max: MAX_REOPENS, fingerprint, action: d.action, reason: d.reason,
+  });
+  if (body !== next) {
+    upsertStickyComment(gh, REPO, num, REOPEN_BUDGET_MARKER, next, { dry: DRY });
+  }
+  console.log(`PR #${num}: reopen consentito — ${d.reason}`);
+  return reopenToRetrigger(num);
+}
+
+/** Body del commento sticky del budget, o '' se non c'è. */
+function readReopenBudgetBody(num) {
+  const raw = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
+    '--jq', `[.[] | select(.body // "" | contains("${REOPEN_BUDGET_MARKER}")) | .body] | last // ""`],
+  { json: false, allowFail: true });
+  return raw || '';
+}
+
+/** Label correnti della PR (rilette: il breaker può averle appena cambiate). */
+function labelsOf(num) {
+  const raw = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'labels',
+    '--jq', '[.labels[].name] | join(",")'], { json: false, allowFail: true });
+  return (raw || '').trim().split(',').filter(Boolean);
 }
 
 /** behind_by: commit di main non nella head. */
@@ -587,7 +693,7 @@ async function processPR(pr) {
         // Classe-A: nemmeno la review esiste (drift 401) — il solo vitest non
         // sblocca (auto-merge esige LGTM). Reopen = review+tests insieme.
         console.log(`PR #${num} 0 dietro main, NESSUNA review claude e niente vitest → close+reopen (re-trigger review+tests).`);
-        reopenToRetrigger(num);
+        guardedReopen(num, head);
       } else {
         console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml (heal, no rebase).`);
         dispatchTests(num, branch);
@@ -796,7 +902,11 @@ async function processPR(pr) {
       return;
     }
     const why = hasAnyClaudeReview(num) ? '🔴/❓ non chiuso + drift sanato' : 'classe-A senza review';
-    if (reopenToRetrigger(num)) {
+    // Il reopen passa dal breaker: è QUESTO call-site che ha prodotto le 12+10
+    // riaperture di #5896/#5906. `!lgtm` con vitest rosso è una condizione che
+    // il reopen non può cambiare (pr-review-loop gira solo su tests success),
+    // quindi senza guardia si ripete a ogni tick per sempre.
+    if (guardedReopen(num, head)) {
       console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (${why}) → review+redflag ri-triggerati drift-free.`);
     }
     return;
