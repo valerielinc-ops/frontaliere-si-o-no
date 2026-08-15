@@ -7,7 +7,17 @@ on:
         required: true
         type: string
       audits:
-        description: 'Comma-sep audit script names. `all` invokes the unified runner (6 dist-walking audits in 1 Node process). Examples: `all` / `all,page-weight,max-bfs-depth` / `text-html-ratio,page-weight`.'
+        description: >-
+          Comma-sep npm script names. A BARE name is prefixed with `audit:`
+          (`page-weight` → `audit:page-weight`); `all` invokes the unified runner
+          (6 dist-walking audits in 1 Node process). A name that ALREADY carries a
+          known namespace (`gate:`, `audit:`, `dist:`) is invoked LITERALLY — so a
+          gate can be replayed here too. To replay #5875 pass `gate:dist-quality`
+          (the npm script; `dist:quality-tests` is only the CHECK-RUN LABEL
+          post-deploy-validate-dist.yml gives its report — there is no npm script
+          by that name and passing it fails with `Missing script`). For #5874 pass
+          `gate:seo-source`. Examples: `all` / `all,page-weight,max-bfs-depth` /
+          `gate:dist-quality,gate:seo-source`.
         required: false
         default: 'all,page-weight,max-bfs-depth'
         type: string
@@ -163,19 +173,35 @@ jobs:
           IFS=',' read -ra AUDITS <<< "$INPUT_AUDITS"
           mkdir -p /tmp/audit-logs
           FAIL=0
+          # Namespace già presenti nel nome → invocazione LETTERALE (issue #5918).
+          # Prima, il loop prefissava `audit:` SEMPRE, e i due gate che servono a
+          # rigiocare #5875/#5874 sono script npm già namespaced
+          # (`gate:dist-quality`, `gate:seo-source`): il replay li invocava come
+          # `npm run audit:gate:dist-quality`, che non esiste → `Missing script`,
+          # rc≠0, e il job riportava un FAIL fabbricato dal wrapper invece del
+          # verdetto del gate. Passare l'etichetta del check-run
+          # (`dist:quality-tests`) non funziona neanche letteralmente: è il nome
+          # che post-deploy-validate-dist.yml dà al REPORT, non uno script npm —
+          # per questo la description dell'input nomina lo script, non l'etichetta.
+          KNOWN_PREFIXES='gate|audit|dist'
           for name in "${AUDITS[@]}"; do
             n=$(echo "$name" | xargs)
             [ -z "$n" ] && continue
-            log=/tmp/audit-logs/$n.log
-            echo "──── npm run audit:$n ────" | tee -a /tmp/summary.txt
-            (npm run "audit:$n" 2>&1) > "$log"
+            if printf '%s' "$n" | grep -qE "^($KNOWN_PREFIXES):"; then
+              script="$n"
+            else
+              script="audit:$n"
+            fi
+            log=/tmp/audit-logs/$(printf '%s' "$script" | tr ':/' '__').log
+            echo "──── npm run $script ────" | tee -a /tmp/summary.txt
+            (npm run "$script" 2>&1) > "$log"
             rc=$?
             tail -25 "$log" | tee -a /tmp/summary.txt
             if [ $rc -ne 0 ]; then
-              echo "❌ FAIL audit:$n rc=$rc" | tee -a /tmp/summary.txt
+              echo "❌ FAIL $script rc=$rc" | tee -a /tmp/summary.txt
               FAIL=$((FAIL+1))
             else
-              echo "✅ PASS audit:$n" | tee -a /tmp/summary.txt
+              echo "✅ PASS $script" | tee -a /tmp/summary.txt
             fi
           done
           echo ""
