@@ -1,6 +1,6 @@
 {
   "crawlerKey": "belimo",
-  "assembledAt": "2026-08-15T09:38:54.218Z",
+  "assembledAt": "2026-08-15T21:30:12.190Z",
   "jobs": [
     {
       "id": "belimo-8a7afe38e144",
@@ -33,7 +33,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Head-of-District-Energy-&-Metering-%28EMEA%29-%28100%29-Z%C3%BCri-8340/1163687855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:50.691Z",
+      "crawledAt": "2026-08-15T21:30:07.545Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -52,7 +52,16 @@
       "jobReqId": "1163687855",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
+        ]
+      },
       "firstSeenAt": "2026-08-14T21:34:42.685Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -64,22 +73,14 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
-      ]
+      }
     },
     {
       "id": "belimo-7abf3509d8bf",
       "slug": "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
       "slugByLocale": {
-        "en": "head-of-district-energy-metering-emea-100-belimo-hinwil-y72rob",
         "it": "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
+        "en": "head-of-district-energy-metering-emea-100-belimo-hinwil-y72rob",
         "de": "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
         "fr": "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
       },
@@ -105,7 +106,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Head-of-District-Energy-&-Metering-%28EMEA%29-%28100%29-Zuri-8340/1163687755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:50.100Z",
+      "crawledAt": "2026-08-15T21:30:07.010Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -124,6 +125,15 @@
       "jobReqId": "1163687755",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "head-of-district-energy-metering-emea-100-belimo-hinwil"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "head-of-district-energy-metering-emea-100-belimo-hinwil"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T21:34:42.073Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -136,33 +146,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-14T21:34:42.073Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "head-of-district-energy-metering-emea-100-belimo-hinwil"
-        ]
-      },
-      "previousSlugs": [
-        "head-of-district-energy-metering-emea-100-belimo-hinwil"
-      ]
+      "needsRetranslation": true
     },
     {
       "id": "belimo-dfad06e18cc2",
       "slug": "responsabile-di-progetto-senior-80-100-belimo-hinwil",
       "slugByLocale": {
-        "de": "senior-project-manager-80-100-belimo-hinwil",
-        "fr": "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
         "it": "responsabile-di-progetto-senior-80-100-belimo-hinwil",
-        "en": "senior-project-manager-80-100-belimo-hinwil"
+        "en": "senior-project-manager-80-100-belimo-hinwil",
+        "de": "senior-project-manager-80-100-belimo-hinwil",
+        "fr": "gestionnaire-principal-de-projet-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
       "companyDomain": "belimo.com",
       "title": "Senior Project Manager (80-100%)",
       "titleByLocale": {
-        "de": "Senior Project Manager (80-100%)",
-        "en": "Senior Project Manager (80-100%)",
         "it": "Responsabile di progetto senior (80-100%)",
+        "en": "Senior Project Manager (80-100%)",
+        "de": "Senior Project Manager (80-100%)",
         "fr": "Gestionnaire principal de projet (80-100%)"
       },
       "description": "In dieser Rolle leitest du komplexe, bereichsübergreifende Entwicklungsprojekte für industrielle mechatronische Produkte – von der Planung bis zur erfolgreichen Umsetzung. Du sorgst für strukturierte Projektdurchführung, klare Governance und robustes Risikomanagement, ermöglichst faktenbasierte Entscheidungen auf Führungsebene und förderst die Zusammenarbeit über alle Funktionen hinweg. Dabei bist du eine treibende Kraft für die kontinuierliche Verbesserung der Projektarbeit im gesamten Unternehmen.\n\nWas wirst du tun\n\n• Komplexe Projekte und Multi-Workstream-Vorhaben planen, steuern und überwachen – inklusive Scope, Zeitplan, Budget, Ressourcen, Risiken und Deliverables\n\n• Bereichsübergreifende Abhängigkeiten koordinieren und eine reibungslose Zusammenarbeit zwischen Engineering, Produktion, Qualität und weiteren Bereichen sicherstellen\n\n• Einhaltung von Governance, Prozessen, Methoden und Deliverables sicherstellen sowie Projektleiter und Teammitglieder proaktiv coachen\n\n• Vollständige, qualitativ hochwertige Projektdaten pflegen und transparent über Status, Bereitschaft, Lücken und erforderliche Massnahmen berichten\n\n• Risiko-, Problem- und Änderungsmanagement verantworten – von der Identifikation und Bewertung über Massnahmen bis hin zu Freigaben und Eskalationen\n\n• Faktenbasierte Entscheidungen vorbereiten durch Konsolidierung von Status, Risiken und Fortschritt sowie klare Entscheidungsunterlagen und Empfehlungen für die Führungsebene\n\n• Strukturierte Stakeholder-Kommunikation, Abstimmung und Konfliktlösung über Abteilungen und Projekte hinweg sicherstellen\n\n• Kontinuierliche Verbesserung von Projektdurchführung, Methoden, Tools und Zusammenarbeit durch Lessons Learned und Feedback vorantreiben\n\nWer du bist\n\n• Technischer Abschluss (z. B. Maschinenbau oder Elektrotechnik) auf FH/ETH/Universitätsniveau mit breitem Wissen in angrenzenden technischen Disziplinen (T-Profil)\n\n• Mindestens 6 Jahre Erfahrung in der Leitung interdisziplinärer Entwicklungsprojekte mit industriellen mechatronischen Geräten\n\n• Fundierte Methodenkenntnisse im Projektmanagement; eine PM-Zertifizierung ist ein Plus\n\n• Sehr gute Kenntnisse in PM-Tools (z. B. Jira, Sciforma, Planview) sowie in Planung, Steuerung und Reporting\n\n• Nachgewiesene Erfahrung in der Koordination bereichsübergreifender Teams und enger Zusammenarbeit mit Entwicklung (Elektronik, Mechanik, Software), Produktion, Qualität und weiteren Bereichen\n\n• Gutes Verständnis betriebswirtschaftlicher Zusammenhänge für fundierte Abwägungen und Folgenabschätzungen\n\n• Serviceorientierte, empathische und lösungsorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten und der Fähigkeit, als Projektleiter zu motivieren und zu begeistern\n\n• Sehr gute Englischkenntnisse; gute Deutschkenntnisse erwünscht – kombiniert mit starker Selbstorganisation, Ownership-Mentalität, ganzheitlichem Denken und hoher Resilienz\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
@@ -177,7 +179,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Project-Manager-%2880-100%29-Z%C3%BCri-8340/1164383855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:49.540Z",
+      "crawledAt": "2026-08-15T21:30:06.473Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -196,7 +198,18 @@
       "jobReqId": "1164383855",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-project-manager-80-100-belimo-hinwil",
+        "responsabile-di-progetto-senior-80-100-belimo-hinwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-80-100-belimo-hinwil",
+          "responsabile-di-progetto-senior-80-100-belimo-hinwil"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:34:41.481Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -208,16 +221,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-14T21:34:41.481Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-project-manager-80-100-belimo-hinwil"
-        ]
-      },
-      "previousSlugs": [
-        "senior-project-manager-80-100-belimo-hinwil"
-      ]
+      }
     },
     {
       "id": "belimo-f97c3810950c",
@@ -233,8 +237,8 @@
       "companyDomain": "belimo.com",
       "title": "Senior Project Manager (80-100%)",
       "titleByLocale": {
-        "en": "Senior Project Manager (80-100%)",
         "it": "Responsabile di progetto senior (80-100%)",
+        "en": "Senior Project Manager (80-100%)",
         "de": "Senior Projektmanager (80-100%)",
         "fr": "Gestionnaire principal de projet (80-100%)"
       },
@@ -250,7 +254,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Project-Manager-%2880-100%29-Zuri-8340/1164383755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:48.993Z",
+      "crawledAt": "2026-08-15T21:30:05.934Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -269,6 +273,9 @@
       "jobReqId": "1164383755",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-project-manager-80-100-belimo-hinwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-80-100-belimo-hinwil"
@@ -277,9 +284,7 @@
           "senior-project-manager-80-100-belimo-hinwil"
         ]
       },
-      "previousSlugs": [
-        "senior-project-manager-80-100-belimo-hinwil"
-      ],
+      "firstSeenAt": "2026-08-14T21:34:40.885Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -291,8 +296,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-14T21:34:40.885Z"
+      }
     },
     {
       "id": "belimo-63ba57858fb9",
@@ -309,7 +313,7 @@
       "title": "Shop Floor Engineer & Stv. Head of Shop Floor (80-100%)",
       "titleByLocale": {
         "it": "Shop Floor Ingegnere & Stv. Responsabile Shop Floor (80-100%)",
-        "en": "Shop Floor Engineer & Deputy Head of Shop Floor (80-100%)",
+        "en": "Shop Floor Engineer & Stv. Head of Shop Floor (80-100%)",
         "de": "Shop Floor Ingenieur & Stv. Leiter Shop Floor (80-100%)",
         "fr": "Shop Floor Ingénieur & Stv. Responsable Shop Floor (80-100%)"
       },
@@ -325,7 +329,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Shop-Floor-Engineer-&-Stv_-Head-of-Shop-Floor-%2880-100%29-Z%C3%BCri-8340/1164948755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:48.436Z",
+      "crawledAt": "2026-08-15T21:30:05.364Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -401,7 +405,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Internship-Embedded-Software-Development-100-Zuri-8340/1165276055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:47.890Z",
+      "crawledAt": "2026-08-15T21:30:04.814Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -421,11 +425,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-embedded-software-development-100-belimo-hinwil"
+        "internship-embedded-software-development-100-belimo-hinwil",
+        "sviluppo-del-software-incorporato-di-stage-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-embedded-software-development-100-belimo-hinwil"
+          "internship-embedded-software-development-100-belimo-hinwil",
+          "sviluppo-del-software-incorporato-di-stage-100-belimo-hinwil"
         ],
         "de": [
           "internship-embedded-software-development-100-belimo-hinwil"
@@ -435,6 +441,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:21.666Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "baseSalary": {
@@ -479,7 +486,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:47.341Z",
+      "crawledAt": "2026-08-15T21:30:04.261Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -504,7 +511,8 @@
         "logistician-in-night-shift-100-belimo-hinwil",
         "logistiker-in-nachtschicht-100-belimo-hinwil",
         "logisticien-en-service-de-nuit-100-belimo-hinwil",
-        "logisticien-en-equipe-de-nuit-100-belimo-hinwil"
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-temporar-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -513,7 +521,8 @@
           "logistician-in-night-shift-100-belimo-hinwil",
           "logistiker-in-nachtschicht-100-belimo-hinwil",
           "logisticien-en-service-de-nuit-100-belimo-hinwil",
-          "logisticien-en-equipe-de-nuit-100-belimo-hinwil"
+          "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-temporar-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-temporar-belimo-hinwil",
@@ -573,7 +582,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Development-Engineer-Electronics-%2880-100%29-Zuri-8340/1165271655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:46.794Z",
+      "crawledAt": "2026-08-15T21:30:03.716Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -637,7 +646,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Montagemitarbeiterin-f%C3%BCr-verl%C3%A4ngerte-Wochenendschichten-%2812-Stunden-Pr%C3%A4senz-Tag-oder-Nacht%29-Z%C3%BCri-8340/1163258255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:46.243Z",
+      "crawledAt": "2026-08-15T21:30:03.172Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -718,7 +727,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Montagemitarbeiterin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1163094055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:45.696Z",
+      "crawledAt": "2026-08-15T21:30:02.619Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -738,11 +747,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montagemitarbeiter-in-temporar-belimo-hinwil"
+        "montagemitarbeiter-in-temporar-belimo-hinwil",
+        "personale-di-montaggio-in-temporaneo-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montagemitarbeiter-in-temporar-belimo-hinwil"
+          "montagemitarbeiter-in-temporar-belimo-hinwil",
+          "personale-di-montaggio-in-temporaneo-belimo-hinwil"
         ],
         "en": [
           "montagemitarbeiter-in-temporar-belimo-hinwil"
@@ -797,7 +808,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-SAP%E2%80%AFApplication-Manager%E2%80%AFPPQM-%2880-100%29-Zuri-8340/1165110355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:45.144Z",
+      "crawledAt": "2026-08-15T21:30:02.062Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -817,11 +828,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-application-manager-pp-qm-80-100-belimo-hinwil"
+        "sap-application-manager-pp-qm-80-100-belimo-hinwil",
+        "responsabile-dell-applicazione-sap-pp-qm-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-application-manager-pp-qm-80-100-belimo-hinwil"
+          "sap-application-manager-pp-qm-80-100-belimo-hinwil",
+          "responsabile-dell-applicazione-sap-pp-qm-80-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -870,7 +883,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Strategic-Project-Buyer-Mechanics-Zuri-8340/1164918555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:44.590Z",
+      "crawledAt": "2026-08-15T21:30:01.516Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -891,11 +904,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "strategic-project-buyer-mechanics-belimo-hinwil"
+          "strategic-project-buyer-mechanics-belimo-hinwil",
+          "strategic-procurement-project-expert-mechanics-belimo-hinwil"
         ],
         "it": [
           "strategic-procurement-project-expert-mechanics-belimo-hinwil",
-          "strategic-project-buyer-mechanics-belimo-hinwil"
+          "strategic-project-buyer-mechanics-belimo-hinwil",
+          "meccanica-degli-esperti-del-progetto-di-approvvigionamento-strategico-belimo-hinwil"
         ],
         "en": [
           "strategic-procurement-project-expert-mechanics-belimo-hinwil"
@@ -906,7 +921,8 @@
       },
       "previousSlugs": [
         "strategic-procurement-project-expert-mechanics-belimo-hinwil",
-        "strategic-project-buyer-mechanics-belimo-hinwil"
+        "strategic-project-buyer-mechanics-belimo-hinwil",
+        "meccanica-degli-esperti-del-progetto-di-approvvigionamento-strategico-belimo-hinwil"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:18:02.869Z",
@@ -954,7 +970,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Specialist-Purchasing-Electronic-Components-Zuri-8340/1164920355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:44.043Z",
+      "crawledAt": "2026-08-15T21:30:00.976Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -974,6 +990,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-12T22:18:03.399Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1018,7 +1035,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Engineering-Expert-Damper-Actuators-%2880-100%29-Zuri-8340/1164981055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:43.496Z",
+      "crawledAt": "2026-08-15T21:30:00.444Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1038,11 +1055,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
+        "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
+        "attuatori-esperti-di-ingegneria-del-prodotto-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
+          "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
+          "attuatori-esperti-di-ingegneria-del-prodotto-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-30T22:16:04.250Z",
@@ -1090,7 +1109,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleiterin-Montage-Abendschicht-Zuri-8340/1165010355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:42.949Z",
+      "crawledAt": "2026-08-15T21:29:59.907Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1111,11 +1130,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-montage-abendschicht-belimo-hinwil",
-        "chef-d-equipe-en-soiree-d-assemblee-belimo-hinwil"
+        "chef-d-equipe-en-soiree-d-assemblee-belimo-hinwil",
+        "team-leader-in-assemblea-turno-serale-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-montage-abendschicht-belimo-hinwil"
+          "teamleiter-in-montage-abendschicht-belimo-hinwil",
+          "team-leader-in-assemblea-turno-serale-belimo-hinwil"
         ],
         "en": [
           "teamleiter-in-montage-abendschicht-belimo-hinwil"
@@ -1171,7 +1192,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleitung-Fertigung-Wochenende-Tag-Z%C3%BCri-8340/1165015355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:42.401Z",
+      "crawledAt": "2026-08-15T21:29:59.369Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1197,7 +1218,8 @@
         "gestione-delle-strutture-80-100-belimo-hinwil",
         "facility-manager-80-100-belimo-hinwil",
         "gestionnaire-des-installations-80-100-belimo-hinwil",
-        "responsabile-della-facilita-80-100-belimo-hinwil"
+        "responsabile-della-facilita-80-100-belimo-hinwil",
+        "gestione-del-team-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1206,7 +1228,8 @@
           "gestione-delle-strutture-80-100-belimo-hinwil",
           "facility-manager-80-100-belimo-hinwil",
           "gestionnaire-des-installations-80-100-belimo-hinwil",
-          "responsabile-della-facilita-80-100-belimo-hinwil"
+          "responsabile-della-facilita-80-100-belimo-hinwil",
+          "gestione-del-team-belimo-hinwil"
         ],
         "en": [
           "teamleitung-fertigung-wochenende-tag-belimo-hinwil"
@@ -1265,7 +1288,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HSE-Manager-%28100%29-Z%C3%BCri-8340/1165043155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:41.848Z",
+      "crawledAt": "2026-08-15T21:29:58.830Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1285,11 +1308,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hse-manager-100-belimo-hinwil"
+        "hse-manager-100-belimo-hinwil",
+        "responsabile-hse-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hse-manager-100-belimo-hinwil"
+          "hse-manager-100-belimo-hinwil",
+          "responsabile-hse-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -1324,7 +1349,7 @@
         "it": "(Senior) Configurazione della variante SAP Expert (80-100%)",
         "en": "(Senior) SAP Expert Variant Configuration (80-100%)",
         "de": "(Senior) SAP Expert Variant Konfiguration (80-100%)",
-        "fr": "(Aîné) Configuration de la variante d'expert SAP (80-100%)"
+        "fr": "(Senior) SAP Expert Variant Configuration (80-100%)"
       },
       "description": "Summary\n\nAs (Senior) SAP Expert Variant Configuration, you will take end-to-end ownership of our Product Configuration Lifecycle Management architecture and shape the future of our global SAP landscape. You will work closely with internal stakeholders, external partners, and international teams to design scalable, high-performing, and integrated solutions based on SAP Variant Configuration. Your role is key to enabling innovative business models and product offering strategies while ensuring top-level data quality.\n\nWhat You'll Do\n\n• Collaborate closely with internal business stakeholders and translate business requirements into technical solutions.\n\n• Own the end-to-end variant configuration solution architecture across SAP, CPQ, PLM, and connected platforms.\n\n• Design and guide integrated configuration solutions to ensure a seamless flow of configuration, pricing, and master data across connected systems.\n\n• Build and maintain SAP LO-VC models hands-on (high-level configuration).\n\n• Analyze requirements beyond standard Variant Configuration modeling and define specifications for development enhancements.\n\n• Coordinate cross-functional teams within a global IT environment.\n\n• Manage external partners and modelers, ensuring quality and timely delivery.\n\n• Evaluate new technologies and innovations in configuration and CPQ solutions and assess their value for Belimo.\n\nWho You Are\n\n• Bachelor’s degree in Information Systems, Computer Science, Engineering, or a comparable qualification.\n\n• Independent, structured, and solution-oriented mindset with a passion for continuous improvement.\n\n• Extensive hands-on experience with SAP LO-VC, including material variant concepts and their application in complex configuration processes.\n\n• Proven experience designing and supporting solution landscapes where SAP LO-VC is integrated with external configuration engines.\n\n• Deep expertise in SAP ERP logistics processes and VC-related integration scenarios.\n\n• Strong analytical and conceptual thinking skills with the ability to translate complex requirements into scalable solution concepts.\n\n• Experience with SAP VCP/CPS, CPQ solutions, SAP Commerce (Hybris), PLM environments (preferably Siemens Teamcenter), or ABAP development is considered a strong asset.\n\n• Strong communication and stakeholder management skills with the ability to collaborate across global teams; fluent in English, German is an advantage, and legally authorized to work in Switzerland.\n\nWho We Are\n\nAt Belimo, we take pride in making our company a rewarding place to work. Our leaders are value-driven and encourage new ideas in their teams around the world. Through our passion, our employees are not only creating amazing products, they are revolutionizing the HVAC industry. Investing in our people is at the heart of Belimo's approach to engaging diverse creative talent to grow an industry-leading company. The success of our corporate brand is based on the expertise and commitment of each individual.",
       "descriptionByLocale": {
@@ -1338,7 +1363,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-%28Senior%29-SAP-Expert-Variant-Configuration-%2880-100%29-Zuri-8340/1165102755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:41.294Z",
+      "crawledAt": "2026-08-15T21:29:58.294Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1358,14 +1383,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-sap-expert-variant-configuration-80-100-belimo-hinwil"
+        "senior-sap-expert-variant-configuration-80-100-belimo-hinwil",
+        "senior-configurazione-della-variante-sap-expert-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sap-expert-variant-configuration-80-100-belimo-hinwil"
+          "senior-sap-expert-variant-configuration-80-100-belimo-hinwil",
+          "senior-configurazione-della-variante-sap-expert-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-14T23:18:50.558Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1410,7 +1438,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Manager-PM-Excellence-%2880-100%29-Zuri-8340/1165220355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:40.746Z",
+      "crawledAt": "2026-08-15T21:29:57.758Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1430,17 +1458,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-pm-excellence-80-100-belimo-hinwil"
+        "manager-pm-excellence-80-100-belimo-hinwil",
+        "manager-pm-eccellenza-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-pm-excellence-80-100-belimo-hinwil"
+          "manager-pm-excellence-80-100-belimo-hinwil",
+          "manager-pm-eccellenza-80-100-belimo-hinwil"
         ],
         "de": [
           "manager-pm-excellence-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-08-04T11:39:45.793Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1485,7 +1516,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Elektronikerin-EFZ-Z%C3%BCri-8340/1165047655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:40.200Z",
+      "crawledAt": "2026-08-15T21:29:57.222Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1505,11 +1536,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-elektroniker-in-efz-belimo-hinwil"
+        "lehrstelle-als-elektroniker-in-efz-belimo-hinwil",
+        "apprendistato-come-elektroniker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-elektroniker-in-efz-belimo-hinwil"
+          "lehrstelle-als-elektroniker-in-efz-belimo-hinwil",
+          "apprendistato-come-elektroniker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-elektroniker-in-efz-belimo-hinwil"
@@ -1564,7 +1597,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-Nachtschicht-%28100%29-Z%C3%BCri-8340/1164974855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:39.651Z",
+      "crawledAt": "2026-08-15T21:29:56.683Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1584,11 +1617,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-nachtschicht-100-belimo-hinwil"
+        "logistiker-in-nachtschicht-100-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-nachtschicht-100-belimo-hinwil"
+          "logistiker-in-nachtschicht-100-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -1637,7 +1672,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Logistikerin-EFZ-Z%C3%BCri-8340/1165049455/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:39.105Z",
+      "crawledAt": "2026-08-15T21:29:56.131Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1657,11 +1692,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-belimo-hinwil"
+        "lehrstelle-als-logistiker-in-efz-belimo-hinwil",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-belimo-hinwil"
+          "lehrstelle-als-logistiker-in-efz-belimo-hinwil",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-belimo-hinwil"
@@ -1716,7 +1753,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Spezialist-Arbeitsplatz-Systembau-%28100%29-Z%C3%BCri-8340/1165192955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:38.556Z",
+      "crawledAt": "2026-08-15T21:29:55.580Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1736,11 +1773,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-arbeitsplatz-systembau-100-belimo-hinwil"
+        "spezialist-arbeitsplatz-systembau-100-belimo-hinwil",
+        "specialista-di-sistemi-di-lavoro-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-arbeitsplatz-systembau-100-belimo-hinwil"
+          "spezialist-arbeitsplatz-systembau-100-belimo-hinwil",
+          "specialista-di-sistemi-di-lavoro-100-belimo-hinwil"
         ],
         "en": [
           "spezialist-arbeitsplatz-systembau-100-belimo-hinwil"
@@ -1794,7 +1833,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:38.002Z",
+      "crawledAt": "2026-08-15T21:29:55.031Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1814,11 +1853,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-efz-100-belimo-hinwil"
+        "logistiker-in-efz-100-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-efz-100-belimo-hinwil"
+          "logistiker-in-efz-100-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-efz-100-belimo-hinwil"
@@ -1873,7 +1914,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-Wochenendschicht-Z%C3%BCri-8340/1164975155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:37.451Z",
+      "crawledAt": "2026-08-15T21:29:54.490Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1893,11 +1934,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-wochenendschicht-belimo-hinwil"
+        "logistiker-in-wochenendschicht-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-wochenendschicht-belimo-hinwil"
+          "logistiker-in-wochenendschicht-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-wochenendschicht-belimo-hinwil"
@@ -1952,7 +1995,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Polymechanikerin-EFZ-Z%C3%BCri-8340/1165049655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:36.902Z",
+      "crawledAt": "2026-08-15T21:29:53.949Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1972,11 +2015,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
+        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+        "apprendistato-come-polymechaniker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
+          "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+          "apprendistato-come-polymechaniker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
@@ -2031,7 +2076,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Kauffrau-mann-EFZ-Z%C3%BCri-8340/1165039955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:36.347Z",
+      "crawledAt": "2026-08-15T21:29:53.396Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2051,11 +2096,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil"
+        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+        "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil"
+          "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+          "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil"
@@ -2110,7 +2157,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-MatlabSimulink-Developer-HVAC-Application-%2880-100%29-Zuri-8340/1165187955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:35.796Z",
+      "crawledAt": "2026-08-15T21:29:52.859Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2130,6 +2177,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-28T22:11:47.348Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2174,7 +2222,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Fachfrau-mann-Betriebsunterhalt-EFZ-Z%C3%BCri-8340/1165066855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:35.244Z",
+      "crawledAt": "2026-08-15T21:29:52.318Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2194,11 +2242,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil"
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil",
+        "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil"
+          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil",
+          "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil"
@@ -2239,7 +2289,7 @@
         "it": "Controller Gruppo ESG (80-100%)",
         "en": "ESG Group Controller (80-100%)",
         "de": "ESG-Gruppencontroller (80-100 %)",
-        "fr": "Contrôleur du groupe ESG (80-100%)"
+        "fr": "ESG Group Controller (80-100%)"
       },
       "description": "Summary\n\nYour Expertise for Sustainable Corporate Management!\nIn a world increasingly focused on responsible business practices, transparent ESG reporting is essential. In this key role within our Group Controlling team, you will operate at the intersection of regulatory developments, strategic objectives, and operational processes. You will drive the evolution of our ESG reporting and ensure that we meet the highest standards of sustainability and transparency.\n\nWhat You'll Do\n\n• Monitor new ESG reporting regulations and implement relevant standards across the group in close coordination with external partners and auditors\n\n• Ensure the completeness, integrity, and reliability of our ESG data while continuously improving the KPI framework, reporting, and analysis processes\n\n•\n Preparation of the external sustainability reporting in close collaboration with the relevant departments, Group Sustainability, and Investor Relations\n\n• Support the implementation of our ESG goals, from definition and data preparation to transparent progress measurement\n\n• Develop ESG guidelines, manuals, and governance structures, and implement a risk-based control framework for data quality and transparency\n\n• Optimize group-wide processes and collaborate closely across functions with various departments\n\nWho You Are\n\n• University degree with a focus on finance and sustainability or a comparable qualification\n\n• Proven professional experience in the ESG field, ideally in a similar role or in consulting\n\n• Solid knowledge of ESG reporting standards (GRI, IFRS/TCFD, ESRS) and regulatory frameworks (CH OR, CSRD, EU Taxonomy)\n\n• Structured and well-organized working style combined with analytical thinking and project management skills\n\n• Strong communication skills with a high degree of adaptability, flexibility, and resilience\n\n• Fluent in German and English, both written and spoken\n\nWho We Are\n\nAt Belimo, we take pride in making our company a rewarding place to work. Our leaders are value-driven and encourage new ideas in their teams around the world. Through our passion, our employees are not only creating amazing products, they are revolutionizing the HVAC industry. Investing in our people is at the heart of Belimo's approach to engaging diverse creative talent to grow an industry-leading company. The success of our corporate brand is based on the expertise and commitment of each individual.",
       "descriptionByLocale": {
@@ -2253,7 +2303,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-ESG-Group-Controller-%2880-100%29-Zuri-8340/1165176155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:34.690Z",
+      "crawledAt": "2026-08-15T21:29:51.782Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2273,6 +2323,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-27T12:47:10.299Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2317,7 +2368,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Informatikerin-EFZ-Z%C3%BCri-8340/1165049755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:34.141Z",
+      "crawledAt": "2026-08-15T21:29:51.244Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2337,11 +2388,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+        "lehrstelle-als-informatiker-in-efz-belimo-hinwil",
+        "apprendistato-come-informatiker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+          "lehrstelle-als-informatiker-in-efz-belimo-hinwil",
+          "apprendistato-come-informatiker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
@@ -2396,7 +2449,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Konstrukteurin-EFZ-Z%C3%BCri-8340/1165049555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:33.597Z",
+      "crawledAt": "2026-08-15T21:29:50.708Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2416,11 +2469,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil"
+        "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil",
+        "apprendistato-come-konstrukteur-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil"
+          "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil",
+          "apprendistato-come-konstrukteur-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil"
@@ -2475,7 +2530,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Automatikerin-EFZ-Z%C3%BCri-8340/1165049955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:33.047Z",
+      "crawledAt": "2026-08-15T21:29:50.152Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2495,11 +2550,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-automatiker-in-efz-belimo-hinwil"
+        "lehrstelle-als-automatiker-in-efz-belimo-hinwil",
+        "apprendistato-come-automatiker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-automatiker-in-efz-belimo-hinwil"
+          "lehrstelle-als-automatiker-in-efz-belimo-hinwil",
+          "apprendistato-come-automatiker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-automatiker-in-efz-belimo-hinwil"
@@ -2554,7 +2611,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-ICT-Fachfrau-mann-Z%C3%BCri-8340/1165049855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:32.496Z",
+      "crawledAt": "2026-08-15T21:29:49.600Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2574,11 +2631,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil",
+        "apprendistato-come-ict-fachfrau-mann-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+          "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil",
+          "apprendistato-come-ict-fachfrau-mann-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
@@ -2633,7 +2692,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Stellvertretung-Teamleitung-Montage-Tagschicht-%28100%29-Zuri-8340/1165050855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:31.943Z",
+      "crawledAt": "2026-08-15T21:29:49.059Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2655,14 +2714,17 @@
       "firstSeenAt": "2026-07-12T22:18:09.204Z",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
+          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
+          "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
         ],
         "de": [
-          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
+          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
+          "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
+        "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
+        "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2708,7 +2770,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Model-Based-System-Engineer-%2880-100%29-Zuri-8340/1165170355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:31.388Z",
+      "crawledAt": "2026-08-15T21:29:48.498Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2739,7 +2801,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "belimo-32d5f78b4bdf",
@@ -2772,7 +2835,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-MES-Process-Engineer-%28Manufacturing-Execution-System%29-Zuri-8340/1164183055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:30.836Z",
+      "crawledAt": "2026-08-15T21:29:47.922Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2837,7 +2900,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Zuri-8340/1164470155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:38:30.287Z",
+      "crawledAt": "2026-08-15T21:29:47.380Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2858,97 +2921,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil",
-        "hvac-building-automation-expert-80-100-belimo-hinwil"
+        "hvac-building-automation-expert-80-100-belimo-hinwil",
+        "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil"
+          "hvac-building-automation-expert-80-100-belimo-hinwil",
+          "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
         ],
         "fr": [
           "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-12T22:18:00.724Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "belimo-53a9e8650f11",
-      "slug": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
-      "slugByLocale": {
-        "it": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
-        "en": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
-        "de": "hvac-building-automation-expert-80-100-belimo-hinwil-khg4xl",
-        "fr": "hvac-building-automation-expert-80-100-belimo-hinwil-2"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "HVAC Building Automation Expert (80-100%)",
-      "titleByLocale": {
-        "it": "Esperto di Automazione Edifici HVAC (80-100%)",
-        "en": "HVAC Building Automation Expert (80-100%)",
-        "de": "HVAC Building Automation Expert (80-100%)",
-        "fr": "Expert en automatisation des bâtiments (80-100%)"
-      },
-      "description": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
-      "descriptionByLocale": {
-        "it": "Formare il futuro di HVAC e automazione degli edifici! In questo ruolo, si combinano know-how tecnico, tendenze di mercato e stakeholder interni per trasformare le idee promettenti in soluzioni innovative. Accompagnate idee dal primo schizzo al campo di fronte alle business unit e promuovete attivamente la nostra cultura dell'innovazione.\n\nCosa farai\n\n• Sostenere i progetti di esplorazione con le vostre competenze in HVAC e automazione degli edifici\n\n• Controllo della ricezione e valutazione delle idee di prodotto nel Portale Idea\n\n• Scambio con generatori di idea: all'interno per comprendere pienamente lo scopo, il contesto e il problema del cliente\n\n• Organizzare e moderare team ad-hoc, interdisciplinari per valutare e sviluppare idee\n\n• Preparare e tenere punti di idee convincenti per le unità aziendali responsabili\n\n• Monitoraggio continuo delle tendenze, delle nuove applicazioni e tecnologie nel settore HVAC e dell'automazione degli edifici\n\n• Interno lobbying per idee promettenti attraverso l'ispirazione di comunicazione e storytelling\n\n• Promuovere una cultura dell'innovazione e informare attivamente i fornitori di idee sullo stato delle loro proposte\n\nChi sei\n\n• Università completata o università di studi di scienze applicate in un settore tecnico rilevante\n\n• Diversi anni di esperienza professionale nel settore dell'automazione HVAC e dell'edilizia, ad esempio nell'integrazione del sistema o nella pianificazione o nell'ingegneria HVAC\n\n• Forte capacità di autogestione e la capacità di organizzare e priorizzare più compiti contemporaneamente\n\n• Metodo di lavoro proattivo e auto-iniziativa e uno stile di lavoro strutturato e orientato al processo\n\n• Forte capacità di pensiero analitico, concettuale e creativo\n\n• Alta disponibilità per una formazione continua e uno sviluppo professionale\n\n• Flusso delle competenze in inglese\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
-        "en": "Shape the future of HVAC and building automation! In this role, you combine technical know-how, market trends and internal stakeholders to turn promising ideas into innovative solutions. You accompany ideas from the first sketch to the pitch in front of the business units and actively promote our innovation culture.\n\nWhat will you do\n\n• Support exploration projects with your expertise in HVAC and building automation\n\n• Controlling the receipt and evaluation of product ideas in the Idea Portal\n\n• Exchange with idea generators: inside to fully understand purpose, context and customer problem\n\n• Organizing and moderating ad-hoc, interdisciplinary teams to assess and develop ideas\n\n• Prepare and hold convincing idea pitches for the responsible business units\n\n• Ongoing monitoring of trends, new applications and technologies in the HVAC and building automation industry\n\n• Internal lobbying for promising ideas through inspiring communication and storytelling\n\n• Promoting a culture of innovation and proactively informing idea providers about the status of their proposals\n\nWho you are\n\n• Completed university or university of applied sciences studies in a relevant technical subject area\n\n• Several years of professional experience in the HVAC and building automation industry, e.g. in system integration or in HVAC planning or engineering\n\n• Strong self-management skills and the ability to organize and prioritize multiple tasks simultaneously\n\n• Proactive, self-initiative working method and a structured, process-oriented working style\n\n• Strong analytical, conceptual and creative thinking skills\n\n• High willingness for continuous further education and professional development\n\n• Flowing English skills\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
-        "de": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
-        "fr": "Formez l'avenir du CVC et de l'automatisation des bâtiments ! Dans ce rôle, vous combinez le savoir-faire technique, les tendances du marché et les acteurs internes pour transformer des idées prometteuses en solutions innovantes. Vous accompagnez les idées de la première esquisse au terrain devant les unités d'affaires et faites la promotion active de notre culture de l'innovation.\n\nQue ferez-vous?\n\n• Soutenir les projets d'exploration avec votre expertise en CVC et l'automatisation du bâtiment\n\n• Contrôler la réception et l'évaluation des idées de produits dans le portail Idea\n\n• Échange avec les générateurs d'idées: à l'intérieur pour bien comprendre le but, le contexte et le problème client\n\n• Organiser et modérer des équipes interdisciplinaires ad hoc pour évaluer et développer des idées\n\n• Préparer et tenir des emplacements d'idées convaincantes pour les unités d'affaires responsables\n\n• Surveillance continue des tendances, des nouvelles applications et des nouvelles technologies dans le secteur du CVC et de l'automatisation du bâtiment\n\n• Le lobbying interne pour des idées prometteuses par la communication inspirante et la narration\n\n• Promouvoir une culture de l'innovation et informer proactivement les fournisseurs d'idées sur l'état d'avancement de leurs propositions\n\nQui vous êtes\n\n• Études universitaires ou universitaires de sciences appliquées dans un domaine technique pertinent\n\n• Plusieurs années d'expérience professionnelle dans le secteur de la CVC et de l'automatisation du bâtiment, par exemple dans l'intégration de systèmes ou dans la planification ou l'ingénierie de CVC\n\n• De solides compétences en autogestion et la capacité d'organiser et de prioriser simultanément plusieurs tâches\n\n• Méthode de travail proactive et auto-initiative et style de travail structuré et axé sur les processus\n\n• Fortes compétences analytiques, conceptuelles et créatives en pensée\n\n• Une forte volonté de poursuivre l'éducation et le perfectionnement professionnels\n\n• Compétences en anglais\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Par notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader dans l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Z%C3%BCri-8340/1164470055/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:29.737Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Z%C3%BCri-8340/1164470055/",
-      "jobReqId": "1164470055",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "hvac-building-automation-expert-80-100-belimo-hinwil",
-        "expert-en-automatisation-des-batiments-80-100-belimo-hinwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil"
-        ],
-        "de": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil"
-        ],
-        "fr": [
-          "expert-en-automatisation-des-batiments-80-100-belimo-hinwil"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:15:02.254Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2993,7 +2978,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleiterin-Instandhaltung-%28100%29-Z%C3%BCri-8340/1165168255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:29.184Z",
+      "crawledAt": "2026-08-15T21:29:46.298Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -3013,11 +2998,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-instandhaltung-100-belimo-hinwil"
+        "teamleiter-in-instandhaltung-100-belimo-hinwil",
+        "team-leader-in-manutenzione-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-instandhaltung-100-belimo-hinwil"
+          "teamleiter-in-instandhaltung-100-belimo-hinwil",
+          "team-leader-in-manutenzione-100-belimo-hinwil"
         ],
         "en": [
           "teamleiter-in-instandhaltung-100-belimo-hinwil"
@@ -3072,7 +3059,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-%28100%29-Z%C3%BCri-8340/1164972655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:28.594Z",
+      "crawledAt": "2026-08-15T21:29:45.757Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -3093,11 +3080,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsfachmann-frau-100-belimo-hinwil",
-        "professionnel-d-entretien-100-belimo-hinwil"
+        "professionnel-d-entretien-100-belimo-hinwil",
+        "manutenzione-professionale-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsfachmann-frau-100-belimo-hinwil"
+          "instandhaltungsfachmann-frau-100-belimo-hinwil",
+          "manutenzione-professionale-100-belimo-hinwil"
         ],
         "en": [
           "instandhaltungsfachmann-frau-100-belimo-hinwil"
@@ -3138,7 +3127,7 @@
         "it": "Global Capo squadra Procurement - Plastic Solutions",
         "en": "Global Team Leader Procurement - Plastic Solutions",
         "de": "Global Team Leader Procurement - Plastic Solutions",
-        "fr": "Approvisionnement de chef d'équipe mondial - Solutions plastiques"
+        "fr": "Global Team Leader Procurement - Plastic Solutions"
       },
       "description": "Summary\n\nHier gestaltest Du nicht nur Einkauf – Du prägst aktiv unsere globale Lieferkette im Bereich Plastic Solutions. Mit Deinem Team entwickelst Du Strategien, stärkst Partnerschaften und bringst Ideen in echte Umsetzung.\n\nWas Du tun wirst\n\n• Du führst und entwickelst das Team Plastic Solutions und übernimmst die fachliche sowie disziplinarische Verantwortung für unsere operativen und strategischen Einkäuferinnen und Einkäufer.\n\n• Du entwickelst und implementierst eine wettbewerbsfähige, innovative und nachhaltige Beschaffungsstrategie für Kunststoffteile, Baugruppen und Module und stellst die Kosten-, Qualitäts- und Lieferperformance über alle Standorte hinweg sicher.\n\n• Du verantwortest das strategische Lieferantenmanagement – von Verhandlungen und Vertragsabschlüssen über die Bewertung bis hin zur kontinuierlichen Entwicklung unserer internationalen Lieferanten.\n\n• Du leitest und priorisierst Sourcing- und bereichsübergreifende Sortimentsprojekte und bringst diese erfolgreich zum Abschluss.\n\n• Du übernimmst das Eskalationsmanagement bei kritischen Lieferanten- oder Qualitätsthemen und entwickelst pragmatische und nachhaltige Lösungen.\n\n• Du verantwortest Controlling und Reporting und arbeitest eng mit den Bereichen Innovation und Quality zusammen, um neue Ideen in leistungsfähige und zukunftsfähige Lieferketten zu überführen.\n\nWer Du bist\n\n• Du verfügst über eine technische oder kaufmännische Grundausbildung und hast Dich idealerweise im Bereich Maschinenbau, Betriebswirtschaft, oder Einkauf weitergebildet (BSc, MAS Supply-Chain, Operations o.ä.)\n\n• Du bringst mehrjährige Erfahrung im technischen Einkauf mit – idealerweise in einem internationalen Umfeld.\n\n• Du verfügst über fundiertes Know-how in Kunststofftechnologien, insbesondere im Spritzguss und in Automatisierungslösungen.\n\n• Du denkst strategisch und unternehmerisch, handelst lösungsorientiert und behältst auch in einem dynamischen Umfeld den Überblick\n\n• Du überzeugst durch Leadership, hohe Sozialkompetenz, Verhandlungsgeschick und eine offene, kommunikative Art.\n\n• Du bewegst Dich sicher in internationalen und interkulturellen Kontexten und verfügst über sehr gute Deutsch- und Englischkenntnisse\n\n• Du arbeitest routiniert mit SAP S/4HANA, insbesondere im Modul MM, und bringst eine Reisebereitschaft von rund 10 % mit.\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
       "descriptionByLocale": {
@@ -3152,7 +3141,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Global-Team-Leader-Procurement-Plastic-Solutions-Zuri-8340/1164955155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:38:27.991Z",
+      "crawledAt": "2026-08-15T21:29:45.199Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -3173,11 +3162,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
-        "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil"
+        "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil",
+        "global-capo-squadra-procurement-plastic-solutions-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-team-leader-procurement-plastic-solutions-belimo-hinwil"
+          "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
+          "global-capo-squadra-procurement-plastic-solutions-belimo-hinwil"
         ],
         "fr": [
           "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil"
