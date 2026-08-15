@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-als-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-sune",
         "it": "dipl-pflegefachperson-hf-fh-come-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-fachspital-sune-egge-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-als-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-sune",
-        "fr": "dipl-pflegefachperson-hf-fh-als-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-sune"
+        "en": "dipl-nursing-professional-hf-fh-as-rai-manager-rai-manager-ltcf-60-70-fachspital-sune-egge-zurich",
+        "fr": "dipl-soins-infirmiers-professionnels-hf-fh-en-tant-que-gestionnaire-rai-gestionnaire-rai-ltcf-60-70-fachspital-sune-egge"
       },
       "company": "Fachspital Sune-Egge",
       "companyKey": "sune-egge",
@@ -55,6 +55,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-als-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-sune"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-als-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-sune"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-als-rai-verantwortliche-rai-verantwortlicher-ltcf-60-70-sune"
         ]
       },
@@ -203,13 +209,11 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
-        "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich",
-        "infermiere-a-dipl-hf-60-100-turno-diurno-fachspital-sune-egge-zurich"
+        "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
-          "infermiere-a-dipl-hf-60-100-turno-diurno-fachspital-sune-egge-zurich"
+          "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:29.945Z",
