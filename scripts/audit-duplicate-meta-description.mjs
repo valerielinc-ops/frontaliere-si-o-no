@@ -119,7 +119,13 @@ export function createAuditor(opts = {}) {
       return {
         passed,
         offendersTotal: offenders.length,
-        offenders: offenders.slice(0, 100),
+        // Deliberately NOT sliced: writeAuditReport derives the report's own
+        // `offendersTotal` from this array's length and truncates
+        // `topOffenders` itself (flagging it via `topOffendersTruncated`).
+        // Slicing here would under-report the total in the artifact, which is
+        // the surface people actually debug from. The list is bounded by
+        // construction — only descriptions ALREADY over the threshold.
+        offenders,
         threshold: { metric: 'pagesPerDescription', value: maxPages, comparator: '<= (within the scanned set)' },
         extra: {
           limit,

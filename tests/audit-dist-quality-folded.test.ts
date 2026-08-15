@@ -300,6 +300,20 @@ describe('link-anchor-text: the absolute cap really became a rate', () => {
     expect(large.extra.unnamedAnchorRate).toBeCloseTo(small.extra.unnamedAnchorRate, 12);
   });
 
+  it('the artifact says which number the verdict was taken on', () => {
+    // writeAuditReport derives the report's `offendersTotal` from the offender
+    // ARRAY, which this auditor must truncate (millions of unnamed anchors are
+    // possible). A reader who takes that field for the count reads the sample
+    // size — the "topOffenders depista" trap. The true count must be stated,
+    // and the truncation must be flagged.
+    const pages: Array<[string, string]> = [];
+    for (let i = 0; i < 200; i++) pages.push([`bad-${i}.html`, page('<a href="/y"><span></span></a>')]);
+    const r = runOn(createAnchorAuditor(), pages);
+    expect(r.extra.offendersTotalTrue).toBe(200);
+    expect(r.offenders.length).toBeLessThan(r.extra.offendersTotalTrue);
+    expect(r.extra.offendersListTruncated).toBe(true);
+  });
+
   it('a run that scanned nothing invents no verdict in either direction', () => {
     const r = createAnchorAuditor().report();
     expect(r.extra.filesScanned).toBe(0);

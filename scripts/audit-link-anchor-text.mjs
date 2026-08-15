@@ -204,6 +204,13 @@ export function createAuditor(opts = {}) {
       const unnamedFullCorpus = Math.round(extrapolateSampledCount(unnamedAnchors, sampleRate));
       const equivalentAbsCap = Math.round(maxRate * filesScanned);
 
+      // Unlike the sibling auditors, this one CANNOT hand its full offender
+      // list to writeAuditReport: one unnamed anchor is one offender and a
+      // 3.8M-page corpus can hold millions of them. The consequence must be
+      // read with care — the writer derives the report's `offendersTotal`
+      // from this array's LENGTH, so in the artifact that field is the size
+      // of the sample, not the count. `extra.offendersTotalTrue` below is the
+      // real number, and it is the one the verdict was taken on.
       const offenders = [...unnamedSample, ...nonDescriptive.slice(0, 100)];
       const summaryRate = `${(rate * 1000).toFixed(4)}‰`;
       return {
@@ -216,6 +223,10 @@ export function createAuditor(opts = {}) {
           filesScanned,
           sampleRate,
           unnamedAnchors,
+          // The count the verdict was taken on, stated separately because the
+          // report's own `offendersTotal` is the truncated sample size.
+          offendersTotalTrue: unnamedAnchors + nonDescriptive.length,
+          offendersListTruncated: unnamedAnchors > unnamedSample.length || nonDescriptive.length > 100,
           unnamedAnchorsFullCorpusEstimate: unnamedFullCorpus,
           unnamedAnchorRate: rate,
           maxUnnamedAnchorRate: maxRate,
