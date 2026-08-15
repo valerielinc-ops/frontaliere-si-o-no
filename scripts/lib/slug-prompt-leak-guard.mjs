@@ -76,6 +76,30 @@ export const SLUG_PROMPT_LEAK_PATTERNS = Object.freeze([
   // Unfilled-template markers, whole token only so `xxxl`, `todos`, a surname
   // containing them, or a real word are untouched.
   { name: 'unfilled-marker', re: /(?:^|[-_])(?:xxx+|tbd|todo|fixme|placehold)(?=[-_]|$)/gi },
+  // ── La forma NUDA: un numero incollato all'unita', senza `max` e senza un
+  //    secondo numero davanti (`40-chars`, `5-words`).
+  //
+  // MISURATO (issue #382 item 2, 2026-08-15): e' l'UNICA differenza fra questo
+  // guard e `inspectSlugForPromptPlaceholder()` del corpus. Su una batteria di
+  // 30 valori — tutti i `SLUG_OWNED_LITERALS` di entrambi i repo, l'intera
+  // famiglia di `ID_PLACEHOLDER` (`id-kebab-case-ascii-3-5-parole-max-40-char`),
+  // i dodici prefissi mezzo-obbediti osservati in produzione e sei slug VERI
+  // scelti per essere ambigui — i due classificatori concordano su 29/30. Il
+  // trentesimo e' `40-chars`: qui `char-limit` pretende `max` da un lato o
+  // dall'altro del numero, quindi la forma nuda passava.
+  //
+  // SOLO UNITA' INGLESI, ed e' la ragione per cui questa riga non e' un
+  // duplicato piu' largo di `char-limit`. `parole`/`caratteri`/`carattere` sono
+  // parole italiane comuni e uno slug legittimo puo' contenerle davvero:
+  // `5-parole-chiave-per-la-ricerca-lavoro` e `10-caratteri-tipici-del-contratto`
+  // sono entrambi ben formati, ed entrambi verrebbero scartati da una versione
+  // di questa regola che accettasse le unita' italiane. Le forme ambigue in
+  // italiano restano coperte dalle due regole sopra, che pretendono `max` o un
+  // range e quindi non possono confondersi con la prosa.
+  //
+  // `ID_PLACEHOLDER` porta comunque sempre anche `max-40-char` — inglese — e
+  // resta quindi coperto due volte.
+  { name: 'schema-hint-bare', re: /(?:^|[-_])\d+[-_](?:words?|chars?|characters?)(?=[-_]|$)/gi },
 ]);
 
 /**

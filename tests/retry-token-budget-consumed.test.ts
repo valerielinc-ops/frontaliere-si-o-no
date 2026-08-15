@@ -2,12 +2,14 @@
  * ── IL NUMERO CHE LA LIBRERIA CALCOLAVA E NESSUNO LEGGEVA (sito) ────────────
  *
  * Gemello di nanakokyobashi-rgb/frontaliere-articles#373. `create-article.mjs`
- * e' `mode: adapted` nel manifest: i due fork differiscono per costruzione, e
- * questo lato NON ha il layer del pre-flight del budget (niente
- * `PROMPT_TOKEN_BUDGET`, niente marker `[prompt-budget]`, niente scala di
- * riduzione a quattro gradini). Qui il budget dettato dalla flotta fa una cosa
- * sola, la piu' grande che non tocchi la fonte: lascia fuori i fatti di
- * dominio. Il resto della scala e' lavoro concatenato.
+ * e' `mode: adapted` nel manifest: i due fork differiscono per costruzione.
+ *
+ * AGGIORNATO 2026-08-15 (issue #374 punto 1): fino a oggi questo lato NON aveva
+ * il layer del pre-flight del budget — niente `PROMPT_TOKEN_BUDGET`, niente
+ * marker `[prompt-budget]`, niente scala di riduzione — e il budget dettato
+ * dalla flotta faceva una cosa sola, senza misurare se bastasse: lasciare fuori
+ * i fatti di dominio. Il «resto della scala» che quel commento chiamava lavoro
+ * concatenato e' arrivato, ed e' cio' che i due describe in fondo pinnano.
  *
  * Quando ogni modello della flotta rifiuta il prompt per DIMENSIONE, `callLLM`
  * non si limita a fallire: allega all'errore il cap piu' permissivo fra quelli
@@ -156,20 +158,202 @@ describe('il budget arriva fino al prompt', () => {
     );
   });
 
-  it('callGemini lo usa per lasciare fuori i fatti di dominio', () => {
-    // Questo fork non ha la scala a gradini del corpus: la sua unica risposta
-    // al budget e' togliere il blocco piu' grande che non sia la fonte.
-    // Un ritaglio solo che copre flag e uso: la dichiarazione di
-    // domainFactsBlock e' una riga sola, e spezzarla in due ritagli farebbe
-    // scattare la guardia di lunghezza minima invece di misurare qualcosa.
-    const blocco = cut('  const _promptBudgetDettato =', 'EVERGREEN_FACTS_BRIEF');
+  it('callGemini lo trasforma nel bersaglio della scala', () => {
+    // Un ritaglio solo che copre lettura e ripiego: la dichiarazione e' corta e
+    // spezzarla in due ritagli farebbe scattare la guardia di lunghezza minima
+    // invece di misurare qualcosa.
+    const blocco = cut('  const _promptTokenTarget =', 'EVERGREEN_FACTS_BRIEF');
     assert.ok(
       /sourceContext\?\._promptTokenBudget/.test(blocco),
-      'il flag non legge _promptTokenBudget dal contesto',
+      'il bersaglio non legge _promptTokenBudget dal contesto',
     );
     assert.ok(
-      /const domainFactsBlock = \(isSyntheticSource \|\| _promptBudgetDettato\)/.test(blocco),
-      'domainFactsBlock ignora il budget: il retry rispedirebbe lo stesso peso',
+      /:\s*PROMPT_TOKEN_BUDGET/.test(blocco),
+      'senza budget dettato non ripiega sul cap dichiarato dalla flotta: '
+      + 'l\'attempt 1 sforerebbe senza nemmeno provare a rientrare',
     );
+  });
+
+  it('il marker del pre-flight e\' presente e machine-readable', () => {
+    // Il difetto era invisibile nei log: ogni riga di skip nomina un modello,
+    // nessuna nominava il prompt. Il marker e' parte del rimedio, e i suoi campi
+    // sono un contratto verso chi ci costruisce sopra un watchdog.
+    const riga = SRC.slice(SRC.indexOf('[prompt-budget]'), SRC.indexOf('[prompt-budget]') + 400);
+    assert.notEqual(SRC.indexOf('[prompt-budget]'), -1, 'il marker non esiste piu\'');
+    for (const campo of ['branch=', 'section=', 'attempt=', 'est=', 'budget=', 'over=', 'shrink=']) {
+      assert.ok(riga.includes(campo), `il marker non pubblica piu' ${campo}`);
+    }
+  });
+});
+
+/**
+ * ── LA SCALA, ESEGUITA (issue #374 punto 1) ─────────────────────────────────
+ *
+ * Le asserzioni qui sotto non leggono il sorgente: lo RITAGLIANO e lo ESEGUONO,
+ * per la stessa ragione del ritaglio del `catch` sopra. Una scala di riduzione
+ * e' fatta di aritmetica, e un `grep` che trovi la parola `Math.max` non prova
+ * che il pavimento tenga — che e' esattamente il finding Important della PR
+ * #373 sul corpus: il gradino al 60% poteva scendere SOTTO il minimo dichiarato
+ * ogni volta che la fonte partiva gia' corta, cioe' proprio quando c'era meno
+ * da togliere.
+ */
+describe('la scala di riduzione del prompt', () => {
+  // Le due clamp sono a modulo e non esportate: si ritagliano insieme alla
+  // scala, cosi' cio' che viene eseguito e' il codice che gira davvero.
+  const clamps = cut('function _clampRemediation(', '// ── Step 2: Generate article');
+  const ladder = cut('  const PROMPT_SOURCE_FLOOR_CHARS = 3000;', '  let prompt = null;');
+
+  const costruisciScala = new Function(
+    'truncatedContent',
+    'domainFactsBlock',
+    'headlineRefinementInstruction',
+    'factCheckRefinementInstruction',
+    `${clamps}\n${ladder}\nreturn { _shrinkLadder, PROMPT_SOURCE_FLOOR_CHARS };`,
+  );
+
+  const FATTI = '\nFATTI DI DOMINIO VERIFICATI (…):\nxxx\n';
+  const RIMEDIO = 'R'.repeat(4000);
+  const scalaCon = (lunghezzaFonte: number) =>
+    costruisciScala('F'.repeat(lunghezzaFonte), FATTI, RIMEDIO, RIMEDIO);
+
+  it('ha cinque gradini, e il primo non toglie niente', () => {
+    const { _shrinkLadder } = scalaCon(6000);
+    assert.equal(_shrinkLadder.length, 5, 'la scala non ha piu\' cinque gradini');
+    assert.equal(_shrinkLadder[0].domainFacts, FATTI, 'il primo gradino gia\' toglie i fatti');
+    assert.equal(_shrinkLadder[0].sourceBody.length, 6000, 'il primo gradino gia\' taglia la fonte');
+  });
+
+  it('toglie i fatti di dominio PRIMA di toccare la fonte', () => {
+    // L'ordine e' la sostanza della scala: la fonte e' il materiale su cui il
+    // gate di fedelta' giudica, i fatti di dominio sono contorno.
+    const { _shrinkLadder } = scalaCon(6000);
+    assert.equal(_shrinkLadder[1].domainFacts, '', 'il gradino 1 non toglie i fatti');
+    assert.equal(_shrinkLadder[1].sourceBody.length, 6000, 'il gradino 1 tocca gia\' la fonte');
+    assert.equal(_shrinkLadder[2].remediation.length < RIMEDIO.length * 2, true, 'il gradino 2 non tronca il rimedio');
+    assert.equal(_shrinkLadder[2].sourceBody.length, 6000, 'il gradino 2 tocca gia\' la fonte');
+  });
+
+  it('il PAVIMENTO tiene anche quando la fonte parte gia\' corta', () => {
+    // ── Il finding Important di #373, in forma di test ───────────────────
+    // Con una fonte da 3000 char il 60% e' 1800, che e' SOTTO il minimo
+    // dichiarato. Senza `Math.max(PROMPT_SOURCE_FLOOR_CHARS, …)` il gradino 3
+    // consegnerebbe al writer una fonte piu' corta di quella che il gradino 4 —
+    // l'ultima risorsa — considera il minimo accettabile: la scala si
+    // scavalcherebbe da sola.
+    const { _shrinkLadder, PROMPT_SOURCE_FLOOR_CHARS } = scalaCon(3000);
+    const sessanta = _shrinkLadder[3].sourceBody.replace(/\n\[\.\.\.[^\]]*\]$/, '');
+    assert.ok(
+      sessanta.length >= PROMPT_SOURCE_FLOOR_CHARS,
+      `il gradino al 60% e' sceso a ${sessanta.length} char, sotto il pavimento `
+      + `di ${PROMPT_SOURCE_FLOOR_CHARS}: manca il Math.max`,
+    );
+  });
+
+  it('su una fonte lunga il 60% morde davvero', () => {
+    // Il contrappeso del test sopra: un pavimento che vincesse SEMPRE renderebbe
+    // il gradino 3 identico al gradino 2, cioe' uno gradino sprecato.
+    const { _shrinkLadder } = scalaCon(20000);
+    const sessanta = _shrinkLadder[3].sourceBody.replace(/\n\[\.\.\.[^\]]*\]$/, '');
+    assert.ok(sessanta.length < 20000, 'il gradino al 60% non ha tagliato niente');
+    assert.ok(sessanta.length <= 12000, `il gradino al 60% ha lasciato ${sessanta.length} char (atteso ≤12000)`);
+  });
+
+  it('non cresce mai scendendo i gradini', () => {
+    // La proprieta' che rende la scala una scala. Un gradino che allarga
+    // vanificherebbe la riduzione gia' decisa.
+    for (const lunghezza of [3000, 6000, 20000]) {
+      const { _shrinkLadder } = scalaCon(lunghezza);
+      const peso = (s: any) => s.sourceBody.length + s.domainFacts.length + s.remediation.length;
+      for (let i = 1; i < _shrinkLadder.length; i++) {
+        assert.ok(
+          peso(_shrinkLadder[i]) <= peso(_shrinkLadder[i - 1]),
+          `fonte ${lunghezza}: il gradino ${i} pesa piu' del ${i - 1}`,
+        );
+      }
+    }
+  });
+
+  it('l\'ultimo gradino e\' al minimo dichiarato', () => {
+    const { _shrinkLadder, PROMPT_SOURCE_FLOOR_CHARS } = scalaCon(20000);
+    const ultimo = _shrinkLadder[4].sourceBody.replace(/\n\[\.\.\.[^\]]*\]$/, '');
+    assert.ok(
+      ultimo.length <= PROMPT_SOURCE_FLOOR_CHARS,
+      `l'ultimo gradino lascia ${ultimo.length} char, sopra il minimo di ${PROMPT_SOURCE_FLOOR_CHARS}`,
+    );
+  });
+
+  // ── IL CICLO CHE LA CONSUMA, non solo la scala che la descrive ──────────
+  //
+  // Una scala costruita bene e mai percorsa e' lo stesso difetto di prima con
+  // un array in piu': la prima versione di questo file la pinnava tutta e
+  // restava verde anche sostituendo il corpo del `for` con un `break` secco.
+  // Qui il ciclo viene ritagliato ed ESEGUITO con una stima finta, cosi' cio'
+  // che si misura e' la DISCESA.
+  describe('il ciclo di selezione', () => {
+    const loop = cut('  let prompt = null;', '  // Marker machine-readable');
+
+    /**
+     * Esegue il ciclo vero. `pesoPerGradino` e' la stima finta: l'indice del
+     * gradino decide il costo, cosi' il test controlla quando si rientra.
+     */
+    function percorri(pesoPerGradino: number[], bersaglio: number) {
+      const scala = pesoPerGradino.map((_, i) => ({
+        label: `g${i}`, sourceBody: `s${i}`, domainFacts: '', remediation: '',
+      }));
+      const fn = new Function(
+        '_shrinkLadder', '_promptTokenTarget', 'buildPrompt', 'buildMessages',
+        'estimateRequestTokens', 'articleSchema', 'IT_GENERATION_MAX_TOKENS', 'pesi',
+        `${loop}\nreturn { _promptShrinkStep, _promptEstTokens, _promptShrinkLabel, prompt };`,
+      );
+      return fn(
+        scala, bersaglio,
+        ({ sourceBody }: any) => sourceBody,
+        (p: string) => [{ role: 'user', content: p }],
+        (msgs: any) => pesoPerGradino[Number(String(msgs[0].content).slice(1))],
+        {}, 8000, pesoPerGradino,
+      );
+    }
+
+    it('si ferma al PRIMO gradino che rientra, non prima e non dopo', () => {
+      const out = percorri([9500, 9000, 8500, 7900, 7000], 8000);
+      assert.equal(out._promptShrinkStep, 3, 'non si e\' fermato al primo gradino sotto budget');
+      assert.equal(out._promptEstTokens, 7900, 'ha riportato la stima di un altro gradino');
+    });
+
+    it('non scende affatto quando il primo gradino gia\' rientra', () => {
+      // Il caso normale, ed e' quello che non deve regredire: un prompt che sta
+      // nel budget non perde i fatti di dominio per zelo.
+      const out = percorri([5000, 4000, 3000, 2000, 1000], 8000);
+      assert.equal(out._promptShrinkStep, 0, 'ha ridotto un prompt che stava gia\' dentro');
+      assert.equal(out.prompt, 's0', 'non ha usato il gradino intero');
+    });
+
+    it('percorre TUTTA la scala quando nessun gradino basta', () => {
+      // Sopra budget anche all'ultimo: si tiene l'ultimo e si lascia degradare
+      // la catena ai modelli grandi, invece di fermarsi al primo.
+      const out = percorri([9500, 9400, 9300, 9200, 9100], 8000);
+      assert.equal(out._promptShrinkStep, 4, 'si e\' fermato prima dell\'ultimo gradino');
+      assert.equal(out._promptEstTokens, 9100, 'non ha usato l\'ultimo gradino');
+    });
+
+    it('un budget dettato piu\' stretto fa scendere piu\' in basso', () => {
+      // E' il collegamento con #374 punto 1: lo stesso prompt, due bersagli.
+      const pesi = [9500, 9000, 8500, 7900, 7000];
+      assert.equal(percorri(pesi, 9000)._promptShrinkStep, 1, 'bersaglio largo: doveva bastare il gradino 1');
+      assert.equal(percorri(pesi, 7500)._promptShrinkStep, 4, 'bersaglio stretto: doveva arrivare al gradino 4');
+    });
+  });
+
+  it('la fonte troncata conserva sempre il marcatore', () => {
+    // E' cio' che dice al writer che il testo non finisce li'. Senza, il modello
+    // crede di avere la fonte intera e il gate di fedelta' chiede ancore che
+    // non puo' vedere.
+    const { _shrinkLadder } = scalaCon(20000);
+    for (const i of [3, 4]) {
+      assert.ok(
+        _shrinkLadder[i].sourceBody.endsWith('[...contenuto troncato per brevità]'),
+        `il gradino ${i} ha perso il marcatore di troncamento`,
+      );
+    }
   });
 });

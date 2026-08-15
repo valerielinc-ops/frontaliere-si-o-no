@@ -272,6 +272,62 @@ describe('deriveAndSanitizeArticleSlugs refuses to hand a contaminated slug down
   });
 });
 
+/**
+ * ── LA FORMA NUDA, E PERCHE' E' L'UNICA COSA CHE MANCAVA (issue #382 item 2) ─
+ *
+ * La issue chiedeva di portare qui `inspectSlugForPromptPlaceholder()` dal
+ * corpus. La misura preliminare che la issue stessa prescrive («MISURA le
+ * differenze fra i due gemelli nel punto dove lo slug entra, PRIMA di portare»)
+ * ha detto che il port letterale sarebbe stato un secondo classificatore
+ * ridondante: su una batteria di 30 valori — tutti i `SLUG_OWNED_LITERALS` di
+ * entrambi i repo, l'intera famiglia di `ID_PLACEHOLDER`, i dodici prefissi
+ * mezzo-obbediti osservati in produzione, e sei slug VERI scelti apposta per
+ * essere ambigui — i due classificatori concordavano su 29 casi su 30, e in
+ * nessuno dei 29 il corpus era piu' severo di questo lato.
+ *
+ * Il trentesimo era la forma NUDA: un numero incollato all'unita', senza `max`
+ * e senza un secondo numero davanti. Questo blocco e' la rete su quel caso, e
+ * sulla ragione per cui la regola aggiunta e' SOLO inglese.
+ */
+describe('forma nuda numero+unita (la sola differenza misurata col gemello del corpus)', () => {
+  it.each([
+    ['40-chars', 'il caso misurato: unita al plurale, nessun max'],
+    ['40-char', 'singolare — e la forma che ID_PLACEHOLDER porta davvero'],
+    ['5-words', 'conteggio parole nudo'],
+    ['titolo-40-chars', 'in coda a del testo'],
+    ['40-chars-titolo', 'in testa a del testo'],
+  ])('scarta "%s" (%s)', (slug) => {
+    expect(findSlugPromptLeak(slug), `"${slug}" e' passato: la forma nuda non e' coperta`).toBeTruthy();
+  });
+
+  // Il contrappeso, ed e' la ragione per cui la regola NON accetta le unita'
+  // italiane: `parole` e `caratteri` sono parole italiane comuni, e uno slug
+  // legittimo puo' contenerle preceduta da un numero senza essere un
+  // segnaposto. Una versione "simmetrica" di questa regola le mangerebbe.
+  it.each([
+    '5-parole-chiave-per-la-ricerca-lavoro',
+    '10-caratteri-tipici-del-contratto-svizzero',
+    '3-parole-che-cambiano-la-busta-paga',
+    'frontalieri-ticino-40-anni-di-accordi',
+    'permesso-g-5-giorni-lavorativi',
+  ])('lascia passare lo slug legittimo "%s"', (slug) => {
+    expect(findSlugPromptLeak(slug), `"${slug}" e' un falso positivo`).toBeNull();
+  });
+
+  // Il gate a valle deve vedere la stessa cosa che vede il matcher: una regola
+  // aggiunta ai pattern e mai raggiunta dal punto di scrittura sarebbe il
+  // difetto «un normalizzatore che nessuno chiama», con un file in piu'.
+  it('la forma nuda ferma anche deriveAndSanitizeArticleSlugs', () => {
+    expect(() =>
+      deriveAndSanitizeArticleSlugs({
+        id: '40-chars',
+        slugs: {},
+        content: { it: { title: 'Nuovo accordo frontalieri' } },
+      }),
+    ).toThrow(/#5334/);
+  });
+});
+
 describe('published-corpus sweep (the check that actually runs in CI)', () => {
   // `npm run audit:slug-prompt-leaks` is the operator-facing form of this, but
   // vitest is what runs on every PR, so the enforcement lives here and imports
