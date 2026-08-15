@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-15T21:29:19.165Z",
+  "savedAt": "2026-08-15T21:50:01.151Z",
   "entries": [
     {
       "key": "fcec7de5c4158e4d54d293e8545fa24f7627add3d99edd1acf73f74c6f6a2225",
@@ -50241,11 +50241,11 @@
     },
     {
       "key": "fb28813dbd798bd21359da90c04103530033ded5e9ee8de87b30fadaadcff9e0",
-      "touchedAt": 1784327586505,
+      "touchedAt": 1786830576042,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "Presence of a concrete role title, responsibilities, and requirements, along with an application context, suggests that this is a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
       }
     },
     {
@@ -50259,38 +50259,38 @@
     },
     {
       "key": "2523a454e1245a1e0b49270799f06b74201fd8840eb1ccc7fa28937df762f15c",
-      "touchedAt": 1784327587156,
+      "touchedAt": 1786830577900,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, job responsibilities, and application context, which are typical characteristics of a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "3d7acffa039d2fe486b897b96295ff8a13b295451af020892c5211785919bf67",
-      "touchedAt": 1784327587390,
+      "touchedAt": 1786830574978,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
       }
     },
     {
       "key": "789b7606878f8609c68dcbfd0aa6ac7914dd74bf75b92fcee989c89e21c510de",
-      "touchedAt": 1784327587667,
+      "touchedAt": 1786830577174,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which are typical characteristics of a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "078971301c613320c38b8d68ce5e700bcac2ad9b380e9b4b32d821cfb6063d33",
-      "touchedAt": 1784327587991,
+      "touchedAt": 1786830575226,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which are typical characteristics of a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
@@ -50340,11 +50340,11 @@
     },
     {
       "key": "ebe5c627de423afe560cbdc1f0ec3db52b81dbfccc97643a16f88ced4582b092",
-      "touchedAt": 1784327590376,
+      "touchedAt": 1786830576259,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, job responsibilities, and application context, including a job summary, accountabilities, and qualifications. It also has a clear application process and a link to apply. The only reason for not giving a confidence of 1 is that the page has some generic content, such as the company description and the link to find similar jobs, but these do not detract from the overall job detail content."
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
       }
     },
     {
@@ -50421,11 +50421,11 @@
     },
     {
       "key": "e201e86af258e22f6a69339b8eb7e167279a6fc0f9843b93abce4c4465309d98",
-      "touchedAt": 1784327596612,
+      "touchedAt": 1786830573342,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, detailed responsibilities and requirements, and an application context, indicating a real single job detail page."
       }
     },
     {
@@ -220865,7 +220865,7 @@
     },
     {
       "key": "7c81de0a6fcbc3d075b8083cdf03d1c031e96260a211eb0bde5dda08690c10e1",
-      "touchedAt": 1786787157134,
+      "touchedAt": 1786830539921,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220874,16 +220874,16 @@
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1786787215835,
+      "touchedAt": 1786830553100,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
       }
     },
     {
       "key": "30b71b3ab4cdecb0e56b2d119c9536a54fac126f8d655f746f0bb0a60e234d71",
-      "touchedAt": 1786787279135,
+      "touchedAt": 1786830572265,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220892,7 +220892,7 @@
     },
     {
       "key": "a190daa4202232b8a23a49bb63487dcd9163b9cbf23354d86e1a5abdbb170b3e",
-      "touchedAt": 1786787279492,
+      "touchedAt": 1786830572565,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220901,7 +220901,7 @@
     },
     {
       "key": "38bcdfab2367de2a8c60ff08c18b0f8bfb50c193fceb3a850297db67d8931a2e",
-      "touchedAt": 1786787279785,
+      "touchedAt": 1786830572793,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220910,7 +220910,7 @@
     },
     {
       "key": "3efc15162986a04326ed1cc9ac2134d63a00b9e6af09b31a066937909cd77789",
-      "touchedAt": 1786787280062,
+      "touchedAt": 1786830573092,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220919,7 +220919,7 @@
     },
     {
       "key": "0e76a6469f564a893f140c5ca019f980fecb20b19fbb91e60e5de1d5eca6d7e9",
-      "touchedAt": 1786787280358,
+      "touchedAt": 1786830573672,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220928,7 +220928,7 @@
     },
     {
       "key": "fed7cbafd6083999cfd4c710318c7410e833d32f6dcbef4cb0cb40b8ea28b233",
-      "touchedAt": 1786787280693,
+      "touchedAt": 1786830574015,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220937,7 +220937,7 @@
     },
     {
       "key": "bb11a609b42453477513b413caf5c91e2aab5140206464f9e4bae46c4f7ef92e",
-      "touchedAt": 1786787281180,
+      "touchedAt": 1786830574321,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220946,7 +220946,7 @@
     },
     {
       "key": "5f7f462381d53d4aaba2831bc0aebecda1c60e1d2d976877f85f5a355e5f618f",
-      "touchedAt": 1786787281517,
+      "touchedAt": 1786830575664,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220955,7 +220955,7 @@
     },
     {
       "key": "a96e96b6761d7fb30876418e90a29513fd819b112462e0e0f281c860be808757",
-      "touchedAt": 1786787281843,
+      "touchedAt": 1786830576489,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220964,7 +220964,7 @@
     },
     {
       "key": "c14c1914773aec7c263b8aa5f8c1fbc8466a7cc8aa11d07c858ccd0c2fc53e49",
-      "touchedAt": 1786787282145,
+      "touchedAt": 1786830576930,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220973,7 +220973,7 @@
     },
     {
       "key": "a20438bf615e48a701c448f6a4264064605a73fb9b89c3219a55eac6008f5d84",
-      "touchedAt": 1786787282445,
+      "touchedAt": 1786830578228,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220982,7 +220982,7 @@
     },
     {
       "key": "f92c02eb6e07e2c5d44b3c41481e181d6847eea11c6e380da4c72bcfc418199e",
-      "touchedAt": 1786787282745,
+      "touchedAt": 1786830578514,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -220991,7 +220991,7 @@
     },
     {
       "key": "b776051debe0103154f80171cf7d122eb1a4040201242d60f4f6f1e56ae67d05",
-      "touchedAt": 1786787283022,
+      "touchedAt": 1786830578773,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -221000,7 +221000,7 @@
     },
     {
       "key": "beb35e18654bbc8a35994e7c5d2ae33351239c89d8cf336799e06461ddf205a0",
-      "touchedAt": 1786787283350,
+      "touchedAt": 1786830579058,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -221009,7 +221009,7 @@
     },
     {
       "key": "57ccc0dfd644fad22165166fc9582822df56d2ade02ba4a207ac4e1d335aaa41",
-      "touchedAt": 1786787283630,
+      "touchedAt": 1786830579391,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -221180,7 +221180,7 @@
     },
     {
       "key": "a5626168067ffe387b66170ff960ed1fb29706fe8e50ce29fa34f66366eed727",
-      "touchedAt": 1786787302951,
+      "touchedAt": 1786830581804,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -221198,7 +221198,7 @@
     },
     {
       "key": "c6ec155511185a0a88d8b8f4b690909b7e9323036d92d246d3bbba72f49736c0",
-      "touchedAt": 1786787303955,
+      "touchedAt": 1786830582165,
       "value": {
         "isJob": true,
         "confidence": 0.9,
