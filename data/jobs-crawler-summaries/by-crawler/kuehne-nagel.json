@@ -1,18 +1,19 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-08-14T21:36:44.287Z",
-  "total": 9,
-  "newCount": 1,
-  "updatedCount": 7,
+  "generatedAt": "2026-08-15T09:55:13.663Z",
+  "total": 8,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7921,
-  "avgDurationMs": 7921,
+  "unchangedCount": 0,
+  "durationMs": 7134,
+  "avgDurationMs": 7134,
   "durationHistory": [
-    7921
+    7134
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-eb31372971a9",
       "slug": "customer-care-specialist-landverkehr-m-w-d-kuehne-nagel-embrach",
@@ -25,7 +26,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16273EXTERNALENGLOBAL/customer-care-specialist-landverkehr-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:39.887Z",
+      "crawledAt": "2026-08-15T09:55:09.433Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -42,16 +43,15 @@
       "postedDate": "2026-08-14",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16273EXTERNALENGLOBAL/customer-care-specialist-landverkehr-m-w-d",
       "jobReqId": "16273",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-14T21:36:39.887Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kuehne-nagel-0345df1c1a42",
       "slug": "intern-air-logistics-kuehne-nagel-schindellegi",
@@ -64,7 +64,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL9717EXTERNALENGLOBAL/intern-air-logistics",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T21:36:39.508Z",
+      "crawledAt": "2026-08-15T09:55:09.747Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -102,7 +102,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16225EXTERNALENGLOBAL/export-specialist-luftfracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:40.183Z",
+      "crawledAt": "2026-08-15T09:55:10.037Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -140,7 +140,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16498EXTERNALENGLOBAL/teamleiter-in-nationale-messelogistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:41.338Z",
+      "crawledAt": "2026-08-15T09:55:11.101Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "",
@@ -179,7 +179,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15666EXTERNALENGLOBAL/communications-manager-technology",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T21:36:38.764Z",
+      "crawledAt": "2026-08-15T09:55:08.643Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -217,7 +217,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL15013EXTERNALENGLOBAL/operations-manager-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:40.495Z",
+      "crawledAt": "2026-08-15T09:55:10.462Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -255,7 +255,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL12404EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T21:36:38.381Z",
+      "crawledAt": "2026-08-15T09:55:08.337Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -293,7 +293,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:40.824Z",
+      "crawledAt": "2026-08-15T09:55:10.789Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -321,48 +321,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "kuehne-nagel-adb20d65896f",
-      "slug": "global-program-manager-assistenza-sanitaria-m-f-d-kuehne-nagel-schindellegi",
-      "company": "Kuehne+Nagel",
-      "companyKey": "kuehne-nagel",
-      "companyDomain": "kuehne-nagel.com",
-      "title": "Global Program Manager Healthcare (m/f/d)",
-      "location": "Schindellegi",
-      "canton": "SZ",
-      "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14711EXTERNALENGLOBAL/global-program-manager-healthcare-m-f-d",
-      "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-13T22:13:28.454Z",
-      "addressLocality": "Schindellegi",
-      "addressRegion": "SZ",
-      "postalCode": "8834",
-      "streetAddress": "Dorfstrasse 50",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Logistics / Freight Forwarding",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL14711EXTERNALENGLOBAL/global-program-manager-healthcare-m-f-d",
-      "jobReqId": "14711",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:43:53.834Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
