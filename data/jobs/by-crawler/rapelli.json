@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-08-14T21:53:13.573Z",
+  "assembledAt": "2026-08-15T09:44:36.647Z",
   "jobs": [
     {
       "id": "rapelli-0dfca1cb1db2",
@@ -43,7 +43,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:10.321Z",
+      "crawledAt": "2026-08-15T09:44:32.087Z",
       "firstSeenAt": "2026-07-07T12:05:16.168Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -100,8 +100,9 @@
       "url": "https://careers.orior.ch/job/Stabio-HR-Operations-&-General-Services-%2880-100%29-TI/1410412533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:10.034Z",
+      "crawledAt": "2026-08-15T09:44:31.800Z",
       "firstSeenAt": "2026-07-07T12:05:14.994Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "companyDomain": "rapelli.ch",
       "title": "Chief Financial Officer Rapelli & Spiess, 100% (m/w/d)",
       "titleByLocale": {
-        "it": "Chief Financial Officer Rapelli & Spiess, 100% (m/f/d)",
+        "it": "Chief Financial Officer Rapelli & Spiess, 100% (m/w/d)",
         "en": "Chief Financial Officer Rapelli & Spiess, 100% (m/f/d)",
         "de": "Chief Financial Officer Rapelli & Spiess, 100% (m/w/d)",
         "fr": "Directeur financier Rapelli & Spiess, 100% (h/f/d)"
@@ -157,7 +158,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Chief-Financial-Officer-Rapelli-&-Spiess%2C-100-%28mwd%29-TI/1386501233/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:53:09.713Z",
+      "crawledAt": "2026-08-15T09:44:31.525Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:38:48.489Z",
       "salaryMin": 98000,
@@ -169,199 +170,6 @@
           "@type": "QuantitativeValue",
           "minValue": 98000,
           "maxValue": 132000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "rapelli-59c1bdb72841",
-      "slug": "supply-chain-planner-100-rapelli-stabio",
-      "slugByLocale": {
-        "it": "supply-chain-planner-100-rapelli-stabio",
-        "en": "supply-chain-planner-100-rapelli-stabio",
-        "de": "lieferkette-planner-100-rapelli-orior-food-ag-stabio",
-        "fr": "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio"
-      },
-      "company": "Rapelli - ORIOR Food AG",
-      "companyKey": "rapelli",
-      "companyDomain": "rapelli.ch",
-      "title": "Supply Chain Planner, 100%",
-      "titleByLocale": {
-        "it": "Supply Chain Planner, 100%",
-        "en": "Supply Chain Planner, 100%",
-        "de": "Lieferkette Planner, 100%",
-        "fr": "Chaîne d'approvisionnement Planner, 100%"
-      },
-      "description": "La risorsa avrà la responsabilità di definire, monitorare e ottimizzare il programma di produzione di semilavorati e prodotti finiti, garantendo un efficiente equilibrio tra domanda, capacità produttiva e disponibilità dei materiali.\n\nResponsabilità:\n\n• Definire il programma di produzione per semilavorati e prodotti finiti con l’obiettivo di soddisfare la domanda e ottimizzare costi e livelli di scorte.\n\n• Verificare con l’ufficio acquisti la disponibilità di materie prime e componenti necessari a garantire la fattibilità del piano.\n\n• Monitorare il programma di produzione nel breve, medio e lungo periodo, adattandolo alle variazioni della domanda prevista, della capacità produttiva e della strategia produttiva aziendale.\n\n• Tradurre lericettein distinte produttive, impostare o definire i cicli di produzione e le logiche di gestione e lancio dell’MRP.\n\n• Monitorare gli ordini di lavoroe analizzare eventuali scostamenti dagli standard previsti, proponendo e implementando azioni di miglioramento.\n\n• Gestire i livelli distock di sicurezzae monitorare la rotazione dei materiali.\n\n• Valutare i rischi legati a possibili inefficienze dei flussi produttivi ed elaborare strategie di efficientamento.\n\nRequisiti:\n\n• Laurea in Ingegneria Gestionale o titolo equivalente.\n\n• Esperienza pregressa di almeno 3 anni nella pianificazione della produzionee nel demand planning.\n\n• Ottima conoscenza dei sistemi IT, con particolare riferimento a SAP (moduli di pianificazione e forecasting)\n\n• Ottima conoscenza della lingua inglese (tedesco nice to have)\n\n• Capacità analitiche, orientamento alla risoluzione dei problemi e proattività nel proporre soluzioni migliorative.\n\n• Ottime doti comunicative e attitudine al lavoro in team.\n\nSoft Skills:\n\n• Comunicazione efficace e attitudine al lavoro in team.\n\n• Precisione e attenzione ai dettagli.\n\n• Flessibilità e capacità di lavorare sotto pressione.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
-      "descriptionByLocale": {
-        "it": "La risorsa avrà la responsabilità di definire, monitorare e ottimizzare il programma di produzione di semilavorati e prodotti finiti, garantendo un efficiente equilibrio tra domanda, capacità produttiva e disponibilità dei materiali.\n\nResponsabilità:\n\n• Definire il programma di produzione per semilavorati e prodotti finiti con l’obiettivo di soddisfare la domanda e ottimizzare costi e livelli di scorte.\n\n• Verificare con l’ufficio acquisti la disponibilità di materie prime e componenti necessari a garantire la fattibilità del piano.\n\n• Monitorare il programma di produzione nel breve, medio e lungo periodo, adattandolo alle variazioni della domanda prevista, della capacità produttiva e della strategia produttiva aziendale.\n\n• Tradurre lericettein distinte produttive, impostare o definire i cicli di produzione e le logiche di gestione e lancio dell’MRP.\n\n• Monitorare gli ordini di lavoroe analizzare eventuali scostamenti dagli standard previsti, proponendo e implementando azioni di miglioramento.\n\n• Gestire i livelli distock di sicurezzae monitorare la rotazione dei materiali.\n\n• Valutare i rischi legati a possibili inefficienze dei flussi produttivi ed elaborare strategie di efficientamento.\n\nRequisiti:\n\n• Laurea in Ingegneria Gestionale o titolo equivalente.\n\n• Esperienza pregressa di almeno 3 anni nella pianificazione della produzionee nel demand planning.\n\n• Ottima conoscenza dei sistemi IT, con particolare riferimento a SAP (moduli di pianificazione e forecasting)\n\n• Ottima conoscenza della lingua inglese (tedesco nice to have)\n\n• Capacità analitiche, orientamento alla risoluzione dei problemi e proattività nel proporre soluzioni migliorative.\n\n• Ottime doti comunicative e attitudine al lavoro in team.\n\nSoft Skills:\n\n• Comunicazione efficace e attitudine al lavoro in team.\n\n• Precisione e attenzione ai dettagli.\n\n• Flessibilità e capacità di lavorare sotto pressione.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
-        "en": "The resource will have the responsibility to define, monitor and optimize the production program of semi-finished products and finished products, ensuring an efficient balance between demand, production capacity and availability of materials.\n\nLiability:\n\n• Define the production program for semi-finished products and finished products with the aim to meet demand and optimize costs and levels of stocks.\n\n• Check with the purchasing office the availability of raw materials and components necessary to ensure the feasibility of the plan.\n\n• Monitor the production program in the short, medium and long term, adapting it to the variations of the expected demand, production capacity and company production strategy.\n\n• Translate distinct production lericettein, set or define production cycles and MRP management and launch logic.\n\n• Monitor work orders and analyze any deviations from the expected standards, proposing and implementing improvement actions.\n\n• Manage safety stock levels and monitor material rotation.\n\n• Evaluate the risks associated with possible inefficiencies of production flows and develop strategies for efficiency.\n\nRequirements:\n\n• Degree in Management Engineering or equivalent qualification.\n\n• Prior experience of at least 3 years in production planning and demand planning.\n\n• Excellent knowledge of IT systems, with particular reference to SAP (planning and forecasting modules)\n\n• Great knowledge of English (German nice to have)\n\n• Analytical capacity, guidance on troubleshooting and proactivity in proposing improved solutions.\n\n• Excellent communication skills and teamwork.\n\nSoft Skills:\n\n• Effective communication and teamwork attitude.\n\n• Accuracy and attention to detail.\n\n• Flexibility and ability to work under pressure.\n\nApplications can be sent via the link “Candidati ora” c.a. Annalisa Sattin –HR& Dev.Manager. Your resume vitae, the latest work references and a brief statement on the reasons you want to start working with us.\n\nApplications that meet the criteria required will be considered exclusively.",
-        "de": "Die Ressource hat die Verantwortung, das Produktionsprogramm von Halbfabrikaten und Fertigprodukten zu definieren, zu überwachen und zu optimieren, um ein effizientes Gleichgewicht zwischen Nachfrage, Produktionskapazität und Verfügbarkeit von Materialien zu gewährleisten.\n\nHaftung:\n\n• Definieren Sie das Produktionsprogramm für Halbfertigprodukte und Fertigprodukte mit dem Ziel, die Nachfrage zu decken und Kosten und Lagerbestände zu optimieren.\n\n• Erkundigen Sie sich beim Einkaufsbüro nach der Verfügbarkeit von Rohstoffen und Komponenten, die erforderlich sind, um die Durchführbarkeit des Plans zu gewährleisten.\n\n• Überwachen Sie das Produktionsprogramm kurz-, mittel- und langfristig und passen Sie es an die Schwankungen der erwarteten Nachfrage, der Produktionskapazität und der Produktionsstrategie des Unternehmens an.\n\n• Übersetzen Sie verschiedene Produktions-Lericettein, setzen oder definieren Sie Produktionszyklen und MRP-Management und Startlogik.\n\n• Überwachen Sie Arbeitsaufträge und analysieren Sie Abweichungen von den erwarteten Standards, schlagen Sie Verbesserungsmaßnahmen vor und implementieren Sie diese.\n\n• Verwalten Sie den Sicherheitsbestand und überwachen Sie die Materialrotation.\n\n• Bewerten Sie die Risiken, die mit möglichen Ineffizienzen von Produktionsflüssen verbunden sind, und entwickeln Sie Strategien für Effizienz.\n\nAnforderungen:\n\n• Abschluss in Management Engineering oder gleichwertige Qualifikation.\n\n• Vorkenntnisse von mindestens 3 Jahren in der Produktionsplanung und Bedarfsplanung.\n\n• Exzellente Kenntnisse der IT-Systeme, insbesondere in Bezug auf SAP (Planungs- und Prognosemodule)\n\n• Große Englischkenntnisse (Deutsch nice to have)\n\n• Analysekapazität, Anleitung zur Fehlerbehebung und Proaktivität beim Vorschlag verbesserter Lösungen.\n\n• Hervorragende Kommunikationsfähigkeiten und Teamwork.\n\nSoft Skills:\n\n• Effektive Kommunikation und Teamwork Haltung.\n\n• Genauigkeit und Liebe zum Detail.\n\n• Flexibilität und Fähigkeit, unter Druck zu arbeiten.\n\nBewerbungen können über den Link “Candidati ora” c.a. Annalisa Sattin –HR&Dev.Manager gesendet werden. Ihr Lebenslauf, die neuesten Arbeitsreferenzen und eine kurze Erklärung zu den Gründen, warum Sie mit uns zusammenarbeiten möchten.\n\nAnträge, die die geforderten Kriterien erfüllen, werden ausschließlich berücksichtigt.",
-        "fr": "La ressource aura la responsabilité de définir, de surveiller et d'optimiser le programme de production des produits semi-finis et des produits finis, en assurant un équilibre efficace entre la demande, la capacité de production et la disponibilité des matériaux.\n\nResponsabilité :\n\n• Définir le programme de production pour les produits semi-finis et les produits finis dans le but de répondre à la demande et d'optimiser les coûts et les niveaux des stocks.\n\n• Vérifier auprès du bureau d'achat la disponibilité des matières premières et des composants nécessaires pour assurer la faisabilité du plan.\n\n• Surveiller le programme de production à court, moyen et long terme, en l'adaptant aux variations de la demande prévue, de la capacité de production et de la stratégie de production de l'entreprise.\n\n• Traduire lericetin de production distinct, définir ou définir les cycles de production et la logique de gestion et de lancement MRP.\n\n• Surveiller les ordres de travail et analyser les écarts par rapport aux normes prévues, proposer et mettre en oeuvre des mesures d'amélioration.\n\n• Gérer les niveaux des stocks de sécurité et surveiller la rotation des matériaux.\n\n• Évaluer les risques associés à d'éventuelles inefficacités des flux de production et élaborer des stratégies d'efficacité.\n\nExigences:\n\n• Diplôme en ingénierie de gestion ou diplôme équivalent.\n\n• Expérience antérieure d'au moins 3 ans en planification de la production et de la demande.\n\n• Excellente connaissance des systèmes informatiques, en particulier SAP (modules de planification et de prévision)\n\n• Grande connaissance de l'anglais (allemand agréable à avoir)\n\n• Capacité d'analyse, conseils sur le dépannage et la proactivité en proposant des solutions améliorées.\n\n• Excellentes compétences en communication et travail d'équipe.\n\nCompétences souples :\n\n• Communication efficace et esprit d'équipe.\n\n• Précision et attention aux détails.\n\n• Flexibilité et aptitude à travailler sous pression.\n\nLes demandes peuvent être envoyées par l'intermédiaire du lien « Candidati ora » c.a. Annalisa Sattin – HR& Dev.Manager. Votre curriculum vitæ, les dernières références de travail et une brève déclaration sur les raisons pour lesquelles vous voulez commencer à travailler avec nous.\n\nLes demandes qui répondent aux critères requis seront examinées exclusivement."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Stabio",
-      "canton": "TI",
-      "addressLocality": "Stabio",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
-      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:09.422Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-14T12:02:51.962Z",
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "rapelli-1c1bde834f0d",
-      "slug": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
-      "slugByLocale": {
-        "it": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
-        "en": "collaboratore-pulizia-100-rapelli-stabio",
-        "de": "collaboratore-pulizia-100-rapelli-stabio",
-        "fr": "collaboratore-pulizia-100-rapelli-stabio"
-      },
-      "company": "Rapelli - ORIOR Food AG",
-      "companyKey": "rapelli",
-      "companyDomain": "rapelli.ch",
-      "title": "Collaboratore Pulizia, 100%",
-      "titleByLocale": {
-        "it": "Collaboratore Pulizia, 100%",
-        "en": "Collaboratore Cleaning, 100%",
-        "de": "Collaboratore Reinigung, 100%",
-        "fr": "Nettoyage collaboratif, 100%"
-      },
-      "description": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Collaboratore Pulizia da inserire all’interno del team Igiene e Pulizia di stabilimento.\n\nResponsabilità\n\n• Eseguire le attività di pulizia e sanificazione delle macchine industriali e delle aree di produzione secondo il piano di lavoro definito.\n\n• Smontare e rimontare le parti semplici delle attrezzature, ove previsto dalle procedure, per consentire una pulizia accurata.\n\n• Utilizzare correttamente detergenti, disinfettanti, attrezzature e strumenti di lavoro nel rispetto delle istruzioni ricevute.\n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare.\n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali.\n\nCompetenze\n\n• Esperienza, anche breve, in attività di pulizia industriale o in contesti produttivi.\n\n• Capacità di seguire istruzioni operative e procedure definite.\n\n• Ottima autonomia nello svolgimento delle attività assegnate.\n\n• Attenzione al dettaglio nelle attività di pulizia e sanificazione.\n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie.\n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di sanificazione industriale.\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
-      "descriptionByLocale": {
-        "it": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Collaboratore Pulizia da inserire all’interno del team Igiene e Pulizia di stabilimento.\n\nResponsabilità\n\n• Eseguire le attività di pulizia e sanificazione delle macchine industriali e delle aree di produzione secondo il piano di lavoro definito.\n\n• Smontare e rimontare le parti semplici delle attrezzature, ove previsto dalle procedure, per consentire una pulizia accurata.\n\n• Utilizzare correttamente detergenti, disinfettanti, attrezzature e strumenti di lavoro nel rispetto delle istruzioni ricevute.\n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare.\n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali.\n\nCompetenze\n\n• Esperienza, anche breve, in attività di pulizia industriale o in contesti produttivi.\n\n• Capacità di seguire istruzioni operative e procedure definite.\n\n• Ottima autonomia nello svolgimento delle attività assegnate.\n\n• Attenzione al dettaglio nelle attività di pulizia e sanificazione.\n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie.\n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di sanificazione industriale.\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
-        "en": "For our production plant specialized in cold meats, gastronomy and fresh meat, we are looking for a Cleaning Collaborator to be included within the Hygiene and Cleaning team.\n\nLiability\n\n• Perform cleaning and sanitizing of industrial machines and production areas according to the defined work plan.\n\n• Disassemble and reassemble the simple parts of the equipment, where required by the procedures, to allow accurate cleaning.\n\n• Use properly detergents, disinfectants, equipment and work tools in compliance with the instructions received.\n\n• Ensure compliance with the high standards of hygiene, quality and safety at the food plant.\n\n• Report anomalies, non-conformity or need for intervention to the supervisor, acting in compliance with business procedures.\n\nSkills\n\n• Experience, even short, in industrial cleaning activities or in productive contexts.\n\n• Ability to follow operational instructions and defined procedures.\n\n• Great autonomy in the performance of the assigned activities.\n\n• Attention to detail in cleaning and sanitizing activities.\n\n• Compliance with safety procedures and sanitation standards.\n\n• Preferable experience in food or pharmaceutical establishments in industrial sanitation.\n\nApplications can be sent via the link “Candidati ora” c.a. Alessandra Mezzadri –HRBP. Your resume vitae, the latest work references and a brief statement on the reasons you want to start working with us.\n\nApplications that meet the criteria required will be considered exclusively.",
-        "de": "Für unsere auf kaltes Fleisch, Gastronomie und frisches Fleisch spezialisierte Produktionsstätte suchen wir einen Reinigungsmitarbeiter, der in das Hygiene- und Reinigungsteam aufgenommen wird.\n\nHaftung\n\n• Reinigen und Sanieren von Industriemaschinen und Produktionsbereichen nach dem definierten Arbeitsplan.\n\n• Demontage und Wiedermontage der einfachen Teile der Ausrüstung, sofern dies für die Verfahren erforderlich ist, um eine genaue Reinigung zu ermöglichen.\n\n• Waschmittel, Desinfektionsmittel, Ausrüstung und Arbeitswerkzeuge entsprechend den erhaltenen Anweisungen richtig verwenden.\n\n• Gewährleistung der Einhaltung der hohen Hygiene-, Qualitäts- und Sicherheitsstandards in der Lebensmittelfabrik.\n\n• Meldung von Anomalien, Nichterfüllung oder Interventionsbedarf an die Aufsichtsbehörde unter Einhaltung der Geschäftsverfahren.\n\nFähigkeiten\n\n• Erfahrung, auch kurz, in industriellen Reinigungsaktivitäten oder in produktiven Kontexten.\n\n• Fähigkeit, Betriebsanweisungen und definierte Verfahren zu befolgen.\n\n• Große Autonomie bei der Durchführung der zugewiesenen Aktivitäten.\n\n• Aufmerksamkeit auf Details bei der Reinigung und Desinfektion Aktivitäten.\n\n• Einhaltung von Sicherheitsverfahren und Hygienestandards.\n\n• Bevorzugte Erfahrung in Lebensmittel- oder Pharmabetrieben in industriellen Sanitäreinrichtungen.\n\nBewerbungen können über den Link “Candidati ora” c.a. Alessandra Mezzadri –HRBP gesendet werden. Ihr Lebenslauf, die neuesten Arbeitsreferenzen und eine kurze Erklärung zu den Gründen, warum Sie mit uns zusammenarbeiten möchten.\n\nAnträge, die die geforderten Kriterien erfüllen, werden ausschließlich berücksichtigt.",
-        "fr": "Pour notre usine de production spécialisée dans les viandes froides, la gastronomie et la viande fraîche, nous recherchons un collaborateur de nettoyage pour être inclus dans l'équipe d'hygiène et de nettoyage.\n\nResponsabilité\n\n• Effectuer le nettoyage et l'assainissement des machines industrielles et des zones de production selon le plan de travail défini.\n\n• Démontez et réassemblez les pièces simples de l'équipement, si les procédures l'exigent, pour permettre un nettoyage précis.\n\n• Utiliser correctement les détergents, les désinfectants, l'équipement et les outils de travail conformément aux instructions reçues.\n\n• Assurer le respect des normes élevées d'hygiène, de qualité et de sécurité de l'usine alimentaire.\n\n• Signaler les anomalies, la non-conformité ou la nécessité d'intervenir auprès du superviseur, en agissant conformément aux procédures opérationnelles.\n\nCompétences\n\n• Expérience, même courte, dans les activités de nettoyage industriel ou dans les contextes productifs.\n\n• Capacité de suivre les instructions opérationnelles et les procédures définies.\n\n• Grande autonomie dans l'exécution des activités assignées.\n\n• Attention aux détails dans les activités de nettoyage et de désinfection.\n\n• Respect des procédures de sécurité et des normes sanitaires.\n\n• Expérience préférentielle dans les établissements alimentaires ou pharmaceutiques en assainissement industriel.\n\nLes demandes peuvent être envoyées via le lien Candidati ora.Alessandra Mezzadri –HRBP. Votre curriculum vitæ, les dernières références de travail et une brève déclaration sur les raisons pour lesquelles vous voulez commencer à travailler avec nous.\n\nLes demandes qui répondent aux critères requis seront examinées exclusivement."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Stabio",
-      "canton": "TI",
-      "addressLocality": "Stabio",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
-      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:09.236Z",
-      "previousSlugs": [
-        "collaboratore-pulizia-100-rapelli-stabio"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaboratore-pulizia-100-rapelli-stabio"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T12:02:51.478Z",
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "rapelli-bdc3322ac1f6",
-      "slug": "manutentore-maintenance-technician-100-rapelli-stabio",
-      "slugByLocale": {
-        "it": "manutentore-maintenance-technician-100-rapelli-stabio",
-        "en": "manutentore-maintenance-technician-100-rapelli-stabio",
-        "de": "manutentore-maintenance-techniker-100-rapelli-orior-food-ag-stabio",
-        "fr": "manutentore-maintenance-technicien-100-rapelli-orior-food-ag-stabio"
-      },
-      "company": "Rapelli - ORIOR Food AG",
-      "companyKey": "rapelli",
-      "companyDomain": "rapelli.ch",
-      "title": "Manutentore/Maintenance Technician, 100%",
-      "titleByLocale": {
-        "it": "Manutentore/Maintenance Technician, 100%",
-        "en": "Technician Maintenance, 100%",
-        "de": "Manutentore/Maintenance Techniker, 100%",
-        "fr": "Manutentore/Maintenance Technicien, 100%"
-      },
-      "description": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Maintenance Technician da inserire all’interno del team Manutenzione di stabilimento.\n\nResponsabilità\n\n• Eseguire interventi di manutenzione ordinaria, straordinaria e preventiva su impianti e linee di produzione e confezionamento.\n\n• Effettuare diagnosi guasti e ripristinare il corretto funzionamento delle apparecchiature, minimizzando i fermi linea.\n\n• Supportare l’installazione, l’avviamento, la regolazione e il collaudo di macchine e impianti.\n\n• Verificare il corretto funzionamento di protezioni, interblocchi e dispositivi di sicurezza, compilando la documentazione tecnica degli interventi.\n\n• Garantire il corretto funzionamento delle apparecchiature nel rispetto degli standard di sicurezza, qualità e igiene previsti in ambito food.\n\nCompetenze\n\n• Esperienza di almeno 3 anni in ruolo analogo\n\n• Diploma tecnico ad indirizzo meccanico, meccatronico o elettrotecnico.\n\n• Esperienza nella manutenzione di impianti industriali di produzione e confezionamento.\n\n• Conoscenza delle procedure di manutenzione in ambito alimentare o farmaceutico.\n\n• Capacità di diagnosi guasti e collaudo impianti.\n\n• Disponibilità a picchetto e a turni notturni.\n\n• Buona conoscenza di MS Office.\n\n• La conoscenza di SAP PM o DynaWIn e competenze in ambito meccatronico e idraulico costituiscono titolo preferenziale.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
-      "descriptionByLocale": {
-        "it": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Maintenance Technician da inserire all’interno del team Manutenzione di stabilimento.\n\nResponsabilità\n\n• Eseguire interventi di manutenzione ordinaria, straordinaria e preventiva su impianti e linee di produzione e confezionamento.\n\n• Effettuare diagnosi guasti e ripristinare il corretto funzionamento delle apparecchiature, minimizzando i fermi linea.\n\n• Supportare l’installazione, l’avviamento, la regolazione e il collaudo di macchine e impianti.\n\n• Verificare il corretto funzionamento di protezioni, interblocchi e dispositivi di sicurezza, compilando la documentazione tecnica degli interventi.\n\n• Garantire il corretto funzionamento delle apparecchiature nel rispetto degli standard di sicurezza, qualità e igiene previsti in ambito food.\n\nCompetenze\n\n• Esperienza di almeno 3 anni in ruolo analogo\n\n• Diploma tecnico ad indirizzo meccanico, meccatronico o elettrotecnico.\n\n• Esperienza nella manutenzione di impianti industriali di produzione e confezionamento.\n\n• Conoscenza delle procedure di manutenzione in ambito alimentare o farmaceutico.\n\n• Capacità di diagnosi guasti e collaudo impianti.\n\n• Disponibilità a picchetto e a turni notturni.\n\n• Buona conoscenza di MS Office.\n\n• La conoscenza di SAP PM o DynaWIn e competenze in ambito meccatronico e idraulico costituiscono titolo preferenziale.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
-        "en": "For our production plant specialized in cold meats, gastronomy and fresh meat, we are looking for a Maintenance Technician to be included within the Manutenzione team of establishment.\n\nLiability\n\n• Perform ordinary, extraordinary and preventive maintenance operations on plants and production and packaging lines.\n\n• Make fault diagnosis and restore the correct operation of the equipment, minimizing the line stops.\n\n• Support installation, start-up, adjustment and testing of machines and plants.\n\n• Check the correct functioning of protections, interlocks and security devices, compiling technical documentation of interventions.\n\n• Ensure the correct functioning of the equipment in compliance with the safety, quality and hygiene standards in the food sector.\n\nSkills\n\n• Experience of at least 3 years in a similar role\n\n• Technical diploma with mechanical, mechatronic or electrotechnical address.\n\n• Experience in the maintenance of industrial plants of production and packaging.\n\n• Knowledge of food or pharmaceutical maintenance procedures.\n\n• Ability to diagnose faults and test plants.\n\n• Piquet and night shift availability.\n\n• Good knowledge of MS Office.\n\n• Knowledge of SAP PM or DynaWIn and mechatronic and hydraulic skills are preferential title.\n\nApplications can be sent via the link “Candidati ora” c.a. Alessandra Mezzadri –HRBP. Your resume vitae, the latest work references and a brief statement on the reasons you want to start working with us.\n\nApplications that meet the criteria required will be considered exclusively.",
-        "de": "Für unsere auf kaltes Fleisch, Gastronomie und frisches Fleisch spezialisierte Produktionsstätte suchen wir einen Wartungstechniker, der in das Manutenzione-Team aufgenommen wird.\n\nHaftung\n\n• Durchführung gewöhnlicher, außergewöhnlicher und vorbeugender Wartungsarbeiten an Anlagen und Produktions- und Verpackungslinien.\n\n• Machen Sie die Fehlerdiagnose und stellen Sie den korrekten Betrieb der Ausrüstung wieder her, wodurch die Leitungshaltestellen minimiert werden.\n\n• Unterstützung bei der Installation, Inbetriebnahme, Einstellung und Prüfung von Maschinen und Anlagen.\n\n• Überprüfen Sie die korrekte Funktion von Schutzvorrichtungen, Interlocks und Sicherheitsvorrichtungen und erstellen Sie die technische Dokumentation der Eingriffe.\n\n• Gewährleistung des ordnungsgemäßen Funktionierens der Geräte in Übereinstimmung mit den Sicherheits-, Qualitäts- und Hygienestandards im Lebensmittelsektor.\n\nFähigkeiten\n\n• Erfahrung von mindestens 3 Jahren in einer ähnlichen Rolle\n\n• Technisches Diplom mit mechanischer, mechatronischer oder elektrotechnischer Adresse.\n\n• Erfahrung in der Wartung von Industrieanlagen der Produktion und Verpackung.\n\n• Kenntnis der Lebensmittel- oder pharmazeutischen Wartungsverfahren.\n\n• Fähigkeit, Fehler zu diagnostizieren und Pflanzen zu testen.\n\n• Piquet und Nachtschicht Verfügbarkeit.\n\n• Gute Kenntnisse von MS Office.\n\n• Kenntnisse in SAP PM oder DynaWIn sowie mechatronische und hydraulische Fähigkeiten sind bevorzugte Titel.\n\nBewerbungen können über den Link “Candidati ora” c.a. Alessandra Mezzadri –HRBP gesendet werden. Ihr Lebenslauf, die neuesten Arbeitsreferenzen und eine kurze Erklärung zu den Gründen, warum Sie mit uns zusammenarbeiten möchten.\n\nAnträge, die die geforderten Kriterien erfüllen, werden ausschließlich berücksichtigt.",
-        "fr": "Pour notre usine de production spécialisée dans les viandes froides, la gastronomie et la viande fraîche, nous recherchons un technicien d'entretien à inclure dans l'équipe d'établissement Manutenzione.\n\nResponsabilité\n\n• Effectuer des opérations d'entretien ordinaires, extraordinaires et préventives sur les usines et les lignes de production et d'emballage.\n\n• Faites un diagnostic de défaillance et rétablissez le bon fonctionnement de l'équipement, minimisant les arrêts de ligne.\n\n• Installation de soutien, démarrage, réglage et essai des machines et des installations.\n\n• Vérifier le bon fonctionnement des protections, des verrouillages et des dispositifs de sécurité, compiler la documentation technique des interventions.\n\n• Assurer le bon fonctionnement de l'équipement conformément aux normes de sécurité, de qualité et d'hygiène dans le secteur alimentaire.\n\nCompétences\n\n• Expérience d'au moins 3 ans dans un rôle similaire\n\n• Diplôme technique avec adresse mécanique, mécatronique ou électrotechnique.\n\n• Expérience dans l'entretien des installations industrielles de production et d'emballage.\n\n• Connaissance des procédures d'entretien des aliments ou des produits pharmaceutiques.\n\n• Capacité de diagnostiquer les défauts et de tester les plantes.\n\n• Piquet et disponibilité en équipe de nuit.\n\n• Bonne connaissance de MS Office.\n\n• La connaissance de SAP PM ou DynaWIn et les compétences mécatroniques et hydrauliques sont des titres préférentiels.\n\nLes demandes peuvent être envoyées via le lien Candidati ora.Alessandra Mezzadri –HRBP. Votre curriculum vitæ, les dernières références de travail et une brève déclaration sur les raisons pour lesquelles vous voulez commencer à travailler avec nous.\n\nLes demandes qui répondent aux critères requis seront examinées exclusivement."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Stabio",
-      "canton": "TI",
-      "addressLocality": "Stabio",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
-      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:08.939Z",
-      "previousSlugs": [
-        "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
-        "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
-          "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
-        ],
-        "fr": [
-          "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T12:02:51.149Z",
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -384,7 +192,7 @@
         "it": "Tecnologo Alimentare, 100%",
         "en": "Food Technology, 100%",
         "de": "Lebensmitteltechnologie, 100%",
-        "fr": "Technologie alimentaire, 100%"
+        "fr": "Tecnologo Alimentare, 100%"
       },
       "description": "Responsabilità e compiti\n\n• Sviluppare e ottimizzare i processi produttivi per garantire qualità, sicurezza e massima efficienza industriale.\n\n• Creare e sviluppare nuove ricette, in linea con le richieste del mercato e le tendenze di consumo.\n\n• Effettuare calcoli di formulazione e bilanciamento delle ricette, per garantire il rispetto dei parametri qualitativi e nutrizionali.\n\n• Analizzare i costi delle ricette e dei processi produttivi, sviluppando prodotti competitivi dal punto di vista economico senza compromettere la qualità.\n\n• Collaborare con il team R&D, i Cuochi/Gastronomi e i reparti di Produzione per testare e validare le ricette e i processi industrializzabili.\n\n• Definire e standardizzare le specifiche tecniche delle ricette e dei processi di produzione.\n\n• Condurre prove di laboratorio e industriali, valutando shelf-life, resa produttiva e proprietà organolettiche dei prodotti.\n\n• Assicurare la conformità normativa e garantire la sicurezza alimentare, rispettando rigorosamente gli standard di qualità (HACCP, BRC, IFS, ISO) e le regolamentazioni vigenti.\n\n• Collaborare strettamente con il Laboratorio e l'Assicurazione Qualità per individuare e prevenire eventuali rischi microbiologici, chimici e fisici nei processi produttivi.\n\n• Gestire la documentazione tecnica delle ricette, elaborando schede prodotto, calcoli nutrizionali e analisi dei costi.\n\n• Monitorare le tendenze del mercato e dell’innovazione alimentare, proponendo soluzioni innovative per il portafoglio prodotti.\n\n• Supportare la produzione nella risoluzione di problematiche tecnologiche, interfacciandosi con la supply chain e fornitori.\n\nCompetenze MUST HAVE\n\n• Laurea in Scienze e Tecnologie Alimentari o discipline affini.\n\n• Esperienza di almeno 5 anni nello sviluppo di prodotti alimentari, preferibilmente nel settore convenience food.\n\n• Esperienza comprovata nello sviluppo e ottimizzazione di processi produttivi e ricette.\n\n• Capacità di analisi e gestione dei costi delle ricette e dei processi produttivi, per garantire prodotti competitivi.\n\n• Esperienza nella formulazione, bilanciamento e calcolazione delle ricette.\n\n• Competenze nell’uso di software per la gestione delle ricette, calcoli nutrizionali e cost analysis.\n\n• Buona conoscenza delle tecnologie di trasformazione alimentare e dei sistemi di confezionamento.\n\n• Esperienza nell'esecuzione di analisi organolettiche e test sensoriali, con capacità di valutare in modo strutturato gusto, aroma, texture e stabilità del prodotto.\n\n• Solide conoscenze chimiche per individuare fenomeni legati alla sicurezza alimentare e alla chimica degli ingredienti, inclusi aspetti di shelf-life, interazioni tra ingredienti e stabilità dei prodotti.\n\n• Buona conoscenza della lingua inglese, preferibilmente anche del tedesco.\n\n• Ottima conoscenza del mercato svizzero, in termini di preferenze di consumo, regolamentazioni e trend gastronomici\n\n• Ottima conoscenza di Microsoft Office (Excel, Word, PowerPoint).\n\n• Esperienza nell’uso di SAP o altri software gestionali ERP.\n\n• Capacità di lavorare in team multidisciplinari, interfacciandosi con R&D, Produzione, Laboratorio e Assicurazione Qualità.\n\n• Problem solving e flessibilità, per affrontare sfide tecniche e produttive. Attenzione ai dettagli e precisione, essenziali per la standardizzazione e replicabilità delle ricette.\n\n• Ottime doti comunicative, per condividere informazioni tecniche con team interni ed esterni.\n\nNICE TO HAVE\n\n• Passione per la cucina e l’innovazione alimentare, con curiosità verso nuove tecniche e ingredienti.\n\n• Conoscenza del mondo carne e salumi, con esperienza nei relativi processi produttivi.\n\n• Esperienza nella gestione di prove industriali e ottimizzazione dei processi produttivi.\n\n• Familiarità con tecnologie di conservazione e trasformazione alimentare come pastorizzazione, sterilizzazione.\n\n• Esperienza in sviluppo e innovazione di packaging per migliorare la conservabilità e la sostenibilità dei prodotti convenience.\n\n• Conoscenza delle dinamiche del co-packing e della gestione di fornitori esterni.\n\n• Esperienza nel mercato svizzero sia lato sviluppo prodotto che adattamento di ricette alle esigenze locali.\n\n• Conoscenza di software di formulazione e gestione ricette per il calcolo nutrizionale e l’ottimizzazione delle formulazioni.\n\n• Competenze di project management per il coordinamento delle attività di sviluppo e industrializzazione.\n\n• Problem solving e flessibilità, per affrontare sfide tecniche e produttive.\n\n• Attenzione ai dettagli e precisione, essenziali per la standardizzazione e replicabilità delle ricette.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
       "descriptionByLocale": {
@@ -408,7 +216,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:08.634Z",
+      "crawledAt": "2026-08-15T09:44:31.292Z",
       "previousSlugs": [
         "tecnologia-alimentare-100-rapelli-orior-food-ag-stabio"
       ],
@@ -418,6 +226,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:02:50.792Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -473,8 +282,133 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratricecollaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:08.340Z",
+      "crawledAt": "2026-08-15T09:44:31.072Z",
       "firstSeenAt": "2026-07-14T12:02:52.545Z",
+      "needsRetranslation": true,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "rapelli-1c1bde834f0d",
+      "slug": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
+      "slugByLocale": {
+        "it": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
+        "en": "collaboratore-pulizia-100-rapelli-stabio",
+        "de": "collaboratore-pulizia-100-rapelli-stabio",
+        "fr": "collaboratore-pulizia-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Collaboratore Pulizia, 100%",
+      "titleByLocale": {
+        "it": "Collaboratore Pulizia, 100%",
+        "en": "Collaboratore Cleaning, 100%",
+        "de": "Collaboratore Reinigung, 100%",
+        "fr": "Nettoyage collaboratif, 100%"
+      },
+      "description": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Collaboratore Pulizia da inserire all’interno del team Igiene e Pulizia di stabilimento.\n\nResponsabilità\n\n• Eseguire le attività di pulizia e sanificazione delle macchine industriali e delle aree di produzione secondo il piano di lavoro definito.\n\n• Smontare e rimontare le parti semplici delle attrezzature, ove previsto dalle procedure, per consentire una pulizia accurata.\n\n• Utilizzare correttamente detergenti, disinfettanti, attrezzature e strumenti di lavoro nel rispetto delle istruzioni ricevute.\n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare.\n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali.\n\nCompetenze\n\n• Esperienza, anche breve, in attività di pulizia industriale o in contesti produttivi.\n\n• Capacità di seguire istruzioni operative e procedure definite.\n\n• Ottima autonomia nello svolgimento delle attività assegnate.\n\n• Attenzione al dettaglio nelle attività di pulizia e sanificazione.\n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie.\n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di sanificazione industriale.\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+      "descriptionByLocale": {
+        "it": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Collaboratore Pulizia da inserire all’interno del team Igiene e Pulizia di stabilimento.\n\nResponsabilità\n\n• Eseguire le attività di pulizia e sanificazione delle macchine industriali e delle aree di produzione secondo il piano di lavoro definito.\n\n• Smontare e rimontare le parti semplici delle attrezzature, ove previsto dalle procedure, per consentire una pulizia accurata.\n\n• Utilizzare correttamente detergenti, disinfettanti, attrezzature e strumenti di lavoro nel rispetto delle istruzioni ricevute.\n\n• Garantire il rispetto degli alti standard di igiene, qualità e sicurezza previsti nello stabilimento alimentare.\n\n• Segnalare anomalie, non conformità o necessità di intervento al supervisore, operando nel rispetto delle procedure aziendali.\n\nCompetenze\n\n• Esperienza, anche breve, in attività di pulizia industriale o in contesti produttivi.\n\n• Capacità di seguire istruzioni operative e procedure definite.\n\n• Ottima autonomia nello svolgimento delle attività assegnate.\n\n• Attenzione al dettaglio nelle attività di pulizia e sanificazione.\n\n• Rispetto delle procedure di sicurezza e delle norme igienico-sanitarie.\n\n• Preferibile esperienza in stabilimenti del settore alimentare o farmaceutico in attività di sanificazione industriale.\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+        "en": "For our production plant specialized in cold meats, gastronomy and fresh meat, we are looking for a Cleaning Collaborator to be included within the Hygiene and Cleaning team.\n\nLiability\n\n• Perform cleaning and sanitizing of industrial machines and production areas according to the defined work plan.\n\n• Disassemble and reassemble the simple parts of the equipment, where required by the procedures, to allow accurate cleaning.\n\n• Use properly detergents, disinfectants, equipment and work tools in compliance with the instructions received.\n\n• Ensure compliance with the high standards of hygiene, quality and safety at the food plant.\n\n• Report anomalies, non-conformity or need for intervention to the supervisor, acting in compliance with business procedures.\n\nSkills\n\n• Experience, even short, in industrial cleaning activities or in productive contexts.\n\n• Ability to follow operational instructions and defined procedures.\n\n• Great autonomy in the performance of the assigned activities.\n\n• Attention to detail in cleaning and sanitizing activities.\n\n• Compliance with safety procedures and sanitation standards.\n\n• Preferable experience in food or pharmaceutical establishments in industrial sanitation.\n\nApplications can be sent via the link “Candidati ora” c.a. Alessandra Mezzadri –HRBP. Your resume vitae, the latest work references and a brief statement on the reasons you want to start working with us.\n\nApplications that meet the criteria required will be considered exclusively.",
+        "de": "Für unsere auf kaltes Fleisch, Gastronomie und frisches Fleisch spezialisierte Produktionsstätte suchen wir einen Reinigungsmitarbeiter, der in das Hygiene- und Reinigungsteam aufgenommen wird.\n\nHaftung\n\n• Reinigen und Sanieren von Industriemaschinen und Produktionsbereichen nach dem definierten Arbeitsplan.\n\n• Demontage und Wiedermontage der einfachen Teile der Ausrüstung, sofern dies für die Verfahren erforderlich ist, um eine genaue Reinigung zu ermöglichen.\n\n• Waschmittel, Desinfektionsmittel, Ausrüstung und Arbeitswerkzeuge entsprechend den erhaltenen Anweisungen richtig verwenden.\n\n• Gewährleistung der Einhaltung der hohen Hygiene-, Qualitäts- und Sicherheitsstandards in der Lebensmittelfabrik.\n\n• Meldung von Anomalien, Nichterfüllung oder Interventionsbedarf an die Aufsichtsbehörde unter Einhaltung der Geschäftsverfahren.\n\nFähigkeiten\n\n• Erfahrung, auch kurz, in industriellen Reinigungsaktivitäten oder in produktiven Kontexten.\n\n• Fähigkeit, Betriebsanweisungen und definierte Verfahren zu befolgen.\n\n• Große Autonomie bei der Durchführung der zugewiesenen Aktivitäten.\n\n• Aufmerksamkeit auf Details bei der Reinigung und Desinfektion Aktivitäten.\n\n• Einhaltung von Sicherheitsverfahren und Hygienestandards.\n\n• Bevorzugte Erfahrung in Lebensmittel- oder Pharmabetrieben in industriellen Sanitäreinrichtungen.\n\nBewerbungen können über den Link “Candidati ora” c.a. Alessandra Mezzadri –HRBP gesendet werden. Ihr Lebenslauf, die neuesten Arbeitsreferenzen und eine kurze Erklärung zu den Gründen, warum Sie mit uns zusammenarbeiten möchten.\n\nAnträge, die die geforderten Kriterien erfüllen, werden ausschließlich berücksichtigt.",
+        "fr": "Pour notre usine de production spécialisée dans les viandes froides, la gastronomie et la viande fraîche, nous recherchons un collaborateur de nettoyage pour être inclus dans l'équipe d'hygiène et de nettoyage.\n\nResponsabilité\n\n• Effectuer le nettoyage et l'assainissement des machines industrielles et des zones de production selon le plan de travail défini.\n\n• Démontez et réassemblez les pièces simples de l'équipement, si les procédures l'exigent, pour permettre un nettoyage précis.\n\n• Utiliser correctement les détergents, les désinfectants, l'équipement et les outils de travail conformément aux instructions reçues.\n\n• Assurer le respect des normes élevées d'hygiène, de qualité et de sécurité de l'usine alimentaire.\n\n• Signaler les anomalies, la non-conformité ou la nécessité d'intervenir auprès du superviseur, en agissant conformément aux procédures opérationnelles.\n\nCompétences\n\n• Expérience, même courte, dans les activités de nettoyage industriel ou dans les contextes productifs.\n\n• Capacité de suivre les instructions opérationnelles et les procédures définies.\n\n• Grande autonomie dans l'exécution des activités assignées.\n\n• Attention aux détails dans les activités de nettoyage et de désinfection.\n\n• Respect des procédures de sécurité et des normes sanitaires.\n\n• Expérience préférentielle dans les établissements alimentaires ou pharmaceutiques en assainissement industriel.\n\nLes demandes peuvent être envoyées via le lien Candidati ora.Alessandra Mezzadri –HRBP. Votre curriculum vitæ, les dernières références de travail et une brève déclaration sur les raisons pour lesquelles vous voulez commencer à travailler avec nous.\n\nLes demandes qui répondent aux critères requis seront examinées exclusivement."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-15T09:44:30.808Z",
+      "previousSlugs": [
+        "collaboratore-pulizia-100-rapelli-stabio"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-pulizia-100-rapelli-stabio"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T12:02:51.478Z",
+      "needsRetranslation": true,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "rapelli-59c1bdb72841",
+      "slug": "supply-chain-planner-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "supply-chain-planner-100-rapelli-stabio",
+        "en": "supply-chain-planner-100-rapelli-stabio",
+        "de": "lieferkette-planner-100-rapelli-orior-food-ag-stabio",
+        "fr": "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Supply Chain Planner, 100%",
+      "titleByLocale": {
+        "it": "Supply Chain Planner, 100%",
+        "en": "Supply Chain Planner, 100%",
+        "de": "Lieferkette Planner, 100%",
+        "fr": "Chaîne d'approvisionnement Planner, 100%"
+      },
+      "description": "La risorsa avrà la responsabilità di definire, monitorare e ottimizzare il programma di produzione di semilavorati e prodotti finiti, garantendo un efficiente equilibrio tra domanda, capacità produttiva e disponibilità dei materiali.\n\nResponsabilità:\n\n• Definire il programma di produzione per semilavorati e prodotti finiti con l’obiettivo di soddisfare la domanda e ottimizzare costi e livelli di scorte.\n\n• Verificare con l’ufficio acquisti la disponibilità di materie prime e componenti necessari a garantire la fattibilità del piano.\n\n• Monitorare il programma di produzione nel breve, medio e lungo periodo, adattandolo alle variazioni della domanda prevista, della capacità produttiva e della strategia produttiva aziendale.\n\n• Tradurre lericettein distinte produttive, impostare o definire i cicli di produzione e le logiche di gestione e lancio dell’MRP.\n\n• Monitorare gli ordini di lavoroe analizzare eventuali scostamenti dagli standard previsti, proponendo e implementando azioni di miglioramento.\n\n• Gestire i livelli distock di sicurezzae monitorare la rotazione dei materiali.\n\n• Valutare i rischi legati a possibili inefficienze dei flussi produttivi ed elaborare strategie di efficientamento.\n\nRequisiti:\n\n• Laurea in Ingegneria Gestionale o titolo equivalente.\n\n• Esperienza pregressa di almeno 3 anni nella pianificazione della produzionee nel demand planning.\n\n• Ottima conoscenza dei sistemi IT, con particolare riferimento a SAP (moduli di pianificazione e forecasting)\n\n• Ottima conoscenza della lingua inglese (tedesco nice to have)\n\n• Capacità analitiche, orientamento alla risoluzione dei problemi e proattività nel proporre soluzioni migliorative.\n\n• Ottime doti comunicative e attitudine al lavoro in team.\n\nSoft Skills:\n\n• Comunicazione efficace e attitudine al lavoro in team.\n\n• Precisione e attenzione ai dettagli.\n\n• Flessibilità e capacità di lavorare sotto pressione.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+      "descriptionByLocale": {
+        "it": "La risorsa avrà la responsabilità di definire, monitorare e ottimizzare il programma di produzione di semilavorati e prodotti finiti, garantendo un efficiente equilibrio tra domanda, capacità produttiva e disponibilità dei materiali.\n\nResponsabilità:\n\n• Definire il programma di produzione per semilavorati e prodotti finiti con l’obiettivo di soddisfare la domanda e ottimizzare costi e livelli di scorte.\n\n• Verificare con l’ufficio acquisti la disponibilità di materie prime e componenti necessari a garantire la fattibilità del piano.\n\n• Monitorare il programma di produzione nel breve, medio e lungo periodo, adattandolo alle variazioni della domanda prevista, della capacità produttiva e della strategia produttiva aziendale.\n\n• Tradurre lericettein distinte produttive, impostare o definire i cicli di produzione e le logiche di gestione e lancio dell’MRP.\n\n• Monitorare gli ordini di lavoroe analizzare eventuali scostamenti dagli standard previsti, proponendo e implementando azioni di miglioramento.\n\n• Gestire i livelli distock di sicurezzae monitorare la rotazione dei materiali.\n\n• Valutare i rischi legati a possibili inefficienze dei flussi produttivi ed elaborare strategie di efficientamento.\n\nRequisiti:\n\n• Laurea in Ingegneria Gestionale o titolo equivalente.\n\n• Esperienza pregressa di almeno 3 anni nella pianificazione della produzionee nel demand planning.\n\n• Ottima conoscenza dei sistemi IT, con particolare riferimento a SAP (moduli di pianificazione e forecasting)\n\n• Ottima conoscenza della lingua inglese (tedesco nice to have)\n\n• Capacità analitiche, orientamento alla risoluzione dei problemi e proattività nel proporre soluzioni migliorative.\n\n• Ottime doti comunicative e attitudine al lavoro in team.\n\nSoft Skills:\n\n• Comunicazione efficace e attitudine al lavoro in team.\n\n• Precisione e attenzione ai dettagli.\n\n• Flessibilità e capacità di lavorare sotto pressione.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”. Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+        "en": "The resource will have the responsibility to define, monitor and optimize the production program of semi-finished products and finished products, ensuring an efficient balance between demand, production capacity and availability of materials.\n\nLiability:\n\n• Define the production program for semi-finished products and finished products with the aim to meet demand and optimize costs and levels of stocks.\n\n• Check with the purchasing office the availability of raw materials and components necessary to ensure the feasibility of the plan.\n\n• Monitor the production program in the short, medium and long term, adapting it to the variations of the expected demand, production capacity and company production strategy.\n\n• Translate distinct production lericettein, set or define production cycles and MRP management and launch logic.\n\n• Monitor work orders and analyze any deviations from the expected standards, proposing and implementing improvement actions.\n\n• Manage safety stock levels and monitor material rotation.\n\n• Evaluate the risks associated with possible inefficiencies of production flows and develop strategies for efficiency.\n\nRequirements:\n\n• Degree in Management Engineering or equivalent qualification.\n\n• Prior experience of at least 3 years in production planning and demand planning.\n\n• Excellent knowledge of IT systems, with particular reference to SAP (planning and forecasting modules)\n\n• Great knowledge of English (German nice to have)\n\n• Analytical capacity, guidance on troubleshooting and proactivity in proposing improved solutions.\n\n• Excellent communication skills and teamwork.\n\nSoft Skills:\n\n• Effective communication and teamwork attitude.\n\n• Accuracy and attention to detail.\n\n• Flexibility and ability to work under pressure.\n\nApplications can be sent via the link “Candidati ora” c.a. Annalisa Sattin –HR& Dev.Manager. Your resume vitae, the latest work references and a brief statement on the reasons you want to start working with us.\n\nApplications that meet the criteria required will be considered exclusively.",
+        "de": "Die Ressource hat die Verantwortung, das Produktionsprogramm von Halbfabrikaten und Fertigprodukten zu definieren, zu überwachen und zu optimieren, um ein effizientes Gleichgewicht zwischen Nachfrage, Produktionskapazität und Verfügbarkeit von Materialien zu gewährleisten.\n\nHaftung:\n\n• Definieren Sie das Produktionsprogramm für Halbfertigprodukte und Fertigprodukte mit dem Ziel, die Nachfrage zu decken und Kosten und Lagerbestände zu optimieren.\n\n• Erkundigen Sie sich beim Einkaufsbüro nach der Verfügbarkeit von Rohstoffen und Komponenten, die erforderlich sind, um die Durchführbarkeit des Plans zu gewährleisten.\n\n• Überwachen Sie das Produktionsprogramm kurz-, mittel- und langfristig und passen Sie es an die Schwankungen der erwarteten Nachfrage, der Produktionskapazität und der Produktionsstrategie des Unternehmens an.\n\n• Übersetzen Sie verschiedene Produktions-Lericettein, setzen oder definieren Sie Produktionszyklen und MRP-Management und Startlogik.\n\n• Überwachen Sie Arbeitsaufträge und analysieren Sie Abweichungen von den erwarteten Standards, schlagen Sie Verbesserungsmaßnahmen vor und implementieren Sie diese.\n\n• Verwalten Sie den Sicherheitsbestand und überwachen Sie die Materialrotation.\n\n• Bewerten Sie die Risiken, die mit möglichen Ineffizienzen von Produktionsflüssen verbunden sind, und entwickeln Sie Strategien für Effizienz.\n\nAnforderungen:\n\n• Abschluss in Management Engineering oder gleichwertige Qualifikation.\n\n• Vorkenntnisse von mindestens 3 Jahren in der Produktionsplanung und Bedarfsplanung.\n\n• Exzellente Kenntnisse der IT-Systeme, insbesondere in Bezug auf SAP (Planungs- und Prognosemodule)\n\n• Große Englischkenntnisse (Deutsch nice to have)\n\n• Analysekapazität, Anleitung zur Fehlerbehebung und Proaktivität beim Vorschlag verbesserter Lösungen.\n\n• Hervorragende Kommunikationsfähigkeiten und Teamwork.\n\nSoft Skills:\n\n• Effektive Kommunikation und Teamwork Haltung.\n\n• Genauigkeit und Liebe zum Detail.\n\n• Flexibilität und Fähigkeit, unter Druck zu arbeiten.\n\nBewerbungen können über den Link “Candidati ora” c.a. Annalisa Sattin –HR&Dev.Manager gesendet werden. Ihr Lebenslauf, die neuesten Arbeitsreferenzen und eine kurze Erklärung zu den Gründen, warum Sie mit uns zusammenarbeiten möchten.\n\nAnträge, die die geforderten Kriterien erfüllen, werden ausschließlich berücksichtigt.",
+        "fr": "La ressource aura la responsabilité de définir, de surveiller et d'optimiser le programme de production des produits semi-finis et des produits finis, en assurant un équilibre efficace entre la demande, la capacité de production et la disponibilité des matériaux.\n\nResponsabilité :\n\n• Définir le programme de production pour les produits semi-finis et les produits finis dans le but de répondre à la demande et d'optimiser les coûts et les niveaux des stocks.\n\n• Vérifier auprès du bureau d'achat la disponibilité des matières premières et des composants nécessaires pour assurer la faisabilité du plan.\n\n• Surveiller le programme de production à court, moyen et long terme, en l'adaptant aux variations de la demande prévue, de la capacité de production et de la stratégie de production de l'entreprise.\n\n• Traduire lericetin de production distinct, définir ou définir les cycles de production et la logique de gestion et de lancement MRP.\n\n• Surveiller les ordres de travail et analyser les écarts par rapport aux normes prévues, proposer et mettre en oeuvre des mesures d'amélioration.\n\n• Gérer les niveaux des stocks de sécurité et surveiller la rotation des matériaux.\n\n• Évaluer les risques associés à d'éventuelles inefficacités des flux de production et élaborer des stratégies d'efficacité.\n\nExigences:\n\n• Diplôme en ingénierie de gestion ou diplôme équivalent.\n\n• Expérience antérieure d'au moins 3 ans en planification de la production et de la demande.\n\n• Excellente connaissance des systèmes informatiques, en particulier SAP (modules de planification et de prévision)\n\n• Grande connaissance de l'anglais (allemand agréable à avoir)\n\n• Capacité d'analyse, conseils sur le dépannage et la proactivité en proposant des solutions améliorées.\n\n• Excellentes compétences en communication et travail d'équipe.\n\nCompétences souples :\n\n• Communication efficace et esprit d'équipe.\n\n• Précision et attention aux détails.\n\n• Flexibilité et aptitude à travailler sous pression.\n\nLes demandes peuvent être envoyées par l'intermédiaire du lien « Candidati ora » c.a. Annalisa Sattin – HR& Dev.Manager. Votre curriculum vitæ, les dernières références de travail et une brève déclaration sur les raisons pour lesquelles vous voulez commencer à travailler avec nous.\n\nLes demandes qui répondent aux critères requis seront examinées exclusivement."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-15T09:44:30.554Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-14T12:02:51.962Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -530,7 +464,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:53:08.053Z",
+      "crawledAt": "2026-08-15T09:44:30.317Z",
       "previousSlugs": [
         "digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio",
         "digitaler-order-edi-spezialist-50-80-rapelli-orior-food-ag-stabio"
@@ -542,6 +476,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:02:52.946Z",
+      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 60000,
       "baseSalary": {
@@ -551,6 +486,77 @@
           "@type": "QuantitativeValue",
           "minValue": 44400,
           "maxValue": 60000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "rapelli-bdc3322ac1f6",
+      "slug": "manutentore-maintenance-technician-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "manutentore-maintenance-technician-100-rapelli-stabio",
+        "en": "manutentore-maintenance-technician-100-rapelli-stabio",
+        "de": "manutentore-maintenance-techniker-100-rapelli-orior-food-ag-stabio",
+        "fr": "manutentore-maintenance-technicien-100-rapelli-orior-food-ag-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Manutentore/Maintenance Technician, 100%",
+      "titleByLocale": {
+        "it": "Manutentore/Maintenance Technician, 100%",
+        "en": "Manutentore/Maintenance Technician, 100%",
+        "de": "Manutentore/Maintenance Techniker, 100%",
+        "fr": "Manutentore/Maintenance Technicien, 100%"
+      },
+      "description": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Maintenance Technician da inserire all’interno del team Manutenzione di stabilimento.\n\nResponsabilità\n\n• Eseguire interventi di manutenzione ordinaria, straordinaria e preventiva su impianti e linee di produzione e confezionamento.\n\n• Effettuare diagnosi guasti e ripristinare il corretto funzionamento delle apparecchiature, minimizzando i fermi linea.\n\n• Supportare l’installazione, l’avviamento, la regolazione e il collaudo di macchine e impianti.\n\n• Verificare il corretto funzionamento di protezioni, interblocchi e dispositivi di sicurezza, compilando la documentazione tecnica degli interventi.\n\n• Garantire il corretto funzionamento delle apparecchiature nel rispetto degli standard di sicurezza, qualità e igiene previsti in ambito food.\n\nCompetenze\n\n• Esperienza di almeno 3 anni in ruolo analogo\n\n• Diploma tecnico ad indirizzo meccanico, meccatronico o elettrotecnico.\n\n• Esperienza nella manutenzione di impianti industriali di produzione e confezionamento.\n\n• Conoscenza delle procedure di manutenzione in ambito alimentare o farmaceutico.\n\n• Capacità di diagnosi guasti e collaudo impianti.\n\n• Disponibilità a picchetto e a turni notturni.\n\n• Buona conoscenza di MS Office.\n\n• La conoscenza di SAP PM o DynaWIn e competenze in ambito meccatronico e idraulico costituiscono titolo preferenziale.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+      "descriptionByLocale": {
+        "it": "Per il nostro stabilimento produttivo specializzato in salumi, gastronomia e carne fresca, siamo alla ricerca di un Maintenance Technician da inserire all’interno del team Manutenzione di stabilimento.\n\nResponsabilità\n\n• Eseguire interventi di manutenzione ordinaria, straordinaria e preventiva su impianti e linee di produzione e confezionamento.\n\n• Effettuare diagnosi guasti e ripristinare il corretto funzionamento delle apparecchiature, minimizzando i fermi linea.\n\n• Supportare l’installazione, l’avviamento, la regolazione e il collaudo di macchine e impianti.\n\n• Verificare il corretto funzionamento di protezioni, interblocchi e dispositivi di sicurezza, compilando la documentazione tecnica degli interventi.\n\n• Garantire il corretto funzionamento delle apparecchiature nel rispetto degli standard di sicurezza, qualità e igiene previsti in ambito food.\n\nCompetenze\n\n• Esperienza di almeno 3 anni in ruolo analogo\n\n• Diploma tecnico ad indirizzo meccanico, meccatronico o elettrotecnico.\n\n• Esperienza nella manutenzione di impianti industriali di produzione e confezionamento.\n\n• Conoscenza delle procedure di manutenzione in ambito alimentare o farmaceutico.\n\n• Capacità di diagnosi guasti e collaudo impianti.\n\n• Disponibilità a picchetto e a turni notturni.\n\n• Buona conoscenza di MS Office.\n\n• La conoscenza di SAP PM o DynaWIn e competenze in ambito meccatronico e idraulico costituiscono titolo preferenziale.\n\nLe candidature possono essere inviate tramite il link “Candidati ora”\n\nTi riconosci in questo profilo? Allora attendiamo con piacere la tua candidatura tramite il pulsante \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti.",
+        "en": "For our production plant specialized in cold meats, gastronomy and fresh meat, we are looking for a Maintenance Technician to be included within the Manutenzione team of establishment.\n\nLiability\n\n• Perform ordinary, extraordinary and preventive maintenance operations on plants and production and packaging lines.\n\n• Make fault diagnosis and restore the correct operation of the equipment, minimizing the line stops.\n\n• Support installation, start-up, adjustment and testing of machines and plants.\n\n• Check the correct functioning of protections, interlocks and security devices, compiling technical documentation of interventions.\n\n• Ensure the correct functioning of the equipment in compliance with the safety, quality and hygiene standards in the food sector.\n\nSkills\n\n• Experience of at least 3 years in a similar role\n\n• Technical diploma with mechanical, mechatronic or electrotechnical address.\n\n• Experience in the maintenance of industrial plants of production and packaging.\n\n• Knowledge of food or pharmaceutical maintenance procedures.\n\n• Ability to diagnose faults and test plants.\n\n• Piquet and night shift availability.\n\n• Good knowledge of MS Office.\n\n• Knowledge of SAP PM or DynaWIn and mechatronic and hydraulic skills are preferential title.\n\nApplications can be sent via the link “Candidati ora” c.a. Alessandra Mezzadri –HRBP. Your resume vitae, the latest work references and a brief statement on the reasons you want to start working with us.\n\nApplications that meet the criteria required will be considered exclusively.",
+        "de": "Für unsere auf kaltes Fleisch, Gastronomie und frisches Fleisch spezialisierte Produktionsstätte suchen wir einen Wartungstechniker, der in das Manutenzione-Team aufgenommen wird.\n\nHaftung\n\n• Durchführung gewöhnlicher, außergewöhnlicher und vorbeugender Wartungsarbeiten an Anlagen und Produktions- und Verpackungslinien.\n\n• Machen Sie die Fehlerdiagnose und stellen Sie den korrekten Betrieb der Ausrüstung wieder her, wodurch die Leitungshaltestellen minimiert werden.\n\n• Unterstützung bei der Installation, Inbetriebnahme, Einstellung und Prüfung von Maschinen und Anlagen.\n\n• Überprüfen Sie die korrekte Funktion von Schutzvorrichtungen, Interlocks und Sicherheitsvorrichtungen und erstellen Sie die technische Dokumentation der Eingriffe.\n\n• Gewährleistung des ordnungsgemäßen Funktionierens der Geräte in Übereinstimmung mit den Sicherheits-, Qualitäts- und Hygienestandards im Lebensmittelsektor.\n\nFähigkeiten\n\n• Erfahrung von mindestens 3 Jahren in einer ähnlichen Rolle\n\n• Technisches Diplom mit mechanischer, mechatronischer oder elektrotechnischer Adresse.\n\n• Erfahrung in der Wartung von Industrieanlagen der Produktion und Verpackung.\n\n• Kenntnis der Lebensmittel- oder pharmazeutischen Wartungsverfahren.\n\n• Fähigkeit, Fehler zu diagnostizieren und Pflanzen zu testen.\n\n• Piquet und Nachtschicht Verfügbarkeit.\n\n• Gute Kenntnisse von MS Office.\n\n• Kenntnisse in SAP PM oder DynaWIn sowie mechatronische und hydraulische Fähigkeiten sind bevorzugte Titel.\n\nBewerbungen können über den Link “Candidati ora” c.a. Alessandra Mezzadri –HRBP gesendet werden. Ihr Lebenslauf, die neuesten Arbeitsreferenzen und eine kurze Erklärung zu den Gründen, warum Sie mit uns zusammenarbeiten möchten.\n\nAnträge, die die geforderten Kriterien erfüllen, werden ausschließlich berücksichtigt.",
+        "fr": "Pour notre usine de production spécialisée dans les viandes froides, la gastronomie et la viande fraîche, nous recherchons un technicien d'entretien à inclure dans l'équipe d'établissement Manutenzione.\n\nResponsabilité\n\n• Effectuer des opérations d'entretien ordinaires, extraordinaires et préventives sur les usines et les lignes de production et d'emballage.\n\n• Faites un diagnostic de défaillance et rétablissez le bon fonctionnement de l'équipement, minimisant les arrêts de ligne.\n\n• Installation de soutien, démarrage, réglage et essai des machines et des installations.\n\n• Vérifier le bon fonctionnement des protections, des verrouillages et des dispositifs de sécurité, compiler la documentation technique des interventions.\n\n• Assurer le bon fonctionnement de l'équipement conformément aux normes de sécurité, de qualité et d'hygiène dans le secteur alimentaire.\n\nCompétences\n\n• Expérience d'au moins 3 ans dans un rôle similaire\n\n• Diplôme technique avec adresse mécanique, mécatronique ou électrotechnique.\n\n• Expérience dans l'entretien des installations industrielles de production et d'emballage.\n\n• Connaissance des procédures d'entretien des aliments ou des produits pharmaceutiques.\n\n• Capacité de diagnostiquer les défauts et de tester les plantes.\n\n• Piquet et disponibilité en équipe de nuit.\n\n• Bonne connaissance de MS Office.\n\n• La connaissance de SAP PM ou DynaWIn et les compétences mécatroniques et hydrauliques sont des titres préférentiels.\n\nLes demandes peuvent être envoyées via le lien Candidati ora.Alessandra Mezzadri –HRBP. Votre curriculum vitæ, les dernières références de travail et une brève déclaration sur les raisons pour lesquelles vous voulez commencer à travailler avec nous.\n\nLes demandes qui répondent aux critères requis seront examinées exclusivement."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-15T09:44:30.045Z",
+      "previousSlugs": [
+        "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
+        "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
+          "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
+        ],
+        "fr": [
+          "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T12:02:51.149Z",
+      "needsRetranslation": true,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
