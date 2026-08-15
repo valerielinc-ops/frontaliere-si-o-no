@@ -1,14 +1,14 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-08-14T21:28:36.897Z",
+  "assembledAt": "2026-08-15T09:35:17.515Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-ce6d6d862ab0",
       "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d",
       "slugByLocale": {
-        "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
         "it": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d",
         "en": "hotel-staff-on-demand-privatklinik-hohenegg-meilen-78a10d",
+        "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
         "fr": "personnel-de-l-hotel-sur-demande-privatklinik-hohenegg-meilen-78a10d"
       },
       "company": "Privatklinik Hohenegg",
@@ -16,24 +16,25 @@
       "companyDomain": "hohenegg.ch",
       "title": "Mitarbeitende Hotellerie (auf Abruf)",
       "titleByLocale": {
-        "de": "Mitarbeitende Hotellerie (auf Abruf)",
         "it": "Personale dell'hotel (su richiesta)",
         "en": "Hotel staff (on demand)",
+        "de": "Mitarbeitende Hotellerie (auf Abruf)",
         "fr": "Personnel de l'hôtel (sur demande)"
       },
       "description": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
       "descriptionByLocale": {
-        "de": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
         "it": "Industria alberghiera dei dipendenti (su richiesta) presso la Hohenegg Private Clinic di Meilen, Canton di Zurigo.\n\nPrivatklinik Hohenegg AG è un moderno centro di competenza per la psichiatria inpatia, la psicosomatica e la psicoterapia sul lago di Zurigo. Trattiamo adulti con burnout, depressione, ansia, trauma e crisi di vita in un ambiente tranquillo.\n\nCosa offre l'Hohenegg:\n• Moderno ambiente ospedaliero con alta qualità professionale\n• Cooperazione interdisciplinare in un team impegnato\n• Condizioni di lavoro interessanti e opportunità di formazione\n• Bella posizione sul lago di Zurigo in miglia",
         "en": "Employee hotel industry (on demand) at the Hohenegg Private Clinic in Meilen, Canton of Zurich.\n\nPrivatklinik Hohenegg AG is a modern competence center for inpatient psychiatry, psychosomatics and psychotherapy on Lake Zurich. We treat adults with burnout, depression, anxiety, trauma and life crises in a quiet environment.\n\nWhat the Hohenegg offers:\n• Modern hospital environment with high professional quality\n• Interdisciplinary cooperation in a committed team\n• Attractive employment conditions and training opportunities\n• Beautiful location on Lake Zurich in miles",
+        "de": "Mitarbeitende Hotellerie (auf Abruf) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
         "fr": "Industrie hôtelière salariée (sur demande) à la clinique privée Hohenegg à Meilen, Canton de Zurich.\n\nPrivatklinik Hohenegg AG est un centre de compétence moderne pour la psychiatrie, la psychosomatique et la psychothérapie des patients hospitalisés sur le lac de Zurich. Nous traitons les adultes avec épuisement, dépression, anxiété, traumatisme et crises de vie dans un environnement calme.\n\nCe que le Hohenegg offre:\n• Environnement hospitalier moderne avec une qualité professionnelle élevée\n• Coopération interdisciplinaire dans une équipe engagée\n• Conditions d'emploi et possibilités de formation attrayantes\n• Magnifique emplacement sur le lac de Zurich en miles"
       },
+      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:28:33.112Z",
+      "crawledAt": "2026-08-15T09:35:13.133Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -49,12 +50,27 @@
       "postedDate": "2026-08-14",
       "applyUrl": "https://apply.refline.ch/640332/0063/pub/3/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 10,
       "pensumMax": 10,
       "pensum": "10%",
+      "previousSlugs": [
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+        "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+          "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d"
+        ],
+        "en": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T21:28:33.112Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -66,22 +82,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-14T21:28:33.112Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
-        ],
-        "en": [
-          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
-        ],
-        "fr": [
-          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
-      ]
+      }
     },
     {
       "id": "privatklinik-hohenegg-77a7146b0afe",
@@ -89,7 +90,7 @@
       "slugByLocale": {
         "it": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
         "en": "hotel-staff-on-demand-privatklinik-hohenegg-meilen",
-        "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch-ars5ts",
+        "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-meilen",
         "fr": "personnel-de-l-hotel-sur-demande-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
@@ -135,7 +136,8 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch-ars5ts"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -148,7 +150,8 @@
           "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
         ],
         "de": [
-          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch-ars5ts"
         ]
       },
       "firstSeenAt": "2026-07-28T11:27:17.425Z",
@@ -164,7 +167,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
