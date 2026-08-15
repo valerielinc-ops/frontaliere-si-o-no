@@ -1,7 +1,68 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-08-14T21:37:19.822Z",
+  "assembledAt": "2026-08-15T09:45:03.766Z",
   "jobs": [
+    {
+      "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
+      "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
+      "slugByLocale": {
+        "it": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
+        "en": "afc-building-and-infrastructure-operator-citta-di-bellinzona-bellinzona",
+        "de": "afc-gebaude-und-infrastrukturbetreiber-citta-di-bellinzona-bellinzona",
+        "fr": "operateur-de-batiments-et-d-infrastructures-de-l-afc-citta-di-bellinzona-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
+      "titleByLocale": {
+        "it": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
+        "en": "AFC Building and Infrastructure Operator",
+        "de": "AFC Gebäude- und Infrastrukturbetreiber",
+        "fr": "Opérateur de bâtiments et d'infrastructures de l'AFC"
+      },
+      "description": "## Apprendista Operatore/trice di edifici e infrastrutture AFC\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Apprendista Operatore/trice di edifici e infrastrutture AFC. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+      "descriptionByLocale": {
+        "it": "## Apprendista Operatore/trice di edifici e infrastrutture AFC\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Apprendista Operatore/trice di edifici e infrastrutture AFC. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+        "en": "## AFC Building and Infrastructure Operator\n\nCity of Bellinzona — public competition in Bellinzona (TI), Switzerland.\n\nPublic competition at the City of Bellinzona for the position of Apprendista Operatore/trice of buildings and infrastructures AFC. Consult the competition notice for full requirements.\n\nSector:* Public Administration\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Switzerland",
+        "de": "## AFC Gebäude- und Infrastrukturbetreiber\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona um die Position des Apprendista Operatore/trice von Gebäuden und Infrastrukturen AFC. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige\n• Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
+        "fr": "## Opérateur de bâtiments et d'infrastructures de l'AFC\n\nVille de Bellinzona — concours public à Bellinzona (TI), Suisse.\n\nConcours public à la ville de Bellinzona pour la position d'Apprendista Opérateur/pièce de bâtiments et d'infrastructures AFC. Consultez l'avis de concours pour connaître toutes les exigences.\n\nSecteur:* Administration publique\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Suisse"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-15T09:45:00.653Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "citta-di-bellinzona-comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
       "slug": "comandante-pompieri-presso-il-corpo-civici-pompieri-bellinzona-bellinzona",
@@ -61,7 +122,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "citta-di-bellinzona-tecnico-a-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
@@ -122,7 +184,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "citta-di-bellinzona-responsabile-ufficio-presso-l-ente-autonomo-bellinzona-sport-bellinzona",
@@ -183,68 +246,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-      "slug": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-      "slugByLocale": {
-        "it": "apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
-        "en": "afc-building-and-infrastructure-operator-citta-di-bellinzona-bellinzona",
-        "de": "afc-gebaude-und-infrastrukturbetreiber-citta-di-bellinzona-bellinzona",
-        "fr": "operateur-de-batiments-et-d-infrastructures-de-l-afc-citta-di-bellinzona-bellinzona"
       },
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
-      "titleByLocale": {
-        "it": "Apprendista Operatore/trice di edifici e infrastrutture AFC",
-        "en": "AFC Building and Infrastructure Operator",
-        "de": "AFC Gebäude- und Infrastrukturbetreiber",
-        "fr": "Opérateur de bâtiments et d'infrastructures de l'AFC"
-      },
-      "description": "## Apprendista Operatore/trice di edifici e infrastrutture AFC\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Apprendista Operatore/trice di edifici e infrastrutture AFC. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
-      "descriptionByLocale": {
-        "it": "## Apprendista Operatore/trice di edifici e infrastrutture AFC\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Apprendista Operatore/trice di edifici e infrastrutture AFC. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
-        "en": "## AFC Building and Infrastructure Operator\n\nCity of Bellinzona — public competition in Bellinzona (TI), Switzerland.\n\nPublic competition at the City of Bellinzona for the position of Apprendista Operatore/trice of buildings and infrastructures AFC. Consult the competition notice for full requirements.\n\nSector:* Public Administration\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Switzerland",
-        "de": "## AFC Gebäude- und Infrastrukturbetreiber\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona um die Position des Apprendista Operatore/trice von Gebäuden und Infrastrukturen AFC. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige\n• Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
-        "fr": "## Opérateur de bâtiments et d'infrastructures de l'AFC\n\nVille de Bellinzona — concours public à Bellinzona (TI), Suisse.\n\nConcours public à la ville de Bellinzona pour la position d'Apprendista Opérateur/pièce de bâtiments et d'infrastructures AFC. Consultez l'avis de concours pour connaître toutes les exigences.\n\nSecteur:* Administration publique\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Suisse"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4e38a935-41ce-4fcd-9b5e-e976ff649a20,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-14T21:37:16.717Z",
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
