@@ -143,7 +143,11 @@ export function parseReopenBudget(body) {
  * punto in cui una mutazione dell'invariante deve diventare rossa.
  *
  * @param {{vitestConclusion:string, fingerprint:string,
- *          prior:{count:number,fingerprint:string}|null, max?:number}} s
+ *          prior:{count:number,fingerprint:string}|null, max?:number,
+ *          failureNotAttributable?:string}} s
+ *   `failureNotAttributable` — la reason (`'red-main'`/`'stale'`) di
+ *   `vitestFailureIsNotAttributableToPr` quando il chiamante ha la PROVA che il
+ *   `failure` non è della PR, '' altrimenti. Vedi la precondizione sotto.
  * @returns {{action:'skip-failing-check'|'skip-breaker'|'reopen',
  *            count:number, reason:string}}
  *   'skip-failing-check' = un check richiesto è FAILURE: il reopen non può
@@ -151,7 +155,7 @@ export function parseReopenBudget(body) {
  *   'skip-breaker'       = budget esaurito sullo STESSO stato → si smette.
  *   'reopen'             = riciclo legittimo; `count` è il tentativo in corso.
  */
-export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAULT_MAX_REOPENS }) {
+export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAULT_MAX_REOPENS, failureNotAttributable = '' }) {
   const carried = prior && prior.fingerprint === fingerprint ? prior.count : 0;
 
   // (1) PRECONDIZIONE — prima di tutto il resto, e senza consumare budget: una
@@ -159,7 +163,20 @@ export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAU
   // il suo contatore resterebbe a max e bloccherebbe il primo reopen legittimo
   // DOPO che il rosso è stato riparato (il fingerprint cambia col verde, ma un
   // conteggio scritto sul fingerprint rosso è comunque rumore inutile).
-  if (vitestConclusion === 'failure') {
+  //
+  // ECCEZIONE STUCK-RED (`failureNotAttributable`): la premessa della
+  // precondizione — «il reopen non può cambiare `!lgtm`» — vale solo se il
+  // rosso è DELLA PR. Quando il chiamante ha appena provato il contrario
+  // (vitestFailureIsNotAttributableToPr: main rosso al momento del test e poi
+  // tornato verde, o rosso stantio >24h = infra), il re-trigger è esattamente
+  // la cura: ri-esegue i test contro il main riparato, e con il verde riparte
+  // pr-review-loop. Negarlo qui contraddirebbe la diagnosi che lo stesso run
+  // ha appena scritto nel commento STUCK_RED («rebase + ri-esecuzione dei
+  // test, una sola volta») e lascerebbe la PR in uno stato assorbente a zero
+  // segnali. Il caso resta one-shot per costruzione (il marker STUCK_RED
+  // consuma la reason al tick successivo) e il tentativo CONTA nel budget del
+  // breaker: anche uno stuck-red non si ricicla all'infinito.
+  if (vitestConclusion === 'failure' && !failureNotAttributable) {
     return {
       action: 'skip-failing-check',
       count: carried,
@@ -185,7 +202,11 @@ export function decideReopen({ vitestConclusion, fingerprint, prior, max = DEFAU
   return {
     action: 'reopen',
     count: carried + 1,
-    reason: `riciclo legittimo (tentativo ${carried + 1}/${max}).`,
+    reason: failureNotAttributable
+      ? `riciclo legittimo (tentativo ${carried + 1}/${max}): vitest rosso ma PROVATO `
+        + `non attribuibile alla PR (${failureNotAttributable}) — re-trigger di `
+        + `review+tests contro il main riparato.`
+      : `riciclo legittimo (tentativo ${carried + 1}/${max}).`,
   };
 }
 
@@ -260,9 +281,17 @@ export function renderReopenBudget({ count, max, fingerprint, action, reason }) 
         + `Appena arriva un commit nuovo (o il vitest cambia verdetto, o arriva una review) `
         + `parte automaticamente UNA passata piena — rebase su main e ri-esecuzione dei test — `
         + `così chi arriva a guardarla trova un risultato riferito allo stato attuale.`
-      : `Cosa serve per sbloccarla: **far passare \`${VITEST_CHECK_NAME}\`**. `
-        + `Appena arriva un commit nuovo (o il check torna verde) il contatore si azzera `
-        + `da solo e il ciclo la riprende — non serve toccare niente qui.`;
+      : action === 'skip-breaker'
+        // Il breaker scatta tipicamente su PR VERDI (le rosse le ferma la
+        // precondizione, prima e senza consumare budget): dire «far passare i
+        // test» qui indicherebbe all'umano un'azione già soddisfatta.
+        ? `Cosa serve per sbloccarla: **un commit nuovo, o una review che arrivi** — il vitest `
+          + `di solito qui è già verde, non è lui il blocco. Appena l'impronta cambia il `
+          + `contatore si azzera da solo e il ciclo la riprende; in alternativa un close+reopen `
+          + `manuale ri-triggera review+tests subito.`
+        : `Cosa serve per sbloccarla: **far passare \`${VITEST_CHECK_NAME}\`**. `
+          + `Appena arriva un commit nuovo (o il check torna verde) il contatore si azzera `
+          + `da solo e il ciclo la riprende — non serve toccare niente qui.`;
   return `${REOPEN_BUDGET_MARKER}\n${head}\n\n${reason}\n\n${tail}\n\n`
     + `_Segnale deterministico da pr-autorebase.yml (zero-Claude). Commento unico, aggiornato in place._\n`
     + `<!-- reopen-budget-state ${state} -->`;
