@@ -9960,6 +9960,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-14.imageAlt': 'The day\'s numbers for cross-border commuters – August 14, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-14.seoDescription': 'Cross-border brief, August 14, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-14.ogDescription': 'The numbers for August 14, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.turismo-internazionale-italia-2026.title': 'Italy consolidates surplus in international tourism',
+    'blog.article.turismo-internazionale-italia-2026.excerpt': 'Spending by foreign travellers in Italy increased by 4.3% compared to a year earlier, while that of Italians abroad reached 2.7 billion',
+    'blog.article.turismo-internazionale-italia-2026.imageAlt': 'Lake Lugano in summer',
+    'blog.article.storia-sindacale-ticino-ocst.title': 'OCST: over one hundred years of trade union history in Ticino',
+    'blog.article.storia-sindacale-ticino-ocst.excerpt': 'From the agricultural origins to the birth of the OCST in 1919: we retrace the fundamental stages of Christian-social trade unionism in Canton Ticino.',
+    'blog.article.storia-sindacale-ticino-ocst.imageAlt': 'Historical view of Bellinzona, where the OCST was founded.',
 };
 
 export default blogMetaEn;

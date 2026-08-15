@@ -9962,6 +9962,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-14.imageAlt': 'Les chiffres du jour pour les frontaliers – 14 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-14.seoDescription': 'Bulletin du frontalier du 14 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-14.ogDescription': 'Les chiffres du 14 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.turismo-internazionale-italia-2026.title': 'L\'Italie consolide son excédent dans le tourisme international',
+    'blog.article.turismo-internazionale-italia-2026.excerpt': 'Les dépenses des voyageurs étrangers en Italie ont augmenté de 4,3% par rapport à l\'année précédente, tandis que celles des Italiens à l\'étranger ont atteint 2,7 milliards',
+    'blog.article.turismo-internazionale-italia-2026.imageAlt': 'Lac de Lugano en été',
+    'blog.article.storia-sindacale-ticino-ocst.title': 'OCST : plus de cent ans d\'histoire syndicale au Tessin',
+    'blog.article.storia-sindacale-ticino-ocst.excerpt': 'Des origines agricoles à la naissance de l\'OCST en 1919 : retraçons les étapes fondamentales du syndicalisme social-chrétien dans le canton du Tessin.',
+    'blog.article.storia-sindacale-ticino-ocst.imageAlt': 'Vue historique de Bellinzone, siège de la fondation de l\'OCST.',
 };
 
 export default blogMetaFr;

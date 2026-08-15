@@ -23222,44 +23222,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-un-matrimonio-che-vale-cento-posti-di-lavoro': {
-    title: 'Un matrimonio che vale cento posti di lavoro | Frontaliere Ticino',
-    description: 'La notizia è stata ufficializzata venerdì scorso a Prato Sornico. In Vallemaggia si celebra un matrimonio che vale complessivamente un centinaio di posti di',
-    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, vale, cento, posti',
-    ogTitle: 'Un matrimonio che vale cento posti di lavoro',
-    ogDescription: 'La notizia è stata ufficializzata venerdì scorso a Prato Sornico. In Vallemaggia si celebra un matrimonio che vale complessivamente un centinaio di posti di',
-    canonicalPath: '/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Un matrimonio che vale cento posti di lavoro",
-      "description": "La notizia è stata ufficializzata venerdì scorso a Prato Sornico. In Vallemaggia si celebra un matrimonio che vale complessivamente un centinaio di posti di",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/un-matrimonio-che-vale-cento-posti-di-lavoro.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Un matrimonio tra quattro ditte edili in Vallemaggia"
-      },
-      "datePublished": "2026-08-04T05:05:39+00:00",
-      "dateModified": "2026-08-04T05:05:39+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-angestellte-schweiz-aumento-2027': {
     title: 'Angestellte Schweiz chiede un aumento salariale dell\'1,5% per il 2027',
@@ -25406,44 +25368,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-autostrada-riapertura-ticino': {
-    title: 'Davvero servono ore e ore per riaprire un\'autostrada?',
-    description: 'I gran consiglieri leghisti chiedono chiarimenti al Consiglio di Stato dopo il caos sulla A2. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, davvero, servono, riaprire, autostrada',
-    ogTitle: 'Davvero servono ore e ore per riaprire un\'autostrada?',
-    ogDescription: 'I gran consiglieri leghisti chiedono chiarimenti al Consiglio di Stato dopo il caos sulla A2.',
-    canonicalPath: '/articoli-svizzera/autostrada-riapertura-ticino/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Davvero servono ore e ore per riaprire un'autostrada?",
-      "description": "I gran consiglieri leghisti chiedono chiarimenti al Consiglio di Stato dopo il caos sulla A2. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/autostrada-riapertura-ticino.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Immagine di un tratto congestionato dell'autostrada A2 in Ticino, Svizzera, con didascalia sul lungo atteso dei pendolari."
-      },
-      "datePublished": "2026-08-09T16:24:49+00:00",
-      "dateModified": "2026-08-09T16:24:49+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/autostrada-riapertura-ticino/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-sistema-sanitario-svizzero-lamal-guida-2026-canton-basilea': {
     title: 'Guida al sistema sanitario svizzero: LAMal e scelta della cassa malati',
@@ -29813,44 +29737,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-effetto-domino-fallite-aziende-svizzera': {
-    title: 'Effetto domino: fallite più aziende che mai dal 1994',
-    description: 'Rispetto allo stesso periodo del 2025 si registra una crescita del 54,7% delle fallite. Le aziende con più di dieci anni di attività rappresentano il 38%',
-    keywords: 'frontalieri, ticino, svizzera, italia, effetto, domino, fallite, aziende',
-    ogTitle: 'Effetto domino: fallite più aziende che mai dal 1994 | Frontaliere Ticino',
-    ogDescription: 'Rispetto allo stesso periodo del 2025 si registra una crescita del 54,7% delle fallite. Le aziende con più di dieci anni di attività rappresentano il 38% dei casi.',
-    canonicalPath: '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Effetto domino: fallite più aziende che mai dal 1994",
-      "description": "Rispetto allo stesso periodo del 2025 si registra una crescita del 54,7% delle fallite. Le aziende con più di dieci anni di attività rappresentano il 38%",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/effetto-domino-fallite-aziende-svizzera.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Immagine di un lago svizzero con una diga in primo piano"
-      },
-      "datePublished": "2026-08-12T13:56:54+00:00",
-      "dateModified": "2026-08-12T13:56:54+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-aumento-iva-per-la-difesa': {
     title: 'Verso un aumento dell\'IVA per la difesa | Frontaliere Ticino',
@@ -34606,6 +34492,396 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sisma-colombia-morti-feriti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economia-svizzera-crescita-trimestrale': {
+    title: 'Crescita dell\'economia svizzera: +1,5% nel 2° trimestre 2026',
+    description: 'La stima rapida del PIL reale della Svizzera ha rilevato un aumento del 1,5% nel secondo trimestre 2026, grazie al settore industriale e al terziario',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescita, dell, economia, trimestre',
+    ogTitle: 'Crescita dell\'economia svizzera: +1,5% nel 2° trimestre 2026',
+    ogDescription: 'La stima rapida del PIL reale della Svizzera ha rilevato un aumento del 1,5% nel secondo trimestre 2026, grazie al settore industriale e al terziario',
+    canonicalPath: '/articoli-svizzera/economia-svizzera-crescita-trimestrale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crescita dell'economia svizzera: +1,5% nel 2° trimestre 2026",
+      "description": "La stima rapida del PIL reale della Svizzera ha rilevato un aumento del 1,5% nel secondo trimestre 2026, grazie al settore industriale e al terziario",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-svizzera-crescita-trimestrale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne svizzere"
+      },
+      "datePublished": "2026-08-15T07:05:40+00:00",
+      "dateModified": "2026-08-15T07:05:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-crescita-trimestrale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economia-recupero-2026': {
+    title: 'Economia svizzera in gran recupero nel secondo trimestre',
+    description: 'Il PIL elvetico cresce dell\'1,5% tra aprile e giugno, trainato dai settori chimico e farmaceutico. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, gran, recupero, secondo',
+    ogTitle: 'Economia svizzera in gran recupero nel secondo trimestre',
+    ogDescription: 'Il PIL elvetico cresce dell\'1,5% tra aprile e giugno, trainato dai settori chimico e farmaceutico.',
+    canonicalPath: '/articoli-svizzera/economia-recupero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economia svizzera in gran recupero nel secondo trimestre",
+      "description": "Il PIL elvetico cresce dell'1,5% tra aprile e giugno, trainato dai settori chimico e farmaceutico. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-recupero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Economia svizzera in recupero"
+      },
+      "datePublished": "2026-08-15T07:14:18+00:00",
+      "dateModified": "2026-08-15T07:14:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-recupero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finma-allarme-cyberattacchi': {
+    title: 'La Finma lancia l\'allarme: \'cyberattacchi in aumento, IA è un rischio\'',
+    description: 'La Finma ha messo in guardia il settore bancario e assicurativo svizzero contro i crescenti pericoli legati all\'intelligenza artificiale e alla sicurezza',
+    keywords: 'frontalieri, ticino, svizzera, italia, finma, lancia, allarme, cyberattacchi',
+    ogTitle: 'La Finma lancia l\'allarme: \'cyberattacchi in aumento, IA è un rischio\'',
+    ogDescription: 'La Finma ha messo in guardia il settore bancario e assicurativo svizzero contro i crescenti pericoli legati all\'intelligenza artificiale e alla sicurezza informatica.',
+    canonicalPath: '/articoli-svizzera/finma-allarme-cyberattacchi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Finma lancia l'allarme: 'cyberattacchi in aumento, IA è un rischio'",
+      "description": "La Finma ha messo in guardia il settore bancario e assicurativo svizzero contro i crescenti pericoli legati all'intelligenza artificiale e alla sicurezza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finma-allarme-cyberattacchi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Finma allerta il settore bancario e assicurativo svizzero."
+      },
+      "datePublished": "2026-08-15T07:28:40+00:00",
+      "dateModified": "2026-08-15T07:28:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finma-allarme-cyberattacchi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nuovo-altstaetten': {
+    title: 'La SEM apre un nuovo centro federale d\'asilo ad Altstätten',
+    description: 'Il nuovo centro federale d\'asilo ad Altstätten è stato inaugurato il 15 agosto 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apre, nuovo, centro, federale',
+    ogTitle: 'La SEM apre un nuovo centro federale d\'asilo ad Altstätten',
+    ogDescription: 'Il nuovo centro federale d\'asilo ad Altstätten è stato inaugurato il 15 agosto 2026 e sarà aperto a inizio settembre 2026.',
+    canonicalPath: '/articoli-svizzera/asilo-nuovo-altstaetten/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La SEM apre un nuovo centro federale d'asilo ad Altstätten",
+      "description": "Il nuovo centro federale d'asilo ad Altstätten è stato inaugurato il 15 agosto 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nuovo-altstaetten.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il nuovo centro federale d'asilo ad Altstätten"
+      },
+      "datePublished": "2026-08-15T09:48:01+00:00",
+      "dateModified": "2026-08-15T09:48:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nuovo-altstaetten/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzero-franco-euro': {
+    title: 'Di più Franco: il franco svizzero si indebolisce e l\'euro torna sopra 0,94',
+    description: 'Il franco svizzero si indebolisce e l\'euro torna sopra 0,94. Le aspettative di un aumento dei tassi d\'interesse nell\'Eurozona mettono la valuta elvetica sotto',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, indebolisce, euro',
+    ogTitle: 'Il franco svizzero si indebolisce e l\'euro torna sopra 0,94',
+    ogDescription: 'Il franco svizzero si indebolisce e l\'euro torna sopra 0,94. Le aspettative di un aumento dei tassi d\'interesse nell\'Eurozona mettono la valuta elvetica sotto pressione.',
+    canonicalPath: '/articoli-svizzera/svizzero-franco-euro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Franco: il franco svizzero si indebolisce e l'euro torna sopra 0,94",
+      "description": "Il franco svizzero si indebolisce e l'euro torna sopra 0,94. Le aspettative di un aumento dei tassi d'interesse nell'Eurozona mettono la valuta elvetica sotto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzero-franco-euro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il franco svizzero"
+      },
+      "datePublished": "2026-08-15T10:01:49+00:00",
+      "dateModified": "2026-08-15T10:01:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzero-franco-euro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-travail-suisse-ue-accordi': {
+    title: 'Travail.Suisse: «Il rifiuto del pacchetto di accordi con l\'UE resta un\'opzione"',
+    description: 'La Commissione dell\'economia del Consiglio degli Stati ha respinto alcune parti delle misure negoziate dalle parti sociali per tutelare i salari nell\'ambito',
+    keywords: 'frontalieri, ticino, svizzera, italia, travail, suisse, rifiuto, pacchetto',
+    ogTitle: 'Travail.Suisse: «Il rifiuto del pacchetto di accordi con l\'UE resta un\'opzione"',
+    ogDescription: 'La Commissione dell\'economia del Consiglio degli Stati ha respinto alcune parti delle misure negoziate dalle parti sociali per tutelare i salari nell\'ambito del pacchetto di accordi con l\'UE.',
+    canonicalPath: '/articoli-svizzera/travail-suisse-ue-accordi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Travail.Suisse: «Il rifiuto del pacchetto di accordi con l'UE resta un'opzione\"",
+      "description": "La Commissione dell'economia del Consiglio degli Stati ha respinto alcune parti delle misure negoziate dalle parti sociali per tutelare i salari nell'ambito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/travail-suisse-ue-accordi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di Adrian Wüthrich"
+      },
+      "datePublished": "2026-08-15T11:03:37+00:00",
+      "dateModified": "2026-08-15T11:03:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/travail-suisse-ue-accordi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ticino-slow-water': {
+    title: 'Di più "Slow Water", l\'agricoltura svizzera si prepara alla crisi climatica',
+    description: 'Il progetto \'Slow Water\' coinvolge circa 110 aziende agricole in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, slow, water, agricoltura, prepara',
+    ogTitle: 'Di più "Slow Water", l\'agricoltura svizzera si prepara alla crisi climatica',
+    ogDescription: 'Il progetto \'Slow Water\' coinvolge circa 110 aziende agricole in Svizzera.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ticino-slow-water/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più \"Slow Water\", l'agricoltura svizzera si prepara alla crisi climatica",
+      "description": "Il progetto 'Slow Water' coinvolge circa 110 aziende agricole in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-slow-water.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Zona collinare della regione del Napf"
+      },
+      "datePublished": "2026-08-15T12:04:34+00:00",
+      "dateModified": "2026-08-15T12:04:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ticino-slow-water/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavorare-amministrazione-federale-svizzera': {
+    title: 'Lavorare per l’Amministrazione federale: opportunità e vantaggi',
+    description: 'Scopri le opportunità di lavoro nell\'Amministrazione federale svizzera. Praticantati, formazione professionale e condizioni di lavoro flessibili per il futuro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, amministrazione, federale, opportunità',
+    ogTitle: 'Lavorare per l’Amministrazione federale: carriere e formazioni',
+    ogDescription: 'Esplora le opportunità di carriera, i praticantati e le formazioni professionali offerte dall\'Amministrazione federale svizzera per contribuire al futuro del Paese.',
+    canonicalPath: '/articoli-svizzera/lavorare-amministrazione-federale-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare per l’Amministrazione federale: opportunità e vantaggi",
+      "description": "Scopri le opportunità di lavoro nell'Amministrazione federale svizzera. Praticantati, formazione professionale e condizioni di lavoro flessibili per il futuro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavorare-amministrazione-federale-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede dell'Amministrazione federale svizzera."
+      },
+      "datePublished": "2026-08-15T12:19:45+00:00",
+      "dateModified": "2026-08-15T12:19:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavorare-amministrazione-federale-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-lucerna-prezzi-mutuo': {
+    title: 'Comprare casa nel Cantone di Lucerna: prezzi e mutuo ipotecario',
+    description: 'Il prezzo medio di un\'abitazione nel Cantone di Lucerna è di circa 550.000 CHF. Per acquistare una casa, è necessario un mutuo ipotecario di almeno 200.000 CHF.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, cantone, lucerna',
+    ogTitle: 'Comprare casa nel Cantone di Lucerna: prezzi e mutuo ipotecario',
+    ogDescription: 'Il prezzo medio di un\'abitazione nel Cantone di Lucerna è di circa 550.000 CHF. Per acquistare una casa, è necessario un mutuo ipotecario di almeno 200.000 CHF.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-lucerna-prezzi-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Cantone di Lucerna: prezzi e mutuo ipotecario",
+      "description": "Il prezzo medio di un'abitazione nel Cantone di Lucerna è di circa 550.000 CHF. Per acquistare una casa, è necessario un mutuo ipotecario di almeno 200.000 CHF.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-lucerna-prezzi-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Compravendita di abitazioni nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-08-15T13:21:54+00:00",
+      "dateModified": "2026-08-15T13:21:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-lucerna-prezzi-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-centro-asilo-altstaetten': {
+    title: 'Porte aperte al nuovo centro federale d\'asilo ad Altstätten',
+    description: 'Il Consigliere federale Beat Jans ha visitato il nuovo Centro federale d\'asilo ad Altstätten, che aprirà i battenti a settembre. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, porte, aperte, nuovo, centro',
+    ogTitle: 'Porte aperte al nuovo centro federale d\'asilo ad Altstätten',
+    ogDescription: 'Il Consigliere federale Beat Jans ha visitato il nuovo Centro federale d\'asilo ad Altstätten, che aprirà i battenti a settembre.',
+    canonicalPath: '/articoli-svizzera/centro-asilo-altstaetten/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Porte aperte al nuovo centro federale d'asilo ad Altstätten",
+      "description": "Il Consigliere federale Beat Jans ha visitato il nuovo Centro federale d'asilo ad Altstätten, che aprirà i battenti a settembre. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centro-asilo-altstaetten.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Porte aperte al nuovo centro federale d'asilo ad Altstätten"
+      },
+      "datePublished": "2026-08-15T15:02:13+00:00",
+      "dateModified": "2026-08-15T15:02:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centro-asilo-altstaetten/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
