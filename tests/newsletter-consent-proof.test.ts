@@ -288,13 +288,32 @@ describe('buildConsentIpStamp — the edge half of the same field', () => {
 describe('functions/index.js — where the stamp is and is not applied', () => {
   const src = read('functions/index.js');
 
-  it('stamps the three endpoints every genuinely new subscriber or job-alert consent reaches', () => {
+  it('stamps the four endpoints every genuinely new subscriber or client-side consent reaches', () => {
     // The browser cannot see its own address, so these are the only moments in
-    // the signup path (plus the job-alert consent gap, #5718) where one is
-    // observable at all.
+    // the signup path (plus the job-alert consent gap, #5718, and the
+    // consent-banner acts of #5920) where one is observable at all.
     expect(src).toMatch(/async function stampConsentIp\(/);
     expect(src).toMatch(/await stampConsentIp\(req, email\)/);
-    expect(src.match(/await stampConsentIp\(/g) || []).toHaveLength(3);
+    expect(src.match(/await stampConsentIp\(/g) || []).toHaveLength(4);
+  });
+
+  it('the fourth call site — the bare stamp endpoint — is behind the auth decision, not open', () => {
+    // `newsletterConsentIpStamp` (#5920) is the only one of the four whose ONLY
+    // job is the stamp: the other three are reached while the caller is
+    // proving something else. Since `stampConsentIp` never overwrites, an open
+    // version would let anybody attach their own network to a stranger's
+    // consent, permanently. The stamp must therefore be unreachable except
+    // through `decideConsentIpStamp`.
+    const endpoint = src.slice(
+      src.indexOf('newsletterConsentIpStamp = onRequest'),
+      src.indexOf('sendCalculatorReport = onRequest'),
+    );
+    expect(endpoint).toContain('verifyIdToken');
+    const gate = endpoint.indexOf('decideConsentIpStamp({');
+    const stamp = endpoint.indexOf('await stampConsentIp(req, email)');
+    expect(gate).toBeGreaterThan(-1);
+    expect(stamp).toBeGreaterThan(gate);
+    expect(endpoint.slice(gate, stamp)).toMatch(/if \(!decision\.ok\)[\s\S]*return;/);
   });
 
   it('does NOT stamp the autologin branch, which is a login and not a consent', () => {

@@ -19,6 +19,10 @@ import {
   planJobAlertConsentUpgrade,
   type UpgradeSkipReason,
 } from './jobAlertConsentUpgrade';
+// The server-side half of the same proof: the address the consent came from
+// (#5920). Its own module rather than the banner's, because it now has two
+// unrelated callers and neither should have to import the other's surface.
+import { stampConsentIpViaEndpoint } from './consentIpStamp';
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -457,6 +461,8 @@ export async function upgradeBackfilledAlertConsent(
     sourceUrl?: string | null;
     /** Override for a surface whose act is not an activation click — see `buildJobAlertConsentProof`. */
     act?: string;
+    /** Test seam for the IP stamp below; product code never passes it. */
+    stampIp?: typeof stampConsentIpViaEndpoint;
   },
 ): Promise<{ upgraded: number; skipped: Partial<Record<UpgradeSkipReason, number>>; failed: number }> {
   const skipped: Partial<Record<UpgradeSkipReason, number>> = {};
@@ -517,6 +523,21 @@ export async function upgradeBackfilledAlertConsent(
     } catch {
       failed += 1;
     }
+  }
+
+  // The network these proofs came from (#5920). Browser writes, so the address
+  // is invisible from here — the endpoint reads it from its own connection and
+  // refuses anyone who is not the signed-in owner of this email.
+  //
+  // Gated on `upgraded > 0` for the same reason the banner gates on
+  // `recorded`: with nothing written there is no act of ours at this moment to
+  // attribute an address to, and every alert already carrying a proof carries
+  // the date of an OLDER consent that today's network does not belong to.
+  // Fire-and-forget, like every other line in this function that could fail:
+  // the tally above is the caller's answer, and it is not affected by this.
+  if (upgraded > 0) {
+    const stamp = opts?.stampIp ?? stampConsentIpViaEndpoint;
+    void stamp(normalizedEmail).catch(() => {});
   }
 
   return { upgraded, skipped, failed };

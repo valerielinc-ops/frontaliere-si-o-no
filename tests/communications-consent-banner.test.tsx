@@ -38,6 +38,7 @@ function makeDeps() {
     checkEligibility: vi.fn(async (_email: string) => true),
     recordConsent: vi.fn(async () => ({ recorded: true as const })),
     upgradeConsent: vi.fn(async () => ({ upgraded: 1, skipped: {}, failed: 0 })),
+    stampConsentIp: vi.fn(async (_email: string) => undefined),
   };
 }
 
@@ -48,6 +49,7 @@ function renderBanner(deps: ReturnType<typeof makeDeps>, email: string | null = 
       checkEligibility={deps.checkEligibility}
       recordConsent={deps.recordConsent}
       upgradeConsent={deps.upgradeConsent}
+      stampConsentIp={deps.stampConsentIp}
     />,
   );
 }
@@ -147,6 +149,42 @@ describe('accepting', () => {
     expect(window.localStorage.getItem(COMMS_CONSENT_PROMPT_STORAGE_KEY)).toBe('accepted');
   });
 
+  it('asks the server for the network of origin — the one field a browser write cannot hold (#5920)', async () => {
+    window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    const deps = makeDeps();
+    const view = renderBanner(deps);
+    const acceptButton = await waitFor(() => view.getByRole('button', { name: /sì, confermo/i }));
+
+    await act(async () => {
+      acceptButton.click();
+    });
+
+    await waitFor(() => expect(deps.stampConsentIp).toHaveBeenCalledTimes(1));
+    expect(deps.stampConsentIp).toHaveBeenCalledWith(EMAIL);
+  });
+
+  it('does NOT ask for an IP when the proof did not land — there is no act of ours to attribute it to', async () => {
+    // `recorded: false` is a missing document, a binding opt-out or a proof
+    // already there. In the third case the document carries an OLDER consent,
+    // and today's network is not the one it was given from: stamping anyway
+    // would attach this session's address to somebody else's act.
+    window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    const deps = makeDeps();
+    deps.recordConsent.mockResolvedValue({
+      recorded: false,
+      reason: 'already-has-proof',
+    } as never);
+    const view = renderBanner(deps);
+    const acceptButton = await waitFor(() => view.getByRole('button', { name: /sì, confermo/i }));
+
+    await act(async () => {
+      acceptButton.click();
+    });
+
+    await waitFor(() => expect(deps.recordConsent).toHaveBeenCalledTimes(1));
+    expect(deps.stampConsentIp).not.toHaveBeenCalled();
+  });
+
   it('a device that answered never sees the panel again', async () => {
     window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
     window.localStorage.setItem(COMMS_CONSENT_PROMPT_STORAGE_KEY, 'accepted');
@@ -172,6 +210,8 @@ describe('declining', () => {
     expect(view.queryByRole('dialog')).toBeNull();
     expect(deps.recordConsent).not.toHaveBeenCalled();
     expect(deps.upgradeConsent).not.toHaveBeenCalled();
+    // Not even the IP round trip: "not now" leaves no trace of any kind.
+    expect(deps.stampConsentIp).not.toHaveBeenCalled();
     expect(window.localStorage.getItem(COMMS_CONSENT_PROMPT_STORAGE_KEY)).toBe('dismissed');
 
     cleanup();

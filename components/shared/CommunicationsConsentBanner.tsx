@@ -37,6 +37,12 @@
  * activation click that did not happen would fabricate the fact the register
  * exists to establish). Declining writes NOTHING: "not now" is not an opt-out,
  * and the organic surfaces remain.
+ *
+ * Accepting also asks the server for the network of origin (#5920,
+ * services/consentIpStamp.ts): the write above happens in the browser, which
+ * cannot see its own address, so this is the only act in the register that
+ * would otherwise land without one. It is requested only when the proof
+ * actually landed, and it can never fail the consent.
  */
 
 import { useCallback, useEffect, useState } from 'react';
@@ -45,6 +51,7 @@ import ConsentNotice from '@/components/shared/ConsentNotice';
 import { captureEvent } from '@/services/posthog';
 import { needsAdsConsentDecision, onAdsConsentChange } from '@/services/adsConsent';
 import { upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
+import { stampConsentIpViaEndpoint } from '@/services/consentIpStamp';
 import {
   COMMS_CONSENT_PROMPT_STORAGE_KEY,
   COMMUNICATIONS_BANNER_CONSENT_ACT,
@@ -125,6 +132,7 @@ export interface CommunicationsConsentBannerProps {
   checkEligibility?: typeof shouldOfferCommunicationsConsent;
   recordConsent?: typeof recordCommunicationsConsent;
   upgradeConsent?: typeof upgradeBackfilledAlertConsent;
+  stampConsentIp?: typeof stampConsentIpViaEndpoint;
 }
 
 export default function CommunicationsConsentBanner({
@@ -132,6 +140,7 @@ export default function CommunicationsConsentBanner({
   checkEligibility = shouldOfferCommunicationsConsent,
   recordConsent = recordCommunicationsConsent,
   upgradeConsent = upgradeBackfilledAlertConsent,
+  stampConsentIp = stampConsentIpViaEndpoint,
 }: CommunicationsConsentBannerProps) {
   const { locale } = useTranslation();
   // Start hidden and decide in effects: the eligibility read touches
@@ -200,9 +209,17 @@ export default function CommunicationsConsentBanner({
       recorded: outcome.recorded,
       reason: outcome.reason ?? null,
     });
+    // The network of origin (#5920), asked for ONLY when the proof actually
+    // landed: `recorded: false` means no document, a binding opt-out or an
+    // existing proof — in all three there is no consent of ours here to
+    // attribute an address to, and stamping anyway would attach today's
+    // network to somebody else's older act. Fire-and-forget like the upgrade
+    // below: an evidence field must never surface an error, and the endpoint
+    // refuses silently on its own if the session is not this address's.
+    if (outcome.recorded) void stampConsentIp(email).catch(() => {});
     void upgradeConsent(email, locale, { act: COMMUNICATIONS_BANNER_CONSENT_ACT }).catch(() => {});
     setStatus('thanks');
-  }, [email, locale, recordConsent, upgradeConsent]);
+  }, [email, locale, recordConsent, upgradeConsent, stampConsentIp]);
 
   const decline = useCallback(() => {
     writePromptAnswer('dismissed');

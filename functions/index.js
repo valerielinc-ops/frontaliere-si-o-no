@@ -25,6 +25,14 @@ import { buildUnsubscribeForensics } from './src/lib/requestForensics.js';
 // its guard ("one helper, no drift" for the proxy chain) is worth more intact
 // than the cosmetic tidiness of a single line.
 import { buildConsentIpStamp } from './src/lib/requestForensics.js';
+// The gate on the ONE endpoint whose only job is that stamp (#5920). Pure and
+// separate so the "may this caller stamp this document?" decision is testable
+// without a signed token — see the module header for why it exists.
+import { decideConsentIpStamp } from './src/lib/consentIpStampAuth.js';
+// First direct use of the Admin SDK in this file: `newsletterConsentIpStamp`
+// verifies an ID token. `ensureAdminApp()` below still owns initialization —
+// this import only reaches the already-initialized default app.
+import admin from 'firebase-admin';
 // The out-of-URL transport for address + credential (#5746). Every endpoint that
 // used to read `req.method === 'GET' ? req.query : { ...req.query, ...req.body }`
 // goes through resolveRequestParams instead — see that module for why the
@@ -768,6 +776,61 @@ export const newsletterSendWelcome = onRequest(
  console.error('[newsletterSendWelcome] Error:', error);
  res.status(500).json({ success: false, error: 'internal_error' });
  }
+ },
+);
+
+// The consent-banner half of `consent_ip` (#5920, closing the gap #5676 left).
+//
+// Every OTHER stamped act reaches a Cloud Function for a reason of its own —
+// an email to send, an alert to create — and the address is a free byproduct.
+// The communications consent banner reaches none: it records its proof with a
+// browser `updateDoc`, so without this endpoint its consents are the only ones
+// in the register with no network of origin. Hence one endpoint whose ONLY job
+// is the stamp.
+//
+// AUTHENTICATED, unlike its two neighbours above, and the asymmetry is the
+// point: they are reached while the caller is proving something else (a
+// confirmation link, a signup write), and they stamp the address of whoever is
+// mid-signup at that address anyway. This one is a bare "stamp that document",
+// and `stampConsentIp` never overwrites — so an open version would let anybody
+// nail their OWN network onto a stranger's consent, permanently and
+// uncorrectably. `decideConsentIpStamp` (src/lib/consentIpStampAuth.js) holds
+// the decision, pure and tested; the handler only executes it.
+export const newsletterConsentIpStamp = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ let token = null;
+ try {
+ const header = req.get('Authorization') || req.get('authorization') || '';
+ const match = header.match(/^Bearer\s+(.+)$/i);
+ // Same shape as verifyCaller in publisherDomainVerifyCore / stripePublisherCore:
+ // a rejected token is indistinguishable from no token, by design.
+ if (match) token = await admin.auth().verifyIdToken(match[1]);
+ } catch {
+ token = null;
+ }
+
+ const decision = decideConsentIpStamp({
+ method: req.method,
+ token,
+ bodyEmail: req.body?.email,
+ });
+ if (!decision.ok) {
+ res.status(decision.status).json({ success: false, error: decision.error });
+ return;
+ }
+
+ const email = decision.email;
+ // Everything protective about the write lives in the helper and is shared
+ // with the other three call sites: never creates, never overwrites, never
+ // throws. Nothing extra is needed here, and nothing extra may be added.
+ await stampConsentIp(req, email);
+ res.status(200).json({ success: true });
  },
 );
 
