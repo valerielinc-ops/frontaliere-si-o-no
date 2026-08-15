@@ -1,6 +1,16 @@
 import React from 'react';
 import { Shield, Lock, Database, Eye, CheckCircle2, ArrowLeft, BarChart3, ExternalLink, Key, Globe, Scale, Clock, UserCheck, Mail } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
+import { useTranslation } from '@/services/i18n';
+import {
+  ADS_CONSENT_GRANTED,
+  ADS_CONSENT_DENIED,
+  getAdsConsent,
+  grantAdsConsent,
+  denyAdsConsent,
+  onAdsConsentChange,
+  type AdsConsentValue,
+} from '@/services/adsConsent';
 
 // Titolare del trattamento (#5675) — dati forniti dal proprietario: nome +
 // contatto per l'esercizio dei diritti, deliberatamente NON `alerts@` (la
@@ -10,6 +20,143 @@ import { useNavigation } from '@/services/NavigationContext';
 // sulla copertura parziale dell'art. 19 nLPD che questo comporta.
 const DATA_CONTROLLER_NAME = 'Valerie Linc';
 const PRIVACY_EMAIL = 'valerie@frontaliereticino.ch';
+
+// ─── Gestione del consenso pubblicitario (#5893) ───────────────────────
+//
+// Il banner di #5842 compare UNA volta sola: `AdsConsentBanner` rende `null`
+// appena esiste una decisione, quindi dopo la prima risposta non c'era piu'
+// nessuna superficie per cambiarla — un consenso non revocabile, che e' proprio
+// cio' che GDPR art. 7.3 e nLPD art. 6 non ammettono. Questo blocco e' la
+// superficie di revoca, e sta qui perche' la pagina privacy e' l'unico punto
+// che il banner stesso linka.
+//
+// Le stringhe sono inline nelle quattro lingue, come in `AdsConsentBanner`, e
+// non nei file di locale: il resto di questa pagina e' in italiano, ma il
+// visitatore de/en/fr ha ricevuto la domanda nella propria lingua e deve poter
+// riconoscere la risposta che sta cambiando.
+
+type AdsControlsCopy = {
+  heading: string;
+  intro: string;
+  statusLabel: string;
+  granted: string;
+  denied: string;
+  undecided: string;
+  reading: string;
+  accept: string;
+  decline: string;
+};
+
+const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
+  it: {
+    heading: 'Gestisci il consenso pubblicitario',
+    intro: 'Gli script pubblicitari (Google AdSense, Google Ad Manager) vengono caricati solo se hai dato il consenso. Puoi cambiare idea in qualsiasi momento da qui; la scelta e\' salvata in questo browser.',
+    statusLabel: 'Stato attuale',
+    granted: 'consenso concesso — gli annunci sono attivi',
+    denied: 'consenso rifiutato — nessuno script pubblicitario viene caricato',
+    undecided: 'nessuna decisione registrata — nessuno script pubblicitario viene caricato',
+    reading: 'lettura in corso…',
+    accept: 'Attiva gli annunci',
+    decline: 'Disattiva gli annunci',
+  },
+  en: {
+    heading: 'Manage your advertising consent',
+    intro: 'Advertising scripts (Google AdSense, Google Ad Manager) are loaded only if you gave consent. You can change your mind at any time here; the choice is stored in this browser.',
+    statusLabel: 'Current status',
+    granted: 'consent granted — ads are active',
+    denied: 'consent refused — no advertising script is loaded',
+    undecided: 'no decision recorded — no advertising script is loaded',
+    reading: 'reading…',
+    accept: 'Enable ads',
+    decline: 'Disable ads',
+  },
+  de: {
+    heading: 'Werbe-Einwilligung verwalten',
+    intro: 'Werbeskripte (Google AdSense, Google Ad Manager) werden nur geladen, wenn Sie eingewilligt haben. Sie können Ihre Entscheidung hier jederzeit ändern; sie wird in diesem Browser gespeichert.',
+    statusLabel: 'Aktueller Status',
+    granted: 'Einwilligung erteilt — Werbung ist aktiv',
+    denied: 'Einwilligung verweigert — es wird kein Werbeskript geladen',
+    undecided: 'keine Entscheidung gespeichert — es wird kein Werbeskript geladen',
+    reading: 'wird gelesen…',
+    accept: 'Werbung aktivieren',
+    decline: 'Werbung deaktivieren',
+  },
+  fr: {
+    heading: 'Gérer votre consentement publicitaire',
+    intro: 'Les scripts publicitaires (Google AdSense, Google Ad Manager) ne sont chargés que si vous avez donné votre consentement. Vous pouvez changer d\'avis à tout moment ici ; le choix est enregistré dans ce navigateur.',
+    statusLabel: 'Statut actuel',
+    granted: 'consentement accordé — les annonces sont actives',
+    denied: 'consentement refusé — aucun script publicitaire n\'est chargé',
+    undecided: 'aucune décision enregistrée — aucun script publicitaire n\'est chargé',
+    reading: 'lecture en cours…',
+    accept: 'Activer les publicités',
+    decline: 'Désactiver les publicités',
+  },
+};
+
+/**
+ * Stato corrente del gate + i due bottoni che lo cambiano.
+ *
+ * La decisione si legge in un effect e non nel primo render: `getAdsConsent()`
+ * tocca localStorage, che in prerender non esiste. Leggerla nel render iniziale
+ * farebbe divergere l'HTML statico dall'albero idratato ogni volta che il
+ * visitatore ha gia' risposto — la stessa ragione per cui `AdsConsentBanner`
+ * parte nascosto. Fino all'effect si mostra `reading`, che e' vero su entrambi
+ * i lati.
+ *
+ * Esportato per i test (`tests/ads-consent-mode-bridge.test.tsx`): la pagina
+ * intera richiede il NavigationContext, questo blocco no.
+ */
+export const AdsConsentControls: React.FC = () => {
+  const { locale } = useTranslation();
+  const [decision, setDecision] = React.useState<AdsConsentValue | null>(null);
+  const [read, setRead] = React.useState(false);
+
+  React.useEffect(() => {
+    setDecision(getAdsConsent());
+    setRead(true);
+    // Il banner, un'altra scheda o questo stesso blocco: qualunque origine
+    // aggiorna lo stato mostrato senza ricaricare la pagina.
+    return onAdsConsentChange(setDecision);
+  }, []);
+
+  const copy = ADS_CONTROLS_COPY[locale] ?? ADS_CONTROLS_COPY.it;
+  const status = !read
+    ? copy.reading
+    : decision === ADS_CONSENT_GRANTED
+      ? copy.granted
+      : decision === ADS_CONSENT_DENIED
+        ? copy.denied
+        : copy.undecided;
+
+  return (
+    <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
+      <h3 className="font-medium text-heading mb-2">{copy.heading}</h3>
+      <p className="text-sm">{copy.intro}</p>
+      <p className="text-sm mt-2" data-testid="ads-consent-status">
+        <strong>{copy.statusLabel}:</strong> {status}
+      </p>
+      <div className="flex flex-wrap gap-2 mt-3">
+        <button
+          type="button"
+          onClick={() => grantAdsConsent()}
+          aria-pressed={read && decision === ADS_CONSENT_GRANTED}
+          className="min-h-[44px] rounded-lg bg-accent px-4 text-sm font-semibold text-white"
+        >
+          {copy.accept}
+        </button>
+        <button
+          type="button"
+          onClick={() => denyAdsConsent()}
+          aria-pressed={read && decision === ADS_CONSENT_DENIED}
+          className="min-h-[44px] rounded-lg border border-edge/60 px-4 text-sm font-medium"
+        >
+          {copy.decline}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export const PrivacyPolicy: React.FC = () => {
   const nav = useNavigation();
@@ -124,8 +271,9 @@ export const PrivacyPolicy: React.FC = () => {
           <div className="space-y-3 text-subtle">
             <p>
               Utilizziamo strumenti di analisi per comprendere come gli utenti interagiscono con il sito
-              e migliorare il servizio. <strong>Non presentiamo un banner di raccolta del consenso</strong>: questi
-              strumenti si attivano automaticamente dalla tua prima visita, sulla base del <strong>legittimo
+              e migliorare il servizio. <strong>Per l'analisi del traffico non raccogliamo un consenso
+              preventivo</strong> — il banner che vedi alla prima visita riguarda solo la pubblicità e non questi
+              strumenti: si attivano automaticamente dalla tua prima visita, sulla base del <strong>legittimo
               interesse</strong> del Titolare a comprendere l'uso del sito (art. 6, par. 1, lett. f, GDPR; art. 31
               nLPD). Puoi opporti in qualsiasi momento tramite le impostazioni del tuo browser o estensioni come
               «uBlock Origin» (vedi sotto); non offriamo al momento un controllo di preferenza equivalente
@@ -326,9 +474,10 @@ export const PrivacyPolicy: React.FC = () => {
             <p>
               Il sito utilizza cookie e tecnologie di storage locale per funzionare e per migliorare la tua
               esperienza. I cookie tecnici sono sempre attivi perché indispensabili al funzionamento del sito. Le
-              categorie non essenziali (Analytics e Pubblicità) si attivano automaticamente dalla tua prima visita,
-              senza un banner di raccolta del consenso preventivo — vedi «Analisi Anonima del Traffico» e
-              «Pubblicità» per la base giuridica e come opporti.
+              due categorie non essenziali seguono regimi diversi: i cookie <strong>Analytics</strong> si attivano
+              automaticamente dalla tua prima visita (vedi «Analisi Anonima del Traffico» per la base giuridica e
+              come opporti), mentre i cookie <strong>Pubblicitari</strong> richiedono il tuo consenso esplicito e
+              restano inattivi finché non lo concedi.
             </p>
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Cookie Tecnici</h3>
@@ -348,10 +497,14 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Cookie Pubblicitari</h3>
               <p className="text-sm">
-                Cookie di Google AdSense per la visualizzazione di annunci, anche personalizzati (vedi sezione
-                «Pubblicità»). Attivi dalla prima visita, non soggetti a consenso preventivo.
+                Cookie di Google AdSense e Google Ad Manager per la visualizzazione di annunci, anche personalizzati
+                (vedi sezione «Pubblicità»). Sono <strong>subordinati al tuo consenso esplicito</strong>: finché non
+                lo concedi non viene caricato alcuno script pubblicitario, e quindi nessuno di questi cookie viene
+                scritto. Il consenso ti viene chiesto una volta con un banner dedicato ed è <strong>revocabile in
+                qualsiasi momento</strong> dal riquadro qui sotto.
               </p>
             </div>
+            <AdsConsentControls />
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">LocalStorage</h3>
               <p className="text-sm">
@@ -377,11 +530,15 @@ export const PrivacyPolicy: React.FC = () => {
             <div className="bg-surface-alt/50 p-4 rounded-2xl border border-edge">
               <h3 className="font-medium text-heading mb-2">Consenso e personalizzazione</h3>
               <p className="text-sm">
-                <strong>Non presentiamo un banner di raccolta del consenso</strong>: gli annunci, anche
-                personalizzati, possono essere mostrati dalla tua prima visita. Per gli utenti dello Spazio
-                Economico Europeo, del Regno Unito e della Svizzera comunichiamo comunque a Google, tramite Google
-                Consent Mode v2, un segnale di consenso predefinito concesso, in assenza di un meccanismo che
-                raccolga una scelta esplicita. Puoi gestire le preferenze pubblicitarie di Google in qualsiasi
+                <strong>Gli script pubblicitari sono bloccati finché non ci dai il consenso</strong>: alla prima
+                visita compare un banner dedicato, e fino a quella risposta — o se rispondi di no — nessuno script
+                di AdSense, Google Ad Manager o header bidding viene caricato e nessun annuncio viene mostrato.
+                In assenza di una risposta, e in caso di rifiuto, comunichiamo a Google tramite Google Consent
+                Mode v2 un segnale <strong>negato</strong> per <code>ad_storage</code>,{' '}
+                <code>ad_personalization</code> e <code>ad_user_data</code>; il segnale passa a concesso solo
+                quando accetti, e torna a negato appena revochi. La scelta è revocabile in qualsiasi momento dal
+                riquadro «Gestisci il consenso pubblicitario» nella sezione «Cookie e Storage Locale» di questa
+                pagina. Puoi inoltre gestire le preferenze pubblicitarie di Google in qualsiasi
                 momento su{' '}
                 <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-accent underline">adssettings.google.com</a>{' '}
                 e informarti su{' '}
