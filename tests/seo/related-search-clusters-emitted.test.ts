@@ -38,6 +38,7 @@ import {
   countCanonicalLinks,
   countHreflangLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -281,8 +282,17 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
             offenders.push(`${page.file} — canonical count = ${canonicalCount}`);
           }
 
+          // Redirect stubs are exempt from the hreflang requirement ONLY —
+          // canonical, title and BreadcrumbList still apply to them in full.
+          // A below-floor bridge canonicalises to the hub, so any alternate
+          // set it emitted would have to list its own URL as a canonical the
+          // same page disclaims: Google drops such a set, and the markup
+          // would exist only to turn this assertion green. Same marker, same
+          // reasoning as scripts/audit-spa-bundle-injection.mjs and
+          // tests/seo/cathedral-sector-hubs.test.ts.
+          const isRedirectStub = page.html.includes(REDIRECT_STUB_MARKER);
           const hreflangCount = countHreflangLinks(page.html);
-          if (hreflangCount < 1) {
+          if (!isRedirectStub && hreflangCount < 1) {
             offenders.push(`${page.file} — hreflang count = ${hreflangCount}`);
           }
         }

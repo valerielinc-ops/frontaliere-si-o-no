@@ -51,7 +51,7 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL, buildCanonicalBridgePage, replaceRobotsMeta } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { buildLocaleAlternateBlock, buildLocaleAlternateEntries } from './shared/localeAlternateBlock';
+import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
@@ -1472,15 +1472,12 @@ export function decideClusterEmission(input: {
  * `searchConsoleCompat.ts` (SEARCH_COMBO_SEGMENT_PATTERN already resolves
  * this URL shape — see the comment added there).
  *
- * Carries the SAME head contract as the full page — canonical + the 4-locale
- * hreflang set + BreadcrumbList — because it is the same URL, reached by the
- * same links, and a crawler cannot know which of the two shapes it will get.
- * It shipped without the last two until now: on run 31891126686 the 53
- * below-floor bridges in the gate's sample were 53 of the 54 missing
- * BreadcrumbList and, once the canonical regex is quote-aware, the entire
- * remaining hreflang deficit. `noindex` does not excuse either — `follow`
- * means Google walks this page, and the trail/alternates are what tell it
- * where the URL sits and which locale serves which visitor.
+ * Carries canonical + BreadcrumbList, and deliberately NO hreflang — see the
+ * block comment at the alternate decision inside for why an alternate set
+ * here would be inert. On run 31891126686 these 53 bridges were 53 of the 54
+ * pages missing a BreadcrumbList: `noindex` is no excuse, because `follow`
+ * means Google walks the page and the trail is what tells it where the URL
+ * sits.
  */
 export function renderClusterBelowFloorBridge(
   locale: Locale,
@@ -1492,17 +1489,33 @@ export function renderClusterBelowFloorBridge(
   const hubPath = `${LOCALE_PREFIX[locale]}/${resolveCantonSection(locale as CantonLocale, AGGREGATE_KEY)}/`.replace(/\/+/g, '/');
   const hubUrl = `${BASE_URL}${hubPath}`;
   const copy = BELOW_FLOOR_BRIDGE_COPY[locale] || BELOW_FLOOR_BRIDGE_COPY.it;
-  // Same alternate set, same all-or-nothing rule, same source of truth as the
-  // full page's `renderHreflang` — via the entries form of the ONE builder
-  // (`shared/localeAlternateBlock.ts`), so a below-floor page cannot advertise
-  // a locale the build never planned (the #5114 `missingTarget` class) and
-  // cannot ship a partial 1..4 set (`tooFew`). `[]` when the cross-locale set
-  // is incomplete, and `buildCanonicalBridgePage` then emits no block at all.
-  const byLocale = new Map(hreflang.map((h) => [h.locale as string, h.url]));
-  const hreflangEntries = buildLocaleAlternateEntries({
-    eligibleLocales: byLocale.keys(),
-    hrefFor: (loc) => byLocale.get(loc)!,
-  });
+  // NO hreflang here, deliberately — and this is the one place where the gate
+  // and the right answer disagree, so the reasoning is written down.
+  //
+  // An hreflang set must list its own URL, and every URL in it should be the
+  // canonical of its page. This page's canonical points at the HUB: an
+  // `hreflang="it"` back at the bridge would advertise, as a canonical, a URL
+  // the same page disclaims two lines above. Google drops a set whose members
+  // aren't canonical — so the markup would be inert, and its only real effect
+  // would be turning a gate green.
+  //
+  // That is precisely the trade this PR refuses elsewhere: the canonical
+  // family's 146 "offenders" were NOT fixed by emitting a second canonical in
+  // a shape the minifier leaves quoted. Shipping an inert alternate set to
+  // satisfy the same gate would be the same mistake with a different tag. It
+  // is also the argument that already removed the leaf crumb from the
+  // BreadcrumbList below — a bridge does not assert its own URL, in any
+  // vocabulary.
+  //
+  // The gate is scoped to match, using the marker the repo already uses for
+  // this exact purpose (REDIRECT_STUB_MARKER, cf. scripts/audit-spa-bundle-
+  // injection.mjs and tests/seo/cathedral-sector-hubs.test.ts): a redirect
+  // stub is exempt from the hreflang assertion ONLY — canonical, title and
+  // BreadcrumbList still apply to it in full.
+  //
+  // `hreflang` stays in the signature because the caller has it and the
+  // decision belongs here, next to the canonical it has to agree with.
+  void hreflang;
   const html = buildCanonicalBridgePage({
     canonicalUrl: hubUrl,
     pathLabel: hubPath,
@@ -1512,7 +1525,6 @@ export function renderClusterBelowFloorBridge(
     ctaLabel: copy.cta,
     lang: locale,
     noindex: true,
-    hreflangEntries: hreflangEntries.length > 0 ? hreflangEntries : undefined,
   }).replace(
     '</head>',
     ` <script type="application/ld+json">${buildClusterBreadcrumbLd(locale)}</script>\n </head>`,
@@ -1627,28 +1639,53 @@ export function capForTitle(headline: string, max: number): string {
   // exactly this, and eventsSeoPagesPlugin + liechtensteinBorderMunicipality
   // PagesPlugin already pass `(s) => esc(s).length`.
   if (escapeForBudget(safe).length <= max) return safe;
+
+  // The two budgets are in different units — `truncateToClauseNonEmpty` cuts
+  // on RAW code units, the cap is on ESCAPED ones — so the raw budget that
+  // lands on the cap cannot be computed, only searched for.
+  //
+  // Binary search, and not the obvious "subtract the overflow and retry" loop,
+  // because that loop is WRONG in both directions and the review caught it:
+  //
+  //  - vacuous where it matters most. `truncateToClauseNonEmpty(safe, b)` is a
+  //    no-op while `b >= safe.length`, so a headline that is SHORT in raw and
+  //    long in escaped — i.e. exactly the 464 offenders this function exists
+  //    to fix, all ≤66 decoded — never got shortened at all: the overflow
+  //    stayed constant and every pass returned the same over-cap string.
+  //    Repro: `Addetto "customer care" e vendite assicurative a Lugano x`,
+  //    raw 57, escaped 67, out escaped 67. Measured on a 20k fuzz: 1,5%
+  //    of realistic headlines came out over cap.
+  //  - and over-eager elsewhere: subtracting an ESCAPED overflow from a RAW
+  //    budget overshoots when escapes are dense (a 100-char input collapsed
+  //    to 4 chars), throwing away title real estate for nothing.
+  //
+  // `truncateToClauseNonEmpty` is monotone non-decreasing in its budget, so
+  // the escaped length of its output is monotone too and the search is exact:
+  // it returns the LONGEST clause-cut prefix that fits the emitted cap.
+  let lo = 1;
+  let hi = safe.length;
+  let best = '';
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    const candidate = truncateToClauseNonEmpty(safe, mid);
+    if (escapeForBudget(candidate).length <= max) {
+      best = candidate;
+      lo = mid + 1;
+    } else {
+      hi = mid - 1;
+    }
+  }
+
   // NonEmpty, not truncateToClause: the result goes straight into
   // buildTitleWithBrand, so an empty string is a bare " | Frontaliere Ticino"
   // title tag, not an omitted field.
   //
-  // `truncateToClauseNonEmpty` budgets in RAW code units, so give it a raw
-  // budget and hand back the escape overflow until the escaped result fits.
-  // Converges in one or two passes (each pass shrinks the budget by the whole
-  // overflow, ≥1 char) — the loop bound is a guard, not the mechanism.
-  let budget = max;
-  let out = truncateToClauseNonEmpty(safe, budget);
-  for (let pass = 0; pass < 8; pass++) {
-    const overflow = escapeForBudget(out).length - max;
-    if (overflow <= 0 || budget <= 1) break;
-    budget = Math.max(1, budget - overflow);
-    out = truncateToClauseNonEmpty(safe, budget);
-  }
-  // Still over budget means the FIRST word alone busts the cap once escaped.
-  // Returned verbatim on purpose: the module policy of titleSuffix.ts forbids
-  // a mid-word cut in a <title> (collapses SERP CTR), so this is the
+  // `best === ''` means not even the first clause fits once escaped. Returned
+  // verbatim on purpose: the module policy of titleSuffix.ts forbids a
+  // mid-word cut in a <title> (collapses SERP CTR), so this is the
   // data-quality signal `audit:title-length` is meant to surface, not
   // something to paper over here.
-  return out;
+  return best || truncateToClauseNonEmpty(safe, 1);
 }
 
 /** Forward-framed copy when matching jobs is empty — avoids "0 jobs found"

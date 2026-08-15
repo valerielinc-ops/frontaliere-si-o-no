@@ -88,13 +88,23 @@ export interface LocaleAlternateEntry {
  * which renders the tags itself (`buildCanonicalBridgePage`'s
  * `hreflangEntries` in build-plugins/constants.ts).
  *
- * Exists so the all-or-nothing rule has exactly ONE implementation. The
- * bridge callers previously had to hand-roll the 4-locale + x-default array
- * (professionCityLandings.ts, jobsSeoPagesPlugin.ts's brand-alias emitter),
- * i.e. re-decide the very rule this module was extracted to own — and #5114
- * is the record of what a second copy of that decision costs. The renderer
- * above is now a formatter over this function's output, so the two can no
- * longer disagree about WHEN a page carries alternates.
+ * Exists so the all-or-nothing rule has ONE implementation to migrate TO. The
+ * renderer above is now a formatter over this function's output, so those two
+ * can no longer disagree about WHEN a page carries alternates.
+ *
+ * NOT YET MIGRATED — five call sites still hand-roll the 4-locale +
+ * x-default array, and none of them applies the all-or-nothing rule (they
+ * template every locale unconditionally, which is the #5114 shape):
+ *
+ *   build-plugins/professionCityLandings.ts     (~272)
+ *   build-plugins/fuelDailyPagesPlugin.ts       (~194)
+ *   build-plugins/shared/salaryStatsBridge.ts   (~50)
+ *   build-plugins/shared/guideHubBridge.ts      (~76)
+ *   build-plugins/jobsSeoPagesPlugin.ts         (~4656, brand alias)
+ *
+ * Each needs its own before/after count of `audit:hreflang` offenders before
+ * being switched — an all-or-nothing rule REMOVES alternates from pages that
+ * carry a partial set today, so it is a content change, not a refactor.
  *
  * Returns `[]` — never a partial set — when any required locale is missing.
  */

@@ -45,12 +45,29 @@
 // token to be exactly the expected value (not a prefix: `rel=alternate` must
 // not satisfy the canonical matcher), and both still require a NON-EMPTY
 // href — a `<link rel=canonical href="">` is a missing canonical, not a
-// present one. `tests/seo/head-link-patterns.test.ts` pins both directions,
-// including the mutation that matters most: a page with no canonical at all
-// must still count 0.
+// present one. `tests/seo/search-pages-head-contract.test.ts` pins both
+// directions, including the mutation that matters most: a page with no
+// canonical at all must still count 0.
+//
+// Attributes are matched on a WHITESPACE boundary, not `\b`. `\b` sits
+// between `-` and `r`, so `\brel=` also matches `data-rel=` and `\bhref=`
+// also matches `data-href=` — which broke the non-empty-href guarantee above
+// in the one way that matters: `<link rel=canonical href="" data-href="x">`
+// counted as a valid canonical. Nothing this build emits carries such an
+// attribute (checked against the real `minifyHtml` output and the `<link>`
+// tags in htmlTemplate.ts), so it was latent — but the guarantee is stated in
+// this file, so it is enforced in this file.
+//
+// Known and accepted limits, all on shapes this build does not emit: a `>`
+// inside a quoted value before `href` ends the match early, spaces around `=`
+// are not matched, and a `<link>` inside an HTML comment or a JS string
+// counts. These are gates over build-emitted head markup, not a parser.
 
-/** Attribute value: quoted (either quote) or bare, captured without quotes. */
-const ATTR_VALUE = `(?:"([^"]+)"|'([^']+)'|([^\\s"'<>=\`]+))`;
+/** Attribute value: quoted (either quote) or bare. Non-capturing on purpose:
+ * `countLinks` counts `String.match` results, and a capturing group turns a
+ * non-global regex's result into `[full, ...groups]` — i.e. a count of 4 for
+ * one link. No caller reads the value. */
+const ATTR_VALUE = `(?:"[^"]+"|'[^']+'|[^\\s"'<>=\`]+)`;
 
 /**
  * `<link rel=canonical href=…>` in any quoting the build can emit, in either
@@ -60,8 +77,8 @@ const ATTR_VALUE = `(?:"([^"]+)"|'([^']+)'|([^\\s"'<>=\`]+))`;
  * the matches, so a page carrying two canonicals still reports 2.
  */
 export const CANONICAL_LINK_RX = new RegExp(
-  `<link\\b(?=[^>]*\\brel=(?:"canonical"|'canonical'|canonical)(?=[\\s>]))` +
-    `[^>]*\\bhref=${ATTR_VALUE}[^>]*>`,
+  `<link\\b(?=[^>]*\\srel=(?:"canonical"|'canonical'|canonical)(?=[\\s>]))` +
+    `[^>]*\\shref=${ATTR_VALUE}[^>]*>`,
   'gi',
 );
 
@@ -74,15 +91,29 @@ export const CANONICAL_LINK_RX = new RegExp(
  * counted as a present alternate.
  */
 export const HREFLANG_LINK_RX = new RegExp(
-  `<link\\b(?=[^>]*\\brel=(?:"alternate"|'alternate'|alternate)(?=[\\s>]))` +
-    `(?=[^>]*\\bhreflang=${ATTR_VALUE}(?=[\\s>]))` +
-    `[^>]*\\bhref=${ATTR_VALUE}[^>]*>`,
+  `<link\\b(?=[^>]*\\srel=(?:"alternate"|'alternate'|alternate)(?=[\\s>]))` +
+    `(?=[^>]*\\shreflang=${ATTR_VALUE}(?=[\\s>]))` +
+    `[^>]*\\shref=${ATTR_VALUE}[^>]*>`,
   'gi',
 );
 
-/** Count non-overlapping matches of `rx` in `html`. */
+/**
+ * Count non-overlapping matches of `rx` in `html`.
+ *
+ * Forces the global flag rather than trusting the caller's: `String.match`
+ * without `/g` returns `[full, ...captures]`, so a non-global regex would
+ * report a count of 1 + the number of groups. (It does NOT need to defend
+ * against a dirty `lastIndex` — `String.match` with `/g` resets it.)
+ *
+ * This and the non-capturing `ATTR_VALUE` above are REDUNDANT on purpose:
+ * either one alone makes the miscount impossible, and mutation testing shows
+ * each is individually equivalent — only removing BOTH turns the guard red.
+ * Do not delete one as "already covered": the pair is what keeps the count
+ * correct for a caller that passes its own regex.
+ */
 export function countLinks(html: string, rx: RegExp): number {
-  const m = html.match(new RegExp(rx.source, rx.flags));
+  const global = rx.global ? rx : new RegExp(rx.source, `${rx.flags}g`);
+  const m = html.match(global);
   return m ? m.length : 0;
 }
 

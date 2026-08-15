@@ -33,9 +33,12 @@
 
 import { describe, expect, it } from 'vitest';
 import {
+  CANONICAL_LINK_RX,
   countCanonicalLinks,
   countHreflangLinks,
+  countLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
 import {
   buildLocaleAlternateBlock,
@@ -116,6 +119,32 @@ describe('head link matchers survive the build minifier', () => {
     expect(countHreflangLinks('<link rel="alternate" hreflang="it" href="">')).toBe(0);
   });
 
+  it('an empty href is not rescued by a neighbouring data-href', () => {
+    // `\b` sits between `-` and `r`, so a `\bhref=` matcher counted this
+    // broken canonical as present. Whitespace-anchored attributes fix it.
+    expect(countCanonicalLinks('<link rel=canonical href="" data-href="/x/">')).toBe(0);
+    expect(
+      countHreflangLinks('<link rel=alternate hreflang="" href="/x/" data-hreflang="it">'),
+    ).toBe(0);
+  });
+
+  it('does not count data-* attributes as the real ones', () => {
+    expect(countCanonicalLinks('<link rel=stylesheet data-rel=canonical href="/a.css">')).toBe(0);
+    expect(countHreflangLinks('<link rel=stylesheet data-rel=alternate hreflang=it href="/a.css">')).toBe(0);
+  });
+
+  it('does not count an RSS alternate as an hreflang alternate', () => {
+    expect(countHreflangLinks('<link rel=alternate type=application/rss+xml href=/feed.xml>')).toBe(0);
+    expect(countHreflangLinks('<link rel="alternate stylesheet" href="/a.css">')).toBe(0);
+  });
+
+  it('counts correctly even if handed a non-global regex', () => {
+    // `String.match` without /g returns [full, ...captures]; countLinks
+    // forces the flag so a caller cannot get 4 for a single link.
+    expect(countLinks('<link rel=canonical href=/a/>', new RegExp(CANONICAL_LINK_RX.source, 'i')))
+      .toBe(1);
+  });
+
   it('counts a duplicate canonical as 2, so the gate can still fail it', () => {
     expect(countCanonicalLinks(minifyHtml(PAGE + PAGE))).toBe(2);
   });
@@ -153,7 +182,7 @@ describe('below-floor cluster bridge carries the full head contract', () => {
   const URL_PATH = '/cerca-lavoro-ticino/ricerca-4hana-basel/';
   const CANONICAL = `https://frontaliereticino.ch${URL_PATH}`;
 
-  it('emits one canonical, the 4+1 hreflang set, and a BreadcrumbList', () => {
+  it('emits one canonical and a BreadcrumbList', () => {
     const out = renderClusterBelowFloorBridge(
       'it',
       URL_PATH,
@@ -162,8 +191,24 @@ describe('below-floor cluster bridge carries the full head contract', () => {
       HREFLANG_ALL,
     );
     expect(countCanonicalLinks(out.html)).toBe(1);
-    expect(countHreflangLinks(out.html)).toBe(5);
     expect(ldJsonTypes(out.html)).toContain('BreadcrumbList');
+  });
+
+  it('emits NO hreflang, even when the caller hands it a complete set', () => {
+    // An alternate set must list its own URL as a canonical — but this page's
+    // canonical points at the hub, so the set would be inert markup whose
+    // only effect is turning the gate green. The gate is scoped instead: the
+    // page carries REDIRECT_STUB_MARKER, which exempts it from the hreflang
+    // assertion (and from that one only).
+    const out = renderClusterBelowFloorBridge(
+      'it',
+      URL_PATH,
+      CANONICAL,
+      '4hana basel',
+      HREFLANG_ALL,
+    );
+    expect(countHreflangLinks(out.html)).toBe(0);
+    expect(out.html).toContain(REDIRECT_STUB_MARKER);
   });
 
   it('the trail stops at the section and never names the bridge URL itself', () => {
@@ -192,18 +237,14 @@ describe('below-floor cluster bridge carries the full head contract', () => {
     expect(JSON.stringify(ld)).not.toContain('ricerca-4hana-basel');
   });
 
-  it('omits hreflang entirely — never a partial set — when a locale is missing', () => {
-    const out = renderClusterBelowFloorBridge(
-      'it',
-      URL_PATH,
-      CANONICAL,
-      '4hana basel',
-      HREFLANG_ALL.slice(0, 2),
-    );
-    expect(countHreflangLinks(out.html)).toBe(0);
-    // The breadcrumb does NOT depend on the alternate set.
-    expect(ldJsonTypes(out.html)).toContain('BreadcrumbList');
-    expect(countCanonicalLinks(out.html)).toBe(1);
+  it('renders identically whatever alternate set the caller passes', () => {
+    const full = renderClusterBelowFloorBridge('it', URL_PATH, CANONICAL, '4hana basel', HREFLANG_ALL);
+    const partial = renderClusterBelowFloorBridge('it', URL_PATH, CANONICAL, '4hana basel', HREFLANG_ALL.slice(0, 2));
+    const none = renderClusterBelowFloorBridge('it', URL_PATH, CANONICAL, '4hana basel', []);
+    expect(partial.html).toBe(full.html);
+    expect(none.html).toBe(full.html);
+    expect(ldJsonTypes(none.html)).toContain('BreadcrumbList');
+    expect(countCanonicalLinks(none.html)).toBe(1);
   });
 
   it('still canonicalises to the hub, not to itself (consolidation intact)', () => {
@@ -238,6 +279,41 @@ describe('cluster <title> budget is measured on the string that ships', () => {
     expect(capped).not.toMatch(/…/);
     expect(AMPERSAND.startsWith(capped)).toBe(true);
     expect(capped.length).toBeGreaterThan(30);
+  });
+
+  it('caps a headline that is SHORT in raw and long escaped (the vacuous-loop class)', () => {
+    // The first implementation subtracted the overflow from a raw budget that
+    // already exceeded the headline's raw length, so truncateToClauseNonEmpty
+    // was a no-op and every pass returned the same over-cap string. This is
+    // the exact repro: raw 57, escaped 67, cap 66 — and it is the SHAPE of
+    // all 464 offenders ("≤66 chars decoded"), so the bug hid inside the fix.
+    const s = 'Addetto "customer care" e vendite assicurative a Lugano x';
+    expect(s.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+    expect(escapeForBudget(s).length).toBeGreaterThan(TITLE_MAX_CHARS);
+    expect(escapeForBudget(capForTitle(s, TITLE_MAX_CHARS)).length)
+      .toBeLessThanOrEqual(TITLE_MAX_CHARS);
+  });
+
+  it('holds across the whole raw-length band around the cap', () => {
+    // The defect was invisible at raw=56 and raw=58 and only appeared at
+    // raw=57 — a single-point failure a spot check walks straight past.
+    const offenders: string[] = [];
+    for (let pad = 0; pad <= 24; pad++) {
+      const s = `Addetto "customer care" e vendite assicurative a Lugano${'x'.repeat(pad)}`;
+      const len = escapeForBudget(capForTitle(s, TITLE_MAX_CHARS)).length;
+      if (len > TITLE_MAX_CHARS) offenders.push(`raw=${s.length} -> escaped=${len}`);
+    }
+    expect(offenders, offenders.join('\n')).toEqual([]);
+  });
+
+  it('returns the LONGEST clause-cut that fits, not an over-trimmed stub', () => {
+    // The same loop also overshot in the other direction: subtracting an
+    // escaped overflow from a raw budget collapsed a 100-char input to 4
+    // chars. The search must spend the budget it has.
+    const s = 'Operatore & tecnico & manutentore & installatore di impianti industriali a Bellinzona in Ticino';
+    const capped = capForTitle(s, TITLE_MAX_CHARS);
+    expect(escapeForBudget(capped).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+    expect(escapeForBudget(capped).length).toBeGreaterThan(TITLE_MAX_CHARS - 20);
   });
 
   it('leaves a headline that already fits completely untouched', () => {
