@@ -51,6 +51,7 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   follow-ups:
@@ -136,3 +137,19 @@ jobs:
               echo "_Nessun sommario prodotto._"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
