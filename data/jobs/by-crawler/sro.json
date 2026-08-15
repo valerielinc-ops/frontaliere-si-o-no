@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-08-15T09:35:48.771Z",
+  "assembledAt": "2026-08-15T09:00:11.220Z",
   "jobs": [
     {
       "id": "sro-6abd7add22f4",
@@ -409,15 +409,28 @@
         "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "bildungsverantwortliche-pflege-80-100-sro-langenthal",
         "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal"
+        "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal",
+        "compagno-di-recupero-psichiatria-ospedaliera-30-sro-ag-spital-region-oberaargau-langenthal",
+        "recovery-companion-inpatient-psychiatry-30-sro-ag-spital-region-oberaargau-langenthal",
+        "genesungsbegleiter-in-stationare-psychiatrie-30-sro-langenthal",
+        "compagne-de-retablissement-psychiatrie-hospitalisee-30-sro-ag-spital-region-oberaargau-langenthal",
+        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-psychiatrische-dienste",
+        "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "psychologin-psychologen-ambulatorium-80-100-sro-gesundheitszentrum-jura-sud",
+        "psicologo-psicologo-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal-7dc556",
+        "psychologist-psychologist-stationary-psychiatry-80-sro-ag-spital-region-oberaargau-langenthal-7dc556",
+        "psychologin-psychologen-stationare-psychiatrie-80-sro-langenthal",
+        "psychologue-psychologue-psychiatrie-stationnaire-80-sro-ag-spital-region-oberaargau-langenthal-7dc556",
+        "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal",
+        "psychologist-psychologist-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+        "psychologue-psychologue-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
-          "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
-          "responsable-d-equipe-en-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
-          "teamleitung-schmerzpsychologie-80-sro-langenthal",
-          "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
           "team-leader-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
           "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
           "psicoterapista-in-per-80-in-clinica-dolore-sro-ag-spital-region-oberaargau-langenthal",
@@ -425,20 +438,38 @@
           "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "bildungsverantwortliche-pflege-80-100-sro-langenthal",
           "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal"
+          "psicoterapeuta-cellulare-80-sro-ag-spital-region-oberaargau-langenthal",
+          "compagno-di-recupero-psichiatria-ospedaliera-30-sro-ag-spital-region-oberaargau-langenthal",
+          "recovery-companion-inpatient-psychiatry-30-sro-ag-spital-region-oberaargau-langenthal",
+          "genesungsbegleiter-in-stationare-psychiatrie-30-sro-langenthal",
+          "compagne-de-retablissement-psychiatrie-hospitalisee-30-sro-ag-spital-region-oberaargau-langenthal",
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-psychiatrische-dienste",
+          "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "psychologin-psychologen-ambulatorium-80-100-sro-gesundheitszentrum-jura-sud",
+          "psicologo-psicologo-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal-7dc556",
+          "psychologist-psychologist-stationary-psychiatry-80-sro-ag-spital-region-oberaargau-langenthal-7dc556",
+          "psychologin-psychologen-stationare-psychiatrie-80-sro-langenthal",
+          "psychologue-psychologue-psychiatrie-stationnaire-80-sro-ag-spital-region-oberaargau-langenthal-7dc556",
+          "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
           "psychotherapist-pain-clinic-80-sro-ag-spital-region-oberaargau-langenthal",
-          "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "educational-care-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "psychologist-psychologist-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "de": [
-          "bildungsverantwortliche-pflege-80-100-sro-langenthal"
+          "bildungsverantwortliche-pflege-80-100-sro-langenthal",
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
         ],
         "fr": [
           "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
           "responsable-d-equipe-en-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
-          "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "soins-educatifs-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "psychologue-psychologue-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-21T22:07:29.246Z",
@@ -1027,7 +1058,6 @@
         "de": "Zur Ergänzung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Organisation und Betreuung der ambulanten kardiologischen Sprechstunde inklusive Mithilfe bei EKG, Belastungs-EKG, Holter-EKG und Echokardiographie\n• Erledigung sämtlicher administrativen und organisatorischen Arbeiten des kardiologischen Sekretariats\n• Telefonische Kontakte mit internen und externen Stellen Das bringen Sie mit\n• Abgeschlossene Ausbildung als medizinische Praxisassistenz (auch Lehrabgänger herzlich willkommen)\n• Freude an der Arbeit mit Patienten und administrativer Arbeit\n• Fundierte PC-Anwenderkenntnisse Bei uns arbeiten\n• Eine abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Geregelte Arbeitszeiten, kein Wochenenddienst\n• Ein motiviertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten auf dem Gebiet der Kardiologie\n• Gute Anbindung an den ÖV sowie Parkhaus vor Ort mit vergünstigtem Mitarbeitertarif vorhanden SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Organisation und Betreuung der ambulanten kardiologischen Sprechstunde inklusive Mithilfe bei EKG, Belastungs-EKG, Holter-EKG und Echokardiographie\n• Erledigung sämtlicher administrativen und organisatorischen Arbeiten des kardiologischen Sekretariats\n• Telefonische Kontakte mit internen und externen Stellen\n\nAnforderungen:\n• Abgeschlossene Ausbildung als medizinische Praxisassistenz (auch Lehrabgänger herzlich willkommen)\n• Freude an der Arbeit mit Patienten und administrativer Arbeit\n• Fundierte PC-Anwenderkenntnisse",
         "fr": "Pour compléter notre équipe, nous en chercherons un d'ici le 1er novembre 2026 ou par accord Ils le font avec nous.\n• Organisation et soutien de la consultation en cardiologie externe, y compris l'aide à ECG, ECG stress, ECG Holter et échocardiographie\n• Achèvement de tous les travaux administratifs et organisationnels du secrétariat de la cardiologie\n• Contacts téléphoniques avec des organismes internes et externes\n• Formation complète en tant qu'assistant de médecine (même les apprentis les bienvenus)\n• La joie de travailler avec les patients et le travail administratif\n• Connaissance bien fondée des utilisateurs de PC Travailler pour nous\n• Une activité variée, responsable et indépendante\n• Heures de travail réglementées, pas de service le week-end\n• Une équipe motivée et établie\n• Possibilités de formation en cardiologie\n• De bonnes connexions aux transports en commun ainsi qu'un parking disponible sur place avec tarif réduit pour les employés SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Organisation et soutien de la consultation en cardiologie externe, y compris l'aide à ECG, ECG stress, ECG Holter et échocardiographie\n• Achèvement de tous les travaux administratifs et organisationnels du secrétariat de la cardiologie\n• Contacts téléphoniques avec des organismes internes et externes\n\nExigences\n• Formation complète en tant qu'assistant de médecine (même les apprentis les bienvenus)\n• La joie de travailler avec les patients et le travail administratif\n• Connaissances de l'utilisateur du PC"
       },
-      "needsRetranslation": true,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/ff01cf37-11c6-4a18-8bb2-9e6a1b4d1430",
@@ -1057,18 +1087,49 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal",
-        "assistente-medico-assistente-tecnico-100-cardiologia-sro-ag-spital-region-oberaargau-langenthal"
+        "assistente-medico-assistente-tecnico-100-cardiologia-sro-ag-spital-region-oberaargau-langenthal",
+        "assistente-medico-psichiatria-per-adulti-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+        "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "assistente-medico-80-100-psichiatria-di-vecchiaia-sro-ag-spital-region-oberaargau-langenthal",
+        "assistant-doctor-80-100-old-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+        "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
+        "assistant-medecin-80-100-psychiatrie-vieillesse-sro-ag-spital-region-oberaargau-langenthal",
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro",
+        "assistente-medico-80-100-psichiatria-ospedaliera-sro-ag-spital-region-oberaargau-langenthal",
+        "assistant-physician-80-100-inpatient-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+        "assistenzarztin-assistenzarzt-80-100-stationare-psychiatrie-sro-langenthal",
+        "medecin-assistant-80-100-psychiatrie-hospitalisee-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal",
-          "assistente-medico-assistente-tecnico-100-cardiologia-sro-ag-spital-region-oberaargau-langenthal"
+          "assistente-medico-assistente-tecnico-100-cardiologia-sro-ag-spital-region-oberaargau-langenthal",
+          "assistente-medico-psichiatria-per-adulti-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+          "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistente-medico-80-100-psichiatria-di-vecchiaia-sro-ag-spital-region-oberaargau-langenthal",
+          "assistant-doctor-80-100-old-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
+          "assistant-medecin-80-100-psychiatrie-vieillesse-sro-ag-spital-region-oberaargau-langenthal",
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro",
+          "assistente-medico-80-100-psichiatria-ospedaliera-sro-ag-spital-region-oberaargau-langenthal",
+          "assistant-physician-80-100-inpatient-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+          "assistenzarztin-assistenzarzt-80-100-stationare-psychiatrie-sro-langenthal",
+          "medecin-assistant-80-100-psychiatrie-hospitalisee-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal"
+          "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal",
+          "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
-          "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal"
+          "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal",
+          "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-21T11:16:32.981Z",
@@ -1083,7 +1144,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sro-d17c0a05066c",
@@ -3062,17 +3124,65 @@
       "validThrough": "2026-08-21",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal"
+        "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal",
+        "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "orthopedic-medical-secretary-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+        "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+        "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+        "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+        "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
+        "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
+        "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
+        "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medicale-en-clinique-de-la-douleur-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medical-secretary-in-pain-clinic-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
+        "medical-secretary-orthopaedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "arztsekretar-in-orthopadie-80-100-sro-langenthal",
+        "secretaire-medical-orthopedie-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "arztsekretar-in-orthopala-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal"
+          "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "orthopedic-medical-secretary-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+          "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+          "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+          "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
+          "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
+          "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
+          "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medicale-en-clinique-de-la-douleur-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medical-secretary-in-pain-clinic-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
+          "arztsekretar-in-orthopala-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal"
+          "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal",
+          "medical-secretary-orthopaedics-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
-          "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal"
+          "arztsekretar-in-gastroenterologie-und-hepatologie-80-100-sro-langenthal",
+          "secretaire-medical-orthopedie-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:22.825Z",

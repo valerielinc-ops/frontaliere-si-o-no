@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zurich-insurance-sede-ticino",
-  "assembledAt": "2026-08-15T09:50:19.165Z",
+  "assembledAt": "2026-08-15T09:15:16.618Z",
   "jobs": [
     {
       "id": "company-1n64de",
@@ -4644,7 +4644,8 @@
           "en-milliers-de-dollars-des-etats-unis-zurich-insurance-sede-ticino-lugano"
         ],
         "it": [
-          "stato-pubblicato-un-libro-di-testo-intitolato-zurich-insurance-sede-ticino-lugano"
+          "stato-pubblicato-un-libro-di-testo-intitolato-zurich-insurance-sede-ticino-lugano",
+          "zurich-insurance-sede-ticino-lugano"
         ]
       },
       "previousSlugs": [
@@ -4652,7 +4653,8 @@
         "claims-handler-auto-insurance-osaka-zurich-insurance-sede-ticino-lugano",
         "en-anglais-seulement-zurich-insurance-sede-ticino-lugano",
         "r-zurich-insurance-sede-ticino-lugano",
-        "en-milliers-de-dollars-des-etats-unis-zurich-insurance-sede-ticino-lugano"
+        "en-milliers-de-dollars-des-etats-unis-zurich-insurance-sede-ticino-lugano",
+        "zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4671,8 +4673,9 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 745
     },
     {
       "id": "company-wcizsh",
@@ -6157,7 +6160,8 @@
       "previousSlugsByLocale": {
         "it": [
           "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy",
-          "amministratore-del-sistema-zurich-insurance-sede-ticino-lugano"
+          "amministratore-del-sistema-zurich-insurance-sede-ticino-lugano",
+          "system-administrator-zurich-insurance-sede-ticino-lugano"
         ],
         "de": [
           "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy"
@@ -6168,7 +6172,8 @@
       },
       "previousSlugs": [
         "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy",
-        "amministratore-del-sistema-zurich-insurance-sede-ticino-lugano"
+        "amministratore-del-sistema-zurich-insurance-sede-ticino-lugano",
+        "system-administrator-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -8402,7 +8407,7 @@
       "crawledAt": "2026-08-12T10:48:11.339Z",
       "firstSeenAt": "2026-07-14T12:03:54.312Z",
       "titleByLocale": {
-        "en": "ASSESSOR COMERCIAL (PCD) - FILIAL MARINGÁ",
+        "en": "COMERCIAL ASSESSOR (PCD) - FILIAL MARINGÁ",
         "fr": "ASSESSOR COMERCIAL PCD - FILIAL MARINGÁ",
         "it": "ASSESSORE COMERCIALE (PCD) - MARINGÁ FILIALE",
         "de": "ZUSAMMENARBEITSKD — FILIAL MARINGÁ"
@@ -8521,7 +8526,8 @@
           "avocat-contrat-de-12-mois-zurich-insurance-sede-ticino-lugano",
           "avvocato-aziendale-contratto-di-12-mesi-zurich-insurance-sede-ticino-lugano",
           "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano-vgmfkv",
-          "avvocato-aziendale-ii-zurich-insurance-sede-ticino-lugano"
+          "avvocato-aziendale-ii-zurich-insurance-sede-ticino-lugano",
+          "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano"
         ],
         "en": [
           "corporate-lawyer-12-month-contract-zurich-insurance-sede-ticino-lugano-c3dt32"
@@ -8542,7 +8548,8 @@
         "avocat-contrat-de-12-mois-zurich-insurance-sede-ticino-lugano",
         "avvocato-aziendale-contratto-di-12-mesi-zurich-insurance-sede-ticino-lugano",
         "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano-vgmfkv",
-        "avvocato-aziendale-ii-zurich-insurance-sede-ticino-lugano"
+        "avvocato-aziendale-ii-zurich-insurance-sede-ticino-lugano",
+        "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -15405,7 +15412,7 @@
       "crawledAt": "2026-08-07T21:51:07.793Z",
       "firstSeenAt": "2026-08-07T10:35:40.380Z",
       "titleByLocale": {
-        "en": "INGENIERO DE RIESGOS",
+        "en": "IRESGOS INGENIERO",
         "fr": "INGENIERO DE RIESGOS",
         "it": "INGENIERO DI RICERCA",
         "de": "IRESGOS INGENIERO"
@@ -15462,8 +15469,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-d615o0",
@@ -20289,7 +20295,8 @@
           "conseiller-juridique-zurich-insurance-sede-ticino-lugano",
           "sr-trial-attorney-zurich-insurance-sede-ticino-lugano",
           "procuratore-capo-zurich-insurance-sede-ticino-lugano",
-          "procuratore-di-prova-zurich-insurance-sede-ticino-lugano"
+          "procuratore-di-prova-zurich-insurance-sede-ticino-lugano",
+          "trial-attorney-zurich-insurance-sede-ticino-lugano"
         ],
         "de": [
           "trial-attorney-zurich-insurance-sede-ticino-lugano-j2r5u7",
@@ -20311,7 +20318,8 @@
         "conseiller-juridique-zurich-insurance-sede-ticino-lugano",
         "sr-trial-attorney-zurich-insurance-sede-ticino-lugano",
         "procuratore-capo-zurich-insurance-sede-ticino-lugano",
-        "procuratore-di-prova-zurich-insurance-sede-ticino-lugano"
+        "procuratore-di-prova-zurich-insurance-sede-ticino-lugano",
+        "trial-attorney-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -27339,7 +27347,8 @@
       "previousSlugsByLocale": {
         "it": [
           "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk",
-          "gestione-dell-agenzia-zurich-insurance-sede-ticino-lugano"
+          "gestione-dell-agenzia-zurich-insurance-sede-ticino-lugano",
+          "agency-development-executive-zurich-insurance-sede-ticino-lugano"
         ],
         "de": [
           "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk"
@@ -27350,7 +27359,8 @@
       },
       "previousSlugs": [
         "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk",
-        "gestione-dell-agenzia-zurich-insurance-sede-ticino-lugano"
+        "gestione-dell-agenzia-zurich-insurance-sede-ticino-lugano",
+        "agency-development-executive-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -35807,7 +35817,8 @@
           "procureur-en-chef-responsabilite-generale-zurich-insurance-sede-ticino-lugano",
           "procuratore-capo-processo-responsabilita-generale-zurich-insurance-sede-ticino-lugano",
           "chief-trial-attorney-zurich-insurance-sede-ticino-lugano-n3rigg",
-          "procuratore-di-processo-capo-zurich-insurance-sede-ticino-lugano"
+          "procuratore-di-processo-capo-zurich-insurance-sede-ticino-lugano",
+          "chief-trial-attorney-zurich-insurance-sede-ticino-lugano"
         ],
         "en": [
           "chief-trial-attorney-general-liability-zurich-insurance-sede-ticino-lugano-j48iup"
@@ -35828,7 +35839,8 @@
         "procureur-en-chef-responsabilite-generale-zurich-insurance-sede-ticino-lugano",
         "procuratore-capo-processo-responsabilita-generale-zurich-insurance-sede-ticino-lugano",
         "chief-trial-attorney-zurich-insurance-sede-ticino-lugano-n3rigg",
-        "procuratore-di-processo-capo-zurich-insurance-sede-ticino-lugano"
+        "procuratore-di-processo-capo-zurich-insurance-sede-ticino-lugano",
+        "chief-trial-attorney-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,
@@ -35981,7 +35993,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda",
-          "sr-procuratore-legale-zurich-insurance-sede-ticino-lugano"
+          "sr-procuratore-legale-zurich-insurance-sede-ticino-lugano",
+          "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano"
         ],
         "fr": [
           "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda"
@@ -35989,7 +36002,8 @@
       },
       "previousSlugs": [
         "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda",
-        "sr-procuratore-legale-zurich-insurance-sede-ticino-lugano"
+        "sr-procuratore-legale-zurich-insurance-sede-ticino-lugano",
+        "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,
@@ -40639,7 +40653,8 @@
       "previousSlugsByLocale": {
         "it": [
           "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx",
-          "analisi-speciali-zurich-insurance-sede-ticino-lugano"
+          "analisi-speciali-zurich-insurance-sede-ticino-lugano",
+          "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano"
         ],
         "en": [
           "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx"
@@ -40650,7 +40665,8 @@
       },
       "previousSlugs": [
         "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx",
-        "analisi-speciali-zurich-insurance-sede-ticino-lugano"
+        "analisi-speciali-zurich-insurance-sede-ticino-lugano",
+        "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -50615,7 +50631,8 @@
       "previousSlugsByLocale": {
         "it": [
           "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7",
-          "analisi-dei-servizi-uw-zurich-insurance-sede-ticino-lugano"
+          "analisi-dei-servizi-uw-zurich-insurance-sede-ticino-lugano",
+          "analista-de-uw-services-zurich-insurance-sede-ticino-lugano"
         ],
         "en": [
           "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7"
@@ -50626,7 +50643,8 @@
       },
       "previousSlugs": [
         "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7",
-        "analisi-dei-servizi-uw-zurich-insurance-sede-ticino-lugano"
+        "analisi-dei-servizi-uw-zurich-insurance-sede-ticino-lugano",
+        "analista-de-uw-services-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53256,12 +53274,14 @@
       "previousSlugsByLocale": {
         "it": [
           "especialista-de-bi-zurich-insurance-sede-ticino-lugano-gc108i",
-          "bi-specialista-zurich-insurance-sede-ticino-lugano"
+          "bi-specialista-zurich-insurance-sede-ticino-lugano",
+          "especialista-de-bi-zurich-insurance-sede-ticino-lugano"
         ]
       },
       "previousSlugs": [
         "especialista-de-bi-zurich-insurance-sede-ticino-lugano-gc108i",
-        "bi-specialista-zurich-insurance-sede-ticino-lugano"
+        "bi-specialista-zurich-insurance-sede-ticino-lugano",
+        "especialista-de-bi-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

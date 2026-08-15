@@ -71,8 +71,8 @@
       "id": "belimo-7abf3509d8bf",
       "slug": "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
       "slugByLocale": {
+        "en": "head-of-district-energy-metering-emea-100-belimo-hinwil-y72rob",
         "it": "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
-        "en": "head-of-district-energy-metering-emea-100-belimo-hinwil",
         "de": "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
         "fr": "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
       },
@@ -117,7 +117,6 @@
       "jobReqId": "1163687755",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-14T21:34:42.073Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -130,7 +129,16 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-14T21:34:42.073Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "head-of-district-energy-metering-emea-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-district-energy-metering-emea-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-dfad06e18cc2",
@@ -211,9 +219,9 @@
       "companyDomain": "belimo.com",
       "title": "Senior Project Manager (80-100%)",
       "titleByLocale": {
-        "it": "Senior Project Manager (80-100%)",
         "en": "Senior Project Manager (80-100%)",
-        "de": "Senior Project Manager (80-100%)",
+        "it": "Senior Project Manager (80-100%)",
+        "de": "Senior Projektmanager (80-100%)",
         "fr": "Gestionnaire principal de projet (80-100%)"
       },
       "description": "Summary\n\nLead complex, cross‑functional development projects for industrial mechatronic products from planning to successful delivery. In this role, you ensure structured execution, clear governance and robust risk management, while enabling fact‑based decisions for leadership and fostering strong collaboration across all functions. You’ll be a key driver of continuous improvement in how projects are run across the organization.\n\nWhat You'll Do\n\n• Plan, steer and monitor complex or multi‑workstream projects, including scope, schedule, budget, resources, risks and deliverables.\n\n• Coordinate cross‑functional dependencies and ensure smooth collaboration between Engineering, Production, Quality and other domains.\n\n• Ensure adherence to defined governance, processes, methods and deliverables, and proactively coach project leads and team members.\n\n• Maintain complete, high‑quality project data (planning, costs, resources) and provide transparent reporting on status, readiness, gaps and required actions.\n\n• Lead risk, issue and change management, including systematic identification, assessment, mitigation, approvals and escalation according to governance.\n\n• Enable fact‑based decisions by consolidating status, risks and progress, and preparing clear decision papers, scenarios and recommendations for leadership.\n\n• Drive structured stakeholder communication, alignment and conflict resolution across departments and multiple projects.\n\n• Lead continuous improvement of project execution, methods, tools and collaboration through lessons learned and feedback.\n\nWho You Are\n\n• Technical degree in a relevant field (e.g. Mechanical or Electrical Engineering) at FH/ETH/University level, with broad knowledge in adjacent technical disciplines (T‑profile).\n\n• Minimum 6 years of experience leading interdisciplinary development projects involving industrial mechatronic devices.\n\n• Strong methodological expertise in project management; formal PM certification is a plus.\n\n• High proficiency with project management tools, (e.g. Jira, Sciforma, Planview) and methods, including planning, controlling and reporting.\n\n• Proven experience coordinating cross‑functional teams and working closely with Development (electronics, mechanics, software), Production, Quality and other business domains.\n\n• Strong understanding of business and economic correlations, enabling sound trade‑off and impact assessments.\n\n• Service‑oriented mindset with excellent communication skills; empathetic, solution‑oriented, proactive and able to motivate and inspire as a project leader.\n\n• Very good command of English; advanced German highly desirable, combined with strong self‑organization, ownership mentality, holistic thinking and high resilience.\n\nWho We Are\n\nAt Belimo, we take pride in making our company a rewarding place to work. Our leaders are value-driven and encourage new ideas in their teams around the world. Through our passion, our employees are not only creating amazing products, they are revolutionizing the HVAC industry. Investing in our people is at the heart of Belimo's approach to engaging diverse creative talent to grow an industry-leading company. The success of our corporate brand is based on the expertise and commitment of each individual.",
@@ -247,9 +255,6 @@
       "jobReqId": "1164383755",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-project-manager-80-100-belimo-hinwil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-80-100-belimo-hinwil"
@@ -258,8 +263,10 @@
           "senior-project-manager-80-100-belimo-hinwil"
         ]
       },
+      "previousSlugs": [
+        "senior-project-manager-80-100-belimo-hinwil"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:34:40.885Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -271,7 +278,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T21:34:40.885Z"
     },
     {
       "id": "belimo-63ba57858fb9",

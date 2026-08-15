@@ -497,13 +497,11 @@
       "jobNumber": "WAG02398",
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
-        "hr-generalist-in-weisse-arena-ch",
-        "hr-generalist-in-weisse-arena-gruppe-laax",
-        "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "hr-generalist-in-weisse-arena-ch",
+          "hr-generalist-in-weisse-arena-gruppe-laax"
+        ],
         "it": [
           "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
           "hr-generalist-in-weisse-arena-ch",
@@ -513,14 +511,16 @@
         "en": [
           "hr-generalist-in-weisse-arena-ch"
         ],
-        "de": [
-          "hr-generalist-in-weisse-arena-ch",
-          "hr-generalist-in-weisse-arena-gruppe-laax"
-        ],
         "fr": [
           "hr-generalist-in-weisse-arena-ch"
         ]
       },
+      "previousSlugs": [
+        "ressources-humaines-generalist-in-weisse-arena-gruppe-laax",
+        "hr-generalist-in-weisse-arena-ch",
+        "hr-generalist-in-weisse-arena-gruppe-laax",
+        "risorse-umane-generalist-in-weisse-arena-gruppe-laax"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-02T10:50:35.047Z",
       "salaryMin": 57500,
@@ -1384,14 +1384,12 @@
       "jobNumber": "WAG02444",
       "pensum": "100%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "receptionniste-in-weisse-arena-gruppe-laax",
-        "receptionist-in-weisse-arena-gruppe-laax",
-        "receptionist-in-weisse-arena-ch-p7l4qu",
-        "receptionist-in-weisse-arena-ch",
-        "ricevitore-in-weisse-arena-gruppe-laax"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "receptionist-in-weisse-arena-ch-p7l4qu",
+          "receptionist-in-weisse-arena-ch",
+          "receptionist-in-weisse-arena-gruppe-laax"
+        ],
         "it": [
           "receptionniste-in-weisse-arena-gruppe-laax",
           "receptionist-in-weisse-arena-gruppe-laax",
@@ -1401,15 +1399,17 @@
         "en": [
           "receptionist-in-weisse-arena-ch"
         ],
-        "de": [
-          "receptionist-in-weisse-arena-ch-p7l4qu",
-          "receptionist-in-weisse-arena-ch",
-          "receptionist-in-weisse-arena-gruppe-laax"
-        ],
         "fr": [
           "receptionist-in-weisse-arena-ch"
         ]
       },
+      "previousSlugs": [
+        "receptionniste-in-weisse-arena-gruppe-laax",
+        "receptionist-in-weisse-arena-gruppe-laax",
+        "receptionist-in-weisse-arena-ch-p7l4qu",
+        "receptionist-in-weisse-arena-ch",
+        "ricevitore-in-weisse-arena-gruppe-laax"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:17:38.915Z",
       "salaryMin": 57500,

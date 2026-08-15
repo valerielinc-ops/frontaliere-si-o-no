@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-08-15T09:57:51.174Z",
+  "assembledAt": "2026-08-15T09:14:14.978Z",
   "jobs": [
     {
       "id": "company-au3a1j",
@@ -55,22 +55,28 @@
         ],
         "en": [
           "mitarbeiter-in-sattlerei-confederazione-sursee",
-          "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j"
+          "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j",
+          "employee-satellite-confederazione-svizzera-sursee"
         ],
         "de": [
           "mitarbeiter-in-sattlerei-confederazione-sursee"
         ],
         "fr": [
           "mitarbeiter-in-sattlerei-confederazione-sursee",
-          "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j"
+          "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j",
+          "employe-satellite-confederazione-svizzera-sursee"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern",
         "mitarbeiter-in-sattlerei-confederazione-sursee",
         "collaboratore-trice-in-sattlerei-confederazione-svizzera-sursee",
-        "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j"
+        "mitarbeiter-in-sattlerei-swiss-armed-forces-vtg-bern-au3a1j",
+        "employee-satellite-confederazione-svizzera-sursee",
+        "employe-satellite-confederazione-svizzera-sursee"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -83,9 +89,7 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-wlhin8",

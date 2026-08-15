@@ -1,6 +1,6 @@
 {
   "crawlerKey": "richemont",
-  "assembledAt": "2026-08-15T09:48:12.256Z",
+  "assembledAt": "2026-08-15T08:49:18.693Z",
   "jobs": [
     {
       "id": "richemont-7d49e9e9e2fc",
@@ -5731,7 +5731,6 @@
       "jobReqId": "jr130115",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
         "procurement-category-manager-richemont-plan-les-ouates",
@@ -5761,7 +5760,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-5d531f1522de",
@@ -8444,11 +8444,11 @@
       "jobReqId": "jr130947",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polivalente-di-operateur-richemont-delemont",
-          "operatore-multivalente-richemont-delemont"
+          "operatore-multivalente-richemont-delemont",
+          "operateur-polyvalent-richemont-delemont"
         ],
         "en": [
           "multivalent-operator-richemont-delemont"
@@ -8461,7 +8461,8 @@
         "polivalente-di-operateur-richemont-delemont",
         "operatore-multivalente-richemont-delemont",
         "multivalent-operator-richemont-delemont",
-        "multiplikator-richemont-delemont"
+        "multiplikator-richemont-delemont",
+        "operateur-polyvalent-richemont-delemont"
       ],
       "firstSeenAt": "2026-07-03T23:30:36.680Z",
       "salaryMin": 60500,
@@ -8475,7 +8476,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-4168f8f08137",
@@ -14660,23 +14662,6 @@
       "jobReqId": "jr132728",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle",
-        "eccellenza-operativa-trainee-m-f-x-1-cartier-manufacture-le-locle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle",
-          "eccellenza-operativa-trainee-m-f-x-1-cartier-manufacture-le-locle"
-        ],
-        "en": [
-          "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle"
-        ],
-        "de": [
-          "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T21:41:21.511Z",
       "salaryMin": 50500,
       "salaryMax": 77000,
       "baseSalary": {
@@ -14688,7 +14673,28 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T21:41:21.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle",
+          "eccellenza-operativa-trainee-m-f-x-1-cartier-manufacture-le-locle",
+          "eccellenza-operativa-trainee-cartier-manufacture-glovelier",
+          "trainee-operational-excellence-cartier-manufacture-glovelier"
+        ],
+        "en": [
+          "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle"
+        ],
+        "de": [
+          "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-excellence-operationnelle-h-f-x-1-richemont-le-locle",
+        "eccellenza-operativa-trainee-m-f-x-1-cartier-manufacture-le-locle",
+        "eccellenza-operativa-trainee-cartier-manufacture-glovelier",
+        "trainee-operational-excellence-cartier-manufacture-glovelier"
+      ]
     },
     {
       "id": "richemont-f8cff23cda99",
@@ -14742,12 +14748,14 @@
       "previousSlugsByLocale": {
         "it": [
           "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
-          "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin"
+          "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin",
+          "general-accountant-internal-control-fixed-term-contract-cartier-meyrin"
         ]
       },
       "previousSlugs": [
         "general-accountant-internal-control-fixed-term-contract-richemont-meyrin",
-        "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin"
+        "contabile-generale-e-controllo-interno-contratto-di-pagamento-cartier-meyrin",
+        "general-accountant-internal-control-fixed-term-contract-cartier-meyrin"
       ],
       "firstSeenAt": "2026-07-13T22:08:58.330Z",
       "salaryMin": 60500,

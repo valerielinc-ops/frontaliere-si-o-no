@@ -1,6 +1,6 @@
 {
   "crawlerKey": "raiffeisen",
-  "assembledAt": "2026-08-15T09:38:05.154Z",
+  "assembledAt": "2026-08-15T08:47:56.513Z",
   "jobs": [
     {
       "id": "raiffeisen-7b1087e49b95",
@@ -14385,18 +14385,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kundenberater-basis-w-m-d-raiffeisen-fislisbach",
-        "consulente-clienti-basis-m-f-d-raiffeisen-fislisbach"
+        "consulente-clienti-basis-m-f-d-raiffeisen-fislisbach",
+        "base-di-consulenza-clienti-f-m-d-raiffeisen-fislisbach",
+        "customer-advisor-basis-f-m-d-raiffeisen-fislisbach",
+        "conseiller-a-la-clientele-f-m-d-raiffeisen-fislisbach",
+        "kundenberater-basis-w-m-d-raiffeisen-fislisbach-irt01n"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-basis-w-m-d-raiffeisen-fislisbach",
-          "consulente-clienti-basis-m-f-d-raiffeisen-fislisbach"
+          "consulente-clienti-basis-m-f-d-raiffeisen-fislisbach",
+          "base-di-consulenza-clienti-f-m-d-raiffeisen-fislisbach",
+          "customer-advisor-basis-f-m-d-raiffeisen-fislisbach",
+          "conseiller-a-la-clientele-f-m-d-raiffeisen-fislisbach",
+          "kundenberater-basis-w-m-d-raiffeisen-fislisbach-irt01n"
         ],
         "en": [
-          "kundenberater-basis-w-m-d-raiffeisen-fislisbach"
+          "kundenberater-basis-w-m-d-raiffeisen-fislisbach",
+          "customer-advisor-basis-f-m-d-raiffeisen-fislisbach"
         ],
         "fr": [
-          "kundenberater-basis-w-m-d-raiffeisen-fislisbach"
+          "kundenberater-basis-w-m-d-raiffeisen-fislisbach",
+          "conseiller-a-la-clientele-f-m-d-raiffeisen-fislisbach"
         ]
       },
       "firstSeenAt": "2026-08-14T10:22:22.668Z",

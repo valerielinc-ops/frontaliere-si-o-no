@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-08-15T09:58:17.509Z",
+  "assembledAt": "2026-08-15T08:16:38.585Z",
   "jobs": [
     {
       "id": "sbb-8d3be0752091",
@@ -2520,11 +2520,32 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-15T09:50:45.220Z",
       "previousSlugs": [
-        "ereignismanager-in-traffic-control-center-ffs-officine-ferrovie-federali-bern"
+        "ereignismanager-in-traffic-control-center-ffs-officine-ferrovie-federali-bern",
+        "responsabile-nel-centro-per-l-impiego-ffs-officine-ferrovie-federali-bern",
+        "job-centre-manager-ffs-officine-ferrovie-federali-bern",
+        "leiter-in-jobcenter-ffs-officine-ferrovie-federali-bern",
+        "chef-du-centre-d-emploi-ffs-officine-ferrovie-federali-bern",
+        "capo-del-centro-lavoro-ffs-officine-ferrovie-federali-bern",
+        "head-of-job-center-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ereignismanager-in-traffic-control-center-ffs-officine-ferrovie-federali-bern"
+          "ereignismanager-in-traffic-control-center-ffs-officine-ferrovie-federali-bern",
+          "responsabile-nel-centro-per-l-impiego-ffs-officine-ferrovie-federali-bern",
+          "job-centre-manager-ffs-officine-ferrovie-federali-bern",
+          "leiter-in-jobcenter-ffs-officine-ferrovie-federali-bern",
+          "chef-du-centre-d-emploi-ffs-officine-ferrovie-federali-bern",
+          "capo-del-centro-lavoro-ffs-officine-ferrovie-federali-bern",
+          "head-of-job-center-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "job-centre-manager-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "leiter-in-jobcenter-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "chef-du-centre-d-emploi-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "firstSeenAt": "2026-08-14T10:27:52.852Z",
