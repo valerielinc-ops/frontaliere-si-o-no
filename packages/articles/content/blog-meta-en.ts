@@ -9966,6 +9966,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.storia-sindacale-ticino-ocst.title': 'OCST: over one hundred years of trade union history in Ticino',
     'blog.article.storia-sindacale-ticino-ocst.excerpt': 'From the agricultural origins to the birth of the OCST in 1919: we retrace the fundamental stages of Christian-social trade unionism in Canton Ticino.',
     'blog.article.storia-sindacale-ticino-ocst.imageAlt': 'Historical view of Bellinzona, where the OCST was founded.',
+    'blog.article.statistiche-frontalieri-ticino-2026-q2.title': 'Ticino 2026-Q2 frontiersmen: growing (+505 units)',
+    'blog.article.statistiche-frontalieri-ticino-2026-q2.excerpt': 'The number of border crossers in Ticino increased by 505 units in the 2026-Q2 quarter',
+    'blog.article.statistiche-frontalieri-ticino-2026-q2.imageAlt': 'Paradiso quarter in Lugano',
 };
 
 export default blogMetaEn;

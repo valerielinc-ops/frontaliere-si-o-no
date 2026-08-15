@@ -9965,6 +9965,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.storia-sindacale-ticino-ocst.title': 'OCST: Über hundert Jahre Gewerkschaftsgeschichte im Tessin',
     'blog.article.storia-sindacale-ticino-ocst.excerpt': 'Von den landwirtschaftlichen Ursprüngen bis zur Gründung der OCST im Jahr 1919: Wir verfolgen die grundlegenden Etappen des christlich-sozialen Gewerkschaftswesens im Kanton Tessin.',
     'blog.article.storia-sindacale-ticino-ocst.imageAlt': 'Historische Ansicht von Bellinzona, dem Gründungsort der OCST.',
+    'blog.article.statistiche-frontalieri-ticino-2026-q2.title': 'Grenzgänger Tessin 2026-Q2: steigend (+505 Einheiten)',
+    'blog.article.statistiche-frontalieri-ticino-2026-q2.excerpt': 'Die Zahl der Grenzgänger im Tessin stieg im Quartal 2026-Q2 um 505',
+    'blog.article.statistiche-frontalieri-ticino-2026-q2.imageAlt': 'Paradiso-Viertel in Lugano',
 };
 
 export default blogMetaDe;
