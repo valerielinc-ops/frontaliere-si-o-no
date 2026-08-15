@@ -22,6 +22,7 @@ import CommunicationsConsentBanner from '@/components/shared/CommunicationsConse
 import {
   ADS_CONSENT_STORAGE_KEY,
   ADS_CONSENT_GRANTED,
+  ADS_CONSENT_DENIED,
   setAdsConsent,
 } from '@/services/adsConsent';
 import {
@@ -98,6 +99,16 @@ describe('the sequential slot', () => {
     await act(async () => {
       setAdsConsent(ADS_CONSENT_GRANTED);
     });
+    await waitFor(() => expect(view.getByRole('dialog')).toBeTruthy());
+  });
+
+  it('a DENIED ads decision frees the slot too — refusing ads must not cost the comms prompt', async () => {
+    // The guard is "the ads decision exists", not "ads were granted": a
+    // mutation to needsAdsConsentDecision() === granted-only would silently
+    // suppress this panel for the whole ads-declining cohort.
+    window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    const deps = makeDeps();
+    const view = renderBanner(deps);
     await waitFor(() => expect(view.getByRole('dialog')).toBeTruthy());
   });
 

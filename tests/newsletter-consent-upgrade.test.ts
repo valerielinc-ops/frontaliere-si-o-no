@@ -160,10 +160,13 @@ describe('the write side keeps the refusals it promises', () => {
     expect(fn).not.toMatch(/\baddDoc\s*\(/);
   });
 
-  it('leaves status, active and consent_given untouched on the write path', () => {
+  it('leaves status, active, consent_given and consent_method untouched on the write path', () => {
     expect(fn).not.toMatch(/status\s*:/);
     expect(fn).not.toMatch(/active\s*:/);
     expect(fn).not.toMatch(/consent_given\s*:/);
+    // The exact regression the first review caught: a consent_method key in
+    // the spread proof overwrites the original signup's provenance.
+    expect(fn).not.toMatch(/consent_method\s*:/);
   });
 
   it('re-plans at write time instead of trusting the visibility check', () => {

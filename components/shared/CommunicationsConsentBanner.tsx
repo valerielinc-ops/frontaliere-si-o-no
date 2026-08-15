@@ -180,15 +180,26 @@ export default function CommunicationsConsentBanner({
     if (!email) return;
     setStatus('saving');
     writePromptAnswer('accepted');
-    captureEvent('comms_consent_accepted', { surface: 'consent_banner' });
-    // The newsletter stamp is awaited so the thanks state tells the truth for
-    // the common path; the alert-side upgrade stays fire-and-forget like every
-    // activation CTA — a proof that fails to land must not surface an error.
+    // The newsletter stamp is awaited so the telemetry can tell the truth: the
+    // accepted event carries the write's real outcome, because a device whose
+    // write failed never re-prompts (the marker above) — without `recorded`
+    // that loss would be permanent AND invisible. The alert-side upgrade stays
+    // fire-and-forget like every activation CTA — a proof that fails to land
+    // must not surface an error.
+    let outcome: Awaited<ReturnType<typeof recordConsent>> = {
+      recorded: false,
+      reason: 'write-failed',
+    };
     try {
-      await recordConsent(email, locale);
+      outcome = await recordConsent(email, locale);
     } catch {
       /* recordConsent never throws by contract; belt and braces. */
     }
+    captureEvent('comms_consent_accepted', {
+      surface: 'consent_banner',
+      recorded: outcome.recorded,
+      reason: outcome.reason ?? null,
+    });
     void upgradeConsent(email, locale, { act: COMMUNICATIONS_BANNER_CONSENT_ACT }).catch(() => {});
     setStatus('thanks');
   }, [email, locale, recordConsent, upgradeConsent]);
