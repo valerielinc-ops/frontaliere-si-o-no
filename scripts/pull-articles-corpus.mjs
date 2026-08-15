@@ -75,6 +75,7 @@ import {
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
+import { collectPreserveSnapshots } from './lib/corpus-local-preserve.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
@@ -428,14 +429,7 @@ try {
         `[pull-articles-corpus] ${preserveIds.size} article id(s) exist only downstream: `
         + `${[...preserveIds].join(', ')}`,
       );
-      for (const rel of srcFiles) {
-        if (!dstFiles.has(rel)) continue; // upstream-only: nothing of ours to lose
-        const abs = path.join(DEST, rel);
-        let text;
-        try { text = fs.readFileSync(abs, 'utf-8'); } catch { continue; }
-        const ids = [...preserveIds].filter((id) => text.includes(id));
-        if (ids.length > 0) snapshots.push({ rel, text, ids });
-      }
+      snapshots.push(...collectPreserveSnapshots({ src, dest: DEST, preserveIds }));
     }
 
 
