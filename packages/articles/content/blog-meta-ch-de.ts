@@ -2710,6 +2710,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.title': 'Kompensation in Luzern: Lückendeckung und Ergänzungsleistungen',
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.excerpt': 'Die Ausgleichskasse ist eine Massnahme zur Deckung von Beitragslücken und zur Sicherstellung der Ergänzungsleistungen im Kanton Luzern.',
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.imageAlt': 'Bild eines Sees in der Schweiz',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.title': 'avs und Ergänzungsleistungen Kanton Luzern Ausgleichskasse',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.excerpt': 'Die erste Säule im Kanton Luzern: kantonale Ausgleichskasse, AHV-Rentenberechnung, Beitragslücken und Ergänzungsleistungen zur Deckung des Existenzminimums.',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.imageAlt': 'Eine Panoramaansicht des Luganer Sees, mit den umliegenden Bergen',
 };
 
 export default blogMetaChDe;

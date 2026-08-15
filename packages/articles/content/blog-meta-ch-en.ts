@@ -2710,6 +2710,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.title': 'Compensation in Lucerne: coverage of gaps and complementary services',
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.excerpt': 'The Compensation Fund is a measure to cover contribution gaps and ensure supplementary benefits in the Canton of Lucerne.',
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.imageAlt': 'Image of a lake in Switzerland',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.title': 'avs and complementary services canton Lucerne compensation fund',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.excerpt': 'The first pillar in the Canton of Lucerne: cantonal compensation fund, calculation of the AVS pension, contribution gaps and complementary benefits to cover the minimum living wage.',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.imageAlt': 'A panoramic view of Lake Lugano, with surrounding mountains',
 };
 
 export default blogMetaChEn;

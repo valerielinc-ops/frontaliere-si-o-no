@@ -2710,6 +2710,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.title': 'Compensazione in Lucerna: copertura lacune e prestazioni complementari',
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.excerpt': 'La Cassa di compensazione è una misura per coprire le lacune contributive e garantire le prestazioni complementari nel Canton di Lucerna.',
     'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.imageAlt': 'Immagine di un lago in Svizzera',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.title': 'avs e prestazioni complementari canton Lucerna cassa di compensazione',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.excerpt': 'Il primo pilastro nel Cantone di Lucerna: cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
+    'blog.article.avs-e-prestazioni-complementari-canton-lucerne.imageAlt': 'Una vista panoramica del lago di Lugano, con le montagne circostanti',
 };
 
 export default blogMetaChIt;
