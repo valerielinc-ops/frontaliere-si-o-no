@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-08-14T21:37:06.864Z",
+  "assembledAt": "2026-08-15T09:55:32.150Z",
   "jobs": [
     {
       "id": "postauto-db0b7fe4d307",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrpersonal/74343-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:37:04.419Z",
+      "crawledAt": "2026-08-15T09:55:28.816Z",
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "streetAddress": "",
@@ -58,12 +58,14 @@
         "teamleiter-in-fahrpersonal-postauto-weinfelden",
         "team-leader-in-driving-personnel-postauto-ag-weinfelden",
         "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+        "team-leader-nel-personale-di-guida-postauto-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden",
-          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
+          "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
+          "team-leader-nel-personale-di-guida-postauto-weinfelden"
         ],
         "en": [
           "teamleiter-in-fahrpersonal-postauto-weinfelden",
@@ -120,7 +122,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:37:03.525Z",
+      "crawledAt": "2026-08-15T09:55:27.886Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -144,12 +146,14 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-appenzell",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postbus-driver-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postbus-driver-in-postauto-ag-appenzell",
+          "postbus-driver-in-postauto-appenzell"
         ],
         "en": [
           "postauto-fahrer-in-postauto-appenzell"
@@ -205,7 +209,7 @@
       "url": "https://job.post.ch/default/job/Co-Teamleiterin-Fahrpersonal/74379-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:37:02.499Z",
+      "crawledAt": "2026-08-15T09:55:26.917Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -227,11 +231,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+        "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+        "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-teamleiter-in-fahrpersonal-postauto-ilanz"
+          "co-teamleiter-in-fahrpersonal-postauto-ilanz",
+          "co-team-leader-nel-personale-di-guida-postauto-ag-ilanz"
         ],
         "en": [
           "co-teamleiter-in-fahrpersonal-postauto-ilanz"
@@ -286,7 +292,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:58.811Z",
+      "crawledAt": "2026-08-15T09:55:23.040Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -310,12 +316,14 @@
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
         "ticketkontrolleur-in-und-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-post"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-ag-chur"
@@ -370,7 +378,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr-Fahrausweiskontrolle/74068-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:57.887Z",
+      "crawledAt": "2026-08-15T09:55:22.091Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -393,11 +401,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
-        "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-ag-brig"
+        "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-ag-brig",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
+          "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-ag-brig"
@@ -452,7 +462,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:56.876Z",
+      "crawledAt": "2026-08-15T09:55:21.172Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -546,7 +556,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:55.919Z",
+      "crawledAt": "2026-08-15T09:55:20.239Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -627,7 +637,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:55.004Z",
+      "crawledAt": "2026-08-15T09:55:19.291Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -653,14 +663,16 @@
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
           "security-specialist-in-public-transport-postauto-ag-wallisellen",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen"
@@ -715,7 +727,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:54.083Z",
+      "crawledAt": "2026-08-15T09:55:18.352Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -738,13 +750,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
           "security-specialist-in-public-transport-postauto-ag-winterthur",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur"
@@ -758,7 +772,9 @@
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:06.691Z",
@@ -806,7 +822,7 @@
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Reinigung-PostAuto-und-Infrastruktur/74411-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:53.143Z",
+      "crawledAt": "2026-08-15T09:55:17.412Z",
       "addressLocality": "Laupen BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -828,11 +844,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be"
+        "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be",
+        "collaboratore-trice-reinigung-postauto-e-infrastruktur-postauto-ag-laupen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be"
+          "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be",
+          "collaboratore-trice-reinigung-postauto-e-infrastruktur-postauto-ag-laupen-be"
         ],
         "en": [
           "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be"
@@ -887,7 +905,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:36:51.550Z",
+      "crawledAt": "2026-08-15T09:55:15.924Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -909,16 +927,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-reichenburg"
+        "postauto-fahrer-in-postauto-reichenburg",
+        "postbus-driver-in-postauto-ag-reichenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "postauto-fahrer-in-postauto-reichenburg",
+          "postbus-driver-in-postauto-ag-reichenburg"
+        ],
+        "en": [
           "postauto-fahrer-in-postauto-reichenburg"
         ],
         "fr": [
-          "postauto-fahrer-in-postauto-reichenburg"
-        ],
-        "en": [
           "postauto-fahrer-in-postauto-reichenburg"
         ]
       },
