@@ -2511,9 +2511,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "aiml-machine-learning-ricerca-multimodal-foundation-models-apple-retail-switzerland-zurich",
-        "en": "aiml-machine-learning-ricerca-multimodal-foundation-models-apple-retail-switzerland-zurich",
-        "de": "aiml-machine-learning-ricerca-multimodal-foundation-models-apple-retail-switzerland-zurich",
-        "fr": "aiml-machine-learning-ricerca-multimodal-foundation-models-apple-retail-switzerland-zurich"
+        "en": "aiml-machine-learning-research-multimodal-foundation-models-apple-retail-switzerland-ch",
+        "de": "aiml-machine-learning-forschung-multimodal-foundation-models-apple-retail-switzerland-zurich",
+        "fr": "aiml-machine-learning-recherche-multimodal-foundation-models-apple-retail-switzerland-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/aiml-machine-learning-ricerca-multimodal-foundation-models-apple-retail-switzerland-zurich",
@@ -2527,6 +2527,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -13843,10 +13844,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
-        "en": "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
         "de": "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
-        "fr": "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel"
+        "en": "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
+        "fr": "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
+        "it": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-neuchatel/cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
@@ -13854,12 +13855,13 @@
         "de": "/de/jobs-im-neuenburg/cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
         "fr": "/fr/trouver-emploi-neuchatel/cad-plm-fao-referenz-creo-windchill-panerai-neuchatel"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://careers.richemont.com/en/jobs/jr125486/r%c3%a9f%c3%a9rent-e-cao-plm-fao-creo-windchill",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -23311,10 +23313,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-dialyse-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "de": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "fr": "dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten"
+        "en": "dipl-nurse-nurse-dialysis-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "dipl-dialyse-infirmiere-infirmiere-f-m-d-solothurner-spitaler-ag-soh-olten"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/dipl-infermiera-infermiera-dialisi-f-m-d-solothurner-spitaler-ag-soh-olten",
@@ -23328,6 +23330,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -28016,10 +28019,10 @@
         "fr": "specialiste-de-la-sante-efz-spitex-region-lueg-hasle-ruegsau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau",
-        "en": "/en/find-jobs-bern/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau",
-        "de": "/de/jobs-in-bern/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau",
-        "fr": "/fr/trouver-emploi-berne/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau"
+        "it": "/cerca-lavoro-basilea/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau",
+        "en": "/en/find-jobs-basel/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau",
+        "de": "/de/jobs-in-basel/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau",
+        "fr": "/fr/trouver-emploi-bale/fachfrau-fachmann-gesundheit-cfc-spitex-region-lueg-hasle-ruegsau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -32262,10 +32265,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
-        "en": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
+        "it": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "de": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
-        "fr": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich"
+        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
@@ -32273,12 +32275,13 @@
         "de": "/de/jobs-im-schwyz/global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
         "fr": "/fr/trouver-emploi-zurich/global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -52301,9 +52304,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "r-d-capo-squadra-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
-        "en": "r-d-capo-squadra-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
-        "de": "r-d-capo-squadra-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
-        "fr": "r-d-capo-squadra-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland"
+        "en": "r-d-team-leader-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+        "de": "r-d-team-leader-bipolare-halbleiter-80-100-m-w-d-hitachi-energy-lenzburg-switzerland",
+        "fr": "chef-d-equipe-r-d-semi-conducteurs-bipolaires-80-100-f-m-j-hitachi-energy-lenzburg-switzerland"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/r-d-capo-squadra-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
@@ -52318,6 +52321,7 @@
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -65143,10 +65147,10 @@
         "fr": "sportphysiotherapeut-in-swiss-medical-network"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/sportphysiotherapeut-in-swiss-medical-network",
-        "en": "/en/find-jobs-bern/sportphysiotherapeut-in-swiss-medical-network",
-        "de": "/de/jobs-in-bern/sportphysiotherapeut-in-swiss-medical-network",
-        "fr": "/fr/trouver-emploi-berne/sportphysiotherapeut-in-swiss-medical-network"
+        "it": "/cerca-lavoro-vaud/sportphysiotherapeut-in-swiss-medical-network",
+        "en": "/en/find-jobs-vaud/sportphysiotherapeut-in-swiss-medical-network",
+        "de": "/de/jobs-in-der-waadt/sportphysiotherapeut-in-swiss-medical-network",
+        "fr": "/fr/trouver-emploi-vaud/sportphysiotherapeut-in-swiss-medical-network"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

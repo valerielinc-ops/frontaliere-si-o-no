@@ -5444,12 +5444,14 @@
         "neuropsychologist-neuropsychologist-80-luzerner-kantonsspital-luks-luzern",
         "neuropsychologin-neuropsychologe-80-luks-luzern",
         "neuropsychologue-neuropsychologue-80-luzerner-kantonsspital-luks-luzern",
-        "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
+        "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
+        "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
-          "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
+          "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
+          "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-28T13:23:23.979Z",
@@ -5464,7 +5466,8 @@
           "maxValue": 53000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "luks-cfdaa411a13d",
