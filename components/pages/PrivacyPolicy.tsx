@@ -21,19 +21,24 @@ import {
 const DATA_CONTROLLER_NAME = 'Valerie Linc';
 const PRIVACY_EMAIL = 'valerie@frontaliereticino.ch';
 
-// ─── Gestione del consenso pubblicitario (#5893) ───────────────────────
+// ─── Gestione del consenso pubblicitario (#5893, rework CMP) ────────────
 //
-// Il banner di #5842 compare UNA volta sola: `AdsConsentBanner` rende `null`
-// appena esiste una decisione, quindi dopo la prima risposta non c'era piu'
-// nessuna superficie per cambiarla — un consenso non revocabile, che e' proprio
-// cio' che GDPR art. 7.3 e nLPD art. 6 non ammettono. Questo blocco e' la
-// superficie di revoca, e sta qui perche' la pagina privacy e' l'unico punto
-// che il banner stesso linka.
+// La raccolta del consenso e' del popup Google Funding Choices (TCF), l'unica
+// superficie dal rework CMP-single-surface; questo blocco resta la superficie
+// di revoca/modifica (GDPR art. 7.3, nLPD art. 6). ATTENZIONE alla fonte di
+// verita': la decisione vive nella TC string del CMP, e il bridge
+// (FC_CONSENT_BRIDGE_JS) la ri-scrive sul gate locale a OGNI pageload. Una
+// scrittura solo-locale qui verrebbe quindi sovrascritta alla navigazione
+// successiva: per questo i bottoni, oltre alla scrittura locale (effetto
+// immediato in questa sessione), riaprono il messaggio CMP con
+// `googlefc.showRevocationMessage()` cosi' la nuova risposta finisce nella TC
+// string. Se FC non e' caricato (adblock), resta la sola scrittura locale —
+// e senza FC non si servono comunque annunci.
 //
-// Le stringhe sono inline nelle quattro lingue, come in `AdsConsentBanner`, e
-// non nei file di locale: il resto di questa pagina e' in italiano, ma il
-// visitatore de/en/fr ha ricevuto la domanda nella propria lingua e deve poter
-// riconoscere la risposta che sta cambiando.
+// Le stringhe sono inline nelle quattro lingue e non nei file di locale: il
+// resto di questa pagina e' in italiano, ma il visitatore de/en/fr ha ricevuto
+// la domanda dal CMP nella propria lingua e deve poter riconoscere la risposta
+// che sta cambiando.
 
 type AdsControlsCopy = {
   heading: string;
@@ -100,9 +105,9 @@ const ADS_CONTROLS_COPY: Record<string, AdsControlsCopy> = {
  * La decisione si legge in un effect e non nel primo render: `getAdsConsent()`
  * tocca localStorage, che in prerender non esiste. Leggerla nel render iniziale
  * farebbe divergere l'HTML statico dall'albero idratato ogni volta che il
- * visitatore ha gia' risposto — la stessa ragione per cui `AdsConsentBanner`
- * parte nascosto. Fino all'effect si mostra `reading`, che e' vero su entrambi
- * i lati.
+ * visitatore ha gia' risposto — la stessa ragione per cui
+ * `CommunicationsConsentBanner` parte nascosto. Fino all'effect si mostra
+ * `reading`, che e' vero su entrambi i lati.
  *
  * Esportato per i test (`tests/ads-consent-mode-bridge.test.tsx`): la pagina
  * intera richiede il NavigationContext, questo blocco no.
@@ -115,9 +120,40 @@ export const AdsConsentControls: React.FC = () => {
   React.useEffect(() => {
     setDecision(getAdsConsent());
     setRead(true);
-    // Il banner, un'altra scheda o questo stesso blocco: qualunque origine
+    // Il bridge CMP, un'altra scheda o questo stesso blocco: qualunque origine
     // aggiorna lo stato mostrato senza ricaricare la pagina.
     return onAdsConsentChange(setDecision);
+  }, []);
+
+  // Rende la scelta persistente lato CMP: senza questa riapertura la TC string
+  // resterebbe quella vecchia e il bridge la ri-applicherebbe al prossimo
+  // pageload, annullando il click (vedi il commento in testa al blocco).
+  //
+  // Accodato su googlefc.callbackQueue, NON chiamato diretto: `window.googlefc`
+  // esiste sempre (lo crea il bridge stesso), ma `showRevocationMessage` arriva
+  // solo col loader FC, che e' idle-deferred — una chiamata diretta nei primi
+  // secondi evaporerebbe in silenzio (review round 1). La queue accetta push
+  // prima e dopo il load di FC; se FC non arriva mai (adblock) il push resta
+  // inerte, e per la stessa ragione il bridge non potra' mai sovrascrivere la
+  // scrittura locale qui sotto.
+  const reopenCmp = React.useCallback(() => {
+    try {
+      const w = window as unknown as {
+        googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void };
+      };
+      const gfc = (w.googlefc = w.googlefc ?? {});
+      (gfc.callbackQueue = gfc.callbackQueue ?? []).push({
+        CONSENT_DATA_READY: () => {
+          try {
+            w.googlefc?.showRevocationMessage?.();
+          } catch {
+            /* fail-soft: resta la scrittura locale */
+          }
+        },
+      });
+    } catch {
+      /* localStorage/queue inaccessibili: resta la sola scrittura locale. */
+    }
   }, []);
 
   const copy = ADS_CONTROLS_COPY[locale] ?? ADS_CONTROLS_COPY.it;
@@ -139,7 +175,7 @@ export const AdsConsentControls: React.FC = () => {
       <div className="flex flex-wrap gap-2 mt-3">
         <button
           type="button"
-          onClick={() => grantAdsConsent()}
+          onClick={() => { grantAdsConsent(); reopenCmp(); }}
           aria-pressed={read && decision === ADS_CONSENT_GRANTED}
           className="min-h-[44px] rounded-lg bg-accent px-4 text-sm font-semibold text-white"
         >
@@ -147,7 +183,7 @@ export const AdsConsentControls: React.FC = () => {
         </button>
         <button
           type="button"
-          onClick={() => denyAdsConsent()}
+          onClick={() => { denyAdsConsent(); reopenCmp(); }}
           aria-pressed={read && decision === ADS_CONSENT_DENIED}
           className="min-h-[44px] rounded-lg border border-edge/60 px-4 text-sm font-medium"
         >

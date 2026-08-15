@@ -22,7 +22,7 @@
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, cleanup, act, waitFor } from '@testing-library/react';
-import CommunicationsConsentBanner from '@/components/shared/CommunicationsConsentBanner';
+import CommunicationsConsentBanner, { ADS_DECISION_GRACE_MS } from '@/components/shared/CommunicationsConsentBanner';
 import {
   ADS_CONSENT_STORAGE_KEY,
   ADS_CONSENT_GRANTED,
@@ -90,6 +90,34 @@ describe('when it may NOT appear', () => {
     const view = renderBanner(deps);
     await act(async () => {});
     expect(view.queryByRole('dialog')).toBeNull();
+  });
+
+  it('after ADS_DECISION_GRACE_MS an undecided gate stops suppressing the panel (ad-blocked CMP)', async () => {
+    // The ads decision is written by the CMP bridge — a third-party script an
+    // ad blocker routinely keeps from loading at all. For that segment the
+    // decision stays null FOREVER, and before the grace existed this panel
+    // was permanently suppressed for every ad-blocking visitor (review
+    // round 1). Within the grace the CMP keeps priority (test above); past
+    // it, the communications question proceeds without an ads decision.
+    vi.useFakeTimers();
+    try {
+      const deps = makeDeps();
+      const view = renderBanner(deps);
+      await act(async () => {});
+      expect(view.queryByRole('dialog')).toBeNull();
+
+      await act(async () => {
+        vi.advanceTimersByTime(ADS_DECISION_GRACE_MS + 1);
+      });
+      await act(async () => {
+        await Promise.resolve();
+      });
+
+      expect(deps.checkEligibility).toHaveBeenCalledWith(EMAIL);
+      expect(view.queryByRole('dialog')).not.toBeNull();
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('renders nothing when the document is not eligible (no doc / proof present / opt-out)', async () => {

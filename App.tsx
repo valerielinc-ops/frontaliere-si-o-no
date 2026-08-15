@@ -165,19 +165,18 @@ import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 import { useJobAlertReturnVisit } from '@/hooks/useJobAlertReturnVisit';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts).
-// It has NOT come back: AdsConsentBanner below asks about advertising only (#5842).
-// Analytics/PostHog/Clarity remain ungated and keep the silent default above —
-// owner decision, they are covered by the honest disclosure from #5832.
-// Imported eagerly, not lazily: it must be able to paint on the first frame of a
-// cold visit, and a lazy chunk would let ad scripts stay blocked behind a banner
-// that has not arrived yet.
-import AdsConsentBanner from '@/components/shared/AdsConsentBanner';
-// The consent slot's SECOND panel (#5842, owner direction 2026-08-15): once the
-// ads decision exists, the same surface asks an IDENTIFIED visitor without a
-// stored consent proof to confirm our communications — once per device, decline
-// falls back to the activation acts (#5902). Sequential in the same slot, never
-// both at once; lazy would be fine (it waits on auth anyway) but eager keeps the
-// two panels' lifecycles in one chunk and the component is ~3 KB.
+// It has NOT come back. AdsConsentBanner (the #5842 custom advertising prompt) is
+// gone too (CMP-single-surface rework): the blocking Google Funding Choices
+// message is now the ONE advertising-consent surface, and its outcome reaches
+// the `frontaliere_ads_consent` gate through the FC_CONSENT_BRIDGE_JS bridge in
+// index.html / adsense-loader.js. Analytics/PostHog/Clarity remain ungated and
+// keep the silent default above — owner decision, covered by the honest
+// disclosure from #5832.
+// The consent slot's communications panel (#5842, owner direction 2026-08-15):
+// once the ads decision exists — now written by the CMP bridge instead of the
+// removed banner — this surface asks an IDENTIFIED visitor without a stored
+// consent proof to confirm our communications, once per device; decline falls
+// back to the activation acts (#5902).
 import CommunicationsConsentBanner from '@/components/shared/CommunicationsConsentBanner';
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
@@ -3831,9 +3830,7 @@ const App: React.FC = () => {
    );
    return footerPortalTarget ? createPortal(footerJsx, footerPortalTarget) : footerJsx;
  })()}
- {/* Advertising consent prompt (#5842) — fixed overlay, renders null once answered */}
- <AdsConsentBanner />
- {/* Communications consent, same slot, only after the ads answer and only for an
+ {/* Communications consent, only after the CMP ads answer exists and only for an
      identified visitor without stored proof — renders null for everyone else */}
  <CommunicationsConsentBanner email={authEmail} />
  {/* Mobile Bottom Navigation Bar */}

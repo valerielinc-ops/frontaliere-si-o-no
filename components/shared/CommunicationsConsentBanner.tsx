@@ -5,23 +5,26 @@
  * falling back to the activation/subscription acts that already record proof
  * (#5902).
  *
- * WHY A SECOND PANEL AND NOT A SECTION INSIDE `AdsConsentBanner`
- * --------------------------------------------------------------
- * Two measured facts forbid the single-dialog version:
- *  - identity is NEVER known on the first paint: `useAuth` starts at idle (for
- *    LCP) and the `ac → custom token` exchange of an email arrival is async.
- *    A combined dialog would render its communications half empty and grow it
- *    under the visitor's finger;
- *  - the ads dialog's lifecycle is pinned by `tests/ads-consent-gate.test.tsx`
- *    — it disappears on the first answer and never returns. Holding it open
- *    for a second question would break that contract and slow the two-tap ads
- *    decision.
- * Same slot, strictly sequential instead: this panel never renders while the
- * ads decision is pending, so the two are never on screen together.
+ * WHY SEQUENCED AFTER THE ADS DECISION, NOT MERGED WITH IT
+ * --------------------------------------------------------
+ * The ads decision now belongs to the Google Funding Choices popup (the CMP —
+ * the custom AdsConsentBanner that used to own this slot's first turn was
+ * removed in the CMP-single-surface rework), so a combined dialog is not even
+ * possible: that surface is Google-rendered. And identity is NEVER known on
+ * the first paint anyway — `useAuth` starts at idle (for LCP) and the
+ * `ac → custom token` exchange of an email arrival is async. Strictly
+ * sequential in the same slot instead: this panel does not render while the
+ * ads decision is pending, so within ADS_DECISION_GRACE_MS the CMP question
+ * and this one are never on screen together. Past the grace the panel
+ * proceeds anyway — the missing decision then almost certainly means an ad
+ * blocker kept the CMP from ever loading, and a hard gate would cost this
+ * question to that whole segment; in the rare slow-CMP overlap the FC message
+ * is a full-screen overlay and this banner just sits inert behind it until
+ * the answer lands and `evaluate()` re-runs.
  *
  * WHEN IT SHOWS — every condition, and each is load-bearing:
  *  - `email` resolved (an anonymous visitor has no document to consent for);
- *  - the ads decision exists (ads panel has priority in the slot);
+ *  - the ads decision exists (the CMP question has priority over this one);
  *  - no answer stored on this device (once per device, either answer retires
  *    it — a consent prompt that returns on people who closed it is the
  *    invasiveness #5876 was trimmed to avoid);
@@ -64,7 +67,7 @@ type Copy = {
   thanks: string;
 };
 
-// Inlined for the same reason as AdsConsentBanner's copy: five strings across
+// Inlined rather than routed through the locale JSON files: five strings across
 // four locales, and the panel must not show a translation key (or Italian, to
 // a German reader) at the exact moment a consent decision is being asked.
 const COPY: Record<string, Copy> = {
@@ -122,6 +125,14 @@ function writePromptAnswer(value: PromptAnswer): void {
 
 const THANKS_AUTO_DISMISS_MS = 3000;
 
+// How long the CMP keeps exclusive claim on the consent slot while no ads
+// decision exists. The FC loader is idle-deferred (timeout 4000ms) and the
+// popup needs a beat to render and be answered; past this window the missing
+// decision almost certainly means the CMP was blocked (ad blocker) and will
+// never write one — so the communications question proceeds without it.
+// Exported for tests/communications-consent-banner.test.tsx (fake timers).
+export const ADS_DECISION_GRACE_MS = 15000;
+
 export interface CommunicationsConsentBannerProps {
   /** The identified visitor's email (`authEmail` in App.tsx), or null while unknown. */
   email: string | null;
@@ -152,10 +163,21 @@ export default function CommunicationsConsentBanner({
     }
     if (readPromptAnswer() !== null) return;
     let cancelled = false;
+    // The ads decision is written by the CMP bridge — a third-party script an
+    // ad blocker routinely keeps from ever loading. For that segment the
+    // decision stays `null` forever, and a hard gate here would mean the
+    // communications question is never asked on any device with an ad blocker
+    // (review round 1). Hence the grace: the CMP keeps priority for as long as
+    // it can plausibly still show up (idle-deferred load + render), and after
+    // that this panel takes the slot anyway. If the CMP popup is in fact open
+    // past the grace, it is a full overlay: this banner sits inertly behind it
+    // and re-evaluates the moment the answer lands.
+    let graceElapsed = false;
     const evaluate = () => {
       if (cancelled) return;
-      // The ads panel owns the slot until the visitor answers it.
-      if (needsAdsConsentDecision()) {
+      // The CMP popup owns the ads decision; until the bridge records one,
+      // this slot stays empty (within the grace window).
+      if (needsAdsConsentDecision() && !graceElapsed) {
         setVisible(false);
         return;
       }
@@ -164,10 +186,16 @@ export default function CommunicationsConsentBanner({
       });
     };
     evaluate();
-    // Answering the ads panel frees the slot — re-evaluate without a reload.
+    const graceTimer = setTimeout(() => {
+      graceElapsed = true;
+      evaluate();
+    }, ADS_DECISION_GRACE_MS);
+    // The CMP bridge writing the decision frees the slot — re-evaluate
+    // without a reload.
     const off = onAdsConsentChange(() => evaluate());
     return () => {
       cancelled = true;
+      clearTimeout(graceTimer);
       off();
     };
   }, [email, checkEligibility]);

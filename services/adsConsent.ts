@@ -48,8 +48,16 @@ export const ADS_CONSENT_DENIED = 'denied';
 
 export type AdsConsentValue = typeof ADS_CONSENT_GRANTED | typeof ADS_CONSENT_DENIED;
 
-/** Fired on same-tab changes; cross-tab changes arrive via the `storage` event. */
-const CHANGE_EVENT = 'frontaliere:ads-consent';
+/**
+ * Fired on same-tab changes; cross-tab changes arrive via the `storage` event.
+ * Exported because the CMP→gate bridge (FC_CONSENT_BRIDGE_JS in
+ * build-plugins/constants.ts, plus its byte-identical inline copy in
+ * index.html) dispatches this same event from vanilla JS when the visitor
+ * answers the Google Funding Choices message — every `onAdsConsentChange`
+ * subscriber reacts to a CMP decision exactly as it reacted to the old banner.
+ */
+export const ADS_CONSENT_CHANGE_EVENT = 'frontaliere:ads-consent';
+const CHANGE_EVENT = ADS_CONSENT_CHANGE_EVENT;
 
 /**
  * Current stored decision, or `null` when the visitor has not answered.
