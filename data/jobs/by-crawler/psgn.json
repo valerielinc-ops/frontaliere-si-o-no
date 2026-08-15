@@ -234,17 +234,6 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/7d526e16-54bb-4b8e-888d-0f4f9da87de5",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-d5dpll",
-        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-jrctte",
-        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-mwu8pb",
-        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
-        "assistant-doctor-assistant-doctor-in-the-canton-of-st-gallen-psychiatrie-st-gallen-wil-sg",
-        "assistente-medico-assistente-medico-nel-cantone-di-st-gallen-psychiatrie-st-gallen-wil-sg",
-        "medico-assistente-psychiatrie-st-gallen-wil-sg"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-psgn-wil-sg",
@@ -265,7 +254,17 @@
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:28:36.986Z",
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-d5dpll",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-jrctte",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-mwu8pb",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+        "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
+        "assistant-doctor-assistant-doctor-in-the-canton-of-st-gallen-psychiatrie-st-gallen-wil-sg",
+        "assistente-medico-assistente-medico-nel-cantone-di-st-gallen-psychiatrie-st-gallen-wil-sg",
+        "medico-assistente-psychiatrie-st-gallen-wil-sg"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -277,7 +276,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T21:28:36.986Z"
     },
     {
       "id": "psgn-0b9130447df0",
@@ -728,11 +728,19 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/30e617c1-6e1a-4cab-9342-ada8ac4ce7f3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarztin-oberarzt-mbf-psgn-wil-sg",
-        "medico-senior-mbf-psychiatrie-st-gallen-wil-sg",
-        "medecin-principal-m-b-f-psychiatrie-st-gallen-wil-sg"
-      ],
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T21:28:31.359Z",
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-mbf-psgn-wil-sg",
@@ -746,19 +754,11 @@
           "oberarztin-oberarzt-mbf-psgn-wil-sg"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:28:31.359Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "oberarztin-oberarzt-mbf-psgn-wil-sg",
+        "medico-senior-mbf-psychiatrie-st-gallen-wil-sg",
+        "medecin-principal-m-b-f-psychiatrie-st-gallen-wil-sg"
+      ]
     },
     {
       "id": "psgn-4acb30a0ac22",
