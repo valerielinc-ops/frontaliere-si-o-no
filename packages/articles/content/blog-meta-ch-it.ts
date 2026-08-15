@@ -2719,6 +2719,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-lucerna-conversione-ed-esami.title': 'Patente di guida a Lucerna: cosa fare e sapere',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.excerpt': 'La conversione della patente di guida nel Cantone di Lucerna: requisiti, procedure e tempistiche.',
     'blog.article.patente-guida-lucerna-conversione-ed-esami.imageAlt': 'Vista panoramica del Lago di Lucerna in Svizzera, con un focus sull\'infrastruttura e i sistemi di trasporto del Cantone.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.title': 'Abbonamenti trasporti pubblici Canton Lucerna zone e tariffe',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.excerpt': 'La VBL offre diversi tipi di abbonamenti, tra cui il abbonamento mensile e annuale, per i residenti e gli studenti.',
+    'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.imageAlt': 'Immagine di un trasporto pubblico in Canton Lucerna, con persone che usano autobus e treni',
 };
 
 export default blogMetaChIt;
