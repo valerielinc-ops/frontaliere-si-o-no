@@ -453,7 +453,11 @@ export async function deleteAlert(email: string, alertId: string): Promise<void>
 export async function upgradeBackfilledAlertConsent(
   email: string,
   locale?: string | null,
-  opts?: { sourceUrl?: string | null },
+  opts?: {
+    sourceUrl?: string | null;
+    /** Override for a surface whose act is not an activation click — see `buildJobAlertConsentProof`. */
+    act?: string;
+  },
 ): Promise<{ upgraded: number; skipped: Partial<Record<UpgradeSkipReason, number>>; failed: number }> {
   const skipped: Partial<Record<UpgradeSkipReason, number>> = {};
   let upgraded = 0;
@@ -483,6 +487,7 @@ export async function upgradeBackfilledAlertConsent(
       opts?.sourceUrl
       ?? (typeof window !== 'undefined' && window.location ? window.location.href : null),
     stampedAt: serverTimestamp(),
+    act: opts?.act,
   });
 
   let alerts;
