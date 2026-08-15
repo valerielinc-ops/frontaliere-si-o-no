@@ -83,12 +83,12 @@
     },
     {
       "id": "corner-banca-62309aa78f00",
-      "slug": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
+      "slug": "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
+        "it": "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen",
         "en": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "de": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
-        "fr": "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
+        "fr": "equipe-de-recouvrement-des-employes-zurich-ref-1068-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -170,13 +170,24 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-bb79fcc27fb5",
-      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
+      "slug": "risk-manager-gestione-della-responsabilita-patrimoniale-alm-e-rischio-di-liquidita-rif-1086-corner-banca-lugano",
       "slugByLocale": {
-        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
+        "it": "risk-manager-gestione-della-responsabilita-patrimoniale-alm-e-rischio-di-liquidita-rif-1086-corner-banca-lugano",
         "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
         "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
         "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-ref-1086-corner-banca"
@@ -233,11 +244,15 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-15T09:34:51.490Z",
       "previousSlugs": [
-        "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-et-risque-de-liquidite-ref-1086-corner-banca"
+        "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-et-risque-de-liquidite-ref-1086-corner-banca",
+        "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-et-risque-de-liquidite-ref-1086-corner-banca"
+        ],
+        "it": [
+          "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.239Z",
@@ -1086,13 +1101,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-08-15T09:34:51.476Z",
       "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+        "senior-compliance-officer-ref-1111-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano",
-          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+          "senior-compliance-officer-ref-1111-corner-banca-lugano"
         ]
       },
       "needsRetranslation": true,

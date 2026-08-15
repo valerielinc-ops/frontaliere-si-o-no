@@ -130,7 +130,6 @@
         }
       },
       "firstSeenAt": "2026-08-14T21:34:42.073Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "head-of-district-energy-metering-emea-100-belimo-hinwil"
@@ -138,25 +137,26 @@
       },
       "previousSlugs": [
         "head-of-district-energy-metering-emea-100-belimo-hinwil"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "belimo-dfad06e18cc2",
-      "slug": "senior-project-manager-80-100-belimo-hinwil",
+      "slug": "responsabile-di-progetto-senior-80-100-belimo-hinwil",
       "slugByLocale": {
-        "it": "senior-project-manager-80-100-belimo-hinwil",
-        "en": "senior-project-manager-80-100-belimo-hinwil",
         "de": "senior-project-manager-80-100-belimo-hinwil",
-        "fr": "gestionnaire-principal-de-projet-80-100-belimo-hinwil"
+        "fr": "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
+        "it": "responsabile-di-progetto-senior-80-100-belimo-hinwil",
+        "en": "senior-project-manager-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
       "companyDomain": "belimo.com",
       "title": "Senior Project Manager (80-100%)",
       "titleByLocale": {
-        "it": "Senior Project Manager (80-100%)",
-        "en": "Senior Project Manager (80-100%)",
         "de": "Senior Project Manager (80-100%)",
+        "en": "Senior Project Manager (80-100%)",
+        "it": "Responsabile di progetto senior (80-100%)",
         "fr": "Gestionnaire principal de projet (80-100%)"
       },
       "description": "In dieser Rolle leitest du komplexe, bereichsübergreifende Entwicklungsprojekte für industrielle mechatronische Produkte – von der Planung bis zur erfolgreichen Umsetzung. Du sorgst für strukturierte Projektdurchführung, klare Governance und robustes Risikomanagement, ermöglichst faktenbasierte Entscheidungen auf Führungsebene und förderst die Zusammenarbeit über alle Funktionen hinweg. Dabei bist du eine treibende Kraft für die kontinuierliche Verbesserung der Projektarbeit im gesamten Unternehmen.\n\nWas wirst du tun\n\n• Komplexe Projekte und Multi-Workstream-Vorhaben planen, steuern und überwachen – inklusive Scope, Zeitplan, Budget, Ressourcen, Risiken und Deliverables\n\n• Bereichsübergreifende Abhängigkeiten koordinieren und eine reibungslose Zusammenarbeit zwischen Engineering, Produktion, Qualität und weiteren Bereichen sicherstellen\n\n• Einhaltung von Governance, Prozessen, Methoden und Deliverables sicherstellen sowie Projektleiter und Teammitglieder proaktiv coachen\n\n• Vollständige, qualitativ hochwertige Projektdaten pflegen und transparent über Status, Bereitschaft, Lücken und erforderliche Massnahmen berichten\n\n• Risiko-, Problem- und Änderungsmanagement verantworten – von der Identifikation und Bewertung über Massnahmen bis hin zu Freigaben und Eskalationen\n\n• Faktenbasierte Entscheidungen vorbereiten durch Konsolidierung von Status, Risiken und Fortschritt sowie klare Entscheidungsunterlagen und Empfehlungen für die Führungsebene\n\n• Strukturierte Stakeholder-Kommunikation, Abstimmung und Konfliktlösung über Abteilungen und Projekte hinweg sicherstellen\n\n• Kontinuierliche Verbesserung von Projektdurchführung, Methoden, Tools und Zusammenarbeit durch Lessons Learned und Feedback vorantreiben\n\nWer du bist\n\n• Technischer Abschluss (z. B. Maschinenbau oder Elektrotechnik) auf FH/ETH/Universitätsniveau mit breitem Wissen in angrenzenden technischen Disziplinen (T-Profil)\n\n• Mindestens 6 Jahre Erfahrung in der Leitung interdisziplinärer Entwicklungsprojekte mit industriellen mechatronischen Geräten\n\n• Fundierte Methodenkenntnisse im Projektmanagement; eine PM-Zertifizierung ist ein Plus\n\n• Sehr gute Kenntnisse in PM-Tools (z. B. Jira, Sciforma, Planview) sowie in Planung, Steuerung und Reporting\n\n• Nachgewiesene Erfahrung in der Koordination bereichsübergreifender Teams und enger Zusammenarbeit mit Entwicklung (Elektronik, Mechanik, Software), Produktion, Qualität und weiteren Bereichen\n\n• Gutes Verständnis betriebswirtschaftlicher Zusammenhänge für fundierte Abwägungen und Folgenabschätzungen\n\n• Serviceorientierte, empathische und lösungsorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten und der Fähigkeit, als Projektleiter zu motivieren und zu begeistern\n\n• Sehr gute Englischkenntnisse; gute Deutschkenntnisse erwünscht – kombiniert mit starker Selbstorganisation, Ownership-Mentalität, ganzheitlichem Denken und hoher Resilienz\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
@@ -191,7 +191,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:34:41.481Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -203,7 +202,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-14T21:34:41.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-f97c3810950c",
@@ -220,7 +228,7 @@
       "title": "Senior Project Manager (80-100%)",
       "titleByLocale": {
         "en": "Senior Project Manager (80-100%)",
-        "it": "Senior Project Manager (80-100%)",
+        "it": "Responsabile di progetto senior (80-100%)",
         "de": "Senior Projektmanager (80-100%)",
         "fr": "Gestionnaire principal de projet (80-100%)"
       },
@@ -296,7 +304,7 @@
       "title": "Shop Floor Engineer & Stv. Head of Shop Floor (80-100%)",
       "titleByLocale": {
         "it": "Shop Floor Ingegnere & Stv. Responsabile Shop Floor (80-100%)",
-        "en": "Shop Floor Engineer & Stv. Head of Shop Floor (80-100%)",
+        "en": "Shop Floor Engineer & Deputy Head of Shop Floor (80-100%)",
         "de": "Shop Floor Ingenieur & Stv. Leiter Shop Floor (80-100%)",
         "fr": "Shop Floor Ingénieur & Stv. Responsable Shop Floor (80-100%)"
       },
@@ -2944,7 +2952,7 @@
       "companyDomain": "belimo.com",
       "title": "HVAC Building Automation Expert (80-100%)",
       "titleByLocale": {
-        "it": "HVAC Building Automation Expert (80-100%)",
+        "it": "Esperto di Automazione Edifici HVAC (80-100%)",
         "en": "HVAC Building Automation Expert (80-100%)",
         "de": "HVAC Building Automation Expert (80-100%)",
         "fr": "Expert en automatisation des bâtiments (80-100%)"

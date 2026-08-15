@@ -4548,23 +4548,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugsByLocale": {
-        "de": [
-          "arztsekretar-in-ksa-ch-9ztkeb",
-          "arztsekretar-in-ksa-ch"
-        ],
-        "it": [
-          "arztsekretar-in-ksa-ch",
-          "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
-          "l-europa-kantonsspital-aarau-ksa-aarau-b8231e"
-        ],
-        "en": [
-          "medical-secretary-kantonsspital-aarau-ksa-aarau-04205c"
-        ],
-        "fr": [
-          "arztsekretar-in-ksa-ch-2"
-        ]
-      },
       "previousSlugs": [
         "arztsekretar-in-ksa-ch",
         "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
@@ -4573,8 +4556,23 @@
         "arztsekretar-in-ksa-ch-9ztkeb",
         "l-europa-kantonsspital-aarau-ksa-aarau-b8231e"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-ksa-ch",
+          "l-europa-kantonsspital-aarau-ksa-aarau-04205c",
+          "l-europa-kantonsspital-aarau-ksa-aarau-b8231e"
+        ],
+        "en": [
+          "medical-secretary-kantonsspital-aarau-ksa-aarau-04205c"
+        ],
+        "de": [
+          "arztsekretar-in-ksa-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-ksa-ch-2"
+        ]
+      },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4586,7 +4584,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-0b6c3dd0024c",
@@ -8529,7 +8528,6 @@
           "arztsekretar-in-ksa-ch"
         ],
         "de": [
-          "arztsekretar-in-ksa-ch-9ztl1f",
           "arztsekretar-in-ksa-ch"
         ],
         "fr": [

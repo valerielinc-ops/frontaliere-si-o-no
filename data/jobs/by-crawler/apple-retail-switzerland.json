@@ -1177,9 +1177,9 @@
       "id": "apple-retail-switzerland-e3bb7b79d16b",
       "slug": "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich",
       "slugByLocale": {
-        "it": "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich",
         "en": "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch",
-        "de": "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch",
+        "it": "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich",
+        "de": "aiml-forscher-grundlagenmodell-nachschulung-apple-retail-switzerland-zurich",
         "fr": "chercheur-aiml-modele-de-fondation-post-formation-apple-retail-switzerland-zurich"
       },
       "company": "Apple Retail Switzerland",
@@ -1187,9 +1187,9 @@
       "companyDomain": "jobs.apple.com",
       "title": "AIML Researcher - Foundation Model, Post-Training",
       "titleByLocale": {
-        "it": "Ricercatore AIML - Modello Fondazione, Post-Training",
         "en": "AIML Researcher - Foundation Model, Post-Training",
-        "de": "AIML Researcher - Foundation Model, Post-Training",
+        "it": "Ricercatore AIML - Modello Fondazione, Post-Training",
+        "de": "AIML-Forscher - Grundlagenmodell, Nachschulung",
         "fr": "Chercheur AIML - Modèle de fondation, post-formation"
       },
       "description": "We are a tight-knit group of researchers and engineers responsible for building large scale frontier foundation models at Apple. We believe the most interesting breakthroughs in deep learning happen when we bridge the gap between raw model capability and user-centric utility.",
@@ -1219,21 +1219,7 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200678120/aiml-researcher-foundation-model-post-training?team=MLAI",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch",
-        "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch",
-          "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich"
-        ],
-        "fr": [
-          "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:38:13.826Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1246,7 +1232,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-14T21:38:13.826Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch",
+          "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich"
+        ],
+        "fr": [
+          "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch"
+        ],
+        "de": [
+          "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aiml-researcher-foundation-model-post-training-apple-retail-switzerland-ch",
+        "ricercatore-aiml-modello-fondazione-post-training-apple-retail-switzerland-zurich"
+      ]
     },
     {
       "id": "apple-retail-switzerland-3d4b15d6efc3",
