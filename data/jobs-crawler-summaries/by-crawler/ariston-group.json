@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-08-15T09:35:13.284Z",
+  "generatedAt": "2026-08-15T21:25:08.458Z",
   "total": 22,
   "newCount": 0,
   "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10380,
-  "avgDurationMs": 10380,
+  "durationMs": 13992,
+  "avgDurationMs": 13992,
   "durationHistory": [
-    10380
+    13992
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -327,6 +327,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:10:49.488Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -433,7 +434,6 @@
       "salaryMax": 110500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:10:49.488Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -542,7 +542,6 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -614,6 +613,8 @@
       "currency": "CHF",
       "postalCode": "5400",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
