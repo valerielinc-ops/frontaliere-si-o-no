@@ -29883,6 +29883,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'pil-svizzera-crescita-secondo-trimestre',
+ category: 'pratico',
+ date: '2026-08-15T20:32:43.964Z',
+ image: '/images/blog/pil-svizzera-crescita-secondo-trimestre.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

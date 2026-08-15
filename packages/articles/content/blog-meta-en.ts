@@ -9969,6 +9969,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.statistiche-frontalieri-ticino-2026-q2.title': 'Ticino 2026-Q2 frontiersmen: growing (+505 units)',
     'blog.article.statistiche-frontalieri-ticino-2026-q2.excerpt': 'The number of border crossers in Ticino increased by 505 units in the 2026-Q2 quarter',
     'blog.article.statistiche-frontalieri-ticino-2026-q2.imageAlt': 'Paradiso quarter in Lugano',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.title': 'Switzerland\'s GDP strongly recovering in the second quarter of 2026',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.excerpt': 'Switzerland\'s gross domestic product grew by 1.5% between April and June, driven by chemistry and pharmaceuticals beyond estimates.',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.imageAlt': 'Swiss economic statistics and GDP',
 };
 
 export default blogMetaEn;

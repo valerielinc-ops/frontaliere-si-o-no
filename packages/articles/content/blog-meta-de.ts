@@ -9968,6 +9968,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.statistiche-frontalieri-ticino-2026-q2.title': 'Grenzgänger Tessin 2026-Q2: steigend (+505 Einheiten)',
     'blog.article.statistiche-frontalieri-ticino-2026-q2.excerpt': 'Die Zahl der Grenzgänger im Tessin stieg im Quartal 2026-Q2 um 505',
     'blog.article.statistiche-frontalieri-ticino-2026-q2.imageAlt': 'Paradiso-Viertel in Lugano',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.title': 'Schweizer BIP erholt sich im 2. Quartal 2026 stark',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.excerpt': 'Das Bruttoinlandsprodukt der Schweiz wächst zwischen April und Juni um 1,5%, angetrieben von Chemie und Pharmazeutika, die über die Schätzungen hinausgehen.',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.imageAlt': 'Schweizer Wirtschaftsstatistik und BIP',
 };
 
 export default blogMetaDe;

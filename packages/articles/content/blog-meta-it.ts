@@ -9970,6 +9970,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.statistiche-frontalieri-ticino-2026-q2.title': 'Frontalieri Ticino 2026-Q2: in crescita (+505 unità)',
     'blog.article.statistiche-frontalieri-ticino-2026-q2.excerpt': 'Il numero di frontalieri in Ticino è aumentato di 505 unità nel trimestre 2026-Q2',
     'blog.article.statistiche-frontalieri-ticino-2026-q2.imageAlt': 'Il quartiere di Paradiso a Lugano',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.title': 'PIL Svizzera in forte ripresa nel secondo trimestre 2026',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.excerpt': 'Il prodotto interno lordo della Svizzera cresce dell’1,5% tra aprile e giugno, trainato da chimica e farmaceutica oltre le stime.',
+    'blog.article.pil-svizzera-crescita-secondo-trimestre.imageAlt': 'Statistiche economiche della Svizzera e PIL',
 };
 
 export default blogMetaIt;
