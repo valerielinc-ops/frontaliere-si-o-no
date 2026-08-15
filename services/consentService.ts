@@ -29,7 +29,8 @@
  * but it no longer feeds the Consent Mode signal.
  *
  * A module-scope `onAdsConsentChange` subscription re-publishes a
- * `('consent', 'update', …)` whenever the decision changes — from the banner,
+ * `('consent', 'update', …)` whenever the decision changes — from the CMP
+ * bridge (FC_CONSENT_BRIDGE_JS),
  * from the privacy page, or from another tab — so Google learns about an
  * acceptance or a revocation without a page reload.
  *
@@ -45,10 +46,12 @@
  * 1. On load, setDefaultConsent() publishes the stored analytics preference
  *    (granted by default) plus the ad_* trio derived from the ads gate
  * 2. If user previously had stored preferences, those are applied instead
- * 3. The ads banner (#5842) is the only consent UI; analytics is not gated
+ * 3. The Google Funding Choices popup (via the CMP bridge) is the only
+ *    advertising-consent UI; analytics is not gated
  */
 
 import { getAdsConsent, onAdsConsentChange, ADS_CONSENT_GRANTED } from './adsConsent';
+import { trackAdEvent } from './adAnalytics';
 
 const STORAGE_KEY = 'frontaliere_consent';
 
@@ -107,7 +110,8 @@ function gtagConsent(command: 'default' | 'update', state: ConsentState) {
 //
 // Installed once, at module scope, guarded for SSR/prerender where there is no
 // `window` (and therefore no localStorage and no listener target). Without this
-// subscription a visitor who accepts from the banner — or revokes from the
+// subscription a visitor whose CMP answer lands mid-session — or who revokes
+// from the
 // privacy page — would keep the `denied` trio published at page load until the
 // next full reload, i.e. Google would be told the opposite of what the gate is
 // actually doing for the rest of the session.
@@ -115,6 +119,20 @@ function gtagConsent(command: 'default' | 'update', state: ConsentState) {
 if (typeof window !== 'undefined') {
  onAdsConsentChange(() => {
  gtagConsent('update', loadState() || DEFAULT_STATE);
+ // Consent-funnel telemetry: the CMP prompt is Google-rendered, so
+ // `ad_consent_shown` has no emitter any more — but the OUTCOME is still
+ // observable right here, at the gate. Without this, a CMP that never
+ // renders (ad blocker, FC console config) is indistinguishable in the
+ // funnel from an audience that refuses. Fires on every decision change
+ // (bridge, privacy page, other tab); the slot label tells analysts the
+ // writer is the CMP-era gate, and dedup by visitor happens downstream.
+ const decision = getAdsConsent();
+ if (decision !== null) {
+ trackAdEvent(decision === ADS_CONSENT_GRANTED ? 'ad_consent_granted' : 'ad_consent_denied', {
+ slot: 'cmp_gate',
+ format: 'cmp',
+ });
+ }
  });
 }
 
@@ -174,7 +192,7 @@ export function isAdvertisingGranted(): boolean {
  * Set default consent on page load.
  * Analytics is granted by default (owner decision, #5842); the ad_* trio is
  * derived from the ads gate inside `gtagConsent`, so a visitor who has not
- * answered the banner gets `denied` published for advertising regardless of
+ * answered the CMP popup gets `denied` published for advertising regardless of
  * what the blob below says.
  * If no stored preference exists, persist the granted state immediately.
  */

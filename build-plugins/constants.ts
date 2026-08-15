@@ -42,7 +42,7 @@ import { BOT_UA_PATTERNS } from '../services/botPatterns';
 // derived from these constants at build time. Safe to import here — every DOM
 // access in that module is behind a `typeof window === 'undefined'` guard, so
 // module scope is inert under Node.
-import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED } from '../services/adsConsent';
+import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import { WEBKIT_ORIGIN_REDACTED_FRAME, ORIGIN_REDACTED_MIN_FRAMES } from '../services/benignErrorPatterns';
 import {
@@ -594,6 +594,83 @@ export const ADSENSE_CLIENT_ID = 'ca-pub-8628054934855353';
 export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`;
 
 /**
+ * Publisher id (no `ca-` prefix) for the Funding Choices endpoints, derived
+ * from {@link ADSENSE_CLIENT_ID} so it never drifts from the AdSense account.
+ * Declared BEFORE ADSENSE_LOADER_CONTENT, which now interpolates it.
+ */
+export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-8628054934855353
+
+/**
+ * CMP → ads-gate bridge (#5842 exit, CMP-single-surface rework).
+ *
+ * The Google Funding Choices message (the blocking TCF popup) is the ONE
+ * consent surface of the site. This IIFE maps its outcome onto the existing
+ * `frontaliere_ads_consent` gate, so every consumer of that gate — the
+ * ADSENSE_LOADER_CONTENT twin below, <AdSenseBanner>, <GptAdSlot>, Prebid,
+ * the Consent Mode v2 derivation in services/consentService.ts, and the
+ * CommunicationsConsentBanner sequencing — keeps working unchanged, with the
+ * CMP as the writer instead of the removed custom banner.
+ *
+ * Mechanics:
+ *  - registers on `googlefc.callbackQueue` with CONSENT_DATA_READY — the
+ *    documented FC integration point; the queue accepts pushes before AND
+ *    after the FC loader runs, so ordering against the loader cannot race;
+ *  - if CONSENT_DATA_READY fires and `__tcfapi` was never installed, FC
+ *    decided no TCF framework applies to this visitor (non-EEA regions, US
+ *    opt-out regimes) → granted. Without this branch the whole non-TCF
+ *    audience would sit on a `null` gate forever — the CMP never shows them
+ *    a message to answer (found in review, round 1);
+ *  - `__tcfapi('addEventListener')` then observes the TCF v2.2 state: only
+ *    `tcloaded` / `useractioncomplete` count (while the popup is open —
+ *    `cmpuishown` — nothing is written and the gate stays closed, fail-closed
+ *    as before);
+ *  - `gdprApplies === false` (visitor outside the message's jurisdictions —
+ *    FC decides, not us) → granted; TCF Purpose 1 consent (store/access
+ *    information on a device — the bit without which AdSense cannot serve
+ *    personalized ads at all) → granted;
+ *  - without Purpose 1, `denied` is written ONLY on `useractioncomplete` (the
+ *    visitor just answered and did not grant) or on `tcloaded` when the local
+ *    gate says `granted` and the TC string refutes it (stale grant). A bare
+ *    `tcloaded`/undetermined `gdprApplies` writes NOTHING: fabricating a
+ *    permanent `denied` out of an unanswered or indeterminate state was
+ *    review round-1's second bug — it also let the communications panel
+ *    render behind the still-open CMP dialog;
+ *  - symmetrically, every NON-interactive grant path (`__tcfapi` absent,
+ *    `gdprApplies === false`, Purpose 1 read back from a stored TC string on
+ *    `tcloaded`) respects a locally-stored `denied`: that value can only come
+ *    from the privacy-page revocation surface, and for a non-TCF visitor no
+ *    CMP message will ever re-ask — an unconditional grant there would silently
+ *    undo an explicit art. 7.3 GDPR / art. 6 nLPD revocation on the very next
+ *    pageview (review round-2). Only `useractioncomplete` — the visitor
+ *    answering the (re-opened) message — may flip a `denied` back;
+ *  - a decision is persisted + broadcast with the exact storage key, value
+ *    literals and CustomEvent name of services/adsConsent.ts, imported here
+ *    so they cannot drift; the `prev===v` short-circuit keeps the every-load
+ *    `tcloaded` from re-dispatching a no-op event on each pageview;
+ *  - idempotent via `window.__ftFcConsentBridge`: the SPA shell and the
+ *    static loader can both carry it on one document safely.
+ *
+ * index.html carries a byte-identical inline copy (it cannot import this
+ * module); tests/ads-consent-gate.test.tsx pins the two with a `toContain`
+ * on this exact string.
+ */
+/**
+ * FC MESSAGING loader, extracted as ONE shared string (review round 2): the
+ * protocol — `/i/pub-XXX?ers=1` URL, `data-fc-loader` dedup marker, the
+ * `googlefcPresent` signal iframe, and crucially NO crossOrigin (Google FC
+ * `/i/pub-XXX` serves no ACAO header; `crossOrigin='anonymous'` kills the CMP
+ * and with it the whole TCF string — the 2026-05-04 regression) — must not be
+ * re-typed per carrier. ADSENSE_LOADER_CONTENT interpolates this; index.html
+ * and OFFERWALL_FC_SNIPPET carry historical copies (the former is manually
+ * aligned, the latter is FROZEN as a SiteShellContract scalar), and
+ * tests/index-html-fc-loader.test.ts + the storage-contract suite pin all of
+ * them against the same invariants.
+ */
+export const FC_ENSURE_JS = `function ensureFc(){if(document.querySelector('script[data-fc-loader]'))return;var f=document.createElement('script');f.async=true;f.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';f.setAttribute('data-fc-loader','1');document.head.appendChild(f);(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var fr=document.createElement('iframe');fr.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';fr.style.display='none';fr.name='googlefcPresent';document.body.appendChild(fr);}else{setTimeout(sig,0);}}})();}`;
+
+export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)return;window.__ftFcConsentBridge=1;function prev(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){return null;}}function record(g){var v=g?'${ADS_CONSENT_GRANTED}':'${ADS_CONSENT_DENIED}';if(prev()===v)return;try{window.localStorage.setItem('${ADS_CONSENT_STORAGE_KEY}',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('${ADS_CONSENT_CHANGE_EVENT}',{detail:v}));}catch(e){}}function grant(act){if(act||prev()!=='${ADS_CONSENT_DENIED}')record(true);}var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);});}});})();`;
+
+/**
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
  *  0. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
@@ -612,7 +689,18 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  *     `hasActiveReaderNoAdsEntitlement()`). Per-visitor only, set/cleared by
  *     services/readerEntitlement.ts's Firestore listener — NEVER a
  *     global/per-route toggle (AGENTS.md Non-Negotiable #7).
- *  1. Watches every <ins class="adsbygoogle"> with IntersectionObserver
+ *  0.7. Consent (CMP-single-surface rework of #5842/#5894): the loader
+ *     embeds FC_CONSENT_BRIDGE_JS, ensures the Funding Choices MESSAGING
+ *     loader is present (idle-deferred like index.html's loadFc; the
+ *     `data-fc-loader` dedup makes it a no-op on blog-detail pages where
+ *     OFFERWALL_FC_SNIPPET already injected it parse-time), and gates ONLY
+ *     the ad-serving path on `frontaliere_ads_consent === 'granted'`. The CMP
+ *     popup is the consent surface, so it must load BEFORE consent exists —
+ *     that is not a leak, it is the collector. With no decision (or a denial)
+ *     the loader wires NO ad listeners/observers; it waits on the gate's
+ *     CustomEvent + cross-tab `storage` and arms the ad path the moment the
+ *     CMP grants — same-tab, no reload, which is what protects the very first
+ *     SEO pageview's revenue.
  *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
  *  2. Falls back to requestIdleCallback for pages without manual slots so Auto
  *     Ads still serve. Browsers lacking requestIdleCallback (legacy iOS Safari
@@ -641,15 +729,9 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;if(window.localStorage.getItem('reader_noads_active')==='true')return;if(!(function(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}')==='${ADS_CONSENT_GRANTED}';}catch(e){return false;}})())return;var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
+export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})())return;${FC_CONSENT_BRIDGE_JS}function hasConsent(){try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}')==='${ADS_CONSENT_GRANTED}';}catch(e){return false;}}${FC_ENSURE_JS}var loaded=false;function loadScript(){if(loaded)return;loaded=true;if(document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'))return;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}function scheduleFc(){(window.requestIdleCallback||ricFb)(ensureFc,{timeout:4000});}if(hasConsent()){ensureFc();startAds();return;}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}var armed=false;function onGate(){if(armed||!hasConsent())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
-
-/**
- * Publisher id (no `ca-` prefix) for the Funding Choices endpoints, derived
- * from {@link ADSENSE_CLIENT_ID} so it never drifts from the AdSense account.
- */
-export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-8628054934855353
 
 /**
  * Offerwall custom-choice registry + Funding Choices MESSAGING loader, injected
@@ -673,10 +755,14 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  * MUST stay byte-aligned with index.html's loadFc()/registry on the essentials
  * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
  * tests/index-html-fc-loader.test.ts for the CORS rationale — googlefcPresent
- * signal, requestIdleCallback/DOMContentLoaded deferral for LCP, and — since
- * #5894 — the same fail-closed advertising-consent read as ADSENSE_LOADER_
- * CONTENT/index.html before the loader `<script>` is appended: only a literal
- * ADS_CONSENT_GRANTED opens it). The drift guard lives in
+ * signal, requestIdleCallback/DOMContentLoaded deferral for LCP). NOTE (CMP-
+ * single-surface rework): the FC loader is deliberately consent-UNGATED here,
+ * in index.html and in FC_ENSURE_JS alike — FC is the CMP, i.e. the surface
+ * that COLLECTS the advertising consent. The #5894 experiment of putting a
+ * fail-closed ADS_CONSENT_GRANTED read in front of it deadlocked cold
+ * visitors (a CMP gated behind its own output can never collect anything) and
+ * stacked a duplicate prompt for everyone else. Do NOT re-add a consent read
+ * in front of any FC loader copy. The drift guard lives in
  * tests/offerwall-static-fc-snippet.test.ts. The registry's behaviour mirrors
  * components/community/OfferwallNewsletterGate.tsx (ensureOfferwallRegistry),
  * which is idempotent (`if (cc.registry) return`) and so no-ops when this

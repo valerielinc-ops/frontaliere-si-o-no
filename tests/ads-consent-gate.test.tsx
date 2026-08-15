@@ -1,11 +1,18 @@
 // @vitest-environment jsdom
 // @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
 /**
- * Ads-consent gate — the exit criterion of #5842.
+ * Ads-consent gate — the exit criterion of #5842, CMP-single-surface edition.
  *
- * ONE thing matters here: **not a single advertising script may reach the DOM
- * before the visitor has granted consent**. Everything else in this file exists
- * to make that assertion non-vacuous.
+ * ONE thing matters here: **not a single AD-SERVING script may reach the DOM
+ * before the visitor has granted consent**. Ad-serving means adsbygoogle.js,
+ * gpt.js and prebid.js — the scripts that request and render ads.
+ *
+ * Google Funding Choices is deliberately NOT in that set any more. It is the
+ * CMP — the blocking TCF message that COLLECTS the consent the gate runs on —
+ * so it must be able to load before a decision exists; gating it behind its
+ * own output (what #5894 shipped) deadlocked cold visitors into a no-ads
+ * session and produced a second, redundant consent prompt. The CMP's outcome
+ * reaches the gate through FC_CONSENT_BRIDGE_JS, tested below.
  *
  * ── Why the URL docblock above is load-bearing ────────────────────────
  *
@@ -30,26 +37,34 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { render, cleanup, act } from '@testing-library/react';
-import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
-import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED } from '@/services/adsConsent';
+import { ADSENSE_LOADER_CONTENT, FC_CONSENT_BRIDGE_JS, FC_ENSURE_JS } from '@/build-plugins/constants';
+import {
+  ADS_CONSENT_STORAGE_KEY,
+  ADS_CONSENT_GRANTED,
+  ADS_CONSENT_DENIED,
+  ADS_CONSENT_CHANGE_EVENT,
+} from '@/services/adsConsent';
 
 const REAL_UA =
   'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1';
 
 const ADSENSE_SELECTOR = 'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]';
 const GPT_SELECTOR = 'script[src*="securepubads.g.doubleclick.net/tag/js/gpt.js"]';
+const FC_SELECTOR = 'script[src*="fundingchoicesmessages.google.com"]';
 
 /**
- * Every advertising script, whatever its origin — not just the one a given test
+ * Every AD-SERVING script, whatever its origin — not just the one a given test
  * expects. Prebid is served first-party from `/assets/prebid.js`, so a filter
  * written only against third-party ad hosts would miss it entirely; that is why
- * this matches a path as well as the Google origins.
+ * this matches a path as well as the Google origins. fundingchoicesmessages is
+ * deliberately absent: the CMP is the consent surface, not an ad script — its
+ * presence/absence is asserted explicitly via FC_SELECTOR where it matters.
  */
-function injectedAdScripts(): string[] {
+function injectedAdServingScripts(): string[] {
   return Array.from(document.querySelectorAll('script'))
     .map((s) => s.getAttribute('src') || '')
     .filter((src) =>
-      /pagead2\.googlesyndication\.com|securepubads\.g\.doubleclick\.net|fundingchoicesmessages\.google\.com|\/assets\/prebid\.js/.test(src),
+      /pagead2\.googlesyndication\.com|securepubads\.g\.doubleclick\.net|\/assets\/prebid\.js/.test(src),
     );
 }
 
@@ -57,7 +72,8 @@ function injectedAdScripts(): string[] {
  * Runs the inline loader that statically generated pages carry — the
  * highest-traffic ad path on the site, and the one the SPA components cannot
  * speak for. `requestIdleCallback` is made synchronous so the loader's idle
- * branch resolves within the test instead of after it.
+ * branches (the FC ensure AND the ad fallback) resolve within the test instead
+ * of after it.
  */
 function runStaticLoader(): void {
   (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback = (cb) => cb();
@@ -86,7 +102,7 @@ function indexHtmlFcLoaderJs(): string {
  * NOT covered here on purpose: OFFERWALL_FC_SNIPPET.
  *
  * It looks like the natural twin of the index.html loader below, and a consent
- * gate was briefly added to it. It has to come back out, because
+ * gate was briefly added to it. It has to stay out, because
  * `offerwallFcSnippet` is a SCALAR FIELD OF `SiteShellContract` — the cross-repo
  * contract whose other half lives in nanakokyobashi-rgb/frontaliere-articles
  * under `host/`. Editing that string changes the digest asserted by
@@ -96,14 +112,12 @@ function indexHtmlFcLoaderJs(): string {
  * result was `TypeError: <member> is not a function` at render time with CI
  * green on both sides.
  *
- * And the trade is not worth it: Funding Choices is Google's adblock-RECOVERY
- * message, EEA-only by design, and Switzerland is not EEA — gating it buys
- * approximately zero consent coverage while forcing a two-repo change. The
- * scripts that actually serve ads (adsbygoogle.js, gpt.js, prebid.js) are all
- * gated and behaviourally tested above.
- *
- * If you ever do need to gate it, ship `host/siteShellBootstrap.ts` on the
- * corpus in the same change and re-record the digest in both repos.
+ * Since the CMP-single-surface rework this is no longer even a gap: the FC
+ * loader is meant to run unconditionally EVERYWHERE (it is the consent
+ * surface), which is exactly what the untouched snippet does. The bridge the
+ * snippet lacks arrives on the same static pages via adsense-loader.js
+ * (ADSENSE_LOADER_CONTENT embeds FC_CONSENT_BRIDGE_JS), so article pages both
+ * render the CMP and record its outcome, with zero contract churn.
  */
 function runIndexHtmlFcLoader(): void {
   (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback = (cb) => cb();
@@ -111,11 +125,53 @@ function runIndexHtmlFcLoader(): void {
   new Function(indexHtmlFcLoaderJs())();
 }
 
+// ── CMP simulation helpers ──────────────────────────────────────────────
+//
+// The bridge registers `{ CONSENT_DATA_READY }` on googlefc.callbackQueue and
+// then reads TCF state via `__tcfapi('addEventListener')`. Funding Choices
+// itself never runs in jsdom, so tests drain the queue by hand after
+// installing a scripted `__tcfapi` — the same call order FC produces.
+
+type TcData = {
+  eventStatus?: string;
+  gdprApplies?: boolean;
+  purpose?: { consents?: Record<number, boolean> };
+};
+
+function installTcfapi(tcData: TcData, ok = true): void {
+  (window as unknown as { __tcfapi: unknown }).__tcfapi = (
+    cmd: string,
+    _ver: number,
+    cb: (d: TcData, success: boolean) => void,
+  ) => {
+    if (cmd === 'addEventListener') cb(tcData, ok);
+  };
+}
+
+function drainFcCallbackQueue(): void {
+  const q = (window as unknown as { googlefc?: { callbackQueue?: unknown[] } }).googlefc?.callbackQueue ?? [];
+  for (const item of q) {
+    const entry = item as { CONSENT_DATA_READY?: () => void };
+    if (typeof entry?.CONSENT_DATA_READY === 'function') entry.CONSENT_DATA_READY();
+  }
+}
+
+/** Registers the bridge alone (without the rest of the static loader). */
+function runBridge(): void {
+  // eslint-disable-next-line no-new-func
+  new Function(FC_CONSENT_BRIDGE_JS)();
+}
+
 beforeEach(() => {
   Object.defineProperty(window.navigator, 'userAgent', { value: REAL_UA, configurable: true });
   localStorage.clear();
   document.head.querySelectorAll('script').forEach((s) => s.remove());
   document.body.innerHTML = '';
+  // The bridge is idempotent per-window; tests need a fresh registration each.
+  const w = window as unknown as { __ftFcConsentBridge?: number; googlefc?: unknown; __tcfapi?: unknown };
+  delete w.__ftFcConsentBridge;
+  delete w.googlefc;
+  delete w.__tcfapi;
 });
 
 afterEach(() => {
@@ -123,27 +179,30 @@ afterEach(() => {
   localStorage.clear();
 });
 
-describe('ads-consent gate — no ad script before consent', () => {
-  it('static page loader injects NOTHING when no decision has been made', () => {
+describe('ads-consent gate — no ad-serving script before consent', () => {
+  it('static page loader serves NO ads when no decision has been made — but DOES load the CMP that collects it', () => {
     runStaticLoader();
-    expect(injectedAdScripts()).toEqual([]);
+    expect(injectedAdServingScripts()).toEqual([]);
     expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
+    // The consent surface itself must be present, or no visitor could ever
+    // consent on a static landing — the #5894 deadlock this rework removes.
+    expect(document.querySelector(FC_SELECTOR)).not.toBeNull();
   });
 
-  it('static page loader injects NOTHING when consent is explicitly denied', () => {
+  it('static page loader serves NO ads when consent is explicitly denied', () => {
     localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
     runStaticLoader();
-    expect(injectedAdScripts()).toEqual([]);
+    expect(injectedAdServingScripts()).toEqual([]);
   });
 
-  it('static page loader injects NOTHING for a corrupted/unknown stored value', () => {
+  it('static page loader serves NO ads for a corrupted/unknown stored value', () => {
     // Fails closed: anything that is not the literal 'granted' blocks.
     localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'true');
     runStaticLoader();
-    expect(injectedAdScripts()).toEqual([]);
+    expect(injectedAdServingScripts()).toEqual([]);
   });
 
-  it('injects NOTHING when reading the consent key throws (fails closed)', async () => {
+  it('serves NO ads when reading the consent key throws (fails closed)', async () => {
     // Found by the mutation harness: flipping the loader's `catch` from
     // `return false` to `return true` was NOT caught before this test existed.
     // Safari private mode and storage-partitioned iframes both make getItem
@@ -172,7 +231,7 @@ describe('ads-consent gate — no ad script before consent', () => {
     Object.defineProperty(window, 'localStorage', { value: throwing, configurable: true });
     try {
       runStaticLoader();
-      expect(injectedAdScripts()).toEqual([]);
+      expect(injectedAdServingScripts()).toEqual([]);
 
       const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
       render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
@@ -196,7 +255,7 @@ describe('ads-consent gate — no ad script before consent', () => {
   it('SPA <AdSenseBanner> injects NOTHING when no decision has been made', async () => {
     const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
     render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
-    expect(injectedAdScripts()).toEqual([]);
+    expect(injectedAdServingScripts()).toEqual([]);
     expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
   });
 
@@ -215,7 +274,7 @@ describe('ads-consent gate — no ad script before consent', () => {
     __testing.resetForTests();
     __testing.ensurePrebidScript();
     expect(document.querySelector('script[src="/assets/prebid.js"]')).toBeNull();
-    expect(injectedAdScripts()).toEqual([]);
+    expect(injectedAdServingScripts()).toEqual([]);
   });
 
   it('Prebid DOES load once consent is granted', async () => {
@@ -234,15 +293,18 @@ describe('ads-consent gate — no ad script before consent', () => {
     expect(document.querySelector(GPT_SELECTOR)).toBeNull();
   });
 
-  it('index.html Funding Choices (CMP) loader injects NOTHING when no decision has been made', () => {
-    // Google Funding Choices carries the TCF v2.2 consent string that AdSense
-    // reads to decide personalized-vs-non-personalized ads. Nothing gates
-    // AdSense/GPT from requesting ads until our own consent is granted, so
-    // there is no reason for this CMP script to reach the DOM any earlier.
+  it('index.html Funding Choices (CMP) loader DOES inject with no decision — it IS the consent surface', () => {
+    // Inverted from the #5894 behaviour on purpose. The blocking Google
+    // consent message is how a visitor grants (or refuses) ad consent at all;
+    // a CMP gated behind its own output can never collect anything, which is
+    // the deadlock that turned every undecided visitor into a permanent
+    // no-ads session and stacked a second prompt on top of the CMP for
+    // everyone else.
     runIndexHtmlFcLoader();
-    expect(injectedAdScripts()).toEqual([]);
+    expect(document.querySelector(FC_SELECTOR)).not.toBeNull();
+    // Still no ad-serving script: the CMP collects, it does not serve.
+    expect(injectedAdServingScripts()).toEqual([]);
   });
-
 });
 
 describe('ads-consent gate — the gate is reachable, and opens', () => {
@@ -266,33 +328,39 @@ describe('ads-consent gate — the gate is reachable, and opens', () => {
     expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
   });
 
-  it('index.html Funding Choices (CMP) loader DOES inject once consent is granted', () => {
-    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
-    runIndexHtmlFcLoader();
-    expect(injectedAdScripts()).not.toEqual([]);
-    expect(
-      document.querySelector('script[src*="fundingchoicesmessages.google.com"]'),
-    ).not.toBeNull();
-  });
-
-});
-
-describe('ads-consent gate — banner wiring', () => {
-  it('the banner grants consent and an already-mounted slot then loads', async () => {
-    const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
-    const { default: AdsConsentBanner } = await import('@/components/shared/AdsConsentBanner');
-    const view = render(
-      <>
-        <AdsConsentBanner />
-        <AdSenseBanner adSlot="1234567890" adFormat="auto" />
-      </>,
-    );
-    // Nothing yet: the visitor has not answered.
+  it('static page loader arms the ad path SAME-TAB when the CMP grants after page load', () => {
+    // The highest-value moment on a cold SEO landing: the visitor answers the
+    // CMP popup seconds after arrival. The loader must not require a reload —
+    // it waits on the gate's CustomEvent and starts serving immediately.
+    runStaticLoader();
     expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
 
-    const accept = view.getByRole('button', { name: /accetta gli annunci/i });
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    window.dispatchEvent(new CustomEvent(ADS_CONSENT_CHANGE_EVENT, { detail: ADS_CONSENT_GRANTED }));
+
+    expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
+  });
+});
+
+describe('ads-consent gate — CMP → gate bridge', () => {
+  it('index.html carries a byte-identical copy of FC_CONSENT_BRIDGE_JS in an EXECUTABLE script tag', () => {
+    // index.html cannot import build-plugins/constants.ts, so the bridge is
+    // duplicated inline. This containment check is what keeps the two copies
+    // from drifting on key, values, event name or decision logic — and the
+    // surrounding bare `<script>` tags prove it is executable markup, not a
+    // stray copy inside a comment or a `type="text/plain"` inert block.
+    expect(INDEX_HTML_SOURCE).toContain(`<script>${FC_CONSENT_BRIDGE_JS}</script>`);
+  });
+
+  it('a TCF grant (purpose 1 consented) opens the gate and an already-mounted slot loads — no reload', async () => {
+    const { default: AdSenseBanner } = await import('@/components/shared/AdSenseBanner');
+    render(<AdSenseBanner adSlot="1234567890" adFormat="auto" />);
+    expect(document.querySelector(ADSENSE_SELECTOR)).toBeNull();
+
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: true } } });
     await act(async () => {
-      accept.click();
+      drainFcCallbackQueue();
     });
 
     expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_GRANTED);
@@ -301,19 +369,111 @@ describe('ads-consent gate — banner wiring', () => {
     expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();
   });
 
-  it('the banner disappears once answered and does not return', async () => {
-    const { default: AdsConsentBanner } = await import('@/components/shared/AdsConsentBanner');
-    const view = render(<AdsConsentBanner />);
-    const decline = view.getByRole('button', { name: /continua senza annunci/i });
-    await act(async () => {
-      decline.click();
-    });
+  it('a TCF refusal (purpose 1 withheld on useractioncomplete) records denied and serves nothing', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
     expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
-    expect(view.queryByRole('dialog')).toBeNull();
+    expect(injectedAdServingScripts()).toEqual([]);
+  });
 
-    cleanup();
-    const second = render(<AdsConsentBanner />);
-    expect(second.queryByRole('dialog')).toBeNull();
+  it('gdprApplies === false (no framework in the visitor\'s jurisdiction) grants', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'tcloaded', gdprApplies: false });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_GRANTED);
+  });
+
+  it('writes NOTHING while the CMP UI is still open (cmpuishown) — the gate stays fail-closed', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'cmpuishown', gdprApplies: true });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
+  it('writes NOTHING when the TCF call reports failure', () => {
+    runBridge();
+    installTcfapi({ eventStatus: 'tcloaded', gdprApplies: false }, false);
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
+  it('grants when FC reports consent data ready but installed NO TCF API (non-TCF audience)', () => {
+    // Funding Choices only instantiates `__tcfapi` where a TCF message is
+    // targeted. For everyone else (non-EEA regions, US opt-out regimes)
+    // CONSENT_DATA_READY still fires, no framework applies, and the gate must
+    // open — a bare `return` here silently zeroed ad revenue for the whole
+    // non-TCF audience, with no surface left to ever ask them anything.
+    runBridge();
+    drainFcCallbackQueue(); // no installTcfapi: window.__tcfapi is undefined
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_GRANTED);
+  });
+
+  it('writes NOTHING on tcloaded with UNDETERMINED gdprApplies and no purposes', () => {
+    // TCF `gdprApplies` is tri-state. `undefined` means the CMP has not
+    // decided yet; fabricating a permanent `denied` out of that state was a
+    // review round-1 bug. The gate simply stays as it was (fail-closed).
+    runBridge();
+    installTcfapi({ eventStatus: 'tcloaded' });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
+  it('a bare tcloaded without purpose 1 fabricates NO refusal (gate stays null)…', () => {
+    // A refusal is only recorded when the visitor actually answered
+    // (`useractioncomplete`) — an unanswered or freshly-loaded state must not
+    // masquerade as one, or the communications panel would take the slot while
+    // the CMP dialog is still on screen and the privacy page would show
+    // "denied" for a question never asked. Null blocks ads all the same.
+    runBridge();
+    installTcfapi({ eventStatus: 'tcloaded', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
+  it('…but tcloaded refuting a locally-stored grant corrects it to denied', () => {
+    // The one tcloaded case that must write: local gate says granted, the TC
+    // string says purpose 1 was withdrawn (revocation recorded elsewhere, or a
+    // stale local grant). The CMP is the source of truth — the grant falls.
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED);
+    runBridge();
+    installTcfapi({ eventStatus: 'tcloaded', gdprApplies: true, purpose: { consents: { 1: false } } });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
+  });
+
+  it('a NON-interactive grant path respects a locally-stored denied (privacy-page revocation persists)', () => {
+    // The privacy page is the only writer of a `denied` outside the CMP. For
+    // a non-TCF visitor (Swiss audience: no message targeted, `__tcfapi`
+    // never installed) no CMP prompt will ever re-ask — an unconditional
+    // grant on CONSENT_DATA_READY silently undid an explicit art. 7.3 GDPR /
+    // art. 6 nLPD revocation on the very next pageview (review round 2).
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    runBridge();
+    drainFcCallbackQueue(); // no __tcfapi installed
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
+  });
+
+  it('a stored TC string read back on tcloaded does not overturn a local denied either', () => {
+    // Same rule inside TCF scope: purpose 1 replayed from storage is not a
+    // fresh user action — the revocation stands until the visitor actually
+    // re-answers the (re-opened) message.
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    runBridge();
+    installTcfapi({ eventStatus: 'tcloaded', gdprApplies: true, purpose: { consents: { 1: true } } });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_DENIED);
+  });
+
+  it('an ANSWERED message (useractioncomplete) may flip a local denied back to granted', () => {
+    // The counterpart that keeps the rule from becoming a one-way ratchet:
+    // the visitor re-opening the message from /privacy and consenting is a
+    // fresh affirmative act, and the CMP outcome wins.
+    localStorage.setItem(ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_DENIED);
+    runBridge();
+    installTcfapi({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: true } } });
+    drainFcCallbackQueue();
+    expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBe(ADS_CONSENT_GRANTED);
   });
 });
 
@@ -323,21 +483,40 @@ describe('ads-consent gate — storage contract', () => {
     // shells disagreeing about which key/value means consent.
     expect(ADSENSE_LOADER_CONTENT).toContain(ADS_CONSENT_STORAGE_KEY);
     expect(ADSENSE_LOADER_CONTENT).toContain(`==='${ADS_CONSENT_GRANTED}'`);
+    expect(ADSENSE_LOADER_CONTENT).toContain(ADS_CONSENT_CHANGE_EVENT);
+    // And the bridge ships inside the static loader, so every static page both
+    // renders the CMP and records its outcome.
+    expect(ADSENSE_LOADER_CONTENT).toContain(FC_CONSENT_BRIDGE_JS);
   });
 
-  it('the consent check runs BEFORE the loader wires any listener or observer', () => {
-    // Ordering matters: the gate must short-circuit the whole IIFE. If it were
-    // placed after `observe()`, a denied visitor would still get the
-    // IntersectionObserver and the interaction listeners wired.
-    const gateAt = ADSENSE_LOADER_CONTENT.indexOf(ADS_CONSENT_STORAGE_KEY);
-    const observeAt = ADSENSE_LOADER_CONTENT.indexOf('IntersectionObserver');
-    expect(gateAt).toBeGreaterThan(-1);
-    expect(gateAt).toBeLessThan(observeAt);
+  it('the FC loader protocol ships as ONE shared string, with the CORS-regression pins on it', () => {
+    // FC `/i/pub-XXX` serves no ACAO header: a `crossOrigin` attribute kills
+    // the CMP and with it the whole TCF string (2026-05-04 regression, pinned
+    // for index.html's copy in tests/index-html-fc-loader.test.ts). The static
+    // loader's copy must carry the same invariants — asserted on FC_ENSURE_JS,
+    // which ADSENSE_LOADER_CONTENT interpolates rather than re-typing.
+    expect(ADSENSE_LOADER_CONTENT).toContain(FC_ENSURE_JS);
+    expect(FC_ENSURE_JS).toContain('fundingchoicesmessages.google.com/i/pub-8628054934855353?ers=1');
+    expect(FC_ENSURE_JS).toContain('data-fc-loader');
+    expect(FC_ENSURE_JS).toContain('googlefcPresent');
+    expect(FC_ENSURE_JS).not.toMatch(/crossOrigin/i);
+  });
+
+  it('pre-consent interaction cannot load ads — the ad path is only reachable through the gate', () => {
+    // The old single-check-at-the-top shape is gone (the loader now has
+    // legitimate pre-consent work: the bridge and the CMP ensure), so this is
+    // asserted behaviourally: every interaction trigger the loader wires fires
+    // here, and still nothing ad-serving may load without the gate open.
+    runStaticLoader(); // already dispatches 'scroll'
+    for (const ev of ['touchstart', 'pointerdown', 'keydown', 'mousemove']) {
+      document.dispatchEvent(new Event(ev));
+    }
+    expect(injectedAdServingScripts()).toEqual([]);
   });
 
   it('does NOT gate analytics — PostHog/GA4/Clarity stay outside this decision', () => {
-    // Owner decision in #5842: the banner is advertising-only. If someone later
-    // widens the gate to analytics, this fails and forces the conversation.
+    // Owner decision in #5842: the gate is advertising-only. If someone later
+    // widens it to analytics, this fails and forces the conversation.
     expect(ADSENSE_LOADER_CONTENT).not.toContain('posthog');
     expect(ADSENSE_LOADER_CONTENT).not.toContain('clarity');
   });
