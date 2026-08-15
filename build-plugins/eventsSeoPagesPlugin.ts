@@ -43,7 +43,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
-import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
+import { BASE_URL, BUILD_DATE_STAMP, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/titleSuffix';
@@ -3246,7 +3246,16 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       }
 
       const distDir = path.resolve(rootDir, 'dist');
-      const dateStamp = new Date().toISOString().slice(0, 10);
+      // #5911: BUILD_DATE_STAMP (derived from the deploy-wide BUILD_ID), NOT a
+      // fresh `new Date()` — this "today" gates which comuni get event pages
+      // (upcomingEvents/digest/recentlyEndedEvents below), and on the matrix
+      // deploy the it/en/de/fr shards are 4 independent multi-hour processes.
+      // A per-shard `new Date()` could cross a UTC-midnight boundary between
+      // shards, so the same event flips upcoming/past differently per shard —
+      // the comune page exists on one shard but not its siblings, while the
+      // (locale-filter-blind-by-design) hreflang alternates below still point
+      // at all 4. See build-plugins/constants.ts BUILD_DATE_STAMP doc.
+      const dateStamp = BUILD_DATE_STAMP;
       const dataset = loadEventsDataset();
       const all = upcomingEvents(dataset.events, dateStamp) as SiteEvent[];
 

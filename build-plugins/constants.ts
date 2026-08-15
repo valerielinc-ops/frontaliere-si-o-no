@@ -18,6 +18,18 @@
  * COMMIT_HASH / SHORT_COMMIT_HASH: build commit. Emitted to dist/commit-hash.txt
  * and read at runtime (version badge fetches it). Also NOT a `define`, same reason.
  * BASE_URL: canonical site origin used across all static-page generators.
+ *
+ * BUILD_DATE_STAMP: UTC "today" (YYYY-MM-DD) derived from BUILD_ID rather than a
+ * fresh `new Date()` (#5911). On the matrix deploy the it/en/de/fr shards are 4
+ * independent, multi-hour processes; a plugin that computed `new Date()` itself
+ * at whatever wall-clock moment it happened to run could see a different UTC day
+ * on different shards, which is dangerous for any generator that uses "today" to
+ * decide WHETHER to emit a page (not just to stamp `lastmod`) — a page emitted on
+ * one shard's date and skipped on another's leaves the other shards' unconditional
+ * hreflang alternates pointing at a target that was never built. BUILD_ID is
+ * already minted once per deploy run in matrix-setup and shared via
+ * DEPLOY_BUILD_ID, so deriving the date from it keeps every shard's "today"
+ * identical for free, with the same monolith-build fallback behaviour as BUILD_ID.
  */
 
 import { execSync } from 'child_process';
@@ -83,6 +95,7 @@ const POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE = WEBKIT_ORIGIN_REDACTED_FRAME.source
 
 const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
 export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
+export const BUILD_DATE_STAMP = new Date(Number(BUILD_ID)).toISOString().slice(0, 10);
 
 /**
  * Fail-fast guard for the externalised stylesheets that live in
