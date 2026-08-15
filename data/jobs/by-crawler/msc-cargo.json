@@ -72,7 +72,7 @@
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -376,12 +376,12 @@
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -441,19 +441,19 @@
         "it": [
           "gestionnaire-de-destination-itinerante-msc-group-geneva",
           "reisezielmanager-msc-group-geneva",
-          "gestione-delle-destinazioni-msc-group-geneva"
+          "travelling-destination-manager-msc-geneva"
         ],
         "de": [
-          "reisezielmanager-msc-group-geneva"
+          "travelling-destination-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-destination-itinerante-msc-group-geneva"
+          "travelling-destination-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
         "gestionnaire-de-destination-itinerante-msc-group-geneva",
         "reisezielmanager-msc-group-geneva",
-        "gestione-delle-destinazioni-msc-group-geneva"
+        "travelling-destination-manager-msc-geneva"
       ]
     },
     {
@@ -506,18 +506,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-full-funnel-analyste-msc-group-geneva",
-        "marketing-full-funnel-analyst-msc-geneva",
-        "marketing-full-funnel-analista-msc-group-geneva"
+        "marketing-full-funnel-analyst-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "marketing-full-funnel-analyste-msc-group-geneva",
-          "marketing-full-funnel-analyst-msc-geneva",
-          "marketing-full-funnel-analista-msc-group-geneva"
+          "marketing-full-funnel-analyst-msc-geneva"
         ],
         "fr": [
-          "marketing-full-funnel-analyst-msc-geneva",
-          "marketing-full-funnel-analyste-msc-group-geneva"
+          "marketing-full-funnel-analyst-msc-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -542,7 +539,7 @@
         "en": "senior-hr-business-partner-msc-geneva",
         "it": "senior-hr-business-partner-msc-geneva",
         "de": "senior-hr-business-partner-msc-geneva",
-        "fr": "senior-hr-business-partner-msc-geneva"
+        "fr": "partenaire-principal-des-rh-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -600,9 +597,6 @@
       "firstSeenAt": "2026-08-15T09:55:54.131Z",
       "previousSlugsByLocale": {
         "it": [
-          "partenaire-principal-des-rh-msc-group-geneva"
-        ],
-        "fr": [
           "partenaire-principal-des-rh-msc-group-geneva"
         ]
       },
@@ -662,16 +656,14 @@
         "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
         "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva",
         "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva",
-        "sr-director-of-guest-experience-development-delivery-msc-geneva",
-        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        "sr-director-of-guest-experience-development-delivery-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
           "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva",
           "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva",
-          "sr-director-of-guest-experience-development-delivery-msc-geneva",
-          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+          "sr-director-of-guest-experience-development-delivery-msc-geneva"
         ],
         "de": [
           "sr-director-of-guest-experience-development-delivery-msc-geneva"
@@ -745,15 +737,13 @@
       "previousSlugs": [
         "redacteur-contrat-de-6-mois-msc-group-geneva",
         "texter-6-monate-vertrag-msc-group-geneva",
-        "copywriter-6-months-contract-msc-geneva",
-        "copywriter-6-mesi-msc-group-geneva"
+        "copywriter-6-months-contract-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "redacteur-contrat-de-6-mois-msc-group-geneva",
           "texter-6-monate-vertrag-msc-group-geneva",
-          "copywriter-6-months-contract-msc-geneva",
-          "copywriter-6-mesi-msc-group-geneva"
+          "copywriter-6-months-contract-msc-geneva"
         ],
         "de": [
           "copywriter-6-months-contract-msc-geneva"
@@ -849,12 +839,12 @@
     },
     {
       "id": "msc-cargo-07914770a34c",
-      "slug": "product-innovation-manager-new-builds-msc-geneva",
+      "slug": "product-innovation-manager-nuove-costruzioni-msc-group-geneva",
       "slugByLocale": {
         "en": "product-innovation-manager-new-builds-msc-geneva",
-        "it": "product-innovation-manager-new-builds-msc-geneva",
+        "it": "product-innovation-manager-nuove-costruzioni-msc-group-geneva",
         "de": "product-innovation-manager-new-builds-msc-geneva",
-        "fr": "product-innovation-manager-new-builds-msc-geneva"
+        "fr": "product-innovation-manager-nouvelles-constructions-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -917,13 +907,13 @@
           "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva",
           "product-innovation-manager-nouvelles-constructions-msc-group-geneva",
           "product-innovation-manager-neue-builds-msc-group-geneva",
-          "product-innovation-manager-nuove-costruzioni-msc-group-geneva"
+          "product-innovation-manager-new-builds-msc-geneva"
         ],
         "de": [
           "product-innovation-manager-neue-builds-msc-group-geneva"
         ],
         "fr": [
-          "product-innovation-manager-nouvelles-constructions-msc-group-geneva"
+          "product-innovation-manager-new-builds-msc-geneva"
         ]
       },
       "previousSlugs": [
@@ -931,7 +921,7 @@
         "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva",
         "product-innovation-manager-nouvelles-constructions-msc-group-geneva",
         "product-innovation-manager-neue-builds-msc-group-geneva",
-        "product-innovation-manager-nuove-costruzioni-msc-group-geneva"
+        "product-innovation-manager-new-builds-msc-geneva"
       ]
     },
     {
@@ -941,7 +931,7 @@
         "en": "brand-manager-brand-product-msc-geneva",
         "it": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1001,9 +991,6 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-marques-marque-produit-msc-group-geneva"
-        ],
-        "fr": [
-          "gestionnaire-de-marques-marque-produit-msc-group-geneva"
         ]
       },
       "previousSlugs": [
@@ -1060,14 +1047,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-        "experience-development-delivery-manager-msc-geneva",
-        "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva"
+        "experience-development-delivery-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-          "experience-development-delivery-manager-msc-geneva",
-          "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva"
+          "experience-development-delivery-manager-msc-geneva"
         ],
         "de": [
           "experience-development-delivery-manager-msc-geneva"

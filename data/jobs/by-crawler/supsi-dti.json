@@ -272,13 +272,11 @@
         ],
         "fr": [
           "ricercatrice-ricercatore-nell-ambito-di-sistemi-di-supporto-decisionale-e-intelligenza-artificiale-applicata-per-la-circular-economy-e-il-de",
-          "chercheur-chercheur-dans-le-cadre-des-systemes-d-aide-a-la-decision-et-de-l-intelligence-artificielle-appliques-a-l",
           "ricercatrice-ricercatore-nell-ambito-di-sistemi-di-supporto-decisionale-e-intelligenza-artificiale-applicata-per-la-circular-economy-e-il-de-re-manufacturing-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "ricercatrice-ricercatore-nell-ambito-di-sistemi-di-supporto-decisionale-e-intelligenza-artificiale-applicata-per-la-circular-economy-e-il-de",
-        "chercheur-chercheur-dans-le-cadre-des-systemes-d-aide-a-la-decision-et-de-l-intelligence-artificielle-appliques-a-l",
         "ricercatrice-ricercatore-nell-ambito-di-sistemi-di-supporto-decisionale-e-intelligenza-artificiale-applicata-per-la-circular-economy-e-il-de-re-manufacturing-supsi-dti-manno"
       ],
       "salaryMin": 51500,
@@ -1101,7 +1099,6 @@
         ],
         "fr": [
           "professeurs-assistants-licence-en-education-mse-master-en-genie-mecanique-et-materiaux-supsi-dti-lugano",
-          "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano",
           "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano"
         ]
       },
@@ -1384,7 +1381,6 @@
         "fr": [
           "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano",
           "assistant-bachelor-en-master-mse-en-informatique-ou-en-science-des-donnees-supsi-dti-lugano",
-          "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano",
           "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano"
         ]
       },
@@ -2448,8 +2444,8 @@
       "slugByLocale": {
         "it": "stagista-servizio-carriera-esperienza-e-orientamento-supsi-dti-manno",
         "en": "stage-career-service-experience-and-guidance-supsi-dti-manno",
-        "de": "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-manno",
-        "fr": "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-manno"
+        "de": "stage-career-service-erfahrung-und-anleitung-supsi-dti-manno",
+        "fr": "etape-service-professionnel-experience-et-orientation-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -2501,17 +2497,18 @@
           "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-lugano"
         ],
         "de": [
-          "stage-career-service-erfahrung-und-anleitung-supsi-dti-manno"
+          "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-manno"
         ],
         "fr": [
-          "etape-service-professionnel-experience-et-orientation-supsi-dti-manno"
+          "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "stage-career-service-experience-and-guidance-supsi-dti-manno",
         "stage-career-service-erfahrung-und-anleitung-supsi-dti-manno",
         "etape-service-professionnel-experience-et-orientation-supsi-dti-manno",
-        "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-lugano"
+        "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-lugano",
+        "scuola-universitaria-professionale-della-svizzera-italiana-supsi-dti-manno"
       ],
       "crawlerMissStreak": 2,
       "needsRetranslation": true
