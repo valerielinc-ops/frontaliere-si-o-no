@@ -125,8 +125,19 @@ async function main() {
     process.exit(2);
   }
 
-  // Instantiate fresh auditors from factories
-  const auditors = REGISTRY.map((r) => r.factory());
+  // Instantiate fresh auditors from factories.
+  //
+  // `sampleRate` is HANDED to the factories rather than left for each auditor
+  // to re-read from AUDIT_SAMPLE_RATE. The two are not the same number: the
+  // CLI flag documented above takes precedence over the env var precisely so a
+  // developer can reproduce a CI slice locally, and `runAudits` samples on
+  // THIS value. An auditor that re-parsed the env would then annotate its
+  // report with a rate the run did not use — `--sample-rate=0.25` with the env
+  // unset would scan a quarter of dist/ while the report said "full walk,
+  // corpus-exact", which is an affirmatively false statement in the field that
+  // exists to prevent that exact misreading. Auditors that do not take the
+  // option ignore it.
+  const auditors = REGISTRY.map((r) => r.factory({ sampleRate }));
 
   // Optional filter
   const selected = filterAuditors(auditors, auditFilter);

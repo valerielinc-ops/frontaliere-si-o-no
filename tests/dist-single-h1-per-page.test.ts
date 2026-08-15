@@ -22,8 +22,12 @@
  * `gate:dist-quality` any more: five files there scanned 3,798,763 HTML
  * files in one worker pool and died `ERR_WORKER_OUT_OF_MEMORY` after
  * 597.95 s (run 31891126686). Behaviour is verified against the auditor in
- * `tests/audit-dist-quality-folded.test.ts`; `countH1Tags` below must stay
- * one edit apart from the auditor's copy.
+ * `tests/audit-dist-quality-folded.test.ts`, which exercises the AUDITOR.
+ *
+ * Nothing enforces that `countH1Tags` below still matches the auditor's copy,
+ * and nothing runs this file: a fix applied to the auditor and not here leaves
+ * the manual check answering a different question than CI, with CI green. The
+ * auditor is the authority; if the two disagree, this file is the stale one.
  *
  * The test is dist-driven: it skips silently when `dist/` does not
  * exist locally so `npm test` continues to work without a build.

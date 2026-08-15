@@ -40,17 +40,31 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 /**
  * Pages where a multi-H1 emit pattern is intentional and a single-H1 fix
  * would require reworking shared chrome. Add a path here only with a GitHub
- * issue reference explaining why. Kept byte-identical to the vitest mirror's
- * `ALLOWLIST_PATHS` (empty today) so the two cannot disagree silently.
+ * issue reference explaining why.
+ *
+ * ENTRIES CARRY A LEADING SLASH — `/de/lavoro/x/index.html`. That is the
+ * shape the vitest mirror's `ALLOWLIST_PATHS` uses, because `scanDistHtml`
+ * yields `full.slice(distDir.length)`. Both lists are empty today, so a
+ * mismatch would be inert right up until someone adds the same entry to both
+ * files (which the mirror's header tells them to do) and the exemption
+ * silently applies in only one of the two. `audit-breadcrumb-coverage.mjs`
+ * normalises the same way for the same reason.
  */
 export const ALLOWLIST_PATHS = Object.freeze([]);
+
+/** dist-relative path WITH the leading slash the allowlist is written in. */
+function toDistRelPath(absPath) {
+  return `/${relative(ROOT, absPath).replace(/^dist\//, '')}`;
+}
 
 /**
  * Counts `<h1>` opening tags in the static HTML, ignoring tags inside
  * `<template>` blocks, `<script>` (JSON-LD included), `<style>` or HTML
  * comments. Permissive tag regex (`<h1[\s>]`) matches both bare `<h1>` and
- * `<h1 class="…">` but not `&lt;h1&gt;` text. Identical to the mirror's
- * `countH1Tags` — the two implementations must stay one edit apart.
+ * `<h1 class="…">` but not `&lt;h1&gt;` text. Copied from the mirror's
+ * `countH1Tags`, and NOTHING enforces that the two stay in step — the mirror
+ * is manual-only and no test imports it. If they ever disagree, this one is
+ * the gate and the mirror is the stale copy.
  */
 export function countH1Tags(html) {
   const stripped = html
@@ -64,6 +78,10 @@ export function countH1Tags(html) {
 
 export function createAuditor(opts = {}) {
   const limit = opts.limit ?? 25;
+  // Injectable so the leading-slash contract above is TESTABLE. Both lists
+  // being empty is exactly what let the mismatch with the mirror survive
+  // review: an exemption nobody can exercise is an exemption nobody can check.
+  const allowlist = opts.allowlist ?? ALLOWLIST_PATHS;
   const offenders = [];
   let filesScanned = 0;
 
@@ -74,10 +92,13 @@ export function createAuditor(opts = {}) {
       // mid-build), not real pages — same skip as audit-breadcrumb-coverage.
       if (html.length === 0) return;
       filesScanned += 1;
-      const path = relative(ROOT, file).replace(/^dist\//, '');
-      if (ALLOWLIST_PATHS.includes(path)) return;
+      const url = toDistRelPath(file);
+      if (allowlist.includes(url)) return;
       const count = countH1Tags(html);
-      if (count > 1) offenders.push({ path, metric: count });
+      // `path` stays slash-less for report readability (every sibling auditor
+      // reports that shape); `url` is the allowlist's shape. Two names because
+      // they are two different things, which is what went wrong before.
+      if (count > 1) offenders.push({ path: url.slice(1), url, metric: count });
     },
     report() {
       const passed = offenders.length === 0;

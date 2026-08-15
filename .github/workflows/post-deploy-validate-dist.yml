@@ -1495,6 +1495,20 @@ jobs:
           # What is LEFT here is the fifth file. Its multi-invariant construct
           # is not one auditor, and it is out of scope of that fold.
           #
+          # COST, stated honestly because the tempting version is wrong. This
+          # does NOT add a dist walk and does NOT add a file read — those, the
+          # dominant terms, stay at one each. It DOES add real CPU to
+          # `collect`: countH1Tags does four whole-document `.replace()` passes
+          # and extractAnchors four more, plus a per-anchor scan, on every
+          # sampled file. That is ~8 extra full-document allocations per file
+          # across the sampled slice, and the runner's READAHEAD hides I/O
+          # behind CPU, not the reverse — so it lands on wall time rather than
+          # being absorbed. It has NOT been measured at production scale (no
+          # dist/ exists outside this job), so treat the first post-merge run's
+          # `audit-all: - collect:` line as the measurement, not this comment.
+          # The job has no timeout-minutes, so the failure mode of being wrong
+          # here is a slower gate, not a fabricated red.
+          #
           # Unlike that report, this one is a REAL gate: non-zero rc is
           # appended to /tmp/post-build-failures.txt like every spawn_capped
           # entry, so it reaches `failed_gates` below.

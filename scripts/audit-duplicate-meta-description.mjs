@@ -78,11 +78,46 @@ export function createAuditor(opts = {}) {
     return v > 0 && v <= 1 ? v : 1;
   })();
 
-  /** description → paths that carry it, capped so one fallback family cannot
-   *  grow the accumulator without bound on a 3.8M-file corpus. */
+  /**
+   * hash(description) → { count, paths, sample }.
+   *
+   * KEYED BY HASH, NOT BY THE DESCRIPTION. This auditor shares ONE Node
+   * process (and one `--max-old-space-size=4096`) with sixteen other
+   * accumulating auditors, and its entry count is inherently the number of
+   * DISTINCT descriptions — near-unique on job and article pages, so ~950k
+   * entries on a 25% sample of a 3.8M-file corpus. Retaining the full
+   * description string as the key made each of those entries carry its own
+   * 150-300 char string: hundreds of MB of live heap, the same accumulator
+   * shape as the OOM this migration exists to fix, only divided by four.
+   * `scripts/audit-content-duplicates.mjs` hit this first and stores a
+   * `sha256` for the same reason.
+   *
+   * What is bounded here and what is NOT, stated so the next reader does not
+   * have to re-derive it: per-entry size IS bounded (a 16-char key, a counter,
+   * ≤5 paths, a ≤100-char sample); the NUMBER of entries is not — it is the
+   * distinct-description count, and no single-pass duplicate detector can
+   * avoid that. `PATHS_PER_DESCRIPTION_CAP` bounds only the path list, which
+   * was never the dominant term.
+   */
   const byDescription = new Map();
-  const PATHS_PER_DESCRIPTION_CAP = 25;
+  const PATHS_PER_DESCRIPTION_CAP = 5;
+  const DESCRIPTION_SAMPLE_CHARS = 100;
   let filesScanned = 0;
+
+  // 64-bit FNV-1a as 16 hex chars. Non-cryptographic is right here: the input
+  // is our own build output, not adversarial, and at ~1M distinct keys the
+  // 64-bit birthday collision probability is ~3e-7 — orders of magnitude below
+  // the recall this gate already gives up to sampling.
+  const hashKey = (s) => {
+    let h1 = 0x811c9dc5;
+    let h2 = 0x01000193;
+    for (let i = 0; i < s.length; i++) {
+      const c = s.charCodeAt(i);
+      h1 = Math.imul(h1 ^ c, 0x01000193) >>> 0;
+      h2 = Math.imul(h2 ^ c, 0x85ebca6b) >>> 0;
+    }
+    return `${h1.toString(16).padStart(8, '0')}${h2.toString(16).padStart(8, '0')}`;
+  };
 
   return {
     name: 'duplicate-meta-description',
@@ -92,23 +127,30 @@ export function createAuditor(opts = {}) {
       const desc = extractMetaDescriptionRaw(html);
       if (!desc) return;
       if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) return;
-      const entry = byDescription.get(desc);
+      const path = relative(ROOT, file).replace(/^dist\//, '');
+      const key = hashKey(desc);
+      const entry = byDescription.get(key);
       if (entry) {
         entry.count += 1;
-        if (entry.paths.length < PATHS_PER_DESCRIPTION_CAP) {
-          entry.paths.push(relative(ROOT, file).replace(/^dist\//, ''));
-        }
+        if (entry.paths.length < PATHS_PER_DESCRIPTION_CAP) entry.paths.push(path);
       } else {
-        byDescription.set(desc, { count: 1, paths: [relative(ROOT, file).replace(/^dist\//, '')] });
+        // `.slice()` on a substring can retain the parent string in V8; the
+        // template literal forces a flat copy, so the full 300-char
+        // description is not kept alive by the 100-char sample.
+        byDescription.set(key, {
+          count: 1,
+          paths: [path],
+          sample: `${desc.slice(0, DESCRIPTION_SAMPLE_CHARS)}`,
+        });
       }
     },
     report() {
       const offenders = [];
-      for (const [desc, { count, paths }] of byDescription) {
+      for (const { count, paths, sample } of byDescription.values()) {
         if (count > maxPages) {
           offenders.push({
             path: paths[0],
-            description: desc.slice(0, 100),
+            description: sample,
             metric: count,
             pages: paths.slice(0, 5),
           });

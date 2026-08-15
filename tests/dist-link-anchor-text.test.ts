@@ -31,7 +31,9 @@
  * So when this manual copy is run with `RUN_DIST_GATES=1` against a local
  * full dist/, it enforces the PRE-CONVERSION cap: the two agree at the
  * reference corpus size and diverge as dist/ grows. The auditor is the
- * authority. This file is not in `gate:dist-quality` any more — five files
+ * authority — and nothing enforces that `hasAccessibleName` /
+ * `extractAnchors` below still match its copies, so if the two disagree this
+ * file is the stale one. This file is not in `gate:dist-quality` any more — five files
  * there scanned 3,798,763 HTML files in one worker pool and died
  * `ERR_WORKER_OUT_OF_MEMORY` after 597.95 s (run 31891126686).
  *

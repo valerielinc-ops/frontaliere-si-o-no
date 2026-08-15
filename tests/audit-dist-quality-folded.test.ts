@@ -14,9 +14,14 @@
  *
  *   1. AN AUDITOR STOPS BEING REACHABLE. A file can exist, be correct, export
  *      a perfect `factory()`, and never be in the REGISTRY — the exact shape
- *      of the orphan-gate class `tests/gate-wiring.test.ts` inventories. So
- *      the reachability assertions do not read `audit-all.mjs`'s text: they
- *      EXECUTE it against a fixture dist/ and read its own verdict line.
+ *      of the orphan-gate class `tests/gate-wiring.test.ts` inventories. The
+ *      four factories are therefore driven through the REAL runner over a
+ *      fixture dist/ (behaviour), and REGISTRY membership is asserted against
+ *      `audit-all.mjs`'s text using the name each auditor reports at runtime
+ *      rather than a literal repeated here. Why not simply spawn
+ *      `audit-all.mjs` and read its verdict line — which would prove both at
+ *      once — is answered at the `run()` helper: it is red in every sparse
+ *      worktree.
  *
  *   2. THE RATE CONVERSION GETS REVERTED. `link-anchor-text` is the one
  *      threshold that had to change shape — an absolute corpus-wide cap of
@@ -34,7 +39,14 @@
  * Fixtures are written to a temp dir, never to the repo's dist/: dist/ does
  * not exist in a sparse worktree, and merely creating it flips several
  * `existsSync(DIST)`-guarded suites from "skipped" to "running". For the same
- * reason the child processes get `AUDIT_REPORTS_DIR` pointed at the temp dir.
+ * reason `runAudits` is called with `writeReports: false` — the report writer
+ * would otherwise create `dist/audit-reports/` at the repo root.
+ *
+ * WHAT THIS FILE DOES NOT COVER, so nobody leans on it: it exercises the four
+ * AUDITORS, never the four vitest mirrors. Those are manual-only now, nothing
+ * runs them, and no test asserts that their copies of `countH1Tags` /
+ * `hasAccessibleName` still match the auditors' — see the mirrors' own
+ * headers, which state that the auditor is the authority.
  */
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
@@ -55,6 +67,7 @@ import {
   createAuditor as createAnchorAuditor,
   factory as anchorFactory,
   MAX_ANCHORS_WITHOUT_NAME_RATE,
+  RATE_TOLERANCE_REL,
   MAX_LINKS_WITHOUT_ANCHOR_TEXT_ABS,
   REFERENCE_CORPUS_FILES,
 } from '../scripts/audit-link-anchor-text.mjs';
@@ -262,9 +275,41 @@ describe('link-anchor-text: the absolute cap really became a rate', () => {
     );
   });
 
-  it('reports a rate threshold, not a count', () => {
+  it('reports a rate threshold, not a count, and names its sampling tolerance', () => {
     const r = runOn(createAnchorAuditor(), [['a.html', page('<a href="/x">Testo</a>')]]);
-    expect(r.threshold).toEqual({ metric: 'rate', value: MAX_ANCHORS_WITHOUT_NAME_RATE, comparator: '<=' });
+    expect(r.threshold.metric).toBe('rate');
+    expect(r.threshold.value).toBe(MAX_ANCHORS_WITHOUT_NAME_RATE);
+    // The tolerance must be visible in the verdict record: a threshold that
+    // silently allows 20% more than the number next to it is a threshold
+    // nobody can check against the run.
+    expect(r.threshold.comparator).toContain('tolerance');
+    expect(r.extra.rateToleranceRel).toBe(RATE_TOLERANCE_REL);
+    expect(r.extra.effectiveMaxRate).toBeCloseTo(MAX_ANCHORS_WITHOUT_NAME_RATE * 1.2, 12);
+  });
+
+  it('the tolerance absorbs sampling noise WITHOUT absorbing a real regression', () => {
+    // The two sides of the noise floor, pinned so neither can drift alone.
+    // Just over the bare cap but inside 3σ of the sampled draw → green.
+    const nearCap = runOn(
+      createAnchorAuditor(),
+      Array.from({ length: 3400 }, (_, i) =>
+        i === 0
+          ? (['bad.html', page('<a href="/y"><span></span></a>')] as [string, string])
+          : ([`ok-${i}.html`, page(`<a href="/x">Testo ${i}</a>`)] as [string, string]),
+      ),
+    );
+    expect(nearCap.extra.unnamedAnchorRate).toBeGreaterThan(MAX_ANCHORS_WITHOUT_NAME_RATE);
+    expect(nearCap.passed, 'a rate inside the documented tolerance must not flap red').toBe(true);
+    // A doubling is 100% over the cap, far outside any noise argument → red.
+    const doubled = runOn(
+      createAnchorAuditor(),
+      Array.from({ length: 1700 }, (_, i) =>
+        i === 0
+          ? (['bad.html', page('<a href="/y"><span></span></a>')] as [string, string])
+          : ([`ok-${i}.html`, page(`<a href="/x">Testo ${i}</a>`)] as [string, string]),
+      ),
+    );
+    expect(doubled.passed, 'the tolerance must not swallow a real regression').toBe(false);
   });
 
   it('MUTATION: a small corpus dense in offenders is RED — an absolute cap would pass it', () => {
@@ -280,7 +325,14 @@ describe('link-anchor-text: the absolute cap really became a rate', () => {
     expect(r.extra.filesScanned).toBe(1000);
     expect(r.extra.unnamedAnchors).toBe(5);
     expect(r.extra.unnamedAnchorRate).toBeCloseTo(0.005, 6);
-    expect(r.humanSummary).toContain('>');
+    // The failure line must come from the SHARED formatter: this gate prints a
+    // sampled count next to a full-corpus cap, and mixAdjustedRateGate.mjs's
+    // header records what a local template cost the last time (two real
+    // regressions read as denominator artifacts, 2026-08-06). The repo-wide
+    // sweep in tests/seo/regressed-feature-message.test.ts enforces the import;
+    // this pins that the message actually flows through it.
+    expect(r.humanSummary).toContain('anchors-without-accessible-name');
+    expect(r.humanSummary).toMatch(/rate .* allowed; offenders ~\d+ vs \d+ baseline/);
   });
 
   it('MUTATION: the verdict does not move when the corpus doubles at equal density', () => {
@@ -422,6 +474,21 @@ describe('single-h1-per-page: per-page, zero tolerance, denominator-free', () =>
     expect(withNoise(500).passed).toBe(false);
     expect(withNoise(1).offenders.length).toBe(withNoise(500).offenders.length);
     expect(withNoise(500).threshold).toEqual({ metric: 'count', value: 0, comparator: '<=' });
+  });
+
+  it('the allowlist is keyed by the SAME shape the vitest mirror uses (leading slash)', () => {
+    // The mirror's ALLOWLIST_PATHS is compared against scanDistHtml's
+    // `full.slice(distDir.length)` — `/de/x/index.html`, WITH the slash. This
+    // auditor derives its own path from `relative(ROOT, file)`, which has no
+    // slash. Both lists are empty today, so a mismatch is inert until someone
+    // adds the same entry to both files (which the mirror's header tells them
+    // to) and the exemption silently applies in only one of the two.
+    const pages: Array<[string, string]> = [['de/x/index.html', page('<h1>Uno</h1><h1>Due</h1>')]];
+    expect(runOn(createSingleH1Auditor(), pages).passed).toBe(false);
+    expect(
+      runOn(createSingleH1Auditor({ allowlist: ['/de/x/index.html'] }), pages).passed,
+      'the leading-slash form — the mirror\'s form — did not exempt the page',
+    ).toBe(true);
   });
 
   it('h1 inside script / template / comments is not an h1 (mirror parity)', () => {
