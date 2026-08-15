@@ -15,6 +15,18 @@
  * because a curated employer brand may legitimately overlay the
  * generic site-wide Organization (Google merges them).
  *
+ * THIS FILE IS NO LONGER THE GATE (#5845 item 6). The gate is
+ * `scripts/audit-duplicate-structured-data.mjs`, registered in
+ * `scripts/audit-all.mjs`'s REGISTRY and running blocking against the same
+ * dist/ inside `npm run audit:all` — one shared, sampled walk. This copy
+ * stays as a standalone/manual check behind `RUN_DIST_GATES=1` (the
+ * disposition PR #5883 gave `tests/seo/breadcrumb-coverage.test.ts`) and is
+ * NOT in `gate:dist-quality` any more. The soft-budget assertion below is
+ * what prescribed the move — "register this invariant as an auditor in
+ * scripts/audit-all.mjs so it rides the single shared walk" — and it did not
+ * travel with it: it bounds a walk this file no longer owns. Behaviour is
+ * verified against the auditor in `tests/audit-dist-quality-folded.test.ts`.
+ *
  * Dist-driven: skips silently when `dist/` does not exist OR
  * `RUN_DIST_GATES=1` is not set, so `npx vitest run` continues to
  * work without a build. CI builds dist first and sets the env var.

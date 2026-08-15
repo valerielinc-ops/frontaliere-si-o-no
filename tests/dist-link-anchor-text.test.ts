@@ -15,9 +15,27 @@
  *   - it wraps an `<img>` with a non-empty `alt`
  *   - it wraps an `<svg>` with `role="img"` + `<title>` (or `aria-label`)
  *
- * The audit reports 888 offending links (+23 new); this gate caps the
+ * The audit reports 888 offending links (+23 new); this file caps the
  * count at the current observed budget so the regression cannot grow.
- * Lower the cap as the underlying components are fixed.
+ *
+ * THIS FILE IS NO LONGER THE GATE (#5845 item 6), AND ITS CAP IS THE OLD
+ * SHAPE. The gate is `scripts/audit-link-anchor-text.mjs`, registered in
+ * `scripts/audit-all.mjs`'s REGISTRY and running blocking against the same
+ * dist/ inside `npm run audit:all`. There the corpus-wide absolute cap below
+ * became a RATE — 1100 / 3,798,763 offending anchors per page — because an
+ * absolute count cannot survive `AUDIT_SAMPLE_RATE=0.25` (it reads ~4x low)
+ * nor corpus growth (it tightens on its own). The equivalence, the measured
+ * denominator and the mutation cases that pin the conversion are in that
+ * file's header and in `tests/audit-dist-quality-folded.test.ts`.
+ *
+ * So when this manual copy is run with `RUN_DIST_GATES=1` against a local
+ * full dist/, it enforces the PRE-CONVERSION cap: the two agree at the
+ * reference corpus size and diverge as dist/ grows. The auditor is the
+ * authority — and nothing enforces that `hasAccessibleName` /
+ * `extractAnchors` below still match its copies, so if the two disagree this
+ * file is the stale one. This file is not in `gate:dist-quality` any more — five files
+ * there scanned 3,798,763 HTML files in one worker pool and died
+ * `ERR_WORKER_OUT_OF_MEMORY` after 597.95 s (run 31891126686).
  *
  * The test is dist-driven: it skips silently when `dist/` does not
  * exist locally.

@@ -107,6 +107,21 @@ export const QUALITY_GATES = Object.freeze({
   'audit:all/page-weight': 'page byte budget; page serves',
   'audit:all/no-literal-markdown': 'unrendered markdown in <main>; page serves',
   'audit:all/salary-landing-template': 'landing template drift; page serves',
+
+  // ── the four folded out of `gate:dist-quality` (#5845 item 6) ──────────
+  // These are the SAME four invariants `dist:quality-tests` above covers as
+  // QUALITY; they moved from a vitest pool that OOM'd at 597.95 s (run
+  // 31891126686) into scripts/audit-all.mjs's REGISTRY. Their class does not
+  // change with the runner: a page with two <h1>, a duplicated FAQPage block,
+  // an unnamed anchor or a recycled meta description still renders and
+  // serves. Omitting them here would silently RE-CLASSIFY all four as
+  // deploy-invalidating via default-deny — sequestering the indexing
+  // notification of a valid deploy for a cosmetic defect, which is exactly
+  // what #4828 removed and what the `dist:quality-tests` entry prevents today.
+  'audit:all/single-h1-per-page': 'ambiguous page topic; page serves',
+  'audit:all/duplicate-structured-data': 'duplicate page-scoped JSON-LD @type; page serves',
+  'audit:all/link-anchor-text': 'anchors without an accessible name; page serves',
+  'audit:all/duplicate-meta-description': 'recycled meta description; page serves',
 });
 
 /**

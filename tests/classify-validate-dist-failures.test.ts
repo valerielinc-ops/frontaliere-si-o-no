@@ -88,7 +88,16 @@ describe('validate-dist failure classification', () => {
     // post-deploy-validate-dist.yml, running for the first time ever against
     // production dist/ — same "page renders and serves" class as
     // content-duplicates/h1-title-duplicates below.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(15);
+    //
+    // Raised 15 → 19 deliberately for #5845 item 6, and this one adds NO new
+    // defect class: four of the five files behind `dist:quality-tests` became
+    // auditors in scripts/audit-all.mjs, so the same four invariants that were
+    // already classified QUALITY under one top-level name now arrive as
+    // `audit:all/<name>`. Leaving them off would not have been "keeping the
+    // allowlist small" — it would have re-classified four cosmetic gates as
+    // deploy-invalidating by default-deny, silently, which is #4828's failure
+    // mode. `dist:quality-tests` stays: the fifth file still runs under it.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(19);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
     expect(topLevel).toHaveLength(5);
     // Every entry carries a rationale string, not a bare flag.

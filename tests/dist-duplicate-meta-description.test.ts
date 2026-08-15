@@ -19,6 +19,24 @@
  * reader below is kept correct so that enabling it is a one-line change
  * and not a debugging session. Wiring it is tracked separately.
  *
+ * UPDATE (#5845 item 6): it got wired, it ran, and it could not finish —
+ * `gate:dist-quality` scanned 3,798,763 HTML files across five vitest files
+ * in one worker pool and died `ERR_WORKER_OUT_OF_MEMORY` after 597.95 s (run
+ * 31891126686). THIS FILE IS NO LONGER THE GATE. The gate is
+ * `scripts/audit-duplicate-meta-description.mjs`, registered in
+ * `scripts/audit-all.mjs`'s REGISTRY, riding one shared sampled walk; this
+ * copy stays as a standalone/manual check behind `RUN_DIST_GATES=1` (the
+ * disposition PR #5883 gave `tests/seo/breadcrumb-coverage.test.ts`).
+ *
+ * One difference to know before reading a green auditor run as proof: this
+ * file counts group sizes over the WHOLE corpus, the auditor counts them
+ * within the sampled slice. That direction of error is under-reporting only
+ * (a sampled group is a real group), it is stated in the auditor's report
+ * `extra.samplingSemantics`, and it is pinned in
+ * `tests/audit-dist-quality-folded.test.ts` — including against the tempting
+ * "fix" of scaling the threshold by the sample rate, which would fail every
+ * page that merely HAS a description.
+ *
  * TODO(seo): once the fallback descriptions are parameterised in the
  * emit plugins (staticPagesPlugin, ogPagesPlugin, jobsSeoPagesPlugin),
  * tighten `MAX_DUPLICATE_PAGES_PER_DESCRIPTION` from 2 toward 1.
