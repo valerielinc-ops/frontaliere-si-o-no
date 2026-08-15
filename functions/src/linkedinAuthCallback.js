@@ -140,7 +140,9 @@ export async function handleLinkedInCallback({ code, redirectUri }) {
  const locale = userInfo.locale
  ? (typeof userInfo.locale === 'object' ? userInfo.locale.language : String(userInfo.locale))
  : null;
- const emailVerified = userInfo.email_verified ?? null;
+ // Fail-closed: only an explicit `true` from LinkedIn counts as verified.
+ // Missing/null/undefined must never be treated as verified.
+ const emailVerified = userInfo.email_verified === true;
  const linkedInSub = userInfo.sub || null;
 
  // ── Attempt to fetch basic profile (headline, vanityName) via r_basicprofile ─
@@ -164,7 +166,7 @@ export async function handleLinkedInCallback({ code, redirectUri }) {
  if (err.code === 'auth/user-not-found') {
  const created = await admin.auth().createUser({
  email,
- emailVerified: emailVerified ?? true,
+ emailVerified,
  ...(displayName ? { displayName } : {}),
  ...(photoURL ? { photoURL } : {}),
  });
