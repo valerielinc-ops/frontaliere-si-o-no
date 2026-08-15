@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-15T09:35:53.838Z",
-  "total": 81,
+  "generatedAt": "2026-08-15T21:26:46.563Z",
+  "total": 80,
   "newCount": 1,
   "updatedCount": 79,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 41523,
-  "avgDurationMs": 41523,
+  "unchangedCount": 0,
+  "durationMs": 44595,
+  "avgDurationMs": 44595,
   "durationHistory": [
-    41523
+    44595
   ],
   "newJobs": [
     {
@@ -1106,47 +1106,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Senior-Executive-Assistant-60-100---Genve--or-Zurich----f-m-d-_r-19068",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Senior-Executive-Assistant-60-100---Genve--or-Zurich----f-m-d-_r-19068",
-      "title": "Senior Executive Assistant 60-100%, Genève (or Zurich), (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-executive-assistant-60-100-geneve-or-zurich-f-m-d-julius-baer",
-      "category": "admin",
-      "datePosted": "2026-07-15",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "firstSeenAt": "2026-07-15T10:59:12.546Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Lombard-Credit-Officer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-23122026-_r-19118-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Lombard-Credit-Officer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-23122026-_r-19118-2",
       "title": "Lombard Credit Officer 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 23.12.2026)",
@@ -1185,5 +1144,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
