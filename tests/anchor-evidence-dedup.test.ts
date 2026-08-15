@@ -231,7 +231,10 @@ describe('deduplica delle citazioni della fonte nel rimedio', () => {
 
     const testo = rimedio(checkSourceFidelity(BOZZA_VUOTA, fonte, {}));
     assert.ok(testo.length > 500, `guardia anti-verde-a-vuoto: rimedio troppo corto (${testo.length})`);
-    const TETTO = 99999;
+    // Misurato: 2.070 char raggruppati (vedi header). Tetto vicino al misurato,
+    // non al pre-deduplica (3.169-3.861): se la deduplica regredisce del tutto,
+    // il test deve fallire, non restare verde con ~48x di margine.
+    const TETTO = 2200;
     assert.ok(
       testo.length <= TETTO,
       `rimedio ${testo.length} char > tetto ${TETTO} (era 3.169 prima della deduplica). `
