@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-08-15T10:00:44.364Z",
-  "total": 196,
+  "generatedAt": "2026-08-15T21:40:00.390Z",
+  "total": 194,
   "newCount": 14,
   "updatedCount": 180,
-  "removedCount": 3,
-  "unchangedCount": 2,
-  "durationMs": 330911,
-  "avgDurationMs": 330911,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 341495,
+  "avgDurationMs": 341495,
   "durationHistory": [
-    330911
+    341495
   ],
   "newJobs": [
     {
@@ -1133,107 +1133,6 @@
   ],
   "removedJobs": [
     {
-      "title": "Collaborateur/trice supermarché (Boulangerie) 80%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie%29-80/1363553755/",
-      "location": "Lausanne Collaborateurtrice supermarché (Boulangerie)",
-      "canton": "VD",
-      "country": "CH",
-      "category": "hospitality",
-      "descriptionIt": "Collaborateur/trice supermarché (Boulangerie) 80% presso Manor, con sede a Lausanne Collaborateurtrice supermarché (Boulangerie), Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-11",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-boulangerie-80-lausanne-collaborateurtrice-supermarche-boulangerie",
-      "sourceLang": "it",
-      "id": "manor-18bf4c1c7cdf",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T22:32:30.284Z",
-      "crawledAt": "",
-      "salaryMin": 52400,
-      "salaryMax": 66000,
-      "currency": "CHF",
-      "addressLocality": "Lausanne Collaborateurtrice supermarché (Boulangerie)",
-      "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 20,
-        "completeness": 16
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Verkauf 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Zug-Mitarbeiterin-Verkauf-50/1363281755/",
-      "location": "Zug Mitarbeiterin Verkauf 50",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "• Kommunikation: Freundlich, überzeugend und typgerecht sprechen.\n• Materialkunde: Wissen über Stoffe, Passformen und die richtige Pflege vermitteln.\n• Warenpräsentation: Kleidung ansprechend im Geschäft oder Schaufenster anordnen.\n• Belastbarkeit: Auch bei grossem Andrang oder Stress ruhig und freundlich bleiben.\n• Flexibilität: Bereit sein, zu wechselnden Zeiten zu arbeiten",
-      "postedDate": "2026-08-07",
-      "source": "company-website",
-      "slug": "collaboratore-trice-in-vendita-50-manor-ag-zug-mitarbeiterin-verkauf-50",
-      "sourceLang": "de",
-      "id": "manor-54eabe477857",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T10:23:22.129Z",
-      "crawledAt": "",
-      "salaryMin": 39500,
-      "salaryMax": 60800,
-      "currency": "CHF",
-      "addressLocality": "Zug Mitarbeiterin Verkauf 50",
-      "addressRegion": "ZG",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 16
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Verkauf (Warenpflege) Fashion 20%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Verkauf-%28Warenpflege%29-Fashion-20/1360061855/",
-      "location": "Winterthur Mitarbeiterin Verkauf (Warenpflege)",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Mitarbeiter*in Verkauf (Warenpflege) Fashion 20% presso Manor, con sede a Winterthur Mitarbeiterin Verkauf (Warenpflege), Canton Zurigo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-07-10",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-warenpflege-fashion-20-winterthur-mitarbeiterin-verkauf-warenpflege",
-      "sourceLang": "it",
-      "id": "manor-c8b00c256780",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-10T10:32:44.569Z",
-      "crawledAt": "",
-      "salaryMin": 16600,
-      "salaryMax": 25500,
-      "currency": "CHF",
-      "addressLocality": "Winterthur Mitarbeiterin Verkauf (Warenpflege)",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 16
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "title": "Mitarbeiter*in Kasse 40%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -1298,5 +1197,6 @@
         "completeness": 16
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
