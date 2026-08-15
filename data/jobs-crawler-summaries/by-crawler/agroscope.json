@@ -1,49 +1,18 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-14T21:41:22.787Z",
+  "generatedAt": "2026-08-15T09:45:09.226Z",
   "total": 13,
-  "newCount": 1,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5962,
-  "avgDurationMs": 5962,
+  "durationMs": 5264,
+  "avgDurationMs": 5264,
   "durationHistory": [
-    5962
+    5264
   ],
-  "newJobs": [
-    {
-      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
-      "slug": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Ins, Schweiz",
-      "addressLocality": "Ins",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-08-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Laborant/-in Saatgutqualität",
@@ -141,7 +110,6 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:01:06.821Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -213,6 +181,42 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-31T22:09:05.331Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
+      "slug": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
+      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ins, Schweiz",
+      "addressLocality": "Ins",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-93b4d74bb39f",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:41:22.783Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
