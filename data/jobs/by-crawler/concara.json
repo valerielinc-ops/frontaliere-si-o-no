@@ -1,6 +1,6 @@
 {
   "crawlerKey": "concara",
-  "assembledAt": "2026-08-15T09:47:27.118Z",
+  "assembledAt": "2026-08-15T07:44:19.144Z",
   "jobs": [
     {
       "id": "concara-fc62832242a3",
@@ -522,16 +522,42 @@
       "previousSlugs": [
         "fachperson-gesundheit-und-dipl-pflegefachperson-50-100-concara-bern",
         "specialiste-en-sante-50-100-concara-domicil-spitex-bern-bern",
-        "operatore-socio-sanitario-e-infermiere-diplomato-50-100-concara-domicil-spitex-bern-bern"
+        "operatore-socio-sanitario-e-infermiere-diplomato-50-100-concara-domicil-spitex-bern-bern",
+        "professionista-della-salute-50-100-concara-domicil-spitex-bern-bern",
+        "specialist-health-50-100-concara-domicil-spitex-bern-bern",
+        "fachperson-gesundheit-50-100-concara-bern",
+        "sante-specialisee-50-100-concara-domicil-spitex-bern-bern",
+        "salute-specialistica-50-100-concara-domicil-spitex-bern-bern",
+        "specialista-in-payroll-al-80-100-concara-domicil-spitex-bern-bern",
+        "payroll-specialist-80-100-concara-domicil-spitex-bern-bern",
+        "spezialist-in-payroll-80-100-concara-bern",
+        "specialiste-de-la-paie-a-80-100-concara-domicil-spitex-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-und-dipl-pflegefachperson-50-100-concara-bern",
           "specialiste-en-sante-50-100-concara-domicil-spitex-bern-bern",
-          "operatore-socio-sanitario-e-infermiere-diplomato-50-100-concara-domicil-spitex-bern-bern"
+          "operatore-socio-sanitario-e-infermiere-diplomato-50-100-concara-domicil-spitex-bern-bern",
+          "professionista-della-salute-50-100-concara-domicil-spitex-bern-bern",
+          "specialist-health-50-100-concara-domicil-spitex-bern-bern",
+          "fachperson-gesundheit-50-100-concara-bern",
+          "sante-specialisee-50-100-concara-domicil-spitex-bern-bern",
+          "salute-specialistica-50-100-concara-domicil-spitex-bern-bern",
+          "specialista-in-payroll-al-80-100-concara-domicil-spitex-bern-bern",
+          "payroll-specialist-80-100-concara-domicil-spitex-bern-bern",
+          "spezialist-in-payroll-80-100-concara-bern",
+          "specialiste-de-la-paie-a-80-100-concara-domicil-spitex-bern-bern"
         ],
         "fr": [
-          "specialiste-en-sante-50-100-concara-domicil-spitex-bern-bern"
+          "specialiste-en-sante-50-100-concara-domicil-spitex-bern-bern",
+          "sante-specialisee-50-100-concara-domicil-spitex-bern-bern",
+          "specialiste-de-la-paie-a-80-100-concara-domicil-spitex-bern-bern"
+        ],
+        "en": [
+          "specialist-health-50-100-concara-domicil-spitex-bern-bern"
+        ],
+        "de": [
+          "fachperson-gesundheit-50-100-concara-bern"
         ]
       },
       "firstSeenAt": "2026-07-10T13:02:44.010Z",
@@ -3678,17 +3704,32 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern"
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
+        "dipl-pflegefachperson-come-nachtwache-60-100-concara-domicil-spitex-bern",
+        "dipl-care-professional-as-night-guard-60-100-concara-domicil-spitex-bern-bern",
+        "dipl-pflegefachperson-als-nachtwache-60-100-concara-bern",
+        "dipl-professionnel-de-garde-de-nuit-60-100-concara-domicil-spitex-bern-bern",
+        "dipl-pflegefachperson-als-nachtwache-60-100-concara-domicil-spitex-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern"
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
+          "dipl-pflegefachperson-come-nachtwache-60-100-concara-domicil-spitex-bern",
+          "dipl-care-professional-as-night-guard-60-100-concara-domicil-spitex-bern-bern",
+          "dipl-pflegefachperson-als-nachtwache-60-100-concara-bern",
+          "dipl-professionnel-de-garde-de-nuit-60-100-concara-domicil-spitex-bern-bern",
+          "dipl-pflegefachperson-als-nachtwache-60-100-concara-domicil-spitex-bern"
         ],
         "en": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern"
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
+          "dipl-care-professional-as-night-guard-60-100-concara-domicil-spitex-bern-bern"
         ],
         "fr": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern"
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
+          "dipl-professionnel-de-garde-de-nuit-60-100-concara-domicil-spitex-bern-bern"
+        ],
+        "de": [
+          "dipl-pflegefachperson-als-nachtwache-60-100-concara-bern"
         ]
       },
       "firstSeenAt": "2026-08-13T22:09:29.909Z",

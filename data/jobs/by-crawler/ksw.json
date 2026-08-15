@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-15T09:37:55.921Z",
+  "assembledAt": "2026-08-15T08:35:58.604Z",
   "jobs": [
     {
       "id": "ksw-58fd221ee193",
@@ -4075,7 +4075,11 @@
         "assistente-di-medicina-di-pratica-assistente-di-medicina-di-pratica-kantonsspital-winterthur-ksw-winterthur",
         "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
         "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
-        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-7f5d19",
+        "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-7f5d19",
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-b3qj6r",
+        "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4090,11 +4094,16 @@
           "assistente-di-medicina-di-pratica-assistente-di-medicina-di-pratica-kantonsspital-winterthur-ksw-winterthur",
           "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
           "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
-          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur"
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur-7f5d19",
+          "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-7f5d19",
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-b3qj6r",
+          "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-59812c",
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+          "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur-7f5d19"
         ],
         "fr": [
           "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur-59812c",
@@ -4102,7 +4111,6 @@
         ]
       },
       "firstSeenAt": "2026-08-02T10:48:23.466Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4114,7 +4122,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-1a0e21d0ad42",
