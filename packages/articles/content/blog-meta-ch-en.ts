@@ -2728,6 +2728,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.title': 'Inheritance and gift tax in the Canton of Lucerne',
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.excerpt': 'Different rates are provided according to the degree of kinship between beneficiaries and donors.',
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.imageAlt': 'A Lucerne official in a financial activity',
+    'blog.article.premi-cassa-malati-cantone-uri.title': 'Health insurance premiums Canton Uri and premium reduction',
+    'blog.article.premi-cassa-malati-cantone-uri.excerpt': 'The sick cash premiums in Canton Uri and the conditions for the reduction of the premiums.',
+    'blog.article.premi-cassa-malati-cantone-uri.imageAlt': 'Switzerland is a multilingual country located in Central Europe.',
 };
 
 export default blogMetaChEn;

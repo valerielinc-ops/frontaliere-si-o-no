@@ -935,6 +935,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-pubblici-canton-lucerna': { it: 'abbonamenti-trasporti-pubblici-canton-lucerna', en: 'public-transport-passes-canton-lucerne-zones-and-fares', de: 'ov-abos-kanton-luzern-zonen-und-tarife', fr: 'abonnements-transports-publics-canton-lucerne-zones-et-tarifs' },
  'salari-mercato-lavoro-lucerna-settori-livelli': { it: 'salari-mercato-lavoro-lucerna-settori-livelli', en: 'salaries-labor-market-lucerne-sectors-levels', de: 'gehalte-arbeitsmarkt-luzern-sektoren-stufen', fr: 'salaires-marche-du-travail-lucerne-secteurs-niveaux' },
  'imposta-di-succesione-e-donazione-canton-lucerna': { it: 'imposta-di-succesione-e-donazione-canton-lucerna', en: 'imposta-di-succesione-e-donazione-canton-lucerna-en', de: 'imposta-di-succesione-e-donazione-canton-lucerna-de', fr: 'imposta-di-succesione-e-donazione-canton-lucerna-fr' },
+ 'premi-cassa-malati-cantone-uri': { it: 'premi-cassa-malati-cantone-uri', en: 'health-insurance-premiums-canton-uri-and-premium-reduction', de: 'krankenkassenpramien-kanton-uri-und-pramienverbilligung', fr: 'primes-caisse-maladie-canton-uri-et-reduction-des-primes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

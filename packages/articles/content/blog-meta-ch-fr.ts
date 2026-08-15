@@ -2728,6 +2728,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.title': 'Droits de succession et de donation dans le canton de Lucerne',
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.excerpt': 'Des taux différents sont prévus en fonction du degré de parenté entre les bénéficiaires et les donneurs.',
     'blog.article.imposta-di-succesione-e-donazione-canton-lucerna.imageAlt': 'Un fonctionnaire lucernais dans une activité financière',
+    'blog.article.premi-cassa-malati-cantone-uri.title': 'Primes caisse-maladie Canton URI et réduction des primes',
+    'blog.article.premi-cassa-malati-cantone-uri.excerpt': 'Les primes caisse-maladie dans le canton d\'Uri et les conditions de réduction des primes.',
+    'blog.article.premi-cassa-malati-cantone-uri.imageAlt': 'La Suisse est un pays multilingue situé en Europe centrale.',
 };
 
 export default blogMetaChFr;
