@@ -930,6 +930,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-canton-lucerna-requisiti-e-procedura': { it: 'naturalizzazione-canton-lucerna-requisiti-e-procedura', en: 'naturalization-canton-lucerne-requirements-and-procedure', de: 'naturalisierung-kanton-luzern-anforderungen-und-verfahren', fr: 'procedure-dnaturalisation-canton-de-lucerne-exigences-et-procedures' },
  'avs-prestazioni-complementari-lucerna-cassa-di-compensazione': { it: 'avs-prestazioni-complementari-lucerna-cassa-di-compensazione', en: 'avs-complementary-benefits-lucerne-compensation-fund', de: 'avs-erganzungsleistungen-luzern-kompensationsfonds', fr: 'avs-prestations-complementaires-lucerne-fonds-de-compensation' },
  'avs-e-prestazioni-complementari-canton-lucerne': { it: 'avs-e-prestazioni-complementari-canton-lucerne', en: 'avs-and-complementary-benefits-canton-lucerne', de: 'avs-und-komplementaere-leistungen-kanton-lucerne', fr: 'avs-et-prestations-complementaires-canton-lucerne' },
+ 'aprire-un-attivita-canton-lucerna': { it: 'aprire-un-attivita-canton-lucerna', en: 'opening-a-business-in-lucerne-choice-of-legal-form-and-obligations', de: 'geschaft-in-luzern-eroffnen-wahl-der-rechtsform-und-pflichten', fr: 'ouvrir-une-entreprise-a-lucerne-choix-de-la-forme-juridique-et-obligations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
