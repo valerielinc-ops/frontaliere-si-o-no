@@ -1,18 +1,19 @@
 {
   "key": "cereneo",
   "label": "Cereneo",
-  "generatedAt": "2026-08-14T21:31:54.575Z",
+  "generatedAt": "2026-08-15T09:36:26.235Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5257,
-  "avgDurationMs": 5257,
+  "durationMs": 5968,
+  "avgDurationMs": 5968,
   "durationHistory": [
-    5257
+    5968
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cereneo-8596daae8f64",
       "slug": "it-operations-manager-80-100-cereneo-weggis",
@@ -20,13 +21,13 @@
       "companyKey": "cereneo",
       "companyDomain": "cereneo.ch",
       "title": "IT Operations Manager 80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Weggis",
       "canton": "LU",
       "url": "https://jobs.dualoo.com/portal/muy5swcr/5b125759-5631-40ca-9e5e-a850e8e3d2f5/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:31:50.441Z",
+      "crawledAt": "2026-08-15T09:36:21.664Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-14",
       "applyUrl": "https://jobs.dualoo.com/portal/muy5swcr/5b125759-5631-40ca-9e5e-a850e8e3d2f5/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-14T21:31:50.441Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cereneo-3cced39b4e47",
       "slug": "pflegefachperson-hf-gestalte-den-aufbau-unserer-neuen-imc-60-100-cereneo-weggis",
@@ -64,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/ffaa9e26-ec92-47f3-8a57-fc99775590cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:31:51.949Z",
+      "crawledAt": "2026-08-15T09:36:23.092Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/030961dc-89e2-4aaa-be0b-d95806c0b0f7/detail?lang=EN",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-14T21:31:49.941Z",
+      "crawledAt": "2026-08-15T09:36:21.184Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/d77dfdbc-8360-433d-9264-5605bf7899cc/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:31:50.938Z",
+      "crawledAt": "2026-08-15T09:36:22.146Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/b303bafb-11ef-4528-8d6d-c499c28e527d/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:31:51.453Z",
+      "crawledAt": "2026-08-15T09:36:22.618Z",
       "addressLocality": "Vitznau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://jobs.dualoo.com/portal/muy5swcr/c8705b31-bcaf-4258-90d1-e1f7dd6487b3/detail?lang=DE",
       "source": "Cereneo Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-14T21:31:52.447Z",
+      "crawledAt": "2026-08-15T09:36:23.567Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
