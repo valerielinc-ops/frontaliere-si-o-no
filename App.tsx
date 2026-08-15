@@ -172,6 +172,13 @@ import { useKillSwitches } from '@/hooks/useKillSwitches';
 // cold visit, and a lazy chunk would let ad scripts stay blocked behind a banner
 // that has not arrived yet.
 import AdsConsentBanner from '@/components/shared/AdsConsentBanner';
+// The consent slot's SECOND panel (#5842, owner direction 2026-08-15): once the
+// ads decision exists, the same surface asks an IDENTIFIED visitor without a
+// stored consent proof to confirm our communications — once per device, decline
+// falls back to the activation acts (#5902). Sequential in the same slot, never
+// both at once; lazy would be fine (it waits on auth anyway) but eager keeps the
+// two panels' lifecycles in one chunk and the component is ~3 KB.
+import CommunicationsConsentBanner from '@/components/shared/CommunicationsConsentBanner';
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
 // PostHog init is NOT eager here: firing it at module-eval pulled posthog-js +
@@ -3826,6 +3833,9 @@ const App: React.FC = () => {
  })()}
  {/* Advertising consent prompt (#5842) — fixed overlay, renders null once answered */}
  <AdsConsentBanner />
+ {/* Communications consent, same slot, only after the ads answer and only for an
+     identified visitor without stored proof — renders null for everyone else */}
+ <CommunicationsConsentBanner email={authEmail} />
  {/* Mobile Bottom Navigation Bar */}
  <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
  <div className="grid grid-cols-6 h-14">
