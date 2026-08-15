@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-08-15T09:34:57.497Z",
+  "assembledAt": "2026-08-15T21:22:58.192Z",
   "jobs": [
     {
       "id": "sonova-befc5732f81c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.169Z",
+      "crawledAt": "2026-08-15T21:22:54.763Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -49,11 +49,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
+        "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
+        "utensile-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch"
+          "werkzeugmacher-im-bereich-montage-wzb-m-w-d-sonova-ch",
+          "utensile-nel-campo-dell-assemblaggio-wzb-m-f-d-sonova-staefa-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -102,7 +104,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.163Z",
+      "crawledAt": "2026-08-15T21:22:54.760Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -118,11 +120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "power-management-engineer-80-100-m-f-d-sonova-ch"
+        "power-management-engineer-80-100-m-f-d-sonova-ch",
+        "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "power-management-engineer-80-100-m-f-d-sonova-ch"
+          "power-management-engineer-80-100-m-f-d-sonova-ch",
+          "power-management-ingegnere-80-100-m-f-d-sonova-staefa"
         ],
         "de": [
           "power-management-engineer-80-100-m-f-d-sonova-ch"
@@ -176,7 +180,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.156Z",
+      "crawledAt": "2026-08-15T21:22:54.757Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -192,14 +196,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch"
+        "technical-specialist-production-tsp-m-f-d-sonova-ch",
+        "technical-specialista-production-tsp-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-specialist-production-tsp-m-f-d-sonova-ch"
+          "technical-specialist-production-tsp-m-f-d-sonova-ch",
+          "technical-specialista-production-tsp-m-f-d-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-06-23T12:18:52.625Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -244,7 +251,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Internship-in-Charging-Solutions-Verification-%28mfd%29/1418749033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.147Z",
+      "crawledAt": "2026-08-15T21:22:54.753Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -260,14 +267,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-in-charging-solutions-verification-m-f-d-sonova-ch"
+        "internship-in-charging-solutions-verification-m-f-d-sonova-ch",
+        "internship-in-soluzioni-di-ricarica-verifica-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-in-charging-solutions-verification-m-f-d-sonova-ch"
+          "internship-in-charging-solutions-verification-m-f-d-sonova-ch",
+          "internship-in-soluzioni-di-ricarica-verifica-m-f-d-sonova-staefa-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.981Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -298,7 +308,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Stage pratique - Power Management (h/f/d)"
+        "fr": "Practical Trainee - Power Management (m/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -312,7 +322,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.136Z",
+      "crawledAt": "2026-08-15T21:22:54.749Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -332,12 +342,14 @@
         "practical-apprendista-power-management-m-f-d-sonova-stafa",
         "practical-trainee-power-management-m-f-d-sonova-staefa",
         "stage-pratique-gestion-de-l-energie-m-f-d-sonova-staefa-switzerland",
-        "practical-trainee-power-management-m-w-d-sonova-staefa"
+        "practical-trainee-power-management-m-w-d-sonova-staefa",
+        "practical-apprendista-power-management-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practical-trainee-power-management-m-f-d-sonova-ch",
-          "practical-apprendista-power-management-m-f-d-sonova-stafa"
+          "practical-apprendista-power-management-m-f-d-sonova-stafa",
+          "practical-apprendista-power-management-m-f-d-sonova-staefa"
         ],
         "de": [
           "practical-trainee-power-management-m-f-d-sonova-ch"
@@ -349,6 +361,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -393,7 +406,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Teamleader-Support-Specialist-%28mfd%29/1286553001/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.129Z",
+      "crawledAt": "2026-08-15T21:22:54.745Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -409,14 +422,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleader-support-specialist-m-f-d-sonova-ch"
+        "teamleader-support-specialist-m-f-d-sonova-ch",
+        "teamleader-support-specialista-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-support-specialist-m-f-d-sonova-ch"
+          "teamleader-support-specialist-m-f-d-sonova-ch",
+          "teamleader-support-specialista-m-f-d-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-06-13T22:42:45.620Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -461,7 +477,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.121Z",
+      "crawledAt": "2026-08-15T21:22:54.741Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -477,11 +493,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+        "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
+        "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch"
+          "senior-manager-signal-processing-ric-and-bte-m-f-d-sonova-ch",
+          "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -530,7 +548,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director-Fitting-Software-Solutions-%28mfd%29/1409692533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.109Z",
+      "crawledAt": "2026-08-15T21:22:54.736Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -546,14 +564,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-fitting-software-solutions-m-f-d-sonova-ch"
+        "director-fitting-software-solutions-m-f-d-sonova-ch",
+        "direttore-fitting-software-solutions-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-fitting-software-solutions-m-f-d-sonova-ch"
+          "director-fitting-software-solutions-m-f-d-sonova-ch",
+          "direttore-fitting-software-solutions-m-f-d-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-06-30T12:19:34.420Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -598,7 +619,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Informatikerin-EFZ-Applikationsentwicklung-%28mfd%29/1421272633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.102Z",
+      "crawledAt": "2026-08-15T21:22:54.733Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -614,11 +635,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-informatiker-in-efz-applikationsentwicklung-m-f-d-sonova-ch"
+        "lehrstelle-informatiker-in-efz-applikationsentwicklung-m-f-d-sonova-ch",
+        "apprendistato-informatiker-in-cfc-applikationsentwicklung-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-informatiker-in-efz-applikationsentwicklung-m-f-d-sonova-ch"
+          "lehrstelle-informatiker-in-efz-applikationsentwicklung-m-f-d-sonova-ch",
+          "apprendistato-informatiker-in-cfc-applikationsentwicklung-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-informatiker-in-efz-applikationsentwicklung-m-f-d-sonova-ch"
@@ -673,7 +696,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.095Z",
+      "crawledAt": "2026-08-15T21:22:54.730Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -689,11 +712,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
@@ -748,7 +773,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Automatikerin-EFZ-%28mwd%29/1421271733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.089Z",
+      "crawledAt": "2026-08-15T21:22:54.725Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -764,11 +789,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-automatiker-in-efz-m-w-d-sonova-ch"
+        "lehrstelle-automatiker-in-efz-m-w-d-sonova-ch",
+        "apprendistato-automatiker-in-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-automatiker-in-efz-m-w-d-sonova-ch"
+          "lehrstelle-automatiker-in-efz-m-w-d-sonova-ch",
+          "apprendistato-automatiker-in-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-automatiker-in-efz-m-w-d-sonova-ch"
@@ -823,7 +850,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Elektronikerin-EFZ-%28mwd%29/1421321433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.078Z",
+      "crawledAt": "2026-08-15T21:22:54.722Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -839,11 +866,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-elektroniker-in-efz-m-w-d-sonova-ch"
+        "lehrstelle-elektroniker-in-efz-m-w-d-sonova-ch",
+        "apprendistato-elektroniker-in-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-elektroniker-in-efz-m-w-d-sonova-ch"
+          "lehrstelle-elektroniker-in-efz-m-w-d-sonova-ch",
+          "apprendistato-elektroniker-in-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-elektroniker-in-efz-m-w-d-sonova-ch"
@@ -898,7 +927,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Konstrukteurin-EFZ-%28mwd%29/1421328433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.071Z",
+      "crawledAt": "2026-08-15T21:22:54.718Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -914,11 +943,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch"
+        "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch",
+        "apprendistato-konstrukteur-in-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch"
+          "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch",
+          "apprendistato-konstrukteur-in-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch"
@@ -973,7 +1004,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.064Z",
+      "crawledAt": "2026-08-15T21:22:54.714Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -989,11 +1020,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
+        "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
+        "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
+          "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch",
+          "apprendistato-logistiker-in-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
@@ -1048,7 +1081,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-KochK%C3%B6chin-EFZ-%28mwd%29/1421319833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.056Z",
+      "crawledAt": "2026-08-15T21:22:54.710Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1064,11 +1097,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch"
+        "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch",
+        "apprendistato-koch-kochin-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch"
+          "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch",
+          "apprendistato-koch-kochin-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-koch-kochin-efz-m-w-d-sonova-ch"
@@ -1123,7 +1158,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.049Z",
+      "crawledAt": "2026-08-15T21:22:54.707Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1139,11 +1174,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
@@ -1153,6 +1190,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.246Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1197,7 +1235,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kaufmann-frau-EFZ-%28mwd%29/1421279533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.043Z",
+      "crawledAt": "2026-08-15T21:22:54.703Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1213,11 +1251,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kaufmann-frau-efz-m-w-d-sonova-ch"
+        "lehrstelle-kaufmann-frau-efz-m-w-d-sonova-ch",
+        "apprendistato-kaufmann-frau-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kaufmann-frau-efz-m-w-d-sonova-ch"
+          "lehrstelle-kaufmann-frau-efz-m-w-d-sonova-ch",
+          "apprendistato-kaufmann-frau-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-kaufmann-frau-efz-m-w-d-sonova-ch"
@@ -1272,7 +1312,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Polymechanikerin-EFZ-%28mwd%29/1421327533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:54.037Z",
+      "crawledAt": "2026-08-15T21:22:54.700Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1288,11 +1328,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch"
+        "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch",
+        "apprendistato-polymechaniker-in-cfc-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch"
+          "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch",
+          "apprendistato-polymechaniker-in-cfc-m-w-d-sonova-staefa"
         ],
         "en": [
           "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch"
@@ -1333,7 +1375,7 @@
         "it": "Direttore Anatomic and Acoustic Design RIC-BTE (m/f/d)",
         "en": "Director Anatomic and Acoustic Design RIC-BTE (m/f/d)",
         "de": "Direktor Anatomic and Acoustic Design RIC-BTE (m/f/d)",
-        "fr": "Directeur Conception anatomique et acoustique RIC-BTE (h/f/d)"
+        "fr": "Director Anatomic and Acoustic Design RIC-BTE (m/f/d)"
       },
       "description": "Shape the future of how millions of people experience hearing\n\nAt Sonova, we believe exceptional hearing solutions are about much more than outstanding technology—they're about creating products people trust, enjoy wearing and rely on every day.\n\nAs Director Anatomic and Acoustic Design RIC-BTE, you'll lead the development of Fit-and-Go sound delivery systems across Sonova's hearing instrument portfolio, shaping solutions that combine excellent hearing performance with wearing comfort, discretion and ease of everyday use. By translating customer needs, anatomical diversity and product intent into scalable, reliable and manufacturable solutions, you'll play a key role in strengthening customer satisfaction, product differentiation and Sonova's competitive advantage.\n\nLeading a team of highly skilled experts, you'll work at the intersection of engineering, acoustics, anatomy and user-centred design, collaborating across global R&D to define the next generation of sound delivery systems for multiple brands, products and technology platforms.\n\nMore about the role\n\n• Lead the development of Fit-and-Go sound delivery systems and acoustic coupling solutions across Sonova's hearing instrument portfolio, from concept through product release.\n\n• Shape customer-centric solutions that balance hearing performance, wearing comfort, discretion, durability and everyday usability while addressing the diversity of ear anatomy and real-world customer needs.\n\n• Define scalable, platform-oriented concepts that enable reuse across products, brands and future technology generations.\n\n• Partner closely with Mechanical Design, Hardware Integration, Hearing Performance, Materials & Biological Safety, Industrial Design and other cross-functional teams to ensure successful product development and industrialization.\n\n• Drive innovation by translating customer insights, clinical learnings and emerging technologies into differentiated product solutions that deliver lasting customer value.\n\n• Build, coach and develop a high-performing global team, fostering technical excellence, collaboration and long-term capability development.\n\n• Lead cross-functional decision-making, balancing customer value, technical feasibility, manufacturability and business priorities to successfully bring innovative solutions to market.\n\n• Champion a collaborative culture that strengthens platform ownership, knowledge sharing and innovation across Sonova's global R&D organization.\n\nMore about you\n\nMust have\n\n• Engineering background with proven experience leading product development within a complex, multidisciplinary R&D environment.\n\n• Demonstrated leadership experience building, coaching and developing high-performing technical teams in an international, multi-site organization.\n\n• Strong experience developing innovative products from concept through industrialization and manufacturing.\n\n• Proven ability to translate customer needs into differentiated technical solutions while balancing performance, manufacturability, scalability and business objectives.\n\n• Strong systems thinking, strategic mindset and the ability to navigate complex technical and organizational challenges.\n\n• Excellent stakeholder management and communication skills, with the ability to influence across engineering, product, clinical and business functions.\n\n• Passion for innovation, customer-centric product development and collaborative leadership.\n\n• Fluent English language skills.\n\nNice to have\n\n• Knowledge of acoustics, ear anatomy, user-centred design and/or medical device development.\n\n• Leadership, organizational development or transformation training.\n\n• Knowledge of medical device regulations and validation frameworks.\n\n• Experience with Jira, Confluence, portfolio management tools and data-driven product development environments.\n\n• German language skills.\n\nMore about what we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -1347,7 +1389,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director-Anatomic-and-Acoustic-Design-RIC-BTE-%28mfd%29/1411678033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.030Z",
+      "crawledAt": "2026-08-15T21:22:54.697Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1364,17 +1406,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
-        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
+        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa",
+        "direttore-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch"
+          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
+          "direttore-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
         ],
         "fr": [
           "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-07-06T22:23:25.008Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1419,7 +1464,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.023Z",
+      "crawledAt": "2026-08-15T21:22:54.691Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1435,11 +1480,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-quality-m-f-d-sonova-ch"
+        "senior-manager-product-quality-m-f-d-sonova-ch",
+        "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-quality-m-f-d-sonova-ch"
+          "senior-manager-product-quality-m-f-d-sonova-ch",
+          "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
         ],
         "de": [
           "senior-manager-product-quality-m-f-d-sonova-ch"
@@ -1449,6 +1496,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:06:22.675Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1493,7 +1541,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Global-Head-of-Intellectual-Property/1412981233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.013Z",
+      "crawledAt": "2026-08-15T21:22:54.684Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1509,11 +1557,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-intellectual-property-sonova-ch"
+        "global-head-of-intellectual-property-sonova-ch",
+        "global-responsabile-intellectual-property-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-intellectual-property-sonova-ch"
+          "global-head-of-intellectual-property-sonova-ch",
+          "global-responsabile-intellectual-property-sonova-staefa"
         ]
       },
       "firstSeenAt": "2026-07-08T22:05:55.683Z",
@@ -1561,7 +1611,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-lnnovations-&-Process-Engineer/1424675533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:54.006Z",
+      "crawledAt": "2026-08-15T21:22:54.678Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1577,11 +1627,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lnnovations-process-engineer-sonova-ch"
+        "lnnovations-process-engineer-sonova-ch",
+        "lnnovations-process-ingegnere-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lnnovations-process-engineer-sonova-ch"
+          "lnnovations-process-engineer-sonova-ch",
+          "lnnovations-process-ingegnere-sonova-staefa"
         ],
         "de": [
           "lnnovations-process-engineer-sonova-ch"
@@ -1635,7 +1687,7 @@
       "url": "https://jobs.sonova.com/job/Murten-RF-Design-Engineer-%28mfd%29/1414301033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:53.998Z",
+      "crawledAt": "2026-08-15T21:22:54.668Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1650,11 +1702,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "rf-design-engineer-m-f-d-sonova-ch"
+        "rf-design-engineer-m-f-d-sonova-ch",
+        "rf-design-ingegnere-m-f-d-sonova-murten-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rf-design-engineer-m-f-d-sonova-ch"
+          "rf-design-engineer-m-f-d-sonova-ch",
+          "rf-design-ingegnere-m-f-d-sonova-murten-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-20T11:50:50.871Z",
@@ -1674,9 +1728,9 @@
     },
     {
       "id": "sonova-7d8c3594c5e6",
-      "slug": "operatore-m-f-d-sonova-staefa-switzerland",
+      "slug": "operator-m-w-d-sonova-staefa",
       "slugByLocale": {
-        "it": "operatore-m-f-d-sonova-staefa-switzerland",
+        "it": "operator-m-w-d-sonova-staefa",
         "en": "operator-m-f-d-sonova-ch",
         "de": "operator-m-f-d-sonova-ch",
         "fr": "operateur-m-f-d-sonova-staefa-switzerland"
@@ -1686,7 +1740,7 @@
       "companyDomain": "sonova.com",
       "title": "Operator (m/f/d)",
       "titleByLocale": {
-        "it": "Operatore (m/f/d)",
+        "it": "Operator (m/f/d)",
         "en": "Operator (m/f/d)",
         "de": "Operator (m/f/d)",
         "fr": "Opérateur (m/f/d)"
@@ -1703,7 +1757,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Operator-%28mfd%29/1426469633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:53.997Z",
+      "crawledAt": "2026-08-15T21:22:54.667Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1721,12 +1775,14 @@
       "previousSlugs": [
         "operator-m-f-d-sonova-ch",
         "operator-m-f-d-sonova-staefa",
+        "operatore-m-f-d-sonova-staefa-switzerland",
         "operator-m-w-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operator-m-f-d-sonova-ch",
           "operator-m-f-d-sonova-staefa",
+          "operatore-m-f-d-sonova-staefa-switzerland",
           "operator-m-w-d-sonova-staefa"
         ],
         "fr": [
@@ -1779,7 +1835,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director%2C-Performance-Management-and-Capabilities-Building-%28Academies%29/1385671733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:53.986Z",
+      "crawledAt": "2026-08-15T21:22:54.658Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1795,11 +1851,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-performance-management-and-capabilities-building-academies-sonova-ch"
+        "director-performance-management-and-capabilities-building-academies-sonova-ch",
+        "direttore-performance-management-and-capabilities-building-academies-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-performance-management-and-capabilities-building-academies-sonova-ch"
+          "director-performance-management-and-capabilities-building-academies-sonova-ch",
+          "direttore-performance-management-and-capabilities-building-academies-sonova-staefa"
         ]
       },
       "needsRetranslation": true,
@@ -1832,7 +1890,7 @@
       "title": "International Customer Service Specialist (m/w/d)",
       "titleByLocale": {
         "it": "International Servizio Clienti Specialista (m/w/d)",
-        "en": "International Customer Service Specialist (m/f/d)",
+        "en": "International Customer Service Specialist (m/w/d)",
         "de": "International Kundendienst Spezialist (m/w/d)",
         "fr": "International Service Client Spécialiste (m/w/d)"
       },
@@ -1848,7 +1906,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-International-Customer-Service-Specialist-%28mwd%29/1416178333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:34:53.965Z",
+      "crawledAt": "2026-08-15T21:22:54.648Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1864,14 +1922,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-customer-service-specialist-m-w-d-sonova-ch"
+        "international-customer-service-specialist-m-w-d-sonova-ch",
+        "international-servizio-clienti-specialista-m-w-d-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-customer-service-specialist-m-w-d-sonova-ch"
+          "international-customer-service-specialist-m-w-d-sonova-ch",
+          "international-servizio-clienti-specialista-m-w-d-sonova-staefa-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:22.435Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1916,7 +1977,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Manager/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T09:34:53.957Z",
+      "crawledAt": "2026-08-15T21:22:54.643Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
