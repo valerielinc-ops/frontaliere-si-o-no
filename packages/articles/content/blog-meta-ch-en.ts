@@ -2707,6 +2707,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.title': 'Naturalization Canton of Lucerne: requirements and procedure',
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.excerpt': 'To obtain Swiss citizenship in the Canton of Lucerne, you must meet certain requirements and follow a precise procedure.',
     'blog.article.naturalizzazione-canton-lucerna-requisiti-e-procedura.imageAlt': 'Naturalization process in Lucerne Canton',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.title': 'Compensation in Lucerne: coverage of gaps and complementary services',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.excerpt': 'The Compensation Fund is a measure to cover contribution gaps and ensure supplementary benefits in the Canton of Lucerne.',
+    'blog.article.avs-prestazioni-complementari-lucerna-cassa-di-compensazione.imageAlt': 'Image of a lake in Switzerland',
 };
 
 export default blogMetaChEn;
