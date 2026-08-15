@@ -84,7 +84,6 @@
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-20/1362291355/",
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiter-Online-Logistik-100/1360501555/",
     "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Non-Food%29-Etudiante-5/1361737155/",
-    "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Kasse-20/1360520155/",
     "https://positions.manor.ch/job/Basel-KochK%C3%B6chin-80-100/1361600455/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-Visual-Merchandising-%28Fashion%29-100/1361742555/",
     "https://positions.manor.ch/job/Winterthur-Mitarbeiterin-Logistik-40/1354956955/",
@@ -147,7 +146,6 @@
     "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Verkauf-Damen-Fashion-50/1362288655/",
     "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234255/",
     "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-30/1361951355/",
-    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Kasse-20/1361946055/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-Etudiant-20/1356646355/",
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-%28E-Comm%29-50/1362292155/",
     "https://positions.manor.ch/job/Vevey-Responsable-secteur-%28Fruits-l%C3%A9gumes-take-out%29-100/1354321955/",
@@ -201,10 +199,12 @@
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie%29-30/1352840555/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-service-%28Vente-Appunto-Self%29-50/1359227955/",
     "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Haushalt-%28Vorh%C3%A4nge%29-60/1362943055/",
-    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-Herrenkonfektion-Sport-40/1359048955/"
+    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-Herrenkonfektion-Sport-40/1359048955/",
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Kasse-20/1361946055/",
+    "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Kasse-20/1360520155/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-08-15T10:00:39.294Z",
+  "updatedAt": "2026-08-15T21:39:57.010Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/": {
       "company": "Manor AG",
@@ -510,10 +510,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Kasse-20/1360520155/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Basel-KochK%C3%B6chin-80-100/1361600455/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -762,10 +758,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Kasse-20/1361946055/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-Etudiant-20/1356646355/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -979,6 +971,14 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-Herrenkonfektion-Sport-40/1359048955/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Kasse-20/1361946055/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Aarau-Mitarbeiterin-Kasse-20/1360520155/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
