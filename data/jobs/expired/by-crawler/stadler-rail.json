@@ -1,5 +1,46 @@
 [
   {
+    "slug": "ingegnere-cloud-azure-stadler-rail-bussnang",
+    "title": "Cloud Engineer Azure",
+    "titleByLocale": {
+      "it": "Ingegnere cloud Azure",
+      "en": "Cloud Engineer Azure",
+      "de": "Cloud Ingenieur Azure",
+      "fr": "Ingénieur Cloud Azure"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFILO\n• Diversi anni di esperienza nello sviluppo e nella realizzazione di soluzioni PaaS e IaaS su Microsoft Azure. Affinità con argomenti legati all'intelligenza artificiale\n• Diversi anni di esperienza come ingegnere cloud/DevOps, idealmente con pipeline Infrastructure-as-Code (Terraform) e CI/CD\n• Conoscenza approfondita della configurazione e dello sviluppo di landing zone\n• Realizzazione di progetti di migrazione da ambienti on-premise al cloud Microsoft\n• Automatizzazione dei processi con PowerShell RESPONSABILITÀ\n• Sviluppo e implementazione di soluzioni basate su Azure, inclusi componenti IaaS, PaaS e SaaS.\n• Creazione di script e modelli per distribuzioni automatizzate utilizzando strumenti come ARM Templates, Terraform o Bicep.\n• Ottimizzare l'utilizzo e i costi delle risorse attraverso il monitoraggio e la governance.\n• Implementazione delle best practice per la sicurezza di Azure, tra cui gestione delle identità, controllo degli accessi in base al ruolo (RBAC) e crittografia.\n• Garantire il rispetto degli standard organizzativi e normativi.\n• Configurazione del monitoraggio e degli avvisi con Monitoraggio di Azure, Log Analytics e Application Insights.\n• Diagnosticare e risolvere rapidamente i problemi dell'infrastruttura cloud.\n• Lavorare a stretto contatto con i team di rete e applicativi per fornire soluzioni integrate.\n• Mantenere la documentazione dettagliata dell'architettura e delle operazioni cloud.",
+      "en": "PROFIL\n• Several years of experience in developing and building PaaS and IaaS solutions on Microsoft Azure. Affinity to AI topics\n• Several years of experience as a cloud/DevOps engineer, ideally with infrastructure-as-code (terraform) and CI/CD pipelines\n• In-depth knowledge of landing zone setup and development\n• Conducting migration projects from on-premises environments to the Microsoft Cloud\n• Automation of processes with PowerShell TASKS\n• Development and implementation of Azure-based solutions, including IaaS, PaaS and SaaS components.\n• Create scripts and templates for automated deployments using tools such as ARM Templates, Terraform or Bicep.\n• Optimization of resource use and costs through monitoring and governance. Implement best practices for Azure security, including identity management, role-based access control (RBAC), and encryption.\n• Ensure compliance with organizational and regulatory standards.\n• Set up monitoring and alerting with Azure Monitor, Log Analytics and Application Insights.\n• Quick diagnosis and resolution of problems in the cloud infrastructure.\n• Working closely with network and application teams to deliver integrated solutions.\n• Maintain detailed documentation of cloud architecture and operations.",
+      "de": "PROFIL\n\n• Mehrjährige Erfahrung in der Entwicklung und dem Aufbau von PaaS- und IaaS-Lösungen auf Microsoft Azure. Affinität zu KI-Themen\n\n• Mehrjährige Erfahrung als Cloud-/DevOps-Engineer, idealerweise mit Infrastructure-as-Code (Terraform) und CI/CD-Pipelines\n\n• Fundierte Kenntnisse in der Einrichtung und Entwicklung von Landing Zones\n\n• Durchführung von Migrationsprojekten von On-Premises-Umgebungen in die Microsoft Cloud\n\n• Automatisierung von Prozessen mit PowerShell\n\nAUFGABEN\n\n• Entwicklung und Implementierung von Azure-basierten Lösungen, einschließlich IaaS-, PaaS- und SaaS-Komponenten.\n\n• Erstellung von Skripten und Vorlagen für automatisierte Bereitstellungen mit Tools wie ARM Templates, Terraform oder Bicep.\n\n• Optimierung der Ressourcennutzung und Kosten durch Monitoring und Governance.\n\n• Implementierung von Best Practices für die Azure-Sicherheit, einschließlich Identitätsmanagement, rollenbasierter Zugriffskontrolle (RBAC) und Verschlüsselung.\n\n• Sicherstellung der Einhaltung organisatorischer und regulatorischer Standards.\n\n• Einrichtung von Monitoring und Alarmierung mit Azure Monitor, Log Analytics und Application Insights.\n\n• Schnelle Diagnose und Behebung von Problemen in der Cloud-Infrastruktur.\n\n• Enge Zusammenarbeit mit Netzwerk- und Anwendungsteams zur Bereitstellung integrierter Lösungen.\n\n• Pflege detaillierter Dokumentationen der Cloud-Architektur und der Betriebsabläufe.",
+      "fr": "PROFIL\n• Plusieurs années d'expérience dans le développement et la construction de solutions PaaS et IaaS sur Microsoft Azure. Affinité avec les sujets d'IA\n• Plusieurs années d'expérience en tant qu'ingénieur cloud/DevOps, idéalement avec des pipelines Infrastructure-as-Code (Terraform) et CI/CD\n• Connaissance approfondie de la mise en place et du développement de zones d'atterrissage\n• Réalisation de projets de migration d'environnements sur site vers le Cloud Microsoft\n• Automatisation des processus avec PowerShell RESPONSABILITÉS\n• Développer et mettre en œuvre des solutions basées sur Azure, y compris les composants IaaS, PaaS et SaaS.\n• Création de scripts et de modèles pour des déploiements automatisés à l'aide d'outils tels que ARM Templates, Terraform ou Bicep.\n• Optimiser l'utilisation des ressources et les coûts grâce à la surveillance et à la gouvernance.\n• Implémentation des meilleures pratiques de sécurité Azure, notamment la gestion des identités, le contrôle d'accès basé sur les rôles (RBAC) et le chiffrement.\n• Veiller au respect des normes organisationnelles et réglementaires.\n• Configuration de la surveillance et des alertes avec Azure Monitor, Log Analytics et Application Insights.\n• Diagnostiquez et résolvez rapidement les problèmes d'infrastructure cloud.\n• Travailler en étroite collaboration avec les équipes réseau et applications pour fournir des solutions intégrées.\n• Maintenir une documentation détaillée de l'architecture et des opérations cloud."
+    },
+    "slugByLocale": {
+      "it": "ingegnere-cloud-azure-stadler-rail-bussnang",
+      "en": "cloud-engineer-azure-stadler-rail-ch",
+      "de": "cloud-engineer-azure-stadler-rail-ch",
+      "fr": "ingenieur-cloud-azure-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-08-15T09:45:42.034Z",
+    "previousSlugs": [
+      "cloud-engineer-azure-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "cloud-engineer-azure-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "studente-di-lavoro-in-stadler-rail-olten",
     "title": "Werkstudent:in",
     "titleByLocale": {
