@@ -2692,6 +2692,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.centro-asilo-altstaetten.title': 'Portes ouvertes au nouveau centre fédéral d\'asile à Altstätten',
     'blog.article.centro-asilo-altstaetten.excerpt': 'Le Conseiller fédéral Beat Jans a visité le nouveau Centre fédéral d\'asile à Altstätten, qui ouvrira ses portes en septembre.',
     'blog.article.centro-asilo-altstaetten.imageAlt': 'Image éditoriale relative à: Porte aperte al nuovo centro federale d\'asilo ad Altstätten',
+    'blog.article.sindacati-delusi.title': 'Syndicats déçus : nous pourrions retirer notre soutien',
+    'blog.article.sindacati-delusi.excerpt': 'La décision de la Commission économie au Conseil des Etats de ne pas modifier les mesures sur la protection des salaires irrite le président de Travail Suisse Adrian Wüthrich',
+    'blog.article.sindacati-delusi.imageAlt': 'Président de Travail Suisse Adrian Wüthrich',
 };
 
 export default blogMetaChFr;

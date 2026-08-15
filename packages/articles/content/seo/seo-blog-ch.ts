@@ -34886,6 +34886,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacati-delusi': {
+    title: 'Sindacati delusi: potremmo togliere il nostro sostegno',
+    description: 'La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, delusi, potremmo, togliere',
+    ogTitle: 'Sindacati delusi: potremmo togliere il nostro sostegno',
+    ogDescription: 'La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse Adrian Wüthrich.',
+    canonicalPath: '/articoli-svizzera/sindacati-delusi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sindacati delusi: potremmo togliere il nostro sostegno",
+      "description": "La decisione della Commissione economia al Consiglio degli Stati di non modificare le misure sulla protezione dei salari irrita il presidente di Travail Suisse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sindacati-delusi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Presidente di Travail Suisse Adrian Wüthrich"
+      },
+      "datePublished": "2026-08-15T17:00:24+00:00",
+      "dateModified": "2026-08-15T17:00:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sindacati-delusi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2692,6 +2692,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.centro-asilo-altstaetten.title': 'Offene Türen zum neuen Bundesasylzentrum in Altstätten',
     'blog.article.centro-asilo-altstaetten.excerpt': 'Bundesrat Beat Jans besuchte das neue Bundesasylzentrum in Altstätten, das im September eröffnet wird.',
     'blog.article.centro-asilo-altstaetten.imageAlt': 'Redaktionelles Bild zu: Porte aperte al nuovo centro federale d\'asilo ad Altstätten',
+    'blog.article.sindacati-delusi.title': 'Enttäuschte Gewerkschaften: Wir könnten unsere Unterstützung zurückziehen',
+    'blog.article.sindacati-delusi.excerpt': 'Der Entscheid der Wirtschaftskommission an den Ständerat, die Lohnschutzmassnahmen nicht zu ändern, irritiert Travail Suisse Präsident Adrian Wüthrich',
+    'blog.article.sindacati-delusi.imageAlt': 'Präsident von Travail Suisse Adrian Wüthrich',
 };
 
 export default blogMetaChDe;
