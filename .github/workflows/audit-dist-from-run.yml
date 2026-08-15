@@ -20,7 +20,11 @@ on:
           failure that reads like a red gate. To replay #5875 pass
           `gate:dist-quality` (the npm script; `dist:quality-tests` is only the
           CHECK-RUN LABEL post-deploy-validate-dist.yml gives its report — there
-          is no npm script by that name). For #5874 pass `gate:seo-source`.
+          is no npm script by that name). For #5874 pass `gate:seo-source` —
+          but read its verdict knowing that gate validates the SOURCE, not the
+          rehydrated dist, and self-skips without RUN_DIST_GATES=1 plus a jobs
+          dataset: it speaks about today's main, not about the run under
+          investigation.
           Examples: `all` / `all,page-weight,max-bfs-depth` /
           `gate:dist-quality,gate:seo-source`.
         required: false
