@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-08-15T09:49:15.438Z",
+  "assembledAt": "2026-08-15T21:33:36.107Z",
   "jobs": [
     {
       "id": "company-a0lhdn",
@@ -25,7 +25,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-14T10:25:01.561Z",
       "slugByLocale": {
         "it": "technical-service-specialista-gearless-mill-drive-80-100-abb-svizzera-sede-ticino-baden-aargau-a0lhdn",
@@ -62,7 +62,8 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "needsRetranslation": true
     },
     {
       "id": "company-n7exdv",
@@ -87,7 +88,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-14T21:57:25.052Z",
       "titleByLocale": {
         "it": "Ricerca Department Manager - Industrial Solutions (80 - 100%) f/m/d",
@@ -160,7 +161,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-13T22:09:16.051Z",
       "titleByLocale": {
         "en": "Head of Trade & Structured Finance",
@@ -211,6 +212,7 @@
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500
     },
@@ -237,7 +239,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-12T22:00:06.718Z",
       "titleByLocale": {
         "it": "Power Generation Automation & Digitalization Sales Svizzera",
@@ -308,10 +310,10 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-11T22:25:27.416Z",
       "titleByLocale": {
-        "it": "Global Early Talent Program (GETP) – Strategia e M&A",
+        "it": "Global Early Talent Program (GETP) – Strategy and M&A",
         "en": "Global Early Talent Program (GETP) Strategy and M&A",
         "de": "Globales Frühmittelprogramm (GETP) – Strategie und M&A",
         "fr": "Programme mondial des jeunes talents (PGTE) – Stratégie et M&A"
@@ -384,7 +386,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-11T22:25:27.416Z",
       "slugByLocale": {
         "it": "r-d-testing-lab-specialista-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-q2s226",
@@ -446,7 +448,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-11T22:25:27.416Z",
       "titleByLocale": {
         "it": "R&D Ingegnere Firmware (80 -100%)",
@@ -492,6 +494,7 @@
       "addressLocality": "Quartino, Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -518,7 +521,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-11T22:25:27.416Z",
       "titleByLocale": {
         "it": "Production Operatore (80-100%)",
@@ -566,6 +569,7 @@
       "addressLocality": "Uster, Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -592,32 +596,30 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-15T09:49:13.341Z",
       "slugByLocale": {
-        "en": "trade-compliance-manager-process-industries-switzerland-80-100-abb-svizzera-sede-ticino-baden-aargau-ystl28",
-        "fr": "responsable-de-la-conformite-commerciale-industries-process-suisse-80-100-abb-svizzera-sede-ticino-baden-aargau",
         "it": "trade-compliance-manager-process-industries-switzerland-80-100-abb-svizzera-sede-ticino-baden-aargau-ystl28",
-        "de": "trade-compliance-manager-process-industries-switzerland-80-100-abb-svizzera-sede-ticino-baden-aargau-ystl28"
+        "en": "trade-compliance-manager-process-industries-switzerland-80-100-abb-svizzera-sede-ticino-baden-aargau-ystl28",
+        "de": "trade-compliance-manager-process-industries-schweiz-80-100-abb-svizzera-sede-ticino-baden-aargau-ystl28",
+        "fr": "responsable-de-la-conformite-commerciale-industries-process-suisse-80-100-abb-svizzera-sede-ticino-baden-aargau"
       },
       "titleByLocale": {
-        "en": "Trade Compliance Manager Process Industries Switzerland (80-100%)",
         "it": "Trade Compliance Manager Process Industries Svizzera (80-100%)",
+        "en": "Trade Compliance Manager Process Industries Switzerland (80-100%)",
         "de": "Trade Compliance Manager Process Industries Schweiz (80-100%)",
         "fr": "Responsable de la conformité commerciale Industries process Suisse (80-100%)"
       },
       "descriptionByLocale": {
-        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Business Manager - E2E<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p>In this role, you own the Trade Compliance framework for the Local Business Line (LBL) and are accountable for establishing, implementing, and continuously improving the policies, processes, controls, and governance required to ensure compliant execution of our global business activities. You ensure that all international business transactions, project deliveries, imports, exports, cross-border shipments, and related trade activities are conducted in accordance with ABB's Global Trade Program and applicable customs, export control, sanctions, and origin regulations. As the LBL's Trade Compliance authority, you define and maintain the operational trade compliance framework. You establish clear processes, responsibilities, controls, and escalation mechanisms and ensure effective implementation across all relevant functions. You drive the integration of trade compliance requirements into daily operations and act as the main point for complex compliance matters, regulatory changes, and risk mitigation. You are further responsible for developing, documenting, and maintaining procedures and training programs related to export controls, sanctions, customs, and origin management.<br /> </p><p>Working model is: #LI-Hybrid</p><p><br /><b>You will be mainly accountable for:</b></p><ul><li><p>Develop, improve and implement processes of LBL’s customs procedures, origin management, sanction lists screening, dual-use classification and export controls.</p></li><li><p>Functionally lead trade compliance resources in the LBL.</p></li><li><p>Lead and oversee Trade Compliance within the Local Business Line (LBL), including the implementation and continuous improvement of ABB’s Trade Compliance Program, internal directives, internal control system, local trade reviews, self-audits, and corrective actions.</p></li><li><p>Provide expert guidance and training on customs, origin, export control, and sanctions compliance, supporting the LBL, coordinating trade compliance resources and support functions, and maintaining strong alignment with key stakeholders such as CTCO, TCS, PCE, declarants, and logistics teams.</p></li><li><p>Drive Trade Compliance in day-to-day operations and complex projects, including risk assessments, internal checks, master data and supplier-related compliance requirements, and regular updates to stakeholders on implementation progress and relevant regulatory changes.</p></li><li><p>Advise and drive all trade compliance matters in LBL’s complex projects to different countries</p></li></ul><p><br /><b>What we are looking for:</b></p><ul><li><p>Degree as a Foreign Trade Specialist / Manager or Export Control / Customs Compliance Officer with at least 8 years of experience in a relevant field (Senior Trade Compliance or Legal/Compliance background)</p></li><li><p>Excellent experience in free trade and preferential origins as well as in trade compliance matters</p></li><li><p>Solid knowledge in Swiss (GKV), EU and US (EAR) dual-use and sanctions regulations</p></li><li><p>Experience in an industry with large project businesses in various countries and ability as a people leader and solution-oriented team player</p></li><li><p>SAP and SAP GTS E4H experiences</p></li><li><p>Fluent in English, German is a plus</p></li></ul><p></p><p><b>More about us:</b></p><p>Process Industries division delivers complete electrification and automation solutions, industry- specific products and lifecycle services across industries. Understanding and addressing challenges and opportunities take a deep domain knowledge. Engineering and delivering automation solutions from device to monitoring and control make our customers get more out of their investment. Digitalization solutions including collaborative operations and augmented reality help improve plant and enterprise productivity, reduce maintenance and energy costs. Our engineering, project management, services and solutions portfolio covers a wide range of industries - Pulp, Paper & Fiber, Mining, Gearless Mill Drives (GMDs), Hoists, Metals, Growth Industries such as Cement, Food & Beverage, Data Center Automation, High Power Rectifiers, and Batteries.</p><p></p><p>This recruitment process is led by Ceren Özen, Talent Acquisition Team Lead, ABB Switzerland.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
         "it": "<p>At <b>ABB </b>, aiutiamo le industrie a funzionare più snella e più pulita—e ogni persona qui lo fa accadere. Sarete autorizzati a guidare, sostenuto per crescere, e orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiuta a gestire il mondo. L'utente assicura che tutte le transazioni commerciali internazionali, le consegne di progetti, le importazioni, le esportazioni, le spedizioni transfrontaliere e le relative attività commerciali siano condotte in conformità con il Programma di Commercio Globale di ABB e i regolamenti applicabili doganali, controllo delle esportazioni, sanzioni e di origine. Come autorità di conformità commerciale della LBL, definisci e mantieni il quadro di conformità del commercio operativo. Stabilire processi, responsabilità, controlli e meccanismi di escalation chiari e garantire un'efficace attuazione in tutte le funzioni pertinenti. L'utente guida l'integrazione dei requisiti di conformità commerciale nelle operazioni quotidiane e funge da punto principale per questioni complesse di conformità, modifiche normative e mitigazione dei rischi. È inoltre responsabile dello sviluppo, della documentazione e del mantenimento delle procedure e dei programmi di formazione relativi ai controlli delle esportazioni, alle sanzioni, alle dogane e alla gestione delle origini. Per ulteriori informazioni, visitare il sito: http://europa.eu.int Fornire una guida esperta e una formazione su dogana, origine, controllo delle esportazioni e sanziona la conformità, supportando l’LBL, coordinando le risorse di conformità commerciale e le funzioni di supporto, e mantenendo un forte allineamento con le parti interessate chiave come CTCO, occu > > ι > > > > > > > > ι > > > ι > > > > > > > > Orientamento commerciale Compli Orientamento del commercio Orientamenti commerciali e progetti complessi e progetti complessi di conformità Che cosa stiamo cercando: </b> </p> <ul> < <ι> <p>Degree come Specialista di Commercio Estero / Manager o Controllo di Esportazione / Personalizzato Compliance Officer con almeno 8 anni di esperienza in un campo rilevante (Conformità di Commercio Senior o Fondo Legale / Compliance) Esperienza eccellente nel libero scambio e nelle origini preferenziali, nonché nel rispetto del commercio, La divisione Process Industries offre soluzioni complete di elettrificazione e automazione, prodotti specifici del settore e servizi per il ciclo di vita in tutte le industrie. Capire e affrontare sfide e opportunità prendono una profonda conoscenza del dominio. Ingegneria e fornitura di soluzioni di automazione da dispositivo a monitoraggio e controllo rendono i nostri clienti ottenere di più dal loro investimento. Le soluzioni di digitalizzazione, comprese le operazioni di collaborazione e la realtà aumentata, contribuiscono a migliorare la produttività degli impianti e delle imprese, a ridurre i costi di manutenzione e di energia. Il nostro portafoglio ingegneristico, project management, servizi e soluzioni copre una vasta gamma di settori - Pulp, Paper & Fiber, Mining, Gearless Mill Drives (GMD), Hoists, Metals, Growth Industries come Cement, Food & Beverage, Data Center Automation, High Power Rectifiers e Batterie. Questo processo di reclutamento è guidato da Ceren Özen, Talent Acquisition Team Lead, ABB Svizzera. Costruire un futuro più pulito e intelligente prende tutti i tipi di menti: i curiosi, i coraggiosi e i creativi. Questo è il motivo per cui accogliamo le persone da tutti i background e le esperienze.",
-        "de": "<p>At <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Begleiten Sie uns und helfen Sie dabei, das zu führen, was die Welt beherrscht.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></p><p><pstyle=\"text-align:inherit !important\"></p><p><p><p></p><p><p>In dieser Rolle sind Sie Eigentümer des Trade Compliance Frameworks für die Local Business Line (LBL) und sind verantwortlich für die Festlegung, Implementierung und kontinuierliche Verbesserung der Richtlinien, Prozesse, Kontrollen und Governance, die erforderlich sind, um eine konforme Ausführung unserer globalen Geschäftsaktivitäten zu gewährleisten. Sie stellen sicher, dass alle internationalen Geschäftstransaktionen, Projektlieferungen, Importe, Exporte, grenzüberschreitende Sendungen und damit verbundene Handelsaktivitäten in Übereinstimmung mit dem Global Trade Program von ABB und den geltenden Zoll-, Exportkontroll-, Sanktions- und Ursprungsbestimmungen durchgeführt werden. Als Trade Compliance Authority der LBL definieren und pflegen Sie das operative Trade Compliance Framework. Sie legen klare Prozesse, Verantwortlichkeiten, Kontrollen und Eskalationsmechanismen fest und gewährleisten eine effektive Umsetzung über alle relevanten Funktionen hinweg. Sie treiben die Integration von Trade-Compliance-Anforderungen in den täglichen Betrieb voran und sind der wichtigste Punkt für komplexe Compliance-Angelegenheiten, regulatorische Änderungen und Risikominderung. Sie sind ferner verantwortlich für die Entwicklung, Dokumentation und Aufrechterhaltung von Verfahren und Schulungsprogrammen im Zusammenhang mit Exportkontrollen, Sanktionen, Zoll und Ursprungsmanagement.<br /> </p><p>Arbeitsmodell ist: #LI-Hybrid</p><p><br /><b> Sie sind hauptsächlich verantwortlich für:</b></p><ul><li><p>Entwicklung, Verbesserung und Implementierung von Prozessen der Zollverfahren von LBL, des Ursprungsmanagements, des Sanktionslisten-Screenings, der Klassifizierung von Dual-Use-Listen und der Exportkontrollen.</p></li><li><p>Funktional führen Sie die Compliance-Ressourcen für den Handel im LBL.</p></li><li><li><p>Führen und überwachen Sie Trade Compliance innerhalb des lokalen Geschäftsbereichs (LBL), einschließlich der Implementierung und kontinuierlichen Verbesserung des Trade Compliance-Programms von ABB, interne Richtlinien, internes Kontrollsystem, lokale Handelsüberprüfungen, Selbstprüfungen und Korrekturmaßnahmen.</p></li><li><p> Bereitstellung von fachkundiger Beratung und Schulung zu Zoll-, Ursprungs-, Exportkontrolle und Sanktions-Compliance, Unterstützung der LBL, Koordination von Trade-Compliance-Ressourcen und -Support-Funktionen und Aufrechterhaltung einer starken Abstimmung mit wichtigen Stakeholdern wie CTCO, TCS, PCE, Deklaranten und Logistikteams.</p></li><li><p>Drive Trade Compliance im täglichen Betrieb und in komplexen Projekten, einschließlich Risikobewertungen, interner Kontrollen, Stammdaten und lieferantenbezogenen Compliance-Anforderungen sowie regelmäßige Aktualisierungen der Stakeholder über den Umsetzungsfortschritt und relevante regulatorische Änderungen.</p></li><li><p>Beratung und Steuerung aller Trade-Compliance-Angelegenheiten in LBLs komplexen Projekten in verschiedenen Ländern</p></li></ul><p><br /><b> Was wir suchen:</b></p><ul><li><p>Abschluss als Außenhandelsspezialist / Manager oder Exportkontrolle / Customs Compliance Officer mit mindestens 8 Jahren Erfahrung in einem relevanten Bereich (Senior Trade Compliance oder Legal/Compliance Hintergrund)</p></li><li><p> Hervorragende Erfahrung im Freihandel und in Bezug auf Präferenzursprünge sowie in Handels-Compliance-Fragen</p></li><li><p>Fluent in Englisch, Deutsch ist ein Plus</p></li></ul></p><p><b>Mehr über uns:</b></b></p></p><p><p><p><p>> Die Division Process Industries bietet komplette Elektrifizierungs- und Automatisierungslösungen, branchenspezifische Produkte und Lifecycle-Services in allen Branchen. Das Verständnis und die Bewältigung von Herausforderungen und Chancen erfordern ein tiefes Fachwissen. Engineering und Lieferung von Automatisierungslösungen vom Gerät bis zur Überwachung und Steuerung machen unsere Kunden mehr aus ihrer Investition. Digitalisierungslösungen einschließlich kollaborativer Operationen und Augmented Reality helfen, die Produktivität von Anlagen und Unternehmen zu verbessern, Wartungs- und Energiekosten zu senken. Unser Engineering-, Projektmanagement-, Service- und Lösungsportfolio deckt eine breite Palette von Branchen ab - Zellstoff, Papier & Fasern, Bergbau, Getriebelose Mühlenantriebe (GMDs), Hebezeuge, Metalle, Wachstumsbranchen wie Zement, Lebensmittel & Getränke, Rechenzentrumsautomatisierung, Hochleistungsgleichrichter und Batterien.</p><p></p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p>><p><p><p><p>><p><p><p>><p><p>><p><p>><p>><p><p>><p><p>><p>><p>><p>><p>><p>><p>><p>><p>><p>><p>><p>> Dieser Rekrutierungsprozess wird geleitet von Ceren Özen, Talent Acquisition Team Lead, ABB Schweiz.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
+        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Business Manager - E2E<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p>In this role, you own the Trade Compliance framework for the Local Business Line (LBL) and are accountable for establishing, implementing, and continuously improving the policies, processes, controls, and governance required to ensure compliant execution of our global business activities. You ensure that all international business transactions, project deliveries, imports, exports, cross-border shipments, and related trade activities are conducted in accordance with ABB's Global Trade Program and applicable customs, export control, sanctions, and origin regulations. As the LBL's Trade Compliance authority, you define and maintain the operational trade compliance framework. You establish clear processes, responsibilities, controls, and escalation mechanisms and ensure effective implementation across all relevant functions. You drive the integration of trade compliance requirements into daily operations and act as the main point for complex compliance matters, regulatory changes, and risk mitigation. You are further responsible for developing, documenting, and maintaining procedures and training programs related to export controls, sanctions, customs, and origin management.<br /> </p><p>Working model is: #LI-Hybrid</p><p><br /><b>You will be mainly accountable for:</b></p><ul><li><p>Develop, improve and implement processes of LBL’s customs procedures, origin management, sanction lists screening, dual-use classification and export controls.</p></li><li><p>Functionally lead trade compliance resources in the LBL.</p></li><li><p>Lead and oversee Trade Compliance within the Local Business Line (LBL), including the implementation and continuous improvement of ABB’s Trade Compliance Program, internal directives, internal control system, local trade reviews, self-audits, and corrective actions.</p></li><li><p>Provide expert guidance and training on customs, origin, export control, and sanctions compliance, supporting the LBL, coordinating trade compliance resources and support functions, and maintaining strong alignment with key stakeholders such as CTCO, TCS, PCE, declarants, and logistics teams.</p></li><li><p>Drive Trade Compliance in day-to-day operations and complex projects, including risk assessments, internal checks, master data and supplier-related compliance requirements, and regular updates to stakeholders on implementation progress and relevant regulatory changes.</p></li><li><p>Advise and drive all trade compliance matters in LBL’s complex projects to different countries</p></li></ul><p><br /><b>What we are looking for:</b></p><ul><li><p>Degree as a Foreign Trade Specialist / Manager or Export Control / Customs Compliance Officer with at least 8 years of experience in a relevant field (Senior Trade Compliance or Legal/Compliance background)</p></li><li><p>Excellent experience in free trade and preferential origins as well as in trade compliance matters</p></li><li><p>Solid knowledge in Swiss (GKV), EU and US (EAR) dual-use and sanctions regulations</p></li><li><p>Experience in an industry with large project businesses in various countries and ability as a people leader and solution-oriented team player</p></li><li><p>SAP and SAP GTS E4H experiences</p></li><li><p>Fluent in English, German is a plus</p></li></ul><p></p><p><b>More about us:</b></p><p>Process Industries division delivers complete electrification and automation solutions, industry- specific products and lifecycle services across industries. Understanding and addressing challenges and opportunities take a deep domain knowledge. Engineering and delivering automation solutions from device to monitoring and control make our customers get more out of their investment. Digitalization solutions including collaborative operations and augmented reality help improve plant and enterprise productivity, reduce maintenance and energy costs. Our engineering, project management, services and solutions portfolio covers a wide range of industries - Pulp, Paper & Fiber, Mining, Gearless Mill Drives (GMDs), Hoists, Metals, Growth Industries such as Cement, Food & Beverage, Data Center Automation, High Power Rectifiers, and Batteries.</p><p></p><p>This recruitment process is led by Ceren Özen, Talent Acquisition Team Lead, ABB Switzerland.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "de": "<p>At <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Begleiten Sie uns und helfen Sie dabei, das zu führen, was die Welt beherrscht.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></p><p><pstyle=\"text-align:inherit !important\"></p><p><p><p></p><p><p>In dieser Rolle sind Sie Eigentümer des Trade Compliance Frameworks für die Local Business Line (LBL) und sind verantwortlich für die Festlegung, Implementierung und kontinuierliche Verbesserung der Richtlinien, Prozesse, Kontrollen und Governance, die erforderlich sind, um eine konforme Ausführung unserer globalen Geschäftsaktivitäten zu gewährleisten. Sie stellen sicher, dass alle internationalen Geschäftstransaktionen, Projektlieferungen, Importe, Exporte, grenzüberschreitende Sendungen und damit verbundene Handelsaktivitäten in Übereinstimmung mit dem Global Trade Program von ABB und den geltenden Zoll-, Exportkontroll-, Sanktions- und Ursprungsbestimmungen durchgeführt werden. Als Trade Compliance Authority der LBL definieren und pflegen Sie das operative Trade Compliance Framework. Sie legen klare Prozesse, Verantwortlichkeiten, Kontrollen und Eskalationsmechanismen fest und gewährleisten eine effektive Umsetzung über alle relevanten Funktionen hinweg. Sie treiben die Integration von Trade-Compliance-\n• Anforderungen in den täglichen Betrieb voran und sind der wichtigste Punkt für komplexe Compliance-Angelegenheiten, regulatorische Änderungen und Risikominderung. Sie sind ferner verantwortlich für die Entwicklung, Dokumentation und Aufrechterhaltung von Verfahren und Schulungsprogrammen im Zusammenhang mit Exportkontrollen, Sanktionen, Zoll und Ursprungsmanagement.<br /> </p><p>Arbeitsmodell ist: #LI-Hybrid</p><p><br /><b> Sie sind hauptsächlich verantwortlich für:</b></p><ul><li><p>Entwicklung, Verbesserung und Implementierung von Prozessen der Zollverfahren von LBL, des Ursprungsmanagements, des Sanktionslisten-Screenings, der Klassifizierung von Dual-Use-Listen und der Exportkontrollen.</p></li><li><p>Funktional führen Sie die Compliance-Ressourcen für den Handel im LBL.</p></li><li><li><p>Führen und überwachen Sie Trade Compliance innerhalb des lokalen Geschäftsbereichs (LBL), einschließlich der Implementierung und kontinuierlichen Verbesserung des Trade Compliance-Programms von ABB, interne Richtlinien, internes Kontrollsystem, lokale Handelsüberprüfungen, Selbstprüfungen und Korrekturmaßnahmen.</p></li><li><p> Bereitstellung von fachkundiger Beratung und Schulung zu Zoll-, Ursprungs-, Exportkontrolle und Sanktions-Compliance, Unterstützung der LBL, Koordination von Trade-Compliance-Ressourcen und -Support-Funktionen und Aufrechterhaltung einer starken Abstimmung mit wichtigen Stakeholdern wie CTCO, TCS, PCE, Deklaranten und Logistikteams.</p></li><li><p>Drive Trade Compliance im täglichen Betrieb und in komplexen Projekten, einschließlich Risikobewertungen, interner Kontrollen, Stammdaten und lieferantenbezogenen Compliance-\n• Anforderungen sowie regelmäßige Aktualisierungen der Stakeholder über den Umsetzungsfortschritt und relevante regulatorische Änderungen.</p></li><li><p>Beratung und Steuerung aller Trade-Compliance-Angelegenheiten in LBLs komplexen Projekten in verschiedenen Ländern</p></li></ul><p><br /><b> Was wir suchen:</b></p><ul><li><p>Abschluss als Außenhandelsspezialist / Manager oder Exportkontrolle / Customs Compliance Officer mit mindestens 8 Jahren Erfahrung in einem relevanten Bereich (Senior Trade Compliance oder Legal/Compliance Hintergrund)</p></li><li><p> Hervorragende Erfahrung im Freihandel und in Bezug auf Präferenzursprünge sowie in Handels-Compliance-Fragen</p></li><li><p>Fluent in Englisch, Deutsch ist ein Plus</p></li></ul></p><p><b>Mehr über uns:</b></b></p></p><p><p><p><p>> Die Division Process Industries bietet komplette Elektrifizierungs- und Automatisierungslösungen, branchenspezifische Produkte und Lifecycle-Services in allen Branchen. Das Verständnis und die Bewältigung von Herausforderungen und Chancen erfordern ein tiefes Fachwissen. Engineering und Lieferung von Automatisierungslösungen vom Gerät bis zur Überwachung und Steuerung machen unsere Kunden mehr aus ihrer Investition. Digitalisierungslösungen einschließlich kollaborativer Operationen und Augmented Reality helfen, die Produktivität von Anlagen und Unternehmen zu verbessern, Wartungs- und Energiekosten zu senken. Unser Engineering-, Projektmanagement-, Service- und Lösungsportfolio deckt eine breite Palette von Branchen ab - Zellstoff, Papier & Fasern, Bergbau, Getriebelose Mühlenantriebe (GMDs), Hebezeuge, Metalle, Wachstumsbranchen wie Zement, Lebensmittel & Getränke, Rechenzentrumsautomatisierung, Hochleistungsgleichrichter und Batterien.</p><p></p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p>><p><p><p><p>><p><p><p>><p><p>><p><p>><p>><p><p>><p><p>><p>><p>><p>><p>><p>><p>><p>><p>><p>><p>><p>> Dieser Rekrutierungsprozess wird geleitet von Ceren Özen, Talent Acquisition Team Lead, ABB Schweiz.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
         "fr": "<p>À <b>ABB</b>, nous aidons les industries à fonctionner plus minces et plus propres. Vous aurez le pouvoir de diriger, de soutenir la croissance et d'être fiers de l'impact que nous créons ensemble. Rejoignez-nous et aidez-nous à exécuter ce qui dirige le monde.</p><p style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\"><b>Ce poste relève de:</b></p>Business Manager - E2E<p style=\"text-align:inherit!important\"></p><p style=\"text-align:inherit!important\"></p><p>Dans ce rôle, vous possédez le cadre de conformité commerciale du secteur d'activité local (LBL) et êtes responsable de l'établissement, de la mise en oeuvre et de l'amélioration continue des politiques, des processus, des contrôles et de la gouvernance nécessaires pour assurer la conformité de nos activités commerciales mondiales. Vous veillez à ce que toutes les transactions commerciales internationales, les livraisons de projets, les importations, les exportations, les expéditions transfrontalières et les activités commerciales connexes soient menées conformément au Programme commercial mondial d'ABB et aux règlements applicables en matière de douanes, de contrôle des exportations, de sanctions et d'origine. En tant qu'autorité de conformité commerciale de la LBL, vous définissez et maintenez le cadre opérationnel de conformité commerciale. Vous établissez des processus, des responsabilités, des contrôles et des mécanismes d'escalade clairs et assurez une mise en oeuvre efficace de toutes les fonctions pertinentes. Vous dirigez l'intégration des exigences de conformité commerciale dans les opérations quotidiennes et vous servez de point de départ pour les questions complexes de conformité, les changements réglementaires et l'atténuation des risques. Vous êtes également responsable de l'élaboration, de la documentation et du maintien des procédures et des programmes de formation liés aux contrôles à l'exportation, aux sanctions, aux douanes et à la gestion de l'origine.<br /> </p><p>Le modèle de travail est : #LI-Hybrid</p><p><br /><b> Vous serez principalement responsable :</b></p><ul><li><p>Élaborer, améliorer et mettre en oeuvre les processus des procédures douanières, de la gestion de l'origine, de la présélection des listes de sanctions, de la classification à double usage et des contrôles à l'exportation.</p><li><p>Fonctionnellement diriger les ressources en matière de conformité commerciale dans la LBL.</p><li><p>Maîtriser et superviser la conformité commerciale dans le secteur d'activité local (LBL), y compris la mise en oeuvre et l'amélioration continue du Programme de conformité commerciale de l'ABB, des directives internes, du système de contrôle interne, des examens commerciaux locaux, des autovérifications et des mesures correctives.</p><li><p><p> Fournir des conseils et une formation d'experts sur le respect des douanes, de l'origine, du contrôle des exportations et des sanctions, appuyer la LBL, coordonner les ressources et les fonctions de soutien en matière de conformité commerciale, et maintenir une forte harmonisation avec les principaux intervenants tels que le CTCO, le TCS, le PCE, les déclarants et les équipes de logistique.</p></li><li><p>Instruire la conformité commerciale dans les opérations quotidiennes et les projets complexes, y compris les évaluations des risques, les vérifications internes, les données maîtresses et les exigences de conformité des fournisseurs, et informer régulièrement les intervenants sur les progrès de la mise en oeuvre et les modifications réglementaires pertinentes.</p><li><p> Ce que nous recherchons :</b></p><ul><li><p>Devenir spécialiste du commerce extérieur / gestionnaire ou agent de contrôle des exportations / de conformité des douanes ayant au moins 8 ans d'expérience dans un domaine pertinent (conformité commerciale principale ou antécédents juridiques/de conformité)</p></li><li><p> Excellente expérience en matière de libre-échange et d'origines préférentielles ainsi que dans le domaine de la conformité commerciale</p></li><li><p><p>Solid knowledge in Swiss (GKV), EU and US (EAR) dual-use and sanctions regulations</p></li><li><p>Expérience dans une industrie ayant de grandes entreprises de projets dans divers pays et capacité en tant que chef de file et joueur d'équipe axé sur la solution</p><li><li><p><p>SAP et SAP GTS Expériences E4H</p><li><p><p>Fluent en anglais, l'allemand est un plus</p></li><p><p><p><b>Plus sur nous:</b></p><p><p><p> La division Process Industries offre des solutions complètes d'électrification et d'automatisation, des produits spécifiques à l'industrie et des services de cycle de vie dans toutes les industries. La compréhension et le traitement des défis et des possibilités exigent une connaissance approfondie du domaine. L'ingénierie et la fourniture de solutions d'automatisation de l'appareil à la surveillance et au contrôle font que nos clients tirent davantage de leur investissement. Les solutions de numérisation, y compris les opérations collaboratives et la réalité augmentée, contribuent à améliorer la productivité des usines et des entreprises, à réduire les coûts d'entretien et d'énergie. Notre portefeuille d'ingénierie, de gestion de projet, de services et de solutions couvre un large éventail d'industries - Pulp, Paper & Fibre, Mining, Gearless Mill Drives (GMD), Hoists, Metals, Growth Industries telles que Cement, Food & Boissons, Data Center Automation, High Power Rectifiers, and Batteries.</p><p></p><p> Ce processus de recrutement est dirigé par Ceren Özen, chef d'équipe d'acquisition de talents, ABB Suisse.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left=\"important\"> Construire un avenir plus propre et plus intelligent prend toutes sortes d'esprits : les curieux, les courageux et les créatifs. C'est pourquoi nous accueillons des gens de tous les horizons et de toutes les expériences.</p><p style=\"text-align:left!important\"> </p><p>Prêt à faire un impact? </p><p></p><p>Appliquer aujourd'hui ou visiter <a cible=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
       },
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "en",
-      "salaryMin": 178000,
-      "salaryMax": 313000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -630,7 +632,9 @@
       },
       "addressLocality": "Baden, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "salaryMin": 178000,
+      "salaryMax": 313000
     },
     {
       "id": "company-t0gnb0",
@@ -655,7 +659,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "(80 - 100%) R&D Senior Ingegnere",
@@ -744,7 +748,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "(80 - 100%) R&D Ingegnere",
@@ -847,7 +851,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "slugByLocale": {
         "it": "80-100-allenatore-tecnico-elettronica-di-potenza-abb-svizzera-sede-ticino-quartino-ticino",
@@ -858,7 +862,7 @@
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
+        "de": "(80 - 100%) Technical Trainer - Power Electronics",
         "fr": "(80 - 100 %) Formateur technique - Électronique de puissance"
       },
       "descriptionByLocale": {
@@ -899,6 +903,7 @@
         "tecnico-della-qualita-80-100-abb-svizzera-sede-ticino-quartino",
         "80-100-technical-trainer-power-electronics-abb-svizzera-sede-ticino-quartino-ticino-46ubs3"
       ],
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -925,7 +930,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "(80 -100%) Production Engineering Specialista",
@@ -1018,7 +1023,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "Service Test Ingegnere",
@@ -1062,6 +1067,7 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -1088,7 +1094,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato per EMC in Elettronica di Potere",
@@ -1141,6 +1147,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1167,13 +1174,13 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Assistente",
         "en": "Assistant (in English).",
         "de": "Assistent",
-        "fr": "Assistante"
+        "fr": "Assistant"
       },
       "descriptionByLocale": {
         "it": "In ABB, aiutiamo le industrie a funzionare più snello e cleaner.E ogni persona qui fa che accada. You.ll essere autorizzato a guidare, sostenuto per crescere, e orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiuta a gestire ciò che gestisce il mondo.\n\nQuesta posizione è riportata a: Operations Manager - Product Line Critical Power Schaffhausen\n\nE' un'idea divertente.\n\nAssistente responsabile delle attività e amministrazione delle risorse umane\n\n• I vostri compiti e responsabilità\n\nIn questa posizione, avrete la possibilità di fornire servizi amministrativi e/o compiti di segreteria a livello organizzativo o aziendale. Si assumeranno compiti amministrativi complessi su base giornaliera.\n\nInoltre, vi mostrerete la vostra esperienza assumendovi la responsabilità dell'implementazione di specifici processi o programmi aziendali.\n\nIl modello di lavoro per questa posizione è: In loco / Hybrid\n\nEssi sono principalmente responsabili di:\n\nIstruzione professionale e apprendisti\n\n- Coordinazione e contatto per apprendisti, formatori e partner esterni (ufficio di formazione professionale, scuole professionali, corsi interaziendali, libs, Wibilea), sostegno agli apprendisti in situazioni difficili e scambio regolare con ABB Svizzera\n\n- Assunzione e imbarco: coordinamento del processo di assunzione in collaborazione con i formatori, compresa la lavorazione dei contratti e l'organizzazione di attrezzature per i nuovi apprendisti\n\n- Gestione degli eventi: organizzazione e realizzazione di eventi (informazione sulle classi di immigrazione mattina, informazioni sulla carriera pomeriggio, workshop per formatori, ABB apprendistato Cerimonia di graduazione, Future Day, visita dell'azienda Wirtschaftswoche)\n\nAmministrazione HR\n\n- Gestione e rendicontazione del personale: creazione di avvisi mensili/quartieriali (ingresso/uscita, anniversari), mantenimento di varie liste di risorse umane (contabilità, elenchi dei temp) e trasmissione alle parti interessate.\n\n- Servizi e supporto ai dipendenti: responsabilità per la gestione del badge e dei locker, preparazione di pacchetti di benvenuto e supporto per il Welcome Day. Persona di contatto per le richieste di risorse umane, supporto al team di benessere. Supporto amministrativo e operativo selettivo per il responsabile delle risorse umane sul sito\n\nIstruzione ed esperienza\n\n- Formazione commerciale completata (KV EFZ) o equivalente e diversi anni di esperienza nell'amministrazione e/o nella formazione professionale delle risorse umane\n\n- Conoscenza del diritto svizzero dell'istruzione e della formazione professionale; conoscenza del sistema svizzero di istruzione e formazione professionale è un vantaggio\n\n- Abilità organizzative, iniziative e ottime competenze dell'ufficio MS\n\n- Forte capacità comunicative e divertimento nel trattare con i giovani\n\n- Discrezione, capacità di lavorare in team e orientamento al servizio\n\n- Flessibilità e resilienza\n\n- Tedesco (parlante nativo o di business fluent), l'inglese è un vantaggio\n\nPiù su di noi\n\nABB Smart Buildings si impegna ad ottimizzare l'efficienza energetica, la sicurezza, la protezione e il comfort in edifici di ogni tipo. dai nuovi edifici ai progetti di ammodernamento e retrofit.\n\nNon vediamo l'ora di ricevere la tua domanda! Il processo di reclutamento è accompagnato da Partner di Total Reto Kortick.\n\nEntra a far parte del nostro team e modella con noi il futuro. In un ambiente innovativo, darai un prezioso contributo all'evoluzione delle industrie e alla creazione di un mondo più sostenibile insieme.\n\nCostruire un futuro più pulito e intelligente richiede ogni tipo di mente: il curioso, il coraggioso e il creativo. Ecco perché accogliamo persone provenienti da ogni provenienza ed esperienza.\n\nPronto a fare un impatto?\n\nApplica oggi o visita https://www.abb.com per saperne di più sull'impatto delle nostre soluzioni in tutto il mondo.",
@@ -1247,7 +1254,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Risorse Umane Ops Specialista (m/f/d) (80 -100%)",
@@ -1292,6 +1299,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -1318,7 +1326,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Procurement Specialista Electronics (80-100%) f/m/d",
@@ -1367,6 +1375,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000
     },
@@ -1393,7 +1402,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Procurement Specialista Electro-mechanical components & Electronics (80-100%)",
@@ -1440,6 +1449,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000
     },
@@ -1466,7 +1476,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Commissioning Ingegnere (Medium-Voltage Systems) (m/w/d) 80 - 100%",
@@ -1538,7 +1548,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Ingegneria della produzione Tecnico (f/m/d) 80-100%",
@@ -1585,6 +1595,7 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1611,7 +1622,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Software Senior Ingegnere - Mobile APPs",
@@ -1658,6 +1669,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -1684,7 +1696,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Software Senior Ingegnere - Desktop",
@@ -1757,7 +1769,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-05T22:25:48.882Z",
       "titleByLocale": {
         "it": "R&D Finanza Analista",
@@ -1814,6 +1826,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -1840,7 +1853,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-04T22:24:53.729Z",
       "titleByLocale": {
         "it": "Capo turno Test IPU B&S (m/f/d) 80-100%",
@@ -1924,6 +1937,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -1950,7 +1964,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-04T22:24:53.729Z",
       "titleByLocale": {
         "it": "Category Specialista for Corporate Procurement",
@@ -1997,6 +2011,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -2023,7 +2038,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-03T12:48:05.317Z",
       "titleByLocale": {
         "it": "(80 - 100%) Software Sviluppatore (.NET Desktop Applications)",
@@ -2070,6 +2085,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000
     },
@@ -2096,7 +2112,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-03T22:25:01.015Z",
       "titleByLocale": {
         "it": "Scienziato (Senior) Convertitori Elettronici di Potenza 80-100% (m/f/d)",
@@ -2178,7 +2194,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-31T22:14:52.493Z",
       "titleByLocale": {
         "it": "(80 - 100%) Servizio Gestione modifiche ingegneristiche",
@@ -2257,7 +2273,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-30T11:24:53.698Z",
       "slugByLocale": {
         "it": "80-100-senior-technical-support-ingegnere-abb-svizzera-sede-ticino-untersiggenthal-aargau-qoecth",
@@ -2320,7 +2336,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-30T22:16:27.155Z",
       "slugByLocale": {
         "it": "technical-service-specialista-abb-svizzera-sede-ticino-untersiggenthal-aargau-28eboy",
@@ -2357,6 +2373,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2383,7 +2400,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-30T22:16:27.155Z",
       "slugByLocale": {
         "it": "einrichter-in-spritzguss-estrusione-80-100-abb-svizzera-sede-ticino-uster-zurich",
@@ -2394,7 +2411,7 @@
       "titleByLocale": {
         "it": "Einrichter:in Spritzguss / Estrusione (80-100%)",
         "en": "Einrichter:in Spritzguss / Extrusion (80-100%)",
-        "de": "Einrichter: in Spritzguss / Extrusion (80-100 %)",
+        "de": "Einrichter:in Spritzguss / Extrusion (80-100%)",
         "fr": "Einrichter:en Spritzguss / Extrusion (80-100%)"
       },
       "descriptionByLocale": {
@@ -2447,7 +2464,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-24T22:26:24.459Z",
       "titleByLocale": {
         "it": "Product Manager Sistemi e-Power mobili (m/w/d)",
@@ -2500,6 +2517,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -2526,7 +2544,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-23T22:14:38.167Z",
       "titleByLocale": {
         "it": "Technical Sales Support Ingegnere (80-100%)",
@@ -2571,6 +2589,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -2597,7 +2616,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-20T22:13:03.020Z",
       "titleByLocale": {
         "it": "Sales Specialista Panel Builder (80 - 100%)",
@@ -2658,6 +2677,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -2684,7 +2704,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "End Sales Manager – Progetti Strategici Globali, Mining",
@@ -2737,6 +2757,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -2763,7 +2784,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-22T12:33:42.277Z",
       "slugByLocale": {
         "it": "sales-ingegnere-french-fluency-required-80-100-abb-svizzera-sede-ticino-morges-vaud-k6p09l",
@@ -2834,7 +2855,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Ingegnere",
@@ -2906,7 +2927,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato nei sistemi di distribuzione basati su convertitori (80 - 100%)",
@@ -3001,7 +3022,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Specialista OEM (Talent Pool) | 80–100%",
@@ -3047,6 +3068,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -3073,7 +3095,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-08-15T09:49:13.341Z",
+      "crawledAt": "2026-08-15T21:33:34.555Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "SAP Authorization / User Access Manager m/f/d (80-100%)",
