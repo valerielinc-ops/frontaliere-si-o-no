@@ -100,7 +100,7 @@
         "it": "pharma-assistent-pharma-assistentin-come-springer-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern",
-        "fr": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern"
+        "fr": "assistant-pharmacien-assistante-pharmacienne-en-tant-que-remplacant-h-f-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Assistente Farmacia / Assistente Farmacia come Sostituto (m/f)",
@@ -114,6 +114,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern"
         ]
       },
@@ -368,12 +371,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        "fr": "pharmacien-ne-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista",
@@ -402,7 +405,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+      ]
     },
     {
       "title": "Pharmacien / Pharmacienne (f/h/d)",
@@ -808,7 +822,7 @@
         "it": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
+        "fr": "pharmacien-ne-pour-formation-specialisee-fph-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista per formazione specialistica FPH (w/m/d)",
@@ -829,6 +843,9 @@
           "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nxko04",
           "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nxlgq7",
           "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern-nxo0va"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1071,7 +1088,7 @@
         "it": "collaboratore-trice-medizinische-rechnungsprufung-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern",
         "de": "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern",
-        "fr": "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern"
+        "fr": "collaborateur-de-l-audit-medical-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Audit medico dei dipendenti (m/f/d)",
@@ -1082,6 +1099,9 @@
       "id": "galenica-c117a489a175",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern"
         ]
       },
@@ -1215,7 +1235,7 @@
         "it": "collaboratore-trice-mitarbeiterin-koordination-e-administration-aussendienst-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
         "de": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
-        "fr": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
+        "fr": "collaborateur-collaboratrice-coordination-et-administration-services-externes-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Dipendente Coordinamento e amministrazione Servizio esterno (m/f/d)",
@@ -1228,6 +1248,9 @@
         "it": [
           "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
           "collaboratore-trice-mitarbeiterin-koordination-e-administration-aussendienst-m-w-d-ny6fr9"
+        ],
+        "fr": [
+          "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -1277,12 +1300,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-farmacista-m-f-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-farmacista-m-f-d-galenica-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
+        "fr": "pharmacie-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista / Farmacista (m/f/d)",
@@ -1313,14 +1336,19 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+          "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
-        "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       ],
       "retranslationAttempts": 1
     },
@@ -1350,7 +1378,7 @@
         "it": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
+        "fr": "pharmacien-directeur-pharmacienne-directrice-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista Direttore / Direttrice (w/m/d)",
@@ -1379,6 +1407,9 @@
           "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5r6u",
           "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5qh6",
           "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxn9c2"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1429,7 +1460,7 @@
         "it": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
         "en": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
         "de": "qualitatsmanager-m-w-d-galenica-ag-galenica-bern",
-        "fr": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern"
+        "fr": "responsable-de-la-qualite-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Qualitätsmanager (w/m/d)",
@@ -1503,7 +1534,7 @@
         "it": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
+        "fr": "pharmacien-pharmacienne-remplacant-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista come supplente (m/f/d)",
@@ -1520,6 +1551,9 @@
         "it": [
           "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
           "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern-ny8y75"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1774,9 +1808,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-apotheker-w-m-d-bern",
+      "slug": "farmacista-m-f-d-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-w-m-d-bern",
+        "it": "farmacista-m-f-d-galenica-galenica-bern",
         "en": "galenica-galenica-apotheker-w-m-d-bern",
         "de": "apotheker-w-m-d-galenica-galenica-bern",
         "fr": "apothequer-m-j-galenica-galenica-bern"
@@ -1808,7 +1842,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-w-m-d-bern"
+      ]
     },
     {
       "title": "Technical Product Owner Documedis Platform",
@@ -1901,7 +1943,7 @@
       "slugByLocale": {
         "it": "ict-supporter-e-test-ingegnere-m-w-d-galenica-bern",
         "en": "galenica-galenica-ict-supporter-und-test-engineer-w-m-d-bern",
-        "de": "galenica-galenica-ict-supporter-und-test-engineer-w-m-d-bern",
+        "de": "ict-unterstutzer-und-testingenieur-m-w-d-galenica-galenica-bern",
         "fr": "galenica-galenica-ict-supporter-und-test-engineer-w-m-d-bern"
       },
       "titleByLocale": {
@@ -1913,6 +1955,9 @@
       "id": "galenica-796a16a22168",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ict-supporter-und-test-engineer-w-m-d-bern"
+        ],
+        "de": [
           "galenica-galenica-ict-supporter-und-test-engineer-w-m-d-bern"
         ]
       },
@@ -1967,7 +2012,7 @@
         "it": "sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-e-inkasso-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-und-inkasso-w-m-d-bern",
         "de": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-und-inkasso-w-m-d-bern",
-        "fr": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-und-inkasso-w-m-d-bern"
+        "fr": "agent-agente-comptabilite-clients-et-recouvrement-h-f-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Addetto / Addetta Contabilità Clienti e Recupero Crediti (u/d)",
@@ -1984,6 +2029,9 @@
         "it": [
           "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-und-inkasso-w-m-d-bern",
           "sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-e-inkasso-m-w-d-galenica-ag-ga-ny6gc0"
+        ],
+        "fr": [
+          "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-debitorenbuchhaltung-und-inkasso-w-m-d-bern"
         ]
       },
       "needsRetranslation": true,
@@ -2029,11 +2077,11 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
+      "slug": "automatico-elettricista-di-manutenzione-industriale-f-h-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
+        "it": "automatico-elettricista-di-manutenzione-industriale-f-h-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
-        "de": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
+        "de": "automatisierungstechniker-wartungselektriker-f-h-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
       },
       "titleByLocale": {
@@ -2063,7 +2111,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+      ]
     },
     {
       "title": "Accounts Payables Manager (w/m/d)",
@@ -2344,9 +2403,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern",
+      "slug": "impiegato-a-front-office-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern",
+        "it": "impiegato-a-front-office-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern",
         "de": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern",
         "fr": "siege-social-galenica-ag-galenica-bern"
@@ -2378,7 +2437,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-w-m-d-bern"
+      ]
     },
     {
       "title": "Assistante en pharmacie (f/h/d)",
@@ -2737,11 +2804,11 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern",
+      "slug": "junior-responsabile-spazi-e-assortimento-w-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern",
+        "it": "junior-responsabile-spazi-e-assortimento-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern",
-        "de": "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern",
+        "de": "junior-flachen-und-sortimentsmanager-w-m-d-galenica-ag-galenica-bern",
         "fr": "gestionnaire-junior-de-l-espace-et-de-l-assortiment-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
@@ -2769,7 +2836,18 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-junior-space-and-assortment-manager-w-m-d-bern"
+      ]
     },
     {
       "title": "Teamleiter /Teamleiterin Operationscenter (w/m/d)",
@@ -2792,9 +2870,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
+      "slug": "responsabile-di-team-operationscenter-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
+        "it": "responsabile-di-team-operationscenter-m-f-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
         "de": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
         "fr": "teamleiter-centre-d-operations-teamleiterin-w-m-d-galenica-ag-galenica-bern"
@@ -2826,7 +2904,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
@@ -2854,7 +2940,7 @@
         "it": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
-        "fr": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
+        "fr": "pharmacien-pharmacienne-pour-formation-fph-m-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista per Formazione Specializzata FPH (m/f/d)",
@@ -2868,6 +2954,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
         ]
       },
@@ -2914,9 +3003,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+      "slug": "assistente-farmacista-nel-centro-servizi-clienti-d-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+        "it": "assistente-farmacista-nel-centro-servizi-clienti-d-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-p-m-d-galenica-ag-galenica-bern"
@@ -2948,7 +3037,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3603,7 +3700,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-horw",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-horw",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-horw",
+        "de": "pharmaassistent-afc-amavita-galenica-horw",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-horw"
       },
       "titleByLocale": {
@@ -3631,7 +3728,15 @@
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-horw"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-horw"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3658,7 +3763,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-lausanne",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
+        "de": "apothekenassistent-afc-amavita-galenica-lausanne",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne"
       },
       "titleByLocale": {
@@ -3686,7 +3791,15 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3767,7 +3880,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-langenthal",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
+        "de": "pharmaassistent-afc-amavita-galenica-langenthal",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-langenthal"
       },
       "titleByLocale": {
@@ -3795,7 +3908,15 @@
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3975,7 +4096,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-davos-platz",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz",
+        "de": "pharmaassistent-in-efz-amavita-galenica-davos-platz",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-davos-platz"
       },
       "titleByLocale": {
@@ -4003,7 +4124,15 @@
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-platz"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4464,7 +4593,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen",
+        "de": "pharmaassistent-in-efz-amavita-galenica-st-gallen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-gallen"
       },
       "titleByLocale": {
@@ -4497,12 +4626,16 @@
           "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
           "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1",
           "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
         "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f"
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen"
       ],
       "retranslationAttempts": 1
     },
@@ -4755,7 +4888,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-geneve",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
+        "de": "pharmaassistent-in-afc-amavita-galenica-geneve",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
       },
       "titleByLocale": {
@@ -4790,6 +4923,9 @@
           "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a",
           "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
           "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
         ]
       },
       "previousSlugs": [
@@ -4797,7 +4933,8 @@
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt"
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
       ],
       "retranslationAttempts": 1
     },
@@ -4826,7 +4963,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-gland",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-gland",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-gland",
+        "de": "pharmaassistentin-afc-amavita-galenica-gland",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-gland"
       },
       "titleByLocale": {
@@ -4854,7 +4991,15 @@
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-gland"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-gland"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5105,7 +5250,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-uznach",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uznach",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uznach",
+        "de": "apothekenassistent-in-efz-amavita-galenica-uznach",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-uznach"
       },
       "titleByLocale": {
@@ -5133,7 +5278,15 @@
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uznach"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5160,7 +5313,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-monthey",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey",
+        "de": "pharmaassistent-in-afc-amavita-galenica-monthey",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-monthey"
       },
       "titleByLocale": {
@@ -5188,7 +5341,15 @@
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5269,7 +5430,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-granges-paccot",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-granges-paccot",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-granges-paccot",
+        "de": "pharmaassistent-in-afc-amavita-galenica-granges-paccot",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-granges-paccot"
       },
       "titleByLocale": {
@@ -5297,7 +5458,15 @@
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-granges-paccot"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-granges-paccot"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5679,7 +5848,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-neyruz-fr",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neyruz-fr",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neyruz-fr",
+        "de": "pharmaassistent-in-afc-amavita-galenica-neyruz-fr",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-neyruz-fr"
       },
       "titleByLocale": {
@@ -5707,7 +5876,15 @@
       "addressLocality": "Neyruz FR",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neyruz-fr"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neyruz-fr"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5966,7 +6143,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-zumikon",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zumikon",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zumikon",
+        "de": "apothekenassistent-in-afc-amavita-galenica-zumikon",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zumikon"
       },
       "titleByLocale": {
@@ -5994,7 +6171,15 @@
       "addressLocality": "Zumikon",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zumikon"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zumikon"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6129,7 +6314,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-biberist",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biberist",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biberist",
+        "de": "pharmaassistentin-afc-amavita-galenica-biberist",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-biberist"
       },
       "titleByLocale": {
@@ -6157,7 +6342,15 @@
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biberist"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biberist"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6461,7 +6654,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-meyrin",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-meyrin",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-meyrin",
+        "de": "pharmaassistent-in-efz-amavita-galenica-meyrin",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-meyrin"
       },
       "titleByLocale": {
@@ -6489,7 +6682,15 @@
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-meyrin"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6570,7 +6771,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-st-moritz",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
+        "de": "pharmaassistent-in-afc-amavita-galenica-st-moritz",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-st-moritz"
       },
       "titleByLocale": {
@@ -6582,12 +6783,16 @@
       "id": "galenica-6b68917d1381",
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc0fr",
-        "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc13v"
+        "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc13v",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc0fr",
           "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc13v"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz"
         ]
       },
       "needsRetranslation": true,
@@ -7173,7 +7378,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-derendingen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-derendingen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-derendingen",
+        "de": "pharmaassistent-in-afc-amavita-galenica-derendingen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-derendingen"
       },
       "titleByLocale": {
@@ -7201,7 +7406,15 @@
       "addressLocality": "Derendingen",
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-derendingen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-derendingen"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7606,7 +7819,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-mellingen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mellingen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mellingen",
+        "de": "pharmazieassistent-in-afc-amavita-galenica-mellingen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-mellingen"
       },
       "titleByLocale": {
@@ -7634,7 +7847,15 @@
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mellingen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mellingen"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8166,7 +8387,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-arlesheim",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-arlesheim",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-arlesheim",
+        "de": "pharmaassistent-in-afc-amavita-galenica-arlesheim",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-arlesheim"
       },
       "titleByLocale": {
@@ -8194,7 +8415,15 @@
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-arlesheim"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8221,7 +8450,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-plaffeien",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-plaffeien",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-plaffeien",
+        "de": "pharmaassistentin-afc-amavita-galenica-plaffeien",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-plaffeien"
       },
       "titleByLocale": {
@@ -8249,7 +8478,15 @@
       "addressLocality": "Plaffeien",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-plaffeien"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-plaffeien"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8541,7 +8778,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-coppet",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-coppet",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-coppet",
+        "de": "pharmaassistent-in-afc-amavita-galenica-coppet",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-coppet"
       },
       "titleByLocale": {
@@ -8569,7 +8806,15 @@
       "addressLocality": "Coppet",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-coppet"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-coppet"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8704,7 +8949,7 @@
       "slugByLocale": {
         "it": "assistente-di-farmacia-afc-amavita-apotheke-galenica-balerna",
         "en": "galenica-amavita-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna",
-        "de": "galenica-amavita-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna",
+        "de": "pharmaassistent-in-afc-amavita-galenica-balerna",
         "fr": "assistant-e-en-pharmacie-cfc-amavita-apotheke-galenica-balerna"
       },
       "titleByLocale": {
@@ -8719,7 +8964,8 @@
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna",
         "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna",
         "galenica-amavita-apotheke-assistente-di-farmacia-afc-balerna",
-        "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-balerna"
+        "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-balerna",
+        "galenica-amavita-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8731,7 +8977,8 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna"
         ],
         "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna"
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna",
+          "galenica-amavita-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-balerna"
         ],
         "fr": [
           "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna"
@@ -9106,7 +9353,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-payerne",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-payerne",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-payerne",
+        "de": "pharmaassistentin-afc-amavita-galenica-payerne",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-payerne"
       },
       "titleByLocale": {
@@ -9134,7 +9381,15 @@
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-payerne"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9161,7 +9416,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-oberengstringen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberengstringen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberengstringen",
+        "de": "pharmaassistent-in-efz-amavita-galenica-oberengstringen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-oberengstringen"
       },
       "titleByLocale": {
@@ -9189,7 +9444,15 @@
       "addressLocality": "Oberengstringen",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberengstringen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberengstringen"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9216,7 +9479,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-nyon",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon",
+        "de": "pharmaassistent-in-efz-amavita-galenica-nyon",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-nyon"
       },
       "titleByLocale": {
@@ -9244,7 +9507,15 @@
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-nyon"
+      ]
     },
     {
       "title": "Operatore/trice informatico/a AFC",
@@ -9715,7 +9986,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-sion",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion",
+        "de": "apotheken-assistent-in-afc-amavita-galenica-sion",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-sion"
       },
       "titleByLocale": {
@@ -9743,7 +10014,15 @@
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sion"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9770,7 +10049,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-crans-montana-1",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-crans-montana-1",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-crans-montana-1",
+        "de": "pharmaassistentin-afc-amavita-galenica-crans-montana-1",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-crans-montana-1"
       },
       "titleByLocale": {
@@ -9798,7 +10077,15 @@
       "addressLocality": "Crans-Montana 1",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-crans-montana-1"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-crans-montana-1"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10149,7 +10436,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-yverdon-les-bains",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-yverdon-les-bains",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-yverdon-les-bains",
+        "de": "pharma-assistent-afc-amavita-galenica-yverdon-les-bains",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-yverdon-les-bains"
       },
       "titleByLocale": {
@@ -10177,7 +10464,15 @@
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-yverdon-les-bains"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10204,7 +10499,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-brugg",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-brugg",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-brugg",
+        "de": "pharmaassistent-in-afc-amavita-galenica-brugg",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-brugg"
       },
       "titleByLocale": {
@@ -10232,7 +10527,15 @@
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-brugg"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-brugg"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10259,7 +10562,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-uzwil",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uzwil",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uzwil",
+        "de": "pharmaassistent-in-afc-amavita-galenica-uzwil",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-uzwil"
       },
       "titleByLocale": {
@@ -10287,7 +10590,15 @@
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-uzwil"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10592,7 +10903,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-tramelan",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-tramelan",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-tramelan",
+        "de": "pharmaassistentin-afc-amavita-galenica-tramelan",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-tramelan"
       },
       "titleByLocale": {
@@ -10620,7 +10931,15 @@
       "addressLocality": "Tramelan",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-tramelan"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-tramelan"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11035,7 +11354,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-kerzers",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kerzers",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kerzers",
+        "de": "pharmaassistent-in-afc-amavita-galenica-kerzers",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-kerzers"
       },
       "titleByLocale": {
@@ -11063,7 +11382,15 @@
       "addressLocality": "Kerzers",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kerzers"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kerzers"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11090,7 +11417,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-ostermundigen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ostermundigen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ostermundigen",
+        "de": "pharmaassistentin-afc-amavita-galenica-ostermundigen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ostermundigen"
       },
       "titleByLocale": {
@@ -11118,7 +11445,15 @@
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ostermundigen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ostermundigen"
+      ]
     },
     {
       "title": "Informatico/a AFC sviluppo di applicazioni",
@@ -11363,7 +11698,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-altdorf-ur",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-altdorf-ur",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-altdorf-ur",
+        "de": "pharmaassistent-in-afc-amavita-galenica-altdorf-ur",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-altdorf-ur"
       },
       "titleByLocale": {
@@ -11391,7 +11726,15 @@
       "addressLocality": "Altdorf UR",
       "addressRegion": "UR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-altdorf-ur"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-altdorf-ur"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11418,7 +11761,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-spiez",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez",
+        "de": "pharma-assistent-in-afc-amavita-galenica-spiez",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-spiez"
       },
       "titleByLocale": {
@@ -11449,10 +11792,14 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-spiez-1nc0gp"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-spiez-1nc0gp"
+        "galenica-amavita-assistente-di-farmacia-afc-spiez-1nc0gp",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez"
       ],
       "retranslationAttempts": 1
     },
@@ -11535,7 +11882,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-sierre",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sierre",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sierre",
+        "de": "pharmaassistentin-afc-amavita-galenica-sierre",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-sierre"
       },
       "titleByLocale": {
@@ -11563,7 +11910,15 @@
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-sierre"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11590,7 +11945,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-basel",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
+        "de": "pharmaassistent-in-afc-amavita-galenica-basel",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-basel"
       },
       "titleByLocale": {
@@ -11622,11 +11977,15 @@
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
           "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw"
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel"
       ],
       "retranslationAttempts": 1
     },
@@ -11709,7 +12068,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-thonex",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thonex",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thonex",
+        "de": "pharmaassistent-afc-amavita-galenica-thonex",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-thonex"
       },
       "titleByLocale": {
@@ -11737,7 +12096,15 @@
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thonex"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11988,7 +12355,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-collonge-bellerive",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collonge-bellerive",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collonge-bellerive",
+        "de": "pharma-assistent-in-afc-amavita-galenica-collonge-bellerive",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-collonge-bellerive"
       },
       "titleByLocale": {
@@ -12016,7 +12383,15 @@
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collonge-bellerive"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collonge-bellerive"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12279,7 +12654,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-bulle",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
+        "de": "apothekenassistent-in-afc-amavita-galenica-bulle",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-bulle"
       },
       "titleByLocale": {
@@ -12307,7 +12682,15 @@
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12388,7 +12771,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-spreitenbach",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spreitenbach",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spreitenbach",
+        "de": "pharmazieassistentin-afc-amavita-galenica-spreitenbach",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-spreitenbach"
       },
       "titleByLocale": {
@@ -12416,7 +12799,15 @@
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spreitenbach"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12829,7 +13220,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-munchenbuchsee",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-munchenbuchsee",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-munchenbuchsee",
+        "de": "apotheken-assistent-in-efz-amavita-galenica-munchenbuchsee",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-munchenbuchsee"
       },
       "titleByLocale": {
@@ -12857,7 +13248,15 @@
       "addressLocality": "Münchenbuchsee",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-munchenbuchsee"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-munchenbuchsee"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12884,7 +13283,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-liestal",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-liestal",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-liestal",
+        "de": "pharmaassistent-in-efz-amavita-galenica-liestal",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-liestal"
       },
       "titleByLocale": {
@@ -12912,7 +13311,15 @@
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-liestal"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12993,7 +13400,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-petit-lancy",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-petit-lancy",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-petit-lancy",
+        "de": "pharmaassistent-in-efz-amavita-galenica-petit-lancy",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-petit-lancy"
       },
       "titleByLocale": {
@@ -13021,7 +13428,15 @@
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-petit-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-petit-lancy"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13187,7 +13602,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-zurich-flughafen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich-flughafen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich-flughafen",
+        "de": "pharmaassistent-in-afc-amavita-galenica-zurich-flughafen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich-flughafen"
       },
       "titleByLocale": {
@@ -13215,7 +13630,15 @@
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich-flughafen"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13308,7 +13731,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-le-locle",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-locle",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-locle",
+        "de": "pharmaassistent-in-efz-amavita-galenica-le-locle",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-le-locle"
       },
       "titleByLocale": {
@@ -13336,7 +13759,15 @@
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-locle"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-locle"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13363,7 +13794,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-wadenswil",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wadenswil",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wadenswil",
+        "de": "apothekenassistentin-afc-amavita-galenica-wadenswil",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-wadenswil"
       },
       "titleByLocale": {
@@ -13391,7 +13822,15 @@
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wadenswil"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13418,7 +13857,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-epalinges",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges",
+        "de": "pharmazieassistent-in-afc-amavita-galenica-epalinges",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-epalinges"
       },
       "titleByLocale": {
@@ -13449,10 +13888,14 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f"
+        "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges"
       ],
       "retranslationAttempts": 1
     },
@@ -13481,7 +13924,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-wallisellen",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wallisellen",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wallisellen",
+        "de": "apothekerassistent-in-afc-amavita-galenica-wallisellen",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-wallisellen"
       },
       "titleByLocale": {
@@ -13509,7 +13952,15 @@
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-wallisellen"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13590,7 +14041,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-allschwil",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-allschwil",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-allschwil",
+        "de": "pharmaassistent-in-afc-amavita-galenica-allschwil",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-allschwil"
       },
       "titleByLocale": {
@@ -13618,7 +14069,15 @@
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-allschwil"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13645,7 +14104,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-savigny",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-savigny",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-savigny",
+        "de": "apothekenassistent-in-afc-amavita-galenica-savigny",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-savigny"
       },
       "titleByLocale": {
@@ -13673,7 +14132,15 @@
       "addressLocality": "Savigny",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-savigny"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-savigny"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14024,7 +14491,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-ebikon",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ebikon",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ebikon",
+        "de": "apothekenhelferin-afc-amavita-galenica-ebikon",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ebikon"
       },
       "titleByLocale": {
@@ -14052,7 +14519,15 @@
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ebikon"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14141,7 +14616,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-burgdorf",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-burgdorf",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-burgdorf",
+        "de": "apothekenassistent-in-afc-amavita-galenica-burgdorf",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-burgdorf"
       },
       "titleByLocale": {
@@ -14169,7 +14644,15 @@
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-burgdorf"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14250,7 +14733,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-aigle",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle",
+        "de": "pharmaassistent-in-afc-amavita-galenica-aigle",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-aigle"
       },
       "titleByLocale": {
@@ -14278,7 +14761,15 @@
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14305,7 +14796,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-montreux",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montreux",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montreux",
+        "de": "apotheken-assistent-in-afc-amavita-galenica-montreux",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-montreux"
       },
       "titleByLocale": {
@@ -14333,7 +14824,15 @@
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montreux"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-montreux"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14414,7 +14913,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-koniz",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-koniz",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-koniz",
+        "de": "apothekassistent-afc-amavita-galenica-koniz",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-koniz"
       },
       "titleByLocale": {
@@ -14442,7 +14941,15 @@
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-koniz"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-koniz"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14469,7 +14976,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-visp",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-visp",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-visp",
+        "de": "pharmaassistent-in-afc-amavita-galenica-visp",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-visp"
       },
       "titleByLocale": {
@@ -14497,7 +15004,15 @@
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-visp"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-visp"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14632,7 +15147,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-davos-dorf",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf",
+        "de": "pharma-assistent-in-afc-amavita-galenica-davos-dorf",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-davos-dorf"
       },
       "titleByLocale": {
@@ -14660,7 +15175,15 @@
       "addressLocality": "Davos Dorf",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-davos-dorf"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14687,7 +15210,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-dietikon",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
+        "de": "apothekensassistent-in-efz-amavita-galenica-dietikon",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-dietikon"
       },
       "titleByLocale": {
@@ -14774,7 +15297,8 @@
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc17k",
         "galenica-amavita-assistente-di-farmacia-afc-delemont-1nc14w",
-        "galenica-amavita-assistente-di-farmacia-afc-delemont"
+        "galenica-amavita-assistente-di-farmacia-afc-delemont",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14822,7 +15346,6 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
         ],
         "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-luzern",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-landeron",
@@ -14841,7 +15364,8 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln",
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-delemont",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach"
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach",
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon"
         ],
         "fr": [
           "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve",
@@ -14893,7 +15417,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-porrentruy",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-porrentruy",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-porrentruy",
+        "de": "apothekenassistent-in-afc-amavita-galenica-porrentruy",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-porrentruy"
       },
       "titleByLocale": {
@@ -14921,7 +15445,15 @@
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-porrentruy"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-porrentruy"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15056,7 +15588,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-dubendorf",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dubendorf",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dubendorf",
+        "de": "pharmaassistent-in-afc-amavita-galenica-dubendorf",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-dubendorf"
       },
       "titleByLocale": {
@@ -15084,7 +15616,15 @@
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dubendorf"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15219,7 +15759,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-verbier",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-verbier",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-verbier",
+        "de": "pharmaassistent-afc-amavita-galenica-verbier",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-verbier"
       },
       "titleByLocale": {
@@ -15247,7 +15787,15 @@
       "addressLocality": "Verbier",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-verbier"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15825,7 +16373,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-cheseaux-lausanne",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
+        "de": "apothekenhelferin-afc-amavita-galenica-cheseaux-lausanne",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-cheseaux-lausanne"
       },
       "titleByLocale": {
@@ -15844,7 +16392,8 @@
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc133",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc17k",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135"
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15863,6 +16412,9 @@
         ],
         "fr": [
           "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne"
         ]
       },
       "needsRetranslation": true,
@@ -16126,7 +16678,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-zug",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zug",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zug",
+        "de": "apothekenassistent-in-afc-amavita-galenica-zug",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zug"
       },
       "titleByLocale": {
@@ -16154,7 +16706,15 @@
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zug"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zug"
+      ]
     }
   ]
 }

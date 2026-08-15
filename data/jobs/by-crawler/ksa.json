@@ -4795,7 +4795,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:58:26.812Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4807,7 +4806,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-078e4a55d95e",
