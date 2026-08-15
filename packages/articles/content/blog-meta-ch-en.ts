@@ -2722,6 +2722,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.title': 'Public transport passes Canton Lucerne zones and fares',
     'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.excerpt': 'The VBL offers different types of subscriptions, including monthly and annual subscription, for residents and students.',
     'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.imageAlt': 'Image of public transportation in Canton Lucerne, with people using buses and trains',
+    'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.title': 'Wages and the labour market in the Canton of Lucerne: sectors and levels',
+    'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.excerpt': 'The Canton of Lucerne offers a variety of hiring sectors and different salary levels, depending on the degree of training.',
+    'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.imageAlt': 'Aerial view of Lucerne, Switzerland',
 };
 
 export default blogMetaChEn;

@@ -2722,6 +2722,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.title': 'Abbonamenti trasporti pubblici Canton Lucerna zone e tariffe',
     'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.excerpt': 'La VBL offre diversi tipi di abbonamenti, tra cui il abbonamento mensile e annuale, per i residenti e gli studenti.',
     'blog.article.abbonamenti-trasporti-pubblici-canton-lucerna.imageAlt': 'Immagine di un trasporto pubblico in Canton Lucerna, con persone che usano autobus e treni',
+    'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.title': 'Salari e mercato del lavoro nel Cantone di Lucerna: settori e livelli',
+    'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.excerpt': 'Il Cantone di Lucerna offre una varietà di settori che assumono e livelli salariali diversi, a seconda del grado di formazione.',
+    'blog.article.salari-mercato-lavoro-lucerna-settori-livelli.imageAlt': 'Vista aerea di Lucerna, Svizzera',
 };
 
 export default blogMetaChIt;
