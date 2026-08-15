@@ -239,7 +239,17 @@ export function bulletsWithoutState(rawContent) {
 // ---------------------------------------------------------------------------
 
 const IMPL_RE = /^[ \t]{0,3}#{2,3}[ \t]+Implementato\b/im;
-const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*\(ancora\)/im;
+/**
+ * L'header canonico della sezione dei residui.
+ *
+ * Esportata perché è l'argomento `headerRe` che `extractSection` pretende e non
+ * sa costruirsi da sola: chi la riscrive a mano (un prompt, un altro script)
+ * ottiene una sezione diversa da quella che questo modulo giudica — la
+ * divergenza silenziosa che l'intera tassonomia qui sotto esiste per evitare.
+ * NON è globale, e non deve diventarlo: `extractSection` usa `.exec()` e con il
+ * flag `g` la posizione sopravvivrebbe fra due chiamate.
+ */
+export const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*\(ancora\)/im;
 const NON_IMPL_NO_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b/im;
 
 /**

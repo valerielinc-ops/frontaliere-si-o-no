@@ -7,7 +7,26 @@ on:
         required: true
         type: string
       audits:
-        description: 'Comma-sep audit script names. `all` invokes the unified runner (6 dist-walking audits in 1 Node process). Examples: `all` / `all,page-weight,max-bfs-depth` / `text-html-ratio,page-weight`.'
+        description: >-
+          Comma-sep npm script names (newlines count as separators too). A BARE
+          name is prefixed with `audit:` (`page-weight` → `audit:page-weight`);
+          `all` invokes the unified runner (6 dist-walking audits in 1 Node
+          process). A name that ALREADY carries a canonical gate namespace —
+          `audit:`, `validate:`, `lint:`, `gate:`, `check:`, i.e. the same set as
+          GATE_NS_RE in scripts/ci/gate-wiring-inventory.mjs — is invoked
+          LITERALLY, so a gate can be replayed here too. Every resolved name is
+          checked against package.json BEFORE running: an unknown name fails
+          explicitly as "script inesistente" instead of turning into a wrapper
+          failure that reads like a red gate. To replay #5875 pass
+          `gate:dist-quality` (the npm script; `dist:quality-tests` is only the
+          CHECK-RUN LABEL post-deploy-validate-dist.yml gives its report — there
+          is no npm script by that name). For #5874 pass `gate:seo-source` —
+          but read its verdict knowing that gate validates the SOURCE, not the
+          rehydrated dist, and self-skips without RUN_DIST_GATES=1 plus a jobs
+          dataset: it speaks about today's main, not about the run under
+          investigation.
+          Examples: `all` / `all,page-weight,max-bfs-depth` /
+          `gate:dist-quality,gate:seo-source`.
         required: false
         default: 'all,page-weight,max-bfs-depth'
         type: string
@@ -146,40 +165,162 @@ jobs:
       - name: Run requested audits
         id: audits
         env:
-          # The dist under audit is now the COMPLETE site, not the trunk, and a
-          # full-tree BFS walk holds a Map entry per discovered path. On the
-          # default heap that OOMs: run 30383007845 (the first replay after the
-          # rehydrate fix) died with `FATAL ERROR: Reached heap limit`, rc=134,
-          # before producing any verdict. post-deploy-validate-dist.yml has
-          # always run these walkers with an explicit heap — 8192 for
-          # audit:max-bfs-depth / audit:orphan-sitemap-pages, 4096 for
-          # audit:all. Same runner class here, and the loop below runs them one
-          # at a time, so take the larger of the two for the whole step.
-          NODE_OPTIONS: '--max-old-space-size=8192'
+          # NIENTE `NODE_OPTIONS` a livello di step: l'heap è per-invocazione,
+          # deciso da `heap_for` qui sotto. Fissarlo qui lo faceva ereditare
+          # anche ai gate `gate:*`, che in post-deploy girano con un heap più
+          # piccolo — e un replay che gira con un heap DIVERSO dall'originale
+          # riproduce un'altra corsa, non quella sotto indagine.
+          #
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_AUDITS: ${{ inputs.audits }}
         run: |
           set +e
-          IFS=',' read -ra AUDITS <<< "$INPUT_AUDITS"
           mkdir -p /tmp/audit-logs
+          : > /tmp/verdicts.txt
           FAIL=0
-          for name in "${AUDITS[@]}"; do
-            n=$(echo "$name" | xargs)
+          IDX=0
+
+          # ── replay-resolution:start ─────────────────────────────────────────
+          # Blocco AUTOCONTENUTO: `tests/audit-dist-from-run-gate-names.test.ts`
+          # lo estrae fra questi due marker e lo ESEGUE con `bash` su nomi
+          # campione. Non aggiungere qui dentro nulla che dipenda dal runner
+          # oltre `package.json` nella cwd: il test verifica il COMPORTAMENTO
+          # della risoluzione, non la presenza di una variabile.
+          #
+          # I namespace canonici sono quelli di GATE_NS_RE in
+          # scripts/ci/gate-wiring-inventory.mjs — un'unica definizione di «cosa
+          # è un cancello» in tutto il repo. Prima qui c'era 'gate|audit|dist':
+          # mancavano `validate:`/`lint:`/`check:` (26 script su main) e ognuno
+          # di quei nomi ricadeva nel difetto #5918 (prefisso `audit:` messo a
+          # forza → `Missing script` → FAIL fabbricato dal wrapper, che dal job
+          # summary si legge identico a «il gate è rosso»). E c'era `dist:`, che
+          # non serve nessuno script replayabile: l'unico `dist:` invocabile
+          # sarebbe `dist:shrink`, che MUTA `dist/` sul posto — in mezzo al loop
+          # degli audit produrrebbe verdetti su byte mai serviti. Tolto.
+          KNOWN_PREFIXES='audit|validate|lint|gate|check'
+
+          # Virgole E newline sono separatori. `IFS=',' read -ra <<<` leggeva
+          # SOLO la prima riga: un input incollato su più righe perdeva in
+          # silenzio tutto il resto e il job usciva verde avendo auditato metà
+          # lista. `xargs` non va bene come trim: su una virgoletta spaiata
+          # esce in errore restituendo stringa vuota, e `echo` si mangia un
+          # nome che inizia per `-n`/`-e` trattandolo da opzione.
+          parse_names() {
+            printf '%s' "$1" | tr ',' '\n' \
+              | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' \
+              | grep -v '^$'
+          }
+
+          # Nome nudo → prefisso `audit:`. Nome con un namespace canonico →
+          # LETTERALE. Nome con un namespace sconosciuto → resta prefissato e
+          # cade nel preflight qui sotto con un errore che dice quale.
+          resolve_script() {
+            case "$1" in
+              *:*)
+                if printf '%s' "$1" | grep -qE "^($KNOWN_PREFIXES):"; then
+                  printf '%s\n' "$1"
+                else
+                  printf 'audit:%s\n' "$1"
+                fi
+                ;;
+              *) printf 'audit:%s\n' "$1" ;;
+            esac
+          }
+
+          # PREFLIGHT: lo script deve ESISTERE. Senza questo, un nome
+          # sconosciuto (namespace non canonico, etichetta di check-run come
+          # `dist:quality-tests`, refuso) arrivava a `npm run`, usciva rc≠0 e
+          # veniva contato come audit fallito: di nuovo un FAIL fabbricato,
+          # cioè esattamente la classe #5918 spostata di un metro.
+          script_exists() {
+            jq -e --arg s "$1" '.scripts | has($s)' package.json >/dev/null 2>&1
+          }
+
+          # PARITÀ DI HEAP col run che si sta riproducendo.
+          #   audit:*  → 8192. Sono i walker full-tree (BFS/orphan-sitemap): il
+          #              replay 30383007845 morì `Reached heap limit` rc=134
+          #              sull'heap di default, e post-deploy li lancia a 8192
+          #              (:2057-2058).
+          #   tutto il resto (gate:/validate:/lint:/check:) → 4096, che è ciò
+          #              che post-deploy dà allo step dove gira
+          #              `gate:dist-quality` (env :882, invocazione :1494);
+          #              `gate:seo-source` gira lì senza NODE_OPTIONS, cioè sul
+          #              default di Node, dello stesso ordine.
+          # Perché non «il massimo dei due per tutti»: un gate replayato a 8192
+          # su un runner da ~7 GB usabili non fallisce come in post-deploy —
+          # invece dell'ERR_WORKER_OUT_OF_MEMORY in-process, che è il verdetto
+          # informativo che #5875 ha davvero prodotto, si prende un OOM-kill del
+          # kernel a rc=137. Stessa causa, verdetto di forma diversa: la
+          # riproduzione mente sul finale.
+          heap_for() {
+            case "$1" in
+              audit:*) printf '8192\n' ;;
+              *)       printf '4096\n' ;;
+            esac
+          }
+          # ── replay-resolution:end ───────────────────────────────────────────
+
+          REQUESTED=$(parse_names "$INPUT_AUDITS")
+          if [ -z "$REQUESTED" ]; then
+            echo "::error::L'input 'audits' non contiene nessun nome dopo il parsing (ricevuto: '$INPUT_AUDITS')."
+            exit 1
+          fi
+
+          while IFS= read -r n; do
             [ -z "$n" ] && continue
-            log=/tmp/audit-logs/$n.log
-            echo "──── npm run audit:$n ────" | tee -a /tmp/summary.txt
-            (npm run "audit:$n" 2>&1) > "$log"
+            IDX=$((IDX+1))
+            script=$(resolve_script "$n")
+            if ! script_exists "$script"; then
+              echo "❌ FAIL $n → npm run $script: script INESISTENTE in package.json (namespace canonici: ${KNOWN_PREFIXES}; un nome nudo prende il prefisso audit:). Non è il verdetto di un gate, è un nome sbagliato." | tee -a /tmp/summary.txt
+              printf 'VERDICT\t%s\tNO-SCRIPT\n' "$n" >> /tmp/verdicts.txt
+              FAIL=$((FAIL+1))
+              continue
+            fi
+            heap=$(heap_for "$script")
+            # Il log porta l'indice della richiesta: due nomi diversi che
+            # risolvono allo stesso script (`all` e `audit:all`) avevano lo
+            # stesso file e il secondo sovrascriveva il primo.
+            log=/tmp/audit-logs/$(printf '%03d' "$IDX")-$(printf '%s' "$script" | tr ':/' '__').log
+            echo "──── npm run $script (heap ${heap} MB) ────" | tee -a /tmp/summary.txt
+            (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
             rc=$?
             tail -25 "$log" | tee -a /tmp/summary.txt
             if [ $rc -ne 0 ]; then
-              echo "❌ FAIL audit:$n rc=$rc" | tee -a /tmp/summary.txt
+              echo "❌ FAIL $script rc=$rc" | tee -a /tmp/summary.txt
+              printf 'VERDICT\t%s\tFAIL\n' "$n" >> /tmp/verdicts.txt
               FAIL=$((FAIL+1))
             else
-              echo "✅ PASS audit:$n" | tee -a /tmp/summary.txt
+              echo "✅ PASS $script" | tee -a /tmp/summary.txt
+              printf 'VERDICT\t%s\tPASS\n' "$n" >> /tmp/verdicts.txt
             fi
-          done
+          done <<< "$REQUESTED"
+
+          # RICONCILIAZIONE richiesti ↔ eseguiti. L'input viene ri-parsato da
+          # capo e confrontato coi verdetti realmente emessi + i log realmente
+          # scritti. Serve perché il fallimento peggiore di questo step non è un
+          # audit rosso, è un audit MAI ESEGUITO che esce "SUMMARY: 0 failing":
+          # la stessa inversione di #5918 col segno opposto. Cosa coglie: un
+          # nome perso dal loop, un'uscita anticipata, un `npm run` che non ha
+          # prodotto nemmeno un log.
+          MISSING=""
+          while IFS= read -r n; do
+            [ -z "$n" ] && continue
+            if ! grep -qF "$(printf 'VERDICT\t%s\t' "$n")" /tmp/verdicts.txt; then
+              MISSING="$MISSING $n"
+            fi
+          done <<< "$REQUESTED"
+          REQ_N=$(printf '%s\n' "$REQUESTED" | grep -c '^')
+          DONE_N=$(grep -c '^VERDICT' /tmp/verdicts.txt)
+          RAN_N=$(grep -cE '^VERDICT.*(PASS|FAIL)$' /tmp/verdicts.txt)
+          LOG_N=$(find /tmp/audit-logs -type f -name '*.log' | wc -l | tr -d ' ')
+          echo "── Riconciliazione: richiesti=$REQ_N con verdetto=$DONE_N eseguiti=$RAN_N log=$LOG_N" | tee -a /tmp/summary.txt
+          if [ -n "$MISSING" ] || [ "$REQ_N" -ne "$DONE_N" ] || [ "$RAN_N" -ne "$LOG_N" ]; then
+            echo "::error::Riconciliazione fallita: richiesti=$REQ_N verdetti=$DONE_N eseguiti=$RAN_N log=$LOG_N senza verdetto:${MISSING:- —}. Il summary sotto NON copre tutto ciò che è stato chiesto." | tee -a /tmp/summary.txt
+            FAIL=$((FAIL+1))
+          fi
+
           echo ""
-          echo "── SUMMARY: $FAIL failing audit(s)"
+          echo "── SUMMARY: $FAIL failing audit(s) su $REQ_N richiesti" | tee -a /tmp/summary.txt
           if [ $FAIL -gt 0 ]; then exit 1; fi
 
       - name: Upload audit logs + reports
