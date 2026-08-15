@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-14T07:29:07.662Z",
+  "assembledAt": "2026-08-15T06:17:09.486Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -5085,43 +5085,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AQhyVSn.jpg"
-    },
-    {
-      "id": "guidle:ATYHjyU",
-      "title": "Riviera Impro Openair (RIO)",
-      "titleByLocale": {
-        "it": "Riviera Impro Openair (RIO)",
-        "en": "Riviera Impro Openair (RIO)",
-        "de": "Riviera Impro Openair (RIO)",
-        "fr": "Riviera Impro à ciel ouvert (RIO)"
-      },
-      "description": "Vevey vibriert diesen Sommer mit dem RIO! Jeden Freitag vom 24. Juli bis zum 14. August findet im Théâtre de Verdure ein einzigartiges Improvisationstheaterturnier statt.",
-      "descriptionByLocale": {
-        "it": "Vevey spacca quest' estate con il RIO! Ogni venerdì dal 24 luglio al 14 agosto, il Théâtre de Verdure ospita un torneo di improvvisazione teatrale unico nel suo genere.",
-        "en": "Vevey rocks this summer with the RIO! Every Friday from July 24 to August 14, the Théâtre de Verdure hosts a unique theatrical improvisation tournament.",
-        "de": "Vevey rockt diesen Sommer mit dem RIO! Jeden Freitag vom 24. Juli bis 14. August veranstaltet das Théâtre de Verdure ein einzigartiges Theaterimprovisationsturnier.",
-        "fr": "Vevey vibre cet été avec le RIO ! Tous les vendredis du 24 juillet au 14 août, le Théâtre de Verdure accueille un tournoi d'improvisation théâtrale unique."
-      },
-      "startDate": "2026-08-07",
-      "endDate": "2026-08-14",
-      "startTime": "00:00",
-      "category": "Teatro: improvisazione",
-      "venue": "Théâtre de Verdure",
-      "comune": "Vevey",
-      "canton": "VD",
-      "url": "https://www.guidle.com/it/events/alternative/vevey/riviera-impro-openair-rio_ATYHjyU",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Jardin du Rivage",
-        "postalCode": "1800"
-      },
-      "geo": {
-        "lat": 46.4594288,
-        "lng": 6.8400129
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-ATYHjyU.jpg"
     },
     {
       "id": "guidle:Am3hJqm",
@@ -12920,6 +12883,47 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AnXf5f8.jpg"
+    },
+    {
+      "id": "guidle:Aj87XE4",
+      "title": "Exhibition \"Writings of Art Brut: When Language Takes to the Fields\"",
+      "titleByLocale": {
+        "it": "Mostra \"Scritti di arte grezza: quando la lingua prende la chiave dei campi\"",
+        "en": "Exhibition \"Écrits d 'Art Brut: Quand la langue prend la clé des champs\"",
+        "de": "Ausstellung \"Art Brut-Schriften: Wenn die Sprache den Schlüssel zu den Feldern nimmt\"",
+        "fr": "Exposition \"Écrits d’Art Brut : quand la langue prend la clé des champs\""
+      },
+      "description": "Through a selection of writings by women and men authors of Art Brut from the holdings of the Collection of Art Brut, this exhibition co‑produced by the Lausanne museum and the Jan Michalski",
+      "descriptionByLocale": {
+        "it": "Attraverso una selezione di scritti di autrici e autori di Art Brut provenienti dai fondi della Collection de l’Art Brut, questa mostra coprodotta dal museo losannese e dalla Fondazione Jan Michalski",
+        "en": "Through a selection of writings by authors of Art Brut from the funds of the Collection de l 'Art Brut, this exhibition co-produced by the Lausanne Museum and the Jan Michalski Foundation",
+        "de": "Durch eine Auswahl von Schriften von Autorinnen und Autoren von Art Brut aus den Beständen der Collection de l 'Art Brut wird diese Ausstellung, die vom Lausanner Museum und der Jan-Michalski-Stiftung koproduziert wurde,",
+        "fr": "À travers une sélection d’écrits d’autrices et d’auteurs d’Art Brut issus des fonds de la Collection de l’Art Brut, cette exposition coproduite par le musée lausannois et la Fondation Jan Michalski"
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-28",
+      "startTime": "00:00",
+      "category": "L'arte in generale",
+      "venue": "Collection de l'Art Brut",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/classique/lausanne/exposition-ecrits-dart-brut-quand-la-langue-prend-la-cle-des-champs_Aj87XE4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Avenue Bergières 11",
+        "postalCode": "1004"
+      },
+      "geo": {
+        "lat": 46.5274822,
+        "lng": 6.6247755
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Aj87XE4.jpg"
     }
   ]
 }
