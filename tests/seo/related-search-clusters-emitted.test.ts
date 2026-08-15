@@ -6,7 +6,9 @@
  * locale-localized section/prefix combos) and verifies the contracts the
  * plugin promises:
  *   - mobile-first source order (job list before <details> filler)
- *   - exactly one <h1>, one canonical, ≥1 hreflang link
+ *   - exactly one <h1>, one canonical, ≥1 hreflang link (matched
+ *     QUOTE-AGNOSTICALLY via build-plugins/shared/headLinkPatterns.ts — the
+ *     build's own minifier emits `rel=canonical`, not `rel="canonical"`)
  *   - <title> length ≤66 chars + no `(#abcdef12)` disambiguator
  *   - JSON-LD ItemList + BreadcrumbList present
  *   - non-empty FAQPage when present (no thin/fake content)
@@ -32,6 +34,11 @@ import {
   SEARCH_QUERY_BOILERPLATE_TOKENS,
 } from '@/services/relatedSearchClusters';
 import type { Locale } from '@/services/i18n';
+import {
+  countCanonicalLinks,
+  countHreflangLinks,
+} from '../../build-plugins/shared/headLinkPatterns';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -121,11 +128,6 @@ function extractTag(html: string, tag: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) !== null) out.push(m[1]);
   return out;
-}
-
-function countMatches(html: string, re: RegExp): number {
-  const m = html.match(re);
-  return m ? m.length : 0;
 }
 
 function extractLdJson(html: string): unknown[] {
@@ -266,19 +268,31 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           const h1Count = extractTag(page.html, 'h1').length;
           if (h1Count !== 1) offenders.push(`${page.file} — <h1> count = ${h1Count}`);
 
-          const canonicalCount = countMatches(
-            page.html,
-            /<link\s+rel=["']canonical["']\s+href=["'][^"']+["']/gi,
-          );
+          // Quote-agnostic (build-plugins/shared/headLinkPatterns.ts). The
+          // literal `rel="canonical"` these two used to grep for is NOT what
+          // this build writes: `buildSeoPageHtml` ends in `minifyHtml`, whose
+          // `unquoteSafeAttributes` emits `rel=canonical` / `rel=alternate`.
+          // The old patterns therefore reported 0 on pages carrying exactly
+          // one — 146 canonical and 199-of-199 hreflang offenders on run
+          // 31891126686, every one of them a false positive, and the only way
+          // to satisfy them from the template side was to emit a SECOND
+          // canonical (a real defect) to fix a measurement bug.
+          const canonicalCount = countCanonicalLinks(page.html);
           if (canonicalCount !== 1) {
             offenders.push(`${page.file} — canonical count = ${canonicalCount}`);
           }
 
-          const hreflangCount = countMatches(
-            page.html,
-            /<link\s+rel=["']alternate["']\s+hreflang=["'][^"']+["']/gi,
-          );
-          if (hreflangCount < 1) {
+          // Redirect stubs are exempt from the hreflang requirement ONLY —
+          // canonical, title and BreadcrumbList still apply to them in full.
+          // A below-floor bridge canonicalises to the hub, so any alternate
+          // set it emitted would have to list its own URL as a canonical the
+          // same page disclaims: Google drops such a set, and the markup
+          // would exist only to turn this assertion green. Same marker, same
+          // reasoning as scripts/audit-spa-bundle-injection.mjs and
+          // tests/seo/cathedral-sector-hubs.test.ts.
+          const isRedirectStub = page.html.includes(REDIRECT_STUB_MARKER);
+          const hreflangCount = countHreflangLinks(page.html);
+          if (!isRedirectStub && hreflangCount < 1) {
             offenders.push(`${page.file} — hreflang count = ${hreflangCount}`);
           }
         }

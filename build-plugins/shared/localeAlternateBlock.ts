@@ -67,19 +67,60 @@ export interface LocaleAlternateBlockOptions {
  * page the build writes.
  */
 export function buildLocaleAlternateBlock(opts: LocaleAlternateBlockOptions): string {
-  const eligible = new Set(opts.eligibleLocales);
-  // All-or-nothing: an incomplete set is a `tooFew` failure, not a partial win.
-  if (!ALTERNATE_LOCALES.every((locale) => eligible.has(locale))) return '';
+  const entries = buildLocaleAlternateEntries(opts);
+  if (entries.length === 0) return '';
 
   const indent = opts.indent ?? ' ';
-  const lines = ALTERNATE_LOCALES.map(
-    (locale) =>
-      `${indent}<link rel="alternate" hreflang="${locale}" href="${opts.hrefFor(locale)}">`,
-  );
-  lines.push(
-    `${indent}<link rel="alternate" hreflang="x-default" href="${opts.hrefFor('it')}">`,
-  );
-  return lines.join('\n');
+  return entries
+    .map((e) => `${indent}<link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`)
+    .join('\n');
+}
+
+/** One `hreflang`/`href` pair of the alternate set. */
+export interface LocaleAlternateEntry {
+  readonly hreflang: string;
+  readonly href: string;
+}
+
+/**
+ * The same alternate set as {@link buildLocaleAlternateBlock}, as DATA rather
+ * than as an HTML string — for callers that hand the set to a page builder
+ * which renders the tags itself (`buildCanonicalBridgePage`'s
+ * `hreflangEntries` in build-plugins/constants.ts).
+ *
+ * Exists so the all-or-nothing rule has ONE implementation to migrate TO. The
+ * renderer above is now a formatter over this function's output, so those two
+ * can no longer disagree about WHEN a page carries alternates.
+ *
+ * NOT YET MIGRATED — five call sites still hand-roll the 4-locale +
+ * x-default array, and none of them applies the all-or-nothing rule (they
+ * template every locale unconditionally, which is the #5114 shape):
+ *
+ *   build-plugins/professionCityLandings.ts     (~272)
+ *   build-plugins/fuelDailyPagesPlugin.ts       (~194)
+ *   build-plugins/shared/salaryStatsBridge.ts   (~50)
+ *   build-plugins/shared/guideHubBridge.ts      (~76)
+ *   build-plugins/jobsSeoPagesPlugin.ts         (~4656, brand alias)
+ *
+ * Each needs its own before/after count of `audit:hreflang` offenders before
+ * being switched — an all-or-nothing rule REMOVES alternates from pages that
+ * carry a partial set today, so it is a content change, not a refactor.
+ *
+ * Returns `[]` — never a partial set — when any required locale is missing.
+ */
+export function buildLocaleAlternateEntries(
+  opts: LocaleAlternateBlockOptions,
+): LocaleAlternateEntry[] {
+  const eligible = new Set(opts.eligibleLocales);
+  // All-or-nothing: an incomplete set is a `tooFew` failure, not a partial win.
+  if (!ALTERNATE_LOCALES.every((locale) => eligible.has(locale))) return [];
+
+  const entries: LocaleAlternateEntry[] = ALTERNATE_LOCALES.map((locale) => ({
+    hreflang: locale as string,
+    href: opts.hrefFor(locale),
+  }));
+  entries.push({ hreflang: 'x-default', href: opts.hrefFor('it') });
+  return entries;
 }
 
 /**
