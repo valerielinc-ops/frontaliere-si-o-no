@@ -58,6 +58,60 @@ describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () =>
   it('uses merge mode for subscriber document', () => {
     expect(source).toContain("{ merge: true }");
   });
+
+  /**
+   * Fail-closed on email_verified (nit review PR #5931, ref #5928). Before:
+   * `userInfo.email_verified ?? null` then `emailVerified ?? true` at
+   * createUser — LinkedIn omitting the field (or sending null/undefined)
+   * defaulted the new Firebase Auth user to verified. Only an explicit
+   * `true` from LinkedIn may now produce `true`; anything else — false,
+   * null, undefined, a missing field — collapses to `false`.
+   */
+  it('derives emailVerified fail-closed: only an explicit true counts', () => {
+    expect(source).toContain('userInfo.email_verified === true');
+    // The old fail-open coalescing must be gone from both call sites.
+    expect(source).not.toContain('email_verified ?? null');
+    expect(source).not.toContain('emailVerified ?? true');
+  });
+
+  it('passes the same fail-closed emailVerified to createUser and enrichSubscriberProfile', () => {
+    const handlerFn = source.slice(source.indexOf('export async function handleLinkedInCallback'));
+    const createUserCall = handlerFn.slice(
+      handlerFn.indexOf('admin.auth().createUser({'),
+      handlerFn.indexOf('});', handlerFn.indexOf('admin.auth().createUser({'))
+    );
+    expect(createUserCall).toContain('emailVerified,');
+    const enrichCall = handlerFn.slice(
+      handlerFn.indexOf('await enrichSubscriberProfile(email,'),
+      handlerFn.indexOf('});', handlerFn.indexOf('await enrichSubscriberProfile(email,'))
+    );
+    expect(enrichCall).toContain('emailVerified,');
+  });
+});
+
+describe('LinkedIn auth Cloud Function — emailVerified fail-closed behaviour', () => {
+  /**
+   * The module itself pulls in firebase-admin (no local node_modules for
+   * `functions/`, see functions/package.json), so this exercises the exact
+   * derivation expression in isolation rather than importing the handler.
+   */
+  const deriveEmailVerified = (email_verified: unknown): boolean => email_verified === true;
+
+  it('true stays true', () => {
+    expect(deriveEmailVerified(true)).toBe(true);
+  });
+
+  it('false stays false', () => {
+    expect(deriveEmailVerified(false)).toBe(false);
+  });
+
+  it('undefined (field absent) is fail-closed to false', () => {
+    expect(deriveEmailVerified(undefined)).toBe(false);
+  });
+
+  it('null is fail-closed to false', () => {
+    expect(deriveEmailVerified(null)).toBe(false);
+  });
 });
 
 describe('Firestore rules — newsletter_subscribers collection', () => {
