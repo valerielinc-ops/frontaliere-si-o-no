@@ -124,6 +124,7 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-bellach-706891",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-biel-bienne-728471",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-seewen-685896",
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-rothrist-712369",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-20-60-buchs-716906",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-20-60-widnau-716907",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-altendorf-723270",
@@ -301,7 +302,7 @@
     "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-lugano-715078"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-08-14T21:27:45.663Z",
+  "updatedAt": "2026-08-15T09:34:18.390Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -1562,6 +1563,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-40-rothrist-712369": {
+      "location": "Rothrist",
+      "addressLocality": "Rothrist",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-reinach-ag-677046": {
       "location": "Reinach (AG)",
