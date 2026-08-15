@@ -1,16 +1,16 @@
 {
   "key": "daler-hopital",
   "label": "Hôpital Daler",
-  "generatedAt": "2026-08-15T09:57:15.392Z",
+  "generatedAt": "2026-08-15T21:51:48.499Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3830,
-  "avgDurationMs": 3830,
+  "durationMs": 3695,
+  "avgDurationMs": 3695,
   "durationHistory": [
-    3830
+    3695
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://daler.ch/emplois#offer/4231/gestionnaire-en-intendance",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T09:57:12.900Z",
+      "crawledAt": "2026-08-15T21:51:46.031Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
       "firstSeenAt": "2026-05-19T13:47:22.199Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
