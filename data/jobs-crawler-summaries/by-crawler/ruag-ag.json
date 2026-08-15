@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-08-15T09:43:48.758Z",
+  "generatedAt": "2026-08-15T21:43:03.637Z",
   "total": 62,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 62,
-  "durationMs": 128923,
-  "avgDurationMs": 128923,
+  "durationMs": 95983,
+  "avgDurationMs": 95983,
   "durationHistory": [
-    128923
+    95983
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -1003,8 +1003,8 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-18T10:49:57.193Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
