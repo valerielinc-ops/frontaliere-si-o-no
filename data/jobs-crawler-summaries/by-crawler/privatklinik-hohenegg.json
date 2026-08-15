@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-08-15T09:35:17.516Z",
-  "total": 2,
+  "generatedAt": "2026-08-15T21:26:08.767Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5384,
-  "avgDurationMs": 5384,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7132,
+  "avgDurationMs": 7132,
   "durationHistory": [
-    5384
+    7132
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-15T09:35:13.133Z",
+      "crawledAt": "2026-08-15T21:26:04.540Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,8 +55,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "privatklinik-hohenegg-77a7146b0afe",
       "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
@@ -99,5 +98,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
