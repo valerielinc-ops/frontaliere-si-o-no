@@ -5305,7 +5305,15 @@ Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni
     publishedAt: new Date().toISOString(),
   });
 
-  const domainFactsBlock = isSyntheticSource ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
+  // Fuori anche quando la flotta ha dettato un budget: e' il blocco piu' grande
+  // che NON e' la fonte — «materiale di riferimento per contesto, SEPARATO
+  // dalla notizia» — e il ramo evergreen lo azzera gia' per costruzione.
+  // Misurato sul gemello del corpus: vale 497 token, e l'attempt 1 li' sforava
+  // di 274. Toglierlo sotto pressione e' anche piu' SICURO che tenerlo: il
+  // commento a MAX_DOMAIN_FACTS_CHARS registra la contraddizione di grounding
+  // che produceva (scaglioni IRPEF offerti come «fatti» a un articolo svizzero).
+  const _promptBudgetDettato = Number(sourceContext?._promptTokenBudget) > 0;
+  const domainFactsBlock = (isSyntheticSource || _promptBudgetDettato) ? '' : `\nFATTI DI DOMINIO VERIFICATI (materiale di riferimento per contesto/implicazioni pratiche, SEPARATO dalla notizia sopra — non attribuirli alla fonte, usali solo se pertinenti al tema):\n${EVERGREEN_FACTS_BRIEF}\n`;
 
   const prompt = `${systemRoleLine}
 
@@ -10257,6 +10265,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // generation so callGemini can feed the exact flagged claims back to the model.
   /** @type {string|null} */
   let lastFactCheckErrors = null;
+  // Il cap di input piu' permissivo che la flotta ha dichiarato rifiutando il
+  // prompt. Zero finche' nessun tentativo l'ha detto; vedi il catch piu' sotto.
+  let lastPromptTokenBudget = 0;
 
   // Adaptive min-words: scale target down when source is thin to prevent
   // hallucination cascade (was 900 fixed → forced model to invent facts
@@ -10346,6 +10357,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       // Surface the previous attempt's fact-check rejections so callGemini can
       // tell the model exactly which invented claims to remove/correct.
       _factCheckRefinement: lastFactCheckErrors || undefined,
+      // Il budget che la FLOTTA ha dichiarato al tentativo precedente, non uno
+      // che assumiamo noi. Vedi il catch qui sotto e l'uso in callGemini.
+      _promptTokenBudget: lastPromptTokenBudget || undefined,
     };
 
     let rawData;
@@ -10353,6 +10367,32 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       rawData = await callGemini(pageContent, url, genContext);
     } catch (e) {
       console.error(`  ⚠️  Tentativo ${attempt} fallito: ${e.message}`);
+      // ── Il numero che la libreria calcola e che nessuno leggeva ──────────
+      //
+      // Quando ogni modello ha rifiutato per DIMENSIONE, `callLLM` allega
+      // all'errore il cap piu' permissivo fra quelli che hanno detto no
+      // (`retryRequestTokenBudget`) e scrive, nel messaggio: «A retry must
+      // rebuild the prompt under N tokens — resending the same messages cannot
+      // succeed». Era vero alla lettera: prima di questo blocco il `continue`
+      // qui sotto rispediva messaggi identici, fino a sei volte per sezione.
+      //
+      // `Math.min` perche' il budget puo' STRINGERSI fra un tentativo e
+      // l'altro (la flotta disponibile cambia mentre i modelli si esauriscono)
+      // e allentarlo vanificherebbe la riduzione gia' decisa.
+      const budgetDettato = Number(e?.retryRequestTokenBudget) > 0
+        ? Number(e.retryRequestTokenBudget)
+        : 0;
+      if (budgetDettato > 0) {
+        lastPromptTokenBudget = lastPromptTokenBudget > 0
+          ? Math.min(lastPromptTokenBudget, budgetDettato)
+          : budgetDettato;
+        const cap = e?.inputCapReport;
+        console.error(
+          `  📏 La flotta chiede un prompt sotto ${lastPromptTokenBudget} token`
+          + (cap ? ` (${cap.count} modelli hanno rifiutato ~${cap.estimatedRequestTokens} token)` : '')
+          + ' — il prossimo tentativo lascia fuori i fatti di dominio invece di rispedirlo uguale.',
+        );
+      }
       if (attempt < maxAttempts) continue;
       throw e;
     }

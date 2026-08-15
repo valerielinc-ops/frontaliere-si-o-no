@@ -291,6 +291,14 @@ async function enrichOne(candidate, { verbose }) {
       raw = await callLLM(messages, callOpts);
     } catch (err) {
       if (verbose) console.warn(`  ⚠️  ${candidate.locale}::${candidate.slug} attempt ${attempt} call failed: ${err.message}`);
+      // callLLM attaches retryRequestTokenBudget when EVERY model refused for
+      // SIZE (ai-models.mjs:4850) — "resending the same messages cannot
+      // succeed". This prompt has no reducible block to drop (unlike
+      // create-article's domainFactsBlock), so the only correct move is to
+      // stop instead of resending the byte-identical messages/callOpts.
+      if (Number(err?.retryRequestTokenBudget) > 0) {
+        return { ok: false, reason: `prompt over token budget (${err.retryRequestTokenBudget}): ${err.message}` };
+      }
       if (attempt === 2) return { ok: false, reason: `call failed: ${err.message}` };
       continue;
     }
