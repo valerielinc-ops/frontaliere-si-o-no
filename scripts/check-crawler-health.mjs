@@ -604,6 +604,19 @@ const EMPTY_OK_CRAWLERS = new Set([
   // a vacancy. Same legitimately-empty small-employer case as
   // linnea/wuerth-international/clinica-varini.
   'saint-gobain-weber-isover',
+  // Baronie / Chocolat Alprose SA (#5851): the parser was already repaired by
+  // PR #5860 (merged 2026-08-14) — this is NOT a second parser break. Verified
+  // live 2026-08-15: https://www.baronie.com/en/careers returns HTTP 200 and
+  // the discovery regex still extracts all 4 `/en/jobs/{slug}` anchors, each
+  // detail page parses end-to-end (JSON-LD JobPosting present; titles, 3-4
+  // content sections and 1.9-2.9 KB of markdown each). All 4 openings are
+  // outside Switzerland — Bruges (BE), Norderstedt (DE) ×2, Merthyr Tydfil
+  // (UK) — so `isSwissJob` legitimately keeps 0/4 and the run writes 0 jobs.
+  // `lastNonZeroJobs: 1` is physiological for a chocolate manufacturer whose
+  // Swiss site (Caslano, TI) posts roughly one role at a time; the crawler is
+  // healthy and re-arms as soon as an Alprose/CH listing reappears. Same
+  // legitimately-empty regional-filter case as manor and alten-switzerland.
+  'baronie',
 ]);
 
 /** Read JSON file, return null on any error. */
