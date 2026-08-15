@@ -1,41 +1,39 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-08-14T21:41:37.287Z",
-  "total": 51,
+  "generatedAt": "2026-08-15T09:54:40.541Z",
+  "total": 50,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 26673,
-  "avgDurationMs": 26673,
+  "unchangedCount": 0,
+  "durationMs": 28415,
+  "avgDurationMs": 28415,
   "durationHistory": [
-    26673
+    28415
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5637",
-      "slug": "ispettore-industriale-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
+      "id": "etat-de-vaud-5665",
+      "slug": "agente-di-polizia-giudiziario-specializzato-in-contabilita-e-controllo-finanziario-etat-de-vaud-administration-cantonale",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Inspecteur·trice spécialisé·e dans le secteur industriel",
-      "location": "Epalinges",
+      "title": "Agent·e de police judiciaire spécialisé·e dans le domaine comptable et de l'audit financier",
+      "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5637",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5665",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-13T21:54:54.471Z",
-      "addressLocality": "Epalinges",
+      "crawledAt": "2026-08-14T21:41:28.133Z",
+      "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1014",
+      "postalCode": "1000",
       "streetAddress": "Place du Château 1",
-      "category": "Altro",
+      "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -43,11 +41,11 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5637",
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5665",
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
