@@ -6,7 +6,9 @@
  * locale-localized section/prefix combos) and verifies the contracts the
  * plugin promises:
  *   - mobile-first source order (job list before <details> filler)
- *   - exactly one <h1>, one canonical, ≥1 hreflang link
+ *   - exactly one <h1>, one canonical, ≥1 hreflang link (matched
+ *     QUOTE-AGNOSTICALLY via build-plugins/shared/headLinkPatterns.ts — the
+ *     build's own minifier emits `rel=canonical`, not `rel="canonical"`)
  *   - <title> length ≤66 chars + no `(#abcdef12)` disambiguator
  *   - JSON-LD ItemList + BreadcrumbList present
  *   - non-empty FAQPage when present (no thin/fake content)
@@ -32,6 +34,10 @@ import {
   SEARCH_QUERY_BOILERPLATE_TOKENS,
 } from '@/services/relatedSearchClusters';
 import type { Locale } from '@/services/i18n';
+import {
+  countCanonicalLinks,
+  countHreflangLinks,
+} from '../../build-plugins/shared/headLinkPatterns';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -121,11 +127,6 @@ function extractTag(html: string, tag: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) !== null) out.push(m[1]);
   return out;
-}
-
-function countMatches(html: string, re: RegExp): number {
-  const m = html.match(re);
-  return m ? m.length : 0;
 }
 
 function extractLdJson(html: string): unknown[] {
@@ -266,18 +267,21 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           const h1Count = extractTag(page.html, 'h1').length;
           if (h1Count !== 1) offenders.push(`${page.file} — <h1> count = ${h1Count}`);
 
-          const canonicalCount = countMatches(
-            page.html,
-            /<link\s+rel=["']canonical["']\s+href=["'][^"']+["']/gi,
-          );
+          // Quote-agnostic (build-plugins/shared/headLinkPatterns.ts). The
+          // literal `rel="canonical"` these two used to grep for is NOT what
+          // this build writes: `buildSeoPageHtml` ends in `minifyHtml`, whose
+          // `unquoteSafeAttributes` emits `rel=canonical` / `rel=alternate`.
+          // The old patterns therefore reported 0 on pages carrying exactly
+          // one — 146 canonical and 199-of-199 hreflang offenders on run
+          // 31891126686, every one of them a false positive, and the only way
+          // to satisfy them from the template side was to emit a SECOND
+          // canonical (a real defect) to fix a measurement bug.
+          const canonicalCount = countCanonicalLinks(page.html);
           if (canonicalCount !== 1) {
             offenders.push(`${page.file} — canonical count = ${canonicalCount}`);
           }
 
-          const hreflangCount = countMatches(
-            page.html,
-            /<link\s+rel=["']alternate["']\s+hreflang=["'][^"']+["']/gi,
-          );
+          const hreflangCount = countHreflangLinks(page.html);
           if (hreflangCount < 1) {
             offenders.push(`${page.file} — hreflang count = ${hreflangCount}`);
           }

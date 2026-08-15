@@ -67,19 +67,50 @@ export interface LocaleAlternateBlockOptions {
  * page the build writes.
  */
 export function buildLocaleAlternateBlock(opts: LocaleAlternateBlockOptions): string {
-  const eligible = new Set(opts.eligibleLocales);
-  // All-or-nothing: an incomplete set is a `tooFew` failure, not a partial win.
-  if (!ALTERNATE_LOCALES.every((locale) => eligible.has(locale))) return '';
+  const entries = buildLocaleAlternateEntries(opts);
+  if (entries.length === 0) return '';
 
   const indent = opts.indent ?? ' ';
-  const lines = ALTERNATE_LOCALES.map(
-    (locale) =>
-      `${indent}<link rel="alternate" hreflang="${locale}" href="${opts.hrefFor(locale)}">`,
-  );
-  lines.push(
-    `${indent}<link rel="alternate" hreflang="x-default" href="${opts.hrefFor('it')}">`,
-  );
-  return lines.join('\n');
+  return entries
+    .map((e) => `${indent}<link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`)
+    .join('\n');
+}
+
+/** One `hreflang`/`href` pair of the alternate set. */
+export interface LocaleAlternateEntry {
+  readonly hreflang: string;
+  readonly href: string;
+}
+
+/**
+ * The same alternate set as {@link buildLocaleAlternateBlock}, as DATA rather
+ * than as an HTML string — for callers that hand the set to a page builder
+ * which renders the tags itself (`buildCanonicalBridgePage`'s
+ * `hreflangEntries` in build-plugins/constants.ts).
+ *
+ * Exists so the all-or-nothing rule has exactly ONE implementation. The
+ * bridge callers previously had to hand-roll the 4-locale + x-default array
+ * (professionCityLandings.ts, jobsSeoPagesPlugin.ts's brand-alias emitter),
+ * i.e. re-decide the very rule this module was extracted to own — and #5114
+ * is the record of what a second copy of that decision costs. The renderer
+ * above is now a formatter over this function's output, so the two can no
+ * longer disagree about WHEN a page carries alternates.
+ *
+ * Returns `[]` — never a partial set — when any required locale is missing.
+ */
+export function buildLocaleAlternateEntries(
+  opts: LocaleAlternateBlockOptions,
+): LocaleAlternateEntry[] {
+  const eligible = new Set(opts.eligibleLocales);
+  // All-or-nothing: an incomplete set is a `tooFew` failure, not a partial win.
+  if (!ALTERNATE_LOCALES.every((locale) => eligible.has(locale))) return [];
+
+  const entries: LocaleAlternateEntry[] = ALTERNATE_LOCALES.map((locale) => ({
+    hreflang: locale as string,
+    href: opts.hrefFor(locale),
+  }));
+  entries.push({ hreflang: 'x-default', href: opts.hrefFor('it') });
+  return entries;
 }
 
 /**

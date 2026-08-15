@@ -51,11 +51,11 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL, buildCanonicalBridgePage, replaceRobotsMeta } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
+import { buildLocaleAlternateBlock, buildLocaleAlternateEntries } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
-import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { buildTitleWithBrand, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
   getTrafficEvidenceFilter,
   type FilterDecision,
@@ -1471,16 +1471,38 @@ export function decideClusterEmission(input: {
  * link equity and crawl budget consolidate there. Self-mapped in
  * `searchConsoleCompat.ts` (SEARCH_COMBO_SEGMENT_PATTERN already resolves
  * this URL shape — see the comment added there).
+ *
+ * Carries the SAME head contract as the full page — canonical + the 4-locale
+ * hreflang set + BreadcrumbList — because it is the same URL, reached by the
+ * same links, and a crawler cannot know which of the two shapes it will get.
+ * It shipped without the last two until now: on run 31891126686 the 53
+ * below-floor bridges in the gate's sample were 53 of the 54 missing
+ * BreadcrumbList and, once the canonical regex is quote-aware, the entire
+ * remaining hreflang deficit. `noindex` does not excuse either — `follow`
+ * means Google walks this page, and the trail/alternates are what tell it
+ * where the URL sits and which locale serves which visitor.
  */
-function renderClusterBelowFloorBridge(
+export function renderClusterBelowFloorBridge(
   locale: Locale,
   urlPath: string,
   canonicalUrl: string,
   keyword: string,
+  hreflang: ReadonlyArray<{ locale: Locale; url: string }> = [],
 ): PageOutput {
   const hubPath = `${LOCALE_PREFIX[locale]}/${resolveCantonSection(locale as CantonLocale, AGGREGATE_KEY)}/`.replace(/\/+/g, '/');
   const hubUrl = `${BASE_URL}${hubPath}`;
   const copy = BELOW_FLOOR_BRIDGE_COPY[locale] || BELOW_FLOOR_BRIDGE_COPY.it;
+  // Same alternate set, same all-or-nothing rule, same source of truth as the
+  // full page's `renderHreflang` — via the entries form of the ONE builder
+  // (`shared/localeAlternateBlock.ts`), so a below-floor page cannot advertise
+  // a locale the build never planned (the #5114 `missingTarget` class) and
+  // cannot ship a partial 1..4 set (`tooFew`). `[]` when the cross-locale set
+  // is incomplete, and `buildCanonicalBridgePage` then emits no block at all.
+  const byLocale = new Map(hreflang.map((h) => [h.locale as string, h.url]));
+  const hreflangEntries = buildLocaleAlternateEntries({
+    eligibleLocales: byLocale.keys(),
+    hrefFor: (loc) => byLocale.get(loc)!,
+  });
   const html = buildCanonicalBridgePage({
     canonicalUrl: hubUrl,
     pathLabel: hubPath,
@@ -1490,7 +1512,11 @@ function renderClusterBelowFloorBridge(
     ctaLabel: copy.cta,
     lang: locale,
     noindex: true,
-  });
+    hreflangEntries: hreflangEntries.length > 0 ? hreflangEntries : undefined,
+  }).replace(
+    '</head>',
+    ` <script type="application/ld+json">${buildClusterBreadcrumbLd(locale)}</script>\n </head>`,
+  );
   return { urlPath, html, loc: canonicalUrl };
 }
 
@@ -1584,13 +1610,45 @@ function buildHeadline(keyword: string, city: string | null, locale: Locale): st
  * its peel could return `''` for a keyword made only of function words, which
  * `buildTitleWithBrand` below would turn into a bare brand title.
  */
-function capForTitle(headline: string, max: number): string {
+export function capForTitle(headline: string, max: number): string {
   const safe = String(headline || '').trim();
-  if (safe.length <= max) return safe;
+  // Budget measured on the ESCAPED string, because that is the string that
+  // ships: `buildSeoPageHtml` renders this title through `esc()` exactly once,
+  // and both `audit-title-length.mjs` and the dist gate measure the raw HTML
+  // source. Escaping is not length-preserving — `&` → `&amp;` costs +4 — so a
+  // cluster keyword carrying a company name like "AI & Optimization" or a
+  // quoted job title fits the raw budget and busts the emitted one.
+  //
+  // Measured, run 31891126686: 464 of the 477 over-cap cluster titles were
+  // ≤66 chars DECODED. Every one of them was this arithmetic, not a headline
+  // that needed shortening — the cap was simply counting a different string
+  // from the one on disk. Same measurement the shared helpers already take:
+  // `buildTitleWithBrand`/`composePlaceTitle` accept a `measureLength` for
+  // exactly this, and eventsSeoPagesPlugin + liechtensteinBorderMunicipality
+  // PagesPlugin already pass `(s) => esc(s).length`.
+  if (escapeForBudget(safe).length <= max) return safe;
   // NonEmpty, not truncateToClause: the result goes straight into
   // buildTitleWithBrand, so an empty string is a bare " | Frontaliere Ticino"
   // title tag, not an omitted field.
-  return truncateToClauseNonEmpty(safe, max);
+  //
+  // `truncateToClauseNonEmpty` budgets in RAW code units, so give it a raw
+  // budget and hand back the escape overflow until the escaped result fits.
+  // Converges in one or two passes (each pass shrinks the budget by the whole
+  // overflow, ≥1 char) — the loop bound is a guard, not the mechanism.
+  let budget = max;
+  let out = truncateToClauseNonEmpty(safe, budget);
+  for (let pass = 0; pass < 8; pass++) {
+    const overflow = escapeForBudget(out).length - max;
+    if (overflow <= 0 || budget <= 1) break;
+    budget = Math.max(1, budget - overflow);
+    out = truncateToClauseNonEmpty(safe, budget);
+  }
+  // Still over budget means the FIRST word alone busts the cap once escaped.
+  // Returned verbatim on purpose: the module policy of titleSuffix.ts forbids
+  // a mid-word cut in a <title> (collapses SERP CTR), so this is the
+  // data-quality signal `audit:title-length` is meant to surface, not
+  // something to paper over here.
+  return out;
 }
 
 /** Forward-framed copy when matching jobs is empty — avoids "0 jobs found"
@@ -1735,6 +1793,45 @@ const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
 // looked interactive but were dead — UX regression. The static body now
 // contains only crawler-facing prose; see `renderClusterPage` below.
 
+/**
+ * The cluster family's BreadcrumbList, as a JSON string.
+ *
+ * Shared by the full page ({@link buildJsonLd}) and the below-floor bridge
+ * ({@link renderClusterBelowFloorBridge}). Both are 200-OK landings under
+ * `/{section}/{prefix}-{slug}/` and both are held to the same contract by
+ * `tests/seo/related-search-clusters-emitted.test.ts` ("every page emits
+ * BreadcrumbList") — the bridge shipped without one, which is 53 of the 54
+ * offenders on run 31891126686. One builder so the trail cannot drift between
+ * the two shapes of the same URL.
+ *
+ * `leaf` is the page's OWN crumb, and the bridge deliberately passes none.
+ * A below-floor bridge canonicalises to the hub, so a trail ending on the
+ * bridge's own URL would tell Google that a URL the same page disclaims is a
+ * node in the site hierarchy — the contradictory-signal class the emission
+ * decision exists to avoid. `tests/related-search-clusters-shell.test.ts`
+ * pins the wider invariant ("a bridge never advertises its own URL"), and
+ * that invariant is why the leaf is optional rather than always present.
+ */
+function buildClusterBreadcrumbLd(
+  locale: Locale,
+  leaf?: { name: string; url: string },
+): string {
+  const copy = COPY[locale];
+  const sectionPath = `${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+  const itemListElement: Array<Record<string, unknown>> = [
+    { '@type': 'ListItem', position: 1, name: copy.homeBreadcrumb, item: `${BASE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: copy.jobsBreadcrumb, item: `${BASE_URL}${sectionPath}` },
+  ];
+  if (leaf) {
+    itemListElement.push({ '@type': 'ListItem', position: 3, name: leaf.name, item: leaf.url });
+  }
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement,
+  });
+}
+
 /** Build all JSON-LD scripts for a cluster page. */
 function buildJsonLd(opts: {
   ctx: ClusterContext;
@@ -1746,26 +1843,13 @@ function buildJsonLd(opts: {
 }): string[] {
   const { ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel } = opts;
   const headline = buildHeadline(ctx.keyword, ctx.city, locale);
-  const copy = COPY[locale];
-  const sectionPath = `${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
-  const sectionUrl = `${BASE_URL}${sectionPath}`;
 
   // ItemList JSON-LD intentionally NOT emitted: the static body no longer
   // visibly lists the jobs (the SPA renders them via JobBoard hydration),
   // and Google's structured-data policy requires structured data to match
   // visible content. Job listings are still surfaced via the SPA-rendered
   // JobCard grid, which Google indexes after JS execution.
-  const breadcrumb = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.homeBreadcrumb, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.jobsBreadcrumb, item: sectionUrl },
-      { '@type': 'ListItem', position: 3, name: headline, item: canonicalUrl },
-    ],
-  });
-
-  const out = [breadcrumb];
+  const out = [buildClusterBreadcrumbLd(locale, { name: headline, url: canonicalUrl })];
 
   // Single combined FAQPage: GSC reports "Campo duplicato 'FAQPage'" when
   // two separate FAQPage JSON-LD blocks appear on the same page. Merge the
@@ -1877,7 +1961,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // is narrow — it doesn't blunt the consolidation for the bulk of
   // generic, non-enriched below-floor clusters the issue targets.
   if (isClusterBelowFloor(ctx, enriched)) {
-    return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword);
+    return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword, hreflang);
   }
 
   const headline = buildHeadline(ctx.keyword, ctx.city, locale);
@@ -2085,7 +2169,15 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // on a whitespace boundary, no ellipsis — preserves SERP CTR while
   // keeping the title within the audit:title-length ratchet.
   const titleHeadline = capForTitle(headline, TITLE_MAX_CHARS);
-  const title = buildTitleWithBrand(titleHeadline);
+  // Same escaped budget as capForTitle above: the brand-drop decision must be
+  // taken on the string that ships, or a headline that just fits raw acquires
+  // " | Frontaliere Ticino" and lands over cap once escaped.
+  const title = buildTitleWithBrand(
+    titleHeadline,
+    undefined,
+    TITLE_MAX_CHARS,
+    (s) => escapeForBudget(s).length,
+  );
 
   const html = buildSeoPageHtml({
     locale,

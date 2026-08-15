@@ -7,6 +7,7 @@ import cantonSlugFile from '../data/canton-url-slugs.json';
 import municipalitiesFile from '../data/canton-municipalities.json';
 import { resolveJobCanton } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
+import { composePlaceTitle, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
 type CantonSlugEntry = { it: string; en: string; de: string; fr: string; dePrefix?: string };
 type CantonMunicipalitiesFile = {
@@ -1033,6 +1034,54 @@ const LOCATION_COPY: Record<JobLandingLocale, {
  openAll: 'Voir toutes les offres au Tessin',
  },
 };
+
+/**
+ * Short second half of the `<title>` for the location×type and location×sector
+ * landings, used when the full boilerplate ("| Offerte di lavoro aggiornate")
+ * pushes the title past {@link TITLE_MAX_CHARS}.
+ *
+ * Why a shorter SUFFIX and not a shorter place phrase: the place name is the
+ * whole local-SEO value of these URLs, so the policy (see composePlaceTitle in
+ * shared/titleSuffix.ts) is "never drop the place, shrink the boilerplate
+ * around it". And why not fall back to the bare heading: `heading` is this
+ * page's `<h1>`, and `audit:h1-title-duplicates` is zero-tolerance — the
+ * suffix is what keeps `<title>` ≠ `<h1>`.
+ */
+const LANDING_TITLE_SHORT_SUFFIX: Record<JobLandingLocale, string> = {
+  it: 'Offerte aggiornate',
+  en: 'Updated jobs',
+  de: 'Aktuelle Stellen',
+  fr: 'Offres a jour',
+};
+
+/**
+ * Compose a landing `<title>` that fits the SERP cap without amputating the
+ * location.
+ *
+ * Measured on run 31891126686: 13 of the 477 over-cap `<title>`s under
+ * `/{section}/{ricerca|search|suche|recherche}-*` came from this family —
+ * 67-74 chars, e.g. "Ristorazione e hotel a Bellinzona in Ticino | Offerte di
+ * lavoro aggiornate" (74). These titles had NO cap at all: the copy tables
+ * below are template literals that went straight into the page model. The
+ * other 464 were the cluster family and a different defect entirely (an
+ * escaped-vs-raw length mismatch, see relatedSearchClustersPlugin.ts's
+ * capForTitle) — same gate, same directory, two unrelated causes.
+ *
+ * Budget measured on the ESCAPED string for the same reason capForTitle does:
+ * `label`/`location` are data-derived and can carry `&`, and the gate plus
+ * `audit-title-length.mjs` both measure the raw HTML source.
+ */
+function composeLandingTitle(
+  locale: JobLandingLocale,
+  fullTitle: string,
+  heading: string,
+): string {
+  return composePlaceTitle(
+    [fullTitle, `${heading} | ${LANDING_TITLE_SHORT_SUFFIX[locale]}`],
+    TITLE_MAX_CHARS,
+    (s) => escapeForBudget(s).length,
+  );
+}
 
 const LOCATION_TYPE_COPY: Record<JobLandingLocale, {
  heading: (label: string, location: string) => string;
@@ -2199,7 +2248,7 @@ export function buildJobLocationTypeLandingModel(options: {
  location,
  typeKey,
  typeLabel: label,
- title: copy.title(label, location),
+ title: composeLandingTitle(locale, copy.title(label, location), copy.heading(label, location)),
  heading: copy.heading(label, location),
  description: copy.description(label, location, matches.length),
  intro: copy.intro(label, location),
@@ -2250,7 +2299,7 @@ export function buildJobLocationSectorLandingModel(options: {
  location,
  sectorKey,
  sectorLabel: label,
- title: copy.title(label, location),
+ title: composeLandingTitle(locale, copy.title(label, location), copy.heading(label, location)),
  heading: copy.heading(label, location),
  description: copy.description(label, location, matches.length),
  intro: copy.intro(label, location),
