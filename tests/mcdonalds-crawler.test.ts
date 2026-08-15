@@ -5,21 +5,23 @@ import path from 'node:path';
 import {
   MCDO_KEY,
   COMPANY_NAME,
-  parseMcdoMapEntries,
-  mapEntryToParsed,
+  parseMcdoPreloadState,
+  extractListingJobs,
+  listingEntryToParsed,
   parseMcdoDetailPage,
   buildMcdoJob,
   inferCanton,
   inferEmploymentType,
+  listingPageUrl,
 } from '../scripts/lib/mcdonalds-job-parser.mjs';
 
 const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
 
-// Real HTML captured 2026-08-10 from the live portal (issue #5393):
-//   https://jobs.mcdonalds.ch/postes-vacants     → mcdonalds-postes-vacants.html
-//   https://jobs.mcdonalds.ch/details-offre/8187 → mcdonalds-details-offre-8187.html
-const listingHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-postes-vacants.html'), 'utf8');
-const detailHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-details-offre-8187.html'), 'utf8');
+// Real HTML captured 2026-08-14 from the live portal (issue #5852):
+//   https://jobs.mcdonalds.ch/fr/emplois-restauration                   → mcdonalds-emplois-restauration.html
+//   https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1 → mcdonalds-job-p8-317484-1.html
+const listingHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-emplois-restauration.html'), 'utf8');
+const detailHtml = readFileSync(path.join(FIXTURES, 'mcdonalds-job-p8-317484-1.html'), 'utf8');
 
 describe("McDonald's Switzerland crawler parser", () => {
   it('exports valid company key and name', () => {
@@ -27,90 +29,121 @@ describe("McDonald's Switzerland crawler parser", () => {
     expect(COMPANY_NAME).toBe("McDonald's Switzerland");
   });
 
-  // ── Listing discovery (the #5393 regression surface) ──
-  describe('parseMcdoMapEntries', () => {
-    it('extracts the mcdo_jobs_mapEntries array from the live vacancies page', () => {
-      const entries = parseMcdoMapEntries(listingHtml);
-      expect(entries).toHaveLength(4);
-      expect(entries[0]).toMatchObject({
-        id: '10488',
-        title: 'CREW - Locarno',
-        url: '/details-offre/8266',
-        city_name: 'Locarno',
-      });
+  // ── Listing URL contract ──
+  //
+  // The #5852 break was not a parsing bug: the parser kept working on the
+  // fixtures while the live crawl returned zero, because the URL it fetched
+  // and the shape the fixtures prove it can read had drifted apart. Nothing
+  // failed, because no test tied the two together. These do — the fixture
+  // records its own provenance in `<link rel="canonical">`, so pointing the
+  // crawler at a different route without recapturing the fixture is red.
+  describe('listing URL contract', () => {
+    const canonical = listingHtml.match(/<link rel="canonical" href="([^"]+)">/)?.[1];
+
+    it('fetches page 1 at exactly the URL the fixture was captured from', () => {
+      expect(canonical).toBe('https://jobs.mcdonalds.ch/fr/emplois-restauration');
+      expect(listingPageUrl(1)).toBe(canonical);
     });
 
-    it('bracket-matches past `]` characters inside the surrounding settings blob', () => {
-      // The array lives inside the Drupal settings JSON, which contains other
-      // arrays (e.g. "ajaxTrustedUrl":[]) before it. A non-greedy `\[.*?\]`
-      // regex stops at the first `]` and yields nothing usable.
-      expect(listingHtml).toContain('"ajaxTrustedUrl":[]');
-      expect(parseMcdoMapEntries(listingHtml).length).toBeGreaterThan(0);
-    });
-
-    it('returns [] rather than throwing when the array is absent or malformed', () => {
-      expect(parseMcdoMapEntries('<html><body>no jobs here</body></html>')).toEqual([]);
-      expect(parseMcdoMapEntries('<script>var mcdo_jobs_mapEntries = [ {broken</script>')).toEqual([]);
-      expect(parseMcdoMapEntries('')).toEqual([]);
-      expect(parseMcdoMapEntries(undefined as unknown as string)).toEqual([]);
-    });
-
-    it('does NOT depend on the retired sitemap-index shape', () => {
-      // Regression guard for the actual break: the old discovery filtered
-      // `/sitemap-<hash>-<locale>.xml` children out of a sitemap INDEX, and
-      // the live /sitemap.xml is now a flat 18-URL <urlset> with none.
-      const flatSitemap =
-        '<urlset><url><loc>https://jobs.mcdonalds.ch/details-offre/8187</loc></url></urlset>';
-      expect(/\/sitemap-[0-9a-f]+-/.test(flatSitemap)).toBe(false);
+    it('paginates as /page/{n} off that same base, from page 2 up', () => {
+      expect(listingPageUrl(2)).toBe(`${canonical}/page/2`);
+      expect(listingPageUrl(17)).toBe(`${canonical}/page/17`);
+      // Page 1 has no /page/1 suffix — the portal 404s that form.
+      expect(listingPageUrl(1)).not.toContain('/page/');
     });
   });
 
-  describe('mapEntryToParsed', () => {
-    it('maps a Ticino crew posting to the shared parsed shape', () => {
-      const [locarno] = parseMcdoMapEntries(listingHtml);
-      const parsed = mapEntryToParsed(locarno)!;
-      expect(parsed.title).toBe('CREW - Locarno');
-      expect(parsed.city).toBe('Locarno');
-      expect(parsed.canton).toBe('TI');
-      expect(parsed.jobReqId).toBe('10488');
-      expect(parsed.datePosted).toBe('2026-05-04');
-      expect(parsed.description.length).toBeGreaterThan(50);
+  // ── Listing discovery (the #5852 regression surface) ──
+  describe('parseMcdoPreloadState / extractListingJobs', () => {
+    it('extracts window.__PRELOAD_STATE__.jobSearch from the live listing page', () => {
+      const state = parseMcdoPreloadState(listingHtml);
+      expect(state?.jobSearch?.totalJob).toBe(4);
+      expect(state?.jobSearch?.jobs).toHaveLength(4);
     });
 
-    it('absolutises the relative /details-offre/ URL onto the canonical https host', () => {
-      const [locarno] = parseMcdoMapEntries(listingHtml);
-      expect(mapEntryToParsed(locarno)!.url).toBe('https://jobs.mcdonalds.ch/details-offre/8266');
+    it('brace-matches past nested `}` characters before the trailing statement', () => {
+      // The object literal is immediately followed by `window.__BUILD__ = ...`
+      // on the same line — a naive "stop at first `}`" scan would truncate
+      // inside the nested `locations[0]` object.
+      expect(listingHtml).toContain("window.__BUILD__ = '70ed2245a1'");
+      expect(extractListingJobs(listingHtml).jobs.length).toBeGreaterThan(0);
     });
 
-    it('infers the canton of every fixture entry from city_name alone', () => {
-      const cantons = parseMcdoMapEntries(listingHtml).map((e) => mapEntryToParsed(e)!.canton);
-      expect(cantons).toEqual(['TI', 'VD', 'ZH', 'BE']);
+    it('returns jobs: [] / totalJob: 0 rather than throwing when the state is absent or malformed', () => {
+      expect(extractListingJobs('<html><body>no jobs here</body></html>')).toEqual({ jobs: [], totalJob: 0 });
+      expect(extractListingJobs('<script>window.__PRELOAD_STATE__ = {broken</script>')).toEqual({ jobs: [], totalJob: 0 });
+      expect(extractListingJobs('')).toEqual({ jobs: [], totalJob: 0 });
+      expect(extractListingJobs(undefined as unknown as string)).toEqual({ jobs: [], totalJob: 0 });
     });
 
-    it('returns null for entries without a title or url', () => {
-      expect(mapEntryToParsed(null)).toBeNull();
-      expect(mapEntryToParsed({ title: 'x' })).toBeNull();
-      expect(mapEntryToParsed({ url: '/details-offre/1' })).toBeNull();
+    it('does NOT depend on the retired mcdo_jobs_mapEntries Drupal shape', () => {
+      // Regression guard for the actual break: the #5393 discovery looked
+      // for `mcdo_jobs_mapEntries` inside a Drupal settings blob, and the
+      // live page no longer serves that markup at all (the fixture's own
+      // provenance comment mentions the old name in prose, so scope the
+      // assertion to the actual embedded script).
+      const [, script] = listingHtml.split('<script>');
+      expect(script).not.toContain('mcdo_jobs_mapEntries');
     });
   });
 
-  // ── Detail page (kept as the enrichment / fallback path) ──
+  describe('listingEntryToParsed', () => {
+    it('maps a Thurgau maintenance posting to the shared parsed shape', () => {
+      const [kreuzlingen] = extractListingJobs(listingHtml).jobs;
+      const parsed = listingEntryToParsed(kreuzlingen)!;
+      expect(parsed.title).toBe('Agent·e de Maintenance');
+      expect(parsed.city).toBe('KREUZLINGEN');
+      expect(parsed.canton).toBe('TG');
+      expect(parsed.jobReqId).toBe('P8-317484-1');
+      expect(parsed.postalCode).toBe('8280');
+      expect(parsed.streetAddress).toBe('ROMANSHORNERSTRASSE 120');
+      // Listing entries carry no description/date — enrichment happens later.
+      expect(parsed.description).toBe('');
+      expect(parsed.datePosted).toBe('');
+    });
+
+    it('absolutises the relative originalURL onto the canonical https host', () => {
+      const [kreuzlingen] = extractListingJobs(listingHtml).jobs;
+      expect(listingEntryToParsed(kreuzlingen)!.url).toBe(
+        'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1'
+      );
+    });
+
+    it('infers the canton of every fixture entry from stateAbbr/city', () => {
+      const cantons = extractListingJobs(listingHtml).jobs.map((e) => listingEntryToParsed(e)!.canton);
+      expect(cantons).toEqual(['TG', 'GR', 'NE', 'TI']);
+    });
+
+    it('returns null for entries without a title or originalURL', () => {
+      expect(listingEntryToParsed(null)).toBeNull();
+      expect(listingEntryToParsed({ title: 'x' })).toBeNull();
+      expect(listingEntryToParsed({ originalURL: 'fr-ch/x/job/1' })).toBeNull();
+    });
+  });
+
+  // ── Detail page (enrichment is now mandatory, not optional) ──
   describe('parseMcdoDetailPage', () => {
     it('extracts JSON-LD JobPosting fields from the live detail page', () => {
-      const parsed = parseMcdoDetailPage(detailHtml, 'https://jobs.mcdonalds.ch/details-offre/8187')!;
+      const parsed = parseMcdoDetailPage(
+        detailHtml,
+        'https://jobs.mcdonalds.ch/fr-ch/agent-e-de-maintenance/job/P8-317484-1'
+      )!;
       expect(parsed).not.toBeNull();
-      expect(parsed.title).toBe('Manager Asset Management & Real Estate (100%)');
-      expect(parsed.city).toBe('Crissier');
-      expect(parsed.canton).toBe('VD');
-      expect(parsed.jobReqId).toBe('8187');
-      expect(parsed.datePosted).toBe('2026-03-19');
-      expect(parsed.validThrough).toBe('2027-04-24');
+      expect(parsed.title).toBe('Agent·e de Maintenance');
+      expect(parsed.city).toBe('KREUZLINGEN');
+      expect(parsed.canton).toBe('TG');
+      expect(parsed.jobReqId).toBe('P8-317484-1');
+      expect(parsed.datePosted).toBe('2026-07-10');
     });
 
-    it('reads the localized employmentType string the new portal emits', () => {
-      // The retired SPA sent an array; this portal sends "Contrat plein temps".
-      expect(detailHtml).toContain('Contrat plein temps');
-      expect(parseMcdoDetailPage(detailHtml)!.employmentType).toBe('FULL_TIME');
+    it('falls back cleanly when employmentType/validThrough are absent, as on the live portal today', () => {
+      // The current JSON-LD block omits both fields entirely (present
+      // pre-2026-08-10, absent again as of the #5852 rewrite).
+      expect(detailHtml).not.toContain('"validThrough"');
+      expect(detailHtml).not.toContain('"employmentType"');
+      const parsed = parseMcdoDetailPage(detailHtml)!;
+      expect(parsed.validThrough).toBe('');
+      expect(parsed.employmentType).toBe('PART_TIME');
     });
 
     it('returns null when no JobPosting block is present', () => {
@@ -127,7 +160,7 @@ describe("McDonald's Switzerland crawler parser", () => {
       // #3843 item 5: the pipeline/consumers (JobBoard, sitemap, newsletter,
       // assemble-jobs-dataset churn guard) read `postedDate`; the schema.org
       // name `datePosted` must not leak into the built job object.
-      expect(job.postedDate).toBe('2026-03-19');
+      expect(job.postedDate).toBe('2026-07-10');
       expect(job).not.toHaveProperty('datePosted');
     });
 
@@ -141,18 +174,22 @@ describe("McDonald's Switzerland crawler parser", () => {
       expect(job.companyKey).toBe(MCDO_KEY);
       expect(job.company).toBe(COMPANY_NAME);
       expect(job.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
-      expect(job.slug).toContain('manager-asset-management');
+      expect(job.slug).toContain('agent-e-de-maintenance');
     });
 
     it('builds a complete Ticino job straight from a listing entry', () => {
-      const [locarno] = parseMcdoMapEntries(listingHtml);
-      const job = buildMcdoJob(mapEntryToParsed(locarno))!;
+      const [, , , lugano] = extractListingJobs(listingHtml).jobs;
+      const job = buildMcdoJob(listingEntryToParsed(lugano))!;
       expect(job.canton).toBe('TI');
-      expect(job.location).toBe('Locarno');
+      expect(job.location).toBe('LUGANO PAZZALLO');
       expect(job.country).toBe('CH');
-      expect(job.url).toBe('https://jobs.mcdonalds.ch/details-offre/8266');
+      expect(job.url).toBe(
+        'https://jobs.mcdonalds.ch/fr-ch/assistant-e-manager-de-restaurant/job/P8-310079-1'
+      );
       expect(job.sector).toBe('Ristorazione / Fast Food');
-      expect(job.description.length).toBeGreaterThan(50);
+      // Listing-only build has no enrichment yet, so it falls back to the
+      // synthesized description rather than a scraped one.
+      expect(job.description.length).toBeGreaterThan(20);
     });
 
     it('returns null for empty parse results', () => {
@@ -183,7 +220,7 @@ describe("McDonald's Switzerland crawler parser", () => {
 
     it('detects apprenticeships as FULL_TIME', () => {
       expect(inferEmploymentType('Apprenti(e) employé(e) de commerce', [])).toBe('FULL_TIME');
-      expect(inferEmploymentType('Systemgastronomie LEHRE - EFZ', 'Restaurant - Apprentissage')).toBe('FULL_TIME');
+      expect(inferEmploymentType('Apprenti·e en restauration de système CFC', [])).toBe('FULL_TIME');
     });
 
     it('respects explicit JSON-LD employmentType in both array and string form', () => {
@@ -194,9 +231,10 @@ describe("McDonald's Switzerland crawler parser", () => {
     });
 
     it('reads the workload percentage in the title when the source has no type', () => {
-      // Head-office rows carry only a department in `type_name`.
-      expect(inferEmploymentType('Manager Asset Management & Real Estate (100%)', 'Siège Administratif - Postes vacants')).toBe('FULL_TIME');
-      expect(inferEmploymentType('Mitarbeiter Marketing (60%)', 'Siège Administratif - Postes vacants')).toBe('PART_TIME');
+      // Head-office rows carry only a department, or the listing's empty
+      // `employmentType: []`.
+      expect(inferEmploymentType('Manager Asset Management & Real Estate (100%)', [])).toBe('FULL_TIME');
+      expect(inferEmploymentType('Mitarbeiter Marketing (60%)', [])).toBe('PART_TIME');
     });
   });
 });

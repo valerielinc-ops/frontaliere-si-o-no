@@ -3,57 +3,38 @@
  *
  * Careers portal: https://jobs.mcdonalds.ch/
  *
- * ── 2026-08-10 rewrite (issue #5393) ──────────────────────────
+ * ── 2026-08-14 rewrite (issue #5852) ──────────────────────────
  *
- * The previous implementation targeted a Paradox/McHire React SPA and
- * discovered jobs through a sitemap INDEX of ~40 per-job sitemap files
- * (`/sitemap-<hash>-<locale>.xml`), then read a schema.org JobPosting
- * JSON-LD block off each `/{locale}/{slug}/job/{id}` detail page.
+ * The Drupal vacancies page (`/postes-vacants`, `mcdo_jobs_mapEntries`)
+ * that the 2026-08-10 rewrite (#5393) targeted is gone again — the portal
+ * reverted to the Paradox/McHire SPA the crawler ran *before* that rewrite,
+ * this time server-rendered rather than client-fetched. Measured live on
+ * 2026-08-14: `/postes-vacants` still 200s, but the response no longer
+ * embeds `mcdo_jobs_mapEntries` anywhere, so the old regex found nothing
+ * and every crawl returned zero jobs for three consecutive runs.
  *
- * That portal is gone. Measured live on 2026-08-10, three independent
- * breaks, each on its own sufficient to return zero jobs:
+ * The canonical listing is now `/fr/emplois-restauration` (10 jobs/page,
+ * further pages at `/fr/emplois-restauration/page/{n}`). Each page embeds
+ * its slice of results server-side in a `<script>` assigning
+ * `window.__PRELOAD_STATE__.jobSearch` (`jobs: [...]`, `totalJob`), so
+ * `discoverAllListingEntries()` walks every page and builds the full
+ * result set from that JSON — no client-side rendering or bot-protected
+ * XHR involved. Listing entries carry title/location/URL but not the job
+ * description or posting date, so every job is still enriched from its
+ * detail page.
  *
- *  1. TRANSPORT. `https://jobs.mcdonalds.ch/` no longer presents a valid
- *     certificate. The host now resolves to 83.228.194.175
- *     (`od-bdc4d8.infomaniak.ch`, same answer from 1.1.1.1 / 8.8.8.8 /
- *     9.9.9.9) and serves a Sectigo DV certificate issued for
- *     `CN=preview.infomaniak.website` with
- *     `SAN: preview.infomaniak.website, *.infomaniak.site,
- *     *.preview.infomaniak.website` — no `jobs.mcdonalds.ch`. Node/undici
- *     rejects every request with ERR_TLS_CERT_ALTNAME_INVALID, so the old
- *     `fetchText()` returned null for the sitemap index and the crawler
- *     exited at `jobUrls.length === 0`. The apex site `www.mcdonalds.ch`
- *     is unaffected (valid `CN=www.mcdonalds.ch`); it is only the careers
- *     sub-domain that is mis-provisioned. Over plain HTTP the same host
- *     answers 200 with the real portal.
- *
- *  2. DISCOVERY. `/sitemap.xml` is no longer a sitemap index — it is a
- *     flat `<urlset>` of 18 URLs with no `/sitemap-<hash>-<locale>.xml`
- *     children at all, so the old `/\/sitemap-[0-9a-f]+-/` filter matched
- *     nothing.
- *
- *  3. URL SHAPE. Job detail pages are now `/details-offre/{id}`; the old
- *     `/\/job\/[A-Za-z0-9-]+$/` filter matched nothing either.
- *
- * The portal is back on the Drupal site the pre-SPA crawler was built for:
- * the vacancies page `/postes-vacants` embeds the complete, unpaginated
- * `mcdo_jobs_mapEntries` JSON array (72 entries on 2026-08-10) carrying
- * everything a job record needs — `id`, `title`, `date`, `url`, `desc`
- * (full plain-text description), `city_name`, `store_name`, `type_name`
- * and `language`. One request replaces the previous ~40 sitemap fetches
- * plus one fetch per job, and there is no bot-protection on it.
- *
- * Detail pages (`/details-offre/{id}`) still carry a clean, strictly
- * parseable schema.org JobPosting JSON-LD block, so `parseMcdoDetailPage()`
- * is kept: it is the enrichment path for `validThrough` and the postal
- * address, and the fallback if the listing array ever disappears.
+ * Detail pages moved from `/details-offre/{id}` back to
+ * `/{lang}/{slug}/job/{reference}` (e.g.
+ * `/fr-ch/agent-e-de-maintenance/job/P8-317484-1`), still carrying a
+ * schema.org JobPosting JSON-LD block — `parseMcdoDetailPage()` needed no
+ * changes at all, only the URLs feeding it. That block currently omits
+ * `employmentType` and `validThrough` outright (present pre-2026-08-10,
+ * absent again now); both already have safe fallbacks downstream.
  *
  * TRANSPORT POLICY. Requests are attempted over HTTPS first and fall back
- * to HTTP for this host only, and only on a TLS/certificate failure. The
- * emitted job `url` stays on `https://` because that is what the portal
- * itself publishes as canonical in its own sitemap — the certificate is
- * McDonald's to re-provision, and burning `http://` into the permanent
- * dataset would outlive the outage.
+ * to HTTP for this host only, and only on a TLS/certificate failure (see
+ * `TLS_ERROR_CODES` below) — kept from the 2026-08-10 rewrite as a defensive
+ * measure even though the certificate is valid again as of 2026-08-14.
  */
 
 import { normalizeCantonCode, inferAnyCanton } from './target-swiss-locations.mjs';
@@ -64,13 +45,10 @@ export const COMPANY_DOMAIN = 'mcdonalds.ch';
 
 const MCDO_BASE = 'https://jobs.mcdonalds.ch';
 /**
- * Vacancies page carrying the full `mcdo_jobs_mapEntries` array. The path is
- * the French one because that is the portal's default locale route; the
- * array it embeds is NOT locale-scoped — it holds every open posting with a
- * per-entry `language` field (2026-08-10: 61 de + 10 fr + 1 it).
+ * Job search listing, French locale (the portal's default route). Page 1
+ * lives at this path, further pages at `${MCDO_LISTING_PATH}/page/{n}`.
  */
-const MCDO_LISTING_PATH = '/postes-vacants';
-const SITEMAP_INDEX_URL = `${MCDO_BASE}/sitemap.xml`;
+const MCDO_LISTING_PATH = '/fr/emplois-restauration';
 
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -130,8 +108,9 @@ export function inferCanton(addressRegion = '', city = '') {
  *
  * The source expresses employment type in two different shapes: the detail
  * page JSON-LD now carries a localized STRING ("Contrat plein temps",
- * "Vollzeit", …) rather than the array the SPA used, and the listing array
- * carries a `type_name` category instead. Accept both, then fall back to
+ * "Vollzeit", …) rather than the array the SPA used, and the McHire listing
+ * entries carry an `employmentType` array that is usually empty. Accept both
+ * shapes, then fall back to
  * title heuristics (apprenticeships are the main full-time-ish exception).
  */
 export function inferEmploymentType(title = '', ldEmploymentType = []) {
@@ -223,24 +202,29 @@ async function runWithConcurrency(items, worker, concurrency) {
   return out;
 }
 
-/* ── Listing discovery (mcdo_jobs_mapEntries) ─────────────────── */
+/* ── Listing discovery (window.__PRELOAD_STATE__) ─────────────── */
 
 /**
- * Pull the `mcdo_jobs_mapEntries` array out of the vacancies page.
+ * Pull the `window.__PRELOAD_STATE__ = {...}` object literal out of a
+ * listing page.
  *
- * The page assigns it inside an inline script; the array is plain JSON, so
- * it is located by its key and then bracket-matched (a non-greedy regex
- * would stop at the first `]` inside a description).
+ * The page assigns it inside an inline `<script>`, immediately followed by
+ * further statements (`window.__BUILD__ = ...`) on the same line — the
+ * object is located by its key and then brace-matched (stopping at the
+ * first top-level `;` would work today but is one nested `};` away from
+ * silently truncating).
  *
  * @param {string} html
- * @returns {Array<object>} raw listing entries, [] when absent/unparseable
+ * @returns {object|null} the parsed state object, or null if absent/unparseable
  */
-export function parseMcdoMapEntries(html = '') {
+export function parseMcdoPreloadState(html = '') {
   const source = String(html || '');
-  const keyIdx = source.search(/mcdo_jobs_mapEntries/);
-  if (keyIdx === -1) return [];
-  const start = source.indexOf('[', keyIdx);
-  if (start === -1) return [];
+  const keyIdx = source.indexOf('window.__PRELOAD_STATE__');
+  if (keyIdx === -1) return null;
+  const eqIdx = source.indexOf('=', keyIdx);
+  if (eqIdx === -1) return null;
+  const start = source.indexOf('{', eqIdx);
+  if (start === -1) return null;
 
   let depth = 0;
   let inString = false;
@@ -251,70 +235,149 @@ export function parseMcdoMapEntries(html = '') {
     if (ch === '\\') { escaped = true; continue; }
     if (ch === '"') { inString = !inString; continue; }
     if (inString) continue;
-    if (ch === '[') depth += 1;
-    else if (ch === ']') {
+    if (ch === '{') depth += 1;
+    else if (ch === '}') {
       depth -= 1;
       if (depth === 0) {
         try {
-          const parsed = JSON.parse(source.slice(start, i + 1));
-          return Array.isArray(parsed) ? parsed : [];
+          return JSON.parse(source.slice(start, i + 1));
         } catch {
-          return [];
+          return null;
         }
       }
     }
   }
-  return [];
+  return null;
 }
 
 /**
- * Normalize one `mcdo_jobs_mapEntries` entry into the same shape
+ * Extract `jobSearch.jobs` + `jobSearch.totalJob` off one listing page.
+ *
+ * @param {string} html
+ * @returns {{ jobs: Array<object>, totalJob: number }}
+ */
+export function extractListingJobs(html = '') {
+  const state = parseMcdoPreloadState(html);
+  const jobs = state?.jobSearch?.jobs;
+  const totalJob = Number(state?.jobSearch?.totalJob) || 0;
+  return { jobs: Array.isArray(jobs) ? jobs : [], totalJob };
+}
+
+/**
+ * Normalize one `jobSearch.jobs` listing entry into the same shape
  * `parseMcdoDetailPage()` returns, so both paths feed `buildMcdoJob()`.
+ *
+ * Listing entries carry no description or posting date — every job is
+ * enriched from its detail page in `fetchMcdoJobs()` before those fields
+ * are needed.
  *
  * @param {object} entry
  * @returns {object|null}
  */
-export function mapEntryToParsed(entry) {
+export function listingEntryToParsed(entry) {
   if (!entry || typeof entry !== 'object') return null;
   const title = String(entry.title || '').trim();
-  const relUrl = String(entry.url || '').trim();
-  if (!title || !relUrl) return null;
+  const originalURL = String(entry.originalURL || '').trim();
+  if (!title || !originalURL) return null;
 
-  const city = String(entry.city_name || '').trim();
-  const description = stripHtml(String(entry.desc || ''));
-  const datePosted = /^\d{4}-\d{2}-\d{2}/.test(String(entry.date || ''))
-    ? String(entry.date).slice(0, 10)
-    : '';
+  const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
+  const city = String(location?.city || '').trim();
 
   return {
     title,
-    // Canonical https, per the TRANSPORT note in the module header.
-    url: relUrl.startsWith('http') ? relUrl : `${MCDO_BASE}${relUrl.startsWith('/') ? '' : '/'}${relUrl}`,
-    jobReqId: String(entry.id || '').trim(),
+    url: `${MCDO_BASE}/${originalURL.replace(/^\/+/, '')}`,
+    jobReqId: String(entry.reference || '').trim(),
     city,
-    canton: inferCanton('', city),
-    postalCode: '',
-    streetAddress: String(entry.store_name || '').trim(),
-    description,
-    datePosted,
+    canton: inferCanton(location?.stateAbbr || location?.state || '', city),
+    postalCode: String(location?.zipCode || '').trim(),
+    streetAddress: String(location?.streetAddress || '').trim(),
+    description: '',
+    datePosted: '',
     validThrough: '',
-    employmentType: inferEmploymentType(title, entry.type_name),
+    employmentType: inferEmploymentType(title, entry.employmentType),
   };
 }
 
 /**
- * Discover every open job's detail-page URL from the vacancies listing.
+ * Absolute URL of listing page `pageNum` (1-based). Exported so the test
+ * suite can pin it against the canonical URL recorded in the captured
+ * fixture — see the "listing URL contract" block in
+ * `tests/mcdonalds-crawler.test.ts`.
+ */
+export function listingPageUrl(pageNum) {
+  return pageNum <= 1 ? `${MCDO_BASE}${MCDO_LISTING_PATH}` : `${MCDO_BASE}${MCDO_LISTING_PATH}/page/${pageNum}`;
+}
+
+async function fetchListingPage(pageNum, { userAgent, timeoutMs }) {
+  const html = await fetchText(listingPageUrl(pageNum), { userAgent, timeoutMs });
+  if (!html) {
+    console.warn(`[mcdonalds] listing page ${pageNum}: fetch fallito — contata come vuota`);
+    return { jobs: [], totalJob: 0 };
+  }
+  const out = extractListingJobs(html);
+  // "200 senza __PRELOAD_STATE__" NON e' "zero job": e' la firma del prossimo
+  // format drift (classe #5852). Il guard anti-wipe dell'updater impedisce la
+  // perdita dati, ma senza questo warn la diagnosi resterebbe muta per i 3 run
+  // che servono al monitor.
+  if (out.jobs.length === 0 && out.totalJob === 0 && !html.includes('__PRELOAD_STATE__')) {
+    console.warn(`[mcdonalds] listing page ${pageNum}: 200 ma nessun __PRELOAD_STATE__ — probabile cambio di formato del portale`);
+  }
+  return out;
+}
+
+/**
+ * Walk every listing page (10 jobs/page) and return the raw entries.
  *
- * Kept as a named export (and still returning `{ jobUrls, sitemapCount }`)
- * because the crawler's logging and the health monitor both key off the
- * discovered-URL count; `sitemapCount` is now the listing-page count.
+ * Page 1's `totalJob` drives how many further pages to fetch — there is
+ * no separate "page count" field, only the running total and the observed
+ * page size.
+ */
+async function discoverAllListingEntries({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
+  const first = await fetchListingPage(1, { userAgent, timeoutMs });
+  if (first.jobs.length === 0) return { entries: [], pageCount: 0 };
+
+  const perPage = first.jobs.length;
+  // totalJob arriva dal JSON del portale e va creduto solo fino a un punto:
+  // un valore assurdo (bug loro, semantica cambiata, tarpit) non deve
+  // trasformarsi in una tempesta di fetch. 100 pagine = ~1000 job, oltre 6x
+  // il massimo storico osservato (165 job il 2026-08-15).
+  const MAX_LISTING_PAGES = 100;
+  const totalPages = Math.max(1, Math.min(MAX_LISTING_PAGES, Math.ceil((first.totalJob || perPage) / perPage)));
+  const all = [...first.jobs];
+
+  if (totalPages > 1) {
+    const pageNums = Array.from({ length: totalPages - 1 }, (_, i) => i + 2);
+    const rest = await runWithConcurrency(
+      pageNums,
+      (pageNum) => fetchListingPage(pageNum, { userAgent, timeoutMs }),
+      4
+    );
+    for (const page of rest) all.push(...page.jobs);
+  }
+  // Un raccolto parziale (pagina intermedia fallita, o totale mendace) non e'
+  // uno zero: il monitor non lo vede, e nel merge dell'updater i job mancanti
+  // uscirebbero come "removed". Almeno il log deve dirlo.
+  if (all.length < (first.totalJob || 0)) {
+    console.warn(`[mcdonalds] raccolto parziale: ${all.length}/${first.totalJob} job — pagina fallita o totalJob mendace`);
+  }
+  return { entries: all, pageCount: totalPages };
+}
+
+/**
+ * Discover every open job's detail-page URL from the paginated listing.
+ *
+ * NOTE: nothing in the repo imports this today — `update-mcdonalds-jobs.mjs`
+ * calls `fetchMcdoJobs()` directly, and the health monitor reads the emitted
+ * job count out of `data/crawler-health.json`, not this return value. The
+ * docstring here used to claim both as consumers (carried over from #5393);
+ * it is kept as an export only as the URL-only entry point for ad-hoc
+ * debugging, and `sitemapCount` now really is the listing-page count it
+ * always claimed to be (it returned a bare 1/0 before).
  */
 export async function discoverMcdoJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const html = await fetchText(`${MCDO_BASE}${MCDO_LISTING_PATH}`, { userAgent, timeoutMs });
-  if (!html) return { jobUrls: [], sitemapCount: 0 };
-  const entries = parseMcdoMapEntries(html);
-  const jobUrls = [...new Set(entries.map((e) => mapEntryToParsed(e)?.url).filter(Boolean))];
-  return { jobUrls, sitemapCount: 1 };
+  const { entries, pageCount } = await discoverAllListingEntries({ userAgent, timeoutMs });
+  const jobUrls = [...new Set(entries.map((e) => listingEntryToParsed(e)?.url).filter(Boolean))];
+  return { jobUrls, sitemapCount: pageCount };
 }
 
 /* ── Detail page parsing ──────────────────────────────────────── */
@@ -412,52 +475,46 @@ export function buildMcdoJob(parsed) {
 /**
  * Fetch and parse all McDonald's Switzerland jobs end-to-end.
  *
- * Primary path is the single vacancies-page request; `enrichFromDetail`
- * additionally pulls `validThrough` and the postal address off the per-job
- * JSON-LD (off by default — 72 extra requests for two optional fields).
+ * Listing entries (`discoverAllListingEntries()`) carry no description or
+ * posting date, so every job is unconditionally enriched from its detail
+ * page's JobPosting JSON-LD — that is where `description`/`datePosted`
+ * actually come from now, not an optional extra.
  */
 export async function fetchMcdoJobs({
   userAgent = DEFAULT_UA,
   timeoutMs = 15000,
   detailConcurrency = 8,
-  enrichFromDetail = false,
 } = {}) {
-  const html = await fetchText(`${MCDO_BASE}${MCDO_LISTING_PATH}`, { userAgent, timeoutMs });
-  if (!html) {
-    console.log(`  ⚠️  Listing page ${MCDO_LISTING_PATH} unreachable — 0 jobs.`);
-    return [];
-  }
-
-  const entries = parseMcdoMapEntries(html);
-  console.log(`  🗺️  Listing entries (mcdo_jobs_mapEntries): ${entries.length}`);
+  const { entries, pageCount } = await discoverAllListingEntries({ userAgent, timeoutMs });
+  console.log(`  🗺️  Listing entries (jobSearch): ${entries.length} across ${pageCount} page(s)`);
   if (entries.length === 0) return [];
 
-  let parsedList = entries.map((e) => mapEntryToParsed(e)).filter(Boolean);
+  const parsedList = entries.map((e) => listingEntryToParsed(e)).filter(Boolean);
 
-  if (enrichFromDetail) {
-    parsedList = await runWithConcurrency(
-      parsedList,
-      async (parsed) => {
-        const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
-        if (!detail) return parsed;
-        return {
-          ...parsed,
-          validThrough: detail.validThrough || parsed.validThrough,
-          postalCode: detail.postalCode || parsed.postalCode,
-          streetAddress: detail.streetAddress || parsed.streetAddress,
-          canton: parsed.canton || detail.canton,
-        };
-      },
-      detailConcurrency
-    );
-  }
+  const enriched = await runWithConcurrency(
+    parsedList,
+    async (parsed) => {
+      const detail = await fetchMcdoDetailPage(parsed.url, { userAgent, timeoutMs });
+      if (!detail) return parsed;
+      return {
+        ...parsed,
+        description: detail.description || parsed.description,
+        datePosted: detail.datePosted || parsed.datePosted,
+        validThrough: detail.validThrough || parsed.validThrough,
+        postalCode: detail.postalCode || parsed.postalCode,
+        streetAddress: detail.streetAddress || parsed.streetAddress,
+        canton: detail.canton || parsed.canton,
+      };
+    },
+    detailConcurrency
+  );
 
   const jobs = [];
-  for (const parsed of parsedList) {
+  for (const parsed of enriched) {
     const job = buildMcdoJob(parsed);
     if (job) jobs.push(job);
   }
   return jobs;
 }
 
-export { SITEMAP_INDEX_URL, MCDO_LISTING_PATH, MCDO_BASE };
+export { MCDO_LISTING_PATH, MCDO_BASE };
