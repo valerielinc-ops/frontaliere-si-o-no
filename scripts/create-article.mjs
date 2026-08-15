@@ -4826,7 +4826,14 @@ async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAt
         { model: GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 512, jsonMode: true },
       );
     } catch (err) {
-      // Un errore infrastrutturale (rate limit, rete, cascata modelli esaurita)
+      // La cascata modelli esaurita (issue #5849) non e' un errore da assorbire
+      // in UN tentativo come rate limit o rete: non c'e' nessun modello rimasto
+      // da provare al tentativo successivo, quindi ritentare qui sprecava
+      // `maxAttempts` chiamate identiche prima di fallire comunque. Risale
+      // intatto — stesso `code`, stesso oggetto — cosi' il chiamante lo tratta
+      // come l'esaurimento che e', non come una risposta rigettata.
+      if (err?.code === 'ALL_MODELS_EXHAUSTED') throw err;
+      // Un errore infrastrutturale (rate limit, rete)
       // non e' una risposta da interpretare: prima di questa fix si propagava
       // fuori dal loop, consumando l'intera selezione invece di UN tentativo.
       last = { rejection: SELECTION_REJECTION.INFRA_ERROR, detail: String(err?.message ?? err) };
