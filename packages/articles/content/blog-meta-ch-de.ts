@@ -2695,6 +2695,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sindacati-delusi.title': 'Enttäuschte Gewerkschaften: Wir könnten unsere Unterstützung zurückziehen',
     'blog.article.sindacati-delusi.excerpt': 'Der Entscheid der Wirtschaftskommission an den Ständerat, die Lohnschutzmassnahmen nicht zu ändern, irritiert Travail Suisse Präsident Adrian Wüthrich',
     'blog.article.sindacati-delusi.imageAlt': 'Präsident von Travail Suisse Adrian Wüthrich',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Krankenkassen, eine Lohnobergrenze? \'Symbolische Politik\'',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'Der Bundesrat schlägt vor, die Löhne von Krankenkassenleitern zu begrenzen. Die Versicherer argumentieren jedoch, dass dies keine signifikanten Auswirkungen auf die Prämien haben wird.',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'Ein Foto einer Sitzung des Schweizer Bundesrates.',
 };
 
 export default blogMetaChDe;

@@ -2695,6 +2695,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sindacati-delusi.title': 'Disillusioned unions: we may withdraw our support',
     'blog.article.sindacati-delusi.excerpt': 'The decision of the Economic Commission to the Council of States not to modify the measures on wage protection irritates the president of Travail Suisse Adrian Wüthrich',
     'blog.article.sindacati-delusi.imageAlt': 'President of Travail Suisse Adrian Wüthrich',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.title': 'Sickness funds, a salary cap? \'Symbolic policy\'',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.excerpt': 'The Federal Council proposes to limit the salaries of sickness fund managers. But insurers say this won\'t have a significant impact on premiums.',
+    'blog.article.casse-malattia-tetto-stipendi-politica-simbolica.imageAlt': 'A photo of a meeting of the Swiss Federal Council.',
 };
 
 export default blogMetaChEn;
