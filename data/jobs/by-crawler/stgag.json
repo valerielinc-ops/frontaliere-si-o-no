@@ -802,6 +802,19 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3753/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-14T10:26:07.916Z",
       "previousSlugsByLocale": {
         "de": [
           "psychologen-in-stgag-munsterlingen",
@@ -830,19 +843,7 @@
         "psychologues-in-spital-thurgau-stgag-weinfelden",
         "psicologi-in-spital-thurgau-stgag-weinfelden"
       ],
-      "firstSeenAt": "2026-08-14T10:26:07.916Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      "retranslationAttempts": 2
     }
   ]
 }

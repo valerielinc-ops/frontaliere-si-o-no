@@ -503343,7 +503343,9 @@
     "canonicalSlug": "arztsekretar-in-o-mpa-60-frauenklinik-zuri-ost-spital-uster",
     "slugByLocale": {
       "de": "arztsekretar-in-oder-mpa-60-frauenklinik-zuri-ost-spital-uster-ch",
-      "it": "arztsekretar-in-o-mpa-60-frauenklinik-zuri-ost-spital-uster"
+      "it": "arztsekretar-in-o-mpa-60-frauenklinik-zuri-ost-spital-uster",
+      "en": "medical-secretary-or-mpa-60-women-s-clinic-zuri-ost-spital-uster-uster",
+      "fr": "secretaire-medical-ou-mpa-60-clinique-femmes-zuri-ost-spital-uster-uster"
     },
     "createdAt": "2026-08-14",
     "canton": "ZH"
@@ -503351,7 +503353,10 @@
   "id|spitaluster.ch|bd602772-3d75-4d51-aae9-25778ebafd25": {
     "canonicalSlug": "sachbearbeiter-in-administration-60-80-fakturierung-spital-uster-ch",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-administration-60-80-fakturierung-spital-uster-ch"
+      "de": "sachbearbeiter-in-administration-60-80-fakturierung-spital-uster-ch",
+      "it": "amministrazione-60-80-fatturazione-spital-uster-uster",
+      "en": "administration-60-80-invoicing-spital-uster-uster",
+      "fr": "administration-60-80-facturation-spital-uster-uster"
     },
     "createdAt": "2026-08-14",
     "canton": "ZH"
@@ -523726,7 +523731,8 @@
     "slugByLocale": {
       "de": "teamleitung-pflege-a-spital-emmental-langnau",
       "it": "team-management-care-a-spital-emmental-langnau",
-      "fr": "soins-de-gestion-d-equipe-a-spital-emmental-langnau"
+      "fr": "soins-de-gestion-d-equipe-a-spital-emmental-langnau",
+      "en": "team-management-care-a-spital-emmental-langnau"
     },
     "createdAt": "2026-08-15",
     "canton": "BE"
@@ -524635,6 +524641,14 @@
       "it": "dipl-pflegefachperson-hf-fh-psychiatrie-e-fachperson-gesundheit-cfc-psychiatrie-spitex-oberaargau-ag-langenthal",
       "en": "dipl-nurse-hf-fh-psychiatry-and-health-efz-psychiatry-spitex-oberaargau-ag-langenthal",
       "fr": "dipl-infirmiere-hf-fh-psychiatrie-et-sante-efz-psychiatrie-spitex-oberaargau-ag-langenthal"
+    },
+    "createdAt": "2026-08-15",
+    "canton": "BE"
+  },
+  "id|solique.ch|4055054": {
+    "canonicalSlug": "fachperson-psychiatrie-a-triage-notfall-spital-emmental-burgdorf",
+    "slugByLocale": {
+      "de": "fachperson-psychiatrie-a-triage-notfall-spital-emmental-burgdorf"
     },
     "createdAt": "2026-08-15",
     "canton": "BE"
