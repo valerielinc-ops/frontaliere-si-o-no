@@ -263,19 +263,71 @@ function commitIfNeeded(currentStep) {
   }
 }
 
-// Graceful shutdown: commit+push on SIGTERM (GitHub Actions sends this before kill)
-process.on('SIGTERM', () => {
-  console.error('\n⚠️  SIGTERM — saving progress...');
-  gitCommitAndPush('interrupted');
-  process.exit(0);
-});
+// Graceful shutdown: commit+push on SIGTERM (GitHub Actions sends this before kill).
+//
+// Armato SOLO quando questo file e' l'entry point, non a module scope. E' la
+// stessa correzione fatta sul gemello del corpus con nanako#392, e qui pesa di
+// piu': `publish-journalist-article.mjs` IMPORTA questo modulo per riusare
+// `generateFaqIT`, e gira ogni 15 minuti. A module scope, ognuna di quelle
+// esecuzioni armava un handler che su SIGTERM fa `git add` + `git commit` +
+// `git push origin main` — da un processo che non stava generando niente e che
+// non ha mai avuto l'intenzione di committare. E il SIGTERM non e' ipotetico:
+// i workflow hanno `cancel-in-progress: true`, quindi una run superata dalla
+// successiva riceve esattamente quel segnale.
+//
+// Il job vero passa sempre dalla guardia in fondo al file, quindi non perde niente.
+function installSigtermCheckpoint() {
+  process.on('SIGTERM', () => {
+    console.error('\n⚠️  SIGTERM — saving progress...');
+    gitCommitAndPush('interrupted');
+    process.exit(0);
+  });
+}
 
 // ── Article discovery ────────────────────────────────────────
 
-/** Extract article ID from a body file's content by scanning for the key pattern */
-function extractArticleId(fileContent) {
-  const match = fileContent.match(/'blog\.article\.([a-z0-9-]+)\.body1'/);
-  return match ? match[1] : null;
+/**
+ * Extract article ID from a body file's content by scanning for the key pattern.
+ *
+ * `fileName` non e' decorativo (nanako#393). La forma precedente prendeva il
+ * PRIMO `body1` del file: in un file a due id l'identita' dell'articolo veniva
+ * decisa dalla POSIZIONE, e il secondo articolo restava invisibile a
+ * `discoverArticles`. Il corpus ha gia' una definizione di identita' che non
+ * dipende dall'ordine — il nome del file — e la usano `fix-faq-locales.mjs`
+ * (`basename(file, '.ts')`) e `repair-prompt-placeholders.mjs`. Qui la si
+ * PREFERISCE quando il file la nomina davvero, con fallback al primo `body1`
+ * quando non la nomina, cosi' i fixture sintetici e i file rinominati a mano
+ * risolvono esattamente come prima.
+ */
+export function extractArticleId(fileContent, fileName) {
+  const ids = [...fileContent.matchAll(/'blog\.article\.([a-z0-9-]+)\.body1'/g)].map(m => m[1]);
+  if (!ids.length) return null;
+  const fromName = fileName ? basename(fileName, '.ts') : null;
+  return fromName && ids.includes(fromName) ? fromName : ids[0];
+}
+
+// ── L'ancora all'id, per le chiavi `bodyN` (nanako#393) ──────
+//
+// Il testo che `extractBodyContent` mette insieme non e' un rapporto: e' il
+// PROMPT da cui nasce la FAQ. Senza ancora, in un file con due id — un residuo
+// di merge: mai osservato sui file reali, ma niente nel formato lo impedisce —
+// i `bodyN` di ENTRAMBI gli articoli finivano concatenati, la FAQ nasceva dal
+// prodotto di due articoli e veniva scritta nella chiave di uno solo. Il
+// risultato non e' un errore: e' un file valido con dentro contenuto altrui.
+//
+// Il pattern e' quello di `find-dirty-content-ids.mjs` (#294): chiave INTERA
+// piu' id escapato per la regex.
+const rxEscape = (id) => String(id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const bodyKeyRx = (id) => `'blog\\.article\\.${rxEscape(id)}\\.body\\d+'`;
+
+/**
+ * C'e' almeno una chiave `bodyN` per QUESTO id? Serve a distinguere «corpo
+ * corto» (da arricchire) da «nessun corpo per questo id» (da fermare), due casi
+ * che prima dell'ancoraggio non potevano essere distinti perche' la regex non
+ * ancorata trovava sempre qualcosa.
+ */
+export function hasBodyKey(fileContent, articleId) {
+  return new RegExp(`${bodyKeyRx(articleId)}\\s*:`).test(fileContent);
 }
 
 /** Check if a body file already has a .faq key */
@@ -287,11 +339,23 @@ function hasFaqKey(fileContent) {
  *  Supports both single-quoted ('...') and backtick-quoted (`...`) string values,
  *  and any number of body keys (body1, body2, ..., bodyN).
  */
-function extractBodyContent(fileContent) {
+export function extractBodyContent(fileContent, articleId) {
+  // Rumoroso e non vuoto. Ancorando la chiave, questa funzione ha acquistato un
+  // esito che prima non poteva avere: `''` perche' l'id non compare fra le
+  // chiavi. Il chiamante non lo distingue da «corpo corto», e il ramo che
+  // raccoglie il corpo corto chiama `enrichBodyForFaq`, che fa scrivere all'LLM
+  // 1500-2500 parole a partire dal solo slug: un id sbagliato — o un chiamante
+  // futuro che dimentica il secondo argomento, che senza questa guardia
+  // cercherebbe `'blog.article.undefined.bodyN'` e tornerebbe `''` senza un
+  // fiato — diventerebbe un articolo INVENTATO scritto nel corpus. Vedi
+  // `hasBodyKey`, che i due chiamanti usano per non arrivarci.
+  if (!articleId) throw new Error('extractBodyContent: articleId obbligatorio (nanako#393)');
   const bodies = [];
-  // Match `.bodyN':` followed by either a single-quoted or backtick-quoted value.
-  // The capturing group \1 pins the opening quote char to its matching closer.
-  const re = /\.body\d+'\s*:\s*(['`])((?:\\.|(?!\1)[\s\S])*?)\1/g;
+  // Match `'blog.article.<id>.bodyN':` followed by either a single-quoted or
+  // backtick-quoted value. L'id e' gia' escapato e non introduce gruppi, quindi
+  // il backreference \1 continua a pinzare la virgoletta di apertura alla sua
+  // chiusura.
+  const re = new RegExp(`${bodyKeyRx(articleId)}\\s*:\\s*(['\`])((?:\\\\.|(?!\\1)[\\s\\S])*?)\\1`, 'g');
   let m;
   while ((m = re.exec(fileContent)) !== null) {
     const quoteChar = m[1];
@@ -316,13 +380,57 @@ function isWrongLocale(faqArray, expectedLocale) {
   return detected !== expectedLocale;
 }
 
-function extractFaqFromContent(fileContent) {
+/**
+ * Il LETTORE simmetrico agli scrittori di questo file (nanako#394).
+ *
+ * Qui gli scrittori sono DUE, e scrivono in due formati diversi:
+ * `insertFaqIntoBodyFile` passa da `escapeForSingleQuoteTS`, che RADDOPPIA il
+ * backslash; `replaceFaqInBodyFile` usa ancora `JSON.stringify(...).replace(/'/g,
+ * "\\'")`, che escapa il solo apostrofo. Il lettore conosceva soltanto il
+ * secondo: su cio' che il percorso di INSERT produce lasciava `\\"` intatto,
+ * `JSON.parse` vedeva la stringa finire a meta' e tornava `null`. E `null` non
+ * e' innocuo — `discoverArticles` fa `continue`, quindi l'articolo viene
+ * saltato in silenzio: niente top-up, e le sue traduzioni en/de/fr mai
+ * controllate. Sul gemello del corpus, dove la stessa forma e' stata misurata:
+ * 377 campi `.faq` illeggibili su 16.676 e 96 articoli IT saltati senza un
+ * errore ne' un contatore.
+ *
+ * Due decodifiche in ordine, e vince la prima che produce un array: senza la
+ * (1) lo script e' cieco su cio' che scrive lui stesso, senza la (2) i file
+ * gia' prodotti diventano illeggibili e con essi irreparabili. Con DUE
+ * scrittori vivi in questo file, servono entrambe per forza.
+ *
+ * La decodifica esatta passa da `unescapeTsString` (gia' importata) con la
+ * mappa MINIMA `{ \\, ' }`, non da un inverso a tavolino di
+ * `escapeForSingleQuoteTS`: sono le sole due sequenze che quello scrittore
+ * emette, e ogni altro `\x` va lasciato INTATTO perche' e' un escape del JSON
+ * sottostante e lo deve vedere `JSON.parse`. Un inverso che spoglia ogni `\x`
+ * legge ` ` come la lettera `u` e produce `CHF 5u00a0000` — un JSON valido
+ * con dentro testo che nessuno ha scritto, e siccome parsa il fallback non
+ * scatta mai. Misurato sul corpus: 2 file reali colpiti (nanako#401).
+ *
+ * @param {string} raw - il testo catturato TRA le virgolette.
+ * @returns {Array|null} le coppie, o `null` se nessuna decodifica da' un array.
+ */
+export function parseFaqLiteral(raw) {
+  const decoders = [
+    (s) => unescapeTsString(String(s ?? ''), { '\\': '\\', "'": "'" }),
+    (s) => String(s ?? '').replace(/\\'/g, "'"),
+  ];
+  for (const decode of decoders) {
+    try {
+      const parsed = JSON.parse(decode(raw));
+      if (Array.isArray(parsed)) return parsed;
+    } catch { /* prova la decodifica successiva */ }
+  }
+  return null;
+}
+
+export function extractFaqFromContent(fileContent) {
   // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
   const faqMatch = fileContent.match(/\.faq['']\s*:\s*[']((?:[^'\\]|\\.)*)[']\s*[,}]/);
   if (!faqMatch) return null;
-  try {
-    return JSON.parse(faqMatch[1].replace(/\\'/g, "'"));
-  } catch { return null; }
+  return parseFaqLiteral(faqMatch[1]);
 }
 
 const MIN_FAQ_PAIRS = 3;
@@ -343,7 +451,7 @@ function discoverArticles() {
   for (const file of files) {
     const itPath = `${BODY_DIR}/it/${file}`;
     const itContent = read(itPath);
-    const articleId = extractArticleId(itContent);
+    const articleId = extractArticleId(itContent, file);
     if (!articleId) continue;
 
     const itHasFaq = hasFaqKey(itContent);
@@ -714,7 +822,7 @@ function replaceFaqInBodyFile(filePath, faqArray) {
  * Insert FAQ key into a body file.
  * Finds the last body key line and appends the FAQ key after it, before `};`
  */
-function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
+export function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
   let content = read(filePath);
 
   // Already has FAQ? Replace instead of insert.
@@ -734,19 +842,34 @@ function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
     return false;
   }
 
-  // Insert FAQ line before the `};` line
+  // Insert FAQ line before the `};` line.
+  //
+  // Il replacer e' una FUNZIONE, non una stringa (nanako#395). In una stringa
+  // di sostituzione `$1`…`$9`, `$&`, `` $` ``, `$'` e `$$` sono PATTERN, e
+  // `faqLine` porta testo FAQ arbitrario: `escapeForSingleQuoteTS` escapa `\`,
+  // `'` e `\n`, ma non il `$`. Una risposta che dice «un massimo di $2
+  // milioni» si portava dentro il literal il gruppo di cattura 2 — cioe' la
+  // coda `};\nexport default`. Il risultato non e' un errore: e' un file che
+  // compila, con dentro testo che nessuno ha scritto, sul percorso di scrittura
+  // del corpus pubblicato. Misurato sul gemello del corpus, sui 16.676 campi
+  // `.faq` vivi: 11 contengono una sequenza che questa regex a tre gruppi
+  // avrebbe espansa — prezzi in dollari, «$100,000», «$13.5 billion».
+  //
+  // `replaceFaqInBodyFile` qui sopra il difetto non ce l'ha, e il suo commento
+  // dice perche': «function replacer avoids $ interpretation in replacement
+  // string». Era rimasto solo questo percorso di INSERT.
   content = content.replace(
     /(\n)((\s*)\};\s*\n\s*export default)/,
-    `\n${faqLine}\n$2`,
+    (_m, _nl, coda) => `\n${faqLine}\n${coda}`,
   );
 
   // Verify the insertion worked
   if (!hasFaqKey(content)) {
-    // Fallback: more aggressive replacement
+    // Fallback: more aggressive replacement (stesso replacer-funzione, stessa ragione)
     content = read(filePath);
     content = content.replace(
       /(\.body3':\s*'(?:[^'\\]|\\.)*',)\n(\};)/s,
-      `$1\n${faqLine}\n$2`,
+      (_m, ultimoBody, chiusura) => `${ultimoBody}\n${faqLine}\n${chiusura}`,
     );
   }
 
@@ -773,7 +896,14 @@ async function processArticle(articleId, file, itBodyContent) {
   const label = `[${articleId}]`;
 
   // 1. Extract Italian body text
-  let bodyText = extractBodyContent(itBodyContent);
+  // Nessuna chiave `bodyN` per questo id non e' un corpo corto: e' il file
+  // sbagliato, o un id sbagliato. Arricchirlo significherebbe pubblicare un
+  // articolo scritto dall'LLM a partire dal solo slug (nanako#393).
+  if (!hasBodyKey(itBodyContent, articleId)) {
+    console.error(`${label} ❌ Nessuna chiave bodyN per questo id: non arricchisco, sarebbe un articolo inventato`);
+    return { success: false, error: 'No bodyN key for this article id' };
+  }
+  let bodyText = extractBodyContent(itBodyContent, articleId);
   if (!bodyText || bodyText.length < 200) {
     console.error(`${label} ⚠️  Body text short (${bodyText?.length || 0} chars), enriching before FAQ generation...`);
     try {
@@ -869,7 +999,12 @@ async function processArticle(articleId, file, itBodyContent) {
 async function processTopUp(articleId, file, itContent, existingFaq) {
   const label = `[${articleId}] [TOP-UP ${existingFaq.length}→${MIN_FAQ_PAIRS}+]`;
 
-  let bodyText = extractBodyContent(itContent);
+  // Stessa guardia di `processArticle` (nanako#393).
+  if (!hasBodyKey(itContent, articleId)) {
+    console.error(`${label} ❌ Nessuna chiave bodyN per questo id: non arricchisco, sarebbe un articolo inventato`);
+    return { success: false, error: 'No bodyN key for this article id' };
+  }
+  let bodyText = extractBodyContent(itContent, articleId);
   if (!bodyText || bodyText.length < 200) {
     console.error(`${label} ⚠️  Body short (${bodyText?.length || 0} chars), enriching before top-up...`);
     try {
@@ -1147,6 +1282,7 @@ async function main() {
 // reuse `generateFaqIT` (e.g. publish-journalist-article.mjs), which would
 // otherwise trigger the entire batch scan as an import side effect.
 if (import.meta.url === `file://${process.argv[1]}`) {
+  installSigtermCheckpoint();
   main().catch(err => {
     console.error(`\n💥 Fatal error: ${err.message}`);
     console.error(err.stack);
