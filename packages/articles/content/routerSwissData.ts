@@ -1010,6 +1010,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'incendio-monte-gambarogno': { it: 'incendio-monte-gambarogno', en: 'monte-gambarogno-fire-firefighters-already-at-work', de: 'brand-monte-gambarogno', fr: 'incendie-monte-gambarogno' },
  'comprare-casa-canton-obvaldo': { it: 'comprare-casa-canton-obvaldo', en: 'buy-house-canton-obvaldo', de: 'kaufen-haus-kanton-obvaldo', fr: 'acheter-maison-canton-obvaldo' },
  'maccabi-lugano-mobilitazione': { it: 'maccabi-lugano-mobilitazione', en: 'maccabi-lugano-protest', de: 'maccabi-lugano-proteste', fr: 'maccabi-lugano-manifestation' },
+ 'avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione': { it: 'avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione', en: 'avs-in-the-canton-of-obvaldo-the-compensation-fund', de: 'ahv-im-kanton-obwalden-die-ausgleichskasse', fr: 'avs-dans-le-canton-d-obwald-la-caisse-de-compensation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2953,6 +2953,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, das Spiel der Schande',
     'blog.article.maccabi-lugano-mobilitazione.excerpt': 'Die Mobilisierung gegen Maccabi Tel Aviv - Lugano wurde für den 20. August ausgerufen.',
     'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda über die Proteste gegen Maccabi Tel Aviv - Lugano.',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AHV im Kanton Obwalden: die Ausgleichskasse',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Der Kanton Obwalden führt die kantonale Ausgleichskasse. Die Ergänzungsleistungen der AHV sind entscheidend für die Sicherstellung eines Existenzminimums.',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'Der Artikel beleuchtet die ergänzenden Leistungen der AVS im Kanton Obvaldo.',
 };
 
 export default blogMetaChDe;

@@ -8857,6 +8857,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione',
+    category: 'pratico',
+    date: '2026-08-16T18:24:50.792Z',
+    image: '/images/blog/avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
