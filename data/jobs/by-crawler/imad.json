@@ -1,7 +1,85 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-08-16T09:39:48.356Z",
+  "assembledAt": "2026-08-16T21:29:46.720Z",
   "jobs": [
+    {
+      "id": "imad-df86166e23b2",
+      "slug": "candidatura-spontanea-altro-imad-geneva",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-altro-imad-geneva",
+        "en": "candidature-spontanee-autres-imad-geneva",
+        "de": "initiativbewerbung-sonstiges-imad-geneva",
+        "fr": "candidature-spontanee-autres-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Candidature spontanée / Autres",
+      "titleByLocale": {
+        "it": "Candidatura spontanea / Altro",
+        "en": "Candidature spontanée / Autres",
+        "de": "Initiativbewerbung / Sonstiges",
+        "fr": "Candidature spontanée / Autres"
+      },
+      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
+      "descriptionByLocale": {
+        "it": "• Si prega di allegare al vostro fascicolo: un curriculum vitae aggiornato, una lettera di presentazione, una copia dei vostri diplomi e dei certificati di lavoro.",
+        "en": "• Please attach to your file: an up-to-date curriculum vitae, a cover letter, a copy of your diplomas and your work certificates.",
+        "de": "• Bitte fügen Sie Ihrer Akte einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen bei.",
+        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-16T21:29:43.725Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-09-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "jobReqId": "744000079253489",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "candidature-spontanee-autres-imad-geneva",
+        "spontaneous-application-others-imad-geneva",
+        "candidatura-spontanea-altro-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-autres-imad-geneva",
+          "candidatura-spontanea-altro-imad-geneva"
+        ],
+        "en": [
+          "spontaneous-application-others-imad-geneva",
+          "candidature-spontanee-autres-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "imad-80417f5a809e",
       "slug": "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva",
@@ -34,7 +112,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.624Z",
+      "crawledAt": "2026-08-16T21:29:43.725Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -113,7 +191,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.623Z",
+      "crawledAt": "2026-08-16T21:29:43.724Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -155,70 +233,81 @@
       }
     },
     {
-      "id": "imad-df86166e23b2",
-      "slug": "candidatura-spontanea-altro-imad-geneva",
+      "id": "imad-7f9cc0cbf10b",
+      "slug": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
       "slugByLocale": {
-        "it": "candidatura-spontanea-altro-imad-geneva",
-        "en": "candidature-spontanee-autres-imad-geneva",
-        "de": "initiativbewerbung-sonstiges-imad-geneva",
-        "fr": "candidature-spontanee-autres-imad-geneva"
+        "it": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
+        "en": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
+        "de": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
+        "fr": "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
       "companyDomain": "imad-ge.ch",
-      "title": "Candidature spontanée / Autres",
+      "title": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI",
       "titleByLocale": {
-        "it": "Candidatura spontanea / Altro",
-        "en": "Candidature spontanée / Autres",
-        "de": "Initiativbewerbung / Sonstiges",
-        "fr": "Candidature spontanée / Autres"
+        "it": "ASSC / Pool Centralized Long Duration (PCLD) / 80-100% / CDI",
+        "en": "ASSC / Pool Centralized Long Duration (PCLD) / 80-100% / CDI",
+        "de": "ASSC / Pool Centralized Long Duration (PCLD) / 80-100% / CDI",
+        "fr": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI"
       },
-      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
+      "description": "Le pool centralisé de longue durée (PCLD) est composé d’infirmiers.ères, d’assistants.tes en soins et santé communautaire (ASSC) ainsi que d’aides à domicile. Ils.elles interviennent sur l’ensemble du canton de Genève pour effectuer des remplacements, d’environ dix à douze mois, dans nos antennes. Ce pool a pour mission de garantir une continuité ainsi qu’une qualité de prestations optimales pour nos clients.\n Vos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques délégués par le référent infirmier dans une approche globale du client\n\n• Favoriser l'accroissement, le recouvrement ou le maintien de l'autonomie du client pour lui permettre de rétablir, poursuivre ou adapter son mode de vie à domicile\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Travailler en interdisciplinarité, en respectant la mission et les objectifs institutionnels\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence.\n\nVotre profil\n\n• Appétence à diversifier ses expériences sur différents secteurs genevois, différentes équipes et clientèles\n\n• Aimant les défis et les découvertes\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à pied / à vélo / en TPG / en voiture).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplômes et vos certificats de travail.",
       "descriptionByLocale": {
-        "it": "• Si prega di allegare al vostro fascicolo: un curriculum vitae aggiornato, una lettera di presentazione, una copia dei vostri diplomi e dei certificati di lavoro.",
-        "en": "• Please attach to your file: an up-to-date curriculum vitae, a cover letter, a copy of your diplomas and your work certificates.",
-        "de": "• Bitte fügen Sie Ihrer Akte einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen bei.",
-        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
+        "it": "Il Central Long-Term Pool (CPLD) è composto da infermieri, assistenti per la salute e la cura della comunità (CHS) e assistenti domestici. Intervengono in tutto il cantone di Ginevra per effettuare sostituzioni, da circa dieci a dodici mesi, nei nostri rami. L'obiettivo di questa piscina è garantire continuità e la massima qualità dei servizi per i nostri clienti.\nLe vostre missioni e responsabilità\n\n• Fornire assistenza di base e procedure mediche delegato dall'infermiera Reference in un approccio clienti completo\n\n• Promuovere una maggiore, recuperata o mantenuta autonomia del cliente per ripristinare, perseguire o adattare il loro stile di vita domestico\n\n• Assistenza pratica conforme allo stile di vita e all'ambiente del cliente\n\n• Lavoro interdisciplinare, rispetto della missione e degli obiettivi istituzionali\n\n• Valutare e rivalutare le situazioni di assistenza pratica e prendere il comando.\n\nIl tuo profilo\n\n• Capacità di diversificare le proprie esperienze in diversi settori di Ginevra, diversi team e clienti\n\n• Incrementare sfide e scoperte\n\n• Certificato federale di capacità ASSC e autorizzazione della pratica nel Cantone di Ginevra\n\n• Significato della comunicazione e del rapporto con gli altri, dell'ascolto della qualità\n\n• Capacità di valutare le situazioni e agire in modo responsabile\n\n• Resistenza allo stress e al lavoro fisico\n\n• Capacità di lavorare in autonomia e interprofessionalità all'interno di un team multidisciplinare\n\n• Mobilità essenziale (a piedi / bici / TPG / auto).\n\nCosa offriamo\n\n• In IMAD, pensiamo che sia un professionista. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente:\n\n• Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo\n\n• Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value\n\n• Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione\n\n• Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda\n\n• Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive\n\n• L'Happ\n\n• Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n\n• Entrata in ufficio: da concordare\n\n• Si prega di allegare al file: un curriculum vitae aggiornato, una lettera di copertura, una copia dei diplomi e il riconoscimento dei diplomi e dei certificati di lavoro.",
+        "en": "The Central Long-Term Pool (CPLD) is composed of nurses, community health and care assistants (CHS) and home helpers. They intervene throughout the canton of Geneva to carry out replacements, about ten to twelve months, in our branches. The aim of this pool is to ensure continuity and the highest quality of services for our customers.\nYour missions and responsibilities\n\n• Provide basic care and medical procedures delegated by the Nurse Reference in a comprehensive client approach\n\n• Promote increased, recovered or maintained client autonomy to restore, pursue or adapt their home lifestyle\n\n• Accomplish practical assistance in accordance with the customer's lifestyle and environment\n\n• Work in interdisciplinarity, respecting mission and institutional objectives\n\n• Evaluate and re-evaluate practical assistance situations and take the lead.\n\nYour profile\n\n• Ability to diversify its experiences in different Geneva sectors, different teams and clients\n\n• Magnifying challenges and discoveries\n\n• Federal certificate of ASSC capacity and authorisation of practice in the Canton of Geneva\n\n• Meaning of communication and relationship with others, listening quality\n\n• Ability to assess situations and act responsibly\n\n• Resistance to stress and physical work\n\n• Ability to work in autonomy and interprofessionality within a multidisciplinary team\n\n• Essential mobility (on foot / bike / TPG / car).\n\nWhat We Offer\n\n• At IMAD, we think that a professional. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering:\n\n• A balance between privacy and work life, with flexible working arrangements thought to keep your pace\n\n• Beneficial salaries and social insurance, so that your commitment is recognized at its fair value\n\n• An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession\n\n• A corporate culture based on strong values, driven by a management that combines goodwill and demand\n\n• Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices\n\n• The Happ\n\n• A rich, diverse and stimulating professional environment, closer to human realities\n\n• Entry into office: to be agreed\n\n• Please attach to your file: an updated curriculum vitae, a cover letter, a copy of your diplomas and recognition of diplomas and your work certificates.",
+        "de": "Der Central Long-Term Pool (CPLD) besteht aus Krankenschwestern, Community Health and Care Assistants (CHS) und Heimhelfern. Sie intervenieren im gesamten Kanton Genf, um etwa zehn bis zwölf Monate Ersatz in unseren Zweigen durchzuführen. Ziel dieses Pools ist es, Kontinuität und höchste Qualität der Dienstleistungen für unsere Kunden zu gewährleisten.\nIhre Missionen und Verantwortlichkeiten\n\n• Grundversorgung und medizinische Verfahren, die von der Nurse Reference in einem umfassenden Kundenansatz delegiert werden\n\n• Förderung erhöhter, wiederhergestellter oder aufrechterhaltener Kundenautonomie zur Wiederherstellung, Verfolgung oder Anpassung ihres häuslichen Lebensstils\n\n• Praktische Unterstützung in Übereinstimmung mit dem Lebensstil und der Umgebung des Kunden\n\n• Interdisziplinaritätsarbeit unter Achtung der Aufgaben und institutionellen Ziele\n\n• Bewerten und neu bewerten Sie praktische Hilfssituationen und übernehmen Sie die Führung.\n\nDein Profil\n\n• Fähigkeit, seine Erfahrungen in verschiedenen Genfer Sektoren, verschiedenen Teams und Kunden zu diversifizieren\n\n• Herausforderungen und Entdeckungen vergrößern\n\n• Bundesbescheinigung über ASSC-Kapazität und Erlaubnis zur Ausübung im Kanton Genf\n\n• Bedeutung von Kommunikation und Beziehung zu anderen, Hörqualität\n\n• Fähigkeit, Situationen zu beurteilen und verantwortungsvoll zu handeln\n\n• Widerstandsfähigkeit gegen Stress und körperliche Arbeit\n\n• Fähigkeit, autonom und interprofessionell in einem multidisziplinären Team zu arbeiten\n\n• Wesentliche Mobilität (zu Fuß / Fahrrad / TPG / Auto).\n\nWas wir anbieten\n\n• Bei IMAD denken wir, dass ein Profi. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umfeld entwickeln können, das Folgendes bietet:\n\n• Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen, die Ihr Tempo halten sollen\n\n• Wohltätige Gehälter und Sozialversicherung, damit Ihr Engagement zum beizulegenden Zeitwert angesetzt wird\n\n• Ein IMAD-Trainingscampus, um weiter zu lernen, sich weiterzuentwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren\n\n• Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage vereint\n\n• Engagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\n\n• Das Happ\n\n• Ein reiches, vielfältiges und anregendes professionelles Umfeld, näher an den menschlichen Realitäten\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei: einen aktualisierten Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und die Anerkennung von Diplomen und Ihre Arbeitsbescheinigungen.",
+        "fr": "Le pool centralisé de longue durée (PCLD) est composé d’infirmiers.ères, d’assistants.tes en soins et santé communautaire (ASSC) ainsi que d’aides à domicile. Ils.elles interviennent sur l’ensemble du canton de Genève pour effectuer des remplacements, d’environ dix à douze mois, dans nos antennes. Ce pool a pour mission de garantir une continuité ainsi qu’une qualité de prestations optimales pour nos clients.\nVos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques délégués par le référent infirmier dans une approche globale du client\n\n• Favoriser l'accroissement, le recouvrement ou le maintien de l'autonomie du client pour lui permettre de rétablir, poursuivre ou adapter son mode de vie à domicile\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Travailler en interdisciplinarité, en respectant la mission et les objectifs institutionnels\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence.\n\nVotre profil\n\n• Appétence à diversifier ses expériences sur différents secteurs genevois, différentes équipes et clientèles\n\n• Aimant les défis et les découvertes\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à pied / à vélo / en TPG / en voiture).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplômes et vos certificats de travail."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "url": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.622Z",
+      "crawledAt": "2026-08-16T21:29:43.723Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Sanità",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Cure a domicilio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-09-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "jobReqId": "744000079253489",
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
+      "jobReqId": "744000137680469",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "candidature-spontanee-autres-imad-geneva",
-        "spontaneous-application-others-imad-geneva",
-        "candidatura-spontanea-altro-imad-geneva"
+        "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
+        "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva",
+        "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva",
+        "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva",
+        "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva",
+        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidature-spontanee-autres-imad-geneva",
-          "candidatura-spontanea-altro-imad-geneva"
+          "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
+          "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva",
+          "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva",
+          "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva",
+          "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva",
+          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
         ],
         "en": [
-          "spontaneous-application-others-imad-geneva",
-          "candidature-spontanee-autres-imad-geneva"
+          "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
+          "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva"
+        ],
+        "de": [
+          "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
+          "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva"
         ]
       },
-      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "firstSeenAt": "2026-07-14T22:03:53.913Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -264,7 +353,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141447514-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.618Z",
+      "crawledAt": "2026-08-16T21:29:43.722Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -322,85 +411,6 @@
       }
     },
     {
-      "id": "imad-5ac20860466b",
-      "slug": "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva",
-      "slugByLocale": {
-        "it": "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva",
-        "en": "head-of-multidisciplinary-home-maintenance-100-cdi-team-imad-geneva",
-        "de": "leiterin-multidisziplinare-hauspflege-100-cdi-team-imad-geneva",
-        "fr": "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Responsable d'équipe pluridisciplinaire de maintien à domicile / à 100% / en CDI",
-      "titleByLocale": {
-        "it": "Responsabile della manutenzione casa multidisciplinare / 100% / CDI team",
-        "en": "Head of multidisciplinary home maintenance / 100% / CDI team",
-        "de": "Leiterin multidisziplinäre Hauspflege / 100% / CDI-Team",
-        "fr": "Responsable d'équipe pluridisciplinaire de maintien à domicile / à 100% / en CDI"
-      },
-      "description": "La direction des opérations (DOP) regroupe notamment quatre centres de maintien à domicile (CMD), le Centre des pratiques interprofessionnelles et des pôles cliniques (CPIPC), le Centre de l'hospitalisation à domicile (CHAD) ainsi que l'Unité recherche et développement et la Direction santé digitale et organisation métier.\n Rattachés hiérarchiquement à ses différentes directions, les responsables d’équipe pluridisciplinaire ont sous leur responsabilité directe de trente à cinquante collaborateurs et les clients IMAD  répartis selon leurs lieux de domicile et/ou la spécificité de l’équipe.\n Vos missions et responsabilités\n\n• Promouvoir une orientation clientèle dans toutes les actions entreprises, grâce à une approche de prise en charge pluridisciplinaire\n\n• Par délégation du directeur du centre de maintien à domicile (CMD) et dans le cadre des politiques définies par l’institution, diriger et coordonner les activités d'une équipe au sein d’une antenne\n\n• Garantir la qualité des prestations délivrées à la clientèle IMAD\n\n• Assurer l'application des procédures de fonctionnement de l'équipe de l'antenne, telles que définies par l’institution\n\n• Gérer le personnel dans le respect des principes et des règles de la politique des ressources humaines définie par l'institution, conformément à la loi B 5 05 et son règlement d'application\n\n• Assurer dans la gestion quotidienne le bon fonctionnement de l'antenne de maintien à domicile, en coordination avec les membres de la direction du CMD et en interaction avec les équipes en charge des prestations centralisées\n\n• Participer aux projets institutionnels et à leur mise en œuvre.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente avec au minimum 5 ans de pratique professionnelle\n\n• Formation post grade en management est un atout\n\n• Expérience managériale réussie et aptitude à gérer une équipe pluridisciplinaire de 30 à 50 personnes\n\n• Aisance dans les statistiques et dans l’analyse des tableaux de bords de  pilotage\n\n• Excellent sens de la communication et de la négociation, bonne intelligence relationnelle\n\n• Grande capacité d’adaptation, esprit d’analyse et de synthèse\n\n• Bonne connaissance du fonctionnement de l'IMAD est un atout\n\n• Connaissance du réseau sanitaire et social genevois\n\n• Capacité et intérêt pour la gestion de projet.\n Ce que nous offrons\n Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines.\n\n• Entrée en fonction  :      à convenir\n\n• Délai de postulation :   23.08.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n\n• Nous considérons uniquement les dossiers de candidature complets.\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "La Direzione delle Operazioni (DOP) comprende quattro centri di assistenza domestica (CMD), il Centro per le Pratiche Interprofessionali e Cluster Clinici (CPIPC), il Centro per l'Ospedalizzazione domestica (CHAD), l'Unità di Ricerca e Sviluppo e la Direzione della Salute Digitale e dell'Organizzazione delle Imprese.\nCollegati gerarchicamente alle sue diverse directory, i team manager multidisciplinari hanno sotto la loro responsabilità diretta tra trenta e cinquanta dipendenti e clienti IMAD suddivisi in base al loro luogo di residenza e/o alla specificità del team.\nLe vostre missioni e responsabilità\n\n• Promuovere l'orientamento del cliente in tutte le azioni intraprese, attraverso un approccio multidisciplinare alla gestione\n\n• Per delega del Direttore del Centro di assistenza domestica (CMD) e nell'ambito delle politiche definite dall'istituzione, dirigere e coordinare le attività di un team all'interno di un'antenna\n\n• Garantire la qualità dei servizi clienti IMAD\n\n• Assicurare l'applicazione delle procedure operative del team dell'antenna come definito dall'istituzione\n\n• Gestire il personale secondo i principi e le regole della politica delle risorse umane definita dall'istituzione, conformemente alla legge B 5 05 e alle sue norme di attuazione\n\n• Assicurare il corretto funzionamento dell'antenna di supporto domestico nella gestione quotidiana, in coordinamento con la gestione CMD e in interazione con i team di servizi centralizzati\n\n• Partecipano a progetti istituzionali e alla loro attuazione.\n\n• HES-SO Bachelor of Infermieristica o formazione equivalente con un minimo di 5 anni di pratica professionale\n\n• Formazione post-laurea in gestione è un bene\n\n• Esperienza manageriale di successo e capacità di gestire un team multidisciplinare di 30 a 50 persone\n\n• Affluenza nelle statistiche e analisi dei cruscotti dello sterzo\n\n• Eccellente senso di comunicazione e negoziazione, buona intelligenza relazionale\n\n• Alta adattabilità, analisi e sintesi\n\n• Buona conoscenza di come funziona IMAD è un bene\n\n• Conoscenza della salute e del social network di Ginevra\n\n• Capacità e interesse nella gestione dei progetti.\nCosa offriamo\nIn IMAD, pensiamo che sia un professionista. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente:\n\n• Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo\n\n• Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value\n\n• Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione\n\n• Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda\n\n• Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive\n\n• L'Happ\n\n• Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane.\n\n• Entrata in ufficio: da concordare\n\n• Tempo di pubblicazione: 23.08.2026\n\n• Si prega di allegare al file:\n\n• un curriculum vitae aggiornato\n\n• una lettera di copertura\n\n• una copia dei vostri diplomi e certificati di lavoro.\n\n• Consideriamo solo applicazioni complete.\n\n• Garantiamo la completa riservatezza nel trattamento del tuo file.",
-        "en": "The Directorate of Operations (DOP) includes four home care centres (CMD), the Centre for Interprofessional Practices and Clinical Clusters (CPIPC), the Centre for Home Hospitalization (CHAD), the Research and Development Unit and the Directorate of Digital Health and Business Organization.\nLinked hierarchically to its different directorates, multidisciplinary team managers have under their direct responsibility between thirty and fifty employees and IMAD clients divided according to their place of residence and/or the specificity of the team.\nYour missions and responsibilities\n\n• Promoting customer orientation in all actions undertaken, through a multidisciplinary approach to management\n\n• By delegation from the Director of the Home Care Centre (CMD) and within the framework of the policies defined by the institution, direct and coordinate the activities of a team within an antenna\n\n• Ensuring the quality of IMAD customer services\n\n• Ensure the application of the operating procedures of the antenna team as defined by the institution\n\n• Managing staff in accordance with the principles and rules of the human resources policy defined by the institution, in accordance with Law B 5 05 and its implementing regulations\n\n• Ensure the proper functioning of the home support antenna in day-to-day management, in coordination with CMD management and in interaction with centralized services teams\n\n• Participate in institutional projects and their implementation.\n\n• HES-SO Bachelor of Nursing or equivalent training with a minimum of 5 years of professional practice\n\n• Post-graduate training in management is an asset\n\n• Successful managerial experience and ability to manage a multidisciplinary team of 30 to 50 people\n\n• Affluence in statistics and analysis of steering dashboards\n\n• Excellent sense of communication and negotiation, good relational intelligence\n\n• High adaptability, analysis and synthesis\n\n• Good knowledge of how IMAD works is an asset\n\n• Knowledge of the Geneva health and social network\n\n• Capacity and interest in project management.\nWhat We Offer\nAt IMAD, we think that a professional. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering:\n\n• A balance between privacy and work life, with flexible working arrangements thought to keep your pace\n\n• Beneficial salaries and social insurance, so that your commitment is recognized at its fair value\n\n• An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession\n\n• A corporate culture based on strong values, driven by a management that combines goodwill and demand\n\n• Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices\n\n• The Happ\n\n• A rich, diverse and stimulating professional environment, closer to human realities.\n\n• Entry into office: to be agreed\n\n• Posting time: 23.08.2026\n\n• Please attach to your file:\n\n• an updated curriculum vitae\n\n• a cover letter\n\n• a copy of your diplomas and work certificates.\n\n• We only consider full applications.\n\n• We guarantee complete confidentiality in the processing of your file.",
-        "de": "Die Direktion für Operationen (DOP) umfasst vier häusliche Pflegezentren (CMD), das Zentrum für interprofessionelle Praktiken und klinische Cluster (CPIPC), das Zentrum für häusliche Hospitalisierung (CHAD), die Forschungs- und Entwicklungsabteilung und die Direktion für digitale Gesundheit und Unternehmensorganisation.\nMultidisziplinäre Teammanager, die hierarchisch mit ihren verschiedenen Direktionen verbunden sind, haben unter ihrer direkten Verantwortung zwischen dreißig und fünfzig Mitarbeiter und IMAD-Kunden, die nach ihrem Wohnort und / oder der Spezifität des Teams aufgeteilt sind.\nIhre Missionen und Verantwortlichkeiten\n\n• Förderung der Kundenorientierung bei allen durchgeführten Maßnahmen durch einen multidisziplinären Managementansatz\n\n• Durch Delegation des Direktors des Home Care Centre (CMD) und im Rahmen der von der Institution festgelegten Richtlinien leiten und koordinieren Sie die Aktivitäten eines Teams innerhalb einer Antenne\n\n• Sicherstellung der Qualität des IMAD-Kundenservice\n\n• Gewährleistung der Anwendung der von der Einrichtung festgelegten Betriebsverfahren des Antennenteams\n\n• Leitung des Personals gemäß den vom Organ festgelegten Grundsätzen und Regeln der Personalpolitik gemäß Gesetz B 5 05 und seinen Durchführungsbestimmungen\n\n• Gewährleistung des ordnungsgemäßen Funktionierens der Heimantenne im Tagesmanagement, in Abstimmung mit dem CMD-Management und in Interaktion mit zentralisierten Serviceteams\n\n• Teilnahme an institutionellen Projekten und deren Umsetzung.\n\n• HES-SO Bachelor of Nursing oder gleichwertige Ausbildung mit mindestens 5 Jahren Berufspraxis\n\n• Postgraduierten-Training in Management ist ein Asset\n\n• Erfolgreiche Führungserfahrung und Fähigkeit, ein multidisziplinäres Team von 30 bis 50 Personen zu leiten\n\n• Wohlstand in der Statistik und Analyse von Lenkarmaturenbrettern\n\n• Ausgezeichneter Sinn für Kommunikation und Verhandlung, gute relationale Intelligenz\n\n• Hohe Anpassungsfähigkeit, Analyse und Synthese\n\n• Gute Kenntnisse darüber, wie IMAD funktioniert, sind ein Vorteil\n\n• Kenntnisse des Genfer Gesundheits- und Sozialnetzwerks\n\n• Kapazität und Interesse am Projektmanagement.\nWas wir anbieten\nBei IMAD denken wir, dass ein Profi. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umfeld entwickeln können, das Folgendes bietet:\n\n• Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen, die Ihr Tempo halten sollen\n\n• Wohltätige Gehälter und Sozialversicherung, damit Ihr Engagement zum beizulegenden Zeitwert angesetzt wird\n\n• Ein IMAD-Trainingscampus, um weiter zu lernen, sich weiterzuentwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren\n\n• Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage vereint\n\n• Engagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\n\n• Das Happ\n\n• Ein reiches, vielfältiges und anregendes professionelles Umfeld, näher an den menschlichen Realitäten.\n\n• Amtsantritt: noch zu vereinbaren\n\n• Sendezeit: 23.08.2026\n\n• Bitte fügen Sie Ihrer Datei bei:\n\n• aktualisierter Lebenslauf\n\n• ein Anschreiben\n\n• eine Kopie Ihrer Diplome und Arbeitszertifikate.\n\n• Wir betrachten nur vollständige Anwendungen.\n\n• Wir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
-        "fr": "La direction des opérations (DOP) regroupe notamment quatre centres de maintien à domicile (CMD), le Centre des pratiques interprofessionnelles et des pôles cliniques (CPIPC), le Centre de l'hospitalisation à domicile (CHAD) ainsi que l'Unité recherche et développement et la Direction santé digitale et organisation métier.\nRattachés hiérarchiquement à ses différentes directions, les responsables d’équipe pluridisciplinaire ont sous leur responsabilité directe de trente à cinquante collaborateurs et les clients IMAD  répartis selon leurs lieux de domicile et/ou la spécificité de l’équipe.\nVos missions et responsabilités\n\n• Promouvoir une orientation clientèle dans toutes les actions entreprises, grâce à une approche de prise en charge pluridisciplinaire\n\n• Par délégation du directeur du centre de maintien à domicile (CMD) et dans le cadre des politiques définies par l’institution, diriger et coordonner les activités d'une équipe au sein d’une antenne\n\n• Garantir la qualité des prestations délivrées à la clientèle IMAD\n\n• Assurer l'application des procédures de fonctionnement de l'équipe de l'antenne, telles que définies par l’institution\n\n• Gérer le personnel dans le respect des principes et des règles de la politique des ressources humaines définie par l'institution, conformément à la loi B 5 05 et son règlement d'application\n\n• Assurer dans la gestion quotidienne le bon fonctionnement de l'antenne de maintien à domicile, en coordination avec les membres de la direction du CMD et en interaction avec les équipes en charge des prestations centralisées\n\n• Participer aux projets institutionnels et à leur mise en œuvre.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente avec au minimum 5 ans de pratique professionnelle\n\n• Formation post grade en management est un atout\n\n• Expérience managériale réussie et aptitude à gérer une équipe pluridisciplinaire de 30 à 50 personnes\n\n• Aisance dans les statistiques et dans l’analyse des tableaux de bords de  pilotage\n\n• Excellent sens de la communication et de la négociation, bonne intelligence relationnelle\n\n• Grande capacité d’adaptation, esprit d’analyse et de synthèse\n\n• Bonne connaissance du fonctionnement de l'IMAD est un atout\n\n• Connaissance du réseau sanitaire et social genevois\n\n• Capacité et intérêt pour la gestion de projet.\nCe que nous offrons\nChez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines.\n\n• Entrée en fonction :      à convenir\n\n• Délai de postulation :   23.08.2026\n\n• Veuillez svp joindre à votre dossier :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n\n• Nous considérons uniquement les dossiers de candidature complets.\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "needsRetranslation": false,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000140419269-responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.612Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000140419269-responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi?oga=true",
-      "jobReqId": "744000140419269",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva",
-        "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva",
-          "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva"
-        ],
-        "en": [
-          "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva"
-        ],
-        "de": [
-          "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-07-29T11:42:04.404Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "imad-d9836310b708",
       "slug": "infermiera-ere-eiso-interprofessional-team-specializzato-in-oncologia-80-in-cdi-imad-geneva",
       "slugByLocale": {
@@ -432,7 +442,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141841408-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.610Z",
+      "crawledAt": "2026-08-16T21:29:43.721Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -511,7 +521,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000142822529-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.607Z",
+      "crawledAt": "2026-08-16T21:29:43.720Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -559,90 +569,80 @@
       }
     },
     {
-      "id": "imad-7f9cc0cbf10b",
-      "slug": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
+      "id": "imad-5ac20860466b",
+      "slug": "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva",
       "slugByLocale": {
-        "it": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
-        "en": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
-        "de": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
-        "fr": "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva"
+        "it": "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva",
+        "en": "head-of-multidisciplinary-home-maintenance-100-cdi-team-imad-geneva",
+        "de": "leiterin-multidisziplinare-hauspflege-100-cdi-team-imad-geneva",
+        "fr": "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
       "companyDomain": "imad-ge.ch",
-      "title": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI",
+      "title": "Responsable d'équipe pluridisciplinaire de maintien à domicile / à 100% / en CDI",
       "titleByLocale": {
-        "it": "ASSC / Pool Centralized Long Duration (PCLD) / 80-100% / CDI",
-        "en": "ASSC / Pool Centralized Long Duration (PCLD) / 80-100% / CDI",
-        "de": "ASSC / Pool Centralized Long Duration (PCLD) / 80-100% / CDI",
-        "fr": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI"
+        "it": "Responsabile della manutenzione casa multidisciplinare / 100% / CDI team",
+        "en": "Head of multidisciplinary home maintenance / 100% / CDI team",
+        "de": "Leiterin multidisziplinäre Hauspflege / 100% / CDI-Team",
+        "fr": "Responsable d'équipe pluridisciplinaire de maintien à domicile / à 100% / en CDI"
       },
-      "description": "Le pool centralisé de longue durée (PCLD) est composé d’infirmiers.ères, d’assistants.tes en soins et santé communautaire (ASSC) ainsi que d’aides à domicile. Ils.elles interviennent sur l’ensemble du canton de Genève pour effectuer des remplacements, d’environ dix à douze mois, dans nos antennes. Ce pool a pour mission de garantir une continuité ainsi qu’une qualité de prestations optimales pour nos clients.\n Vos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques délégués par le référent infirmier dans une approche globale du client\n\n• Favoriser l'accroissement, le recouvrement ou le maintien de l'autonomie du client pour lui permettre de rétablir, poursuivre ou adapter son mode de vie à domicile\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Travailler en interdisciplinarité, en respectant la mission et les objectifs institutionnels\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence.\n\nVotre profil\n\n• Appétence à diversifier ses expériences sur différents secteurs genevois, différentes équipes et clientèles\n\n• Aimant les défis et les découvertes\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à pied / à vélo / en TPG / en voiture).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplômes et vos certificats de travail.",
+      "description": "La direction des opérations (DOP) regroupe notamment quatre centres de maintien à domicile (CMD), le Centre des pratiques interprofessionnelles et des pôles cliniques (CPIPC), le Centre de l'hospitalisation à domicile (CHAD) ainsi que l'Unité recherche et développement et la Direction santé digitale et organisation métier.\n Rattachés hiérarchiquement à ses différentes directions, les responsables d’équipe pluridisciplinaire ont sous leur responsabilité directe de trente à cinquante collaborateurs et les clients IMAD  répartis selon leurs lieux de domicile et/ou la spécificité de l’équipe.\n Vos missions et responsabilités\n\n• Promouvoir une orientation clientèle dans toutes les actions entreprises, grâce à une approche de prise en charge pluridisciplinaire\n\n• Par délégation du directeur du centre de maintien à domicile (CMD) et dans le cadre des politiques définies par l’institution, diriger et coordonner les activités d'une équipe au sein d’une antenne\n\n• Garantir la qualité des prestations délivrées à la clientèle IMAD\n\n• Assurer l'application des procédures de fonctionnement de l'équipe de l'antenne, telles que définies par l’institution\n\n• Gérer le personnel dans le respect des principes et des règles de la politique des ressources humaines définie par l'institution, conformément à la loi B 5 05 et son règlement d'application\n\n• Assurer dans la gestion quotidienne le bon fonctionnement de l'antenne de maintien à domicile, en coordination avec les membres de la direction du CMD et en interaction avec les équipes en charge des prestations centralisées\n\n• Participer aux projets institutionnels et à leur mise en œuvre.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente avec au minimum 5 ans de pratique professionnelle\n\n• Formation post grade en management est un atout\n\n• Expérience managériale réussie et aptitude à gérer une équipe pluridisciplinaire de 30 à 50 personnes\n\n• Aisance dans les statistiques et dans l’analyse des tableaux de bords de  pilotage\n\n• Excellent sens de la communication et de la négociation, bonne intelligence relationnelle\n\n• Grande capacité d’adaptation, esprit d’analyse et de synthèse\n\n• Bonne connaissance du fonctionnement de l'IMAD est un atout\n\n• Connaissance du réseau sanitaire et social genevois\n\n• Capacité et intérêt pour la gestion de projet.\n Ce que nous offrons\n Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines.\n\n• Entrée en fonction  :      à convenir\n\n• Délai de postulation :   23.08.2026\n\n• Veuillez svp joindre à votre dossier  :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n\n• Nous considérons uniquement les dossiers de candidature complets.\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
       "descriptionByLocale": {
-        "it": "Il Central Long-Term Pool (CPLD) è composto da infermieri, assistenti per la salute e la cura della comunità (CHS) e assistenti domestici. Intervengono in tutto il cantone di Ginevra per effettuare sostituzioni, da circa dieci a dodici mesi, nei nostri rami. L'obiettivo di questa piscina è garantire continuità e la massima qualità dei servizi per i nostri clienti.\nLe vostre missioni e responsabilità\n\n• Fornire assistenza di base e procedure mediche delegato dall'infermiera Reference in un approccio clienti completo\n\n• Promuovere una maggiore, recuperata o mantenuta autonomia del cliente per ripristinare, perseguire o adattare il loro stile di vita domestico\n\n• Assistenza pratica conforme allo stile di vita e all'ambiente del cliente\n\n• Lavoro interdisciplinare, rispetto della missione e degli obiettivi istituzionali\n\n• Valutare e rivalutare le situazioni di assistenza pratica e prendere il comando.\n\nIl tuo profilo\n\n• Capacità di diversificare le proprie esperienze in diversi settori di Ginevra, diversi team e clienti\n\n• Incrementare sfide e scoperte\n\n• Certificato federale di capacità ASSC e autorizzazione della pratica nel Cantone di Ginevra\n\n• Significato della comunicazione e del rapporto con gli altri, dell'ascolto della qualità\n\n• Capacità di valutare le situazioni e agire in modo responsabile\n\n• Resistenza allo stress e al lavoro fisico\n\n• Capacità di lavorare in autonomia e interprofessionalità all'interno di un team multidisciplinare\n\n• Mobilità essenziale (a piedi / bici / TPG / auto).\n\nCosa offriamo\n\n• In IMAD, pensiamo che sia un professionista. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente:\n\n• Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo\n\n• Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value\n\n• Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione\n\n• Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda\n\n• Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive\n\n• L'Happ\n\n• Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n\n• Entrata in ufficio: da concordare\n\n• Si prega di allegare al file: un curriculum vitae aggiornato, una lettera di copertura, una copia dei diplomi e il riconoscimento dei diplomi e dei certificati di lavoro.",
-        "en": "The Central Long-Term Pool (CPLD) is composed of nurses, community health and care assistants (CHS) and home helpers. They intervene throughout the canton of Geneva to carry out replacements, about ten to twelve months, in our branches. The aim of this pool is to ensure continuity and the highest quality of services for our customers.\nYour missions and responsibilities\n\n• Provide basic care and medical procedures delegated by the Nurse Reference in a comprehensive client approach\n\n• Promote increased, recovered or maintained client autonomy to restore, pursue or adapt their home lifestyle\n\n• Accomplish practical assistance in accordance with the customer's lifestyle and environment\n\n• Work in interdisciplinarity, respecting mission and institutional objectives\n\n• Evaluate and re-evaluate practical assistance situations and take the lead.\n\nYour profile\n\n• Ability to diversify its experiences in different Geneva sectors, different teams and clients\n\n• Magnifying challenges and discoveries\n\n• Federal certificate of ASSC capacity and authorisation of practice in the Canton of Geneva\n\n• Meaning of communication and relationship with others, listening quality\n\n• Ability to assess situations and act responsibly\n\n• Resistance to stress and physical work\n\n• Ability to work in autonomy and interprofessionality within a multidisciplinary team\n\n• Essential mobility (on foot / bike / TPG / car).\n\nWhat We Offer\n\n• At IMAD, we think that a professional. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering:\n\n• A balance between privacy and work life, with flexible working arrangements thought to keep your pace\n\n• Beneficial salaries and social insurance, so that your commitment is recognized at its fair value\n\n• An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession\n\n• A corporate culture based on strong values, driven by a management that combines goodwill and demand\n\n• Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices\n\n• The Happ\n\n• A rich, diverse and stimulating professional environment, closer to human realities\n\n• Entry into office: to be agreed\n\n• Please attach to your file: an updated curriculum vitae, a cover letter, a copy of your diplomas and recognition of diplomas and your work certificates.",
-        "de": "Der Central Long-Term Pool (CPLD) besteht aus Krankenschwestern, Community Health and Care Assistants (CHS) und Heimhelfern. Sie intervenieren im gesamten Kanton Genf, um etwa zehn bis zwölf Monate Ersatz in unseren Zweigen durchzuführen. Ziel dieses Pools ist es, Kontinuität und höchste Qualität der Dienstleistungen für unsere Kunden zu gewährleisten.\nIhre Missionen und Verantwortlichkeiten\n\n• Grundversorgung und medizinische Verfahren, die von der Nurse Reference in einem umfassenden Kundenansatz delegiert werden\n\n• Förderung erhöhter, wiederhergestellter oder aufrechterhaltener Kundenautonomie zur Wiederherstellung, Verfolgung oder Anpassung ihres häuslichen Lebensstils\n\n• Praktische Unterstützung in Übereinstimmung mit dem Lebensstil und der Umgebung des Kunden\n\n• Interdisziplinaritätsarbeit unter Achtung der Aufgaben und institutionellen Ziele\n\n• Bewerten und neu bewerten Sie praktische Hilfssituationen und übernehmen Sie die Führung.\n\nDein Profil\n\n• Fähigkeit, seine Erfahrungen in verschiedenen Genfer Sektoren, verschiedenen Teams und Kunden zu diversifizieren\n\n• Herausforderungen und Entdeckungen vergrößern\n\n• Bundesbescheinigung über ASSC-Kapazität und Erlaubnis zur Ausübung im Kanton Genf\n\n• Bedeutung von Kommunikation und Beziehung zu anderen, Hörqualität\n\n• Fähigkeit, Situationen zu beurteilen und verantwortungsvoll zu handeln\n\n• Widerstandsfähigkeit gegen Stress und körperliche Arbeit\n\n• Fähigkeit, autonom und interprofessionell in einem multidisziplinären Team zu arbeiten\n\n• Wesentliche Mobilität (zu Fuß / Fahrrad / TPG / Auto).\n\nWas wir anbieten\n\n• Bei IMAD denken wir, dass ein Profi. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umfeld entwickeln können, das Folgendes bietet:\n\n• Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen, die Ihr Tempo halten sollen\n\n• Wohltätige Gehälter und Sozialversicherung, damit Ihr Engagement zum beizulegenden Zeitwert angesetzt wird\n\n• Ein IMAD-Trainingscampus, um weiter zu lernen, sich weiterzuentwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren\n\n• Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage vereint\n\n• Engagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\n\n• Das Happ\n\n• Ein reiches, vielfältiges und anregendes professionelles Umfeld, näher an den menschlichen Realitäten\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei: einen aktualisierten Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und die Anerkennung von Diplomen und Ihre Arbeitsbescheinigungen.",
-        "fr": "Le pool centralisé de longue durée (PCLD) est composé d’infirmiers.ères, d’assistants.tes en soins et santé communautaire (ASSC) ainsi que d’aides à domicile. Ils.elles interviennent sur l’ensemble du canton de Genève pour effectuer des remplacements, d’environ dix à douze mois, dans nos antennes. Ce pool a pour mission de garantir une continuité ainsi qu’une qualité de prestations optimales pour nos clients.\nVos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques délégués par le référent infirmier dans une approche globale du client\n\n• Favoriser l'accroissement, le recouvrement ou le maintien de l'autonomie du client pour lui permettre de rétablir, poursuivre ou adapter son mode de vie à domicile\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Travailler en interdisciplinarité, en respectant la mission et les objectifs institutionnels\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence.\n\nVotre profil\n\n• Appétence à diversifier ses expériences sur différents secteurs genevois, différentes équipes et clientèles\n\n• Aimant les défis et les découvertes\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à pied / à vélo / en TPG / en voiture).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplômes et vos certificats de travail."
+        "it": "La Direzione delle Operazioni (DOP) comprende quattro centri di assistenza domestica (CMD), il Centro per le Pratiche Interprofessionali e Cluster Clinici (CPIPC), il Centro per l'Ospedalizzazione domestica (CHAD), l'Unità di Ricerca e Sviluppo e la Direzione della Salute Digitale e dell'Organizzazione delle Imprese.\nCollegati gerarchicamente alle sue diverse directory, i team manager multidisciplinari hanno sotto la loro responsabilità diretta tra trenta e cinquanta dipendenti e clienti IMAD suddivisi in base al loro luogo di residenza e/o alla specificità del team.\nLe vostre missioni e responsabilità\n\n• Promuovere l'orientamento del cliente in tutte le azioni intraprese, attraverso un approccio multidisciplinare alla gestione\n\n• Per delega del Direttore del Centro di assistenza domestica (CMD) e nell'ambito delle politiche definite dall'istituzione, dirigere e coordinare le attività di un team all'interno di un'antenna\n\n• Garantire la qualità dei servizi clienti IMAD\n\n• Assicurare l'applicazione delle procedure operative del team dell'antenna come definito dall'istituzione\n\n• Gestire il personale secondo i principi e le regole della politica delle risorse umane definita dall'istituzione, conformemente alla legge B 5 05 e alle sue norme di attuazione\n\n• Assicurare il corretto funzionamento dell'antenna di supporto domestico nella gestione quotidiana, in coordinamento con la gestione CMD e in interazione con i team di servizi centralizzati\n\n• Partecipano a progetti istituzionali e alla loro attuazione.\n\n• HES-SO Bachelor of Infermieristica o formazione equivalente con un minimo di 5 anni di pratica professionale\n\n• Formazione post-laurea in gestione è un bene\n\n• Esperienza manageriale di successo e capacità di gestire un team multidisciplinare di 30 a 50 persone\n\n• Affluenza nelle statistiche e analisi dei cruscotti dello sterzo\n\n• Eccellente senso di comunicazione e negoziazione, buona intelligenza relazionale\n\n• Alta adattabilità, analisi e sintesi\n\n• Buona conoscenza di come funziona IMAD è un bene\n\n• Conoscenza della salute e del social network di Ginevra\n\n• Capacità e interesse nella gestione dei progetti.\nCosa offriamo\nIn IMAD, pensiamo che sia un professionista. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente:\n\n• Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo\n\n• Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value\n\n• Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione\n\n• Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda\n\n• Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive\n\n• L'Happ\n\n• Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane.\n\n• Entrata in ufficio: da concordare\n\n• Tempo di pubblicazione: 23.08.2026\n\n• Si prega di allegare al file:\n\n• un curriculum vitae aggiornato\n\n• una lettera di copertura\n\n• una copia dei vostri diplomi e certificati di lavoro.\n\n• Consideriamo solo applicazioni complete.\n\n• Garantiamo la completa riservatezza nel trattamento del tuo file.",
+        "en": "The Directorate of Operations (DOP) includes four home care centres (CMD), the Centre for Interprofessional Practices and Clinical Clusters (CPIPC), the Centre for Home Hospitalization (CHAD), the Research and Development Unit and the Directorate of Digital Health and Business Organization.\nLinked hierarchically to its different directorates, multidisciplinary team managers have under their direct responsibility between thirty and fifty employees and IMAD clients divided according to their place of residence and/or the specificity of the team.\nYour missions and responsibilities\n\n• Promoting customer orientation in all actions undertaken, through a multidisciplinary approach to management\n\n• By delegation from the Director of the Home Care Centre (CMD) and within the framework of the policies defined by the institution, direct and coordinate the activities of a team within an antenna\n\n• Ensuring the quality of IMAD customer services\n\n• Ensure the application of the operating procedures of the antenna team as defined by the institution\n\n• Managing staff in accordance with the principles and rules of the human resources policy defined by the institution, in accordance with Law B 5 05 and its implementing regulations\n\n• Ensure the proper functioning of the home support antenna in day-to-day management, in coordination with CMD management and in interaction with centralized services teams\n\n• Participate in institutional projects and their implementation.\n\n• HES-SO Bachelor of Nursing or equivalent training with a minimum of 5 years of professional practice\n\n• Post-graduate training in management is an asset\n\n• Successful managerial experience and ability to manage a multidisciplinary team of 30 to 50 people\n\n• Affluence in statistics and analysis of steering dashboards\n\n• Excellent sense of communication and negotiation, good relational intelligence\n\n• High adaptability, analysis and synthesis\n\n• Good knowledge of how IMAD works is an asset\n\n• Knowledge of the Geneva health and social network\n\n• Capacity and interest in project management.\nWhat We Offer\nAt IMAD, we think that a professional. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering:\n\n• A balance between privacy and work life, with flexible working arrangements thought to keep your pace\n\n• Beneficial salaries and social insurance, so that your commitment is recognized at its fair value\n\n• An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession\n\n• A corporate culture based on strong values, driven by a management that combines goodwill and demand\n\n• Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices\n\n• The Happ\n\n• A rich, diverse and stimulating professional environment, closer to human realities.\n\n• Entry into office: to be agreed\n\n• Posting time: 23.08.2026\n\n• Please attach to your file:\n\n• an updated curriculum vitae\n\n• a cover letter\n\n• a copy of your diplomas and work certificates.\n\n• We only consider full applications.\n\n• We guarantee complete confidentiality in the processing of your file.",
+        "de": "Die Direktion für Operationen (DOP) umfasst vier häusliche Pflegezentren (CMD), das Zentrum für interprofessionelle Praktiken und klinische Cluster (CPIPC), das Zentrum für häusliche Hospitalisierung (CHAD), die Forschungs- und Entwicklungsabteilung und die Direktion für digitale Gesundheit und Unternehmensorganisation.\nMultidisziplinäre Teammanager, die hierarchisch mit ihren verschiedenen Direktionen verbunden sind, haben unter ihrer direkten Verantwortung zwischen dreißig und fünfzig Mitarbeiter und IMAD-Kunden, die nach ihrem Wohnort und / oder der Spezifität des Teams aufgeteilt sind.\nIhre Missionen und Verantwortlichkeiten\n\n• Förderung der Kundenorientierung bei allen durchgeführten Maßnahmen durch einen multidisziplinären Managementansatz\n\n• Durch Delegation des Direktors des Home Care Centre (CMD) und im Rahmen der von der Institution festgelegten Richtlinien leiten und koordinieren Sie die Aktivitäten eines Teams innerhalb einer Antenne\n\n• Sicherstellung der Qualität des IMAD-Kundenservice\n\n• Gewährleistung der Anwendung der von der Einrichtung festgelegten Betriebsverfahren des Antennenteams\n\n• Leitung des Personals gemäß den vom Organ festgelegten Grundsätzen und Regeln der Personalpolitik gemäß Gesetz B 5 05 und seinen Durchführungsbestimmungen\n\n• Gewährleistung des ordnungsgemäßen Funktionierens der Heimantenne im Tagesmanagement, in Abstimmung mit dem CMD-Management und in Interaktion mit zentralisierten Serviceteams\n\n• Teilnahme an institutionellen Projekten und deren Umsetzung.\n\n• HES-SO Bachelor of Nursing oder gleichwertige Ausbildung mit mindestens 5 Jahren Berufspraxis\n\n• Postgraduierten-Training in Management ist ein Asset\n\n• Erfolgreiche Führungserfahrung und Fähigkeit, ein multidisziplinäres Team von 30 bis 50 Personen zu leiten\n\n• Wohlstand in der Statistik und Analyse von Lenkarmaturenbrettern\n\n• Ausgezeichneter Sinn für Kommunikation und Verhandlung, gute relationale Intelligenz\n\n• Hohe Anpassungsfähigkeit, Analyse und Synthese\n\n• Gute Kenntnisse darüber, wie IMAD funktioniert, sind ein Vorteil\n\n• Kenntnisse des Genfer Gesundheits- und Sozialnetzwerks\n\n• Kapazität und Interesse am Projektmanagement.\nWas wir anbieten\nBei IMAD denken wir, dass ein Profi. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umfeld entwickeln können, das Folgendes bietet:\n\n• Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen, die Ihr Tempo halten sollen\n\n• Wohltätige Gehälter und Sozialversicherung, damit Ihr Engagement zum beizulegenden Zeitwert angesetzt wird\n\n• Ein IMAD-Trainingscampus, um weiter zu lernen, sich weiterzuentwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren\n\n• Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage vereint\n\n• Engagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\n\n• Das Happ\n\n• Ein reiches, vielfältiges und anregendes professionelles Umfeld, näher an den menschlichen Realitäten.\n\n• Amtsantritt: noch zu vereinbaren\n\n• Sendezeit: 23.08.2026\n\n• Bitte fügen Sie Ihrer Datei bei:\n\n• aktualisierter Lebenslauf\n\n• ein Anschreiben\n\n• eine Kopie Ihrer Diplome und Arbeitszertifikate.\n\n• Wir betrachten nur vollständige Anwendungen.\n\n• Wir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
+        "fr": "La direction des opérations (DOP) regroupe notamment quatre centres de maintien à domicile (CMD), le Centre des pratiques interprofessionnelles et des pôles cliniques (CPIPC), le Centre de l'hospitalisation à domicile (CHAD) ainsi que l'Unité recherche et développement et la Direction santé digitale et organisation métier.\nRattachés hiérarchiquement à ses différentes directions, les responsables d’équipe pluridisciplinaire ont sous leur responsabilité directe de trente à cinquante collaborateurs et les clients IMAD  répartis selon leurs lieux de domicile et/ou la spécificité de l’équipe.\nVos missions et responsabilités\n\n• Promouvoir une orientation clientèle dans toutes les actions entreprises, grâce à une approche de prise en charge pluridisciplinaire\n\n• Par délégation du directeur du centre de maintien à domicile (CMD) et dans le cadre des politiques définies par l’institution, diriger et coordonner les activités d'une équipe au sein d’une antenne\n\n• Garantir la qualité des prestations délivrées à la clientèle IMAD\n\n• Assurer l'application des procédures de fonctionnement de l'équipe de l'antenne, telles que définies par l’institution\n\n• Gérer le personnel dans le respect des principes et des règles de la politique des ressources humaines définie par l'institution, conformément à la loi B 5 05 et son règlement d'application\n\n• Assurer dans la gestion quotidienne le bon fonctionnement de l'antenne de maintien à domicile, en coordination avec les membres de la direction du CMD et en interaction avec les équipes en charge des prestations centralisées\n\n• Participer aux projets institutionnels et à leur mise en œuvre.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente avec au minimum 5 ans de pratique professionnelle\n\n• Formation post grade en management est un atout\n\n• Expérience managériale réussie et aptitude à gérer une équipe pluridisciplinaire de 30 à 50 personnes\n\n• Aisance dans les statistiques et dans l’analyse des tableaux de bords de  pilotage\n\n• Excellent sens de la communication et de la négociation, bonne intelligence relationnelle\n\n• Grande capacité d’adaptation, esprit d’analyse et de synthèse\n\n• Bonne connaissance du fonctionnement de l'IMAD est un atout\n\n• Connaissance du réseau sanitaire et social genevois\n\n• Capacité et intérêt pour la gestion de projet.\nCe que nous offrons\nChez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines.\n\n• Entrée en fonction :      à convenir\n\n• Délai de postulation :   23.08.2026\n\n• Veuillez svp joindre à votre dossier :\n\n• un curriculum vitae à jour\n\n• une lettre de motivation\n\n• une copie de vos diplômes et vos certificats de travail.\n\n• Nous considérons uniquement les dossiers de candidature complets.\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
       },
       "needsRetranslation": false,
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
+      "url": "https://jobs.smartrecruiters.com/imad/744000140419269-responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:39:44.603Z",
+      "crawledAt": "2026-08-16T21:29:43.716Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Sanità",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
       "sector": "Sanità / Cure a domicilio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
-      "jobReqId": "744000137680469",
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000140419269-responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi?oga=true",
+      "jobReqId": "744000140419269",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-        "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva",
-        "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva",
-        "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva",
-        "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva",
-        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
+        "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva",
+        "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-          "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva",
-          "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva",
-          "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva",
-          "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva",
-          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
+          "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva",
+          "responsabile-della-manutenzione-casa-multidisciplinare-100-cdi-team-imad-geneva"
         ],
         "en": [
-          "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-          "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva"
+          "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva"
         ],
         "de": [
-          "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-          "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva"
+          "responsable-d-equipe-pluridisciplinaire-de-maintien-a-domicile-a-100-en-cdi-imad-geneva"
         ]
       },
-      "firstSeenAt": "2026-07-14T22:03:53.913Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-07-29T11:42:04.404Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       }
@@ -723,7 +723,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
