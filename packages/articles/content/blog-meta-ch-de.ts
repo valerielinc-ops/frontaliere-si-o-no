@@ -2932,6 +2932,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-obvaldo-guida.title': 'Lehre und Berufsausbildung im Kanton Obwalden',
     'blog.article.apprendistato-obvaldo-guida.excerpt': 'Wie man eine Lehrstelle findet und einen Lehrvertrag abschließt',
     'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Leitfaden für die Ausbildung im Kanton Obvaldo',
+    'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Stipendien Kanton Obwalden: Voraussetzungen und Beträge',
+    'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'Es gibt keine offiziellen Informationen, die die Existenz von Stipendien für den Kanton Obwalden in der Schweiz bestätigen.',
+    'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'Eine Szene fotografiert von einem Frontalier, der sich in einer Situation befindet, die der im Artikel beschriebenen ähnlich ist.',
 };
 
 export default blogMetaChDe;

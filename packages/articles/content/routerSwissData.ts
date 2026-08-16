@@ -1003,6 +1003,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli', en: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-en', de: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-de', fr: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-fr' },
  'permesso-l-di-breve-durata-obvaldo': { it: 'permesso-l-di-breve-durata-obvaldo', en: 'permesso-l-of-brief-duration-obvaldo', de: 'permesso-l-kurzdauer-obvaldo', fr: 'permesso-l-de-breve-duree-obvaldo' },
  'apprendistato-obvaldo-guida': { it: 'apprendistato-obvaldo-guida', en: 'apprenticeships-in-obvaldo', de: 'ausbildung-im-kanton-obvaldo', fr: 'apprentissage-au-canton-dobvaldo' },
+ 'bozze-di-studio-cantone-obvaldo': { it: 'bozze-di-studio-cantone-obvaldo', en: 'cantone-obvaldo-scholarships-requirements-and-amounts', de: 'stipendien-kanton-obwalden-voraussetzungen-und-betrage', fr: 'bourses-canton-obwald-exigences-et-montants' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

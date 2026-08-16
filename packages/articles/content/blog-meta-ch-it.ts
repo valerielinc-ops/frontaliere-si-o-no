@@ -2932,6 +2932,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-obvaldo-guida.title': 'Apprendistato e formazione professionale nel Canton Obvaldo',
     'blog.article.apprendistato-obvaldo-guida.excerpt': 'Come si trova un posto di tirocinio e si conclude un contratto di apprendimento',
     'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Guida all\'apprendistato nel Canton Obvaldo',
+    'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Borse di studio Cantone Obvaldo: requisiti e importi',
+    'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'Non esistono informazioni ufficiali che confermino l\'esistenza di borse di studio per il Cantone Obvaldo in Svizzera.',
+    'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'Una scena fotografata di un frontaliere che si trova in una situazione simile a quella descritta nell\'articolo.',
 };
 
 export default blogMetaChIt;

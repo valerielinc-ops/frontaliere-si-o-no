@@ -2932,6 +2932,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-obvaldo-guida.title': 'Apprentissage et formation professionnelle dans le canton d\'Obwald',
     'blog.article.apprendistato-obvaldo-guida.excerpt': 'Comment trouver un lieu de stage et conclure un contrat d\'apprentissage',
     'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Guide de l\'apprentissage dans le canton d\'Obvaldo',
+    'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Bourses Canton Obwald : exigences et montants',
+    'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'Aucune information officielle ne confirme l\'existence de bourses d\'études pour le canton Obwald en Suisse.',
+    'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'Une scène photographiée d\'un frontalier qui se trouve dans une situation similaire à celle décrite dans l\'article.',
 };
 
 export default blogMetaChFr;

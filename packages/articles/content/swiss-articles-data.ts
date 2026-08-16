@@ -8794,6 +8794,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bozze-di-studio-cantone-obvaldo',
+    category: 'fiscale',
+    date: '2026-08-16T17:36:44.959Z',
+    image: '/images/blog/bozze-di-studio-cantone-obvaldo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
