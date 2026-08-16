@@ -10001,6 +10001,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.burro-svizzero-esportazioni-perdite.title': 'Swiss butter abroad: exports and losses for 27 million',
     'blog.article.burro-svizzero-esportazioni-perdite.excerpt': 'Swiss butter surpluses are exported at rock-bottom prices compared to the domestic market, generating an estimated loss of CHF 27 million.',
     'blog.article.burro-svizzero-esportazioni-perdite.imageAlt': 'Dairy storage facilities in Switzerland',
+    'blog.article.semafori-grigioni-traffico-parassitario.title': 'Traffic lights against parasitic traffic: the Graubünden strategy works',
+    'blog.article.semafori-grigioni-traffico-parassitario.excerpt': 'The Rhaetian Technical Office has installed five traffic lights to combat parasitic traffic, with good results',
+    'blog.article.semafori-grigioni-traffico-parassitario.imageAlt': 'Aerial view of Lugano with a busy road and a red traffic light in the center',
 };
 
 export default blogMetaEn;

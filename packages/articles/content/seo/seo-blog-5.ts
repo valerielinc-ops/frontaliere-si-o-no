@@ -68555,6 +68555,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-semafori-grigioni-traffico-parassitario': {
+    title: 'Semafori contro il traffico parassitario: la strategia dei Grigioni funziona',
+    description: 'L\'Ufficio tecnico retico ha installato cinque semafori per contrastare il traffico parassitario e ridurre il traffico nei centri abitati. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, semafori, contro, traffico, parassitario',
+    ogTitle: 'Semafori contro il traffico parassitario: la strategia dei Grigioni funziona',
+    ogDescription: 'L\'installazione dei semafori ha avuto un impatto significativo sul traffico, riducendo le code sull\'A13 e migliorando la qualità della vita nei centri abitati',
+    canonicalPath: '/articoli-frontaliere/semafori-grigioni-traffico-parassitario',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Semafori contro il traffico parassitario: la strategia dei Grigioni funziona",
+      "description": "L'Ufficio tecnico retico ha installato cinque semafori per contrastare il traffico parassitario e ridurre il traffico nei centri abitati. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/semafori-grigioni-traffico-parassitario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con una strada affollata e un semaforo rosso al centro"
+      },
+      "datePublished": "2026-08-16T22:36:02+00:00",
+      "dateModified": "2026-08-16T22:36:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/semafori-grigioni-traffico-parassitario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
