@@ -971,6 +971,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'incidente-bici-rapperswil-jona': { it: 'incidente-bici-rapperswil-jona', en: 'bicycle-accident-rapperswil-jona', de: 'fahrradunfall-rapperswil-jona', fr: 'accident-velo-rapperswil-jona' },
  'aprire-attivita-canton-uri-registro-di-commercio-e-costi': { it: 'aprire-attivita-canton-uri-registro-di-commercio-e-costi', en: 'open-activity-canton-uri-commerce-register-and-costs', de: 'unternehmen-in-kanton-uri-handelsregister-und-kosten', fr: 'ouvrir-entreprise-canton-uri-registre-du-commerce-et-couts' },
  'aprire-un-attivita-canton-uri-registro-di-commercio-e-costi': { it: 'aprire-un-attivita-canton-uri-registro-di-commercio-e-costi', en: 'opening-a-business-in-canton-uri-register-of-commerce-and-costs', de: 'ein-unternehmen-im-kanton-uri-registrieren-und-kosten', fr: 'ouvrir-une-entreprise-au-canton-uri-enregistrement-du-commerce-et-couts' },
+ 'abbonamenti-trasporti-canton-uri': { it: 'abbonamenti-trasporti-canton-uri', en: 'transport-passes-uri-canton', de: 'offentliche-verkehrskarten-uri-kanton', fr: 'cartes-de-transport-uri-canton' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
