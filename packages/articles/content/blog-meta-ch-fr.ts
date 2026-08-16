@@ -2800,6 +2800,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-uri.title': 'Bourses Canton Uri : exigences et montants',
     'blog.article.borse-studio-canton-uri.excerpt': 'Résultats du concours de bourses Canton Uri : exigences, montants maximaux, délais de présentation et bureau cantonal compétent',
     'blog.article.borse-studio-canton-uri.imageAlt': 'Frontalier étudiant avec bourse du Canton Uri',
+    'blog.article.trump-ora-legale-senato-usa.title': 'Trump demande au Sénat de voter l\'abolition du change maintenant',
+    'blog.article.trump-ora-legale-senato-usa.excerpt': 'Le président américain Donald Trump exhorte le Sénat à approuver dès que possible le Sunshine Protection Act pour stabiliser l\'heure d\'été.',
+    'blog.article.trump-ora-legale-senato-usa.imageAlt': 'Le Capitole des États-Unis à Washington, où l\'on discute de l\'heure d\'été.',
 };
 
 export default blogMetaChFr;

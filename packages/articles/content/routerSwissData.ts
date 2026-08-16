@@ -959,6 +959,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-canton-uri': { it: 'asilo-nido-custodia-bambini-canton-uri', en: 'nursery-and-childcare-in-canton-uri-cost-and-services', de: 'kindertagesstatte-und-kinderbetreuung-im-kanton-uri-kosten-und-leistungen', fr: 'garderie-et-garde-d-enfants-dans-le-canton-d-uri-cout-et-services' },
  'labatori-di-agsrosope-consegna-chiavi': { it: 'labatori-di-agsrosope-consegna-chiavi', en: 'agsrosope-new-laboratories-posieux', de: 'agsrosope-neue-laboratorien-posieux', fr: 'agsrosope-nouveaux-laboratoires-posieux' },
  'borse-studio-canton-uri': { it: 'borse-studio-canton-uri', en: 'uri-canton-scholarships', de: 'uri-kantonsstipendium', fr: 'bourse-canton-uri' },
+ 'trump-ora-legale-senato-usa': { it: 'trump-ora-legale-senato-usa', en: 'trump-us-senate-daylight-saving-time', de: 'trump-us-senat-sommerzeit', fr: 'trump-senat-americain-heure-ete' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

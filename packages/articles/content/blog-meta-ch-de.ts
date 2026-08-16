@@ -2800,6 +2800,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-uri.title': 'Kanton Uri Stipendien: Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-uri.excerpt': 'Ergebnisse des Stipendienwettbewerbs Kanton Uri: Voraussetzungen, Höchstbeträge, Einreichungsfristen und zuständige kantonale Stelle',
     'blog.article.borse-studio-canton-uri.imageAlt': 'Frontalier Student mit Uri Kantonsstipendium',
+    'blog.article.trump-ora-legale-senato-usa.title': 'Trump fordert Senat: Abstimmung über Wechselkurs',
+    'blog.article.trump-ora-legale-senato-usa.excerpt': 'US-Präsident Donald Trump fordert den Senat auf, so schnell wie möglich den Sunshine Protection Act zu verabschieden, um die Sommerzeit stabil zu halten.',
+    'blog.article.trump-ora-legale-senato-usa.imageAlt': 'Das US-Kapitol in Washington, wo über die Sommerzeit debattiert wird.',
 };
 
 export default blogMetaChDe;
