@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-15T21:27:33.303Z",
-  "total": 13,
+  "generatedAt": "2026-08-16T21:26:31.899Z",
+  "total": 12,
   "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 4,
-  "durationMs": 5097,
-  "avgDurationMs": 5097,
+  "durationMs": 4883,
+  "avgDurationMs": 4883,
   "durationHistory": [
-    5097
+    4883
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -293,10 +293,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Hochschulpraktikum «Information & Dokumentation»",
-      "slug": "hochschulpraktikum-information-dokumentation-agroscope-zurich",
+      "slug": "stage-universitario-informazione-e-documentazione-confederazione-svizzera-zurich",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikum-information-dokumentation/a5c39ef3-b50e-4eeb-a3b4-818998e017ad",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19737",
       "company": "Agroscope",
@@ -330,7 +332,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "HR-Fachperson - Personalverwaltung",
