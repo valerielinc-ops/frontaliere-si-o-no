@@ -3007,6 +3007,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Nursery and childcare Canton Nidvaldo: costs',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'Costs for daycare and childcare in Canton Nidvaldo may vary depending on the type of assistance required.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Asilo nido and childcare costs in the Canton Nidvaldo',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AVS and complementary services Nidvaldo: cash and annuities',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analysis of the pension provision of the first pillar in the Canton of Nidvaldo, with a focus on the cantonal compensation fund, calculation of the AVS pension, contribution gaps and complementary benefits.',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Cantonal administration building in Switzerland',
 };
 
 export default blogMetaChEn;

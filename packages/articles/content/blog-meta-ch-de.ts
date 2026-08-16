@@ -3007,6 +3007,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Kindertagesstätte und Kinderbetreuung Kanton Nidwalden: Kosten',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'Die Kosten für Kindergarten und Kinderbetreuung im Kanton Nidwalden können je nach Art der benötigten Betreuung variieren.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Kinderbetreuung und -pflege im Kanton Nidvaldo: Kosten und Arten der Betreuung',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AHV und Ergänzungsleistungen Nidwalden: Kasse und Renten',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analyse der Vorsorge der ersten Säule im Kanton Nidwalden mit Fokus auf die kantonale Ausgleichskasse, AHV-Rentenberechnung, Beitragslücken und Ergänzungsleistungen.',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Kantonales Verwaltungsgebäude in der Schweiz',
 };
 
 export default blogMetaChDe;

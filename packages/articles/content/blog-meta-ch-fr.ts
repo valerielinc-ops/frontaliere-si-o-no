@@ -3007,6 +3007,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Garderie et garde d\'enfants Canton de Nidwald : coûts',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'Les frais de crèche et de garde d\'enfants dans le canton de Nidwald peuvent varier en fonction du type d\'assistance demandée.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Les coûts de l\'accueil et de l\'assistance des enfants dans le Canton Nidvaldo',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AVS et prestations complémentaires Nidwald : caisse et rentes',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analyse de la prévoyance du premier pilier dans le canton de Nidwald, en mettant l\'accent sur la caisse de compensation cantonale, le calcul de la rente AVS, les lacunes en matière de cotisations et les prestations complémentaires.',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Bâtiment administratif cantonal en Suisse',
 };
 
 export default blogMetaChFr;

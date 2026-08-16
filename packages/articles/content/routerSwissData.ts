@@ -1028,6 +1028,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-di-studio-grigioni-requisiti-e-importi': { it: 'borse-di-studio-grigioni-requisiti-e-importi', en: 'grisons-scholarships-requirements-and-amounts', de: 'grischun-stipendien-anforderungen-und-betrage', fr: 'grisons-bourses-exigences-et-amounts' },
  'borse-studio-canton-nidvaldo-requisiti-e-importi': { it: 'borse-studio-canton-nidvaldo-requisiti-e-importi', en: 'canton-nidvaldo-scholarships-requirements-and-amounts', de: 'stipendien-kanton-nidwalden-voraussetzungen-und-betrage', fr: 'bourses-cantonales-nidwald-exigences-et-montants' },
  'asilo-nido-e-custodia-bambini-canton-nidvaldo-costi': { it: 'asilo-nido-e-custodia-bambini-canton-nidvaldo-costi', en: 'nursery-and-childcare-canton-nidvaldo-costs', de: 'kindertagesstatte-und-kinderbetreuung-kanton-nidwalden-kosten', fr: 'garderie-et-garde-d-enfants-canton-de-nidwald-couts' },
+ 'avs-e-prestazioni-complementari-nidvaldo': { it: 'avs-e-prestazioni-complementari-nidvaldo', en: 'avs-and-complementary-services-nidvaldo-cash-and-annuities', de: 'ahv-und-erganzungsleistungen-nidwalden-kasse-und-renten', fr: 'avs-et-prestations-complementaires-nidwald-caisse-et-rentes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
