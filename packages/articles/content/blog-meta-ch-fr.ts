@@ -2923,6 +2923,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Permis de séjour en Suisse : le permis L à Obwalden',
     'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'Le permis L de courte durée est un permis de séjour qui peut être accordé pour une durée maximale d\'un an.',
     'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Image d\'un permis de séjour en Suisse.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Système scolaire Canton Obwald : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'Les cycles scolaires dans le canton d\'Obwald sont divisés en trois phases : crèche, école primaire et école secondaire.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'Une classe d\'école primaire dans le canton d\'Obvaldo',
 };
 
 export default blogMetaChFr;

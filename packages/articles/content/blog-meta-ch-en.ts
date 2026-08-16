@@ -2923,6 +2923,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Residence permits in Switzerland: the L permit in Obwalden',
     'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'The short-term L permit is a residence permit that can be granted for a maximum of 1 year.',
     'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Image of a Swiss residence permit.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Canton Obvaldo school system: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'The school cycles in the Canton of Obvaldo are divided into three phases: kindergarten, primary school and secondary school.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'A classroom of primary school in the Canton of Obvaldo',
 };
 
 export default blogMetaChEn;
