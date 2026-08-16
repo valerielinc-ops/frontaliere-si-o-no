@@ -2872,6 +2872,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Asilo nido e custodia bambini nel Canton Svitto: costi e opzioni',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'I costi degli asili nido nel Canton Svitto variano in base alla fascia di età e alle esigenze dei genitori.',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'Una famiglia con bambini piccoli alla ricerca di opzioni di cura in Canton Svitto.',
+    'blog.article.basilea-diagnosi-adhd-studenti.title': 'Basilea: valutazioni ADHD delegate agli studenti nelle cliniche',
+    'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'Secondo quanto riportato dalla NZZ am Sonntag, le Cliniche psichiatriche universitarie di Basilea hanno delegato per anni le valutazioni ADHD agli studenti.',
+    'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'Cliniche psichiatriche universitarie di Basilea',
 };
 
 export default blogMetaChIt;

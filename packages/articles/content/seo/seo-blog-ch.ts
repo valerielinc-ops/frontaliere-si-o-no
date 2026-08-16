@@ -37226,6 +37226,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-basilea-diagnosi-adhd-studenti': {
+    title: 'Basilea: valutazioni ADHD delegate agli studenti nelle cliniche',
+    description: 'Le Cliniche psichiatriche universitarie di Basilea hanno delegato per anni le valutazioni ADHD agli studenti. Tutti i dettagli e la reazione dell\'UPK.',
+    keywords: 'frontalieri, ticino, svizzera, italia, basilea, valutazioni, adhd, delegate',
+    ogTitle: 'Basilea: valutazioni ADHD delegate agli studenti nelle cliniche',
+    ogDescription: 'Rivelazioni sulla gestione delle diagnosi di ADHD nelle Cliniche psichiatriche universitarie di Basilea. Valutazioni affidate agli studenti e verifiche in corso.',
+    canonicalPath: '/articoli-svizzera/basilea-diagnosi-adhd-studenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basilea: valutazioni ADHD delegate agli studenti nelle cliniche",
+      "description": "Le Cliniche psichiatriche universitarie di Basilea hanno delegato per anni le valutazioni ADHD agli studenti. Tutti i dettagli e la reazione dell'UPK.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/basilea-diagnosi-adhd-studenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cliniche psichiatriche universitarie di Basilea"
+      },
+      "datePublished": "2026-08-16T12:59:23+00:00",
+      "dateModified": "2026-08-16T12:59:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/basilea-diagnosi-adhd-studenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2872,6 +2872,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Garderie et garde d\'enfants dans le canton de Schwyz : coûts et options',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'Les coûts des crèches dans le canton de Schwyz varient en fonction de la tranche d\'âge et des besoins des parents.',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'Une famille avec jeunes enfants recherche des options de garde dans le canton de Svitto.',
+    'blog.article.basilea-diagnosi-adhd-studenti.title': 'Bâle : évaluations TDAH déléguées aux étudiants dans les cliniques',
+    'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'Selon ce que rapporte la NZZ am Sonntag, les Cliniques psychiatriques universitaires de Bâle ont délégué pendant des années les évaluations du TDAH aux étudiants.',
+    'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'Cliniques psychiatriques universitaires de Bâle',
 };
 
 export default blogMetaChFr;

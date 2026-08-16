@@ -2872,6 +2872,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Kinderkrippe und Kinderbetreuung im Kanton Schwyz: Kosten und Optionen',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'Die Kosten für Kindergärten im Kanton Schwyz variieren je nach Altersgruppe und Bedürfnissen der Eltern.',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'Eine Familie mit kleinen Kindern sucht nach Betreuungsmöglichkeiten im Kanton Svitto.',
+    'blog.article.basilea-diagnosi-adhd-studenti.title': 'Basel: ADHS-Bewertungen an Studierende in Kliniken delegiert',
+    'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'Nach Angaben der NZZ am Sonntag haben die Universitätspsychiatrischen Kliniken Basel die ADHS-Beurteilungen jahrelang an Studierende delegiert.',
+    'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'Universitäre Psychiatrische Kliniken Basel',
 };
 
 export default blogMetaChDe;

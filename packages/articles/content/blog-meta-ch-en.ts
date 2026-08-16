@@ -2872,6 +2872,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Kindergarten and childcare in the Canton of Schwyz: costs and options',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'The costs of nurseries in the Canton of Schwyz vary according to the age group and the needs of the parents.',
     'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'A family with young children searching for childcare options in the Canton of Svitto.',
+    'blog.article.basilea-diagnosi-adhd-studenti.title': 'Basel: ADHD assessments delegated to students in clinics',
+    'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'According to NZZ am Sonntag, the University Psychiatric Clinics in Basel have been delegating ADHD assessments to students for years.',
+    'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'University Psychiatric Clinics in Basel',
 };
 
 export default blogMetaChEn;
