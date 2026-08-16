@@ -938,6 +938,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-cantone-uri': { it: 'premi-cassa-malati-cantone-uri', en: 'health-insurance-premiums-canton-uri-and-premium-reduction', de: 'krankenkassenpramien-kanton-uri-und-pramienverbilligung', fr: 'primes-caisse-maladie-canton-uri-et-reduction-des-primes' },
  'imposte-cantonal-ur-aliquote-deduzioni': { it: 'imposte-cantonal-ur-aliquote-deduzioni', en: 'uri-cantonal-taxes', de: 'kanton-ur-steuern', fr: 'imposts-cantonaux-ur' },
  'permesso-dimora-b-ur-requisiti-rinnovo': { it: 'permesso-dimora-b-ur-requisiti-rinnovo', en: 'permesso-di-dimora-b-canton-uri-requisiti-e-rinnovo', de: 'ermesse-b-kanton-ur-anforderungen-und-verlangerung', fr: 'permis-de-sejour-b-canton-d-uri-exigences-et-renouvellement' },
+ 'permesso-dimora-b-uri': { it: 'permesso-dimora-b-uri', en: 'residence-permit-b-canton-uri-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-uri-voraussetzungen', fr: 'permis-de-sejour-b-canton-uri-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

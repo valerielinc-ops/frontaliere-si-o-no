@@ -2737,6 +2737,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B in Uri: Voraussetzungen und Verfahren',
     'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.excerpt': 'Was es braucht, um die Aufenthaltsbewilligung B im Kanton Uri zu erhalten und wie man mit der Erneuerung fortfährt',
     'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.imageAlt': 'Schweizer Bürger',
+    'blog.article.permesso-dimora-b-uri.title': 'Aufenthaltsbewilligung B Uri: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-uri.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton Uri: Voraussetzungen, Dokumente, Dauer, Erneuerungsverfahren und kantonale Zuständigkeiten.',
+    'blog.article.permesso-dimora-b-uri.imageAlt': 'Aufenthaltsbewilligung B im Kanton Uri Voraussetzungen und Verlängerung',
 };
 
 export default blogMetaChDe;
