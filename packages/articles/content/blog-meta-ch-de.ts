@@ -3004,6 +3004,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Stipendien Kanton Nidwalden: Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Voraussetzungen und Höchstbeträge für Stipendien im Kanton Nidwalden.',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Borse di studio für Studenten im Kanton Nidvaldo',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Kindertagesstätte und Kinderbetreuung Kanton Nidwalden: Kosten',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'Die Kosten für Kindergarten und Kinderbetreuung im Kanton Nidwalden können je nach Art der benötigten Betreuung variieren.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Kinderbetreuung und -pflege im Kanton Nidvaldo: Kosten und Arten der Betreuung',
 };
 
 export default blogMetaChDe;

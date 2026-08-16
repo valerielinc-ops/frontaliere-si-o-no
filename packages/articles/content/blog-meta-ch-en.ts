@@ -3004,6 +3004,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Canton Nidvaldo Scholarships: Requirements and Amounts',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Requirements and maximum amounts for scholarships in the Canton of Nidvaldo.',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Borse di studio for students in the Canton of Nidvaldo',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Nursery and childcare Canton Nidvaldo: costs',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'Costs for daycare and childcare in Canton Nidvaldo may vary depending on the type of assistance required.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Asilo nido and childcare costs in the Canton Nidvaldo',
 };
 
 export default blogMetaChEn;

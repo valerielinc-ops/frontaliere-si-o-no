@@ -3004,6 +3004,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Bourses cantonales Nidwald : exigences et montants',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Exigences et montants maximaux pour les bourses d\'études dans le canton de Nidwald.',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Bourses de recherche pour les étudiants dans le canton de Nidvaldo',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Garderie et garde d\'enfants Canton de Nidwald : coûts',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'Les frais de crèche et de garde d\'enfants dans le canton de Nidwald peuvent varier en fonction du type d\'assistance demandée.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Les coûts de l\'accueil et de l\'assistance des enfants dans le Canton Nidvaldo',
 };
 
 export default blogMetaChFr;

@@ -3004,6 +3004,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Borse di studio canton Nidvaldo: requisiti e importi',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Requisiti e importi massimi per le borse di studio nel Cantone di Nidvaldo.',
     'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Borse di studio per gli studenti nel Cantone di Nidvaldo',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Asilo nido e custodia bambini Canton Nidvaldo: costi',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Nidvaldo possono variare in base al tipo di assistenza richiesta.',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Asilo nido e custodia bambini nel Canton Nidvaldo: costi e tipologie di assistenza',
 };
 
 export default blogMetaChIt;
