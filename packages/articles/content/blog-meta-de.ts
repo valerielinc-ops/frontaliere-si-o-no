@@ -9988,6 +9988,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-contraffazioni-svizzera.title': 'Designerhandtaschen und nicht deklarierte Kleider bei Agno',
     'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'Eine Grenzgängerin wurde mit einer Geldstrafe belegt und an ihre Pflichten erinnert, nachdem sie vom Bundesamt für Zoll und Grenzsicherheit (UdSSR) mit einer Ladung gefälschter Accessoires und Kleidungsstücke abgefangen worden war.',
     'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'Eine Frontaliere mit einem Lastwagenladung an Falschgeldern und unangekündigten Kleidern landet in Agno',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Zwillingsbruderschaft 6. Calende Castelletto Ticino',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'Die Partnerschaft der Assunta zwischen Sesto Calende und Castelletto Ticino wurde zum 26. Mal erneuert',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'Ein Frontalier assistiert der Prozession der Himmelfahrt in Castelletto Ticino',
 };
 
 export default blogMetaDe;

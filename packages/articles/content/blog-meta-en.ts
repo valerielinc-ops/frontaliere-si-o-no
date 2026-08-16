@@ -9989,6 +9989,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-contraffazioni-svizzera.title': 'Designer bags and undeclared clothes in Agno',
     'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'A border guard was fined and called to duty after being intercepted by the Federal Office of Customs and Border Security (FOCS) with a load of counterfeit accessories and clothing.',
     'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'A frontaliere with a load of fake designer bags and undeclared clothes lands in Agno',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Twinning sixth calende castelletto Ticino',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'The twinning of the Assumption between Sesto Calende and Castelletto Ticino has been renewed for the 26th time',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'A frontaliere watches the Assumption procession in Castelletto Ticino',
 };
 
 export default blogMetaEn;

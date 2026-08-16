@@ -9990,6 +9990,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-contraffazioni-svizzera.title': 'Borse griffate e abiti non dichiarati a Agno',
     'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'Una frontaliere è stata multata e richiamata ai suoi doveri dopo essere stata intercettata dall\'Ufficio federale della dogana e della sicurezza dei confini (Udsc) con un carico di accessori e capi di abbigliamento contraffatti.',
     'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'Una frontaliere con un carico di borse griffate e abiti non dichiarati atterra ad Agno',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Gemellaggio sesto calende castelletto Ticino',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'Il gemellaggio dell\'Assunta tra Sesto Calende e Castelletto Ticino si è rinnovato per la 26esima volta',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'Un frontaliere assiste alla processione dell\'Assunta a Castelletto Ticino',
 };
 
 export default blogMetaIt;
