@@ -2950,6 +2950,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-obvaldo.title': 'Buying a house in the Obvaldo Canton: prices and mortgage',
     'blog.article.comprare-casa-canton-obvaldo.excerpt': 'The average price of an apartment in Canton Obvaldo is CHF 420,000, while for a house it is CHF 820,000. The mortgage can cover up to 70% of the purchase price.',
     'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'image of a Swiss city with a real estate agency sign',
+    'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, the game of shame',
+    'blog.article.maccabi-lugano-mobilitazione.excerpt': 'The mobilization against Maccabi Tel Aviv - Lugano was called for August 20.',
+    'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda speaks about Maccabi Tel Aviv - Lugano protest.',
 };
 
 export default blogMetaChEn;

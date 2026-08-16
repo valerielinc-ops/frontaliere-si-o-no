@@ -1009,6 +1009,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-obvaldo-cantoni-medi-diritti-locazione': { it: 'affitti-obvaldo-cantoni-medi-diritti-locazione', en: 'rentals-obvaldo-cantons-average-rights', de: 'mieten-obvaldo-kantone-mittelrechte', fr: 'locations-obvaldo-cantons-moyennes-droits' },
  'incendio-monte-gambarogno': { it: 'incendio-monte-gambarogno', en: 'monte-gambarogno-fire-firefighters-already-at-work', de: 'brand-monte-gambarogno', fr: 'incendie-monte-gambarogno' },
  'comprare-casa-canton-obvaldo': { it: 'comprare-casa-canton-obvaldo', en: 'buy-house-canton-obvaldo', de: 'kaufen-haus-kanton-obvaldo', fr: 'acheter-maison-canton-obvaldo' },
+ 'maccabi-lugano-mobilitazione': { it: 'maccabi-lugano-mobilitazione', en: 'maccabi-lugano-protest', de: 'maccabi-lugano-proteste', fr: 'maccabi-lugano-manifestation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

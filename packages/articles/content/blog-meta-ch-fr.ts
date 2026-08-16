@@ -2950,6 +2950,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-obvaldo.title': 'Acheter une maison dans le canton d\'Obwald : prix et hypothèque',
     'blog.article.comprare-casa-canton-obvaldo.excerpt': 'Le prix moyen d\'un appartement dans le canton d\'Obwald est de CHF 420 000, tandis que pour une maison, il est de CHF 820 000. L\'hypothèque peut couvrir jusqu\'à 70 % du prix d\'achat.',
     'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'image d\'une ville suisse avec un panneau d\'agence immobilière',
+    'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, le match de la honte',
+    'blog.article.maccabi-lugano-mobilitazione.excerpt': 'La mobilisation contre Maccabi Tel Aviv - Lugano a été lancée pour le 20 août.',
+    'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda parle de la manifestation contre Maccabi Tel Aviv - Lugano.',
 };
 
 export default blogMetaChFr;

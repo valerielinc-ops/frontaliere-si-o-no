@@ -2950,6 +2950,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-obvaldo.title': 'Haus kaufen im Kanton Obwalden: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-canton-obvaldo.excerpt': 'Der Durchschnittspreis für eine Wohnung im Kanton Obwalden beträgt CHF 420 \'000, für ein Haus CHF 820\' 000. Die Hypothek kann bis zu 70% des Kaufpreises decken.',
     'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'Bild einer Schweizer Stadt mit einem Immobilienmakler-Schild',
+    'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, das Spiel der Schande',
+    'blog.article.maccabi-lugano-mobilitazione.excerpt': 'Die Mobilisierung gegen Maccabi Tel Aviv - Lugano wurde für den 20. August ausgerufen.',
+    'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda über die Proteste gegen Maccabi Tel Aviv - Lugano.',
 };
 
 export default blogMetaChDe;

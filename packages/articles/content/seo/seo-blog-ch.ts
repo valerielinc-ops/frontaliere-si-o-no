@@ -38240,6 +38240,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maccabi-lugano-mobilitazione': {
+    title: 'Maccabi Tel Aviv, la partita della vergogna | Frontaliere Ticino',
+    description: 'La mobilitazione contro Maccabi Tel Aviv - Lugano è stata indetta per il 20 agosto. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maccabi, aviv, partita, vergogna',
+    ogTitle: 'La partita tra Maccabi Tel Aviv e Lugano è stata definita \'la partita della vergogna\'.',
+    ogDescription: 'La mobilitazione contro Maccabi Tel Aviv - Lugano è stata indetta per il 20 agosto.',
+    canonicalPath: '/articoli-svizzera/maccabi-lugano-mobilitazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maccabi Tel Aviv, la partita della vergogna",
+      "description": "La mobilitazione contro Maccabi Tel Aviv - Lugano è stata indetta per il 20 agosto. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maccabi-lugano-mobilitazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Alessandra Noseda parla di mobilitazione contro Maccabi Tel Aviv - Lugano."
+      },
+      "datePublished": "2026-08-16T18:18:13+00:00",
+      "dateModified": "2026-08-16T18:18:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maccabi-lugano-mobilitazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
