@@ -2950,6 +2950,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-obvaldo.title': 'Comprare casa nel Canton Obvaldo: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-canton-obvaldo.excerpt': 'Il prezzo medio di un appartamento nel Canton Obvaldo è di CHF 420.000, mentre per una casa è di CHF 820.000. Il mutuo ipotecario può coprire fino al 70% del prezzo di acquisto.',
     'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'immagine di una città svizzera con cartello di un\'agenzia immobiliare',
+    'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, la partita della vergogna',
+    'blog.article.maccabi-lugano-mobilitazione.excerpt': 'La mobilitazione contro Maccabi Tel Aviv - Lugano è stata indetta per il 20 agosto.',
+    'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda parla di mobilitazione contro Maccabi Tel Aviv - Lugano.',
 };
 
 export default blogMetaChIt;
