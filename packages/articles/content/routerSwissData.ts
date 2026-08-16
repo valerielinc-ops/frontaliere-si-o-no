@@ -999,6 +999,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonal-obvaldo-aliquote-deduzioni': { it: 'imposte-cantonal-obvaldo-aliquote-deduzioni', en: 'cantonal-taxes-obvaldo-rates-deductions', de: 'kantonale-steuern-obvaldo-satze-abzuge', fr: 'impots-cantonaux-obvaldo-taux-deductions' },
  'permesso-di-domicilio-c-canton-obvaldo': { it: 'permesso-di-domicilio-c-canton-obvaldo', en: 'residence-permit-c-in-the-canton-of-obvaldo', de: 'die-niederlassungsbewilligung-c-im-kanton-obwalden', fr: 'le-permis-de-domicile-c-dans-le-canton-d-obwald' },
  'assegni-familiari-obvaldo-2026': { it: 'assegni-familiari-obvaldo-2026', en: 'family-allowance-obvaldo', de: 'familienbeihilfe-obvaldo', fr: 'allocations-familiales-obvaldo' },
+ 'permesso-l-obbiettivo-obvaldo': { it: 'permesso-l-obbiettivo-obvaldo', en: 'permesso-l-objective-obwalden', de: 'permesso-l-zweck-obwalden', fr: 'permesso-l-objectif-obwalden' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

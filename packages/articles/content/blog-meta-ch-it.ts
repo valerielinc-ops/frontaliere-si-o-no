@@ -2920,6 +2920,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-obvaldo-2026.title': 'Assegni familiari nel Cantone di Obvaldo: importi e domanda',
     'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'Il Cantone di Obvaldo fornisce un assegno familiare per le famiglie con figli.',
     'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Famiglie con figli in un quartiere residenziale di Lugano',
+    'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Permessi di soggiorno in Svizzera: il permesso L a Obwalden',
+    'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'Il permesso L di breve durata è un permesso di soggiorno che può essere concesso per un massimo di 1 anno.',
+    'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Immagine di un permesso di soggiorno in Svizzera.',
 };
 
 export default blogMetaChIt;
