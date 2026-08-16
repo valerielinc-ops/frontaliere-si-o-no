@@ -29910,6 +29910,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'infortunio-lavoro-miglieglia',
+ category: 'pratico',
+ date: '2026-08-16T09:41:04.957Z',
+ image: '/images/blog/infortunio-lavoro-miglieglia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'calo-soggiorni-irregolari-luglio',
+ category: 'pratico',
+ date: '2026-08-16T09:52:56.304Z',
+ image: '/images/blog/calo-soggiorni-irregolari-luglio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

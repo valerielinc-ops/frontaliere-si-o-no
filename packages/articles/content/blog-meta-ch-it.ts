@@ -2824,6 +2824,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.investimenti-elettricit-svizzera.title': 'La Svizzera investe per prevenire penuria elettricità',
     'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse stima che quattro miliardi di franchi siano necessari per garantire riserve energetiche',
     'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investimenti in elettricità svizzera per prevenire penuria',
+    'blog.article.naturalizzazione-canton-uri-requisiti-e-procedura.title': 'Naturalizzazione canton Uri: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-uri-requisiti-e-procedura.excerpt': 'I requisiti e la procedura per la naturalizzazione nel canton Uri.',
+    'blog.article.naturalizzazione-canton-uri-requisiti-e-procedura.imageAlt': 'Una persona che cerca di ottenere la cittadinanza svizzera a Lugano.',
+    'blog.article.incidente-bici-rapperswil-jona.title': 'Cade dalla bici a Rapperswil-Jona: grave una 43enne',
+    'blog.article.incidente-bici-rapperswil-jona.excerpt': 'Una donna di 43 anni ha riportato ferite che ne mettono in pericolo la vita dopo una caduta in bicicletta a Rapperswil-Jona.',
+    'blog.article.incidente-bici-rapperswil-jona.imageAlt': 'Elicottero di soccorso in intervento in Svizzera',
+    'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Avviare un\'attività nel Cantone di Uri: cosa serve',
+    'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'Cosa bisogna sapere per aprire un\'attività nel Cantone di Uri. Istruzioni sulla scelta della forma giuridica, registrazione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lago di Lugano da nord-est',
 };
 
 export default blogMetaChIt;

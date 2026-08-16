@@ -68282,6 +68282,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infortunio-lavoro-miglieglia': {
+    title: 'Infortunio a Miglieglia: gravi le condizioni dell\'operaio caduto',
+    description: 'Grave infortunio sul lavoro a Miglieglia: addetto alla manutenzione stradale di 59 anni cade in un dirupo durante lavori di decespugliamento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, infortunio, miglieglia, gravi, condizioni',
+    ogTitle: 'Infortunio sul lavoro a Miglieglia: gravi le condizioni dell\'operaio',
+    ogDescription: 'Un addetto alla manutenzione stradale di 59 anni è caduto in un dirupo durante lavori di decespugliamento a Miglieglia. Condizioni critiche.',
+    canonicalPath: '/articoli-frontaliere/infortunio-lavoro-miglieglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infortunio a Miglieglia: gravi le condizioni dell'operaio caduto",
+      "description": "Grave infortunio sul lavoro a Miglieglia: addetto alla manutenzione stradale di 59 anni cade in un dirupo durante lavori di decespugliamento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infortunio-lavoro-miglieglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada cantonale nella regione del Luganese in Ticino"
+      },
+      "datePublished": "2026-08-16T09:41:05+00:00",
+      "dateModified": "2026-08-16T09:41:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infortunio-lavoro-miglieglia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calo-soggiorni-irregolari-luglio': {
+    title: 'Soggiorni irregolari in calo alla frontiera sud in luglio',
+    description: 'A luglio i casi di soggiorni irregolari registrati dall\'Udsc in Ticino sono scesi a 249 rispetto ai 336 di giugno. Tutti i dati ufficiali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, soggiorni, irregolari, calo, alla',
+    ogTitle: 'Soggiorni irregolari in calo alla frontiera sud in luglio',
+    ogDescription: 'Nel mese di luglio i casi di soggiorni irregolari registrati dall\'Ufficio federale della dogana e della sicurezza dei confini in Ticino sono stati 249.',
+    canonicalPath: '/articoli-frontaliere/calo-soggiorni-irregolari-luglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Soggiorni irregolari in calo alla frontiera sud in luglio",
+      "description": "A luglio i casi di soggiorni irregolari registrati dall'Udsc in Ticino sono scesi a 249 rispetto ai 336 di giugno. Tutti i dati ufficiali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-soggiorni-irregolari-luglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Posto di confine svizzero alla frontiera sud"
+      },
+      "datePublished": "2026-08-16T09:52:56+00:00",
+      "dateModified": "2026-08-16T09:52:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-soggiorni-irregolari-luglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
