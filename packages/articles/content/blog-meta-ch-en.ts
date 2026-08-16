@@ -2887,6 +2887,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Naturalization in the Canton of Svitto: requirements and procedure',
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'The naturalization procedure in Canton Svitto requires a residence permit C, 10 years of residence and other requirements',
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'A scene of a foreigner\'s life in Switzerland with a background of mountains and lake',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AVS and complementary services in the Canton of Schwyz: the compensation fund',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'The Canton of Schwyz has a compensation fund that manages AVS and supplementary benefits for its inhabitants.',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Image of a winter landscape in the Canton of Schwyz',
 };
 
 export default blogMetaChEn;

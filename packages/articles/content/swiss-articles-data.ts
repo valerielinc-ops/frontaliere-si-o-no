@@ -8659,6 +8659,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione',
+    category: 'pensione',
+    date: '2026-08-16T13:23:52.059Z',
+    image: '/images/blog/avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
