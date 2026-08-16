@@ -2941,6 +2941,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.massimo-boldi-ospedale.title': 'Massimo Boldi in ospedale dopo una caduta',
     'blog.article.massimo-boldi-ospedale.excerpt': 'L\'attore italiano Massimo Boldi è stato trasferito nel reparto di neurochirurgia dell\'ospedale di Livorno dopo una caduta avvenuta il pomeriggio del 13 agosto a Forte dei Marmi.',
     'blog.article.massimo-boldi-ospedale.imageAlt': 'Massimo Boldi ricoverato in ospedale dopo una caduta',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Mercato degli affitti nel Canton Obvaldo: canoni medi e diritto di locazione',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'Nel Canton Obvaldo, i canoni medi di affitto variano a seconda della zona. Il deposito cauzionale massimo è di 3 mesi di pigione.',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Vista aerea della città di Lugano, Svizzera, con un focus sul mercato dell\'abitazione e sui canoni di affitto.',
 };
 
 export default blogMetaChIt;

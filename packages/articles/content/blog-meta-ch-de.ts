@@ -2941,6 +2941,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.massimo-boldi-ospedale.title': 'Massimo Boldi nach einem Sturz im Krankenhaus',
     'blog.article.massimo-boldi-ospedale.excerpt': 'Der italienische Schauspieler Massimo Boldi wurde nach einem Sturz am Nachmittag des 13. August in Forte dei Marmi in die neurochirurgische Abteilung des Krankenhauses von Livorno versetzt.',
     'blog.article.massimo-boldi-ospedale.imageAlt': 'Schauspieler Massimo Boldi im Krankenhaus nach einem Sturz',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Mietmarkt im Kanton Obwalden: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'Im Kanton Obwalden variieren die durchschnittlichen Mieten je nach Gebiet. Die maximale Mietkaution beträgt 3 Monate.',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Luftbildansicht der Stadt Lugano, Schweiz, mit einem Fokus auf den Immobilienmarkt und die Mietpreise.',
 };
 
 export default blogMetaChDe;
