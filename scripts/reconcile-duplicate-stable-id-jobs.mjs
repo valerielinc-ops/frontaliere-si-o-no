@@ -46,11 +46,27 @@ const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
 const ONLY_FILES = new Set(args.filter((a) => a.endsWith('.json')));
 
-function pickWinner(jobs) {
+function previousSlugCount(job) {
+  if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') return 0;
+  return Object.values(job.previousSlugsByLocale).reduce(
+    (sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0),
+    0,
+  );
+}
+
+// Exported for tests: `crawledAt` ties (same-timestamp duplicates) must resolve
+// the same way on every run, not depend on Array.prototype.sort's input-order
+// stability. Secondary key prefers the record with more accumulated
+// previousSlugs (richer redirect/history data); a final `.url` compare
+// guarantees a total order regardless of input order.
+export function pickWinner(jobs) {
   return jobs.slice().sort((a, b) => {
     const ta = Date.parse(a.crawledAt || '') || 0;
     const tb = Date.parse(b.crawledAt || '') || 0;
-    return tb - ta;
+    if (tb !== ta) return tb - ta;
+    const countDiff = previousSlugCount(b) - previousSlugCount(a);
+    if (countDiff !== 0) return countDiff;
+    return String(a.url || '').localeCompare(String(b.url || ''));
   })[0];
 }
 
@@ -126,4 +142,11 @@ function main() {
   for (const line of report) console.log(`  - ${line}`);
 }
 
-main();
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main();
+}
