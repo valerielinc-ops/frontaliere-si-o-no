@@ -2920,6 +2920,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-obvaldo-2026.title': 'Family allowances in the Canton of Obvaldo: amounts and application',
     'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'The Canton of Obvaldo provides a family allowance for families with children.',
     'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Families with children in a residential area of Lugano',
+    'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Residence permits in Switzerland: the L permit in Obwalden',
+    'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'The short-term L permit is a residence permit that can be granted for a maximum of 1 year.',
+    'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Image of a Swiss residence permit.',
 };
 
 export default blogMetaChEn;

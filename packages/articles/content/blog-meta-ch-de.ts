@@ -2920,6 +2920,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-obvaldo-2026.title': 'Familienzulagen im Kanton Obwalden: Beträge und Antrag',
     'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'Der Kanton Obwalden gewährt Familien mit Kindern eine Familienzulage.',
     'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Familien mit Kindern in einem Wohngebiet von Lugano',
+    'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Aufenthaltsbewilligungen in der Schweiz: die Bewilligung L in Obwalden',
+    'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'Die Kurzaufenthaltsbewilligung L ist eine Aufenthaltsbewilligung, die für maximal 1 Jahr erteilt werden kann.',
+    'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Bild eines Schweizer Aufenthaltstitels.',
 };
 
 export default blogMetaChDe;

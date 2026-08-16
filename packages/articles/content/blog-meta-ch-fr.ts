@@ -2920,6 +2920,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-obvaldo-2026.title': 'Allocations familiales dans le canton d\'Obwald : montants et demande',
     'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'Le canton d\'Obwald verse une allocation familiale pour les familles avec enfants.',
     'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Familles avec enfants dans un quartier résidentiel de Lugano',
+    'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Permis de séjour en Suisse : le permis L à Obwalden',
+    'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'Le permis L de courte durée est un permis de séjour qui peut être accordé pour une durée maximale d\'un an.',
+    'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Image d\'un permis de séjour en Suisse.',
 };
 
 export default blogMetaChFr;
