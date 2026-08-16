@@ -35705,6 +35705,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-calo-immigrazione-emigrazione-2026': {
+    title: 'Svizzera: cala l\'immigrazione e cresce l\'emigrazione nel 2026',
+    description: 'Analisi ufficiale SEM sui flussi migratori in Svizzera nel 2026: calano immigrazione e migrazione netta, cresce l\'emigrazione dei residenti stranieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cala, immigrazione, cresce, emigrazione',
+    ogTitle: 'Svizzera: calo dell\'immigrazione e aumento delle partenze nel 2026',
+    ogDescription: 'I dati ufficiali della Segreteria di Stato della migrazione rivelano un rallentamento dei nuovi ingressi e una crescita delle partenze di residenti stranieri permanenti in Svizzera.',
+    canonicalPath: '/articoli-svizzera/svizzera-calo-immigrazione-emigrazione-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: cala l'immigrazione e cresce l'emigrazione nel 2026",
+      "description": "Analisi ufficiale SEM sui flussi migratori in Svizzera nel 2026: calano immigrazione e migrazione netta, cresce l'emigrazione dei residenti stranieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-calo-immigrazione-emigrazione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano in Svizzera con edifici federali"
+      },
+      "datePublished": "2026-08-16T03:40:20+00:00",
+      "dateModified": "2026-08-16T03:40:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-calo-immigrazione-emigrazione-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

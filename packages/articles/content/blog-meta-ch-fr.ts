@@ -2755,6 +2755,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Système scolaire Canton Uri : inscription et cycles',
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'Cycles scolaires, âge d\'inscription, calendrier scolaire, langues d\'enseignement et passage au lycée dans le canton d\'Uri.',
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'Le système scolaire dans le canton d\'Uri',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Suisse : baisse de l\'immigration et augmentation de l\'émigration en 2026',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analyse des données du Secrétariat d\'Etat aux migrations sur la population résidente permanente étrangère en Suisse au premier semestre 2026.',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Paysage urbain en Suisse avec des bâtiments fédéraux',
 };
 
 export default blogMetaChFr;

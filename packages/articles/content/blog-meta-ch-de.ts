@@ -2755,6 +2755,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Schulsystem Kanton Uri: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'Schulzyklen, Einschreibungsalter, Schulkalender, Unterrichtssprachen und Übergang in die Sekundarstufe II im Kanton Uri.',
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'Die Schule im Kanton Uri',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Schweiz: Einwanderung sinkt und Auswanderung steigt im Jahr 2026',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analyse der Daten des Staatssekretariats für Migration zur ausländischen ständigen Wohnbevölkerung in der Schweiz im ersten Halbjahr 2026.',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Stadtlandschaft in der Schweiz mit Bundesgebäuden',
 };
 
 export default blogMetaChDe;

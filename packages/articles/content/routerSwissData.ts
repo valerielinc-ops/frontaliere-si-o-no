@@ -944,6 +944,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-breve-durata-canton-uri': { it: 'permesso-l-breve-durata-canton-uri', en: 'permesso-l-short-duration-canton-uri', de: 'das-l-behoerde-kuerze-dauer-im-kanton-uri', fr: 'le-permis-l-de-duree-courte-dans-le-canton-uri' },
  'assegni-familiari-canton-uri': { it: 'assegni-familiari-canton-uri', en: 'assegni-familiari-canton-uri-en', de: 'assegni-familiari-canton-uri-de', fr: 'assegni-familiari-canton-uri-fr' },
  'sistema-scolastico-canton-uri-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-uri-iscrizione-e-cicli', en: 'school-system-canton-uri-enrollment-and-classes', de: 'schausystem-kanton-ur-einschreibung-und-klassen', fr: 'systeme-scolaire-canton-ur-inscription-et-classe' },
+ 'svizzera-calo-immigrazione-emigrazione-2026': { it: 'svizzera-calo-immigrazione-emigrazione-2026', en: 'switzerland-immigration-emigration-decline-2026', de: 'schweiz-rueckgang-einwanderung-auswanderung-2026', fr: 'suisse-baisse-immigration-emigration-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
