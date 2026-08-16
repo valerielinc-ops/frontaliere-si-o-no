@@ -2800,6 +2800,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-uri.title': 'Canton Uri Scholarships: Requirements and Amounts',
     'blog.article.borse-studio-canton-uri.excerpt': 'Results of the competition for scholarships Canton Uri: requirements, maximum amounts, deadlines for submission and competent cantonal office',
     'blog.article.borse-studio-canton-uri.imageAlt': 'Frontalier student with Uri Canton scholarship',
+    'blog.article.trump-ora-legale-senato-usa.title': 'Trump Asks Senate to Vote to Abolish Exchange Now',
+    'blog.article.trump-ora-legale-senato-usa.excerpt': 'US President Donald Trump urges the Senate to pass the Sunshine Protection Act as soon as possible to make daylight saving time stable.',
+    'blog.article.trump-ora-legale-senato-usa.imageAlt': 'The United States Capitol building in Washington where daylight saving time is discussed.',
 };
 
 export default blogMetaChEn;

@@ -8398,6 +8398,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'trump-ora-legale-senato-usa',
+    category: 'novita',
+    date: '2026-08-16T07:29:47.017Z',
+    image: '/images/blog/trump-ora-legale-senato-usa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
