@@ -2779,6 +2779,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-urie-2024-2025.title': 'Lehre im Kanton Uri: So geht\'s',
     'blog.article.apprendistato-urie-2024-2025.excerpt': 'Die Berufsausbildung ist für die Entwicklung einer stabilen und lohnenden beruflichen Laufbahn von grundlegender Bedeutung.',
     'blog.article.apprendistato-urie-2024-2025.imageAlt': 'Eine Lehrling in einem Labor im Kanton Uri',
+    'blog.article.offre-controllore-treno-multa.title': 'Bietet 20 Franken pro Kontrolleur, um kein Bußgeld zu zahlen, bewegt sich die BA',
+    'blog.article.offre-controllore-treno-multa.excerpt': 'Ein Mann bietet einem Bahnkontrolleur 20 Franken an, um die Strafe nicht zu bezahlen. Die Bundesstaatsanwaltschaft hat festgestellt, dass der Mann das Geld angeboten hat, damit der Zugbeamte auf die Geldbuße verzichtet und damit das Verbrechen der Korruption gestaltet.',
+    'blog.article.offre-controllore-treno-multa.imageAlt': 'Ein Mann bietet 20 Franken an einen Zugbediensteten.',
 };
 
 export default blogMetaChDe;

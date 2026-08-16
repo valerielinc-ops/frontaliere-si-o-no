@@ -2779,6 +2779,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-urie-2024-2025.title': 'Apprentissage dans le canton d\'Uri : comment ça marche',
     'blog.article.apprendistato-urie-2024-2025.excerpt': 'La formation professionnelle est essentielle au développement d\'une carrière professionnelle stable et enrichissante.',
     'blog.article.apprendistato-urie-2024-2025.imageAlt': 'Un apprenti dans un laboratoire du canton d\'Uri',
+    'blog.article.offre-controllore-treno-multa.title': 'Il offre 20 francs au contrôleur pour ne pas payer d\'amende, le MPC se déplace',
+    'blog.article.offre-controllore-treno-multa.excerpt': 'Un homme offre 20 francs à un contrôleur de train pour ne pas payer l\'amende. Le parquet fédéral a établi que l\'homme avait offert l\'argent pour que le fonctionnaire des trains renonce à l\'amende, constituant ainsi le délit de corruption.',
+    'blog.article.offre-controllore-treno-multa.imageAlt': 'Un homme offre 20 francs à un agent de train.',
 };
 
 export default blogMetaChFr;

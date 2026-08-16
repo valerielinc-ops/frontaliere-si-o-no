@@ -8335,6 +8335,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'offre-controllore-treno-multa',
+    category: 'pratico',
+    date: '2026-08-16T05:51:58.116Z',
+    image: '/images/blog/offre-controllore-treno-multa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
