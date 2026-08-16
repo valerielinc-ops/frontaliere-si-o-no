@@ -36446,6 +36446,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche': {
+    title: 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    description: 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema. Gli itinerari toccano il Piz Corvatsch, il VOR di Willisau, la Lägern',
+    keywords: 'frontalieri, ticino, svizzera, italia, luoghi, strategici, traffico, aereo',
+    ogTitle: 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    ogDescription: 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema. Gli itinerari toccano il Piz Corvatsch, il VOR di Willisau, la Lägern e il Monte Lema.',
+    canonicalPath: '/articoli-svizzera/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I luoghi strategici del traffico aereo diventano mete escursionistiche",
+      "description": "La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema. Gli itinerari toccano il Piz Corvatsch, il VOR di Willisau, la Lägern",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I luoghi strategici del traffico aereo diventano mete escursionistiche"
+      },
+      "datePublished": "2026-08-16T08:55:22+00:00",
+      "dateModified": "2026-08-16T08:55:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
