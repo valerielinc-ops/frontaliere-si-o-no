@@ -2911,6 +2911,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Primes caisse-maladie dans le canton d\'Obwald : réduction et franchises',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'La loi cantonale sur l\'assurance-maladie dans le canton d\'Obwald prévoit des tranches d\'âge et des franchises pour réduire les primes.',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'Une scène d\'un hôpital en Suisse avec des patients et des infirmières',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton d\'Obwald : taux et déductions',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Informations sur les impôts cantonaux dans le canton d\'Obwald, y compris les tranches, les déductions admises et les délais de livraison.',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Canton d\'Obvaldo, impôts cantonaux, taux, déductions',
 };
 
 export default blogMetaChFr;

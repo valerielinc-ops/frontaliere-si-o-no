@@ -2911,6 +2911,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Krankenkassenprämien im Kanton Obwalden: Reduktion und Franchisen',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'Das kantonale Krankenversicherungsgesetz im Kanton Obwalden sieht Altersgruppen und Franchisen zur Prämienverbilligung vor.',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'Eine Szene eines Krankenhauses in der Schweiz mit Patienten und Krankenschwestern',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Obwalden: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Informationen zu den kantonalen Steuern im Kanton Obwalden inkl. Staffeln, zulässigen Abzügen und Lieferfristen.',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Kanton Obvaldo, kantonale Steuern, Sätze, Abzüge',
 };
 
 export default blogMetaChDe;

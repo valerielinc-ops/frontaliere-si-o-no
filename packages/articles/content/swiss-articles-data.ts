@@ -8731,6 +8731,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposte-cantonal-obvaldo-aliquote-deduzioni',
+    category: 'fiscale',
+    date: '2026-08-16T15:56:46.963Z',
+    image: '/images/blog/imposte-cantonal-obvaldo-aliquote-deduzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

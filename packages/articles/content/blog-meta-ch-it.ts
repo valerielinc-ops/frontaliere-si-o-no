@@ -2911,6 +2911,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Premi cassa malati nel Cantone di Obvaldo: riduzione e franchigie',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'La legge cantonale sulle assicurazioni malattie nel Cantone di Obvaldo prevede fasce di età e franchigie per ridurre i premi.',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'Una scena di un ospedale in Svizzera con pazienti e infermiere',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone di Obvaldo: aliquote e deduzioni',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Informazioni sulle imposte cantonali nel Cantone di Obvaldo, inclusi gli scaglioni, le deduzioni ammesse e le scadenze di consegna.',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Cantone di Obvaldo, imposte cantonali, aliquote, deduzioni',
 };
 
 export default blogMetaChIt;
