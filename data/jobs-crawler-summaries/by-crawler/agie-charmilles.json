@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-16T09:57:51.256Z",
+  "generatedAt": "2026-08-16T21:45:57.915Z",
   "total": 32,
   "newCount": 0,
   "updatedCount": 30,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 52904,
-  "avgDurationMs": 52904,
+  "durationMs": 48501,
+  "avgDurationMs": 48501,
   "durationHistory": [
-    52904
+    48501
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -730,6 +730,7 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -954,6 +955,7 @@
       "streetAddress": "Via Goldau 7",
       "postalCode": "6616",
       "firstSeenAt": "2026-07-28T12:04:39.538Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1115,44 +1117,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Payroll Expert SAP",
-      "slug": "payroll-expert-sap-agie-charmilles-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-payroll-expert-sap/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/a704407c1b2693ba8ca8850304551c0a79289e8a2d72ba62b0b549a6359859cb7a0098d84261c8ac10da93eab9eecf2e991dec723338da923f0770c33d94cf",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-7581b0c16696",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-08T10:03:39.197Z",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
