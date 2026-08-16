@@ -2788,6 +2788,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Apprentissage dans le canton d\'Uri : comment trouver une place d\'apprentissage',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'Le canton d\'Uri offre des possibilités d\'apprentissage et de formation professionnelle aux frontaliers. Découvrez comment trouver un lieu de stage, un contrat de stage, la rémunération de l\'apprenti et la maturité professionnelle.',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontalier engagé dans un apprentissage professionnel dans le canton d\'Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.title': 'Apprentissage et formation dans le canton d\'Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.excerpt': 'Voici les faits clés sur l\'apprentissage et la formation professionnelle dans le canton d\'Uri : comment trouver un poste d\'apprentissage, contrat d\'apprentissage, rémunération de l\'apprenti et maturité professionnelle.',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.imageAlt': 'Une vue de Lugano, Suisse, qui met en évidence l\'importance de la formation professionnelle et de l\'apprentissage dans le canton d\'Uri.',
 };
 
 export default blogMetaChFr;

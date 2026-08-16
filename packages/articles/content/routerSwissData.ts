@@ -955,6 +955,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'offre-controllore-treno-multa': { it: 'offre-controllore-treno-multa', en: 'offering-train-conductor-fine', de: 'angebot-zugbediensteter-bu-geld', fr: 'offrir-au-conducteur-de-train-amende' },
  'coppa-svizzera-risultati-partiti': { it: 'coppa-svizzera-risultati-partiti', en: 'swiss-cup-match-results', de: 'schweizer-cup-spielresultate', fr: 'resultats-matchs-coupe-suisse' },
  'apprendistato-e-formazione-professionale-canton-uri': { it: 'apprendistato-e-formazione-professionale-canton-uri', en: 'apprenticeship-and-professional-training-in-canton-uri', de: 'lehrlingsverhaltnis-und-berufliche-ausbildung-im-kanton-uri', fr: 'apprentissage-et-formation-professionnelle-au-canton-d-uri' },
+ 'apprendistato-formazione-professionale-canton-uri': { it: 'apprendistato-formazione-professionale-canton-uri', en: 'apprenticeship-training-canton-uri', de: 'berufsausbildung-praktikum-kanton-uri', fr: 'formation-professionnelle-apprentissage-canton-uri' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

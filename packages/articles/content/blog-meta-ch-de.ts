@@ -2788,6 +2788,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Lehre im Kanton Uri: So finden Sie eine Lehrstelle',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'Der Kanton Uri bietet Grenzgängerinnen und Grenzgängern Lehr- und Berufsbildungsmöglichkeiten. Erfahren Sie, wie Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität finden.',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontalier, der sich in einem beruflichen Lehrlingsverhältnis im Kanton Uri engagiert',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.title': 'Lehre und Ausbildung im Kanton Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.excerpt': 'Hier finden Sie die wichtigsten Fakten zur Lehre und Berufsbildung im Kanton Uri: Wie finden Sie eine Lehrstelle, einen Lehrvertrag, die Lehrlingsvergütung und die Berufsmaturität.',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.imageAlt': 'Eine Aussicht auf Lugano, Schweiz, die die Bedeutung der Berufsausbildung und des Praktikums im Kanton Uri hervorhebt.',
 };
 
 export default blogMetaChDe;
