@@ -2944,6 +2944,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Mercato degli affitti nel Canton Obvaldo: canoni medi e diritto di locazione',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'Nel Canton Obvaldo, i canoni medi di affitto variano a seconda della zona. Il deposito cauzionale massimo è di 3 mesi di pigione.',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Vista aerea della città di Lugano, Svizzera, con un focus sul mercato dell\'abitazione e sui canoni di affitto.',
+    'blog.article.incendio-monte-gambarogno.title': 'Incendio sul Monte Gambarogno, pompieri già al lavoro',
+    'blog.article.incendio-monte-gambarogno.excerpt': 'Un incendio boschivo è divampato sul Monte Gambarogno. Le autorità invitano a non recarsi nella zona interessata.',
+    'blog.article.incendio-monte-gambarogno.imageAlt': 'Incendio sul Monte Gambarogno, pompieri già al lavoro',
 };
 
 export default blogMetaChIt;

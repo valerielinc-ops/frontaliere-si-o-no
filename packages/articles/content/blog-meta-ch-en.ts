@@ -2944,6 +2944,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Rental market in the canton of Obvaldo: average fees and rental rights',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'In the Canton of Obvaldo, the average rental fees vary depending on the area. The maximum security deposit is 3 months\' rent.',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Aerial view of the city of Lugano, Switzerland, with a focus on the housing market and rental prices.',
+    'blog.article.incendio-monte-gambarogno.title': 'Monte Gambarogno fire, firefighters already at work',
+    'blog.article.incendio-monte-gambarogno.excerpt': 'A forest fire broke out on Mount Gambarogno. The authorities invite you not to go to the affected area.',
+    'blog.article.incendio-monte-gambarogno.imageAlt': 'Incendio sul Monte Gambarogno, pompieri già al lavoro',
 };
 
 export default blogMetaChEn;
