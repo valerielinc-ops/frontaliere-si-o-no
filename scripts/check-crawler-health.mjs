@@ -42,6 +42,17 @@
  *   - warming_up        → never observed before, freshness OK, and empty
  *                         (do NOT flag — wait until we have history)
  *
+ * Auto-detected filtered-empty (issue #5945): a summary slice MAY report
+ * `discovered` (count found before the crawler's Swiss/location filter) and
+ * `written` (count kept after it) for a given run. When `discovered > 0` and
+ * `written === 0`, the run legitimately filtered everything out rather than
+ * finding nothing — the monitor treats this the same as an `EMPTY_OK_CRAWLERS`
+ * entry (see `nextCrawlerState`), without needing a human to add the slug to
+ * the allowlist first. Crawlers that don't report these fields keep behaving
+ * exactly as before (manual allowlist only). Only `scripts/update-baronie-jobs.mjs`
+ * reports them today; instrumenting the rest of the fleet is incremental,
+ * per-crawler follow-up (each has a bespoke discover/filter boundary).
+ *
  * Follow-up (not in this script): adding `lastFetchOutcome` to each summary
  * slice — values like "ok" / "anti_bot_block" / "selector_miss" /
  * "filtered_empty" — would let the monitor distinguish a fetch failure from
@@ -670,10 +681,13 @@ async function listCrawlerSlugs() {
  * skipped. `activeJobCount` and `assembledAt` degrade to 0/null in that case.
  *
  * Returns `{ slug, freshnessAt, freshnessSource, assembledAt, generatedAt,
- * jobCount, activeJobCount }`:
+ * jobCount, activeJobCount, discovered, written }`:
  *   - `freshnessAt` is the timestamp the stale gate compares against
  *     (summary `generatedAt` when present, otherwise by-crawler `assembledAt`).
  *   - `freshnessSource` is `'summary' | 'by-crawler' | 'mtime' | 'none'`.
+ *   - `discovered`/`written` are the optional pre-/post-filter counts a
+ *     crawler MAY report on its summary slice (issue #5945); `null` when
+ *     absent.
  */
 async function inspectCrawler(slug) {
   const sliceFilePath = path.join(BY_CRAWLER_DIR, `${slug}.json`);
@@ -726,6 +740,16 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && Number.isFinite(Number(summary.total))
       ? Number(summary.total)
       : null;
+  // Optional pre-/post-filter counts (issue #5945) — null when the crawler
+  // hasn't been instrumented to report them yet.
+  const discovered =
+    summary && typeof summary === 'object' && Number.isFinite(Number(summary.discovered))
+      ? Number(summary.discovered)
+      : null;
+  const written =
+    summary && typeof summary === 'object' && Number.isFinite(Number(summary.written))
+      ? Number(summary.written)
+      : null;
   // For crawler health, count what the crawler found, not what later
   // housekeeping kept in the active slice. URL cleanup has its own failure
   // surface; otherwise a cleanup false positive is mislabeled as a parser
@@ -758,6 +782,8 @@ async function inspectCrawler(slug) {
     generatedAt,
     jobCount,
     activeJobCount,
+    discovered,
+    written,
   };
 }
 
@@ -772,13 +798,27 @@ async function inspectCrawler(slug) {
  *
  * `freshnessAt` is the summary slice's `generatedAt` when present, otherwise
  * the by-crawler slice's `assembledAt`. See `inspectCrawler` for details.
+ *
+ * `emptyOk` (no verification-live needed to treat a 0-job run as healthy) is
+ * true either for a manually-curated `EMPTY_OK_CRAWLERS` slug, OR — issue
+ * #5945 — when the observation itself proves the run found candidates but
+ * its Swiss/location filter dropped all of them (`discovered > 0` and
+ * `jobCount === 0`). The latter needs no allowlist entry: the run's own
+ * counts already distinguish "filtered" from "broken".
  */
 function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previous = prev && typeof prev === 'object' ? prev : {};
   const hadPriorState = Boolean(prev);
   const lastObservedJobs = observation.jobCount;
 
-  const emptyOk = EMPTY_OK_CRAWLERS.has(observation.slug);
+  const hasDiscoveredSignal =
+    observation.discovered !== undefined &&
+    observation.discovered !== null &&
+    Number.isFinite(observation.discovered);
+  const autoFilteredEmpty =
+    hasDiscoveredSignal && observation.discovered > 0 && lastObservedJobs === 0;
+
+  const emptyOk = EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty;
   const consecutiveEmptyRuns =
     lastObservedJobs > 0 || emptyOk ? 0 : (previous.consecutiveEmptyRuns ?? 0) + 1;
 
@@ -845,6 +885,9 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedFreshnessSource: freshnessSource,
       _lastObservedAssembledAt: observation.assembledAt ?? null,
       _lastObservedGeneratedAt: observation.generatedAt ?? null,
+      _lastObservedDiscoveredCount: hasDiscoveredSignal ? observation.discovered : null,
+      _lastObservedWrittenCount: observation.written ?? null,
+      _autoFilteredEmpty: autoFilteredEmpty,
     },
     reason,
     status,
