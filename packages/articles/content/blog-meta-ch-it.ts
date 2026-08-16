@@ -2899,6 +2899,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-svitto.title': 'Scegliere la forma giuridica a Svitto',
     'blog.article.aprire-un-attivita-canton-svitto.excerpt': 'Cosa serve per aprire un\'attività nel Cantone di Svitto: forma giuridica, registro di commercio e costi.',
     'blog.article.aprire-un-attivita-canton-svitto.imageAlt': 'Il Cantone di Svitto: scelta della forma giuridica per aprire un\'attività',
+    'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.title': 'Sviluppare un\'attività a Svitto: scelta della forma giuridica e obblighi',
+    'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.excerpt': 'Scopri come aprire un\'attività nel Cantone di Svitto. Informazioni sulla scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.imageAlt': 'Un imprenditore sta compilando un modulo di registrazione per l\'attività commerciale nel Cantone di Svitto.',
 };
 
 export default blogMetaChIt;
