@@ -35900,6 +35900,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-moeriken-2024': {
+    title: 'Incendio boschivo a Möriken, fumo denso e allerta alla popolazione',
+    description: 'Un incendio boschivo scoppiato a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, boschivo, möriken, fumo',
+    ogTitle: 'Incendio boschivo a Möriken, fumo denso e allerta alla popolazione',
+    ogDescription: 'Un incendio boschivo scoppiato a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo.',
+    canonicalPath: '/articoli-svizzera/incendio-moeriken-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio boschivo a Möriken, fumo denso e allerta alla popolazione",
+      "description": "Un incendio boschivo scoppiato a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-moeriken-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un incendio boschivo a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo."
+      },
+      "datePublished": "2026-08-16T05:08:46+00:00",
+      "dateModified": "2026-08-16T05:08:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incendio-moeriken-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

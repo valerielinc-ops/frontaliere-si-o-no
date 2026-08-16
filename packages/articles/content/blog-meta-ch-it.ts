@@ -2770,6 +2770,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.multa-treni-zurigo-corruzione.title': 'Evita la multa con 20 franchi: condannato 61enne a Zurigo',
     'blog.article.multa-treni-zurigo-corruzione.excerpt': 'Un passeggero ha tentato di corrompere un controllore ferroviario con una banconota da 20 franchi per evitare una sanzione. Ora affronta una pesante condanna penale.',
     'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Controllore dei treni in servizio su un convoglio delle FFS a Zurigo',
+    'blog.article.incendio-moeriken-2024.title': 'Incendio boschivo a Möriken, fumo denso e allerta alla popolazione',
+    'blog.article.incendio-moeriken-2024.excerpt': 'Un incendio boschivo scoppiato a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo.',
+    'blog.article.incendio-moeriken-2024.imageAlt': 'Un incendio boschivo a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo.',
 };
 
 export default blogMetaChIt;

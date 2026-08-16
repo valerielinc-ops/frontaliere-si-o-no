@@ -2770,6 +2770,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.multa-treni-zurigo-corruzione.title': 'Vermeiden Sie eine Geldstrafe von 20 Franken: 61-Jähriger in Zürich verurteilt',
     'blog.article.multa-treni-zurigo-corruzione.excerpt': 'Ein Passagier versuchte, einen Bahnkontrolleur mit einer 20-Franken-Note zu bestechen, um einer Strafe zu entgehen. Nun steht er einer schweren strafrechtlichen Verurteilung gegenüber.',
     'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Zugkontrolleur im Dienst in einem SBB-Zug in Zürich',
+    'blog.article.incendio-moeriken-2024.title': 'Waldbrand in Möriken, dichter Rauch und Alarmierung der Bevölkerung',
+    'blog.article.incendio-moeriken-2024.excerpt': 'Ein Waldbrand in Möriken im Kanton Aargau verursacht eine starke Rauchentwicklung.',
+    'blog.article.incendio-moeriken-2024.imageAlt': 'Ein Waldbrand in Möriken, im Kanton Aargau, verursacht einen starken Rauchentwicklung.',
 };
 
 export default blogMetaChDe;
