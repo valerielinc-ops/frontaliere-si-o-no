@@ -2764,6 +2764,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanzioni-onu-aggiornamento-2026.title': 'UNO-Sanktions-Update: Was ändert sich für die Schweiz?',
     'blog.article.sanzioni-onu-aggiornamento-2026.excerpt': 'Die SESAM-Datenbank wurde in ähnlicher Weise aktualisiert.',
     'blog.article.sanzioni-onu-aggiornamento-2026.imageAlt': 'Foto eines Regierungsgebäudes in der Schweiz mit einem Gefühl von Ernsthaftigkeit und Bedeutung.',
+    'blog.article.eclissi-danni-retina.title': 'Sonne finsternis und unsichtbare Netzhautschäden',
+    'blog.article.eclissi-danni-retina.excerpt': 'Schweizer Augenarztpraxen verzeichnen nach der Sonnenfinsternis am Mittwoch einen Anstieg der Anfragen.',
+    'blog.article.eclissi-danni-retina.imageAlt': 'Person mit Sonnenbrille beim Beobachten einer Sonnenfinsternis',
 };
 
 export default blogMetaChDe;

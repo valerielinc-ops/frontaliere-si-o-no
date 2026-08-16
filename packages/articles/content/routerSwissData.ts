@@ -947,6 +947,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-calo-immigrazione-emigrazione-2026': { it: 'svizzera-calo-immigrazione-emigrazione-2026', en: 'switzerland-immigration-emigration-decline-2026', de: 'schweiz-rueckgang-einwanderung-auswanderung-2026', fr: 'suisse-baisse-immigration-emigration-2026' },
  'tendicione-arresti-veicoli-ricerca-2024': { it: 'tendicione-arresti-veicoli-ricerca-2024', en: 'tendicione-arresti-veicoli-2024', de: 'tendicione-arresti-veicoli-2024', fr: 'tendicione-arresti-veicoli-2024' },
  'sanzioni-onu-aggiornamento-2026': { it: 'sanzioni-onu-aggiornamento-2026', en: 'sanctions-2026-aggiornamento', de: 'sanktionen-2026-aktualisierung', fr: 'sanctions-2026-mise-a-jour' },
+ 'eclissi-danni-retina': { it: 'eclissi-danni-retina', en: 'solar-eclipse-eye-damage', de: 'sonnenfinsternis-augen-schaden', fr: 'eclipse-solaire-blessures-oculaires' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2764,6 +2764,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sanzioni-onu-aggiornamento-2026.title': 'UN Sanctions Update: What\'s Changing for Switzerland?',
     'blog.article.sanzioni-onu-aggiornamento-2026.excerpt': 'The SESAM database has been updated in a similar manner.',
     'blog.article.sanzioni-onu-aggiornamento-2026.imageAlt': 'Photo of a government building in Switzerland with a sense of seriousness and importance.',
+    'blog.article.eclissi-danni-retina.title': 'The solar eclipse and those damages to the retina that can go unnoticed',
+    'blog.article.eclissi-danni-retina.excerpt': 'Swiss eye studies register an increase in requests after Wednesday\'s solar eclipse.',
+    'blog.article.eclissi-danni-retina.imageAlt': 'Person wearing sunglasses while observing a solar eclipse',
 };
 
 export default blogMetaChEn;

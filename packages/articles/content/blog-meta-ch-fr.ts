@@ -2764,6 +2764,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanzioni-onu-aggiornamento-2026.title': 'Mise à jour des sanctions de l\'ONU : qu\'est-ce qui change pour la Suisse ?',
     'blog.article.sanzioni-onu-aggiornamento-2026.excerpt': 'La base de données SESAM a été mise à jour de la même manière.',
     'blog.article.sanzioni-onu-aggiornamento-2026.imageAlt': 'Photo d\'un bâtiment gouvernemental en Suisse avec un sens de gravité et d\'importance.',
+    'blog.article.eclissi-danni-retina.title': 'L\'éclipse solaire et les dommages à la rétine qui peuvent passer inaperçus',
+    'blog.article.eclissi-danni-retina.excerpt': 'Les cabinets d\'ophtalmologie suisses enregistrent une augmentation des demandes après l\'éclipse solaire de mercredi.',
+    'blog.article.eclissi-danni-retina.imageAlt': 'Personne portant des lunettes de soleil en observant un éclipse solaire',
 };
 
 export default blogMetaChFr;
