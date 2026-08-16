@@ -9992,6 +9992,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Twinning sixth calende castelletto Ticino',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'The twinning of the Assumption between Sesto Calende and Castelletto Ticino has been renewed for the 26th time',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'A frontaliere watches the Assumption procession in Castelletto Ticino',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.title': 'Checks in three rooms: irregularities in hygiene, work and safety',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.excerpt': 'The State Police of Varese carried out checks in three public establishments between Busto Arsizio and Gallarate, finding several irregularities in administrative, sanitary and occupational safety matters.',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.imageAlt': 'Image of a Busto Arsizio bar with police officers inside',
 };
 
 export default blogMetaEn;

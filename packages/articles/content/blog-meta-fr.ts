@@ -9994,6 +9994,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Jumelage sixième cale châtaigne Tessin',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'Le jumelage de l\'Assomption entre Sesto Calende et Castelletto Ticino a été renouvelé pour la 26e fois',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'Un frontalier assiste à la procession de l\'Assomption à Castelletto Ticino',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.title': 'Contrôle dans 3 locaux : irrégularités sur l\'hygiène et la sécurité',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.excerpt': 'La Police d\'État de Varese a effectué des contrôles dans trois établissements publics entre Busto Arsizio et Gallarate, constatant plusieurs irrégularités en matière administrative, d\'hygiène et de sécurité au travail.',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.imageAlt': 'Image d\'une barre de Busto Arsizio avec des policiers à l\'intérieur',
 };
 
 export default blogMetaFr;
