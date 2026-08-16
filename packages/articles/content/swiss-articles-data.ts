@@ -8452,6 +8452,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-uri-canoni-medi-e-diritto-di-locazione',
+    category: 'fiscale',
+    date: '2026-08-16T09:05:47.487Z',
+    image: '/images/blog/affitti-uri-canoni-medi-e-diritto-di-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

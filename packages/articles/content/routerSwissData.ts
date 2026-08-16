@@ -965,6 +965,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'neutralita-iniziativa-sinistra': { it: 'neutralita-iniziativa-sinistra', en: 'left-wing-votes-yes-on-neutrality-initiative', de: 'links-waehlt-ja-zur-neutraleitatsinitiative', fr: 'gauche-soutient-l-iniative-de-la-neutralite' },
  'luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche': { it: 'luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche', en: 'strategic-air-traffic-locations-become-hiking-destinations', de: 'strategische-luftverkehrsstandorte-werden-zu-wanderzielen', fr: 'emplacements-strategiques-du-trafic-aerien-deviennent-des-destinations-de' },
  'canicola-siccita-produttori-formaggio-svizzera': { it: 'canicola-siccita-produttori-formaggio-svizzera', en: 'heatwave-drought-cheese-producers-switzerland', de: 'hitzewelle-durre-kase-produzenten-schweiz', fr: 'canicule-secheresse-producteurs-fromage-suisse' },
+ 'affitti-uri-canoni-medi-e-diritto-di-locazione': { it: 'affitti-uri-canoni-medi-e-diritto-di-locazione', en: 'uri-lease-fees-and-rights', de: 'uri-miete-und-pacht', fr: 'uri-redevances-et-droits-de-location' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2818,6 +2818,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Drought and heatwave are putting cheese producers in crisis',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'Heatwave and summer drought affect cheese and milk producers in Switzerland, with production declines and additional costs for fodder.',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Cows grazing in a Swiss meadow affected by drought',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: lease fees and rights',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'The maximum security deposit is 3 months\' rent.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Image of an apartment for rent in Lugano with a view of the lake.',
 };
 
 export default blogMetaChEn;

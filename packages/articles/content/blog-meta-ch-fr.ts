@@ -2818,6 +2818,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'La sécheresse et la canicule mettent en crise les producteurs de fromage',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'La canicule et la sécheresse estivale frappent les producteurs de fromage et de lait en Suisse, avec des baisses de production et des coûts supplémentaires pour le fourrage.',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Vaches paturant dans un pre suisse touche par la secheresse',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'URI : redevances et droits de location',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Le dépôt de garantie maximum est de 3 mois de loyer.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Image d\'un appartement à louer à Lugano avec vue sur le lac.',
 };
 
 export default blogMetaChFr;

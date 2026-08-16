@@ -2818,6 +2818,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Siccità e canicola mettono in crisi i produttori di formaggio',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'La canicola e la siccità estiva colpiscono i produttori di formaggio e latte in Svizzera, con cali produttivi e costi aggiuntivi per il foraggio.',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Mucche al pascolo in un prato svizzero colpito dalla siccita',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: canoni e diritti di locazione',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Il deposito cauzionale massimo è di 3 mesi di pigione.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Immagine di un appartamento in affitto a Lugano con vista sul lago.',
 };
 
 export default blogMetaChIt;
