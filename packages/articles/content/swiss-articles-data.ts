@@ -8902,6 +8902,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-08-16T19:18:57.651Z',
+    image: '/images/blog/permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

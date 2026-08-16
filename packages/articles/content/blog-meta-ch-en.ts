@@ -2968,6 +2968,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-obvaldo.title': 'Starting a business in the Canton of Obvaldo: choice and obligations',
     'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'The data necessary to open a business in the Canton of Obvaldo are the following: legal form, registration in the trade register, minimum capital, registration fees and insurance obligations.',
     'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Start a business in the Canton of Obvaldo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Residence permit B in the Canton of Nidvaldo: requirements and renewal',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'The residence permit B in the Canton of Nidvaldo is an important document for border workers who wish to reside in the canton.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'The B permit in the Nidvaldo Canton',
 };
 
 export default blogMetaChEn;
