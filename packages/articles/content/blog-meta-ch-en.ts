@@ -2860,6 +2860,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Short-term permit L in the Canton of Svitto: validity and extension',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Facts and figures on the validity and extension of the short-term permit L in the Canton of Schwyz',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Image of a frontier worker with a short-term L permit in Switzerland',
+    'blog.article.assegni-familiari-canton-svitto.title': 'Family allowances in the Canton of Svitto: monthly amounts and legal conditions',
+    'blog.article.assegni-familiari-canton-svitto.excerpt': 'The Canton of Switzerland grants family allowances to Swiss citizens and resident foreigners. Here are the requirements and conditions to apply for them.',
+    'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Editorial image related to: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
 };
 
 export default blogMetaChEn;

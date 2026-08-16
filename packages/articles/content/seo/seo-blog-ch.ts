@@ -37070,6 +37070,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-canton-svitto': {
+    title: 'Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
+    description: 'Informazioni sui requisiti e le condizioni per richiedere l\'assegno familiare nel Cantone di Svitto. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, cantone, svitto',
+    ogTitle: 'Assegni familiari nel Cantone di Svitto',
+    ogDescription: 'Informazioni sui requisiti e le condizioni per richiedere l\'assegno familiare nel Cantone di Svitto.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-canton-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto",
+      "description": "Informazioni sui requisiti e le condizioni per richiedere l'assegno familiare nel Cantone di Svitto. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-canton-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto"
+      },
+      "datePublished": "2026-08-16T11:44:02+00:00",
+      "dateModified": "2026-08-16T11:44:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-canton-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

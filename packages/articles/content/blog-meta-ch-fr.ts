@@ -2860,6 +2860,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Schwyz : validité et prolongation',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Faits et chiffres sur la validité et la prolongation du permis L de courte durée dans le canton de Schwyz',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Image d\'un travailleur frontalier avec un permis L de courte durée en Suisse',
+    'blog.article.assegni-familiari-canton-svitto.title': 'Assegni familiari nel Cantone di Svitto',
+    'blog.article.assegni-familiari-canton-svitto.excerpt': 'Le canton de Schwyz accorde des allocations familiales aux ressortissants suisses et étrangers résidents. Voici les exigences et les conditions pour les demander.',
+    'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Image éditoriale relative à: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
 };
 
 export default blogMetaChFr;
