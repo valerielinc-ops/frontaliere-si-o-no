@@ -2746,6 +2746,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-ur-canton.title': 'Autorisation L URI : durée maximale et conditions',
     'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'Le permis L de courte durée dans le canton d\'Uri : qu\'est-ce que c\'est, comment l\'obtenir, limites et restrictions',
     'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontalier consultant un avocat à Lugano',
+    'blog.article.permesso-l-breve-durata-canton-uri.title': 'Permis L de courte durée dans le canton d\'Uri : validité et prolongation',
+    'blog.article.permesso-l-breve-durata-canton-uri.excerpt': 'Le permis L de courte durée dans le canton d\'Uri est valable pour un maximum de <<non ancora specificato>>.',
+    'blog.article.permesso-l-breve-durata-canton-uri.imageAlt': 'Le permis L de durée courte dans le Canton Uri: ce qui se passe si?',
 };
 
 export default blogMetaChFr;

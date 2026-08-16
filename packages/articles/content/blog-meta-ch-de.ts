@@ -2746,6 +2746,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-ur-canton.title': 'Erlaubnis L Uri: maximale Dauer und Bedingungen',
     'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'Der Kurzzeitausweis L im Kanton Uri: was es ist, wie man es bekommt, Grenzen und Einschränkungen',
     'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontalier, der sich in Lugano mit einem Anwalt berät',
+    'blog.article.permesso-l-breve-durata-canton-uri.title': 'Kurzfristige L-Bewilligungen im Kanton Uri: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-breve-durata-canton-uri.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Uri gilt für maximal <<non ancora specificato>>.',
+    'blog.article.permesso-l-breve-durata-canton-uri.imageAlt': 'Das L-Behörde für kurze Dauer im Kanton Uri: was passiert wenn?',
 };
 
 export default blogMetaChDe;

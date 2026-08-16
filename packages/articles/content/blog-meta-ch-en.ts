@@ -2746,6 +2746,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-ur-canton.title': 'L URI Permit: maximum duration and conditions',
     'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'The short-term L permit in the Canton of Uri: what it is, how to obtain it, limits and restrictions',
     'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontaliere consulting a lawyer in Lugano',
+    'blog.article.permesso-l-breve-durata-canton-uri.title': 'Short-term L permits in Canton Uri: validity and extension',
+    'blog.article.permesso-l-breve-durata-canton-uri.excerpt': 'The short-term L permit in Canton Uri is valid for a maximum of <<non ancora specificato>>.',
+    'blog.article.permesso-l-breve-durata-canton-uri.imageAlt': 'The L permit of short duration in the Canton Uri: what happens if?',
 };
 
 export default blogMetaChEn;

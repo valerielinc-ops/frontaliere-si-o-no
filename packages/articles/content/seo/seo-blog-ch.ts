@@ -35588,6 +35588,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-canton-uri': {
+    title: 'Permessi L di breve durata nel Canton Uri: validità e proroga',
+    description: 'Il permesso L di breve durata nel Canton Uri è un tipo di permesso per stranieri. La validità di questo permesso non è specificata nella fonte. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, breve, durata, canton',
+    ogTitle: 'Permessi L di breve durata nel Canton Uri: validità e proroga',
+    ogDescription: 'Il permesso L di breve durata nel Canton Uri è un tipo di permesso per stranieri. La validità di questo permesso non è specificata nella fonte.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-canton-uri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi L di breve durata nel Canton Uri: validità e proroga",
+      "description": "Il permesso L di breve durata nel Canton Uri è un tipo di permesso per stranieri. La validità di questo permesso non è specificata nella fonte. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-canton-uri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il permesso L di breve durata nel Canton Uri: cosa succede se?"
+      },
+      "datePublished": "2026-08-16T02:29:19+00:00",
+      "dateModified": "2026-08-16T02:29:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-canton-uri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
