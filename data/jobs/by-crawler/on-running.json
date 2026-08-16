@@ -1,6 +1,6 @@
 {
   "crawlerKey": "on-running",
-  "assembledAt": "2026-08-15T21:31:01.398Z",
+  "assembledAt": "2026-08-16T10:14:25.991Z",
   "jobs": [
     {
       "id": "on-running-4d8abe10a840",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7917274?gh_jid=7917274",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.615Z",
+      "crawledAt": "2026-08-16T10:14:19.132Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -58,14 +58,18 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "staff-security-engineer-platform-on-running-ch"
+          "staff-security-engineer-platform-on-running-ch",
+          "lead-platform-security-engineer-on-running-ch"
         ],
         "it": [
-          "staff-security-engineer-platform-on-running-ch"
+          "staff-security-engineer-platform-on-running-ch",
+          "lead-platform-security-ingegnere-on-running-zurich"
         ]
       },
       "previousSlugs": [
-        "staff-security-engineer-platform-on-running-ch"
+        "staff-security-engineer-platform-on-running-ch",
+        "lead-platform-security-engineer-on-running-ch",
+        "lead-platform-security-ingegnere-on-running-zurich"
       ],
       "firstSeenAt": "2026-08-14T10:16:45.847Z",
       "salaryMin": 73500,
@@ -112,7 +116,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984586?gh_jid=7984586",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.613Z",
+      "crawledAt": "2026-08-16T10:14:19.130Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -136,14 +140,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "specialist-material-quality-on-running-ch"
+        "specialist-material-quality-on-running-ch",
+        "specialista-material-quality-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-material-quality-on-running-ch"
+          "specialist-material-quality-on-running-ch",
+          "specialista-material-quality-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.099Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -188,7 +195,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7765598?gh_jid=7765598",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.612Z",
+      "crawledAt": "2026-08-16T10:14:19.128Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -212,11 +219,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-smu-designer-ftw-on-running-ch"
+        "senior-specialist-smu-designer-ftw-on-running-ch",
+        "senior-specialista-smu-designer-ftw-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-smu-designer-ftw-on-running-ch"
+          "senior-specialist-smu-designer-ftw-on-running-ch",
+          "senior-specialista-smu-designer-ftw-on-running-zurich"
         ],
         "de": [
           "senior-specialist-smu-designer-ftw-on-running-ch"
@@ -226,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.093Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -270,7 +280,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8099677?gh_jid=8099677",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.609Z",
+      "crawledAt": "2026-08-16T10:14:19.126Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -295,11 +305,13 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "senior-specialist-retail-campaign-production-emea-on-running-ch"
+          "senior-specialist-retail-campaign-production-emea-on-running-ch",
+          "senior-specialist-campaign-production-dtc-on-running-ch"
         ],
         "it": [
           "senior-specialist-campaign-production-dtc-on-running-ch",
-          "senior-specialist-retail-campaign-production-emea-on-running-ch"
+          "senior-specialist-retail-campaign-production-emea-on-running-ch",
+          "senior-specialista-campaign-production-dtc-on-running-zurich"
         ],
         "de": [
           "senior-specialist-campaign-production-dtc-on-running-ch"
@@ -310,7 +322,8 @@
       },
       "previousSlugs": [
         "senior-specialist-campaign-production-dtc-on-running-ch",
-        "senior-specialist-retail-campaign-production-emea-on-running-ch"
+        "senior-specialist-retail-campaign-production-emea-on-running-ch",
+        "senior-specialista-campaign-production-dtc-on-running-zurich"
       ],
       "firstSeenAt": "2026-07-31T22:12:12.846Z",
       "salaryMin": 101500,
@@ -324,7 +337,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-1c2f6512d3f9",
@@ -357,7 +371,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8119023?gh_jid=8119023",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.607Z",
+      "crawledAt": "2026-08-16T10:14:19.125Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -381,14 +395,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-product-quality-intelligence-on-running-ch"
+        "senior-specialist-product-quality-intelligence-on-running-ch",
+        "senior-specialista-product-quality-intelligence-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-product-quality-intelligence-on-running-ch"
+          "senior-specialist-product-quality-intelligence-on-running-ch",
+          "senior-specialista-product-quality-intelligence-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:41.459Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -433,7 +450,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074401?gh_jid=8074401",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.604Z",
+      "crawledAt": "2026-08-16T10:14:19.123Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -457,11 +474,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
+        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch",
+        "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
+          "senior-specialist-new-store-openings-project-manager-dms-on-running-ch",
+          "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich"
         ],
         "de": [
           "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
@@ -471,6 +490,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.087Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -515,7 +535,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8098307?gh_jid=8098307",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.603Z",
+      "crawledAt": "2026-08-16T10:14:19.122Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -539,11 +559,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-lightspray-footwear-developer-on-running-ch"
+        "senior-specialist-lightspray-footwear-developer-on-running-ch",
+        "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-lightspray-footwear-developer-on-running-ch"
+          "senior-specialist-lightspray-footwear-developer-on-running-ch",
+          "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich"
         ],
         "de": [
           "senior-specialist-lightspray-footwear-developer-on-running-ch"
@@ -597,7 +619,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8015208?gh_jid=8015208",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.601Z",
+      "crawledAt": "2026-08-16T10:14:19.121Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -621,11 +643,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-innovation-footwear-developer-on-running-ch"
+        "senior-specialist-innovation-footwear-developer-on-running-ch",
+        "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-innovation-footwear-developer-on-running-ch"
+          "senior-specialist-innovation-footwear-developer-on-running-ch",
+          "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich"
         ],
         "de": [
           "senior-specialist-innovation-footwear-developer-on-running-ch"
@@ -679,7 +703,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079080?gh_jid=8079080",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.600Z",
+      "crawledAt": "2026-08-16T10:14:19.120Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -703,11 +727,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-innovation-concept-design-on-running-ch"
+        "senior-specialist-innovation-concept-design-on-running-ch",
+        "senior-specialista-innovation-concept-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-innovation-concept-design-on-running-ch"
+          "senior-specialist-innovation-concept-design-on-running-ch",
+          "senior-specialista-innovation-concept-design-on-running-zurich"
         ],
         "de": [
           "senior-specialist-innovation-concept-design-on-running-ch"
@@ -728,7 +754,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-99e20a1fa954",
@@ -761,7 +788,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7835371?gh_jid=7835371",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.597Z",
+      "crawledAt": "2026-08-16T10:14:19.118Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -785,11 +812,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-group-capex-on-running-ch"
+        "senior-specialist-group-capex-on-running-ch",
+        "senior-specialista-group-capex-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-group-capex-on-running-ch"
+          "senior-specialist-group-capex-on-running-ch",
+          "senior-specialista-group-capex-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.190Z",
@@ -837,7 +866,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7727073?gh_jid=7727073",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.595Z",
+      "crawledAt": "2026-08-16T10:14:19.116Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -862,12 +891,14 @@
       },
       "previousSlugs": [
         "senior-specialist-tooling-engineer-on-running-ch",
-        "senior-specialist-footwear-tooling-engineer-on-running-ch"
+        "senior-specialist-footwear-tooling-engineer-on-running-ch",
+        "senior-specialista-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-specialist-tooling-engineer-on-running-ch",
-          "senior-specialist-footwear-tooling-engineer-on-running-ch"
+          "senior-specialist-footwear-tooling-engineer-on-running-ch",
+          "senior-specialista-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.199Z",
@@ -915,7 +946,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721405?gh_jid=7721405",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.594Z",
+      "crawledAt": "2026-08-16T10:14:19.115Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -939,14 +970,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-footwear-design-on-running-ch"
+        "senior-specialist-footwear-design-on-running-ch",
+        "senior-specialista-footwear-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-footwear-design-on-running-ch"
+          "senior-specialist-footwear-design-on-running-ch",
+          "senior-specialista-footwear-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.189Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -991,7 +1025,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8064121?gh_jid=8064121",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.592Z",
+      "crawledAt": "2026-08-16T10:14:19.114Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1015,11 +1049,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-finance-systems-on-running-ch"
+        "senior-specialist-finance-systems-on-running-ch",
+        "senior-specialista-finanza-systems-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-finance-systems-on-running-ch"
+          "senior-specialist-finance-systems-on-running-ch",
+          "senior-specialista-finanza-systems-on-running-zurich"
         ],
         "de": [
           "senior-specialist-finance-systems-on-running-ch"
@@ -1073,7 +1109,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053584?gh_jid=8053584",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.591Z",
+      "crawledAt": "2026-08-16T10:14:19.113Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1097,11 +1133,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-commercial-education-on-running-ch"
+        "senior-specialist-commercial-education-on-running-ch",
+        "senior-specialista-commercial-education-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-commercial-education-on-running-ch"
+          "senior-specialist-commercial-education-on-running-ch",
+          "senior-specialista-commercial-education-on-running-zurich"
         ],
         "de": [
           "senior-specialist-commercial-education-on-running-ch"
@@ -1155,7 +1193,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8016535?gh_jid=8016535",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.589Z",
+      "crawledAt": "2026-08-16T10:14:19.112Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1179,14 +1217,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-color-designer-performance-footwear-on-running-ch"
+        "senior-specialist-color-designer-performance-footwear-on-running-ch",
+        "senior-specialista-color-designer-performance-footwear-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-color-designer-performance-footwear-on-running-ch"
+          "senior-specialist-color-designer-performance-footwear-on-running-ch",
+          "senior-specialista-color-designer-performance-footwear-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.188Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1231,7 +1272,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8060038?gh_jid=8060038",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.587Z",
+      "crawledAt": "2026-08-16T10:14:19.111Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1255,11 +1296,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-3d-footwear-modeller-on-running-ch"
+        "senior-specialist-3d-footwear-modeller-on-running-ch",
+        "senior-specialista-3d-footwear-modeller-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-3d-footwear-modeller-on-running-ch"
+          "senior-specialist-3d-footwear-modeller-on-running-ch",
+          "senior-specialista-3d-footwear-modeller-on-running-zurich"
         ],
         "de": [
           "senior-specialist-3d-footwear-modeller-on-running-ch"
@@ -1269,6 +1312,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.075Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1313,7 +1357,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8114421?gh_jid=8114421",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.586Z",
+      "crawledAt": "2026-08-16T10:14:19.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1337,11 +1381,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-tooling-engineer-on-running-ch"
+        "senior-lead-tooling-engineer-on-running-ch",
+        "senior-lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-tooling-engineer-on-running-ch"
+          "senior-lead-tooling-engineer-on-running-ch",
+          "senior-lead-tooling-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-tooling-engineer-on-running-ch"
@@ -1351,6 +1397,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:10.964Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1395,7 +1442,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8119274?gh_jid=8119274",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.585Z",
+      "crawledAt": "2026-08-16T10:14:19.109Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1419,11 +1466,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-staff-software-engineer-on-running-ch"
+        "senior-lead-staff-software-engineer-on-running-ch",
+        "senior-lead-staff-software-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-staff-software-engineer-on-running-ch"
+          "senior-lead-staff-software-engineer-on-running-ch",
+          "senior-lead-staff-software-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-staff-software-engineer-on-running-ch"
@@ -1433,75 +1482,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:48:24.168Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "on-running-56e4c883de79",
-      "slug": "senior-lead-people-analytics-on-running-ch",
-      "slugByLocale": {
-        "it": "senior-lead-people-analytics-on-running-ch",
-        "en": "senior-lead-people-analytics-on-running-ch",
-        "de": "senior-lead-people-analytics-on-running-ch",
-        "fr": "chef-de-file-analyse-des-personnes-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Lead, People Analytics",
-      "titleByLocale": {
-        "it": "Senior Lead, People Analytics",
-        "en": "Senior Lead, People Analytics",
-        "de": "Senior Lead, People Analytics",
-        "fr": "Chef de file, Analyse des personnes"
-      },
-      "description": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
-      "descriptionByLocale": {
-        "it": "In breve:\n\nCome Senior Lead, People Analytics, sarai l'architetto della nostra nuova piattaforma People Analytics e un partner strategico per la nostra agenda globale. Segnalando al capo di People Analytics e nell'ambito del team di People Analytics, autorizzerai l'organizzazione con approfondimenti basati sui dati, costruirai le pipeline di dati e la piattaforma su cui l'intero team corre, spingi ulteriormente la nostra modellazione statistica e predittiva e campioni la prossima frontiera dell'IA e dell'automazione agentica per sbloccare il potenziale umano a On.\n\nLa vostra missione:\n\n• Possedere la spina dorsale dell'ingegneria dei dati della nostra piattaforma People Analytics: pipeline, modellazione dei dati e orchestrazione, così il resto delle dashboard e delle analisi del team siedono su dati regolati e affidabili.\n\n• Costruire e mantenere lo strato semantico / metrico come unica fonte di verità, assicurando le definizioni sono coerenti in ogni cruscotto e rapporto.\n\n• Sostenere l'accumulo del nostro livello AI e agentic: da un co-pilota AI interno a incorporare flussi di lavoro assistiti da LLM nell'analisi e nella segnalazione quotidiana del team HR.\n\n• Collaborare a stretto contatto con il nostro scienziato di dati per rafforzare la nostra panca di modellazione statistica e predittiva applicando le tecniche di regressione, clustering e inferenza causale per separare la correlazione da impatto reale.\n\n• Sviluppare e fornire dashboard, report e analisi approfondite sul ciclo di vita completo dei dipendenti e le metriche chiave delle risorse umane, tra cui headcount, acquisizione di talenti, coinvolgimento dei dipendenti e attrito.\n\n• Agire come esperto di materia tecnica per People Analytics, fornendo guida e supporto alle risorse umane e ai leader aziendali. Collabora con gli stakeholder per tradurre i requisiti aziendali in soluzioni tecniche e progetti analitici ad alto impatto.\n\n• Assicurare la governance e l'integrità dei dati in tutti i nostri sistemi HR.\n\n• Storytelling & Influence: Sviluppare e fornire storie e presentazioni accattivanti e orientate ai dati che comunicano efficacemente intuizioni e raccomandazioni.\n\nLa tua storia:\n\n• Porti 7+ anni di esperienza in People Analytics o in un campo relativo alla scienza dei dati, con una profonda comprensione dei dati e delle metriche delle risorse umane.\n\n• Hai forti capacità di ingegneria dei dati: costruzione e mantenimento di tubazioni, modelli di dati e uno strato semantico governato utilizzando strumenti come Snowflake, Databricks, One Model, o BigQuery.\n\n• Hai forti competenze tecniche in R, Python, SQL e Excel per l'analisi e la modellazione dei dati, oltre a un moderno strumento BI (Looker, Power BI, o simili).\n\n• Possiedi una forte comprensione pratica dell'analisi statistica e delle tecniche di modellazione (regressione, raggruppamento) e metodi idealmente di inferenza causale che vanno oltre la correlazione.\n\n• La prima familiarità con le piattaforme HRIS (ad esempio, Workday, SAP HR, SuccessFactors, Oracle HCM) e i loro moduli di reporting (ad esempio Prism,...) è un vantaggio forte, anche se non un requisito rigoroso.\n\n• Sei veramente eccitato da AI: comodo o disposto ad imparare i flussi di lavoro agentici di costruzione e gli strumenti assistiti da AI, non solo richiedendo risposte one-off.\n\n• Hai eccellenti capacità di comunicazione e gestione degli stakeholder, con la capacità di tradurre dati complessi in insight chiari e attuabili.\n\nIl vostro team:\n\nTi unirai a un team di People Analytics di piccole dimensioni. Costruirai e manterrai la piattaforma su cui si basa l'esperienza Data Science e HRIS del team. Non riceverai un playbook, ti aiuterai a scriverlo, quindi uno spirito imprenditoriale è fondamentale. Lavorare a stretto contatto con la leadership HR di livello mondiale e gli stakeholder aziendali per costruire una capacità di analisi all'avanguardia.",
-        "en": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
-        "de": "Kurzum:\n\nAls Senior Lead, People Analytics, werden Sie der Architekt unserer neuen People Analytics-Plattform und ein strategischer Partner für unsere globale Mitarbeiteragenda sein. Berichterstattung an den Head of People Analytics und als Teil des People Analytics-Teams werden Sie das Unternehmen mit datengesteuerten Erkenntnissen befähigen, die Datenpipelines und die Plattform aufbauen, auf der das gesamte Team läuft, unsere statistische und prädiktive Modellierung weiter vorantreiben und sich für die nächste Grenze der KI und Agentenautomatisierung einsetzen, um menschliches Potenzial bei On freizusetzen.\n\nIhre Mission:\n\n• Besitzen Sie das Data Engineering-Backbone unserer People Analytics-Plattform: Pipelines, Datenmodellierung und Orchestrierung, so dass der Rest der Dashboards und Analysen des Teams auf verwalteten, zuverlässigen Daten basiert.\n\n• Erstellen und pflegen Sie die semantische / metrische Schicht als einzige Quelle der Wahrheit, um sicherzustellen, dass die Definitionen in jedem Dashboard und Bericht konsistent sind.\n\n• Unterstützen Sie den Aufbau unserer KI- und Agentenschicht: von einem internen KI-Copiloten bis hin zur Einbettung von LLM-gestützten Workflows in die tägliche Analyse und Berichterstattung des HR-Teams.\n\n• Enge Zusammenarbeit mit unserem Data Scientist, um unsere statistische und prädiktive Modellierungsbank mit Regressions-, Clustering- und Kausalinferenztechniken zu stärken, um die Korrelation von den realen Auswirkungen zu trennen.\n\n• Entwickeln und liefern Sie aufschlussreiche Dashboards, Berichte und Analysen zum gesamten Mitarbeiterlebenszyklus und zu wichtigen HR-Metriken, einschließlich Mitarbeiterzahl, Talentakquisition, Mitarbeiterbindung und Abnutzung.\n\n• Handeln Sie als technischer Fachexperte für People Analytics und bieten Sie HR- und Unternehmensleitern Beratung und Unterstützung. Arbeiten Sie mit Stakeholdern zusammen, um Geschäftsanforderungen in technische Lösungen und wirkungsvolle analytische Projekte umzusetzen.\n\n• Sicherstellen von Data Governance und Integrität in allen unseren HR-Systemen.\n\n• Storytelling & Influence: Entwickeln und liefern Sie überzeugende, datengesteuerte Geschichten und Präsentationen, die Erkenntnisse und Empfehlungen effektiv vermitteln.\n\nDeine Geschichte:\n\n• Sie bringen mehr als 7 Jahre Erfahrung in People Analytics oder einem verwandten Data Science-Bereich mit, mit einem tiefen Verständnis von HR-Daten und Metriken.\n\n• Sie verfügen über fundierte Data-Engineering-Fähigkeiten: Aufbau und Wartung von Pipelines, Datenmodellen und einer verwalteten semantischen Ebene mit Tools wie Snowflake, Databricks, One Model oder BigQuery.\n\n• Sie verfügen über fundierte technische Kenntnisse in R, Python, SQL und Excel für die Datenanalyse und -modellierung sowie über ein modernes BI-Tool (Looker, Power BI oder ähnliches).\n\n• Sie besitzen ein starkes, praktisches Verständnis der statistischen Analyse und Modellierungstechniken (Regression, Clustering) und idealerweise kausale Inferenzmethoden, die über die Korrelation hinausgehen.\n\n• Die vorherige Vertrautheit mit HRIS-Plattformen (z. B. Workday, SAP HR, SuccessFactors, Oracle HCM) und ihren Berichtsmodulen (z. B. Prism, ...) ist ein starkes Plus, wenn auch keine strenge Anforderung.\n\n• Sie werden von AI wirklich mit Energie versorgt: bequem oder bereit, den Aufbau agentischer Workflows und KI-gestützter Tools zu lernen, nicht nur für einmalige Antworten.\n\n• Sie verfügen über ausgezeichnete Kommunikations- und Stakeholder-Management-Fähigkeiten und können komplexe Daten in klare und umsetzbare Erkenntnisse übersetzen.\n\nIhr Team:\n\nSie werden einem kleinen, hochkarätigen People Analytics-Team bei On beitreten. Sie bauen und pflegen die Plattform, auf der das Data Science- und HRIS-Know-how des Teams läuft. Sie werden kein Spielbuch erhalten, Sie werden helfen, es zu schreiben, also ist ein Unternehmergeist der Schlüssel. Enge Zusammenarbeit mit erstklassigen HR-Führungskräften und Geschäftsinteressenvertretern, um eine hochmoderne Analysefähigkeit aufzubauen.",
-        "fr": "Bref:\n\nEn tant que responsable principal, People Analytics, vous serez l'architecte de notre nouvelle plateforme People Analytics et un partenaire stratégique pour notre agenda mondial des personnes. Relevant du responsable de People Analytics et dans le cadre de l'équipe de People Analytics, vous donnerez à l'organisation des informations basées sur les données, créerez les pipelines de données et la plate-forme sur laquelle l'ensemble de l'équipe fonctionne, pousserez davantage notre modélisation statistique et prédictive, et défendrez la prochaine frontière de l'IA et de l'automatisation des agents pour libérer le potentiel humain chez On.\n\nVotre mission :\n\n• Posséder l'épine dorsale de l'ingénierie des données de notre plateforme People Analytics : pipelines, modélisation de données et orchestration, de sorte que le reste des tableaux de bord et analyses de l'équipe s'assoient sur des données contrôlées et fiables.\n\n• Construire et maintenir la couche sémantique/métrique comme source unique de vérité, en veillant à ce que les définitions soient cohérentes dans chaque tableau de bord et rapport.\n\n• Soutenir la mise en place de notre couche d'IA et d'agents : d'un copilote interne d'IA à l'intégration des workflows assistés par LLM dans l'analyse quotidienne et les rapports de l'équipe RH.\n\n• Collaborez étroitement avec notre spécialiste des données pour renforcer notre banc de modélisation statistique et prédictive en appliquant des techniques de régression, de regroupement et d'inférence causale pour séparer la corrélation de l'impact réel.\n\n• Élaborer et fournir des tableaux de bord, des rapports et des analyses éclairés sur le cycle de vie complet des employés et les principales mesures des RH, y compris le dénombrement, l'acquisition de talents, l'engagement des employés et l'attrition.\n\n• Agir en tant qu'expert technique pour l'analyse des personnes, en fournissant des conseils et un soutien aux RH et aux chefs d'entreprise. Collaborer avec les intervenants pour traduire les exigences opérationnelles en solutions techniques et en projets d'analyse à impact élevé.\n\n• Assurer la gouvernance et l'intégrité des données dans tous nos systèmes de RH.\n\n• Storytelling & Influence: Concevoir et fournir des histoires et des présentations convaincantes et axées sur les données qui communiquent efficacement des idées et des recommandations.\n\nVotre histoire :\n\n• Vous apportez 7+ ans d'expérience dans l'analyse des personnes ou un domaine connexe de la science des données, avec une compréhension profonde des données et des paramètres RH.\n\n• Vous avez de solides compétences en ingénierie des données : construire et maintenir des pipelines, des modèles de données et une couche sémantique gouvernée à l'aide d'outils tels que Snowflake, Databricks, One Model ou BigQuery.\n\n• Vous avez de solides compétences techniques en R, Python, SQL et Excel pour l'analyse de données et la modélisation, ainsi qu'un outil BI moderne (Looker, Power BI, ou similaire).\n\n• Vous possédez une solide compréhension pratique des techniques d'analyse statistique et de modélisation (régression, regroupement) et idéalement des méthodes d'inférence causale qui vont au-delà de la corrélation.\n\n• La connaissance préalable des plates-formes HRIS (p. ex. Workday, SAP HR, SuccessFactors, Oracle HCM) et de leurs modules de rapport (p. ex. Prism,...) est un plus fort, mais pas une exigence stricte.\n\n• Vous êtes vraiment sous l'impulsion de l'IA : confortable ou prêt à apprendre à construire des workflows d'agents et des outils assistés par l'IA, pas seulement pour obtenir des réponses ponctuelles.\n\n• Vous avez d'excellentes compétences en communication et en gestion des intervenants, avec la capacité de traduire des données complexes en idées claires et exploitables.\n\nVotre équipe :\n\nVous rejoindrez une petite équipe de People Analytics de haut calibre à On. Vous allez construire et maintenir la plate-forme sur laquelle s'appuie l'expertise Data Science et HRIS de l'équipe. Vous ne recevrez pas de playbook, vous aiderez à l'écrire, donc un esprit d'entreprise est la clé. Travailler en étroite collaboration avec les dirigeants des RH et les intervenants commerciaux de calibre mondial pour créer une capacité d'analyse de pointe."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.584Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
-      "jobReqId": "8093901",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T22:15:30.811Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1546,7 +1527,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.584Z",
+      "crawledAt": "2026-08-16T10:14:19.108Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1570,11 +1551,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-sports-engineer-on-running-ch"
+        "senior-lead-sports-engineer-on-running-ch",
+        "senior-lead-sports-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-sports-engineer-on-running-ch"
+          "senior-lead-sports-engineer-on-running-ch",
+          "senior-lead-sports-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-sports-engineer-on-running-ch"
@@ -1584,6 +1567,75 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.074Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "on-running-56e4c883de79",
+      "slug": "senior-lead-people-analytics-on-running-ch",
+      "slugByLocale": {
+        "it": "senior-lead-people-analytics-on-running-ch",
+        "en": "senior-lead-people-analytics-on-running-ch",
+        "de": "senior-lead-people-analytics-on-running-ch",
+        "fr": "chef-de-file-analyse-des-personnes-on-running-zurich"
+      },
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Senior Lead, People Analytics",
+      "titleByLocale": {
+        "it": "Senior Lead, People Analytics",
+        "en": "Senior Lead, People Analytics",
+        "de": "Senior Lead, People Analytics",
+        "fr": "Chef de file, Analyse des personnes"
+      },
+      "description": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
+      "descriptionByLocale": {
+        "it": "In breve:\n\nCome Senior Lead, People Analytics, sarai l'architetto della nostra nuova piattaforma People Analytics e un partner strategico per la nostra agenda globale. Segnalando al capo di People Analytics e nell'ambito del team di People Analytics, autorizzerai l'organizzazione con approfondimenti basati sui dati, costruirai le pipeline di dati e la piattaforma su cui l'intero team corre, spingi ulteriormente la nostra modellazione statistica e predittiva e campioni la prossima frontiera dell'IA e dell'automazione agentica per sbloccare il potenziale umano a On.\n\nLa vostra missione:\n\n• Possedere la spina dorsale dell'ingegneria dei dati della nostra piattaforma People Analytics: pipeline, modellazione dei dati e orchestrazione, così il resto delle dashboard e delle analisi del team siedono su dati regolati e affidabili.\n\n• Costruire e mantenere lo strato semantico / metrico come unica fonte di verità, assicurando le definizioni sono coerenti in ogni cruscotto e rapporto.\n\n• Sostenere l'accumulo del nostro livello AI e agentic: da un co-pilota AI interno a incorporare flussi di lavoro assistiti da LLM nell'analisi e nella segnalazione quotidiana del team HR.\n\n• Collaborare a stretto contatto con il nostro scienziato di dati per rafforzare la nostra panca di modellazione statistica e predittiva applicando le tecniche di regressione, clustering e inferenza causale per separare la correlazione da impatto reale.\n\n• Sviluppare e fornire dashboard, report e analisi approfondite sul ciclo di vita completo dei dipendenti e le metriche chiave delle risorse umane, tra cui headcount, acquisizione di talenti, coinvolgimento dei dipendenti e attrito.\n\n• Agire come esperto di materia tecnica per People Analytics, fornendo guida e supporto alle risorse umane e ai leader aziendali. Collabora con gli stakeholder per tradurre i requisiti aziendali in soluzioni tecniche e progetti analitici ad alto impatto.\n\n• Assicurare la governance e l'integrità dei dati in tutti i nostri sistemi HR.\n\n• Storytelling & Influence: Sviluppare e fornire storie e presentazioni accattivanti e orientate ai dati che comunicano efficacemente intuizioni e raccomandazioni.\n\nLa tua storia:\n\n• Porti 7+ anni di esperienza in People Analytics o in un campo relativo alla scienza dei dati, con una profonda comprensione dei dati e delle metriche delle risorse umane.\n\n• Hai forti capacità di ingegneria dei dati: costruzione e mantenimento di tubazioni, modelli di dati e uno strato semantico governato utilizzando strumenti come Snowflake, Databricks, One Model, o BigQuery.\n\n• Hai forti competenze tecniche in R, Python, SQL e Excel per l'analisi e la modellazione dei dati, oltre a un moderno strumento BI (Looker, Power BI, o simili).\n\n• Possiedi una forte comprensione pratica dell'analisi statistica e delle tecniche di modellazione (regressione, raggruppamento) e metodi idealmente di inferenza causale che vanno oltre la correlazione.\n\n• La prima familiarità con le piattaforme HRIS (ad esempio, Workday, SAP HR, SuccessFactors, Oracle HCM) e i loro moduli di reporting (ad esempio Prism,...) è un vantaggio forte, anche se non un requisito rigoroso.\n\n• Sei veramente eccitato da AI: comodo o disposto ad imparare i flussi di lavoro agentici di costruzione e gli strumenti assistiti da AI, non solo richiedendo risposte one-off.\n\n• Hai eccellenti capacità di comunicazione e gestione degli stakeholder, con la capacità di tradurre dati complessi in insight chiari e attuabili.\n\nIl vostro team:\n\nTi unirai a un team di People Analytics di piccole dimensioni. Costruirai e manterrai la piattaforma su cui si basa l'esperienza Data Science e HRIS del team. Non riceverai un playbook, ti aiuterai a scriverlo, quindi uno spirito imprenditoriale è fondamentale. Lavorare a stretto contatto con la leadership HR di livello mondiale e gli stakeholder aziendali per costruire una capacità di analisi all'avanguardia.",
+        "en": "In short:\n\nAs the Senior Lead, People Analytics, you will be the architect of our new People Analytics platform and a strategic partner for our global people agenda. Reporting to the Head of People Analytics and as part of the People Analytics team, you will empower the organisation with data-driven insights, build the data pipelines and platform the whole team runs on, push our statistical and predictive modeling further, and champion the next frontier of AI and agentic automation to unlock human potential at On.\n\nYour Mission:\n\n• Own the data engineering backbone of our People Analytics Platform: pipelines, data modeling, and orchestration, so the rest of the team's dashboards and analyses sit on governed, reliable data.\n\n• Build and maintain the semantic/metric layer as the single source of truth, ensuring definitions are consistent across every dashboard and report.\n\n• Support the build-out of our AI and agentic layer: from an internal AI co-pilot to embedding LLM-assisted workflows into the HR team's day-to-day analysis and reporting.\n\n• Partner closely with our data scientist to strengthen our statistical and predictive modeling bench applying regression, clustering, and causal inference techniques to separate correlation from real impact.\n\n• Develop and deliver insightful dashboards, reports, and analyses on the full employee lifecycle and key HR metrics, including headcount, talent acquisition, employee engagement, and attrition.\n\n• Act as a technical subject matter expert for People Analytics, providing guidance and support to HR and business leaders. Collaborate with stakeholders to translate business requirements into technical solutions and high-impact analytical projects.\n\n• Ensure Data Governance and integrity across all our HR systems.\n\n• Storytelling & Influence: Develop and deliver compelling, data-driven stories and presentations that effectively communicate insights and recommendations.\n\nYour Story:\n\n• You bring 7+ years of experience in People Analytics or a related data science field, with a deep understanding of HR data and metrics.\n\n• You have strong data engineering skills: building and maintaining pipelines, data models, and a governed semantic layer using tools such as Snowflake, Databricks, One Model, or BigQuery.\n\n• You have strong technical skills in R, Python, SQL, and Excel for data analysis and modeling, plus a modern BI tool (Looker, Power BI, or similar).\n\n• You possess a strong, hands-on understanding of statistical analysis and modeling techniques (regression, clustering) and ideally causal inference methods that go beyond correlation.\n\n• Prior familiarity with HRIS platforms (e.g., Workday, SAP HR, SuccessFactors, Oracle HCM) and their reporting modules (e.g. Prism,...) is a strong plus, though not a strict requirement.\n\n• You are genuinely energized by AI: comfortable or willing to learn building agentic workflows and AI-assisted tooling, not just prompting for one-off answers.\n\n• You have excellent communication and stakeholder management skills, with the ability to translate complex data into clear and actionable insights.\n\nYour Team:\n\nYou'll join a small, high-caliber People Analytics team at On. You'll build and maintain the platform the team's Data Science and HRIS expertise runs on. You won't be receiving a playbook, you'll be helping write it, so an entrepreneurial spirit is key. Working closely with world-class HR leadership and business stakeholders to build a cutting-edge analytics capability.",
+        "de": "Kurzum:\n\nAls Senior Lead, People Analytics, werden Sie der Architekt unserer neuen People Analytics-Plattform und ein strategischer Partner für unsere globale Mitarbeiteragenda sein. Berichterstattung an den Head of People Analytics und als Teil des People Analytics-Teams werden Sie das Unternehmen mit datengesteuerten Erkenntnissen befähigen, die Datenpipelines und die Plattform aufbauen, auf der das gesamte Team läuft, unsere statistische und prädiktive Modellierung weiter vorantreiben und sich für die nächste Grenze der KI und Agentenautomatisierung einsetzen, um menschliches Potenzial bei On freizusetzen.\n\nIhre Mission:\n\n• Besitzen Sie das Data Engineering-Backbone unserer People Analytics-Plattform: Pipelines, Datenmodellierung und Orchestrierung, so dass der Rest der Dashboards und Analysen des Teams auf verwalteten, zuverlässigen Daten basiert.\n\n• Erstellen und pflegen Sie die semantische / metrische Schicht als einzige Quelle der Wahrheit, um sicherzustellen, dass die Definitionen in jedem Dashboard und Bericht konsistent sind.\n\n• Unterstützen Sie den Aufbau unserer KI- und Agentenschicht: von einem internen KI-Copiloten bis hin zur Einbettung von LLM-gestützten Workflows in die tägliche Analyse und Berichterstattung des HR-Teams.\n\n• Enge Zusammenarbeit mit unserem Data Scientist, um unsere statistische und prädiktive Modellierungsbank mit Regressions-, Clustering- und Kausalinferenztechniken zu stärken, um die Korrelation von den realen Auswirkungen zu trennen.\n\n• Entwickeln und liefern Sie aufschlussreiche Dashboards, Berichte und Analysen zum gesamten Mitarbeiterlebenszyklus und zu wichtigen HR-Metriken, einschließlich Mitarbeiterzahl, Talentakquisition, Mitarbeiterbindung und Abnutzung.\n\n• Handeln Sie als technischer Fachexperte für People Analytics und bieten Sie HR- und Unternehmensleitern Beratung und Unterstützung. Arbeiten Sie mit Stakeholdern zusammen, um Geschäftsanforderungen in technische Lösungen und wirkungsvolle analytische Projekte umzusetzen.\n\n• Sicherstellen von Data Governance und Integrität in allen unseren HR-Systemen.\n\n• Storytelling & Influence: Entwickeln und liefern Sie überzeugende, datengesteuerte Geschichten und Präsentationen, die Erkenntnisse und Empfehlungen effektiv vermitteln.\n\nDeine Geschichte:\n\n• Sie bringen mehr als 7 Jahre Erfahrung in People Analytics oder einem verwandten Data Science-Bereich mit, mit einem tiefen Verständnis von HR-Daten und Metriken.\n\n• Sie verfügen über fundierte Data-Engineering-Fähigkeiten: Aufbau und Wartung von Pipelines, Datenmodellen und einer verwalteten semantischen Ebene mit Tools wie Snowflake, Databricks, One Model oder BigQuery.\n\n• Sie verfügen über fundierte technische Kenntnisse in R, Python, SQL und Excel für die Datenanalyse und -modellierung sowie über ein modernes BI-Tool (Looker, Power BI oder ähnliches).\n\n• Sie besitzen ein starkes, praktisches Verständnis der statistischen Analyse und Modellierungstechniken (Regression, Clustering) und idealerweise kausale Inferenzmethoden, die über die Korrelation hinausgehen.\n\n• Die vorherige Vertrautheit mit HRIS-Plattformen (z. B. Workday, SAP HR, SuccessFactors, Oracle HCM) und ihren Berichtsmodulen (z. B. Prism, ...) ist ein starkes Plus, wenn auch keine strenge Anforderung.\n\n• Sie werden von AI wirklich mit Energie versorgt: bequem oder bereit, den Aufbau agentischer Workflows und KI-gestützter Tools zu lernen, nicht nur für einmalige Antworten.\n\n• Sie verfügen über ausgezeichnete Kommunikations- und Stakeholder-Management-Fähigkeiten und können komplexe Daten in klare und umsetzbare Erkenntnisse übersetzen.\n\nIhr Team:\n\nSie werden einem kleinen, hochkarätigen People Analytics-Team bei On beitreten. Sie bauen und pflegen die Plattform, auf der das Data Science- und HRIS-Know-how des Teams läuft. Sie werden kein Spielbuch erhalten, Sie werden helfen, es zu schreiben, also ist ein Unternehmergeist der Schlüssel. Enge Zusammenarbeit mit erstklassigen HR-Führungskräften und Geschäftsinteressenvertretern, um eine hochmoderne Analysefähigkeit aufzubauen.",
+        "fr": "Bref:\n\nEn tant que responsable principal, People Analytics, vous serez l'architecte de notre nouvelle plateforme People Analytics et un partenaire stratégique pour notre agenda mondial des personnes. Relevant du responsable de People Analytics et dans le cadre de l'équipe de People Analytics, vous donnerez à l'organisation des informations basées sur les données, créerez les pipelines de données et la plate-forme sur laquelle l'ensemble de l'équipe fonctionne, pousserez davantage notre modélisation statistique et prédictive, et défendrez la prochaine frontière de l'IA et de l'automatisation des agents pour libérer le potentiel humain chez On.\n\nVotre mission :\n\n• Posséder l'épine dorsale de l'ingénierie des données de notre plateforme People Analytics : pipelines, modélisation de données et orchestration, de sorte que le reste des tableaux de bord et analyses de l'équipe s'assoient sur des données contrôlées et fiables.\n\n• Construire et maintenir la couche sémantique/métrique comme source unique de vérité, en veillant à ce que les définitions soient cohérentes dans chaque tableau de bord et rapport.\n\n• Soutenir la mise en place de notre couche d'IA et d'agents : d'un copilote interne d'IA à l'intégration des workflows assistés par LLM dans l'analyse quotidienne et les rapports de l'équipe RH.\n\n• Collaborez étroitement avec notre spécialiste des données pour renforcer notre banc de modélisation statistique et prédictive en appliquant des techniques de régression, de regroupement et d'inférence causale pour séparer la corrélation de l'impact réel.\n\n• Élaborer et fournir des tableaux de bord, des rapports et des analyses éclairés sur le cycle de vie complet des employés et les principales mesures des RH, y compris le dénombrement, l'acquisition de talents, l'engagement des employés et l'attrition.\n\n• Agir en tant qu'expert technique pour l'analyse des personnes, en fournissant des conseils et un soutien aux RH et aux chefs d'entreprise. Collaborer avec les intervenants pour traduire les exigences opérationnelles en solutions techniques et en projets d'analyse à impact élevé.\n\n• Assurer la gouvernance et l'intégrité des données dans tous nos systèmes de RH.\n\n• Storytelling & Influence: Concevoir et fournir des histoires et des présentations convaincantes et axées sur les données qui communiquent efficacement des idées et des recommandations.\n\nVotre histoire :\n\n• Vous apportez 7+ ans d'expérience dans l'analyse des personnes ou un domaine connexe de la science des données, avec une compréhension profonde des données et des paramètres RH.\n\n• Vous avez de solides compétences en ingénierie des données : construire et maintenir des pipelines, des modèles de données et une couche sémantique gouvernée à l'aide d'outils tels que Snowflake, Databricks, One Model ou BigQuery.\n\n• Vous avez de solides compétences techniques en R, Python, SQL et Excel pour l'analyse de données et la modélisation, ainsi qu'un outil BI moderne (Looker, Power BI, ou similaire).\n\n• Vous possédez une solide compréhension pratique des techniques d'analyse statistique et de modélisation (régression, regroupement) et idéalement des méthodes d'inférence causale qui vont au-delà de la corrélation.\n\n• La connaissance préalable des plates-formes HRIS (p. ex. Workday, SAP HR, SuccessFactors, Oracle HCM) et de leurs modules de rapport (p. ex. Prism,...) est un plus fort, mais pas une exigence stricte.\n\n• Vous êtes vraiment sous l'impulsion de l'IA : confortable ou prêt à apprendre à construire des workflows d'agents et des outils assistés par l'IA, pas seulement pour obtenir des réponses ponctuelles.\n\n• Vous avez d'excellentes compétences en communication et en gestion des intervenants, avec la capacité de traduire des données complexes en idées claires et exploitables.\n\nVotre équipe :\n\nVous rejoindrez une petite équipe de People Analytics de haut calibre à On. Vous allez construire et maintenir la plate-forme sur laquelle s'appuie l'expertise Data Science et HRIS de l'équipe. Vous ne recevrez pas de playbook, vous aiderez à l'écrire, donc un esprit d'entreprise est la clé. Travailler en étroite collaboration avec les dirigeants des RH et les intervenants commerciaux de calibre mondial pour créer une capacité d'analyse de pointe."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-16T10:14:19.107Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
+      "jobReqId": "8093901",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T22:15:30.811Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1628,7 +1680,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7641466?gh_jid=7641466",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.582Z",
+      "crawledAt": "2026-08-16T10:14:19.106Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1652,11 +1704,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-pattern-engineer-on-running-ch"
+        "senior-lead-pattern-engineer-on-running-ch",
+        "senior-lead-pattern-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-pattern-engineer-on-running-ch"
+          "senior-lead-pattern-engineer-on-running-ch",
+          "senior-lead-pattern-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-pattern-engineer-on-running-ch"
@@ -1710,7 +1764,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8038187?gh_jid=8038187",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.581Z",
+      "crawledAt": "2026-08-16T10:14:19.105Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1734,14 +1788,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch"
+        "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch",
+        "senior-lead-consulenza-legale-proprieta-intellettuale-e-protezione-del-marchio-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch"
+          "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch",
+          "senior-lead-consulenza-legale-proprieta-intellettuale-e-protezione-del-marchio-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.184Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -1786,7 +1843,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8025652?gh_jid=8025652",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.579Z",
+      "crawledAt": "2026-08-16T10:14:19.104Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1810,11 +1867,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-last-engineer-on-running-ch"
+        "senior-lead-last-engineer-on-running-ch",
+        "senior-lead-last-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-last-engineer-on-running-ch"
+          "senior-lead-last-engineer-on-running-ch",
+          "senior-lead-last-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.183Z",
@@ -1862,7 +1921,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074415?gh_jid=8074415",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.577Z",
+      "crawledAt": "2026-08-16T10:14:19.102Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1931,7 +1990,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8106150?gh_jid=8106150",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.575Z",
+      "crawledAt": "2026-08-16T10:14:19.099Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2000,7 +2059,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053160?gh_jid=8053160",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.574Z",
+      "crawledAt": "2026-08-16T10:14:19.097Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2024,17 +2083,20 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-testing-on-running-ch"
+        "senior-lead-footwear-testing-on-running-ch",
+        "senior-lead-testing-calzature-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-testing-on-running-ch"
+          "senior-lead-footwear-testing-on-running-ch",
+          "senior-lead-testing-calzature-on-running-zurich"
         ],
         "de": [
           "senior-lead-footwear-testing-on-running-ch"
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.726Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2079,7 +2141,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7845232?gh_jid=7845232",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.571Z",
+      "crawledAt": "2026-08-16T10:14:19.095Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2103,11 +2165,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-materials-on-running-ch"
+        "senior-lead-footwear-materials-on-running-ch",
+        "senior-lead-calzature-materiali-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-materials-on-running-ch"
+          "senior-lead-footwear-materials-on-running-ch",
+          "senior-lead-calzature-materiali-on-running-zurich"
         ],
         "de": [
           "senior-lead-footwear-materials-on-running-ch"
@@ -2117,6 +2181,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.066Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2161,7 +2226,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.569Z",
+      "crawledAt": "2026-08-16T10:14:19.092Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2185,14 +2250,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-developer-on-running-ch"
+        "senior-lead-footwear-developer-on-running-ch",
+        "senior-lead-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-developer-on-running-ch"
+          "senior-lead-footwear-developer-on-running-ch",
+          "senior-lead-footwear-sviluppatore-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.182Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2237,7 +2305,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7995040?gh_jid=7995040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.566Z",
+      "crawledAt": "2026-08-16T10:14:19.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2261,6 +2329,7 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-04T11:36:27.180Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2305,7 +2374,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054998?gh_jid=8054998",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.563Z",
+      "crawledAt": "2026-08-16T10:14:19.085Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2374,7 +2443,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7492423?gh_jid=7492423",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.562Z",
+      "crawledAt": "2026-08-16T10:14:19.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2398,14 +2467,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-costing-on-running-ch"
+        "senior-lead-footwear-costing-on-running-ch",
+        "senior-lead-calzature-costing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-costing-on-running-ch"
+          "senior-lead-footwear-costing-on-running-ch",
+          "senior-lead-calzature-costing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.058Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2450,7 +2522,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8056606?gh_jid=8056606",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.561Z",
+      "crawledAt": "2026-08-16T10:14:19.081Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2474,14 +2546,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-exhibiton-programming-on-running-ch"
+        "senior-lead-exhibiton-programming-on-running-ch",
+        "senior-lead-programmazione-exhibiton-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-exhibiton-programming-on-running-ch"
+          "senior-lead-exhibiton-programming-on-running-ch",
+          "senior-lead-programmazione-exhibiton-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:12.988Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -2526,7 +2601,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7976404?gh_jid=7976404",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.560Z",
+      "crawledAt": "2026-08-16T10:14:19.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2550,11 +2625,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-distribution-center-network-design-planning-on-running-ch"
+        "senior-lead-distribution-center-network-design-planning-on-running-ch",
+        "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-distribution-center-network-design-planning-on-running-ch"
+          "senior-lead-distribution-center-network-design-planning-on-running-ch",
+          "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich"
         ],
         "de": [
           "senior-lead-distribution-center-network-design-planning-on-running-ch"
@@ -2609,7 +2686,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7745510?gh_jid=7745510",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.558Z",
+      "crawledAt": "2026-08-16T10:14:19.077Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2634,17 +2711,20 @@
       },
       "previousSlugs": [
         "senior-lead-copy-on-running-ch",
-        "senior-lead-copy-on-running-zurich"
+        "senior-lead-copy-on-running-zurich",
+        "responsabile-senior-copiato-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-copy-on-running-ch"
+          "senior-lead-copy-on-running-ch",
+          "responsabile-senior-copiato-on-running-zurich"
         ],
         "fr": [
           "senior-lead-copy-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.896Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2689,7 +2769,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7120658?gh_jid=7120658",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.557Z",
+      "crawledAt": "2026-08-16T10:14:19.075Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2713,11 +2793,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-computational-designer-on-running-ch"
+        "senior-lead-computational-designer-on-running-ch",
+        "senior-lead-designer-computazionale-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-computational-designer-on-running-ch"
+          "senior-lead-computational-designer-on-running-ch",
+          "senior-lead-designer-computazionale-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2766,7 +2848,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8090454?gh_jid=8090454",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.556Z",
+      "crawledAt": "2026-08-16T10:14:19.072Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2790,11 +2872,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-commercialization-engineer-on-running-ch"
+        "senior-lead-commercialization-engineer-on-running-ch",
+        "senior-lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-commercialization-engineer-on-running-ch"
+          "senior-lead-commercialization-engineer-on-running-ch",
+          "senior-lead-commercialization-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-commercialization-engineer-on-running-ch"
@@ -2848,7 +2932,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053064?gh_jid=8053064",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.555Z",
+      "crawledAt": "2026-08-16T10:14:19.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2917,7 +3001,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8108532?gh_jid=8108532",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.553Z",
+      "crawledAt": "2026-08-16T10:14:19.068Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2941,11 +3025,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch"
+        "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch",
+        "senior-lead-art-direttore-brand-assets-athlete-editorial-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch"
+          "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch",
+          "senior-lead-art-direttore-brand-assets-athlete-editorial-on-running-zurich"
         ],
         "de": [
           "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch"
@@ -2955,6 +3041,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:16:45.775Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -2999,7 +3086,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053185?gh_jid=8053185",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.552Z",
+      "crawledAt": "2026-08-16T10:14:19.067Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3024,15 +3111,18 @@
       },
       "previousSlugs": [
         "lead-apparel-material-development-performance-on-running-ch",
-        "senior-lead-apparel-material-development-performance-on-running-ch"
+        "senior-lead-apparel-material-development-performance-on-running-ch",
+        "piombo-apparel-material-development-performance-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-apparel-material-development-performance-on-running-ch",
-          "senior-lead-apparel-material-development-performance-on-running-ch"
+          "senior-lead-apparel-material-development-performance-on-running-ch",
+          "piombo-apparel-material-development-performance-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.697Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3077,7 +3167,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7696157?gh_jid=7696157",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.549Z",
+      "crawledAt": "2026-08-16T10:14:19.065Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3146,7 +3236,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7988349?gh_jid=7988349",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.547Z",
+      "crawledAt": "2026-08-16T10:14:19.064Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3171,12 +3261,14 @@
       },
       "previousSlugs": [
         "lead-senior-accessoires-developpement-du-materiel-on-running-zurich",
-        "senior-lead-accessories-material-development-on-running-ch"
+        "senior-lead-accessories-material-development-on-running-ch",
+        "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-senior-accessoires-developpement-du-materiel-on-running-zurich",
-          "senior-lead-accessories-material-development-on-running-ch"
+          "senior-lead-accessories-material-development-on-running-ch",
+          "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich"
         ],
         "en": [
           "lead-senior-accessoires-developpement-du-materiel-on-running-zurich"
@@ -3189,6 +3281,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.041Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3233,7 +3326,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7573654?gh_jid=7573654",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.544Z",
+      "crawledAt": "2026-08-16T10:14:19.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3257,14 +3350,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-creative-apparel-marketing-on-running-ch"
+        "senior-director-of-creative-apparel-marketing-on-running-ch",
+        "senior-direttore-of-creative-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-creative-apparel-marketing-on-running-ch"
+          "senior-director-of-creative-apparel-marketing-on-running-ch",
+          "senior-direttore-of-creative-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.171Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -3309,7 +3405,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7918307?gh_jid=7918307",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.542Z",
+      "crawledAt": "2026-08-16T10:14:19.060Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3333,11 +3429,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-brand-moments-on-running-ch"
+        "senior-director-of-brand-moments-on-running-ch",
+        "senior-direttore-of-brand-moments-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-brand-moments-on-running-ch"
+          "senior-director-of-brand-moments-on-running-ch",
+          "senior-direttore-of-brand-moments-on-running-zurich"
         ],
         "de": [
           "senior-director-of-brand-moments-on-running-ch"
@@ -3391,7 +3489,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8044980?gh_jid=8044980",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.540Z",
+      "crawledAt": "2026-08-16T10:14:19.059Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3415,11 +3513,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "sample-maker-on-running-ch"
+        "sample-maker-on-running-ch",
+        "produttore-di-campioni-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sample-maker-on-running-ch"
+          "sample-maker-on-running-ch",
+          "produttore-di-campioni-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.168Z",
@@ -3467,7 +3567,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.538Z",
+      "crawledAt": "2026-08-16T10:14:19.057Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3536,7 +3636,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7491246?gh_jid=7491246",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.536Z",
+      "crawledAt": "2026-08-16T10:14:19.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3560,11 +3660,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "principal-engineer-operations-technology-on-running-ch"
+        "principal-engineer-operations-technology-on-running-ch",
+        "principal-ingegnere-operations-technology-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-engineer-operations-technology-on-running-ch"
+          "principal-engineer-operations-technology-on-running-ch",
+          "principal-ingegnere-operations-technology-on-running-zurich"
         ],
         "de": [
           "principal-engineer-operations-technology-on-running-ch"
@@ -3618,7 +3720,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8093827?gh_jid=8093827",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.534Z",
+      "crawledAt": "2026-08-16T10:14:19.055Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3642,11 +3744,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "principal-data-scientist-on-running-ch"
+        "principal-data-scientist-on-running-ch",
+        "principali-scienziati-di-dati-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-data-scientist-on-running-ch"
+          "principal-data-scientist-on-running-ch",
+          "principali-scienziati-di-dati-on-running-zurich"
         ],
         "de": [
           "principal-data-scientist-on-running-ch"
@@ -3700,7 +3804,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8095927?gh_jid=8095927",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.532Z",
+      "crawledAt": "2026-08-16T10:14:19.053Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3724,11 +3828,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-supply-chain-decision-intelligence-operations-research-on-running-ch"
+        "lead-supply-chain-decision-intelligence-operations-research-on-running-ch",
+        "lead-supply-chain-decision-intelligence-operations-ricerca-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-supply-chain-decision-intelligence-operations-research-on-running-ch"
+          "lead-supply-chain-decision-intelligence-operations-research-on-running-ch",
+          "lead-supply-chain-decision-intelligence-operations-ricerca-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -3777,7 +3883,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079590?gh_jid=8079590",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.529Z",
+      "crawledAt": "2026-08-16T10:14:19.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3801,11 +3907,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-robotics-and-plc-engineer-on-running-ch"
+        "lead-robotics-and-plc-engineer-on-running-ch",
+        "lead-robotics-and-plc-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-robotics-and-plc-engineer-on-running-ch"
+          "lead-robotics-and-plc-engineer-on-running-ch",
+          "lead-robotics-and-plc-ingegnere-on-running-zurich"
         ],
         "de": [
           "lead-robotics-and-plc-engineer-on-running-ch"
@@ -3815,6 +3923,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.015Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3859,7 +3968,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8083302?gh_jid=8083302",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.528Z",
+      "crawledAt": "2026-08-16T10:14:19.050Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3928,7 +4037,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8110850?gh_jid=8110850",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.526Z",
+      "crawledAt": "2026-08-16T10:14:19.049Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3952,11 +4061,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-polymer-process-engineer-lightspray-on-running-ch"
+        "lead-polymer-process-engineer-lightspray-on-running-ch",
+        "lead-polymer-process-ingegnere-lightspray-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-polymer-process-engineer-lightspray-on-running-ch"
+          "lead-polymer-process-engineer-lightspray-on-running-ch",
+          "lead-polymer-process-ingegnere-lightspray-on-running-zurich"
         ],
         "de": [
           "lead-polymer-process-engineer-lightspray-on-running-ch"
@@ -3966,6 +4077,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.877Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4010,7 +4122,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8098491?gh_jid=8098491",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.525Z",
+      "crawledAt": "2026-08-16T10:14:19.048Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4034,11 +4146,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-pattern-engineer-on-running-ch"
+        "lead-pattern-engineer-on-running-ch",
+        "lead-pattern-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-pattern-engineer-on-running-ch"
+          "lead-pattern-engineer-on-running-ch",
+          "lead-pattern-ingegnere-on-running-zurich"
         ],
         "de": [
           "lead-pattern-engineer-on-running-ch"
@@ -4092,7 +4206,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046066?gh_jid=8046066",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.522Z",
+      "crawledAt": "2026-08-16T10:14:19.045Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4116,11 +4230,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-inbound-transportation-operations-on-running-ch"
+        "lead-inbound-transportation-operations-on-running-ch",
+        "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-inbound-transportation-operations-on-running-ch"
+          "lead-inbound-transportation-operations-on-running-ch",
+          "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich"
         ],
         "de": [
           "lead-inbound-transportation-operations-on-running-ch"
@@ -4130,6 +4246,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.006Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4174,7 +4291,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972381?gh_jid=7972381",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.520Z",
+      "crawledAt": "2026-08-16T10:14:19.042Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4198,11 +4315,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
+        "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch",
+        "lead-generative-intelligence-and-search-ecosystem-analista-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
+          "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch",
+          "lead-generative-intelligence-and-search-ecosystem-analista-on-running-zurich"
         ],
         "de": [
           "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
@@ -4212,6 +4331,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:04:22.958Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4256,7 +4376,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7606445?gh_jid=7606445",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.518Z",
+      "crawledAt": "2026-08-16T10:14:19.040Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4281,12 +4401,14 @@
       },
       "previousSlugs": [
         "lead-tooling-engineer-on-running-ch",
-        "lead-footwear-tooling-engineer-on-running-ch"
+        "lead-footwear-tooling-engineer-on-running-ch",
+        "lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-tooling-engineer-on-running-ch",
-          "lead-footwear-tooling-engineer-on-running-ch"
+          "lead-footwear-tooling-engineer-on-running-ch",
+          "lead-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.165Z",
@@ -4334,7 +4456,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7742550?gh_jid=7742550",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.516Z",
+      "crawledAt": "2026-08-16T10:14:19.037Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4358,11 +4480,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-material-designer-on-running-ch"
+        "lead-footwear-material-designer-on-running-ch",
+        "piombo-calzature-materiale-designer-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-material-designer-on-running-ch"
+          "lead-footwear-material-designer-on-running-ch",
+          "piombo-calzature-materiale-designer-on-running-zurich"
         ],
         "de": [
           "lead-footwear-material-designer-on-running-ch"
@@ -4372,6 +4496,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.998Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4416,7 +4541,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8078986?gh_jid=8078986",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.513Z",
+      "crawledAt": "2026-08-16T10:14:19.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4440,14 +4565,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-dynamic-testing-innovation-on-running-ch"
+        "lead-footwear-dynamic-testing-innovation-on-running-ch",
+        "lead-footwear-dynamic-testing-innovazione-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-dynamic-testing-innovation-on-running-ch"
+          "lead-footwear-dynamic-testing-innovation-on-running-ch",
+          "lead-footwear-dynamic-testing-innovazione-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.994Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4492,7 +4620,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054189?gh_jid=8054189",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.510Z",
+      "crawledAt": "2026-08-16T10:14:19.031Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4516,11 +4644,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-developer-pad-young-movers-on-running-ch"
+        "lead-footwear-developer-pad-young-movers-on-running-ch",
+        "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-developer-pad-young-movers-on-running-ch"
+          "lead-footwear-developer-pad-young-movers-on-running-ch",
+          "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
         ],
         "de": [
           "lead-footwear-developer-pad-young-movers-on-running-ch"
@@ -4530,6 +4660,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.701Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4574,7 +4705,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8096044?gh_jid=8096044",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.508Z",
+      "crawledAt": "2026-08-16T10:14:19.029Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4598,11 +4729,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-dtc-dms-retail-marketing-emea-on-running-ch"
+        "lead-dtc-dms-retail-marketing-emea-on-running-ch",
+        "responsabile-dtc-e-dms-retail-marketing-emea-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-dtc-dms-retail-marketing-emea-on-running-ch"
+          "lead-dtc-dms-retail-marketing-emea-on-running-ch",
+          "responsabile-dtc-e-dms-retail-marketing-emea-on-running-zurich"
         ],
         "de": [
           "lead-dtc-dms-retail-marketing-emea-on-running-ch"
@@ -4612,6 +4745,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:51:54.411Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4656,7 +4790,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8112176?gh_jid=8112176",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.506Z",
+      "crawledAt": "2026-08-16T10:14:19.026Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4725,7 +4859,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8066650?gh_jid=8066650",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.503Z",
+      "crawledAt": "2026-08-16T10:14:19.023Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4753,7 +4887,8 @@
         "lead-gestione-archivio-on-running-zurich",
         "lead-archive-management-on-running-ch",
         "lead-archivverwaltung-on-running-zurich",
-        "responsable-gestion-des-archives-on-running-zurich"
+        "responsable-gestion-des-archives-on-running-zurich",
+        "lead-costruzione-project-management-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4761,7 +4896,8 @@
           "lead-gestione-archivio-on-running-zurich",
           "lead-archive-management-on-running-ch",
           "lead-archivverwaltung-on-running-zurich",
-          "responsable-gestion-des-archives-on-running-zurich"
+          "responsable-gestion-des-archives-on-running-zurich",
+          "lead-costruzione-project-management-on-running-zurich"
         ],
         "en": [
           "lead-archive-management-on-running-ch"
@@ -4774,6 +4910,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:42:24.262Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4818,7 +4955,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7962925?gh_jid=7962925",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.502Z",
+      "crawledAt": "2026-08-16T10:14:19.022Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4842,11 +4979,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-commercialization-engineer-on-running-ch"
+        "lead-commercialization-engineer-on-running-ch",
+        "lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-commercialization-engineer-on-running-ch"
+          "lead-commercialization-engineer-on-running-ch",
+          "lead-commercialization-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.160Z",
@@ -4870,7 +5009,7 @@
         "it": "lead-test-di-abbigliamento-on-running-zurich",
         "en": "lead-apparel-testing-on-running-ch",
         "de": "blei-bekleidungstests-on-running-zurich",
-        "fr": "le-plomb-essai-d-habillement-on-running-zurich"
+        "fr": "responsable-tests-de-vetements-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4894,7 +5033,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7775612?gh_jid=7775612",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.500Z",
+      "crawledAt": "2026-08-16T10:14:19.020Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4919,13 +5058,17 @@
       },
       "previousSlugs": [
         "lead-apparel-testing-on-running-ch",
+        "le-plomb-essai-d-habillement-on-running-zurich",
+        "lead-test-di-abbigliamento-on-running-zurich",
         "responsable-tests-de-vetements-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-testing-on-running-ch"
+          "lead-apparel-testing-on-running-ch",
+          "lead-test-di-abbigliamento-on-running-zurich"
         ],
         "fr": [
+          "le-plomb-essai-d-habillement-on-running-zurich",
           "responsable-tests-de-vetements-on-running-zurich"
         ]
       },
@@ -4974,7 +5117,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721446?gh_jid=7721446",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.498Z",
+      "crawledAt": "2026-08-16T10:14:19.017Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4998,14 +5141,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-apparel-graphic-design-on-running-ch"
+        "lead-apparel-graphic-design-on-running-ch",
+        "piombo-apparel-graphic-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-graphic-design-on-running-ch"
+          "lead-apparel-graphic-design-on-running-ch",
+          "piombo-apparel-graphic-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.862Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5050,7 +5196,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984641?gh_jid=7984641",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.496Z",
+      "crawledAt": "2026-08-16T10:14:19.016Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5074,11 +5220,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-accessories-developer-technical-bags-on-running-ch"
+        "lead-accessories-developer-technical-bags-on-running-ch",
+        "lead-accessories-sviluppatore-technical-bags-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-accessories-developer-technical-bags-on-running-ch"
+          "lead-accessories-developer-technical-bags-on-running-ch",
+          "lead-accessories-sviluppatore-technical-bags-on-running-zurich"
         ],
         "de": [
           "lead-accessories-developer-technical-bags-on-running-ch"
@@ -5088,6 +5236,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.957Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5132,7 +5281,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079396?gh_jid=8079396",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.494Z",
+      "crawledAt": "2026-08-16T10:14:19.013Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5157,11 +5306,13 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+          "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
         ],
         "it": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
-          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+          "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
         ],
         "de": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
@@ -5172,7 +5323,8 @@
       },
       "previousSlugs": [
         "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
-        "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+        "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+        "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
       ],
       "firstSeenAt": "2026-07-22T22:50:30.308Z",
       "salaryMin": 73500,
@@ -5186,7 +5338,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-5a413552254a",
@@ -5219,7 +5372,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7840993?gh_jid=7840993",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.492Z",
+      "crawledAt": "2026-08-16T10:14:19.010Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5243,11 +5396,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-strategy-operations-footwear-product-creation-on-running-ch"
+        "head-of-strategy-operations-footwear-product-creation-on-running-ch",
+        "responsabile-strategy-operations-footwear-product-creation-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-strategy-operations-footwear-product-creation-on-running-ch"
+          "head-of-strategy-operations-footwear-product-creation-on-running-ch",
+          "responsabile-strategy-operations-footwear-product-creation-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.153Z",
@@ -5295,7 +5450,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7831449?gh_jid=7831449",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.489Z",
+      "crawledAt": "2026-08-16T10:14:19.005Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5323,7 +5478,8 @@
         "responsabile-product-management-product-r-d-on-running-zurich",
         "head-of-product-management-product-r-d-on-running-ch",
         "leiter-product-management-product-r-d-on-running-zurich",
-        "responsable-product-management-product-r-d-on-running-zurich"
+        "responsable-product-management-product-r-d-on-running-zurich",
+        "responsabile-product-management-tennis-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5331,7 +5487,8 @@
           "responsabile-product-management-product-r-d-on-running-zurich",
           "head-of-product-management-product-r-d-on-running-ch",
           "leiter-product-management-product-r-d-on-running-zurich",
-          "responsable-product-management-product-r-d-on-running-zurich"
+          "responsable-product-management-product-r-d-on-running-zurich",
+          "responsabile-product-management-tennis-on-running-zurich"
         ],
         "en": [
           "head-of-product-management-product-r-d-on-running-ch"
@@ -5390,7 +5547,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7857798?gh_jid=7857798",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.487Z",
+      "crawledAt": "2026-08-16T10:14:19.004Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5414,11 +5571,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-product-development-accessories-on-running-ch"
+        "head-of-product-development-accessories-on-running-ch",
+        "responsabile-product-development-accessories-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-product-development-accessories-on-running-ch"
+          "head-of-product-development-accessories-on-running-ch",
+          "responsabile-product-development-accessories-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.150Z",
@@ -5466,7 +5625,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7954040?gh_jid=7954040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.484Z",
+      "crawledAt": "2026-08-16T10:14:19.002Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5490,11 +5649,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-internal-content-channels-on-running-ch"
+        "head-of-internal-content-channels-on-running-ch",
+        "responsabile-internal-content-channels-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-internal-content-channels-on-running-ch"
+          "head-of-internal-content-channels-on-running-ch",
+          "responsabile-internal-content-channels-on-running-zurich"
         ],
         "de": [
           "head-of-internal-content-channels-on-running-ch"
@@ -5548,7 +5709,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8010254?gh_jid=8010254",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.482Z",
+      "crawledAt": "2026-08-16T10:14:19.000Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5572,11 +5733,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-engineering-customer-experience-on-running-ch"
+        "head-of-engineering-customer-experience-on-running-ch",
+        "responsabile-engineering-customer-experience-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-engineering-customer-experience-on-running-ch"
+          "head-of-engineering-customer-experience-on-running-ch",
+          "responsabile-engineering-customer-experience-on-running-zurich"
         ],
         "de": [
           "head-of-engineering-customer-experience-on-running-ch"
@@ -5630,7 +5793,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7452087?gh_jid=7452087",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.477Z",
+      "crawledAt": "2026-08-16T10:14:18.996Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5654,11 +5817,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-data-science-commercial-ai-on-running-ch"
+        "head-of-data-science-commercial-ai-on-running-ch",
+        "responsabile-data-science-commercial-ai-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-data-science-commercial-ai-on-running-ch"
+          "head-of-data-science-commercial-ai-on-running-ch",
+          "responsabile-data-science-commercial-ai-on-running-zurich"
         ],
         "de": [
           "head-of-data-science-commercial-ai-on-running-ch"
@@ -5712,7 +5877,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7677225?gh_jid=7677225",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.473Z",
+      "crawledAt": "2026-08-16T10:14:18.993Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5736,11 +5901,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-creative-core-brand-design-on-running-ch"
+        "head-of-creative-core-brand-design-on-running-ch",
+        "responsabile-creative-core-brand-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-creative-core-brand-design-on-running-ch"
+          "head-of-creative-core-brand-design-on-running-ch",
+          "responsabile-creative-core-brand-design-on-running-zurich"
         ],
         "de": [
           "head-of-creative-core-brand-design-on-running-ch"
@@ -5794,7 +5961,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046508?gh_jid=8046508",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.470Z",
+      "crawledAt": "2026-08-16T10:14:18.991Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5818,11 +5985,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-business-process-excellence-on-running-ch"
+        "head-of-business-process-excellence-on-running-ch",
+        "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-business-process-excellence-on-running-ch"
+          "head-of-business-process-excellence-on-running-ch",
+          "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
         ],
         "de": [
           "head-of-business-process-excellence-on-running-ch"
@@ -5876,7 +6045,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7384378?gh_jid=7384378",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.465Z",
+      "crawledAt": "2026-08-16T10:14:18.988Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5902,14 +6071,17 @@
       "firstSeenAt": "2026-07-27T22:10:40.048Z",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-apparel-materials-development-performance-on-running-ch"
+          "head-of-apparel-materials-development-performance-on-running-ch",
+          "senior-lead-apparel-materials-development-performance-on-running-ch"
         ],
         "en": [
-          "head-of-apparel-materials-development-performance-on-running-ch"
+          "head-of-apparel-materials-development-performance-on-running-ch",
+          "senior-lead-apparel-materials-development-performance-on-running-ch"
         ]
       },
       "previousSlugs": [
-        "head-of-apparel-materials-development-performance-on-running-ch"
+        "head-of-apparel-materials-development-performance-on-running-ch",
+        "senior-lead-apparel-materials-development-performance-on-running-ch"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -5955,7 +6127,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7402412?gh_jid=7402412",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.462Z",
+      "crawledAt": "2026-08-16T10:14:18.986Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5980,15 +6152,18 @@
       },
       "previousSlugs": [
         "senior-director-of-brand-apparel-marketing-on-running-ch",
-        "global-senior-director-of-brand-apparel-marketing-on-running-ch"
+        "global-senior-director-of-brand-apparel-marketing-on-running-ch",
+        "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-director-of-brand-apparel-marketing-on-running-ch",
-          "global-senior-director-of-brand-apparel-marketing-on-running-ch"
+          "global-senior-director-of-brand-apparel-marketing-on-running-ch",
+          "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.169Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -6033,7 +6208,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7687729?gh_jid=7687729",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.459Z",
+      "crawledAt": "2026-08-16T10:14:18.984Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6057,11 +6232,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "global-head-of-brand-events-on-running-ch"
+        "global-head-of-brand-events-on-running-ch",
+        "global-responsabile-brand-events-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-brand-events-on-running-ch"
+          "global-head-of-brand-events-on-running-ch",
+          "global-responsabile-brand-events-on-running-zurich"
         ],
         "de": [
           "global-head-of-brand-events-on-running-ch"
@@ -6115,7 +6292,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8030127?gh_jid=8030127",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.457Z",
+      "crawledAt": "2026-08-16T10:14:18.983Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6139,11 +6316,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "fit-model-flexible-part-time-opportunity-on-running-ch"
+        "fit-model-flexible-part-time-opportunity-on-running-ch",
+        "fit-model-flexible-opportunita-part-time-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fit-model-flexible-part-time-opportunity-on-running-ch"
+          "fit-model-flexible-part-time-opportunity-on-running-ch",
+          "fit-model-flexible-opportunita-part-time-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.141Z",
@@ -6191,7 +6370,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8094019?gh_jid=8094019",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.456Z",
+      "crawledAt": "2026-08-16T10:14:18.981Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6215,11 +6394,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "evp-content-communications-lead-on-running-ch"
+        "evp-content-communications-lead-on-running-ch",
+        "contenuti-e-comunicazioni-evp-piombo-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "evp-content-communications-lead-on-running-ch"
+          "evp-content-communications-lead-on-running-ch",
+          "contenuti-e-comunicazioni-evp-piombo-on-running-zurich"
         ],
         "fr": [
           "evp-content-communications-lead-on-running-ch"
@@ -6271,7 +6452,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7214896?gh_jid=7214896",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.454Z",
+      "crawledAt": "2026-08-16T10:14:18.980Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6295,11 +6476,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-product-vertical-running-on-running-ch"
+        "director-of-product-vertical-running-on-running-ch",
+        "direttore-of-product-vertical-running-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-product-vertical-running-on-running-ch"
+          "director-of-product-vertical-running-on-running-ch",
+          "direttore-of-product-vertical-running-on-running-zurich"
         ],
         "de": [
           "director-of-product-vertical-running-on-running-ch"
@@ -6309,6 +6492,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.874Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6353,7 +6537,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972311?gh_jid=7972311",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.451Z",
+      "crawledAt": "2026-08-16T10:14:18.977Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6377,14 +6561,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-product-testing-on-running-ch"
+        "director-of-product-testing-on-running-ch",
+        "direttore-of-product-testing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-product-testing-on-running-ch"
+          "director-of-product-testing-on-running-ch",
+          "direttore-of-product-testing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.134Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6426,7 +6613,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7699563?gh_jid=7699563",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T21:30:54.448Z",
+      "crawledAt": "2026-08-16T10:14:18.972Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6450,11 +6637,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-innovation-management-strategy-on-running-ch"
+        "director-of-innovation-management-strategy-on-running-ch",
+        "direttore-of-innovation-management-strategy-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-innovation-management-strategy-on-running-ch"
+          "director-of-innovation-management-strategy-on-running-ch",
+          "direttore-of-innovation-management-strategy-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -6486,7 +6675,7 @@
       "companyDomain": "on-running.com",
       "title": "Chief of Staff - Retail Strategy",
       "titleByLocale": {
-        "it": "Capo di Stato Maggiore - Strategia al dettaglio",
+        "it": "Chief of Staff - Retail Strategy",
         "en": "Chief of Staff - Retail Strategy",
         "de": "Stabschef - Einzelhandelsstrategie",
         "fr": "Chef de cabinet - Stratégie de vente au détail"
@@ -6503,7 +6692,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7929715?gh_jid=7929715",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:30:54.442Z",
+      "crawledAt": "2026-08-16T10:14:18.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6543,6 +6732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.827Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
