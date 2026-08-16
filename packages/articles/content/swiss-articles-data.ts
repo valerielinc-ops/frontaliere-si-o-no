@@ -8353,6 +8353,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'apprendistato-e-formazione-professionale-canton-uri',
+    category: 'pratico',
+    date: '2026-08-16T06:08:29.326Z',
+    image: '/images/blog/apprendistato-e-formazione-professionale-canton-uri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -2785,6 +2785,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.coppa-svizzera-risultati-partiti.title': 'Schweizer Cup: Schlucht für Servette, Basel, Young Boys und GC',
     'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'Keine Überraschungen im 32. Finale des Schweizer Wettbewerbs, da die Formationen der Super League ihre jeweiligen Runden problemlos übertreffen.',
     'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Schweizer-Cup-Spiel in einem Schweizer Stadion',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Lehre im Kanton Uri: So finden Sie eine Lehrstelle',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'Der Kanton Uri bietet Grenzgängerinnen und Grenzgängern Lehr- und Berufsbildungsmöglichkeiten. Erfahren Sie, wie Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität finden.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontalier, der sich in einem beruflichen Lehrlingsverhältnis im Kanton Uri engagiert',
 };
 
 export default blogMetaChDe;
