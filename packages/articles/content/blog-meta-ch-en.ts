@@ -2791,6 +2791,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-uri.title': 'Apprenticeship and training in the Canton of Uri',
     'blog.article.apprendistato-formazione-professionale-canton-uri.excerpt': 'Here are the key facts about apprenticeship and vocational training in the Canton of Uri: how to find an internship position, internship contract, apprentice salary and professional maturity.',
     'blog.article.apprendistato-formazione-professionale-canton-uri.imageAlt': 'A view of Lugano, Switzerland, highlighting the importance of vocational training and apprenticeships in the Canton of Uri.',
+    'blog.article.asilo-nido-custodia-bambini-canton-uri.title': 'Nursery and childcare in Canton Uri: cost and services',
+    'blog.article.asilo-nido-custodia-bambini-canton-uri.excerpt': 'Canton Uri offers daycare and childcare services, but what to expect and how do they work?',
+    'blog.article.asilo-nido-custodia-bambini-canton-uri.imageAlt': 'Immagini di asili nido e servizi di custodia bambini nella Canton Uri',
 };
 
 export default blogMetaChEn;
