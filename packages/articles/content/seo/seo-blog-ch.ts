@@ -36797,6 +36797,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-di-succesione-e-donazione-canton-uri-aliquote': {
+    title: 'Uri: aliquote di successione e donazione per grado di parentela',
+    description: 'Imposta di successione e donazione nel Cantone di Uri: aliquote per grado di parentela. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aliquote, successione, donazione, grado',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Uri: aliquote per grado di parentela',
+    ogDescription: 'Imposta di successione e donazione nel Cantone di Uri: aliquote per grado di parentela',
+    canonicalPath: '/articoli-svizzera/imposta-di-succesione-e-donazione-canton-uri-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uri: aliquote di successione e donazione per grado di parentela",
+      "description": "Imposta di successione e donazione nel Cantone di Uri: aliquote per grado di parentela. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-uri-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locarno, Svizzera: immagine fotografica di un edificio storico con un cartello che indica l'importo di un'eredità"
+      },
+      "datePublished": "2026-08-16T10:39:50+00:00",
+      "dateModified": "2026-08-16T10:39:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-succesione-e-donazione-canton-uri-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
