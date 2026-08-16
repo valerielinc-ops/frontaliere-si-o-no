@@ -31,6 +31,7 @@ jobs:
             echo "Outside peak hours, skipping freshness check"
             echo "STALE=false" >> "$GITHUB_OUTPUT"
             echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
+            echo "THRESHOLD_MINUTES=0" >> "$GITHUB_OUTPUT"
             echo "PAGEABLE=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -85,9 +86,21 @@ jobs:
           echo "Data age: ${AGE_MINUTES} minutes"
           echo "AGE_MINUTES=${AGE_MINUTES}" >> "$GITHUB_OUTPUT"
 
-          if [ "$AGE_MINUTES" -gt 90 ]; then
+          # Threshold is day-of-week aware: traffic-scheduler.yml only runs every
+          # 4h on weekends (vs every 30min at weekday peaks), so a flat 90-min
+          # threshold would page on every single weekend slot. Single source of
+          # truth: staleThresholdMinutesFor() in scripts/check-border-data-health.mjs
+          # (reuses the same module as the PAGEABLE gate above).
+          THRESHOLD_MIN=$(node -e "
+            import('./scripts/check-border-data-health.mjs').then((m) => {
+              console.log(m.staleThresholdMinutesFor(Date.now()));
+            });
+          ")
+          echo "THRESHOLD_MINUTES=${THRESHOLD_MIN}" >> "$GITHUB_OUTPUT"
+
+          if [ "$AGE_MINUTES" -gt "$THRESHOLD_MIN" ]; then
             echo "STALE=true" >> "$GITHUB_OUTPUT"
-            echo "REASON=Data is ${AGE_MINUTES} minutes old (threshold: 90 min)" >> "$GITHUB_OUTPUT"
+            echo "REASON=Data is ${AGE_MINUTES} minutes old (threshold: ${THRESHOLD_MIN} min)" >> "$GITHUB_OUTPUT"
           else
             echo "STALE=false" >> "$GITHUB_OUTPUT"
           fi
@@ -184,10 +197,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AGE_MINUTES: ${{ steps.check.outputs.AGE_MINUTES }}
+          THRESHOLD_MINUTES: ${{ steps.check.outputs.THRESHOLD_MINUTES }}
         run: |
           for LABEL in "traffic-stale" "traffic-stale-pending"; do
             for NUM in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
-              gh issue comment "$NUM" --body "Data recovered. Latest snapshot is ${AGE_MINUTES} minutes old (threshold 90 min). Auto-closing."
+              gh issue comment "$NUM" --body "Data recovered. Latest snapshot is ${AGE_MINUTES} minutes old (threshold ${THRESHOLD_MINUTES} min). Auto-closing."
               gh issue close "$NUM" --reason completed
               echo "Closed issue #$NUM (label=$LABEL)"
             done
