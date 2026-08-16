@@ -988,6 +988,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-canton-svitto': { it: 'comprare-casa-canton-svitto', en: 'buying-house-canton-schwyz', de: 'haus-kaufen-kanton-schwyz', fr: 'acheter-maison-canton-schwyz' },
  'mercato-affitti-cantone-svitto': { it: 'mercato-affitti-cantone-svitto', en: 'affitts-in-canton-schwyz', de: 'mietpreise-im-kanton-schwyz', fr: 'logement-dans-le-canton-de-schwyz' },
  'naturalizzazione-canton-svitto-requisiti-e-procedura': { it: 'naturalizzazione-canton-svitto-requisiti-e-procedura', en: 'naturalization-canton-svitto-requisites-and-procedure', de: 'naturalisierung-kanton-schweiz-requisiten-und-verfahren', fr: 'naturalisation-canton-suisse-requisits-et-procedure' },
+ 'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione': { it: 'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione', en: 'avs-and-complementary-benefits-canton-of-schwyz-compensation-fund', de: 'avs-und-komplementaere-leistungen-kanton-schwyz-kompensationsfonds', fr: 'avs-et-prestations-complementaires-canton-de-schwyz-fonds-de-compensation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

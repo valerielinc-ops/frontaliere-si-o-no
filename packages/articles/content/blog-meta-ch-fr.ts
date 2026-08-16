@@ -2887,6 +2887,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Naturalisation dans le canton de Schwyz : exigences et procédure',
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'La procédure de naturalisation dans le canton de Schwyz nécessite un permis de séjour C, 10 ans de résidence et d\'autres exigences',
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'Une scène de la vie d\'un étranger en Suisse avec un fond de montagnes et de lac',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AVS et prestazioni nel Canton de Schwyz',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'Le canton de Schwyz dispose d\'une caisse de compensation qui gère les prestations AVS et complémentaires pour ses habitants.',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Image d\'un paysage hivernal dans le Canton de Schwyz',
 };
 
 export default blogMetaChFr;

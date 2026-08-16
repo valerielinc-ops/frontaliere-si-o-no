@@ -2887,6 +2887,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Einbürgerung im Kanton Schwyz: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'Das Einbürgerungsverfahren im Kanton Schwyz erfordert eine Niederlassungsbewilligung C, 10 Jahre Aufenthalt und weitere Voraussetzungen',
     'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'Eine Szene aus dem Leben eines Ausländers in der Schweiz mit einem Hintergrund von Bergen und See',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AHV und Ergänzungsleistungen im Kanton Schwyz: die Ausgleichskasse',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'Der Kanton Schwyz verfügt über eine Ausgleichskasse, welche die AHV- und Ergänzungsleistungen für seine Bewohner verwaltet.',
+    'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Bild einer Winterlandschaft im Kanton Schwyz',
 };
 
 export default blogMetaChDe;
