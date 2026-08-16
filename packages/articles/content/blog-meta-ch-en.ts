@@ -2998,6 +2998,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-fatti.title': 'Apprenticeship and training in the Canton of Nidvaldo',
     'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'The Canton of Nidvaldo offers vocational training opportunities for young people and adults. Find out how an apprenticeship position is located, how the apprenticeship contract is negotiated, how the apprentice\'s salary is calculated and how professional maturity is achieved.',
     'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'A young person in a training position in a local company in the Canton of Nidvaldo, Switzerland, looking for a job in a related field.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Scholarships Canton Grisons requirements and amounts',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'The State Council of the Canton of Graubünden has announced the availability of scholarships for deserving students.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Editorial image related to: Borse di studio Canton Grigioni requisiti e importi',
 };
 
 export default blogMetaChEn;

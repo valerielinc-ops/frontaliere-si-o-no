@@ -2998,6 +2998,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-fatti.title': 'Apprentissage et formation dans le canton de Nidwald',
     'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'Le canton de Nidwald offre des possibilités de formation professionnelle aux jeunes et aux adultes. Découvrez comment trouver un lieu de stage, comment négocier le contrat de stage, comment calculer la rémunération de l\'apprenti et comment atteindre la maturité professionnelle.',
     'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'Un jeune personne en position de formation dans une entreprise locale dans le Canton de Nidvaldo, Suisse, cherchant un emploi dans un domaine connexe.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Bourses Canton Grisons exigences et montants',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'Le Conseil d\'État du canton des Grisons a annoncé la disponibilité de bourses d\'études pour les étudiants méritants.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Image éditoriale relative à: Borse di studio Canton Grigioni requisiti e importi',
 };
 
 export default blogMetaChFr;
