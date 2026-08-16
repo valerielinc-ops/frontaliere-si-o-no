@@ -945,6 +945,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-uri': { it: 'assegni-familiari-canton-uri', en: 'assegni-familiari-canton-uri-en', de: 'assegni-familiari-canton-uri-de', fr: 'assegni-familiari-canton-uri-fr' },
  'sistema-scolastico-canton-uri-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-uri-iscrizione-e-cicli', en: 'school-system-canton-uri-enrollment-and-classes', de: 'schausystem-kanton-ur-einschreibung-und-klassen', fr: 'systeme-scolaire-canton-ur-inscription-et-classe' },
  'svizzera-calo-immigrazione-emigrazione-2026': { it: 'svizzera-calo-immigrazione-emigrazione-2026', en: 'switzerland-immigration-emigration-decline-2026', de: 'schweiz-rueckgang-einwanderung-auswanderung-2026', fr: 'suisse-baisse-immigration-emigration-2026' },
+ 'tendicione-arresti-veicoli-ricerca-2024': { it: 'tendicione-arresti-veicoli-ricerca-2024', en: 'tendicione-arresti-veicoli-2024', de: 'tendicione-arresti-veicoli-2024', fr: 'tendicione-arresti-veicoli-2024' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2758,6 +2758,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Svizzera: cala l\'immigrazione e cresce l\'emigrazione nel 2026',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analisi dei dati della Segreteria di Stato della migrazione sulla popolazione residente permanente straniera in Svizzera nel primo semestre del 2026.',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Panorama urbano in Svizzera con edifici federali',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.title': 'Diversi arresti grazie alla ricerca automatizzata dei veicoli',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.excerpt': 'Il sistema introdotto nel 2024 ha contribuito all\'arresto di un sospetto e a diverse altre arresti.',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.imageAlt': 'Immagine di un controllo di veicoli alla frontiera svizzera',
 };
 
 export default blogMetaChIt;

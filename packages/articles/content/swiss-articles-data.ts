@@ -8272,6 +8272,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tendicione-arresti-veicoli-ricerca-2024',
+    category: 'pratico',
+    date: '2026-08-16T03:48:04.108Z',
+    image: '/images/blog/tendicione-arresti-veicoli-ricerca-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
