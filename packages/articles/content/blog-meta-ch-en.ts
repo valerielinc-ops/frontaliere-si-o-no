@@ -2956,6 +2956,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS in the Canton of Obvaldo: the compensation fund',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'The Canton of Obvaldo manages the cantonal clearing house. The complementary performance of the AVS is crucial to ensure a vital minimum.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'The article delves into the AVS complementary benefits in the Canton of Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Public transport passes Canton Obvaldo: zones and fares',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Information about the subscriptions of the Canton Obvaldo, including zones and rates.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Image of a frontaliere using a Canton Obvaldo transportation pass',
 };
 
 export default blogMetaChEn;
