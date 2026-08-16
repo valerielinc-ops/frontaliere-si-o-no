@@ -2944,6 +2944,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Marché locatif dans le canton d\'Obwald : loyers moyens et droit locatif',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'Dans le canton d\'Obwald, les loyers moyens varient selon les zones. Le dépôt de garantie maximum est de 3 mois de loyer.',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Vue aérienne de la ville de Lugano, Suisse, avec un focus sur le marché de l\'immobilier et les prix de location.',
+    'blog.article.incendio-monte-gambarogno.title': 'Incendie sur le Mont Gambarogno, pompiers déjà au travail',
+    'blog.article.incendio-monte-gambarogno.excerpt': 'Un incendie de forêt a éclaté sur le mont Gambarogno. Les autorités invitent à ne pas se rendre dans la zone concernée.',
+    'blog.article.incendio-monte-gambarogno.imageAlt': 'Incendie sur le Monte Gambarogno, pompiers déjà sur place',
 };
 
 export default blogMetaChFr;

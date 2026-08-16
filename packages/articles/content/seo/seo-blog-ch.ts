@@ -38162,6 +38162,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-monte-gambarogno': {
+    title: 'Incendio sul Monte Gambarogno, pompieri già al lavoro',
+    description: 'Un incendio boschivo è divampato sul Monte Gambarogno. Le autorità invitano a non recarsi nella zona interessata. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, monte, gambarogno, pompieri',
+    ogTitle: 'Incendio sul Monte Gambarogno, pompieri già al lavoro',
+    ogDescription: 'Un incendio boschivo è divampato sul Monte Gambarogno. Le autorità invitano a non recarsi nella zona interessata.',
+    canonicalPath: '/articoli-svizzera/incendio-monte-gambarogno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio sul Monte Gambarogno, pompieri già al lavoro",
+      "description": "Un incendio boschivo è divampato sul Monte Gambarogno. Le autorità invitano a non recarsi nella zona interessata. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incendio-monte-gambarogno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio sul Monte Gambarogno, pompieri già al lavoro"
+      },
+      "datePublished": "2026-08-16T18:04:03+00:00",
+      "dateModified": "2026-08-16T18:04:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incendio-monte-gambarogno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

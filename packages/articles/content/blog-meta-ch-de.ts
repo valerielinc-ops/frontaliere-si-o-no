@@ -2944,6 +2944,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Mietmarkt im Kanton Obwalden: Durchschnittsmieten und Mietrecht',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'Im Kanton Obwalden variieren die durchschnittlichen Mieten je nach Gebiet. Die maximale Mietkaution beträgt 3 Monate.',
     'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Luftbildansicht der Stadt Lugano, Schweiz, mit einem Fokus auf den Immobilienmarkt und die Mietpreise.',
+    'blog.article.incendio-monte-gambarogno.title': 'Feuer auf dem Monte Gambarogno, Feuerwehrleute bereits bei der Arbeit',
+    'blog.article.incendio-monte-gambarogno.excerpt': 'Auf dem Gambarogno ist ein Waldbrand ausgebrochen. Die Behörden bitten darum, sich nicht in das betroffene Gebiet zu begeben.',
+    'blog.article.incendio-monte-gambarogno.imageAlt': 'Brand auf dem Monte Gambarogno, Feuerwehr bereits im Einsatz',
 };
 
 export default blogMetaChDe;
