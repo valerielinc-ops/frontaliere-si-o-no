@@ -2953,6 +2953,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, the game of shame',
     'blog.article.maccabi-lugano-mobilitazione.excerpt': 'The mobilization against Maccabi Tel Aviv - Lugano was called for August 20.',
     'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda speaks about Maccabi Tel Aviv - Lugano protest.',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS in the Canton of Obvaldo: the compensation fund',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'The Canton of Obvaldo manages the cantonal clearing house. The complementary performance of the AVS is crucial to ensure a vital minimum.',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'The article delves into the AVS complementary benefits in the Canton of Obvaldo.',
 };
 
 export default blogMetaChEn;

@@ -2953,6 +2953,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.maccabi-lugano-mobilitazione.title': 'Maccabi Tel Aviv, le match de la honte',
     'blog.article.maccabi-lugano-mobilitazione.excerpt': 'La mobilisation contre Maccabi Tel Aviv - Lugano a été lancée pour le 20 août.',
     'blog.article.maccabi-lugano-mobilitazione.imageAlt': 'Alessandra Noseda parle de la manifestation contre Maccabi Tel Aviv - Lugano.',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS dans le canton d\'Obwald : la caisse de compensation',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Le canton d\'Obwald gère la caisse de compensation cantonale. Les prestations complémentaires de l\'AVS sont cruciales pour assurer un minimum vital.',
+    'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'L\'article approfondit les prestations complémentaires de l\'AVS dans le canton d\'Obvaldo.',
 };
 
 export default blogMetaChFr;

@@ -38279,6 +38279,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione': {
+    title: 'AVS nel Cantone di Obvaldo: la cassa di compensazione',
+    description: 'Il Cantone di Obvaldo gestisce la cassa di compensazione cantonale. Le prestazioni complementari dell\'AVS sono cruciali per garantire un minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantone, obvaldo, cassa, compensazione',
+    ogTitle: 'Prestazioni complementari AVS nel Cantone di Obvaldo: la cassa di compensazione cantonale',
+    ogDescription: 'Il Cantone di Obvaldo gestisce la cassa di compensazione cantonale. Le prestazioni complementari dell\'AVS sono cruciali per garantire un minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS nel Cantone di Obvaldo: la cassa di compensazione",
+      "description": "Il Cantone di Obvaldo gestisce la cassa di compensazione cantonale. Le prestazioni complementari dell'AVS sono cruciali per garantire un minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'articolo approfondisce le prestazioni complementari dell'AVS nel Cantone di Obvaldo."
+      },
+      "datePublished": "2026-08-16T18:24:50+00:00",
+      "dateModified": "2026-08-16T18:24:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
