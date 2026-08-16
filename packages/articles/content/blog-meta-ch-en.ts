@@ -2974,6 +2974,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Short-term L permits in the canton of Nidvaldo: validity and extension',
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'The short-term L permit in Canton Nidvaldo is valid for a maximum of 1 year.',
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
+    'blog.article.salari-aumento-2027.title': 'Wages rising in 2027: here\'s how much more we could earn',
+    'blog.article.salari-aumento-2027.excerpt': 'Swiss companies expect wage increases by 2027. According to a KOF survey, wage negotiations are expected to lead to an average 1.2% increase in wages next year.',
+    'blog.article.salari-aumento-2027.imageAlt': 'Image of a street in Lugano with a Swiss flag',
 };
 
 export default blogMetaChEn;

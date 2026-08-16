@@ -2974,6 +2974,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Nidwald : validité et prolongation',
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'Le permis L de courte durée dans le canton de Nidwald est valable pour une durée maximale d\'un an.',
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
+    'blog.article.salari-aumento-2027.title': 'Salaires en hausse en 2027 : voici ce que nous pourrions gagner de plus',
+    'blog.article.salari-aumento-2027.excerpt': 'Les entreprises suisses prévoient des augmentations salariales pour 2027. Selon une enquête du KOF, les négociations salariales devraient conduire à une augmentation moyenne de 1,2% des salaires l\'année prochaine.',
+    'blog.article.salari-aumento-2027.imageAlt': 'Image d\'une rue à Lugano avec le drapeau suisse',
 };
 
 export default blogMetaChFr;

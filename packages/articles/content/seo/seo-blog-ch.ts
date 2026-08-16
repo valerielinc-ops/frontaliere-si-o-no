@@ -38552,6 +38552,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-aumento-2027': {
+    title: 'Salari in aumento nel 2027: ecco quanto potremmo guadagnare in più',
+    description: 'Le aziende svizzere prevedono aumenti salariali per il 2027. Secondo un sondaggio del KOF, le trattative salariali dovrebbero portare a un incremento medio',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, aumento, ecco, quanto',
+    ogTitle: 'Salari in aumento nel 2027: ecco quanto potremmo guadagnare in più',
+    ogDescription: 'Le aziende svizzere prevedono aumenti salariali per il 2027. Secondo un sondaggio del KOF, le trattative salariali dovrebbero portare a un incremento medio dell\'1,2% dei salari il prossimo anno.',
+    canonicalPath: '/articoli-svizzera/salari-aumento-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari in aumento nel 2027: ecco quanto potremmo guadagnare in più",
+      "description": "Le aziende svizzere prevedono aumenti salariali per il 2027. Secondo un sondaggio del KOF, le trattative salariali dovrebbero portare a un incremento medio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-aumento-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una strada a Lugano con una bandiera svizzera"
+      },
+      "datePublished": "2026-08-16T20:37:45+00:00",
+      "dateModified": "2026-08-16T20:37:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-aumento-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
