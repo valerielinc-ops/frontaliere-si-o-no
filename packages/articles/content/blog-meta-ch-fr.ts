@@ -2875,6 +2875,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.basilea-diagnosi-adhd-studenti.title': 'Bâle : évaluations TDAH déléguées aux étudiants dans les cliniques',
     'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'Selon ce que rapporte la NZZ am Sonntag, les Cliniques psychiatriques universitaires de Bâle ont délégué pendant des années les évaluations du TDAH aux étudiants.',
     'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'Cliniques psychiatriques universitaires de Bâle',
+    'blog.article.borse-studio-canton-svitto.title': 'Bourses canton Schwyz exigences et montants',
+    'blog.article.borse-studio-canton-svitto.excerpt': 'Exigences et montants des bourses d\'études pour les étudiants italiens dans le canton de Schwyz',
+    'blog.article.borse-studio-canton-svitto.imageAlt': 'Bourses d\'études pour étudiants italiens dans le canton de Schwyz',
 };
 
 export default blogMetaChFr;

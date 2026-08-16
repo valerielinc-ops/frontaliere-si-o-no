@@ -2875,6 +2875,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.basilea-diagnosi-adhd-studenti.title': 'Basel: ADHS-Bewertungen an Studierende in Kliniken delegiert',
     'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'Nach Angaben der NZZ am Sonntag haben die Universitätspsychiatrischen Kliniken Basel die ADHS-Beurteilungen jahrelang an Studierende delegiert.',
     'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'Universitäre Psychiatrische Kliniken Basel',
+    'blog.article.borse-studio-canton-svitto.title': 'Stipendien Kanton Schwyz Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-svitto.excerpt': 'Stipendienvoraussetzungen und -beträge für italienische Studierende im Kanton Schwyz',
+    'blog.article.borse-studio-canton-svitto.imageAlt': 'Stipendien für italienische Studierende im Kanton Schwyz',
 };
 
 export default blogMetaChDe;
