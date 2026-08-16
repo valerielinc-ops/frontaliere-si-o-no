@@ -8317,6 +8317,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ciclista-grave-dopo-una-caduta',
+    category: 'pratico',
+    date: '2026-08-16T05:15:08.103Z',
+    image: '/images/blog/ciclista-grave-dopo-una-caduta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

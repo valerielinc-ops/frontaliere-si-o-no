@@ -35939,6 +35939,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ciclista-grave-dopo-una-caduta': {
+    title: 'Ciclista grave dopo una caduta | Frontaliere Ticino',
+    description: 'Un uomo è stato soccorso da alcuni passanti dopo essere caduto sulla Dorfstrasse a Unterbach, nel comune di Meiringen. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ciclista, grave, dopo, caduta',
+    ogTitle: 'Ciclista grave dopo una caduta in Svizzera',
+    ogDescription: 'Un uomo è stato soccorso da alcuni passanti dopo essere caduto sulla Dorfstrasse a Unterbach, nel comune di Meiringen.',
+    canonicalPath: '/articoli-svizzera/ciclista-grave-dopo-una-caduta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ciclista grave dopo una caduta",
+      "description": "Un uomo è stato soccorso da alcuni passanti dopo essere caduto sulla Dorfstrasse a Unterbach, nel comune di Meiringen. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ciclista-grave-dopo-una-caduta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ciclista grave dopo una caduta in Svizzera"
+      },
+      "datePublished": "2026-08-16T05:15:08+00:00",
+      "dateModified": "2026-08-16T05:15:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ciclista-grave-dopo-una-caduta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

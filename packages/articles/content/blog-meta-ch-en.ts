@@ -2773,6 +2773,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incendio-moeriken-2024.title': 'Möriken forest fire, heavy smoke and public alert',
     'blog.article.incendio-moeriken-2024.excerpt': 'A forest fire in Möriken, in the canton of Aargau, causes a strong development of smoke.',
     'blog.article.incendio-moeriken-2024.imageAlt': 'A forest fire in Möriken, in the canton of Aargau, causes a strong development of smoke.',
+    'blog.article.ciclista-grave-dopo-una-caduta.title': 'Serious cyclist after a fall',
+    'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'A man was rescued by passers-by after falling on the Dorfstrasse in Unterbach, in the municipality of Meiringen.',
+    'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'A cyclist seriously injured after a fall in Switzerland',
 };
 
 export default blogMetaChEn;

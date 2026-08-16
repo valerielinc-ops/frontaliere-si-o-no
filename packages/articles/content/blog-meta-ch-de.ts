@@ -2773,6 +2773,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incendio-moeriken-2024.title': 'Waldbrand in Möriken, dichter Rauch und Alarmierung der Bevölkerung',
     'blog.article.incendio-moeriken-2024.excerpt': 'Ein Waldbrand in Möriken im Kanton Aargau verursacht eine starke Rauchentwicklung.',
     'blog.article.incendio-moeriken-2024.imageAlt': 'Ein Waldbrand in Möriken, im Kanton Aargau, verursacht einen starken Rauchentwicklung.',
+    'blog.article.ciclista-grave-dopo-una-caduta.title': 'Schwerer Radfahrer nach einem Sturz',
+    'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'Ein Mann wurde von Passanten gerettet, nachdem er auf die Dorfstraße in Unterbach in der Gemeinde Meiringen gestürzt war.',
+    'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'Ein Radfahrer schwer verletzt nach einem Sturz in der Schweiz',
 };
 
 export default blogMetaChDe;

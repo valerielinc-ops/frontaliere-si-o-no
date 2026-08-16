@@ -2773,6 +2773,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incendio-moeriken-2024.title': 'Incendie de forêt à Möriken, fumée dense et alerte à la population',
     'blog.article.incendio-moeriken-2024.excerpt': 'Un incendie de forêt qui a éclaté à Möriken, dans le canton d\'Argovie, provoque un fort développement de fumée.',
     'blog.article.incendio-moeriken-2024.imageAlt': 'Un incendie de forêt à Möriken, dans le canton d\'Aargau, provoque une forte évaporation de fumée.',
+    'blog.article.ciclista-grave-dopo-una-caduta.title': 'Cycliste grave suite à une chute',
+    'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'Un homme a été secouru par des passants après être tombé sur la Dorfstrasse à Unterbach, dans la commune de Meiringen.',
+    'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'Un cycliste gravement blessé après une chute en Suisse',
 };
 
 export default blogMetaChFr;
