@@ -2749,6 +2749,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-uri.title': 'Kurzfristige L-Bewilligungen im Kanton Uri: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-breve-durata-canton-uri.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Uri gilt für maximal <<non ancora specificato>>.',
     'blog.article.permesso-l-breve-durata-canton-uri.imageAlt': 'Das L-Behörde für kurze Dauer im Kanton Uri: was passiert wenn?',
+    'blog.article.assegni-familiari-canton-uri.title': 'Familienzulagen im Kanton Uri: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-uri.excerpt': 'Der Kanton Uri bietet Familienzulagen zur Unterstützung von Familien mit Kindern an. Dieser Artikel untersucht die Voraussetzungen und Verfahren, um diese Schecks zu erhalten.',
+    'blog.article.assegni-familiari-canton-uri.imageAlt': 'Blick auf Lugano, Schweiz, mit Schwerpunkt auf die Kinderbetreuungskosten im Kanton Uri.',
 };
 
 export default blogMetaChDe;
