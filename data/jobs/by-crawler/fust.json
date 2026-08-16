@@ -556,8 +556,7 @@
       "previousSlugsByLocale": {
         "it": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern",
-          "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern-wwour5",
-          "qualita-responsabile-r-consegna-a-domicilio-fust-koniz-bern"
+          "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern-wwour5"
         ],
         "en": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern-wwour5",
@@ -575,6 +574,8 @@
         "qualite-responsable-livraison-a-domicile-fust-koniz-bern",
         "qualita-responsabile-r-consegna-a-domicilio-fust-koniz-bern"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -587,9 +588,7 @@
       },
       "addressLocality": "Köniz, Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-qig7nk",
@@ -9365,7 +9364,7 @@
     },
     {
       "id": "company-g50id",
-      "slug": "ict-supporter-in-coop-schafisheim-aargau-0g50id",
+      "slug": "assistente-ict-coop-genossenschaft-schafisheim-aargau",
       "company": "Coop Genossenschaft",
       "title": "ICT-Supporter:in",
       "location": "Schafisheim, Aargau",
@@ -9396,7 +9395,7 @@
         "fr": "Supporteur TIC:in\n\nCoopérative de coop — Schafisheim, Aargau, Sizzera\n\nTâches - Résoudre les problèmes des travailleurs indépendants en prenant en charge l'écran client - Envoi de billets non résolvables au service compétent - Assistance et conseils sur place pour les clients en cas de problèmes logiciels et matériels - Installation de matériel et mise en service dans le réseau ainsi que réalisation de réparations simples dans le fonctionnement quotidien - Coopération dans les projets de migration et de déploiement\n\nExigences - Enseignement de l'informatique - Très bonne connaissance de Windows, MS-Office ainsi que des Smartphones iOS et Android - Bonnes compétences en langue allemande en paroles et en écriture; 2.\n\nLangue d'atterrissage en mot souhaité - Carte guide - prêt à faire le picet et à travailler aux heures de pointe - Réductions: réduction sur offre de voyage STI Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur diverses prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, Carte Reka: réduction sur achat, réduction sur abonnement GA - Conditions d'emploi: pension de caisse: 2/3 est payé par Coop, 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé - temps de travail: 5 semaines de vacances - formation continue:\n\nPlus de 600 cours de formation interne - Durabilité : Engagement envers les personnes et les animaux et la nature avec plus de 400 actions - Communication : application interne pour les employés - Santé : Mise à jour de la condition physique : Fr.\n\n200.– Réduction sur abonnement annuel\n\nVotre interlocuteur Anne Marchon HR Marketing\n\nTipo: Sede à temps plein: Schafisheim"
       },
       "slugByLocale": {
-        "it": "ict-supporter-in-coop-schafisheim-aargau-0g50id",
+        "it": "assistente-ict-coop-genossenschaft-schafisheim-aargau",
         "en": "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id",
         "de": "ict-supporter-in-coop-schafisheim-aargau-0g50id",
         "fr": "soutien-aux-tic-en-coop-genossenschaft-schafisheim-aargau"
@@ -9409,7 +9408,8 @@
           "ict-supporter-in-coop-schafisheim-aargau",
           "sostenitore-ict-coop-genossenschaft-schafisheim",
           "ict-supporter-in-coop-genossenschaft-schafisheim",
-          "ict-supporter-in-coop-genossenschaft-schafisheim-aargau"
+          "ict-supporter-in-coop-genossenschaft-schafisheim-aargau",
+          "ict-supporter-in-coop-schafisheim-aargau-0g50id"
         ],
         "de": [
           "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id"
