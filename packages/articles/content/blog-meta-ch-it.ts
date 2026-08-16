@@ -2803,6 +2803,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trump-ora-legale-senato-usa.title': 'Trump chiede al Senato di votare l\'abolizione del cambio ora',
     'blog.article.trump-ora-legale-senato-usa.excerpt': 'Il presidente americano Donald Trump esorta il Senato ad approvare quanto il prima possibile il Sunshine Protection Act per rendere stabile l\'ora legale.',
     'blog.article.trump-ora-legale-senato-usa.imageAlt': 'Il Campidoglio degli Stati Uniti a Washington, dove si discute la riforma sull\'ora legale.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.title': 'Comprare casa in Canton Uri: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.excerpt': 'Impostazioni fiscali e finanziarie per l\'acquisto di una casa in Canton Uri.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.imageAlt': 'Immagine di una casa in stile svizzero con un giardino ben curato in primavera',
 };
 
 export default blogMetaChIt;
