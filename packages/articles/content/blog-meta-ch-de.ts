@@ -2971,6 +2971,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Nidwalden: Voraussetzungen und Verlängerung',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Nidwalden ist ein wichtiges Dokument für Grenzgänger, die im Kanton Nidwalden wohnen möchten.',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Das B-Visum im Kanton Nidvaldo',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Kurzfristige L-Bewilligungen im Kanton Nidwalden: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'Der Kurzzeitausweis L im Kanton Nidwalden ist maximal 1 Jahr gültig.',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
 };
 
 export default blogMetaChDe;
