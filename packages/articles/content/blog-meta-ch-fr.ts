@@ -2893,6 +2893,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-svitto.title': 'Abonnements transports publics Schwyz : zones et tarifs',
     'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Guide complet des abonnements, des zones tarifaires et des réductions pour les transports publics dans le canton de Schwyz.',
     'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'Abonnements de transports publics et tarifs dans le canton de Schwytz',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Impôts de succession et donations dans le canton de Schwyz',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'Les taux d\'héritage et de dons dans le canton de Schwyz sont fixés dans la loi cantonale.',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
 };
 
 export default blogMetaChFr;
