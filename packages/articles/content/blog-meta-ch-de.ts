@@ -3013,6 +3013,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Haus kaufen im Kanton Nidwalden: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Durchschnittliche Hauspreise im Kanton Nidwalden, benötigte Eigenmittel und Tragbarkeit des Hypothekardarlehens.',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'Preise von Häusern im Kanton Nidwalden',
+    'blog.article.nidvaldo-trasporti-pubblici.title': 'Öffentliche Verkehrsmittel in Nidwalden: Zonen, Tarife und Abonnements',
+    'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Umfassender Leitfaden zum öffentlichen Verkehr im Kanton Nidwalden, zu Tarifgemeinschaften, Zonen, Abos und Kombinationen mit eidgenössischen Fahrausweisen.',
+    'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Öffentlicher Verkehr im Kanton Nidwalden mit Regionalzügen und Bussen',
 };
 
 export default blogMetaChDe;

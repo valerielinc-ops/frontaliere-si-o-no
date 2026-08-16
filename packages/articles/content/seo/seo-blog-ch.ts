@@ -39059,6 +39059,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nidvaldo-trasporti-pubblici': {
+    title: 'Trasporti pubblici a Nidvaldo: zone, tariffe e abbonamenti',
+    description: 'Guida agli abbonamenti dei trasporti pubblici nel Cantone di Nidvaldo: zone, tariffe mensili e annuali, sconti per studenti e integrazione nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, pubblici, nidvaldo, zone',
+    ogTitle: 'Abbonamenti trasporti pubblici nel Cantone di Nidvaldo: zone e tariffe',
+    ogDescription: 'Tutte le informazioni pratiche su zone, abbonamenti mensili e annuali, sconti per studenti e collegamenti dei trasporti pubblici nel Cantone di Nidvaldo.',
+    canonicalPath: '/articoli-svizzera/nidvaldo-trasporti-pubblici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti pubblici a Nidvaldo: zone, tariffe e abbonamenti",
+      "description": "Guida agli abbonamenti dei trasporti pubblici nel Cantone di Nidvaldo: zone, tariffe mensili e annuali, sconti per studenti e integrazione nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nidvaldo-trasporti-pubblici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Trasporti pubblici nel Cantone di Nidvaldo con treni e bus regionali"
+      },
+      "datePublished": "2026-08-16T23:28:45+00:00",
+      "dateModified": "2026-08-16T23:28:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nidvaldo-trasporti-pubblici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1030,6 +1030,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-e-custodia-bambini-canton-nidvaldo-costi': { it: 'asilo-nido-e-custodia-bambini-canton-nidvaldo-costi', en: 'nursery-and-childcare-canton-nidvaldo-costs', de: 'kindertagesstatte-und-kinderbetreuung-kanton-nidwalden-kosten', fr: 'garderie-et-garde-d-enfants-canton-de-nidwald-couts' },
  'avs-e-prestazioni-complementari-nidvaldo': { it: 'avs-e-prestazioni-complementari-nidvaldo', en: 'avs-and-complementary-services-nidvaldo-cash-and-annuities', de: 'ahv-und-erganzungsleistungen-nidwalden-kasse-und-renten', fr: 'avs-et-prestations-complementaires-nidwald-caisse-et-rentes' },
  'comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario': { it: 'comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario', en: 'buy-house-in-nidwalden-switzerland', de: 'kaufen-eines-hauses-im-kanton-nidwalden', fr: 'acheter-une-maison-dans-le-canton-de-nidwalden' },
+ 'nidvaldo-trasporti-pubblici': { it: 'nidvaldo-trasporti-pubblici', en: 'nidwalden-public-transport-passes-zones', de: 'nidwalden-oev-abos-zonen', fr: 'nidwald-transports-publics-abonnements-zones' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
