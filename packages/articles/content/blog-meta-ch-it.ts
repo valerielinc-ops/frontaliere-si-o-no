@@ -2935,6 +2935,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Borse di studio Cantone Obvaldo: requisiti e importi',
     'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'Non esistono informazioni ufficiali che confermino l\'esistenza di borse di studio per il Cantone Obvaldo in Svizzera.',
     'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'Una scena fotografata di un frontaliere che si trova in una situazione simile a quella descritta nell\'articolo.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Asilo nido e custodia bambini Canton Obvaldo costi',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Scopri i costi di un asilo nido e le politiche di sussidi del Canton Obvaldo.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Asilo nido e custodia bambini nel Canton Obvaldo: costi e sussidi.',
 };
 
 export default blogMetaChIt;

@@ -2935,6 +2935,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Stipendien Kanton Obwalden: Voraussetzungen und Beträge',
     'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'Es gibt keine offiziellen Informationen, die die Existenz von Stipendien für den Kanton Obwalden in der Schweiz bestätigen.',
     'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'Eine Szene fotografiert von einem Frontalier, der sich in einer Situation befindet, die der im Artikel beschriebenen ähnlich ist.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Kindertagesstätte und Kinderbetreuung Kanton Obwalden Kosten',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Entdecken Sie die Kosten einer Kindertagesstätte und die Subventionspolitik des Kantons Obwalden.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Kinderbetreuung und Pflege in der Kanton Obvaldo: Kosten und Subventionen.',
 };
 
 export default blogMetaChDe;
