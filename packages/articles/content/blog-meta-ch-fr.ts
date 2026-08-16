@@ -2776,6 +2776,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ciclista-grave-dopo-una-caduta.title': 'Cycliste grave suite à une chute',
     'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'Un homme a été secouru par des passants après être tombé sur la Dorfstrasse à Unterbach, dans la commune de Meiringen.',
     'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'Un cycliste gravement blessé après une chute en Suisse',
+    'blog.article.apprendistato-urie-2024-2025.title': 'Apprentissage dans le canton d\'Uri : comment ça marche',
+    'blog.article.apprendistato-urie-2024-2025.excerpt': 'La formation professionnelle est essentielle au développement d\'une carrière professionnelle stable et enrichissante.',
+    'blog.article.apprendistato-urie-2024-2025.imageAlt': 'Un apprenti dans un laboratoire du canton d\'Uri',
 };
 
 export default blogMetaChFr;

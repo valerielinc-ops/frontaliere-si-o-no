@@ -2776,6 +2776,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ciclista-grave-dopo-una-caduta.title': 'Schwerer Radfahrer nach einem Sturz',
     'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'Ein Mann wurde von Passanten gerettet, nachdem er auf die Dorfstraße in Unterbach in der Gemeinde Meiringen gestürzt war.',
     'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'Ein Radfahrer schwer verletzt nach einem Sturz in der Schweiz',
+    'blog.article.apprendistato-urie-2024-2025.title': 'Lehre im Kanton Uri: So geht\'s',
+    'blog.article.apprendistato-urie-2024-2025.excerpt': 'Die Berufsausbildung ist für die Entwicklung einer stabilen und lohnenden beruflichen Laufbahn von grundlegender Bedeutung.',
+    'blog.article.apprendistato-urie-2024-2025.imageAlt': 'Eine Lehrling in einem Labor im Kanton Uri',
 };
 
 export default blogMetaChDe;

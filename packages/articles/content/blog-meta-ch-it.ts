@@ -2776,6 +2776,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ciclista-grave-dopo-una-caduta.title': 'Ciclista grave dopo una caduta',
     'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'Un uomo è stato soccorso da alcuni passanti dopo essere caduto sulla Dorfstrasse a Unterbach, nel comune di Meiringen.',
     'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'Un ciclista grave dopo una caduta in Svizzera',
+    'blog.article.apprendistato-urie-2024-2025.title': 'Apprendistato nel Cantone Uri: come funziona',
+    'blog.article.apprendistato-urie-2024-2025.excerpt': 'La formazione professionale è fondamentale per lo sviluppo di una carriera lavorativa stabile e gratificante.',
+    'blog.article.apprendistato-urie-2024-2025.imageAlt': 'Una giovane apprendista in un laboratorio del Cantone Uri',
 };
 
 export default blogMetaChIt;
