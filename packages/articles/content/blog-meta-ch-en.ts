@@ -2929,6 +2929,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Short-term permit L in the Canton of Obvaldo: validity and extension',
     'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'The short-term L permit in the Canton of Obvaldo is valid for a maximum of 1 year.',
     'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'A view of Lugano, capital of the Canton of Ticino, with the Piazza della Riforma and the Church of San Lorenzo',
+    'blog.article.apprendistato-obvaldo-guida.title': 'Apprenticeship and vocational training in the Canton of Obvaldo',
+    'blog.article.apprendistato-obvaldo-guida.excerpt': 'How to find an internship and conclude an apprenticeship contract',
+    'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Guide to apprenticeships in Obvaldo Canton',
 };
 
 export default blogMetaChEn;

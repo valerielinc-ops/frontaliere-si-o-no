@@ -2929,6 +2929,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Permis L de courte durée dans le canton d\'Obwald : validité et prolongation',
     'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'Le permis L de courte durée dans le canton d\'Obwald est valable pour une durée maximale d\'un an.',
     'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'Une vue de Lugano, capitale du Canton du Tessin, avec la place de la Riforma et l\'église de San Lorenzo',
+    'blog.article.apprendistato-obvaldo-guida.title': 'Apprentissage et formation professionnelle dans le canton d\'Obwald',
+    'blog.article.apprendistato-obvaldo-guida.excerpt': 'Comment trouver un lieu de stage et conclure un contrat d\'apprentissage',
+    'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Guide de l\'apprentissage dans le canton d\'Obvaldo',
 };
 
 export default blogMetaChFr;
