@@ -2881,6 +2881,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-svitto.title': 'Acheter une maison dans le canton de Schwyz : prix et hypothèque',
     'blog.article.comprare-casa-canton-svitto.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Schwyz : analyse des prix moyens, exigences de fonds propres, viabilité du crédit hypothécaire, taxe de passage et frais de notaire.',
     'blog.article.comprare-casa-canton-svitto.imageAlt': 'Immobiliers résidentiels dans le canton de Schwyz',
+    'blog.article.mercato-affitti-cantone-svitto.title': 'Marché locatif dans le canton de Schwyz : loyers moyens et droit de location',
+    'blog.article.mercato-affitti-cantone-svitto.excerpt': 'Les loyers moyens par zone dans le canton de Schwyz sont de CHF 1\'500 par mois.',
+    'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Logement dans le canton de Schwyz, Suisse',
 };
 
 export default blogMetaChFr;

@@ -2881,6 +2881,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-svitto.title': 'Buying a house in the Canton of Svitto: prices and mortgage',
     'blog.article.comprare-casa-canton-svitto.excerpt': 'Practical guide to buying real estate in the Canton of Schwyz: analysis of average prices, requirements for own funds, sustainability of mortgage credit, transfer tax and notary fees.',
     'blog.article.comprare-casa-canton-svitto.imageAlt': 'Residential houses and properties in the Canton of Schwyz',
+    'blog.article.mercato-affitti-cantone-svitto.title': 'Rental market in the Canton of Svitto: average fees and rental rights',
+    'blog.article.mercato-affitti-cantone-svitto.excerpt': 'Average rents per area in the Canton of Schwyz are CHF 1,500 per month.',
+    'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Affitts in Canton Schwyz, Switzerland',
 };
 
 export default blogMetaChEn;

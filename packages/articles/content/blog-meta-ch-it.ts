@@ -2881,6 +2881,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-svitto.title': 'Comprare casa nel Cantone di Svitto: prezzi e mutuo',
     'blog.article.comprare-casa-canton-svitto.excerpt': 'Guida pratica all\'acquisto immobiliare nel Cantone di Svitto: analisi dei prezzi medi, requisiti per i fondi propri, sostenibilità del credito ipotecario, imposta sui trapassi e spese notarili.',
     'blog.article.comprare-casa-canton-svitto.imageAlt': 'Case e immobili residenziali nel Cantone di Svitto',
+    'blog.article.mercato-affitti-cantone-svitto.title': 'Mercato degli affitti nel Cantone di Svitto: canoni medi e diritto di locazione',
+    'blog.article.mercato-affitti-cantone-svitto.excerpt': 'I canoni medi per zona nel Cantone di Svitto sono di CHF 1\'500 per mese.',
+    'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Mercato degli affitti nel Cantone di Svitto',
 };
 
 export default blogMetaChIt;
