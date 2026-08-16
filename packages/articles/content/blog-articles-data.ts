@@ -29928,6 +29928,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-contraffazioni-svizzera',
+ category: 'pratico',
+ date: '2026-08-16T10:02:36.352Z',
+ image: '/images/blog/frontalieri-contraffazioni-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -2833,6 +2833,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Starting a business in the Canton of Uri: what you need',
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'What you need to know to open a business in the Canton of Uri. Instructions on the choice of legal form, registration in the commercial register, minimum capital, registration fees and insurance obligations.',
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lugano lake view',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Opening a business in the Canton of Uri: choice and obligations',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'The costs and formalities to open a business in the Canton of Uri.',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lago of Lugano',
 };
 
 export default blogMetaChEn;
