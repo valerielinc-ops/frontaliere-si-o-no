@@ -2845,6 +2845,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Wages and Labour Market in URIs: Hiring and Collective Bargaining',
     'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'The Canton of Uri has a high employment rate and a strong demand for labour. The sectors that hire the most are industry, construction and services.',
     'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Image of a workplace in Uri',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.title': 'Driver\'s license in Uri: conversion and exams',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.excerpt': 'The conversion of the foreign driver\'s license in the Canton of Uri requires enrolment in a training course and theoretical and practical examination. The competent traffic office is the State Registry.',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.imageAlt': 'A practical guide to converting a foreign driving license in the Canton of Uri.',
 };
 
 export default blogMetaChEn;

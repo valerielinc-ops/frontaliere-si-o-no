@@ -36875,6 +36875,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-di-guida-cantone-uri-conversione-ed-esami': {
+    title: 'Patente di guida in Uri: conversione e esami | Frontaliere Ticino',
+    description: 'La conversione della patente di guida estera nel Cantone di Uri richiede l\'iscrizione a un corso di addestramento e l\'esame teorico e pratico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, conversione, esami, estera',
+    ogTitle: 'Patente di guida nel Cantone di Uri: conversione della licenza estera, esame teorico e pratico, corsi obbligatori e ufficio della circolazione competente.',
+    ogDescription: 'La conversione della patente di guida estera nel Cantone di Uri richiede l\'iscrizione a un corso di addestramento e l\'esame teorico e pratico.',
+    canonicalPath: '/articoli-svizzera/patente-di-guida-cantone-uri-conversione-ed-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida in Uri: conversione e esami",
+      "description": "La conversione della patente di guida estera nel Cantone di Uri richiede l'iscrizione a un corso di addestramento e l'esame teorico e pratico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-di-guida-cantone-uri-conversione-ed-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una guida pratica per la conversione della patente di guida estera nel Cantone di Uri."
+      },
+      "datePublished": "2026-08-16T10:55:11+00:00",
+      "dateModified": "2026-08-16T10:55:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-di-guida-cantone-uri-conversione-ed-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

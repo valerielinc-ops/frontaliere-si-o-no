@@ -2845,6 +2845,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Löhne und Arbeitsmarkt in Uri: Wer beschäftigt und Tarifverträge',
     'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'Der Kanton Uri hat eine hohe Beschäftigungsquote und eine hohe Nachfrage nach Arbeitskräften. Die Sektoren, die am meisten beschäftigen, sind die Industrie, das Baugewerbe und der Dienstleistungssektor.',
     'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Bild von einem Arbeitsplatz in Uri',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.title': 'Führerschein in URI: Umstellung und Prüfungen',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.excerpt': 'Die Umschulung des ausländischen Führerscheins im Kanton Uri erfordert die Anmeldung zu einem Ausbildungskurs sowie die theoretische und praktische Prüfung. Zuständiges Strassenverkehrsamt ist das Staatsregister.',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.imageAlt': 'Eine praktische Anleitung für die Umwandlung eines ausländischen Führerscheins im Kanton Uri.',
 };
 
 export default blogMetaChDe;

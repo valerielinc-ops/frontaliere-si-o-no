@@ -974,6 +974,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-canton-uri': { it: 'abbonamenti-trasporti-canton-uri', en: 'transport-passes-uri-canton', de: 'offentliche-verkehrskarten-uri-kanton', fr: 'cartes-de-transport-uri-canton' },
  'imposta-di-succesione-e-donazione-canton-uri-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-uri-aliquote', en: 'succession-and-donation-taxes-in-the-canton-of-uri', de: 'erbschafts-und-schenkungssteuern-im-kanton-uri', fr: 'impots-sur-la-succession-et-la-donation-au-canton-d-uri' },
  'salari-mercato-lavoro-cantone-uri': { it: 'salari-mercato-lavoro-cantone-uri', en: 'wages-and-labour-market-in-uris-hiring-and-collective-bargaining', de: 'lohne-und-arbeitsmarkt-in-uri-wer-beschaftigt-und-tarifvertrage', fr: 'salaires-et-marche-du-travail-a-uri-qui-embauche-et-conventions-collectives' },
+ 'patente-di-guida-cantone-uri-conversione-ed-esami': { it: 'patente-di-guida-cantone-uri-conversione-ed-esami', en: 'driver-s-license-in-uri-conversion-and-exams', de: 'fuhrerschein-in-uri-umstellung-und-prufungen', fr: 'permis-de-conduire-en-uri-conversion-et-examens' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

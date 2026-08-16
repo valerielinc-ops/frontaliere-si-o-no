@@ -2845,6 +2845,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Salaires et marché du travail à URI : qui embauche et conventions collectives',
     'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'Le canton d\'Uri a un taux d\'emploi élevé et une forte demande de travail. Les secteurs qui recrutent le plus sont l\'industrie, la construction et les services.',
     'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Image d\'un lieu de travail en Uri',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.title': 'Permis de conduire en URI : conversion et examens',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.excerpt': 'La conversion du permis de conduire étranger dans le canton d\'Uri nécessite l\'inscription à un cours de formation et l\'examen théorique et pratique. L\'office de circulation compétent est le Registre d\'État.',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.imageAlt': 'Une guide pratique pour la conversion d\'une permis de conduire étranger dans le canton d\'Uri.',
 };
 
 export default blogMetaChFr;
