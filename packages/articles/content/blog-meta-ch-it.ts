@@ -2848,6 +2848,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.title': 'Patente di guida in Uri: conversione e esami',
     'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.excerpt': 'La conversione della patente di guida estera nel Cantone di Uri richiede l\'iscrizione a un corso di addestramento e l\'esame teorico e pratico. L\'ufficio della circolazione competente è il Registro di Stato.',
     'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.imageAlt': 'Una guida pratica per la conversione della patente di guida estera nel Cantone di Uri.',
+    'blog.article.imposte-cantonal-svitto-aliquote-deduzioni.title': 'Imposte cantonali in Svitto: aliquote e deduzioni',
+    'blog.article.imposte-cantonal-svitto-aliquote-deduzioni.excerpt': 'Le imposte cantonali in Svitto saranno determinate dal Cantone di Svitto.',
+    'blog.article.imposte-cantonal-svitto-aliquote-deduzioni.imageAlt': 'Una panoramica delle imposte cantonali in Svitto, con un focus sulle nuove aliquote e deduzioni.',
+    'blog.article.premi-cassa-malati-svitto.title': 'Premi cassa malati Svitto: fasce, franchigie e sussidi',
+    'blog.article.premi-cassa-malati-svitto.excerpt': 'Analisi dei premi dell\'assicurazione malattia obbligatoria nel Cantone di Svitto: fasce di premio, franchigie, modelli e requisiti per la riduzione.',
+    'blog.article.premi-cassa-malati-svitto.imageAlt': 'Premi cassa malati e riduzione nel cantone Svitto',
 };
 
 export default blogMetaChIt;
