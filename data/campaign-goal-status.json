@@ -5,7 +5,7 @@
       "source": "posthog",
       "issueRef": "#4298",
       "matureAt": "2026-07-31",
-      "state": "failing",
+      "state": "unmeasurable",
       "lastValue": {
         "rate": null,
         "created": 0,
@@ -13,7 +13,8 @@
       },
       "detail": "0/0 = n/a",
       "targetDescription": ">= 5% (job_alert_created / job_alert_cta_shown, 14gg)",
-      "lastCheckAt": "2026-08-09T06:13:33.259Z"
+      "lastCheckAt": "2026-08-16T05:59:40.068Z",
+      "note": "sorgente non misurabile: posthog ingested < 500 events/day on 8 of 14 complete day(s) in the 14d window: 2026-08-02 (16), 2026-08-03 (64), 2026-08-04 (32), 2026-08-05 (8), 2026-08-06 (6), 2026-08-07 (11), 2026-08-08 (5), 2026-08-09 (7)"
     },
     "dead_clicks_reduction": {
       "title": "Dead click $dead_click -50% (14gg)",
@@ -34,28 +35,51 @@
       "source": "posthog",
       "issueRef": "#4304",
       "matureAt": "2026-08-16",
-      "state": "observing"
+      "state": "unmeasurable",
+      "lastCheckAt": "2026-08-16T05:59:40.068Z",
+      "note": "sorgente non misurabile: posthog ingested < 500 events/day on 17 of 30 complete day(s) in the 30d window: 2026-07-24 (26), 2026-07-25 (22), 2026-07-26 (12), 2026-07-27 (7), 2026-07-28 (14), 2026-07-29 (8), 2026-07-30 (16), 2026-07-31 (31), 2026-08-01 (8), 2026-08-02 (16), 2026-08-03 (64), 2026-08-04 (32), 2026-08-05 (8), 2026-08-06 (6), 2026-08-07 (11), 2026-08-08 (5), 2026-08-09 (7)"
     },
     "calc_deeplink_input_start": {
       "title": "Calcolatore deep-link → input start >= 25%",
       "source": "posthog",
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
-      "state": "observing"
+      "state": "unmeasurable",
+      "lastCheckAt": "2026-08-16T05:59:40.068Z",
+      "note": "sorgente non misurabile: posthog ingested < 500 events/day on 17 of 30 complete day(s) in the 30d window: 2026-07-24 (26), 2026-07-25 (22), 2026-07-26 (12), 2026-07-27 (7), 2026-07-28 (14), 2026-07-29 (8), 2026-07-30 (16), 2026-07-31 (31), 2026-08-01 (8), 2026-08-02 (16), 2026-08-03 (64), 2026-08-04 (32), 2026-08-05 (8), 2026-08-06 (6), 2026-08-07 (11), 2026-08-08 (5), 2026-08-09 (7)"
     },
     "canton_hub_positions": {
       "title": "Hub cantonali: svizzera<20 E zurigo<14",
       "source": "gsc",
       "issueRef": "#4303",
       "matureAt": "2026-08-16",
-      "state": "observing"
+      "state": "passed",
+      "lastValue": {
+        "svizzeraPosition": 17.552971796731665,
+        "svizzeraPages": 1148,
+        "zurigoPosition": 9.020300139599813,
+        "zurigoPages": 1543
+      },
+      "detail": "svizzera=17.55 (1148pg) zurigo=9.02 (1543pg)",
+      "targetDescription": "svizzera < 20 E zurigo < 14 (weighted-avg position, 30gg, lag 3gg)",
+      "lastCheckAt": "2026-08-16T05:59:40.068Z",
+      "passedAt": "2026-08-16T05:59:40.068Z"
     },
     "brand_query_ctr": {
       "title": "CTR query brand > 2%",
       "source": "gsc",
       "issueRef": "#4306",
       "matureAt": "2026-08-16",
-      "state": "observing"
+      "state": "failing",
+      "lastValue": {
+        "ctr": 0.00849543469630806,
+        "totalClicks": 107,
+        "totalImpressions": 12595,
+        "matchedQueries": 709
+      },
+      "detail": "107/12595 = 0.85% su 709 query",
+      "targetDescription": "> 2% CTR aggregato su query brand interdiscount|fielmann|fust|jysk|coop (30gg, lag 3gg)",
+      "lastCheckAt": "2026-08-16T05:59:40.068Z"
     },
     "email_sessions": {
       "title": "Sessioni canale Email >= 7.350 (90gg)",
@@ -79,6 +103,6 @@
       "state": "observing"
     }
   },
-  "generatedAt": "2026-08-09T06:13:33.259Z",
+  "generatedAt": "2026-08-16T05:59:40.068Z",
   "campaignStart": "2026-07-17"
 }
