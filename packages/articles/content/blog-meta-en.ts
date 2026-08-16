@@ -9998,6 +9998,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assunzione-maria-2023-ticino.title': 'Assumption of Mary, de Raemy da Carona invites you to be charitable',
     'blog.article.assunzione-maria-2023-ticino.excerpt': 'Holy Mass was held at the Sanctuary of Our Lady of Ongero. For the occasion, the celebration was broadcast in Eurovision.',
     'blog.article.assunzione-maria-2023-ticino.imageAlt': 'Editorial image related to: Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
+    'blog.article.burro-svizzero-esportazioni-perdite.title': 'Swiss butter abroad: exports and losses for 27 million',
+    'blog.article.burro-svizzero-esportazioni-perdite.excerpt': 'Swiss butter surpluses are exported at rock-bottom prices compared to the domestic market, generating an estimated loss of CHF 27 million.',
+    'blog.article.burro-svizzero-esportazioni-perdite.imageAlt': 'Dairy storage facilities in Switzerland',
 };
 
 export default blogMetaEn;

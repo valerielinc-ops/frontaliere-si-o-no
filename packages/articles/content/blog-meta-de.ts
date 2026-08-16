@@ -9997,6 +9997,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assunzione-maria-2023-ticino.title': 'Mariä Himmelfahrt, de Raemy da Carona lädt zur Nächstenliebe ein',
     'blog.article.assunzione-maria-2023-ticino.excerpt': 'Die heilige Messe fand im Heiligtum der Madonna d \'Ongero statt. Zu diesem Anlass wurde die Feier auf Eurovision ausgestrahlt.',
     'blog.article.assunzione-maria-2023-ticino.imageAlt': 'Redaktionelles Bild zu: Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
+    'blog.article.burro-svizzero-esportazioni-perdite.title': 'Schweizer Butter im Ausland: Exporte und Verluste in Höhe von 27 Millionen',
+    'blog.article.burro-svizzero-esportazioni-perdite.excerpt': 'Die Schweizer Butterüberschüsse werden im Inland zu Tiefstpreisen exportiert, was zu einem Verlust von schätzungsweise 27 Millionen Franken führt.',
+    'blog.article.burro-svizzero-esportazioni-perdite.imageAlt': 'Milchprodukte Lagerung in der Schweiz',
 };
 
 export default blogMetaDe;

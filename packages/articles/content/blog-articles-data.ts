@@ -29964,6 +29964,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'burro-svizzero-esportazioni-perdite',
+ category: 'pratico',
+ date: '2026-08-16T21:08:37.892Z',
+ image: '/images/blog/burro-svizzero-esportazioni-perdite.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
