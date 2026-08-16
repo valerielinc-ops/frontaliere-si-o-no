@@ -1004,6 +1004,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-di-breve-durata-obvaldo': { it: 'permesso-l-di-breve-durata-obvaldo', en: 'permesso-l-of-brief-duration-obvaldo', de: 'permesso-l-kurzdauer-obvaldo', fr: 'permesso-l-de-breve-duree-obvaldo' },
  'apprendistato-obvaldo-guida': { it: 'apprendistato-obvaldo-guida', en: 'apprenticeships-in-obvaldo', de: 'ausbildung-im-kanton-obvaldo', fr: 'apprentissage-au-canton-dobvaldo' },
  'bozze-di-studio-cantone-obvaldo': { it: 'bozze-di-studio-cantone-obvaldo', en: 'cantone-obvaldo-scholarships-requirements-and-amounts', de: 'stipendien-kanton-obwalden-voraussetzungen-und-betrage', fr: 'bourses-canton-obwald-exigences-et-montants' },
+ 'asilo-nido-custodia-bambini-canton-obvaldo-costi': { it: 'asilo-nido-custodia-bambini-canton-obvaldo-costi', en: 'childcare-custody-canton-obvaldo-costs', de: 'kindergeld-pflege-kanton-obvaldo-kosten', fr: 'enfance-garde-canton-obvaldo-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

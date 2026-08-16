@@ -2935,6 +2935,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Cantone Obvaldo Scholarships: Requirements and Amounts',
     'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'There is no official information confirming the existence of scholarships for the Canton of Obvaldo in Switzerland.',
     'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'A scene photographed of a borderer who is in a situation similar to that described in the article.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Nursery and childcare Canton Obvaldo costs',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Discover the costs of a kindergarten and the subsidy policies of the Obvaldo Canton.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Childcare and custody in the Canton Obvaldo: costs and subsidies.',
 };
 
 export default blogMetaChEn;

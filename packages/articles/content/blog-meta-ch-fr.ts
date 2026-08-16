@@ -2935,6 +2935,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Bourses Canton Obwald : exigences et montants',
     'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'Aucune information officielle ne confirme l\'existence de bourses d\'études pour le canton Obwald en Suisse.',
     'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'Une scène photographiée d\'un frontalier qui se trouve dans une situation similaire à celle décrite dans l\'article.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Garderie et garde d\'enfants Canton Obwald coûts',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Découvrez les coûts d\'une crèche et les politiques de subventions du canton Obwald.',
+    'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Enfance et garde dans le canton Obvaldo: coûts et subventions.',
 };
 
 export default blogMetaChFr;
