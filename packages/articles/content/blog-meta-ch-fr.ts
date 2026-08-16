@@ -3019,6 +3019,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton de Glaris : taux et déductions',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Taxes cantonales dans le canton de Glare : taxes, tranches, déductions, délais de livraison et portail en ligne de l\'administration fiscale cantonale.',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Legendre de l\'image en français',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.title': 'Salaires et marché du travail dans le canton de Nidwald',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.excerpt': 'Analyse des secteurs qu\'ils prennent, des niveaux de salaire par formation, des conventions collectives et de l\'environnement réglementaire dans le canton de Nidwald.',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.imageAlt': 'Marché du travail et salaires dans le canton de Nidwald en Suisse',
 };
 
 export default blogMetaChFr;

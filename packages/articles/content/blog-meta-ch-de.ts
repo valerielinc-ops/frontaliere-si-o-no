@@ -3019,6 +3019,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Glarus: Steuersätze und Abzüge',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Die kantonalen Steuern im Kanton Glarus: Sätze, Stufen, zulässige Abzüge, Liefertermine und Online-Portal der kantonalen Steuerverwaltung.',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Bildunterschrift in Deutsch',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.title': 'Löhne und Arbeitsmarkt im Kanton Nidwalden',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.excerpt': 'Analyse der von ihnen übernommenen Branchen, des Lohnniveaus pro Ausbildung, der Tarifverträge und des regulatorischen Umfelds im Kanton Nidwalden.',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.imageAlt': 'Arbeitsmarkt und Löhne im Kanton Nidwalden in der Schweiz',
 };
 
 export default blogMetaChDe;
