@@ -996,6 +996,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-cantone-svitto': { it: 'salari-mercato-lavoro-cantone-svitto', en: 'salaries-labor-market-canton-schwyz', de: 'lohne-arbeitsmarkt-kanton-schwyz', fr: 'salaires-marche-du-travail-canton-schwyz' },
  'conversione-patente-guida-svitto': { it: 'conversione-patente-guida-svitto', en: 'driving-license-conversion-schwyz', de: 'fuehrerschein-umschreibung-schwyz', fr: 'conversion-permis-conduire-schwyz' },
  'premi-cassa-malati-obvaldo-riduzione': { it: 'premi-cassa-malati-obvaldo-riduzione', en: 'canton-obvaldo-maladie-insurance-premiums-reduction', de: 'kanton-obvaldo-krankenversicherung-pramien-reduktion', fr: 'canton-obvaldo-assurance-maladie-primes-reduction' },
+ 'imposte-cantonal-obvaldo-aliquote-deduzioni': { it: 'imposte-cantonal-obvaldo-aliquote-deduzioni', en: 'cantonal-taxes-obvaldo-rates-deductions', de: 'kantonale-steuern-obvaldo-satze-abzuge', fr: 'impots-cantonaux-obvaldo-taux-deductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

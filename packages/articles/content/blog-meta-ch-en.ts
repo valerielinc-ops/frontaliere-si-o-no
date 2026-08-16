@@ -2911,6 +2911,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Sick pay premiums in the Canton of Obvaldo: reduction and deductibles',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'The cantonal law on health insurance in the Canton of Obvaldo provides for age groups and deductibles to reduce premiums.',
     'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'A scene of a hospital in Switzerland with patients and nurses',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Cantonal taxes in the Canton of Obvaldo: rates and deductions',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Information on cantonal taxes in the Canton of Obvaldo, including the brackets, allowable deductions and delivery deadlines.',
+    'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Cantone of Obvaldo, cantonal taxes, rates, deductions',
 };
 
 export default blogMetaChEn;
