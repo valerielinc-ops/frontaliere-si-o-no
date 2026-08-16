@@ -2893,6 +2893,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-svitto.title': 'Fahrkarten für den öffentlichen Verkehr Schwyz: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Vollständiger Leitfaden zu Abos, Tarifzonen und Ermäßigungen für den öffentlichen Verkehr im Kanton Schwyz.',
     'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'OEV Abonnemente und Tarife im Kanton Schwyz',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Schwyz',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'Die Sätze für Erb- und Schenkungen im Kanton Schwyz sind im kantonalen Gesetz festgelegt.',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
 };
 
 export default blogMetaChDe;

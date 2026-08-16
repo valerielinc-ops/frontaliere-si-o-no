@@ -2893,6 +2893,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-svitto.title': 'Tickets for public transport in Switzerland: zones and fares',
     'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Complete guide to subscriptions, fare zones and reductions for public transport in the Canton of Schwyz.',
     'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'Public transport passes and tariffs in Canton Schwyz',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Inheritance taxes and donations in the Canton of Schwyz',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'The rates for succession and donations in the Canton of Schwyz are set by cantonal law.',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
 };
 
 export default blogMetaChEn;

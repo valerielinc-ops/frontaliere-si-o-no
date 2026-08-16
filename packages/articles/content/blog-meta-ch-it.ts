@@ -2893,6 +2893,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-svitto.title': 'Abbonamenti trasporti pubblici Svitto: zone e tariffe',
     'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Guida completa agli abbonamenti, alle zone tariffarie e alle riduzioni per i mezzi pubblici nel Cantone di Svitto.',
     'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'Abbonamenti trasporti pubblici e tariffe nel Cantone di Svitto',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Imposte di successione e donazioni nel Cantone di Svitto',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'Le aliquote per la successione e le donazioni nel Cantone di Svitto sono stabilite dalla legge cantonale.',
+    'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
 };
 
 export default blogMetaChIt;

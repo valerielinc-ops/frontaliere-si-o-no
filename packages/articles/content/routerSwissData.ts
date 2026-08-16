@@ -990,6 +990,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-canton-svitto-requisiti-e-procedura': { it: 'naturalizzazione-canton-svitto-requisiti-e-procedura', en: 'naturalization-canton-svitto-requisites-and-procedure', de: 'naturalisierung-kanton-schweiz-requisiten-und-verfahren', fr: 'naturalisation-canton-suisse-requisits-et-procedure' },
  'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione': { it: 'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione', en: 'avs-and-complementary-benefits-canton-of-schwyz-compensation-fund', de: 'avs-und-komplementaere-leistungen-kanton-schwyz-kompensationsfonds', fr: 'avs-et-prestations-complementaires-canton-de-schwyz-fonds-de-compensation' },
  'abbonamenti-trasporti-svitto': { it: 'abbonamenti-trasporti-svitto', en: 'public-transport-passes-schwyz', de: 'oev-abonnemente-kanton-schwyz', fr: 'abonnements-transports-schwyz' },
+ 'imposta-succesione-donazione-canton-svitto-aliquote': { it: 'imposta-succesione-donazione-canton-svitto-aliquote', en: 'succession-donation-cantonal-svitto', de: 'erbschaftssteuer-spendenbeschwerdung-kanton-svitto', fr: 'droit-successoral-dons-canton-svitto' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
