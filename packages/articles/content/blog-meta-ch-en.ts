@@ -3019,6 +3019,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Cantonal taxes in the canton of Glarus: rates and deductions',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Cantonal taxes in the Canton of Glarus: rates, brackets, allowable deductions, delivery deadlines and online portal of the cantonal tax administration.',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Image alternative in English',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.title': 'Wages and labour market in the Canton of Nidvaldo',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.excerpt': 'Analysis of the sectors they hire, salary levels for training, collective agreements and the regulatory environment in the Canton of Nidvaldo.',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.imageAlt': 'Labor market and wages in the Canton of Nidwalden in Switzerland',
 };
 
 export default blogMetaChEn;

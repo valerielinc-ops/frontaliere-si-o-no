@@ -39137,6 +39137,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-canton-nidvaldo': {
+    title: 'Salari e mercato del lavoro nel Cantone di Nidvaldo',
+    description: 'Approfondimento su salari, settori che assumono, contratti collettivi e normative nel Cantone di Nidvaldo. Guida pratica aggiornata per il lavoro in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, cantone',
+    ogTitle: 'Salari e Mercato del Lavoro nel Cantone di Nidvaldo',
+    ogDescription: 'Analisi completa sui livelli salariali, sui settori professionali attivi, sui contratti collettivi e sulle deduzioni sociali nel Cantone di Nidvaldo e in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-canton-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro nel Cantone di Nidvaldo",
+      "description": "Approfondimento su salari, settori che assumono, contratti collettivi e normative nel Cantone di Nidvaldo. Guida pratica aggiornata per il lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-canton-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato del lavoro e salari nel Cantone di Nidvaldo in Svizzera"
+      },
+      "datePublished": "2026-08-16T23:48:24+00:00",
+      "dateModified": "2026-08-16T23:48:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-canton-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

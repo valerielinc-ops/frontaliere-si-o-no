@@ -3019,6 +3019,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone Glarona: aliquote e deduzioni',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Le imposte cantonali nel Cantone Glarona: aliquote, scaglioni, deduzioni ammesse, scadenze di consegna e portale online dell\'amministrazione fiscale cantonale.',
     'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Immagine alternativa italiana',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.title': 'Salari e mercato del lavoro nel Cantone di Nidvaldo',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.excerpt': 'Analisi dei settori che assumono, dei livelli salariali per formazione, dei contratti collettivi e del contesto normativo nel Cantone di Nidvaldo.',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo.imageAlt': 'Mercato del lavoro e salari nel Cantone di Nidvaldo in Svizzera',
 };
 
 export default blogMetaChIt;
