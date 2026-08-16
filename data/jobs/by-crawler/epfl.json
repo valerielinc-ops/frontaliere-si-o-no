@@ -449,7 +449,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164294755",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
@@ -498,7 +497,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-62faf8b3a417",
@@ -1132,7 +1132,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164982155",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
@@ -1166,7 +1165,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9044b7f240f4",
@@ -2323,7 +2323,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1163582855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-doc-epfl-lausanne",
@@ -2365,7 +2364,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-448d506a8689",
@@ -3055,12 +3055,12 @@
     },
     {
       "id": "epfl-c9e9d3bd366e",
-      "slug": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
+      "slug": "assegno-di-ricerca-postdoc-al-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
+        "it": "assegno-di-ricerca-postdoc-al-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna-epfl-lausanne",
         "en": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
         "de": "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
-        "fr": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+        "fr": "chercheur-postdoctoral-au-laboratoire-de-musicologie-numerique-et-cognitive-epfl-lausanne-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3117,7 +3117,18 @@
         }
       },
       "addressRegion": "VD",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+        ],
+        "fr": [
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-e557517bcba6",
@@ -4251,7 +4262,6 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164920855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "agente-di-collegamento-dell-industria-epfl-lausanne",
@@ -4298,7 +4308,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9d5a85ba18cf",
