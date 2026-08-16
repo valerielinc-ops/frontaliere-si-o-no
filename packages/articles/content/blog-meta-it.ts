@@ -9993,6 +9993,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Gemellaggio sesto calende castelletto Ticino',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'Il gemellaggio dell\'Assunta tra Sesto Calende e Castelletto Ticino si è rinnovato per la 26esima volta',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'Un frontaliere assiste alla processione dell\'Assunta a Castelletto Ticino',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.title': 'Controlli in tre locali: irregolarità su igiene, lavoro e sicurezza',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.excerpt': 'La Polizia di Stato di Varese ha effettuato controlli in tre esercizi pubblici tra Busto Arsizio e Gallarate, riscontrando diverse irregolarità in materia amministrativa, igienico-sanitaria e di sicurezza sul lavoro.',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.imageAlt': 'Immagine di un locale di Busto Arsizio con agenti di polizia all\'interno',
 };
 
 export default blogMetaIt;
