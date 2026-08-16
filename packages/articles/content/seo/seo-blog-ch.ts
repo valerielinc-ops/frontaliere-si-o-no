@@ -38786,6 +38786,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-nidvaldo-2026': {
+    title: 'Tirocini e formazione nel Cantone di Nidvaldo | Frontaliere Ticino',
+    description: 'Il Cantone di Nidvaldo offre programmi di formazione professionale per giovani adulti. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tirocini, formazione, cantone, nidvaldo',
+    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Nidvaldo: come trovarsi un posto di tirocinio e contratto di tirocinio.',
+    ogDescription: 'Il Cantone di Nidvaldo offre programmi di formazione professionale per giovani adulti.',
+    canonicalPath: '/articoli-svizzera/apprendistato-nidvaldo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tirocini e formazione nel Cantone di Nidvaldo",
+      "description": "Il Cantone di Nidvaldo offre programmi di formazione professionale per giovani adulti. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-nidvaldo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane adulto in un programma di formazione professionale, guarda lo schermo di un laptop con un'espressione perplessa, in una vista di Lugano."
+      },
+      "datePublished": "2026-08-16T22:47:04+00:00",
+      "dateModified": "2026-08-16T22:47:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-nidvaldo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

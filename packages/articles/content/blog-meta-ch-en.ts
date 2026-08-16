@@ -2992,6 +2992,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-di-studio-canton-nidvaldo.title': 'Nidwalden Canton Scholarships: Requirements and Amounts',
     'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Scholarship requirements and amounts for border students from the Canton of Nidwalden',
     'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Swiss students: bursaries for students of the Canton of Nidwalden',
+    'blog.article.apprendistato-nidvaldo-2026.title': 'Internships and training in the Canton of Nidvaldo',
+    'blog.article.apprendistato-nidvaldo-2026.excerpt': 'The Canton of Nidvaldo offers vocational training programmes for young adults.',
+    'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'A young adult in a professional training program, looking at a laptop screen with a puzzled expression, in a Lugano cityscape.',
 };
 
 export default blogMetaChEn;
