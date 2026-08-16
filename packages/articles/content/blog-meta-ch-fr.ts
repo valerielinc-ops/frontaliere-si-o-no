@@ -3001,6 +3001,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Bourses Canton Grisons exigences et montants',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'Le Conseil d\'État du canton des Grisons a annoncé la disponibilité de bourses d\'études pour les étudiants méritants.',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Image éditoriale relative à: Borse di studio Canton Grigioni requisiti e importi',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Bourses cantonales Nidwald : exigences et montants',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Exigences et montants maximaux pour les bourses d\'études dans le canton de Nidwald.',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Bourses de recherche pour les étudiants dans le canton de Nidvaldo',
 };
 
 export default blogMetaChFr;

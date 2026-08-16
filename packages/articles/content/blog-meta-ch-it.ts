@@ -3001,6 +3001,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Borse di studio Canton Grigioni requisiti e importi',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'Il Consiglio di Stato del Canton Grigioni ha annunciato la disponibilità di borse di studio per studenti meritevoli.',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Immagine editoriale relativa a: Borse di studio Canton Grigioni requisiti e importi',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Borse di studio canton Nidvaldo: requisiti e importi',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Requisiti e importi massimi per le borse di studio nel Cantone di Nidvaldo.',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Borse di studio per gli studenti nel Cantone di Nidvaldo',
 };
 
 export default blogMetaChIt;

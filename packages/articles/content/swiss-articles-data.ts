@@ -9001,6 +9001,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-studio-canton-nidvaldo-requisiti-e-importi',
+    category: 'pratico',
+    date: '2026-08-16T23:03:22.201Z',
+    image: '/images/blog/borse-studio-canton-nidvaldo-requisiti-e-importi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
