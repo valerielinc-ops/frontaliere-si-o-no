@@ -2863,6 +2863,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-svitto.title': 'Familienzulagen im Kanton Schwyz: Monatsbeträge und gesetzliche Voraussetzungen',
     'blog.article.assegni-familiari-canton-svitto.excerpt': 'Der Kanton Schwyz gewährt Familienzulagen für gebietsansässige Schweizer und Ausländer. Hier sind die Anforderungen und Bedingungen für die Beantragung.',
     'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Redaktionelles Bild zu: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'Schulsystem des Kantons Schwyz: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Informationen über das Schulsystem des Kantons Schwyz inkl. Zyklen und Einschreibungsalter.',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Bild von einer Gruppe von Schülern in einer Schweizer Schule, mit dem Fokus auf das Bildungssystem im Kanton Schwyz.',
 };
 
 export default blogMetaChDe;
