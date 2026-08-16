@@ -1,16 +1,16 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-08-16T09:36:55.590Z",
+  "generatedAt": "2026-08-16T21:23:08.139Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6681,
-  "avgDurationMs": 6681,
+  "durationMs": 5066,
+  "avgDurationMs": 5066,
   "durationHistory": [
-    6681
+    5066
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:36:49.748Z",
+      "crawledAt": "2026-08-16T21:23:04.330Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -65,7 +65,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000139219189-cnc-polymechaniker-fraser-mit-teamfuhrung-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:36:49.770Z",
+      "crawledAt": "2026-08-16T21:23:04.293Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -104,7 +104,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:36:49.768Z",
+      "crawledAt": "2026-08-16T21:23:04.333Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -121,6 +121,7 @@
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "jobReqId": "744000135999378",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T15:15:19.162Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
