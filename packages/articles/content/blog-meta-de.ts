@@ -10000,6 +10000,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.burro-svizzero-esportazioni-perdite.title': 'Schweizer Butter im Ausland: Exporte und Verluste in Höhe von 27 Millionen',
     'blog.article.burro-svizzero-esportazioni-perdite.excerpt': 'Die Schweizer Butterüberschüsse werden im Inland zu Tiefstpreisen exportiert, was zu einem Verlust von schätzungsweise 27 Millionen Franken führt.',
     'blog.article.burro-svizzero-esportazioni-perdite.imageAlt': 'Milchprodukte Lagerung in der Schweiz',
+    'blog.article.semafori-grigioni-traffico-parassitario.title': 'Ampeln gegen parasitären Verkehr: Bündner Strategie funktioniert',
+    'blog.article.semafori-grigioni-traffico-parassitario.excerpt': 'Das rätische technische Büro hat fünf Ampeln installiert, um dem parasitären Verkehr entgegenzuwirken, mit guten Ergebnissen',
+    'blog.article.semafori-grigioni-traffico-parassitario.imageAlt': 'Luftbild von Lugano mit einer belebten Straße und einem roten Verkehrsschild im Zentrum',
 };
 
 export default blogMetaDe;

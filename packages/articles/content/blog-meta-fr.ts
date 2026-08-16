@@ -10003,6 +10003,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.burro-svizzero-esportazioni-perdite.title': 'Beurre suisse à l\'étranger : exportations et pertes pour 27 millions',
     'blog.article.burro-svizzero-esportazioni-perdite.excerpt': 'Les excédents de beurre suisse sont exportés à prix cassés par rapport au marché intérieur, générant une perte estimée à 27 millions de francs.',
     'blog.article.burro-svizzero-esportazioni-perdite.imageAlt': 'Stockage de produits laitiers en Suisse',
+    'blog.article.semafori-grigioni-traffico-parassitario.title': 'Semafori contro il traffico parassitario',
+    'blog.article.semafori-grigioni-traffico-parassitario.excerpt': 'Le bureau technique rhétique a installé cinq feux de circulation pour lutter contre le trafic parasitaire, avec de bons résultats',
+    'blog.article.semafori-grigioni-traffico-parassitario.imageAlt': 'Vue aérienne de Lugano avec une route animée et un feu de circulation rouge au centre',
 };
 
 export default blogMetaFr;
