@@ -1022,6 +1022,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-nidvaldo-importi-e-domanda': { it: 'assegni-familiari-canton-nidvaldo-importi-e-domanda', en: 'assegni-familiari-canton-nidvaldo', de: 'assegni-familiari-kanton-nidvaldo', fr: 'assegni-familiari-canton-nidvaldo' },
  'sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli', en: 'canton-nidvaldo-school-system-enrolment-and-cycles', de: 'schulsystem-kanton-nidwalden-einschreibung-und-zyklen', fr: 'systeme-scolaire-canton-de-nidwald-inscription-et-cycles' },
  'mercato-gli-affitti-canton-nidvaldo': { it: 'mercato-gli-affitti-canton-nidvaldo', en: 'nidvaldo-rental-market', de: 'nidvaldo-mietwohnungsmarkt', fr: 'nidvaldo-marche-des-louages' },
+ 'borse-di-studio-canton-nidvaldo': { it: 'borse-di-studio-canton-nidvaldo', en: 'borse-di-studio-canton-nidvaldo-en', de: 'borse-di-studio-canton-nidvaldo-de', fr: 'borse-di-studio-canton-nidvaldo-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -8965,6 +8965,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-di-studio-canton-nidvaldo',
+    category: 'pratico',
+    date: '2026-08-16T22:42:16.895Z',
+    image: '/images/blog/borse-di-studio-canton-nidvaldo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

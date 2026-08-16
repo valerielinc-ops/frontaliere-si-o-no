@@ -2989,6 +2989,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Mercato degli affitti nel Canton Nidvaldo: canoni medi e diritto di locazione',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'I canoni medi per affitti nel Canton Nidvaldo sono di CHF 2\'500 per mese.',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Affitti e locazione in Svizzera',
+    'blog.article.borse-di-studio-canton-nidvaldo.title': 'Borse di studio del Cantone di Nidwalden: requisiti e importi',
+    'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Requisiti e importi delle borse di studio per studenti frontalieri del Cantone di Nidwalden',
+    'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Studenti frontalieri in Svizzera: borse di studio per studenti del Cantone di Nidwalden',
 };
 
 export default blogMetaChIt;

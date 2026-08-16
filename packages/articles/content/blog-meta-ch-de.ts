@@ -2989,6 +2989,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Mietmarkt im Kanton Nidwalden: Durchschnittsmieten und Mietrecht',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'Die durchschnittliche Miete im Kanton Nidwalden beträgt 2.500 CHF pro Monat.',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Mietwohnungen in der Schweiz',
+    'blog.article.borse-di-studio-canton-nidvaldo.title': 'Stipendien des Kantons Nidwalden: Voraussetzungen und Beträge',
+    'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Stipendienvoraussetzungen und -beträge für Grenzstudenten des Kantons Nidwalden',
+    'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Schweizer Studenten: Stipendien für Studenten des Kantons Nidwalden',
 };
 
 export default blogMetaChDe;

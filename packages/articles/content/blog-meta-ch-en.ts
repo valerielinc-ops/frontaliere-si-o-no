@@ -2989,6 +2989,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Rental market in the canton of Nidwalden: average rents and tenancy law',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'The average rent in the canton of Nidwalden is CHF 2,500 per month.',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Swiss rentals and leasing',
+    'blog.article.borse-di-studio-canton-nidvaldo.title': 'Nidwalden Canton Scholarships: Requirements and Amounts',
+    'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Scholarship requirements and amounts for border students from the Canton of Nidwalden',
+    'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Swiss students: bursaries for students of the Canton of Nidwalden',
 };
 
 export default blogMetaChEn;

@@ -2989,6 +2989,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Mercato degli affitti a Nidwalden: canoni medi e diritto di locazione',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'Le loyer moyen dans le canton de Nidwalden est de 2 500 CHF par mois.',
     'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Locations immobilières en Suisse',
+    'blog.article.borse-di-studio-canton-nidvaldo.title': 'Bourses d\'études du canton de Nidwald : exigences et montants',
+    'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Exigences et montants des bourses d\'études pour les étudiants frontaliers du canton de Nidwald',
+    'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Étudiants suisses: bourses d\'études pour les étudiants du canton de Nidwalden',
 };
 
 export default blogMetaChFr;
