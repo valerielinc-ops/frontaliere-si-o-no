@@ -9979,6 +9979,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-16.imageAlt': 'Les chiffres du jour pour les frontaliers – 16 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-16.seoDescription': 'Bulletin du frontalier du 16 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-16.ogDescription': 'Les chiffres du 16 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.frontalieri-italiani-canton-ticino-calano.title': 'Les frontaliers italiens dans le canton du Tessin sont en baisse',
+    'blog.article.frontalieri-italiani-canton-ticino-calano.excerpt': 'Des chiffres récents montrent une diminution du nombre de frontaliers italiens dans le canton du Tessin. Mais qu\'est-ce que cela signifie pour eux ?',
+    'blog.article.frontalieri-italiani-canton-ticino-calano.imageAlt': 'Frontaliers italiens en Canton du Tessin sont en recul: qu\'est-ce que cela signifie pour eux?',
 };
 
 export default blogMetaFr;
