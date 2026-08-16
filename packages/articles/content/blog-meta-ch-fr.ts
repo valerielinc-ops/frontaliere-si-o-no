@@ -2926,6 +2926,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Système scolaire Canton Obwald : inscription et cycles',
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'Les cycles scolaires dans le canton d\'Obwald sont divisés en trois phases : crèche, école primaire et école secondaire.',
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'Une classe d\'école primaire dans le canton d\'Obvaldo',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Permis L de courte durée dans le canton d\'Obwald : validité et prolongation',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'Le permis L de courte durée dans le canton d\'Obwald est valable pour une durée maximale d\'un an.',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'Une vue de Lugano, capitale du Canton du Tessin, avec la place de la Riforma et l\'église de San Lorenzo',
 };
 
 export default blogMetaChFr;

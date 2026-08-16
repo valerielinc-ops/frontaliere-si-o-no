@@ -2926,6 +2926,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Canton Obvaldo school system: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'The school cycles in the Canton of Obvaldo are divided into three phases: kindergarten, primary school and secondary school.',
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'A classroom of primary school in the Canton of Obvaldo',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Short-term permit L in the Canton of Obvaldo: validity and extension',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'The short-term L permit in the Canton of Obvaldo is valid for a maximum of 1 year.',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'A view of Lugano, capital of the Canton of Ticino, with the Piazza della Riforma and the Church of San Lorenzo',
 };
 
 export default blogMetaChEn;

@@ -1001,6 +1001,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-obvaldo-2026': { it: 'assegni-familiari-obvaldo-2026', en: 'family-allowance-obvaldo', de: 'familienbeihilfe-obvaldo', fr: 'allocations-familiales-obvaldo' },
  'permesso-l-obbiettivo-obvaldo': { it: 'permesso-l-obbiettivo-obvaldo', en: 'permesso-l-objective-obwalden', de: 'permesso-l-zweck-obwalden', fr: 'permesso-l-objectif-obwalden' },
  'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli', en: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-en', de: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-de', fr: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-fr' },
+ 'permesso-l-di-breve-durata-obvaldo': { it: 'permesso-l-di-breve-durata-obvaldo', en: 'permesso-l-of-brief-duration-obvaldo', de: 'permesso-l-kurzdauer-obvaldo', fr: 'permesso-l-de-breve-duree-obvaldo' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2926,6 +2926,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Sistema scolastico Canton Obvaldo: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'I cicli scolastici nel Canton di Obvaldo sono divisi in tre fasi: asilo nido, scuola elementare e scuola secondaria.',
     'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'Una classe di scuola primaria nel Cantone di Obvaldo',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Permesso L di breve durata nel Cantone di Obvaldo: validità e proroga',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'Il permesso L di breve durata nel Cantone di Obvaldo è valido per un massimo di 1 anno.',
+    'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'Una scena di Lugano, capitale del Cantone di Ticino, con la piazza della Riforma e la Chiesa di San Lorenzo',
 };
 
 export default blogMetaChIt;
