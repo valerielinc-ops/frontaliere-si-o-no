@@ -2947,6 +2947,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incendio-monte-gambarogno.title': 'Incendie sur le Mont Gambarogno, pompiers déjà au travail',
     'blog.article.incendio-monte-gambarogno.excerpt': 'Un incendie de forêt a éclaté sur le mont Gambarogno. Les autorités invitent à ne pas se rendre dans la zone concernée.',
     'blog.article.incendio-monte-gambarogno.imageAlt': 'Incendie sur le Monte Gambarogno, pompiers déjà sur place',
+    'blog.article.comprare-casa-canton-obvaldo.title': 'Acheter une maison dans le canton d\'Obwald : prix et hypothèque',
+    'blog.article.comprare-casa-canton-obvaldo.excerpt': 'Le prix moyen d\'un appartement dans le canton d\'Obwald est de CHF 420 000, tandis que pour une maison, il est de CHF 820 000. L\'hypothèque peut couvrir jusqu\'à 70 % du prix d\'achat.',
+    'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'image d\'une ville suisse avec un panneau d\'agence immobilière',
 };
 
 export default blogMetaChFr;

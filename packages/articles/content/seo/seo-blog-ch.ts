@@ -38201,6 +38201,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-canton-obvaldo': {
+    title: 'Comprare casa nel Canton Obvaldo: prezzi e mutuo ipotecario',
+    description: 'Informazioni sul prezzo di acquisto di una casa o appartamento nel Canton Obvaldo, inclusi i prezzi medi e il funzionamento del mutuo ipotecario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, obvaldo',
+    ogTitle: 'Comprare casa nel Canton Obvaldo: prezzi e mutuo ipotecario',
+    ogDescription: 'Informazioni sul prezzo di acquisto di una casa o appartamento nel Canton Obvaldo, inclusi i prezzi medi e il funzionamento del mutuo ipotecario.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-obvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Canton Obvaldo: prezzi e mutuo ipotecario",
+      "description": "Informazioni sul prezzo di acquisto di una casa o appartamento nel Canton Obvaldo, inclusi i prezzi medi e il funzionamento del mutuo ipotecario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-obvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "immagine di una città svizzera con cartello di un'agenzia immobiliare"
+      },
+      "datePublished": "2026-08-16T18:10:34+00:00",
+      "dateModified": "2026-08-16T18:10:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-obvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

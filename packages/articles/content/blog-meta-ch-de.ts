@@ -2947,6 +2947,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incendio-monte-gambarogno.title': 'Feuer auf dem Monte Gambarogno, Feuerwehrleute bereits bei der Arbeit',
     'blog.article.incendio-monte-gambarogno.excerpt': 'Auf dem Gambarogno ist ein Waldbrand ausgebrochen. Die Behörden bitten darum, sich nicht in das betroffene Gebiet zu begeben.',
     'blog.article.incendio-monte-gambarogno.imageAlt': 'Brand auf dem Monte Gambarogno, Feuerwehr bereits im Einsatz',
+    'blog.article.comprare-casa-canton-obvaldo.title': 'Haus kaufen im Kanton Obwalden: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-canton-obvaldo.excerpt': 'Der Durchschnittspreis für eine Wohnung im Kanton Obwalden beträgt CHF 420 \'000, für ein Haus CHF 820\' 000. Die Hypothek kann bis zu 70% des Kaufpreises decken.',
+    'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'Bild einer Schweizer Stadt mit einem Immobilienmakler-Schild',
 };
 
 export default blogMetaChDe;
