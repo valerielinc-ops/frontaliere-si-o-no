@@ -2983,6 +2983,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Family allowances in Canton Nidvaldo: amounts and application',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Family allowances in Canton Nidvaldo: monthly amounts per child, legal conditions and application procedure.',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Image of a father holding his child, with a background of a plan with the logo of the Nidvaldo Canton.',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Canton Nidvaldo school system: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'School curricula and deadlines for enrolment in the Canton of Nidvaldo',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'A primary school in the Canton of Nidwalden',
 };
 
 export default blogMetaChEn;

@@ -2983,6 +2983,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Familienzulagen im Kanton Nidwalden: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Die Familienzulagen im Kanton Nidwalden: monatliche Beträge pro Kind, rechtliche Voraussetzungen und Antragsverfahren.',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Bild eines Vaters, der seinen Sohn in den Armen hält, mit einem Hintergrund eines Plans mit dem Logo des Kantons Nidvaldo.',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Schulsystem Kanton Nidwalden: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'Die Schulzyklen und Anmeldefristen im Kanton Nidwalden',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'Eine Primarschule im Kanton Nidwalden',
 };
 
 export default blogMetaChDe;
