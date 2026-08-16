@@ -2740,6 +2740,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-uri.title': 'Aufenthaltsbewilligung B Uri: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-uri.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton Uri: Voraussetzungen, Dokumente, Dauer, Erneuerungsverfahren und kantonale Zuständigkeiten.',
     'blog.article.permesso-dimora-b-uri.imageAlt': 'Aufenthaltsbewilligung B im Kanton Uri Voraussetzungen und Verlängerung',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Uri: Voraussetzungen und Antrag',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'Die erforderliche Dauer für die Niederlassungsbewilligung C im Kanton Uri, die Integrationskriterien und die erforderlichen Sprachkenntnisse.',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Bild eines Schweizer Dorfes mit einem Aufenthaltstitel C auf der Tür',
 };
 
 export default blogMetaChDe;

@@ -2740,6 +2740,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-uri.title': 'Permis de séjour B URI : exigences et renouvellement',
     'blog.article.permesso-dimora-b-uri.excerpt': 'Guide pratique du permis de séjour B dans le canton d\'Uri : exigences, documents, durée, procédure de renouvellement et compétences cantonales.',
     'blog.article.permesso-dimora-b-uri.imageAlt': 'Permis de séjour B dans le canton d\'Uri conditions et renouvellement',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Permis de séjour C dans le canton d\'Uri : exigences et demande',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'La durée requise pour le permis de séjour C dans le canton d\'Uri, les critères d\'intégration et les connaissances linguistiques requises.',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Image d\'une ville suisse avec un permis de séjour C sur la porte',
 };
 
 export default blogMetaChFr;

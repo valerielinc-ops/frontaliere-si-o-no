@@ -8218,6 +8218,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-di-domicilio-c-ur-requisiti-e-domanda',
+    category: 'fiscale',
+    date: '2026-08-16T02:10:19.833Z',
+    image: '/images/blog/permesso-di-domicilio-c-ur-requisiti-e-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
