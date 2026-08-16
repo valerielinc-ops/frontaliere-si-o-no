@@ -2758,6 +2758,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Schweiz: Einwanderung sinkt und Auswanderung steigt im Jahr 2026',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analyse der Daten des Staatssekretariats für Migration zur ausländischen ständigen Wohnbevölkerung in der Schweiz im ersten Halbjahr 2026.',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Stadtlandschaft in der Schweiz mit Bundesgebäuden',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.title': 'Mehrere Stopps dank automatisierter Fahrzeugsuche',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.excerpt': 'Das 2024 eingeführte System trug zur Festnahme eines Verdächtigen und zu mehreren weiteren Festnahmen bei.',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.imageAlt': 'Schweizer Grenzkontrolle',
 };
 
 export default blogMetaChDe;

@@ -2758,6 +2758,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Suisse : baisse de l\'immigration et augmentation de l\'émigration en 2026',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analyse des données du Secrétariat d\'Etat aux migrations sur la population résidente permanente étrangère en Suisse au premier semestre 2026.',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Paysage urbain en Suisse avec des bâtiments fédéraux',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.title': 'Plusieurs arrêts grâce à la recherche automatisée des véhicules',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.excerpt': 'Le système mis en place en 2024 a contribué à l\'arrestation d\'un suspect et à plusieurs autres arrestations.',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.imageAlt': 'Contrôle frontalier suisse',
 };
 
 export default blogMetaChFr;

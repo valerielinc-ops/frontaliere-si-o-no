@@ -2758,6 +2758,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Switzerland: immigration falls and emigration grows in 2026',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analysis of data from the State Secretariat for Migration on the foreign permanent resident population in Switzerland in the first half of 2026.',
     'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Urban landscape in Switzerland with federal buildings',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.title': 'Several stops thanks to automated vehicle search',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.excerpt': 'The system introduced in 2024 contributed to the arrest of one suspect and several other arrests.',
+    'blog.article.tendicione-arresti-veicoli-ricerca-2024.imageAlt': 'Swiss border control',
 };
 
 export default blogMetaChEn;
