@@ -2980,6 +2980,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Nidwalden: Voraussetzungen und Antrag',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Integrationsvoraussetzungen, Sprachkenntnisse und Antragsverfahren für die Niederlassungsbewilligung C im Kanton Nidwalden.',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Familie und Kind schauen auf den Luganer See',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Familienzulagen im Kanton Nidwalden: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Die Familienzulagen im Kanton Nidwalden: monatliche Beträge pro Kind, rechtliche Voraussetzungen und Antragsverfahren.',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Bild eines Vaters, der seinen Sohn in den Armen hält, mit einem Hintergrund eines Plans mit dem Logo des Kantons Nidvaldo.',
 };
 
 export default blogMetaChDe;

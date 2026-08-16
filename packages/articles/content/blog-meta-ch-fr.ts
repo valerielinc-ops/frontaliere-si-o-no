@@ -2980,6 +2980,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Permis de séjour C dans le canton de Nidwald : exigences et demande',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Conditions d\'intégration, connaissances linguistiques et procédure de demande de permis de séjour C dans le canton de Nidwald.',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Famille et enfant regardent le lac de Lugano',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Allocations familiales dans le canton de Nidwald : montants et demande',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Les allocations familiales dans le canton de Nidwald : montants mensuels par enfant, conditions de droit et procédure de demande.',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Image d\'un père qui tient son enfant dans ses bras, avec un plan d\'arrière-plan avec le logo du Canton Nidvaldo.',
 };
 
 export default blogMetaChFr;

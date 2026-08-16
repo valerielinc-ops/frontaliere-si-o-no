@@ -2980,6 +2980,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Residence permit C in the Canton of Nidvaldo: requirements and application',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Integration requirements, language skills and application procedure for residence permit C in the Canton of Nidvaldo.',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Family and child look at Lake Lugano',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Family allowances in Canton Nidvaldo: amounts and application',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Family allowances in Canton Nidvaldo: monthly amounts per child, legal conditions and application procedure.',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Image of a father holding his child, with a background of a plan with the logo of the Nidvaldo Canton.',
 };
 
 export default blogMetaChEn;
