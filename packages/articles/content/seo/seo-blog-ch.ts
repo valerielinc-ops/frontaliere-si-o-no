@@ -37772,6 +37772,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-di-domicilio-c-canton-obvaldo': {
+    title: 'Il permesso di domicilio C nel Cantone di Obvaldo',
+    description: 'Requisiti e procedura per ottenere il permesso di domicilio C nel Cantone di Obvaldo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, cantone, obvaldo',
+    ogTitle: 'Il permesso di domicilio C nel Cantone di Obvaldo',
+    ogDescription: 'Requisiti e procedura per ottenere il permesso di domicilio C nel Cantone di Obvaldo',
+    canonicalPath: '/articoli-svizzera/permesso-di-domicilio-c-canton-obvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il permesso di domicilio C nel Cantone di Obvaldo",
+      "description": "Requisiti e procedura per ottenere il permesso di domicilio C nel Cantone di Obvaldo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-domicilio-c-canton-obvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-08-16T16:06:32+00:00",
+      "dateModified": "2026-08-16T16:06:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-domicilio-c-canton-obvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

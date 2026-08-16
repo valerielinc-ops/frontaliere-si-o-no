@@ -997,6 +997,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'conversione-patente-guida-svitto': { it: 'conversione-patente-guida-svitto', en: 'driving-license-conversion-schwyz', de: 'fuehrerschein-umschreibung-schwyz', fr: 'conversion-permis-conduire-schwyz' },
  'premi-cassa-malati-obvaldo-riduzione': { it: 'premi-cassa-malati-obvaldo-riduzione', en: 'canton-obvaldo-maladie-insurance-premiums-reduction', de: 'kanton-obvaldo-krankenversicherung-pramien-reduktion', fr: 'canton-obvaldo-assurance-maladie-primes-reduction' },
  'imposte-cantonal-obvaldo-aliquote-deduzioni': { it: 'imposte-cantonal-obvaldo-aliquote-deduzioni', en: 'cantonal-taxes-obvaldo-rates-deductions', de: 'kantonale-steuern-obvaldo-satze-abzuge', fr: 'impots-cantonaux-obvaldo-taux-deductions' },
+ 'permesso-di-domicilio-c-canton-obvaldo': { it: 'permesso-di-domicilio-c-canton-obvaldo', en: 'residence-permit-c-in-the-canton-of-obvaldo', de: 'die-niederlassungsbewilligung-c-im-kanton-obwalden', fr: 'le-permis-de-domicile-c-dans-le-canton-d-obwald' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

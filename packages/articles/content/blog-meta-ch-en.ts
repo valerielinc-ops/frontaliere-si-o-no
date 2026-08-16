@@ -2914,6 +2914,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Cantonal taxes in the Canton of Obvaldo: rates and deductions',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Information on cantonal taxes in the Canton of Obvaldo, including the brackets, allowable deductions and delivery deadlines.',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Cantone of Obvaldo, cantonal taxes, rates, deductions',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Residence permit C in the Canton of Obvaldo',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Requirements and procedure for obtaining residence permit C in the Canton of Obvaldo',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'The view of Lake Lugano',
 };
 
 export default blogMetaChEn;

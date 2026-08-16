@@ -2914,6 +2914,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Obwalden: Steuersätze und Abzüge',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Informationen zu den kantonalen Steuern im Kanton Obwalden inkl. Staffeln, zulässigen Abzügen und Lieferfristen.',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Kanton Obvaldo, kantonale Steuern, Sätze, Abzüge',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Die Niederlassungsbewilligung C im Kanton Obwalden',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Voraussetzungen und Verfahren zur Erlangung der Niederlassungsbewilligung C im Kanton Obwalden',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'Die Aussicht auf den Luganersee',
 };
 
 export default blogMetaChDe;

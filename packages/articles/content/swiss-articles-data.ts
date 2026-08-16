@@ -8740,6 +8740,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-di-domicilio-c-canton-obvaldo',
+    category: 'pratico',
+    date: '2026-08-16T16:06:32.147Z',
+    image: '/images/blog/permesso-di-domicilio-c-canton-obvaldo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
