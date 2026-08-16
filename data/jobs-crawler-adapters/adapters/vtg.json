@@ -41,12 +41,12 @@
     "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/d08d7e74-2830-4e0d-bddc-c99c4e048bea",
     "https://jobs.admin.ch/offene-stellen/spezialist-in-technik-hlks-heizung-lueftung-klima-sanitaer/3bf42d46-04c7-4bde-8d2f-ccb3803f4341",
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/43bc96d9-ee27-41e2-9ce5-9df9ce9bca15",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-nutzfahrzeuge/115cb6e0-386a-417d-bacf-5ffb12df8150",
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-nutzfahrzeuge/5e47b0ab-298f-4425-815d-9f7fd6e3955d",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-nutzfahrzeuge/115cb6e0-386a-417d-bacf-5ffb12df8150",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/f18eb6a8-ec4e-4985-a0e7-1af3a2259cde",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/9c6504b9-d7cf-4cc7-b32a-d5f997b06d2b",
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/4c8f8cf0-577a-43a2-aed8-b9441afa0769",
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/ddc0e869-6e97-4565-9249-4101252aa19a",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/9c6504b9-d7cf-4cc7-b32a-d5f997b06d2b",
     "https://jobs.admin.ch/offene-stellen/fachlehrer-in-fuehrungsunterstuetzung-fu/0c06d1fc-97cf-4e50-b97d-f46e29194232",
     "https://jobs.admin.ch/offene-stellen/aerztin-arzt-rekrutierung-im-rekrutierungszentrum-mels/2c2f0093-6fb5-4942-bde3-66e6a3555fb9",
     "https://jobs.admin.ch/offene-stellen/automobilmechatroniker-in-leicht/618d0848-b24f-4667-9aa4-b26c627fd960"
@@ -211,18 +211,23 @@
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-07-31"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-nutzfahrzeuge/115cb6e0-386a-417d-bacf-5ffb12df8150": {
-      "location": "Chur",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2026-07-31"
-    },
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-nutzfahrzeuge/5e47b0ab-298f-4425-815d-9f7fd6e3955d": {
       "location": "Bronschhofen",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-07-31"
     },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-nutzfahrzeuge/115cb6e0-386a-417d-bacf-5ffb12df8150": {
+      "location": "Chur",
+      "company": "Swiss Armed Forces (VTG)",
+      "postedDate": "2026-07-31"
+    },
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/f18eb6a8-ec4e-4985-a0e7-1af3a2259cde": {
       "location": "Frauenfeld",
+      "company": "Swiss Armed Forces (VTG)",
+      "postedDate": "2026-07-31"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/9c6504b9-d7cf-4cc7-b32a-d5f997b06d2b": {
+      "location": "Bronschhofen",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-07-31"
     },
@@ -233,11 +238,6 @@
     },
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/ddc0e869-6e97-4565-9249-4101252aa19a": {
       "location": "Chur",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2026-07-31"
-    },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/9c6504b9-d7cf-4cc7-b32a-d5f997b06d2b": {
-      "location": "Bronschhofen",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-07-31"
     },
@@ -258,5 +258,5 @@
     }
   },
   "notes": "Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). VTG verwaltungseinheit IDs: 1083433,1132413,1526654,1132414,1083406. Regions: TI (1083341), Ostschweiz (1083334,1083319). Seed URLs auto-discovered from API.",
-  "updatedAt": "2026-08-15T21:51:14.404Z"
+  "updatedAt": "2026-08-16T10:08:39.659Z"
 }
