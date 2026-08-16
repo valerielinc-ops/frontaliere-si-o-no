@@ -196,6 +196,36 @@ describe('nanako#393 — il corpo assente non diventa un articolo inventato', ()
   });
 });
 
+// ── issue #5946 item 3 — contratto di charset fra extractArticleId e
+// bodyKeyRx (hasBodyKey/extractBodyContent) ─────────────────────────────────
+//
+// extractArticleId puo' restituire SOLO id nel charset [a-z0-9-]+ (la sua
+// stessa regex di estrazione non cattura altro). Un id fuori da quel
+// charset — passato da un futuro chiamante, non da extractArticleId — deve
+// fallire in modo esplicito invece di tornare in silenzio "nessun corpo per
+// questo id".
+//
+// MUTAZIONE: rimuovere la guardia di charset da bodyKeyRx → questi test
+// restano verdi ma senza piu' distinguere un id fuori contratto da uno
+// semplicemente assente (nessuna eccezione, `hasBodyKey` risponderebbe solo
+// `false`).
+
+describe('issue #5946 item 3 — bodyKeyRx rifiuta un articleId fuori dal charset atteso', () => {
+  it('hasBodyKey lancia su un id con maiuscole', () => {
+    expect(() => hasBodyKey(DUE_ID, 'Alpha-Uno')).toThrow(/fuori dal charset atteso/);
+  });
+
+  it('extractBodyContent lancia su un id con caratteri non [a-z0-9-]', () => {
+    expect(() => extractBodyContent(DUE_ID, 'alpha_uno')).toThrow(/fuori dal charset atteso/);
+    expect(() => extractBodyContent(DUE_ID, 'alpha uno')).toThrow(/fuori dal charset atteso/);
+  });
+
+  it('un id nel charset atteso continua a funzionare come prima', () => {
+    expect(hasBodyKey(DUE_ID, ALPHA)).toBe(true);
+    expect(extractBodyContent(DUE_ID, ALPHA)).toContain(CORPO_ALPHA_1);
+  });
+});
+
 // MUTAZIONE: rimettere `fileContent.match(/…/)` (primo match, senza `g`) e
 // ignorare `fileName` → rosso.
 
