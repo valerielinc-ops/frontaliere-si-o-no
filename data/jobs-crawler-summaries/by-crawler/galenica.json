@@ -1,37 +1,36 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-15T21:28:23.000Z",
+  "generatedAt": "2026-08-16T09:38:29.618Z",
   "total": 383,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 116591,
-  "avgDurationMs": 116591,
+  "unchangedCount": 0,
+  "durationMs": 121367,
+  "avgDurationMs": 121367,
   "durationHistory": [
-    116591
+    121367
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)",
+      "title": "Apotheker / Apothekerin als Springer (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3122961.4039482",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3121581.4036806",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistant en pharmacie / Assistante en pharmacie (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Apotheker / Apothekerin als Springer (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
-      "id": "galenica-f7ce5f95a915",
+      "slug": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
+      "id": "galenica-b3fc64463fb5",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -41,7 +40,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -50,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
