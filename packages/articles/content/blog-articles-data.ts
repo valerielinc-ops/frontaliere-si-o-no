@@ -29937,6 +29937,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rinnovato-gemellaggio-assunta-ticino',
+ category: 'pratico',
+ date: '2026-08-16T17:53:01.122Z',
+ image: '/images/blog/rinnovato-gemellaggio-assunta-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

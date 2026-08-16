@@ -9991,6 +9991,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-contraffazioni-svizzera.title': 'Sacs griffés et robes non déclarés à Agno',
     'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'Une frontalière a été condamnée à une amende et rappelée à ses fonctions après avoir été interceptée par l\'Office fédéral des douanes et de la sécurité des frontières (UDSC) avec une cargaison d\'accessoires et de vêtements contrefaits.',
     'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'Une frontaliere avec un chargement de sacs à main faux et de vêtements non déclarés atterrit à Agno',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Jumelage sixième cale châtaigne Tessin',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'Le jumelage de l\'Assomption entre Sesto Calende et Castelletto Ticino a été renouvelé pour la 26e fois',
+    'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'Un frontalier assiste à la procession de l\'Assomption à Castelletto Ticino',
 };
 
 export default blogMetaFr;
