@@ -2767,6 +2767,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eclissi-danni-retina.title': 'Sonne finsternis und unsichtbare Netzhautschäden',
     'blog.article.eclissi-danni-retina.excerpt': 'Schweizer Augenarztpraxen verzeichnen nach der Sonnenfinsternis am Mittwoch einen Anstieg der Anfragen.',
     'blog.article.eclissi-danni-retina.imageAlt': 'Person mit Sonnenbrille beim Beobachten einer Sonnenfinsternis',
+    'blog.article.multa-treni-zurigo-corruzione.title': 'Vermeiden Sie eine Geldstrafe von 20 Franken: 61-Jähriger in Zürich verurteilt',
+    'blog.article.multa-treni-zurigo-corruzione.excerpt': 'Ein Passagier versuchte, einen Bahnkontrolleur mit einer 20-Franken-Note zu bestechen, um einer Strafe zu entgehen. Nun steht er einer schweren strafrechtlichen Verurteilung gegenüber.',
+    'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Zugkontrolleur im Dienst in einem SBB-Zug in Zürich',
 };
 
 export default blogMetaChDe;

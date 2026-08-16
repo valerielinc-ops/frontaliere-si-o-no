@@ -2767,6 +2767,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.eclissi-danni-retina.title': 'L\'eclissi solare e quei danni alla retina che possono passare inosservati',
     'blog.article.eclissi-danni-retina.excerpt': 'Gli studi oculistici svizzeri registrano un aumento di richieste dopo l\'eclissi solare di mercoledì.',
     'blog.article.eclissi-danni-retina.imageAlt': 'Persona che indossa occhiali da sole mentre osserva l\'eclissi solare',
+    'blog.article.multa-treni-zurigo-corruzione.title': 'Evita la multa con 20 franchi: condannato 61enne a Zurigo',
+    'blog.article.multa-treni-zurigo-corruzione.excerpt': 'Un passeggero ha tentato di corrompere un controllore ferroviario con una banconota da 20 franchi per evitare una sanzione. Ora affronta una pesante condanna penale.',
+    'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Controllore dei treni in servizio su un convoglio delle FFS a Zurigo',
 };
 
 export default blogMetaChIt;

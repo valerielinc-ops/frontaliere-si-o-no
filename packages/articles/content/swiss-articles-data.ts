@@ -8299,6 +8299,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'multa-treni-zurigo-corruzione',
+    category: 'pratico',
+    date: '2026-08-16T05:01:28.359Z',
+    image: '/images/blog/multa-treni-zurigo-corruzione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
