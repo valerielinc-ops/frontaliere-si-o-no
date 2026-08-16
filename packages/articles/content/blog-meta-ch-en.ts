@@ -2866,6 +2866,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'School system of the Canton of Schwyz: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Information on the school system of the Canton of Swabia, including cycles and age of enrolment.',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Image of a group of students in a Swiss school, focusing on the education system in the canton of Schwyz.',
+    'blog.article.apprendistato-cantone-svitto.title': 'Apprenticeship and vocational training in the Canton of Swabia',
+    'blog.article.apprendistato-cantone-svitto.excerpt': 'How to find an internship position, internship contract, apprentice salary and professional maturity',
+    'blog.article.apprendistato-cantone-svitto.imageAlt': 'Apprenticeship and vocational training in the Canton of Schwyz',
 };
 
 export default blogMetaChEn;

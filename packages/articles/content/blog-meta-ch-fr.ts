@@ -2866,6 +2866,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'Système scolaire du canton de Schwyz : inscription et cycles',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Informations sur le système scolaire du canton de Schwyz, y compris les cycles et l\'âge d\'inscription.',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Image d\'un groupe d\'étudiants dans une école suisse, mettant en avant le système éducatif dans le canton de Schwyz.',
+    'blog.article.apprendistato-cantone-svitto.title': 'Apprentissage et formation professionnelle dans le canton de Schwyz',
+    'blog.article.apprendistato-cantone-svitto.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, la rémunération de l\'apprenti et la maturité professionnelle',
+    'blog.article.apprendistato-cantone-svitto.imageAlt': 'Formation professionnelle et apprentissage dans le canton de Schwyz',
 };
 
 export default blogMetaChFr;
