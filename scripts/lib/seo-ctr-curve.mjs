@@ -90,20 +90,27 @@ export const MIN_IMPRESSIONS_TO_MONITOR = 50_000;
  *                 `multiple × expectedCtrForPosition(avgPosition)` — see
  *                 effectiveTargetCtr() below.
  *   pathAliases   optional extra `pathContains`-style substrings that are
- *                 the SAME template under a different locale's URL slug —
- *                 not a `/en/`/`/de/`/`/fr/` PREFIX (already handled by
- *                 `LOCALE_PATH_PREFIXES` below) but a fully localized slug
- *                 name, e.g. the article template is `/articoli-frontaliere/`
- *                 in Italian but `/cross-border-articles/` in English and
+ *                 the SAME template under a different locale's URL slug.
+ *                 Two distinct shapes both need it: (a) the locale slug drops
+ *                 the `/en/`/`/de/`/`/fr/` PREFIX entirely, e.g. the article
+ *                 template is `/articoli-frontaliere/` in Italian but
+ *                 `/cross-border-articles/` in English and
  *                 `/grenzgaenger-artikel/` in German (see
  *                 `services/router.ts`'s `isArticles` regex and
  *                 `getJobBoardSlugForCanton`/`getAggregatorJobBoardSlug` for
- *                 the job-board equivalents). Without this, each locale
- *                 slug rolls up as its own "unregistered family" in
- *                 `discoverUnregisteredFamilies` once it crosses the volume
- *                 threshold on its own — issue #5961. Use
- *                 `familyPathPrefixes()` below to read `pathContains` +
- *                 `pathAliases` together.
+ *                 the job-board equivalents); (b) the locale slug KEEPS the
+ *                 prefix but translates the segment after it, e.g.
+ *                 `/en/cross-border-guide/…` — `LOCALE_PATH_PREFIXES` below
+ *                 strips the prefix for shape (b) but still compares the
+ *                 *translated* remaining segment against `pathContains`,
+ *                 which never matches, so shape (b) needs `pathAliases` too
+ *                 (see `guida-frontaliere`/`tasse-e-pensione` below,
+ *                 `services/routeSlugs.data.ts`'s `guida`/`fisco` keys).
+ *                 Without this, each locale slug rolls up as its own
+ *                 "unregistered family" in `discoverUnregisteredFamilies`
+ *                 once it crosses the volume threshold on its own — issue
+ *                 #5961. Use `familyPathPrefixes()` below to read
+ *                 `pathContains` + `pathAliases` together.
  */
 export const SEO_CTR_FAMILIES = [
   {
@@ -123,6 +130,13 @@ export const SEO_CTR_FAMILIES = [
     id: 'guida-frontaliere',
     label: 'Guida frontaliere',
     pathContains: '/guida-frontaliere/',
+    // EN / DE / FR locale slugs for the same guide template — unlike the
+    // articles/job-board aliases above, these keep the `/en|de|fr/` locale
+    // PREFIX and translate the segment itself (services/routeSlugs.data.ts's
+    // `guida` key: cross-border-guide / grenzgaenger-ratgeber /
+    // guide-frontalier), so `LOCALE_PATH_PREFIXES` stripping the prefix
+    // alone doesn't reunite them with the Italian segment (issue #5961).
+    pathAliases: ['/cross-border-guide/', '/grenzgaenger-ratgeber/', '/guide-frontalier/'],
     kind: 'template',
     targetCtr: 0.035,
     monitored: true,
@@ -134,6 +148,11 @@ export const SEO_CTR_FAMILIES = [
     id: 'tasse-e-pensione',
     label: 'Tasse e pensione',
     pathContains: '/tasse-e-pensione/',
+    // EN / DE / FR locale slugs for the same tax/pension template — same
+    // prefix+translated-segment shape as `guida-frontaliere` above
+    // (services/routeSlugs.data.ts's `fisco` key: taxes-and-pension /
+    // steuern-und-vorsorge / impots-et-retraite), issue #5961.
+    pathAliases: ['/taxes-and-pension/', '/steuern-und-vorsorge/', '/impots-et-retraite/'],
     kind: 'template',
     targetCtr: 0.03,
     monitored: true,

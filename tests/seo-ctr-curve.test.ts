@@ -178,6 +178,14 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(familyPathPrefixes(byId['articoli-frontaliere'])).toContain('/grenzgaenger-artikel/');
       expect(familyPathPrefixes(byId['cerca-lavoro-ticino'])).toContain('/find-jobs-ticino/');
       expect(familyPathPrefixes(byId['cerca-lavoro-ticino'])).toContain('/jobs-im-tessin/');
+      // prefix-kept, translated-segment shape (services/routeSlugs.data.ts's
+      // `guida`/`fisco` keys) — same blind spot, different URL shape.
+      expect(familyPathPrefixes(byId['guida-frontaliere'])).toContain('/cross-border-guide/');
+      expect(familyPathPrefixes(byId['guida-frontaliere'])).toContain('/grenzgaenger-ratgeber/');
+      expect(familyPathPrefixes(byId['guida-frontaliere'])).toContain('/guide-frontalier/');
+      expect(familyPathPrefixes(byId['tasse-e-pensione'])).toContain('/taxes-and-pension/');
+      expect(familyPathPrefixes(byId['tasse-e-pensione'])).toContain('/steuern-und-vorsorge/');
+      expect(familyPathPrefixes(byId['tasse-e-pensione'])).toContain('/impots-et-retraite/');
     });
   });
 
@@ -206,6 +214,22 @@ describe('seo-ctr-curve (issue #4300)', () => {
       ];
       const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
       expect(result).toEqual([{ pathContains: '/cerca-lavoro-ticino/', impressions90d: 60_000 }]);
+    });
+
+    it('excludes a prefix-kept-but-translated-segment alias (issue #5961, guida-frontaliere shape)', () => {
+      const aliasedFamilies = [
+        {
+          id: 'guida-frontaliere',
+          pathContains: '/guida-frontaliere/',
+          pathAliases: ['/cross-border-guide/', '/grenzgaenger-ratgeber/'],
+        },
+      ];
+      const rows = [
+        { path: '/en/cross-border-guide/some-guide/', impressions: 90_000 },
+        { path: '/de/grenzgaenger-ratgeber/anderer-leitfaden/', impressions: 90_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families: aliasedFamilies, minImpressions: 50_000 });
+      expect(result).toEqual([]);
     });
 
     it('rolls up locale-prefixed pages into the same segment as the default locale', () => {
