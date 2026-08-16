@@ -2980,6 +2980,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Permesso di domicilio C nel Cantone di Nidvaldo: requisiti e domanda',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Requisiti di integrazione, conoscenze linguistiche e procedura di domanda per il permesso di domicilio C nel Cantone di Nidvaldo.',
     'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Famiglia e bambino guardano il Lago di Lugano',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Assegni familiari in Canton Nidvaldo: importi e domanda',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Gli assegni familiari in Canton Nidvaldo: importi mensili per figlio, condizioni di diritto e procedura di domanda.',
+    'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Immagine di un padre che tiene in braccio il figlio, con un piano dietro di loro con il logo del Canton Nidvaldo.',
 };
 
 export default blogMetaChIt;

@@ -1019,6 +1019,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga': { it: 'permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga', en: 'permesso-l-brief-duration-nidwalden-canton', de: 'ermesse-l-kurze-geltung-nidwalden-kanton', fr: 'permis-l-breve-duree-nidwalden-canton' },
  'salari-aumento-2027': { it: 'salari-aumento-2027', en: 'salaries-increase-2027', de: 'lohnsteigerung-2027', fr: 'augmentation-salaire-2027' },
  'permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda': { it: 'permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda', en: 'permesso-di-domicilio-c-nidvaldo', de: 'permesso-di-domicilio-c-nidvaldo', fr: 'permesso-di-domicilio-c-nidvaldo' },
+ 'assegni-familiari-canton-nidvaldo-importi-e-domanda': { it: 'assegni-familiari-canton-nidvaldo-importi-e-domanda', en: 'assegni-familiari-canton-nidvaldo', de: 'assegni-familiari-kanton-nidvaldo', fr: 'assegni-familiari-canton-nidvaldo' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
