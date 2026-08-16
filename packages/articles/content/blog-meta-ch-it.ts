@@ -2923,6 +2923,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Permessi di soggiorno in Svizzera: il permesso L a Obwalden',
     'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'Il permesso L di breve durata è un permesso di soggiorno che può essere concesso per un massimo di 1 anno.',
     'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Immagine di un permesso di soggiorno in Svizzera.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Sistema scolastico Canton Obvaldo: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'I cicli scolastici nel Canton di Obvaldo sono divisi in tre fasi: asilo nido, scuola elementare e scuola secondaria.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'Una classe di scuola primaria nel Cantone di Obvaldo',
 };
 
 export default blogMetaChIt;

@@ -2923,6 +2923,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-obbiettivo-obvaldo.title': 'Aufenthaltsbewilligungen in der Schweiz: die Bewilligung L in Obwalden',
     'blog.article.permesso-l-obbiettivo-obvaldo.excerpt': 'Die Kurzaufenthaltsbewilligung L ist eine Aufenthaltsbewilligung, die für maximal 1 Jahr erteilt werden kann.',
     'blog.article.permesso-l-obbiettivo-obvaldo.imageAlt': 'Bild eines Schweizer Aufenthaltstitels.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.title': 'Schulsystem Kanton Obwalden: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.excerpt': 'Die Schulzyklen im Kanton Obwalden sind in drei Phasen unterteilt: Kindergarten, Grundschule und Sekundarschule.',
+    'blog.article.sistema-scolastico-canton-obvaldo-iscrizione-e-cicli.imageAlt': 'Eine Klassenaussprache im Kanton Obvaldo',
 };
 
 export default blogMetaChDe;
