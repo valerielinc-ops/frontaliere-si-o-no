@@ -37460,6 +37460,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abbonamenti-trasporti-svitto': {
+    title: 'Abbonamenti trasporti pubblici Svitto: zone e tariffe',
+    description: 'Guida completa agli abbonamenti, alle zone tariffarie e alle riduzioni per i mezzi pubblici nel Cantone di Svitto. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, pubblici, svitto',
+    ogTitle: 'Abbonamenti trasporti pubblici Svitto: zone e tariffe',
+    ogDescription: 'Scopri zone, tariffe, abbonamenti mensili e annuali, e le riduzioni per studenti e apprendisti nel Cantone di Svitto.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti pubblici Svitto: zone e tariffe",
+      "description": "Guida completa agli abbonamenti, alle zone tariffarie e alle riduzioni per i mezzi pubblici nel Cantone di Svitto. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Abbonamenti trasporti pubblici e tariffe nel Cantone di Svitto"
+      },
+      "datePublished": "2026-08-16T13:32:24+00:00",
+      "dateModified": "2026-08-16T13:32:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2890,6 +2890,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AVS and complementary services in the Canton of Schwyz: the compensation fund',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'The Canton of Schwyz has a compensation fund that manages AVS and supplementary benefits for its inhabitants.',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Image of a winter landscape in the Canton of Schwyz',
+    'blog.article.abbonamenti-trasporti-svitto.title': 'Tickets for public transport in Switzerland: zones and fares',
+    'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Complete guide to subscriptions, fare zones and reductions for public transport in the Canton of Schwyz.',
+    'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'Public transport passes and tariffs in Canton Schwyz',
 };
 
 export default blogMetaChEn;

@@ -8668,6 +8668,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'abbonamenti-trasporti-svitto',
+    category: 'novita',
+    date: '2026-08-16T13:32:24.597Z',
+    image: '/images/blog/abbonamenti-trasporti-svitto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
