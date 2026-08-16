@@ -2986,6 +2986,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Système scolaire canton de Nidwald : inscription et cycles',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'Les cycles scolaires et les délais d\'inscription dans le canton de Nidwald',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'Une école primaire dans le canton de Nidwald',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Mercato degli affitti a Nidwalden: canoni medi e diritto di locazione',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'Le loyer moyen dans le canton de Nidwalden est de 2 500 CHF par mois.',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Locations immobilières en Suisse',
 };
 
 export default blogMetaChFr;
