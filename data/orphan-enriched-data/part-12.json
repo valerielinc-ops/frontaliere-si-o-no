@@ -12093,10 +12093,10 @@
         "fr": "branch-manager-in-training-denner-chur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/branch-manager-in-training-denner-chur",
-        "en": "/en/find-jobs-graubunden/branch-manager-in-training-denner-chur",
-        "de": "/de/jobs-in-graubunden/branch-manager-in-training-denner-chur",
-        "fr": "/fr/trouver-emploi-grisons/branch-manager-in-training-denner-chur"
+        "it": "/cerca-lavoro-lucerna/branch-manager-in-training-denner-chur",
+        "en": "/en/find-jobs-lucerne/branch-manager-in-training-denner-chur",
+        "de": "/de/jobs-in-luzern/branch-manager-in-training-denner-chur",
+        "fr": "/fr/trouver-emploi-lucerne/branch-manager-in-training-denner-chur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12148,10 +12148,10 @@
         "fr": "branch-manager-in-training-denner-wadenswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/branch-manager-in-training-denner-wadenswil",
-        "en": "/en/find-jobs-graubunden/branch-manager-in-training-denner-wadenswil",
-        "de": "/de/jobs-in-graubunden/branch-manager-in-training-denner-wadenswil",
-        "fr": "/fr/trouver-emploi-grisons/branch-manager-in-training-denner-wadenswil"
+        "it": "/cerca-lavoro-lucerna/branch-manager-in-training-denner-wadenswil",
+        "en": "/en/find-jobs-lucerne/branch-manager-in-training-denner-wadenswil",
+        "de": "/de/jobs-in-luzern/branch-manager-in-training-denner-wadenswil",
+        "fr": "/fr/trouver-emploi-lucerne/branch-manager-in-training-denner-wadenswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41680,9 +41680,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "livraison-en-lettres-et-en-colis-die-schweizerische-post-samedan",
-        "en": "livraison-en-lettres-et-en-colis-die-schweizerische-post-samedan",
-        "de": "livraison-en-lettres-et-en-colis-die-schweizerische-post-samedan",
+        "de": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-samedan",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-samedan",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-samedan"
       },
       "localePaths": {
@@ -41697,6 +41697,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
