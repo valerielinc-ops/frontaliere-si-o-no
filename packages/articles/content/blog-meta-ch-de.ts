@@ -2938,6 +2938,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Kindertagesstätte und Kinderbetreuung Kanton Obwalden Kosten',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Entdecken Sie die Kosten einer Kindertagesstätte und die Subventionspolitik des Kantons Obwalden.',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Kinderbetreuung und Pflege in der Kanton Obvaldo: Kosten und Subventionen.',
+    'blog.article.massimo-boldi-ospedale.title': 'Massimo Boldi nach einem Sturz im Krankenhaus',
+    'blog.article.massimo-boldi-ospedale.excerpt': 'Der italienische Schauspieler Massimo Boldi wurde nach einem Sturz am Nachmittag des 13. August in Forte dei Marmi in die neurochirurgische Abteilung des Krankenhauses von Livorno versetzt.',
+    'blog.article.massimo-boldi-ospedale.imageAlt': 'Schauspieler Massimo Boldi im Krankenhaus nach einem Sturz',
 };
 
 export default blogMetaChDe;

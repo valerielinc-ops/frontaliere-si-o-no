@@ -2938,6 +2938,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Garderie et garde d\'enfants Canton Obwald coûts',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Découvrez les coûts d\'une crèche et les politiques de subventions du canton Obwald.',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Enfance et garde dans le canton Obvaldo: coûts et subventions.',
+    'blog.article.massimo-boldi-ospedale.title': 'Maximum Boldi à l\'hôpital après une chute',
+    'blog.article.massimo-boldi-ospedale.excerpt': 'L\'acteur italien Massimo Boldi a été transféré au service de neurochirurgie de l\'hôpital de Livourne après une chute survenue l\'après-midi du 13 août à Forte dei Marmi.',
+    'blog.article.massimo-boldi-ospedale.imageAlt': 'L\'acteur italien Massimo Boldi est hospitalisé après une chute',
 };
 
 export default blogMetaChFr;
