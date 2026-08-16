@@ -2848,6 +2848,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.title': 'Permis de conduire en URI : conversion et examens',
     'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.excerpt': 'La conversion du permis de conduire étranger dans le canton d\'Uri nécessite l\'inscription à un cours de formation et l\'examen théorique et pratique. L\'office de circulation compétent est le Registre d\'État.',
     'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.imageAlt': 'Une guide pratique pour la conversion d\'une permis de conduire étranger dans le canton d\'Uri.',
+    'blog.article.imposte-cantonal-svitto-aliquote-deduzioni.title': 'Impôts cantonaux à Schwyz : taux et déductions',
+    'blog.article.imposte-cantonal-svitto-aliquote-deduzioni.excerpt': 'Les impôts cantonaux en Schwyz seront déterminés par le canton de Schwyz.',
+    'blog.article.imposte-cantonal-svitto-aliquote-deduzioni.imageAlt': 'Une vue d\'ensemble des impôts cantonaux en Svitto, avec un focus sur les nouvelles taux et déductions.',
+    'blog.article.premi-cassa-malati-svitto.title': 'Primes caisse-maladie Schwyz : tranches, franchises et subventions',
+    'blog.article.premi-cassa-malati-svitto.excerpt': 'Analyse des primes de l\'assurance maladie obligatoire dans le canton de Schwyz : fourchettes de primes, franchises, modèles et conditions de réduction.',
+    'blog.article.premi-cassa-malati-svitto.imageAlt': 'Primes d\'assurance-maladie et reduction dans le canton de Schwytz',
 };
 
 export default blogMetaChFr;
