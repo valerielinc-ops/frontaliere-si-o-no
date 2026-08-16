@@ -2737,6 +2737,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.title': 'Permesso di dimora B in Uri: requisiti e procedura',
     'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.excerpt': 'Cosa serve per ottenere il permesso di dimora B nel Cantone di Uri e come procedere con il rinnovo',
     'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.imageAlt': 'Frontaliere in Svizzera',
+    'blog.article.permesso-dimora-b-uri.title': 'Permesso di dimora B Uri: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-uri.excerpt': 'Guida pratica al permesso di dimora B nel Canton Uri: requisiti, documenti, durata, procedura di rinnovo e competenze cantonali.',
+    'blog.article.permesso-dimora-b-uri.imageAlt': 'Permesso di dimora B nel Canton Uri requisiti e rinnovo',
 };
 
 export default blogMetaChIt;
