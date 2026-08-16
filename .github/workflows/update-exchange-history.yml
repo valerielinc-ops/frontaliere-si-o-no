@@ -18,9 +18,23 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # Alzato 5->8min: il Checkout da solo arriva gia' al 55% del vecchio cap
+    # (vedi tetto sullo step sotto) — stesso sintomo di #5659 (Checkout che
+    # mangia l'intero budget del job update-fuel-prices), qui prevenuto prima
+    # che diventi un timeout osservato. Il job stesso, nel run piu' lento
+    # campionato, ha gia' usato l'83% del vecchio cap (249s su 300s).
+    timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout
+        uses: actions/checkout@v5
+        # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
+        # budget del job e questo muore `cancelled` — stato invisibile agli
+        # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori (stesso bug class di #5659). 5min stanno sopra il
+        # massimo osservato sui run sani (135-166s su 5 run) e sotto il nuovo
+        # cap del job. NIENTE `filter: blob:none`: con `fetch-depth: 1`
+        # (default) e' un peggioramento misurato (+125% su tests.yml, #5164).
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v5
         with:

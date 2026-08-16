@@ -24,6 +24,15 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
+        # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
+        # budget del job e questo muore `cancelled` — stato invisibile agli
+        # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori (stesso bug class di #5659, vedi update-fuel-prices.yml).
+        # 5min stanno sopra il massimo osservato sui run sani (56-136s su 8
+        # run, ~23% del cap da 10min) con ampio margine, e sotto il cap del
+        # job. NIENTE `filter: blob:none`: con `fetch-depth: 1` e' un
+        # peggioramento misurato (+125% su tests.yml, vedi #5164).
+        timeout-minutes: 5
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

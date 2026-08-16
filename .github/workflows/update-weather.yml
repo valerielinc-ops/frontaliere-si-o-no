@@ -17,7 +17,11 @@ permissions:
 jobs:
   update-weather:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    # Alzato 8->10min: il Checkout da solo arriva gia' al 58% del vecchio cap
+    # (vedi tetto sullo step sotto) — stesso sintomo di #5659 (Checkout che
+    # mangia l'intero budget del job update-fuel-prices), qui prevenuto prima
+    # che diventi un timeout osservato.
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -25,6 +29,16 @@ jobs:
         with:
           fetch-depth: 1
           persist-credentials: true
+        # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
+        # budget del job e questo muore `cancelled` — stato invisibile agli
+        # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori (stesso bug class di #5659, vedi update-fuel-prices.yml).
+        # 7min stanno sopra il massimo osservato sui run sani (86-278s su 8
+        # run, il caso peggiore era gia' il 58% del cap da 8min) e sotto il
+        # nuovo cap del job. NIENTE `filter: blob:none`: con `fetch-depth: 1`
+        # e' un peggioramento misurato (+125% su tests.yml, vedi #5164), non
+        # un miglioramento.
+        timeout-minutes: 7
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
