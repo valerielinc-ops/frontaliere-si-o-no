@@ -36095,6 +36095,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-e-formazione-professionale-canton-uri': {
+    title: 'Apprendistato nel Canton Uri: come trovare un posto di tirocinio',
+    description: 'Opportunità di apprendistato e formazione professionale ai frontaliere nel Canton Uri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, canton, trovare, posto',
+    ogTitle: 'Apprendistato e formazione professionale nel Canton Uri',
+    ogDescription: 'Opportunità di apprendistato e formazione professionale ai frontaliere nel Canton Uri.',
+    canonicalPath: '/articoli-svizzera/apprendistato-e-formazione-professionale-canton-uri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato nel Canton Uri: come trovare un posto di tirocinio",
+      "description": "Opportunità di apprendistato e formazione professionale ai frontaliere nel Canton Uri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-e-formazione-professionale-canton-uri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che si impegna in un apprendistato professionale nel Canton Uri"
+      },
+      "datePublished": "2026-08-16T06:08:29+00:00",
+      "dateModified": "2026-08-16T06:08:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-e-formazione-professionale-canton-uri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

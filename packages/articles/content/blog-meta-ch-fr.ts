@@ -2785,6 +2785,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.coppa-svizzera-risultati-partiti.title': 'Coupe de Suisse : goleada pour servettes, Bâle, jeunes garçons et GC',
     'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'Pas de surprise dans les 32es de finale de la compétition suisse, avec des formations de Super League qui dépassent facilement leurs tours respectifs.',
     'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Match de Coupe de Suisse dans un stade helvétique',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Apprentissage dans le canton d\'Uri : comment trouver une place d\'apprentissage',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'Le canton d\'Uri offre des possibilités d\'apprentissage et de formation professionnelle aux frontaliers. Découvrez comment trouver un lieu de stage, un contrat de stage, la rémunération de l\'apprenti et la maturité professionnelle.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontalier engagé dans un apprentissage professionnel dans le canton d\'Uri',
 };
 
 export default blogMetaChFr;

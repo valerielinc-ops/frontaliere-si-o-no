@@ -2785,6 +2785,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.coppa-svizzera-risultati-partiti.title': 'Swiss Cup: Goleada for Servette, Basel, Young Boys and GC',
     'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'No surprises in the 32nd finals of the Swiss competition, with the Super League formations easily passing their respective rounds.',
     'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Swiss Cup match in a Swiss stadium',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Apprenticeship in Canton Uri: how to find an internship',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'The Uri Canton offers apprenticeship and vocational training opportunities for border workers. Find out how to find an internship position, internship contract, apprentice salary and professional maturity.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontalier engaging in a professional apprenticeship in Canton Uri',
 };
 
 export default blogMetaChEn;

@@ -2785,6 +2785,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.coppa-svizzera-risultati-partiti.title': 'Coppa Svizzera: goleada per servette, Basilea, young boys e GC',
     'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'Nessuna sorpresa nei 32esimi di finale della competizione elvetica, con le formazioni di Super League che superano agevolmente i rispettivi turni.',
     'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Partita di Coppa Svizzera in uno stadio elvetico',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Apprendistato nel Canton Uri: come trovare un posto di tirocinio',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'Il Canton Uri offre opportunità di apprendistato e formazione professionale ai frontalieri. Scopri come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontaliere che si impegna in un apprendistato professionale nel Canton Uri',
 };
 
 export default blogMetaChIt;
