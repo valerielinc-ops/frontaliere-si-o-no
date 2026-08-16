@@ -2857,6 +2857,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Residence permits C in the Canton of Schwyz: requirements and application',
     'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'To obtain a residence permit C in the Canton of Schwyz, border workers must comply with certain requirements and follow a specific procedure.',
     'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'A frontalier enjoys the view of Lake Lugano.',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Short-term permit L in the Canton of Svitto: validity and extension',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Facts and figures on the validity and extension of the short-term permit L in the Canton of Schwyz',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Image of a frontier worker with a short-term L permit in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -2857,6 +2857,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Niederlassungsbewilligungen C im Kanton Schwyz: Voraussetzungen und Antrag',
     'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'Um eine Niederlassungsbewilligung C im Kanton Schwyz zu erhalten, müssen Grenzgänger bestimmte Voraussetzungen erfüllen und ein bestimmtes Verfahren einhalten.',
     'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'Ein Frontalier geniesst die Aussicht auf den Luganersee.',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Kurzaufenthaltsbewilligung L im Kanton Schwyz: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Fakten und Zahlen zur Gültigkeit und Verlängerung der Kurzzeitbewilligung L im Kanton Schwyz',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Bild eines Grenzgängers mit einem kurzfristigen L-Befehl in der Schweiz',
 };
 
 export default blogMetaChDe;

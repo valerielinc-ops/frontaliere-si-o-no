@@ -2857,6 +2857,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Permessi di domicilio C nel Cantone di Svitto: requisiti e domanda',
     'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'Per ottenere un permesso di domicilio C nel Cantone di Svitto, i frontalieri devono rispettare determinati requisiti e seguire una procedura specifica.',
     'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'Un frontaliere si godono la vista sul Lago di Lugano.',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Permesso L di breve durata nel Canton Svitto: validità e proroga',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Fatti e cifre sulla validità e proroga del permesso L di breve durata nel Canton Svitto',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Immagine di un frontaliere con permesso L di breve durata in Svizzera',
 };
 
 export default blogMetaChIt;

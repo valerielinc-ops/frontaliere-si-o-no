@@ -2857,6 +2857,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Permis de séjour C dans le canton de Schwyz : exigences et demande',
     'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'Pour obtenir un permis de séjour C dans le canton de Schwyz, les frontaliers doivent respecter certaines exigences et suivre une procédure spécifique.',
     'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'Un frontalier se régale de la vue sur le lac de Lugano.',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Schwyz : validité et prolongation',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Faits et chiffres sur la validité et la prolongation du permis L de courte durée dans le canton de Schwyz',
+    'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Image d\'un travailleur frontalier avec un permis L de courte durée en Suisse',
 };
 
 export default blogMetaChFr;

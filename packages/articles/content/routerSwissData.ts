@@ -978,6 +978,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonal-svitto-aliquote-deduzioni': { it: 'imposte-cantonal-svitto-aliquote-deduzioni', en: 'cantonal-taxes-svitto-rates-deductions', de: 'kantonale-steuern-svitto-steuersaetze-abzuege', fr: 'impots-cantonaux-svitto-taux-deductions' },
  'premi-cassa-malati-svitto': { it: 'premi-cassa-malati-svitto', en: 'schwyz-health-insurance-premiums', de: 'krankenkassenpraemien-schwyz', fr: 'primes-assurance-maladie-schwytz' },
  'permesso-di-domicilio-c-canton-svitto': { it: 'permesso-di-domicilio-c-canton-svitto', en: 'residence-permits-c-in-the-canton-of-schwyz-requirements-and-application', de: 'niederlassungsbewilligungen-c-im-kanton-schwyz-voraussetzungen-und-antrag', fr: 'permis-de-sejour-c-dans-le-canton-de-schwyz-exigences-et-demande' },
+ 'permesso-l-canton-svitto-validita-e-proroga': { it: 'permesso-l-canton-svitto-validita-e-proroga', en: 'short-term-permit-l-in-the-canton-of-svitto-validity-and-extension', de: 'kurzaufenthaltsbewilligung-l-im-kanton-schwyz-gultigkeit-und-verlangerung', fr: 'permis-l-de-courte-duree-dans-le-canton-de-schwyz-validite-et-prolongation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
