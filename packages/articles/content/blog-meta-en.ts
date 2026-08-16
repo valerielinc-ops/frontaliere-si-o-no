@@ -9986,6 +9986,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calo-soggiorni-irregolari-luglio.title': 'Irregular stays declining at southern border in July',
     'blog.article.calo-soggiorni-irregolari-luglio.excerpt': 'In July, cases registered by the Federal Office of Customs and Border Security fell to 249 in Ticino.',
     'blog.article.calo-soggiorni-irregolari-luglio.imageAlt': 'Swiss border checkpoint at the southern border',
+    'blog.article.frontalieri-contraffazioni-svizzera.title': 'Designer bags and undeclared clothes in Agno',
+    'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'A border guard was fined and called to duty after being intercepted by the Federal Office of Customs and Border Security (FOCS) with a load of counterfeit accessories and clothing.',
+    'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'A frontaliere with a load of fake designer bags and undeclared clothes lands in Agno',
 };
 
 export default blogMetaEn;

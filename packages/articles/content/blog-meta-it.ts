@@ -9987,6 +9987,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calo-soggiorni-irregolari-luglio.title': 'Soggiorni irregolari in calo alla frontiera sud in luglio',
     'blog.article.calo-soggiorni-irregolari-luglio.excerpt': 'A luglio i casi registrati dall\'Ufficio federale della dogana e della sicurezza dei confini sono scesi a 249 in Ticino.',
     'blog.article.calo-soggiorni-irregolari-luglio.imageAlt': 'Posto di confine svizzero alla frontiera sud',
+    'blog.article.frontalieri-contraffazioni-svizzera.title': 'Borse griffate e abiti non dichiarati a Agno',
+    'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'Una frontaliere è stata multata e richiamata ai suoi doveri dopo essere stata intercettata dall\'Ufficio federale della dogana e della sicurezza dei confini (Udsc) con un carico di accessori e capi di abbigliamento contraffatti.',
+    'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'Una frontaliere con un carico di borse griffate e abiti non dichiarati atterra ad Agno',
 };
 
 export default blogMetaIt;

@@ -9985,6 +9985,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calo-soggiorni-irregolari-luglio.title': 'Unregelmäßiger Aufenthalt an der Südgrenze im Juli rückläufig',
     'blog.article.calo-soggiorni-irregolari-luglio.excerpt': 'Im Juli sank die Zahl der vom Bundesamt für Zoll und Grenzsicherheit registrierten Fälle im Tessin auf 249.',
     'blog.article.calo-soggiorni-irregolari-luglio.imageAlt': 'Schweizer Grenzübergang an der Südgrenze',
+    'blog.article.frontalieri-contraffazioni-svizzera.title': 'Designerhandtaschen und nicht deklarierte Kleider bei Agno',
+    'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'Eine Grenzgängerin wurde mit einer Geldstrafe belegt und an ihre Pflichten erinnert, nachdem sie vom Bundesamt für Zoll und Grenzsicherheit (UdSSR) mit einer Ladung gefälschter Accessoires und Kleidungsstücke abgefangen worden war.',
+    'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'Eine Frontaliere mit einem Lastwagenladung an Falschgeldern und unangekündigten Kleidern landet in Agno',
 };
 
 export default blogMetaDe;

@@ -68360,6 +68360,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-contraffazioni-svizzera': {
+    title: 'Borse griffate e abiti non dichiarati a Agno | Frontaliere Ticino',
+    description: 'Una frontaliere è stata multata e richiamata ai suoi doveri dopo essere stata intercettata dall\'Ufficio federale della dogana e della sicurezza dei confini',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, griffate, abiti, dichiarati',
+    ogTitle: 'Frontalieri e contraffazioni in Svizzera',
+    ogDescription: 'Una frontaliere è stata multata e richiamata ai suoi doveri dopo essere stata intercettata dall\'Ufficio federale della dogana e della sicurezza dei confini (Udsc) con un carico di accessori e capi di abbigliamento contraffatti.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-contraffazioni-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse griffate e abiti non dichiarati a Agno",
+      "description": "Una frontaliere è stata multata e richiamata ai suoi doveri dopo essere stata intercettata dall'Ufficio federale della dogana e della sicurezza dei confini",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-contraffazioni-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere con un carico di borse griffate e abiti non dichiarati atterra ad Agno"
+      },
+      "datePublished": "2026-08-16T10:02:36+00:00",
+      "dateModified": "2026-08-16T10:02:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-contraffazioni-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

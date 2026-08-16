@@ -2833,6 +2833,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Démarrer une activité dans le canton d\'Uri : ce qu\'il faut',
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'Ce qu\'il faut savoir pour ouvrir une entreprise dans le canton d\'Uri. Instructions sur le choix de la forme juridique, l\'enregistrement au registre du commerce, le capital minimum, les frais d\'inscription et les obligations d\'assurance.',
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lac de Lugano vue du nord-est',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Ouvrir une entreprise dans le canton d\'Uri : choix et obligations',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'Les coûts et les formalités pour ouvrir une entreprise dans le canton d\'Uri.',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lac de Lugano',
 };
 
 export default blogMetaChFr;

@@ -2833,6 +2833,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Avviare un\'attività nel Cantone di Uri: cosa serve',
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'Cosa bisogna sapere per aprire un\'attività nel Cantone di Uri. Istruzioni sulla scelta della forma giuridica, registrazione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
     'blog.article.aprire-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lago di Lugano da nord-est',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Aprire un\'attività nel Cantone di Uri: scelta e obblighi',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'I costi e le formalità per aprire un\'attività nel Cantone di Uri.',
+    'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lago di Lugano',
 };
 
 export default blogMetaChIt;

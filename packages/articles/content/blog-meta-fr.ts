@@ -9988,6 +9988,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calo-soggiorni-irregolari-luglio.title': 'Séjours irréguliers en baisse à la frontière sud en juillet',
     'blog.article.calo-soggiorni-irregolari-luglio.excerpt': 'En juillet, les cas enregistrés par l\'Office fédéral des douanes et de la sécurité des frontières sont tombés à 249 au Tessin.',
     'blog.article.calo-soggiorni-irregolari-luglio.imageAlt': 'Poste frontière suisse à la frontière sud',
+    'blog.article.frontalieri-contraffazioni-svizzera.title': 'Sacs griffés et robes non déclarés à Agno',
+    'blog.article.frontalieri-contraffazioni-svizzera.excerpt': 'Une frontalière a été condamnée à une amende et rappelée à ses fonctions après avoir été interceptée par l\'Office fédéral des douanes et de la sécurité des frontières (UDSC) avec une cargaison d\'accessoires et de vêtements contrefaits.',
+    'blog.article.frontalieri-contraffazioni-svizzera.imageAlt': 'Une frontaliere avec un chargement de sacs à main faux et de vêtements non déclarés atterrit à Agno',
 };
 
 export default blogMetaFr;
