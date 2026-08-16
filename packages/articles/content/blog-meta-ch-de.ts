@@ -2803,6 +2803,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trump-ora-legale-senato-usa.title': 'Trump fordert Senat: Abstimmung über Wechselkurs',
     'blog.article.trump-ora-legale-senato-usa.excerpt': 'US-Präsident Donald Trump fordert den Senat auf, so schnell wie möglich den Sunshine Protection Act zu verabschieden, um die Sommerzeit stabil zu halten.',
     'blog.article.trump-ora-legale-senato-usa.imageAlt': 'Das US-Kapitol in Washington, wo über die Sommerzeit debattiert wird.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.title': 'Haus kaufen im Kanton Uri: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.excerpt': 'Steuerliche und finanzielle Einstellungen für den Kauf eines Hauses im Kanton Uri.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.imageAlt': 'Bild einer schweizerischen Villa mit einem gepflegten Garten im Frühjahr',
 };
 
 export default blogMetaChDe;

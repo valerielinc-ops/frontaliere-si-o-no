@@ -2803,6 +2803,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trump-ora-legale-senato-usa.title': 'Trump demande au Sénat de voter l\'abolition du change maintenant',
     'blog.article.trump-ora-legale-senato-usa.excerpt': 'Le président américain Donald Trump exhorte le Sénat à approuver dès que possible le Sunshine Protection Act pour stabiliser l\'heure d\'été.',
     'blog.article.trump-ora-legale-senato-usa.imageAlt': 'Le Capitole des États-Unis à Washington, où l\'on discute de l\'heure d\'été.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.title': 'Acheter une maison dans le canton d\'Uri : prix et prêt hypothécaire',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.excerpt': 'Situations fiscales et financières pour l\'achat d\'une maison à Uri.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.imageAlt': 'Image d\'une maison suisse en style avec un jardin bien entretenu en printemps',
 };
 
 export default blogMetaChFr;

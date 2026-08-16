@@ -2803,6 +2803,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trump-ora-legale-senato-usa.title': 'Trump Asks Senate to Vote to Abolish Exchange Now',
     'blog.article.trump-ora-legale-senato-usa.excerpt': 'US President Donald Trump urges the Senate to pass the Sunshine Protection Act as soon as possible to make daylight saving time stable.',
     'blog.article.trump-ora-legale-senato-usa.imageAlt': 'The United States Capitol building in Washington where daylight saving time is discussed.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.title': 'Buying a house in Canton Uri: prices and mortgage',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.excerpt': 'Tax and financial settings for the purchase of a house in Canton Uri.',
+    'blog.article.comprare-casa-ur-prezzi-mutuo.imageAlt': 'Image of a Swiss-style house with a well-maintained garden in spring',
 };
 
 export default blogMetaChEn;
