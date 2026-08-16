@@ -2764,6 +2764,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sanzioni-onu-aggiornamento-2026.title': 'Aggiornamento delle sanzioni dell\'ONU: cosa cambia per la Svizzera?',
     'blog.article.sanzioni-onu-aggiornamento-2026.excerpt': 'La banca dati SESAM è stata aggiornata in modo analogo.',
     'blog.article.sanzioni-onu-aggiornamento-2026.imageAlt': 'Fotografia di un edificio governativo in Svizzera con un senso di serietà e importanza.',
+    'blog.article.eclissi-danni-retina.title': 'L\'eclissi solare e quei danni alla retina che possono passare inosservati',
+    'blog.article.eclissi-danni-retina.excerpt': 'Gli studi oculistici svizzeri registrano un aumento di richieste dopo l\'eclissi solare di mercoledì.',
+    'blog.article.eclissi-danni-retina.imageAlt': 'Persona che indossa occhiali da sole mentre osserva l\'eclissi solare',
 };
 
 export default blogMetaChIt;

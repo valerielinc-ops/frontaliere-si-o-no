@@ -35822,6 +35822,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eclissi-danni-retina': {
+    title: 'L\'eclissi solare e quei danni alla retina che possono passare inosservati',
+    description: 'Gli studi oculistici svizzeri registrano un aumento di richieste dopo l\'eclissi solare di mercoledì. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, eclissi, solare, quei, danni',
+    ogTitle: 'L\'eclissi solare e quei danni alla retina che possono passare inosservati',
+    ogDescription: 'Gli studi oculistici svizzeri registrano un aumento di richieste dopo l\'eclissi solare di mercoledì.',
+    canonicalPath: '/articoli-svizzera/eclissi-danni-retina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'eclissi solare e quei danni alla retina che possono passare inosservati",
+      "description": "Gli studi oculistici svizzeri registrano un aumento di richieste dopo l'eclissi solare di mercoledì. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eclissi-danni-retina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che indossa occhiali da sole mentre osserva l'eclissi solare"
+      },
+      "datePublished": "2026-08-16T04:53:51+00:00",
+      "dateModified": "2026-08-16T04:53:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/eclissi-danni-retina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
