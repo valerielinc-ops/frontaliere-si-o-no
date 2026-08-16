@@ -5,6 +5,7 @@ import {
   aggregateFamilyRows,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
+  familyPathPrefixes,
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
@@ -161,11 +162,50 @@ describe('seo-ctr-curve (issue #4300)', () => {
     });
   });
 
+  describe('familyPathPrefixes (issue #5961)', () => {
+    it('returns just pathContains when the family has no aliases', () => {
+      expect(familyPathPrefixes({ pathContains: '/de/' })).toEqual(['/de/']);
+    });
+
+    it('appends pathAliases after pathContains', () => {
+      const fam = { pathContains: '/articoli-frontaliere/', pathAliases: ['/cross-border-articles/', '/grenzgaenger-artikel/'] };
+      expect(familyPathPrefixes(fam)).toEqual(['/articoli-frontaliere/', '/cross-border-articles/', '/grenzgaenger-artikel/']);
+    });
+
+    it('the real registry entries expose their known locale-slug aliases (issue #5961)', () => {
+      const byId = Object.fromEntries(SEO_CTR_FAMILIES.map((f) => [f.id, f]));
+      expect(familyPathPrefixes(byId['articoli-frontaliere'])).toContain('/cross-border-articles/');
+      expect(familyPathPrefixes(byId['articoli-frontaliere'])).toContain('/grenzgaenger-artikel/');
+      expect(familyPathPrefixes(byId['cerca-lavoro-ticino'])).toContain('/find-jobs-ticino/');
+      expect(familyPathPrefixes(byId['cerca-lavoro-ticino'])).toContain('/jobs-im-tessin/');
+      // prefix-kept, translated-segment shape (services/routeSlugs.data.ts's
+      // `guida`/`fisco` keys) — same blind spot, different URL shape.
+      expect(familyPathPrefixes(byId['guida-frontaliere'])).toContain('/cross-border-guide/');
+      expect(familyPathPrefixes(byId['guida-frontaliere'])).toContain('/grenzgaenger-ratgeber/');
+      expect(familyPathPrefixes(byId['guida-frontaliere'])).toContain('/guide-frontalier/');
+      expect(familyPathPrefixes(byId['tasse-e-pensione'])).toContain('/taxes-and-pension/');
+      expect(familyPathPrefixes(byId['tasse-e-pensione'])).toContain('/steuern-und-vorsorge/');
+      expect(familyPathPrefixes(byId['tasse-e-pensione'])).toContain('/impots-et-retraite/');
+    });
+  });
+
   describe('discoverUnregisteredFamilies (issue #5656)', () => {
     const families = [
       { id: 'articoli-frontaliere', pathContains: '/articoli-frontaliere/' },
       { id: 'de', pathContains: '/de/' },
     ];
+
+    it('excludes a pathAliases-covered segment (issue #5961)', () => {
+      const aliasedFamilies = [
+        { id: 'articoli-frontaliere', pathContains: '/articoli-frontaliere/', pathAliases: ['/cross-border-articles/', '/grenzgaenger-artikel/'] },
+      ];
+      const rows = [
+        { path: '/cross-border-articles/some-post/', impressions: 90_000 },
+        { path: '/grenzgaenger-artikel/anderer-beitrag/', impressions: 90_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families: aliasedFamilies, minImpressions: 50_000 });
+      expect(result).toEqual([]);
+    });
 
     it('flags an unregistered segment above the threshold', () => {
       const rows = [
@@ -174,6 +214,22 @@ describe('seo-ctr-curve (issue #4300)', () => {
       ];
       const result = discoverUnregisteredFamilies(rows, { families, minImpressions: 50_000 });
       expect(result).toEqual([{ pathContains: '/cerca-lavoro-ticino/', impressions90d: 60_000 }]);
+    });
+
+    it('excludes a prefix-kept-but-translated-segment alias (issue #5961, guida-frontaliere shape)', () => {
+      const aliasedFamilies = [
+        {
+          id: 'guida-frontaliere',
+          pathContains: '/guida-frontaliere/',
+          pathAliases: ['/cross-border-guide/', '/grenzgaenger-ratgeber/'],
+        },
+      ];
+      const rows = [
+        { path: '/en/cross-border-guide/some-guide/', impressions: 90_000 },
+        { path: '/de/grenzgaenger-ratgeber/anderer-leitfaden/', impressions: 90_000 },
+      ];
+      const result = discoverUnregisteredFamilies(rows, { families: aliasedFamilies, minImpressions: 50_000 });
+      expect(result).toEqual([]);
     });
 
     it('rolls up locale-prefixed pages into the same segment as the default locale', () => {

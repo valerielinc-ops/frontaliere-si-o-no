@@ -44,6 +44,7 @@ import {
   aggregateFamilyRows,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
+  familyPathPrefixes,
 } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -178,7 +179,7 @@ async function main() {
     // the measured position instead of being frozen in the registry.
     let target = effectiveTargetCtr(family, null);
     try {
-      const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains: family.pathContains });
+      const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains: familyPathPrefixes(family) });
       const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
       const agg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
       ctr = agg.avgCtr;

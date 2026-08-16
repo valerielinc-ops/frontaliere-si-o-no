@@ -69,6 +69,13 @@ async function gscQuery(token, body, fetchImpl = fetch) {
  * duplicating the OAuth2 + searchAnalytics/query plumbing — see
  * scripts/lib/seo-ctr-curve.mjs for the family registry that drives this.
  *
+ * `pathContains` also accepts an ARRAY of substrings — one `contains` filter
+ * per entry, each in its own `dimensionFilterGroups` group so the API ORs
+ * them (groups are OR'd, filters within a group are AND'd). Used for
+ * families whose template is reachable under multiple locale-specific URL
+ * slugs, not just one path (see `familyPathPrefixes()` in
+ * scripts/lib/seo-ctr-curve.mjs, issue #5961).
+ *
  * `pathContains = null` fetches ALL indexed pages site-wide (no filter) —
  * used by the family-discovery pass in scripts/monitor-seo-ctr-by-template.mjs
  * to find high-volume families that aren't in the registry yet.
@@ -105,13 +112,11 @@ export async function fetchGscByPage({
         dimensions: ['page'],
         ...(pathContains
           ? {
-              dimensionFilterGroups: [
-                {
-                  filters: [
-                    { dimension: 'page', operator: 'contains', expression: pathContains },
-                  ],
-                },
-              ],
+              dimensionFilterGroups: (Array.isArray(pathContains) ? pathContains : [pathContains]).map(
+                (expression) => ({
+                  filters: [{ dimension: 'page', operator: 'contains', expression }],
+                }),
+              ),
             }
           : {}),
         rowLimit: ROW_LIMIT,
