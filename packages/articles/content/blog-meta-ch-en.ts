@@ -2896,6 +2896,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Inheritance taxes and donations in the Canton of Schwyz',
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'The rates for succession and donations in the Canton of Schwyz are set by cantonal law.',
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
+    'blog.article.aprire-un-attivita-canton-svitto.title': 'Choosing the legal form in Svitto',
+    'blog.article.aprire-un-attivita-canton-svitto.excerpt': 'What you need to open a business in the Canton of Schwyz: legal form, trade register and costs.',
+    'blog.article.aprire-un-attivita-canton-svitto.imageAlt': 'Canton of Schwyz: choosing the legal form to start a business',
 };
 
 export default blogMetaChEn;

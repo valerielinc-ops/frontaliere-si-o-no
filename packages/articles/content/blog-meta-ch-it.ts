@@ -2896,6 +2896,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Imposte di successione e donazioni nel Cantone di Svitto',
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'Le aliquote per la successione e le donazioni nel Cantone di Svitto sono stabilite dalla legge cantonale.',
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
+    'blog.article.aprire-un-attivita-canton-svitto.title': 'Scegliere la forma giuridica a Svitto',
+    'blog.article.aprire-un-attivita-canton-svitto.excerpt': 'Cosa serve per aprire un\'attività nel Cantone di Svitto: forma giuridica, registro di commercio e costi.',
+    'blog.article.aprire-un-attivita-canton-svitto.imageAlt': 'Il Cantone di Svitto: scelta della forma giuridica per aprire un\'attività',
 };
 
 export default blogMetaChIt;
