@@ -318,7 +318,32 @@ export function extractArticleId(fileContent, fileName) {
 // Il pattern e' quello di `find-dirty-content-ids.mjs` (#294): chiave INTERA
 // piu' id escapato per la regex.
 const rxEscape = (id) => String(id).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const bodyKeyRx = (id) => `'blog\\.article\\.${rxEscape(id)}\\.body\\d+'`;
+
+// Contratto implicito con `extractArticleId` (issue #5946 item 3): l'unico
+// charset che quella funzione puo' restituire e' `[a-z0-9-]+` — la sua stessa
+// regex di estrazione (`/'blog\.article\.([a-z0-9-]+)\.body1'/g`) non puo'
+// produrre altro. `rxEscape` da sola resta regex-safe per qualsiasi stringa,
+// quindi un id fuori da quel charset non romperebbe la costruzione della
+// regex — ma non e' mai stato un id che questo file abbia davvero prodotto o
+// atteso, e passarlo in silenzio significherebbe cercare una chiave che non
+// puo' esistere nel formato scritto da questo stesso script, con l'esito
+// ambiguo "nessun corpo per questo id" che `hasBodyKey`/`extractBodyContent`
+// gia' trattano come segnale legittimo (vedi sopra). Un futuro chiamante che
+// passa un id fuori contratto (case diverso, spazi, id non ancora
+// sanificato) lo scopre subito con un errore esplicito, non con un falso
+// "nessun corpo" silenzioso.
+const ARTICLE_ID_CHARSET_RX = /^[a-z0-9-]+$/;
+function assertArticleIdCharset(id) {
+  if (!ARTICLE_ID_CHARSET_RX.test(String(id))) {
+    throw new Error(
+      `bodyKeyRx: articleId "${id}" fuori dal charset atteso [a-z0-9-]+ (contratto con extractArticleId, issue #5946)`
+    );
+  }
+}
+const bodyKeyRx = (id) => {
+  assertArticleIdCharset(id);
+  return `'blog\\.article\\.${rxEscape(id)}\\.body\\d+'`;
+};
 
 /**
  * C'e' almeno una chiave `bodyN` per QUESTO id? Serve a distinguere «corpo
