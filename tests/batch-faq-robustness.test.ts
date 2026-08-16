@@ -227,6 +227,52 @@ describe('issue #5946 item 3 — bodyKeyRx rifiuta un articleId fuori dal charse
   });
 });
 
+// ── issue #5946 item 5 — casing di bodyN (N>1) diverso da body1 nello
+// stesso file ─────────────────────────────────────────────────────────────
+//
+// Il reviewer chiedeva cosa succede se un articleId risolto da
+// extractArticleId differisce per casing dal testo effettivo della chiave nel
+// file (case-sensitivity di bodyKeyRx). Investigazione (non solo test):
+//
+// 1. Il falso "nessun corpo per questo id" TOTALE che il reviewer temeva non
+//    e' raggiungibile: l'id che arriva a hasBodyKey/extractBodyContent viene
+//    SEMPRE da extractArticleId, che lo estrae dalla chiave body1 di QUESTO
+//    STESSO file — stessa sottostringa, stesso casing — quindi la chiave
+//    body1 matcha sempre.
+// 2. Il rischio reale, piu' stretto, e' un troncamento silenzioso: una chiave
+//    bodyN (N>1) con casing diverso da body1 nello stesso file non matcha e
+//    il suo testo sparisce da extractBodyContent senza errore ne' segnale.
+// 3. L'unico scrittore di questo formato nel repo (`buildBodyFile` in
+//    create-article.mjs) usa una singola costante `id` per tutte le chiavi
+//    bodyN di un file — quel mismatch non puo' nascere da li'. Non e' un
+//    difetto da correggere qui, ma il comportamento va tracciato.
+//
+// MUTAZIONE: aggiungere il flag `i` alla RegExp costruita in bodyKeyRx fa
+// fallire l'ultimo test di questo blocco (il body2 mismatched tornerebbe
+// incluso invece di sparire).
+
+describe('issue #5946 item 5 — bodyN con casing diverso da body1 nello stesso file', () => {
+  it('hasBodyKey matcha sempre almeno la chiave body1 da cui extractArticleId ha preso id', () => {
+    const src = bodyFile(bodyLine(ALPHA, 1, CORPO_ALPHA_1));
+    expect(extractArticleId(src)).toBe(ALPHA);
+    expect(hasBodyKey(src, ALPHA)).toBe(true);
+  });
+
+  it('una chiave bodyN con casing diverso da body1 sparisce in silenzio da extractBodyContent', () => {
+    const src = bodyFile(
+      bodyLine(ALPHA, 1, CORPO_ALPHA_1),
+      `    'blog.article.Alpha-Uno.body2': '${CORPO_ALPHA_2}',`,
+    );
+    // body1 resta l'ancora: hasBodyKey non segnala "nessun corpo".
+    expect(hasBodyKey(src, ALPHA)).toBe(true);
+    const testo = extractBodyContent(src, ALPHA);
+    expect(testo).toContain(CORPO_ALPHA_1);
+    // Il body2 a casing diverso non e' incluso — troncamento silenzioso,
+    // non un errore. Comportamento documentato, non corretto qui (vedi punto 3).
+    expect(testo).not.toContain(CORPO_ALPHA_2);
+  });
+});
+
 // MUTAZIONE: rimettere `fileContent.match(/…/)` (primo match, senza `g`) e
 // ignorare `fileName` → rosso.
 

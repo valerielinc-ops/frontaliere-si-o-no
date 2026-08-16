@@ -350,6 +350,22 @@ const bodyKeyRx = (id) => {
  * corto» (da arricchire) da «nessun corpo per questo id» (da fermare), due casi
  * che prima dell'ancoraggio non potevano essere distinti perche' la regex non
  * ancorata trovava sempre qualcosa.
+ *
+ * Casing di `articleId` vs il testo della chiave nel file (issue #5946 item 5,
+ * investigazione non solo test): `bodyKeyRx` e' case-sensitive, ma il `false`
+ * negativo TOTALE che il reviewer temeva non e' raggiungibile dai chiamanti
+ * attuali — l'id che arriva qui viene da `extractArticleId`, che lo estrae
+ * gia' dalla chiave `body1` DI QUESTO STESSO file (stessa sottostringa, stesso
+ * casing), quindi `hasBodyKey` matcha SEMPRE almeno quella chiave. Il rischio
+ * reale e' piu' stretto: una chiave `bodyN` (N>1) con un casing DIVERSO da
+ * `body1` nello STESSO file verrebbe letta come «assente» — corpo troncato in
+ * silenzio, non «nessun corpo». L'unico scrittore di questo formato nel repo
+ * (`buildBodyFile` in `create-article.mjs`) usa UNA sola costante `id` per
+ * TUTTE le chiavi `bodyN` di un file, quindi quel mismatch non puo' nascere da
+ * li'; nessun altro script in questo repo scrive `bodyN` chiave-per-chiave con
+ * un id ricalcolato. Comportamento fissato dal test in
+ * `tests/batch-faq-robustness.test.ts`, non corretto qui: non c'e' oggi un
+ * produttore reale dell'input degenere.
  */
 export function hasBodyKey(fileContent, articleId) {
   return new RegExp(`${bodyKeyRx(articleId)}\\s*:`).test(fileContent);
