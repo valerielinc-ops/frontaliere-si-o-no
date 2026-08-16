@@ -11,6 +11,20 @@
       "graded": 39,
       "fallbackRate": 0,
       "findings": []
+    },
+    {
+      "date": "2026-08-16",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 1,
+        "email_token": 53,
+        "missing": 106
+      },
+      "graded": 54,
+      "fallbackRate": 0.018518518518518517,
+      "findings": [
+        "first_fallback_after_zero_baseline"
+      ]
     }
   ]
 }
