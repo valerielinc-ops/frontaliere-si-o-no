@@ -3351,7 +3351,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Quiz Fiscale Frontalieri | Testa le Tue Conoscenze',
  ogDescription: 'Quiz settimanale sulla fiscalità transfrontaliera! Verifica le tue conoscenze su tasse, deduzioni e permessi per frontalieri in Ticino.',
  canonicalPath: '/tasse-e-pensione/quiz-fiscale/',
- structuredData: {
+ structuredData: [
+ {
  "@context": "https://schema.org",
  "@type": "Quiz",
  "name": "Quiz Settimanale Frontalieri",
@@ -3366,7 +3367,54 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Organization",
  "name": "Frontaliere Ticino"
  }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come funziona il quiz fiscale settimanale per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Ogni settimana il quiz seleziona 5 domande a scelta multipla da un pool su fiscalità svizzera e italiana, contributi AVS/LPP, assicurazione LAMal e permessi di lavoro G/B. Ogni risposta include una spiegazione dettagliata del meccanismo, così il quiz funziona sia da verifica che da strumento di apprendimento."
  }
+ },
+ {
+ "@type": "Question",
+ "name": "Qual è l'aliquota AVS a carico del lavoratore frontaliere in Svizzera?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "L'aliquota AVS (1° pilastro) a carico del lavoratore è del 5,3% dello stipendio lordo. Il datore di lavoro versa un importo identico, per un contributo complessivo del 10,6%."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quanti pilastri ha il sistema previdenziale svizzero e cosa coprono?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il sistema svizzero si basa su 3 pilastri: AVS/AI (1° pilastro, previdenza statale obbligatoria), LPP (2° pilastro, previdenza professionale tramite il datore di lavoro) e il risparmio individuale volontario (3° pilastro, 3a/3b)."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "I frontalieri possono scegliere tra LAMal svizzera e SSN italiano?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sì: entro 3 mesi dall'inizio del rapporto di lavoro i frontalieri esercitano il diritto di opzione tra la LAMal svizzera e il Servizio Sanitario Nazionale italiano. La scelta è irrevocabile per tutta la durata del rapporto di lavoro."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Ogni quanto va rinnovato il permesso G per frontalieri?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Il permesso G ha validità di 5 anni per i cittadini UE/AELS e viene rinnovato automaticamente se il rapporto di lavoro con il datore svizzero prosegue, senza necessità di presentare una nuova domanda."
+ }
+ }
+ ]
+ }
+ ]
  },
 
  taxCredit: {

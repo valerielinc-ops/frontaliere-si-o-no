@@ -4588,6 +4588,33 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Quelles sont les premières étapes pour travailler en Suisse comme frontalier ?", a: "En général : vérifier le type de permis (B ou G), trouver un emploi en Suisse, calculer le salaire net, ouvrir un compte en CHF, choisir l'assurance maladie et organiser le trajet par les postes-frontière. Le wizard ordonne ces étapes selon votre situation." }
  },
 
+ // ── Weekly tax quiz (quiz-fiscale) ──
+ "Come funziona il quiz fiscale settimanale per frontalieri?": {
+ en: { q: "How does the weekly tax quiz for cross-border workers work?", a: "Each week the quiz selects 5 multiple-choice questions from a pool covering Swiss and Italian taxation, AVS/LPP contributions, LAMal health insurance and G/B work permits. Every answer includes a detailed explanation of the underlying mechanism, so the quiz works both as an assessment and a learning tool." },
+ de: { q: "Wie funktioniert das wöchentliche Steuerquiz für Grenzgänger?", a: "Jede Woche wählt das Quiz 5 Multiple-Choice-Fragen aus einem Pool zu Schweizer und italienischer Besteuerung, AHV/BVG-Beiträgen, KVG-Krankenversicherung und Arbeitsbewilligungen G/B. Jede Antwort enthält eine detaillierte Erklärung des Mechanismus, sodass das Quiz sowohl als Test als auch als Lernwerkzeug dient." },
+ fr: { q: "Comment fonctionne le quiz fiscal hebdomadaire pour frontaliers ?", a: "Chaque semaine, le quiz sélectionne 5 questions à choix multiple parmi un ensemble portant sur la fiscalité suisse et italienne, les cotisations AVS/LPP, l'assurance maladie LAMal et les permis de travail G/B. Chaque réponse inclut une explication détaillée du mécanisme, si bien que le quiz sert à la fois d'évaluation et d'outil d'apprentissage." }
+ },
+ "Qual è l'aliquota AVS a carico del lavoratore frontaliere in Svizzera?": {
+ en: { q: "What is the AVS/AHV contribution rate charged to a cross-border worker in Switzerland?", a: "The AVS (1st pillar) rate charged to the employee is 5.3% of gross salary. The employer pays an identical amount, for a combined contribution of 10.6%." },
+ de: { q: "Wie hoch ist der AHV-Beitragssatz zulasten des Grenzgängers in der Schweiz?", a: "Der AHV-Beitragssatz (1. Säule) zulasten des Arbeitnehmers beträgt 5,3% des Bruttolohns. Der Arbeitgeber zahlt denselben Betrag, insgesamt also 10,6%." },
+ fr: { q: "Quel est le taux de cotisation AVS à la charge du frontalier en Suisse ?", a: "Le taux AVS (1er pilier) à la charge du salarié est de 5,3% du salaire brut. L'employeur verse un montant identique, pour une cotisation totale de 10,6%." }
+ },
+ "Quanti pilastri ha il sistema previdenziale svizzero e cosa coprono?": {
+ en: { q: "How many pillars does the Swiss pension system have and what do they cover?", a: "The Swiss system rests on 3 pillars: AVS/AI (1st pillar, mandatory state pension), LPP (2nd pillar, occupational pension through the employer) and voluntary individual savings (3rd pillar, 3a/3b)." },
+ de: { q: "Wie viele Säulen hat das Schweizer Vorsorgesystem und was decken sie ab?", a: "Das Schweizer System basiert auf 3 Säulen: AHV/IV (1. Säule, obligatorische staatliche Vorsorge), BVG (2. Säule, berufliche Vorsorge über den Arbeitgeber) und freiwilliges individuelles Sparen (3. Säule, 3a/3b)." },
+ fr: { q: "Combien de piliers compte le système de prévoyance suisse et que couvrent-ils ?", a: "Le système suisse repose sur 3 piliers : AVS/AI (1er pilier, prévoyance étatique obligatoire), LPP (2e pilier, prévoyance professionnelle via l'employeur) et épargne individuelle volontaire (3e pilier, 3a/3b)." }
+ },
+ "I frontalieri possono scegliere tra LAMal svizzera e SSN italiano?": {
+ en: { q: "Can cross-border workers choose between Swiss LAMal and the Italian national health service?", a: "Yes: within 3 months of starting employment, cross-border workers exercise the right of option between Swiss LAMal health insurance and the Italian national health service (SSN). The choice is irrevocable for the entire duration of the employment relationship." },
+ de: { q: "Können Grenzgänger zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst wählen?", a: "Ja: Innerhalb von 3 Monaten nach Arbeitsbeginn üben Grenzgänger das Optionsrecht zwischen der Schweizer Krankenversicherung KVG und dem italienischen staatlichen Gesundheitsdienst (SSN) aus. Die Wahl ist für die gesamte Dauer des Arbeitsverhältnisses unwiderruflich." },
+ fr: { q: "Les frontaliers peuvent-ils choisir entre la LAMal suisse et le service de santé national italien ?", a: "Oui : dans les 3 mois suivant le début de l'emploi, les frontaliers exercent le droit d'option entre l'assurance maladie suisse LAMal et le service de santé national italien (SSN). Le choix est irrévocable pour toute la durée du rapport de travail." }
+ },
+ "Ogni quanto va rinnovato il permesso G per frontalieri?": {
+ en: { q: "How often must the G permit for cross-border workers be renewed?", a: "The G permit is valid for 5 years for EU/EFTA citizens and is renewed automatically as long as the employment relationship with the Swiss employer continues, with no need to file a new application." },
+ de: { q: "Wie oft muss die G-Bewilligung für Grenzgänger erneuert werden?", a: "Die G-Bewilligung ist für EU/EFTA-Bürger 5 Jahre gültig und wird automatisch erneuert, solange das Arbeitsverhältnis mit dem Schweizer Arbeitgeber fortbesteht, ohne dass ein neuer Antrag gestellt werden muss." },
+ fr: { q: "À quelle fréquence le permis G pour frontaliers doit-il être renouvelé ?", a: "Le permis G est valable 5 ans pour les citoyens UE/AELE et est renouvelé automatiquement tant que le rapport de travail avec l'employeur suisse se poursuit, sans qu'il soit nécessaire de déposer une nouvelle demande." }
+ },
+
 };
 
 /**
