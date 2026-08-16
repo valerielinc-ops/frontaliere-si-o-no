@@ -2884,6 +2884,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-affitti-cantone-svitto.title': 'Mercato degli affitti nel Cantone di Svitto: canoni medi e diritto di locazione',
     'blog.article.mercato-affitti-cantone-svitto.excerpt': 'I canoni medi per zona nel Cantone di Svitto sono di CHF 1\'500 per mese.',
     'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Mercato degli affitti nel Cantone di Svitto',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Naturalizzazione nel Canton Svitto: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'La procedura di naturalizzazione nel Canton Svitto richiede un permesso di domicilio C, 10 anni di residenza e altri requisiti',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'Una scena di vita di un frontaliere in Svizzera con un background di montagne e lago',
 };
 
 export default blogMetaChIt;

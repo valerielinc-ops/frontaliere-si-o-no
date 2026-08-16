@@ -2884,6 +2884,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-affitti-cantone-svitto.title': 'Marché locatif dans le canton de Schwyz : loyers moyens et droit de location',
     'blog.article.mercato-affitti-cantone-svitto.excerpt': 'Les loyers moyens par zone dans le canton de Schwyz sont de CHF 1\'500 par mois.',
     'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Logement dans le canton de Schwyz, Suisse',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Naturalisation dans le canton de Schwyz : exigences et procédure',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'La procédure de naturalisation dans le canton de Schwyz nécessite un permis de séjour C, 10 ans de résidence et d\'autres exigences',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'Une scène de la vie d\'un étranger en Suisse avec un fond de montagnes et de lac',
 };
 
 export default blogMetaChFr;

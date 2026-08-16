@@ -2884,6 +2884,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-affitti-cantone-svitto.title': 'Mietmarkt im Kanton Schwyz: Durchschnittsmieten und Mietrecht',
     'blog.article.mercato-affitti-cantone-svitto.excerpt': 'Die durchschnittlichen Gebühren pro Zone im Kanton Schwyz betragen CHF 1\'500 pro Monat.',
     'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Mietpreise im Kanton Schwyz, Schweiz',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Einbürgerung im Kanton Schwyz: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'Das Einbürgerungsverfahren im Kanton Schwyz erfordert eine Niederlassungsbewilligung C, 10 Jahre Aufenthalt und weitere Voraussetzungen',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'Eine Szene aus dem Leben eines Ausländers in der Schweiz mit einem Hintergrund von Bergen und See',
 };
 
 export default blogMetaChDe;
