@@ -2788,6 +2788,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Apprendistato nel Canton Uri: come trovare un posto di tirocinio',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'Il Canton Uri offre opportunità di apprendistato e formazione professionale ai frontalieri. Scopri come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontaliere che si impegna in un apprendistato professionale nel Canton Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.title': 'Apprendistato e formazione nel Cantone di Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.excerpt': 'Ecco i fatti chiave sull\'apprendistato e la formazione professionale nel Cantone di Uri: come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.imageAlt': 'Una vista di Lugano, Svizzera, che sottolinea l\'importanza della formazione professionale e dell\'apprendistato nel Cantone di Uri.',
 };
 
 export default blogMetaChIt;

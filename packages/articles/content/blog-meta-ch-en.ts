@@ -2788,6 +2788,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.title': 'Apprenticeship in Canton Uri: how to find an internship',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.excerpt': 'The Uri Canton offers apprenticeship and vocational training opportunities for border workers. Find out how to find an internship position, internship contract, apprentice salary and professional maturity.',
     'blog.article.apprendistato-e-formazione-professionale-canton-uri.imageAlt': 'Frontalier engaging in a professional apprenticeship in Canton Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.title': 'Apprenticeship and training in the Canton of Uri',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.excerpt': 'Here are the key facts about apprenticeship and vocational training in the Canton of Uri: how to find an internship position, internship contract, apprentice salary and professional maturity.',
+    'blog.article.apprendistato-formazione-professionale-canton-uri.imageAlt': 'A view of Lugano, Switzerland, highlighting the importance of vocational training and apprenticeships in the Canton of Uri.',
 };
 
 export default blogMetaChEn;
