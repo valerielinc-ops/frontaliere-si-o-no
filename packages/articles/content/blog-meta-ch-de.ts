@@ -2998,6 +2998,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-fatti.title': 'Lehre und Ausbildung im Kanton Nidwalden',
     'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'Der Kanton Nidwalden bietet Berufsbildungsmöglichkeiten für Jugendliche und Erwachsene. Erfahren Sie, wie man eine Lehrstelle findet, wie man den Lehrvertrag aushandelt, wie man die Lehrlingsvergütung berechnet und wie man die Berufsmaturität erreicht.',
     'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'Ein junger Person in einer Ausbildungsposition in einer lokalen Firma im Kanton Nidvaldo, Schweiz, sucht nach einem Job im entsprechenden Bereich.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Stipendien Kanton Graubünden Voraussetzungen und Beträge',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'Der Regierungsrat des Kantons Graubünden hat die Verfügbarkeit von Stipendien für verdienstvolle Studierende bekannt gegeben.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Redaktionelles Bild zu: Borse di studio Canton Grigioni requisiti e importi',
 };
 
 export default blogMetaChDe;

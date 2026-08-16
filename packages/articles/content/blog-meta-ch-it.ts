@@ -2998,6 +2998,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-fatti.title': 'Apprendistato e formazione nel Cantone di Nidvaldo',
     'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'Il Cantone di Nidvaldo offre opportunità di formazione professionale ai giovani e agli adulti. Scopri come si trova un posto di tirocinio, come si negozia il contratto di tirocinio, come si calcola la retribuzione dell\'apprendista e come si raggiunge la maturità professionale.',
     'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'Un giovane in un\'attività di formazione presso un\'azienda locale nel Cantone di Nidvaldo, Svizzera, che cerca un lavoro nel campo correlato.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Borse di studio Canton Grigioni requisiti e importi',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'Il Consiglio di Stato del Canton Grigioni ha annunciato la disponibilità di borse di studio per studenti meritevoli.',
+    'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Immagine editoriale relativa a: Borse di studio Canton Grigioni requisiti e importi',
 };
 
 export default blogMetaChIt;
