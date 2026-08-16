@@ -9971,6 +9971,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pil-svizzera-crescita-secondo-trimestre.title': 'Schweizer BIP erholt sich im 2. Quartal 2026 stark',
     'blog.article.pil-svizzera-crescita-secondo-trimestre.excerpt': 'Das Bruttoinlandsprodukt der Schweiz wächst zwischen April und Juni um 1,5%, angetrieben von Chemie und Pharmazeutika, die über die Schätzungen hinausgehen.',
     'blog.article.pil-svizzera-crescita-secondo-trimestre.imageAlt': 'Schweizer Wirtschaftsstatistik und BIP',
+    'blog.article.bollettino-frontaliere-2026-08-16.title': 'Grenzgänger-Tagesbulletin – 16. August 2026: 521 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-16.excerpt': 'Die Zahlen von heute, 16. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-16.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 16. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-16.seoDescription': 'Grenzgänger-Bulletin vom 16. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-16.ogDescription': 'Die Zahlen vom 16. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

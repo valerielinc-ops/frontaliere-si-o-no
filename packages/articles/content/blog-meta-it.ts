@@ -9973,6 +9973,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pil-svizzera-crescita-secondo-trimestre.title': 'PIL Svizzera in forte ripresa nel secondo trimestre 2026',
     'blog.article.pil-svizzera-crescita-secondo-trimestre.excerpt': 'Il prodotto interno lordo della Svizzera cresce dell’1,5% tra aprile e giugno, trainato da chimica e farmaceutica oltre le stime.',
     'blog.article.pil-svizzera-crescita-secondo-trimestre.imageAlt': 'Statistiche economiche della Svizzera e PIL',
+    'blog.article.bollettino-frontaliere-2026-08-16.title': 'Bollettino del frontaliere – 16 agosto 2026: 521 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-16.excerpt': 'I numeri di oggi, 16 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-16.imageAlt': 'I numeri del giorno per i frontalieri – 16 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-16.seoDescription': 'Bollettino frontalieri del 16 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-16.ogDescription': 'I numeri del 16 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
