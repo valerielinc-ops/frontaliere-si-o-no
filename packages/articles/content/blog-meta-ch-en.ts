@@ -2836,6 +2836,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.title': 'Opening a business in the Canton of Uri: choice and obligations',
     'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.excerpt': 'The costs and formalities to open a business in the Canton of Uri.',
     'blog.article.aprire-un-attivita-canton-uri-registro-di-commercio-e-costi.imageAlt': 'Lago of Lugano',
+    'blog.article.abbonamenti-trasporti-canton-uri.title': 'Public transport passes in the canton of Uri: zones, fares and combinations',
+    'blog.article.abbonamenti-trasporti-canton-uri.excerpt': 'Know the areas and rates of public transport subscriptions in the Canton of Uri',
+    'blog.article.abbonamenti-trasporti-canton-uri.imageAlt': 'Lugano with public transportation passes',
 };
 
 export default blogMetaChEn;
