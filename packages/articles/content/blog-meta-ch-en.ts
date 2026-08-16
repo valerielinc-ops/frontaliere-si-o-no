@@ -2776,6 +2776,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ciclista-grave-dopo-una-caduta.title': 'Serious cyclist after a fall',
     'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'A man was rescued by passers-by after falling on the Dorfstrasse in Unterbach, in the municipality of Meiringen.',
     'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'A cyclist seriously injured after a fall in Switzerland',
+    'blog.article.apprendistato-urie-2024-2025.title': 'Apprenticeship in Canton Uri: how it works',
+    'blog.article.apprendistato-urie-2024-2025.excerpt': 'Vocational training is essential for the development of a stable and rewarding career.',
+    'blog.article.apprendistato-urie-2024-2025.imageAlt': 'An apprentice in a lab in Uri',
 };
 
 export default blogMetaChEn;
