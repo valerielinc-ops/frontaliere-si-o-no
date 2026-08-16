@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-08-15T21:22:48.612Z",
+  "generatedAt": "2026-08-16T09:36:07.146Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9598,
-  "avgDurationMs": 9598,
+  "durationMs": 11452,
+  "avgDurationMs": 11452,
   "durationHistory": [
-    9598
+    11452
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -366,13 +366,13 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-4302b766b847",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 75,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 15
       }
@@ -771,17 +771,17 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-4302b766b847",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "_qualityScore": 80,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
