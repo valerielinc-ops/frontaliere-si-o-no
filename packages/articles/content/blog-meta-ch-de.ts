@@ -2965,6 +2965,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Tragischer Verkehrsunfall in Amlikon-Bissegg: 18-Jähriger stirbt',
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'Eine 18-jährige Motorradfahrerin starb im Krankenhaus an den schweren Verletzungen, die sie bei der Kollision zwischen ihrem Motorrad und einem Lieferwagen erlitten hatte.',
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Unfallstelle in der Schweiz',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Unternehmensgründung im Kanton Obwalden: Auswahl und Pflichten',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'Für die Aufnahme einer Tätigkeit im Kanton Obwalden sind folgende Daten erforderlich: Rechtsform, Handelsregistereintrag, Mindestkapital, Einschreibegebühren und Versicherungspflichten.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Geschäft in der Kanton Obvaldo gründen',
 };
 
 export default blogMetaChDe;

@@ -1014,6 +1014,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'obvaldo-abbonamenti-trasporti': { it: 'obvaldo-abbonamenti-trasporti', en: 'obvaldo-transportation-passes', de: 'obvaldo-verkehrskarte', fr: 'obvaldo-titre-de-transport' },
  'premi-cassa-malati-cantone-nidvaldo': { it: 'premi-cassa-malati-cantone-nidvaldo', en: 'canton-nidvaldo-health-insurance-premiums', de: 'kanton-nidvaldo-krankenversicherungspramien', fr: 'canton-nidvaldo-premies-assurance-maladie' },
  'incidente-moto-amlikon-bissegg-18-anni': { it: 'incidente-moto-amlikon-bissegg-18-anni', en: 'motorcycle-accident-amlikon-bissegg-18-years', de: 'motorradunfall-amlikon-bissegg-18-jaehrig', fr: 'accident-moto-amlikon-bissegg-18-ans' },
+ 'aprire-attivita-canton-obvaldo': { it: 'aprire-attivita-canton-obvaldo', en: 'start-business-canton-obvaldo', de: 'unternehmen-gruenden-kanton-obvaldo', fr: 'lancer-entreprise-canton-obvaldo' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

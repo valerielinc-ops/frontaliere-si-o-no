@@ -2965,6 +2965,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Tragic road accident in Amlikon-Bissegg: 18-year-old dies',
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'An eighteen-year-old motorcyclist died in hospital following the very serious injuries sustained in the collision between her motorcycle and a van.',
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Scene of a road accident in Switzerland',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Starting a business in the Canton of Obvaldo: choice and obligations',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'The data necessary to open a business in the Canton of Obvaldo are the following: legal form, registration in the trade register, minimum capital, registration fees and insurance obligations.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Start a business in the Canton of Obvaldo',
 };
 
 export default blogMetaChEn;

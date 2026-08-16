@@ -2965,6 +2965,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Accident de la route tragique à Amlikon-Bissegg : mort de 18 ans',
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'Une motocycliste de dix-huit ans est décédée à l\'hôpital des suites des très graves blessures rapportées lors de l\'affrontement entre sa moto et un fourgon.',
     'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Scene d\'accident de la route en Suisse',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Démarrer une activité dans le canton d\'Obwald : choix et obligations',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'Les données nécessaires pour ouvrir une entreprise dans le canton d\'Obwald sont les suivantes : forme juridique, inscription au registre du commerce, capital minimum, frais d\'inscription et obligations d\'assurance.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Lancer une entreprise dans le canton d\'Obvaldo',
 };
 
 export default blogMetaChFr;
