@@ -2794,6 +2794,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-uri.title': 'Garderie et garde d\'enfants dans le canton d\'Uri : coût et services',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.excerpt': 'Le canton d\'Uri offre des garderies et des services de garde d\'enfants, mais à quoi s\'attendre et comment fonctionnent-ils ?',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.imageAlt': 'Immagini di asili nido e servizi di custodia bambini nella Canton Uri',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope : clés des nouveaux laboratoires à Posieux',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'Le canton de Fribourg a officiellement remis à la Confédération les clés des nouveaux ateliers d\'Agroscope à Posieux. La cérémonie a eu lieu le vendredi 14 août 2026, avec la participation du président de la Confédération Guy Parmelin et des délégations du Conseil d\'État de Fribourg et des directions d\'Agroscope.',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14 août 2026: Président de la Confédération Guy Parmelin et délégations du Conseil d\'État du canton de Fribourg et des directions de l\'Agroscope ainsi que des offices fédéraux de l\'agriculture UFAG et de la construction et de la logistique UFCL lors de la cérémonie de remise des clés des nouveaux laboratoires de l\'Agroscope à Posieux.',
 };
 
 export default blogMetaChFr;

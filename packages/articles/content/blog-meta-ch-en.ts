@@ -2794,6 +2794,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-uri.title': 'Nursery and childcare in Canton Uri: cost and services',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.excerpt': 'Canton Uri offers daycare and childcare services, but what to expect and how do they work?',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.imageAlt': 'Immagini di asili nido e servizi di custodia bambini nella Canton Uri',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope: keys to the new laboratories in Posieux',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'The Canton of Freiburg has officially handed over to the Confederation the keys to the new Agroscope laboratories in Posieux. The ceremony took place on Friday, August 14, 2026, with the participation of the President of the Confederation Guy Parmelin and the delegations of the Fribourg State Council and the directorates of Agroscope.',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14 August 2026: President of the Swiss Confederation Guy Parmelin and delegations of the State Council of Fribourg and the directions of Agroscope as well as the Federal Offices for Agriculture UFAG and for Buildings and Logistics UFCL during the handover ceremony of the new laboratories of Agroscope in Posieux.',
 };
 
 export default blogMetaChEn;
