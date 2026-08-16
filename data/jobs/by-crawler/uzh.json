@@ -1,6 +1,6 @@
 {
   "crawlerKey": "uzh",
-  "assembledAt": "2026-08-16T09:37:25.228Z",
+  "assembledAt": "2026-08-16T09:06:34.336Z",
   "jobs": [
     {
       "id": "uzh-2ea48756552c",
@@ -10671,18 +10671,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "administrative-r-assistent-in-uzh-zurich",
-        "amministrativo-assistenza-universitat-zurich-zurich"
+        "amministrativo-assistenza-universitat-zurich-zurich",
+        "assistenza-amministrativa-isle-universitat-zurich-zurich-oerlikon",
+        "administrative-assistance-isle-universitat-zurich-zurich-oerlikon",
+        "verwaltungsassistenz-isle-uzh-zurich-oerlikon",
+        "assistance-administrative-universitat-zurich-zurich-oerlikon",
+        "verwaltungsassistenz-isle-universitat-zurich-zurich-oerlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "administrative-r-assistent-in-uzh-zurich",
-          "amministrativo-assistenza-universitat-zurich-zurich"
+          "amministrativo-assistenza-universitat-zurich-zurich",
+          "assistenza-amministrativa-isle-universitat-zurich-zurich-oerlikon",
+          "administrative-assistance-isle-universitat-zurich-zurich-oerlikon",
+          "verwaltungsassistenz-isle-uzh-zurich-oerlikon",
+          "assistance-administrative-universitat-zurich-zurich-oerlikon",
+          "verwaltungsassistenz-isle-universitat-zurich-zurich-oerlikon"
         ],
         "en": [
-          "administrative-r-assistent-in-uzh-zurich"
+          "administrative-r-assistent-in-uzh-zurich",
+          "administrative-assistance-isle-universitat-zurich-zurich-oerlikon"
         ],
         "fr": [
-          "administrative-r-assistent-in-uzh-zurich"
+          "administrative-r-assistent-in-uzh-zurich",
+          "assistance-administrative-universitat-zurich-zurich-oerlikon"
+        ],
+        "de": [
+          "verwaltungsassistenz-isle-uzh-zurich-oerlikon"
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:20.804Z",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-16T09:39:56.813Z",
+  "assembledAt": "2026-08-16T08:19:52.965Z",
   "jobs": [
     {
       "id": "company-jjl6fh",
@@ -42,6 +42,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -77,9 +79,7 @@
         "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich",
         "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
         "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-ggmuc4",
@@ -377,7 +377,8 @@
         "it": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern",
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern-wwour5",
-          "qualita-responsabile-r-consegna-a-domicilio-fust-koniz-bern"
+          "qualita-responsabile-r-consegna-a-domicilio-fust-koniz-bern",
+          "qualita-responsabile-r-consegna-a-domicilio-fust-koniz"
         ],
         "en": [
           "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern-wwour5",
@@ -393,8 +394,11 @@
         "qualitatsverantwortliche-r-heimlieferung-fust-koniz-bern-wwour5",
         "quality-responsible-r-home-delivery-fust-koniz-bern",
         "qualite-responsable-livraison-a-domicile-fust-koniz-bern",
-        "qualita-responsabile-r-consegna-a-domicilio-fust-koniz-bern"
+        "qualita-responsabile-r-consegna-a-domicilio-fust-koniz-bern",
+        "qualita-responsabile-r-consegna-a-domicilio-fust-koniz"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -407,9 +411,7 @@
       },
       "addressLocality": "Köniz, Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-qig7nk",
@@ -7810,15 +7812,28 @@
         "it": [
           "stv-rayonleiter-in-wein-getranke-coop-genossenschaft-belp-bern",
           "stv-rayonleiter-in-wein-getranke-coop-genossenschaft-belp-bern-tdjgt1",
-          "stv-rayonleiter-in-vino-bevande-coop-genossenschaft-belp"
+          "stv-rayonleiter-in-vino-bevande-coop-genossenschaft-belp",
+          "conduttore-rayon-in-vino-bevande-coop-genossenschaft-dielsdorf",
+          "rayon-conductor-in-wine-drinks-coop-genossenschaft-dielsdorf",
+          "rayonleiter-in-wein-getranke-coop-genossenschaft-dielsdorf-zurich-1vzytk",
+          "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-dielsdorf",
+          "rayonleiter-in-wein-getranke-coop-genossenschaft-dielsdorf-zurich",
+          "conduttore-rayon-in-vino-bevande-coop-genossenschaft-dielsdorf-zurich",
+          "rayon-conductor-in-wine-drinks-coop-genossenschaft-dielsdorf-zurich",
+          "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-dielsdorf-zurich"
         ],
         "en": [
           "stv-rayonleiter-in-wein-getranke-coop-genossenschaft-belp-bern-tdjgt1",
-          "stv-rayonleiter-in-wine-drinks-coop-genossenschaft-belp"
+          "stv-rayonleiter-in-wine-drinks-coop-genossenschaft-belp",
+          "rayon-conductor-in-wine-drinks-coop-genossenschaft-dielsdorf"
         ],
         "fr": [
           "stv-rayonleiter-in-wein-getranke-coop-genossenschaft-belp-bern-tdjgt1",
-          "stv-rayonleiter-dans-le-vin-boissons-coop-genossenschaft-belp"
+          "stv-rayonleiter-dans-le-vin-boissons-coop-genossenschaft-belp",
+          "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-dielsdorf"
+        ],
+        "de": [
+          "rayonleiter-in-wein-getranke-coop-genossenschaft-dielsdorf-zurich-1vzytk"
         ]
       },
       "previousSlugs": [
@@ -7826,7 +7841,15 @@
         "stv-rayonleiter-in-wein-getranke-coop-genossenschaft-belp-bern-tdjgt1",
         "stv-rayonleiter-in-vino-bevande-coop-genossenschaft-belp",
         "stv-rayonleiter-in-wine-drinks-coop-genossenschaft-belp",
-        "stv-rayonleiter-dans-le-vin-boissons-coop-genossenschaft-belp"
+        "stv-rayonleiter-dans-le-vin-boissons-coop-genossenschaft-belp",
+        "conduttore-rayon-in-vino-bevande-coop-genossenschaft-dielsdorf",
+        "rayon-conductor-in-wine-drinks-coop-genossenschaft-dielsdorf",
+        "rayonleiter-in-wein-getranke-coop-genossenschaft-dielsdorf-zurich-1vzytk",
+        "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-dielsdorf",
+        "rayonleiter-in-wein-getranke-coop-genossenschaft-dielsdorf-zurich",
+        "conduttore-rayon-in-vino-bevande-coop-genossenschaft-dielsdorf-zurich",
+        "rayon-conductor-in-wine-drinks-coop-genossenschaft-dielsdorf-zurich",
+        "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-dielsdorf-zurich"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15960,20 +15983,37 @@
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-9r4q30",
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen",
           "consultant-en-ventes-coop-genossenschaft-st-gallen-f50a94",
-          "consulente-commerciale-in-coop-genossenschaft-st-gallen-sankt-gallen"
+          "consulente-commerciale-in-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen",
+          "sales-consultant-in-textile-and-household-coop-genossenschaft-st-gallen-sankt-gallen",
+          "consultant-en-ventes-dans-le-textile-et-les-menages-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufsberater-in-textil-und-haushalt-coop-city-st-gallen-sankt-gallen",
+          "consultant-en-ventes-textile-coop-genossenschaft-st-gallen",
+          "sales-consultant-textile-coop-genossenschaft-st-gallen",
+          "textile-sales-consultant-coop-genossenschaft-st-gallen",
+          "conseiller-de-vente-textile-et-maison-coop-genossenschaft-st-gallen",
+          "verkaufsberater-in-textil-und-haushalt-coop-city-st-gallen-sankt-gallen-c9vtsc",
+          "sales-consultant-textile-and-household-coop-genossenschaft-st-gallen",
+          "verkaufsberater-in-textil-e-haushalt-coop-city-st-gallen-sankt-gallen-c9vtsc",
+          "consultant-en-ventes-textile-et-menager-coop-genossenschaft-st-gallen",
+          "sales-consultant-textile-and-home-coop-genossenschaft-st-gallen",
+          "verkaufsberater-in-textil-e-haushalt-coop-genossenschaft-st-gallen-sankt-gallen-ye44a5"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-9r4q30",
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-9r4q30",
-          "sales-consultant-in-coop-genossenschaft-st-gallen-sankt-gallen"
+          "sales-consultant-in-coop-genossenschaft-st-gallen-sankt-gallen",
+          "sales-consultant-in-textile-and-household-coop-genossenschaft-st-gallen"
         ],
         "de": [
-          "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-9r4q30"
+          "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-9r4q30",
+          "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen-ye44a5"
         ],
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-9r4q30",
           "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-9r4q30",
-          "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen"
+          "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen",
+          "consultant-en-ventes-dans-le-textile-et-les-menages-coop-genossenschaft-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -15984,7 +16024,24 @@
         "consultant-en-ventes-coop-genossenschaft-st-gallen-sankt-gallen",
         "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen",
         "consultant-en-ventes-coop-genossenschaft-st-gallen-f50a94",
-        "consulente-commerciale-in-coop-genossenschaft-st-gallen-sankt-gallen"
+        "consulente-commerciale-in-coop-genossenschaft-st-gallen-sankt-gallen",
+        "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen",
+        "sales-consultant-in-textile-and-household-coop-genossenschaft-st-gallen-sankt-gallen",
+        "consultant-en-ventes-dans-le-textile-et-les-menages-coop-genossenschaft-st-gallen-sankt-gallen",
+        "verkaufsberater-in-textil-und-haushalt-coop-city-st-gallen-sankt-gallen",
+        "consultant-en-ventes-textile-coop-genossenschaft-st-gallen",
+        "sales-consultant-textile-coop-genossenschaft-st-gallen",
+        "textile-sales-consultant-coop-genossenschaft-st-gallen",
+        "conseiller-de-vente-textile-et-maison-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-textil-und-haushalt-coop-city-st-gallen-sankt-gallen-c9vtsc",
+        "sales-consultant-textile-and-household-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-textil-e-haushalt-coop-city-st-gallen-sankt-gallen-c9vtsc",
+        "consultant-en-ventes-textile-et-menager-coop-genossenschaft-st-gallen",
+        "sales-consultant-textile-and-home-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-textil-e-haushalt-coop-genossenschaft-st-gallen-sankt-gallen-ye44a5",
+        "sales-consultant-in-textile-and-household-coop-genossenschaft-st-gallen",
+        "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen-ye44a5",
+        "consultant-en-ventes-dans-le-textile-et-les-menages-coop-genossenschaft-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -22382,7 +22439,8 @@
       "previousSlugsByLocale": {
         "it": [
           "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -22391,7 +22449,8 @@
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
         "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
