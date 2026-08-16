@@ -2755,6 +2755,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Canton Uri school system: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'School cycles, age of enrolment, school calendar, languages of instruction and transition to secondary schools in the Canton of Uri.',
     'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'The school system in the Canton of Uri',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.title': 'Switzerland: immigration falls and emigration grows in 2026',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.excerpt': 'Analysis of data from the State Secretariat for Migration on the foreign permanent resident population in Switzerland in the first half of 2026.',
+    'blog.article.svizzera-calo-immigrazione-emigrazione-2026.imageAlt': 'Urban landscape in Switzerland with federal buildings',
 };
 
 export default blogMetaChEn;
