@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
-import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr } from './lib/seo-ctr-curve.mjs';
+import { SEO_CTR_FAMILIES, aggregateFamilyRows, effectiveTargetCtr, familyPathPrefixes } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -53,7 +53,7 @@ async function main() {
   for (const family of SEO_CTR_FAMILIES) {
     log(`\n📊 ${family.label} (${family.pathContains})`);
     try {
-      const { rows, perPath } = await fetchGscByPage({ windowDays: DAYS, pathContains: family.pathContains });
+      const { rows, perPath } = await fetchGscByPage({ windowDays: DAYS, pathContains: familyPathPrefixes(family) });
       const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
       const agg = aggregateFamilyRows(pageRows);
       // Same floor the scheduled monitor judges against — resolved through the

@@ -89,12 +89,36 @@ export const MIN_IMPRESSIONS_TO_MONITOR = 50_000;
  *   targetCtrCurveMultiple  when set, the effective target is
  *                 `multiple × expectedCtrForPosition(avgPosition)` — see
  *                 effectiveTargetCtr() below.
+ *   pathAliases   optional extra `pathContains`-style substrings that are
+ *                 the SAME template under a different locale's URL slug.
+ *                 Two distinct shapes both need it: (a) the locale slug drops
+ *                 the `/en/`/`/de/`/`/fr/` PREFIX entirely, e.g. the article
+ *                 template is `/articoli-frontaliere/` in Italian but
+ *                 `/cross-border-articles/` in English and
+ *                 `/grenzgaenger-artikel/` in German (see
+ *                 `services/router.ts`'s `isArticles` regex and
+ *                 `getJobBoardSlugForCanton`/`getAggregatorJobBoardSlug` for
+ *                 the job-board equivalents); (b) the locale slug KEEPS the
+ *                 prefix but translates the segment after it, e.g.
+ *                 `/en/cross-border-guide/…` — `LOCALE_PATH_PREFIXES` below
+ *                 strips the prefix for shape (b) but still compares the
+ *                 *translated* remaining segment against `pathContains`,
+ *                 which never matches, so shape (b) needs `pathAliases` too
+ *                 (see `guida-frontaliere`/`tasse-e-pensione` below,
+ *                 `services/routeSlugs.data.ts`'s `guida`/`fisco` keys).
+ *                 Without this, each locale slug rolls up as its own
+ *                 "unregistered family" in `discoverUnregisteredFamilies`
+ *                 once it crosses the volume threshold on its own — issue
+ *                 #5961. Use `familyPathPrefixes()` below to read
+ *                 `pathContains` + `pathAliases` together.
  */
 export const SEO_CTR_FAMILIES = [
   {
     id: 'articoli-frontaliere',
     label: 'Articoli (blog)',
     pathContains: '/articoli-frontaliere/',
+    // EN / DE / FR locale slugs for the same article template (issue #5961).
+    pathAliases: ['/cross-border-articles/', '/grenzgaenger-artikel/', '/articles-frontalier/'],
     kind: 'template',
     targetCtr: 0.03,
     monitored: true,
@@ -106,6 +130,13 @@ export const SEO_CTR_FAMILIES = [
     id: 'guida-frontaliere',
     label: 'Guida frontaliere',
     pathContains: '/guida-frontaliere/',
+    // EN / DE / FR locale slugs for the same guide template — unlike the
+    // articles/job-board aliases above, these keep the `/en|de|fr/` locale
+    // PREFIX and translate the segment itself (services/routeSlugs.data.ts's
+    // `guida` key: cross-border-guide / grenzgaenger-ratgeber /
+    // guide-frontalier), so `LOCALE_PATH_PREFIXES` stripping the prefix
+    // alone doesn't reunite them with the Italian segment (issue #5961).
+    pathAliases: ['/cross-border-guide/', '/grenzgaenger-ratgeber/', '/guide-frontalier/'],
     kind: 'template',
     targetCtr: 0.035,
     monitored: true,
@@ -117,6 +148,11 @@ export const SEO_CTR_FAMILIES = [
     id: 'tasse-e-pensione',
     label: 'Tasse e pensione',
     pathContains: '/tasse-e-pensione/',
+    // EN / DE / FR locale slugs for the same tax/pension template — same
+    // prefix+translated-segment shape as `guida-frontaliere` above
+    // (services/routeSlugs.data.ts's `fisco` key: taxes-and-pension /
+    // steuern-und-vorsorge / impots-et-retraite), issue #5961.
+    pathAliases: ['/taxes-and-pension/', '/steuern-und-vorsorge/', '/impots-et-retraite/'],
     kind: 'template',
     targetCtr: 0.03,
     monitored: true,
@@ -139,6 +175,9 @@ export const SEO_CTR_FAMILIES = [
     id: 'cerca-lavoro-ticino', // cathedral-allow: GSC family identifier for CTR aggregation, not a URL emission site
     label: 'Cerca lavoro Ticino',
     pathContains: '/cerca-lavoro-ticino/',
+    // EN / DE / FR legacy TI-only job-board slugs (issue #5961) —
+    // `getJobBoardSlugForCanton` in services/router.ts.
+    pathAliases: ['/find-jobs-ticino/', '/jobs-im-tessin/', '/trouver-emploi-tessin/'],
     kind: 'template',
     monitored: true,
     // WHY NOT 0.035 like the Italian families: at 6,63% a 3,50% floor is 47%
@@ -206,6 +245,20 @@ export function effectiveTargetCtr(family, avgPosition) {
   return family.targetCtr ?? null;
 }
 
+/**
+ * All `pathContains`-style substrings a family is known under —
+ * `pathContains` plus any `pathAliases` (locale-slug variants of the same
+ * template, see the SEO_CTR_FAMILIES field docs above). Shared by
+ * `discoverUnregisteredFamilies` (so an aliased locale slug isn't
+ * re-flagged as a new family) and by the GSC fetch call sites
+ * (scripts/monitor-seo-ctr-by-template.mjs, scripts/seo-ctr-baseline.mjs),
+ * which pass the array straight to `fetchGscByPage({ pathContains })` to
+ * measure every locale of the family, not just the Italian slug.
+ */
+export function familyPathPrefixes(family) {
+  return [family?.pathContains, ...(family?.pathAliases || [])].filter(Boolean);
+}
+
 // Locale prefixes stripped before segmenting a path into a candidate family,
 // same set the `locale`-kind exemption in SEO_CTR_FAMILIES is pinned to
 // (`/en/`, `/de/`, `/fr/` — Italian has no prefix, it's the default locale).
@@ -230,7 +283,7 @@ export function discoverUnregisteredFamilies(pageRows, {
   families = SEO_CTR_FAMILIES,
   minImpressions = MIN_IMPRESSIONS_TO_MONITOR,
 } = {}) {
-  const registeredPrefixes = new Set(families.map((f) => f.pathContains));
+  const registeredPrefixes = new Set(families.flatMap((f) => familyPathPrefixes(f)));
   const bySegment = new Map();
 
   for (const row of pageRows || []) {
