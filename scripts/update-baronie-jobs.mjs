@@ -268,7 +268,13 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie');
+  // `counts.discovered` (issue #5945) lets the summary-guard exit fallback
+  // report a non-zero pre-filter count when a later "0 Swiss jobs" early
+  // return skips writeSummaryCrawlerSlice() below — so check-crawler-health
+  // can classify "found jobs, filtered to 0" as healthy without needing a
+  // human to add this slug to EMPTY_OK_CRAWLERS first.
+  const counts = { discovered: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie', counts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Baronie — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -277,6 +283,7 @@ async function main() {
   // 1. Discover job URLs
   console.log('🔍 Fetching Baronie job listings...');
   const jobUrls = await fetchBaronieJobUrls(TIMEOUT_MS);
+  counts.discovered = jobUrls.length;
   console.log(`📋 Found ${jobUrls.length} job URLs`);
   if (jobUrls.length === 0) {
     console.log('⚠️ No job URLs found — skipping.');
@@ -362,6 +369,8 @@ async function main() {
     label: 'Baronie',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: counts.discovered,
+    written: _sliceJobs.length,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
