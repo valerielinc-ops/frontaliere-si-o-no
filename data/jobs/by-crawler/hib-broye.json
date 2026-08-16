@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-08-16T09:38:24.854Z",
+  "assembledAt": "2026-08-16T21:33:22.702Z",
   "jobs": [
     {
       "id": "hib-broye-c91295de9ba0",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/psychologue-psychotherapeute-a-20",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.087Z",
+      "crawledAt": "2026-08-16T21:33:19.815Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.085Z",
+      "crawledAt": "2026-08-16T21:33:19.814Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-16T09:38:22.085Z"
+      "firstSeenAt": "2026-08-16T21:33:19.814Z"
     },
     {
       "id": "hib-broye-df08b1d82a20",
@@ -203,7 +203,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.083Z",
+      "crawledAt": "2026-08-16T21:33:19.813Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/technologue-en-dispositifs-medicaux-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.082Z",
+      "crawledAt": "2026-08-16T21:33:19.812Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/ergotherapeute-30-a-50",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.080Z",
+      "crawledAt": "2026-08-16T21:33:19.811Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -488,7 +488,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-de-90-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.079Z",
+      "crawledAt": "2026-08-16T21:33:19.810Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -542,7 +542,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-16T09:38:22.079Z"
+      "firstSeenAt": "2026-08-16T21:33:19.810Z"
     },
     {
       "id": "hib-broye-355a90dda5ad",
@@ -576,7 +576,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-en-soins-durgences-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.076Z",
+      "crawledAt": "2026-08-16T21:33:19.807Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -649,7 +649,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.074Z",
+      "crawledAt": "2026-08-16T21:33:19.806Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -722,7 +722,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.072Z",
+      "crawledAt": "2026-08-16T21:33:19.805Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -778,7 +778,109 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-16T09:38:22.072Z"
+      "firstSeenAt": "2026-08-16T21:33:19.805Z"
+    },
+    {
+      "id": "hib-broye-fd165eeb5306",
+      "slug": "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "administrative-employee-in-invoicing-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "verwaltungsangestellte-r-in-der-fakturierung-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Employé-e d'administration en facturation de 80% à 100%",
+      "titleByLocale": {
+        "it": "Impiegato/a amministrativo/a in fatturazione dall'80% al 100%",
+        "en": "Administrative employee in invoicing from 80% to 100%",
+        "de": "Verwaltungsangestellte/r in der Fakturierung von 80% bis 100%",
+        "fr": "Employé-e d'administration en facturation de 80% à 100%"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e d'administration en facturation de 80% à 100%\n\nVotre mission\n\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n\n• Participer à la saisie des diverses prestations\n\n• Participer aux contrôles et analyses avant facturation\n\n• Traiter la correspondance avec les assurances\n\n• Répondre aux questions téléphoniques des patients\n\nVos atouts\n\n• CFC d'employé-e de commerce ou titre équivalent\n\n• Expérience hospitalière ou dans les assurances est un plus\n\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie\n\nEntrée en fonction : à convenir.\n\nContrat à durée déterminée de 6 mois.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
+      "descriptionByLocale": {
+        "it": "Grazie ai suoi 800 dipendenti, l'Ospedale Intercantonale di Broye (HIB) svolge una missione di assistenza e riabilitazione per acuti. La sua ambizione è quella di essere un'istituzione sanitaria dinamica e innovativa che punta all'eccellenza a beneficio della popolazione di Broyard. Per affrontare le molteplici sfide che l'attendono, l'HIB ricerca un: Impiegato amministrativo in fatturazione dall'80% al 100% La vostra missione\n• Collaborare alla fatturazione ambulatoriale e/o ospedaliera\n• Partecipare all'inserimento di vari servizi\n• Partecipare a controlli e analisi prima della fatturazione\n• Gestire la corrispondenza con le compagnie assicurative\n• Rispondere alle domande telefoniche dei pazienti Il vostro patrimonio\n• Impiegato commerciale CFC o titolo equivalente\n• Esperienza ospedaliera o assicurativa è un plus\n• Buona conoscenza dei comuni strumenti informatici, la conoscenza del sistema Opale è un vantaggio\n• Velocità di adattamento, senso di organizzazione e autonomia Posizione di partenza: da concordare. Contratto a tempo determinato di 6 mesi. Ti ringraziamo per averci inviato il tuo file di domanda completo facendo domanda online. Per ulteriori domande su questa posizione, contattate la signora Sophie Pidoux, responsabile del dipartimento fatturazione, allo 026 664 73 31. In caso di difficoltà tecniche, vi invitiamo a contattare il nostro dipartimento di reclutamento allo 026 662 81 91.",
+        "en": "Thanks to its 800 employees, the Intercantonal Hospital of Broye (HIB) provides an acute care and rehabilitation mission. Its ambition is to be a dynamic, innovative health institution striving for excellence for the benefit of the Broyard population. To meet the many challenges that await it, the HIB is looking for a: Administration employee in billing from 80% to 100% Your mission\n• Collaborate in outpatient and/or hospital billing\n• Participate in the entry of various services\n• Participate in checks and analyzes before billing\n• Process correspondence with insurance companies\n• Answer telephone questions from patients Your assets\n• CFC commercial employee or equivalent title\n• Experience hospital or insurance is a plus\n• Good knowledge of common IT tools, knowledge of the Opale system is an asset\n• Speed of adaptation, sense of organization and autonomy Starting position: to be agreed. Fixed-term contract of 6 months. We thank you for sending us your complete application file by applying online. For any additional questions about this position, please contact Ms. Sophie Pidoux, head of the billing department, on 026 664 73 31. In the event of technical difficulties, we invite you to contact our recruitment department on 026 662 81 91.",
+        "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus Broye (HIB) eine Akutversorgung und Rehabilitation an. Sein Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die zum Wohle der Broyard-Bevölkerung nach Exzellenz strebt. Um die vielen Herausforderungen zu meistern, die auf Sie zukommen, sucht das HIB einen: Verwaltungsmitarbeiter in der Abrechnung von 80 % bis 100 % Ihre Aufgabe\n• Mitarbeit bei der ambulanten und/oder Krankenhausabrechnung\n• Mitwirkung bei der Erfassung verschiedener Leistungen\n• Mitwirkung bei Kontrollen und Analysen vor der Abrechnung\n• Bearbeitung der Korrespondenz mit Versicherungsgesellschaften\n• Beantwortung telefonischer Fragen von Patienten Ihre Vermögenswerte\n• CFC-kaufmännischer Angestellter oder gleichwertiger Titel\n• Krankenhaus- oder Versicherungserfahrung ist von Vorteil\n• Gute Kenntnisse gängiger IT-Tools, Kenntnisse des Opale-Systems ist von Vorteil\n• Anpassungsgeschwindigkeit, Organisationssinn und Autonomie Ausgangslage: zu vereinbaren. Befristeter Vertrag von 6 Monaten. Wir danken Ihnen, dass Sie uns Ihre vollständigen Bewerbungsunterlagen per Online-Bewerbung zugesandt haben. Bei weiteren Fragen zu dieser Stelle wenden Sie sich bitte an Frau Sophie Pidoux, Leiterin der Abrechnungsabteilung, unter 026 664 73 31. Bei technischen Schwierigkeiten laden wir Sie ein, unsere Personalabteilung unter 026 662 81 91 zu kontaktieren.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e d'administration en facturation de 80% à 100%\n\nVotre mission\n\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n\n• Participer à la saisie des diverses prestations\n\n• Participer aux contrôles et analyses avant facturation\n\n• Traiter la correspondance avec les assurances\n\n• Répondre aux questions téléphoniques des patients\n\nVos atouts\n\n• CFC d'employé-e de commerce ou titre équivalent\n\n• Expérience hospitalière ou dans les assurances est un plus\n\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie\n\nEntrée en fonction : à convenir.\n\nContrat à durée déterminée de 6 mois.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
+      },
+      "needsRetranslation": true,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-16T21:33:19.804Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "CFC di impiegato/a di commercio o titolo equivalente",
+          "Esperienza ospedaliera o nelle assicurazioni è un plus",
+          "Buone conoscenze degli strumenti informatici usuale, la conoscenza del sistema Opale è un atout",
+          "Rapidezza di adattamento, senso dell'organizzazione e dell'autonomia"
+        ],
+        "en": [
+          "Commercial clerk CFC or equivalent title",
+          "Hospital or insurance experience is a plus",
+          "Good knowledge of usual computer tools, knowledge of the Opale system is an asset",
+          "Adaptability, sense of organization and autonomy"
+        ],
+        "de": [
+          "CFC für Verkaufsmitarbeiter oder äquivalenter Titel",
+          "Erfahrung in einem Krankenhaus oder bei Versicherungen ist ein Plus",
+          "Gute Kenntnisse von üblichen Computer-Tools, Kenntnisse des Opale-Systems sind ein Vorteil",
+          "Anpassungsfähigkeit, Organisations- und Autonomiegefühl"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac",
+        "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "administration-clerk-billing-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "verwaltungskraft-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac",
+          "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "en": [
+          "administration-clerk-billing-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "de": [
+          "verwaltungskraft-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:42.558Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "hib-broye-b0c37cd9b7a8",
@@ -812,7 +914,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-au-sein-du-service-de-facturation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.070Z",
+      "crawledAt": "2026-08-16T21:33:19.804Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -891,108 +993,6 @@
       }
     },
     {
-      "id": "hib-broye-fd165eeb5306",
-      "slug": "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "administrative-employee-in-invoicing-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "de": "verwaltungsangestellte-r-in-der-fakturierung-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Employé-e d'administration en facturation de 80% à 100%",
-      "titleByLocale": {
-        "it": "Impiegato/a amministrativo/a in fatturazione dall'80% al 100%",
-        "en": "Administrative employee in invoicing from 80% to 100%",
-        "de": "Verwaltungsangestellte/r in der Fakturierung von 80% bis 100%",
-        "fr": "Employé-e d'administration en facturation de 80% à 100%"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e d'administration en facturation de 80% à 100%\n\nVotre mission\n\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n\n• Participer à la saisie des diverses prestations\n\n• Participer aux contrôles et analyses avant facturation\n\n• Traiter la correspondance avec les assurances\n\n• Répondre aux questions téléphoniques des patients\n\nVos atouts\n\n• CFC d'employé-e de commerce ou titre équivalent\n\n• Expérience hospitalière ou dans les assurances est un plus\n\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie\n\nEntrée en fonction : à convenir.\n\nContrat à durée déterminée de 6 mois.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
-      "descriptionByLocale": {
-        "it": "Grazie ai suoi 800 dipendenti, l'Ospedale Intercantonale di Broye (HIB) svolge una missione di assistenza e riabilitazione per acuti. La sua ambizione è quella di essere un'istituzione sanitaria dinamica e innovativa che punta all'eccellenza a beneficio della popolazione di Broyard. Per affrontare le molteplici sfide che l'attendono, l'HIB ricerca un: Impiegato amministrativo in fatturazione dall'80% al 100% La vostra missione\n• Collaborare alla fatturazione ambulatoriale e/o ospedaliera\n• Partecipare all'inserimento di vari servizi\n• Partecipare a controlli e analisi prima della fatturazione\n• Gestire la corrispondenza con le compagnie assicurative\n• Rispondere alle domande telefoniche dei pazienti Il vostro patrimonio\n• Impiegato commerciale CFC o titolo equivalente\n• Esperienza ospedaliera o assicurativa è un plus\n• Buona conoscenza dei comuni strumenti informatici, la conoscenza del sistema Opale è un vantaggio\n• Velocità di adattamento, senso di organizzazione e autonomia Posizione di partenza: da concordare. Contratto a tempo determinato di 6 mesi. Ti ringraziamo per averci inviato il tuo file di domanda completo facendo domanda online. Per ulteriori domande su questa posizione, contattate la signora Sophie Pidoux, responsabile del dipartimento fatturazione, allo 026 664 73 31. In caso di difficoltà tecniche, vi invitiamo a contattare il nostro dipartimento di reclutamento allo 026 662 81 91.",
-        "en": "Thanks to its 800 employees, the Intercantonal Hospital of Broye (HIB) provides an acute care and rehabilitation mission. Its ambition is to be a dynamic, innovative health institution striving for excellence for the benefit of the Broyard population. To meet the many challenges that await it, the HIB is looking for a: Administration employee in billing from 80% to 100% Your mission\n• Collaborate in outpatient and/or hospital billing\n• Participate in the entry of various services\n• Participate in checks and analyzes before billing\n• Process correspondence with insurance companies\n• Answer telephone questions from patients Your assets\n• CFC commercial employee or equivalent title\n• Experience hospital or insurance is a plus\n• Good knowledge of common IT tools, knowledge of the Opale system is an asset\n• Speed of adaptation, sense of organization and autonomy Starting position: to be agreed. Fixed-term contract of 6 months. We thank you for sending us your complete application file by applying online. For any additional questions about this position, please contact Ms. Sophie Pidoux, head of the billing department, on 026 664 73 31. In the event of technical difficulties, we invite you to contact our recruitment department on 026 662 81 91.",
-        "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus Broye (HIB) eine Akutversorgung und Rehabilitation an. Sein Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die zum Wohle der Broyard-Bevölkerung nach Exzellenz strebt. Um die vielen Herausforderungen zu meistern, die auf Sie zukommen, sucht das HIB einen: Verwaltungsmitarbeiter in der Abrechnung von 80 % bis 100 % Ihre Aufgabe\n• Mitarbeit bei der ambulanten und/oder Krankenhausabrechnung\n• Mitwirkung bei der Erfassung verschiedener Leistungen\n• Mitwirkung bei Kontrollen und Analysen vor der Abrechnung\n• Bearbeitung der Korrespondenz mit Versicherungsgesellschaften\n• Beantwortung telefonischer Fragen von Patienten Ihre Vermögenswerte\n• CFC-kaufmännischer Angestellter oder gleichwertiger Titel\n• Krankenhaus- oder Versicherungserfahrung ist von Vorteil\n• Gute Kenntnisse gängiger IT-Tools, Kenntnisse des Opale-Systems ist von Vorteil\n• Anpassungsgeschwindigkeit, Organisationssinn und Autonomie Ausgangslage: zu vereinbaren. Befristeter Vertrag von 6 Monaten. Wir danken Ihnen, dass Sie uns Ihre vollständigen Bewerbungsunterlagen per Online-Bewerbung zugesandt haben. Bei weiteren Fragen zu dieser Stelle wenden Sie sich bitte an Frau Sophie Pidoux, Leiterin der Abrechnungsabteilung, unter 026 664 73 31. Bei technischen Schwierigkeiten laden wir Sie ein, unsere Personalabteilung unter 026 662 81 91 zu kontaktieren.",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e d'administration en facturation de 80% à 100%\n\nVotre mission\n\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n\n• Participer à la saisie des diverses prestations\n\n• Participer aux contrôles et analyses avant facturation\n\n• Traiter la correspondance avec les assurances\n\n• Répondre aux questions téléphoniques des patients\n\nVos atouts\n\n• CFC d'employé-e de commerce ou titre équivalent\n\n• Expérience hospitalière ou dans les assurances est un plus\n\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie\n\nEntrée en fonction : à convenir.\n\nContrat à durée déterminée de 6 mois.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
-      },
-      "needsRetranslation": true,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.069Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "CFC di impiegato/a di commercio o titolo equivalente",
-          "Esperienza ospedaliera o nelle assicurazioni è un plus",
-          "Buone conoscenze degli strumenti informatici usuale, la conoscenza del sistema Opale è un atout",
-          "Rapidezza di adattamento, senso dell'organizzazione e dell'autonomia"
-        ],
-        "en": [
-          "Commercial clerk CFC or equivalent title",
-          "Hospital or insurance experience is a plus",
-          "Good knowledge of usual computer tools, knowledge of the Opale system is an asset",
-          "Adaptability, sense of organization and autonomy"
-        ],
-        "de": [
-          "CFC für Verkaufsmitarbeiter oder äquivalenter Titel",
-          "Erfahrung in einem Krankenhaus oder bei Versicherungen ist ein Plus",
-          "Gute Kenntnisse von üblichen Computer-Tools, Kenntnisse des Opale-Systems sind ein Vorteil",
-          "Anpassungsfähigkeit, Organisations- und Autonomiegefühl"
-        ]
-      },
-      "previousSlugs": [
-        "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac",
-        "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "administration-clerk-billing-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "verwaltungskraft-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac",
-          "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-          "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "en": [
-          "administration-clerk-billing-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "de": [
-          "verwaltungskraft-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:42.558Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hib-broye-f2839155105a",
       "slug": "assistente-medica-a-tempo-parziale-50-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
@@ -1024,7 +1024,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.068Z",
+      "crawledAt": "2026-08-16T21:33:19.803Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1132,7 +1132,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.067Z",
+      "crawledAt": "2026-08-16T21:33:19.802Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1236,7 +1236,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.065Z",
+      "crawledAt": "2026-08-16T21:33:19.801Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1334,7 +1334,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.063Z",
+      "crawledAt": "2026-08-16T21:33:19.800Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1442,7 +1442,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.062Z",
+      "crawledAt": "2026-08-16T21:33:19.799Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1550,7 +1550,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.059Z",
+      "crawledAt": "2026-08-16T21:33:19.798Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1653,7 +1653,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-en-pharmacie-cdm",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.058Z",
+      "crawledAt": "2026-08-16T21:33:19.797Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1747,7 +1747,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.055Z",
+      "crawledAt": "2026-08-16T21:33:19.795Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1863,7 +1863,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.054Z",
+      "crawledAt": "2026-08-16T21:33:19.794Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1936,7 +1936,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-rh",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.052Z",
+      "crawledAt": "2026-08-16T21:33:19.792Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2020,7 +2020,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-de-60-a-70",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.050Z",
+      "crawledAt": "2026-08-16T21:33:19.791Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2093,7 +2093,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/intendant.e-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.049Z",
+      "crawledAt": "2026-08-16T21:33:19.790Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2147,87 +2147,6 @@
       }
     },
     {
-      "id": "hib-broye-fa703cdb6fb4",
-      "slug": "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "medical-assistant-in-gynaecology-at-80-or-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "de": "assistent-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Assistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%",
-      "titleByLocale": {
-        "it": "Assistente medico in ginecologia a 80% o 2 x 40%",
-        "en": "Medical assistant in gynaecology at 80% or 2 x 40%",
-        "de": "Assistent-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%",
-        "fr": "Assistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un∙e :\n\nAssistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%\n\nVotre mission\n\n• Accueil physique et téléphonique des patients et de leur proche avec professionnalisme et bienveillance\n\n• Organiser les rendez-vous via le logiciel Ultragenda\n\n• Préparer, entretenir et ranger la salle de consultation (remplacement du papier de protection, désinfection des surfaces et organisation de l’espace)\n\n• Assurer le nettoyage et la désinfection du matériel médical\n\n• Assister les consultations de gynécologie-obstétrique : réalisation des prises de sang, injections, analyses d’urines, pansements, prélèvements, mesures du poids, de la taille et des signes vitaux et assurer l’acheminement des prélèvements au laboratoire\n\n• Accompagner le médecin en salle de consultation lorsque nécessaire\n\n• Préparer, mettre à jour et numériser les dossiers médicaux des patients\n\n• Facturer les prestations de l’assistante médicale et vérifier la facturation de la consultation\n\n• Travail administratif divers (courrier, mails et documents médicaux)\n\nVos atouts\n\n• CFC d’assistant-e médical-e exigé\n\n• Expérience préalable souhaitée en gynécologie-obstétrique\n\n• Excellente maîtrise des outils informatiques (Outlook, Word) et idéalement des logiciels Opale, Soarian, Ultragenda\n\n• Capacité à gérer des situations d’urgences, sens de l’organisation et gestion des priorités,· esprit d’équipe, flexibilité et strict respect de la confidentialité\n\nEntrée en fonction : de suite ou à convenir.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Nathalie Erismann, au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
-      "descriptionByLocale": {
-        "it": "Grazie ai suoi 800 collaboratori, il Broye Intercantonal Hospital (HIB) è responsabile della cura acuta e della riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione di Broyard. Al fine di soddisfare le molte sfide future, HIB sta cercando: Assistente medico in ginecologia a 80% o 2 x 40% La tua missione\n• Ricezione fisica e telefonica dei pazienti e dei loro cari con professionalità e gentilezza\n• Organizza appuntamenti tramite software Ultragenda\n• Preparare, mantenere e memorizzare la sala di consultazione (sostituire carta protettiva, disinfezione delle superfici e organizzazione dello spazio)\n• Assicurare la pulizia e la disinfezione delle attrezzature mediche\n• Partecipare a consultazioni ginecologiche-ostetrici: esami del sangue, iniezioni, test delle urine, condimenti, campioni, misurazioni di peso, dimensioni e segni vitali e garantire la consegna dei campioni al laboratorio\n• Accompagnare il medico nella sala di consultazione quando necessario\n• Preparare, aggiornare e scansionare le cartelle cliniche dei pazienti\n• Fatturazione dei servizi dell'assistente medico e controllo della fatturazione della consultazione\n• Vari lavori amministrativi (mail, mail e documenti medici) I vostri beni\n• Assistente medico SWC richiesto\n• Esperienza prioritaria nella ginecologia ostetrica\n• Eccellente padronanza degli strumenti informatici (Outlook, Word) e software Opale, Soarian, Ultragenda\n• Capacità di gestire emergenze, organizzazione e gestione prioritaria, lavoro di squadra, flessibilità e riservatezza rigorosa Inizio: immediatamente o da concordare. Grazie per averci inviato il tuo modulo di domanda completo applicando online. Per ulteriori domande su questa posizione, si prega di contattare la signora Nathalie Erismann allo 026 662 85 52. In caso di difficoltà tecniche, contattare il nostro reparto di reclutamento allo 026 662 81 91.",
-        "en": "Thanks to its 800 collaborators, the Broye Intercantonal Hospital (HIB) is responsible for acute care and rehabilitation. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. In order to meet the many challenges ahead, HIB is looking for: Medical assistant in gynaecology at 80% or 2 x 40% Your Mission\n• Physical and telephone reception of patients and their loved ones with professionalism and kindness\n• Organize appointments via Ultragenda software\n• Prepare, maintain and store the consultation room (replacement of protective paper, disinfection of surfaces and organization of space)\n• Ensure cleaning and disinfection of medical equipment\n• Attend gynecological-obstetric consultations: blood tests, injections, urine tests, dressings, samples, measurements of weight, size and vital signs and ensure the delivery of samples to the laboratory\n• Accompany the doctor to the consultation room when necessary\n• Prepare, update and scan patient medical records\n• Invoicing the medical assistant's services and checking the billing of the consultation\n• Miscellaneous administrative work (mail, mail and medical documents) Your assets\n• SWC medical assistant required\n• Prior experience in obstetric gynaecology\n• Excellent mastery of computer tools (Outlook, Word) and ideally Opale, Soarian, Ultragenda software\n• Ability to manage emergencies, organization and priority management, teamwork, flexibility and strict confidentiality Start: immediately or to be agreed. Thank you for sending us your complete application form by applying online. For further questions on this position, please contact Ms. Nathalie Erismann at 026 662 85 52. In case of technical difficulties, please contact our recruitment department at 026 662 81 91.",
-        "de": "Dank seiner 800 Mitarbeiter ist das Broye Intercantonal Hospital (HIB) für die akute Versorgung und Rehabilitation verantwortlich. Sein Ziel ist es, eine dynamische, innovative und Exzellenz-orientierte Gesundheitseinrichtung zum Wohle der Broyard Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach: Medizinische Assistenz in der Gynäkologie bei 80% oder 2 x 40% Deine Mission\n• Physischer und telefonischer Empfang von Patienten und ihren Angehörigen mit Professionalität und Freundlichkeit\n• Termine über Ultragenda Software organisieren\n• Bereiten, pflegen und lagern Sie den Beratungsraum (Ersatz von Schutzpapier, Desinfektion der Oberflächen und Organisation des Raumes)\n• Reinigung und Desinfektion von medizinischen Geräten\n• Nehmen Sie an gynäkologisch-geburtshilflichen Konsultationen teil: Bluttests, Injektionen, Urintests, Verbände, Proben, Gewichts-, Größen- und Vitalparameter und gewährleisten Sie die Lieferung von Proben an das Labor\n• Begleiten Sie den Arzt bei Bedarf in den Sprechraum\n• Vorbereiten, Aktualisieren und Scannen von Patientenakten\n• Fakturierung der Leistungen des medizinischen Assistenten und Überprüfung der Abrechnung der Beratung\n• Verschiedene Verwaltungsarbeiten (Post, Post und medizinische Dokumente) Ihre Vermögenswerte\n• SWC medizinischer Assistent erforderlich\n• Vorkenntnisse in der geburtshilflichen Gynäkologie\n• Ausgezeichnete Beherrschung von Computer-Tools (Outlook, Word) und ideal Opale, Soarian, Ultragenda Software\n• Fähigkeit, Notfälle, Organisation und Prioritätenmanagement, Teamarbeit, Flexibilität und strenge Vertraulichkeit zu verwalten Start: sofort oder noch zu vereinbaren. Vielen Dank, dass Sie uns Ihr vollständiges Antragsformular per Online-Bewerbung zusenden. Für weitere Fragen zu dieser Position wenden Sie sich bitte an Frau Nathalie Erismann unter 026 662 85 52. Bei technischen Schwierigkeiten wenden Sie sich bitte an unsere Rekrutierungsabteilung unter 026 662 81 91.",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un∙e :\n\nAssistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%\n\nVotre mission\n\n• Accueil physique et téléphonique des patients et de leur proche avec professionnalisme et bienveillance\n\n• Organiser les rendez-vous via le logiciel Ultragenda\n\n• Préparer, entretenir et ranger la salle de consultation (remplacement du papier de protection, désinfection des surfaces et organisation de l’espace)\n\n• Assurer le nettoyage et la désinfection du matériel médical\n\n• Assister les consultations de gynécologie-obstétrique : réalisation des prises de sang, injections, analyses d’urines, pansements, prélèvements, mesures du poids, de la taille et des signes vitaux et assurer l’acheminement des prélèvements au laboratoire\n\n• Accompagner le médecin en salle de consultation lorsque nécessaire\n\n• Préparer, mettre à jour et numériser les dossiers médicaux des patients\n\n• Facturer les prestations de l’assistante médicale et vérifier la facturation de la consultation\n\n• Travail administratif divers (courrier, mails et documents médicaux)\n\nVos atouts\n\n• CFC d’assistant-e médical-e exigé\n\n• Expérience préalable souhaitée en gynécologie-obstétrique\n\n• Excellente maîtrise des outils informatiques (Outlook, Word) et idéalement des logiciels Opale, Soarian, Ultragenda\n\n• Capacité à gérer des situations d’urgences, sens de l’organisation et gestion des priorités,· esprit d’équipe, flexibilité et strict respect de la confidentialité\n\nEntrée en fonction : de suite ou à convenir.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Nathalie Erismann, au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
-      },
-      "needsRetranslation": true,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-comptable-de-60-a-80",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.047Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-30",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-comptable-de-60-a-80",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
-        "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
-          "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-          "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "en": [
-          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
-        ],
-        "de": [
-          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T22:43:37.125Z",
-      "salaryMin": 54800,
-      "salaryMax": 83200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54800,
-          "maxValue": 83200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hib-broye-627208cb3b46",
       "slug": "collaboratore-trice-di-esecuzione-cfc-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
@@ -2259,7 +2178,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/collaborateur-trice-dexploitation-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.045Z",
+      "crawledAt": "2026-08-16T21:33:19.788Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2326,6 +2245,87 @@
       }
     },
     {
+      "id": "hib-broye-fa703cdb6fb4",
+      "slug": "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "medical-assistant-in-gynaecology-at-80-or-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "assistent-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Assistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%",
+      "titleByLocale": {
+        "it": "Assistente medico in ginecologia a 80% o 2 x 40%",
+        "en": "Medical assistant in gynaecology at 80% or 2 x 40%",
+        "de": "Assistent-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%",
+        "fr": "Assistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un∙e :\n\nAssistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%\n\nVotre mission\n\n• Accueil physique et téléphonique des patients et de leur proche avec professionnalisme et bienveillance\n\n• Organiser les rendez-vous via le logiciel Ultragenda\n\n• Préparer, entretenir et ranger la salle de consultation (remplacement du papier de protection, désinfection des surfaces et organisation de l’espace)\n\n• Assurer le nettoyage et la désinfection du matériel médical\n\n• Assister les consultations de gynécologie-obstétrique : réalisation des prises de sang, injections, analyses d’urines, pansements, prélèvements, mesures du poids, de la taille et des signes vitaux et assurer l’acheminement des prélèvements au laboratoire\n\n• Accompagner le médecin en salle de consultation lorsque nécessaire\n\n• Préparer, mettre à jour et numériser les dossiers médicaux des patients\n\n• Facturer les prestations de l’assistante médicale et vérifier la facturation de la consultation\n\n• Travail administratif divers (courrier, mails et documents médicaux)\n\nVos atouts\n\n• CFC d’assistant-e médical-e exigé\n\n• Expérience préalable souhaitée en gynécologie-obstétrique\n\n• Excellente maîtrise des outils informatiques (Outlook, Word) et idéalement des logiciels Opale, Soarian, Ultragenda\n\n• Capacité à gérer des situations d’urgences, sens de l’organisation et gestion des priorités,· esprit d’équipe, flexibilité et strict respect de la confidentialité\n\nEntrée en fonction : de suite ou à convenir.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Nathalie Erismann, au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
+      "descriptionByLocale": {
+        "it": "Grazie ai suoi 800 collaboratori, il Broye Intercantonal Hospital (HIB) è responsabile della cura acuta e della riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione di Broyard. Al fine di soddisfare le molte sfide future, HIB sta cercando: Assistente medico in ginecologia a 80% o 2 x 40% La tua missione\n• Ricezione fisica e telefonica dei pazienti e dei loro cari con professionalità e gentilezza\n• Organizza appuntamenti tramite software Ultragenda\n• Preparare, mantenere e memorizzare la sala di consultazione (sostituire carta protettiva, disinfezione delle superfici e organizzazione dello spazio)\n• Assicurare la pulizia e la disinfezione delle attrezzature mediche\n• Partecipare a consultazioni ginecologiche-ostetrici: esami del sangue, iniezioni, test delle urine, condimenti, campioni, misurazioni di peso, dimensioni e segni vitali e garantire la consegna dei campioni al laboratorio\n• Accompagnare il medico nella sala di consultazione quando necessario\n• Preparare, aggiornare e scansionare le cartelle cliniche dei pazienti\n• Fatturazione dei servizi dell'assistente medico e controllo della fatturazione della consultazione\n• Vari lavori amministrativi (mail, mail e documenti medici) I vostri beni\n• Assistente medico SWC richiesto\n• Esperienza prioritaria nella ginecologia ostetrica\n• Eccellente padronanza degli strumenti informatici (Outlook, Word) e software Opale, Soarian, Ultragenda\n• Capacità di gestire emergenze, organizzazione e gestione prioritaria, lavoro di squadra, flessibilità e riservatezza rigorosa Inizio: immediatamente o da concordare. Grazie per averci inviato il tuo modulo di domanda completo applicando online. Per ulteriori domande su questa posizione, si prega di contattare la signora Nathalie Erismann allo 026 662 85 52. In caso di difficoltà tecniche, contattare il nostro reparto di reclutamento allo 026 662 81 91.",
+        "en": "Thanks to its 800 collaborators, the Broye Intercantonal Hospital (HIB) is responsible for acute care and rehabilitation. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. In order to meet the many challenges ahead, HIB is looking for: Medical assistant in gynaecology at 80% or 2 x 40% Your Mission\n• Physical and telephone reception of patients and their loved ones with professionalism and kindness\n• Organize appointments via Ultragenda software\n• Prepare, maintain and store the consultation room (replacement of protective paper, disinfection of surfaces and organization of space)\n• Ensure cleaning and disinfection of medical equipment\n• Attend gynecological-obstetric consultations: blood tests, injections, urine tests, dressings, samples, measurements of weight, size and vital signs and ensure the delivery of samples to the laboratory\n• Accompany the doctor to the consultation room when necessary\n• Prepare, update and scan patient medical records\n• Invoicing the medical assistant's services and checking the billing of the consultation\n• Miscellaneous administrative work (mail, mail and medical documents) Your assets\n• SWC medical assistant required\n• Prior experience in obstetric gynaecology\n• Excellent mastery of computer tools (Outlook, Word) and ideally Opale, Soarian, Ultragenda software\n• Ability to manage emergencies, organization and priority management, teamwork, flexibility and strict confidentiality Start: immediately or to be agreed. Thank you for sending us your complete application form by applying online. For further questions on this position, please contact Ms. Nathalie Erismann at 026 662 85 52. In case of technical difficulties, please contact our recruitment department at 026 662 81 91.",
+        "de": "Dank seiner 800 Mitarbeiter ist das Broye Intercantonal Hospital (HIB) für die akute Versorgung und Rehabilitation verantwortlich. Sein Ziel ist es, eine dynamische, innovative und Exzellenz-orientierte Gesundheitseinrichtung zum Wohle der Broyard Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach: Medizinische Assistenz in der Gynäkologie bei 80% oder 2 x 40% Deine Mission\n• Physischer und telefonischer Empfang von Patienten und ihren Angehörigen mit Professionalität und Freundlichkeit\n• Termine über Ultragenda Software organisieren\n• Bereiten, pflegen und lagern Sie den Beratungsraum (Ersatz von Schutzpapier, Desinfektion der Oberflächen und Organisation des Raumes)\n• Reinigung und Desinfektion von medizinischen Geräten\n• Nehmen Sie an gynäkologisch-geburtshilflichen Konsultationen teil: Bluttests, Injektionen, Urintests, Verbände, Proben, Gewichts-, Größen- und Vitalparameter und gewährleisten Sie die Lieferung von Proben an das Labor\n• Begleiten Sie den Arzt bei Bedarf in den Sprechraum\n• Vorbereiten, Aktualisieren und Scannen von Patientenakten\n• Fakturierung der Leistungen des medizinischen Assistenten und Überprüfung der Abrechnung der Beratung\n• Verschiedene Verwaltungsarbeiten (Post, Post und medizinische Dokumente) Ihre Vermögenswerte\n• SWC medizinischer Assistent erforderlich\n• Vorkenntnisse in der geburtshilflichen Gynäkologie\n• Ausgezeichnete Beherrschung von Computer-Tools (Outlook, Word) und ideal Opale, Soarian, Ultragenda Software\n• Fähigkeit, Notfälle, Organisation und Prioritätenmanagement, Teamarbeit, Flexibilität und strenge Vertraulichkeit zu verwalten Start: sofort oder noch zu vereinbaren. Vielen Dank, dass Sie uns Ihr vollständiges Antragsformular per Online-Bewerbung zusenden. Für weitere Fragen zu dieser Position wenden Sie sich bitte an Frau Nathalie Erismann unter 026 662 85 52. Bei technischen Schwierigkeiten wenden Sie sich bitte an unsere Rekrutierungsabteilung unter 026 662 81 91.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un∙e :\n\nAssistant-e médical-e en cabinet de gynécologie à 80% ou 2 x 40%\n\nVotre mission\n\n• Accueil physique et téléphonique des patients et de leur proche avec professionnalisme et bienveillance\n\n• Organiser les rendez-vous via le logiciel Ultragenda\n\n• Préparer, entretenir et ranger la salle de consultation (remplacement du papier de protection, désinfection des surfaces et organisation de l’espace)\n\n• Assurer le nettoyage et la désinfection du matériel médical\n\n• Assister les consultations de gynécologie-obstétrique : réalisation des prises de sang, injections, analyses d’urines, pansements, prélèvements, mesures du poids, de la taille et des signes vitaux et assurer l’acheminement des prélèvements au laboratoire\n\n• Accompagner le médecin en salle de consultation lorsque nécessaire\n\n• Préparer, mettre à jour et numériser les dossiers médicaux des patients\n\n• Facturer les prestations de l’assistante médicale et vérifier la facturation de la consultation\n\n• Travail administratif divers (courrier, mails et documents médicaux)\n\nVos atouts\n\n• CFC d’assistant-e médical-e exigé\n\n• Expérience préalable souhaitée en gynécologie-obstétrique\n\n• Excellente maîtrise des outils informatiques (Outlook, Word) et idéalement des logiciels Opale, Soarian, Ultragenda\n\n• Capacité à gérer des situations d’urgences, sens de l’organisation et gestion des priorités,· esprit d’équipe, flexibilité et strict respect de la confidentialité\n\nEntrée en fonction : de suite ou à convenir.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Nathalie Erismann, au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
+      },
+      "needsRetranslation": true,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-comptable-de-60-a-80",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-16T21:33:19.788Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-comptable-de-60-a-80",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
+        "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
+          "assistente-medico-in-ambulatorio-di-ginecologia-all-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "en": [
+          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-06-17T22:43:37.125Z",
+      "salaryMin": 54800,
+      "salaryMax": 83200,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54800,
+          "maxValue": 83200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hib-broye-aca7e09505c8",
       "slug": "assistente-per-la-salute-e-la-cura-della-comunita-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
@@ -2357,7 +2357,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.043Z",
+      "crawledAt": "2026-08-16T21:33:19.786Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2448,7 +2448,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.041Z",
+      "crawledAt": "2026-08-16T21:33:19.785Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2524,7 +2524,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier-ere-en-dietetique-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.039Z",
+      "crawledAt": "2026-08-16T21:33:19.784Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2640,7 +2640,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier.ere-en-dietetique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.037Z",
+      "crawledAt": "2026-08-16T21:33:19.783Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2690,87 +2690,6 @@
       }
     },
     {
-      "id": "hib-broye-3c82eed86fd0",
-      "slug": "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "medical-coder-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "de": "medizinischer-codifier-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Codificateur-trice médical-e 80% - 100%",
-      "titleByLocale": {
-        "it": "Codifier medico-e 80% - 100%",
-        "en": "Medical coder 80% - 100%",
-        "de": "Medizinischer Codifier-e 80% - 100%",
-        "fr": "Codificateur-trice médical-e 80% - 100%"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent sur le site de Payerne et d'Estavayer-le-Lac, l'HIB est à la recherche d'un(e) :\n\nCodificateur-trice médical-e 80% - 100%\n\nVotre mission\n\nAu sein de l’unité de codage médical, rattachée au service des Finances, vous contribuez activement à la qualité, à la fiabilité et à la valorisation des données médico-administratives de l’institution. Grâce à votre expertise, vous participez à garantir un codage précis des hospitalisations dans le respect des directives de l’Office fédéral de la statistique (OFS) et des classifications en vigueur.\n\nVos taches :\n\n• Assurer le codage médical des séjours hospitaliers selon les classifications SwissDRG et ST-REHA.\n\n• Analyser et interpréter les données cliniques afin de garantir une codification fiable, cohérente et conforme aux exigences réglementaires.\n\n• Collecter, contrôler et valider les informations nécessaires à une documentation médico-administrative de qualité.\n\n• Collaborer avec les équipes médicales, soignantes et administratives afin d’assurer l’exactitude des données codées.\n\n• Gérer les échanges avec les assurances et assurer le suivi des demandes liées au codage médical.\n\n• Participer à l’amélioration continue des processus et apporter un soutien aux activités transversales du service selon les besoins.\n\nVos atouts\n\n• Formation en codage médical obligatoire.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente.\n\n• Brevet fédéral de spécialiste en codage médical, un atout.\n\n• Expérience dans le domaine du codage ou de la codification médicale, un avantage.\n\n• Bonnes connaissances en anatomie, physiologie, pathologie et procédures diagnostiques et thérapeutiques.\n\n• Esprit analytique, rigueur et sens de l’organisation.\n\n• Capacité à travailler de manière autonome tout en favorisant la collaboration.\n\n• Aisance avec les outils informatiques et bureautiques usuels.\n\nNous vous offrons\n\n• Un poste stimulant au sein d’une équipe engagée, collaborative et passionnée par son métier.\n\n• Un environnement de travail à taille humaine, favorisant la proximité, l’autonomie et la qualité des échanges.\n\n• L’opportunité d’évoluer dans une institution dynamique, tournée vers l’innovation et l’amélioration continue.\n\n• Des possibilités de télétravail favorisant la flexibilité et l’équilibre entre vie professionnelle et vie privée.\n\n• Des conditions d’engagement attractives ainsi que des prestations sociales de qualité.\n\n• Un lieu de travail situé à Estavayer-le-Lac.\n\nEntrée en fonction : 1er janvier 2027 ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Florence Brugger, responsable codage, au 026 664 73 27.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
-      "descriptionByLocale": {
-        "it": "Grazie ai suoi 800 collaboratori, il Broye Intercantonal Hospital (HIB) è responsabile della cura acuta e della riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione di Broyard. Per soddisfare le molte sfide che si trovano davanti al sito Payerne e Estavayer-le-Lac, HIB sta cercando un codificatore medico 80% - 100% La vostra missione All'interno della Medical Coding Unit, allegato al Dipartimento di Finanza, si contribuisce attivamente alla qualità, affidabilità e valore dei dati medico-amministrativi dell'istituzione. Grazie alla vostra competenza, siete coinvolti nel garantire la codifica accurata delle ricovero in conformità con le direttive dell'Ufficio federale di statistica (FOS) e le classificazioni attuali.\n• Assicurare la codifica medica dei soggiorni ospedalieri secondo le classificazioni SwissDRG e ST-REHA.\n• Analizzare e interpretare i dati clinici per garantire una codifica affidabile, coerente e coerente secondo i requisiti normativi.\n• Raccogliere, monitorare e convalidare le informazioni necessarie per la documentazione medica e amministrativa di qualità.\n• Lavora con team medici, sanitari e amministrativi per garantire l'accuratezza dei dati codificati.\n• gestisce gli scambi con le compagnie di assicurazione e monitora le applicazioni relative alla codifica medica.\n• Partecipare al miglioramento continuo del processo e sostenere le attività di servizio di taglio incrociato come richiesto. I vostri beni\n• Formazione di codifica medica.\n• Corso di allattamento o formazione equivalente.\n• Brevetto federale di specialista di codifica medica, un bene.\n• Esperienza nella codifica medica o codifica, un vantaggio.\n• Buona conoscenza di anatomia, fisiologia, patologia e procedure diagnostiche e terapeutiche.\n• Spirito analitico, rigore e senso organizzativo.\n• Capacità di lavorare in modo indipendente, promuovendo la collaborazione.\n• Esperienza con computer e strumenti di ufficio comuni. Ti offriamo\n• Una posizione stimolante all'interno di un team impegnato, collaborativo e appassionato.\n• Un ambiente di lavoro di dimensioni umane che promuove la prossimità, l'autonomia e la qualità degli scambi.\n• Opportunità di evolversi in un'istituzione dinamica, orientata all'innovazione e al miglioramento continuo.\n• Opportunità di telelavoro che promuovono la flessibilità e l'equilibrio della vita lavorativa.\n• Condizioni interessanti di impegno e benefici sociali di qualità.\n• Un posto di lavoro in Estavayer-le-Lac. Entrata in carica: 1° gennaio 2027 o da concordare Grazie per averci inviato il tuo modulo di domanda corrente applicando online. Per ulteriori domande su questa posizione, contattare Florence Brugger, Coding Manager, allo 026 664 73 27. In caso di difficoltà tecniche, contattare il nostro reparto di reclutamento allo 026 662 81 91.",
-        "en": "Thanks to its 800 collaborators, the Broye Intercantonal Hospital (HIB) is responsible for acute care and rehabilitation. His ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. To meet the many challenges that lie ahead at the Payerne and Estavayer-le-Lac site, HIB is looking for a medical codifier 80% - 100% Your mission Within the Medical Coding Unit, attached to the Finance Department, you actively contribute to the quality, reliability and value of the institution's medico-administrative data. Thanks to your expertise, you are involved in ensuring accurate coding of hospitalizations in accordance with the directives of the Federal Statistical Office (FOS) and the current classifications. Your tasks:\n• Ensure medical coding of hospital stays according to SwissDRG and ST-REHA classifications.\n• Analyze and interpret clinical data to ensure reliable, consistent and consistent coding in accordance with regulatory requirements.\n• Collect, monitor and validate information required for quality medical and administrative documentation.\n• Work with medical, health and administrative teams to ensure the accuracy of coded data.\n• Manages exchanges with insurance companies and monitors applications related to medical coding.\n• Participate in continuous process improvement and support cross-cutting service activities as required. Your assets\n• Medical coding training.\n• Bachelor of nursing or equivalent training.\n• Federal patent of medical coding specialist, an asset.\n• Experience in medical coding or coding, an advantage.\n• Good knowledge of anatomy, physiology, pathology and diagnostic and therapeutic procedures.\n• Analytic spirit, rigour and organizational sense.\n• Ability to work independently while fostering collaboration.\n• Experience with common computer and office tools. We offer you\n• A stimulating position within a committed, collaborative and passionate team.\n• A human-sized working environment that promotes proximity, autonomy and the quality of exchanges.\n• Opportunity to evolve in a dynamic institution, oriented towards innovation and continuous improvement.\n• Telework opportunities that promote flexibility and work-life balance.\n• Attractive conditions of engagement and quality social benefits.\n• A workplace in Estavayer-le-Lac. Entry into office: 1 January 2027 or to be agreed Thank you for sending us your current application form by applying online. For further questions about this position, please contact Florence Brugger, Coding Manager, at 026 664 73 27. In case of technical difficulties, please contact our recruitment department at 026 662 81 91.",
-        "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus Broye (HIB) eine Akutversorgung und Rehabilitation an. Sein Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die zum Wohle der Broyard-Bevölkerung nach Exzellenz strebt. Um die vielen Herausforderungen zu meistern, die am Standort Payerne und Estavayer-le-Lac auf sie warten, sucht HIB einen: Medizinischen Kodierer 80 % - 100 % Ihre Aufgabe Innerhalb der medizinischen Kodierungseinheit, die der Finanzabteilung angegliedert ist, tragen Sie aktiv zur Qualität, Zuverlässigkeit und Aufwertung der medizinisch-administrativen Daten der Institution bei. Mit Ihrem Fachwissen tragen Sie dazu bei, eine präzise Kodierung der Spitaleinweisungen nach den Richtlinien des Bundesamtes für Statistik (BFS) und den geltenden Klassifikationen zu gewährleisten. Ihre Aufgaben:\n• Sicherstellung der medizinischen Kodierung von Spitalaufenthalten nach SwissDRG- und ST-REHA-Klassifikation.\n• Analysieren und interpretieren Sie klinische Daten, um eine zuverlässige, konsistente Kodierung sicherzustellen, die den gesetzlichen Anforderungen entspricht.\n• Sammeln, kontrollieren und validieren Sie die Informationen, die für eine qualitativ hochwertige medizinisch-administrative Dokumentation erforderlich sind.\n• Arbeiten Sie mit medizinischen, pflegerischen und administrativen Teams zusammen, um die Genauigkeit der codierten Daten sicherzustellen.\n• Verwalten Sie den Austausch mit Versicherungsunternehmen und bearbeiten Sie Anfragen im Zusammenhang mit der medizinischen Kodierung.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung der Prozesse und unterstützen Sie bei Bedarf die bereichsübergreifenden Aktivitäten der Abteilung. Ihre Vorteile\n• Schulung in medizinischer Kodierung.\n• Bachelor-Abschluss in Krankenpflege oder eine gleichwertige Ausbildung.\n• Eidg. Facharztausweis für medizinische Kodierung, von Vorteil.\n• Erfahrung im Bereich Kodierung oder medizinische Kodierung von Vorteil.\n• Gute Kenntnisse der Anatomie, Physiologie, Pathologie sowie diagnostischer und therapeutischer Verfahren.\n• Analytisches Denken, Genauigkeit und Sinn für Organisation.\n• Fähigkeit, unabhängig zu arbeiten und gleichzeitig die Zusammenarbeit zu fördern.\n• Komfort mit gängigen IT- und Office-Tools. Wir bieten Ihnen:\n• Eine anregende Position in einem Team, das engagiert, kooperativ und leidenschaftlich für seinen Beruf ist.\n• Ein Arbeitsumfeld auf menschlicher Ebene, das Nähe, Autonomie und Qualität des Austauschs fördert.\n• Die Möglichkeit, sich in einer dynamischen Institution weiterzuentwickeln, die auf Innovation und kontinuierliche Verbesserung ausgerichtet ist.\n• Telearbeitsmöglichkeiten fördern Flexibilität und Work-Life-Balance.\n• Attraktive Anstellungsbedingungen sowie hochwertige Sozialleistungen.\n• Ein Arbeitsplatz in Estavayer-le-Lac. Beginndatum: 1. Januar 2027 oder nach Vereinbarung. Vielen Dank, dass Sie uns Ihre aktuellen Bewerbungsunterlagen per Online-Bewerbung zukommen lassen. Bei weiteren Fragen zu dieser Stelle können Sie sich unter 026 664 73 27 an Frau Florence Brugger, Coding Managerin, wenden. Bei technischen Schwierigkeiten laden wir Sie ein, sich unter 026 662 81 91 an unsere Personalabteilung zu wenden.",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent sur le site de Payerne et d'Estavayer-le-Lac, l'HIB est à la recherche d'un(e) :\n\nCodificateur-trice médical-e 80% - 100%\n\nVotre mission\n\nAu sein de l’unité de codage médical, rattachée au service des Finances, vous contribuez activement à la qualité, à la fiabilité et à la valorisation des données médico-administratives de l’institution. Grâce à votre expertise, vous participez à garantir un codage précis des hospitalisations dans le respect des directives de l’Office fédéral de la statistique (OFS) et des classifications en vigueur.\n\nVos taches :\n\n• Assurer le codage médical des séjours hospitaliers selon les classifications SwissDRG et ST-REHA.\n\n• Analyser et interpréter les données cliniques afin de garantir une codification fiable, cohérente et conforme aux exigences réglementaires.\n\n• Collecter, contrôler et valider les informations nécessaires à une documentation médico-administrative de qualité.\n\n• Collaborer avec les équipes médicales, soignantes et administratives afin d’assurer l’exactitude des données codées.\n\n• Gérer les échanges avec les assurances et assurer le suivi des demandes liées au codage médical.\n\n• Participer à l’amélioration continue des processus et apporter un soutien aux activités transversales du service selon les besoins.\n\nVos atouts\n\n• Formation en codage médical obligatoire.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente.\n\n• Brevet fédéral de spécialiste en codage médical, un atout.\n\n• Expérience dans le domaine du codage ou de la codification médicale, un avantage.\n\n• Bonnes connaissances en anatomie, physiologie, pathologie et procédures diagnostiques et thérapeutiques.\n\n• Esprit analytique, rigueur et sens de l’organisation.\n\n• Capacité à travailler de manière autonome tout en favorisant la collaboration.\n\n• Aisance avec les outils informatiques et bureautiques usuels.\n\nNous vous offrons\n\n• Un poste stimulant au sein d’une équipe engagée, collaborative et passionnée par son métier.\n\n• Un environnement de travail à taille humaine, favorisant la proximité, l’autonomie et la qualité des échanges.\n\n• L’opportunité d’évoluer dans une institution dynamique, tournée vers l’innovation et l’amélioration continue.\n\n• Des possibilités de télétravail favorisant la flexibilité et l’équilibre entre vie professionnelle et vie privée.\n\n• Des conditions d’engagement attractives ainsi que des prestations sociales de qualité.\n\n• Un lieu de travail situé à Estavayer-le-Lac.\n\nEntrée en fonction : 1er janvier 2027 ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Florence Brugger, responsable codage, au 026 664 73 27.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
-      },
-      "needsRetranslation": true,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.035Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
-        "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
-          "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-          "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
-        "en": [
-          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
-        ],
-        "de": [
-          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T11:52:15.305Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hib-broye-5cbd9a66c489",
       "slug": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
@@ -2802,7 +2721,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.034Z",
+      "crawledAt": "2026-08-16T21:33:19.781Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2859,7 +2778,88 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-16T09:38:22.034Z"
+      "firstSeenAt": "2026-08-16T21:33:19.781Z"
+    },
+    {
+      "id": "hib-broye-3c82eed86fd0",
+      "slug": "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "medical-coder-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "medizinischer-codifier-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Codificateur-trice médical-e 80% - 100%",
+      "titleByLocale": {
+        "it": "Codifier medico-e 80% - 100%",
+        "en": "Medical coder 80% - 100%",
+        "de": "Medizinischer Codifier-e 80% - 100%",
+        "fr": "Codificateur-trice médical-e 80% - 100%"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent sur le site de Payerne et d'Estavayer-le-Lac, l'HIB est à la recherche d'un(e) :\n\nCodificateur-trice médical-e 80% - 100%\n\nVotre mission\n\nAu sein de l’unité de codage médical, rattachée au service des Finances, vous contribuez activement à la qualité, à la fiabilité et à la valorisation des données médico-administratives de l’institution. Grâce à votre expertise, vous participez à garantir un codage précis des hospitalisations dans le respect des directives de l’Office fédéral de la statistique (OFS) et des classifications en vigueur.\n\nVos taches :\n\n• Assurer le codage médical des séjours hospitaliers selon les classifications SwissDRG et ST-REHA.\n\n• Analyser et interpréter les données cliniques afin de garantir une codification fiable, cohérente et conforme aux exigences réglementaires.\n\n• Collecter, contrôler et valider les informations nécessaires à une documentation médico-administrative de qualité.\n\n• Collaborer avec les équipes médicales, soignantes et administratives afin d’assurer l’exactitude des données codées.\n\n• Gérer les échanges avec les assurances et assurer le suivi des demandes liées au codage médical.\n\n• Participer à l’amélioration continue des processus et apporter un soutien aux activités transversales du service selon les besoins.\n\nVos atouts\n\n• Formation en codage médical obligatoire.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente.\n\n• Brevet fédéral de spécialiste en codage médical, un atout.\n\n• Expérience dans le domaine du codage ou de la codification médicale, un avantage.\n\n• Bonnes connaissances en anatomie, physiologie, pathologie et procédures diagnostiques et thérapeutiques.\n\n• Esprit analytique, rigueur et sens de l’organisation.\n\n• Capacité à travailler de manière autonome tout en favorisant la collaboration.\n\n• Aisance avec les outils informatiques et bureautiques usuels.\n\nNous vous offrons\n\n• Un poste stimulant au sein d’une équipe engagée, collaborative et passionnée par son métier.\n\n• Un environnement de travail à taille humaine, favorisant la proximité, l’autonomie et la qualité des échanges.\n\n• L’opportunité d’évoluer dans une institution dynamique, tournée vers l’innovation et l’amélioration continue.\n\n• Des possibilités de télétravail favorisant la flexibilité et l’équilibre entre vie professionnelle et vie privée.\n\n• Des conditions d’engagement attractives ainsi que des prestations sociales de qualité.\n\n• Un lieu de travail situé à Estavayer-le-Lac.\n\nEntrée en fonction : 1er janvier 2027 ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Florence Brugger, responsable codage, au 026 664 73 27.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
+      "descriptionByLocale": {
+        "it": "Grazie ai suoi 800 collaboratori, il Broye Intercantonal Hospital (HIB) è responsabile della cura acuta e della riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione di Broyard. Per soddisfare le molte sfide che si trovano davanti al sito Payerne e Estavayer-le-Lac, HIB sta cercando un codificatore medico 80% - 100% La vostra missione All'interno della Medical Coding Unit, allegato al Dipartimento di Finanza, si contribuisce attivamente alla qualità, affidabilità e valore dei dati medico-amministrativi dell'istituzione. Grazie alla vostra competenza, siete coinvolti nel garantire la codifica accurata delle ricovero in conformità con le direttive dell'Ufficio federale di statistica (FOS) e le classificazioni attuali.\n• Assicurare la codifica medica dei soggiorni ospedalieri secondo le classificazioni SwissDRG e ST-REHA.\n• Analizzare e interpretare i dati clinici per garantire una codifica affidabile, coerente e coerente secondo i requisiti normativi.\n• Raccogliere, monitorare e convalidare le informazioni necessarie per la documentazione medica e amministrativa di qualità.\n• Lavora con team medici, sanitari e amministrativi per garantire l'accuratezza dei dati codificati.\n• gestisce gli scambi con le compagnie di assicurazione e monitora le applicazioni relative alla codifica medica.\n• Partecipare al miglioramento continuo del processo e sostenere le attività di servizio di taglio incrociato come richiesto. I vostri beni\n• Formazione di codifica medica.\n• Corso di allattamento o formazione equivalente.\n• Brevetto federale di specialista di codifica medica, un bene.\n• Esperienza nella codifica medica o codifica, un vantaggio.\n• Buona conoscenza di anatomia, fisiologia, patologia e procedure diagnostiche e terapeutiche.\n• Spirito analitico, rigore e senso organizzativo.\n• Capacità di lavorare in modo indipendente, promuovendo la collaborazione.\n• Esperienza con computer e strumenti di ufficio comuni. Ti offriamo\n• Una posizione stimolante all'interno di un team impegnato, collaborativo e appassionato.\n• Un ambiente di lavoro di dimensioni umane che promuove la prossimità, l'autonomia e la qualità degli scambi.\n• Opportunità di evolversi in un'istituzione dinamica, orientata all'innovazione e al miglioramento continuo.\n• Opportunità di telelavoro che promuovono la flessibilità e l'equilibrio della vita lavorativa.\n• Condizioni interessanti di impegno e benefici sociali di qualità.\n• Un posto di lavoro in Estavayer-le-Lac. Entrata in carica: 1° gennaio 2027 o da concordare Grazie per averci inviato il tuo modulo di domanda corrente applicando online. Per ulteriori domande su questa posizione, contattare Florence Brugger, Coding Manager, allo 026 664 73 27. In caso di difficoltà tecniche, contattare il nostro reparto di reclutamento allo 026 662 81 91.",
+        "en": "Thanks to its 800 collaborators, the Broye Intercantonal Hospital (HIB) is responsible for acute care and rehabilitation. His ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. To meet the many challenges that lie ahead at the Payerne and Estavayer-le-Lac site, HIB is looking for a medical codifier 80% - 100% Your mission Within the Medical Coding Unit, attached to the Finance Department, you actively contribute to the quality, reliability and value of the institution's medico-administrative data. Thanks to your expertise, you are involved in ensuring accurate coding of hospitalizations in accordance with the directives of the Federal Statistical Office (FOS) and the current classifications. Your tasks:\n• Ensure medical coding of hospital stays according to SwissDRG and ST-REHA classifications.\n• Analyze and interpret clinical data to ensure reliable, consistent and consistent coding in accordance with regulatory requirements.\n• Collect, monitor and validate information required for quality medical and administrative documentation.\n• Work with medical, health and administrative teams to ensure the accuracy of coded data.\n• Manages exchanges with insurance companies and monitors applications related to medical coding.\n• Participate in continuous process improvement and support cross-cutting service activities as required. Your assets\n• Medical coding training.\n• Bachelor of nursing or equivalent training.\n• Federal patent of medical coding specialist, an asset.\n• Experience in medical coding or coding, an advantage.\n• Good knowledge of anatomy, physiology, pathology and diagnostic and therapeutic procedures.\n• Analytic spirit, rigour and organizational sense.\n• Ability to work independently while fostering collaboration.\n• Experience with common computer and office tools. We offer you\n• A stimulating position within a committed, collaborative and passionate team.\n• A human-sized working environment that promotes proximity, autonomy and the quality of exchanges.\n• Opportunity to evolve in a dynamic institution, oriented towards innovation and continuous improvement.\n• Telework opportunities that promote flexibility and work-life balance.\n• Attractive conditions of engagement and quality social benefits.\n• A workplace in Estavayer-le-Lac. Entry into office: 1 January 2027 or to be agreed Thank you for sending us your current application form by applying online. For further questions about this position, please contact Florence Brugger, Coding Manager, at 026 664 73 27. In case of technical difficulties, please contact our recruitment department at 026 662 81 91.",
+        "de": "Dank seiner 800 Mitarbeiter bietet das Interkantonale Krankenhaus Broye (HIB) eine Akutversorgung und Rehabilitation an. Sein Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die zum Wohle der Broyard-Bevölkerung nach Exzellenz strebt. Um die vielen Herausforderungen zu meistern, die am Standort Payerne und Estavayer-le-Lac auf sie warten, sucht HIB einen: Medizinischen Kodierer 80 % - 100 % Ihre Aufgabe Innerhalb der medizinischen Kodierungseinheit, die der Finanzabteilung angegliedert ist, tragen Sie aktiv zur Qualität, Zuverlässigkeit und Aufwertung der medizinisch-administrativen Daten der Institution bei. Mit Ihrem Fachwissen tragen Sie dazu bei, eine präzise Kodierung der Spitaleinweisungen nach den Richtlinien des Bundesamtes für Statistik (BFS) und den geltenden Klassifikationen zu gewährleisten. Ihre Aufgaben:\n• Sicherstellung der medizinischen Kodierung von Spitalaufenthalten nach SwissDRG- und ST-REHA-Klassifikation.\n• Analysieren und interpretieren Sie klinische Daten, um eine zuverlässige, konsistente Kodierung sicherzustellen, die den gesetzlichen Anforderungen entspricht.\n• Sammeln, kontrollieren und validieren Sie die Informationen, die für eine qualitativ hochwertige medizinisch-administrative Dokumentation erforderlich sind.\n• Arbeiten Sie mit medizinischen, pflegerischen und administrativen Teams zusammen, um die Genauigkeit der codierten Daten sicherzustellen.\n• Verwalten Sie den Austausch mit Versicherungsunternehmen und bearbeiten Sie Anfragen im Zusammenhang mit der medizinischen Kodierung.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung der Prozesse und unterstützen Sie bei Bedarf die bereichsübergreifenden Aktivitäten der Abteilung. Ihre Vorteile\n• Schulung in medizinischer Kodierung.\n• Bachelor-Abschluss in Krankenpflege oder eine gleichwertige Ausbildung.\n• Eidg. Facharztausweis für medizinische Kodierung, von Vorteil.\n• Erfahrung im Bereich Kodierung oder medizinische Kodierung von Vorteil.\n• Gute Kenntnisse der Anatomie, Physiologie, Pathologie sowie diagnostischer und therapeutischer Verfahren.\n• Analytisches Denken, Genauigkeit und Sinn für Organisation.\n• Fähigkeit, unabhängig zu arbeiten und gleichzeitig die Zusammenarbeit zu fördern.\n• Komfort mit gängigen IT- und Office-Tools. Wir bieten Ihnen:\n• Eine anregende Position in einem Team, das engagiert, kooperativ und leidenschaftlich für seinen Beruf ist.\n• Ein Arbeitsumfeld auf menschlicher Ebene, das Nähe, Autonomie und Qualität des Austauschs fördert.\n• Die Möglichkeit, sich in einer dynamischen Institution weiterzuentwickeln, die auf Innovation und kontinuierliche Verbesserung ausgerichtet ist.\n• Telearbeitsmöglichkeiten fördern Flexibilität und Work-Life-Balance.\n• Attraktive Anstellungsbedingungen sowie hochwertige Sozialleistungen.\n• Ein Arbeitsplatz in Estavayer-le-Lac. Beginndatum: 1. Januar 2027 oder nach Vereinbarung. Vielen Dank, dass Sie uns Ihre aktuellen Bewerbungsunterlagen per Online-Bewerbung zukommen lassen. Bei weiteren Fragen zu dieser Stelle können Sie sich unter 026 664 73 27 an Frau Florence Brugger, Coding Managerin, wenden. Bei technischen Schwierigkeiten laden wir Sie ein, sich unter 026 662 81 91 an unsere Personalabteilung zu wenden.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent sur le site de Payerne et d'Estavayer-le-Lac, l'HIB est à la recherche d'un(e) :\n\nCodificateur-trice médical-e 80% - 100%\n\nVotre mission\n\nAu sein de l’unité de codage médical, rattachée au service des Finances, vous contribuez activement à la qualité, à la fiabilité et à la valorisation des données médico-administratives de l’institution. Grâce à votre expertise, vous participez à garantir un codage précis des hospitalisations dans le respect des directives de l’Office fédéral de la statistique (OFS) et des classifications en vigueur.\n\nVos taches :\n\n• Assurer le codage médical des séjours hospitaliers selon les classifications SwissDRG et ST-REHA.\n\n• Analyser et interpréter les données cliniques afin de garantir une codification fiable, cohérente et conforme aux exigences réglementaires.\n\n• Collecter, contrôler et valider les informations nécessaires à une documentation médico-administrative de qualité.\n\n• Collaborer avec les équipes médicales, soignantes et administratives afin d’assurer l’exactitude des données codées.\n\n• Gérer les échanges avec les assurances et assurer le suivi des demandes liées au codage médical.\n\n• Participer à l’amélioration continue des processus et apporter un soutien aux activités transversales du service selon les besoins.\n\nVos atouts\n\n• Formation en codage médical obligatoire.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente.\n\n• Brevet fédéral de spécialiste en codage médical, un atout.\n\n• Expérience dans le domaine du codage ou de la codification médicale, un avantage.\n\n• Bonnes connaissances en anatomie, physiologie, pathologie et procédures diagnostiques et thérapeutiques.\n\n• Esprit analytique, rigueur et sens de l’organisation.\n\n• Capacité à travailler de manière autonome tout en favorisant la collaboration.\n\n• Aisance avec les outils informatiques et bureautiques usuels.\n\nNous vous offrons\n\n• Un poste stimulant au sein d’une équipe engagée, collaborative et passionnée par son métier.\n\n• Un environnement de travail à taille humaine, favorisant la proximité, l’autonomie et la qualité des échanges.\n\n• L’opportunité d’évoluer dans une institution dynamique, tournée vers l’innovation et l’amélioration continue.\n\n• Des possibilités de télétravail favorisant la flexibilité et l’équilibre entre vie professionnelle et vie privée.\n\n• Des conditions d’engagement attractives ainsi que des prestations sociales de qualité.\n\n• Un lieu de travail situé à Estavayer-le-Lac.\n\nEntrée en fonction : 1er janvier 2027 ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature à jour en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Florence Brugger, responsable codage, au 026 664 73 27.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
+      },
+      "needsRetranslation": true,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-16T21:33:19.781Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
+        "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
+          "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+          "codifier-medico-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
+        ],
+        "en": [
+          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T11:52:15.305Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "hib-broye-afcf0741a61a",
@@ -2893,7 +2893,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier.ere-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.033Z",
+      "crawledAt": "2026-08-16T21:33:19.780Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2985,7 +2985,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/psychologue-a-60",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.028Z",
+      "crawledAt": "2026-08-16T21:33:19.776Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3090,7 +3090,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-employe.e-de-commerce-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.027Z",
+      "crawledAt": "2026-08-16T21:33:19.775Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3184,7 +3184,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-endocrinologie-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.025Z",
+      "crawledAt": "2026-08-16T21:33:19.774Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3263,7 +3263,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-de-60-a-100-cdd",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.022Z",
+      "crawledAt": "2026-08-16T21:33:19.772Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3349,7 +3349,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-de-60-a-90-cdd",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.021Z",
+      "crawledAt": "2026-08-16T21:33:19.771Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3428,7 +3428,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-medecine-physique-et-readaptation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.020Z",
+      "crawledAt": "2026-08-16T21:33:19.770Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3509,7 +3509,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.018Z",
+      "crawledAt": "2026-08-16T21:33:19.769Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3588,7 +3588,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.017Z",
+      "crawledAt": "2026-08-16T21:33:19.768Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3669,7 +3669,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.016Z",
+      "crawledAt": "2026-08-16T21:33:19.767Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3748,7 +3748,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-medical.e-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.013Z",
+      "crawledAt": "2026-08-16T21:33:19.766Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3827,7 +3827,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.011Z",
+      "crawledAt": "2026-08-16T21:33:19.765Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3916,7 +3916,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-pour-le-service-des-urgences-et-la-policlinique-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.008Z",
+      "crawledAt": "2026-08-16T21:33:19.763Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3995,7 +3995,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-assc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.006Z",
+      "crawledAt": "2026-08-16T21:33:19.760Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4076,7 +4076,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti-e-test",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:22.004Z",
+      "crawledAt": "2026-08-16T21:33:19.758Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4155,7 +4155,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:38:21.982Z",
+      "crawledAt": "2026-08-16T21:33:19.746Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
