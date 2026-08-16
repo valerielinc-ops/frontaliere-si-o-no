@@ -15,6 +15,7 @@ import {
   evaluateWebcamResult,
   collectWebcamUrls,
   isStalenessCheckActive,
+  staleThresholdMinutesFor,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/check-border-data-health.mjs';
 
@@ -224,6 +225,31 @@ describe('isStalenessCheckActive (active-window gate)', () => {
   it('is INACTIVE at/after 20:00 UTC', () => {
     expect(isStalenessCheckActive(atUtcHour(20))).toBe(false);
     expect(isStalenessCheckActive(atUtcHour(23))).toBe(false);
+  });
+});
+
+describe('staleThresholdMinutesFor (weekend cadence gap, #5960)', () => {
+  // Only the day-of-week matters; the hour/calendar date are irrelevant, so a
+  // fixed reference date is not a time-bomb (2026-01-05 is a Monday).
+  const onDay = (dayOffset: number): number => Date.UTC(2026, 0, 5 + dayOffset, 12, 0, 0);
+
+  it('uses the tight 90-min weekday threshold Mon–Fri', () => {
+    for (let i = 0; i <= 4; i++) {
+      expect(staleThresholdMinutesFor(onDay(i))).toBe(90);
+    }
+  });
+
+  it('uses a looser threshold on Sat/Sun matching the 4h weekend cadence + cron lag', () => {
+    const saturday = staleThresholdMinutesFor(onDay(5));
+    const sunday = staleThresholdMinutesFor(onDay(6));
+    expect(saturday).toBe(sunday);
+    // Must comfortably clear the actual 240-min weekend gap (traffic-scheduler.yml
+    // `0 6,10,14,18 * * 0,6`) plus documented GitHub cron delivery lag, or every
+    // weekend slot would still false-page.
+    expect(saturday).toBeGreaterThan(240);
+    // Must stay under the 6h (360-min) coarse backstop so a genuinely frozen
+    // weekend pipeline is still caught by this fast loop first.
+    expect(saturday).toBeLessThan(360);
   });
 });
 
