@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-15T06:17:09.486Z",
+  "assembledAt": "2026-08-16T06:16:56.601Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -2955,42 +2955,6 @@
       "imageUrl": "/images/events/guidle-AHHgvs2.jpg"
     },
     {
-      "id": "guidle:ARNeMdW",
-      "title": "Röseligarte",
-      "titleByLocale": {
-        "it": "Röseligarte",
-        "en": "Röseligarte",
-        "de": "Röseligarte",
-        "fr": "Röseligarte"
-      },
-      "description": "<a href=\"https://www.reginamuerren.ch/events/roeseligarte/\">https://www.reginamuerren.ch/events/roeseligarte/</a>",
-      "descriptionByLocale": {
-        "it": "<a href=\"https://www.reginamuerren.ch/events/roeseligarte/\">https://www.reginamuerren.ch/events/roeseligarte/</a>",
-        "en": "<a href=\"https://www.reginamuerren.ch/events/roeseligarte/\">https://www.reginamuerren.ch/events/roeseligarte/</a>",
-        "de": "<a href=\"https://www.reginamuerren.ch/events/roeseligarte/\">https://www.reginamuerren.ch/events/roeseligarte/</a>",
-        "fr": "<a href=\"https://www.reginamuerren.ch/events/roeseligarte/\">https://www.reginamuerren.ch/events/roeseligarte/</a>"
-      },
-      "startDate": "2026-08-15",
-      "endDate": "2026-08-15",
-      "startTime": "20:30",
-      "category": "Sperimentale",
-      "venue": "Hotel Regina",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/muerren/roeseligarte_ARNeMdW",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Borthalten",
-        "postalCode": "3825"
-      },
-      "geo": {
-        "lat": 46.5594791,
-        "lng": 7.8933945
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-ARNeMdW.jpg"
-    },
-    {
       "id": "guidle:AdGsMMN",
       "title": "Farbmusik Konzert Seegräben",
       "titleByLocale": {
@@ -3191,43 +3155,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-Aw2tUYb.jpg"
-    },
-    {
-      "id": "guidle:AMZm35Z",
-      "title": "Wintershome Openair",
-      "titleByLocale": {
-        "it": "Wintershome Openair",
-        "en": "Wintershome Openair",
-        "de": "Wintershome Openair",
-        "fr": "Wintershome Openair"
-      },
-      "description": "Wintershome haben im Jahr 2025 einen bedeutenden Meilenstein erreicht: das erste ausverkaufte Konzert im Kultlokal Mühle Hunziken.",
-      "descriptionByLocale": {
-        "it": "Wintershome haben im Jahr 2025 einen bedeutenden Meilenstein erreicht: das erste ausverkaufte Konzert im Kultlokal Mühle Hunziken.",
-        "en": "Wintershome haben im Jahr 2025 einen bedeutenden Meilenstein erreicht: das erste ausverkaufte Konzert im Kultlokal Mühle Hunziken.",
-        "de": "Wintershome haben im Jahr 2025 einen bedeutenden Meilenstein erreicht: das erste ausverkaufte Konzert im Kultlokal Mühle Hunziken.",
-        "fr": "Wintershome haben im Jahr 2025 einen bedeutenden Meilenstein erreicht: das erste ausverkaufte Konzert im Kultlokal Mühle Hunziken."
-      },
-      "startDate": "2026-08-15",
-      "endDate": "2026-08-15",
-      "startTime": "19:00",
-      "category": "Folk Music",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/wintershome-openair_AMZm35Z",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AMZm35Z.jpg"
     },
     {
       "id": "guidle:AgEaYv2",
@@ -3959,48 +3886,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-A2mHr6q.jpg"
-    },
-    {
-      "id": "guidle:Acv6rYJ",
-      "title": "Pelicans Music Night",
-      "titleByLocale": {
-        "it": "Wildenstein all'aria aperta 2026",
-        "en": "Wildenstein Open Air 2026",
-        "de": "Wildenstein Openair 2026",
-        "fr": "Wildenstein Open Air 2026"
-      },
-      "description": "Musica dal vivo al massimo con Oli Oesch/Michel Trutmann e i Pelicans di Bubendorf in una splendida cornice di fronte al castello di Wildenstein.",
-      "descriptionByLocale": {
-        "it": "Musica dal vivo al massimo con Oli Oesch/Michel Trutmann e i Pelicans di Bubendorf in una splendida cornice di fronte al castello di Wildenstein.",
-        "en": "Live music at its best with Oli Oesch/Michel Trutmann and the Pelicans from Bubendorf in a beautiful setting in front of Wildenstein Castle.",
-        "de": "Live-Musik vom Feinsten bei wunderschöner Kulisse vor dem Schloss Wildenstein.",
-        "fr": "Le meilleur de la musique live avec Oli Oesch/Michel Trutmann et les Pelicans de Bubendorf dans un cadre magnifique devant le château de Wildenstein."
-      },
-      "startDate": "2026-08-15",
-      "endDate": "2026-08-15",
-      "startTime": "17:00",
-      "category": "Open Air",
-      "venue": "Hof Wildenstein",
-      "comune": "Bubendorf",
-      "canton": "BL",
-      "url": "https://www.guidle.com/it/eventi/alternativo/bubendorf/pelicans-music-night_Acv6rYJ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 20,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Wildensteinerstrasse",
-        "postalCode": "4416"
-      },
-      "geo": {
-        "lat": 47.43071406349738,
-        "lng": 7.737418137048353
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Acv6rYJ.jpg"
     },
     {
       "id": "guidle:ACdwvXZ",
@@ -12924,6 +12809,214 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-Aj87XE4.jpg"
+    },
+    {
+      "id": "guidle:ASH85vU",
+      "title": "Rundgang durch den Pavillon (DSGS)",
+      "titleByLocale": {
+        "it": "Rundgang durch den Pavillon (DSGS)",
+        "en": "Rundgang durch den Pavillon (DSGS)",
+        "de": "Rundgang durch den Pavillon (DSGS)",
+        "fr": "Pavillon de la salle commune (DSGS)"
+      },
+      "description": "Geführter Rundgang durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Übersetzung in Gebärdensprache.",
+      "descriptionByLocale": {
+        "it": "Geführter Rundgang durch den Pavillon Le Corbusier und die Ausstellung \"Bauen für die Macht\" mit Übersetzung in Gebärdensprache.",
+        "en": "Gef R Hrter Rundgang durch den Pavillon Le Corbusier und die Ausstellung\" Bauen für die Macht \" mit mit",
+        "de": "Geführter Rundgang durch den Pavillon Le Corbusier und die Ausstellung „Bauen für die Macht“ mit Übersetzung in Gebärdensprache.",
+        "fr": "Geführter Rundgang durch den Pavillon Le Corbusier und die Ausstellung « Bauen für die Macht » mit Übersetzung in Gebärdensprache."
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "14:00",
+      "category": "Architettura / Design",
+      "venue": "Pavillon Le Corbusier",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/rundgang-durch-den-pavillon-dsgs_ASH85vU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Höschgasse 8",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3560992,
+        "lng": 8.5509078
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ASH85vU.jpg"
+    },
+    {
+      "id": "guidle:ATRpmp6",
+      "title": "Tour du Pavillon",
+      "titleByLocale": {
+        "it": "Tour du Pavillon",
+        "en": "Tour du Pavillon",
+        "de": "Tour des Pavillons",
+        "fr": "Tour du Pavillon"
+      },
+      "description": "Visite guidée du Pavillon Le Corbusier et de l'exposition \"Construire pour le pouvoir\" avec un aperçu des objets présentés.",
+      "descriptionByLocale": {
+        "it": "Visite guidée du Pavillon Le Corbusier et de l'exposition \"Construire pour le pouvoir\" avec un aperçu des objets présentés.",
+        "en": "Visit guidée du Pavillon Le Corbusier et de l 'exhibition \"Construire pour le pouvoir\" avec un aperçu des objets présentés.",
+        "de": "Führungen durch den Pavillon Le Corbusier und die Ausstellung \"Construire pour le pouvoir\" mit einem Aperçu des objets présentés.",
+        "fr": "Visite guidée du Pavillon Le Corbusier et de l'exposition « Construire pour le pouvoir » avec un aperçu des objets présentés."
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-11-01",
+      "startTime": "15:00",
+      "category": "Architettura / Design",
+      "venue": "Pavillon Le Corbusier",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/tour-du-pavillon_ATRpmp6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Höschgasse 8",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3560992,
+        "lng": 8.5509078
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ATRpmp6.jpg"
+    },
+    {
+      "id": "guidle:A3hNase",
+      "title": "Kunst zum Frühstück",
+      "titleByLocale": {
+        "it": "Kunst zum Frühstück",
+        "en": "Kunst zum Frh",
+        "de": "Kunst zum Fr Graffhst ⑤ck",
+        "fr": "Musée d'art Frh"
+      },
+      "description": "Feines Frühstück und spannende Einblicke in die faszinierende Welt der aktuell ausgestellten Kunst.",
+      "descriptionByLocale": {
+        "it": "Feines Frühstück und spannende Einblicke in die faszinierende Welt der aktuell ausgestellten Kunst.",
+        "en": "Fine Frühstück und spannende Einblicke in die faszinierende Welt der aktuell ausgestellten Kunst.",
+        "de": "Feines fr Zucchhst Zucchck und spannende Einklicke in die faszinierende Graffelt der aktuell ausgestellten Kunst.",
+        "fr": "De beaux cadeaux et des images éclatantes dans le monde fascinant de l'art ausgestellten."
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "startTime": "09:30",
+      "category": "Mangiare insieme",
+      "venue": "Forum Würth Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/kunst-zum-fruehstueck_A3hNase",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35.5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Churerstrasse 10",
+        "postalCode": "9400"
+      },
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A3hNase.jpg"
+    },
+    {
+      "id": "guidle:ACuNQAQ",
+      "title": "Art for Tea",
+      "titleByLocale": {
+        "it": "Art for Tea",
+        "en": "Art for Tea",
+        "de": "Art for Tea",
+        "fr": "Art for Tea"
+      },
+      "description": "Kurzführung mit anschliessendem Afternoon Tea.",
+      "descriptionByLocale": {
+        "it": "Kurzführung mit anschliessendem Afternoon Tea.",
+        "en": "Kurzführung mit anschliessendem Afternoon Tea.",
+        "de": "Kurzführung mit anschliessendem Afternoon Tea.",
+        "fr": "Kurzführung mit anschliessendem Afternoon Tea."
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-09-26",
+      "startTime": "15:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Forum Würth Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/art-for-tea_ACuNQAQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35.5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Churerstrasse 10",
+        "postalCode": "9400"
+      },
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ACuNQAQ.jpg"
+    },
+    {
+      "id": "guidle:APG8vQg",
+      "title": "Konzert in der Kirche",
+      "titleByLocale": {
+        "it": "Konzert in der Kirche",
+        "en": "Concert in the church",
+        "de": "Konzert in der Kirche",
+        "fr": "Concert à l'église"
+      },
+      "description": "Lassen Sie sich vom Angebot unterschiedlicher Konzerte in unserer Kirche inspirieren!",
+      "descriptionByLocale": {
+        "it": "Lassen Sie sich vom Angebot unterschiedlicher Konzerte in unserer Kirche inspirieren!",
+        "en": "Let yourself be inspired by the variety of concerts in our church!",
+        "de": "Lassen Sie sich vom Angebot unterschiedlicher Konzerte in unserer Kirche inspirieren!",
+        "fr": "Laissez-vous inspirer par l'offre de concerts variés dans notre église !"
+      },
+      "startDate": "2026-08-17",
+      "endDate": "2026-10-12",
+      "startTime": "18:00",
+      "category": "Musica di chiesa",
+      "venue": "Evang.-ref. Kirche Kandersteg",
+      "comune": "Kandersteg",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/evenements/classique/kandersteg/concert-a-leglise_APG8vQg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Innere Dorfstrasse 1",
+        "postalCode": "3718"
+      },
+      "geo": {
+        "lat": 46.4944246,
+        "lng": 7.6743209
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-APG8vQg.jpg"
     }
   ]
 }
