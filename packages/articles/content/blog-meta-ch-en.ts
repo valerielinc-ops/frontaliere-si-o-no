@@ -2869,6 +2869,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-cantone-svitto.title': 'Apprenticeship and vocational training in the Canton of Swabia',
     'blog.article.apprendistato-cantone-svitto.excerpt': 'How to find an internship position, internship contract, apprentice salary and professional maturity',
     'blog.article.apprendistato-cantone-svitto.imageAlt': 'Apprenticeship and vocational training in the Canton of Schwyz',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Kindergarten and childcare in the Canton of Schwyz: costs and options',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'The costs of nurseries in the Canton of Schwyz vary according to the age group and the needs of the parents.',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'A family with young children searching for childcare options in the Canton of Svitto.',
 };
 
 export default blogMetaChEn;

@@ -2869,6 +2869,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-cantone-svitto.title': 'Apprentissage et formation professionnelle dans le canton de Schwyz',
     'blog.article.apprendistato-cantone-svitto.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, la rémunération de l\'apprenti et la maturité professionnelle',
     'blog.article.apprendistato-cantone-svitto.imageAlt': 'Formation professionnelle et apprentissage dans le canton de Schwyz',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Garderie et garde d\'enfants dans le canton de Schwyz : coûts et options',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'Les coûts des crèches dans le canton de Schwyz varient en fonction de la tranche d\'âge et des besoins des parents.',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'Une famille avec jeunes enfants recherche des options de garde dans le canton de Svitto.',
 };
 
 export default blogMetaChFr;

@@ -8605,6 +8605,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asilo-nido-custodia-bambini-canton-svitto-costi',
+    category: 'pratico',
+    date: '2026-08-16T12:01:45.370Z',
+    image: '/images/blog/asilo-nido-custodia-bambini-canton-svitto-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
