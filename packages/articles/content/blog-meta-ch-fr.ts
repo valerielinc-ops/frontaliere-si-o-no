@@ -2761,6 +2761,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tendicione-arresti-veicoli-ricerca-2024.title': 'Plusieurs arrêts grâce à la recherche automatisée des véhicules',
     'blog.article.tendicione-arresti-veicoli-ricerca-2024.excerpt': 'Le système mis en place en 2024 a contribué à l\'arrestation d\'un suspect et à plusieurs autres arrestations.',
     'blog.article.tendicione-arresti-veicoli-ricerca-2024.imageAlt': 'Contrôle frontalier suisse',
+    'blog.article.sanzioni-onu-aggiornamento-2026.title': 'Mise à jour des sanctions de l\'ONU : qu\'est-ce qui change pour la Suisse ?',
+    'blog.article.sanzioni-onu-aggiornamento-2026.excerpt': 'La base de données SESAM a été mise à jour de la même manière.',
+    'blog.article.sanzioni-onu-aggiornamento-2026.imageAlt': 'Photo d\'un bâtiment gouvernemental en Suisse avec un sens de gravité et d\'importance.',
 };
 
 export default blogMetaChFr;
