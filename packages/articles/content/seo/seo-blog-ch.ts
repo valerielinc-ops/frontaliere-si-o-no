@@ -37616,6 +37616,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-cantone-svitto': {
+    title: 'Salari e mercato del lavoro nel Cantone di Svitto: settori e livelli',
+    description: 'La situazione del mercato del lavoro e dei salari nel Cantone di Svitto, con dati e statistiche pubblicate dal UST/BFS e dal SECO. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, cantone',
+    ogTitle: 'Salari e mercato del lavoro nel Cantone di Svitto: settori e livelli',
+    ogDescription: 'La situazione del mercato del lavoro e dei salari nel Cantone di Svitto, con dati e statistiche pubblicate dal UST/BFS e dal SECO.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-cantone-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro nel Cantone di Svitto: settori e livelli",
+      "description": "La situazione del mercato del lavoro e dei salari nel Cantone di Svitto, con dati e statistiche pubblicate dal UST/BFS e dal SECO. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-cantone-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un luogo di lavoro nel Cantone di Svitto, Svizzera, che mette in evidenza l'importanza del mercato del lavoro e dei salari nella regione."
+      },
+      "datePublished": "2026-08-16T14:04:48+00:00",
+      "dateModified": "2026-08-16T14:04:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-cantone-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

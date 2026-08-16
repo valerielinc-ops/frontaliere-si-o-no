@@ -993,6 +993,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-succesione-donazione-canton-svitto-aliquote': { it: 'imposta-succesione-donazione-canton-svitto-aliquote', en: 'succession-donation-cantonal-svitto', de: 'erbschaftssteuer-spendenbeschwerdung-kanton-svitto', fr: 'droit-successoral-dons-canton-svitto' },
  'aprire-un-attivita-canton-svitto': { it: 'aprire-un-attivita-canton-svitto', en: 'choosing-the-legal-form-in-svitto', de: 'rechtsform-in-schwyz-wahlen', fr: 'choisir-la-forme-juridique-a-schwyz' },
  'aprire-attivita-canton-svitto-registro-di-commercio-e-costi': { it: 'aprire-attivita-canton-svitto-registro-di-commercio-e-costi', en: 'opening-business-canton-schwyz-registration-commerce-costs', de: 'betrieb-eroffnen-kanton-schwyz-registrierung-handel-kosten', fr: 'ouvrir-entreprise-canton-de-schwyz-enregistrement-commerce-couts' },
+ 'salari-mercato-lavoro-cantone-svitto': { it: 'salari-mercato-lavoro-cantone-svitto', en: 'salaries-labor-market-canton-schwyz', de: 'lohne-arbeitsmarkt-kanton-schwyz', fr: 'salaires-marche-du-travail-canton-schwyz' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

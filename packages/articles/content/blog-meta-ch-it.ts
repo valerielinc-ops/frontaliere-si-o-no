@@ -2902,6 +2902,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.title': 'Sviluppare un\'attività a Svitto: scelta della forma giuridica e obblighi',
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.excerpt': 'Scopri come aprire un\'attività nel Cantone di Svitto. Informazioni sulla scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.imageAlt': 'Un imprenditore sta compilando un modulo di registrazione per l\'attività commerciale nel Cantone di Svitto.',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.title': 'Salari e mercato del lavoro nel Cantone di Svitto: settori e livelli',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.excerpt': 'La situazione del mercato del lavoro nel Cantone di Svitto, con dati e statistiche sulle condizioni di lavoro e sui salari.',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.imageAlt': 'Una scena di un luogo di lavoro nel Cantone di Svitto, Svizzera, che mette in evidenza l\'importanza del mercato del lavoro e dei salari nella regione.',
 };
 
 export default blogMetaChIt;
