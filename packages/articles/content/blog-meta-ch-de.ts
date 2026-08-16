@@ -2890,6 +2890,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AHV und Ergänzungsleistungen im Kanton Schwyz: die Ausgleichskasse',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'Der Kanton Schwyz verfügt über eine Ausgleichskasse, welche die AHV- und Ergänzungsleistungen für seine Bewohner verwaltet.',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Bild einer Winterlandschaft im Kanton Schwyz',
+    'blog.article.abbonamenti-trasporti-svitto.title': 'Fahrkarten für den öffentlichen Verkehr Schwyz: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Vollständiger Leitfaden zu Abos, Tarifzonen und Ermäßigungen für den öffentlichen Verkehr im Kanton Schwyz.',
+    'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'OEV Abonnemente und Tarife im Kanton Schwyz',
 };
 
 export default blogMetaChDe;

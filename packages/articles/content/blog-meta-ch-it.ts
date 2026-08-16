@@ -2890,6 +2890,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AVS e prestazioni complementari nel Canton di Schwyz: la cassa di compensazione',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'Il Canton di Schwyz ha una cassa di compensazione che gestisce le prestazioni AVS e complementari per i suoi abitanti.',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Immagine di un paesaggio invernale nel Canton di Schwyz',
+    'blog.article.abbonamenti-trasporti-svitto.title': 'Abbonamenti trasporti pubblici Svitto: zone e tariffe',
+    'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Guida completa agli abbonamenti, alle zone tariffarie e alle riduzioni per i mezzi pubblici nel Cantone di Svitto.',
+    'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'Abbonamenti trasporti pubblici e tariffe nel Cantone di Svitto',
 };
 
 export default blogMetaChIt;

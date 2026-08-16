@@ -2890,6 +2890,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.title': 'AVS et prestazioni nel Canton de Schwyz',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.excerpt': 'Le canton de Schwyz dispose d\'une caisse de compensation qui gère les prestations AVS et complémentaires pour ses habitants.',
     'blog.article.avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione.imageAlt': 'Image d\'un paysage hivernal dans le Canton de Schwyz',
+    'blog.article.abbonamenti-trasporti-svitto.title': 'Abonnements transports publics Schwyz : zones et tarifs',
+    'blog.article.abbonamenti-trasporti-svitto.excerpt': 'Guide complet des abonnements, des zones tarifaires et des réductions pour les transports publics dans le canton de Schwyz.',
+    'blog.article.abbonamenti-trasporti-svitto.imageAlt': 'Abonnements de transports publics et tarifs dans le canton de Schwytz',
 };
 
 export default blogMetaChFr;
