@@ -2767,6 +2767,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eclissi-danni-retina.title': 'The solar eclipse and those damages to the retina that can go unnoticed',
     'blog.article.eclissi-danni-retina.excerpt': 'Swiss eye studies register an increase in requests after Wednesday\'s solar eclipse.',
     'blog.article.eclissi-danni-retina.imageAlt': 'Person wearing sunglasses while observing a solar eclipse',
+    'blog.article.multa-treni-zurigo-corruzione.title': 'Avoid the fine with 20 francs: 61-year-old convicted in Zurich',
+    'blog.article.multa-treni-zurigo-corruzione.excerpt': 'A passenger tried to bribe a railway controller with a 20-franc note to avoid a penalty. Now he faces a heavy criminal sentence.',
+    'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Train controller on duty on an SBB train in Zurich',
 };
 
 export default blogMetaChEn;

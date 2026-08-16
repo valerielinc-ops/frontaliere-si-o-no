@@ -948,6 +948,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tendicione-arresti-veicoli-ricerca-2024': { it: 'tendicione-arresti-veicoli-ricerca-2024', en: 'tendicione-arresti-veicoli-2024', de: 'tendicione-arresti-veicoli-2024', fr: 'tendicione-arresti-veicoli-2024' },
  'sanzioni-onu-aggiornamento-2026': { it: 'sanzioni-onu-aggiornamento-2026', en: 'sanctions-2026-aggiornamento', de: 'sanktionen-2026-aktualisierung', fr: 'sanctions-2026-mise-a-jour' },
  'eclissi-danni-retina': { it: 'eclissi-danni-retina', en: 'solar-eclipse-eye-damage', de: 'sonnenfinsternis-augen-schaden', fr: 'eclipse-solaire-blessures-oculaires' },
+ 'multa-treni-zurigo-corruzione': { it: 'multa-treni-zurigo-corruzione', en: 'zurich-train-fine-bribery', de: 'zuerich-zugbusse-bestechung', fr: 'zurich-amende-train-corruption' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

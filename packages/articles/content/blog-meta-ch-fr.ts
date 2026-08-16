@@ -2767,6 +2767,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eclissi-danni-retina.title': 'L\'éclipse solaire et les dommages à la rétine qui peuvent passer inaperçus',
     'blog.article.eclissi-danni-retina.excerpt': 'Les cabinets d\'ophtalmologie suisses enregistrent une augmentation des demandes après l\'éclipse solaire de mercredi.',
     'blog.article.eclissi-danni-retina.imageAlt': 'Personne portant des lunettes de soleil en observant un éclipse solaire',
+    'blog.article.multa-treni-zurigo-corruzione.title': 'Il évite l\'amende de 20 francs : condamné à 61 ans à Zurich',
+    'blog.article.multa-treni-zurigo-corruzione.excerpt': 'Un passager a tenté de corrompre un contrôleur ferroviaire avec un billet de 20 francs pour éviter une sanction. Maintenant, il fait face à une lourde condamnation pénale.',
+    'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Contrôleur de train en service sur un train des CFF à Zurich',
 };
 
 export default blogMetaChFr;
