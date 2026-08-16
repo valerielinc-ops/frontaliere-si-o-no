@@ -2854,6 +2854,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-svitto.title': 'Svitto sick pay premiums: bands, deductibles and subsidies',
     'blog.article.premi-cassa-malati-svitto.excerpt': 'Analysis of compulsory health insurance premiums in the Canton of Schwyz: premium brackets, deductibles, models and requirements for reduction.',
     'blog.article.premi-cassa-malati-svitto.imageAlt': 'Health insurance premiums and reduction in Schwyz',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Residence permits C in the Canton of Schwyz: requirements and application',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'To obtain a residence permit C in the Canton of Schwyz, border workers must comply with certain requirements and follow a specific procedure.',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'A frontalier enjoys the view of Lake Lugano.',
 };
 
 export default blogMetaChEn;

@@ -977,6 +977,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-di-guida-cantone-uri-conversione-ed-esami': { it: 'patente-di-guida-cantone-uri-conversione-ed-esami', en: 'driver-s-license-in-uri-conversion-and-exams', de: 'fuhrerschein-in-uri-umstellung-und-prufungen', fr: 'permis-de-conduire-en-uri-conversion-et-examens' },
  'imposte-cantonal-svitto-aliquote-deduzioni': { it: 'imposte-cantonal-svitto-aliquote-deduzioni', en: 'cantonal-taxes-svitto-rates-deductions', de: 'kantonale-steuern-svitto-steuersaetze-abzuege', fr: 'impots-cantonaux-svitto-taux-deductions' },
  'premi-cassa-malati-svitto': { it: 'premi-cassa-malati-svitto', en: 'schwyz-health-insurance-premiums', de: 'krankenkassenpraemien-schwyz', fr: 'primes-assurance-maladie-schwytz' },
+ 'permesso-di-domicilio-c-canton-svitto': { it: 'permesso-di-domicilio-c-canton-svitto', en: 'residence-permits-c-in-the-canton-of-schwyz-requirements-and-application', de: 'niederlassungsbewilligungen-c-im-kanton-schwyz-voraussetzungen-und-antrag', fr: 'permis-de-sejour-c-dans-le-canton-de-schwyz-exigences-et-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

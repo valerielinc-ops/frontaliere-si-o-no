@@ -2854,6 +2854,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-svitto.title': 'Krankenkassenprämien Schwyz: Zeitabschnitte, Franchisen und Zuschüsse',
     'blog.article.premi-cassa-malati-svitto.excerpt': 'Prämienanalyse der obligatorischen Krankenversicherung im Kanton Schwyz: Prämienspannen, Franchisen, Modelle und Reduktionsvoraussetzungen.',
     'blog.article.premi-cassa-malati-svitto.imageAlt': 'Krankenkassenpraemien und Praemienverbilligung in Schwyz',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Niederlassungsbewilligungen C im Kanton Schwyz: Voraussetzungen und Antrag',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'Um eine Niederlassungsbewilligung C im Kanton Schwyz zu erhalten, müssen Grenzgänger bestimmte Voraussetzungen erfüllen und ein bestimmtes Verfahren einhalten.',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'Ein Frontalier geniesst die Aussicht auf den Luganersee.',
 };
 
 export default blogMetaChDe;

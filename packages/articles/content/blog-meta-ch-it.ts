@@ -2854,6 +2854,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-svitto.title': 'Premi cassa malati Svitto: fasce, franchigie e sussidi',
     'blog.article.premi-cassa-malati-svitto.excerpt': 'Analisi dei premi dell\'assicurazione malattia obbligatoria nel Cantone di Svitto: fasce di premio, franchigie, modelli e requisiti per la riduzione.',
     'blog.article.premi-cassa-malati-svitto.imageAlt': 'Premi cassa malati e riduzione nel cantone Svitto',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Permessi di domicilio C nel Cantone di Svitto: requisiti e domanda',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'Per ottenere un permesso di domicilio C nel Cantone di Svitto, i frontalieri devono rispettare determinati requisiti e seguire una procedura specifica.',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'Un frontaliere si godono la vista sul Lago di Lugano.',
 };
 
 export default blogMetaChIt;

@@ -8560,6 +8560,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-di-domicilio-c-canton-svitto',
+    category: 'fiscale',
+    date: '2026-08-16T11:13:39.319Z',
+    image: '/images/blog/permesso-di-domicilio-c-canton-svitto.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -36992,6 +36992,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-di-domicilio-c-canton-svitto': {
+    title: 'Permessi di domicilio C nel Cantone di Svitto: requisiti e domanda',
+    description: 'Per ottenere un permesso di domicilio C nel Cantone di Svitto, i frontalieri devono rispettare determinati requisiti e seguire una procedura specifica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, domicilio, cantone, svitto',
+    ogTitle: 'Permessi di domicilio C nel Cantone di Svitto: requisiti e domanda',
+    ogDescription: 'Per ottenere un permesso di domicilio C nel Cantone di Svitto, i frontalieri devono rispettare determinati requisiti e seguire una procedura specifica.',
+    canonicalPath: '/articoli-svizzera/permesso-di-domicilio-c-canton-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi di domicilio C nel Cantone di Svitto: requisiti e domanda",
+      "description": "Per ottenere un permesso di domicilio C nel Cantone di Svitto, i frontalieri devono rispettare determinati requisiti e seguire una procedura specifica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-domicilio-c-canton-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere si godono la vista sul Lago di Lugano."
+      },
+      "datePublished": "2026-08-16T11:13:39+00:00",
+      "dateModified": "2026-08-16T11:13:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-domicilio-c-canton-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
