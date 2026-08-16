@@ -2952,7 +2952,7 @@
         "it": "chef-zenbu-sushi-two-spice-ag-dietlikon",
         "en": "zenbu-sushi-chef-two-spice-ag-dietlikon",
         "de": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11",
-        "fr": "chef-de-sushi-zenbu-two-spice-ag-dietlikon-7cb05d"
+        "fr": "chef-sushi-zenbu-two-spice-ag-dietlikon"
       },
       "needsRetranslation": true,
       "addressLocality": "Dietlikon",
@@ -2977,12 +2977,14 @@
           "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11"
         ],
         "fr": [
-          "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11"
+          "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11",
+          "chef-de-sushi-zenbu-two-spice-ag-dietlikon-7cb05d"
         ]
       },
       "previousSlugs": [
         "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11",
-        "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon"
+        "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon",
+        "chef-de-sushi-zenbu-two-spice-ag-dietlikon-7cb05d"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -12773,7 +12775,7 @@
         "it": "polidesigner-3d-coop-genossenschaft-luzern",
         "en": "3d-poly-designer-coop-genossenschaft-luzern",
         "de": "polydesigner-in-3d-coop-city-luzern-ukijwi",
-        "fr": "designer-polyvalent-3d-coop-genossenschaft-luzern"
+        "fr": "concepteur-3d-polyvalent-coop-genossenschaft-luzern"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -12792,7 +12794,8 @@
       "retranslationAttempts": 2,
       "previousSlugs": [
         "polydesigner-in-3d-coop-city-luzern",
-        "polydesigner-in-3d-coop-city-luzern-ukijwi"
+        "polydesigner-in-3d-coop-city-luzern-ukijwi",
+        "designer-polyvalent-3d-coop-genossenschaft-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12803,7 +12806,8 @@
           "polydesigner-in-3d-coop-city-luzern-ukijwi"
         ],
         "fr": [
-          "polydesigner-in-3d-coop-city-luzern-ukijwi"
+          "polydesigner-in-3d-coop-city-luzern-ukijwi",
+          "designer-polyvalent-3d-coop-genossenschaft-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -173171,7 +173175,7 @@
         "it": "venditore-in-prodotti-freschi-incl-produzione-coop-genossenschaft-herzogenbuchsee",
         "en": "seller-in-fresh-products-incl-production-coop-genossenschaft-herzogenbuchsee",
         "de": "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4",
-        "fr": "vendeur-vendeuse-produits-frais-avec-production-coop-genossenschaft-herzogenbuchsee-bern"
+        "fr": "vendeur-vendeuse-de-produits-frais-incluant-la-production-coop-genossenschaft-herzogenbuchsee-bern"
       },
       "addressLocality": "Herzogenbuchsee",
       "addressRegion": "BE",
@@ -173199,7 +173203,8 @@
           "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4"
         ],
         "fr": [
-          "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4"
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4",
+          "vendeur-vendeuse-produits-frais-avec-production-coop-genossenschaft-herzogenbuchsee-bern"
         ]
       },
       "previousSlugs": [
@@ -173207,7 +173212,8 @@
         "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4",
         "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern",
         "addetto-a-alla-vendita-prodotti-freschi-incl-produzione-coop-genossenschaft-herzogenbuchsee",
-        "venditore-di-prodotti-freschi-inclusa-la-produzione-coop-genossenschaft-herzogenbuchsee"
+        "venditore-di-prodotti-freschi-inclusa-la-produzione-coop-genossenschaft-herzogenbuchsee",
+        "vendeur-vendeuse-produits-frais-avec-production-coop-genossenschaft-herzogenbuchsee-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -221382,7 +221388,7 @@
       },
       "slugByLocale": {
         "it": "stv-rayonleiter-in-convenienza-macellaio-coop-genossenschaft-chur",
-        "en": "deputy-department-manager-convenience-butcher-shop-coop-genossenschaft-chur",
+        "en": "deputy-section-manager-convenience-butchery-coop-genossenschaft-chur",
         "de": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
         "fr": "stv-rayonleiter-dans-la-commodite-boucher-coop-genossenschaft-chur"
       },
@@ -221411,12 +221417,14 @@
           "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9"
         ],
         "en": [
-          "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9"
+          "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
+          "deputy-department-manager-convenience-butcher-shop-coop-genossenschaft-chur"
         ]
       },
       "previousSlugs": [
         "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
-        "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden"
+        "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden",
+        "deputy-department-manager-convenience-butcher-shop-coop-genossenschaft-chur"
       ],
       "retranslationAttempts": 1
     },
