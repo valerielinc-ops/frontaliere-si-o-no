@@ -2956,6 +2956,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AHV im Kanton Obwalden: die Ausgleichskasse',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Der Kanton Obwalden führt die kantonale Ausgleichskasse. Die Ergänzungsleistungen der AHV sind entscheidend für die Sicherstellung eines Existenzminimums.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'Der Artikel beleuchtet die ergänzenden Leistungen der AVS im Kanton Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Abonnements für öffentliche Verkehrsmittel Kanton Obwalden: Zonen und Tarife',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Informationen zu den Abos des Kantons Obwalden inkl. Zonen und Tarife.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Bild eines Frontalierers, der ein Pass des Kantons Obvaldo nutzt',
 };
 
 export default blogMetaChDe;

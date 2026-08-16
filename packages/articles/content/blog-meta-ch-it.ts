@@ -2956,6 +2956,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS nel Cantone di Obvaldo: la cassa di compensazione',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Il Cantone di Obvaldo gestisce la cassa di compensazione cantonale. Le prestazioni complementari dell\'AVS sono cruciali per garantire un minimo vitale.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'L\'articolo approfondisce le prestazioni complementari dell\'AVS nel Cantone di Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Immagine di un frontaliere che utilizza un abbonamento del Canton Obvaldo',
 };
 
 export default blogMetaChIt;

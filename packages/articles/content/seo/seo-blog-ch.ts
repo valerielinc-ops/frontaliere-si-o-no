@@ -38318,6 +38318,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-obvaldo-abbonamenti-trasporti': {
+    title: 'Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe',
+    description: 'Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, pubblici, canton',
+    ogTitle: 'Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe',
+    ogDescription: 'Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe.',
+    canonicalPath: '/articoli-svizzera/obvaldo-abbonamenti-trasporti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe",
+      "description": "Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/obvaldo-abbonamenti-trasporti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che utilizza un abbonamento del Canton Obvaldo"
+      },
+      "datePublished": "2026-08-16T18:43:33+00:00",
+      "dateModified": "2026-08-16T18:43:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/obvaldo-abbonamenti-trasporti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
