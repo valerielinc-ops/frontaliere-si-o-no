@@ -2983,6 +2983,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Allocations familiales dans le canton de Nidwald : montants et demande',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Les allocations familiales dans le canton de Nidwald : montants mensuels par enfant, conditions de droit et procédure de demande.',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Image d\'un père qui tient son enfant dans ses bras, avec un plan d\'arrière-plan avec le logo du Canton Nidvaldo.',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Système scolaire canton de Nidwald : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'Les cycles scolaires et les délais d\'inscription dans le canton de Nidwald',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'Une école primaire dans le canton de Nidwald',
 };
 
 export default blogMetaChFr;

@@ -2983,6 +2983,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.title': 'Assegni familiari in Canton Nidvaldo: importi e domanda',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.excerpt': 'Gli assegni familiari in Canton Nidvaldo: importi mensili per figlio, condizioni di diritto e procedura di domanda.',
     'blog.article.assegni-familiari-canton-nidvaldo-importi-e-domanda.imageAlt': 'Immagine di un padre che tiene in braccio il figlio, con un piano dietro di loro con il logo del Canton Nidvaldo.',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Sistema scolastico Canton Nidvaldo: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'I cicli scolastici e le scadenze per l\'iscrizione nel Canton Nidvaldo',
+    'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'Una scuola primaria nel Canton Nidvaldo',
 };
 
 export default blogMetaChIt;
