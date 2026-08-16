@@ -2952,7 +2952,7 @@
         "it": "chef-zenbu-sushi-two-spice-ag-dietlikon",
         "en": "zenbu-sushi-chef-two-spice-ag-dietlikon",
         "de": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11",
-        "fr": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11"
+        "fr": "chef-de-sushi-zenbu-two-spice-ag-dietlikon-7cb05d"
       },
       "needsRetranslation": true,
       "addressLocality": "Dietlikon",
@@ -2974,6 +2974,9 @@
           "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon"
         ],
         "en": [
+          "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11"
+        ],
+        "fr": [
           "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11"
         ]
       },
@@ -12770,7 +12773,7 @@
         "it": "polidesigner-3d-coop-genossenschaft-luzern",
         "en": "3d-poly-designer-coop-genossenschaft-luzern",
         "de": "polydesigner-in-3d-coop-city-luzern-ukijwi",
-        "fr": "polydesigner-in-3d-coop-city-luzern-ukijwi"
+        "fr": "designer-polyvalent-3d-coop-genossenschaft-luzern"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -12797,6 +12800,9 @@
           "polydesigner-in-3d-coop-city-luzern-ukijwi"
         ],
         "en": [
+          "polydesigner-in-3d-coop-city-luzern-ukijwi"
+        ],
+        "fr": [
           "polydesigner-in-3d-coop-city-luzern-ukijwi"
         ]
       },
@@ -173165,7 +173171,7 @@
         "it": "venditore-in-prodotti-freschi-incl-produzione-coop-genossenschaft-herzogenbuchsee",
         "en": "seller-in-fresh-products-incl-production-coop-genossenschaft-herzogenbuchsee",
         "de": "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4",
-        "fr": "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4"
+        "fr": "vendeur-vendeuse-produits-frais-avec-production-coop-genossenschaft-herzogenbuchsee-bern"
       },
       "addressLocality": "Herzogenbuchsee",
       "addressRegion": "BE",
@@ -173190,6 +173196,9 @@
           "venditore-di-prodotti-freschi-inclusa-la-produzione-coop-genossenschaft-herzogenbuchsee"
         ],
         "en": [
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4"
+        ],
+        "fr": [
           "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-llgjp4"
         ]
       },
@@ -219919,6 +219928,8 @@
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -219938,13 +219949,13 @@
           "verkaufer-in-food-inkl-kasse-coop-city-basel-stadt-0vnzm7",
           "seller-food-incl-cashier-coop-genossenschaft-basel"
         ],
-        "de": [
-          "verkaufer-in-food-inkl-kasse-coop-genossenschaft-basel-0vnzm7",
-          "verkaufer-in-food-inkl-kasse-coop-city-basel-stadt-0vnzm7"
-        ],
         "fr": [
           "verkaufer-in-food-inkl-kasse-coop-city-basel-stadt-0vnzm7",
           "vendeur-alimentation-incl-caissier-coop-genossenschaft-basel"
+        ],
+        "de": [
+          "verkaufer-in-food-inkl-kasse-coop-genossenschaft-basel-0vnzm7",
+          "verkaufer-in-food-inkl-kasse-coop-city-basel-stadt-0vnzm7"
         ]
       },
       "previousSlugs": [
@@ -219953,9 +219964,7 @@
         "seller-food-incl-cashier-coop-genossenschaft-basel",
         "vendeur-alimentation-incl-caissier-coop-genossenschaft-basel",
         "verkaufer-in-food-inkl-kasse-coop-genossenschaft-basel-0vnzm7"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-mdoy51",
@@ -220444,6 +220453,8 @@
       "addressLocality": "Baden",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220463,13 +220474,13 @@
           "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3",
           "food-sales-associate-dairy-eggs-cheese-coop-genossenschaft-baden"
         ],
-        "de": [
-          "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3",
-          "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3"
-        ],
         "fr": [
           "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3",
           "vendeur-vendeuse-produits-alimentaires-produits-laitiers-ufs-fromages-coop-genossenschaft-baden"
+        ],
+        "de": [
+          "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3",
+          "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3"
         ]
       },
       "previousSlugs": [
@@ -220479,9 +220490,7 @@
         "vendeur-vendeuse-produits-alimentaires-produits-laitiers-ufs-fromages-coop-genossenschaft-baden",
         "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "needsRetranslation": true
     },
     {
       "id": "company-9n1tta",
@@ -220669,6 +220678,8 @@
       "addressLocality": "Uster",
       "sourceLang": "de",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220688,13 +220699,13 @@
           "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd",
           "section-leader-basic-foodstuffs-coop-genossenschaft-uster"
         ],
-        "de": [
-          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-uster-46yxvd",
-          "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd"
-        ],
         "fr": [
           "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd",
           "responsable-de-rayon-produits-alimentaires-de-base-coop-genossenschaft-uster"
+        ],
+        "de": [
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-uster-46yxvd",
+          "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd"
         ]
       },
       "previousSlugs": [
@@ -220703,9 +220714,7 @@
         "section-leader-basic-foodstuffs-coop-genossenschaft-uster",
         "responsable-de-rayon-produits-alimentaires-de-base-coop-genossenschaft-uster",
         "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-uster-46yxvd"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-ei3a4z",
@@ -220863,6 +220872,8 @@
       "addressLocality": "Suhr",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -220883,13 +220894,13 @@
           "verkaufer-in-food-coop-suhr-aargau-e6r75l",
           "food-salesperson-coop-genossenschaft-suhr"
         ],
-        "de": [
-          "verkaufer-in-food-coop-genossenschaft-suhr-e6r75l",
-          "verkaufer-in-food-coop-suhr-aargau-e6r75l"
-        ],
         "fr": [
           "verkaufer-in-food-coop-suhr-aargau-e6r75l",
           "vendeur-vendeuse-alimentaire-coop-genossenschaft-suhr"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-suhr-e6r75l",
+          "verkaufer-in-food-coop-suhr-aargau-e6r75l"
         ]
       },
       "previousSlugs": [
@@ -220900,9 +220911,7 @@
         "verkaufer-in-food-coop-genossenschaft-suhr",
         "verkaufer-in-food-coop-genossenschaft-suhr-e6r75l"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "needsRetranslation": true
     },
     {
       "id": "company-4ebiud",
@@ -221064,6 +221073,8 @@
       "addressLocality": "Winterthur",
       "sourceLang": "de",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221085,13 +221096,13 @@
           "verkaufer-in-food-coop-winterthur-zurich-na2hgc",
           "food-sales-person-coop-genossenschaft-winterthur"
         ],
-        "de": [
-          "verkaufer-in-food-coop-genossenschaft-winterthur-na2hgc",
-          "verkaufer-in-food-coop-winterthur-zurich-na2hgc"
-        ],
         "fr": [
           "verkaufer-in-food-coop-winterthur-zurich-na2hgc",
           "vendeur-vendeuse-alimentation-coop-genossenschaft-winterthur"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-winterthur-na2hgc",
+          "verkaufer-in-food-coop-winterthur-zurich-na2hgc"
         ]
       },
       "previousSlugs": [
@@ -221103,9 +221114,7 @@
         "venditore-venditrice-alimentari-coop-genossenschaft-andermatt",
         "verkaufer-in-food-coop-genossenschaft-winterthur-na2hgc"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "needsRetranslation": true
     },
     {
       "id": "company-4tso92",
@@ -221163,6 +221172,8 @@
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -221198,17 +221209,17 @@
           "sales-assistant-food-coop-genossenschaft-meisterschwanden-p42k5e",
           "sales-assistant-food-coop-genossenschaft-menzingen-fsluib"
         ],
-        "de": [
-          "verkaufer-in-food-coop-meisterschwanden-aargau-p42k5e",
-          "verkaufer-in-food-coop-menzingen-zug-fsluib",
-          "verkaufer-in-food-coop-genossenschaft-basel-4tso92",
-          "verkaufer-in-food-coop-basel-stadt-4tso92"
-        ],
         "fr": [
           "verkaufer-in-food-coop-basel-stadt-4tso92",
           "vendeur-vendeuse-food-coop-genossenschaft-basel",
           "vendeur-euse-food-coop-genossenschaft-meisterschwanden-p42k5e",
           "vendeur-euse-food-coop-genossenschaft-menzingen-fsluib"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-meisterschwanden-aargau-p42k5e",
+          "verkaufer-in-food-coop-menzingen-zug-fsluib",
+          "verkaufer-in-food-coop-genossenschaft-basel-4tso92",
+          "verkaufer-in-food-coop-basel-stadt-4tso92"
         ]
       },
       "previousSlugs": [
@@ -221231,9 +221242,7 @@
         "verkaufer-in-food-coop-genossenschaft-basel-8510f5",
         "verkaufer-in-food-coop-genossenschaft-basel-ks4hax",
         "verkaufer-in-food-coop-genossenschaft-basel-4tso92"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-deb82q",
@@ -221373,7 +221382,7 @@
       },
       "slugByLocale": {
         "it": "stv-rayonleiter-in-convenienza-macellaio-coop-genossenschaft-chur",
-        "en": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
+        "en": "deputy-department-manager-convenience-butcher-shop-coop-genossenschaft-chur",
         "de": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
         "fr": "stv-rayonleiter-dans-la-commodite-boucher-coop-genossenschaft-chur"
       },
@@ -221399,6 +221408,9 @@
           "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden"
         ],
         "fr": [
+          "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9"
+        ],
+        "en": [
           "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9"
         ]
       },
