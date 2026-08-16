@@ -2791,6 +2791,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-uri.title': 'Lehre und Ausbildung im Kanton Uri',
     'blog.article.apprendistato-formazione-professionale-canton-uri.excerpt': 'Hier finden Sie die wichtigsten Fakten zur Lehre und Berufsbildung im Kanton Uri: Wie finden Sie eine Lehrstelle, einen Lehrvertrag, die Lehrlingsvergütung und die Berufsmaturität.',
     'blog.article.apprendistato-formazione-professionale-canton-uri.imageAlt': 'Eine Aussicht auf Lugano, Schweiz, die die Bedeutung der Berufsausbildung und des Praktikums im Kanton Uri hervorhebt.',
+    'blog.article.asilo-nido-custodia-bambini-canton-uri.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Uri: Kosten und Leistungen',
+    'blog.article.asilo-nido-custodia-bambini-canton-uri.excerpt': 'Der Kanton Uri bietet Kinderkrippen und Kinderbetreuungseinrichtungen an, aber was ist zu erwarten und wie funktionieren sie?',
+    'blog.article.asilo-nido-custodia-bambini-canton-uri.imageAlt': 'Immagini di asili nido e servizi di custodia bambini nella Canton Uri',
 };
 
 export default blogMetaChDe;
