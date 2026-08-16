@@ -3001,6 +3001,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Scholarships Canton Grisons requirements and amounts',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'The State Council of the Canton of Graubünden has announced the availability of scholarships for deserving students.',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Editorial image related to: Borse di studio Canton Grigioni requisiti e importi',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Canton Nidvaldo Scholarships: Requirements and Amounts',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Requirements and maximum amounts for scholarships in the Canton of Nidvaldo.',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Borse di studio for students in the Canton of Nidvaldo',
 };
 
 export default blogMetaChEn;

@@ -3001,6 +3001,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.title': 'Stipendien Kanton Graubünden Voraussetzungen und Beträge',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.excerpt': 'Der Regierungsrat des Kantons Graubünden hat die Verfügbarkeit von Stipendien für verdienstvolle Studierende bekannt gegeben.',
     'blog.article.borse-di-studio-grigioni-requisiti-e-importi.imageAlt': 'Redaktionelles Bild zu: Borse di studio Canton Grigioni requisiti e importi',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.title': 'Stipendien Kanton Nidwalden: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.excerpt': 'Voraussetzungen und Höchstbeträge für Stipendien im Kanton Nidwalden.',
+    'blog.article.borse-studio-canton-nidvaldo-requisiti-e-importi.imageAlt': 'Borse di studio für Studenten im Kanton Nidvaldo',
 };
 
 export default blogMetaChDe;
