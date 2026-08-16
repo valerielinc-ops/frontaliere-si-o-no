@@ -8470,6 +8470,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'naturalizzazione-canton-uri-requisiti-e-procedura',
+    category: 'pratico',
+    date: '2026-08-16T09:36:56.372Z',
+    image: '/images/blog/naturalizzazione-canton-uri-requisiti-e-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'incidente-bici-rapperswil-jona',
+    category: 'novita',
+    date: '2026-08-16T09:44:01.975Z',
+    image: '/images/blog/incidente-bici-rapperswil-jona.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'aprire-attivita-canton-uri-registro-di-commercio-e-costi',
+    category: 'fiscale',
+    date: '2026-08-16T09:58:24.486Z',
+    image: '/images/blog/aprire-attivita-canton-uri-registro-di-commercio-e-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

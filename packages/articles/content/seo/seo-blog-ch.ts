@@ -36602,6 +36602,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-canton-uri-requisiti-e-procedura': {
+    title: 'Naturalizzazione canton Uri: requisiti e procedura',
+    description: 'I requisiti e la procedura per la naturalizzazione nel canton Uri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, requisiti, procedura',
+    ogTitle: 'Naturalizzazione canton Uri: requisiti e procedura',
+    ogDescription: 'I requisiti e la procedura per la naturalizzazione nel canton Uri.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-uri-requisiti-e-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione canton Uri: requisiti e procedura",
+      "description": "I requisiti e la procedura per la naturalizzazione nel canton Uri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-uri-requisiti-e-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che cerca di ottenere la cittadinanza svizzera a Lugano."
+      },
+      "datePublished": "2026-08-16T09:36:56+00:00",
+      "dateModified": "2026-08-16T09:36:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-uri-requisiti-e-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incidente-bici-rapperswil-jona': {
+    title: 'Cade dalla bici a Rapperswil-Jona: grave una 43enne',
+    description: 'Grave incidente in bicicletta a Rapperswil-Jona: donna di 43 anni ferita in pericolo di vita trasportata in ospedale dalla Rega. I dettagli della notizia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cade, dalla, bici, rapperswil-jona',
+    ogTitle: 'Cade dalla bici a Rapperswil-Jona: grave una 43enne soccorsa dalla Rega',
+    ogDescription: 'Drammatico incidente nella notte a Rapperswil-Jona. Una donna di 43 anni è caduta dalla bicicletta senza indossare il casco ed è stata trasportata in ospedale dalla Rega in pericolo di vita.',
+    canonicalPath: '/articoli-svizzera/incidente-bici-rapperswil-jona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cade dalla bici a Rapperswil-Jona: grave una 43enne",
+      "description": "Grave incidente in bicicletta a Rapperswil-Jona: donna di 43 anni ferita in pericolo di vita trasportata in ospedale dalla Rega. I dettagli della notizia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-bici-rapperswil-jona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elicottero di soccorso in intervento in Svizzera"
+      },
+      "datePublished": "2026-08-16T09:44:01+00:00",
+      "dateModified": "2026-08-16T09:44:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-bici-rapperswil-jona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-canton-uri-registro-di-commercio-e-costi': {
+    title: 'Avviare un\'attività nel Cantone di Uri: cosa serve',
+    description: 'Cosa bisogna sapere per aprire un\'attività nel Cantone di Uri. Istruzioni sulla scelta della forma giuridica, registrazione al registro di commercio, capitale',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, cantone, cosa',
+    ogTitle: 'Aprire un\'attività nel Cantone di Uri: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    ogDescription: 'Cosa bisogna sapere per aprire un\'attività nel Cantone di Uri. Istruzioni sulla scelta della forma giuridica, registrazione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-uri-registro-di-commercio-e-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività nel Cantone di Uri: cosa serve",
+      "description": "Cosa bisogna sapere per aprire un'attività nel Cantone di Uri. Istruzioni sulla scelta della forma giuridica, registrazione al registro di commercio, capitale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-uri-registro-di-commercio-e-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano da nord-est"
+      },
+      "datePublished": "2026-08-16T09:58:24+00:00",
+      "dateModified": "2026-08-16T09:58:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-uri-registro-di-commercio-e-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
