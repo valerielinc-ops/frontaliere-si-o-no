@@ -2995,6 +2995,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-2026.title': 'Tirocini e formazione nel Cantone di Nidvaldo',
     'blog.article.apprendistato-nidvaldo-2026.excerpt': 'Il Cantone di Nidvaldo offre programmi di formazione professionale per giovani adulti.',
     'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'Un giovane adulto in un programma di formazione professionale, guarda lo schermo di un laptop con un\'espressione perplessa, in una vista di Lugano.',
+    'blog.article.apprendistato-nidvaldo-fatti.title': 'Apprendistato e formazione nel Cantone di Nidvaldo',
+    'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'Il Cantone di Nidvaldo offre opportunità di formazione professionale ai giovani e agli adulti. Scopri come si trova un posto di tirocinio, come si negozia il contratto di tirocinio, come si calcola la retribuzione dell\'apprendista e come si raggiunge la maturità professionale.',
+    'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'Un giovane in un\'attività di formazione presso un\'azienda locale nel Cantone di Nidvaldo, Svizzera, che cerca un lavoro nel campo correlato.',
 };
 
 export default blogMetaChIt;

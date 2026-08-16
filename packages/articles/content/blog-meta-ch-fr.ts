@@ -2995,6 +2995,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-2026.title': 'Stages et formation dans le canton de Nidwald',
     'blog.article.apprendistato-nidvaldo-2026.excerpt': 'Le canton de Nidwald propose des programmes de formation professionnelle pour jeunes adultes.',
     'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'Un jeune adulte dans un programme de formation professionnelle, regarde l\'écran d\'un ordinateur portable avec une expression perplexe, dans un paysage urbain de Lugano.',
+    'blog.article.apprendistato-nidvaldo-fatti.title': 'Apprentissage et formation dans le canton de Nidwald',
+    'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'Le canton de Nidwald offre des possibilités de formation professionnelle aux jeunes et aux adultes. Découvrez comment trouver un lieu de stage, comment négocier le contrat de stage, comment calculer la rémunération de l\'apprenti et comment atteindre la maturité professionnelle.',
+    'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'Un jeune personne en position de formation dans une entreprise locale dans le Canton de Nidvaldo, Suisse, cherchant un emploi dans un domaine connexe.',
 };
 
 export default blogMetaChFr;
