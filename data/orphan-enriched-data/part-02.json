@@ -2950,7 +2950,7 @@
         {
           "query": "altenpfleger jobs lugano",
           "clicks": 0,
-          "impressions": 36
+          "impressions": 38
         },
         {
           "query": "altenpfleger zürich",
@@ -3043,7 +3043,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 173,
+      "totalImpressions": 175,
       "totalClicks": 0,
       "topQuery": "altenpfleger bern",
       "title": "Altenpflege",
@@ -10771,10 +10771,10 @@
         "fr": "butcher-meat-specialist-coop-genossenschaft-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/butcher-meat-specialist-coop-genossenschaft-egerkingen",
-        "en": "/en/find-jobs-solothurn/butcher-meat-specialist-coop-genossenschaft-egerkingen",
+        "it": "/cerca-lavoro-argovia/butcher-meat-specialist-coop-genossenschaft-egerkingen",
+        "en": "/en/find-jobs-aargau/butcher-meat-specialist-coop-genossenschaft-egerkingen",
         "de": "/de/jobs-im-solothurn/butcher-meat-specialist-coop-genossenschaft-egerkingen",
-        "fr": "/fr/trouver-emploi-soleure/butcher-meat-specialist-coop-genossenschaft-egerkingen"
+        "fr": "/fr/trouver-emploi-argovie/butcher-meat-specialist-coop-genossenschaft-egerkingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13517,6 +13517,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-thurgovie/chef-cheffe-m-w-d-coop-genossenschaft-romanshorn/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-thurgovie/chef-cheffe-m-w-d-coop-genossenschaft-romanshorn/"
+      },
+      "queries": [
+        {
+          "query": "coop jobs thurgau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop jobs thurgau",
+      "title": "Chef cheffe coop genossenschaft romanshorn",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+        "en": "chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+        "de": "chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+        "fr": "chef-cheffe-m-w-d-coop-genossenschaft-romanshorn"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+        "en": "/en/find-jobs-thurgau/chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+        "de": "/de/jobs-im-thurgau/chef-cheffe-m-w-d-coop-genossenschaft-romanshorn",
+        "fr": "/fr/trouver-emploi-thurgovie/chef-cheffe-m-w-d-coop-genossenschaft-romanshorn"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -78394,10 +78451,10 @@
         "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-murten"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten",
-        "en": "/en/find-jobs-fribourg/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten",
+        "it": "/cerca-lavoro-argovia/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten",
+        "en": "/en/find-jobs-aargau/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten",
         "de": "/de/jobs-im-freiburg/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten",
-        "fr": "/fr/trouver-emploi-fribourg/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten"
+        "fr": "/fr/trouver-emploi-argovie/vendeur-vendeuse-alimentaire-coop-genossenschaft-murten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78503,10 +78560,10 @@
         "fr": "vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5"
+        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5",
+        "en": "/en/find-jobs-zurich/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5",
+        "de": "/de/jobs-in-zurich/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-caisse-services-etudiant-coop-genossenschaft-zurich-w8dke5"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78720,10 +78777,10 @@
         "fr": "vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1"
+        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1",
+        "en": "/en/find-jobs-zurich/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1",
+        "de": "/de/jobs-in-zurich/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-en-alimentation-coop-genossenschaft-winterthur-b43fd1"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
