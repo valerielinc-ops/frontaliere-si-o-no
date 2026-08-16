@@ -2842,6 +2842,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.title': 'URI : taux de succession et de donation par degré de parenté',
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.excerpt': 'Droits de succession et de donation dans le canton d\'Uri : taux par degré de parenté',
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.imageAlt': 'Locarno, Suisse: photographie d\'un bâtiment historique avec un panneau indiquant la somme d\'une succession',
+    'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Salaires et marché du travail à URI : qui embauche et conventions collectives',
+    'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'Le canton d\'Uri a un taux d\'emploi élevé et une forte demande de travail. Les secteurs qui recrutent le plus sont l\'industrie, la construction et les services.',
+    'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Image d\'un lieu de travail en Uri',
 };
 
 export default blogMetaChFr;
