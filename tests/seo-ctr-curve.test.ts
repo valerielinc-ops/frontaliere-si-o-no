@@ -9,6 +9,7 @@ import {
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 describe('seo-ctr-curve (issue #4300)', () => {
   describe('expectedCtrForPosition', () => {
@@ -119,6 +120,37 @@ describe('seo-ctr-curve (issue #4300)', () => {
       for (const family of SEO_CTR_FAMILIES) {
         expect(['template', 'locale'], `${family.id}: kind sconosciuto`).toContain(family.kind);
       }
+    });
+
+    it('carries pathAliases for every locale slug of a top-level template family (issue #5964)', () => {
+      // Automates the manual audit issue #5964 asked for: any registered
+      // template family whose `pathContains` matches a top-level
+      // `SLUG_TABLES.it` key (the shape (b) prefix-kept-translated-segment
+      // families like `guida-frontaliere`/`tasse-e-pensione`, and the
+      // shape (a) prefix-dropped families like `articoli-frontaliere`/
+      // `cerca-lavoro-ticino`) must list the en/de/fr translated slug for
+      // that same key in `pathAliases` — otherwise each locale variant rolls
+      // up as its own "unregistered family" once it crosses the volume
+      // threshold on its own (see field docs above, issue #5961). This test
+      // turns the one-off audit into a permanent guard against re-drift.
+      const itSlugToKey = Object.fromEntries(
+        Object.entries(SLUG_TABLES.it).map(([key, slug]) => [slug, key]),
+      );
+      const offenders = [];
+      for (const family of SEO_CTR_FAMILIES) {
+        if (family.kind !== 'template') continue;
+        const itSlug = family.pathContains.replace(/^\/|\/$/g, '');
+        const key = itSlugToKey[itSlug];
+        if (!key) continue; // not a simple top-level tab slug — nothing to cross-check
+        const aliases = new Set(family.pathAliases || []);
+        for (const locale of ['en', 'de', 'fr']) {
+          const expectedAlias = `/${SLUG_TABLES[locale][key]}/`;
+          if (!aliases.has(expectedAlias)) {
+            offenders.push(`${family.id}: manca pathAliases '${expectedAlias}' (locale ${locale}, chiave routeSlugs '${key}')`);
+          }
+        }
+      }
+      expect(offenders, offenders.join('\n')).toEqual([]);
     });
   });
 
