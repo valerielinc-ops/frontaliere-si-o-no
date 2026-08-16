@@ -2932,6 +2932,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-obvaldo-guida.title': 'Apprenticeship and vocational training in the Canton of Obvaldo',
     'blog.article.apprendistato-obvaldo-guida.excerpt': 'How to find an internship and conclude an apprenticeship contract',
     'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Guide to apprenticeships in Obvaldo Canton',
+    'blog.article.bozze-di-studio-cantone-obvaldo.title': 'Cantone Obvaldo Scholarships: Requirements and Amounts',
+    'blog.article.bozze-di-studio-cantone-obvaldo.excerpt': 'There is no official information confirming the existence of scholarships for the Canton of Obvaldo in Switzerland.',
+    'blog.article.bozze-di-studio-cantone-obvaldo.imageAlt': 'A scene photographed of a borderer who is in a situation similar to that described in the article.',
 };
 
 export default blogMetaChEn;
