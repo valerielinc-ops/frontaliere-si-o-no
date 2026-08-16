@@ -76,16 +76,27 @@ let _summaryWritten = false;
  *
  * @param {string} key   - Crawler key (same as COMPANY_KEY)
  * @param {string} label - Human-readable label (company name)
+ * @param {{discovered?: number|null}|null} [counts] - Optional mutable
+ *   counter the crawler updates as it discovers candidates (issue #5945):
+ *   `counts.discovered` set right after the pre-filter fetch lets an early
+ *   return (e.g. "0 Swiss jobs after filtering") report a non-zero
+ *   `discovered` count, so `check-crawler-health.mjs` can tell "filtered"
+ *   from "broken" without a human verifying the source live. Omit when the
+ *   crawler hasn't been instrumented — behaviour is unchanged.
  */
-export function registerCrawlerSummaryGuard(key, label) {
+export function registerCrawlerSummaryGuard(key, label, counts = null) {
   process.on('exit', (code) => {
     if (_summaryWritten) return;
     try {
+      const discovered =
+        counts && Number.isFinite(counts.discovered) ? counts.discovered : null;
       writeSummaryCrawlerSlice({
         key,
         label: label || key,
         generatedAt: new Date().toISOString(),
         total: 0,
+        discovered,
+        written: 0,
         newCount: 0,
         updatedCount: 0,
         removedCount: 0,

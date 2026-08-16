@@ -606,3 +606,94 @@ describe('nextCrawlerState', () => {
     expect(state.lastNonZeroJobs).toBe(7);
   });
 });
+
+describe('nextCrawlerState — discovered/written auto-classification (#5945)', () => {
+  // Baronie-style shape: a summary slice MAY report `discovered` (pre-filter
+  // count) and `written` (post-filter count). When discovered > 0 and the
+  // run is empty, the crawler found candidates but its own Swiss/location
+  // filter dropped all of them — that is "filtered", not "broken", and the
+  // monitor should classify it as such without the slug being on the manual
+  // EMPTY_OK_CRAWLERS allowlist.
+  function obsWithCounts(jobCount: number, discovered: number | null, written: number | null) {
+    return {
+      slug: 'not-on-any-allowlist',
+      jobCount,
+      freshnessAt: NOW_ISO,
+      freshnessSource: 'summary' as const,
+      generatedAt: NOW_ISO,
+      assembledAt: NOW_ISO,
+      discovered,
+      written,
+    };
+  }
+
+  it('auto-classifies a fresh zero-job run as healthy when discovered > 0 (found, all filtered)', () => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      obsWithCounts(0, 12, 0),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state._lastObservedDiscoveredCount).toBe(12);
+    expect(state._lastObservedWrittenCount).toBe(0);
+  });
+
+  it('does not reset an existing empty streak — an already-broken slug stays broken-eligible without the discovered signal', () => {
+    // Absence of the signal (undefined/null discovered) must behave exactly
+    // as before this change: no auto-classification, empty-streak gate applies.
+    const prev = {
+      lastSuccessfulRunAt: null,
+      lastNonZeroJobs: 0,
+      consecutiveEmptyRuns: 2,
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+    };
+    const { status, state } = nextCrawlerState(
+      prev,
+      obsWithCounts(0, null, null),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state._autoFilteredEmpty).toBe(false);
+  });
+
+  it('does NOT auto-classify as filtered when discovered is 0 too (source genuinely empty)', () => {
+    const prev = {
+      lastSuccessfulRunAt: null,
+      lastNonZeroJobs: 0,
+      consecutiveEmptyRuns: 2,
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+    };
+    const { status, state } = nextCrawlerState(
+      prev,
+      obsWithCounts(0, 0, 0),
+      NOW_ISO,
+      NOW_MS,
+    );
+    // discovered === 0 too → no evidence of filtering, empty-streak gate
+    // still applies exactly like the no-signal case.
+    expect(status).toBe('broken');
+    expect(state._autoFilteredEmpty).toBe(false);
+  });
+
+  it('does not mark autoFilteredEmpty when the run actually found and kept jobs', () => {
+    const { state } = nextCrawlerState(
+      undefined,
+      obsWithCounts(5, 12, 5),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(state._autoFilteredEmpty).toBe(false);
+    expect(state._lastObservedDiscoveredCount).toBe(12);
+    expect(state._lastObservedWrittenCount).toBe(5);
+  });
+});
