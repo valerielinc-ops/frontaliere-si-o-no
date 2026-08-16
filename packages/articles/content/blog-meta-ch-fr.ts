@@ -2863,6 +2863,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-svitto.title': 'Assegni familiari nel Cantone di Svitto',
     'blog.article.assegni-familiari-canton-svitto.excerpt': 'Le canton de Schwyz accorde des allocations familiales aux ressortissants suisses et étrangers résidents. Voici les exigences et les conditions pour les demander.',
     'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Image éditoriale relative à: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'Système scolaire du canton de Schwyz : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Informations sur le système scolaire du canton de Schwyz, y compris les cycles et l\'âge d\'inscription.',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Image d\'un groupe d\'étudiants dans une école suisse, mettant en avant le système éducatif dans le canton de Schwyz.',
 };
 
 export default blogMetaChFr;

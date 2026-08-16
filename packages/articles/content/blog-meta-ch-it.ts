@@ -2863,6 +2863,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-svitto.title': 'Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
     'blog.article.assegni-familiari-canton-svitto.excerpt': 'Il Cantone di Svitto concede assegni familiari ai cittadini svizzeri e stranieri residenti. Ecco i requisiti e le condizioni per richiederli.',
     'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Immagine editoriale relativa a: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'Sistema scolastico del Cantone Svitto: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Informazioni sul sistema scolastico del Cantone Svitto, compresi i cicli e l\'età di iscrizione.',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Immagine di un gruppo di studenti in una scuola svizzera, con un focus sul sistema educativo nel Canton Svitto.',
 };
 
 export default blogMetaChIt;

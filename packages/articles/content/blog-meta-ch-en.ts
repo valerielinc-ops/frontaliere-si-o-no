@@ -2863,6 +2863,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-svitto.title': 'Family allowances in the Canton of Svitto: monthly amounts and legal conditions',
     'blog.article.assegni-familiari-canton-svitto.excerpt': 'The Canton of Switzerland grants family allowances to Swiss citizens and resident foreigners. Here are the requirements and conditions to apply for them.',
     'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Editorial image related to: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'School system of the Canton of Schwyz: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Information on the school system of the Canton of Swabia, including cycles and age of enrolment.',
+    'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Image of a group of students in a Swiss school, focusing on the education system in the canton of Schwyz.',
 };
 
 export default blogMetaChEn;
