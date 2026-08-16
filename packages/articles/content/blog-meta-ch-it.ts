@@ -2875,6 +2875,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.basilea-diagnosi-adhd-studenti.title': 'Basilea: valutazioni ADHD delegate agli studenti nelle cliniche',
     'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'Secondo quanto riportato dalla NZZ am Sonntag, le Cliniche psichiatriche universitarie di Basilea hanno delegato per anni le valutazioni ADHD agli studenti.',
     'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'Cliniche psichiatriche universitarie di Basilea',
+    'blog.article.borse-studio-canton-svitto.title': 'Borse di studio canton Svitto requisiti e importi',
+    'blog.article.borse-studio-canton-svitto.excerpt': 'Requisiti e importi delle borse di studio per studenti italiani nel canton Svitto',
+    'blog.article.borse-studio-canton-svitto.imageAlt': 'Borse di studio per studenti italiani nel canton Svitto',
 };
 
 export default blogMetaChIt;

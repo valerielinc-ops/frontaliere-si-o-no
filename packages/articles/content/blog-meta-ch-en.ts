@@ -2875,6 +2875,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.basilea-diagnosi-adhd-studenti.title': 'Basel: ADHD assessments delegated to students in clinics',
     'blog.article.basilea-diagnosi-adhd-studenti.excerpt': 'According to NZZ am Sonntag, the University Psychiatric Clinics in Basel have been delegating ADHD assessments to students for years.',
     'blog.article.basilea-diagnosi-adhd-studenti.imageAlt': 'University Psychiatric Clinics in Basel',
+    'blog.article.borse-studio-canton-svitto.title': 'Canton Scholarships Wobble Requirements and Amounts',
+    'blog.article.borse-studio-canton-svitto.excerpt': 'Scholarship requirements and amounts for Italian students in the canton of Schwyz',
+    'blog.article.borse-studio-canton-svitto.imageAlt': 'Scholarships for Italian students in the Canton of Schwyz',
 };
 
 export default blogMetaChEn;
