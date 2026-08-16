@@ -973,6 +973,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-un-attivita-canton-uri-registro-di-commercio-e-costi': { it: 'aprire-un-attivita-canton-uri-registro-di-commercio-e-costi', en: 'opening-a-business-in-canton-uri-register-of-commerce-and-costs', de: 'ein-unternehmen-im-kanton-uri-registrieren-und-kosten', fr: 'ouvrir-une-entreprise-au-canton-uri-enregistrement-du-commerce-et-couts' },
  'abbonamenti-trasporti-canton-uri': { it: 'abbonamenti-trasporti-canton-uri', en: 'transport-passes-uri-canton', de: 'offentliche-verkehrskarten-uri-kanton', fr: 'cartes-de-transport-uri-canton' },
  'imposta-di-succesione-e-donazione-canton-uri-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-uri-aliquote', en: 'succession-and-donation-taxes-in-the-canton-of-uri', de: 'erbschafts-und-schenkungssteuern-im-kanton-uri', fr: 'impots-sur-la-succession-et-la-donation-au-canton-d-uri' },
+ 'salari-mercato-lavoro-cantone-uri': { it: 'salari-mercato-lavoro-cantone-uri', en: 'wages-and-labour-market-in-uris-hiring-and-collective-bargaining', de: 'lohne-und-arbeitsmarkt-in-uri-wer-beschaftigt-und-tarifvertrage', fr: 'salaires-et-marche-du-travail-a-uri-qui-embauche-et-conventions-collectives' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

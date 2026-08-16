@@ -2842,6 +2842,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.title': 'Uri: aliquote di successione e donazione per grado di parentela',
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.excerpt': 'Imposta di successione e donazione nel Cantone di Uri: aliquote per grado di parentela',
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.imageAlt': 'Locarno, Svizzera: immagine fotografica di un edificio storico con un cartello che indica l\'importo di un\'eredità',
+    'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Salari e mercato del lavoro in Uri: chi assume e contratti collettivi',
+    'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'Il Cantone di Uri ha un tasso di occupazione alto e una forte domanda di lavoro. I settori che assumono di più sono l\'industria, la costruzione e i servizi.',
+    'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Immagine di un ambiente di lavoro in Uri',
 };
 
 export default blogMetaChIt;

@@ -2842,6 +2842,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.title': 'URI: Erbschafts- und Schenkungssätze nach Verwandtschaftsgrad',
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.excerpt': 'Erbschafts- und Schenkungssteuer im Kanton Uri: Sätze pro Verwandtschaftsgrad',
     'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.imageAlt': 'Locarno, Schweiz: Fotografie eines historischen Gebäudes mit einem Schild, das den Betrag eines Erbes anzeigt',
+    'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Löhne und Arbeitsmarkt in Uri: Wer beschäftigt und Tarifverträge',
+    'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'Der Kanton Uri hat eine hohe Beschäftigungsquote und eine hohe Nachfrage nach Arbeitskräften. Die Sektoren, die am meisten beschäftigen, sind die Industrie, das Baugewerbe und der Dienstleistungssektor.',
+    'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Bild von einem Arbeitsplatz in Uri',
 };
 
 export default blogMetaChDe;
