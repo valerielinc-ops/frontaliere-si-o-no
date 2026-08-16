@@ -2740,6 +2740,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-uri.title': 'B Uri Residence Permit: Requirements and Renewal',
     'blog.article.permesso-dimora-b-uri.excerpt': 'Practical guide to residence permit B in Canton Uri: requirements, documents, duration, renewal procedure and cantonal competences.',
     'blog.article.permesso-dimora-b-uri.imageAlt': 'Residence permit B in Canton Uri requirements and renewal',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Residence permit C in the Canton of Uri: requirements and application',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'The duration required for residence permit C in the Canton of Uri, the integration criteria and the language skills required.',
+    'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Image of a Swiss town with a permit C notice on a door',
 };
 
 export default blogMetaChEn;

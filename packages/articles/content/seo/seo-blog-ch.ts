@@ -35510,6 +35510,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-di-domicilio-c-ur-requisiti-e-domanda': {
+    title: 'Permesso di domicilio C nel Cantone di Uri: requisiti e domanda',
+    description: 'La durata richiesta per il permesso di domicilio C nel Cantone di Uri, i criteri di integrazione e le conoscenze linguistiche richieste. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, cantone, requisiti',
+    ogTitle: 'Permesso di domicilio C nel Cantone di Uri: requisiti e domanda',
+    ogDescription: 'La durata richiesta per il permesso di domicilio C nel Cantone di Uri, i criteri di integrazione e le conoscenze linguistiche richieste.',
+    canonicalPath: '/articoli-svizzera/permesso-di-domicilio-c-ur-requisiti-e-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C nel Cantone di Uri: requisiti e domanda",
+      "description": "La durata richiesta per il permesso di domicilio C nel Cantone di Uri, i criteri di integrazione e le conoscenze linguistiche richieste. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-domicilio-c-ur-requisiti-e-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un paese svizzero con un permesso di soggiorno C sul portone"
+      },
+      "datePublished": "2026-08-16T02:10:19+00:00",
+      "dateModified": "2026-08-16T02:10:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-domicilio-c-ur-requisiti-e-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
