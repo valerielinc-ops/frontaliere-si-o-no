@@ -2815,6 +2815,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'Strategic air traffic locations become hiking destinations',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'Skyguide\'s Hiking Challenge also involves a destination in Ticino: Monte Lema',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'Strategic air traffic locations become hiking destinations',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Drought and heatwave are putting cheese producers in crisis',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'Heatwave and summer drought affect cheese and milk producers in Switzerland, with production declines and additional costs for fodder.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Cows grazing in a Swiss meadow affected by drought',
 };
 
 export default blogMetaChEn;
