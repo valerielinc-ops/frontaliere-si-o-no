@@ -38591,6 +38591,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda': {
+    title: 'Permesso di domicilio C nel Cantone di Nidvaldo: requisiti e domanda',
+    description: 'Requisiti di integrazione, conoscenze linguistiche e procedura di domanda per il permesso di domicilio C nel Cantone di Nidvaldo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, cantone, nidvaldo',
+    ogTitle: 'Permesso di domicilio C nel Cantone di Nidvaldo: requisiti e domanda',
+    ogDescription: 'Requisiti di integrazione, conoscenze linguistiche e procedura di domanda per il permesso di domicilio C nel Cantone di Nidvaldo.',
+    canonicalPath: '/articoli-svizzera/permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C nel Cantone di Nidvaldo: requisiti e domanda",
+      "description": "Requisiti di integrazione, conoscenze linguistiche e procedura di domanda per il permesso di domicilio C nel Cantone di Nidvaldo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia e bambino guardano il Lago di Lugano"
+      },
+      "datePublished": "2026-08-16T20:42:07+00:00",
+      "dateModified": "2026-08-16T20:42:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

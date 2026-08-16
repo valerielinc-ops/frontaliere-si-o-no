@@ -2977,6 +2977,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-aumento-2027.title': 'Steigende Löhne im Jahr 2027: So viel könnten wir mehr verdienen',
     'blog.article.salari-aumento-2027.excerpt': 'Schweizer Unternehmen rechnen für 2027 mit Lohnerhöhungen. Laut einer KOF-Umfrage dürften die Lohnverhandlungen im nächsten Jahr zu einer durchschnittlichen Lohnerhöhung von 1,2 Prozent führen.',
     'blog.article.salari-aumento-2027.imageAlt': 'Bild einer Straße in Lugano mit der Schweizer Flagge',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Nidwalden: Voraussetzungen und Antrag',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Integrationsvoraussetzungen, Sprachkenntnisse und Antragsverfahren für die Niederlassungsbewilligung C im Kanton Nidwalden.',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Familie und Kind schauen auf den Luganer See',
 };
 
 export default blogMetaChDe;

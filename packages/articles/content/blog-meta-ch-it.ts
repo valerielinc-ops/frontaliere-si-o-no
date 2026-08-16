@@ -2977,6 +2977,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-aumento-2027.title': 'Salari in aumento nel 2027: ecco quanto potremmo guadagnare in più',
     'blog.article.salari-aumento-2027.excerpt': 'Le aziende svizzere prevedono aumenti salariali per il 2027. Secondo un sondaggio del KOF, le trattative salariali dovrebbero portare a un incremento medio dell\'1,2% dei salari il prossimo anno.',
     'blog.article.salari-aumento-2027.imageAlt': 'Immagine di una strada a Lugano con una bandiera svizzera',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Permesso di domicilio C nel Cantone di Nidvaldo: requisiti e domanda',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Requisiti di integrazione, conoscenze linguistiche e procedura di domanda per il permesso di domicilio C nel Cantone di Nidvaldo.',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Famiglia e bambino guardano il Lago di Lugano',
 };
 
 export default blogMetaChIt;
