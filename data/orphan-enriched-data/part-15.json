@@ -15039,12 +15039,12 @@
       },
       "queries": [
         {
-          "query": "lavoro chiasso",
+          "query": "lehrstellen chiasso",
           "clicks": 0,
-          "impressions": 2
+          "impressions": 3
         },
         {
-          "query": "lehrstellen chiasso",
+          "query": "lavoro chiasso",
           "clicks": 0,
           "impressions": 2
         },
@@ -15074,9 +15074,9 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 9,
+      "totalImpressions": 10,
       "totalClicks": 0,
-      "topQuery": "lavoro chiasso",
+      "topQuery": "lehrstellen chiasso",
       "title": "chiasso",
       "titleByLocale": {
         "it": "",
@@ -15305,7 +15305,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 322
+          "impressions": 328
         },
         {
           "query": "lavoro chiasso",
@@ -15358,14 +15358,14 @@
           "impressions": 10
         },
         {
-          "query": "offerte lavoro chiasso per italiani",
+          "query": "job chiasso",
           "clicks": 0,
           "impressions": 10
         },
         {
-          "query": "job chiasso",
+          "query": "offerte lavoro chiasso per italiani",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "annunci lavoro chiasso",
@@ -15403,7 +15403,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 615,
+      "totalImpressions": 623,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -24568,13 +24568,13 @@
           "impressions": 52
         },
         {
-          "query": "offerte lavoro educatore ticino",
-          "clicks": 2,
-          "impressions": 31
-        },
-        {
           "query": "lavoro insegnante canton ticino",
           "clicks": 0,
+          "impressions": 33
+        },
+        {
+          "query": "offerte lavoro educatore ticino",
+          "clicks": 2,
           "impressions": 31
         },
         {
@@ -24586,6 +24586,11 @@
           "query": "offerte di lavoro educatore svizzera italiana",
           "clicks": 5,
           "impressions": 28
+        },
+        {
+          "query": "offerte lavoro educatrice ticino",
+          "clicks": 2,
+          "impressions": 23
         },
         {
           "query": "lavoro educatrice ticino",
@@ -24605,11 +24610,6 @@
         {
           "query": "offerte lavoro educatore svizzera",
           "clicks": 4,
-          "impressions": 21
-        },
-        {
-          "query": "offerte lavoro educatrice ticino",
-          "clicks": 2,
           "impressions": 21
         },
         {
@@ -24638,27 +24638,27 @@
           "impressions": 17
         },
         {
+          "query": "lavoro educatore ticino",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
           "query": "offerte lavoro educatore",
           "clicks": 0,
           "impressions": 16
         },
         {
-          "query": "lavoro educatore ticino",
-          "clicks": 0,
-          "impressions": 15
+          "query": "educatore svizzera canton ticino",
+          "clicks": 2,
+          "impressions": 12
         },
         {
           "query": "offerte di lavoro educatrice asilo nido svizzera italiana",
           "clicks": 1,
           "impressions": 12
-        },
-        {
-          "query": "educatore sociale ticino",
-          "clicks": 3,
-          "impressions": 11
         }
       ],
-      "totalImpressions": 822,
+      "totalImpressions": 832,
       "totalClicks": 78,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
@@ -75975,10 +75975,10 @@
         "fr": "vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn"
+        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn",
+        "en": "/en/find-jobs-zurich/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn",
+        "de": "/de/jobs-in-zurich/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-caisse-services-coop-genossenschaft-zurich-lmi0bn"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
