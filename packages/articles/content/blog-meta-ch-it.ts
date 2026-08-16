@@ -2782,6 +2782,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.offre-controllore-treno-multa.title': 'Offre 20 franchi a controllore per non pagare multa, si muove l\'MPC',
     'blog.article.offre-controllore-treno-multa.excerpt': 'Un uomo offre 20 franchi a un controllore di treno per non pagare la multa. La Procura federale ha stabilito che l\'uomo ha offerto il denaro affinché il funzionario dei treni rinunciasse alla multa, configurando così il delitto di corruzione.',
     'blog.article.offre-controllore-treno-multa.imageAlt': 'Un uomo offre 20 franchi a un controllore di treno.',
+    'blog.article.coppa-svizzera-risultati-partiti.title': 'Coppa Svizzera: goleada per servette, Basilea, young boys e GC',
+    'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'Nessuna sorpresa nei 32esimi di finale della competizione elvetica, con le formazioni di Super League che superano agevolmente i rispettivi turni.',
+    'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Partita di Coppa Svizzera in uno stadio elvetico',
 };
 
 export default blogMetaChIt;

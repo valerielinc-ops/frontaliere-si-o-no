@@ -2782,6 +2782,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.offre-controllore-treno-multa.title': 'Il offre 20 francs au contrôleur pour ne pas payer d\'amende, le MPC se déplace',
     'blog.article.offre-controllore-treno-multa.excerpt': 'Un homme offre 20 francs à un contrôleur de train pour ne pas payer l\'amende. Le parquet fédéral a établi que l\'homme avait offert l\'argent pour que le fonctionnaire des trains renonce à l\'amende, constituant ainsi le délit de corruption.',
     'blog.article.offre-controllore-treno-multa.imageAlt': 'Un homme offre 20 francs à un agent de train.',
+    'blog.article.coppa-svizzera-risultati-partiti.title': 'Coupe de Suisse : goleada pour servettes, Bâle, jeunes garçons et GC',
+    'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'Pas de surprise dans les 32es de finale de la compétition suisse, avec des formations de Super League qui dépassent facilement leurs tours respectifs.',
+    'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Match de Coupe de Suisse dans un stade helvétique',
 };
 
 export default blogMetaChFr;

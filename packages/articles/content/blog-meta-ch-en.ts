@@ -2782,6 +2782,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.offre-controllore-treno-multa.title': 'Offers 20 francs to the controller to avoid paying a fine, the MPC moves',
     'blog.article.offre-controllore-treno-multa.excerpt': 'A man offers 20 francs to a train controller to avoid paying the fine. The Federal Prosecutor\'s Office determined that the man offered the money for the train officer to waive the fine, thus constituting the crime of corruption.',
     'blog.article.offre-controllore-treno-multa.imageAlt': 'A man offers 20 francs to a train conductor.',
+    'blog.article.coppa-svizzera-risultati-partiti.title': 'Swiss Cup: Goleada for Servette, Basel, Young Boys and GC',
+    'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'No surprises in the 32nd finals of the Swiss competition, with the Super League formations easily passing their respective rounds.',
+    'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Swiss Cup match in a Swiss stadium',
 };
 
 export default blogMetaChEn;
