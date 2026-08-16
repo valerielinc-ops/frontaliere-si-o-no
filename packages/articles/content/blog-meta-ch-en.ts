@@ -3013,6 +3013,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Buying a house in the Canton of Nidvaldo: prices and mortgage',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Average house prices in the Canton of Nidvaldo, own funds required and sustainability of the mortgage loan.',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'House prices in the Nidwalden canton',
+    'blog.article.nidvaldo-trasporti-pubblici.title': 'Public transport in Nidvaldo: zones, fares and subscriptions',
+    'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Comprehensive guide to public transport in the Canton of Nidvaldo, fare communities, zones, season tickets and combinations with federal travel documents.',
+    'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Public transport in Canton Nidwalden with regional trains and buses',
 };
 
 export default blogMetaChEn;

@@ -3013,6 +3013,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Acheter une maison dans le canton de Nidwald : prix et hypothèque',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Prix moyens des maisons dans le canton de Nidwald, fonds propres requis et viabilité du prêt hypothécaire.',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'Prix moyen des maisons dans le canton de Nidwalden',
+    'blog.article.nidvaldo-trasporti-pubblici.title': 'Transports publics à Nidwald : zones, tarifs et abonnements',
+    'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Guide complet des transports publics dans le canton de Nidwald, des communautés tarifaires, des zones, des abonnements et des combinaisons avec les titres de voyage fédéraux.',
+    'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Transports publics dans le canton de Nidwald avec trains et bus régionaux',
 };
 
 export default blogMetaChFr;

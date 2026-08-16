@@ -3013,6 +3013,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Nidvaldo: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Prezzi medi delle case nel Cantone di Nidvaldo, fondi propri richiesti e sostenibilità del mutuo ipotecario.',
     'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'Prezzi medi delle case nel Cantone di Nidvaldo',
+    'blog.article.nidvaldo-trasporti-pubblici.title': 'Trasporti pubblici a Nidvaldo: zone, tariffe e abbonamenti',
+    'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Guida completa ai trasporti pubblici nel Cantone di Nidvaldo, alle comunità tariffarie, alle zone, agli abbonamenti e alle combinazioni con i titoli di viaggio federali.',
+    'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Trasporti pubblici nel Cantone di Nidvaldo con treni e bus regionali',
 };
 
 export default blogMetaChIt;
