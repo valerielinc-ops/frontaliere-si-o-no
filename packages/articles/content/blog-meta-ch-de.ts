@@ -2881,6 +2881,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-svitto.title': 'Haus kaufen im Kanton Schwyz: Preise und Darlehen',
     'blog.article.comprare-casa-canton-svitto.excerpt': 'Praktischer Leitfaden für den Immobilienkauf im Kanton Schwyz: Durchschnittspreisanalyse, Eigenmittelanforderungen, Tragbarkeit des Hypothekarkredits, Stempelsteuer und Notarkosten.',
     'blog.article.comprare-casa-canton-svitto.imageAlt': 'Wohnimmobilien im Kanton Schwyz',
+    'blog.article.mercato-affitti-cantone-svitto.title': 'Mietmarkt im Kanton Schwyz: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercato-affitti-cantone-svitto.excerpt': 'Die durchschnittlichen Gebühren pro Zone im Kanton Schwyz betragen CHF 1\'500 pro Monat.',
+    'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Mietpreise im Kanton Schwyz, Schweiz',
 };
 
 export default blogMetaChDe;
