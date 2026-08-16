@@ -2995,6 +2995,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-nidvaldo-2026.title': 'Praktika und Ausbildung im Kanton Nidwalden',
     'blog.article.apprendistato-nidvaldo-2026.excerpt': 'Der Kanton Nidwalden bietet Berufsbildungsprogramme für junge Erwachsene an.',
     'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'Ein junger Erwachsener in einem Berufsausbildungsprogramm, schaut auf einen Laptopbildschirm mit einer verwirrten Miene, in einem Lugano Stadtpanorama.',
+    'blog.article.apprendistato-nidvaldo-fatti.title': 'Lehre und Ausbildung im Kanton Nidwalden',
+    'blog.article.apprendistato-nidvaldo-fatti.excerpt': 'Der Kanton Nidwalden bietet Berufsbildungsmöglichkeiten für Jugendliche und Erwachsene. Erfahren Sie, wie man eine Lehrstelle findet, wie man den Lehrvertrag aushandelt, wie man die Lehrlingsvergütung berechnet und wie man die Berufsmaturität erreicht.',
+    'blog.article.apprendistato-nidvaldo-fatti.imageAlt': 'Ein junger Person in einer Ausbildungsposition in einer lokalen Firma im Kanton Nidvaldo, Schweiz, sucht nach einem Job im entsprechenden Bereich.',
 };
 
 export default blogMetaChDe;

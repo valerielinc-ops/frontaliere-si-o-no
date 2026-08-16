@@ -38825,6 +38825,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-nidvaldo-fatti': {
+    title: 'Apprendistato e formazione nel Cantone di Nidvaldo',
+    description: 'Il Cantone di Nidvaldo offre opportunità di formazione professionale ai giovani e agli adulti. Scopri come si trova un posto di tirocinio, come si negozia',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, cantone, nidvaldo',
+    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Nidvaldo: come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
+    ogDescription: 'Il Cantone di Nidvaldo offre opportunità di formazione professionale ai giovani e agli adulti. Scopri come si trova un posto di tirocinio, come si negozia il contratto di tirocinio, come si calcola la retribuzione dell\'apprendista e come si raggiunge',
+    canonicalPath: '/articoli-svizzera/apprendistato-nidvaldo-fatti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione nel Cantone di Nidvaldo",
+      "description": "Il Cantone di Nidvaldo offre opportunità di formazione professionale ai giovani e agli adulti. Scopri come si trova un posto di tirocinio, come si negozia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-nidvaldo-fatti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane in un'attività di formazione presso un'azienda locale nel Cantone di Nidvaldo, Svizzera, che cerca un lavoro nel campo correlato."
+      },
+      "datePublished": "2026-08-16T22:53:05+00:00",
+      "dateModified": "2026-08-16T22:53:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-nidvaldo-fatti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

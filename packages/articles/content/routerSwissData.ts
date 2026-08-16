@@ -1024,6 +1024,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-gli-affitti-canton-nidvaldo': { it: 'mercato-gli-affitti-canton-nidvaldo', en: 'nidvaldo-rental-market', de: 'nidvaldo-mietwohnungsmarkt', fr: 'nidvaldo-marche-des-louages' },
  'borse-di-studio-canton-nidvaldo': { it: 'borse-di-studio-canton-nidvaldo', en: 'borse-di-studio-canton-nidvaldo-en', de: 'borse-di-studio-canton-nidvaldo-de', fr: 'borse-di-studio-canton-nidvaldo-fr' },
  'apprendistato-nidvaldo-2026': { it: 'apprendistato-nidvaldo-2026', en: 'apprenticeship-nidwalden-2026', de: 'ausbildung-nidwalden-2026', fr: 'formation-professionnelle-nidwald-2026' },
+ 'apprendistato-nidvaldo-fatti': { it: 'apprendistato-nidvaldo-fatti', en: 'apprenticeship-nidvaldo-facts', de: 'ausbildung-nidvaldo-tatsachen', fr: 'formation-professionnelle-nidvaldo-faits' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
