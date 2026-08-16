@@ -2806,6 +2806,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-ur-prezzi-mutuo.title': 'Comprare casa in Canton Uri: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-ur-prezzi-mutuo.excerpt': 'Impostazioni fiscali e finanziarie per l\'acquisto di una casa in Canton Uri.',
     'blog.article.comprare-casa-ur-prezzi-mutuo.imageAlt': 'Immagine di una casa in stile svizzero con un giardino ben curato in primavera',
+    'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.title': 'Asilo nido e custodia bambini nel Canton Uri: costi e opzioni',
+    'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.excerpt': 'Scopri i costi e le opzioni di asilo nido e custodia bambini nel Canton Uri.',
+    'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.imageAlt': 'Una famiglia con bambini in un asilo nido in Svizzera.',
 };
 
 export default blogMetaChIt;

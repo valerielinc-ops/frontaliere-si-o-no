@@ -961,6 +961,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-canton-uri': { it: 'borse-studio-canton-uri', en: 'uri-canton-scholarships', de: 'uri-kantonsstipendium', fr: 'bourse-canton-uri' },
  'trump-ora-legale-senato-usa': { it: 'trump-ora-legale-senato-usa', en: 'trump-us-senate-daylight-saving-time', de: 'trump-us-senat-sommerzeit', fr: 'trump-senat-americain-heure-ete' },
  'comprare-casa-ur-prezzi-mutuo': { it: 'comprare-casa-ur-prezzi-mutuo', en: 'buy-house-uri-prices-mortgage', de: 'kaufen-ur-haus-preise-kredit', fr: 'acheter-maison-uri-prix-hypothecaire' },
+ 'asilo-nido-custodia-bambini-canton-ur-i-costi': { it: 'asilo-nido-custodia-bambini-canton-ur-i-costi', en: 'childcare-and-custody-in-ur-children-cantonal-costs', de: 'kindergarten-und-sorge-fur-kinder-kanton-ur-kosten', fr: 'garderie-etrust-enfant-en-ur-couts-cantonaux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

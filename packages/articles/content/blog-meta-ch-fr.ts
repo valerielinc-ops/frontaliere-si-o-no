@@ -2806,6 +2806,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-ur-prezzi-mutuo.title': 'Acheter une maison dans le canton d\'Uri : prix et prêt hypothécaire',
     'blog.article.comprare-casa-ur-prezzi-mutuo.excerpt': 'Situations fiscales et financières pour l\'achat d\'une maison à Uri.',
     'blog.article.comprare-casa-ur-prezzi-mutuo.imageAlt': 'Image d\'une maison suisse en style avec un jardin bien entretenu en printemps',
+    'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.title': 'Garde d\'enfants dans le canton d\'Uri : coûts et options',
+    'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.excerpt': 'Découvrez les coûts et les options de la garderie et de la garde d\'enfants dans le canton d\'Uri.',
+    'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.imageAlt': 'Une famille avec enfants dans un centre d\'accueil en Suisse.',
 };
 
 export default blogMetaChFr;
