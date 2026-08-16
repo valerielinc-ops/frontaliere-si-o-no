@@ -1017,6 +1017,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-canton-obvaldo': { it: 'aprire-attivita-canton-obvaldo', en: 'start-business-canton-obvaldo', de: 'unternehmen-gruenden-kanton-obvaldo', fr: 'lancer-entreprise-canton-obvaldo' },
  'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo': { it: 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo', en: 'residence-permit-b-in-the-canton-of-nidvaldo-requirements-and-renewal', de: 'aufenthaltsbewilligung-b-im-kanton-nidwalden-voraussetzungen-und-verlangerung', fr: 'permis-de-sejour-b-dans-le-canton-de-nidwalden-exigences-et-renouvellement' },
  'permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga': { it: 'permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga', en: 'permesso-l-brief-duration-nidwalden-canton', de: 'ermesse-l-kurze-geltung-nidwalden-kanton', fr: 'permis-l-breve-duree-nidwalden-canton' },
+ 'salari-aumento-2027': { it: 'salari-aumento-2027', en: 'salaries-increase-2027', de: 'lohnsteigerung-2027', fr: 'augmentation-salaire-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

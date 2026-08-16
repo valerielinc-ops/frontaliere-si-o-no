@@ -2974,6 +2974,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Kurzfristige L-Bewilligungen im Kanton Nidwalden: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'Der Kurzzeitausweis L im Kanton Nidwalden ist maximal 1 Jahr gültig.',
     'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
+    'blog.article.salari-aumento-2027.title': 'Steigende Löhne im Jahr 2027: So viel könnten wir mehr verdienen',
+    'blog.article.salari-aumento-2027.excerpt': 'Schweizer Unternehmen rechnen für 2027 mit Lohnerhöhungen. Laut einer KOF-Umfrage dürften die Lohnverhandlungen im nächsten Jahr zu einer durchschnittlichen Lohnerhöhung von 1,2 Prozent führen.',
+    'blog.article.salari-aumento-2027.imageAlt': 'Bild einer Straße in Lugano mit der Schweizer Flagge',
 };
 
 export default blogMetaChDe;
