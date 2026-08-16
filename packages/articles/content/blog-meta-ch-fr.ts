@@ -2770,6 +2770,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.multa-treni-zurigo-corruzione.title': 'Il évite l\'amende de 20 francs : condamné à 61 ans à Zurich',
     'blog.article.multa-treni-zurigo-corruzione.excerpt': 'Un passager a tenté de corrompre un contrôleur ferroviaire avec un billet de 20 francs pour éviter une sanction. Maintenant, il fait face à une lourde condamnation pénale.',
     'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Contrôleur de train en service sur un train des CFF à Zurich',
+    'blog.article.incendio-moeriken-2024.title': 'Incendie de forêt à Möriken, fumée dense et alerte à la population',
+    'blog.article.incendio-moeriken-2024.excerpt': 'Un incendie de forêt qui a éclaté à Möriken, dans le canton d\'Argovie, provoque un fort développement de fumée.',
+    'blog.article.incendio-moeriken-2024.imageAlt': 'Un incendie de forêt à Möriken, dans le canton d\'Aargau, provoque une forte évaporation de fumée.',
 };
 
 export default blogMetaChFr;

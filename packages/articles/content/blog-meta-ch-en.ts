@@ -2770,6 +2770,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.multa-treni-zurigo-corruzione.title': 'Avoid the fine with 20 francs: 61-year-old convicted in Zurich',
     'blog.article.multa-treni-zurigo-corruzione.excerpt': 'A passenger tried to bribe a railway controller with a 20-franc note to avoid a penalty. Now he faces a heavy criminal sentence.',
     'blog.article.multa-treni-zurigo-corruzione.imageAlt': 'Train controller on duty on an SBB train in Zurich',
+    'blog.article.incendio-moeriken-2024.title': 'Möriken forest fire, heavy smoke and public alert',
+    'blog.article.incendio-moeriken-2024.excerpt': 'A forest fire in Möriken, in the canton of Aargau, causes a strong development of smoke.',
+    'blog.article.incendio-moeriken-2024.imageAlt': 'A forest fire in Möriken, in the canton of Aargau, causes a strong development of smoke.',
 };
 
 export default blogMetaChEn;
