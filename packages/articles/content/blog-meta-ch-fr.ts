@@ -2821,6 +2821,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'URI : redevances et droits de location',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Le dépôt de garantie maximum est de 3 mois de loyer.',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Image d\'un appartement à louer à Lugano avec vue sur le lac.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'La Suisse investit pour prévenir les pénuries d\'électricité',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse estime que quatre milliards de francs sont nécessaires pour garantir des réserves énergétiques',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investissements dans l\'électricité suisse pour prévenir les pénuries',
 };
 
 export default blogMetaChFr;

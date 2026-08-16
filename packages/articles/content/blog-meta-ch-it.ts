@@ -2821,6 +2821,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: canoni e diritti di locazione',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Il deposito cauzionale massimo è di 3 mesi di pigione.',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Immagine di un appartamento in affitto a Lugano con vista sul lago.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'La Svizzera investe per prevenire penuria elettricità',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse stima che quattro miliardi di franchi siano necessari per garantire riserve energetiche',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investimenti in elettricità svizzera per prevenire penuria',
 };
 
 export default blogMetaChIt;
