@@ -2812,6 +2812,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-iniziativa-sinistra.title': 'Anche da sinistra votiamo Sì all\'iniziativa sulla neutralità',
     'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Il Partito Comunista e il Sindacato Indipendente degli Studenti e Apprendisti (SISA) sostengono l\'iniziativa sulla neutralità.',
     'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'La Svizzera: monti alpini vicino a Lugano',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
 };
 
 export default blogMetaChIt;
