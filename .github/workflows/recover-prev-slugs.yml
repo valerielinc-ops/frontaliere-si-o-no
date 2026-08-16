@@ -101,6 +101,41 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # #5348 residuo genuino: due record con lo STESSO `.id` (dedicated-crawler
+      # stable id) possono coesistere in una slice — es. banca-cler.json teneva
+      # sia la variante URL /de/bank-cler/... sia /it/banca-cler/... per la
+      # stessa candidatura Cler, con cronologie previousSlugs indipendenti e
+      # mutuamente inconsapevoli. `scripts/reconcile-duplicate-stable-id-jobs.mjs`
+      # esiste già (issue #4603) proprio per questo caso ed è idempotente, ma
+      # non era mai stato collegato a nessun workflow: restava un cleanup manuale
+      # mai eseguito. Girare PRIMA dello scan/backfill è ciò che chiude #5348 —
+      # il backfill's `resolveRecoveryTarget()` fa da redirect fra i duplicati
+      # (bySuffixHash "first-wins" contro byId "last-wins" sullo stesso array),
+      # quindi lo slug recuperato finisce sull'oggetto duplicato SBAGLIATO e il
+      # ri-scan post-backfill lo trova ancora mancante — nessuna quantità di
+      # backfill può sanare una perdita che vive nella duplicazione stessa.
+      - name: Reconcile duplicate stable-id job records
+        id: reconcile
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/prev-slug-recovery
+          APPLY_FLAG="--apply"
+          if [ "$DRY_RUN" = "true" ]; then APPLY_FLAG=""; fi
+          node scripts/reconcile-duplicate-stable-id-jobs.mjs $APPLY_FLAG \
+            | tee /tmp/prev-slug-recovery/reconcile-report.txt
+          reconciled_dropped=$(grep -E '^(Applied|Dry-run):' /tmp/prev-slug-recovery/reconcile-report.txt \
+            | sed -E 's/^[A-Za-z-]+: [0-9]+ duplicate-id group\(s\), ([0-9]+) record.*/\1/')
+          echo "reconciled_dropped=${reconciled_dropped:-0}" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Duplicate stable-id reconciliation"
+            echo ""
+            echo '```'
+            cat /tmp/prev-slug-recovery/reconcile-report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Scan for lost previousSlugs
         id: scan
         env:
@@ -155,12 +190,15 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit and push restored slices
-        if: steps.scan.outputs.recoverable_slugs != '0' && (github.event.inputs.dry_run || 'false') != 'true'
+        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && (github.event.inputs.dry_run || 'false') != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          bash scripts/lib/git-commit-data.sh --slice-only \
-            "🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"
+          COMMIT_MSG="🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"
+          if [ "${{ steps.reconcile.outputs.reconciled_dropped }}" != "0" ]; then
+            COMMIT_MSG="$COMMIT_MSG + reconciled ${{ steps.reconcile.outputs.reconciled_dropped }} duplicate-id record(s)"
+          fi
+          bash scripts/lib/git-commit-data.sh --slice-only "$COMMIT_MSG"
 
       # Il tripwire deve misurare il residuo DOPO il recupero, e fino al 2026-08-08
       # misurava quello prima (#5348). Questo step ri-esegue lo STESSO scanner sul
