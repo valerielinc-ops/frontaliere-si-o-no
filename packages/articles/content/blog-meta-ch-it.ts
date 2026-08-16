@@ -2866,6 +2866,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'Sistema scolastico del Cantone Svitto: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Informazioni sul sistema scolastico del Cantone Svitto, compresi i cicli e l\'età di iscrizione.',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Immagine di un gruppo di studenti in una scuola svizzera, con un focus sul sistema educativo nel Canton Svitto.',
+    'blog.article.apprendistato-cantone-svitto.title': 'Apprendistato e formazione professionale nel Canton Svitto',
+    'blog.article.apprendistato-cantone-svitto.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale',
+    'blog.article.apprendistato-cantone-svitto.imageAlt': 'Apprendistato e formazione professionale nel Canton Svitto',
 };
 
 export default blogMetaChIt;

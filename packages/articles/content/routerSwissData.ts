@@ -981,6 +981,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-canton-svitto-validita-e-proroga': { it: 'permesso-l-canton-svitto-validita-e-proroga', en: 'short-term-permit-l-in-the-canton-of-svitto-validity-and-extension', de: 'kurzaufenthaltsbewilligung-l-im-kanton-schwyz-gultigkeit-und-verlangerung', fr: 'permis-l-de-courte-duree-dans-le-canton-de-schwyz-validite-et-prolongation' },
  'assegni-familiari-canton-svitto': { it: 'assegni-familiari-canton-svitto', en: 'family-allowances-in-the-canton-of-svitto-monthly-amounts-and-legal-conditions', de: 'familienzulagen-im-kanton-schwyz-monatsbetrage-und-gesetzliche-voraussetzungen', fr: 'assegni-familiari-nel-cantone-di-svitto' },
  'sistema-scolastico-canton-svitto-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-svitto-iscrizione-e-cicli', en: 'education-system-canton-schwyz-enrolment-and-phases', de: 'bildungssystem-kanton-schwyz-anmeldung-und-phasen', fr: 'systeme-educatif-canton-de-schwyz-inscription-et-phases' },
+ 'apprendistato-cantone-svitto': { it: 'apprendistato-cantone-svitto', en: 'apprenticeship-canton-schwyz', de: 'praktika-berufsbildung-kanton-schwyz', fr: 'formation-professionnelle-canton-de-schwyz' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

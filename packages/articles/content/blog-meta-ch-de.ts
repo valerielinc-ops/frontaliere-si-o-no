@@ -2866,6 +2866,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.title': 'Schulsystem des Kantons Schwyz: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.excerpt': 'Informationen über das Schulsystem des Kantons Schwyz inkl. Zyklen und Einschreibungsalter.',
     'blog.article.sistema-scolastico-canton-svitto-iscrizione-e-cicli.imageAlt': 'Bild von einer Gruppe von Schülern in einer Schweizer Schule, mit dem Fokus auf das Bildungssystem im Kanton Schwyz.',
+    'blog.article.apprendistato-cantone-svitto.title': 'Lehre und Berufsausbildung im Kanton Schwyz',
+    'blog.article.apprendistato-cantone-svitto.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität',
+    'blog.article.apprendistato-cantone-svitto.imageAlt': 'Praktika und Berufsbildung im Kanton Schwyz',
 };
 
 export default blogMetaChDe;
