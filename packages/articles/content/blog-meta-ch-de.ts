@@ -2869,6 +2869,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-cantone-svitto.title': 'Lehre und Berufsausbildung im Kanton Schwyz',
     'blog.article.apprendistato-cantone-svitto.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität',
     'blog.article.apprendistato-cantone-svitto.imageAlt': 'Praktika und Berufsbildung im Kanton Schwyz',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Kinderkrippe und Kinderbetreuung im Kanton Schwyz: Kosten und Optionen',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'Die Kosten für Kindergärten im Kanton Schwyz variieren je nach Altersgruppe und Bedürfnissen der Eltern.',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'Eine Familie mit kleinen Kindern sucht nach Betreuungsmöglichkeiten im Kanton Svitto.',
 };
 
 export default blogMetaChDe;

@@ -2869,6 +2869,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-cantone-svitto.title': 'Apprendistato e formazione professionale nel Canton Svitto',
     'blog.article.apprendistato-cantone-svitto.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale',
     'blog.article.apprendistato-cantone-svitto.imageAlt': 'Apprendistato e formazione professionale nel Canton Svitto',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.title': 'Asilo nido e custodia bambini nel Canton Svitto: costi e opzioni',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.excerpt': 'I costi degli asili nido nel Canton Svitto variano in base alla fascia di età e alle esigenze dei genitori.',
+    'blog.article.asilo-nido-custodia-bambini-canton-svitto-costi.imageAlt': 'Una famiglia con bambini piccoli alla ricerca di opzioni di cura in Canton Svitto.',
 };
 
 export default blogMetaChIt;
