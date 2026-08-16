@@ -2899,6 +2899,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-svitto.title': 'Rechtsform in Schwyz wählen',
     'blog.article.aprire-un-attivita-canton-svitto.excerpt': 'Was es braucht, um ein Geschäft im Kanton Schwyz zu eröffnen: Rechtsform, Handelsregister und Kosten.',
     'blog.article.aprire-un-attivita-canton-svitto.imageAlt': 'Kanton Schwyz: Wahl der Rechtsform zum Betreiben eines Unternehmens',
+    'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.title': 'Entwicklung einer Tätigkeit in Schwyz: Wahl der Rechtsform und Pflichten',
+    'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.excerpt': 'Erfahren Sie, wie Sie ein Geschäft im Kanton Schwyz eröffnen. Angaben zur Rechtsformwahl, Handelsregistereintragung, Mindestkapital, Eintragungsgebühren und Versicherungspflichten.',
+    'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.imageAlt': 'Ein Unternehmer füllt aus, ein Registrierungsformular für eine Geschäftsaktivität im Kanton Schwyz.',
 };
 
 export default blogMetaChDe;

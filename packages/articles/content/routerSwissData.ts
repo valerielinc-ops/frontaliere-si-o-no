@@ -992,6 +992,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-svitto': { it: 'abbonamenti-trasporti-svitto', en: 'public-transport-passes-schwyz', de: 'oev-abonnemente-kanton-schwyz', fr: 'abonnements-transports-schwyz' },
  'imposta-succesione-donazione-canton-svitto-aliquote': { it: 'imposta-succesione-donazione-canton-svitto-aliquote', en: 'succession-donation-cantonal-svitto', de: 'erbschaftssteuer-spendenbeschwerdung-kanton-svitto', fr: 'droit-successoral-dons-canton-svitto' },
  'aprire-un-attivita-canton-svitto': { it: 'aprire-un-attivita-canton-svitto', en: 'choosing-the-legal-form-in-svitto', de: 'rechtsform-in-schwyz-wahlen', fr: 'choisir-la-forme-juridique-a-schwyz' },
+ 'aprire-attivita-canton-svitto-registro-di-commercio-e-costi': { it: 'aprire-attivita-canton-svitto-registro-di-commercio-e-costi', en: 'opening-business-canton-schwyz-registration-commerce-costs', de: 'betrieb-eroffnen-kanton-schwyz-registrierung-handel-kosten', fr: 'ouvrir-entreprise-canton-de-schwyz-enregistrement-commerce-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

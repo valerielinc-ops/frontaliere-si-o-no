@@ -8695,6 +8695,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-canton-svitto-registro-di-commercio-e-costi',
+    category: 'pratico',
+    date: '2026-08-16T13:49:56.697Z',
+    image: '/images/blog/aprire-attivita-canton-svitto-registro-di-commercio-e-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
