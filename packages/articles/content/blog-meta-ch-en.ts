@@ -2752,6 +2752,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-uri.title': 'Family allowances in the Canton of Uri: amounts and application',
     'blog.article.assegni-familiari-canton-uri.excerpt': 'The Canton of Uri offers family allowances to support families with children. This article explores the requirements and procedures for obtaining these checks.',
     'blog.article.assegni-familiari-canton-uri.imageAlt': 'View of Lugano, Switzerland, with emphasis on childcare costs in the canton of Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Canton Uri school system: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'School cycles, age of enrolment, school calendar, languages of instruction and transition to secondary schools in the Canton of Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'The school system in the Canton of Uri',
 };
 
 export default blogMetaChEn;

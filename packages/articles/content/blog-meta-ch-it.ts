@@ -2752,6 +2752,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-uri.title': 'Assegni familiari nel Cantone di Uri: importi e domanda',
     'blog.article.assegni-familiari-canton-uri.excerpt': 'Il Cantone di Uri offre assegni familiari per supportare le famiglie con figli. Questo articolo esplora i requisiti e le procedure per ottenere questi assegni.',
     'blog.article.assegni-familiari-canton-uri.imageAlt': 'Vista di Lugano, Svizzera, con enfasi sui costi della cura degli aspetti familiari nel Cantone di Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Sistema scolastico Canton Uri: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'Cicli di scuola, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori nel Cantone di Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'La scuola dell\'obbligo nel Cantone di Uri',
 };
 
 export default blogMetaChIt;

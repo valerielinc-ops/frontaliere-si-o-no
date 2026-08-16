@@ -2752,6 +2752,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-uri.title': 'Familienzulagen im Kanton Uri: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-uri.excerpt': 'Der Kanton Uri bietet Familienzulagen zur Unterstützung von Familien mit Kindern an. Dieser Artikel untersucht die Voraussetzungen und Verfahren, um diese Schecks zu erhalten.',
     'blog.article.assegni-familiari-canton-uri.imageAlt': 'Blick auf Lugano, Schweiz, mit Schwerpunkt auf die Kinderbetreuungskosten im Kanton Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Schulsystem Kanton Uri: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'Schulzyklen, Einschreibungsalter, Schulkalender, Unterrichtssprachen und Übergang in die Sekundarstufe II im Kanton Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'Die Schule im Kanton Uri',
 };
 
 export default blogMetaChDe;

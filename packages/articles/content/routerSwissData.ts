@@ -943,6 +943,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-breve-durata-ur-canton': { it: 'permesso-l-breve-durata-ur-canton', en: 'permesso-l-breve-durata-ur-canton-en', de: 'permesso-l-breve-durata-ur-canton-de', fr: 'permesso-l-breve-durata-ur-canton-fr' },
  'permesso-l-breve-durata-canton-uri': { it: 'permesso-l-breve-durata-canton-uri', en: 'permesso-l-short-duration-canton-uri', de: 'das-l-behoerde-kuerze-dauer-im-kanton-uri', fr: 'le-permis-l-de-duree-courte-dans-le-canton-uri' },
  'assegni-familiari-canton-uri': { it: 'assegni-familiari-canton-uri', en: 'assegni-familiari-canton-uri-en', de: 'assegni-familiari-canton-uri-de', fr: 'assegni-familiari-canton-uri-fr' },
+ 'sistema-scolastico-canton-uri-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-uri-iscrizione-e-cicli', en: 'school-system-canton-uri-enrollment-and-classes', de: 'schausystem-kanton-ur-einschreibung-und-klassen', fr: 'systeme-scolaire-canton-ur-inscription-et-classe' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
