@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-15T21:31:22.101Z",
+  "updatedAt": "2026-08-16T09:42:29.660Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2687245/": {
       "location": "Genève",
@@ -993,12 +993,6 @@
     },
     "https://www.pemsa.ch/it/job/operatore-operatrice-di-regolazione-m-f-d-2683734/": {
       "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-07-17"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-di-falegnameria-ebanisteria-2683691/": {
-      "location": "Plan les Ouates",
       "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-07-17"
