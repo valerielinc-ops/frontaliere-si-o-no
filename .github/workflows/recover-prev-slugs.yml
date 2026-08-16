@@ -125,9 +125,27 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then APPLY_FLAG=""; fi
           node scripts/reconcile-duplicate-stable-id-jobs.mjs $APPLY_FLAG \
             | tee /tmp/prev-slug-recovery/reconcile-report.txt
-          reconciled_dropped=$(grep -E '^(Applied|Dry-run):' /tmp/prev-slug-recovery/reconcile-report.txt \
+          # Fail-loud, not fail-silent (#5954): a future format change in
+          # reconcile-duplicate-stable-id-jobs.mjs's summary line, made without
+          # touching this workflow, must not fall back to reconciled_dropped=0
+          # and silently suppress the "Commit and push restored slices" gate
+          # below. Two drift shapes, both checked: no line matches the
+          # Applied:/Dry-run: prefix at all, or a line matches the prefix but
+          # not the full "N duplicate-id group(s), M record(s)..." shape sed
+          # extracts the count from (sed then passes the unmatched line
+          # through untouched, which is not a valid integer either).
+          summary_line=$(grep -E '^(Applied|Dry-run):' /tmp/prev-slug-recovery/reconcile-report.txt || true)
+          if [ -z "$summary_line" ]; then
+            echo "::error::reconcile-duplicate-stable-id-jobs.mjs report has no Applied:/Dry-run: summary line — output format drift? Failing loud instead of silently reporting reconciled_dropped=0 (which would suppress the commit gate below)."
+            exit 1
+          fi
+          reconciled_dropped=$(printf '%s\n' "$summary_line" \
             | sed -E 's/^[A-Za-z-]+: [0-9]+ duplicate-id group\(s\), ([0-9]+) record.*/\1/')
-          echo "reconciled_dropped=${reconciled_dropped:-0}" >> "$GITHUB_OUTPUT"
+          if ! [[ "$reconciled_dropped" =~ ^[0-9]+$ ]]; then
+            echo "::error::reconcile-duplicate-stable-id-jobs.mjs summary line did not match the expected \"<Applied|Dry-run>: N duplicate-id group(s), M record(s)...\" format: \"$summary_line\" — failing loud instead of silently reporting reconciled_dropped=0 (which would suppress the commit gate below)."
+            exit 1
+          fi
+          echo "reconciled_dropped=${reconciled_dropped}" >> "$GITHUB_OUTPUT"
           {
             echo "## Duplicate stable-id reconciliation"
             echo ""
