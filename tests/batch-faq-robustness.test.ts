@@ -39,6 +39,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 import {
   extractArticleId,
   extractBodyContent,
@@ -300,6 +301,76 @@ describe('nanako#394 — round-trip write→read', () => {
     expect(parseFaqLiteral('non e json')).toBe(null);
     expect(parseFaqLiteral('{"q":"un oggetto, non un array"}')).toBe(null);
     expect(parseFaqLiteral('')).toBe(null);
+  });
+});
+
+// ── issue #5946 item 4 — sequenze di backslash concatenate anomale ──────────
+//
+// Il reviewer chiedeva se `unescapeTsString`/`parseFaqLiteral` sono verificati
+// su run di backslash anomali (tripli/quadrupli), del tipo che una doppia
+// riscrittura accidentale produrrebbe. Investigazione (non solo test):
+//
+// 1. Lo scrittore di questo file (`escapeForSingleQuoteTS`, riga ~134) e'
+//    chiamato da UN SOLO punto (`insertFaqIntoBodyFile`), sempre una volta
+//    sola sul JSON appena generato — mai su testo gia' escapato. Lo scrittore
+//    legacy (`replaceFaqInBodyFile`) idem, con la propria formula. Nessun
+//    percorso di QUESTO file applica l'escaping due volte: la "doppia
+//    riscrittura" che ha prodotto danni reali sta nel gemello del corpus
+//    (nanako#392-395/#401, item 1/2 di questa stessa issue, entrambi
+//    `blocked` su quel repo esterno), non qui.
+// 2. Simulando comunque l'input degenere (vedi sotto), il comportamento e'
+//    deterministico ma NON un round-trip corretto: la seconda decodifica di
+//    fallback puo' produrre un array valido con un backslash spurio nel
+//    testo invece di rilanciare `null`. Nessun chiamante di QUESTO file puo'
+//    produrre quell'input (punto 1), quindi non e' un difetto da correggere
+//    qui — ma il comportamento va tracciato, non lasciato implicito.
+//
+// MUTAZIONE: cambiare la mappa di `parseFaqLiteral` o l'ordine dei decoder
+// fa fallire questi test (in particolare l'ultimo, che fissa l'esito esatto
+// dell'input a doppio escape).
+
+function escapeForSingleQuoteTsDueVolte(s: string): string {
+  const unaVolta = (t: string) => t.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
+  return unaVolta(unaVolta(s));
+}
+
+describe('issue #5946 item 4 — backslash concatenati anomali (doppia riscrittura)', () => {
+  it('unescapeTsString collassa correttamente run di 2, 3 e 4 backslash prima di un apostrofo', () => {
+    const map = { '\\': '\\', "'": "'" };
+    // 2 backslash + apostrofo -> 1 backslash + apostrofo (una coppia, poi il carattere isolato)
+    expect(unescapeTsString(String.raw`\\'`, map)).toBe(String.raw`\'`);
+    // 3 backslash + apostrofo -> 1 backslash + apostrofo decodificato (coppia + escape dell'apostrofo)
+    expect(unescapeTsString(String.raw`\\\'`, map)).toBe("\\'");
+    // 4 backslash + apostrofo -> 2 backslash, l'apostrofo resta non associato (nessun backslash libero prima)
+    expect(unescapeTsString(String.raw`\\\\'`, map)).toBe("\\\\'");
+  });
+
+  it('un singolo giro di escaping resta un round-trip esatto (percorso reale, gia coperto sopra)', () => {
+    const originale = [{ q: 'domanda', a: "it's a test with backslash C:\\Users\\x" }];
+    const jsonStr = JSON.stringify(originale);
+    const escapedUnaVolta = jsonStr.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
+    expect(parseFaqLiteral(escapedUnaVolta)).toEqual(originale);
+  });
+
+  it('un input a DOPPIO escape (irraggiungibile dagli scrittori di questo file) non torna null ne lancia: produce un array con un backslash spurio', () => {
+    // Questo e' l'input degenere che nessun chiamante di questo file produce
+    // (vedi punto 1 sopra): fissiamo comunque l'esito esatto, cosi' un
+    // cambiamento futuro al decoder non lo altera in silenzio.
+    const originale = [{ q: 'domanda', a: "it's a test with backslash C:\\Users\\x" }];
+    const jsonStr = JSON.stringify(originale);
+    const doppioEscape = escapeForSingleQuoteTsDueVolte(jsonStr);
+
+    const risultato = parseFaqLiteral(doppioEscape);
+    expect(risultato).not.toBe(null);
+    expect(Array.isArray(risultato)).toBe(true);
+    // Non e' un round-trip: il testo decodificato differisce dall'originale
+    // (backslash spurio davanti all'apostrofo). Documentato, non corretto qui.
+    expect((risultato as Array<{ a: string }>)[0].a).not.toBe(originale[0].a);
+  });
+
+  it('escapeForSingleQuoteTS (lo scrittore) e chiamata da un solo punto in questo file, mai in cascata', () => {
+    const chiamate = [...SCRIPT_SRC.matchAll(/(?<!function\s)\bescapeForSingleQuoteTS\(/g)];
+    expect(chiamate.length).toBe(1);
   });
 });
 
