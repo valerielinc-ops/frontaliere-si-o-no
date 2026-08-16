@@ -2809,6 +2809,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Uri: Kosten und Optionen',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.excerpt': 'Entdecken Sie die Kosten und Möglichkeiten der Kinderbetreuung im Kanton Uri.',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.imageAlt': 'Eine Familie mit Kindern in einem Kindergarten in der Schweiz.',
+    'blog.article.neutralita-iniziativa-sinistra.title': 'Auch von links stimmen wir für die Neutralitätsinitiative',
+    'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Die Kommunistische Partei und die Unabhängige Studenten- und Lehrlingsgewerkschaft (SISA) unterstützen die Neutralitätsinitiative.',
+    'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'Schweiz: Berge nahe Lugano',
 };
 
 export default blogMetaChDe;

@@ -2809,6 +2809,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.title': 'Garde d\'enfants dans le canton d\'Uri : coûts et options',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.excerpt': 'Découvrez les coûts et les options de la garderie et de la garde d\'enfants dans le canton d\'Uri.',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.imageAlt': 'Une famille avec enfants dans un centre d\'accueil en Suisse.',
+    'blog.article.neutralita-iniziativa-sinistra.title': 'De gauche aussi, nous votons Oui à l\'initiative sur la neutralité',
+    'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Le Parti communiste et le Syndicat indépendant des étudiants et apprentis (SISA) soutiennent l\'initiative sur la neutralité.',
+    'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'Suisse: Alpes près de Lugano',
 };
 
 export default blogMetaChFr;

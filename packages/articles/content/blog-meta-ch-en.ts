@@ -2809,6 +2809,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.title': 'Nursery and childcare in Canton Uri: costs and options',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.excerpt': 'Learn about the costs and options of daycare and childcare in Canton Uri.',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.imageAlt': 'A family with children in a childcare in Switzerland.',
+    'blog.article.neutralita-iniziativa-sinistra.title': 'Also from the left we vote Yes to the initiative on neutrality',
+    'blog.article.neutralita-iniziativa-sinistra.excerpt': 'The Communist Party and the Independent Union of Students and Apprentices (SISA) support the neutrality initiative.',
+    'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'Switzerland: Alps near Lugano',
 };
 
 export default blogMetaChEn;
