@@ -29955,6 +29955,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'assunzione-maria-2023-ticino',
+ category: 'novita',
+ date: '2026-08-16T20:56:41.744Z',
+ image: '/images/blog/assunzione-maria-2023-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

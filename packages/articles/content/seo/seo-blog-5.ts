@@ -68477,6 +68477,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assunzione-maria-2023-ticino': {
+    title: 'Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
+    description: 'La Santa Messa si è tenuta al Santuario della Madonna d\'Ongero. Per l\'occasione la celebrazione è stata trasmessa in eurovisione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, assunzione, maria, raemy, carona',
+    ogTitle: 'Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
+    ogDescription: 'La Santa Messa si è tenuta al Santuario della Madonna d\'Ongero. Per l\'occasione la celebrazione è stata trasmessa in eurovisione.',
+    canonicalPath: '/articoli-frontaliere/assunzione-maria-2023-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli",
+      "description": "La Santa Messa si è tenuta al Santuario della Madonna d'Ongero. Per l'occasione la celebrazione è stata trasmessa in eurovisione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assunzione-maria-2023-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli"
+      },
+      "datePublished": "2026-08-16T20:56:41+00:00",
+      "dateModified": "2026-08-16T20:56:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assunzione-maria-2023-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

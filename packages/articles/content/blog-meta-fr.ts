@@ -9997,6 +9997,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-locali-busto-arsizio-gallarate.title': 'Contrôle dans 3 locaux : irrégularités sur l\'hygiène et la sécurité',
     'blog.article.controlli-locali-busto-arsizio-gallarate.excerpt': 'La Police d\'État de Varese a effectué des contrôles dans trois établissements publics entre Busto Arsizio et Gallarate, constatant plusieurs irrégularités en matière administrative, d\'hygiène et de sécurité au travail.',
     'blog.article.controlli-locali-busto-arsizio-gallarate.imageAlt': 'Image d\'une barre de Busto Arsizio avec des policiers à l\'intérieur',
+    'blog.article.assunzione-maria-2023-ticino.title': 'Assomption de Marie, de Raemy da Carona invite à être charitable',
+    'blog.article.assunzione-maria-2023-ticino.excerpt': 'La Sainte Messe s\'est tenue au Sanctuaire de Notre-Dame d\'Ongero. Pour l\'occasion, la célébration a été retransmise en Eurovision.',
+    'blog.article.assunzione-maria-2023-ticino.imageAlt': 'Image éditoriale relative à: Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
 };
 
 export default blogMetaFr;
