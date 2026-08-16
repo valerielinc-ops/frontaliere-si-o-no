@@ -2773,6 +2773,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incendio-moeriken-2024.title': 'Incendio boschivo a Möriken, fumo denso e allerta alla popolazione',
     'blog.article.incendio-moeriken-2024.excerpt': 'Un incendio boschivo scoppiato a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo.',
     'blog.article.incendio-moeriken-2024.imageAlt': 'Un incendio boschivo a Möriken, nel canton Argovia, provoca un forte sviluppo di fumo.',
+    'blog.article.ciclista-grave-dopo-una-caduta.title': 'Ciclista grave dopo una caduta',
+    'blog.article.ciclista-grave-dopo-una-caduta.excerpt': 'Un uomo è stato soccorso da alcuni passanti dopo essere caduto sulla Dorfstrasse a Unterbach, nel comune di Meiringen.',
+    'blog.article.ciclista-grave-dopo-una-caduta.imageAlt': 'Un ciclista grave dopo una caduta in Svizzera',
 };
 
 export default blogMetaChIt;
