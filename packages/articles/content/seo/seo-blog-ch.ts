@@ -38513,6 +38513,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga': {
+    title: 'Permessi L di breve durata nel Canton Nidvaldo: validità e proroga',
+    description: 'Il permesso L di breve durata nel Canton Nidvaldo è valido per un massimo di 1 anno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, breve, durata, canton',
+    ogTitle: 'Permessi L di breve durata nel Canton Nidvaldo: validità e proroga',
+    ogDescription: 'Il permesso L di breve durata nel Canton Nidvaldo è valido per un massimo di 1 anno.',
+    canonicalPath: '/articoli-svizzera/permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi L di breve durata nel Canton Nidvaldo: validità e proroga",
+      "description": "Il permesso L di breve durata nel Canton Nidvaldo è valido per un massimo di 1 anno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagini editoriali della regione Nidvaldo"
+      },
+      "datePublished": "2026-08-16T19:30:43+00:00",
+      "dateModified": "2026-08-16T19:30:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

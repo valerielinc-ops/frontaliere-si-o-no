@@ -2971,6 +2971,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Residence permit B in the Canton of Nidvaldo: requirements and renewal',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'The residence permit B in the Canton of Nidvaldo is an important document for border workers who wish to reside in the canton.',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'The B permit in the Nidvaldo Canton',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Short-term L permits in the canton of Nidvaldo: validity and extension',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'The short-term L permit in Canton Nidvaldo is valid for a maximum of 1 year.',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
 };
 
 export default blogMetaChEn;

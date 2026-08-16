@@ -2971,6 +2971,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Nidvaldo: requisiti e rinnovo',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Il permesso di dimora B nel Cantone di Nidvaldo è un documento importante per i frontalieri che desiderano risiedere nel cantone.',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Il permesso di dimora B nel Cantone di Nidvaldo',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Permessi L di breve durata nel Canton Nidvaldo: validità e proroga',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'Il permesso L di breve durata nel Canton Nidvaldo è valido per un massimo di 1 anno.',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
 };
 
 export default blogMetaChIt;

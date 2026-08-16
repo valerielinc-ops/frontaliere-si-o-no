@@ -2971,6 +2971,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Nidwalden : exigences et renouvellement',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Nidwald est un document important pour les frontaliers qui souhaitent résider dans le canton.',
     'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Le permis de séjour B dans le canton de Nidvaldo',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Nidwald : validité et prolongation',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.excerpt': 'Le permis L de courte durée dans le canton de Nidwald est valable pour une durée maximale d\'un an.',
+    'blog.article.permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga.imageAlt': 'Immagini editoriali della regione Nidvaldo',
 };
 
 export default blogMetaChFr;

@@ -1016,6 +1016,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'incidente-moto-amlikon-bissegg-18-anni': { it: 'incidente-moto-amlikon-bissegg-18-anni', en: 'motorcycle-accident-amlikon-bissegg-18-years', de: 'motorradunfall-amlikon-bissegg-18-jaehrig', fr: 'accident-moto-amlikon-bissegg-18-ans' },
  'aprire-attivita-canton-obvaldo': { it: 'aprire-attivita-canton-obvaldo', en: 'start-business-canton-obvaldo', de: 'unternehmen-gruenden-kanton-obvaldo', fr: 'lancer-entreprise-canton-obvaldo' },
  'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo': { it: 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo', en: 'residence-permit-b-in-the-canton-of-nidvaldo-requirements-and-renewal', de: 'aufenthaltsbewilligung-b-im-kanton-nidwalden-voraussetzungen-und-verlangerung', fr: 'permis-de-sejour-b-dans-le-canton-de-nidwalden-exigences-et-renouvellement' },
+ 'permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga': { it: 'permesso-l-di-breve-durata-canton-nidvaldo-validita-e-proroga', en: 'permesso-l-brief-duration-nidwalden-canton', de: 'ermesse-l-kurze-geltung-nidwalden-kanton', fr: 'permis-l-breve-duree-nidwalden-canton' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
