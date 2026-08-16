@@ -2752,6 +2752,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-uri.title': 'Allocations familiales dans le canton d\'Uri : montants et demande',
     'blog.article.assegni-familiari-canton-uri.excerpt': 'Le canton d\'Uri offre des allocations familiales pour soutenir les familles avec enfants. Cet article explore les exigences et les procédures pour obtenir ces chèques.',
     'blog.article.assegni-familiari-canton-uri.imageAlt': 'Vue de Lugano, Suisse, avec un accent sur les coûts de l\'enfance dans le canton d\'Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.title': 'Système scolaire Canton Uri : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.excerpt': 'Cycles scolaires, âge d\'inscription, calendrier scolaire, langues d\'enseignement et passage au lycée dans le canton d\'Uri.',
+    'blog.article.sistema-scolastico-canton-uri-iscrizione-e-cicli.imageAlt': 'Le système scolaire dans le canton d\'Uri',
 };
 
 export default blogMetaChFr;
