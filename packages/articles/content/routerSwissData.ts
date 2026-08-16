@@ -985,6 +985,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-canton-svitto-costi': { it: 'asilo-nido-custodia-bambini-canton-svitto-costi', en: 'kindergarten-and-childcare-in-the-canton-of-schwyz-costs-and-options', de: 'asilo-nido-custodia-bambini-canton-svitto-kosten', fr: 'asilo-nido-custodia-bambini-canton-svitto-couts' },
  'basilea-diagnosi-adhd-studenti': { it: 'basilea-diagnosi-adhd-studenti', en: 'basel-adhd-diagnoses-students', de: 'basel-adhd-diagnosen-studenten', fr: 'bale-diagnostics-tdah-etudiants' },
  'borse-studio-canton-svitto': { it: 'borse-studio-canton-svitto', en: 'scholarships-canton-schwyz', de: 'stipendien-kanton-schwyz', fr: 'bourses-d-etudes-canton-schwyz' },
+ 'comprare-casa-canton-svitto': { it: 'comprare-casa-canton-svitto', en: 'buying-house-canton-schwyz', de: 'haus-kaufen-kanton-schwyz', fr: 'acheter-maison-canton-schwyz' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

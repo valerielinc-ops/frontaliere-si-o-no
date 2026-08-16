@@ -37304,6 +37304,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-canton-svitto': {
+    title: 'Comprare casa nel Cantone di Svitto: prezzi e mutuo',
+    description: 'Guida pratica per comprare casa nel Cantone di Svitto: prezzi immobiliari, fondi propri necessari, sostenibilità del mutuo, tasse e spese notarili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, cantone, svitto',
+    ogTitle: 'Comprare casa nel Cantone di Svitto: prezzi e mutuo ipotecario',
+    ogDescription: 'Tutto quello che serve sapere per l\'acquisto di un\'abitazione nel Cantone di Svitto: fondi propri, calcolo della sostenibilità del mutuo, spese notarili e fiscalità.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Cantone di Svitto: prezzi e mutuo",
+      "description": "Guida pratica per comprare casa nel Cantone di Svitto: prezzi immobiliari, fondi propri necessari, sostenibilità del mutuo, tasse e spese notarili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Case e immobili residenziali nel Cantone di Svitto"
+      },
+      "datePublished": "2026-08-16T13:06:35+00:00",
+      "dateModified": "2026-08-16T13:06:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

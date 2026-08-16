@@ -2878,6 +2878,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-canton-svitto.title': 'Borse di studio canton Svitto requisiti e importi',
     'blog.article.borse-studio-canton-svitto.excerpt': 'Requisiti e importi delle borse di studio per studenti italiani nel canton Svitto',
     'blog.article.borse-studio-canton-svitto.imageAlt': 'Borse di studio per studenti italiani nel canton Svitto',
+    'blog.article.comprare-casa-canton-svitto.title': 'Comprare casa nel Cantone di Svitto: prezzi e mutuo',
+    'blog.article.comprare-casa-canton-svitto.excerpt': 'Guida pratica all\'acquisto immobiliare nel Cantone di Svitto: analisi dei prezzi medi, requisiti per i fondi propri, sostenibilità del credito ipotecario, imposta sui trapassi e spese notarili.',
+    'blog.article.comprare-casa-canton-svitto.imageAlt': 'Case e immobili residenziali nel Cantone di Svitto',
 };
 
 export default blogMetaChIt;

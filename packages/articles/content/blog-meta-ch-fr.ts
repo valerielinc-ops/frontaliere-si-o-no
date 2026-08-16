@@ -2878,6 +2878,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-svitto.title': 'Bourses canton Schwyz exigences et montants',
     'blog.article.borse-studio-canton-svitto.excerpt': 'Exigences et montants des bourses d\'études pour les étudiants italiens dans le canton de Schwyz',
     'blog.article.borse-studio-canton-svitto.imageAlt': 'Bourses d\'études pour étudiants italiens dans le canton de Schwyz',
+    'blog.article.comprare-casa-canton-svitto.title': 'Acheter une maison dans le canton de Schwyz : prix et hypothèque',
+    'blog.article.comprare-casa-canton-svitto.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Schwyz : analyse des prix moyens, exigences de fonds propres, viabilité du crédit hypothécaire, taxe de passage et frais de notaire.',
+    'blog.article.comprare-casa-canton-svitto.imageAlt': 'Immobiliers résidentiels dans le canton de Schwyz',
 };
 
 export default blogMetaChFr;

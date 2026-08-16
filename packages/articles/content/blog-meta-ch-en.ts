@@ -2878,6 +2878,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-svitto.title': 'Canton Scholarships Wobble Requirements and Amounts',
     'blog.article.borse-studio-canton-svitto.excerpt': 'Scholarship requirements and amounts for Italian students in the canton of Schwyz',
     'blog.article.borse-studio-canton-svitto.imageAlt': 'Scholarships for Italian students in the Canton of Schwyz',
+    'blog.article.comprare-casa-canton-svitto.title': 'Buying a house in the Canton of Svitto: prices and mortgage',
+    'blog.article.comprare-casa-canton-svitto.excerpt': 'Practical guide to buying real estate in the Canton of Schwyz: analysis of average prices, requirements for own funds, sustainability of mortgage credit, transfer tax and notary fees.',
+    'blog.article.comprare-casa-canton-svitto.imageAlt': 'Residential houses and properties in the Canton of Schwyz',
 };
 
 export default blogMetaChEn;

@@ -2878,6 +2878,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-svitto.title': 'Stipendien Kanton Schwyz Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-svitto.excerpt': 'Stipendienvoraussetzungen und -beträge für italienische Studierende im Kanton Schwyz',
     'blog.article.borse-studio-canton-svitto.imageAlt': 'Stipendien für italienische Studierende im Kanton Schwyz',
+    'blog.article.comprare-casa-canton-svitto.title': 'Haus kaufen im Kanton Schwyz: Preise und Darlehen',
+    'blog.article.comprare-casa-canton-svitto.excerpt': 'Praktischer Leitfaden für den Immobilienkauf im Kanton Schwyz: Durchschnittspreisanalyse, Eigenmittelanforderungen, Tragbarkeit des Hypothekarkredits, Stempelsteuer und Notarkosten.',
+    'blog.article.comprare-casa-canton-svitto.imageAlt': 'Wohnimmobilien im Kanton Schwyz',
 };
 
 export default blogMetaChDe;
