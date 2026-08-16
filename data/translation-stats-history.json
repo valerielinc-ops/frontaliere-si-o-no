@@ -11924,5 +11924,161 @@
         "pending": 185
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-16T13:43:15.436Z",
+    "label": "before",
+    "total": 26995,
+    "needsRetranslation": 10617,
+    "suppressed": 58,
+    "incomplete": 11549,
+    "complete": 15446,
+    "slotsPresent": 15446,
+    "flaggedAmongSlotsPresent": 276,
+    "verifiedTranslated": 15170,
+    "sourceCopyExcused": 606,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 65,
+      "en": 38,
+      "de": 52,
+      "fr": 54
+    },
+    "queueAge": {
+      "count": 10617,
+      "withTimestamp": 10617,
+      "oldestAgeDays": 125.2,
+      "p50AgeDays": 18.6,
+      "p90AgeDays": 67.2,
+      "buckets": {
+        "0-7d": 1628,
+        "7-30d": 5035,
+        "30-90d": 3671,
+        "90-180d": 283,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2025
+      },
+      {
+        "company": "Roche",
+        "pending": 553
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 485
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 266
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 261
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 255
+      },
+      {
+        "company": "railCare",
+        "pending": 248
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 235
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 185
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-16T16:13:10.534Z",
+    "label": "after",
+    "total": 26995,
+    "needsRetranslation": 10328,
+    "suppressed": 60,
+    "incomplete": 11533,
+    "complete": 15462,
+    "slotsPresent": 15462,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15462,
+    "sourceCopyExcused": 606,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 65,
+      "en": 38,
+      "de": 51,
+      "fr": 54
+    },
+    "queueAge": {
+      "count": 10328,
+      "withTimestamp": 10328,
+      "oldestAgeDays": 125.3,
+      "p50AgeDays": 18.2,
+      "p90AgeDays": 67.3,
+      "buckets": {
+        "0-7d": 1552,
+        "7-30d": 4961,
+        "30-90d": 3534,
+        "90-180d": 281,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2022
+      },
+      {
+        "company": "Roche",
+        "pending": 553
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 485
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 266
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 261
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 255
+      },
+      {
+        "company": "railCare",
+        "pending": 248
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 235
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 185
+      }
+    ]
   }
 ]
