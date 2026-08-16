@@ -8875,6 +8875,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-cantone-nidvaldo',
+    category: 'fiscale',
+    date: '2026-08-16T19:00:08.445Z',
+    image: '/images/blog/premi-cassa-malati-cantone-nidvaldo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'incidente-moto-amlikon-bissegg-18-anni',
+    category: 'pratico',
+    date: '2026-08-16T19:03:12.024Z',
+    image: '/images/blog/incidente-moto-amlikon-bissegg-18-anni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
