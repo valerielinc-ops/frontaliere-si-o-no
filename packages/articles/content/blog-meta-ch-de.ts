@@ -2734,6 +2734,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Kantonale Steuern Kanton Uri: Steuersätze und Abzüge',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Entdecken Sie die zulässigen Sätze und Abzüge für die kantonalen Steuern im Kanton Uri',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Kanton Uri Steuern',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B in Uri: Voraussetzungen und Verfahren',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.excerpt': 'Was es braucht, um die Aufenthaltsbewilligung B im Kanton Uri zu erhalten und wie man mit der Erneuerung fortfährt',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.imageAlt': 'Schweizer Bürger',
 };
 
 export default blogMetaChDe;

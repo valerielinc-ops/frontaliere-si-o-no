@@ -2734,6 +2734,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Impôts cantonaux Canton d\'Uri : taux et déductions',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Découvrez les taux et déductions admis pour les impôts cantonaux dans le canton d\'Uri',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Impôts cantonaux dans le canton d\'Uri',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.title': 'Permis de séjour B à Uri : exigences et procédure',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.excerpt': 'Ce qu\'il faut pour obtenir le permis de séjour B dans le canton d\'Uri et comment procéder au renouvellement',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.imageAlt': 'Résident suisse',
 };
 
 export default blogMetaChFr;
