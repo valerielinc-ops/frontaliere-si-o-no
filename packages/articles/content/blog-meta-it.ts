@@ -9999,6 +9999,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assunzione-maria-2023-ticino.title': 'Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
     'blog.article.assunzione-maria-2023-ticino.excerpt': 'La Santa Messa si è tenuta al Santuario della Madonna d\'Ongero. Per l\'occasione la celebrazione è stata trasmessa in eurovisione.',
     'blog.article.assunzione-maria-2023-ticino.imageAlt': 'Immagine editoriale relativa a: Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
+    'blog.article.burro-svizzero-esportazioni-perdite.title': 'Burro svizzero all\'estero: esportazioni e perdite per 27 milioni',
+    'blog.article.burro-svizzero-esportazioni-perdite.excerpt': 'Le eccedenze di burro svizzero vengono esportate a prezzi stracciati rispetto al mercato interno, generando una perdita stimata di 27 milioni di franchi.',
+    'blog.article.burro-svizzero-esportazioni-perdite.imageAlt': 'Stoccaggio di prodotti lattiero-caseari in Svizzera',
 };
 
 export default blogMetaIt;
