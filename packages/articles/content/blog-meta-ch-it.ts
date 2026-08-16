@@ -2908,6 +2908,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.conversione-patente-guida-svitto.title': 'Patente di guida a Svitto: conversione, esami e ufficio',
     'blog.article.conversione-patente-guida-svitto.excerpt': 'Guida completa alla conversione della patente di guida estera nel Cantone di Svitto, con dettagli su esami, corsi obbligatori e uffici.',
     'blog.article.conversione-patente-guida-svitto.imageAlt': 'Ufficio della circolazione nel Cantone di Svitto per la conversione della patente',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Premi cassa malati nel Cantone di Obvaldo: riduzione e franchigie',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'La legge cantonale sulle assicurazioni malattie nel Cantone di Obvaldo prevede fasce di età e franchigie per ridurre i premi.',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'Una scena di un ospedale in Svizzera con pazienti e infermiere',
 };
 
 export default blogMetaChIt;

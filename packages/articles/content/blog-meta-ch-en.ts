@@ -2908,6 +2908,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.conversione-patente-guida-svitto.title': 'Driving licence in Svitto: conversion, exams and office',
     'blog.article.conversione-patente-guida-svitto.excerpt': 'Complete guide to converting your foreign driving licence in the Canton of Schwyz, with details on examinations, compulsory courses and offices.',
     'blog.article.conversione-patente-guida-svitto.imageAlt': 'Driving license office counter in Canton Schwyz',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Sick pay premiums in the Canton of Obvaldo: reduction and deductibles',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'The cantonal law on health insurance in the Canton of Obvaldo provides for age groups and deductibles to reduce premiums.',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'A scene of a hospital in Switzerland with patients and nurses',
 };
 
 export default blogMetaChEn;

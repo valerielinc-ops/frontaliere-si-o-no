@@ -37694,6 +37694,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-obvaldo-riduzione': {
+    title: 'Premi cassa malati nel Cantone di Obvaldo: riduzione e franchigie',
+    description: 'La legge cantonale sulle assicurazioni malattie nel Cantone di Obvaldo prevede fasce di età e franchigie per ridurre i premi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, cantone',
+    ogTitle: 'Premi cassa malati nel Cantone di Obvaldo: riduzione e franchigie',
+    ogDescription: 'La legge cantonale sulle assicurazioni malattie nel Cantone di Obvaldo prevede fasce di età e franchigie per ridurre i premi.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-obvaldo-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati nel Cantone di Obvaldo: riduzione e franchigie",
+      "description": "La legge cantonale sulle assicurazioni malattie nel Cantone di Obvaldo prevede fasce di età e franchigie per ridurre i premi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-obvaldo-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un ospedale in Svizzera con pazienti e infermiere"
+      },
+      "datePublished": "2026-08-16T14:15:53+00:00",
+      "dateModified": "2026-08-16T14:15:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-obvaldo-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
