@@ -3801,18 +3801,6 @@
         "fr": "Assistant de pharmacie AFC"
       },
       "id": "galenica-4cd3d595504f",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collombey"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collombey"
-        ],
-        "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collombey"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -3829,7 +3817,18 @@
       },
       "addressLocality": "Collombey",
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collombey"
+        ],
+        "en": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collombey"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-collombey"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6049,21 +6048,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-ff5108090caf",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-widnau",
-        "afc-apothekenassistent-amavita-galenica-widnau",
-        "apothekenassistent-afc-amavita-galenica-widnau"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-widnau",
-          "afc-apothekenassistent-amavita-galenica-widnau",
-          "apothekenassistent-afc-amavita-galenica-widnau"
-        ],
-        "en": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-widnau"
-        ]
-      },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -6080,7 +6064,22 @@
       },
       "addressLocality": "Widnau",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-widnau",
+          "afc-apothekenassistent-amavita-galenica-widnau",
+          "apothekenassistent-afc-amavita-galenica-widnau"
+        ],
+        "en": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-widnau"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-widnau",
+        "afc-apothekenassistent-amavita-galenica-widnau",
+        "apothekenassistent-afc-amavita-galenica-widnau"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9013,18 +9012,6 @@
         "fr": "Assistant de Pharmacie AFC"
       },
       "id": "galenica-9e3d0031efee",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rennaz"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rennaz"
-        ],
-        "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rennaz"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -9041,7 +9028,18 @@
       },
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rennaz"
+        ],
+        "en": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rennaz"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10932,7 +10930,7 @@
       "slugByLocale": {
         "it": "galenica-coop-vitality-assistente-di-farmacia-afc-st-gallen-shopping-arena",
         "en": "afc-pharmacy-assistant-coop-vitality-galenica-st-gallen-shopping-arena",
-        "de": "apothekenassistent-afc-coop-vitality-galenica-st-gallen-shopping-arena",
+        "de": "pharma-assistent-efz-coop-vitality-galenica-st-gallen-shopping-arena",
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-st-gallen-shopping-arena"
       },
       "titleByLocale": {
@@ -10942,19 +10940,6 @@
         "fr": "Assistant de pharmacie AFC"
       },
       "id": "galenica-1ea994847b11",
-      "previousSlugs": [
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena",
-        "pharma-assistent-efz-coop-vitality-galenica-st-gallen-shopping-arena"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena",
-          "pharma-assistent-efz-coop-vitality-galenica-st-gallen-shopping-arena"
-        ],
-        "en": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena"
-        ]
-      },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -10971,7 +10956,22 @@
       },
       "addressLocality": "St. Gallen (Shopping Arena)",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena",
+          "pharma-assistent-efz-coop-vitality-galenica-st-gallen-shopping-arena",
+          "apothekenassistent-afc-coop-vitality-galenica-st-gallen-shopping-arena"
+        ],
+        "en": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen-shopping-arena",
+        "pharma-assistent-efz-coop-vitality-galenica-st-gallen-shopping-arena",
+        "apothekenassistent-afc-coop-vitality-galenica-st-gallen-shopping-arena"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11322,18 +11322,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-7577d9410657",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-versoix"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-versoix"
-        ],
-        "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-versoix"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11350,7 +11338,18 @@
       },
       "addressLocality": "Versoix",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-versoix"
+        ],
+        "en": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-versoix"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-versoix"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11630,18 +11629,6 @@
         "fr": "Assistant de pharmacie AFC"
       },
       "id": "galenica-54442b170df3",
-      "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
-        ],
-        "en": [
-          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11658,7 +11645,18 @@
       },
       "addressLocality": "Aigle",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
+        ],
+        "en": [
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-aigle"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11825,18 +11823,6 @@
         "fr": "Assistant de pharmacie AFC"
       },
       "id": "galenica-6120c5407d2b",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vallorbe"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vallorbe"
-        ],
-        "en": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vallorbe"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11853,7 +11839,18 @@
       },
       "addressLocality": "Vallorbe",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vallorbe"
+        ],
+        "en": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vallorbe"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-vallorbe"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12010,7 +12007,7 @@
       "slugByLocale": {
         "it": "galenica-coop-vitality-assistente-di-farmacia-afc-glattpark-opfikon",
         "en": "afc-pharmacy-assistant-coop-vitality-galenica-glattpark-opfikon",
-        "de": "apothekenassistent-afc-coop-vitality-galenica-glattpark-opfikon",
+        "de": "pharma-assistent-in-efz-coop-vitality-galenica-glattpark-opfikon",
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-glattpark-opfikon"
       },
       "titleByLocale": {
@@ -12020,19 +12017,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-32417feb253a",
-      "previousSlugs": [
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon",
-        "pharma-assistent-in-efz-coop-vitality-galenica-glattpark-opfikon"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon",
-          "pharma-assistent-in-efz-coop-vitality-galenica-glattpark-opfikon"
-        ],
-        "en": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon"
-        ]
-      },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12049,7 +12033,22 @@
       },
       "addressLocality": "Glattpark (Opfikon)",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon",
+          "pharma-assistent-in-efz-coop-vitality-galenica-glattpark-opfikon",
+          "apothekenassistent-afc-coop-vitality-galenica-glattpark-opfikon"
+        ],
+        "en": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-glattpark-opfikon",
+        "pharma-assistent-in-efz-coop-vitality-galenica-glattpark-opfikon",
+        "apothekenassistent-afc-coop-vitality-galenica-glattpark-opfikon"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15286,18 +15285,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-9a299f7cd276",
-      "previousSlugs": [
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz"
-        ],
-        "en": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz"
-        ]
-      },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15314,7 +15301,18 @@
       },
       "addressLocality": "Seewen SZ",
       "addressRegion": "SZ",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz"
+        ],
+        "en": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-seewen-sz"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16581,21 +16579,6 @@
         "fr": "Opérateur/trice informatique AFC"
       },
       "id": "galenica-6b142b4595e9",
-      "previousSlugs": [
-        "galenica-galenica-ag-ict-fachmann-frau-efz-bern",
-        "informatiker-in-afc-galenica-ag-galenica-bern",
-        "informatiker-in-efz-galenica-ag-galenica-bern"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "galenica-galenica-ag-ict-fachmann-frau-efz-bern",
-          "informatiker-in-afc-galenica-ag-galenica-bern",
-          "informatiker-in-efz-galenica-ag-galenica-bern"
-        ],
-        "en": [
-          "galenica-galenica-ag-ict-fachmann-frau-efz-bern"
-        ]
-      },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -16615,6 +16598,21 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "galenica-galenica-ag-ict-fachmann-frau-efz-bern",
+          "informatiker-in-afc-galenica-ag-galenica-bern",
+          "informatiker-in-efz-galenica-ag-galenica-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-ict-fachmann-frau-efz-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-ict-fachmann-frau-efz-bern",
+        "informatiker-in-afc-galenica-ag-galenica-bern",
+        "informatiker-in-efz-galenica-ag-galenica-bern"
+      ],
       "needsRetranslation": true
     },
     {
