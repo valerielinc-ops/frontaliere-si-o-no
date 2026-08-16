@@ -9995,6 +9995,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-locali-busto-arsizio-gallarate.title': 'Checks in three rooms: irregularities in hygiene, work and safety',
     'blog.article.controlli-locali-busto-arsizio-gallarate.excerpt': 'The State Police of Varese carried out checks in three public establishments between Busto Arsizio and Gallarate, finding several irregularities in administrative, sanitary and occupational safety matters.',
     'blog.article.controlli-locali-busto-arsizio-gallarate.imageAlt': 'Image of a Busto Arsizio bar with police officers inside',
+    'blog.article.assunzione-maria-2023-ticino.title': 'Assumption of Mary, de Raemy da Carona invites you to be charitable',
+    'blog.article.assunzione-maria-2023-ticino.excerpt': 'Holy Mass was held at the Sanctuary of Our Lady of Ongero. For the occasion, the celebration was broadcast in Eurovision.',
+    'blog.article.assunzione-maria-2023-ticino.imageAlt': 'Editorial image related to: Assunzione di Maria, de Raemy da Carona invita a essere caritatevoli',
 };
 
 export default blogMetaEn;
