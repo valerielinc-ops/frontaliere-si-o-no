@@ -2914,6 +2914,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton d\'Obwald : taux et déductions',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Informations sur les impôts cantonaux dans le canton d\'Obwald, y compris les tranches, les déductions admises et les délais de livraison.',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Canton d\'Obvaldo, impôts cantonaux, taux, déductions',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Le permis de domicile C dans le canton d\'Obwald',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Conditions et procédure pour obtenir le permis d\'établissement C dans le canton d\'Obwald',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'La vue sur le lac de Lugano',
 };
 
 export default blogMetaChFr;

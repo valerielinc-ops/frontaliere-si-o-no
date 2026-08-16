@@ -2914,6 +2914,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone di Obvaldo: aliquote e deduzioni',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.excerpt': 'Informazioni sulle imposte cantonali nel Cantone di Obvaldo, inclusi gli scaglioni, le deduzioni ammesse e le scadenze di consegna.',
     'blog.article.imposte-cantonal-obvaldo-aliquote-deduzioni.imageAlt': 'Cantone di Obvaldo, imposte cantonali, aliquote, deduzioni',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Il permesso di domicilio C nel Cantone di Obvaldo',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Requisiti e procedura per ottenere il permesso di domicilio C nel Cantone di Obvaldo',
+    'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'La vista sul Lago di Lugano',
 };
 
 export default blogMetaChIt;
