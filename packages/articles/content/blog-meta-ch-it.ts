@@ -2743,6 +2743,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Permesso di domicilio C nel Cantone di Uri: requisiti e domanda',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'La durata richiesta per il permesso di domicilio C nel Cantone di Uri, i criteri di integrazione e le conoscenze linguistiche richieste.',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Immagine di un paese svizzero con un permesso di soggiorno C sul portone',
+    'blog.article.permesso-l-breve-durata-ur-canton.title': 'Permesso L Uri: durata massima e condizioni',
+    'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'Il permesso L di breve durata nel Cantone di Uri: cosa è, come ottenere, limiti e restrizioni',
+    'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontaliere che consulta un avvocato a Lugano',
 };
 
 export default blogMetaChIt;

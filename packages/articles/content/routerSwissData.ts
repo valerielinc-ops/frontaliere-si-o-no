@@ -940,6 +940,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-ur-requisiti-rinnovo': { it: 'permesso-dimora-b-ur-requisiti-rinnovo', en: 'permesso-di-dimora-b-canton-uri-requisiti-e-rinnovo', de: 'ermesse-b-kanton-ur-anforderungen-und-verlangerung', fr: 'permis-de-sejour-b-canton-d-uri-exigences-et-renouvellement' },
  'permesso-dimora-b-uri': { it: 'permesso-dimora-b-uri', en: 'residence-permit-b-canton-uri-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-uri-voraussetzungen', fr: 'permis-de-sejour-b-canton-uri-conditions' },
  'permesso-di-domicilio-c-ur-requisiti-e-domanda': { it: 'permesso-di-domicilio-c-ur-requisiti-e-domanda', en: 'c-permit-uri-requirements-and-application', de: 'c-aufenthaltstitel-uri-anforderungen-und-antrag', fr: 'permis-de-sejour-c-uri-exigences-et-demande' },
+ 'permesso-l-breve-durata-ur-canton': { it: 'permesso-l-breve-durata-ur-canton', en: 'permesso-l-breve-durata-ur-canton-en', de: 'permesso-l-breve-durata-ur-canton-de', fr: 'permesso-l-breve-durata-ur-canton-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

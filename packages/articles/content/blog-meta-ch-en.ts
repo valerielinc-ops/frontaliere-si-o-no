@@ -2743,6 +2743,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Residence permit C in the Canton of Uri: requirements and application',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'The duration required for residence permit C in the Canton of Uri, the integration criteria and the language skills required.',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Image of a Swiss town with a permit C notice on a door',
+    'blog.article.permesso-l-breve-durata-ur-canton.title': 'L URI Permit: maximum duration and conditions',
+    'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'The short-term L permit in the Canton of Uri: what it is, how to obtain it, limits and restrictions',
+    'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontaliere consulting a lawyer in Lugano',
 };
 
 export default blogMetaChEn;
