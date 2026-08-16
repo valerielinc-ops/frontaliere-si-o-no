@@ -1,16 +1,16 @@
 {
   "key": "daler-hopital",
   "label": "Hôpital Daler",
-  "generatedAt": "2026-08-16T09:58:26.536Z",
+  "generatedAt": "2026-08-16T21:53:00.596Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4037,
-  "avgDurationMs": 4037,
+  "durationMs": 4532,
+  "avgDurationMs": 4532,
   "durationHistory": [
-    4037
+    4532
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://daler.ch/emplois#offer/4231/gestionnaire-en-intendance",
       "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T09:58:23.948Z",
+      "crawledAt": "2026-08-16T21:52:57.358Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -53,47 +53,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "daler-hopital-a6afc4bd3b99",
-      "slug": "assistente-di-farmacia-hopital-daler-fribourg",
-      "company": "Hôpital Daler",
-      "companyKey": "daler-hopital",
-      "companyDomain": "daler.ch",
-      "title": "Assistant·e en pharmacie",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://daler.ch/emplois#offer/4197/assistante-en-pharmacie",
-      "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-14T21:42:54.970Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1701",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-01",
-      "applyUrl": "https://daler.ch/emplois#offer/4197/assistante-en-pharmacie",
-      "externalId": "4197",
-      "firstSeenAt": "2026-05-19T13:47:22.199Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
