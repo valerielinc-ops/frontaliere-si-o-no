@@ -8461,6 +8461,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'investimenti-elettricit-svizzera',
+    category: 'fiscale',
+    date: '2026-08-16T09:25:20.436Z',
+    image: '/images/blog/investimenti-elettricit-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

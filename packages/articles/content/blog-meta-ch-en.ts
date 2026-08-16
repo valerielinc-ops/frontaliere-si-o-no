@@ -2821,6 +2821,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: lease fees and rights',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'The maximum security deposit is 3 months\' rent.',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Image of an apartment for rent in Lugano with a view of the lake.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'Switzerland invests to prevent electricity shortages',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse estimates that four billion francs are needed to guarantee energy reserves',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investments in Swiss electricity to prevent shortages',
 };
 
 export default blogMetaChEn;

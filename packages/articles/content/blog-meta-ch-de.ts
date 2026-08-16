@@ -2821,6 +2821,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: Miete und Pacht',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Die maximale Mietkaution beträgt 3 Monate.',
     'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Bild eines Apartments in Lugano, das zu mieten ist und auf den See ausblickt.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'Die Schweiz investiert, um Stromknappheit zu verhindern',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse schätzt, dass vier Milliarden Franken benötigt werden, um Energiereserven zu sichern',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investitionen in die Schweizer Elektrizität, um Mangel zu verhindern',
 };
 
 export default blogMetaChDe;
