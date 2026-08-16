@@ -2977,6 +2977,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-aumento-2027.title': 'Wages rising in 2027: here\'s how much more we could earn',
     'blog.article.salari-aumento-2027.excerpt': 'Swiss companies expect wage increases by 2027. According to a KOF survey, wage negotiations are expected to lead to an average 1.2% increase in wages next year.',
     'blog.article.salari-aumento-2027.imageAlt': 'Image of a street in Lugano with a Swiss flag',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.title': 'Residence permit C in the Canton of Nidvaldo: requirements and application',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.excerpt': 'Integration requirements, language skills and application procedure for residence permit C in the Canton of Nidvaldo.',
+    'blog.article.permesso-di-domicilio-c-nidvaldo-requisiti-e-domanda.imageAlt': 'Family and child look at Lake Lugano',
 };
 
 export default blogMetaChEn;
