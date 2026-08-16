@@ -2749,6 +2749,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-uri.title': 'Short-term L permits in Canton Uri: validity and extension',
     'blog.article.permesso-l-breve-durata-canton-uri.excerpt': 'The short-term L permit in Canton Uri is valid for a maximum of <<non ancora specificato>>.',
     'blog.article.permesso-l-breve-durata-canton-uri.imageAlt': 'The L permit of short duration in the Canton Uri: what happens if?',
+    'blog.article.assegni-familiari-canton-uri.title': 'Family allowances in the Canton of Uri: amounts and application',
+    'blog.article.assegni-familiari-canton-uri.excerpt': 'The Canton of Uri offers family allowances to support families with children. This article explores the requirements and procedures for obtaining these checks.',
+    'blog.article.assegni-familiari-canton-uri.imageAlt': 'View of Lugano, Switzerland, with emphasis on childcare costs in the canton of Uri.',
 };
 
 export default blogMetaChEn;

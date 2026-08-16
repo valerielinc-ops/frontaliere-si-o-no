@@ -35627,6 +35627,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-canton-uri': {
+    title: 'Assegni familiari nel Cantone di Uri: importi e domanda',
+    description: 'Informazioni sull\'assegno familiare nel Cantone di Uri, inclusi i requisiti e le procedure per ottenere questo beneficio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, cantone, importi',
+    ogTitle: 'Assegni familiari nel Cantone di Uri: importi e domanda',
+    ogDescription: 'Informazioni sull\'assegno familiare nel Cantone di Uri, inclusi i requisiti e le procedure per ottenere questo beneficio.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-canton-uri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari nel Cantone di Uri: importi e domanda",
+      "description": "Informazioni sull'assegno familiare nel Cantone di Uri, inclusi i requisiti e le procedure per ottenere questo beneficio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-canton-uri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, Svizzera, con enfasi sui costi della cura degli aspetti familiari nel Cantone di Uri."
+      },
+      "datePublished": "2026-08-16T02:39:54+00:00",
+      "dateModified": "2026-08-16T02:39:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-canton-uri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2749,6 +2749,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-uri.title': 'Permis L de courte durée dans le canton d\'Uri : validité et prolongation',
     'blog.article.permesso-l-breve-durata-canton-uri.excerpt': 'Le permis L de courte durée dans le canton d\'Uri est valable pour un maximum de <<non ancora specificato>>.',
     'blog.article.permesso-l-breve-durata-canton-uri.imageAlt': 'Le permis L de durée courte dans le Canton Uri: ce qui se passe si?',
+    'blog.article.assegni-familiari-canton-uri.title': 'Allocations familiales dans le canton d\'Uri : montants et demande',
+    'blog.article.assegni-familiari-canton-uri.excerpt': 'Le canton d\'Uri offre des allocations familiales pour soutenir les familles avec enfants. Cet article explore les exigences et les procédures pour obtenir ces chèques.',
+    'blog.article.assegni-familiari-canton-uri.imageAlt': 'Vue de Lugano, Suisse, avec un accent sur les coûts de l\'enfance dans le canton d\'Uri.',
 };
 
 export default blogMetaChFr;

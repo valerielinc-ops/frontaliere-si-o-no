@@ -942,6 +942,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-di-domicilio-c-ur-requisiti-e-domanda': { it: 'permesso-di-domicilio-c-ur-requisiti-e-domanda', en: 'c-permit-uri-requirements-and-application', de: 'c-aufenthaltstitel-uri-anforderungen-und-antrag', fr: 'permis-de-sejour-c-uri-exigences-et-demande' },
  'permesso-l-breve-durata-ur-canton': { it: 'permesso-l-breve-durata-ur-canton', en: 'permesso-l-breve-durata-ur-canton-en', de: 'permesso-l-breve-durata-ur-canton-de', fr: 'permesso-l-breve-durata-ur-canton-fr' },
  'permesso-l-breve-durata-canton-uri': { it: 'permesso-l-breve-durata-canton-uri', en: 'permesso-l-short-duration-canton-uri', de: 'das-l-behoerde-kuerze-dauer-im-kanton-uri', fr: 'le-permis-l-de-duree-courte-dans-le-canton-uri' },
+ 'assegni-familiari-canton-uri': { it: 'assegni-familiari-canton-uri', en: 'assegni-familiari-canton-uri-en', de: 'assegni-familiari-canton-uri-de', fr: 'assegni-familiari-canton-uri-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
