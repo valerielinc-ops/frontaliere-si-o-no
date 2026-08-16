@@ -8974,6 +8974,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'apprendistato-nidvaldo-2026',
+    category: 'pratico',
+    date: '2026-08-16T22:47:04.085Z',
+    image: '/images/blog/apprendistato-nidvaldo-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

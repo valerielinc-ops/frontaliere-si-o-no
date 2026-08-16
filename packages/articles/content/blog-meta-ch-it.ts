@@ -2992,6 +2992,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-di-studio-canton-nidvaldo.title': 'Borse di studio del Cantone di Nidwalden: requisiti e importi',
     'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Requisiti e importi delle borse di studio per studenti frontalieri del Cantone di Nidwalden',
     'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Studenti frontalieri in Svizzera: borse di studio per studenti del Cantone di Nidwalden',
+    'blog.article.apprendistato-nidvaldo-2026.title': 'Tirocini e formazione nel Cantone di Nidvaldo',
+    'blog.article.apprendistato-nidvaldo-2026.excerpt': 'Il Cantone di Nidvaldo offre programmi di formazione professionale per giovani adulti.',
+    'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'Un giovane adulto in un programma di formazione professionale, guarda lo schermo di un laptop con un\'espressione perplessa, in una vista di Lugano.',
 };
 
 export default blogMetaChIt;

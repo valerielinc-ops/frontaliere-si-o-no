@@ -2992,6 +2992,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-di-studio-canton-nidvaldo.title': 'Bourses d\'études du canton de Nidwald : exigences et montants',
     'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Exigences et montants des bourses d\'études pour les étudiants frontaliers du canton de Nidwald',
     'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Étudiants suisses: bourses d\'études pour les étudiants du canton de Nidwalden',
+    'blog.article.apprendistato-nidvaldo-2026.title': 'Stages et formation dans le canton de Nidwald',
+    'blog.article.apprendistato-nidvaldo-2026.excerpt': 'Le canton de Nidwald propose des programmes de formation professionnelle pour jeunes adultes.',
+    'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'Un jeune adulte dans un programme de formation professionnelle, regarde l\'écran d\'un ordinateur portable avec une expression perplexe, dans un paysage urbain de Lugano.',
 };
 
 export default blogMetaChFr;

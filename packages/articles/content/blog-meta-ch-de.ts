@@ -2992,6 +2992,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-di-studio-canton-nidvaldo.title': 'Stipendien des Kantons Nidwalden: Voraussetzungen und Beträge',
     'blog.article.borse-di-studio-canton-nidvaldo.excerpt': 'Stipendienvoraussetzungen und -beträge für Grenzstudenten des Kantons Nidwalden',
     'blog.article.borse-di-studio-canton-nidvaldo.imageAlt': 'Schweizer Studenten: Stipendien für Studenten des Kantons Nidwalden',
+    'blog.article.apprendistato-nidvaldo-2026.title': 'Praktika und Ausbildung im Kanton Nidwalden',
+    'blog.article.apprendistato-nidvaldo-2026.excerpt': 'Der Kanton Nidwalden bietet Berufsbildungsprogramme für junge Erwachsene an.',
+    'blog.article.apprendistato-nidvaldo-2026.imageAlt': 'Ein junger Erwachsener in einem Berufsausbildungsprogramm, schaut auf einen Laptopbildschirm mit einer verwirrten Miene, in einem Lugano Stadtpanorama.',
 };
 
 export default blogMetaChDe;

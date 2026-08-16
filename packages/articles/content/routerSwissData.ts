@@ -1023,6 +1023,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli', en: 'canton-nidvaldo-school-system-enrolment-and-cycles', de: 'schulsystem-kanton-nidwalden-einschreibung-und-zyklen', fr: 'systeme-scolaire-canton-de-nidwald-inscription-et-cycles' },
  'mercato-gli-affitti-canton-nidvaldo': { it: 'mercato-gli-affitti-canton-nidvaldo', en: 'nidvaldo-rental-market', de: 'nidvaldo-mietwohnungsmarkt', fr: 'nidvaldo-marche-des-louages' },
  'borse-di-studio-canton-nidvaldo': { it: 'borse-di-studio-canton-nidvaldo', en: 'borse-di-studio-canton-nidvaldo-en', de: 'borse-di-studio-canton-nidvaldo-de', fr: 'borse-di-studio-canton-nidvaldo-fr' },
+ 'apprendistato-nidvaldo-2026': { it: 'apprendistato-nidvaldo-2026', en: 'apprenticeship-nidwalden-2026', de: 'ausbildung-nidwalden-2026', fr: 'formation-professionnelle-nidwald-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
