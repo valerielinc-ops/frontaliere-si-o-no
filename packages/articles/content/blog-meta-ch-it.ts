@@ -2929,6 +2929,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Permesso L di breve durata nel Cantone di Obvaldo: validità e proroga',
     'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'Il permesso L di breve durata nel Cantone di Obvaldo è valido per un massimo di 1 anno.',
     'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'Una scena di Lugano, capitale del Cantone di Ticino, con la piazza della Riforma e la Chiesa di San Lorenzo',
+    'blog.article.apprendistato-obvaldo-guida.title': 'Apprendistato e formazione professionale nel Canton Obvaldo',
+    'blog.article.apprendistato-obvaldo-guida.excerpt': 'Come si trova un posto di tirocinio e si conclude un contratto di apprendimento',
+    'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Guida all\'apprendistato nel Canton Obvaldo',
 };
 
 export default blogMetaChIt;

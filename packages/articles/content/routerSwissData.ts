@@ -1002,6 +1002,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-obbiettivo-obvaldo': { it: 'permesso-l-obbiettivo-obvaldo', en: 'permesso-l-objective-obwalden', de: 'permesso-l-zweck-obwalden', fr: 'permesso-l-objectif-obwalden' },
  'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli', en: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-en', de: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-de', fr: 'sistema-scolastico-canton-obvaldo-iscrizione-e-cicli-fr' },
  'permesso-l-di-breve-durata-obvaldo': { it: 'permesso-l-di-breve-durata-obvaldo', en: 'permesso-l-of-brief-duration-obvaldo', de: 'permesso-l-kurzdauer-obvaldo', fr: 'permesso-l-de-breve-duree-obvaldo' },
+ 'apprendistato-obvaldo-guida': { it: 'apprendistato-obvaldo-guida', en: 'apprenticeships-in-obvaldo', de: 'ausbildung-im-kanton-obvaldo', fr: 'apprentissage-au-canton-dobvaldo' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

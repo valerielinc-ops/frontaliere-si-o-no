@@ -2929,6 +2929,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-di-breve-durata-obvaldo.title': 'Kurzzeitbewilligung L im Kanton Obwalden: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-di-breve-durata-obvaldo.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Obwalden ist maximal 1 Jahr gültig.',
     'blog.article.permesso-l-di-breve-durata-obvaldo.imageAlt': 'Eine Szene aus Lugano, Hauptstadt des Kantons Tessin, mit der Piazza della Riforma und der Kirche von San Lorenzo',
+    'blog.article.apprendistato-obvaldo-guida.title': 'Lehre und Berufsausbildung im Kanton Obwalden',
+    'blog.article.apprendistato-obvaldo-guida.excerpt': 'Wie man eine Lehrstelle findet und einen Lehrvertrag abschließt',
+    'blog.article.apprendistato-obvaldo-guida.imageAlt': 'Leitfaden für die Ausbildung im Kanton Obvaldo',
 };
 
 export default blogMetaChDe;
