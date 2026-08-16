@@ -1,6 +1,6 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-08-16T09:41:08.257Z",
+  "assembledAt": "2026-08-16T21:37:46.453Z",
   "jobs": [
     {
       "id": "company-7ubhjn",
@@ -75,7 +75,8 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "2400 Le Locle Suisse Site Web https",
       "addressRegion": "NE",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     }
   ]
 }
