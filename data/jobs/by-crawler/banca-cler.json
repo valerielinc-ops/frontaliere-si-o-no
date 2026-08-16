@@ -249,7 +249,21 @@
       },
       "addressLocality": "8440 TVA CHE",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "core-customer-advisor-neuchatel-100-banque-cler-8440-tva-che",
+          "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che"
+        ],
+        "de": [
+          "kernkundenberater-neuchatel-100-banque-cler-8440-tva-che"
+        ]
+      },
+      "previousSlugs": [
+        "core-customer-advisor-neuchatel-100-banque-cler-8440-tva-che",
+        "kernkundenberater-neuchatel-100-banque-cler-8440-tva-che",
+        "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che"
+      ]
     },
     {
       "id": "company-knq2us",
@@ -317,7 +331,25 @@
       },
       "addressLocality": "8440 TVA CHE",
       "addressRegion": "JU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-clienti-individuale-canton-neuchatel-e-jura-80-100-banque-cler-8440-tva-che",
+          "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che"
+        ],
+        "en": [
+          "individual-customer-advisor-canton-neuchatel-and-jura-80-100-banque-cler-8440-tva-che"
+        ],
+        "de": [
+          "kundenberater-kanton-neuenburg-und-jura-80-100-banque-cler-8440-tva-che"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-clienti-individuale-canton-neuchatel-e-jura-80-100-banque-cler-8440-tva-che",
+        "individual-customer-advisor-canton-neuchatel-and-jura-80-100-banque-cler-8440-tva-che",
+        "kundenberater-kanton-neuenburg-und-jura-80-100-banque-cler-8440-tva-che",
+        "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che"
+      ]
     },
     {
       "id": "company-ei1t1q",
@@ -575,7 +607,8 @@
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che-sbman6"
         ],
         "en": [
-          "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che"
+          "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-6jtlpa"
         ],
         "de": [
           "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che"
@@ -590,7 +623,8 @@
         "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che-sbman6",
         "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
         "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che",
-        "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che"
+        "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che",
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-6jtlpa"
       ],
       "salaryMin": 100000,
       "salaryMax": 175500,
@@ -684,25 +718,41 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-1u7ff1",
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che",
-          "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler"
+          "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler",
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che"
         ],
         "en": [
-          "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che"
+          "individual-customer-advisor-lugano-m-f-80-100-bank-cler-8440-mwst-che",
+          "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
+          "individual-customer-advisor-lugano-f-m-80-100-banca-cler-8440-iva-che"
         ],
         "de": [
-          "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che"
+          "individueller-kundenberater-lugano-m-w-80-100-bank-cler-8440-mwst-che",
+          "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che",
+          "individueller-kundenberater-lugano-w-m-80-100-banca-cler-8440-iva-che"
         ],
         "fr": [
-          "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che"
+          "conseiller-client-individuel-lugano-h-f-80-100-bank-cler-8440-mwst-che",
+          "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che",
+          "conseiller-client-individuel-lugano-f-m-80-100-banca-cler-8440-iva-che"
         ]
       },
       "previousSlugs": [
+        "conseiller-client-individuel-lugano-h-f-80-100-bank-cler-8440-mwst-che",
+        "individueller-kundenberater-lugano-m-w-80-100-bank-cler-8440-mwst-che",
+        "individual-customer-advisor-lugano-m-f-80-100-bank-cler-8440-mwst-che",
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-1u7ff1",
         "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che",
         "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che",
         "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che",
         "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
-        "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler"
+        "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler",
+        "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che",
+        "individual-customer-advisor-lugano-f-m-80-100-banca-cler-8440-iva-che",
+        "individueller-kundenberater-lugano-w-m-80-100-banca-cler-8440-iva-che",
+        "conseiller-client-individuel-lugano-f-m-80-100-banca-cler-8440-iva-che"
       ]
     },
     {
