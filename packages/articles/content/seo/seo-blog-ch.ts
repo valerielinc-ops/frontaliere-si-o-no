@@ -35549,6 +35549,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-ur-canton': {
+    title: 'Permesso L Uri: durata massima e condizioni | Frontaliere Ticino',
+    description: 'Informazioni sul permesso L di breve durata nel Cantone di Uri, compresa la durata massima, le condizioni di proroga e i vincoli legati al datore di lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, durata, massima, condizioni',
+    ogTitle: 'Permesso L di breve durata nel Cantone di Uri',
+    ogDescription: 'Informazioni sul permesso L di breve durata nel Cantone di Uri, compresa la durata massima, le condizioni di proroga e i vincoli legati al datore di lavoro.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-ur-canton/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Uri: durata massima e condizioni",
+      "description": "Informazioni sul permesso L di breve durata nel Cantone di Uri, compresa la durata massima, le condizioni di proroga e i vincoli legati al datore di lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-ur-canton.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che consulta un avvocato a Lugano"
+      },
+      "datePublished": "2026-08-16T02:20:08+00:00",
+      "dateModified": "2026-08-16T02:20:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-ur-canton/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

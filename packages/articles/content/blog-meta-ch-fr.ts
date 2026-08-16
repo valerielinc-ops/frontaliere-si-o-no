@@ -2743,6 +2743,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Permis de séjour C dans le canton d\'Uri : exigences et demande',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'La durée requise pour le permis de séjour C dans le canton d\'Uri, les critères d\'intégration et les connaissances linguistiques requises.',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Image d\'une ville suisse avec un permis de séjour C sur la porte',
+    'blog.article.permesso-l-breve-durata-ur-canton.title': 'Autorisation L URI : durée maximale et conditions',
+    'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'Le permis L de courte durée dans le canton d\'Uri : qu\'est-ce que c\'est, comment l\'obtenir, limites et restrictions',
+    'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontalier consultant un avocat à Lugano',
 };
 
 export default blogMetaChFr;

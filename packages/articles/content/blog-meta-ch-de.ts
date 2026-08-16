@@ -2743,6 +2743,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Uri: Voraussetzungen und Antrag',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.excerpt': 'Die erforderliche Dauer für die Niederlassungsbewilligung C im Kanton Uri, die Integrationskriterien und die erforderlichen Sprachkenntnisse.',
     'blog.article.permesso-di-domicilio-c-ur-requisiti-e-domanda.imageAlt': 'Bild eines Schweizer Dorfes mit einem Aufenthaltstitel C auf der Tür',
+    'blog.article.permesso-l-breve-durata-ur-canton.title': 'Erlaubnis L Uri: maximale Dauer und Bedingungen',
+    'blog.article.permesso-l-breve-durata-ur-canton.excerpt': 'Der Kurzzeitausweis L im Kanton Uri: was es ist, wie man es bekommt, Grenzen und Einschränkungen',
+    'blog.article.permesso-l-breve-durata-ur-canton.imageAlt': 'Frontalier, der sich in Lugano mit einem Anwalt berät',
 };
 
 export default blogMetaChDe;
