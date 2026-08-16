@@ -2896,6 +2896,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Schwyz',
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.excerpt': 'Die Sätze für Erb- und Schenkungen im Kanton Schwyz sind im kantonalen Gesetz festgelegt.',
     'blog.article.imposta-succesione-donazione-canton-svitto-aliquote.imageAlt': 'Max 125 car',
+    'blog.article.aprire-un-attivita-canton-svitto.title': 'Rechtsform in Schwyz wählen',
+    'blog.article.aprire-un-attivita-canton-svitto.excerpt': 'Was es braucht, um ein Geschäft im Kanton Schwyz zu eröffnen: Rechtsform, Handelsregister und Kosten.',
+    'blog.article.aprire-un-attivita-canton-svitto.imageAlt': 'Kanton Schwyz: Wahl der Rechtsform zum Betreiben eines Unternehmens',
 };
 
 export default blogMetaChDe;

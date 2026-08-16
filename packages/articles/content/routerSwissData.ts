@@ -991,6 +991,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione': { it: 'avs-prestazioni-complementari-canton-svitto-cassa-di-compensazione', en: 'avs-and-complementary-benefits-canton-of-schwyz-compensation-fund', de: 'avs-und-komplementaere-leistungen-kanton-schwyz-kompensationsfonds', fr: 'avs-et-prestations-complementaires-canton-de-schwyz-fonds-de-compensation' },
  'abbonamenti-trasporti-svitto': { it: 'abbonamenti-trasporti-svitto', en: 'public-transport-passes-schwyz', de: 'oev-abonnemente-kanton-schwyz', fr: 'abonnements-transports-schwyz' },
  'imposta-succesione-donazione-canton-svitto-aliquote': { it: 'imposta-succesione-donazione-canton-svitto-aliquote', en: 'succession-donation-cantonal-svitto', de: 'erbschaftssteuer-spendenbeschwerdung-kanton-svitto', fr: 'droit-successoral-dons-canton-svitto' },
+ 'aprire-un-attivita-canton-svitto': { it: 'aprire-un-attivita-canton-svitto', en: 'choosing-the-legal-form-in-svitto', de: 'rechtsform-in-schwyz-wahlen', fr: 'choisir-la-forme-juridique-a-schwyz' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
