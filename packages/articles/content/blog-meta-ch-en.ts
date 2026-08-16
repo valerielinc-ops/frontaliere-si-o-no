@@ -3010,6 +3010,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AVS and complementary services Nidvaldo: cash and annuities',
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analysis of the pension provision of the first pillar in the Canton of Nidvaldo, with a focus on the cantonal compensation fund, calculation of the AVS pension, contribution gaps and complementary benefits.',
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Cantonal administration building in Switzerland',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Buying a house in the Canton of Nidvaldo: prices and mortgage',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Average house prices in the Canton of Nidvaldo, own funds required and sustainability of the mortgage loan.',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'House prices in the Nidwalden canton',
 };
 
 export default blogMetaChEn;

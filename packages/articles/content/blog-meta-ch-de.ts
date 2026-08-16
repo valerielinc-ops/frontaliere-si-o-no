@@ -3010,6 +3010,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AHV und Ergänzungsleistungen Nidwalden: Kasse und Renten',
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analyse der Vorsorge der ersten Säule im Kanton Nidwalden mit Fokus auf die kantonale Ausgleichskasse, AHV-Rentenberechnung, Beitragslücken und Ergänzungsleistungen.',
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Kantonales Verwaltungsgebäude in der Schweiz',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Haus kaufen im Kanton Nidwalden: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Durchschnittliche Hauspreise im Kanton Nidwalden, benötigte Eigenmittel und Tragbarkeit des Hypothekardarlehens.',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'Preise von Häusern im Kanton Nidwalden',
 };
 
 export default blogMetaChDe;

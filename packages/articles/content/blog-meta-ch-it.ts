@@ -3010,6 +3010,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AVS e prestazioni complementari Nidvaldo: cassa e rendite',
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analisi della previdenza del primo pilastro nel Cantone di Nidvaldo, con focus sulla cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari.',
     'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Edificio amministrativo cantonale in Svizzera',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.title': 'Comprare casa nel Cantone di Nidvaldo: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.excerpt': 'Prezzi medi delle case nel Cantone di Nidvaldo, fondi propri richiesti e sostenibilità del mutuo ipotecario.',
+    'blog.article.comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario.imageAlt': 'Prezzi medi delle case nel Cantone di Nidvaldo',
 };
 
 export default blogMetaChIt;
