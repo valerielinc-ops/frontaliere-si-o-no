@@ -2941,6 +2941,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.massimo-boldi-ospedale.title': 'Maximum Boldi à l\'hôpital après une chute',
     'blog.article.massimo-boldi-ospedale.excerpt': 'L\'acteur italien Massimo Boldi a été transféré au service de neurochirurgie de l\'hôpital de Livourne après une chute survenue l\'après-midi du 13 août à Forte dei Marmi.',
     'blog.article.massimo-boldi-ospedale.imageAlt': 'L\'acteur italien Massimo Boldi est hospitalisé après une chute',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Marché locatif dans le canton d\'Obwald : loyers moyens et droit locatif',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'Dans le canton d\'Obwald, les loyers moyens varient selon les zones. Le dépôt de garantie maximum est de 3 mois de loyer.',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Vue aérienne de la ville de Lugano, Suisse, avec un focus sur le marché de l\'immobilier et les prix de location.',
 };
 
 export default blogMetaChFr;

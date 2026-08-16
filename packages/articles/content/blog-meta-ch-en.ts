@@ -2941,6 +2941,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.massimo-boldi-ospedale.title': 'Massimo Boldi in hospital after a fall',
     'blog.article.massimo-boldi-ospedale.excerpt': 'Italian actor Massimo Boldi was transferred to the neurosurgery department of the Livorno hospital after a fall on the afternoon of 13 August in Forte dei Marmi.',
     'blog.article.massimo-boldi-ospedale.imageAlt': 'Italian actor Massimo Boldi in hospital after a fall',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.title': 'Rental market in the canton of Obvaldo: average fees and rental rights',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.excerpt': 'In the Canton of Obvaldo, the average rental fees vary depending on the area. The maximum security deposit is 3 months\' rent.',
+    'blog.article.affitti-obvaldo-cantoni-medi-diritti-locazione.imageAlt': 'Aerial view of the city of Lugano, Switzerland, with a focus on the housing market and rental prices.',
 };
 
 export default blogMetaChEn;
