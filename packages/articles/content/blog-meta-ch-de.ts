@@ -2902,6 +2902,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.title': 'Entwicklung einer Tätigkeit in Schwyz: Wahl der Rechtsform und Pflichten',
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.excerpt': 'Erfahren Sie, wie Sie ein Geschäft im Kanton Schwyz eröffnen. Angaben zur Rechtsformwahl, Handelsregistereintragung, Mindestkapital, Eintragungsgebühren und Versicherungspflichten.',
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.imageAlt': 'Ein Unternehmer füllt aus, ein Registrierungsformular für eine Geschäftsaktivität im Kanton Schwyz.',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.title': 'Löhne und Arbeitsmarkt im Kanton Schwyz: Branchen und Niveaus',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.excerpt': 'Die Arbeitsmarktsituation im Kanton Schwyz mit Daten und Statistiken zu Arbeitsbedingungen und Löhnen.',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.imageAlt': 'Eine Szene eines Arbeitsplatzes im Kanton Schwyz, Schweiz, die die Bedeutung des Arbeitsmarktes und der Löhne in der Region hervorhebt.',
 };
 
 export default blogMetaChDe;

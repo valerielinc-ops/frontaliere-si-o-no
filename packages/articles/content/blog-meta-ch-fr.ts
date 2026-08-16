@@ -2902,6 +2902,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.title': 'Développer une activité à Schwyz : choix de la forme juridique et obligations',
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.excerpt': 'Découvrez comment ouvrir une entreprise dans le canton de Schwyz. Informations sur le choix de la forme juridique, inscription au registre du commerce, capital minimum, frais d\'inscription et obligations d\'assurance.',
     'blog.article.aprire-attivita-canton-svitto-registro-di-commercio-e-costi.imageAlt': 'Un entrepreneur remplit un formulaire de registration pour une activité commerciale dans le canton de Schwyz.',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.title': 'Salaires et marché du travail dans le canton de Schwyz : secteurs et niveaux',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.excerpt': 'La situation du marché du travail dans le canton de Schwyz, avec des données et des statistiques sur les conditions de travail et les salaires.',
+    'blog.article.salari-mercato-lavoro-cantone-svitto.imageAlt': 'Une scène d\'un lieu de travail dans le canton de Schwyz, Suisse, qui met en évidence l\'importance du marché du travail et des salaires dans la région.',
 };
 
 export default blogMetaChFr;
