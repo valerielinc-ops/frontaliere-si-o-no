@@ -3007,6 +3007,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.title': 'Asilo nido e custodia bambini Canton Nidvaldo: costi',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.excerpt': 'I costi per l\'asilo nido e la custodia dei bambini nel Canton Nidvaldo possono variare in base al tipo di assistenza richiesta.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-nidvaldo-costi.imageAlt': 'Asilo nido e custodia bambini nel Canton Nidvaldo: costi e tipologie di assistenza',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.title': 'AVS e prestazioni complementari Nidvaldo: cassa e rendite',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.excerpt': 'Analisi della previdenza del primo pilastro nel Cantone di Nidvaldo, con focus sulla cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari.',
+    'blog.article.avs-e-prestazioni-complementari-nidvaldo.imageAlt': 'Edificio amministrativo cantonale in Svizzera',
 };
 
 export default blogMetaChIt;

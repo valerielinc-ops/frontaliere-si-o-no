@@ -38981,6 +38981,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-e-prestazioni-complementari-nidvaldo': {
+    title: 'AVS e prestazioni complementari Nidvaldo: cassa e rendite',
+    description: 'Guida completa su AVS, cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari nel Cantone di Nidvaldo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, nidvaldo, cassa',
+    ogTitle: 'AVS e prestazioni complementari nel Cantone di Nidvaldo',
+    ogDescription: 'Approfondimento sul primo pilastro AVS, sulla cassa di compensazione cantonale di Nidvaldo, sulle regole per le lacune contributive e sulle prestazioni complementari per il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-e-prestazioni-complementari-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari Nidvaldo: cassa e rendite",
+      "description": "Guida completa su AVS, cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari nel Cantone di Nidvaldo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-e-prestazioni-complementari-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo cantonale in Svizzera"
+      },
+      "datePublished": "2026-08-16T23:18:02+00:00",
+      "dateModified": "2026-08-16T23:18:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-e-prestazioni-complementari-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
