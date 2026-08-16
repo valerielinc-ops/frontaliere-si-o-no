@@ -2986,6 +2986,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Canton Nidvaldo school system: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'School curricula and deadlines for enrolment in the Canton of Nidvaldo',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'A primary school in the Canton of Nidwalden',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Rental market in the canton of Nidwalden: average rents and tenancy law',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'The average rent in the canton of Nidwalden is CHF 2,500 per month.',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Swiss rentals and leasing',
 };
 
 export default blogMetaChEn;

@@ -2986,6 +2986,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Schulsystem Kanton Nidwalden: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'Die Schulzyklen und Anmeldefristen im Kanton Nidwalden',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'Eine Primarschule im Kanton Nidwalden',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Mietmarkt im Kanton Nidwalden: Durchschnittsmieten und Mietrecht',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'Die durchschnittliche Miete im Kanton Nidwalden beträgt 2.500 CHF pro Monat.',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Mietwohnungen in der Schweiz',
 };
 
 export default blogMetaChDe;

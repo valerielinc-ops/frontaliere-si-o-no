@@ -2986,6 +2986,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.title': 'Sistema scolastico Canton Nidvaldo: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.excerpt': 'I cicli scolastici e le scadenze per l\'iscrizione nel Canton Nidvaldo',
     'blog.article.sistema-scolastico-canton-nidvaldo-iscrizione-e-cicli.imageAlt': 'Una scuola primaria nel Canton Nidvaldo',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.title': 'Mercato degli affitti nel Canton Nidvaldo: canoni medi e diritto di locazione',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.excerpt': 'I canoni medi per affitti nel Canton Nidvaldo sono di CHF 2\'500 per mese.',
+    'blog.article.mercato-gli-affitti-canton-nidvaldo.imageAlt': 'Affitti e locazione in Svizzera',
 };
 
 export default blogMetaChIt;
