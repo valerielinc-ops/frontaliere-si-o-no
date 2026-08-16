@@ -2812,6 +2812,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-iniziativa-sinistra.title': 'Anche da sinistra votiamo Sì all\'iniziativa sulla neutralità',
     'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Il Partito Comunista e il Sindacato Indipendente degli Studenti e Apprendisti (SISA) sostengono l\'iniziativa sulla neutralità.',
     'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'La Svizzera: monti alpini vicino a Lugano',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Siccità e canicola mettono in crisi i produttori di formaggio',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'La canicola e la siccità estiva colpiscono i produttori di formaggio e latte in Svizzera, con cali produttivi e costi aggiuntivi per il foraggio.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Mucche al pascolo in un prato svizzero colpito dalla siccita',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: canoni e diritti di locazione',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Il deposito cauzionale massimo è di 3 mesi di pigione.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Immagine di un appartamento in affitto a Lugano con vista sul lago.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'La Svizzera investe per prevenire penuria elettricità',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse stima che quattro miliardi di franchi siano necessari per garantire riserve energetiche',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investimenti in elettricità svizzera per prevenire penuria',
 };
 
 export default blogMetaChIt;

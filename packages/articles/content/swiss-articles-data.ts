@@ -8434,6 +8434,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche',
+    category: 'pratico',
+    date: '2026-08-16T08:55:22.374Z',
+    image: '/images/blog/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'canicola-siccita-produttori-formaggio-svizzera',
+    category: 'novita',
+    date: '2026-08-16T09:00:19.330Z',
+    image: '/images/blog/canicola-siccita-produttori-formaggio-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'affitti-uri-canoni-medi-e-diritto-di-locazione',
+    category: 'fiscale',
+    date: '2026-08-16T09:05:47.487Z',
+    image: '/images/blog/affitti-uri-canoni-medi-e-diritto-di-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'investimenti-elettricit-svizzera',
+    category: 'fiscale',
+    date: '2026-08-16T09:25:20.436Z',
+    image: '/images/blog/investimenti-elettricit-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

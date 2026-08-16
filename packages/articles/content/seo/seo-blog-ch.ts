@@ -36446,6 +36446,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche': {
+    title: 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    description: 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema. Gli itinerari toccano il Piz Corvatsch, il VOR di Willisau, la Lägern',
+    keywords: 'frontalieri, ticino, svizzera, italia, luoghi, strategici, traffico, aereo',
+    ogTitle: 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    ogDescription: 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema. Gli itinerari toccano il Piz Corvatsch, il VOR di Willisau, la Lägern e il Monte Lema.',
+    canonicalPath: '/articoli-svizzera/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I luoghi strategici del traffico aereo diventano mete escursionistiche",
+      "description": "La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema. Gli itinerari toccano il Piz Corvatsch, il VOR di Willisau, la Lägern",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I luoghi strategici del traffico aereo diventano mete escursionistiche"
+      },
+      "datePublished": "2026-08-16T08:55:22+00:00",
+      "dateModified": "2026-08-16T08:55:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-canicola-siccita-produttori-formaggio-svizzera': {
+    title: 'Siccità e canicola mettono in crisi i produttori di formaggio',
+    description: 'Canicola e siccità mettono in ginocchio i produttori di formaggio e latte in Svizzera. Cali di produzione, costi del foraggio e impatto sui formaggi DOP.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, canicola, mettono, crisi',
+    ogTitle: 'Siccità e canicola mettono a dura prova i produttori di formaggio svizzeri',
+    ogDescription: 'Le alte temperature e la mancanza d\'acqua riducono la produzione di latte e aumentano i costi per il foraggio in Svizzera. Scopri i dettagli del settore lattiero.',
+    canonicalPath: '/articoli-svizzera/canicola-siccita-produttori-formaggio-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità e canicola mettono in crisi i produttori di formaggio",
+      "description": "Canicola e siccità mettono in ginocchio i produttori di formaggio e latte in Svizzera. Cali di produzione, costi del foraggio e impatto sui formaggi DOP.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-siccita-produttori-formaggio-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mucche al pascolo in un prato svizzero colpito dalla siccita"
+      },
+      "datePublished": "2026-08-16T09:00:19+00:00",
+      "dateModified": "2026-08-16T09:00:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-siccita-produttori-formaggio-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-uri-canoni-medi-e-diritto-di-locazione': {
+    title: 'Uri: canoni e diritti di locazione | Frontaliere Ticino',
+    description: 'Il deposito cauzionale massimo è di 3 mesi di pigione. La disdetta del locatore deve essere inviata utilizzando il modulo ufficiale cantonale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, canoni, diritti, locazione, deposito',
+    ogTitle: 'Affitti nel Cantone di Uri: canoni medi, deposito cauzionale e diritto di locazione',
+    ogDescription: 'Il deposito cauzionale massimo è di 3 mesi di pigione. La disdetta del locatore deve essere inviata utilizzando il modulo ufficiale cantonale.',
+    canonicalPath: '/articoli-svizzera/affitti-uri-canoni-medi-e-diritto-di-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uri: canoni e diritti di locazione",
+      "description": "Il deposito cauzionale massimo è di 3 mesi di pigione. La disdetta del locatore deve essere inviata utilizzando il modulo ufficiale cantonale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-uri-canoni-medi-e-diritto-di-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un appartamento in affitto a Lugano con vista sul lago."
+      },
+      "datePublished": "2026-08-16T09:05:47+00:00",
+      "dateModified": "2026-08-16T09:05:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-uri-canoni-medi-e-diritto-di-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-investimenti-elettricit-svizzera': {
+    title: 'La Svizzera investe per prevenire penuria elettricità',
+    description: 'La Svizzera dovrebbe investire quattro miliardi di franchi per prevenire una penuria di elettricità. Questa è la stima di Economiesuisse. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, investe, prevenire, penuria, elettricità',
+    ogTitle: 'La Svizzera dovrebbe investire quattro miliardi per prevenire una penuria di elettricità',
+    ogDescription: 'La Svizzera dovrebbe investire quattro miliardi di franchi per prevenire una penuria di elettricità. Questa è la stima di Economiesuisse.',
+    canonicalPath: '/articoli-svizzera/investimenti-elettricit-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera investe per prevenire penuria elettricità",
+      "description": "La Svizzera dovrebbe investire quattro miliardi di franchi per prevenire una penuria di elettricità. Questa è la stima di Economiesuisse. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/investimenti-elettricit-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Investimenti in elettricità svizzera per prevenire penuria"
+      },
+      "datePublished": "2026-08-16T09:25:20+00:00",
+      "dateModified": "2026-08-16T09:25:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/investimenti-elettricit-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

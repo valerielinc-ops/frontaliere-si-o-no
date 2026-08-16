@@ -2812,6 +2812,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralita-iniziativa-sinistra.title': 'De gauche aussi, nous votons Oui à l\'initiative sur la neutralité',
     'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Le Parti communiste et le Syndicat indépendant des étudiants et apprentis (SISA) soutiennent l\'initiative sur la neutralité.',
     'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'Suisse: Alpes près de Lugano',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'Les lieux stratégiques du trafic aérien deviennent des destinations de randonnée',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'Le défi de randonnée de Skyguide concerne également une destination tessinoise : le mont Lema',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'Emplacements stratégiques du trafic aérien deviennent des destinations de randonnée',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'La sécheresse et la canicule mettent en crise les producteurs de fromage',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'La canicule et la sécheresse estivale frappent les producteurs de fromage et de lait en Suisse, avec des baisses de production et des coûts supplémentaires pour le fourrage.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Vaches paturant dans un pre suisse touche par la secheresse',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'URI : redevances et droits de location',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Le dépôt de garantie maximum est de 3 mois de loyer.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Image d\'un appartement à louer à Lugano avec vue sur le lac.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'La Suisse investit pour prévenir les pénuries d\'électricité',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse estime que quatre milliards de francs sont nécessaires pour garantir des réserves énergétiques',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investissements dans l\'électricité suisse pour prévenir les pénuries',
 };
 
 export default blogMetaChFr;

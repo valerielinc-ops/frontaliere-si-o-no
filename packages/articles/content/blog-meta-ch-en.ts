@@ -2812,6 +2812,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-iniziativa-sinistra.title': 'Also from the left we vote Yes to the initiative on neutrality',
     'blog.article.neutralita-iniziativa-sinistra.excerpt': 'The Communist Party and the Independent Union of Students and Apprentices (SISA) support the neutrality initiative.',
     'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'Switzerland: Alps near Lugano',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'Strategic air traffic locations become hiking destinations',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'Skyguide\'s Hiking Challenge also involves a destination in Ticino: Monte Lema',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'Strategic air traffic locations become hiking destinations',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Drought and heatwave are putting cheese producers in crisis',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'Heatwave and summer drought affect cheese and milk producers in Switzerland, with production declines and additional costs for fodder.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Cows grazing in a Swiss meadow affected by drought',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: lease fees and rights',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'The maximum security deposit is 3 months\' rent.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Image of an apartment for rent in Lugano with a view of the lake.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'Switzerland invests to prevent electricity shortages',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse estimates that four billion francs are needed to guarantee energy reserves',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investments in Swiss electricity to prevent shortages',
 };
 
 export default blogMetaChEn;

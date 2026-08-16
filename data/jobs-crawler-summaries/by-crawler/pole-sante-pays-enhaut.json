@@ -1,16 +1,16 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-08-15T21:23:39.335Z",
-  "total": 2,
+  "generatedAt": "2026-08-16T09:35:45.130Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5376,
-  "avgDurationMs": 5376,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4849,
+  "avgDurationMs": 4849,
   "durationHistory": [
-    5376
+    4849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T21:23:35.327Z",
+      "crawledAt": "2026-08-16T09:35:41.421Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,8 +52,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pole-sante-pays-enhaut-7c4043f73d9f",
       "slug": "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex",
@@ -93,5 +92,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

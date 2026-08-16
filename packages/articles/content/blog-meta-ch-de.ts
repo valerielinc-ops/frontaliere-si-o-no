@@ -2812,6 +2812,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-iniziativa-sinistra.title': 'Auch von links stimmen wir für die Neutralitätsinitiative',
     'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Die Kommunistische Partei und die Unabhängige Studenten- und Lehrlingsgewerkschaft (SISA) unterstützen die Neutralitätsinitiative.',
     'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'Schweiz: Berge nahe Lugano',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'Strategische Orte des Luftverkehrs werden zu Ausflugszielen',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'Bei der Hiking Challenge von Skyguide geht es auch um ein Ziel im Tessin: den Monte Lema',
+    'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'Strategische Luftverkehrsstandorte werden zu Wanderzielen',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Dürre und Hitzewelle bringen die Käsehersteller in eine Krise',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'Hitzewallungen und Sommertrockenheit treffen die Käse- und Milchproduzenten in der Schweiz, mit Produktionsrückgängen und zusätzlichen Futterkosten.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Kuhe auf einer von Dürre betroffenen Schweizer Weide',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: Miete und Pacht',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Die maximale Mietkaution beträgt 3 Monate.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Bild eines Apartments in Lugano, das zu mieten ist und auf den See ausblickt.',
+    'blog.article.investimenti-elettricit-svizzera.title': 'Die Schweiz investiert, um Stromknappheit zu verhindern',
+    'blog.article.investimenti-elettricit-svizzera.excerpt': 'Economiesuisse schätzt, dass vier Milliarden Franken benötigt werden, um Energiereserven zu sichern',
+    'blog.article.investimenti-elettricit-svizzera.imageAlt': 'Investitionen in die Schweizer Elektrizität, um Mangel zu verhindern',
 };
 
 export default blogMetaChDe;

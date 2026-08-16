@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-15T21:26:46.563Z",
+  "generatedAt": "2026-08-16T09:36:53.914Z",
   "total": 80,
   "newCount": 1,
   "updatedCount": 79,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 44595,
-  "avgDurationMs": 44595,
+  "durationMs": 52558,
+  "avgDurationMs": 52558,
   "durationHistory": [
-    44595
+    52558
   ],
   "newJobs": [
     {
@@ -1104,46 +1104,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Lombard-Credit-Officer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-23122026-_r-19118-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Lombard-Credit-Officer-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-23122026-_r-19118-2",
-      "title": "Lombard Credit Officer 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 23.12.2026)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "lombard-credit-officer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-23-12-2026-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-07-03",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-03T22:08:33.634Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
