@@ -2809,6 +2809,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.title': 'Asilo nido e custodia bambini nel Canton Uri: costi e opzioni',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.excerpt': 'Scopri i costi e le opzioni di asilo nido e custodia bambini nel Canton Uri.',
     'blog.article.asilo-nido-custodia-bambini-canton-ur-i-costi.imageAlt': 'Una famiglia con bambini in un asilo nido in Svizzera.',
+    'blog.article.neutralita-iniziativa-sinistra.title': 'Anche da sinistra votiamo Sì all\'iniziativa sulla neutralità',
+    'blog.article.neutralita-iniziativa-sinistra.excerpt': 'Il Partito Comunista e il Sindacato Indipendente degli Studenti e Apprendisti (SISA) sostengono l\'iniziativa sulla neutralità.',
+    'blog.article.neutralita-iniziativa-sinistra.imageAlt': 'La Svizzera: monti alpini vicino a Lugano',
 };
 
 export default blogMetaChIt;
