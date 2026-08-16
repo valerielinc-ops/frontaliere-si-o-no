@@ -1,16 +1,16 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-15T21:23:36.508Z",
-  "total": 3,
+  "generatedAt": "2026-08-16T09:40:14.823Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3688,
-  "avgDurationMs": 3688,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3714,
+  "avgDurationMs": 3714,
   "durationHistory": [
-    3688
+    3714
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/secretaire-hf-gestion-dossier-medicalarchives-centrales",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T21:23:34.172Z",
+      "crawledAt": "2026-08-16T09:40:12.665Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/infirmiers-aux-urgences-adultes-hf-a-80-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-15T21:23:34.192Z",
+      "crawledAt": "2026-08-16T09:40:12.685Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -89,8 +89,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hrc-5d469c582dc7",
       "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-80-100-h-f-hopital-riviera-chablais-hrc-rennaz",
@@ -131,5 +130,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
