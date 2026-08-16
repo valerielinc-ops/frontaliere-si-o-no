@@ -2794,6 +2794,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-uri.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Uri: Kosten und Leistungen',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.excerpt': 'Der Kanton Uri bietet Kinderkrippen und Kinderbetreuungseinrichtungen an, aber was ist zu erwarten und wie funktionieren sie?',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.imageAlt': 'Immagini di asili nido e servizi di custodia bambini nella Canton Uri',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope: Schlüssel zu den neuen Labors in Posieux',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'Der Kanton Freiburg hat dem Bund die Schlüssel zu den neuen Agroscope-Labors in Posieux offiziell übergeben. Die Zeremonie fand am Freitag, 14. August 2026, unter Teilnahme des Bundespräsidenten Guy Parmelin und der Delegationen des Regierungsrates von Freiburg und der Direktionen von Agroscope statt.',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14. August 2026: Präsident der Schweizerischen Eidgenossenschaft Guy Parmelin und Delegationen des Staatsrates des Kantons Freiburg und der Direktionen des Agroscope sowie der Bundesämter für Landwirtschaft UFAG und für Bau und Logistik UFCL während der Übergabezeremonie der neuen Laboratorien des Agroscope in Posieux.',
 };
 
 export default blogMetaChDe;

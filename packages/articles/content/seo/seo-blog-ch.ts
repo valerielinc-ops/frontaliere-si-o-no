@@ -36212,6 +36212,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-labatori-di-agsrosope-consegna-chiavi': {
+    title: 'Agroscope: chiavi dei nuovi laboratori a Posieux',
+    description: 'Il Cantone di Friburgo ha consegnato ufficialmente alla Confederazione le chiavi dei nuovi laboratori di Agroscope a Posieux. La cerimonia ha avuto luogo',
+    keywords: 'frontalieri, ticino, svizzera, italia, agroscope, chiavi, nuovi, laboratori',
+    ogTitle: 'Consegna delle chiavi dei nuovi laboratori di Agroscope a Posieux: una pietra miliare per il campus di ricerca nazionale',
+    ogDescription: 'Il Cantone di Friburgo ha consegnato ufficialmente alla Confederazione le chiavi dei nuovi laboratori di Agroscope a Posieux. La cerimonia ha avuto luogo venerdì 14 agosto 2026, con la partecipazione del presidente della Confederazione Guy Parmelin',
+    canonicalPath: '/articoli-svizzera/labatori-di-agsrosope-consegna-chiavi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agroscope: chiavi dei nuovi laboratori a Posieux",
+      "description": "Il Cantone di Friburgo ha consegnato ufficialmente alla Confederazione le chiavi dei nuovi laboratori di Agroscope a Posieux. La cerimonia ha avuto luogo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/labatori-di-agsrosope-consegna-chiavi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Posieux, 14 agosto 2026: il presidente della Confederazione Guy Parmelin e delegazioni del Consiglio di Stato di Friburgo e delle direzioni di Agroscope nonché degli Uffici federali dell'agricoltura UFAG e delle costruzioni e della logistica UFCL durante la cerimonia di consegna delle chiavi dei nuovi laboratori di Agroscope a Posieux."
+      },
+      "datePublished": "2026-08-16T06:34:52+00:00",
+      "dateModified": "2026-08-16T06:34:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/labatori-di-agsrosope-consegna-chiavi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

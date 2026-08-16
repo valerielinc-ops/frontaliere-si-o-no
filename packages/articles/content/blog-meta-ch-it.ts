@@ -2794,6 +2794,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-uri.title': 'Asilo nido e custodia bambini nella Canton Uri: costo e servizi',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.excerpt': 'La Canton Uri offre asili nido e servizi di custodia bambini, ma a cosa aspettarsi e come funzionano?',
     'blog.article.asilo-nido-custodia-bambini-canton-uri.imageAlt': 'Immagini di asili nido e servizi di custodia bambini nella Canton Uri',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope: chiavi dei nuovi laboratori a Posieux',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'Il Cantone di Friburgo ha consegnato ufficialmente alla Confederazione le chiavi dei nuovi laboratori di Agroscope a Posieux. La cerimonia ha avuto luogo venerdì 14 agosto 2026, con la partecipazione del presidente della Confederazione Guy Parmelin e delle delegazioni del Consiglio di Stato di Friburgo e delle direzioni di Agroscope.',
+    'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14 agosto 2026: il presidente della Confederazione Guy Parmelin e delegazioni del Consiglio di Stato di Friburgo e delle direzioni di Agroscope nonché degli Uffici federali dell\'agricoltura UFAG e delle costruzioni e della logistica UFCL durante la cerimonia di consegna delle chiavi dei nuovi laboratori di Agroscope a Posieux.',
 };
 
 export default blogMetaChIt;

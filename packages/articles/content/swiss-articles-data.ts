@@ -8380,6 +8380,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'labatori-di-agsrosope-consegna-chiavi',
+    category: 'novita',
+    date: '2026-08-16T06:34:52.282Z',
+    image: '/images/blog/labatori-di-agsrosope-consegna-chiavi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
