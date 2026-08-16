@@ -819,10 +819,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verkaufer-in-food-coop-basel-stadt-4tso92",
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-basel",
-        "en": "addetto-a-alle-vendite-food-coop-genossenschaft-basel",
-        "de": "addetto-a-alle-vendite-food-coop-genossenschaft-basel",
-        "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-basel"
+        "en": "verkaufer-in-food-coop-genossenschaft-basel-4tso92",
+        "fr": "verkaufer-in-food-coop-genossenschaft-basel-4tso92"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/addetto-a-alle-vendite-food-coop-genossenschaft-basel",
@@ -836,6 +836,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
