@@ -2761,6 +2761,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tendicione-arresti-veicoli-ricerca-2024.title': 'Several stops thanks to automated vehicle search',
     'blog.article.tendicione-arresti-veicoli-ricerca-2024.excerpt': 'The system introduced in 2024 contributed to the arrest of one suspect and several other arrests.',
     'blog.article.tendicione-arresti-veicoli-ricerca-2024.imageAlt': 'Swiss border control',
+    'blog.article.sanzioni-onu-aggiornamento-2026.title': 'UN Sanctions Update: What\'s Changing for Switzerland?',
+    'blog.article.sanzioni-onu-aggiornamento-2026.excerpt': 'The SESAM database has been updated in a similar manner.',
+    'blog.article.sanzioni-onu-aggiornamento-2026.imageAlt': 'Photo of a government building in Switzerland with a sense of seriousness and importance.',
 };
 
 export default blogMetaChEn;

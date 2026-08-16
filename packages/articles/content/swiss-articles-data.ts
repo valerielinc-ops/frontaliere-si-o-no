@@ -8281,6 +8281,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sanzioni-onu-aggiornamento-2026',
+    category: 'fiscale',
+    date: '2026-08-16T03:55:27.779Z',
+    image: '/images/blog/sanzioni-onu-aggiornamento-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
