@@ -3016,6 +3016,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nidvaldo-trasporti-pubblici.title': 'Transports publics à Nidwald : zones, tarifs et abonnements',
     'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Guide complet des transports publics dans le canton de Nidwald, des communautés tarifaires, des zones, des abonnements et des combinaisons avec les titres de voyage fédéraux.',
     'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Transports publics dans le canton de Nidwald avec trains et bus régionaux',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton de Glaris : taux et déductions',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Taxes cantonales dans le canton de Glare : taxes, tranches, déductions, délais de livraison et portail en ligne de l\'administration fiscale cantonale.',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Legendre de l\'image en français',
 };
 
 export default blogMetaChFr;

@@ -3016,6 +3016,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nidvaldo-trasporti-pubblici.title': 'Public transport in Nidvaldo: zones, fares and subscriptions',
     'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Comprehensive guide to public transport in the Canton of Nidvaldo, fare communities, zones, season tickets and combinations with federal travel documents.',
     'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Public transport in Canton Nidwalden with regional trains and buses',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Cantonal taxes in the canton of Glarus: rates and deductions',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Cantonal taxes in the Canton of Glarus: rates, brackets, allowable deductions, delivery deadlines and online portal of the cantonal tax administration.',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Image alternative in English',
 };
 
 export default blogMetaChEn;

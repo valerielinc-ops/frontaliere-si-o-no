@@ -3016,6 +3016,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nidvaldo-trasporti-pubblici.title': 'Trasporti pubblici a Nidvaldo: zone, tariffe e abbonamenti',
     'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Guida completa ai trasporti pubblici nel Cantone di Nidvaldo, alle comunità tariffarie, alle zone, agli abbonamenti e alle combinazioni con i titoli di viaggio federali.',
     'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Trasporti pubblici nel Cantone di Nidvaldo con treni e bus regionali',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Imposte cantonali nel Cantone Glarona: aliquote e deduzioni',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Le imposte cantonali nel Cantone Glarona: aliquote, scaglioni, deduzioni ammesse, scadenze di consegna e portale online dell\'amministrazione fiscale cantonale.',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Immagine alternativa italiana',
 };
 
 export default blogMetaChIt;
