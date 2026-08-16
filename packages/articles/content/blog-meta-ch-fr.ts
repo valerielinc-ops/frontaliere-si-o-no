@@ -2815,6 +2815,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'Les lieux stratégiques du trafic aérien deviennent des destinations de randonnée',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'Le défi de randonnée de Skyguide concerne également une destination tessinoise : le mont Lema',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'Emplacements stratégiques du trafic aérien deviennent des destinations de randonnée',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'La sécheresse et la canicule mettent en crise les producteurs de fromage',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'La canicule et la sécheresse estivale frappent les producteurs de fromage et de lait en Suisse, avec des baisses de production et des coûts supplémentaires pour le fourrage.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Vaches paturant dans un pre suisse touche par la secheresse',
 };
 
 export default blogMetaChFr;

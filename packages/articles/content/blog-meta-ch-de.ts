@@ -2815,6 +2815,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'Strategische Orte des Luftverkehrs werden zu Ausflugszielen',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'Bei der Hiking Challenge von Skyguide geht es auch um ein Ziel im Tessin: den Monte Lema',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'Strategische Luftverkehrsstandorte werden zu Wanderzielen',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Dürre und Hitzewelle bringen die Käsehersteller in eine Krise',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'Hitzewallungen und Sommertrockenheit treffen die Käse- und Milchproduzenten in der Schweiz, mit Produktionsrückgängen und zusätzlichen Futterkosten.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Kuhe auf einer von Dürre betroffenen Schweizer Weide',
 };
 
 export default blogMetaChDe;

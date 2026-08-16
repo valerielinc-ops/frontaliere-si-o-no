@@ -964,6 +964,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-canton-ur-i-costi': { it: 'asilo-nido-custodia-bambini-canton-ur-i-costi', en: 'childcare-and-custody-in-ur-children-cantonal-costs', de: 'kindergarten-und-sorge-fur-kinder-kanton-ur-kosten', fr: 'garderie-etrust-enfant-en-ur-couts-cantonaux' },
  'neutralita-iniziativa-sinistra': { it: 'neutralita-iniziativa-sinistra', en: 'left-wing-votes-yes-on-neutrality-initiative', de: 'links-waehlt-ja-zur-neutraleitatsinitiative', fr: 'gauche-soutient-l-iniative-de-la-neutralite' },
  'luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche': { it: 'luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche', en: 'strategic-air-traffic-locations-become-hiking-destinations', de: 'strategische-luftverkehrsstandorte-werden-zu-wanderzielen', fr: 'emplacements-strategiques-du-trafic-aerien-deviennent-des-destinations-de' },
+ 'canicola-siccita-produttori-formaggio-svizzera': { it: 'canicola-siccita-produttori-formaggio-svizzera', en: 'heatwave-drought-cheese-producers-switzerland', de: 'hitzewelle-durre-kase-produzenten-schweiz', fr: 'canicule-secheresse-producteurs-fromage-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

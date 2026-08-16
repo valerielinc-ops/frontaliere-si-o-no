@@ -2815,6 +2815,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.title': 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.excerpt': 'La Hiking Challenge di Skyguide riguarda anche una destinazione ticinese: il Monte Lema',
     'blog.article.luoghi-strategici-del-traffico-aereo-diventano-mete-escursionistiche.imageAlt': 'I luoghi strategici del traffico aereo diventano mete escursionistiche',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Siccità e canicola mettono in crisi i produttori di formaggio',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'La canicola e la siccità estiva colpiscono i produttori di formaggio e latte in Svizzera, con cali produttivi e costi aggiuntivi per il foraggio.',
+    'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Mucche al pascolo in un prato svizzero colpito dalla siccita',
 };
 
 export default blogMetaChIt;
