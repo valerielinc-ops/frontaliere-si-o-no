@@ -15505,18 +15505,20 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T21:43:30.915Z",
       "previousSlugsByLocale": {
-        "it": [
-          "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
-        ],
         "en": [
           "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
         ],
         "de": [
           "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
+        ],
+        "it": [
+          "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d",
+          "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de"
         ]
       },
       "previousSlugs": [
-        "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
+        "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d",
+        "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de"
       ]
     },
     {
@@ -18905,7 +18907,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:50:15.033Z",
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "it": [
           "elettricista-di-montaggio-in-efz-100-schild-elektro-ag-grindelwald",
@@ -18932,7 +18934,9 @@
         "assembly-electrician-in-efz-100-schild-elektro-ag-grindelwald",
         "montage-elektriker-in-efz-100-schild-elektro-ag-brienz",
         "montaggio-elettrico-edc-100-schild-elektro-ag-brienz"
-      ]
+      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 65
     },
     {
       "title": "Elektroinstallateur/in EFZ (100%)",

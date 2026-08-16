@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-27T08:37:36.268Z",
-    "label": "before",
-    "total": 24580,
-    "needsRetranslation": 840,
-    "suppressed": 40,
-    "incomplete": 98,
-    "complete": 24482,
-    "missingByLocale": {
-      "it": 60,
-      "en": 33,
-      "de": 46,
-      "fr": 46
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 29
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Sulzer",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-27T09:48:15.924Z",
-    "label": "after",
-    "total": 24580,
-    "needsRetranslation": 775,
-    "suppressed": 39,
-    "incomplete": 95,
-    "complete": 24485,
-    "missingByLocale": {
-      "it": 60,
-      "en": 32,
-      "de": 44,
-      "fr": 47
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 29
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Spital Schwyz",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-27T12:35:37.376Z",
     "label": "before",
     "total": 24405,
@@ -11880,6 +11766,162 @@
       {
         "company": "JUMBO",
         "pending": 187
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-16T09:27:57.211Z",
+    "label": "before",
+    "total": 26993,
+    "needsRetranslation": 10345,
+    "suppressed": 58,
+    "incomplete": 11548,
+    "complete": 15445,
+    "slotsPresent": 15445,
+    "flaggedAmongSlotsPresent": 3,
+    "verifiedTranslated": 15442,
+    "sourceCopyExcused": 607,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 65,
+      "en": 38,
+      "de": 52,
+      "fr": 54
+    },
+    "queueAge": {
+      "count": 10345,
+      "withTimestamp": 10345,
+      "oldestAgeDays": 125,
+      "p50AgeDays": 17.9,
+      "p90AgeDays": 67.1,
+      "buckets": {
+        "0-7d": 1578,
+        "7-30d": 5007,
+        "30-90d": 3478,
+        "90-180d": 282,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2025
+      },
+      {
+        "company": "Roche",
+        "pending": 553
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 485
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 266
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 261
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 255
+      },
+      {
+        "company": "railCare",
+        "pending": 248
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 235
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 185
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-16T11:52:50.487Z",
+    "label": "after",
+    "total": 26993,
+    "needsRetranslation": 10326,
+    "suppressed": 60,
+    "incomplete": 11532,
+    "complete": 15461,
+    "slotsPresent": 15461,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15461,
+    "sourceCopyExcused": 607,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 65,
+      "en": 38,
+      "de": 51,
+      "fr": 54
+    },
+    "queueAge": {
+      "count": 10326,
+      "withTimestamp": 10326,
+      "oldestAgeDays": 125.1,
+      "p50AgeDays": 18,
+      "p90AgeDays": 67.2,
+      "buckets": {
+        "0-7d": 1550,
+        "7-30d": 4974,
+        "30-90d": 3522,
+        "90-180d": 280,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 2022
+      },
+      {
+        "company": "Roche",
+        "pending": 553
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 485
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 266
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 261
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 255
+      },
+      {
+        "company": "railCare",
+        "pending": 248
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 235
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 185
       }
     ]
   }

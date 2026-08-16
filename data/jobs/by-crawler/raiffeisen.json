@@ -1,6 +1,6 @@
 {
   "crawlerKey": "raiffeisen",
-  "assembledAt": "2026-08-16T09:39:46.814Z",
+  "assembledAt": "2026-08-16T08:46:49.169Z",
   "jobs": [
     {
       "id": "raiffeisen-7b1087e49b95",
@@ -14531,7 +14531,11 @@
         "retail-consultants-f-m-d-raiffeisen-oberlunkhofen",
         "consultants-au-detail-f-m-d-raiffeisen-oberlunkhofen",
         "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-        "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen"
+        "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen",
+        "consulente-clienti-aziendale-f-m-d-raiffeisen-oberlunkhofen",
+        "corporate-client-advisor-f-m-d-raiffeisen-oberlunkhofen",
+        "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+        "conseiller-ministeriel-aupres-des-clients-f-m-d-raiffeisen-oberlunkhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14539,15 +14543,24 @@
           "retail-consultants-f-m-d-raiffeisen-oberlunkhofen",
           "consultants-au-detail-f-m-d-raiffeisen-oberlunkhofen",
           "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-          "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen"
+          "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen",
+          "consulente-clienti-aziendale-f-m-d-raiffeisen-oberlunkhofen",
+          "corporate-client-advisor-f-m-d-raiffeisen-oberlunkhofen",
+          "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+          "conseiller-ministeriel-aupres-des-clients-f-m-d-raiffeisen-oberlunkhofen"
         ],
         "en": [
           "retail-consultants-f-m-d-raiffeisen-oberlunkhofen",
-          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+          "corporate-client-advisor-f-m-d-raiffeisen-oberlunkhofen"
         ],
         "fr": [
           "consultants-au-detail-f-m-d-raiffeisen-oberlunkhofen",
-          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+          "conseiller-ministeriel-aupres-des-clients-f-m-d-raiffeisen-oberlunkhofen"
+        ],
+        "de": [
+          "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen"
         ]
       },
       "firstSeenAt": "2026-08-15T09:37:58.797Z",
