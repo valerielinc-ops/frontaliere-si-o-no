@@ -2908,6 +2908,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.conversione-patente-guida-svitto.title': 'Führerschein Schwyz: Umschulung, Prüfungen und Büro',
     'blog.article.conversione-patente-guida-svitto.excerpt': 'Vollständiger Leitfaden zur Umstellung des ausländischen Führerscheins im Kanton Schwyz mit Details zu Prüfungen, Pflichtkursen und Ämtern.',
     'blog.article.conversione-patente-guida-svitto.imageAlt': 'Strassenverkehrsamt im Kanton Schwyz',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Krankenkassenprämien im Kanton Obwalden: Reduktion und Franchisen',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'Das kantonale Krankenversicherungsgesetz im Kanton Obwalden sieht Altersgruppen und Franchisen zur Prämienverbilligung vor.',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'Eine Szene eines Krankenhauses in der Schweiz mit Patienten und Krankenschwestern',
 };
 
 export default blogMetaChDe;

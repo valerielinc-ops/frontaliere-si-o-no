@@ -2908,6 +2908,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.conversione-patente-guida-svitto.title': 'Permis de conduire à Schwyz : conversion, examens et bureau',
     'blog.article.conversione-patente-guida-svitto.excerpt': 'Guide complet de la conversion du permis de conduire étranger dans le canton de Schwyz, avec des détails sur les examens, les cours obligatoires et les bureaux.',
     'blog.article.conversione-patente-guida-svitto.imageAlt': 'Office de la circulation dans le canton de Schwyz',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.title': 'Primes caisse-maladie dans le canton d\'Obwald : réduction et franchises',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.excerpt': 'La loi cantonale sur l\'assurance-maladie dans le canton d\'Obwald prévoit des tranches d\'âge et des franchises pour réduire les primes.',
+    'blog.article.premi-cassa-malati-obvaldo-riduzione.imageAlt': 'Une scène d\'un hôpital en Suisse avec des patients et des infirmières',
 };
 
 export default blogMetaChFr;
