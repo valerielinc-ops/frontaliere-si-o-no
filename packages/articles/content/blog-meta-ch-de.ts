@@ -2818,6 +2818,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.title': 'Dürre und Hitzewelle bringen die Käsehersteller in eine Krise',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.excerpt': 'Hitzewallungen und Sommertrockenheit treffen die Käse- und Milchproduzenten in der Schweiz, mit Produktionsrückgängen und zusätzlichen Futterkosten.',
     'blog.article.canicola-siccita-produttori-formaggio-svizzera.imageAlt': 'Kuhe auf einer von Dürre betroffenen Schweizer Weide',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.title': 'Uri: Miete und Pacht',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.excerpt': 'Die maximale Mietkaution beträgt 3 Monate.',
+    'blog.article.affitti-uri-canoni-medi-e-diritto-di-locazione.imageAlt': 'Bild eines Apartments in Lugano, das zu mieten ist und auf den See ausblickt.',
 };
 
 export default blogMetaChDe;
