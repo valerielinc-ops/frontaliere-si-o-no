@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-08-16T09:47:26.044Z",
+  "assembledAt": "2026-08-16T21:24:04.130Z",
   "jobs": [
     {
       "id": "abraxas-162b4d32f534",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-6399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:22.683Z",
+      "crawledAt": "2026-08-16T21:24:00.948Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -101,7 +101,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer - Data Migration 80 - 100%",
+        "en": "Software Engineer – Data Migration 80 - 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -117,7 +117,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-9034",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:22.197Z",
+      "crawledAt": "2026-08-16T21:24:00.502Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,8 +152,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-d3e85aa0e117",
@@ -169,7 +169,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer AI & Automation 80-100%",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -185,7 +185,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-1720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:21.683Z",
+      "crawledAt": "2026-08-16T21:24:00.062Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -232,8 +233,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -266,7 +266,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:21.196Z",
+      "crawledAt": "2026-08-16T21:23:59.621Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -363,7 +363,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:20.707Z",
+      "crawledAt": "2026-08-16T21:23:59.178Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -447,7 +447,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/openstack-engineer-80-100-5105",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:20.215Z",
+      "crawledAt": "2026-08-16T21:23:58.737Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -528,7 +528,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:19.727Z",
+      "crawledAt": "2026-08-16T21:23:58.294Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -625,7 +625,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-informatikerin-plattformentwicklung-2149",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:19.241Z",
+      "crawledAt": "2026-08-16T21:23:57.852Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -709,7 +709,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:18.758Z",
+      "crawledAt": "2026-08-16T21:23:57.402Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -777,7 +777,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer - Data Migration 80 - 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -793,7 +793,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-6215",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:18.276Z",
+      "crawledAt": "2026-08-16T21:23:56.957Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -827,8 +828,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-09133f677de5",
@@ -861,7 +861,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-9837",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:17.791Z",
+      "crawledAt": "2026-08-16T21:23:56.516Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -951,7 +951,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-service-manager-mwd-focus-change-incident-amp-practice-management-100-8653",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:17.305Z",
+      "crawledAt": "2026-08-16T21:23:56.038Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1019,7 +1019,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:16.822Z",
+      "crawledAt": "2026-08-16T21:23:55.595Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1098,7 +1098,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:16.325Z",
+      "crawledAt": "2026-08-16T21:23:55.150Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1179,7 +1179,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:15.842Z",
+      "crawledAt": "2026-08-16T21:23:54.710Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -1260,7 +1260,7 @@
       "title": "ICT System Engineer DevOps 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere DevOps 80–100 %",
-        "en": "ICT System Engineer DevOps 80-100%",
+        "en": "ICT System Engineer DevOps 80–100 %",
         "de": "ICT System Ingenieur DevOps 80–100 %",
         "fr": "ICT System Ingénieur DevOps 80–100 %"
       },
@@ -1276,7 +1276,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:15.345Z",
+      "crawledAt": "2026-08-16T21:23:54.269Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1310,8 +1311,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-0b494c346556",
@@ -1344,7 +1344,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:14.861Z",
+      "crawledAt": "2026-08-16T21:23:53.825Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1412,7 +1412,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-9583",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:14.372Z",
+      "crawledAt": "2026-08-16T21:23:53.383Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1493,7 +1493,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cyber-security-analyst-engineer-80-100-9876",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:13.881Z",
+      "crawledAt": "2026-08-16T21:23:52.940Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1571,7 +1571,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:13.395Z",
+      "crawledAt": "2026-08-16T21:23:52.495Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1702,7 +1702,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:12.912Z",
+      "crawledAt": "2026-08-16T21:23:52.054Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1786,7 +1786,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:12.403Z",
+      "crawledAt": "2026-08-16T21:23:51.604Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1870,7 +1870,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:11.917Z",
+      "crawledAt": "2026-08-16T21:23:51.160Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1952,7 +1952,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:11.430Z",
+      "crawledAt": "2026-08-16T21:23:50.716Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2036,7 +2036,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:10.945Z",
+      "crawledAt": "2026-08-16T21:23:50.264Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2120,7 +2120,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-16T09:47:10.456Z",
+      "crawledAt": "2026-08-16T21:23:49.711Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
