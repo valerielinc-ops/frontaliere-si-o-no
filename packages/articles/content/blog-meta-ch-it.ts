@@ -2860,6 +2860,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Permesso L di breve durata nel Canton Svitto: validità e proroga',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Fatti e cifre sulla validità e proroga del permesso L di breve durata nel Canton Svitto',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Immagine di un frontaliere con permesso L di breve durata in Svizzera',
+    'blog.article.assegni-familiari-canton-svitto.title': 'Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
+    'blog.article.assegni-familiari-canton-svitto.excerpt': 'Il Cantone di Svitto concede assegni familiari ai cittadini svizzeri e stranieri residenti. Ecco i requisiti e le condizioni per richiederli.',
+    'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Immagine editoriale relativa a: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
 };
 
 export default blogMetaChIt;

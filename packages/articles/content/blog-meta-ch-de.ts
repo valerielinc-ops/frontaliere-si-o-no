@@ -2860,6 +2860,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.title': 'Kurzaufenthaltsbewilligung L im Kanton Schwyz: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.excerpt': 'Fakten und Zahlen zur Gültigkeit und Verlängerung der Kurzzeitbewilligung L im Kanton Schwyz',
     'blog.article.permesso-l-canton-svitto-validita-e-proroga.imageAlt': 'Bild eines Grenzgängers mit einem kurzfristigen L-Befehl in der Schweiz',
+    'blog.article.assegni-familiari-canton-svitto.title': 'Familienzulagen im Kanton Schwyz: Monatsbeträge und gesetzliche Voraussetzungen',
+    'blog.article.assegni-familiari-canton-svitto.excerpt': 'Der Kanton Schwyz gewährt Familienzulagen für gebietsansässige Schweizer und Ausländer. Hier sind die Anforderungen und Bedingungen für die Beantragung.',
+    'blog.article.assegni-familiari-canton-svitto.imageAlt': 'Redaktionelles Bild zu: Assegni familiari nel Cantone di Svitto: importi mensili e condizioni di diritto',
 };
 
 export default blogMetaChDe;
