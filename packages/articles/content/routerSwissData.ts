@@ -936,6 +936,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-lucerna-settori-livelli': { it: 'salari-mercato-lavoro-lucerna-settori-livelli', en: 'salaries-labor-market-lucerne-sectors-levels', de: 'gehalte-arbeitsmarkt-luzern-sektoren-stufen', fr: 'salaires-marche-du-travail-lucerne-secteurs-niveaux' },
  'imposta-di-succesione-e-donazione-canton-lucerna': { it: 'imposta-di-succesione-e-donazione-canton-lucerna', en: 'imposta-di-succesione-e-donazione-canton-lucerna-en', de: 'imposta-di-succesione-e-donazione-canton-lucerna-de', fr: 'imposta-di-succesione-e-donazione-canton-lucerna-fr' },
  'premi-cassa-malati-cantone-uri': { it: 'premi-cassa-malati-cantone-uri', en: 'health-insurance-premiums-canton-uri-and-premium-reduction', de: 'krankenkassenpramien-kanton-uri-und-pramienverbilligung', fr: 'primes-caisse-maladie-canton-uri-et-reduction-des-primes' },
+ 'imposte-cantonal-ur-aliquote-deduzioni': { it: 'imposte-cantonal-ur-aliquote-deduzioni', en: 'uri-cantonal-taxes', de: 'kanton-ur-steuern', fr: 'imposts-cantonaux-ur' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -8191,6 +8191,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposte-cantonal-ur-aliquote-deduzioni',
+    category: 'fiscale',
+    date: '2026-08-16T00:02:21.694Z',
+    image: '/images/blog/imposte-cantonal-ur-aliquote-deduzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
