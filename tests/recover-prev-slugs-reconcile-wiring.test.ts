@@ -133,4 +133,28 @@ describe('recover-prev-slugs.yml — parsing del report reconcile (script reale)
     expect(r.status).toBe(0);
     expect(r.output).toContain('reconciled_dropped=3');
   });
+
+  it('fail-loud (#5954): nessuna riga Applied:/Dry-run: nel report → step fallisce, non reconciled_dropped=0', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'prev-slug-reconcile-'));
+    const r = runReconcile(
+      { DRY_RUN: 'false' },
+      dir,
+      'banca-cler.json: 15 → 14 jobs\n\nSome unrelated format-drifted summary line with no prefix at all.',
+    );
+    expect(r.status).not.toBe(0);
+    expect(r.stdout).toContain('format drift');
+    expect(r.output).not.toContain('reconciled_dropped=0');
+  });
+
+  it('fail-loud (#5954): riga con prefisso ma shape diversa → step fallisce, non reconciled_dropped=0', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'prev-slug-reconcile-'));
+    const r = runReconcile(
+      { DRY_RUN: 'false' },
+      dir,
+      '\nApplied: reconciled 1 duplicate group, dropped 1 record onto a survivor.',
+    );
+    expect(r.status).not.toBe(0);
+    expect(r.stdout).toContain('did not match the expected');
+    expect(r.output).not.toContain('reconciled_dropped=0');
+  });
 });
