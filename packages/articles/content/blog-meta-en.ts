@@ -9977,6 +9977,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-16.imageAlt': 'The day\'s numbers for cross-border commuters – August 16, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-16.seoDescription': 'Cross-border brief, August 16, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-16.ogDescription': 'The numbers for August 16, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.frontalieri-italiani-canton-ticino-calano.title': 'Italian border workers in Canton Ticino are on the decline',
+    'blog.article.frontalieri-italiani-canton-ticino-calano.excerpt': 'Recent figures show a decrease in Italian border workers in Canton Ticino. But what does it mean to them?',
+    'blog.article.frontalieri-italiani-canton-ticino-calano.imageAlt': 'Italian frontier workers in Canton Ticino are on the decline: what does it mean for them?',
 };
 
 export default blogMetaEn;
