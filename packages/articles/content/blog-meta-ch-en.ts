@@ -2884,6 +2884,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-affitti-cantone-svitto.title': 'Rental market in the Canton of Svitto: average fees and rental rights',
     'blog.article.mercato-affitti-cantone-svitto.excerpt': 'Average rents per area in the Canton of Schwyz are CHF 1,500 per month.',
     'blog.article.mercato-affitti-cantone-svitto.imageAlt': 'Affitts in Canton Schwyz, Switzerland',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.title': 'Naturalization in the Canton of Svitto: requirements and procedure',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.excerpt': 'The naturalization procedure in Canton Svitto requires a residence permit C, 10 years of residence and other requirements',
+    'blog.article.naturalizzazione-canton-svitto-requisiti-e-procedura.imageAlt': 'A scene of a foreigner\'s life in Switzerland with a background of mountains and lake',
 };
 
 export default blogMetaChEn;
