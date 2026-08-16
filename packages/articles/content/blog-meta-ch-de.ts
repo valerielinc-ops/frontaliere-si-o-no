@@ -2731,6 +2731,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-uri.title': 'Krankenkassenprämien Kanton Uri und Prämienverbilligung',
     'blog.article.premi-cassa-malati-cantone-uri.excerpt': 'Die Krankenkassenprämien im Kanton Uri und die Bedingungen für die Prämienverbilligung.',
     'blog.article.premi-cassa-malati-cantone-uri.imageAlt': 'Die Schweiz ist ein multilinguales Land in Zentral-Europa.',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Kantonale Steuern Kanton Uri: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Entdecken Sie die zulässigen Sätze und Abzüge für die kantonalen Steuern im Kanton Uri',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Kanton Uri Steuern',
 };
 
 export default blogMetaChDe;

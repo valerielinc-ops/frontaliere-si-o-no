@@ -2731,6 +2731,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-uri.title': 'Primes caisse-maladie Canton URI et réduction des primes',
     'blog.article.premi-cassa-malati-cantone-uri.excerpt': 'Les primes caisse-maladie dans le canton d\'Uri et les conditions de réduction des primes.',
     'blog.article.premi-cassa-malati-cantone-uri.imageAlt': 'La Suisse est un pays multilingue situé en Europe centrale.',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Impôts cantonaux Canton d\'Uri : taux et déductions',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Découvrez les taux et déductions admis pour les impôts cantonaux dans le canton d\'Uri',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Impôts cantonaux dans le canton d\'Uri',
 };
 
 export default blogMetaChFr;

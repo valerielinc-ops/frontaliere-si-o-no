@@ -2731,6 +2731,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-uri.title': 'Health insurance premiums Canton Uri and premium reduction',
     'blog.article.premi-cassa-malati-cantone-uri.excerpt': 'The sick cash premiums in Canton Uri and the conditions for the reduction of the premiums.',
     'blog.article.premi-cassa-malati-cantone-uri.imageAlt': 'Switzerland is a multilingual country located in Central Europe.',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Cantonal taxes Canton of Uri: rates and deductions',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Find out the rates and deductions allowed for cantonal taxes in the Canton of Uri',
+    'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Uri cantonal taxes',
 };
 
 export default blogMetaChEn;
