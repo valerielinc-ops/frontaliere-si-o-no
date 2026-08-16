@@ -2839,6 +2839,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-canton-uri.title': 'Abbonamenti trasporti pubblici nel Cantone di Uri: zone, tariffe e combinazioni',
     'blog.article.abbonamenti-trasporti-canton-uri.excerpt': 'Conoscere le zone e le tariffe degli abbonamenti trasporti pubblici nel Cantone di Uri',
     'blog.article.abbonamenti-trasporti-canton-uri.imageAlt': 'Vista di Lugano con abbonamenti trasporti pubblici',
+    'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.title': 'Uri: aliquote di successione e donazione per grado di parentela',
+    'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.excerpt': 'Imposta di successione e donazione nel Cantone di Uri: aliquote per grado di parentela',
+    'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.imageAlt': 'Locarno, Svizzera: immagine fotografica di un edificio storico con un cartello che indica l\'importo di un\'eredità',
 };
 
 export default blogMetaChIt;

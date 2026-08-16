@@ -2839,6 +2839,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-canton-uri.title': 'Public transport passes in the canton of Uri: zones, fares and combinations',
     'blog.article.abbonamenti-trasporti-canton-uri.excerpt': 'Know the areas and rates of public transport subscriptions in the Canton of Uri',
     'blog.article.abbonamenti-trasporti-canton-uri.imageAlt': 'Lugano with public transportation passes',
+    'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.title': 'Uri: inheritance and donation rates by degree of kinship',
+    'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.excerpt': 'Inheritance and gift tax in the Canton of Uri: rates by degree of kinship',
+    'blog.article.imposta-di-succesione-e-donazione-canton-uri-aliquote.imageAlt': 'Locarno, Switzerland: photograph of a historic building with a sign indicating the amount of an inheritance',
 };
 
 export default blogMetaChEn;
