@@ -2797,6 +2797,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope: Schlüssel zu den neuen Labors in Posieux',
     'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'Der Kanton Freiburg hat dem Bund die Schlüssel zu den neuen Agroscope-Labors in Posieux offiziell übergeben. Die Zeremonie fand am Freitag, 14. August 2026, unter Teilnahme des Bundespräsidenten Guy Parmelin und der Delegationen des Regierungsrates von Freiburg und der Direktionen von Agroscope statt.',
     'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14. August 2026: Präsident der Schweizerischen Eidgenossenschaft Guy Parmelin und Delegationen des Staatsrates des Kantons Freiburg und der Direktionen des Agroscope sowie der Bundesämter für Landwirtschaft UFAG und für Bau und Logistik UFCL während der Übergabezeremonie der neuen Laboratorien des Agroscope in Posieux.',
+    'blog.article.borse-studio-canton-uri.title': 'Kanton Uri Stipendien: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-uri.excerpt': 'Ergebnisse des Stipendienwettbewerbs Kanton Uri: Voraussetzungen, Höchstbeträge, Einreichungsfristen und zuständige kantonale Stelle',
+    'blog.article.borse-studio-canton-uri.imageAlt': 'Frontalier Student mit Uri Kantonsstipendium',
 };
 
 export default blogMetaChDe;

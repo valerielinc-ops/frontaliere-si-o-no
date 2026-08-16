@@ -2797,6 +2797,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope: keys to the new laboratories in Posieux',
     'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'The Canton of Freiburg has officially handed over to the Confederation the keys to the new Agroscope laboratories in Posieux. The ceremony took place on Friday, August 14, 2026, with the participation of the President of the Confederation Guy Parmelin and the delegations of the Fribourg State Council and the directorates of Agroscope.',
     'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14 August 2026: President of the Swiss Confederation Guy Parmelin and delegations of the State Council of Fribourg and the directions of Agroscope as well as the Federal Offices for Agriculture UFAG and for Buildings and Logistics UFCL during the handover ceremony of the new laboratories of Agroscope in Posieux.',
+    'blog.article.borse-studio-canton-uri.title': 'Canton Uri Scholarships: Requirements and Amounts',
+    'blog.article.borse-studio-canton-uri.excerpt': 'Results of the competition for scholarships Canton Uri: requirements, maximum amounts, deadlines for submission and competent cantonal office',
+    'blog.article.borse-studio-canton-uri.imageAlt': 'Frontalier student with Uri Canton scholarship',
 };
 
 export default blogMetaChEn;
