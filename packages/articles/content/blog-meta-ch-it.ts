@@ -2905,6 +2905,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-cantone-svitto.title': 'Salari e mercato del lavoro nel Cantone di Svitto: settori e livelli',
     'blog.article.salari-mercato-lavoro-cantone-svitto.excerpt': 'La situazione del mercato del lavoro nel Cantone di Svitto, con dati e statistiche sulle condizioni di lavoro e sui salari.',
     'blog.article.salari-mercato-lavoro-cantone-svitto.imageAlt': 'Una scena di un luogo di lavoro nel Cantone di Svitto, Svizzera, che mette in evidenza l\'importanza del mercato del lavoro e dei salari nella regione.',
+    'blog.article.conversione-patente-guida-svitto.title': 'Patente di guida a Svitto: conversione, esami e ufficio',
+    'blog.article.conversione-patente-guida-svitto.excerpt': 'Guida completa alla conversione della patente di guida estera nel Cantone di Svitto, con dettagli su esami, corsi obbligatori e uffici.',
+    'blog.article.conversione-patente-guida-svitto.imageAlt': 'Ufficio della circolazione nel Cantone di Svitto per la conversione della patente',
 };
 
 export default blogMetaChIt;

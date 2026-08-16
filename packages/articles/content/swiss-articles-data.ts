@@ -8713,6 +8713,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'conversione-patente-guida-svitto',
+    category: 'pratico',
+    date: '2026-08-16T14:08:59.768Z',
+    image: '/images/blog/conversione-patente-guida-svitto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
