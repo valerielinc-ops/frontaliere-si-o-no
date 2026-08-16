@@ -147,6 +147,34 @@ export function isStalenessCheckActive(nowMs) {
   return hour >= STALE_ACTIVE_START_UTC_HOUR && hour < STALE_ACTIVE_END_UTC_HOUR;
 }
 
+// The fast freshness loop's threshold (traffic-data-freshness.yml) was sized for
+// the weekday peak cadence (`*/30 4-7`/`*/30 14-17`, i.e. a run every 30 min).
+// On weekends traffic-scheduler.yml collapses to `0 6,10,14,18 * * 0,6` — one
+// run every 4h (240 min) to conserve HERE quota. A flat 90-min threshold on
+// that cadence guarantees a false "stale" reading ~90 min after every single
+// weekend run, all day — the same false-positive shape as the already-fixed
+// weekday morning gap (see STALE_ACTIVE_START_UTC_HOUR above, #4229), just
+// recurring every ~4h instead of once. Each false positive burns an unwanted
+// HERE self-heal dispatch plus a throwaway pending issue (observed #5960 and
+// its predecessors, one nearly every weekend day/slot).
+const WEEKDAY_STALE_THRESHOLD_MIN = 90;
+// 240-min actual gap + up to ~60min of documented GitHub cron delivery lag
+// (see the PAGEABLE comment below) = 300, so a healthy weekend run never trips
+// this. A genuinely frozen weekend pipeline is still caught by the 6h coarse
+// backstop (DEFAULT_STALE_HOURS above / border-live-data-watchdog.yml).
+const WEEKEND_STALE_THRESHOLD_MIN = 300;
+
+/**
+ * Freshness threshold (minutes) for the fast loop, matched to the actual
+ * traffic-scheduler.yml cadence for the day of week.
+ * @param {number} nowMs current time in ms (injected for testability)
+ * @returns {number}
+ */
+export function staleThresholdMinutesFor(nowMs) {
+  const day = new Date(nowMs).getUTCDay(); // 0 = Sunday, 6 = Saturday
+  return day === 0 || day === 6 ? WEEKEND_STALE_THRESHOLD_MIN : WEEKDAY_STALE_THRESHOLD_MIN;
+}
+
 /**
  * Decide whether the live routing provider has fully fallen back to mock data.
  * Only trips when EVERY crossing's source is `mock` (a partial fallback is
