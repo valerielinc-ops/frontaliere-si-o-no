@@ -2917,6 +2917,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Il permesso di domicilio C nel Cantone di Obvaldo',
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Requisiti e procedura per ottenere il permesso di domicilio C nel Cantone di Obvaldo',
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'La vista sul Lago di Lugano',
+    'blog.article.assegni-familiari-obvaldo-2026.title': 'Assegni familiari nel Cantone di Obvaldo: importi e domanda',
+    'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'Il Cantone di Obvaldo fornisce un assegno familiare per le famiglie con figli.',
+    'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Famiglie con figli in un quartiere residenziale di Lugano',
 };
 
 export default blogMetaChIt;

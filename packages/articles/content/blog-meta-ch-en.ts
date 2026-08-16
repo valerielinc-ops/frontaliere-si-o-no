@@ -2917,6 +2917,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Residence permit C in the Canton of Obvaldo',
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Requirements and procedure for obtaining residence permit C in the Canton of Obvaldo',
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'The view of Lake Lugano',
+    'blog.article.assegni-familiari-obvaldo-2026.title': 'Family allowances in the Canton of Obvaldo: amounts and application',
+    'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'The Canton of Obvaldo provides a family allowance for families with children.',
+    'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Families with children in a residential area of Lugano',
 };
 
 export default blogMetaChEn;

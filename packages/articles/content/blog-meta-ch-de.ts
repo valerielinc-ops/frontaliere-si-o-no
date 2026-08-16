@@ -2917,6 +2917,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.title': 'Die Niederlassungsbewilligung C im Kanton Obwalden',
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.excerpt': 'Voraussetzungen und Verfahren zur Erlangung der Niederlassungsbewilligung C im Kanton Obwalden',
     'blog.article.permesso-di-domicilio-c-canton-obvaldo.imageAlt': 'Die Aussicht auf den Luganersee',
+    'blog.article.assegni-familiari-obvaldo-2026.title': 'Familienzulagen im Kanton Obwalden: Beträge und Antrag',
+    'blog.article.assegni-familiari-obvaldo-2026.excerpt': 'Der Kanton Obwalden gewährt Familien mit Kindern eine Familienzulage.',
+    'blog.article.assegni-familiari-obvaldo-2026.imageAlt': 'Familien mit Kindern in einem Wohngebiet von Lugano',
 };
 
 export default blogMetaChDe;
