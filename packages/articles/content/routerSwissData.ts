@@ -953,6 +953,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ciclista-grave-dopo-una-caduta': { it: 'ciclista-grave-dopo-una-caduta', en: 'ciclista-grave-after-a-fall', de: 'radfahrer-schwer-verletzt-nach-einem-sturz', fr: 'cycliste-gravement-blesse-apres-une-chute' },
  'apprendistato-urie-2024-2025': { it: 'apprendistato-urie-2024-2025', en: 'apprenticeship-urie-2024-2025', de: 'lehrling-urie-2024-2025', fr: 'apprentissage-urie-2024-2025' },
  'offre-controllore-treno-multa': { it: 'offre-controllore-treno-multa', en: 'offering-train-conductor-fine', de: 'angebot-zugbediensteter-bu-geld', fr: 'offrir-au-conducteur-de-train-amende' },
+ 'coppa-svizzera-risultati-partiti': { it: 'coppa-svizzera-risultati-partiti', en: 'swiss-cup-match-results', de: 'schweizer-cup-spielresultate', fr: 'resultats-matchs-coupe-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

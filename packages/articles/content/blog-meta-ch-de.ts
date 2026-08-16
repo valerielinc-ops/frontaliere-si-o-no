@@ -2782,6 +2782,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.offre-controllore-treno-multa.title': 'Bietet 20 Franken pro Kontrolleur, um kein Bußgeld zu zahlen, bewegt sich die BA',
     'blog.article.offre-controllore-treno-multa.excerpt': 'Ein Mann bietet einem Bahnkontrolleur 20 Franken an, um die Strafe nicht zu bezahlen. Die Bundesstaatsanwaltschaft hat festgestellt, dass der Mann das Geld angeboten hat, damit der Zugbeamte auf die Geldbuße verzichtet und damit das Verbrechen der Korruption gestaltet.',
     'blog.article.offre-controllore-treno-multa.imageAlt': 'Ein Mann bietet 20 Franken an einen Zugbediensteten.',
+    'blog.article.coppa-svizzera-risultati-partiti.title': 'Schweizer Cup: Schlucht für Servette, Basel, Young Boys und GC',
+    'blog.article.coppa-svizzera-risultati-partiti.excerpt': 'Keine Überraschungen im 32. Finale des Schweizer Wettbewerbs, da die Formationen der Super League ihre jeweiligen Runden problemlos übertreffen.',
+    'blog.article.coppa-svizzera-risultati-partiti.imageAlt': 'Schweizer-Cup-Spiel in einem Schweizer Stadion',
 };
 
 export default blogMetaChDe;

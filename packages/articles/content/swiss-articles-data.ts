@@ -8344,6 +8344,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'coppa-svizzera-risultati-partiti',
+    category: 'novita',
+    date: '2026-08-16T06:00:03.083Z',
+    image: '/images/blog/coppa-svizzera-risultati-partiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
