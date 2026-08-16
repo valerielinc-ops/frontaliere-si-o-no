@@ -2779,6 +2779,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-urie-2024-2025.title': 'Apprendistato nel Cantone Uri: come funziona',
     'blog.article.apprendistato-urie-2024-2025.excerpt': 'La formazione professionale è fondamentale per lo sviluppo di una carriera lavorativa stabile e gratificante.',
     'blog.article.apprendistato-urie-2024-2025.imageAlt': 'Una giovane apprendista in un laboratorio del Cantone Uri',
+    'blog.article.offre-controllore-treno-multa.title': 'Offre 20 franchi a controllore per non pagare multa, si muove l\'MPC',
+    'blog.article.offre-controllore-treno-multa.excerpt': 'Un uomo offre 20 franchi a un controllore di treno per non pagare la multa. La Procura federale ha stabilito che l\'uomo ha offerto il denaro affinché il funzionario dei treni rinunciasse alla multa, configurando così il delitto di corruzione.',
+    'blog.article.offre-controllore-treno-multa.imageAlt': 'Un uomo offre 20 franchi a un controllore di treno.',
 };
 
 export default blogMetaChIt;

@@ -2779,6 +2779,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-urie-2024-2025.title': 'Apprenticeship in Canton Uri: how it works',
     'blog.article.apprendistato-urie-2024-2025.excerpt': 'Vocational training is essential for the development of a stable and rewarding career.',
     'blog.article.apprendistato-urie-2024-2025.imageAlt': 'An apprentice in a lab in Uri',
+    'blog.article.offre-controllore-treno-multa.title': 'Offers 20 francs to the controller to avoid paying a fine, the MPC moves',
+    'blog.article.offre-controllore-treno-multa.excerpt': 'A man offers 20 francs to a train controller to avoid paying the fine. The Federal Prosecutor\'s Office determined that the man offered the money for the train officer to waive the fine, thus constituting the crime of corruption.',
+    'blog.article.offre-controllore-treno-multa.imageAlt': 'A man offers 20 francs to a train conductor.',
 };
 
 export default blogMetaChEn;
