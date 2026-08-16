@@ -2734,6 +2734,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Cantonal taxes Canton of Uri: rates and deductions',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Find out the rates and deductions allowed for cantonal taxes in the Canton of Uri',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Uri cantonal taxes',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.title': 'Residence permit B in Uri: requirements and procedure',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.excerpt': 'What is needed to obtain the residence permit B in the Canton of Uri and how to proceed with the renewal',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.imageAlt': 'Swiss resident',
 };
 
 export default blogMetaChEn;

@@ -8200,6 +8200,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-dimora-b-ur-requisiti-rinnovo',
+    category: 'fiscale',
+    date: '2026-08-16T00:13:35.081Z',
+    image: '/images/blog/permesso-dimora-b-ur-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

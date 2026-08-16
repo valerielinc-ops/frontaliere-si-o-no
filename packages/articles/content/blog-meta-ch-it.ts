@@ -2734,6 +2734,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.title': 'Imposte cantonali Cantone di Uri: aliquote e deduzioni',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.excerpt': 'Scopri le aliquote e le deduzioni ammesse per le imposte cantonali nel Cantone di Uri',
     'blog.article.imposte-cantonal-ur-aliquote-deduzioni.imageAlt': 'Imposte cantonali nel Cantone di Uri',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.title': 'Permesso di dimora B in Uri: requisiti e procedura',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.excerpt': 'Cosa serve per ottenere il permesso di dimora B nel Cantone di Uri e come procedere con il rinnovo',
+    'blog.article.permesso-dimora-b-ur-requisiti-rinnovo.imageAlt': 'Frontaliere in Svizzera',
 };
 
 export default blogMetaChIt;

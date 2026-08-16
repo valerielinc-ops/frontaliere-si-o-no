@@ -35432,6 +35432,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-dimora-b-ur-requisiti-rinnovo': {
+    title: 'Permesso di dimora B in Uri: requisiti e procedura',
+    description: 'Cosa serve per ottenere il permesso di dimora B nel Cantone di Uri e come procedere con il rinnovo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, requisiti, procedura',
+    ogTitle: 'Permesso di dimora B nel Cantone di Uri: requisiti, documenti da produrre, durata, procedura di rinnovo e ufficio cantonale della migrazione',
+    ogDescription: 'Cosa serve per ottenere il permesso di dimora B nel Cantone di Uri e come procedere con il rinnovo',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-ur-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B in Uri: requisiti e procedura",
+      "description": "Cosa serve per ottenere il permesso di dimora B nel Cantone di Uri e come procedere con il rinnovo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-ur-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in Svizzera"
+      },
+      "datePublished": "2026-08-16T00:13:35+00:00",
+      "dateModified": "2026-08-16T00:13:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-ur-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
