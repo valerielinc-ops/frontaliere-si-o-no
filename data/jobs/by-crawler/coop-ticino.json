@@ -215212,20 +215212,16 @@
         ],
         "en": [
           "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-          "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
           "road-driver-cat-c-in-zurich-or-schafisheim-railcare-zurich"
         ],
         "fr": [
           "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-          "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich",
           "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich",
         "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-        "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
-        "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich",
         "road-driver-cat-c-in-zurich-or-schafisheim-railcare-zurich",
         "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich"
       ],
@@ -219147,7 +219143,7 @@
       },
       "slugByLocale": {
         "it": "rayon-leader-in-nonfood-coop-genossenschaft-koniz",
-        "en": "rayonleiter-in-nonfood-coop-koniz-bern-o6wi3b",
+        "en": "rayon-leader-in-nonfood-coop-genossenschaft-koniz-bern",
         "de": "rayonleiter-in-nonfood-coop-koniz-bern-o6wi3b",
         "fr": "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-koniz"
       },
@@ -219171,6 +219167,9 @@
           "rayonleiter-in-nonfood-coop-koniz-bern"
         ],
         "fr": [
+          "rayonleiter-in-nonfood-coop-koniz-bern-o6wi3b"
+        ],
+        "en": [
           "rayonleiter-in-nonfood-coop-koniz-bern-o6wi3b"
         ]
       },
@@ -221002,7 +221001,7 @@
     },
     {
       "id": "company-16a3f9",
-      "slug": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden",
+      "slug": "stv-rayonleiter-in-convenienza-macellaio-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Stv. Rayonleiter:in Convenience/Metzgerei",
       "location": "Chur",
@@ -221050,10 +221049,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
+        "it": "stv-rayonleiter-in-convenienza-macellaio-coop-genossenschaft-chur",
         "en": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
         "de": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
-        "fr": "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9"
+        "fr": "stv-rayonleiter-dans-la-commodite-boucher-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -221070,11 +221069,24 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
+          "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden"
+        ],
+        "fr": [
+          "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9"
+        ]
+      },
+      "previousSlugs": [
+        "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
+        "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden"
+      ]
     },
     {
       "id": "company-t9okq4",
-      "slug": "verkaufer-in-kassen-services-coop-obfelden-zurich",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-obfelden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Obfelden",
@@ -221122,10 +221134,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4",
-        "en": "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-obfelden",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-obfelden",
         "de": "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4",
-        "fr": "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-obfelden"
       },
       "addressLocality": "Obfelden",
       "sourceLang": "de",
@@ -221149,16 +221161,20 @@
           "verkaufer-in-kassen-services-coop-obfelden-zurich-kr92x6",
           "sales-assistant-cash-registers-services-coop-genossenschaft-obfelden-kr92x6",
           "caisses-services-d-assistant-commercial-coop-genossenschaft-obfelden-kr92x6",
-          "verkaufer-in-kassen-services-coop-genossenschaft-obfelden"
+          "verkaufer-in-kassen-services-coop-genossenschaft-obfelden",
+          "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4",
+          "verkaufer-in-kassen-services-coop-obfelden-zurich"
         ],
         "en": [
-          "sales-assistant-cash-registers-services-coop-genossenschaft-obfelden-kr92x6"
+          "sales-assistant-cash-registers-services-coop-genossenschaft-obfelden-kr92x6",
+          "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-obfelden-zurich-kr92x6"
         ],
         "fr": [
-          "caisses-services-d-assistant-commercial-coop-genossenschaft-obfelden-kr92x6"
+          "caisses-services-d-assistant-commercial-coop-genossenschaft-obfelden-kr92x6",
+          "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4"
         ]
       },
       "previousSlugs": [
@@ -221166,12 +221182,14 @@
         "verkaufer-in-kassen-services-coop-obfelden-zurich-kr92x6",
         "sales-assistant-cash-registers-services-coop-genossenschaft-obfelden-kr92x6",
         "caisses-services-d-assistant-commercial-coop-genossenschaft-obfelden-kr92x6",
-        "verkaufer-in-kassen-services-coop-genossenschaft-obfelden"
+        "verkaufer-in-kassen-services-coop-genossenschaft-obfelden",
+        "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4",
+        "verkaufer-in-kassen-services-coop-obfelden-zurich"
       ]
     },
     {
       "id": "company-dzcuwh",
-      "slug": "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich",
+      "slug": "venditore-in-macelleria-di-prodotti-freschi-coop-genossenschaft-affoltern-am-albis",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte Metzgerei",
       "location": "Affoltern am Albis",
@@ -221217,10 +221235,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh",
-        "en": "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh",
+        "it": "venditore-in-macelleria-di-prodotti-freschi-coop-genossenschaft-affoltern-am-albis",
+        "en": "seller-in-fresh-produce-butchery-coop-genossenschaft-affoltern-am-albis",
         "de": "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh",
-        "fr": "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh"
+        "fr": "vendeur-en-boucherie-de-produits-frais-coop-genossenschaft-affoltern-am-albis"
       },
       "addressLocality": "Affoltern am Albis",
       "sourceLang": "de",
@@ -221240,16 +221258,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-affoltern-am-albis"
+          "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-affoltern-am-albis",
+          "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh",
+          "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-affoltern-am-albis"
+        "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-affoltern-am-albis",
+        "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh",
+        "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich"
       ]
     },
     {
       "id": "company-45ql7k",
-      "slug": "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau",
+      "slug": "venditore-in-cibo-pane-bevande-coop-genossenschaft-gebenstorf",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Brot/Backwaren)",
       "location": "Gebenstorf",
@@ -221295,10 +221323,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k",
-        "en": "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k",
+        "it": "venditore-in-cibo-pane-bevande-coop-genossenschaft-gebenstorf",
+        "en": "seller-in-food-bread-baked-goods-coop-genossenschaft-gebenstorf",
         "de": "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k",
-        "fr": "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k"
+        "fr": "vendeur-dans-la-nourriture-pain-cuisine-coop-genossenschaft-gebenstorf"
       },
       "addressLocality": "Gebenstorf",
       "sourceLang": "de",
@@ -221322,16 +221350,20 @@
           "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-p6u7n3",
           "salesperson-food-bread-bakery-coop-genossenschaft-gebenstorf-p6u7n3",
           "vendeur-euse-food-pain-patisserie-coop-genossenschaft-gebenstorf-p6u7n3",
-          "verkaufer-in-food-brot-backwaren-coop-genossenschaft-gebenstorf"
+          "verkaufer-in-food-brot-backwaren-coop-genossenschaft-gebenstorf",
+          "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k",
+          "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau"
         ],
         "en": [
-          "salesperson-food-bread-bakery-coop-genossenschaft-gebenstorf-p6u7n3"
+          "salesperson-food-bread-bakery-coop-genossenschaft-gebenstorf-p6u7n3",
+          "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k"
         ],
         "de": [
           "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-p6u7n3"
         ],
         "fr": [
-          "vendeur-euse-food-pain-patisserie-coop-genossenschaft-gebenstorf-p6u7n3"
+          "vendeur-euse-food-pain-patisserie-coop-genossenschaft-gebenstorf-p6u7n3",
+          "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k"
         ]
       },
       "previousSlugs": [
@@ -221339,7 +221371,9 @@
         "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-p6u7n3",
         "salesperson-food-bread-bakery-coop-genossenschaft-gebenstorf-p6u7n3",
         "vendeur-euse-food-pain-patisserie-coop-genossenschaft-gebenstorf-p6u7n3",
-        "verkaufer-in-food-brot-backwaren-coop-genossenschaft-gebenstorf"
+        "verkaufer-in-food-brot-backwaren-coop-genossenschaft-gebenstorf",
+        "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k",
+        "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau"
       ]
     }
   ]
