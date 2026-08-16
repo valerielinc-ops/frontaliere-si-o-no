@@ -2947,6 +2947,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incendio-monte-gambarogno.title': 'Monte Gambarogno fire, firefighters already at work',
     'blog.article.incendio-monte-gambarogno.excerpt': 'A forest fire broke out on Mount Gambarogno. The authorities invite you not to go to the affected area.',
     'blog.article.incendio-monte-gambarogno.imageAlt': 'Incendio sul Monte Gambarogno, pompieri già al lavoro',
+    'blog.article.comprare-casa-canton-obvaldo.title': 'Buying a house in the Obvaldo Canton: prices and mortgage',
+    'blog.article.comprare-casa-canton-obvaldo.excerpt': 'The average price of an apartment in Canton Obvaldo is CHF 420,000, while for a house it is CHF 820,000. The mortgage can cover up to 70% of the purchase price.',
+    'blog.article.comprare-casa-canton-obvaldo.imageAlt': 'image of a Swiss city with a real estate agency sign',
 };
 
 export default blogMetaChEn;

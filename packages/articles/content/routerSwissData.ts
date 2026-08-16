@@ -1008,6 +1008,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'massimo-boldi-ospedale': { it: 'massimo-boldi-ospedale', en: 'massimo-boldi-hospitalized', de: 'massimo-boldi-krankenhaus', fr: 'massimo-boldi-hospitalise' },
  'affitti-obvaldo-cantoni-medi-diritti-locazione': { it: 'affitti-obvaldo-cantoni-medi-diritti-locazione', en: 'rentals-obvaldo-cantons-average-rights', de: 'mieten-obvaldo-kantone-mittelrechte', fr: 'locations-obvaldo-cantons-moyennes-droits' },
  'incendio-monte-gambarogno': { it: 'incendio-monte-gambarogno', en: 'monte-gambarogno-fire-firefighters-already-at-work', de: 'brand-monte-gambarogno', fr: 'incendie-monte-gambarogno' },
+ 'comprare-casa-canton-obvaldo': { it: 'comprare-casa-canton-obvaldo', en: 'buy-house-canton-obvaldo', de: 'kaufen-haus-kanton-obvaldo', fr: 'acheter-maison-canton-obvaldo' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
