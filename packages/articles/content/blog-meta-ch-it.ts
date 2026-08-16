@@ -2797,6 +2797,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.labatori-di-agsrosope-consegna-chiavi.title': 'Agroscope: chiavi dei nuovi laboratori a Posieux',
     'blog.article.labatori-di-agsrosope-consegna-chiavi.excerpt': 'Il Cantone di Friburgo ha consegnato ufficialmente alla Confederazione le chiavi dei nuovi laboratori di Agroscope a Posieux. La cerimonia ha avuto luogo venerdì 14 agosto 2026, con la partecipazione del presidente della Confederazione Guy Parmelin e delle delegazioni del Consiglio di Stato di Friburgo e delle direzioni di Agroscope.',
     'blog.article.labatori-di-agsrosope-consegna-chiavi.imageAlt': 'Posieux, 14 agosto 2026: il presidente della Confederazione Guy Parmelin e delegazioni del Consiglio di Stato di Friburgo e delle direzioni di Agroscope nonché degli Uffici federali dell\'agricoltura UFAG e delle costruzioni e della logistica UFCL durante la cerimonia di consegna delle chiavi dei nuovi laboratori di Agroscope a Posieux.',
+    'blog.article.borse-studio-canton-uri.title': 'Borse di studio Canton Uri: requisiti e importi',
+    'blog.article.borse-studio-canton-uri.excerpt': 'Risultati della concorso per borse di studio Cantone Uri: requisiti, importi massimi, termini di presentazione e ufficio cantonale competente',
+    'blog.article.borse-studio-canton-uri.imageAlt': 'Frontaliero studente con borsa di studio Cantone Uri',
 };
 
 export default blogMetaChIt;
