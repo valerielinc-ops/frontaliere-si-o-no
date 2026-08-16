@@ -2968,6 +2968,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-obvaldo.title': 'Démarrer une activité dans le canton d\'Obwald : choix et obligations',
     'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'Les données nécessaires pour ouvrir une entreprise dans le canton d\'Obwald sont les suivantes : forme juridique, inscription au registre du commerce, capital minimum, frais d\'inscription et obligations d\'assurance.',
     'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Lancer une entreprise dans le canton d\'Obvaldo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Nidwalden : exigences et renouvellement',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Nidwald est un document important pour les frontaliers qui souhaitent résider dans le canton.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Le permis de séjour B dans le canton de Nidvaldo',
 };
 
 export default blogMetaChFr;

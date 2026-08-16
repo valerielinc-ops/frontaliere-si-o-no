@@ -1015,6 +1015,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-cantone-nidvaldo': { it: 'premi-cassa-malati-cantone-nidvaldo', en: 'canton-nidvaldo-health-insurance-premiums', de: 'kanton-nidvaldo-krankenversicherungspramien', fr: 'canton-nidvaldo-premies-assurance-maladie' },
  'incidente-moto-amlikon-bissegg-18-anni': { it: 'incidente-moto-amlikon-bissegg-18-anni', en: 'motorcycle-accident-amlikon-bissegg-18-years', de: 'motorradunfall-amlikon-bissegg-18-jaehrig', fr: 'accident-moto-amlikon-bissegg-18-ans' },
  'aprire-attivita-canton-obvaldo': { it: 'aprire-attivita-canton-obvaldo', en: 'start-business-canton-obvaldo', de: 'unternehmen-gruenden-kanton-obvaldo', fr: 'lancer-entreprise-canton-obvaldo' },
+ 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo': { it: 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo', en: 'residence-permit-b-in-the-canton-of-nidvaldo-requirements-and-renewal', de: 'aufenthaltsbewilligung-b-im-kanton-nidwalden-voraussetzungen-und-verlangerung', fr: 'permis-de-sejour-b-dans-le-canton-de-nidwalden-exigences-et-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -2968,6 +2968,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-obvaldo.title': 'Unternehmensgründung im Kanton Obwalden: Auswahl und Pflichten',
     'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'Für die Aufnahme einer Tätigkeit im Kanton Obwalden sind folgende Daten erforderlich: Rechtsform, Handelsregistereintrag, Mindestkapital, Einschreibegebühren und Versicherungspflichten.',
     'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Geschäft in der Kanton Obvaldo gründen',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Nidwalden: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Nidwalden ist ein wichtiges Dokument für Grenzgänger, die im Kanton Nidwalden wohnen möchten.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Das B-Visum im Kanton Nidvaldo',
 };
 
 export default blogMetaChDe;

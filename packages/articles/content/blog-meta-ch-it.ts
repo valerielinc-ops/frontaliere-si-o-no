@@ -2968,6 +2968,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-obvaldo.title': 'Avviare un\'attività nel Cantone di Obvaldo: scelta e obblighi',
     'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'I dati necessari per aprire un\'attività nel Cantone di Obvaldo sono i seguenti: forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
     'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Avviare un\'attività nel Cantone di Obvaldo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Nidvaldo: requisiti e rinnovo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Il permesso di dimora B nel Cantone di Nidvaldo è un documento importante per i frontalieri che desiderano risiedere nel cantone.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Il permesso di dimora B nel Cantone di Nidvaldo',
 };
 
 export default blogMetaChIt;
