@@ -2938,6 +2938,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Asilo nido e custodia bambini Canton Obvaldo costi',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Scopri i costi di un asilo nido e le politiche di sussidi del Canton Obvaldo.',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Asilo nido e custodia bambini nel Canton Obvaldo: costi e sussidi.',
+    'blog.article.massimo-boldi-ospedale.title': 'Massimo Boldi in ospedale dopo una caduta',
+    'blog.article.massimo-boldi-ospedale.excerpt': 'L\'attore italiano Massimo Boldi è stato trasferito nel reparto di neurochirurgia dell\'ospedale di Livorno dopo una caduta avvenuta il pomeriggio del 13 agosto a Forte dei Marmi.',
+    'blog.article.massimo-boldi-ospedale.imageAlt': 'Massimo Boldi ricoverato in ospedale dopo una caduta',
 };
 
 export default blogMetaChIt;

@@ -2938,6 +2938,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.title': 'Nursery and childcare Canton Obvaldo costs',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.excerpt': 'Discover the costs of a kindergarten and the subsidy policies of the Obvaldo Canton.',
     'blog.article.asilo-nido-custodia-bambini-canton-obvaldo-costi.imageAlt': 'Childcare and custody in the Canton Obvaldo: costs and subsidies.',
+    'blog.article.massimo-boldi-ospedale.title': 'Massimo Boldi in hospital after a fall',
+    'blog.article.massimo-boldi-ospedale.excerpt': 'Italian actor Massimo Boldi was transferred to the neurosurgery department of the Livorno hospital after a fall on the afternoon of 13 August in Forte dei Marmi.',
+    'blog.article.massimo-boldi-ospedale.imageAlt': 'Italian actor Massimo Boldi in hospital after a fall',
 };
 
 export default blogMetaChEn;

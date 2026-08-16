@@ -38084,6 +38084,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-massimo-boldi-ospedale': {
+    title: 'Massimo Boldi in ospedale dopo una caduta | Frontaliere Ticino',
+    description: 'L\'attore italiano Massimo Boldi è stato trasferito nel reparto di neurochirurgia dell\'ospedale di Livorno dopo una caduta avvenuta il pomeriggio del 13 agosto',
+    keywords: 'frontalieri, ticino, svizzera, italia, massimo, boldi, ospedale, dopo',
+    ogTitle: 'Massimo Boldi in ospedale dopo una caduta',
+    ogDescription: 'L\'attore italiano Massimo Boldi è stato trasferito nel reparto di neurochirurgia dell\'ospedale di Livorno dopo una caduta avvenuta il pomeriggio del 13 agosto a Forte dei Marmi.',
+    canonicalPath: '/articoli-svizzera/massimo-boldi-ospedale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Massimo Boldi in ospedale dopo una caduta",
+      "description": "L'attore italiano Massimo Boldi è stato trasferito nel reparto di neurochirurgia dell'ospedale di Livorno dopo una caduta avvenuta il pomeriggio del 13 agosto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/massimo-boldi-ospedale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Massimo Boldi ricoverato in ospedale dopo una caduta"
+      },
+      "datePublished": "2026-08-16T17:48:48+00:00",
+      "dateModified": "2026-08-16T17:48:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/massimo-boldi-ospedale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

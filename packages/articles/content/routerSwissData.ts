@@ -1005,6 +1005,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-obvaldo-guida': { it: 'apprendistato-obvaldo-guida', en: 'apprenticeships-in-obvaldo', de: 'ausbildung-im-kanton-obvaldo', fr: 'apprentissage-au-canton-dobvaldo' },
  'bozze-di-studio-cantone-obvaldo': { it: 'bozze-di-studio-cantone-obvaldo', en: 'cantone-obvaldo-scholarships-requirements-and-amounts', de: 'stipendien-kanton-obwalden-voraussetzungen-und-betrage', fr: 'bourses-canton-obwald-exigences-et-montants' },
  'asilo-nido-custodia-bambini-canton-obvaldo-costi': { it: 'asilo-nido-custodia-bambini-canton-obvaldo-costi', en: 'childcare-custody-canton-obvaldo-costs', de: 'kindergeld-pflege-kanton-obvaldo-kosten', fr: 'enfance-garde-canton-obvaldo-couts' },
+ 'massimo-boldi-ospedale': { it: 'massimo-boldi-ospedale', en: 'massimo-boldi-hospitalized', de: 'massimo-boldi-krankenhaus', fr: 'massimo-boldi-hospitalise' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
