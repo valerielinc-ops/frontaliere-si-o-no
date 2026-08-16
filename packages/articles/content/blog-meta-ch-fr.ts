@@ -2854,6 +2854,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-svitto.title': 'Primes caisse-maladie Schwyz : tranches, franchises et subventions',
     'blog.article.premi-cassa-malati-svitto.excerpt': 'Analyse des primes de l\'assurance maladie obligatoire dans le canton de Schwyz : fourchettes de primes, franchises, modèles et conditions de réduction.',
     'blog.article.premi-cassa-malati-svitto.imageAlt': 'Primes d\'assurance-maladie et reduction dans le canton de Schwytz',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.title': 'Permis de séjour C dans le canton de Schwyz : exigences et demande',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.excerpt': 'Pour obtenir un permis de séjour C dans le canton de Schwyz, les frontaliers doivent respecter certaines exigences et suivre une procédure spécifique.',
+    'blog.article.permesso-di-domicilio-c-canton-svitto.imageAlt': 'Un frontalier se régale de la vue sur le lac de Lugano.',
 };
 
 export default blogMetaChFr;
