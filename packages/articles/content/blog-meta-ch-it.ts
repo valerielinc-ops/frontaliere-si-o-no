@@ -2956,6 +2956,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS nel Cantone di Obvaldo: la cassa di compensazione',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Il Cantone di Obvaldo gestisce la cassa di compensazione cantonale. Le prestazioni complementari dell\'AVS sono cruciali per garantire un minimo vitale.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'L\'articolo approfondisce le prestazioni complementari dell\'AVS nel Cantone di Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Immagine di un frontaliere che utilizza un abbonamento del Canton Obvaldo',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.title': 'Premi cassa malati canton Nidvaldo e riduzione premi',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.excerpt': 'La legge sulle assicurazioni malattie obbligatorie nel Cantone di Nidvaldo ha ridotto i premi per le assicurazioni malattie.',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.imageAlt': 'Un medico svizzero cura un paziente',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Tragico incidente stradale ad Amlikon-Bissegg: muore 18enne',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'Una motociclista diciottenne è deceduta in ospedale in seguito alle gravissime ferite riportate nello scontro tra la sua moto e un furgone.',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Scena di un incidente stradale in Svizzera',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Avviare un\'attività nel Cantone di Obvaldo: scelta e obblighi',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'I dati necessari per aprire un\'attività nel Cantone di Obvaldo sono i seguenti: forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Avviare un\'attività nel Cantone di Obvaldo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Nidvaldo: requisiti e rinnovo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Il permesso di dimora B nel Cantone di Nidvaldo è un documento importante per i frontalieri che desiderano risiedere nel cantone.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Il permesso di dimora B nel Cantone di Nidvaldo',
 };
 
 export default blogMetaChIt;

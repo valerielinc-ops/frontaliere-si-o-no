@@ -2956,6 +2956,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS dans le canton d\'Obwald : la caisse de compensation',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Le canton d\'Obwald gère la caisse de compensation cantonale. Les prestations complémentaires de l\'AVS sont cruciales pour assurer un minimum vital.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'L\'article approfondit les prestations complémentaires de l\'AVS dans le canton d\'Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Abonnements transports publics Canton Obwald : zones et tarifs',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Informations sur les abonnements du canton Obwald, y compris les zones et les tarifs.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Image d\'un frontalier utilisant un pass du canton d\'Obvaldo',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.title': 'Primes caisse-maladie canton de Nidwald et réduction des primes',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.excerpt': 'La loi sur les assurances-maladie obligatoires dans le canton de Nidwald a réduit les primes pour les assurances-maladie.',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.imageAlt': 'Un médecin suisse examine un patient',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Accident de la route tragique à Amlikon-Bissegg : mort de 18 ans',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'Une motocycliste de dix-huit ans est décédée à l\'hôpital des suites des très graves blessures rapportées lors de l\'affrontement entre sa moto et un fourgon.',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Scene d\'accident de la route en Suisse',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Démarrer une activité dans le canton d\'Obwald : choix et obligations',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'Les données nécessaires pour ouvrir une entreprise dans le canton d\'Obwald sont les suivantes : forme juridique, inscription au registre du commerce, capital minimum, frais d\'inscription et obligations d\'assurance.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Lancer une entreprise dans le canton d\'Obvaldo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Nidwalden : exigences et renouvellement',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Nidwald est un document important pour les frontaliers qui souhaitent résider dans le canton.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Le permis de séjour B dans le canton de Nidvaldo',
 };
 
 export default blogMetaChFr;

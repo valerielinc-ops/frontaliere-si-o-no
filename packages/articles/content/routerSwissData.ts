@@ -1011,6 +1011,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-canton-obvaldo': { it: 'comprare-casa-canton-obvaldo', en: 'buy-house-canton-obvaldo', de: 'kaufen-haus-kanton-obvaldo', fr: 'acheter-maison-canton-obvaldo' },
  'maccabi-lugano-mobilitazione': { it: 'maccabi-lugano-mobilitazione', en: 'maccabi-lugano-protest', de: 'maccabi-lugano-proteste', fr: 'maccabi-lugano-manifestation' },
  'avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione': { it: 'avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione', en: 'avs-in-the-canton-of-obvaldo-the-compensation-fund', de: 'ahv-im-kanton-obwalden-die-ausgleichskasse', fr: 'avs-dans-le-canton-d-obwald-la-caisse-de-compensation' },
+ 'obvaldo-abbonamenti-trasporti': { it: 'obvaldo-abbonamenti-trasporti', en: 'obvaldo-transportation-passes', de: 'obvaldo-verkehrskarte', fr: 'obvaldo-titre-de-transport' },
+ 'premi-cassa-malati-cantone-nidvaldo': { it: 'premi-cassa-malati-cantone-nidvaldo', en: 'canton-nidvaldo-health-insurance-premiums', de: 'kanton-nidvaldo-krankenversicherungspramien', fr: 'canton-nidvaldo-premies-assurance-maladie' },
+ 'incidente-moto-amlikon-bissegg-18-anni': { it: 'incidente-moto-amlikon-bissegg-18-anni', en: 'motorcycle-accident-amlikon-bissegg-18-years', de: 'motorradunfall-amlikon-bissegg-18-jaehrig', fr: 'accident-moto-amlikon-bissegg-18-ans' },
+ 'aprire-attivita-canton-obvaldo': { it: 'aprire-attivita-canton-obvaldo', en: 'start-business-canton-obvaldo', de: 'unternehmen-gruenden-kanton-obvaldo', fr: 'lancer-entreprise-canton-obvaldo' },
+ 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo': { it: 'permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo', en: 'residence-permit-b-in-the-canton-of-nidvaldo-requirements-and-renewal', de: 'aufenthaltsbewilligung-b-im-kanton-nidwalden-voraussetzungen-und-verlangerung', fr: 'permis-de-sejour-b-dans-le-canton-de-nidwalden-exigences-et-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

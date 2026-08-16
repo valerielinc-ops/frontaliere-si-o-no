@@ -2956,6 +2956,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AHV im Kanton Obwalden: die Ausgleichskasse',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'Der Kanton Obwalden führt die kantonale Ausgleichskasse. Die Ergänzungsleistungen der AHV sind entscheidend für die Sicherstellung eines Existenzminimums.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'Der Artikel beleuchtet die ergänzenden Leistungen der AVS im Kanton Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Abonnements für öffentliche Verkehrsmittel Kanton Obwalden: Zonen und Tarife',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Informationen zu den Abos des Kantons Obwalden inkl. Zonen und Tarife.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Bild eines Frontalierers, der ein Pass des Kantons Obvaldo nutzt',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.title': 'Krankenkassenprämien Kanton Nidwalden und Prämienverbilligung',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.excerpt': 'Das Gesetz über die obligatorischen Krankenversicherungen im Kanton Nidwalden hat die Prämien für die Krankenversicherungen gesenkt.',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.imageAlt': 'Ein Schweizer Arzt untersucht einen Patienten',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Tragischer Verkehrsunfall in Amlikon-Bissegg: 18-Jähriger stirbt',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'Eine 18-jährige Motorradfahrerin starb im Krankenhaus an den schweren Verletzungen, die sie bei der Kollision zwischen ihrem Motorrad und einem Lieferwagen erlitten hatte.',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Unfallstelle in der Schweiz',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Unternehmensgründung im Kanton Obwalden: Auswahl und Pflichten',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'Für die Aufnahme einer Tätigkeit im Kanton Obwalden sind folgende Daten erforderlich: Rechtsform, Handelsregistereintrag, Mindestkapital, Einschreibegebühren und Versicherungspflichten.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Geschäft in der Kanton Obvaldo gründen',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Nidwalden: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Nidwalden ist ein wichtiges Dokument für Grenzgänger, die im Kanton Nidwalden wohnen möchten.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'Das B-Visum im Kanton Nidvaldo',
 };
 
 export default blogMetaChDe;

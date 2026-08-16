@@ -2956,6 +2956,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.title': 'AVS in the Canton of Obvaldo: the compensation fund',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.excerpt': 'The Canton of Obvaldo manages the cantonal clearing house. The complementary performance of the AVS is crucial to ensure a vital minimum.',
     'blog.article.avs-e-prestazioni-complementari-cantone-obvaldo-cassa-di-compensazione.imageAlt': 'The article delves into the AVS complementary benefits in the Canton of Obvaldo.',
+    'blog.article.obvaldo-abbonamenti-trasporti.title': 'Public transport passes Canton Obvaldo: zones and fares',
+    'blog.article.obvaldo-abbonamenti-trasporti.excerpt': 'Information about the subscriptions of the Canton Obvaldo, including zones and rates.',
+    'blog.article.obvaldo-abbonamenti-trasporti.imageAlt': 'Image of a frontaliere using a Canton Obvaldo transportation pass',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.title': 'Canton Nidvaldo health insurance premiums and premium reductions',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.excerpt': 'The law on compulsory health insurance in the Canton of Nidvaldo has reduced health insurance premiums.',
+    'blog.article.premi-cassa-malati-cantone-nidvaldo.imageAlt': 'A Swiss doctor examines a patient',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.title': 'Tragic road accident in Amlikon-Bissegg: 18-year-old dies',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.excerpt': 'An eighteen-year-old motorcyclist died in hospital following the very serious injuries sustained in the collision between her motorcycle and a van.',
+    'blog.article.incidente-moto-amlikon-bissegg-18-anni.imageAlt': 'Scene of a road accident in Switzerland',
+    'blog.article.aprire-attivita-canton-obvaldo.title': 'Starting a business in the Canton of Obvaldo: choice and obligations',
+    'blog.article.aprire-attivita-canton-obvaldo.excerpt': 'The data necessary to open a business in the Canton of Obvaldo are the following: legal form, registration in the trade register, minimum capital, registration fees and insurance obligations.',
+    'blog.article.aprire-attivita-canton-obvaldo.imageAlt': 'Start a business in the Canton of Obvaldo',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.title': 'Residence permit B in the Canton of Nidvaldo: requirements and renewal',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.excerpt': 'The residence permit B in the Canton of Nidvaldo is an important document for border workers who wish to reside in the canton.',
+    'blog.article.permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.imageAlt': 'The B permit in the Nidvaldo Canton',
 };
 
 export default blogMetaChEn;

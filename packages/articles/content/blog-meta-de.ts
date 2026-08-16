@@ -9991,6 +9991,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rinnovato-gemellaggio-assunta-ticino.title': 'Zwillingsbruderschaft 6. Calende Castelletto Ticino',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.excerpt': 'Die Partnerschaft der Assunta zwischen Sesto Calende und Castelletto Ticino wurde zum 26. Mal erneuert',
     'blog.article.rinnovato-gemellaggio-assunta-ticino.imageAlt': 'Ein Frontalier assistiert der Prozession der Himmelfahrt in Castelletto Ticino',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.title': 'Kontrollen in 3 Räumen: Hygiene, Arbeit und Sicherheit',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.excerpt': 'Die Staatspolizei von Varese hat Kontrollen in drei öffentlichen Einrichtungen zwischen Busto Arsizio und Gallarate durchgeführt und verschiedene Unregelmäßigkeiten in den Bereichen Verwaltung, Hygiene, Gesundheit und Sicherheit am Arbeitsplatz festgestellt.',
+    'blog.article.controlli-locali-busto-arsizio-gallarate.imageAlt': 'Bild eines Busto Arsizio Lokals mit Polizeibeamten drinnen',
 };
 
 export default blogMetaDe;

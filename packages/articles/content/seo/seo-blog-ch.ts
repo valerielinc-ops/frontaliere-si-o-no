@@ -38318,6 +38318,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-obvaldo-abbonamenti-trasporti': {
+    title: 'Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe',
+    description: 'Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, pubblici, canton',
+    ogTitle: 'Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe',
+    ogDescription: 'Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe.',
+    canonicalPath: '/articoli-svizzera/obvaldo-abbonamenti-trasporti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti pubblici Canton Obvaldo: zone e tariffe",
+      "description": "Informazioni sugli abbonamenti del Canton Obvaldo, comprese le zone e le tariffe. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/obvaldo-abbonamenti-trasporti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che utilizza un abbonamento del Canton Obvaldo"
+      },
+      "datePublished": "2026-08-16T18:43:33+00:00",
+      "dateModified": "2026-08-16T18:43:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/obvaldo-abbonamenti-trasporti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-cassa-malati-cantone-nidvaldo': {
+    title: 'Premi cassa malati canton Nidvaldo e riduzione premi',
+    description: 'La legge sulle assicurazioni malattie obbligatorie nel Cantone di Nidvaldo ha ridotto i premi per le assicurazioni malattie. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
+    ogTitle: 'Premi cassa malati canton Nidvaldo e riduzione premi',
+    ogDescription: 'La legge sulle assicurazioni malattie obbligatorie nel Cantone di Nidvaldo ha ridotto i premi per le assicurazioni malattie.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-cantone-nidvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati canton Nidvaldo e riduzione premi",
+      "description": "La legge sulle assicurazioni malattie obbligatorie nel Cantone di Nidvaldo ha ridotto i premi per le assicurazioni malattie. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-cantone-nidvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un medico svizzero cura un paziente"
+      },
+      "datePublished": "2026-08-16T19:00:08+00:00",
+      "dateModified": "2026-08-16T19:00:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-cantone-nidvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incidente-moto-amlikon-bissegg-18-anni': {
+    title: 'Tragico incidente stradale ad Amlikon-Bissegg: muore 18enne',
+    description: 'Drammatico incidente stradale ad Amlikon-Bissegg: una motociclista di 18 anni è deceduta in ospedale dopo lo scontro con un furgone. Indagini in corso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragico, incidente, stradale, amlikon-bissegg',
+    ogTitle: 'Tragico incidente moto ad Amlikon-Bissegg: muore 18enne',
+    ogDescription: 'Una giovane di 18 anni è deceduta in ospedale dopo un grave incidente stradale avvenuto tra la sua moto e un furgone per le consegne ad Amlikon-Bissegg. Indagini affidate alla polizia della Turgovia.',
+    canonicalPath: '/articoli-svizzera/incidente-moto-amlikon-bissegg-18-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragico incidente stradale ad Amlikon-Bissegg: muore 18enne",
+      "description": "Drammatico incidente stradale ad Amlikon-Bissegg: una motociclista di 18 anni è deceduta in ospedale dopo lo scontro con un furgone. Indagini in corso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-moto-amlikon-bissegg-18-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di un incidente stradale in Svizzera"
+      },
+      "datePublished": "2026-08-16T19:03:12+00:00",
+      "dateModified": "2026-08-16T19:03:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incidente-moto-amlikon-bissegg-18-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-canton-obvaldo': {
+    title: 'Avviare un\'attività nel Cantone di Obvaldo: scelta e obblighi',
+    description: 'I dati necessari per aprire un\'attività nel Cantone di Obvaldo sono i seguenti: forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse',
+    keywords: 'frontalieri, ticino, svizzera, italia, avviare, attività, cantone, obvaldo',
+    ogTitle: 'Avviare un\'attività nel Cantone di Obvaldo',
+    ogDescription: 'I dati necessari per aprire un\'attività nel Cantone di Obvaldo sono i seguenti: forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-obvaldo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avviare un'attività nel Cantone di Obvaldo: scelta e obblighi",
+      "description": "I dati necessari per aprire un'attività nel Cantone di Obvaldo sono i seguenti: forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-obvaldo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Avviare un'attività nel Cantone di Obvaldo"
+      },
+      "datePublished": "2026-08-16T19:08:44+00:00",
+      "dateModified": "2026-08-16T19:08:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-obvaldo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo': {
+    title: 'Permesso di dimora B nel Cantone di Nidvaldo: requisiti e rinnovo',
+    description: 'Il permesso di dimora B nel Cantone di Nidvaldo è un documento importante per i frontalieri che desiderano risiedere nel cantone. È necessario presentare',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, cantone, nidvaldo',
+    ogTitle: 'Permesso di dimora B nel Cantone di Nidvaldo: requisiti e rinnovo',
+    ogDescription: 'Il permesso di dimora B nel Cantone di Nidvaldo è un documento importante per i frontalieri che desiderano risiedere nel cantone. È necessario presentare i documenti specificati dalla legge cantonale e seguire la procedura di rinnovo specificata',
+    canonicalPath: '/articoli-svizzera/permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B nel Cantone di Nidvaldo: requisiti e rinnovo",
+      "description": "Il permesso di dimora B nel Cantone di Nidvaldo è un documento importante per i frontalieri che desiderano risiedere nel cantone. È necessario presentare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il permesso di dimora B nel Cantone di Nidvaldo"
+      },
+      "datePublished": "2026-08-16T19:18:57+00:00",
+      "dateModified": "2026-08-16T19:18:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-di-dimora-b-canton-nidvaldo-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
