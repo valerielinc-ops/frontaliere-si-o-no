@@ -2845,6 +2845,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-cantone-uri.title': 'Salari e mercato del lavoro in Uri: chi assume e contratti collettivi',
     'blog.article.salari-mercato-lavoro-cantone-uri.excerpt': 'Il Cantone di Uri ha un tasso di occupazione alto e una forte domanda di lavoro. I settori che assumono di più sono l\'industria, la costruzione e i servizi.',
     'blog.article.salari-mercato-lavoro-cantone-uri.imageAlt': 'Immagine di un ambiente di lavoro in Uri',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.title': 'Patente di guida in Uri: conversione e esami',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.excerpt': 'La conversione della patente di guida estera nel Cantone di Uri richiede l\'iscrizione a un corso di addestramento e l\'esame teorico e pratico. L\'ufficio della circolazione competente è il Registro di Stato.',
+    'blog.article.patente-di-guida-cantone-uri-conversione-ed-esami.imageAlt': 'Una guida pratica per la conversione della patente di guida estera nel Cantone di Uri.',
 };
 
 export default blogMetaChIt;
