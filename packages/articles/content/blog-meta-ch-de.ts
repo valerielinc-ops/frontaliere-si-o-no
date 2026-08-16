@@ -3016,6 +3016,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nidvaldo-trasporti-pubblici.title': 'Öffentliche Verkehrsmittel in Nidwalden: Zonen, Tarife und Abonnements',
     'blog.article.nidvaldo-trasporti-pubblici.excerpt': 'Umfassender Leitfaden zum öffentlichen Verkehr im Kanton Nidwalden, zu Tarifgemeinschaften, Zonen, Abos und Kombinationen mit eidgenössischen Fahrausweisen.',
     'blog.article.nidvaldo-trasporti-pubblici.imageAlt': 'Öffentlicher Verkehr im Kanton Nidwalden mit Regionalzügen und Bussen',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Glarus: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.excerpt': 'Die kantonalen Steuern im Kanton Glarus: Sätze, Stufen, zulässige Abzüge, Liefertermine und Online-Portal der kantonalen Steuerverwaltung.',
+    'blog.article.imposte-cantonal-glarona-aliquote-deduzioni.imageAlt': 'Bildunterschrift in Deutsch',
 };
 
 export default blogMetaChDe;
