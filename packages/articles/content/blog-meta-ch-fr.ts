@@ -3085,6 +3085,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sorveglianza-mercato-est-2025.title': 'Surveillance du marché est 2025 : haute sécurité des produits électriques',
     'blog.article.sorveglianza-mercato-est-2025.excerpt': 'L\'Inspection fédérale des installations à courant fort (est) a effectué des vérifications de conformité et de sécurité sur plus de 1000 produits électriques en 2025.',
     'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Contrôle des produits électriques en Suisse',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Impôts sur les successions dans le canton de Glaris',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'Les taux varient en fonction du degré de parenté',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'L\'impôt de succession et de donation dans le Canton de Glaris',
 };
 
 export default blogMetaChFr;

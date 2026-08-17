@@ -3085,6 +3085,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sorveglianza-mercato-est-2025.title': 'Esti 2025 Marktüberwachung: Hohe Sicherheit elektrischer Produkte',
     'blog.article.sorveglianza-mercato-est-2025.excerpt': 'Das Eidgenössische Starkstrominspektorat (Esti) hat im Jahr 2025 Konformitäts- und Sicherheitsprüfungen an über 1000 elektrischen Produkten durchgeführt.',
     'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Elektronikprodukte in der Schweiz',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Erbschaftssteuern im Kanton Glarus',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'Die Sätze variieren je nach Verwandtschaftsgrad',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'Die Erbschafts- und Schenkungssteuer im Kanton Glarus',
 };
 
 export default blogMetaChDe;
