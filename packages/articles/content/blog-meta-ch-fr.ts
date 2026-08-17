@@ -3169,6 +3169,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.minuscoli-droni-sonore-epfl.title': 'Drones sonores: EPFL crea strutture cave',
     'blog.article.minuscoli-droni-sonore-epfl.excerpt': 'Recherche EPFL sur mini-drones et ondes sonores en Suisse',
     'blog.article.minuscoli-droni-sonore-epfl.imageAlt': 'Recherche EPFL sur les mini-drones et les ondes sonores en Suisse',
+    'blog.article.terremoto-indonesia-vittime-68.title': 'Séisme en Indonésie : le bilan s\'alourdit à 68 morts',
+    'blog.article.terremoto-indonesia-vittime-68.excerpt': 'De graves pénuries de personnel et de médicaments aggravent la crise sanitaire dans les zones touchées.',
+    'blog.article.terremoto-indonesia-vittime-68.imageAlt': 'Terremoto in Indonesia: sale a 68 il numero delle vittime',
 };
 
 export default blogMetaChFr;

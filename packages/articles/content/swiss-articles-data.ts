@@ -9505,6 +9505,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'terremoto-indonesia-vittime-68',
+    category: 'pratico',
+    date: '2026-08-17T16:27:49.767Z',
+    image: '/images/blog/terremoto-indonesia-vittime-68.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

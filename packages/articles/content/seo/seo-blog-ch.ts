@@ -41087,6 +41087,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terremoto-indonesia-vittime-68': {
+    title: 'Terremoto in Indonesia: sale a 68 il numero delle vittime',
+    description: 'Terremoto in Indonesia: sale a 68 il numero delle vittime. Gravi carenze di personale e medicinali aggravano la crisi sanitaria nelle zone colpite.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terremoto, indonesia, sale, numero',
+    ogTitle: 'Terremoto in Indonesia: sale a 68 il numero delle vittime',
+    ogDescription: 'Terremoto in Indonesia: sale a 68 il numero delle vittime. Gravi carenze di personale e medicinali aggravano la crisi sanitaria nelle zone colpite.',
+    canonicalPath: '/articoli-svizzera/terremoto-indonesia-vittime-68/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terremoto in Indonesia: sale a 68 il numero delle vittime",
+      "description": "Terremoto in Indonesia: sale a 68 il numero delle vittime. Gravi carenze di personale e medicinali aggravano la crisi sanitaria nelle zone colpite.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terremoto-indonesia-vittime-68.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Terremoto in Indonesia: sale a 68 il numero delle vittime"
+      },
+      "datePublished": "2026-08-17T16:27:49+00:00",
+      "dateModified": "2026-08-17T16:27:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/terremoto-indonesia-vittime-68/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1082,6 +1082,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sanzioni-onu-2026-ch': { it: 'sanzioni-onu-2026-ch', en: 'un-sanctions-2026', de: 'un-sanktionen-2026', fr: 'sanctions-onu-2026' },
  'trasporti-pubblici-zugo-abbonamenti': { it: 'trasporti-pubblici-zugo-abbonamenti', en: 'public-transport-zug-subscriptions', de: 'offentliche-verkehrsmittel-zug-abos', fr: 'transports-publics-zoug-abonnements' },
  'minuscoli-droni-sonore-epfl': { it: 'minuscoli-droni-sonore-epfl', en: 'epfl-research-mini-drones-sound-waves', de: 'epfl-forschung-mini-drohnen-schallwellen', fr: 'recherche-epfl-mini-drones-ondes-sonores' },
+ 'terremoto-indonesia-vittime-68': { it: 'terremoto-indonesia-vittime-68', en: 'earthquake-in-indonesia-the-number-of-victims-rises-to-68', de: 'erdbeben-in-indonesien-zahl-der-todesopfer-steigt-auf-68', fr: 'seisme-en-indonesie-le-bilan-s-alourdit-a-68-morts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
