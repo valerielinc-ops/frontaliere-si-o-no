@@ -3052,6 +3052,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-glarona-importi-e-domanda.title': 'Family allowances in the canton of Glarus: amounts and demand',
     'blog.article.assegni-familiari-glarona-importi-e-domanda.excerpt': 'Monthly settings and amounts for children, legal conditions and application procedure.',
     'blog.article.assegni-familiari-glarona-importi-e-domanda.imageAlt': 'Editorial image related to: Assegni familiari nel Canton Glarona: importi e domanda',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Canton of Glarus school system: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Choose the right school for your children in Canton Glarus',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Swiss primary school',
 };
 
 export default blogMetaChEn;

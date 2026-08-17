@@ -3052,6 +3052,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-glarona-importi-e-domanda.title': 'Familienzulagen im Kanton Glarus: Beträge und Antrag',
     'blog.article.assegni-familiari-glarona-importi-e-domanda.excerpt': 'Einstellungen und monatliche Beträge für Kinder, rechtliche Voraussetzungen und Antragsverfahren.',
     'blog.article.assegni-familiari-glarona-importi-e-domanda.imageAlt': 'Redaktionelles Bild zu: Assegni familiari nel Canton Glarona: importi e domanda',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Schulsystem des Kantons Glarus: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Wählen Sie die richtige Schule für Ihre Kinder im Kanton Glarus',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Schulen in der Schweiz',
 };
 
 export default blogMetaChDe;

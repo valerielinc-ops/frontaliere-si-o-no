@@ -9154,6 +9154,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sistema-scolastico-canton-glarona-iscrizione-e-cicli',
+    category: 'pratico',
+    date: '2026-08-17T03:31:47.206Z',
+    image: '/images/blog/sistema-scolastico-canton-glarona-iscrizione-e-cicli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

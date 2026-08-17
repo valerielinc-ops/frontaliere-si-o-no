@@ -39566,6 +39566,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-scolastico-canton-glarona-iscrizione-e-cicli': {
+    title: 'Sistema scolastico Canton Glarona: iscrizione e cicli',
+    description: 'Iscriviti alle scuole pubbliche in Canton Glarona. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, canton, glarona',
+    ogTitle: 'Sistema scolastico Canton Glarona',
+    ogDescription: 'Scegli la scuola giusta per i tuoi figli in Canton Glarona',
+    canonicalPath: '/articoli-svizzera/sistema-scolastico-canton-glarona-iscrizione-e-cicli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico Canton Glarona: iscrizione e cicli",
+      "description": "Iscriviti alle scuole pubbliche in Canton Glarona. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-scolastico-canton-glarona-iscrizione-e-cicli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuole elementari in Svizzera"
+      },
+      "datePublished": "2026-08-17T03:31:47+00:00",
+      "dateModified": "2026-08-17T03:31:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-scolastico-canton-glarona-iscrizione-e-cicli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
