@@ -10011,6 +10011,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tendenza-frontalieri-ticino-2026-q2.title': 'Grenzgänger Tessin im Wachstum 2026-Q2',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.excerpt': 'Grenzgänger gesamt Kanton Tessin bis 2026-Q2: 79.121',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.imageAlt': 'Tendenza frontalieri Ticino 2026-Q2',
+    'blog.article.salari-difficili-discussioni.title': 'Die Lohngespräche für das kommende Jahr stehen vor schwierigen Herausforderungen',
+    'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse fordert eine allgemeine Erhöhung von 2% für alle Arbeitnehmer, aber USI hält die Forderung FÜR von der wirtschaftlichen Realität abgekoppelt.',
+    'blog.article.salari-difficili-discussioni.imageAlt': 'Fotografie eines Grenzübergangs zwischen Schweiz und Italien im Winter',
 };
 
 export default blogMetaDe;

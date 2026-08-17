@@ -10012,6 +10012,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tendenza-frontalieri-ticino-2026-q2.title': 'Ticino frontiers on the rise in 2026-Q2',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.excerpt': 'Total border guards in Ticino as of 2026-Q2: 79,121',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.imageAlt': 'Tendenza frontalieri Ticino 2026-Q2',
+    'blog.article.salari-difficili-discussioni.title': 'Wage discussions for next year look set to be difficult',
+    'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse asks for a general increase of 2% for all workers, but USI judges the request disconnected from the economic reality.',
+    'blog.article.salari-difficili-discussioni.imageAlt': 'Photo of a border crossing between Switzerland and Italy during winter',
 };
 
 export default blogMetaEn;

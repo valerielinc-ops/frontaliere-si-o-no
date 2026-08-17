@@ -30000,6 +30000,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'salari-difficili-discussioni',
+ category: 'pratico',
+ date: '2026-08-17T09:03:26.357Z',
+ image: '/images/blog/salari-difficili-discussioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
