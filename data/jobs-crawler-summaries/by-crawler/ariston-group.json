@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-08-17T09:55:10.204Z",
+  "generatedAt": "2026-08-17T21:34:44.312Z",
   "total": 17,
   "newCount": 0,
   "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9928,
-  "avgDurationMs": 9928,
+  "durationMs": 9611,
+  "avgDurationMs": 9611,
   "durationHistory": [
-    9928
+    9611
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -437,7 +437,6 @@
       "salaryMax": 110500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:10:49.488Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -509,6 +508,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -545,6 +545,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T11:36:36.719Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
