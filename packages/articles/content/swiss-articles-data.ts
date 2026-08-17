@@ -9370,6 +9370,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scontro-tasse-vodese-2024',
+    category: 'fiscale',
+    date: '2026-08-17T13:10:46.376Z',
+    image: '/images/blog/scontro-tasse-vodese-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

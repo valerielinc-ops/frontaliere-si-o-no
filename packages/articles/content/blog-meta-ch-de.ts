@@ -3124,6 +3124,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prodotti-elettrici-difettosi-est-i.title': 'Mehr Esti: Jedes vierte Elektroprodukt defekt',
     'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'Jedes vierte elektrische Produkt hat sich bei den Kontrollen des Eidgenössischen Starkstrominspektorats (Esti) als defekt erwiesen.',
     'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Bild eines defekten elektrischen Produkts in der Schweiz.',
+    'blog.article.scontro-tasse-vodese-2024.title': 'Steuerstreit: Herausforderung Steuergier im Kanton Waadt',
+    'blog.article.scontro-tasse-vodese-2024.excerpt': 'Die 12% -Initiative schlägt einen Rabatt von 12% auf die kantonale Einkommens- und Vermögenssteuer vor.',
+    'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Steuerstreit im Kanton Waadt',
 };
 
 export default blogMetaChDe;

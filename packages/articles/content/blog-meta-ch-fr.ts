@@ -3124,6 +3124,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prodotti-elettrici-difettosi-est-i.title': 'Plus D\'ESTI : un produit électrique sur quatre défectueux',
     'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'Un produit électrique sur quatre s\'est avéré défectueux lors des contrôles de l\'Inspection fédérale des installations à courant fort (est).',
     'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Image d\'un produit électrique défectueux en Suisse.',
+    'blog.article.scontro-tasse-vodese-2024.title': 'Choc fiscal : défi à la voracité fiscale dans le canton de Vaud',
+    'blog.article.scontro-tasse-vodese-2024.excerpt': 'L\'initiative des 12% propose une remise de 12% sur l\'impôt cantonal sur le revenu et la fortune.',
+    'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Conflit fiscal dans le canton de Vaud',
 };
 
 export default blogMetaChFr;
