@@ -3034,6 +3034,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Patente di guida in Nidvaldo: conversione e esami obbligatori',
     'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'Per convertire la licenza di guida estera in Svizzera, è necessario presentare i seguenti documenti: il passaporto, la licenza di guida estera e una copia del contratto di affitto o della proprietà.',
     'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Immagine di un frontaliere che si reca all\'ufficio della circolazione per convertire la licenza di guida estera',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Permessi di dimora B nel Canton di Glarona: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'Il permesso di dimora B nel Canton di Glarona è valido per un massimo di 1 anno. I requisiti e i documenti richiesti sono specificati nella Convenzione italo-svizzera contro le doppie imposizioni.',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'Un frontaliere davanti alla vista del Lago di Lugano',
 };
 
 export default blogMetaChIt;

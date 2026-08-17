@@ -3034,6 +3034,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Permis de conduire à Nidwald : conversion et examens obligatoires',
     'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'Pour convertir le permis de conduire étranger en Suisse, vous devez présenter les documents suivants : le passeport, le permis de conduire étranger et une copie du contrat de location ou de la propriété.',
     'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Image d\'un frontalier allant à la direction de la circulation pour convertir son permis de conduire étranger',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Permis de séjour B dans le canton de Glaris : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Glaris est valable pour une durée maximale d\'un an. Les exigences et les documents requis sont spécifiés dans la Convention italo-suisse contre les doubles impositions.',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'Un frontalier devant la vue du lac de Lugano',
 };
 
 export default blogMetaChFr;

@@ -3034,6 +3034,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Driving licence in Nidvaldo: conversion and mandatory exams',
     'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'To convert your foreign driver\'s license in Switzerland, you need to present the following documents: your passport, your foreign driver\'s license, and a copy of your rental agreement or property.',
     'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Image of a frontaliere going to the traffic office to convert their foreign driving license',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Residence permits B in the Canton of Glarus: requirements and renewal',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'The residence permit B in the Canton of Glarus is valid for a maximum of 1 year. The requirements and documents required are specified in the Italian-Swiss Double Taxation Convention.',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'A frontaliere in front of the view of Lake Lugano',
 };
 
 export default blogMetaChEn;
