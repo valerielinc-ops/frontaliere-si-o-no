@@ -120,6 +120,47 @@ describe('isLockStale / isProcessAlive', () => {
   });
 });
 
+// Il timeout del fetch e la scadenza del lock sono accoppiati: sono asserzioni
+// statiche sul sorgente perché prune-merged-worktrees.mjs è una CLI con
+// side-effect top-level (fetch + process.exit) — importarla in un test la
+// eseguirebbe.
+describe('accoppiamento timeout fetch ↔ scadenza lock', () => {
+  const src = fs.readFileSync(
+    path.join(__dirname, '..', 'scripts', 'prune-merged-worktrees.mjs'),
+    'utf8',
+  );
+
+  function fetchTimeoutMs(): number {
+    const m = src.match(/const FETCH_TIMEOUT_MS\s*=\s*([\d_*\s]+);/);
+    expect(m, 'FETCH_TIMEOUT_MS non trovato in prune-merged-worktrees.mjs').toBeTruthy();
+    // eslint-disable-next-line no-new-func -- espressione numerica letterale del sorgente
+    return Number(new Function(`return (${m![1].replace(/_/g, '')})`)());
+  }
+
+  it('il timeout del fetch resta sotto la scadenza del lock', () => {
+    // Se si invertissero, una seconda sessione ruberebbe il lock a un titolare
+    // ancora al lavoro → di nuovo fetch concorrenti sullo stesso .git.
+    expect(fetchTimeoutMs()).toBeLessThan(STALE_LOCK_MS);
+  });
+
+  it('il timeout del fetch supera il catch-up più lento misurato (20 min)', () => {
+    // Un timeout più corto ucciderebbe ogni tentativo di recupero di un repo
+    // molto indietro: resterebbe stale per sempre, lasciando un tmp_pack_* a
+    // ogni giro. Il pile-up lo impedisce il lock, non il timeout.
+    expect(fetchTimeoutMs()).toBeGreaterThan(20 * 60 * 1000);
+  });
+
+  it('il fetch gira senza shell e con SIGTERM, così git ripulisce il proprio tmp_pack', () => {
+    // `execSync('git fetch …')` passerebbe da `sh -c`: il segnale colpirebbe la
+    // shell e il git figlio resterebbe appeso col pack temporaneo aperto.
+    expect(src).toMatch(/execFileSync\('git', \['fetch'/);
+    expect(src).not.toMatch(/execSync\(`git fetch/);
+    // SIGKILL non lascerebbe a git il tempo di rimuovere il temporaneo.
+    expect(src).toMatch(/killSignal: 'SIGTERM'/);
+    expect(src).not.toMatch(/killSignal: 'SIGKILL'/);
+  });
+});
+
 describe('listStaleFetchPacks', () => {
   function packDirWith(files: Array<{ name: string; ageMs: number; bytes?: number }>): string {
     const dir = tmpDir();

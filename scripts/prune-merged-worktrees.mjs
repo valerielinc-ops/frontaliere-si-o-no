@@ -30,7 +30,7 @@
 // Richiede: git + gh CLI autenticato (per lo stato PR). Senza gh → degrada a
 // solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
 
-import { execSync } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import { join } from 'node:path';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
@@ -42,13 +42,9 @@ const APPLY = process.argv.includes('--apply');
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
 const ORPHANS_ONLY = process.argv.includes('--orphans-only');
 
-function sh(cmd, { allowFail = false, timeout } = {}) {
+function sh(cmd, { allowFail = false } = {}) {
   try {
-    return execSync(cmd, {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-      ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}),
-    }).trim();
+    return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch (e) {
     if (allowFail) return '';
     throw e;
@@ -116,10 +112,38 @@ if (ORPHANS_ONLY) {
 // cancellazione a torto).
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
-const FETCH_TIMEOUT_MS = 120_000;
+
+// Il timeout è un guard anti-APPESO, non un tetto al lavoro legittimo: a
+// impedire il pile-up ci pensa il lock, non il timeout. Va quindi tenuto SOPRA
+// il fetch di catch-up più lento misurato (~20 min per 24'309 commit di
+// arretrato, docs/REPO-WEIGHT-STRATEGY.md), altrimenti un repo molto indietro
+// vedrebbe ogni tentativo ucciso a metà e resterebbe stale PER SEMPRE, con un
+// tmp_pack_* nuovo a ogni giro: esattamente il guasto che questo codice esiste
+// per prevenire. Invariante: FETCH_TIMEOUT_MS < STALE_LOCK_MS, o un'altra
+// sessione considera abbandonato un lock il cui titolare sta ancora fetchando e
+// si torna ai fetch concorrenti. Verificata in tests/prune-fetch-single-flight.
+const FETCH_TIMEOUT_MS = 25 * 60 * 1000;
 
 const fetchRun = withSingleFlightLock(fetchLock, () => {
-  sh(`git fetch origin ${mainBranch} --prune -q`, { allowFail: true, timeout: FETCH_TIMEOUT_MS });
+  // execFileSync, NON execSync: `execSync` di una stringa passa da `sh -c`, e il
+  // segnale di timeout arriverebbe alla shell, non al `git fetch` figlio (che
+  // resterebbe vivo, appeso, con il suo pack temporaneo aperto). Senza shell in
+  // mezzo il segnale colpisce git direttamente.
+  //
+  // SIGTERM e non SIGKILL: git intercetta SIGTERM e rimuove il proprio
+  // tmp_pack_* uscendo; con SIGKILL il residuo resta per definizione. Qui la
+  // convenzione SIGKILL degli script CI di report NON si applica: quelli
+  // uccidono una `gh api` senza stato su disco, questo uccide un trasferimento
+  // che sta scrivendo un pack multi-GB.
+  try {
+    execFileSync('git', ['fetch', 'origin', mainBranch, '--prune', '-q'], {
+      stdio: 'ignore',
+      timeout: FETCH_TIMEOUT_MS,
+      killSignal: 'SIGTERM',
+    });
+  } catch {
+    /* fetch fallito/scaduto: si prosegue con l'origin/<main> locale (vedi sopra) */
+  }
   return sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
 });
 
