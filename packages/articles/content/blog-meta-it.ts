@@ -10025,6 +10025,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saronno-supermercato-evacuati.title': 'Fumo e odore di bruciato a Saronno',
     'blog.article.saronno-supermercato-evacuati.excerpt': 'Intorno alle 10 clienti e personale sono stati fatti uscire dopo che all\'interno erano stati avvertiti odore di bruciato e presenza di fumo.',
     'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evacuazione di un supermercato a Saronno',
+    'blog.article.concorsa-interna-ticino.title': 'La concorrenza interna in Ticino mobiliterà gli elettori',
+    'blog.article.concorsa-interna-ticino.excerpt': 'La concorrenza interna in Ticino potrebbe influenzare gli elettori, ma come?',
+    'blog.article.concorsa-interna-ticino.imageAlt': 'La concorrenza interna in Ticino',
 };
 
 export default blogMetaIt;

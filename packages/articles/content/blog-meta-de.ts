@@ -10023,6 +10023,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.saronno-supermercato-evacuati.title': 'Rauch und Brandgeruch in Saronno',
     'blog.article.saronno-supermercato-evacuati.excerpt': 'Gegen 10 Uhr wurden die Kundinnen und das Personal hinausgeschickt, nachdem ein Brandgeruch und Rauch im Inneren wahrgenommen worden waren.',
     'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evakuierung eines Supermarktes in Saronno',
+    'blog.article.concorsa-interna-ticino.title': 'Der interne Wettbewerb im Tessin wird die Wähler mobilisieren',
+    'blog.article.concorsa-interna-ticino.excerpt': 'Der interne Wettbewerb im Tessin könnte die Wähler beeinflussen, aber wie?',
+    'blog.article.concorsa-interna-ticino.imageAlt': 'Innere Konkurrenz in Tessin',
 };
 
 export default blogMetaDe;

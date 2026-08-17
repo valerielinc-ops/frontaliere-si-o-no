@@ -10024,6 +10024,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.saronno-supermercato-evacuati.title': 'Smoke and burnt smell in Saronno',
     'blog.article.saronno-supermercato-evacuati.excerpt': 'Around 10 o\'clock customers and staff were let out after the smell of burning and the presence of smoke had been detected inside.',
     'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evacuation of a supermarket in Saronno',
+    'blog.article.concorsa-interna-ticino.title': 'Internal competition in Ticino will mobilize voters',
+    'blog.article.concorsa-interna-ticino.excerpt': 'Internal competition in Ticino could affect voters, but how?',
+    'blog.article.concorsa-interna-ticino.imageAlt': 'Internal competition in Ticino',
 };
 
 export default blogMetaEn;

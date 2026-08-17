@@ -10026,6 +10026,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.saronno-supermercato-evacuati.title': 'Fumée et odeur de brûlé à Saronno',
     'blog.article.saronno-supermercato-evacuati.excerpt': 'Vers 10 heures, les clients et le personnel ont été libérés après avoir senti à l\'intérieur une odeur de brûlé et de fumée.',
     'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evacuation d\'un supermarché à Saronno',
+    'blog.article.concorsa-interna-ticino.title': 'La concurrence interne au Tessin mobilisera les électeurs',
+    'blog.article.concorsa-interna-ticino.excerpt': 'La concurrence interne au Tessin pourrait influencer les électeurs, mais comment ?',
+    'blog.article.concorsa-interna-ticino.imageAlt': 'Concurrence interne au Tessin',
 };
 
 export default blogMetaFr;
