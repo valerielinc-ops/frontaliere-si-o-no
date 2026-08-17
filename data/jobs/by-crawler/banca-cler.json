@@ -195,7 +195,7 @@
     },
     {
       "id": "company-qfwhn0",
-      "slug": "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0",
+      "slug": "core-customer-advisor-neuchatel-100-banque-cler-8440-tva-che",
       "company": "Banque Cler",
       "title": "Conseiller/ère à la clientèle de base Neuchâtel 100%",
       "location": "8440 TVA CHE",
@@ -217,9 +217,9 @@
       "firstSeenAt": "2026-08-16T21:33:40.223Z",
       "slugByLocale": {
         "fr": "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0",
-        "it": "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0",
+        "it": "core-customer-advisor-neuchatel-100-banque-cler-8440-tva-che",
         "en": "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0",
-        "de": "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0"
+        "de": "kernkundenberater-neuchatel-100-banque-cler-8440-tva-che"
       },
       "titleByLocale": {
         "fr": "Conseiller/ère à la clientèle de base Neuchâtel 100%",
@@ -256,11 +256,24 @@
       },
       "addressLocality": "8440 TVA CHE",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che",
+          "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0"
+        ],
+        "de": [
+          "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che",
+        "conseiller-ere-a-la-clientele-de-base-neuchatel-100-banque-cler-8440-tva-che-qfwhn0"
+      ]
     },
     {
       "id": "company-knq2us",
-      "slug": "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us",
+      "slug": "consulente-clienti-individuale-canton-neuchatel-e-jura-80-100-banque-cler-8440-tva-che",
       "company": "Banque Cler",
       "title": "Conseiller/ère à la clientèle individuelle Canton Neuchâtel et Jura 80-100%",
       "location": "8440 TVA CHE",
@@ -283,9 +296,9 @@
       "firstSeenAt": "2026-08-16T21:33:40.223Z",
       "slugByLocale": {
         "fr": "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us",
-        "it": "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us",
-        "en": "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us",
-        "de": "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us"
+        "it": "consulente-clienti-individuale-canton-neuchatel-e-jura-80-100-banque-cler-8440-tva-che",
+        "en": "individual-customer-advisor-canton-neuchatel-and-jura-80-100-banque-cler-8440-tva-che",
+        "de": "kundenberater-kanton-neuenburg-und-jura-80-100-banque-cler-8440-tva-che"
       },
       "titleByLocale": {
         "fr": "Conseiller/ère à la clientèle individuelle Canton Neuchâtel et Jura 80-100%",
@@ -323,7 +336,23 @@
       },
       "addressLocality": "8440 TVA CHE",
       "addressRegion": "JU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che",
+          "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us"
+        ],
+        "en": [
+          "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us"
+        ],
+        "de": [
+          "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che",
+        "conseiller-ere-a-la-clientele-individuelle-canton-neuchatel-et-jura-80-100-banque-cler-8440-tva-che-knq2us"
+      ]
     },
     {
       "id": "company-ei1t1q",

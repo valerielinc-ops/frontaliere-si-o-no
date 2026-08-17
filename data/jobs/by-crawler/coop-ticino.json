@@ -44,6 +44,8 @@
       "addressLocality": "Zürich",
       "sourceLang": "de",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -60,30 +62,24 @@
         ],
         "en": [
           "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-          "road-driver-cat-c-in-zurich-or-schafisheim-railcare-zurich",
-          "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich"
+          "road-driver-cat-c-in-zurich-or-schafisheim-railcare-zurich"
         ],
         "fr": [
           "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
-          "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich",
-          "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
+          "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich",
         "chauffeur-in-strasse-kat-c-zurich-oder-schafisheim-railcare-zurich-jjl6fh",
         "road-driver-cat-c-in-zurich-or-schafisheim-railcare-zurich",
-        "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich",
-        "truck-driver-cat-c-zurich-or-schafisheim-railcare-zurich",
-        "chauffeur-route-cat-c-zurich-ou-schafisheim-railcare-zurich"
+        "chauffeur-routier-cat-c-a-zurich-ou-schafisheim-railcare-zurich"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-ggmuc4",
@@ -140,9 +136,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "quereinsteiger-in-railcare-hunzenschwil-aargau"
-        ],
         "en": [
           "quereinsteiger-in-railcare-hunzenschwil-aargau-ggmuc4",
           "quereinsteiger-in-railcare-hunzenschwil-aargau",
@@ -152,13 +145,14 @@
           "quereinsteiger-in-railcare-hunzenschwil-aargau-ggmuc4",
           "quereinsteiger-in-railcare-hunzenschwil-aargau",
           "expose-succinct-railcare-hunzenschwil"
+        ],
+        "it": [
+          "quereinsteiger-in-railcare-hunzenschwil-aargau"
         ]
       },
       "previousSlugs": [
         "quereinsteiger-in-railcare-hunzenschwil-aargau-ggmuc4",
-        "quereinsteiger-in-railcare-hunzenschwil-aargau",
-        "description-railcare-hunzenschwil",
-        "expose-succinct-railcare-hunzenschwil"
+        "quereinsteiger-in-railcare-hunzenschwil-aargau"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -238,8 +232,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau",
-          "mitarbeiter-in-gastronomie-coop-ristorante-muri-aargau"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau"
         ]
       },
       "salaryMin": 62000,
@@ -311,23 +304,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen"
-        ],
-        "en": [
-          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416"
+          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "chef-chef-h-f-d-coop-genossenschaft-oftringen"
+        ],
+        "en": [
+          "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-        "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-        "chef-chef-h-f-d-coop-genossenschaft-oftringen"
+        "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1500,8 +1490,7 @@
         "it": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
           "kommissionierer-in-coop-genossenschaft-bern",
-          "kommissionierer-in-coop-bern",
-          "picker-d-ordine-in-coop-genossenschaft-bern-65fc45"
+          "kommissionierer-in-coop-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -1521,8 +1510,7 @@
         "order-picker-in-coop-genossenschaft-bern-65fc45",
         "commandeur-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
-        "kommissionierer-in-coop-bern",
-        "picker-d-ordine-in-coop-genossenschaft-bern-65fc45"
+        "kommissionierer-in-coop-bern"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -5537,6 +5525,8 @@
       "addressLocality": "Sins",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5561,15 +5551,15 @@
           "sales-associate-food-fresh-products-coop-genossenschaft-sins",
           "food-fresh-products-sales-assistant-coop-genossenschaft-sins-etgkg9"
         ],
-        "de": [
-          "verkaufer-in-food-frischprodukte-coop-genossenschaft-sins-mvjtrv",
-          "verkaufer-in-food-frischprodukte-coop-sins-aargau-etgkg9",
-          "verkaufer-in-food-frischprodukte-coop-sins-aargau-mvjtrv"
-        ],
         "fr": [
           "verkaufer-in-food-frischprodukte-coop-sins-aargau-mvjtrv",
           "vendeur-se-food-produits-frais-coop-genossenschaft-sins",
           "assistant-commercial-alimentaire-produits-frais-coop-genossenschaft-sins-etgkg9"
+        ],
+        "de": [
+          "verkaufer-in-food-frischprodukte-coop-genossenschaft-sins-mvjtrv",
+          "verkaufer-in-food-frischprodukte-coop-sins-aargau-etgkg9",
+          "verkaufer-in-food-frischprodukte-coop-sins-aargau-mvjtrv"
         ]
       },
       "previousSlugs": [
@@ -5582,9 +5572,7 @@
         "verkaufer-in-food-frischprodukte-coop-sins-aargau-etgkg9",
         "food-fresh-products-sales-assistant-coop-genossenschaft-sins-etgkg9",
         "assistant-commercial-alimentaire-produits-frais-coop-genossenschaft-sins-etgkg9"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-xhsfi3",
@@ -5663,13 +5651,12 @@
           "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3",
           "food-sales-associate-dairy-eggs-cheese-coop-genossenschaft-baden"
         ],
-        "de": [
-          "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3",
-          "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3"
-        ],
         "fr": [
           "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-xhsfi3",
           "vendeur-vendeuse-produits-alimentaires-produits-laitiers-ufs-fromages-coop-genossenschaft-baden"
+        ],
+        "de": [
+          "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3"
         ]
       },
       "previousSlugs": [
@@ -5866,6 +5853,8 @@
       "addressLocality": "Uster",
       "sourceLang": "de",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5885,13 +5874,12 @@
           "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd",
           "section-leader-basic-foodstuffs-coop-genossenschaft-uster"
         ],
-        "de": [
-          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-uster-46yxvd",
-          "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd"
-        ],
         "fr": [
           "rayonleiter-in-grundnahrungsmittel-coop-uster-zurich-46yxvd",
           "responsable-de-rayon-produits-alimentaires-de-base-coop-genossenschaft-uster"
+        ],
+        "de": [
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-uster-46yxvd"
         ]
       },
       "previousSlugs": [
@@ -5900,9 +5888,7 @@
         "section-leader-basic-foodstuffs-coop-genossenschaft-uster",
         "responsable-de-rayon-produits-alimentaires-de-base-coop-genossenschaft-uster",
         "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-uster-46yxvd"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-ei3a4z",
@@ -6081,13 +6067,12 @@
           "verkaufer-in-food-coop-suhr-aargau-e6r75l",
           "food-salesperson-coop-genossenschaft-suhr"
         ],
-        "de": [
-          "verkaufer-in-food-coop-genossenschaft-suhr-e6r75l",
-          "verkaufer-in-food-coop-suhr-aargau-e6r75l"
-        ],
         "fr": [
           "verkaufer-in-food-coop-suhr-aargau-e6r75l",
           "vendeur-vendeuse-alimentaire-coop-genossenschaft-suhr"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-suhr-e6r75l"
         ]
       },
       "previousSlugs": [
@@ -6155,6 +6140,8 @@
       "addressLocality": "Volketswil",
       "sourceLang": "de",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6191,17 +6178,14 @@
           "verkaufer-in-frischprodukte-coop-volketswil-zurich-4ebiud",
           "fresh-products-sales-associate-coop-genossenschaft-volketswil"
         ],
-        "de": [
-          "verkaufer-in-frischprodukte-coop-genossenschaft-volketswil-4ebiud",
-          "verkaufer-in-frischprodukte-coop-volketswil-zurich-4ebiud"
-        ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-volketswil-zurich-4ebiud",
           "vendeur-dans-les-produits-frais-coop-genossenschaft-volketswil"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-genossenschaft-volketswil-4ebiud"
         ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-na2hgc",
@@ -6282,13 +6266,12 @@
           "verkaufer-in-food-coop-winterthur-zurich-na2hgc",
           "food-sales-person-coop-genossenschaft-winterthur"
         ],
-        "de": [
-          "verkaufer-in-food-coop-genossenschaft-winterthur-na2hgc",
-          "verkaufer-in-food-coop-winterthur-zurich-na2hgc"
-        ],
         "fr": [
           "verkaufer-in-food-coop-winterthur-zurich-na2hgc",
           "vendeur-vendeuse-alimentation-coop-genossenschaft-winterthur"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-winterthur-na2hgc"
         ]
       },
       "previousSlugs": [
@@ -6357,6 +6340,8 @@
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6392,17 +6377,16 @@
           "sales-assistant-food-coop-genossenschaft-meisterschwanden-p42k5e",
           "sales-assistant-food-coop-genossenschaft-menzingen-fsluib"
         ],
-        "de": [
-          "verkaufer-in-food-coop-meisterschwanden-aargau-p42k5e",
-          "verkaufer-in-food-coop-menzingen-zug-fsluib",
-          "verkaufer-in-food-coop-genossenschaft-basel-4tso92",
-          "verkaufer-in-food-coop-basel-stadt-4tso92"
-        ],
         "fr": [
           "verkaufer-in-food-coop-basel-stadt-4tso92",
           "vendeur-vendeuse-food-coop-genossenschaft-basel",
           "vendeur-euse-food-coop-genossenschaft-meisterschwanden-p42k5e",
           "vendeur-euse-food-coop-genossenschaft-menzingen-fsluib"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-meisterschwanden-aargau-p42k5e",
+          "verkaufer-in-food-coop-menzingen-zug-fsluib",
+          "verkaufer-in-food-coop-genossenschaft-basel-4tso92"
         ]
       },
       "previousSlugs": [
@@ -6425,9 +6409,7 @@
         "verkaufer-in-food-coop-genossenschaft-basel-8510f5",
         "verkaufer-in-food-coop-genossenschaft-basel-ks4hax",
         "verkaufer-in-food-coop-genossenschaft-basel-4tso92"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-16a3f9",
@@ -6709,7 +6691,7 @@
     },
     {
       "id": "company-8aff86",
-      "slug": "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau",
+      "slug": "venditore-in-prodotti-freschi-frutteti-verdura-latticini-coop-genossenschaft-argovia",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Früchte / Gemüse / Molkerei)",
       "location": "Argovia",
@@ -6755,10 +6737,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86",
-        "en": "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86",
+        "it": "venditore-in-prodotti-freschi-frutteti-verdura-latticini-coop-genossenschaft-argovia",
+        "en": "seller-in-fresh-products-fruits-vegetables-dairy-coop-genossenschaft-argovia",
         "de": "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86",
-        "fr": "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86"
+        "fr": "vendeur-en-produits-frais-fruits-legumes-laiterie-coop-genossenschaft-argovia"
       },
       "addressLocality": "Argovia",
       "sourceLang": "de",
@@ -6775,11 +6757,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86",
+          "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau-8aff86",
+        "verkaufer-in-frischprodukte-fruchte-gemuse-molkerei-coop-reinach-aargau"
+      ]
     },
     {
       "id": "company-5bxucd",
-      "slug": "verkaufer-in-food-coop-grindelwald-bern",
+      "slug": "venditore-in-food-coop-genossenschaft-grindelwald",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Grindelwald, Bern",
@@ -6825,10 +6823,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-grindelwald-bern-5bxucd",
-        "en": "verkaufer-in-food-coop-grindelwald-bern-5bxucd",
+        "it": "venditore-in-food-coop-genossenschaft-grindelwald",
+        "en": "seller-in-food-coop-genossenschaft-grindelwald",
         "de": "verkaufer-in-food-coop-grindelwald-bern-5bxucd",
-        "fr": "verkaufer-in-food-coop-grindelwald-bern-5bxucd"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald"
       },
       "addressLocality": "Grindelwald",
       "sourceLang": "de",
@@ -6845,7 +6843,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-grindelwald-bern-5bxucd",
+          "verkaufer-in-food-coop-grindelwald-bern"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-grindelwald-bern-5bxucd"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-grindelwald-bern-5bxucd"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-grindelwald-bern-5bxucd",
+        "verkaufer-in-food-coop-grindelwald-bern"
+      ]
     },
     {
       "id": "company-g7rkgg",
@@ -197399,8 +197413,7 @@
           "vendeur-alimentation-incl-caissier-coop-genossenschaft-basel"
         ],
         "de": [
-          "verkaufer-in-food-inkl-kasse-coop-genossenschaft-basel-0vnzm7",
-          "verkaufer-in-food-inkl-kasse-coop-city-basel-stadt-0vnzm7"
+          "verkaufer-in-food-inkl-kasse-coop-genossenschaft-basel-0vnzm7"
         ]
       },
       "previousSlugs": [
@@ -197413,7 +197426,7 @@
     },
     {
       "id": "company-vdn5le",
-      "slug": "verkaufer-in-food-getranke-coop-spreitenbach-aargau",
+      "slug": "venditore-in-food-bevande-coop-genossenschaft-spreitenbach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Getränke)",
       "location": "Spreitenbach",
@@ -197459,10 +197472,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-getranke-coop-spreitenbach-aargau-vdn5le",
-        "en": "verkaufer-in-food-getranke-coop-genossenschaft-spreitenbach-vdn5le",
+        "it": "venditore-in-food-bevande-coop-genossenschaft-spreitenbach",
+        "en": "seller-in-food-drinks-coop-genossenschaft-spreitenbach",
         "de": "verkaufer-in-food-getranke-coop-genossenschaft-spreitenbach-vdn5le",
-        "fr": "verkaufer-in-food-getranke-coop-genossenschaft-spreitenbach-vdn5le"
+        "fr": "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-spreitenbach"
       },
       "addressLocality": "Spreitenbach",
       "sourceLang": "de",
@@ -197489,10 +197502,15 @@
         ],
         "fr": [
           "verkaufer-in-food-getranke-coop-spreitenbach-aargau-vdn5le"
+        ],
+        "it": [
+          "verkaufer-in-food-getranke-coop-spreitenbach-aargau-vdn5le",
+          "verkaufer-in-food-getranke-coop-spreitenbach-aargau"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-getranke-coop-spreitenbach-aargau-vdn5le"
+        "verkaufer-in-food-getranke-coop-spreitenbach-aargau-vdn5le",
+        "verkaufer-in-food-getranke-coop-spreitenbach-aargau"
       ]
     },
     {

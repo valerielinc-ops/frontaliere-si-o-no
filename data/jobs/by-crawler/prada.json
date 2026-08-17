@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "prada-223b39f02f8f",
-      "slug": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
+      "slug": "riparare-laboratorio-e-controllo-qualita-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
       "slugByLocale": {
-        "it": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
         "en": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
+        "it": "riparare-laboratorio-e-controllo-qualita-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
         "de": "repair-laboratory-qualitat-control-assistent-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
         "fr": "repair-laboratory-qualite-control-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant"
       },
@@ -57,16 +57,27 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-16T10:15:12.051Z"
+      "firstSeenAt": "2026-08-16T10:15:12.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+        ],
+        "de": [
+          "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+        ]
+      },
+      "previousSlugs": [
+        "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+      ]
     },
     {
       "id": "prada-994ee760c1da",
       "slug": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
       "slugByLocale": {
-        "it": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
         "en": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
+        "it": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
         "de": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
-        "fr": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas"
+        "fr": "associe-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -121,10 +132,10 @@
       "id": "prada-3b80eb06f2e2",
       "slug": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
       "slugByLocale": {
-        "it": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
         "en": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
+        "it": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
         "de": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
-        "fr": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas"
+        "fr": "directeur-d-equipe-las-vegas-city-center-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
