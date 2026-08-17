@@ -877,7 +877,7 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
         "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
         "fr": "pilote-postbus-in-postauto-ag-reichenburg"
@@ -918,8 +918,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg",
-          "postbus-driver-in-postauto-ag-reichenburg"
+          "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
           "postauto-fahrer-in-post",
@@ -932,8 +931,7 @@
       "previousSlugs": [
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-ag-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg"
       ],
       "retranslationAttempts": 2
     },
@@ -4623,7 +4621,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -4649,7 +4647,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -4663,7 +4660,6 @@
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-u3qamb",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -9063,12 +9059,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-chur",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-d2fc72",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-chur",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-d2fc72",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-chur",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-post-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -9104,11 +9100,19 @@
       "firstSeenAt": "2026-08-16T09:43:48.464Z",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-chur"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-chur"
       ]
     },
     {
@@ -14201,7 +14205,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14225,7 +14229,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
