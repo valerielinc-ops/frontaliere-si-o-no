@@ -3160,6 +3160,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cyberattacco-stadler-rail.title': 'Cyberattack on Stadler Rail: alleged hacker on trial in Zurich',
     'blog.article.cyberattacco-stadler-rail.excerpt': 'A trial in Zurich against an alleged Ukrainian hacker accused of hacking companies, including Stadler Rail.',
     'blog.article.cyberattacco-stadler-rail.imageAlt': 'A cyberattack case at the District Court of Zurich involving Stadler Rail.',
+    'blog.article.sanzioni-onu-2026-ch.title': 'UN Sanctions: Restrictions on Persons and Businesses',
+    'blog.article.sanzioni-onu-2026-ch.excerpt': 'The UN Sanctions Committee has amended the list of individuals, companies and organisations subject to sanctions. The SESAM database is not mentioned in the source.',
+    'blog.article.sanzioni-onu-2026-ch.imageAlt': 'Frontalier consulting the UN sanctions list.',
 };
 
 export default blogMetaChEn;
