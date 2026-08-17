@@ -1073,6 +1073,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-zugo': { it: 'apprendistato-zugo', en: 'apprenticeship-zug', de: 'berufsausbildung-zug', fr: 'apprentissage-zoug' },
  'seco-ordinanza-ucraina-2026': { it: 'seco-ordinanza-ucraina-2026', en: 'ukraine-measures-ordinance', de: 'seco-ordinanza-ukraine-2026', fr: 'seco-ordonnance-ukraine-2026' },
  'neutralita-fronte-no-lancia-allarme': { it: 'neutralita-fronte-no-lancia-allarme', en: 'neutralita-fronte-no-lancia-allarme-en', de: 'neutralita-fronte-no-lancia-allarme-de', fr: 'neutralita-fronte-no-lancia-allarme-fr' },
+ 'borse-studio-canton-zugo-requisiti-importi': { it: 'borse-studio-canton-zugo-requisiti-importi', en: 'zug-canton-scholarships-requirements-amounts', de: 'kanton-zug-stipendien-voraussetzungen-betraege', fr: 'canton-zoug-bourses-etudes-exigences-montants' },
+ 'asilo-nido-e-custodia-bambini-canton-zugo-costi': { it: 'asilo-nido-e-custodia-bambini-canton-zugo-costi', en: 'kindergarten-and-childcare-in-canton-zug-costs', de: 'asilo-nido-e-custodia-bambini-canton-zugo-kosten', fr: 'asilo-nido-e-custodia-bambini-canton-zugo-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
