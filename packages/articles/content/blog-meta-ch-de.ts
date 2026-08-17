@@ -3028,6 +3028,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.title': 'Löhne und Arbeitsmarkt Kanton Nidwalden: Branchen und Niveaus',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.excerpt': 'Arbeitsmarkt im Kanton Nidwalden: Einstellungsbranchen, Lohnniveau nach Bildungsgrad, geltende Tarifverträge und Mindestlohn wo vorgesehen.',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.imageAlt': 'Lago di Lugano',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'Es gibt keinen Kanton Nidwalden in der Schweiz',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'Die Schweiz hat 26 Kantone, aber es gibt keinen Kanton Nidwalden',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'Eine Karte Europas mit einem Finger auf dem nicht existierenden Nidvaldo-Kanton',
 };
 
 export default blogMetaChDe;

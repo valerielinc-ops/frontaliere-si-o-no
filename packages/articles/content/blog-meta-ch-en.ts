@@ -3028,6 +3028,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.title': 'Wages and labour market canton Nidvaldo: sectors and levels',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.excerpt': 'Labour market in the Canton of Nidvaldo: hiring sectors, wage levels by level of training, collective agreements in force and minimum wage where applicable.',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.imageAlt': 'View of Lake Lugano',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'There is no Canton of Nidvaldo in Switzerland',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'Switzerland has 26 cantons, but there is no Canton of Nidvaldo',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'A map of Europe with a finger pointed at the non-existent Nidvaldo canton',
 };
 
 export default blogMetaChEn;

@@ -1035,6 +1035,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-canton-nidvaldo': { it: 'salari-mercato-lavoro-canton-nidvaldo', en: 'wages-labor-market-canton-nidwalden', de: 'loehne-arbeitsmarkt-kanton-nidwalden', fr: 'salaires-marche-travail-canton-nidwald' },
  'patente-guida-canton-nidvaldo-conversione-ed-esami': { it: 'patente-guida-canton-nidvaldo-conversione-ed-esami', en: 'driver-s-license-in-the-canton-of-nidvaldo-conversion-and-exams', de: 'fuhrerschein-im-kanton-nidwalden-umschulung-und-prufungen', fr: 'permis-de-conduire-dans-le-canton-de-nidwald-conversion-et-examens' },
  'salari-mercato-lavoro-canton-nidvaldo-settori-livelli': { it: 'salari-mercato-lavoro-canton-nidvaldo-settori-livelli', en: 'salaries-labor-market-canton-nidwalden-sectors-levels', de: 'gehalter-arbeitsmarkt-kanton-nidwalden-sektoren-stufen', fr: 'salaire-marche-du-travail-canton-nidwalden-secteurs-niveaux' },
+ 'imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote', en: 'imposte-of-succession-and-donation-canton-nidvaldo-rates', de: 'erbschafts-und-schenkungsteuer-kanton-nidvaldo-satze', fr: 'impots-de-succession-et-de-donation-canton-nidvaldo-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

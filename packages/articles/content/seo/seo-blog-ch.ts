@@ -39254,6 +39254,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote': {
+    title: 'Non esiste un Cantone di Nidvaldo in Svizzera | Frontaliere Ticino',
+    description: 'La Svizzera ha 26 cantoni, ma non esiste un Cantone di Nidvaldo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esiste, cantone, nidvaldo, cantoni',
+    ogTitle: 'Non esiste un Cantone di Nidvaldo in Svizzera',
+    ogDescription: 'La Svizzera ha 26 cantoni, ma non esiste un Cantone di Nidvaldo',
+    canonicalPath: '/articoli-svizzera/imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Non esiste un Cantone di Nidvaldo in Svizzera",
+      "description": "La Svizzera ha 26 cantoni, ma non esiste un Cantone di Nidvaldo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una mappa dell'Europa con un dito puntato sul Cantone di Nidvaldo, che non esiste in Svizzera"
+      },
+      "datePublished": "2026-08-17T00:05:09+00:00",
+      "dateModified": "2026-08-17T00:05:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
