@@ -3184,6 +3184,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Imposte cantonali nel Canton Friburgo: aliquote e deduzioni',
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'L\'aliquota media nel Canton Friburgo è del 12,7% e le deduzioni ammesse sono del 20,5%.',
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'Una scena di Lugano con il Lago di Lugano in primo piano',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.title': 'Premi assicurazione malattia Friburgo: come funzionano le fasce di premio',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.excerpt': 'I premi della assicurazione malattia obbligatoria nel Cantone di Friburgo sono stati ridisegnati per offrire una copertura più equa ai cittadini.',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.imageAlt': 'Foto di un cittadino di Friburgo, Svizzera, con didascalia sui cambiamenti ai premi della assicurazione malattia obbligatoria nel Cantone di Friburgo.',
 };
 
 export default blogMetaChIt;

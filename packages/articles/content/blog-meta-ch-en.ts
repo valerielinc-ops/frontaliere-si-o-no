@@ -3184,6 +3184,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Cantonal taxes in the canton of Fribourg: rates and deductions',
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'The average rate in the Canton of Fribourg is 12.7% and the allowable deductions are 20.5%.',
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'A scene of Lugano with Lake Lugano in the foreground',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.title': 'Health insurance premiums Freiburg: how the premium bands work',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.excerpt': 'Compulsory health insurance premiums in the Canton of Freiburg have been redesigned to offer fairer coverage to citizens.',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.imageAlt': 'Photo of a person from Fribourg, Switzerland, with a caption about the changes to the mandatory health insurance premiums in the canton.',
 };
 
 export default blogMetaChEn;

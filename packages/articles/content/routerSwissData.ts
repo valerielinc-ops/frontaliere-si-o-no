@@ -1087,6 +1087,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-cantone-zugo-conversione': { it: 'patente-guida-cantone-zugo-conversione', en: 'canton-zug-driving-license-conversion', de: 'fuehrerschein-kanton-zug-umstellung', fr: 'permis-de-conduire-canton-de-zoug-conversion' },
  'imposta-di-succesione-e-donazione-canton-zugo-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-zugo-aliquote', en: 'inheritance-and-donation-tax-zug-cantonal-rates', de: 'erbschafts-und-schenkungssteuer-kanton-zug-kantonal-satze', fr: 'impot-de-succession-et-de-dons-canton-de-zoug-taux-cantonaux' },
  'imposte-cantoni-friburgo-aliquote-deduzioni': { it: 'imposte-cantoni-friburgo-aliquote-deduzioni', en: 'cantonal-taxes-in-the-canton-of-fribourg-rates-and-deductions', de: 'imposten-kantonen-freiburg-aliquoten-abzuge', fr: 'impostes-cantons-fribourg-aliquots-deductions' },
+ 'premi-cassa-malati-friburgo-riduzione': { it: 'premi-cassa-malati-friburgo-riduzione', en: 'premi-cassa-malati-friburgo', de: 'pflichtkrankenkassenpreise-kanton-freiburg', fr: 'premieres-maladie-obligatoire-canton-fribourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
