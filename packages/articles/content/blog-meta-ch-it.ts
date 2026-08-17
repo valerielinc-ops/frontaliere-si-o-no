@@ -3106,6 +3106,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giornate-svizzere-statistica-2026.title': 'Dati e statistica nell\'era dell\'intelligenza artificiale',
     'blog.article.giornate-svizzere-statistica-2026.excerpt': 'Le Giornate svizzere della statistica si terranno dal 25 al 27 agosto 2026 a Rorschach, nel Cantone di San Gallo.',
     'blog.article.giornate-svizzere-statistica-2026.imageAlt': 'Giornate svizzere della statistica 2026',
+    'blog.article.travailsuisse-aumenti-salariali-2026.title': 'Di più Travail.Suisse chiede aumenti salariali del 2%, USI frena',
+    'blog.article.travailsuisse-aumenti-salariali-2026.excerpt': 'Travail.Suisse chiede aumenti salariali del 2%, mentre l\'USI frena con un aumento medio dell\'1%.',
+    'blog.article.travailsuisse-aumenti-salariali-2026.imageAlt': 'Immagine di un evento in Svizzera',
 };
 
 export default blogMetaChIt;

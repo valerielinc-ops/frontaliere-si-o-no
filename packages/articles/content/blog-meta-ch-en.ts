@@ -3106,6 +3106,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.giornate-svizzere-statistica-2026.title': 'Data and statistics in the age of artificial intelligence',
     'blog.article.giornate-svizzere-statistica-2026.excerpt': 'The Swiss Statistics Days will be held from 25 to 27 August 2026 in Rorschach, in the Canton of St. Gallen.',
     'blog.article.giornate-svizzere-statistica-2026.imageAlt': 'Swiss Statistical Days 2026',
+    'blog.article.travailsuisse-aumenti-salariali-2026.title': 'More Travail.Suisse asks for wage increases of 2%, USES BRAKES',
+    'blog.article.travailsuisse-aumenti-salariali-2026.excerpt': 'Travail.Suisse asks for wage increases of 2%, while YOU USE it slows down with an average increase of 1%.',
+    'blog.article.travailsuisse-aumenti-salariali-2026.imageAlt': 'Image of an event in Switzerland',
 };
 
 export default blogMetaChEn;

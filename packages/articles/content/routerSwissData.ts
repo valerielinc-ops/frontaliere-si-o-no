@@ -1061,6 +1061,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-svizzera-aumentati-2026': { it: 'salari-svizzera-aumentati-2026', en: 'salaries-switzerland-increased-2026', de: 'lohn-schweiz-zuwachs-2026', fr: 'situation-salariale-suisse-augmentation-2026' },
  'costo-elettricit-svizzera': { it: 'costo-elettricit-svizzera', en: 'switzerland-electricity-cost', de: 'schweiz-stromkosten', fr: 'cout-de-l-electricite-en-suisse' },
  'giornate-svizzere-statistica-2026': { it: 'giornate-svizzere-statistica-2026', en: 'swiss-statistical-days-2026', de: 'schweizerische-statistiktage-2026', fr: 'journees-suisses-de-statistiques-2026' },
+ 'travailsuisse-aumenti-salariali-2026': { it: 'travailsuisse-aumenti-salariali-2026', en: 'travailsuisse-2026-salary-increases', de: 'travailsuisse-lohne-2026', fr: 'travailsuisse-salaire-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

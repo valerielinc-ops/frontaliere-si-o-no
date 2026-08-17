@@ -3106,6 +3106,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giornate-svizzere-statistica-2026.title': 'Daten und Statistik im Zeitalter der künstlichen Intelligenz',
     'blog.article.giornate-svizzere-statistica-2026.excerpt': 'Die Schweizer Statistiktage finden vom 25. bis 27. August 2026 in Rorschach im Kanton St. Gallen statt.',
     'blog.article.giornate-svizzere-statistica-2026.imageAlt': 'Schweizerische Statistiktage 2026',
+    'blog.article.travailsuisse-aumenti-salariali-2026.title': 'Mehr Travail.Suisse fordert Lohnerhöhungen von 2%, NUTZUNGEN BREMSEN',
+    'blog.article.travailsuisse-aumenti-salariali-2026.excerpt': 'Travail.Suisse fordert Lohnerhöhungen von 2%, während die USI mit einer durchschnittlichen Steigerung von 1% bremst.',
+    'blog.article.travailsuisse-aumenti-salariali-2026.imageAlt': 'Bild eines Ereignisses in der Schweiz',
 };
 
 export default blogMetaChDe;
