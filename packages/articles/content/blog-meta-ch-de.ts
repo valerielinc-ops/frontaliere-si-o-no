@@ -3055,6 +3055,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Schulsystem des Kantons Glarus: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Wählen Sie die richtige Schule für Ihre Kinder im Kanton Glarus',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Schulen in der Schweiz',
+    'blog.article.apprendistato-glarona.title': 'Lehre und Berufsausbildung im Kanton Glarus',
+    'blog.article.apprendistato-glarona.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Glarus.',
+    'blog.article.apprendistato-glarona.imageAlt': 'Bild eines jungen Lehrlings in einer Ausbildung an einer Firma im Kanton Glarus.',
 };
 
 export default blogMetaChDe;

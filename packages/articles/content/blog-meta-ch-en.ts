@@ -3055,6 +3055,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Canton of Glarus school system: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Choose the right school for your children in Canton Glarus',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Swiss primary school',
+    'blog.article.apprendistato-glarona.title': 'Apprenticeship and vocational training in the Canton of Glarus',
+    'blog.article.apprendistato-glarona.excerpt': 'How to find an internship, internship contract, apprentice salary and professional maturity in the Canton of Glarus.',
+    'blog.article.apprendistato-glarona.imageAlt': 'Image of a young apprentice in vocational training at a company in the Glarus canton.',
 };
 
 export default blogMetaChEn;

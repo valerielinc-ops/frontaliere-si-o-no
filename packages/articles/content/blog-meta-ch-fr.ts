@@ -3055,6 +3055,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Système scolaire canton de Glaris : inscription et cycles',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Choisissez la bonne école pour vos enfants à Canton de Glarus',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Écoles primaires en Suisse',
+    'blog.article.apprendistato-glarona.title': 'Apprentissage et formation professionnelle dans le canton de Glaris',
+    'blog.article.apprendistato-glarona.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, la rémunération de l\'apprenti et la maturité professionnelle dans le canton de Glaris.',
+    'blog.article.apprendistato-glarona.imageAlt': 'Image d\'un apprenti jeune en formation professionnelle dans une entreprise du canton de Glaris.',
 };
 
 export default blogMetaChFr;
