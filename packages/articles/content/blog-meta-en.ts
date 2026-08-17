@@ -10015,6 +10015,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salari-difficili-discussioni.title': 'Wage discussions for next year look set to be difficult',
     'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse asks for a general increase of 2% for all workers, but USI judges the request disconnected from the economic reality.',
     'blog.article.salari-difficili-discussioni.imageAlt': 'Photo of a border crossing between Switzerland and Italy during winter',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.title': 'Ticino border economy: fragile balance',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.excerpt': 'The border economy between the Canton of Ticino and Italy is in question. How is it going?',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.imageAlt': 'Lugano lake view',
 };
 
 export default blogMetaEn;

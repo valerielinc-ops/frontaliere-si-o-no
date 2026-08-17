@@ -3109,6 +3109,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.travailsuisse-aumenti-salariali-2026.title': 'Mehr Travail.Suisse fordert Lohnerhöhungen von 2%, NUTZUNGEN BREMSEN',
     'blog.article.travailsuisse-aumenti-salariali-2026.excerpt': 'Travail.Suisse fordert Lohnerhöhungen von 2%, während die USI mit einer durchschnittlichen Steigerung von 1% bremst.',
     'blog.article.travailsuisse-aumenti-salariali-2026.imageAlt': 'Bild eines Ereignisses in der Schweiz',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.title': 'Bewilligung L (Zug): Gültigkeit, Verlängerung, Übergang zu B',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.excerpt': 'Maximale Dauer der Bewilligung L im Kanton Zug, Bedingungen für die Verlängerung, Bindungen an den Arbeitgeber und Voraussetzungen für den Übergang zur Aufenthaltsbewilligung B.',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.imageAlt': 'Panorama des Kantons Zug mit See und Alpen',
+    'blog.article.assegni-familiari-canton-zugo.title': 'Familienzulagen im Kanton Zug: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-zugo.excerpt': 'Die Rechtsvoraussetzungen und Anspruchsvoraussetzungen für Familienzulagen im Kanton Zug.',
+    'blog.article.assegni-familiari-canton-zugo.imageAlt': 'Foto eines Kindes, das in einem Park in Lugano spielt.',
+    'blog.article.independenza-svizzera-sicurezza.title': 'Neutralitätsinitiative gefährdet die Sicherheit der Schweiz',
+    'blog.article.independenza-svizzera-sicurezza.excerpt': 'FDP, Mitte, Grünliberale, SP und Grüne unterstützen die Initiative.',
+    'blog.article.independenza-svizzera-sicurezza.imageAlt': 'Redaktionelles Bild zu: L\'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'Schulsystem des Kantons Zürich: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'Das Schulsystem des Kantons Zürich zeichnet sich durch einen 9-jährigen Pflichtschulabschluss aus. Die Schüler besuchen die Grundschulen der 1. bis 6. Klasse, gefolgt von der Mittelschule.',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'Bildungssystem des Kantons Zürich',
 };
 
 export default blogMetaChDe;

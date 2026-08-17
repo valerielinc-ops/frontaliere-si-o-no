@@ -3109,6 +3109,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.travailsuisse-aumenti-salariali-2026.title': 'More Travail.Suisse asks for wage increases of 2%, USES BRAKES',
     'blog.article.travailsuisse-aumenti-salariali-2026.excerpt': 'Travail.Suisse asks for wage increases of 2%, while YOU USE it slows down with an average increase of 1%.',
     'blog.article.travailsuisse-aumenti-salariali-2026.imageAlt': 'Image of an event in Switzerland',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.title': 'Short-term permit L in Zug: validity, extensions & transfer to B',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.excerpt': 'Maximum duration of the L permit in the Canton of Zug, conditions for the extension, constraints with the employer and requirements to move to the B residence permit.',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.imageAlt': 'Canton of Zug panorama with lake and Alps',
+    'blog.article.assegni-familiari-canton-zugo.title': 'Family allowances in the Canton of Zug: amounts and application',
+    'blog.article.assegni-familiari-canton-zugo.excerpt': 'The legal conditions and eligibility criteria for family allowances in the Canton of Zug.',
+    'blog.article.assegni-familiari-canton-zugo.imageAlt': 'Photo of a child playing in a park at Lugano.',
+    'blog.article.independenza-svizzera-sicurezza.title': 'Neutrality initiative puts Switzerland\'s security at risk',
+    'blog.article.independenza-svizzera-sicurezza.excerpt': 'PLR, Centro, Liberal Greens, PS and Greens support the initiative.',
+    'blog.article.independenza-svizzera-sicurezza.imageAlt': 'Editorial image related to: L\'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'School system of the Canton of Zurich: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'The school system of the Canton of Zurich is characterized by a 9-year compulsory education cycle. Students attend elementary schools from 1st to 6th grade, followed by middle and high schools.',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'School system of the Canton of Zurich',
 };
 
 export default blogMetaChEn;
