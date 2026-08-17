@@ -3211,6 +3211,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-friburgo.title': 'Schulsystem Kanton Freiburg: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'Das Einschreibungsalter, die Studiengänge und der Schulkalender im Kanton Freiburg.',
     'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'Schulbildung im Kanton Freiburg: Zyklen, Eintrittsalter, Schuljahreskalender, Lehrsprachen und Übergang an die Sekundarstufe.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.title': 'Lehre im Kanton Freiburg: Lehrstellen finden',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.excerpt': 'Wie die Lehre und Berufsausbildung im Kanton Freiburg funktioniert: Beschäftigungsmöglichkeiten, Lehrverträge und Berufsmaturität',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.imageAlt': 'Berufsausbildung in der Schweiz',
 };
 
 export default blogMetaChDe;

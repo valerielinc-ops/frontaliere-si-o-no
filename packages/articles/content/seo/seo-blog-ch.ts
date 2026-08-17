@@ -41633,6 +41633,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-e-formazione-professionale-canton-friburgo': {
+    title: 'Apprendistato nel Cantone di Friburgo: trovare un posto di tirocinio',
+    description: 'Come funziona l\'apprendistato e la formazione professionale nel Cantone di Friburgo: opportunità di lavoro, contratti di tirocinio e maturità professionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, cantone, friburgo, trovare',
+    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Friburgo',
+    ogDescription: 'Come funziona l\'apprendistato e la formazione professionale nel Cantone di Friburgo: opportunità di lavoro, contratti di tirocinio e maturità professionale',
+    canonicalPath: '/articoli-svizzera/apprendistato-e-formazione-professionale-canton-friburgo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato nel Cantone di Friburgo: trovare un posto di tirocinio",
+      "description": "Come funziona l'apprendistato e la formazione professionale nel Cantone di Friburgo: opportunità di lavoro, contratti di tirocinio e maturità professionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-e-formazione-professionale-canton-friburgo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La formazione professionale in Svizzera"
+      },
+      "datePublished": "2026-08-17T23:44:57+00:00",
+      "dateModified": "2026-08-17T23:44:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-e-formazione-professionale-canton-friburgo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

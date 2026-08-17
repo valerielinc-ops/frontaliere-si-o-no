@@ -3211,6 +3211,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-friburgo.title': 'Sistema scolastico Canton Friburgo: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'L\'età di iscrizione, i cicli di studi e il calendario scolastico nel Cantone di Friburgo.',
     'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'Scuola dell\'obbligo nel Cantone di Friburgo: cicli, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.title': 'Apprendistato nel Cantone di Friburgo: trovare un posto di tirocinio',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.excerpt': 'Come funziona l\'apprendistato e la formazione professionale nel Cantone di Friburgo: opportunità di lavoro, contratti di tirocinio e maturità professionale',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.imageAlt': 'La formazione professionale in Svizzera',
 };
 
 export default blogMetaChIt;
