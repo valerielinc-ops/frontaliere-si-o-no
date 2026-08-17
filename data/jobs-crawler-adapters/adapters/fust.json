@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/7c7b0396-4f06-449e-a540-edc7fd1270b7",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-warenausgang/12a2506d-b980-438b-bdd9-b2c3539b284b",
     "https://jobs.fust.ch/postes-vacants/technicien-de-service-apres-vente/672f6b1a-e452-46d4-96d5-becee1c74d8a",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-retouren/599ece76-70c5-4ad4-b6d9-f557792b8a60",
@@ -89,6 +90,12 @@
     "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/8f537667-e488-45e9-b7b9-ecc8745a6c94"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/7c7b0396-4f06-449e-a540-edc7fd1270b7": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-warenausgang/12a2506d-b980-438b-bdd9-b2c3539b284b": {
       "location": "San Gallo",
       "canton": "SG",
@@ -553,5 +560,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-17T09:55:02.099Z"
+  "updatedAt": "2026-08-17T21:34:35.424Z"
 }

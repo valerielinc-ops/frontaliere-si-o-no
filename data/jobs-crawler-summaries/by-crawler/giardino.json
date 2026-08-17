@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-08-17T09:54:59.876Z",
-  "total": 13,
+  "generatedAt": "2026-08-17T21:34:33.162Z",
+  "total": 12,
   "newCount": 0,
   "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6840,
-  "avgDurationMs": 6840,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6113,
+  "avgDurationMs": 6113,
   "durationHistory": [
-    6840
+    6113
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-commis-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.806Z",
+      "crawledAt": "2026-08-17T21:34:30.024Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -43,11 +43,11 @@
       "applyUrl": "https://giardinohotels.ch/en/jobs/gm-commis-de-rang/",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-10T21:46:53.349Z",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -63,7 +63,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gbb-hospitality-allrounder/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.806Z",
+      "crawledAt": "2026-08-17T21:34:30.023Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -100,7 +100,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-bell-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.805Z",
+      "crawledAt": "2026-08-17T21:34:30.023Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -137,7 +137,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-assistant-concierge/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.806Z",
+      "crawledAt": "2026-08-17T21:34:30.024Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -152,6 +152,7 @@
       "featured": false,
       "postedDate": "2026-07-29",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gm-assistant-concierge/",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:34:41.921Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -173,7 +174,7 @@
       "url": "https://giardinohotels.ch/en/jobs/chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.807Z",
+      "crawledAt": "2026-08-17T21:34:30.024Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -188,6 +189,7 @@
       "featured": false,
       "postedDate": "2026-07-29",
       "applyUrl": "https://giardinohotels.ch/en/jobs/chef-de-rang/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-29T11:34:41.921Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -209,7 +211,7 @@
       "url": "https://giardinohotels.ch/en/jobs/staff-cook-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.803Z",
+      "crawledAt": "2026-08-17T21:34:30.020Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -246,7 +248,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.805Z",
+      "crawledAt": "2026-08-17T21:34:30.023Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -283,7 +285,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.804Z",
+      "crawledAt": "2026-08-17T21:34:30.021Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -298,6 +300,7 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-10T12:00:53.637Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -319,7 +322,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.805Z",
+      "crawledAt": "2026-08-17T21:34:30.023Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -356,7 +359,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.807Z",
+      "crawledAt": "2026-08-17T21:34:30.024Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -393,7 +396,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.805Z",
+      "crawledAt": "2026-08-17T21:34:30.022Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -408,6 +411,7 @@
       "featured": false,
       "postedDate": "2026-07-01",
       "applyUrl": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T22:17:48.134Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -429,7 +433,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:57.806Z",
+      "crawledAt": "2026-08-17T21:34:30.023Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -444,6 +448,7 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "applyUrl": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-19T21:49:01.621Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -454,8 +459,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "giardino-e7f4937bce90",
       "slug": "assistente-contabile-50-giardino-group-champfer",
@@ -487,6 +491,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -495,5 +500,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
