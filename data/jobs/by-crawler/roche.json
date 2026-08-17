@@ -65145,9 +65145,7 @@
           "clinical-trials-administrator-roche-ch",
           "clinical-trials-administrator-roche-kyiv",
           "study-start-up-lead-roche-kyiv",
-          "amministratore-delle-prove-cliniche-roche-kyiv",
-          "study-start-up-lead-roche-ch",
-          "iniziare-lo-studio-piombo-roche-kyiv"
+          "study-start-up-lead-roche-ch"
         ],
         "de": [
           "clinical-trials-administrator-roche-ch"
@@ -65164,10 +65162,7 @@
         "clinical-trials-administrator-roche-ch",
         "clinical-trials-administrator-roche-kyiv",
         "study-start-up-lead-roche-kyiv",
-        "amministratore-delle-prove-cliniche-roche-kyiv",
-        "administrateur-des-essais-cliniques-roche-kyiv",
         "study-start-up-lead-roche-ch",
-        "iniziare-lo-studio-piombo-roche-kyiv",
         "l-etude-commence-le-plomb-roche-kyiv"
       ],
       "firstSeenAt": "2026-08-04T22:17:50.256Z",
@@ -87386,12 +87381,12 @@
     },
     {
       "id": "roche-69638d77ee0a",
-      "slug": "account-executive-roche-ch-2",
+      "slug": "account-esecutivo-roche-shanghai",
       "slugByLocale": {
         "en": "account-executive-roche-ch",
-        "it": "account-executive-roche-ch-2",
+        "it": "account-esecutivo-roche-shanghai",
         "de": "account-executive-roche-ch-2",
-        "fr": "account-executive-roche-ch-2"
+        "fr": "administrateur-de-compte-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87449,11 +87444,16 @@
       "firstSeenAt": "2026-08-16T21:23:47.549Z",
       "previousSlugsByLocale": {
         "it": [
-          "account-executive-roche-ch"
+          "account-executive-roche-ch",
+          "account-executive-roche-ch-2"
+        ],
+        "fr": [
+          "account-executive-roche-ch-2"
         ]
       },
       "previousSlugs": [
-        "account-executive-roche-ch"
+        "account-executive-roche-ch",
+        "account-executive-roche-ch-2"
       ]
     },
     {
