@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-16T06:16:56.601Z",
+  "assembledAt": "2026-08-17T06:23:08.714Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -13017,6 +13017,246 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-APG8vQg.jpg"
+    },
+    {
+      "id": "guidle:AG351R3",
+      "title": "Gottesdienst",
+      "titleByLocale": {
+        "it": "Gottesdienst",
+        "en": "Gottesdienst",
+        "de": "Funzione religiosa",
+        "fr": "Gottesdienst"
+      },
+      "description": "10.30 Uhr Gottesdienst in der Dorfkirche, Pfarrer Thomas Müller, Orgel Elena Bürkli",
+      "descriptionByLocale": {
+        "it": "10.30 Uhr Gottesdienst in der Dorfkirche, Pfarrer Thomas Müller, Orgel Elena Bürkli",
+        "en": "10.30am Gottesdienst in der Dorfkirche, Pfarrer Thomas Müller, Orgel Elena Bürkli",
+        "de": "10:30 Uhr Gottesdienst in der Dorfkirche, Pfarrer Thomas Müller, Orgel Elena Bürkli",
+        "fr": "10h30 Uhr Gottesdienst in der Dorfkirche, Pfarrer Thomas Müller, Orgel Elena Bürkli"
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "10:30",
+      "category": "Altro servizio",
+      "venue": "Evang.-ref. Kirchgemeindehaus",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/classical/arosa/vieri-gottesdienst_AG351R3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Poststrasse 163",
+        "postalCode": "7050"
+      },
+      "geo": {
+        "lat": 46.7775031,
+        "lng": 9.6754353
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AG351R3.jpg"
+    },
+    {
+      "id": "guidle:A2utKPd",
+      "title": "Vide Grenier - Coffre ouvert",
+      "titleByLocale": {
+        "it": "Vendita Garage - Open Chest",
+        "en": "Garage Sale - Open Chest",
+        "de": "Garagenverkauf - Offene Truhe",
+        "fr": "Vente de garage - Coffre ouvert"
+      },
+      "description": "Kommen Sie zum Stöbern, finden Sie Schätze in einer sommerlichen Atmosphäre am Ufer des Genfersees, nur einen Katzensprung von Vevey entfernt.",
+      "descriptionByLocale": {
+        "it": "Vieni a scoprire tesori in un'atmosfera estiva sulle rive del Lago di Ginevra, a due passi da Vevey.",
+        "en": "Come and find treasures in a summer atmosphere on the shores of Lake Geneva, just a stone's throw from Vevey.",
+        "de": "Entdecken Sie Schätze in sommerlicher Atmosphäre am Ufer des Genfersees, nur einen Steinwurf von Vevey entfernt.",
+        "fr": "Venez chiner, trouver des trésors dans une ambiance estivale au bord du Léman, à deux pas de Vevey. L'équipe du vide-greniers du Camping de la Pichette (Corseaux/Chardonne) vous attend avec plaisir !"
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-09-27",
+      "startTime": "00:00",
+      "category": "L'arte in generale",
+      "venue": "Camping de la Pichette",
+      "comune": "Chardonne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/events/this-that/chardonne/garage-sale-open-chest_A2utKPd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Chemin de la Paix 37",
+        "postalCode": "1803"
+      },
+      "geo": {
+        "lat": 46.4704269,
+        "lng": 6.8105463
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A2utKPd.jpg"
+    },
+    {
+      "id": "guidle:AUythYT",
+      "title": "Vilhelm Hammershøi. Maler des stillen Klangs",
+      "titleByLocale": {
+        "it": "Vilhelm Hammershøi. Maler des stillen Klangs",
+        "en": "Vilhelm Hammershi. Maler des stillen Klangs",
+        "de": "Vilhelm Hammershu. Maler des stillen Klangs",
+        "fr": "Vilhelm Hammershoi. Maler des stillen Klangs"
+      },
+      "description": "Der ideale Einstieg in die Ausstellung",
+      "descriptionByLocale": {
+        "it": "Der ideale Einstieg in die Ausstellung",
+        "en": "Der ideal Einstieg in die Ausstellung",
+        "de": "Der ideale Einstieg in die Ausstellung",
+        "fr": "Der ideal Einstieg in die Ausstellung"
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-10-22",
+      "startTime": "11:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Kunsthaus Zürich Moser-Bau",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/vilhelm-hammershi-maler-des-stillen-klangs_AUythYT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Heimplatz 1",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3710978,
+        "lng": 8.5490786
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AUythYT.jpg"
+    },
+    {
+      "id": "guidle:AgEAQV3",
+      "title": "Tuschmalerei am Sonntag - Gemeinsam die Jahreszeiten in der Altstadt erleben",
+      "titleByLocale": {
+        "it": "Pittura a inchiostro la domenica",
+        "en": "Ink Painting on Sundays",
+        "de": "Tintenmalerei am Sonntag",
+        "fr": "Peinture à l'encre le dimanche"
+      },
+      "description": "Tuschmalerei Workshops in der Altstadt von Zürich",
+      "descriptionByLocale": {
+        "it": "Laboratori di pittura a inchiostro a Zurigo",
+        "en": "Ink Painting Workshops in Zurich",
+        "de": "Tintenmalerei-Workshops in Zürich",
+        "fr": "Ateliers de peinture à l'encre à Zurich"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-11-15",
+      "startTime": "11:30",
+      "category": "L'arte in generale",
+      "venue": "Altstadthaus",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/classical/zurich/ink-painting-on-sundays_AgEAQV3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 90,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Obmannamtsgasse 15",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.372501,
+        "lng": 8.546595
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AgEAQV3.jpg"
+    },
+    {
+      "id": "guidle:A45ij8s",
+      "title": "Reiseziel Museum | Entdeckungsreise für die ganze Familie!",
+      "titleByLocale": {
+        "it": "Reiseziel Museum | Entdeckungsreise für die ganze Familie!",
+        "en": "Reiseziel Museum | Entrepreneurship for the great families!",
+        "de": "Reiseziel Museum | Unternehmertum für die tollen Familien!",
+        "fr": "Reiseziel Museum | Entdeckungsreise für die ganze Familie !"
+      },
+      "description": "zur Ausstellung Eleanor Antin. Eine Retrospektive",
+      "descriptionByLocale": {
+        "it": "zur Ausstellung Eleanor Antin. Eine Retrospektive",
+        "en": "zur Ausstellung Eleanor Antin. A Retrospektive",
+        "de": "zur Ausstellung Eleanor Antin. Eine Retrospektive",
+        "fr": "zur Ausstellung Eleanor Antin. Une rétrospektive"
+      },
+      "startDate": "2026-09-06",
+      "endDate": "2026-09-06",
+      "startTime": "10:00",
+      "category": "L'arte in generale",
+      "venue": "Kunstmuseum Liechtenstein",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/vaduz/reiseziel-museum-entdeckungsreise-fuer-die-ganze-familie_A45ij8s",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Städtle 32",
+        "postalCode": "9490"
+      },
+      "geo": {
+        "lat": 47.1394943,
+        "lng": 9.522103
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A45ij8s.jpg"
+    },
+    {
+      "id": "guidle:AyYLvgJ",
+      "title": "Provenienzen im Fokus",
+      "titleByLocale": {
+        "it": "Provenienzen im Fokus",
+        "en": "Provenienzen im Focus",
+        "de": "Provenienzen im Fokus",
+        "fr": "Provenienzen im Focus"
+      },
+      "description": "Führung zur Erforschung der Herkunft von Kunstwerken",
+      "descriptionByLocale": {
+        "it": "Führung zur Erforschung der Herkunft von Kunstwerken",
+        "en": "Zur Erforschung der Herkunft von Kunstken",
+        "de": "F ②hrung zur Erforschung der Kunst von Kunst",
+        "fr": "À l'enquête sur les œuvres d'art"
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "18:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Kunsthaus Zürich Moser-Bau",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/provenienzen-im-fokus_AyYLvgJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Heimplatz 1",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3710978,
+        "lng": 8.5490786
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AyYLvgJ.jpg"
     }
   ]
 }
