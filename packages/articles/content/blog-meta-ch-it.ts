@@ -3136,6 +3136,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-zugo.title': 'Apprendistato e formazione professionale nel Canton Zugo',
     'blog.article.apprendistato-zugo.excerpt': 'Impostazioni e procedure per l\'assunzione di un apprendista nel Canton Zugo, con riferimento alle leggi cantonali e federali.',
     'blog.article.apprendistato-zugo.imageAlt': 'Scene di apprendimento professionale e formazione nel Canton Zugo',
+    'blog.article.seco-ordinanza-ucraina-2026.title': 'Ucraina: Ordinanza per provvedimenti',
+    'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Il Dipartimento federale dell’economia, della formazione e della ricerca (DEFR) ha modificato gli allegati 2 e 14a dell’ordinanza in relazione alla situazione in Ucraina.',
+    'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Immagine editoriale relativa a: Ucraina: Ordinanza per provvedimenti',
 };
 
 export default blogMetaChIt;

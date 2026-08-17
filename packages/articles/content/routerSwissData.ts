@@ -1071,6 +1071,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pioggia-ritorno-siccita-ticino': { it: 'pioggia-ritorno-siccita-ticino', en: 'rain-returns-drought-ticino', de: 'regen-kehrt-zurueck-duerre-ticino', fr: 'pluie-revenu-secheresse-ticino' },
  'neutralita-iniziativa-pro-putin': { it: 'neutralita-iniziativa-pro-putin', en: 'the-neutrality-initiative-a-pro-putin-text-that-harms-switzerland', de: 'die-neutralitatsinitiative-ein-pro-putin-text-der-der-schweiz-schadet', fr: 'l-initiative-sur-la-neutralite-un-texte-pro-poutine-qui-nuit-a-la-suisse' },
  'apprendistato-zugo': { it: 'apprendistato-zugo', en: 'apprenticeship-zug', de: 'berufsausbildung-zug', fr: 'apprentissage-zoug' },
+ 'seco-ordinanza-ucraina-2026': { it: 'seco-ordinanza-ucraina-2026', en: 'ukraine-measures-ordinance', de: 'seco-ordinanza-ukraine-2026', fr: 'seco-ordonnance-ukraine-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

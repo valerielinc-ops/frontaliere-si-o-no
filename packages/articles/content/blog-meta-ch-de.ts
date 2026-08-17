@@ -3136,6 +3136,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-zugo.title': 'Lehre und Berufsausbildung im Kanton Zug',
     'blog.article.apprendistato-zugo.excerpt': 'Einstellungen und Verfahren für die Anstellung eines Lehrlings im Kanton Zug unter Bezugnahme auf die kantonalen und bundesstaatlichen Gesetze.',
     'blog.article.apprendistato-zugo.imageAlt': 'Berufsausbildung und berufliche Weiterbildung im Kanton Zug',
+    'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine: Verordnung über Maßnahmen',
+    'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Das Eidgenössische Departement für Wirtschaft, Bildung und Forschung (WBF) hat die Anhänge 2 und 14a der Verordnung im Hinblick auf die Situation in der Ukraine geändert.',
+    'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Redaktionelles Bild zu: Ucraina: Ordinanza per provvedimenti',
 };
 
 export default blogMetaChDe;
