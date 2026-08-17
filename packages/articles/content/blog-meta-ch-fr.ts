@@ -3070,6 +3070,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scolastico-in-svizzera.title': 'Il est temps de retourner à l\'école dans de nombreux cantons',
     'blog.article.scolastico-in-svizzera.excerpt': 'Les cours commencent dans les cantons de Zurich, Appenzell Rhodes-Intérieures, Grisons et autres',
     'blog.article.scolastico-in-svizzera.imageAlt': 'école en Suisse',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AVS et prestations complémentaires Canton de Glaris : la caisse de compensation',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'Le canton de Glaris offre des prestations complémentaires pour couvrir le minimum vital, en plus des prestations de l\'AVS.',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'image d\'un lac en Suisse',
 };
 
 export default blogMetaChFr;
