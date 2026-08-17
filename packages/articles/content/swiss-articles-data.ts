@@ -9136,6 +9136,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assegni-familiari-canton-glarona',
+    category: 'fiscale',
+    date: '2026-08-17T03:23:48.490Z',
+    image: '/images/blog/assegni-familiari-canton-glarona.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

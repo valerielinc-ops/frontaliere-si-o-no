@@ -3046,6 +3046,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Permesso di domicilio C nel Cantone di Glarona: requisiti e domanda',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'Cosa serve per ottenere un permesso di domicilio C nel Cantone di Glarona?',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Immagine di un frontaliere che si prepara a presentare la domanda di permesso di domicilio C',
+    'blog.article.assegni-familiari-canton-glarona.title': 'Assegni familiari nel Cantone Glarona: importi e domanda',
+    'blog.article.assegni-familiari-canton-glarona.excerpt': 'Gli assegni familiari nel Cantone Glarona: come funzionano, a chi sono destinati e cosa devono fare i cittadini per ottenerli.',
+    'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Immagine editoriale relativa a: Assegni familiari nel Cantone Glarona: importi e domanda',
 };
 
 export default blogMetaChIt;
