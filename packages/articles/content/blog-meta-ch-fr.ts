@@ -3076,6 +3076,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-glarona-2026.title': 'Marché locatif dans le canton de Glaris : loyers moyens et droit de location',
     'blog.article.affitti-glarona-2026.excerpt': 'Les loyers dans le canton de Glaris ont augmenté en 2026. Voici les loyers moyens et les informations pratiques pour les bailleurs et les locataires.',
     'blog.article.affitti-glarona-2026.imageAlt': 'Une famille suisse cherchant un appartement à Glarona',
+    'blog.article.trasporti-pubblici-glarona.title': 'Abbonamenti Glarona: zone, tarifs',
+    'blog.article.trasporti-pubblici-glarona.excerpt': 'Découvrez les détails sur les abonnements transports publics dans le canton de Glaris, y compris les zones, les tarifs et les combinaisons avec demi-tarif et AG',
+    'blog.article.trasporti-pubblici-glarona.imageAlt': 'Un train traverse la région du canton de Glaris',
 };
 
 export default blogMetaChFr;

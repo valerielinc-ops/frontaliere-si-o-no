@@ -3076,6 +3076,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-glarona-2026.title': 'Mercato degli affitti in Canton Glarona: canoni medi e diritto di locazione',
     'blog.article.affitti-glarona-2026.excerpt': 'Gli affitti in Canton Glarona sono aumentati nel 2026. Ecco i canoni medi e le informazioni pratiche per i locatori e gli inquilini.',
     'blog.article.affitti-glarona-2026.imageAlt': 'Una famiglia svizzera in cerca di un appartamento a Glarona',
+    'blog.article.trasporti-pubblici-glarona.title': 'Abbonamenti trasporti pubblici nel Cantone Glarona: zone, tariffe e combinazioni',
+    'blog.article.trasporti-pubblici-glarona.excerpt': 'Scopri i dettagli sui abbonamenti trasporti pubblici nel Cantone Glarona, incluse le zone, le tariffe e le combinazioni con metà-prezzo e AG',
+    'blog.article.trasporti-pubblici-glarona.imageAlt': 'Un treno attraversa la regione del Cantone Glarona',
 };
 
 export default blogMetaChIt;

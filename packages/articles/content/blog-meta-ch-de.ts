@@ -3076,6 +3076,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-glarona-2026.title': 'Mietmarkt im Kanton Glarus: Durchschnittsmieten und Mietrecht',
     'blog.article.affitti-glarona-2026.excerpt': 'Die Mieten im Kanton Glarus stiegen im Jahr 2026. Hier die Durchschnittsmieten und die praktischen Informationen für Vermieter und Mieter.',
     'blog.article.affitti-glarona-2026.imageAlt': 'Eine Schweizer Familie sucht nach einem Apartment in Glarona',
+    'blog.article.trasporti-pubblici-glarona.title': 'ÖV-Abos im Kanton Glarus: Zonen, Tarife und Kombinationen',
+    'blog.article.trasporti-pubblici-glarona.excerpt': 'Erfahren Sie mehr über die ÖV-Abos im Kanton Glarus inklusive Zonen, Tarife und Kombinationen mit Halbtax und GA',
+    'blog.article.trasporti-pubblici-glarona.imageAlt': 'Ein Zug durchquert die Region des Kantons Glarus',
 };
 
 export default blogMetaChDe;
