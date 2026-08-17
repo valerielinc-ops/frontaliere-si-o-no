@@ -1,18 +1,49 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-08-17T09:59:25.439Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-08-17T21:38:26.965Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22756,
-  "avgDurationMs": 22756,
+  "durationMs": 16577,
+  "avgDurationMs": 16577,
   "durationHistory": [
-    22756
+    16577
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior Engineer / Project Manager for Hydropower and Dams (M/F/X)",
+      "slug": "senior-engineer-project-manager-for-hydropower-and-dams-m-f-x-lombardi-giubiasco",
+      "url": "https://lombardi.group/eng/careers/job?id=157252",
+      "applyUrl": "https://lombardi.group/eng/careers/job?id=157252",
+      "company": "Lombardi Group",
+      "companyKey": "lombardi-group",
+      "companyDomain": "lombardi.group",
+      "location": "Giubiasco",
+      "addressLocality": "Giubiasco",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria civile",
+      "source": "lombardi-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-17",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 14,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Senior Geotechnical Engineer",
