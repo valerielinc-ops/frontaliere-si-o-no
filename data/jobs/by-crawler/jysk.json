@@ -2416,25 +2416,14 @@
       "addressRegion": "ZH",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil",
-          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil"
         ],
-        "en": [
-          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
-        ],
-        "de": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
-        ],
-        "fr": [
-          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "previousSlugs": [
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil",
-        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
-        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
-        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -3471,6 +3460,9 @@
         ],
         "fr": [
           "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw"
+        ],
+        "de": [
+          "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw"
         ]
       },
       "previousSlugs": [
@@ -3781,11 +3773,25 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil"
+          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil",
+          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+        ],
+        "en": [
+          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+        ],
+        "de": [
+          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+        ],
+        "fr": [
+          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
         ]
       },
       "previousSlugs": [
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil"
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil",
+        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
+        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5328,7 +5334,6 @@
           "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket",
           "venditore-in-a-50-nel-ramo-dietlikon-jysk-dietlikon",
           "seller-in-a-50-in-the-dietlikon-branch-jysk-dietlikon",
-          "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw",
           "vendeur-dans-a-50-dans-la-branche-dietlikon-jysk-dietlikon",
           "assistente-vendite-a-50-nella-filiale-di-dietlikon-jysk-dietlikon",
           "sales-assistant-a-50-in-the-dietlikon-branch-jysk-dietlikon",
@@ -5340,9 +5345,7 @@
           "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket",
           "seller-in-a-50-in-the-dietlikon-branch-jysk-dietlikon"
         ],
-        "de": [
-          "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw"
-        ],
+        "de": [],
         "fr": [
           "assistant-commercial-a-20-dans-la-succursale-de-dietlikon-jysk-dietlikon",
           "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket",
@@ -5357,7 +5360,6 @@
         "verkaufer-in-a-20-in-der-filiale-dietlikon-jysk-dietlikon-j95ket",
         "venditore-in-a-50-nel-ramo-dietlikon-jysk-dietlikon",
         "seller-in-a-50-in-the-dietlikon-branch-jysk-dietlikon",
-        "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw",
         "vendeur-dans-a-50-dans-la-branche-dietlikon-jysk-dietlikon",
         "assistente-vendite-a-50-nella-filiale-di-dietlikon-jysk-dietlikon",
         "sales-assistant-a-50-in-the-dietlikon-branch-jysk-dietlikon",

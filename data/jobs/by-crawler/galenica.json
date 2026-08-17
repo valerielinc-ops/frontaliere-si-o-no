@@ -3595,7 +3595,11 @@
       },
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3649,7 +3653,15 @@
       },
       "addressLocality": "Nyon",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4336,7 +4348,15 @@
       },
       "addressLocality": "Oberwil BL",
       "addressRegion": "BL",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4440,20 +4460,14 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzq4",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nbzp5",
           "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
           "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy",
           "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl",
           "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc092",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
           "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
           "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-kriens",
           "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
-          "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc09r",
-          "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi",
           "assistente-di-farmacia-afc-coop-vitality-galenica-s-antonino",
           "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-basel",
           "galenica-coop-vitality-assistente-di-farmacia-afc-tenero",
@@ -4491,7 +4505,6 @@
         "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich",
         "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-oberwil-bl",
         "assistente-di-farmacia-afc-coop-vitality-galenica-tenero",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc0at",
         "galenica-coop-vitality-assistente-di-farmacia-afc-zurich",
         "galenica-coop-vitality-assistente-di-farmacia-afc-basel",
         "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09x",
@@ -4504,12 +4517,9 @@
         "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
         "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzp3",
         "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
         "galenica-coop-vitality-assistente-di-farmacia-afc-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nbzpy",
         "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl",
         "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc092",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
         "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
         "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
         "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-kriens",
@@ -4517,13 +4527,9 @@
         "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc08v",
         "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nc08w",
         "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nbzq4",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nbzp5",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
         "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0",
         "galenica-coop-vitality-vich-assistente-di-farmacia-afc-tenero",
         "galenica-coop-vitality-shopping-arena-sg-assistente-di-farmacia-afc-tenero",
-        "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc09r",
-        "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi",
         "assistente-di-farmacia-afc-coop-vitality-galenica-s-antonino",
         "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-tenero",
         "pharma-assistent-in-efz-coop-vitality-galenica-tenero",
@@ -5569,7 +5575,11 @@
       },
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5611,13 +5621,15 @@
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ascona",
         "galenica-amavita-assistant-e-en-pharmacie-cfc-ascona",
         "galenica-amavita-apotheke-assistente-di-farmacia-afc-ascona",
-        "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-ascona"
+        "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-ascona",
+        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-ascona",
           "galenica-amavita-apotheke-assistente-di-farmacia-afc-ascona",
-          "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-ascona"
+          "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-ascona",
+          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn"
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ascona"
@@ -5688,13 +5700,15 @@
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mendrisio",
         "galenica-amavita-assistant-e-en-pharmacie-cfc-mendrisio",
         "galenica-amavita-apotheke-assistente-di-farmacia-afc-mendrisio",
-        "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-mendrisio"
+        "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-mendrisio",
+        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-mendrisio",
           "galenica-amavita-apotheke-assistente-di-farmacia-afc-mendrisio",
-          "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-mendrisio"
+          "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-mendrisio",
+          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mendrisio"
@@ -5777,7 +5791,15 @@
       },
       "addressLocality": "Genève",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6344,7 +6366,15 @@
       },
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6804,13 +6834,10 @@
         "galenica-amavita-assistente-di-farmacia-afc-riehen",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc133",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
         "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f",
         "galenica-amavita-assistente-di-farmacia-afc-winterthur",
         "galenica-amavita-assistente-di-farmacia-afc-neuchatel",
         "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
-        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
         "galenica-amavita-assistente-di-farmacia-afc-st-moritz",
         "galenica-amavita-assistente-di-farmacia-afc-luzern",
@@ -6842,9 +6869,7 @@
         "galenica-amavita-assistant-e-en-pharmacie-cfc-pratteln",
         "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
         "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
-        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4",
         "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
         "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2",
         "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0gq",
@@ -6868,9 +6893,7 @@
           "galenica-amavita-assistente-di-farmacia-afc-lausanne",
           "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
           "galenica-amavita-assistente-di-farmacia-afc-st-gallen",
-          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4",
           "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
-          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
           "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm",
           "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2",
           "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0gq",
@@ -7133,7 +7156,11 @@
       },
       "addressLocality": "Monthey",
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7613,11 +7640,15 @@
       },
       "id": "galenica-6bbd4224b0eb",
       "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen"
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
+        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4"
       ],
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen"
+        ],
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4"
         ]
       },
       "needsRetranslation": true,
@@ -7809,11 +7840,13 @@
         "assistente-di-farmacia-afc-coop-vitality-galenica-canobbio",
         "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-canobbio",
         "pharma-assistent-efz-coop-vitality-galenica-canobbio",
-        "apothekenassistent-afc-coop-vitality-galenica-canobbio"
+        "apothekenassistent-afc-coop-vitality-galenica-canobbio",
+        "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc09r"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-di-farmacia-afc-coop-vitality-galenica-canobbio"
+          "assistente-di-farmacia-afc-coop-vitality-galenica-canobbio",
+          "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc09r"
         ],
         "en": [
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-canobbio"
@@ -7960,7 +7993,15 @@
       },
       "addressLocality": "Marin-Centre",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8380,7 +8421,11 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc0at"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8614,11 +8659,15 @@
       },
       "id": "galenica-e165f5e708b8",
       "previousSlugs": [
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
+        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u"
       ],
       "previousSlugsByLocale": {
         "de": [
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
+        ],
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u"
         ]
       },
       "needsRetranslation": true,
@@ -9020,7 +9069,15 @@
       },
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9511,7 +9568,15 @@
       },
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nbzp5"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal-1nbzp5"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9795,7 +9860,15 @@
       },
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11232,7 +11305,15 @@
       },
       "addressLocality": "Bulle",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbyyl"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbyyl"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11734,7 +11815,11 @@
       },
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12361,11 +12446,13 @@
         "assistente-di-farmacia-afc-coop-vitality-galenica-mendrisio",
         "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mendrisio",
         "pharma-assistent-in-efz-coop-vitality-galenica-mendrisio",
-        "apothekenassistent-afc-coop-vitality-galenica-mendrisio"
+        "apothekenassistent-afc-coop-vitality-galenica-mendrisio",
+        "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-di-farmacia-afc-coop-vitality-galenica-mendrisio"
+          "assistente-di-farmacia-afc-coop-vitality-galenica-mendrisio",
+          "assistente-di-farmacia-afc-coop-vitality-galenica-bern-1nc0bi"
         ],
         "en": [
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-mendrisio"
@@ -12754,7 +12841,6 @@
       },
       "id": "galenica-4e84d062cc00",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
@@ -12768,7 +12854,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
@@ -13911,9 +13996,7 @@
           "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna",
           "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-balerna",
           "galenica-amavita-assistente-di-farmacia-afc-lugano",
-          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex",
-          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn",
-          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
+          "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex"
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lugano",
@@ -13942,9 +14025,7 @@
         "galenica-amavita-assistant-e-en-pharmacie-cfc-balerna",
         "galenica-amavita-apotheke-assistant-e-en-pharmacie-cfc-balerna",
         "galenica-amavita-assistente-di-farmacia-afc-lugano",
-        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex",
-        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0zn",
-        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc11e"
+        "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "needsRetranslation": true,
@@ -14395,7 +14476,11 @@
       },
       "addressLocality": "Kriens",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14573,7 +14658,6 @@
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc133",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
         "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc17k",
-        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-cheseaux-lausanne",
         "afc-pharmacy-assistant-amavita-galenica-lausanne",
         "apothekenassistent-afc-amavita-galenica-lausanne",
@@ -14589,7 +14673,6 @@
           "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc133",
           "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
           "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc17k",
-          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
           "afc-pharmacy-assistant-amavita-galenica-lausanne",
           "apothekenassistent-afc-amavita-galenica-lausanne"
         ],
@@ -14877,7 +14960,15 @@
       },
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16715,16 +16806,11 @@
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-sion",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-vevey",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzmm",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds-1nbzmk",
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-lausanne",
@@ -16732,7 +16818,6 @@
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-la-chaux-de-fonds",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion",
@@ -16748,15 +16833,12 @@
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-monthey",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-bulle",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbyyl",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyz9",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbyxo",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzlp",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyzb",
         "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-marin-centre",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-marin-centre",
@@ -16766,7 +16848,6 @@
         "it": [
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyyh",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion",
@@ -16774,15 +16855,12 @@
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbzlo",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbyyl",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyz9",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbyxo",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-vevey-1nbzlp",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre",
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk",
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyzb"
         ],
         "en": [
@@ -16866,7 +16944,8 @@
       },
       "id": "galenica-77200d049cdf",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds-1nbzmk"
       ],
       "previousSlugsByLocale": {
         "en": [

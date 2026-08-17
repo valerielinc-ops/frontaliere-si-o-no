@@ -1859,11 +1859,20 @@
         ],
         "fr": [
           "employe-caissier-genossenschaft-migros-aare-belp"
+        ],
+        "it": [
+          "collaboratore-trice-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp-eqj1pt"
+        ],
+        "de": [
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp-eqj1pt"
         ]
       },
       "previousSlugs": [
         "employee-cashier-genossenschaft-migros-aare-belp",
-        "employe-caissier-genossenschaft-migros-aare-belp"
+        "employe-caissier-genossenschaft-migros-aare-belp",
+        "collaboratore-trice-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
+        "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp-eqj1pt"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -14201,10 +14210,16 @@
       "previousSlugsByLocale": {
         "en": [
           "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier"
+        ],
+        "it": [
+          "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns",
+          "florist-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns"
         ]
       },
       "previousSlugs": [
-        "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier"
+        "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier",
+        "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns",
+        "florist-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17233,7 +17248,9 @@
         "directeur-adjoint-de-la-succursale-denner-ag-zurich",
         "stv-branch-manager-in-denner-ag-zurich-geicje",
         "vice-direttore-di-negozio-denner-ag-zurich",
-        "vice-direttore-di-filiale-denner-ag-zurich"
+        "vice-direttore-di-filiale-denner-ag-zurich",
+        "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
+        "stv-branch-manager-in-denner-ag-zurich-gdn8qz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17250,7 +17267,9 @@
           "directeur-adjoint-de-la-succursale-denner-ag-zurich",
           "stv-branch-manager-in-denner-ag-zurich-geicje",
           "vice-direttore-di-negozio-denner-ag-zurich",
-          "vice-direttore-di-filiale-denner-ag-zurich"
+          "vice-direttore-di-filiale-denner-ag-zurich",
+          "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
+          "stv-branch-manager-in-denner-ag-zurich-gdn8qz"
         ],
         "en": [
           "stv-branch-manager-in-denner-ag-frauenfeld",
@@ -17259,7 +17278,8 @@
         "de": [
           "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
           "stv-filialleiter-in-denner-ag-zurich-z8lf10",
-          "stv-filialleiter-in-denner-ag-zurich-geicje"
+          "stv-filialleiter-in-denner-ag-zurich-geicje",
+          "stv-filialleiter-in-denner-ag-zurich-gdn8qz"
         ],
         "fr": [
           "directeur-de-succursale-stv-denner-ag-frauenfeld",
@@ -24522,11 +24542,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen"
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen",
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu"
+        ],
+        "de": [
+          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen"
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen",
+        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -27959,7 +27984,6 @@
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-frauenfeld-pyyc1r",
           "vendemmia-in-freschezza-genossenschaft-migros-ostschweiz-sulgen",
           "seller-in-freshness-genossenschaft-migros-ostschweiz-sulgen",
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu",
           "vendeur-en-fraicheur-genossenschaft-migros-ostschweiz-sulgen",
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen",
           "venditore-fresco-genossenschaft-migros-ostschweiz-st-gallen",
@@ -27972,9 +27996,7 @@
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-frauenfeld-pyyc1r",
           "seller-in-freshness-genossenschaft-migros-ostschweiz-sulgen"
         ],
-        "de": [
-          "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu"
-        ],
+        "de": [],
         "fr": [
           "verkaufer-in-frische-genossenschaft-migros-ostschweiz-frauenfeld-pyyc1r",
           "vendeur-en-fraicheur-genossenschaft-migros-ostschweiz-sulgen"
@@ -27985,7 +28007,6 @@
         "verkaufer-in-frische-genossenschaft-migros-ostschweiz-frauenfeld-pyyc1r",
         "vendemmia-in-freschezza-genossenschaft-migros-ostschweiz-sulgen",
         "seller-in-freshness-genossenschaft-migros-ostschweiz-sulgen",
-        "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu",
         "vendeur-en-fraicheur-genossenschaft-migros-ostschweiz-sulgen",
         "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen",
         "venditore-fresco-genossenschaft-migros-ostschweiz-st-gallen",
@@ -28761,7 +28782,11 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "previousSlugsByLocale": {},
+      "previousSlugs": [
+        "venditore-denner-ag-zurich-fzpktp"
+      ]
     },
     {
       "id": "company-ok0f0y",
@@ -29319,17 +29344,16 @@
           "vice-direttore-di-negozio-denner-ag-zurich",
           "deputy-branch-manager-denner-ag-zurich",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich",
-          "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
           "vice-direttore-di-filiale-denner-ag-zurich",
           "deputy-branch-manager-denner-ag-zurich-6527ca",
-          "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
+          "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
+          "stv-filialleiter-in-denner-ag-zurich-2zbait"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-zurich"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-zurich-geicje",
-          "stv-filialleiter-in-denner-ag-zurich-gdn8qz"
+          "stv-filialleiter-in-denner-ag-zurich-geicje"
         ]
       },
       "previousSlugs": [
@@ -29338,10 +29362,10 @@
         "deputy-branch-manager-denner-ag-zurich",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich",
-        "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "vice-direttore-di-filiale-denner-ag-zurich",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
-        "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
+        "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
+        "stv-filialleiter-in-denner-ag-zurich-2zbait"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -36747,10 +36771,19 @@
         ],
         "fr": [
           "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag"
+        ],
+        "it": [
+          "maschinen-e-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac",
+          "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac"
+        ],
+        "de": [
+          "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac"
         ]
       },
       "previousSlugs": [
-        "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag"
+        "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag",
+        "maschinen-e-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac",
+        "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -37950,9 +37983,7 @@
           "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-renens",
           "caissier-m-w-d-societe-cooperative-migros-vaud-epalinges",
           "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges",
-          "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns",
           "florist-h-f-d-societe-cooperative-migros-vaud-crissier",
-          "florist-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns",
           "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier",
           "host-subito-h-f-d-societe-cooperative-migros-vaud-crissier",
           "host-subito-m-w-d-societe-cooperative-migros-vaud-crissier-q3kur9",
@@ -38012,9 +38043,7 @@
         "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-renens",
         "caissier-m-w-d-societe-cooperative-migros-vaud-epalinges",
         "cassiere-multiuso-societe-cooperative-migros-vaud-epalinges",
-        "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns",
         "florist-h-f-d-societe-cooperative-migros-vaud-crissier",
-        "florist-m-w-d-societe-cooperative-migros-vaud-crissier-d1wvns",
         "fleuriste-m-w-d-societe-cooperative-migros-vaud-crissier",
         "host-subito-h-f-d-societe-cooperative-migros-vaud-crissier",
         "host-subito-m-w-d-societe-cooperative-migros-vaud-crissier-q3kur9",
@@ -39619,7 +39648,15 @@
       "country": "CH",
       "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "previousSlugsByLocale": {
+        "de": [
+          "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j"
+      ]
     },
     {
       "id": "company-6ureux",
@@ -39913,9 +39950,7 @@
       "previousSlugsByLocale": {
         "it": [
           "maschinen-und-anlagenfuhrer-produktion-3-schicht-m-w-d-delica-ag-buchs-ag",
-          "maschinen-e-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac",
           "machine-and-plant-operator-packaging-f-m-d-delica-ag-buchs-ag",
-          "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac",
           "emballage-d-operateur-de-machines-et-d-usine-f-m-d-delica-ag-buchs-ag",
           "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag"
         ],
@@ -39923,9 +39958,7 @@
           "maschinen-und-anlagenfuhrer-produktion-3-schicht-m-w-d-delica-ag-buchs-ag-9dhy7j",
           "machine-and-plant-operator-packaging-f-m-d-delica-ag-buchs-ag"
         ],
-        "de": [
-          "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac"
-        ],
+        "de": [],
         "fr": [
           "maschinen-und-anlagenfuhrer-produktion-3-schicht-m-w-d-delica-ag-buchs-ag-9dhy7j",
           "emballage-d-operateur-de-machines-et-d-usine-f-m-d-delica-ag-buchs-ag"
@@ -39934,9 +39967,7 @@
       "previousSlugs": [
         "maschinen-und-anlagenfuhrer-produktion-3-schicht-m-w-d-delica-ag-buchs-ag",
         "maschinen-und-anlagenfuhrer-produktion-3-schicht-m-w-d-delica-ag-buchs-ag-9dhy7j",
-        "maschinen-e-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac",
         "machine-and-plant-operator-packaging-f-m-d-delica-ag-buchs-ag",
-        "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag-v1dvac",
         "emballage-d-operateur-de-machines-et-d-usine-f-m-d-delica-ag-buchs-ag",
         "maschinen-und-anlagenfuhrer-verpackung-m-w-d-delica-ag-buchs-ag"
       ],
@@ -43169,10 +43200,8 @@
       "country": "CH",
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-zurich-iwlyck",
-        "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
-        "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
         "stv-filialleiter-in-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-geicje",
         "deputy-branch-manager-denner-ag-zurich",
@@ -43181,7 +43210,6 @@
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "stv-branch-manager-in-denner-ag-zurich-z8lf10",
         "directeur-de-succursale-stv-in-denner-ag-zurich",
-        "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "stv-branch-manager-in-denner-ag-zurich-3e601b",
         "vice-direttore-di-negozio-denner-ag-zurich",
         "vice-direttore-di-filiale-denner-ag-zurich",
@@ -43190,10 +43218,8 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-ag-zurich-iwlyck",
-          "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
           "deputy-branch-manager-denner-ag-zurich-6527ca",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
-          "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
           "stv-filialleiter-in-denner-ag-zurich",
           "stv-filialleiter-in-denner-ag-zurich-geicje",
           "deputy-branch-manager-denner-ag-zurich",
@@ -43202,7 +43228,6 @@
           "stv-filialleiter-in-denner-ag-zurich-z8lf10",
           "stv-branch-manager-in-denner-ag-zurich-z8lf10",
           "directeur-de-succursale-stv-in-denner-ag-zurich",
-          "stv-filialleiter-in-denner-ag-zurich-2zbait",
           "stv-branch-manager-in-denner-ag-zurich-3e601b",
           "vice-direttore-di-negozio-denner-ag-zurich",
           "vice-direttore-di-filiale-denner-ag-zurich",
@@ -43212,8 +43237,7 @@
           "deputy-branch-manager-denner-ag-zurich-6527ca"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-zurich-iwlyck",
-          "stv-filialleiter-in-denner-ag-zurich-gdn8qz"
+          "stv-filialleiter-in-denner-ag-zurich-iwlyck"
         ],
         "fr": [
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
@@ -43889,7 +43913,6 @@
         "it": [
           "verkaufer-in-denner-ag-oftringen-6460ek",
           "verkaufer-in-denner-ag-oftringen",
-          "verkaufer-in-denner-ag-oftringen-bd8i9d",
           "verkaufer-in-denner-ag-oftringen-2"
         ],
         "en": [
@@ -43909,7 +43932,6 @@
       "previousSlugs": [
         "verkaufer-in-denner-ag-oftringen-6460ek",
         "verkaufer-in-denner-ag-oftringen",
-        "verkaufer-in-denner-ag-oftringen-bd8i9d",
         "verkaufer-in-denner-ag-oftringen-2",
         "seller-denner-ag-oftringen",
         "sales-associate-denner-ag-oftringen"
@@ -44029,11 +44051,16 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen"
+          "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen",
+          "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen-gg1rrn"
+        ],
+        "de": [
+          "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen-gg1rrn"
         ]
       },
       "previousSlugs": [
-        "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen"
+        "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen",
+        "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen-gg1rrn"
       ],
       "salaryMin": 189000,
       "salaryMax": 331500
@@ -46372,7 +46399,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-riehen",
           "stv-filialleiter-in-denner-ag-riehen",
           "vice-direttore-di-filiale-denner-ag-zurich-d310b2",
-          "stv-filialleiter-in-denner-ag-zurich-iwlyck",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
           "stv-filialleiter-in-denner-ag-zurich-3",
           "vice-direttore-di-filiale-denner-ag-zurich-b9428d",
@@ -46393,11 +46419,9 @@
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner-ag-zurich-r5knfa",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-b9428d",
         "stv-filialleiter-in-denner-ag-zurich-4",
         "vice-direttore-di-filiale-denner-ag-zurich-3e601b",
-        "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "vice-direttore-di-filiale-denner-ag-zurich-5450de",
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-5450de",
@@ -46423,7 +46447,6 @@
         "directeur-adjoint-de-la-succursale-denner-ag-riehen",
         "stv-filialleiter-in-denner-ag-riehen",
         "vice-direttore-di-filiale-denner-ag-zurich-d310b2",
-        "stv-filialleiter-in-denner-ag-zurich-iwlyck",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-d310b2",
         "stv-filialleiter-in-denner-ag-zurich-3",
         "vice-direttore-di-filiale-denner-ag-zurich-b9428d",
@@ -47628,9 +47651,7 @@
         "en": [
           "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-cfvr5g"
         ],
-        "de": [
-          "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j"
-        ],
+        "de": [],
         "fr": [
           "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-cfvr5g",
           "stv-gestion-d-equipe-logistique-nuitee-migros-online-regensdorf"
@@ -47659,7 +47680,6 @@
         "collaboratore-trice-in-logistik-intralogistik-migros-online-regensdorf-xbk3h6",
         "employe-en-logistique-intralogistique-migros-online-regensdorf",
         "stv-gestione-del-team-logistica-turno-notturno-migros-online-regensdorf",
-        "stv-teamleitung-logistik-nachtschicht-migros-online-regensdorf-argp3j",
         "stv-gestion-d-equipe-logistique-nuitee-migros-online-regensdorf"
       ],
       "baseSalary": {
@@ -49746,7 +49766,8 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
           "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
-          "fitness-instructor-m-w-d-activ-fitness-aarau"
+          "fitness-instructor-m-w-d-activ-fitness-aarau",
+          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
@@ -49755,7 +49776,8 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
         "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe",
-        "fitness-instructor-m-w-d-activ-fitness-aarau"
+        "fitness-instructor-m-w-d-activ-fitness-aarau",
+        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -52657,9 +52679,7 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-herzogenbuchsee",
-          "collaboratore-trice-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
           "employee-cashier-genossenschaft-migros-aare-belp",
-          "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
           "employe-caissier-genossenschaft-migros-aare-belp",
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp"
         ],
@@ -52668,7 +52688,6 @@
           "employee-cashier-genossenschaft-migros-aare-belp"
         ],
         "de": [
-          "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
           "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp"
         ],
         "fr": [
@@ -52679,9 +52698,7 @@
       "previousSlugs": [
         "mitarbeiter-in-kasse-genossenschaft-migros-aare-herzogenbuchsee",
         "mitarbeiter-in-kasse-genossenschaft-migros-aare-herzogenbuchsee-nd2naa",
-        "collaboratore-trice-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
         "employee-cashier-genossenschaft-migros-aare-belp",
-        "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp-eqj1pt",
         "employe-caissier-genossenschaft-migros-aare-belp",
         "mitarbeiter-in-kasse-genossenschaft-migros-aare-belp"
       ],
@@ -55362,7 +55379,6 @@
           "leiter-core-banking-alle-migros-bank-wallisellen-cinehy",
           "capo-del-pagamento-tutti-80-100-migros-bank-wallisellen",
           "head-of-payment-all-80-100-migros-bank-wallisellen",
-          "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen-gg1rrn",
           "responsable-du-paiement-tous-80-100-migros-bank-wallisellen",
           "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen"
         ],
@@ -55371,7 +55387,6 @@
           "head-of-payment-all-80-100-migros-bank-wallisellen"
         ],
         "de": [
-          "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen-gg1rrn",
           "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen"
         ],
         "fr": [
@@ -55383,7 +55398,6 @@
         "leiter-core-banking-alle-migros-bank-wallisellen-cinehy",
         "capo-del-pagamento-tutti-80-100-migros-bank-wallisellen",
         "head-of-payment-all-80-100-migros-bank-wallisellen",
-        "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen-gg1rrn",
         "responsable-du-paiement-tous-80-100-migros-bank-wallisellen",
         "leiter-zahlungsverkehr-alle-80-100-migros-bank-wallisellen"
       ],
@@ -56178,7 +56192,6 @@
           "verkaufer-in-denner-ag-pfungen-p9o1kh",
           "verkaufer-in-denner-ag-pfungen",
           "verkaufer-in-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld-m4pjdx",
           "seller-denner-ag-frauenfeld",
           "vendeur-denner-ag-frauenfeld",
           "venditore-denner-ag-frauenfeld",
@@ -56201,7 +56214,6 @@
         "verkaufer-in-denner-ag-pfungen-p9o1kh",
         "verkaufer-in-denner-ag-pfungen",
         "verkaufer-in-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld-m4pjdx",
         "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld",
         "venditore-denner-ag-frauenfeld",
@@ -58286,7 +58298,6 @@
           "verkaufer-in-denner-ag-allschwil-uldcvi",
           "verkaufer-in-denner-ag-allschwil",
           "verkaufer-in-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld-m4pjdx",
           "seller-denner-ag-frauenfeld",
           "vendeur-denner-ag-frauenfeld",
           "venditore-denner-ag-frauenfeld",
@@ -58321,7 +58332,6 @@
         "verkaufer-in-denner-ag-allschwil-uldcvi",
         "verkaufer-in-denner-ag-allschwil",
         "verkaufer-in-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld-m4pjdx",
         "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld",
         "venditore-denner-ag-frauenfeld",
@@ -60287,7 +60297,6 @@
           "verkaufer-in-denner-ag-frauenfeld",
           "seller-denner-ag-frauenfeld",
           "vendeur-denner-ag-frauenfeld",
-          "venditore-denner-ag-frauenfeld-m4pjdx",
           "venditore-denner-ag-frauenfeld",
           "verkaufer-in-denner-ag-widnau",
           "verkaufer-in-denner-ag-widnau-2"
@@ -60312,7 +60321,6 @@
         "verkaufer-in-denner-ag-frauenfeld",
         "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld-m4pjdx",
         "venditore-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-widnau",
         "verkaufer-in-denner-ag-widnau-2"
@@ -60783,10 +60791,8 @@
         "it": [
           "stv-filialleiter-in-denner-ag-basel",
           "stv-filialleiter-in-denner-ag-basel-0fjqw6",
-          "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
           "deputy-branch-manager-denner-ag-zurich-6527ca",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
-          "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
           "stv-filialleiter-in-denner-ag-zurich",
           "vice-direttore-di-filiale-denner-ag-zurich",
           "stv-branch-manager-in-denner-ag-zurich",
@@ -60801,7 +60807,6 @@
           "deputy-branch-manager-denner-ag-zurich-6527ca"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
           "stv-filialleiter-in-denner-ag-zurich-geicje"
         ],
         "fr": [
@@ -60812,10 +60817,8 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-basel",
         "stv-filialleiter-in-denner-ag-basel-0fjqw6",
-        "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
-        "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
         "stv-filialleiter-in-denner-ag-zurich",
         "vice-direttore-di-filiale-denner-ag-zurich",
         "stv-branch-manager-in-denner-ag-zurich",
@@ -63672,7 +63675,6 @@
           "seller-denner-ag-langenthal-450cef",
           "venditore-denner-ag-zurich",
           "venditore-denner-ag-urdorf",
-          "verkaufer-in-denner-ag-rubigen-1remei",
           "venditore-a-denner-ag-allschwil",
           "sales-associate-denner-ag-allschwil",
           "verkaufer-in-denner-ag-allschwil",
@@ -63722,7 +63724,6 @@
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
         "venditore-denner-ag-zurich-1ed56c",
-        "venditore-denner-ag-frauenfeld-m4pjdx",
         "seller-denner-ag-wetzikon-e6382f",
         "verkaufer-in-denner-ag-wetzikon",
         "vendeur-denner-ag-wetzikon-e6382f",
@@ -63745,11 +63746,9 @@
         "verkaufer-in-denner-ag-gossau-sg",
         "venditore-denner-ag-ruti-zh",
         "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
-        "venditore-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
-        "verkaufer-in-denner-ag-gossau-sg-66bf93",
         "seller-denner-ag-zurich-1d38ef",
         "vendeur-denner-ag-zurich",
         "verkaufer-in-denner-ag-stein-ag-ach2e5",
@@ -63766,7 +63765,6 @@
         "seller-denner-ag-langenthal-450cef",
         "venditore-denner-ag-zurich",
         "venditore-denner-ag-urdorf",
-        "verkaufer-in-denner-ag-rubigen-1remei",
         "venditore-a-denner-ag-allschwil",
         "sales-associate-denner-ag-allschwil",
         "verkaufer-in-denner-ag-allschwil",
@@ -68627,7 +68625,6 @@
         "it": [
           "venditore-denner-ag-urdorf",
           "verkaufer-in-denner-ag-urdorf",
-          "verkaufer-in-denner-ag-rubigen-1remei",
           "venditore-a-denner-ag-allschwil",
           "sales-associate-denner-ag-allschwil",
           "verkaufer-in-denner-ag-allschwil",
@@ -68694,12 +68691,10 @@
         "seller-denner-ag-zurich-1ed56c",
         "vendeur-denner-ag-zurich-1ed56c",
         "venditore-denner-ag-zurich-1ed56c",
-        "venditore-denner-ag-zurich-fzpktp",
         "venditore-denner-ag-zurich-e89fe9",
         "vendeur-denner-ag-zurich-e89fe9",
         "venditore-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-008421",
-        "verkaufer-in-denner-ag-gossau-sg-66bf93",
         "verkaufer-in-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-7kk8ni",
         "seller-denner-ag-zurich-1d38ef",
@@ -68729,7 +68724,6 @@
         "vendeur-denner-ag-langenthal-634638",
         "venditore-denner-ag-urdorf",
         "verkaufer-in-denner-ag-urdorf",
-        "verkaufer-in-denner-ag-rubigen-1remei",
         "venditore-a-denner-ag-allschwil",
         "sales-associate-denner-ag-allschwil",
         "verkaufer-in-denner-ag-allschwil",
@@ -71545,7 +71539,6 @@
           "restaurationsfachmitarbeiter-in-migros-golf-ag-waldkirch-girvmb",
           "personale-addetto-al-restauro-migros-golf-ag-oberkirch-a45cba",
           "restoration-staff-migros-golf-ag-oberkirch-a45cba",
-          "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf",
           "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
           "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-2",
           "specialista-di-restauro-migros-golf-ag-oberkirch-a45cba"
@@ -71554,9 +71547,7 @@
           "restaurationsfachmitarbeiter-in-migros-golf-ag-waldkirch-girvmb",
           "restoration-staff-migros-golf-ag-oberkirch-a45cba"
         ],
-        "de": [
-          "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf"
-        ],
+        "de": [],
         "fr": [
           "restaurationsfachmitarbeiter-in-migros-golf-ag-waldkirch-girvmb",
           "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
@@ -71574,7 +71565,6 @@
         "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
         "personale-addetto-al-restauro-migros-golf-ag-oberkirch-a45cba",
         "restoration-staff-migros-golf-ag-oberkirch-a45cba",
-        "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf",
         "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
         "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-2",
         "specialista-di-restauro-migros-golf-ag-oberkirch-a45cba",
@@ -71956,7 +71946,6 @@
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-ag-basel-2",
         "assistant-store-manager-denner-ag-basel",
-        "stv-filialleiter-in-denner-ag-basel-hokisc",
         "stv-branch-manager-in-denner-ag-basel-e6a673",
         "stv-branch-manager-in-denner-basel"
       ],
@@ -75794,7 +75783,8 @@
           "verkaufer-in-denner-ag-gossau-sg",
           "vendeur-denner-ag-zurich-e89fe9",
           "venditore-denner-ag-frauenfeld",
-          "venditore-denner-ag-zurich-1ed56c"
+          "venditore-denner-ag-zurich-1ed56c",
+          "verkaufer-in-denner-ag-rubigen-1remei"
         ],
         "en": [
           "verkaufer-in-denner-ag-rubigen-1remei",
@@ -75834,11 +75824,9 @@
         "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
         "vendeur-denner-ag-langenthal-634638",
         "venditore-denner-ag-frauenfeld",
-        "venditore-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
-        "verkaufer-in-denner-ag-gossau-sg-66bf93",
         "seller-denner-ag-zurich-1d38ef",
         "vendeur-denner-ag-zurich",
         "verkaufer-in-denner-ag-stein-ag-ach2e5",
@@ -77449,7 +77437,6 @@
         "verkaufer-in-denner-ag-urdorf",
         "venditore-denner-ag-wetzikon-e6382f",
         "venditore-denner-ag-frauenfeld",
-        "venditore-denner-ag-zurich-fzpktp",
         "verkaufer-in-denner-ag-stein-ag-ach2e5",
         "venditore-a-denner-ag-langenthal",
         "salesperson-denner-ag-langenthal-450cef",
@@ -77465,7 +77452,6 @@
         "seller-denner-ag-langenthal-450cef",
         "venditore-denner-ag-zurich",
         "venditore-denner-ag-urdorf",
-        "verkaufer-in-denner-ag-rubigen-1remei",
         "venditore-a-denner-ag-allschwil",
         "sales-associate-denner-ag-allschwil",
         "verkaufer-in-denner-ag-allschwil",
@@ -82922,9 +82908,6 @@
         "venditore-denner-ag-frauenfeld",
         "venditore-denner-ag-zurich-e89fe9",
         "vendeur-denner-ag-zurich-e89fe9",
-        "verkaufer-in-denner-ag-gossau-sg-66bf93",
-        "verkaufer-in-denner-ag-rubigen-1remei",
-        "venditore-denner-ag-zurich-fzpktp",
         "venditore-denner-ag-zurich",
         "venditore-denner-ag-frauenfeld-7kk8ni",
         "seller-denner-ag-zurich-1d38ef",
@@ -87020,10 +87003,8 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-affoltern-am-albis",
           "fitness-instructor-m-w-d-activ-fitness-affoltern-am-albis-8wjlby",
-          "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
           "instructeur-de-fitness-f-m-d-activ-fitness-aarau-184abe",
-          "fitness-instructor-m-w-d-activ-fitness-aarau-2",
-          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
+          "fitness-instructor-m-w-d-activ-fitness-aarau-2"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-affoltern-am-albis-8wjlby"
@@ -87033,10 +87014,8 @@
         "fitness-instructor-m-w-d-activ-fitness-affoltern-am-albis",
         "fitness-instructor-m-w-d-activ-fitness-affoltern-am-albis-8wjlby",
         "fitness-instructor-w-m-d-activ-fitness-affoltern-am-albis",
-        "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
         "instructeur-de-fitness-f-m-d-activ-fitness-aarau-184abe",
-        "fitness-instructor-m-w-d-activ-fitness-aarau-2",
-        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
+        "fitness-instructor-m-w-d-activ-fitness-aarau-2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -88718,15 +88697,20 @@
       "country": "CH",
       "previousSlugs": [
         "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
-        "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba"
+        "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
+        "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
+          "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
+          "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf"
         ],
         "fr": [
           "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
           "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
+        ],
+        "de": [
+          "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf"
         ]
       },
       "needsRetranslation": true,

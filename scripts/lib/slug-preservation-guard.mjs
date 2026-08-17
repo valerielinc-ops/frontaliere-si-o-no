@@ -129,6 +129,31 @@ export function _resetDenylistCache() {
   _denylistCache = null;
 }
 
+/**
+ * Run synchronous `fn` with SLUG_PRESERVATION_GUARD forced 'off', restoring
+ * whatever value the env var held before (even if `fn` throws). Scripts that
+ * intentionally delete previousSlugs history (decontamination, denylist
+ * `--clean`) call this around the specific `writeJsonAtomic` call, never as a
+ * module-load-time assignment: a top-level `process.env.SLUG_PRESERVATION_GUARD
+ * = 'off'` leaks into any test file that imports the module for a pure helper
+ * and shares a vitest worker (`isolate: true` sandboxes module state, not the
+ * live `process.env`) — silently disabling the guard for every other
+ * slug-write test scheduled to that worker for the rest of the run.
+ *
+ * @param {() => any} fn
+ * @returns {any} fn's return value
+ */
+export function withGuardOff(fn) {
+  const prev = process.env.SLUG_PRESERVATION_GUARD;
+  process.env.SLUG_PRESERVATION_GUARD = 'off';
+  try {
+    return fn();
+  } finally {
+    if (prev === undefined) delete process.env.SLUG_PRESERVATION_GUARD;
+    else process.env.SLUG_PRESERVATION_GUARD = prev;
+  }
+}
+
 /** True when `filePath` is a per-crawler job slice. */
 export function isGuardedSlicePath(filePath) {
   const normalized = path.normalize(String(filePath || ''));

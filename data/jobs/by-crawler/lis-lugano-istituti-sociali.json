@@ -50,7 +50,6 @@
         "chapter-lis-lugano-istituti-sociali-pregassona",
         "kapitel-lis-lugano-istituti-sociali-pregassona",
         "capo-reparto-lis-lugano-istituti-sociali-pregassona",
-        "infirmiers-lis-lugano-istituti-sociali-pregassona-isfspc",
         "capireparto",
         "chapitre-lis-lugano-istituti-sociali-pregassona"
       ],
@@ -77,7 +76,6 @@
       "previousSlugsByLocale": {
         "it": [
           "capireparto-lis-lugano-istituti-sociali-lugano",
-          "infirmiers-lis-lugano-istituti-sociali-pregassona-isfspc",
           "capireparto"
         ],
         "en": [
@@ -146,7 +144,8 @@
         "infermieri-lis-lugano-istituti-sociali-lugano",
         "infermieri-lis-lugano-istituti-sociali-pregassona-isfspc",
         "nurses-lis-lugano-istituti-sociali-pregassona-isfspc",
-        "infermieri"
+        "infermieri",
+        "infirmiers-lis-lugano-istituti-sociali-pregassona-isfspc"
       ],
       "sourceLang": "it",
       "currency": "CHF",
@@ -172,7 +171,8 @@
         "it": [
           "infermieri-lis-lugano-istituti-sociali-lugano",
           "nurses-lis-lugano-istituti-sociali-pregassona-isfspc",
-          "infermieri"
+          "infermieri",
+          "infirmiers-lis-lugano-istituti-sociali-pregassona-isfspc"
         ],
         "en": [
           "infermieri-lis-lugano-istituti-sociali-pregassona-isfspc"
