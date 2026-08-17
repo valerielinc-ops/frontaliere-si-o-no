@@ -3055,6 +3055,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Sistema scolastico Canton Glarona: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Scegli la scuola giusta per i tuoi figli in Canton Glarona',
     'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Scuole elementari in Svizzera',
+    'blog.article.apprendistato-glarona.title': 'Apprendistato e formazione professionale nel Cantone di Glarona',
+    'blog.article.apprendistato-glarona.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Glarona.',
+    'blog.article.apprendistato-glarona.imageAlt': 'Immagine di un giovane apprendista in formazione professionale presso un\'azienda del Cantone di Glarona.',
 };
 
 export default blogMetaChIt;
