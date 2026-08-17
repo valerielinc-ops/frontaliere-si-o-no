@@ -1,6 +1,6 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-08-17T09:54:21.410Z",
+  "assembledAt": "2026-08-17T21:32:15.339Z",
   "jobs": [
     {
       "id": "google-switzerland-6a74c625e088",
@@ -33,7 +33,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/126210054125691590-senior-security-engineer-exploits-google-threat-intelligence-group",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:18.958Z",
+      "crawledAt": "2026-08-17T21:32:12.943Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -130,7 +130,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:18.450Z",
+      "crawledAt": "2026-08-17T21:32:12.427Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -158,8 +158,8 @@
           "1 year of experience with ML infrastructure (e.g., model deployment, model evaluation, data processing, debugging)."
         ]
       },
-      "firstSeenAt": "2026-07-04T11:16:03.055Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T11:16:03.055Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -172,6 +172,81 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "google-switzerland-7175faa5b9c3",
+      "slug": "data-science-phd-intern-2027-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "data-science-phd-intern-2027-google-switzerland-zurich",
+        "it": "data-science-phd-intern-2027-google-switzerland-zurich",
+        "de": "data-science-phd-intern-2027-google-switzerland-zurich",
+        "fr": "data-science-phd-intern-2027-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Data Science PhD Intern, 2027",
+      "titleByLocale": {
+        "en": "Data Science PhD Intern, 2027",
+        "it": "Data Science PhD Tirocinante, 2027",
+        "de": "Data Science PhD Praktikant, 2027",
+        "fr": "Data Science PhD Stagiaire, 2027"
+      },
+      "description": "Minimum qualifications:\n\n• Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.\n\n• Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.\n\n• Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.).\n\nPreferred qualifications:\n\n• Experience with causal inference methods.\n\n• Experience developing intellectual capital such as peer-reviewed publications.\n\n• Ability to complete a minimum 13 weeks internship in Switzerland starting between May-July 2027.\n\nAbout the job\n Google's data scientists work within our Software Engineering organization, including Search, YouTube, and Google Ads. We analyze sets of data and continually run live experiments in order to help drive critical decisions at Google. Specifically, we support the development of innovative, highly scalable, next-generation technologies through research and advanced analysis.\n Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to address some of technology's greatest challenges and make an impact on millions, if not billions, of users. At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.\n\nResponsibilities\n\n• Provide research on topics including Google's business model and search techniques.\n\n• Produce quantitative and qualitative modeling of business dynamics, user behavior, and more.\n\n• Identify areas for further investigation as well as creating innovative methods of analysis.",
+      "descriptionByLocale": {
+        "en": "Minimum qualifications:\n\n• Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.\n\n• Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.\n\n• Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.).\n\nPreferred qualifications:\n\n• Experience with causal inference methods.\n\n• Experience developing intellectual capital such as peer-reviewed publications.\n\n• Ability to complete a minimum 13 weeks internship in Switzerland starting between May-July 2027.\n\nAbout the job\n Google's data scientists work within our Software Engineering organization, including Search, YouTube, and Google Ads. We analyze sets of data and continually run live experiments in order to help drive critical decisions at Google. Specifically, we support the development of innovative, highly scalable, next-generation technologies through research and advanced analysis.\n Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to address some of technology's greatest challenges and make an impact on millions, if not billions, of users. At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.\n\nResponsibilities\n\n• Provide research on topics including Google's business model and search techniques.\n\n• Produce quantitative and qualitative modeling of business dynamics, user behavior, and more.\n\n• Identify areas for further investigation as well as creating innovative methods of analysis.",
+        "it": "Minimum qualifications:\n\n• Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.\n\n• Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.\n\n• Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.).\n\nPreferred qualifications:\n\n• Experience with causal inference methods.\n\n• Experience developing intellectual capital such as peer-reviewed publications.\n\n• Ability to complete a minimum 13 weeks internship in Switzerland starting between May-July 2027.\n\nAbout the job\n Google's data scientists work within our Software Engineering organization, including Search, YouTube, and Google Ads. We analyze sets of data and continually run live experiments in order to help drive critical decisions at Google. Specifically, we support the development of innovative, highly scalable, next-generation technologies through research and advanced analysis.\n Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to address some of technology's greatest challenges and make an impact on millions, if not billions, of users. At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.\n\nResponsibilities\n\n• Provide research on topics including Google's business model and search techniques.\n\n• Produce quantitative and qualitative modeling of business dynamics, user behavior, and more.\n\n• Identify areas for further investigation as well as creating innovative methods of analysis.",
+        "de": "Minimum qualifications:\n\n• Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.\n\n• Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.\n\n• Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.).\n\nPreferred qualifications:\n\n• Experience with causal inference methods.\n\n• Experience developing intellectual capital such as peer-reviewed publications.\n\n• Ability to complete a minimum 13 weeks internship in Switzerland starting between May-July 2027.\n\nAbout the job\n Google's data scientists work within our Software Engineering organization, including Search, YouTube, and Google Ads. We analyze sets of data and continually run live experiments in order to help drive critical decisions at Google. Specifically, we support the development of innovative, highly scalable, next-generation technologies through research and advanced analysis.\n Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to address some of technology's greatest challenges and make an impact on millions, if not billions, of users. At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.\n\nResponsibilities\n\n• Provide research on topics including Google's business model and search techniques.\n\n• Produce quantitative and qualitative modeling of business dynamics, user behavior, and more.\n\n• Identify areas for further investigation as well as creating innovative methods of analysis.",
+        "fr": "Minimum qualifications:\n\n• Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.\n\n• Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.\n\n• Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.).\n\nPreferred qualifications:\n\n• Experience with causal inference methods.\n\n• Experience developing intellectual capital such as peer-reviewed publications.\n\n• Ability to complete a minimum 13 weeks internship in Switzerland starting between May-July 2027.\n\nAbout the job\n Google's data scientists work within our Software Engineering organization, including Search, YouTube, and Google Ads. We analyze sets of data and continually run live experiments in order to help drive critical decisions at Google. Specifically, we support the development of innovative, highly scalable, next-generation technologies through research and advanced analysis.\n Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to address some of technology's greatest challenges and make an impact on millions, if not billions, of users. At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.\n\nResponsibilities\n\n• Provide research on topics including Google's business model and search techniques.\n\n• Produce quantitative and qualitative modeling of business dynamics, user behavior, and more.\n\n• Identify areas for further investigation as well as creating innovative methods of analysis."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-17T21:32:11.922Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8002",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
+      "jobReqId": "77684590197514950",
+      "requirements": [
+        "Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.",
+        "Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.",
+        "Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.)."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Currently enrolled in a PhD program in Statistics, Biostatistics, Computer Science, Mathematics, Operations Research, or a related technical field involving experimental design and quantitative analysis of experimental data, and in your penultimate year of study.",
+          "Experience working with datasets using Python, R, SAS, MATLAB, or other statistical software.",
+          "Experience with methods of statistical data analysis (e.g., linear models, hypothesis testing, multi-level models, Bayesian methods, etc.)."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:32:11.922Z"
     },
     {
       "id": "google-switzerland-658d64fdc450",
@@ -204,7 +279,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/138085909818942150-software-engineer-iii-search-serving-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:17.930Z",
+      "crawledAt": "2026-08-17T21:32:11.383Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -230,8 +305,8 @@
           "Bachelor’s degree or equivalent practical experience."
         ]
       },
-      "firstSeenAt": "2026-07-20T22:05:41.001Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T22:05:41.001Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -276,7 +351,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111870753367827142-apprenticeship-in-digital-business-entwicklerin-efz-august-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:17.398Z",
+      "crawledAt": "2026-08-17T21:32:10.845Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -363,7 +438,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/140881164192621254-software-engineer-ii-youtube-streaming-applications",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:16.891Z",
+      "crawledAt": "2026-08-17T21:32:10.352Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -393,8 +468,8 @@
           "1 year of experience implementing core ML concepts."
         ]
       },
-      "firstSeenAt": "2026-08-10T10:29:51.517Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T10:29:51.517Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -439,7 +514,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/98981566176207558-senior-ux-designer-youtube-creators-monetization",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:16.340Z",
+      "crawledAt": "2026-08-17T21:32:09.855Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -513,7 +588,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/133152188544230086-group-product-manager-consumer-shopping",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:15.788Z",
+      "crawledAt": "2026-08-17T21:32:09.382Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -568,8 +643,8 @@
           "senior-product-manager-graphique-d-achat-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:12:39.201Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:12:39.201Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -614,7 +689,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/142291786071450310-senior-software-engineer-home-and-health-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:15.259Z",
+      "crawledAt": "2026-08-17T21:32:08.878Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -643,8 +718,8 @@
           "5 years of experience with software development in one or more programming languages."
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:46.359Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:46.359Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -689,7 +764,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/138370376240374470-senior-software-engineer-operations-research-and-gemini",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:14.738Z",
+      "crawledAt": "2026-08-17T21:32:08.350Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -738,8 +813,8 @@
           "senior-software-engineer-operations-research-and-gemini-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:45.827Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:45.827Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -784,7 +859,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/143325582015242950-apprenticeship-in-interactive-media-design-efz-august-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:14.220Z",
+      "crawledAt": "2026-08-17T21:32:07.845Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -825,8 +900,8 @@
           "apprendistato-in-interactive-media-design-cfc-august-2027-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:45.278Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:45.278Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -844,8 +919,8 @@
       "id": "google-switzerland-d8b09a97dda0",
       "slug": "ux-designer-youtube-shopping-creator-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "ux-designer-youtube-shopping-creator-google-switzerland-zurich",
         "it": "ux-designer-youtube-shopping-creator-google-switzerland-zurich",
+        "en": "ux-designer-youtube-shopping-creator-google-switzerland-zurich",
         "de": "ux-designer-youtube-shopping-creator-google-switzerland-zurich",
         "fr": "ux-designer-youtube-shopping-creator-google-switzerland-zurich"
       },
@@ -854,24 +929,24 @@
       "companyDomain": "google.com",
       "title": "UX Designer, YouTube Shopping Creator",
       "titleByLocale": {
-        "en": "UX Designer, YouTube Shopping Creator",
         "it": "UX Designer, YouTube Shopping Creator",
+        "en": "UX Designer, YouTube Shopping Creator",
         "de": "UX Designer, YouTube Shopping Creator",
         "fr": "UX Designer, YouTube Shopping Creator"
       },
       "description": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\n At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
       "descriptionByLocale": {
-        "en": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\n At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
-        "it": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\n At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
-        "de": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\n At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
-        "fr": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\n At Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\n At YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs."
+        "it": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\nAt Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
+        "en": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\nAt Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
+        "de": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\nAt Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs.",
+        "fr": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 4 years of interaction design experience in product design or UX design.\n\n• Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions).\n\nPreferred qualifications:\n\n• Master's degree in Design, Human-Computer Interaction, Computer Science, a related field, or equivalent practical experience.\n\n• 2 years of experience working in a complex, cross-functional organization.\n\n• 1 year of experience leading design projects.\n\n• Experience with Figma and other design tools to produce mockups and prototypes.\n\n• Track record of designing and launching consumer products.\n\nAbout the job\nAt Google, we \"Focus on the user and all else will follow.\" Our Interaction Designers transform complex tasks into intuitive, easy-to-use experiences for billions of people. From creating user flows and wireframes to building mockups and prototypes, you will envision and bring product experiences to life with an inspired, refined, and magical feel. You will join our multi-disciplinary UX team, collaborating with Engineering and Product Management, leveraging user insights to create industry-leading products.\n\nAs an Interaction Designer, you'll apply user-centered design methods to craft industry-leading user experiences from concept to execution, working with design partners to evolve the Google design language to build beautiful, innovative products.\n\nYouTube Shopping allows viewers to shop products directly from their favorite Creators. We are a rapidly expanding team, with growth goals and a culture for shipping and learning quickly. This role is for the Creator actor, focused on creating tools that empower YouTube creators to share products with their fans and grow their business. As a UX Designer on the team, you will be responsible to help creators grow their businesses by selling their own products or from other brands (affiliates), across many formats (Long video format, Shorts, live streams, posts.\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n\nResponsibilities\n\n• Collaborate with product managers, engineers, and cross-functional stakeholders to understand requirements, and provide creative, thoughtful solutions.\n\n• Communicate the user experience at various stages of the design process with wireframes, flow diagrams, storyboards, mockups, or prototypes.\n\n• Advocate for the prioritization of design centered changes, refinements, and improvements.\n\n• Design new shopping experiences for Viewers, including user flows, wireframes, mocks, and functional prototypes.\n\n• Leverage User Experience Researcher (UXR) partnership to deepen the team’s understanding of shopping behavior, decision-making and growing needs."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/83061889252106950-ux-designer-youtube-shopping-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:13.685Z",
+      "crawledAt": "2026-08-17T21:32:07.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -896,11 +971,11 @@
       "requirementsByLocale": {
         "en": [
           "Bachelor's degree or equivalent practical experience.",
-          "4 years of interaction design experience in product design or UX design.",
-          "Include a portfolio, website, or any other relevant link to your work in your resume (providing a viewable link or access instructions)."
+          "4 years of interaction design experience in product design or UX design."
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T09:54:13.685Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -912,8 +987,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-17T09:54:13.685Z"
+      }
     },
     {
       "id": "google-switzerland-78139b3266a7",
@@ -946,7 +1020,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/133648012453782214-research-scientist-gemini-for-android-xr-devices",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:13.164Z",
+      "crawledAt": "2026-08-17T21:32:06.824Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -976,8 +1050,8 @@
           "Experience in machine learning, specifically for Generative AI and video applications."
         ]
       },
-      "firstSeenAt": "2026-07-23T11:18:50.711Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T11:18:50.711Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -1022,7 +1096,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/94719601408910022-staff-software-engineer-performance-and-kernel-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:12.616Z",
+      "crawledAt": "2026-08-17T21:32:06.342Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1057,8 +1131,8 @@
           "3 years of experience with software design and architecture."
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:43.693Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:43.693Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1103,7 +1177,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123122307647316678-strategic-partnerships-development-manager-platforms-and-devices",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:12.103Z",
+      "crawledAt": "2026-08-17T21:32:05.842Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1145,8 +1219,8 @@
           "strategic-partnerships-development-manager-piattaforme-e-dispositivi-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:18:43.047Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:18:43.047Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -1191,7 +1265,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/85258707578823366-field-sales-account-manager-ii-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:11.544Z",
+      "crawledAt": "2026-08-17T21:32:05.322Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1252,6 +1326,83 @@
       }
     },
     {
+      "id": "google-switzerland-141900d55413",
+      "slug": "research-scientist-phd-intern-2027-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "research-scientist-phd-intern-2027-google-switzerland-zurich",
+        "it": "research-scientist-phd-intern-2027-google-switzerland-zurich",
+        "de": "research-scientist-phd-intern-2027-google-switzerland-zurich",
+        "fr": "research-scientist-phd-intern-2027-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Research Scientist PhD Intern, 2027",
+      "titleByLocale": {
+        "en": "Research Scientist PhD Intern, 2027",
+        "it": "Ricerca Scientist PhD Tirocinante, 2027",
+        "de": "Forschung Scientist PhD Praktikant, 2027",
+        "fr": "Recherche Scientist PhD Stagiaire, 2027"
+      },
+      "description": "Minimum qualifications:\n\n• Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.\n\n• Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.\n\n• Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.\n\n• Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author).\n\nPreferred qualifications:\n\n• Experience as a researcher, including internships, full-time, or at a lab.\n\n• Experience contributing to research communities or efforts, including publishing papers in conferences or journals.\n\n• Ability to design and execute on research agendas.\n\n• Ability to complete a 13-17 week full-time internship in Switzerland, France or Germany starting in either May, June or July 2027.\n\nAbout the job\n Research happens at Google everyday, on many different embedded teams throughout the company. Our research reaches the user through both services and products such as Search, Maps, Google Assistant, Google Translate, Google Cloud, and our computing, storage, and networking infrastructure. To achieve this, we’re working on projects that utilize the latest technologies that push the boundaries of what is possible. At Google, research-focused engineering interns are embedded throughout the company, contributing to the setup of large-scale tests and deploying promising ideas quickly and broadly. Ideas may come from internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world. From creating experiments and prototyping implementations to designing architectures, research-focused engineering interns work on real-world problems including artificial intelligence, data mining, natural language processing, hardware and software performance analysis, improving compilers for mobile platforms, as well as core search and more.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Participate in research to develop solutions for real-world, large-scale problems.\n\n• Research, conceive, and develop software applications to extend and improve on Google's product offering.\n\n• Contribute to a wide variety of projects utilizing natural language processing, artificial intelligence, data compression, machine learning, and search technologies.",
+      "descriptionByLocale": {
+        "en": "Minimum qualifications:\n\n• Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.\n\n• Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.\n\n• Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.\n\n• Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author).\n\nPreferred qualifications:\n\n• Experience as a researcher, including internships, full-time, or at a lab.\n\n• Experience contributing to research communities or efforts, including publishing papers in conferences or journals.\n\n• Ability to design and execute on research agendas.\n\n• Ability to complete a 13-17 week full-time internship in Switzerland, France or Germany starting in either May, June or July 2027.\n\nAbout the job\n Research happens at Google everyday, on many different embedded teams throughout the company. Our research reaches the user through both services and products such as Search, Maps, Google Assistant, Google Translate, Google Cloud, and our computing, storage, and networking infrastructure. To achieve this, we’re working on projects that utilize the latest technologies that push the boundaries of what is possible. At Google, research-focused engineering interns are embedded throughout the company, contributing to the setup of large-scale tests and deploying promising ideas quickly and broadly. Ideas may come from internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world. From creating experiments and prototyping implementations to designing architectures, research-focused engineering interns work on real-world problems including artificial intelligence, data mining, natural language processing, hardware and software performance analysis, improving compilers for mobile platforms, as well as core search and more.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Participate in research to develop solutions for real-world, large-scale problems.\n\n• Research, conceive, and develop software applications to extend and improve on Google's product offering.\n\n• Contribute to a wide variety of projects utilizing natural language processing, artificial intelligence, data compression, machine learning, and search technologies.",
+        "it": "Minimum qualifications:\n\n• Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.\n\n• Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.\n\n• Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.\n\n• Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author).\n\nPreferred qualifications:\n\n• Experience as a researcher, including internships, full-time, or at a lab.\n\n• Experience contributing to research communities or efforts, including publishing papers in conferences or journals.\n\n• Ability to design and execute on research agendas.\n\n• Ability to complete a 13-17 week full-time internship in Switzerland, France or Germany starting in either May, June or July 2027.\n\nAbout the job\n Research happens at Google everyday, on many different embedded teams throughout the company. Our research reaches the user through both services and products such as Search, Maps, Google Assistant, Google Translate, Google Cloud, and our computing, storage, and networking infrastructure. To achieve this, we’re working on projects that utilize the latest technologies that push the boundaries of what is possible. At Google, research-focused engineering interns are embedded throughout the company, contributing to the setup of large-scale tests and deploying promising ideas quickly and broadly. Ideas may come from internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world. From creating experiments and prototyping implementations to designing architectures, research-focused engineering interns work on real-world problems including artificial intelligence, data mining, natural language processing, hardware and software performance analysis, improving compilers for mobile platforms, as well as core search and more.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Participate in research to develop solutions for real-world, large-scale problems.\n\n• Research, conceive, and develop software applications to extend and improve on Google's product offering.\n\n• Contribute to a wide variety of projects utilizing natural language processing, artificial intelligence, data compression, machine learning, and search technologies.",
+        "de": "Minimum qualifications:\n\n• Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.\n\n• Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.\n\n• Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.\n\n• Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author).\n\nPreferred qualifications:\n\n• Experience as a researcher, including internships, full-time, or at a lab.\n\n• Experience contributing to research communities or efforts, including publishing papers in conferences or journals.\n\n• Ability to design and execute on research agendas.\n\n• Ability to complete a 13-17 week full-time internship in Switzerland, France or Germany starting in either May, June or July 2027.\n\nAbout the job\n Research happens at Google everyday, on many different embedded teams throughout the company. Our research reaches the user through both services and products such as Search, Maps, Google Assistant, Google Translate, Google Cloud, and our computing, storage, and networking infrastructure. To achieve this, we’re working on projects that utilize the latest technologies that push the boundaries of what is possible. At Google, research-focused engineering interns are embedded throughout the company, contributing to the setup of large-scale tests and deploying promising ideas quickly and broadly. Ideas may come from internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world. From creating experiments and prototyping implementations to designing architectures, research-focused engineering interns work on real-world problems including artificial intelligence, data mining, natural language processing, hardware and software performance analysis, improving compilers for mobile platforms, as well as core search and more.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Participate in research to develop solutions for real-world, large-scale problems.\n\n• Research, conceive, and develop software applications to extend and improve on Google's product offering.\n\n• Contribute to a wide variety of projects utilizing natural language processing, artificial intelligence, data compression, machine learning, and search technologies.",
+        "fr": "Minimum qualifications:\n\n• Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.\n\n• Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.\n\n• Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.\n\n• Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author).\n\nPreferred qualifications:\n\n• Experience as a researcher, including internships, full-time, or at a lab.\n\n• Experience contributing to research communities or efforts, including publishing papers in conferences or journals.\n\n• Ability to design and execute on research agendas.\n\n• Ability to complete a 13-17 week full-time internship in Switzerland, France or Germany starting in either May, June or July 2027.\n\nAbout the job\n Research happens at Google everyday, on many different embedded teams throughout the company. Our research reaches the user through both services and products such as Search, Maps, Google Assistant, Google Translate, Google Cloud, and our computing, storage, and networking infrastructure. To achieve this, we’re working on projects that utilize the latest technologies that push the boundaries of what is possible. At Google, research-focused engineering interns are embedded throughout the company, contributing to the setup of large-scale tests and deploying promising ideas quickly and broadly. Ideas may come from internal projects as well as from collaborations with research programs at partner universities and technical institutes all over the world. From creating experiments and prototyping implementations to designing architectures, research-focused engineering interns work on real-world problems including artificial intelligence, data mining, natural language processing, hardware and software performance analysis, improving compilers for mobile platforms, as well as core search and more.\n Google Research addresses challenges that define the technology of today and tomorrow. From conducting fundamental research to influencing product development, our research teams have the opportunity to impact technology used by billions of people every day.\n\nOur teams aspire to make discoveries that impact everyone, and core to our approach is sharing our research and tools to fuel progress in the field -- we publish regularly in academic journals, release projects as open source, and apply research to Google products.\n\nResponsibilities\n\n• Participate in research to develop solutions for real-world, large-scale problems.\n\n• Research, conceive, and develop software applications to extend and improve on Google's product offering.\n\n• Contribute to a wide variety of projects utilizing natural language processing, artificial intelligence, data compression, machine learning, and search technologies."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-17T21:32:04.821Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8002",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
+      "jobReqId": "111285665542349510",
+      "requirements": [
+        "Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.",
+        "Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.",
+        "Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.",
+        "Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author)."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Currently enrolled in a PhD degree in Computer Science or a related technical field in the EMEA region, and in your penultimate/final year of education.",
+          "Experience in one or more Research areas: Natural Language Understanding/Processing, Computer Vision, LLMs, Algorithmic Foundations of Optimization, Data Mining, Machine Intelligence, AI/ML Algorithms, Deep Learning or Image Processing, multimodal, multilingual and reinforcement learning.",
+          "Experience and profiency in one or more general purpose programming languages: Java, C++, Python, or Go.",
+          "Experience with research from previous internships, full-time industry experience, personal projects, lab work, or published papers (being listed as author)."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:32:04.821Z"
+    },
+    {
       "id": "google-switzerland-d05ca728109a",
       "slug": "group-product-manager-produttivita-del-gruppo-google-switzerland-zurich",
       "slugByLocale": {
@@ -1282,7 +1433,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/88768436204643014-group-product-manager-group-productivity",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:10.998Z",
+      "crawledAt": "2026-08-17T21:32:04.328Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1323,8 +1474,8 @@
           "group-product-manager-group-productivity-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-10T10:29:46.025Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T10:29:46.025Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1369,7 +1520,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/120968646225732294-staff-silicon-architect-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:10.479Z",
+      "crawledAt": "2026-08-17T21:32:03.798Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1399,8 +1550,8 @@
           "5 years of experience in power or performance modeling or system performance analysis."
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:42.584Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:42.584Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1445,7 +1596,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/74517571507757766-software-engineer-iii-search-quality",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:09.922Z",
+      "crawledAt": "2026-08-17T21:32:03.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1473,8 +1624,8 @@
           "Bachelor’s degree or equivalent practical experience."
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:02.679Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:02.679Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1519,7 +1670,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110264453852734150-technical-operations-compliance-manager-third-party-data-centers",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:09.403Z",
+      "crawledAt": "2026-08-17T21:32:02.818Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1565,8 +1716,8 @@
           "technical-operations-compliance-manager-third-party-data-centers-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:31:05.310Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T11:31:05.310Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1611,7 +1762,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104722571651359430-senior-staff-software-engineer-full-stack",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:08.835Z",
+      "crawledAt": "2026-08-17T21:32:02.282Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1644,8 +1795,8 @@
           "Experience in machine learning and performance optimization."
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:40.927Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:40.927Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1690,7 +1841,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/129081860922712774-software-engineer-iii-cloud-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:08.298Z",
+      "crawledAt": "2026-08-17T21:32:01.750Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1747,8 +1898,8 @@
           "customer-engineer-security-google-cloud-security-sales-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-03T12:35:45.333Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-03T12:35:45.333Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1793,7 +1944,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81055579568513734-enterprise-account-executive-google-cloud-dach",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:07.771Z",
+      "crawledAt": "2026-08-17T21:32:01.178Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1868,7 +2019,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/109870031436686022-senior-staff-forward-deployed-engineer-genai-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:07.221Z",
+      "crawledAt": "2026-08-17T21:32:00.611Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1945,7 +2096,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/138255046704800454-senior-software-engineer-full-stack",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:06.632Z",
+      "crawledAt": "2026-08-17T21:32:00.017Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1976,8 +2127,8 @@
           "Experience in C++, Java and TypeScript."
         ]
       },
-      "firstSeenAt": "2026-07-31T22:12:26.517Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:12:26.517Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2022,7 +2173,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/75150203010589382-research-data-scientist-youtube-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:06.107Z",
+      "crawledAt": "2026-08-17T21:31:59.532Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2045,8 +2196,8 @@
         "Experience applying advanced statistical methods (e.g., causal inference, forecasting, predictive modeling, experimental design) to real-world business problems."
       ],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-13T21:47:59.515Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:47:59.515Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2091,7 +2242,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/78350205438567110-forward-deployed-engineer-iii-google-cloud-gtm-french-german",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:05.573Z",
+      "crawledAt": "2026-08-17T21:31:59.059Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2163,8 +2314,8 @@
           "forward-deployed-ingenieur-i-google-cloud-consulting-french-german-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-23T22:06:41.225Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:06:41.225Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2209,7 +2360,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/134718932484268742-software-engineer-iii-cloud-ai-research-coscientist",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:05.055Z",
+      "crawledAt": "2026-08-17T21:31:58.585Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2256,8 +2407,8 @@
           "software-engineer-iii-cloud-ai-research-co-scientist-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-05T11:30:44.848Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T11:30:44.848Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2302,7 +2453,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/133446172076319430-forward-deployed-engineering-manager-generative-ai-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:04.520Z",
+      "crawledAt": "2026-08-17T21:31:58.067Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2389,7 +2540,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/92367747647709894-software-engineer-ii-geo",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:03.861Z",
+      "crawledAt": "2026-08-17T21:31:57.599Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2458,8 +2609,8 @@
           "software-engineer-ii-infrastructure-google-ads-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-12T21:53:02.730Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-12T21:53:02.730Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2504,7 +2655,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118881439759377094-software-engineer-iii-data-engineering-console-agentic-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:03.230Z",
+      "crawledAt": "2026-08-17T21:31:57.095Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2568,6 +2719,81 @@
       }
     },
     {
+      "id": "google-switzerland-ab64ff448007",
+      "slug": "software-engineer-gemini-and-search-google-switzerland-zurich",
+      "slugByLocale": {
+        "en": "software-engineer-gemini-and-search-google-switzerland-zurich",
+        "it": "software-engineer-gemini-and-search-google-switzerland-zurich",
+        "de": "software-engineer-gemini-and-search-google-switzerland-zurich",
+        "fr": "software-engineer-gemini-and-search-google-switzerland-zurich"
+      },
+      "company": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "companyDomain": "google.com",
+      "title": "Software Engineer, Gemini and Search",
+      "titleByLocale": {
+        "en": "Software Engineer, Gemini and Search",
+        "it": "Software Ingegnere, Gemini and Search",
+        "de": "Software Ingenieur, Gemini and Search",
+        "fr": "Software Ingénieur, Gemini and Search"
+      },
+      "description": "Minimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience in back-end development in C++ and Python.\n\n• Experience with machine learning and AI algorithms.\n\nPreferred qualifications:\n\n• Experience with quality analysis and evals.\n\n• Ability to effectively collaborate across time zones.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.People shop on Google more than a billion times a day - and the Commerce team is responsible for building the experiences that serve these users. The mission for Google Commerce is to be an essential part of the shopping journey for consumers - from inspiration to to a simple and secure checkout experience - and the best place for retailers/merchants to connect with consumers. We support and partner with the commerce ecosystem, from large retailers to small local merchants, to give them the tools, technology and scale to thrive in today’s digital world.\n Responsibilities\n\n• Solve challenging quality and infra problems.\n\n• Work with Python, C++ and (sometimes) Kotlin languages.\n\n• Build end-to-end user experiences on different surfaces (AI Mode and Gemini App are priorities), with the focus on backend work (often collaborating with frontend teams).",
+      "descriptionByLocale": {
+        "en": "Minimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience in back-end development in C++ and Python.\n\n• Experience with machine learning and AI algorithms.\n\nPreferred qualifications:\n\n• Experience with quality analysis and evals.\n\n• Ability to effectively collaborate across time zones.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.People shop on Google more than a billion times a day - and the Commerce team is responsible for building the experiences that serve these users. The mission for Google Commerce is to be an essential part of the shopping journey for consumers - from inspiration to to a simple and secure checkout experience - and the best place for retailers/merchants to connect with consumers. We support and partner with the commerce ecosystem, from large retailers to small local merchants, to give them the tools, technology and scale to thrive in today’s digital world.\n Responsibilities\n\n• Solve challenging quality and infra problems.\n\n• Work with Python, C++ and (sometimes) Kotlin languages.\n\n• Build end-to-end user experiences on different surfaces (AI Mode and Gemini App are priorities), with the focus on backend work (often collaborating with frontend teams).",
+        "it": "Minimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience in back-end development in C++ and Python.\n\n• Experience with machine learning and AI algorithms.\n\nPreferred qualifications:\n\n• Experience with quality analysis and evals.\n\n• Ability to effectively collaborate across time zones.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.People shop on Google more than a billion times a day - and the Commerce team is responsible for building the experiences that serve these users. The mission for Google Commerce is to be an essential part of the shopping journey for consumers - from inspiration to to a simple and secure checkout experience - and the best place for retailers/merchants to connect with consumers. We support and partner with the commerce ecosystem, from large retailers to small local merchants, to give them the tools, technology and scale to thrive in today’s digital world.\n Responsibilities\n\n• Solve challenging quality and infra problems.\n\n• Work with Python, C++ and (sometimes) Kotlin languages.\n\n• Build end-to-end user experiences on different surfaces (AI Mode and Gemini App are priorities), with the focus on backend work (often collaborating with frontend teams).",
+        "de": "Minimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience in back-end development in C++ and Python.\n\n• Experience with machine learning and AI algorithms.\n\nPreferred qualifications:\n\n• Experience with quality analysis and evals.\n\n• Ability to effectively collaborate across time zones.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.People shop on Google more than a billion times a day - and the Commerce team is responsible for building the experiences that serve these users. The mission for Google Commerce is to be an essential part of the shopping journey for consumers - from inspiration to to a simple and secure checkout experience - and the best place for retailers/merchants to connect with consumers. We support and partner with the commerce ecosystem, from large retailers to small local merchants, to give them the tools, technology and scale to thrive in today’s digital world.\n Responsibilities\n\n• Solve challenging quality and infra problems.\n\n• Work with Python, C++ and (sometimes) Kotlin languages.\n\n• Build end-to-end user experiences on different surfaces (AI Mode and Gemini App are priorities), with the focus on backend work (often collaborating with frontend teams).",
+        "fr": "Minimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 5 years of experience in back-end development in C++ and Python.\n\n• Experience with machine learning and AI algorithms.\n\nPreferred qualifications:\n\n• Experience with quality analysis and evals.\n\n• Ability to effectively collaborate across time zones.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nWith your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.People shop on Google more than a billion times a day - and the Commerce team is responsible for building the experiences that serve these users. The mission for Google Commerce is to be an essential part of the shopping journey for consumers - from inspiration to to a simple and secure checkout experience - and the best place for retailers/merchants to connect with consumers. We support and partner with the commerce ecosystem, from large retailers to small local merchants, to give them the tools, technology and scale to thrive in today’s digital world.\n Responsibilities\n\n• Solve challenging quality and infra problems.\n\n• Work with Python, C++ and (sometimes) Kotlin languages.\n\n• Build end-to-end user experiences on different surfaces (AI Mode and Gemini App are priorities), with the focus on backend work (often collaborating with frontend teams)."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.google.com/about/careers/applications/jobs/results/108588288641508038-software-engineer-gemini-and-search",
+      "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-17T21:31:56.581Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brandschenkestrasse 110",
+      "postalCode": "8002",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / R&D",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://www.google.com/about/careers/applications/jobs/results/108588288641508038-software-engineer-gemini-and-search",
+      "jobReqId": "108588288641508038",
+      "requirements": [
+        "Bachelor’s degree or equivalent practical experience.",
+        "5 years of experience in back-end development in C++ and Python.",
+        "Experience with machine learning and AI algorithms."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Bachelor’s degree or equivalent practical experience.",
+          "5 years of experience in back-end development in C++ and Python.",
+          "Experience with machine learning and AI algorithms."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:31:56.581Z"
+    },
+    {
       "id": "google-switzerland-6404b8d23833",
       "slug": "senior-security-engineer-cloud-red-team-cloud-ciso-google-switzerland-zurich",
       "slugByLocale": {
@@ -2598,7 +2824,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77028721310999238-senior-security-engineer-cloud-red-team-cloud-ciso",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:02.651Z",
+      "crawledAt": "2026-08-17T21:31:56.066Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2650,8 +2876,8 @@
           "ingenieur-securite-senior-equipe-rouge-cloud-ciso-cloud-google-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-28T11:27:45.786Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T11:27:45.786Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2696,7 +2922,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/73984783499043526-staff-software-engineer-google-cloud-applied-ai-automotive-ai-agent",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:02.109Z",
+      "crawledAt": "2026-08-17T21:31:55.544Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2789,7 +3015,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/135233176434811590-apprenticeship-in-application-development-informatikerin-efz-applikationsentwicklung-august-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:01.615Z",
+      "crawledAt": "2026-08-17T21:31:55.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2883,7 +3109,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:01.104Z",
+      "crawledAt": "2026-08-17T21:31:54.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2911,8 +3137,8 @@
           "3 years of experience with software development in C++ and Python or 1 year of experience with an advanced degree."
         ]
       },
-      "firstSeenAt": "2026-08-07T21:44:34.863Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T21:44:34.863Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2957,7 +3183,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/143876826572169926-ux-engineer-privacy-safety-and-security",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:00.570Z",
+      "crawledAt": "2026-08-17T21:31:53.947Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2988,8 +3214,8 @@
           "Experience in modern front-end frameworks (e.g., JavaScript, React, Angular) and styling languages."
         ]
       },
-      "firstSeenAt": "2026-08-13T21:47:53.329Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:47:53.329Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3034,7 +3260,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/72306402084692678-product-manager-ai-analytics-trust-and-verification",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T09:54:00.009Z",
+      "crawledAt": "2026-08-17T21:31:53.436Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3177,7 +3403,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -3252,7 +3478,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
