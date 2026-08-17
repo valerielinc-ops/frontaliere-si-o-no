@@ -12151,8 +12151,8 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "de": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
-        "en": "business-analyst-specialty-tax-kantonale-verwaltung-zurich-zurich",
         "it": "business-analista-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich",
+        "en": "business-analyst-specialty-tax-kantonale-verwaltung-zurich-zurich-44d223",
         "fr": "business-analyste-in-fachgebiet-steuern-kantonale-verwaltung-zurich-zurich"
       },
       "localePaths": {
@@ -57080,9 +57080,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern",
-        "en": "sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern",
-        "de": "sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern",
+        "de": "sales-associate-bern-westside-hourly-up-to-80pt-guess-europe-sagl-bern-ticino-switzerland",
+        "it": "vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
         "fr": "sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern"
       },
       "localePaths": {
@@ -57091,12 +57090,13 @@
         "de": "/de/jobs-im-freiburg/sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern",
         "fr": "/fr/trouver-emploi-berne/sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.workable.com/guess-europe-sagl/j/31d1b48d9e",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
