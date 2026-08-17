@@ -1,16 +1,16 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-17T10:21:08.473Z",
+  "generatedAt": "2026-08-17T21:31:08.869Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5346,
-  "avgDurationMs": 5346,
+  "durationMs": 4728,
+  "avgDurationMs": 4728,
   "durationHistory": [
-    5346
+    4728
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T10:21:04.995Z",
+      "crawledAt": "2026-08-17T21:31:05.878Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -43,6 +43,7 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "jobReqId": "VN2520",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:37:03.167Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -53,48 +54,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "gavi-d99e316b3873",
-      "slug": "gestione-politica-gavi-the-vaccine-alliance-le-grand-saconnex",
-      "company": "Gavi, the Vaccine Alliance",
-      "companyKey": "gavi",
-      "companyDomain": "gavi.org",
-      "title": "Manager, Policy",
-      "location": "Le Grand-Saconnex",
-      "canton": "GE",
-      "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2515&portal=Global",
-      "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-15T21:27:14.219Z",
-      "addressLocality": "Le Grand-Saconnex",
-      "addressRegion": "GE",
-      "streetAddress": "Chemin du Pommier 40",
-      "postalCode": "1218",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Relazioni Istituzionali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Salute globale / Organizzazioni internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2515&portal=Global",
-      "jobReqId": "VN2515",
-      "firstSeenAt": "2026-08-05T22:32:42.148Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
