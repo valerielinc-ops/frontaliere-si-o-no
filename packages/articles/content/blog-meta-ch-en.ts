@@ -3064,6 +3064,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Scholarships in the canton of Glarus: requirements and amounts',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'The Glarus Canton Scholarship is an important opportunity for students who intend to continue their studies in Switzerland.',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Scholarships in Glarus canton: what changes for Swiss students?',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'House in Glarus: prices, funds and sustainability of the mortgage',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Average house prices in the Canton of Glarus, own funds required and sustainability of the mortgage loan.',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Buying a house in the Glarus Canton: median prices and required own funds',
 };
 
 export default blogMetaChEn;

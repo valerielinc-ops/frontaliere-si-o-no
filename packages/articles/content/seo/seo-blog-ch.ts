@@ -39722,6 +39722,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario': {
+    title: 'Casa a Glarona: prezzi, fondi e sostenibilità del mutuo',
+    description: 'Informazioni sugli prezzi medi delle case nel Cantone di Glarona, sui fondi propri richiesti e sulla sostenibilità del mutuo ipotecario. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, glarona, prezzi, fondi',
+    ogTitle: 'Comprare casa nel Cantone di Glarona: prezzi medi, fondi propri richiesti, sostenibilità del mutuo ipotecario, imposta sui trapassi e spese notarili',
+    ogDescription: 'Informazioni sugli prezzi medi delle case nel Cantone di Glarona, sui fondi propri richiesti e sulla sostenibilità del mutuo ipotecario.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa a Glarona: prezzi, fondi e sostenibilità del mutuo",
+      "description": "Informazioni sugli prezzi medi delle case nel Cantone di Glarona, sui fondi propri richiesti e sulla sostenibilità del mutuo ipotecario. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Comprare casa nel Cantone di Glarona: prezzi medi e fondi propri richiesti"
+      },
+      "datePublished": "2026-08-17T03:56:23+00:00",
+      "dateModified": "2026-08-17T03:56:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

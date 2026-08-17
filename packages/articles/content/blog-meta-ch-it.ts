@@ -3064,6 +3064,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Borse di studio nel Canton Glarona: requisiti e importi',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'La borsa di studio del Canton Glarona è un\'opportunità importante per gli studenti che intendono proseguire gli studi in Svizzera.',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Borse di studio nel Canton Glarona: cosa cambia nella vita degli studenti svizzeri?',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'Casa a Glarona: prezzi, fondi e sostenibilità del mutuo',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Prezzi medi delle case nel Cantone di Glarona, fondi propri richiesti e sostenibilità del mutuo ipotecario.',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Comprare casa nel Cantone di Glarona: prezzi medi e fondi propri richiesti',
 };
 
 export default blogMetaChIt;

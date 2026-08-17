@@ -3064,6 +3064,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Bourses d\'études dans le canton de Glaris : exigences et montants',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'La bourse du canton de Glaris est une opportunité importante pour les étudiants qui souhaitent poursuivre leurs études en Suisse.',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Bourses d\'études dans le canton de Glaris: qu\'est-ce qui change pour les étudiants suisses?',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'Maison à Glaris : prix, fonds et durabilité du prêt',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Prix moyens des maisons dans le canton de Glaris, fonds propres requis et viabilité du prêt hypothécaire.',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Acheter une maison dans le canton de Glaris: prix médians et fonds propres requis',
 };
 
 export default blogMetaChFr;
