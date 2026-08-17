@@ -1039,6 +1039,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-canton-nidvaldo-conversione': { it: 'patente-guida-canton-nidvaldo-conversione', en: 'patente-guida-canton-nidvaldo-conversione-ed-esami', de: 'fahrerlaubnis-kanton-nidvaldo-umstellung', fr: 'permis-de-conduire-canton-nidvaldo-conversion' },
  'permesso-dimora-b-canton-glarona-requisiti-e-rinnovo': { it: 'permesso-dimora-b-canton-glarona-requisiti-e-rinnovo', en: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo', de: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo', fr: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo' },
  'permesso-l-canton-glarona': { it: 'permesso-l-canton-glarona', en: 'permit-l-canton-glarona', de: 'aufenthaltstitel-l-kanton-glaris', fr: 'permis-l-canton-de-glaris' },
+ 'premi-cassa-malati-glarona-riduzione': { it: 'premi-cassa-malati-glarona-riduzione', en: 'healthcare-insurance-premiums-glarus', de: 'gesundheitsversicherungspramien-glarus', fr: 'systeme-de-primes-dassurance-maladie-glaris' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

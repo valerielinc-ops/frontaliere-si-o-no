@@ -3040,6 +3040,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-canton-glarona.title': 'Kurzaufenthaltsbewilligung L im Kanton Glarus: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-canton-glarona.excerpt': 'Die Kurzzeitbewilligung L im Kanton Glarus ist ein wichtiges Dokument für Grenzgänger.',
     'blog.article.permesso-l-canton-glarona.imageAlt': 'Bild zum Aufenthaltstitel L mit kurzer Gültigkeit im Kanton Glarona',
+    'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Krankenkassenprämien Kanton Glarus und Prämienverbilligung',
+    'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'Das Krankenkassen-Prämiensystem im Kanton Glarus mit Prämienbändern und Franchisen',
+    'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'Das Gesundheitsversicherungsprämiensystem im Kanton Glarus',
 };
 
 export default blogMetaChDe;

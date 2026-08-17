@@ -3040,6 +3040,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-canton-glarona.title': 'Permesso L di breve durata nel Canton Glarona: validità e proroga',
     'blog.article.permesso-l-canton-glarona.excerpt': 'Il permesso L di breve durata nel Canton Glarona è un documento importante per i lavoratori frontalieri.',
     'blog.article.permesso-l-canton-glarona.imageAlt': 'Immagine relativa al permesso L di breve durata nel Canton Glarona',
+    'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Premi cassa malati Cantone Glarona e riduzione premi',
+    'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'Il sistema di premi cassa malati nel Cantone di Glarona con fasce di premio e franchigie',
+    'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'Il sistema di premi cassa malati nel Cantone di Glarona',
 };
 
 export default blogMetaChIt;

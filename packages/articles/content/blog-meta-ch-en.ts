@@ -3040,6 +3040,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-canton-glarona.title': 'Short-term permit L in the canton of Glarus: validity and extension',
     'blog.article.permesso-l-canton-glarona.excerpt': 'The short-term L permit in the Glarus Canton is an important document for frontier workers.',
     'blog.article.permesso-l-canton-glarona.imageAlt': 'Image related to permit L of short duration in Canton Glarona',
+    'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Health insurance premiums Canton Glarus and premium reductions',
+    'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'The sick pay premium system in the Canton of Glarus with premium bands and deductibles',
+    'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'The healthcare insurance premiums system in the Canton of Glarus',
 };
 
 export default blogMetaChEn;

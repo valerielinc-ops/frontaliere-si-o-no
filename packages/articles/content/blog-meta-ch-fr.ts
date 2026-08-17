@@ -3040,6 +3040,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-canton-glarona.title': 'Permis L de courte durée dans le canton de Glaris : validité et prolongation',
     'blog.article.permesso-l-canton-glarona.excerpt': 'Le permis L de courte durée dans le canton de Glaris est un document important pour les travailleurs frontaliers.',
     'blog.article.permesso-l-canton-glarona.imageAlt': 'Image liée au permis L de courte durée dans le canton de Glaris',
+    'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Primes caisse-maladie canton de Glaris et réduction des primes',
+    'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'Le système de primes caisse-maladie dans le canton de Glaris avec fourchettes de primes et franchises',
+    'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'Le système de primes d\'assurance maladie dans le canton de Glaris',
 };
 
 export default blogMetaChFr;
