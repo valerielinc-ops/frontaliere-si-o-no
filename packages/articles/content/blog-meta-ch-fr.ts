@@ -3067,6 +3067,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'Maison à Glaris : prix, fonds et durabilité du prêt',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Prix moyens des maisons dans le canton de Glaris, fonds propres requis et viabilité du prêt hypothécaire.',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Acheter une maison dans le canton de Glaris: prix médians et fonds propres requis',
+    'blog.article.scolastico-in-svizzera.title': 'Il est temps de retourner à l\'école dans de nombreux cantons',
+    'blog.article.scolastico-in-svizzera.excerpt': 'Les cours commencent dans les cantons de Zurich, Appenzell Rhodes-Intérieures, Grisons et autres',
+    'blog.article.scolastico-in-svizzera.imageAlt': 'école en Suisse',
 };
 
 export default blogMetaChFr;

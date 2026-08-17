@@ -1048,6 +1048,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-canton-glarona': { it: 'asilo-nido-custodia-bambini-canton-glarona', en: 'nursery-and-custody-of-children-in-the-canton-of-glarona', de: 'kindergarten-und-custodia-dei-bambini-im-kanton-glarona', fr: 'creche-et-custodia-des-enfants-au-canton-de-glarona' },
  'borse-studio-canton-glarona-requisiti-e-importi': { it: 'borse-studio-canton-glarona-requisiti-e-importi', en: 'scholarships-in-glarus-canton-requirements-and-imports', de: 'stipendien-im-kanton-glarus-anforderungen-und-importe', fr: 'bourses-d-etudes-dans-le-canton-de-glaris-exigences-et-imports' },
  'comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario': { it: 'comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario', en: 'house-in-glarus-prices-funds-and-sustainability-of-the-mortgage', de: 'haus-in-glarus-preise-fonds-und-nachhaltigkeit-des-darlehens', fr: 'maison-a-glaris-prix-fonds-et-durabilite-du-pret' },
+ 'scolastico-in-svizzera': { it: 'scolastico-in-svizzera', en: 'school-in-switzerland', de: 'schule-in-schweiz', fr: 'ecole-en-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
