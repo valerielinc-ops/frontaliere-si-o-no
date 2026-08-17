@@ -3172,6 +3172,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.terremoto-indonesia-vittime-68.title': 'Earthquake in Indonesia: the number of victims rises to 68',
     'blog.article.terremoto-indonesia-vittime-68.excerpt': 'Severe shortages of personnel and medicines aggravate the health crisis in the affected areas.',
     'blog.article.terremoto-indonesia-vittime-68.imageAlt': 'Terremoto in Indonesia: sale a 68 il numero delle vittime',
+    'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.title': 'Starting a business in the Canton of Zurich: trade register and costs',
+    'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.excerpt': 'The costs of opening a business in the Canton of Zurich and the procedure for registration in the commercial register.',
+    'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.imageAlt': 'Business setup in the Canton of Zurich, Switzerland',
 };
 
 export default blogMetaChEn;
