@@ -3082,6 +3082,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-glarona.title': 'Aprire un\'attività a Glarona: cosa serve',
     'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Canton Glarona: iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
     'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Scena di un imprenditore svizzero in Canton Glarona.',
+    'blog.article.sorveglianza-mercato-est-2025.title': 'Sorveglianza del mercato ESTI 2025: elevata sicurezza dei prodotti elettrici',
+    'blog.article.sorveglianza-mercato-est-2025.excerpt': 'L\'Ispettorato federale degli impianti a corrente forte (ESTI) ha condotto verifiche di conformità e sicurezza su oltre 1000 prodotti elettrici nel 2025.',
+    'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Controlli dei prodotti elettrici',
 };
 
 export default blogMetaChIt;

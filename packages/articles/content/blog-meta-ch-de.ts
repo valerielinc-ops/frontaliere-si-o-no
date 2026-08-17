@@ -3082,6 +3082,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-glarona.title': 'Ein Geschäft in Glarus eröffnen: Was es braucht',
     'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Kanton Glarus: Handelsregistereintragung, Mindestkapital, Eintragungsgebühren und Versicherungspflichten.',
     'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Szenen eines Schweizer Unternehmers im Kanton Glarus.',
+    'blog.article.sorveglianza-mercato-est-2025.title': 'Esti 2025 Marktüberwachung: Hohe Sicherheit elektrischer Produkte',
+    'blog.article.sorveglianza-mercato-est-2025.excerpt': 'Das Eidgenössische Starkstrominspektorat (Esti) hat im Jahr 2025 Konformitäts- und Sicherheitsprüfungen an über 1000 elektrischen Produkten durchgeführt.',
+    'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Elektronikprodukte in der Schweiz',
 };
 
 export default blogMetaChDe;
