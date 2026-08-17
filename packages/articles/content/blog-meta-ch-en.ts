@@ -3169,6 +3169,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.minuscoli-droni-sonore-epfl.title': 'Tiny drones go where the sound takes them: EPFL creates hollow structures',
     'blog.article.minuscoli-droni-sonore-epfl.excerpt': 'EPFL research on mini drones and sound waves in Switzerland',
     'blog.article.minuscoli-droni-sonore-epfl.imageAlt': 'EPFL research on mini drones and sound waves in Switzerland',
+    'blog.article.terremoto-indonesia-vittime-68.title': 'Earthquake in Indonesia: the number of victims rises to 68',
+    'blog.article.terremoto-indonesia-vittime-68.excerpt': 'Severe shortages of personnel and medicines aggravate the health crisis in the affected areas.',
+    'blog.article.terremoto-indonesia-vittime-68.imageAlt': 'Terremoto in Indonesia: sale a 68 il numero delle vittime',
 };
 
 export default blogMetaChEn;
