@@ -3211,6 +3211,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-friburgo.title': 'School system Canton Fribourg: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'The age of enrolment, curricula and school calendar in the Canton of Freiburg.',
     'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'School education in the Canton of Fribourg: cycles, age of enrollment, school calendar, languages of instruction and transition to upper secondary schools.',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.title': 'Apprenticeship in the Canton of Freiburg: find an internship',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.excerpt': 'How apprenticeships and vocational training work in the Canton of Freiburg: job opportunities, internship contracts and professional maturity',
+    'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.imageAlt': 'Apprenticeships in Switzerland',
 };
 
 export default blogMetaChEn;

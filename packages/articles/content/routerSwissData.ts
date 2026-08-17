@@ -1096,6 +1096,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'infantino-fifa-lamour-licenziato': { it: 'infantino-fifa-lamour-licenziato', en: 'infantino-fifa-lamour-fired', de: 'infantino-fifa-lamour-abgesetzt', fr: 'infantino-fifa-lamour-licencie' },
  'assegni-familiari-canton-friburgo': { it: 'assegni-familiari-canton-friburgo', en: 'child-allowance-canton-fribourg', de: 'kindergeld-kanton-freiburg', fr: 'allocation-natality-canton-fribourg' },
  'sistema-scolastico-canton-friburgo': { it: 'sistema-scolastico-canton-friburgo', en: 'school-system-canton-fribourg', de: 'schulsystem-kanton-freiburg', fr: 'systeme-educatif-canton-fribourg' },
+ 'apprendistato-e-formazione-professionale-canton-friburgo': { it: 'apprendistato-e-formazione-professionale-canton-friburgo', en: 'apprenticeships-and-professional-training-in-fribourg-canton', de: 'berufsausbildung-und-professionelle-ausbildung-kanton-freiburg', fr: 'apprentissages-et-formation-professionnelle-canton-de-fribourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
