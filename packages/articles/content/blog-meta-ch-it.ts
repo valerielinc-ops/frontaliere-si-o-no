@@ -3085,6 +3085,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sorveglianza-mercato-est-2025.title': 'Sorveglianza del mercato ESTI 2025: elevata sicurezza dei prodotti elettrici',
     'blog.article.sorveglianza-mercato-est-2025.excerpt': 'L\'Ispettorato federale degli impianti a corrente forte (ESTI) ha condotto verifiche di conformità e sicurezza su oltre 1000 prodotti elettrici nel 2025.',
     'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Controlli dei prodotti elettrici',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Imposte di successione nel Cantone di Glarona',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'Le aliquote variano in base al grado di parentela',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'L\'imposta di successione e donazione nel Cantone di Glarona',
 };
 
 export default blogMetaChIt;

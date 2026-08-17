@@ -3085,6 +3085,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sorveglianza-mercato-est-2025.title': 'Esti 2025 market surveillance: high safety of electrical products',
     'blog.article.sorveglianza-mercato-est-2025.excerpt': 'The Federal Inspectorate of High Current Installations (esti) conducted compliance and safety audits on over 1000 electrical products in 2025.',
     'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Electric product control in Switzerland',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Inheritance taxes in the Canton of Glarus',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'The rates vary according to the degree of kinship',
+    'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'The inheritance and gift tax in the Canton of Glarus',
 };
 
 export default blogMetaChEn;
