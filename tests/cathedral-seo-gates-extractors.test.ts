@@ -414,25 +414,25 @@ describe('#5528 — usesOwnRatchet trusts the audit exit code, not a raw count d
     expect(entry.status).toBe('regressed');
   });
 
-  it('exactly the four gates with their own composition-aware ratchet are marked usesOwnRatchet', () => {
+  it('exactly the five gates with their own composition-aware ratchet are marked usesOwnRatchet', () => {
     const flagged = GATES.filter((g) => g.usesOwnRatchet === true)
       .map((g) => g.name)
       .sort();
     expect(flagged).toEqual([
       'max-bfs-depth',
+      'orphan-sitemap-pages',
       'text-html-ratio',
       'title-length',
       'title-no-disambig-hash',
     ]);
-    // orphan-sitemap-pages doesn't pass `--baseline` at all (its underlying
-    // script doesn't even accept the flag) — the wrapper's raw comparison is
-    // the ONLY check for it, so it must stay off this list. image-object-license
-    // is zero-tolerance and has no ratchet to defer to either. max-bfs-depth
-    // DOES pass --baseline to a script with its own rate ratchet
-    // (evaluateBfsGate()) and is flagged above, not here.
+    // Issue #5972: orphan-sitemap-pages DOES pass `--gate=baseline` to a
+    // script with its own rate ratchet (compareAgainstBaseline(), added in
+    // #1604) — same shape as max-bfs-depth's evaluateBfsGate() — so it is
+    // flagged here too, not excluded. image-object-license is zero-tolerance
+    // and has no ratchet to defer to, so it's the only gate left unflagged.
     const notFlagged = GATES.filter((g) => g.usesOwnRatchet !== true)
       .map((g) => g.name)
       .sort();
-    expect(notFlagged).toEqual(['image-object-license', 'orphan-sitemap-pages']);
+    expect(notFlagged).toEqual(['image-object-license']);
   });
 });

@@ -142,7 +142,20 @@ export const GATES = [
   },
   {
     name: 'orphan-sitemap-pages',
-    cmd: ['node', 'scripts/audit-orphan-pages-in-sitemaps.mjs'],
+    // Issue #5972: audit-orphan-pages-in-sitemaps.mjs gained its own
+    // composition-shift-aware RATE ratchet in #1604 (mirrors evaluateBfsGate())
+    // and exposes it via `--gate=baseline` (exit 1 only on a real per-sitemap
+    // rate regression, not on the corpus simply growing). This wrapper was
+    // never updated to pass the flag or trust it — the same
+    // usesOwnRatchet gap #5542 closed for text-html-ratio / title-length /
+    // title-no-disambig-hash / max-bfs-depth, just missed here. Without
+    // `--gate=baseline` the audit always exits 0, so evaluateGate() fell back
+    // to a raw current-vs-baseline totalOrphans comparison — composition-shift
+    // BLIND — and organic URL growth alone (more sitemap entries at a flat or
+    // improved orphan RATE) tripped `status=regressed` (current=3474
+    // baseline=1982, #5972). Passing --gate=baseline + usesOwnRatchet: true
+    // makes this gate behave exactly like its four siblings.
+    cmd: ['node', 'scripts/audit-orphan-pages-in-sitemaps.mjs', '--gate=baseline'],
     auditCmd: 'npm run audit:orphan-sitemap-pages',
     rebaselineCmd: 'npm run audit:orphan-sitemap-pages:rebaseline',
     baselineFile: 'data/orphan-pages-baseline.json',
@@ -150,6 +163,7 @@ export const GATES = [
     // evaluateGate() must not bail out on a failed JSON parse before calling
     // extractCurrent.
     readsOwnReport: true,
+    usesOwnRatchet: true,
     // audit-orphan-pages-in-sitemaps has no `--json` mode, but it always writes
     // its machine-readable report to data/orphan-pages-audit.json (line 804)
     // before exiting. Read THAT. The previous reader regexed the human table on
