@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-08-16T21:47:38.979Z",
+  "generatedAt": "2026-08-17T09:59:21.678Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4485,
-  "avgDurationMs": 4485,
+  "durationMs": 4494,
+  "avgDurationMs": 4494,
   "durationHistory": [
-    4485
+    4494
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,6 @@
       "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
       "sourceLang": "it",
       "id": "banca-sempione-f74739997e11",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -55,14 +54,14 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "needsRetranslation": true,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 11
       }
     },
@@ -81,9 +80,9 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -107,7 +106,6 @@
       "slug": "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich",
       "sourceLang": "en",
       "id": "banca-sempione-f45acac33926",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "_qualityScore": 75,
