@@ -40814,6 +40814,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-canton-zugo-canoni-medi-diritto-locazione': {
+    title: 'Affitti nel canton Zugo: canoni medi, depositi e diritti degli inquilini',
+    description: 'Guida completa al mercato degli affitti nel Canton Zugo: canoni medi per zona, deposito di garanzia, procedure di contestazione e disdetta secondo il diritto',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, canton, zugo, canoni',
+    ogTitle: 'Affitti nel Canton Zugo: Tutto su Canoni, Depositi e Diritti',
+    ogDescription: 'Scopri i canoni medi degli affitti nel Canton Zugo, come contestare un canone eccessivo e le procedure di disdetta legali. Guida pratica con dati verificati e passi concreti.',
+    canonicalPath: '/articoli-svizzera/affitti-canton-zugo-canoni-medi-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti nel canton Zugo: canoni medi, depositi e diritti degli inquilini",
+      "description": "Guida completa al mercato degli affitti nel Canton Zugo: canoni medi per zona, deposito di garanzia, procedure di contestazione e disdetta secondo il diritto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-canton-zugo-canoni-medi-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Zugo con edifici residenziali e barche al tramonto"
+      },
+      "datePublished": "2026-08-17T15:27:44+00:00",
+      "dateModified": "2026-08-17T15:27:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-canton-zugo-canoni-medi-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-zugo-cantoni-medi': {
+    title: 'Mercato degli affitti nel Cantone di Zugo: canoni medi e diritto di locazione',
+    description: 'Gli affitti nel Cantone di Zugo: i canoni medi e il diritto di locazione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, cantone, zugo',
+    ogTitle: 'Mercato degli affitti nel Cantone di Zugo: canoni medi e diritto di locazione',
+    ogDescription: 'Gli affitti nel Cantone di Zugo: i canoni medi e il diritto di locazione.',
+    canonicalPath: '/articoli-svizzera/affitti-zugo-cantoni-medi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato degli affitti nel Cantone di Zugo: canoni medi e diritto di locazione",
+      "description": "Gli affitti nel Cantone di Zugo: i canoni medi e il diritto di locazione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-zugo-cantoni-medi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un mercato immobiliare in Zug, Svizzera, con enfasi sui canoni medi cantonali e sul diritto di locazione."
+      },
+      "datePublished": "2026-08-17T15:34:37+00:00",
+      "dateModified": "2026-08-17T15:34:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-zugo-cantoni-medi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-siccita-svizzera-ladri-acqua-preoccupazioni': {
+    title: 'Siccità in Svizzera: spuntano i \'ladri di acqua\', preoccupato il 46%',
+    description: 'Siccità record in Svizzera: fontane chiuse per furti, 46% preoccupati. Incendi, agricoltura e salute a rischio. Consumo reale 142 litri/giorno. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, spuntano, ladri, acqua',
+    ogTitle: 'Svizzera in siccità: furti d\'acqua e allarme sociale | Frontaliere Ticino',
+    ogDescription: 'Fontane a secco, razionamenti e timori per il futuro: la crisi idrica svizzera tra emergenza ecologica e impatti economici. Il 60% prevede difficoltà entro 10 anni.',
+    canonicalPath: '/articoli-svizzera/siccita-svizzera-ladri-acqua-preoccupazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità in Svizzera: spuntano i 'ladri di acqua', preoccupato il 46%",
+      "description": "Siccità record in Svizzera: fontane chiuse per furti, 46% preoccupati. Incendi, agricoltura e salute a rischio. Consumo reale 142 litri/giorno. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-svizzera-ladri-acqua-preoccupazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bacino idrico screpolato nelle Alpi svizzere durante la siccità"
+      },
+      "datePublished": "2026-08-17T15:43:26+00:00",
+      "dateModified": "2026-08-17T15:43:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-svizzera-ladri-acqua-preoccupazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cyberattacco-stadler-rail': {
+    title: 'Ciberattacco a Stadler Rail: presunto hacker a processo a Zurigo',
+    description: 'Un processo a Zurigo contro un presunto hacker ucraino accusato di hackeraggio di aziende, tra cui Stadler Rail. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ciberattacco, stadler, rail, presunto',
+    ogTitle: 'Ciberattacco a Stadler Rail: presunto hacker a processo a Zurigo',
+    ogDescription: 'Un processo a Zurigo contro un presunto hacker ucraino accusato di hackeraggio di aziende, tra cui Stadler Rail.',
+    canonicalPath: '/articoli-svizzera/cyberattacco-stadler-rail/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ciberattacco a Stadler Rail: presunto hacker a processo a Zurigo",
+      "description": "Un processo a Zurigo contro un presunto hacker ucraino accusato di hackeraggio di aziende, tra cui Stadler Rail. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cyberattacco-stadler-rail.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un processo a Zurigo per hackeraggio di aziende, tra cui Stadler Rail."
+      },
+      "datePublished": "2026-08-17T15:48:23+00:00",
+      "dateModified": "2026-08-17T15:48:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cyberattacco-stadler-rail/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

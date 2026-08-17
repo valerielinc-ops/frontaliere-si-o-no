@@ -3148,6 +3148,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.title': 'Kindergarten and childcare in Canton Zug: costs',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.excerpt': 'Costs for childcare and childcare in Canton Zug may vary based on the calculated rate on income and available cantonal subsidies.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.imageAlt': 'Image of a kindergarten in Canton Zug',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.title': 'Rentals in the canton of Zug: average fees, deposits and tenants\' rights',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.excerpt': 'Practical guide to the rental market in the Canton of Zug: average rents by area, security deposit, rent dispute and cancellation procedures according to federal law.',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.imageAlt': 'Lake Zug with residential buildings and boats at sunset',
+    'blog.article.affitti-zugo-cantoni-medi.title': 'Rental market in the Canton of Zug: average fees and rental rights',
+    'blog.article.affitti-zugo-cantoni-medi.excerpt': 'Rentals in the Canton of Zug: average rents and rental rights.',
+    'blog.article.affitti-zugo-cantoni-medi.imageAlt': 'A scene of a real estate market in Zug, Switzerland, with a focus on cantonal median rents and the right to rent.',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.title': 'Drought in Switzerland: \'water thieves\' sprout, 46% worried',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.excerpt': 'Dry fountains and rationing: the Swiss water crisis between theft and alarms for the future. 60% foresee difficulties within 10 years.',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.imageAlt': 'Cracked reservoir bed in Swiss Alps during drought',
+    'blog.article.cyberattacco-stadler-rail.title': 'Cyberattack on Stadler Rail: alleged hacker on trial in Zurich',
+    'blog.article.cyberattacco-stadler-rail.excerpt': 'A trial in Zurich against an alleged Ukrainian hacker accused of hacking companies, including Stadler Rail.',
+    'blog.article.cyberattacco-stadler-rail.imageAlt': 'A cyberattack case at the District Court of Zurich involving Stadler Rail.',
 };
 
 export default blogMetaChEn;
