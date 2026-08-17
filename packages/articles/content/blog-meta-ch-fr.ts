@@ -3022,6 +3022,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-canton-nidvaldo.title': 'Salaires et marché du travail dans le canton de Nidwald',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo.excerpt': 'Analyse des secteurs qu\'ils prennent, des niveaux de salaire par formation, des conventions collectives et de l\'environnement réglementaire dans le canton de Nidwald.',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo.imageAlt': 'Marché du travail et salaires dans le canton de Nidwald en Suisse',
+    'blog.article.patente-guida-canton-nidvaldo-conversione-ed-esami.title': 'Permis de conduire dans le canton de Nidwald : conversion et examens',
+    'blog.article.patente-guida-canton-nidvaldo-conversione-ed-esami.excerpt': 'Pour obtenir le permis de conduire dans le canton de Nidwald, les frontaliers doivent convertir leur licence étrangère et passer un examen théorique et pratique, ainsi que s\'inscrire aux cours obligatoires.',
+    'blog.article.patente-guida-canton-nidvaldo-conversione-ed-esami.imageAlt': 'Un frontalier conduit en Suisse avec gris et nuages',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.title': 'Salaires et marché du travail canton de Nidwald : secteurs et niveaux',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.excerpt': 'Marché du travail dans le canton de Nidwald : secteurs qui embauchent, niveaux de salaire par niveau de formation, conventions collectives en vigueur et salaire minimum le cas échéant.',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.imageAlt': 'Lac de Lugano',
 };
 
 export default blogMetaChFr;
