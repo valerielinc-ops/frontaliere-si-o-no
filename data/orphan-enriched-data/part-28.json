@@ -54419,10 +54419,10 @@
         "fr": "responsabile-di-negozio-f-m-d-volg-baltschieder"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/responsabile-di-negozio-f-m-d-volg-baltschieder",
-        "en": "/en/find-jobs-ticino/responsabile-di-negozio-f-m-d-volg-baltschieder",
-        "de": "/de/jobs-im-tessin/responsabile-di-negozio-f-m-d-volg-baltschieder",
-        "fr": "/fr/trouver-emploi-tessin/responsabile-di-negozio-f-m-d-volg-baltschieder"
+        "it": "/cerca-lavoro-vallese/responsabile-di-negozio-f-m-d-volg-baltschieder",
+        "en": "/en/find-jobs-valais/responsabile-di-negozio-f-m-d-volg-baltschieder",
+        "de": "/de/jobs-im-wallis/responsabile-di-negozio-f-m-d-volg-baltschieder",
+        "fr": "/fr/trouver-emploi-valais/responsabile-di-negozio-f-m-d-volg-baltschieder"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71809,10 +71809,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "techniker-lieferantenqualitat-agie-charmilles-biel",
-        "en": "techniker-lieferantenqualitat-agie-charmilles-biel",
+        "it": "qualita-del-fornitore-tecnico-agie-charmilles-sa-biel",
+        "en": "technician-supplier-quality-agie-charmilles-sa-biel",
         "de": "techniker-lieferantenqualitat-agie-charmilles-biel",
-        "fr": "techniker-lieferantenqualitat-agie-charmilles-biel"
+        "fr": "qualite-du-fournisseur-agie-charmilles-sa-biel"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/techniker-lieferantenqualitat-agie-charmilles-biel",
@@ -71820,12 +71820,13 @@
         "de": "/de/jobs-im-bern/techniker-lieferantenqualitat-agie-charmilles-biel",
         "fr": "/fr/trouver-emploi-berne/techniker-lieferantenqualitat-agie-charmilles-biel"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-techniker-lieferantenqualitat",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
