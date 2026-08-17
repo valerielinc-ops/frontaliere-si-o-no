@@ -3079,6 +3079,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-pubblici-glarona.title': 'Abbonamenti trasporti pubblici nel Cantone Glarona: zone, tariffe e combinazioni',
     'blog.article.trasporti-pubblici-glarona.excerpt': 'Scopri i dettagli sui abbonamenti trasporti pubblici nel Cantone Glarona, incluse le zone, le tariffe e le combinazioni con metà-prezzo e AG',
     'blog.article.trasporti-pubblici-glarona.imageAlt': 'Un treno attraversa la regione del Cantone Glarona',
+    'blog.article.aprire-un-attivita-canton-glarona.title': 'Aprire un\'attività a Glarona: cosa serve',
+    'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Canton Glarona: iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Scena di un imprenditore svizzero in Canton Glarona.',
 };
 
 export default blogMetaChIt;

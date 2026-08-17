@@ -39917,6 +39917,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-un-attivita-canton-glarona': {
+    title: 'Aprire un\'attività a Glarona: cosa serve | Frontaliere Ticino',
+    description: 'Informazioni sulle società a responsabilità limitata nel Canton Glarona, inclusa la registrazione presso l\'Ufficio di Stato per la Formazione Professionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, glarona, cosa',
+    ogTitle: 'Aprire un\'attività in Canton Glarona: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    ogDescription: 'Informazioni sulle società a responsabilità limitata nel Canton Glarona, inclusa la registrazione presso l\'Ufficio di Stato per la Formazione Professionale (ASEF), il capitale minimo e la tassa di iscrizione.',
+    canonicalPath: '/articoli-svizzera/aprire-un-attivita-canton-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Glarona: cosa serve",
+      "description": "Informazioni sulle società a responsabilità limitata nel Canton Glarona, inclusa la registrazione presso l'Ufficio di Stato per la Formazione Professionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-un-attivita-canton-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di un imprenditore svizzero in Canton Glarona."
+      },
+      "datePublished": "2026-08-17T05:54:28+00:00",
+      "dateModified": "2026-08-17T05:54:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-un-attivita-canton-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

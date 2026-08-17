@@ -3079,6 +3079,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-pubblici-glarona.title': 'Public transport passes in the canton of Glarus: zones, fares and combinations',
     'blog.article.trasporti-pubblici-glarona.excerpt': 'Find out details about public transport passes in the Canton of Glarus, including zones, fares and half-price and AG combinations',
     'blog.article.trasporti-pubblici-glarona.imageAlt': 'A train crosses the Glarus region',
+    'blog.article.aprire-un-attivita-canton-glarona.title': 'Opening a business in Glarus: what you need',
+    'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Canton Glarus: registration in the commercial register, minimum capital, registration fees and insurance obligations.',
+    'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Scene of a Swiss entrepreneur in Glarus.',
 };
 
 export default blogMetaChEn;
