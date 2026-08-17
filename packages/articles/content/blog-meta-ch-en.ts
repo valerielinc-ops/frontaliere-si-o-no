@@ -3058,6 +3058,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-glarona.title': 'Apprenticeship and vocational training in the Canton of Glarus',
     'blog.article.apprendistato-glarona.excerpt': 'How to find an internship, internship contract, apprentice salary and professional maturity in the Canton of Glarus.',
     'blog.article.apprendistato-glarona.imageAlt': 'Image of a young apprentice in vocational training at a company in the Glarus canton.',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Nursery and childcare Canton Glarus costs',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Income Calculated Rates and Cantonal Subsidies Available for Low-Income Families',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custody of children in the Canton of Glarona: nurseries, day-care families, after-school, tariffs calculated on income and cantonal subsidies available',
 };
 
 export default blogMetaChEn;
