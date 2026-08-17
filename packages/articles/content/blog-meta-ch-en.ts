@@ -3088,6 +3088,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Inheritance taxes in the Canton of Glarus',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'The rates vary according to the degree of kinship',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'The inheritance and gift tax in the Canton of Glarus',
+    'blog.article.imposte-cantonal-zugo-aliquote.title': 'Cantonal taxes in Zug: rates, brackets, deductions',
+    'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Concrete results of cantonal taxes in Zug: rates, brackets, allowable deductions, delivery deadlines and online portal of the cantonal tax administration.',
+    'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Panoramic view of Lugano, Switzerland, with emphasis on cantonal fiscal policies.',
 };
 
 export default blogMetaChEn;

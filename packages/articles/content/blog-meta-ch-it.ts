@@ -3088,6 +3088,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Imposte di successione nel Cantone di Glarona',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'Le aliquote variano in base al grado di parentela',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'L\'imposta di successione e donazione nel Cantone di Glarona',
+    'blog.article.imposte-cantonal-zugo-aliquote.title': 'Imposte cantonali in Zugo: aliquote, scaglioni, deduzioni',
+    'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Risultati concreti delle imposte cantonali di Zugo: aliquote, scaglioni, deduzioni ammesse, scadenze di consegna e portale online dell\'amministrazione fiscale cantonale.',
+    'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Vista panoramica di Lugano, Svizzera, con enfasi sulle politiche fiscali cantonali.',
 };
 
 export default blogMetaChIt;
