@@ -73,6 +73,20 @@ Fix: rimosso `.git/refs/.DS_Store`; `git repack -a -d -b` (consolidamento full +
 
 Concausa disco: al momento del fix il disco era al 98% (12GB liberi) per un leak di ~20 directory worktree orfane sotto `.claude/worktrees/` (non registrate in `git worktree list`, zero processi attivi via `lsof`, alcune risalenti al 17 giugno) — probabile buco (d) del pattern `worktree-branch-leak` sopra, ma a livello di **filesystem** invece che di `git worktree`/branch: una directory rimasta orfana quando l'operazione di rimozione worktree non è arrivata a completamento. Rimosse dopo verifica incrociata `git worktree list` (assenti) + `lsof +D` (nessun processo con cwd lì) per non toccare worktree di sessioni parallele realmente attive.
 
+## hook-fetch-pileup
+
+Osservato 2026-08-17: ogni `git fetch` sul repo andava in timeout, `.git` a **55GB**. Terza incarnazione della famiglia "push/fetch che non finisce" (dopo `git-repo-maintenance` e `shallow-clone-thin-pack`), ma con causa nuova: **concorrenza**, non pack disgiunti né shallow.
+
+Diagnosi: 23 processi `git fetch` vivi da oltre 20 minuti, figli di **11 istanze** dello stesso SessionStart hook (`prune-merged-worktrees.mjs --apply`, più `frontaliere-main-freshness.sh` a livello utente). L'hook è dichiarato in `.claude/settings.json` come `( node ... --apply >/dev/null 2>&1 & ) || true`: detached, senza lock, senza timeout, e lo script fa `git fetch origin main --prune` in cima (prima di ogni gate `--apply`). Ogni sessione agent che partiva — o ripartiva — ne aggiungeva una: N sessioni = N fetch sullo stesso `.git`, che si contendono il lock di git e non arrivano mai in fondo. Il repo con 24k commit di arretrato rendeva ogni fetch un catch-up multi-GB, quindi la finestra di sovrapposizione era di **minuti**, non di secondi.
+
+Il danno non era il tempo perso ma il residuo: un `fetch` morto a metà trasferimento lascia il suo `.git/objects/pack/tmp_pack_*`, e **nessun comando git lo recupera** — `gc`/`maintenance`/`prune` non li toccano (git li conta come `garbage` in `count-objects -vH`, non come oggetti). Misurati **90 file, 38.8GB**. In più `git maintenance` risultava registrato in `~/.gitconfig` ma **senza launchd agent**: mai girato, 125 pack accumulati, e un `commit-graph-chain.lock` orfano dal 6 luglio che faceva fallire ogni run successivo con *"Another git process seems to be running"*.
+
+Recupero: kill dei processi appesi, `rm -f .git/objects/pack/tmp_pack_*` (39GB liberati), rimozione del lock stale, `git repack --geometric=2 -d --write-midx` — scelto al posto di `repack -a -d -b` perché con 34GB liberi il repack full non ci stava (serve ~2× il pack totale): 126 pack → 1, `.git` 24GB → 14GB, `multi-pack-index write --bitmap` di nuovo verde. Fetch da timeout a **2.9s**. Poi `git maintenance start` reale (prefetch oraria = niente più catch-up multi-GB) e via l'entry `maintenance.repo` di un worktree inesistente.
+
+Fix strutturale: il fetch dell'hook è ora single-flight (`scripts/lib/single-flight-lock.mjs`, lock in `.git/frontaliere-prune-fetch.lock` con takeover su pid morto/lock scaduto) + timeout 120s, e allo stesso giro pota i `tmp_pack_*` abbandonati (`scripts/lib/stale-fetch-pack-sweep.mjs`, soglia 60min ≈ 3× il fetch più lento misurato, così non può colpire un trasferimento vivo). Fetch saltato = `origin/main` un po' stale, caso che lo script già tollerava (degrada a report-only, mai a una cancellazione a torto). Runbook: `docs/LOCAL-DEV.md#variant-garbage-from-aborted-fetches-not-prune-packable`.
+
+Regola generale che ne esce: **uno hook non presidiato che fa rete deve essere single-flight e avere un timeout.** Senza, il costo non è "una operazione lenta" ma un leak di disco silenzioso che si scopre a 39GB.
+
 ## shallow-clone-thin-pack
 
 Issue #5258: `git push` non completava anche per diff minuscoli (2 commit, 6 file, 961 inserzioni sopra `origin/main`) — piantato sull'enumerazione oggetti oltre 40 minuti su due sessioni agent separate. Diverso dall'incidente `git-repo-maintenance` sopra: qui `git count-objects -vH` era pulito, nessun pack disgiunto.

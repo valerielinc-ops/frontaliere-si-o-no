@@ -31,6 +31,10 @@
 // solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
 
 import { execSync } from 'node:child_process';
+import { join } from 'node:path';
+
+import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
 
 const APPLY = process.argv.includes('--apply');
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
@@ -38,9 +42,13 @@ const APPLY = process.argv.includes('--apply');
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
 const ORPHANS_ONLY = process.argv.includes('--orphans-only');
 
-function sh(cmd, { allowFail = false } = {}) {
+function sh(cmd, { allowFail = false, timeout } = {}) {
   try {
-    return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    return execSync(cmd, {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+      ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}),
+    }).trim();
   } catch (e) {
     if (allowFail) return '';
     throw e;
@@ -97,7 +105,30 @@ if (ORPHANS_ONLY) {
 // cleanup. `--prune` pota i ref remote-tracking stantii (EC5): senza, `git branch
 // -r` mostra branch già cancellati su origin → diagnosi falsata ("merged ma
 // ancora lì" fantasma).
-sh(`git fetch origin ${mainBranch} --prune -q`, { allowFail: true });
+// SINGLE-FLIGHT + TIMEOUT (incidente 2026-08-17). Il SessionStart hook lancia
+// questo script detached: senza guard, N sessioni = N fetch concorrenti sullo
+// stesso `.git` che si contendono il lock di git, non finiscono mai e lasciano
+// `tmp_pack_*` abortiti (misurati: 23 fetch vivi >20min, 38.8 GB di residui,
+// `.git` a 55 GB). Il lock fa lavorare solo il primo; il timeout impedisce che
+// un fetch patologico resti appeso per l'intera sessione; lo sweep pota i
+// residui che git non pota da sé. Fetch mancato = origin/<main> leggermente
+// stale, caso già tollerato dallo script (degrada a report-only, mai a una
+// cancellazione a torto).
+const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
+const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
+const FETCH_TIMEOUT_MS = 120_000;
+
+const fetchRun = withSingleFlightLock(fetchLock, () => {
+  sh(`git fetch origin ${mainBranch} --prune -q`, { allowFail: true, timeout: FETCH_TIMEOUT_MS });
+  return sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
+});
+
+if (!fetchRun.acquired) {
+  console.log(`ℹ️  fetch saltato: un'altra istanza tiene ${fetchLock} — uso origin/${mainBranch} locale.`);
+} else if (fetchRun.value?.removed) {
+  const mb = Math.round(fetchRun.value.bytes / 1048576);
+  console.log(`🧹 potati ${fetchRun.value.removed} pack temporanei di fetch abortiti (${mb} MB).`);
+}
 
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md): il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
