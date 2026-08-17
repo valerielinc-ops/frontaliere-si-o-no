@@ -3088,6 +3088,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Impôts sur les successions dans le canton de Glaris',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'Les taux varient en fonction du degré de parenté',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'L\'impôt de succession et de donation dans le Canton de Glaris',
+    'blog.article.imposte-cantonal-zugo-aliquote.title': 'Impôts cantonaux à Zoug : taux, tranches, déductions',
+    'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Résultats concrets des impôts cantonaux de Zoug : taux, échelonnements, déductions admises, délais de livraison et portail en ligne de l\'administration fiscale cantonale.',
+    'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Vue panoramique de Lugano, Suisse, avec un accent sur les politiques fiscales cantonales.',
 };
 
 export default blogMetaChFr;

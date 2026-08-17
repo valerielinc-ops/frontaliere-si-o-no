@@ -3088,6 +3088,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.title': 'Erbschaftssteuern im Kanton Glarus',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.excerpt': 'Die Sätze variieren je nach Verwandtschaftsgrad',
     'blog.article.imposta-di-succesione-e-donazione-canton-glarona.imageAlt': 'Die Erbschafts- und Schenkungssteuer im Kanton Glarus',
+    'blog.article.imposte-cantonal-zugo-aliquote.title': 'Kantonale Steuern in Zug: Steuersätze, Staffeln, Abzüge',
+    'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Konkrete Ergebnisse der kantonalen Zuger Steuern: Sätze, Staffelungen, zulässige Abzüge, Liefertermine und Online-Portal der kantonalen Steuerverwaltung.',
+    'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Panoramablick auf Lugano, Schweiz, mit Schwerpunkt auf die kantonalen Finanzpolitiken.',
 };
 
 export default blogMetaChDe;

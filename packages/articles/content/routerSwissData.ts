@@ -1055,6 +1055,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-un-attivita-canton-glarona': { it: 'aprire-un-attivita-canton-glarona', en: 'open-a-business-in-glarus', de: 'ein-untersnehmen-in-glarus-eroffnen', fr: 'ouvrir-un-entreprise-a-glaris' },
  'sorveglianza-mercato-est-2025': { it: 'sorveglianza-mercato-est-2025', en: 'est-market-surveillance-2025', de: 'marktuberwachung-est-2025', fr: 'surveillance-du-marche-est-2025' },
  'imposta-di-succesione-e-donazione-canton-glarona': { it: 'imposta-di-succesione-e-donazione-canton-glarona', en: 'inheritance-and-gift-tax-in-the-canton-of-glarus', de: 'erbschafts-und-schenkungssteuer-im-kanton-glarus', fr: 'impot-de-succes-et-de-donation-dans-le-canton-de-glaris' },
+ 'imposte-cantonal-zugo-aliquote': { it: 'imposte-cantonal-zugo-aliquote', en: 'zurich-cantonal-taxes-rates', de: 'kantonale-steuern-zuerich-schweiz', fr: 'impots-cantonaux-zurich-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
