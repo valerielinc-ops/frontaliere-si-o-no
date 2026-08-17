@@ -9487,6 +9487,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'trasporti-pubblici-zugo-abbonamenti',
+    category: 'pratico',
+    date: '2026-08-17T16:02:49.928Z',
+    image: '/images/blog/trasporti-pubblici-zugo-abbonamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'minuscoli-droni-sonore-epfl',
+    category: 'novita',
+    date: '2026-08-17T16:15:44.612Z',
+    image: '/images/blog/minuscoli-droni-sonore-epfl.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

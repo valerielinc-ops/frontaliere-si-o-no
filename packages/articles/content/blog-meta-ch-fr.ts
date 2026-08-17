@@ -3163,6 +3163,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanzioni-onu-2026-ch.title': 'Sanctions de l\'ONU : restrictions aux personnes et aux entreprises',
     'blog.article.sanzioni-onu-2026-ch.excerpt': 'Le Comité des sanctions de l\'ONU a modifié la liste des personnes physiques, entreprises et organisations faisant l\'objet de sanctions. La base de données SESAM n\'est pas mentionnée dans la source.',
     'blog.article.sanzioni-onu-2026-ch.imageAlt': 'Frontalier consultant la liste des sanctions de l\'ONU.',
+    'blog.article.trasporti-pubblici-zugo-abbonamenti.title': 'Abonnements transports publics Canton Zoug zones et tarifs',
+    'blog.article.trasporti-pubblici-zugo-abbonamenti.excerpt': 'Les principales données sur l\'abonnement aux transports publics dans le canton de Zurich',
+    'blog.article.trasporti-pubblici-zugo-abbonamenti.imageAlt': 'Carte des transports publics dans le canton de Zoug',
+    'blog.article.minuscoli-droni-sonore-epfl.title': 'Drones sonores: EPFL crea strutture cave',
+    'blog.article.minuscoli-droni-sonore-epfl.excerpt': 'Recherche EPFL sur mini-drones et ondes sonores en Suisse',
+    'blog.article.minuscoli-droni-sonore-epfl.imageAlt': 'Recherche EPFL sur les mini-drones et les ondes sonores en Suisse',
 };
 
 export default blogMetaChFr;
