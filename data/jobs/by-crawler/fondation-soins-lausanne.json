@@ -548,12 +548,12 @@
     },
     {
       "id": "fondation-soins-lausanne-6d4068352618",
-      "slug": "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne",
+      "slug": "infermiera-m-f-con-il-ruolo-di-direttore-operativo-resop-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "fr": "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne",
-        "it": "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne",
-        "en": "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne",
-        "de": "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne"
+        "it": "infermiera-m-f-con-il-ruolo-di-direttore-operativo-resop-fondation-soins-lausanne-lausanne",
+        "en": "nurse-m-f-with-the-role-of-operational-manager-resop-fondation-soins-lausanne-lausanne",
+        "de": "krankenschwester-m-w-mit-der-rolle-des-operational-manager-resop-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -609,7 +609,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-16T21:52:01.600Z"
+      "firstSeenAt": "2026-08-16T21:52:01.600Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne"
+        ],
+        "en": [
+          "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne"
+        ],
+        "de": [
+          "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-h-f-avec-role-de-responsable-operationnel-resop-fondation-soins-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-470c5cce5b0f",

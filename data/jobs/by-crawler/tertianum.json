@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-service-tertianum-uster",
         "it": "collaboratore-trice-service-tertianum-uster",
-        "en": "mitarbeiter-in-service-tertianum-uster",
-        "fr": "mitarbeiter-in-service-tertianum-uster"
+        "en": "employee-service-tertianum-uster",
+        "fr": "employe-service-tertianum-uster"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-service-tertianum-uster"
+        ],
+        "en": [
+          "mitarbeiter-in-service-tertianum-uster"
+        ],
+        "fr": [
           "mitarbeiter-in-service-tertianum-uster"
         ]
       },
@@ -5776,9 +5782,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-kirchdorf",
-          "salute-professionale-tertianum-weesen",
-          "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
-          "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-weesen"
+          "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen"
@@ -5792,10 +5796,7 @@
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-kirchdorf",
-        "salute-professionale-tertianum-weesen",
-        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
-        "fachfrau-mann-gesundheit-tertianum-weesen",
-        "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-weesen"
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen"
       ],
       "firstSeenAt": "2026-07-16T22:58:03.987Z",
       "salaryMin": 60000,
@@ -7960,13 +7961,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-winterthur",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-winterthur"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-winterthur"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-winterthur",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-winterthur"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-winterthur"
       ],
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -17257,14 +17256,12 @@
           "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit"
         ],
         "en": [
-          "regional-specialist-in-property-management-security-tertianum-dubendorf",
           "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf"
         ]
       },
       "previousSlugs": [
         "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit",
         "regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-tertianum-dubendorf",
-        "regional-specialist-in-property-management-security-tertianum-dubendorf",
         "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf"
       ],
       "firstSeenAt": "2026-05-19T12:21:18.136Z",
