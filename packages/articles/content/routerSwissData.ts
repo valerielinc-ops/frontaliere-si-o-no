@@ -1066,6 +1066,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-zugo': { it: 'assegni-familiari-canton-zugo', en: 'family-allowances-cantone-zugo', de: 'familienbeihilfe-kanton-zugo', fr: 'allocations-familiales-canton-zugo' },
  'independenza-svizzera-sicurezza': { it: 'independenza-svizzera-sicurezza', en: 'neutrality-initiative-puts-switzerland-s-security-at-risk', de: 'unabhaengigkeit-schweiz-sicherheit', fr: 'independance-suisse-securite' },
  'sistema-scolastico-canton-zugo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-zugo-iscrizione-e-cicli', en: 'school-system-canton-zurich-enrolment-and-grades', de: 'bildungssystem-kanton-zuerich-anmeldung-und-stufen', fr: 'systeme-educatif-canton-de-zurich-inscription-et-niveaux' },
+ 'prodotti-elettrici-difettosi-est-i': { it: 'prodotti-elettrici-difettosi-est-i', en: 'defective-electrical-products-esti', de: 'defekte-elektroprodukte-esti', fr: 'produits-electriques-dedefectes-esti' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

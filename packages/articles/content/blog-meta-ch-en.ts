@@ -3121,6 +3121,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'School system of the Canton of Zurich: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'The school system of the Canton of Zurich is characterized by a 9-year compulsory education cycle. Students attend elementary schools from 1st to 6th grade, followed by middle and high schools.',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'School system of the Canton of Zurich',
+    'blog.article.prodotti-elettrici-difettosi-est-i.title': 'More est: one in four defective electrical products',
+    'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'One in four electrical products was found to be defective during inspections by the Federal Inspectorate of High Current Installations (ESTI).',
+    'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Image of a defective electrical product in Switzerland.',
 };
 
 export default blogMetaChEn;
