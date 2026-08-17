@@ -118,6 +118,46 @@ network problem — the local repo is unmaintained.
 
 Why this happens and how it was found: `docs/AGENTS-HISTORY.md#git-repo-maintenance`.
 
+### Variant: `garbage` from aborted fetches (not `prune-packable`)
+
+Same fetch/push slowness, different line in `git count-objects -vH`:
+
+```
+packs: 125          size-pack: 15.77 GiB
+garbage: 89         size-garbage: 38.81 GiB   <-- this one
+```
+
+`garbage` counts `.git/objects/pack/tmp_pack_*` — the temp pack a `git fetch`
+writes while transferring. A fetch that is **killed or dies mid-transfer**
+leaves its temp pack behind, and **no git command ever reclaims it**: not
+`gc`, not `maintenance`, not `prune`. They only accumulate.
+
+1. Confirm nothing is fetching right now
+   (`ps -Ao pid,etime,command | grep '[g]it fetch'`), then delete them:
+   `rm -f .git/objects/pack/tmp_pack_*`. A live fetch keeps writing, so its
+   temp pack has a fresh mtime — never delete one under an hour old.
+2. Then consolidate. If free disk is less than ~2× the pack total,
+   `git repack -a -d -b` will not fit; use geometric repacking instead — it
+   coalesces packs in bounded steps and reaches the same end state:
+   `git repack --geometric=2 -d --write-midx`.
+3. `git maintenance start` must actually be registered — check
+   `ls ~/Library/LaunchAgents | grep git` (macOS). `maintenance.repo` present
+   in `~/.gitconfig` with **no launchd agent** means maintenance never runs:
+   that is how 125 packs accumulate. Also drop `maintenance.repo` entries
+   pointing at worktrees that no longer exist.
+4. Check for a stale lock while you are here:
+   `.git/objects/info/commit-graphs/commit-graph-chain.lock` (or any
+   `*.lock`) left by a crashed git process silently disables that
+   maintenance task and makes every later run fail with *"Another git
+   process seems to be running"*. Delete it once no git process is live.
+
+Measured on this repo (2026-08-17): 38.8 GB of `tmp_pack_*` reclaimed by
+step 1, then 126 packs → 1 and `.git` 24 GB → 14 GB by step 2; a `git fetch`
+that had been timing out went to **2.9 seconds**.
+
+Root cause of the accumulation — unguarded concurrent fetches from session
+hooks: `docs/AGENTS-HISTORY.md#hook-fetch-pileup`.
+
 ## `git push` hangs on a shallow clone (thin-pack delta search)
 
 Symptom: `git push` hangs for tens of minutes even on a fresh, small diff
@@ -149,3 +189,51 @@ flags, ~1 second with them. `--no-thin` alone does not require
 the pre-push hook or rewrite a branch you solely own.
 
 Why this happens and how it was found: `docs/AGENTS-HISTORY.md#shallow-clone-thin-pack`.
+
+## Sparse worktrees for agent / multiagent sessions
+
+A plain `git worktree add` materializes **all 40'745 tracked files, 6.4GB**
+— because `public/images` (13'497 files, 4.0GB) and `packages/articles`
+(17'647 files) are tracked. Run four agents in parallel and that is 25GB of
+duplicated checkout for work that usually touches `scripts/` and
+`build-plugins/`. Note this is a **checkout** cost, not a history cost:
+every worktree already shares the one `.git` object store.
+
+Cone-mode sparse checkout removes it. Same branch, same index, same commits
+and pushes — only the working-tree files you asked for land on disk:
+
+```bash
+git fetch origin main
+git worktree add --no-checkout -b <branch> <path> origin/main
+cd <path>
+git sparse-checkout init --cone
+git sparse-checkout set scripts build-plugins services components tests .github docs
+git checkout
+```
+
+Measured 2026-08-17: **695MB / 6'585 files in 7 seconds**, against
+6.4GB / 40'745 files for the full worktree — 9× less disk.
+
+- `git ls-files` still reports all 40'745 paths: the **index** stays
+  complete, so `git commit`/`git push`/`git diff origin/main` behave
+  exactly as in a full worktree, and nothing you left out can be
+  accidentally deleted in a commit.
+- Need a path you skipped? `git sparse-checkout add data/jobs` — additive,
+  seconds, no re-clone. Tests that read `data/` fixtures need their
+  fixture dirs added; when in doubt add the dir rather than debug a
+  missing-file error.
+- Do **not** reach for `--depth`/`--filter` instead: shallow clones break
+  push on this repo (see the section above), and a blobless clone re-fetches
+  blobs lazily during `pack-objects`, reintroducing the same stall.
+
+## Do not let session hooks fetch concurrently
+
+`scripts/prune-merged-worktrees.mjs` (SessionStart hook) is the only local
+hook that touches the network. Its fetch is wrapped in a single-flight lock
+(`.git/frontaliere-prune-fetch.lock`, `scripts/lib/single-flight-lock.mjs`)
+with a 120s timeout, and it sweeps abandoned `tmp_pack_*` on the way out.
+
+Any new hook or script that runs unattended and hits the network must reuse
+that lock. Unguarded, N sessions produce N concurrent fetches on one `.git`;
+they contend, none finishes, and each leaks a multi-GB temp pack — the
+`docs/AGENTS-HISTORY.md#hook-fetch-pileup` incident (39GB).
