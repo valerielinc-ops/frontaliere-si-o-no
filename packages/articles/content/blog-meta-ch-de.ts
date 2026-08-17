@@ -3079,6 +3079,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-pubblici-glarona.title': 'ÖV-Abos im Kanton Glarus: Zonen, Tarife und Kombinationen',
     'blog.article.trasporti-pubblici-glarona.excerpt': 'Erfahren Sie mehr über die ÖV-Abos im Kanton Glarus inklusive Zonen, Tarife und Kombinationen mit Halbtax und GA',
     'blog.article.trasporti-pubblici-glarona.imageAlt': 'Ein Zug durchquert die Region des Kantons Glarus',
+    'blog.article.aprire-un-attivita-canton-glarona.title': 'Ein Geschäft in Glarus eröffnen: Was es braucht',
+    'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Kanton Glarus: Handelsregistereintragung, Mindestkapital, Eintragungsgebühren und Versicherungspflichten.',
+    'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Szenen eines Schweizer Unternehmers im Kanton Glarus.',
 };
 
 export default blogMetaChDe;
