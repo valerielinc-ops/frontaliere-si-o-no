@@ -1051,6 +1051,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scolastico-in-svizzera': { it: 'scolastico-in-svizzera', en: 'school-in-switzerland', de: 'schule-in-schweiz', fr: 'ecole-en-suisse' },
  'avs-e-prestazioni-complementari-canton-glarona': { it: 'avs-e-prestazioni-complementari-canton-glarona', en: 'avs-and-complementary-benefits-canton-glarus', de: 'avs-und-erganzende-leistungen-kanton-glarus', fr: 'avs-et-prestations-complementaires-canton-glarus' },
  'affitti-glarona-2026': { it: 'affitti-glarona-2026', en: 'rent-glarus-2026', de: 'miete-glarus-2026', fr: 'location-glarus-2026' },
+ 'trasporti-pubblici-glarona': { it: 'trasporti-pubblici-glarona', en: 'public-transport-glaurus', de: 'oeffentlicher-verkehr-glauis', fr: 'transport-en-commun-glauis' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

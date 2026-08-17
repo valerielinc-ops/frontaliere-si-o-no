@@ -3076,6 +3076,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-glarona-2026.title': 'Rental market in the canton of Glarus: average fees and rental rights',
     'blog.article.affitti-glarona-2026.excerpt': 'Rents in Canton Glarus increased in 2026. Here are the average fees and practical information for landlords and tenants.',
     'blog.article.affitti-glarona-2026.imageAlt': 'A Swiss family searching for an apartment in Glarona',
+    'blog.article.trasporti-pubblici-glarona.title': 'Public transport passes in the canton of Glarus: zones, fares and combinations',
+    'blog.article.trasporti-pubblici-glarona.excerpt': 'Find out details about public transport passes in the Canton of Glarus, including zones, fares and half-price and AG combinations',
+    'blog.article.trasporti-pubblici-glarona.imageAlt': 'A train crosses the Glarus region',
 };
 
 export default blogMetaChEn;
