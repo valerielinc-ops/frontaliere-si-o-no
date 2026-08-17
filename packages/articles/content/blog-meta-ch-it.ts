@@ -3103,6 +3103,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costo-elettricit-svizzera.title': 'Quattro miliardi per non far mancare la luce',
     'blog.article.costo-elettricit-svizzera.excerpt': 'La Svizzera dovrebbe investire quattro miliardi di franchi per garantire riserve energetiche stabili.',
     'blog.article.costo-elettricit-svizzera.imageAlt': 'La Svizzera ha bisogno di investire per garantire riserve energetiche stabili.',
+    'blog.article.giornate-svizzere-statistica-2026.title': 'Dati e statistica nell\'era dell\'intelligenza artificiale',
+    'blog.article.giornate-svizzere-statistica-2026.excerpt': 'Le Giornate svizzere della statistica si terranno dal 25 al 27 agosto 2026 a Rorschach, nel Cantone di San Gallo.',
+    'blog.article.giornate-svizzere-statistica-2026.imageAlt': 'Giornate svizzere della statistica 2026',
 };
 
 export default blogMetaChIt;
