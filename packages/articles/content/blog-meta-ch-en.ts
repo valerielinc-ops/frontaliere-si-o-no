@@ -3127,6 +3127,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scontro-tasse-vodese-2024.title': 'Tax Clash: Challenging Tax Voracity in the Canton of Vaud',
     'blog.article.scontro-tasse-vodese-2024.excerpt': 'The 12% initiative proposes a 12% discount on cantonal income and wealth tax.',
     'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Taxes controversy in the Canton of Vaud',
+    'blog.article.pioggia-ritorno-siccita-ticino.title': 'Rain and chill, we\'re almost there. But drought doesn\'t stop',
+    'blog.article.pioggia-ritorno-siccita-ticino.excerpt': 'Weather Switzerland predicts precipitation and falling temperatures in Ticino, but the drought will not be solved',
+    'blog.article.pioggia-ritorno-siccita-ticino.imageAlt': 'Rain in Lugano: wait for the end of the drought',
 };
 
 export default blogMetaChEn;

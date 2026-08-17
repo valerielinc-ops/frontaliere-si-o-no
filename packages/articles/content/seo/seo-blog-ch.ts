@@ -40541,6 +40541,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pioggia-ritorno-siccita-ticino': {
+    title: 'Pioggia e refrigerio, ci siamo quasi. Ma la siccità non molla',
+    description: 'Meteo Svizzera prevede precipitazioni e calo delle temperature in Ticino, ma la siccità non sarà risolta. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pioggia, refrigerio, siamo, quasi',
+    ogTitle: 'Pioggia e refrigerio, ci siamo quasi. Ma la siccità non molla',
+    ogDescription: 'Meteo Svizzera prevede precipitazioni e calo delle temperature in Ticino, ma la siccità non sarà risolta',
+    canonicalPath: '/articoli-svizzera/pioggia-ritorno-siccita-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pioggia e refrigerio, ci siamo quasi. Ma la siccità non molla",
+      "description": "Meteo Svizzera prevede precipitazioni e calo delle temperature in Ticino, ma la siccità non sarà risolta. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pioggia-ritorno-siccita-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pioggia a Lugano: attesa per la fine della siccità"
+      },
+      "datePublished": "2026-08-17T13:21:25+00:00",
+      "dateModified": "2026-08-17T13:21:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pioggia-ritorno-siccita-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3127,6 +3127,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scontro-tasse-vodese-2024.title': 'Steuerstreit: Herausforderung Steuergier im Kanton Waadt',
     'blog.article.scontro-tasse-vodese-2024.excerpt': 'Die 12% -Initiative schlägt einen Rabatt von 12% auf die kantonale Einkommens- und Vermögenssteuer vor.',
     'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Steuerstreit im Kanton Waadt',
+    'blog.article.pioggia-ritorno-siccita-ticino.title': 'Regen und Abkühlung, wir sind fast da. Aber die Trockenheit lässt nicht nach',
+    'blog.article.pioggia-ritorno-siccita-ticino.excerpt': 'Wetter Schweiz prognostiziert Niederschlag und sinkende Temperaturen im Tessin, aber die Dürre wird nicht gelöst',
+    'blog.article.pioggia-ritorno-siccita-ticino.imageAlt': 'Regen in Lugano: Warten auf das Ende der Dürre',
 };
 
 export default blogMetaChDe;
