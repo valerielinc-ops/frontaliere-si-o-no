@@ -127,6 +127,8 @@
       "addressLocality": "Hunzenschwil",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -162,10 +164,7 @@
         "type": "adapter_seed_meta",
         "location": "Argovia",
         "canton": "AG"
-      },
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-2s768x",
@@ -243,7 +242,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-muri-aargau"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -271,7 +269,7 @@
       "firstSeenAt": "2026-08-15T01:12:54.206Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (h/f/d)"
       },
@@ -298,6 +296,8 @@
       "addressLocality": "Oftringen",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -333,10 +333,7 @@
         "type": "adapter_seed_meta",
         "location": "Argovia",
         "canton": "AG"
-      },
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-ob3im5",
@@ -443,7 +440,7 @@
       "firstSeenAt": "2026-08-15T12:39:08.983Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/u/a)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/h/d)"
       },
@@ -470,6 +467,8 @@
       "addressLocality": "Wettingen",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -504,10 +503,7 @@
         "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-dn7cl9",
@@ -583,7 +579,6 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-office-coop-ristorante-volketswil-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -661,7 +656,6 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-biel-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -689,7 +683,7 @@
       "firstSeenAt": "2026-08-14T01:12:39.878Z",
       "titleByLocale": {
         "it": "Cuoco /a (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -753,7 +747,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -826,7 +819,6 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-genossenschaft-interlaken-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -899,7 +891,6 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-genossenschaft-winterthur-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -1362,7 +1353,6 @@
         "location": "Argovia",
         "canton": "AG"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -1442,7 +1432,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -1610,7 +1599,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -1799,7 +1787,6 @@
       "previousSlugs": [
         "junior-supply-chain-manager-interdiscount-jegenstorf-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -1914,9 +1901,9 @@
       "firstSeenAt": "2026-08-14T14:07:15.513Z",
       "titleByLocale": {
         "it": "Key Account Manager Care Gastronomia",
+        "en": "Key Account Manager / Key Account Manager Care Gastronomy",
         "de": "Key Account Managerin / Key Account Manager Care Gastronomie",
-        "fr": "Key Account Manager Restauration Sociale",
-        "en": ""
+        "fr": "Key Account Manager Restauration Sociale"
       },
       "descriptionByLocale": {
         "it": "Key Account Manager / Key Account Manager Care Gastronomy\n\nTransgourmet Schweiz AG. Moossedorf, Berna, Sizera\n\nSiamo impegnati nei nostri clienti. Ci impegniamo nei nostri 31 mercati di ritiro, per servizio sul campo e consegna, così come nel mondo digitale.Con una gamma di marchi privati versatile interessanti, consulenza professionale specializzata e servizi innovativi.Transgourmet Schweiz AG appartiene al gruppo internazionale Transgourmet. L'azienda è leader nella fornitura e ritiro all'ingrosso svizzero e conta circa 2.100 dipendenti e 100.000 clienti (ristauranti, alberghi, mense, case e ospedali, nonché al dettaglio).\n\nCompiti - Implementate la strategia di mercato e di vendita nel settore della ristorazione in Svizzera occidentale e continuate a svilupparla continuamente - Conoscete le sfide delle case, degli ospedali e delle istituzioni sociali nel campo della gastronomia - Create relazioni sostenibili con i clienti, attivamente arazzate e guadagnate nuovi clienti nel settore domestico e ospedaliero - Si è responsabili delle vendite, e potete far rispettare marchi e coprire gli obiettivi di contributo senza mettere in pericolo il rapporto con i clienti - Si utilizzano i sistemi CRM, DH, ERP nella vita quotidiana e primo uso argomenti numerici -\n\nconduce trattative di prezzo e gamma sullo chef e sul livello C indipendentemente - si lavora a stretto contatto con interfacce interne come il centro clienti, la gestione delle categorie e il marketing - si partecipa attivamente agli eventi dei clienti e si lavora attivamente sulla formazione alle vendite\n\nRequisiti - Hai una solida esperienza professionale nella gestione di vendite/account chiave (almeno 3 anni) con - Hai una formazione commerciale, commerciale o aziendale - Hai ottime competenze tedesche e francesi (livello C1) - Sei in forma con Excel, può gestire perni e tabelle di dati di grandi dimensioni - È possibile creare singoli Powerpoint e presentarli ai clienti.\n\n- Hai un alto livello di affinità per l'industria della cura, gastronomia o industria alberghiera - Hai una forte mentalità di servizio, orientamento al cliente e competenza performance - Sei una personalità indipendente, strutturata, motivata, iniziativa e vincente - Ti piace la varietà di home office, viaggi nazionali e\n\nIl Suo contatto Lisa Röthlisberger HR Marketing\n\nTipo: Part-time Sede: Moosseedorf",
@@ -1962,7 +1949,6 @@
         "key-account-managerin-key-account-manager-care-gastronomie-transgourmet-prodega-moosseedorf-bern",
         "responsabile-gestione-account-chiave-horeca-transgourmet-schweiz-ag-moosseedorf"
       ],
-      "needsRetranslation": true,
       "salaryMin": 175000,
       "salaryMax": 307500
     },
@@ -2008,6 +1994,8 @@
       "addressLocality": "Samedan",
       "sourceLang": "de",
       "addressRegion": "GR",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2030,10 +2018,7 @@
         "type": "adapter_seed_meta",
         "location": "Grigioni",
         "canton": "GR"
-      },
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-3z2951",
@@ -2170,6 +2155,8 @@
       "addressLocality": "Belp",
       "sourceLang": "de",
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2227,10 +2214,7 @@
         "type": "adapter_seed_meta",
         "location": "Berna",
         "canton": "BE"
-      },
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      }
     },
     {
       "id": "company-qig7nk",
@@ -2550,7 +2534,6 @@
       "previousSlugs": [
         "mitarbeiter-in-saison-coop-davos-platz"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -5417,7 +5400,6 @@
         "rayonleiter-in-fruchte-gemuse-coop-meisterschwanden-aargau-v0j7kw",
         "rayonleiter-in-fruchte-gemuse-coop-meisterschwanden-aargau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -5660,6 +5642,8 @@
       "addressLocality": "Baden",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5694,10 +5678,7 @@
         "food-sales-associate-dairy-eggs-cheese-coop-genossenschaft-baden",
         "vendeur-vendeuse-produits-alimentaires-produits-laitiers-ufs-fromages-coop-genossenschaft-baden",
         "verkaufer-in-food-molkerei-eier-kase-coop-genossenschaft-baden-xhsfi3"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-9n1tta",
@@ -6019,7 +6000,6 @@
         "vendeur-vendeuse-en-alimentation-coop-genossenschaft-coop-genossenschaft-lengnau",
         "vendeur-vendeuse-en-alimentation-coop-genossenschaft-emmen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -6079,6 +6059,8 @@
       "addressLocality": "Suhr",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6115,10 +6097,7 @@
         "vendeur-vendeuse-alimentaire-coop-genossenschaft-suhr",
         "verkaufer-in-food-coop-genossenschaft-suhr",
         "verkaufer-in-food-coop-genossenschaft-suhr-e6r75l"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-4ebiud",
@@ -6280,6 +6259,8 @@
       "addressLocality": "Winterthur",
       "sourceLang": "de",
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6318,10 +6299,7 @@
         "venditore-di-alimentari-coop-genossenschaft-winterthur",
         "venditore-venditrice-alimentari-coop-genossenschaft-andermatt",
         "verkaufer-in-food-coop-genossenschaft-winterthur-na2hgc"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-4tso92",
@@ -6508,8 +6486,9 @@
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "GR",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6537,10 +6516,7 @@
         "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden-16a3f9",
         "stv-rayonleiter-in-convenience-metzgerei-coop-chur-graubunden",
         "deputy-department-manager-convenience-butcher-shop-coop-genossenschaft-chur"
-      ],
-      "retranslationAttempts": 1,
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      ]
     },
     {
       "id": "company-t9okq4",
@@ -6599,8 +6575,9 @@
       },
       "addressLocality": "Obfelden",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6641,10 +6618,7 @@
         "verkaufer-in-kassen-services-coop-genossenschaft-obfelden",
         "verkaufer-in-kassen-services-coop-obfelden-zurich-t9okq4",
         "verkaufer-in-kassen-services-coop-obfelden-zurich"
-      ],
-      "retranslationAttempts": 1,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-dzcuwh",
@@ -6701,8 +6675,9 @@
       },
       "addressLocality": "Affoltern am Albis",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6730,10 +6705,7 @@
         "verkaufer-in-frischprodukte-metzgerei-coop-genossenschaft-affoltern-am-albis",
         "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich-dzcuwh",
         "verkaufer-in-frischprodukte-metzgerei-coop-affoltern-am-albis-zurich"
-      ],
-      "retranslationAttempts": 1,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-8aff86",
@@ -6763,10 +6735,16 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-16T12:25:28.813Z",
       "titleByLocale": {
-        "de": "Verkäufer:in Frischprodukte (Früchte / Gemüse / Molkerei)"
+        "de": "Verkäufer:in Frischprodukte (Früchte / Gemüse / Molkerei)",
+        "it": "Venditore:in prodotti freschi (frutteti / verdura / latticini)",
+        "en": "Seller:in fresh products (fruits / vegetables / dairy)",
+        "fr": "Vendeur:en produits frais (fruits / légumes / laiterie)"
       },
       "descriptionByLocale": {
-        "de": "## Verkäufer:in Frischprodukte (Früchte / Gemüse / Molkerei)\n\n**Coop Genossenschaft** — Reinach, Aargau, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Reinach"
+        "de": "## Verkäufer:in Frischprodukte (Früchte / Gemüse / Molkerei)\n\n**Coop Genossenschaft** — Reinach, Aargau, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Reinach",
+        "it": "## Venditore:in prodotti freschi (frutteti / verdura / latticini)\n\nCoop Cooperative — Reinach, Aargau, Svizzera\n\n## Compiti\n- Amate la varietà, quindi servite e consigliate i nostri clienti in diversi dipartimenti – sempre cordiali e impegnati.\n- Grazie al vostro uso attivo, le merci vendono meglio e sono gestiti top.\n- È chiaro che si rispettano le nostre esigenze, sia esso freschezza e qualità, igiene, regolamenti di temperatura o la data di scadenza.\n- Il vostro impegno nei registri di cassa è anche variato se supportate il team.\n\n## Requisiti\n- Sei addestrato in vendita al dettaglio (istruzione primaria) o hai già acquisito molta esperienza nelle vendite? Bingo, allora applica.\n- I tempi di assegnazione sono flessibili, ma questo non vi causerà alcun problema.\n- Padroneggiare bene il tedesco, in conversazione e su carta.\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobile e prepagati su Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'abbonamento GA, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi culturali, sconti\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane vacanze, modelli di tempo di lavoro flessibili\n- Ulteriore istruzione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e Coop\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\n## La persona di contatto\nValeria Mazziari Randazzo\nHR Marketing\n\nTipo: Tempo parziale\n# Reinach #",
+        "en": "## Seller:in fresh products (fruits / vegetables / dairy)\n\n**Coop Cooperative** — Reinach, Aargau, Svizzera\n\n## Tasks\n- You love variety, so you serve and advise our customers in different departments – always friendly and committed.\n- Thanks to your active use, the goods sell better and are managed top.\n- It is clear that you comply with our requirements, be it freshness and quality, hygiene, temperature regulations or the expiration date.\n- Your commitment at the cash registers is also varied if you support the team.\n\n## Requirements\n- Are you trained in retail (basic education) or have you already gained a lot of experience in sales? Bingo, then apply.\n- Your assignment times are flexible, but that won’t cause you any problems.\n- You master German well, in conversation and on paper.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: discount on purchase, discount on Mobility CarSharing, personal discount also for partners:in (living in the same household), discount on GA subscription, discounts on cultural events, discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Reinach",
+        "fr": "## Vendeur:en produits frais (fruits / légumes / laiterie)\n\n**Coopérative Coop** — Reinach, Aargau, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Reinach"
       },
       "requirementsByLocale": {
         "de": [
@@ -6786,6 +6764,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6795,9 +6775,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-5bxucd",
@@ -6827,10 +6805,16 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-16T12:25:28.813Z",
       "titleByLocale": {
-        "de": "Verkäufer:in Food"
+        "de": "Verkäufer:in Food",
+        "it": "Venditore: in Food",
+        "en": "Seller:in Food",
+        "fr": "Vendeur:dans la nourriture"
       },
       "descriptionByLocale": {
-        "de": "## Verkäufer:in Food\n\n**Coop Genossenschaft** — Grindelwald, Bern, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n## Deine Ansprechperson\nGermann Steiner\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Grindelwald"
+        "de": "## Verkäufer:in Food\n\n**Coop Genossenschaft** — Grindelwald, Bern, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n## Deine Ansprechperson\nGermann Steiner\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Grindelwald",
+        "it": "## Venditore: in Food\n\nCoop Cooperative — Grindelwald, Bern, Svizzera\n\n## Compiti\n- Amate la varietà, quindi servite e consigliate i nostri clienti in diversi dipartimenti – sempre cordiali e impegnati.\n- Grazie al vostro uso attivo, le merci vendono meglio e sono gestiti top.\n- È chiaro che si rispettano le nostre esigenze, sia esso freschezza e qualità, igiene, regolamenti di temperatura o la data di scadenza.\n- Il vostro impegno nei registri di cassa è anche variato se supportate il team.\n\n## Requisiti\n- Sei addestrato in vendita al dettaglio (istruzione primaria) o hai già acquisito molta esperienza nelle vendite? Bingo, allora applica.\n- I tempi di assegnazione sono flessibili, ma questo non vi causerà alcun problema.\n- Padroneggiare bene il tedesco, in conversazione e su carta.\n\n## La persona di contatto\ntedesco Steiner\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede: ♪ Grindelwald",
+        "en": "## Seller:in Food\n\n**Coop Cooperative** — Grindelwald, Bern, Svizzera\n\n## Tasks\n- You love variety, so you serve and advise our customers in different departments – always friendly and committed.\n- Thanks to your active use, the goods sell better and are managed top.\n- It is clear that you comply with our requirements, be it freshness and quality, hygiene, temperature regulations or the expiration date.\n- Your commitment at the cash registers is also varied if you support the team.\n\n## Requirements\n- Are you trained in retail (basic education) or have you already gained a lot of experience in sales? Bingo, then apply.\n- Your assignment times are flexible, but that won’t cause you any problems.\n- You master German well, in conversation and on paper.\n\n## Your contact person\nGermann Steiner\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Grindelwald",
+        "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coopératives** — Grindelwald, Berne, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Grindelwald"
       },
       "requirementsByLocale": {
         "de": [
@@ -6850,6 +6834,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6859,9 +6845,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      }
     },
     {
       "id": "company-g7rkgg",
@@ -7173,7 +7157,6 @@
       "previousSlugs": [
         "front-office-mitarbeiter-in-hotel-victoria-balehotels-basel-stadt"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -7608,7 +7591,6 @@
         "location": "Regione di Basilea",
         "canton": "BL"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -7656,9 +7638,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-garten-jumbo-laupen-2",
-        "en": "sales-advisor-garden-jumbo-laupen-bern-g8kpm9",
+        "en": "verkaufsberater-in-garten-jumbo-laupen-2",
         "de": "verkaufsberater-in-garten-jumbo-laupen-g8kpm9",
-        "fr": "conseiller-de-vente-jardin-jumbo-laupen-bern-g8kpm9"
+        "fr": "verkaufsberater-in-garten-jumbo-laupen-2"
       },
       "addressLocality": "Laupen",
       "sourceLang": "de",
@@ -7748,9 +7730,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
-        "en": "sales-advisor-garden-jumbo-laupen-bern-kfkc2t",
+        "en": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
         "de": "verkaufsberater-in-garten-jumbo-laupen",
-        "fr": "conseiller-de-vente-jardin-jumbo-laupen-bern-kfkc2t"
+        "fr": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t"
       },
       "addressLocality": "Laupen",
       "sourceLang": "de",
@@ -7824,9 +7806,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
-        "en": "sales-advisor-interdiscount-lachen-schwyz-a6k8dz",
+        "en": "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz",
         "de": "verkaufsberater-in-interdiscount-lachen",
-        "fr": "conseiller-de-vente-interdiscount-lachen-schwyz-a6k8dz"
+        "fr": "verkaufsberater-in-interdiscount-lachen-schwyz-a6k8dz"
       },
       "addressLocality": "Lachen",
       "sourceLang": "de",
@@ -7994,7 +7976,7 @@
       "firstSeenAt": "2026-08-13T13:48:02.559Z",
       "titleByLocale": {
         "it": "Cuoco/a (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (f/m/d)"
       },
@@ -8055,7 +8037,6 @@
         "location": "San Gallo",
         "canton": "SG"
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -8083,7 +8064,7 @@
       "firstSeenAt": "2026-08-13T13:48:02.559Z",
       "titleByLocale": {
         "it": "Cuoco/a (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (f/m/d)"
       },
@@ -8153,7 +8134,6 @@
         "location": "Lucerna",
         "canton": "LU"
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -8239,7 +8219,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -8579,9 +8558,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "filialleiter-in-interdiscount-chur-graubunden-kd65dp",
-        "en": "store-manager-interdiscount-chur-graubunden-kd65dp",
+        "en": "filialleiter-in-interdiscount-chur-graubunden-kd65dp",
         "de": "filialleiter-in-interdiscount-chur",
-        "fr": "responsable-de-magasin-interdiscount-chur-graubunden-kd65dp"
+        "fr": "filialleiter-in-interdiscount-chur-graubunden-kd65dp"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -9285,9 +9264,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-eqj6je",
-        "en": "salesperson-cash-office-services-jumbo-widnau-sankt-gallen-eqj6je",
+        "en": "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-eqj6je",
         "de": "verkaufer-in-kassen-services-jumbo-widnau",
-        "fr": "vente-caisse-services-jumbo-widnau-sankt-gallen-eqj6je"
+        "fr": "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-eqj6je"
       },
       "addressLocality": "Widnau",
       "sourceLang": "de",
@@ -9318,7 +9297,6 @@
         "salesperson-cash-office-services-jumbo-widnau-sankt-gallen-eqj6je",
         "vente-caisse-services-jumbo-widnau-sankt-gallen-eqj6je"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -9883,9 +9861,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw",
-        "en": "general-ledger-accountant-80-100-interdiscount-jegenstorf-bern-dwrpfw",
+        "en": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw",
         "de": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
-        "fr": "comptable-general-80-100-interdiscount-jegenstorf-bern-dwrpfw"
+        "fr": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw"
       },
       "addressLocality": "Jegenstorf",
       "sourceLang": "de",
@@ -9959,9 +9937,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6",
-        "en": "sales-advisor-interdiscount-wadenswil-zurich-wzaex6",
+        "en": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6",
         "de": "verkaufsberater-in-interdiscount-wadenswil",
-        "fr": "conseiller-de-vente-interdiscount-wadenswil-zurich-wzaex6"
+        "fr": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6"
       },
       "addressLocality": "Wädenswil",
       "sourceLang": "de",
@@ -10039,9 +10017,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51",
-        "en": "sales-advisor-interdiscount-davos-graubunden-adwz51",
+        "en": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51",
         "de": "verkaufsberater-in-interdiscount-davos",
-        "fr": "conseiller-de-vente-interdiscount-davos-graubunden-adwz51"
+        "fr": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -10115,9 +10093,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a",
-        "en": "sales-advisor-interdiscount-thalwil-zurich-77tn3a",
+        "en": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a",
         "de": "verkaufsberater-in-interdiscount-thalwil",
-        "fr": "conseiller-de-vente-interdiscount-thalwil-zurich-77tn3a"
+        "fr": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a"
       },
       "addressLocality": "Thalwil",
       "sourceLang": "de",
@@ -10331,7 +10309,6 @@
         "mitarbeiter-in-gastronomie-coop-ristorante-oftringen-aargau-4bybtm",
         "mitarbeiter-in-gastronomie-coop-ristorante-oftringen-aargau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -11131,7 +11108,6 @@
           "mitarbeiter-in-gastronomie-coop-genossenschaft-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -11223,7 +11199,6 @@
         "location": "Obwaldo",
         "canton": "OW"
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -11397,7 +11372,6 @@
         "location": "Argovia",
         "canton": "AG"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -11488,7 +11462,6 @@
         "ict-supporter-in-coop-genossenschaft-schafisheim",
         "ict-supporter-in-coop-schafisheim-aargau-0g50id"
       ],
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -11903,7 +11876,6 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -11989,7 +11961,6 @@
         "verkaufer-in-nonfood-coop-dietikon-zurich-l85ge4",
         "verkaufer-in-nonfood-coop-dietikon-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -12162,7 +12133,6 @@
         "verkaufer-in-kassen-services-coop-lenzburg-aargau-tfgft9",
         "verkaufer-in-kassen-services-coop-lenzburg-aargau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -12420,7 +12390,6 @@
         "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-w4ovbc",
         "verkaufer-in-food-frischprodukte-coop-winterthur-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -12479,7 +12448,6 @@
       },
       "addressLocality": "Breitenbach",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SO",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12507,7 +12475,6 @@
         "verkaufer-in-nonfood-coop-breitenbach-solothurn-c5j54u",
         "verkaufer-in-nonfood-coop-breitenbach-solothurn"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -13090,7 +13057,6 @@
           "junior-supply-chain-manager-interdiscount-jegenstorf-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -13248,7 +13214,6 @@
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-gzdu2e",
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -13486,7 +13451,6 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-steinhausen-zug"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -13923,7 +13887,6 @@
         "verkaufer-in-food-coop-zurich-1weu1y",
         "verkaufer-in-food-coop-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -14775,7 +14738,6 @@
         "verkaufer-in-food-frischprodukte-coop-kusnacht-zurich-by7o6a",
         "verkaufer-in-food-frischprodukte-coop-kusnacht-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -14874,7 +14836,6 @@
         "sales-assistant-food-fresh-products-butcher-convenience-coop-genossenschaft-rapperswil-jona-o7hz2w",
         "vendeur-euse-produits-alimentaires-frais-boucherie-convenience-coop-genossenschaft-rapperswil-jona-o7hz2w"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -15264,7 +15225,6 @@
         "verkaufer-in-kassen-services-studentenaushilfe-coop-st-gallen-sankt-gallen",
         "seller-in-cash-registers-services-student-assistance-coop-genossenschaft-st-gallen-guupvf"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -16110,7 +16070,6 @@
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BS",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -16146,7 +16105,6 @@
         "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel-d33052",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-basel-kx3xl2"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -16205,7 +16163,6 @@
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "LU",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -16233,7 +16190,6 @@
         "verkaufer-in-blumen-kiosk-coop-luzern-fxe9rt",
         "verkaufer-in-blumen-kiosk-coop-luzern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -16294,7 +16250,6 @@
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -16322,7 +16277,6 @@
         "verkaufer-in-kassen-services-coop-zurich-3nnxka",
         "verkaufer-in-kassen-services-coop-zurich"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -16381,7 +16335,6 @@
       },
       "addressLocality": "Liestal",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BL",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -16411,7 +16364,6 @@
         "verkaufer-in-food-coop-liestal-basel-landschaft",
         "seller-in-food-coop-genossenschaft-liestal-4p5gmf"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -16642,8 +16594,9 @@
       },
       "addressLocality": "Gebenstorf",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -16684,10 +16637,7 @@
         "verkaufer-in-food-brot-backwaren-coop-genossenschaft-gebenstorf",
         "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau-45ql7k",
         "verkaufer-in-food-brot-backwaren-coop-gebenstorf-aargau"
-      ],
-      "retranslationAttempts": 1,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-2l5pol",
@@ -16765,7 +16715,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -16848,7 +16797,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -17502,7 +17450,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-belp-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -18545,9 +18492,9 @@
       "firstSeenAt": "2026-08-12T13:22:24.558Z",
       "slugByLocale": {
         "it": "lagerist-in-jumbo-chur-graubunden-1tp5z3",
-        "en": "warehouse-worker-jumbo-chur-graubunden-1tp5z3",
+        "en": "lagerist-in-jumbo-chur-graubunden-1tp5z3",
         "de": "lagerist-in-jumbo-chur",
-        "fr": "magasinier-e-jumbo-chur-graubunden-1tp5z3"
+        "fr": "lagerist-in-jumbo-chur-graubunden-1tp5z3"
       },
       "titleByLocale": {
         "it": "Magazziniere/a",
@@ -18578,12 +18525,18 @@
       "previousSlugsByLocale": {
         "fr": [
           "lageriste-in-jumbo-division-der-coop-genossenschaft-chur",
-          "lageriste-in-jumbo-chur-graubunden-1tp5z3"
+          "lageriste-in-jumbo-chur-graubunden-1tp5z3",
+          "magasinier-e-jumbo-chur-graubunden-1tp5z3"
+        ],
+        "en": [
+          "warehouse-worker-jumbo-chur-graubunden-1tp5z3"
         ]
       },
       "previousSlugs": [
         "lageriste-in-jumbo-division-der-coop-genossenschaft-chur",
-        "lageriste-in-jumbo-chur-graubunden-1tp5z3"
+        "lageriste-in-jumbo-chur-graubunden-1tp5z3",
+        "warehouse-worker-jumbo-chur-graubunden-1tp5z3",
+        "magasinier-e-jumbo-chur-graubunden-1tp5z3"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -19310,9 +19263,9 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Cuoco/a di Sushi Zenbu",
-        "en": "Zenbu-Sushi Koch/Köchin",
-        "de": "Zenbu-Sushi Koch/Köchin",
-        "fr": "Chef Sushi Zenbu"
+        "en": "Zenbu-Sushi chef",
+        "fr": "Chef Sushi Zenbu",
+        "de": "Zenbu-Sushi Koch/Köchin"
       },
       "descriptionByLocale": {
         "it": "Zenbu-S, il cuoco/guancia\n\n2 Spice AG. Dietlikon, Dietlikon, Sizera\n\nDue Spice... siamo noi! Un'azienda di cucina e lifestyle creativa e innovativa di Zurigo. Dal 1990 stiamo portando idee fresche alla tavola e sviluppando idee e marchi unici che ispirano. Le nostre aziende del paese sono a casa nei punti caldi delle città e rappresentano la qualità, il design e i momenti di puro divertimento.ZENBU è il nostro marchio di Sushi per il commercio al dettaglio ed è entusiasta di Soshi, Sashimi, zuppe e piatti caldi dal 2018.\n\nIn coop selezionato per il settore del settore del settore del trasporto, ZENBU offre una gamma di prodotti moderna e diversificata per tutti i prodotti S-S-S-Liebers direttamente nella vita quotidiana.\n\nAttività - Produzione di sushi, sashimi e zuppe davanti agli ospiti delle nostre isole di sushi nel supermercato Coop - Fornire metodi di lavoro orientati agli ospiti, comprese informazioni sull'offerta generale, tra cui l'etichettatura delle allergie e le specialità giornaliere - Collaborazione orientata al team Zenbu - Responsabilità per gli ordini, l'accettazione delle merci, l'apertura e la gestione dello stoccaggio - Rispetto degli standard igienici e qualitativi e svolgimento dei lavori di pulizia secondo le linee guida HACCP - Garantire una qualità costante degli alimenti\n\nRequisiti - Interesse per la preparazione alimentare - Principianti di Cross-country:benvenuto - Pronta al lavoro flessibile e impegno dell'azienda per i servizi di turni e fine settimana (la domenica, gratuita, tranne le vendite domenicali) - Abilità linguistiche tedesche a livello B1 in termini di parole e scrittura, altre lingue sono un plus - Una sostenibilità per la ristorazione del sistema e gioia nei processi strutturati - Personalità autonoma con passione per la cucina e un piacere per il contatto con gli ospiti\n\nCosa offriamo\n\nIl vostro referente, N. Berlinecke, Risorse umane\n\nTipo: Part-time Sede: Dietikon",
@@ -19327,7 +19280,6 @@
         "de": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-oras11",
         "fr": "chef-sushi-zenbu-two-spice-ag-dietlikon"
       },
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
       "addressRegion": "ZH",
@@ -19364,7 +19316,6 @@
         "location": "Schwyz",
         "canton": "SZ"
       },
-      "retranslationAttempts": 1,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -19390,9 +19341,9 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Chef Sushi Zenbu",
-        "en": "Zenbu Sushi-Koch-Köchin",
-        "de": "Zenbu Sushi-Koch-Köchin",
-        "fr": "Chef Sushi - Zenbu"
+        "en": "Zenbu sushi chef",
+        "fr": "Chef Sushi - Zenbu",
+        "de": "Zenbu Sushi-Koch-Köchin"
       },
       "descriptionByLocale": {
         "it": "Chef di sushi Zenbu\n\nTwo Spice AG — Dietlikon, Dietlikon, Svizzera\n\nTwo Spice – ecco chi siamo! Un'azienda di gastronomia e lifestyle creativa e innovativa con sede a Zurigo. Dal 1990 portiamo in tavola nuove idee e sviluppiamo concetti e marchi unici che entusiasmano. Le nostre aziende versatili si trovano negli hotspot centrali di diverse città e sono sinonimo di qualità, design e momenti di puro piacere. ZENBU è il nostro marchio di sushi per il commercio al dettaglio e dal 2018 entusiasma con sushi fresco di giornata, sashimi, zuppe e piatti caldi. Nelle filiali Coop selezionate, ZENBU porta una gamma di prodotti moderna e diversificata per tutti gli amanti del sushi direttamente nella vita di tutti i giorni.\n\nCompiti\n- Preparare e preparare mise en place, lavori di produzione\n- Collaborazione attiva in cucina e supporto al team di cucina\n- Rispetto delle ricette e garanzia della qualità\n- Rispetto e controllo degli standard igienici nell'area di competenza\n- Varie operazioni di sgombero e pulizia\n\nRequisiti\n- Entusiasmo per la professione culinaria e piacere nel contatto con gli ospiti\n- I principianti trasversali sono i benvenuti\n- Affinità per la gastronomia di sistema e piacere nei processi strutturati\n- Disponibilità a turni, fine settimana e festivi\n- Conoscenza della lingua tedesca a livello A2, conoscenza dell'inglese vantaggiosa\n\nCosa offriamo\n\nIl tuo referente\nNina Berlinecke\n, Risorse Umane\n\nTipo: Part-time\nSede: Dietlikon",
@@ -19407,7 +19358,6 @@
         "de": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-0e05f4",
         "fr": "chef-de-sushi-zenbu-two-spice-ag-dietlikon"
       },
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
       "addressRegion": "ZH",
@@ -19442,7 +19392,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "retranslationAttempts": 1,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -20132,7 +20081,6 @@
         "vendeur-dans-les-caisses-enregistreuses-services-aide-aux-etudiants-coop-genossenschaft-st-gallen",
         "vendeur-dans-les-caisses-enregistreuses-services-assistance-aux-etudiants-coop-genossenschaft-st-gallen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -20594,7 +20542,6 @@
         "cashier-and-student-service-assistant-coop-genossenschaft-st-gallen-pa9tk2",
         "vendeur-se-caisse-services-etudiant-e-remplacant-e-coop-genossenschaft-st-gallen-pa9tk2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -20669,15 +20616,23 @@
         "it": [
           "verkaufsberater-in-do-it-jumbo-arbon-thurgau-rrkh4w",
           "verkaufsberater-in-do-it-jumbo-arbon-thurgau",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-arbon"
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-6t3aqt",
+          "verkaufsberater-in-do-it-jumbo-schwyz",
+          "consulente-di-vendita-do-it-jumbo-schwyz"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-arbon-thurgau-rrkh4w",
-          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-arbon"
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufsberater-in-do-it-jumbo-schwyz"
         ],
         "fr": [
           "verkaufsberater-in-do-it-jumbo-arbon-thurgau-rrkh4w",
           "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-arbon"
+        ],
+        "de": [
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-6t3aqt"
         ]
       },
       "previousSlugs": [
@@ -20685,7 +20640,11 @@
         "verkaufsberater-in-do-it-jumbo-arbon-thurgau",
         "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-arbon",
         "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-arbon"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-6t3aqt",
+        "verkaufsberater-in-do-it-jumbo-schwyz",
+        "consulente-di-vendita-do-it-jumbo-schwyz"
       ],
       "retranslationAttempts": 1,
       "salaryMin": 57500,
@@ -20718,9 +20677,9 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Responsabile Acquisti Settore Caff (m/f/d)",
+        "en": "Purchasing Manager area of coffee (m/f/d)",
         "de": "Purchasing Manager Bereich Kaffee (w/m/d)",
-        "fr": "Responsable Achats Secteur Café (m/f/d)",
-        "en": ""
+        "fr": "Responsable Achats Secteur Café (m/f/d)"
       },
       "descriptionByLocale": {
         "it": "Direttore acquisti Divisione caffè (m/f/d)\n\nCooperativa Coop. Basilea, Basilea-Stadt, Svizzera\n\nCompiti - Anticipare tendenze, innovazioni e argomenti rilevanti per il cliente - Una stretta collaborazione con il Product Manager Acquista Prima colazione nello sviluppo della gamma di prodotti e della strategia di formato incl.\n\nlo sviluppo di propri concetti e marchi nel settore del caffè - co-responsabile della gestione dei fornitori / portafoglio partner commerciali per quanto riguarda la loro selezione, cooperazione e sviluppo - svolgimento di trattative condizionali con fornitori internazionali, nazionali e regionali - istituire catene di valore trasparenti e a lungo termine orientate all'auto-brandingIn coordinamento con la strategia di sostenibilità Coop - mantenere rapporti con cooperative e partner nei paesi di origine - supporto indipendente del dipartimento specialità\n\nBetty Bossi per l'ulteriore sviluppo e garanzia di qualità dei nostri marchi e la leadership di un pannello caffè\n\nRequisiti - Studi completati (University, FH) nel campo dell'amministrazione aziendale, scienze alimentari, sostenibilità o simili.\n\n- Esperienza professionale nella gestione dell'azienda e/o nell'approvvigionamento - Alta purezza del caffè e passione per il prodotto desiderato - Alto livello di iniziativa e responsabilità, così come alta competenza analitica - Negoziare una forte personalità, abituata a lavorare in un ambiente dinamico con priorità mutevoli - Alta affinità di sostenibilità - disponibilità a viaggiare - Elegante tedesco in parole e scrittura, nonché buona conoscenza inglese, conoscenza spagnola desiderabile - Ottima conoscenza MS Office, conoscenza SAP di vantaggio - Sconti:\n\n5 volte Super punti al supermercato, fino al 20% di sconto sulle varie prestazioni assicurative, fino al 20% di sconto in tutti i formati del gruppo Coop, sconti su eventi culturali, sconti per attività ricreative - Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito - tempo di lavoro: 6 settimane di vacanze - formazione continua: oltre 600 corsi di formazione interna - sostenibilità: impegno per le persone e gli animali e la natura con oltre 400 azioni - comunicazione: app interna per i dipendenti\n\nSalute: Aggiornamento Fitness: Fr.\n\n200. Sconto su abbonamento annuale\n\nLa tua persona di contatto, Simon Hirschi HR Marketing\n\nTipo: a tempo pieno",
@@ -20764,7 +20723,6 @@
         "purchasing-manager-bereich-kaffee-m-w-d-coop-basel-stadt-wvqgrm",
         "purchasing-manager-bereich-kaffee-m-w-d-coop-basel-stadt"
       ],
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500
     },
@@ -20984,7 +20942,7 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Cuoco Zenbu",
-        "en": "Zenbu-Koch/Köchin",
+        "en": "Zenbu chef",
         "de": "Zenbu-Koch/Köchin",
         "fr": "Cuisinier Zenbu"
       },
@@ -21032,7 +20990,6 @@
         "zenbu-koch-kochin-two-spice-dietlikon",
         "cuisinier-sushi-zenbu-two-spice-ag-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -21286,7 +21243,6 @@
         "office-mitarbeiter-in-two-spice-ag-dietlikon",
         "office-mitarbeiter-in-two-spice-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -21317,9 +21273,9 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Aiuto Cuoco Sushi",
+        "en": "Sushi chef/chef",
         "de": "Sushi-Hilfskoch/Hilfsköchin",
-        "fr": "Aide-Cuisinier Sushi",
-        "en": ""
+        "fr": "Aide-Cuisinier Sushi"
       },
       "descriptionByLocale": {
         "it": "Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-Hi-H\n\n2 Spice AG. Dietlikon, Dietlikon, Sizera\n\nDue Spice. siamo noi! Un'azienda di Zurigo che produce cibo e lifestyle creativa e innovativa. Dal 1990 offriamo idee fresche e sviluppiamo idee uniche e marchi che ispirano. Le nostre aziende del paese sono a casa nei punti caldi delle città e rappresentano la qualità, il design e momenti di puro divertimento.\n\nO-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O\n\nCompiti - Preparazione e fornitura dei locali, lavori di produzione - collaborazione attiva in cucina e supporto del team di cucina - conformità con le ricette e garanzia di qualità - conformità e controllo degli standard igienici nell'area compiti - vari lavori di pulizia e pulizia\n\nRequisiti - Esperienza professionale come cuoco/Hi-tailor - Qualità del sistema di ristorazione e gioia delle procedure strutturate - entusiasmo per la professione di cucina e piacere di contatto con gli ospiti - disponibilità a cambiare, weekend e servizi di vacanza - conoscenza tedesca a livello A2, conoscenza inglese di vantaggio\n\nCosa offriamo\n\nIl vostro referente, N. Berlinecke, Risorse umane\n\nTipo: Part-time Sede: Dietikon",
@@ -21366,7 +21322,6 @@
         "chef-chef-sushi-60-80-two-spice-ag-dietlikon",
         "sushi-assistant-chef-two-spice-ag-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -21469,7 +21424,7 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "Sushi Chef",
-        "en": "Sushi-Koch/Köchin",
+        "en": "Sushi cook/chef",
         "de": "Sushi-Koch/Köchin",
         "fr": "Chef Sushi"
       },
@@ -21515,7 +21470,6 @@
         "sushi-koch-kochin-two-spice-dietlikon-l55t3g",
         "sushi-koch-kochin-two-spice-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -22018,9 +21972,9 @@
       "firstSeenAt": "2026-08-13T00:48:40.716Z",
       "titleByLocale": {
         "it": "IT Product Owner SAP S/4HANA Ordini / Processi Backend [SAP MM] (m/f/d) 80 - 100%",
+        "en": "IT Product Owner SAP S/4HANA Ordering / Backend Processes [SAP MM] (m/f/d) 80 - 100%",
         "de": "IT Product Owner SAP S/4HANA Bestellwesen / Backendprozesse [SAP MM] (w/m/d) 80 - 100%",
-        "fr": "IT Product Owner SAP S/4HANA Commandes / Processus Backend [SAP MM] (h/f/d) 80 - 100%",
-        "en": ""
+        "fr": "IT Product Owner SAP S/4HANA Commandes / Processus Backend [SAP MM] (h/f/d) 80 - 100%"
       },
       "descriptionByLocale": {
         "it": "SAP S/4HANA Product Owner SAP S/4HANA Ordinare / Backend Processi [SAP MM] (m/f/d) 80 - 100%\n\nCooperativa Coop. Basilea, Basilea-Stadt, Svizzera\n\nAttività - In qualità di titolare del prodotto IT, sei responsabile del backlog del prodotto per i nostri processi di backend SAP intorno al processo di ordinazione a Coop - sei in grado di riparare requisiti e dipendenze in modo che i vantaggi aziendali, la stabilità e la fattibilità tecnica si adattano insieme - lavori a stretto contatto con gli stakeholder e il proprietario del prodotto Business e sviluppi l'elaborazione degli ordini in backend SAP su base sostenibile. dagli ordini di filiale alla piena riempimento da parte di fornitori e centri di distribuzione - Nel tuo ruolo aggiuntivo come analista aziendale, chiarisci i requisiti insieme con il\n\nScrum team e accompagnare l'implementazione della logistica inversa (resi, ritiri, reclami) e interfacce con i nostri sistemi logistici specializzati - I vostri argomenti includono le corrispondenti attività di supporto di terzo livello all'interno del team di prodotti, nonché la soluzione sostenibile e duratura\n\nRequisiti - Hai una formazione in informatica o amministrazione aziendale. idealmente come laurea con un focus sulla (economica) informatica - Hai esperienza nella mappatura e sviluppo dei processi aziendali in ambiente SAP con. idealmente in SAP MM e in ambiente retail / commerciale - Hai già lavorato in un team in una piccola azienda in città e sentirsi al sicuro nel trattare con Jira e Co.\n\n- Pensate nelle soluzioni, chiari e portati attivamente argomenti attraverso il traguardo. con la proprietà e la gioia della collaborazione - avete idealmente già lavorato come proprietario di prodotti o\n\nSono pronti a sviluppare questo ruolo - sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di super punti nel supermercato, fino al 20% di sconto in tutti i formati del gruppo Coop, più conveniente abbonamento mobile e pre-formazioni a Coop Mobile, carta Reka: sconto su abbonamento, SBB mezza tassa o sconto su abbonamento GA, partecipazione al U-Abo - condizioni di lavoro: fondo pensione: 2/3 è pagato da Coop, contratto di lavoro totale (GAV) - tempo di lavoro: 5 settimane vacanze - formazione supplementare: oltre 600 corsi di formazione interna - sostenibilità: impegno per le persone e\n\nAnimale e Natura con oltre 400 atti - Comunicazione: app interna per i dipendenti - Salute: Aggiornamento fitness: p.\n\n200. Sconto su abbonamento annuale\n\nIl Suo contatto Anne Marchon HR Marketing\n\nTipo: Part-time Sede: Basel",
@@ -22070,7 +22024,6 @@
         "it-product-owner-sap-s-4hana-bestellwesen-backendprozesse-sap-mm-m-w-d-80-100-coop-basel-stadt",
         "product-owner-it-sap-s-4hana-ordini-processi-backend-sap-mm-f-m-d-80-100-coop-genossenschaft-basel"
       ],
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -22143,7 +22096,6 @@
         "koch-kochin-fur-unsere-sushi-manufaktur-100-two-spice-dietlikon-mniqb2",
         "koch-kochin-fur-unsere-sushi-manufaktur-100-two-spice-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -22821,7 +22773,6 @@
       },
       "addressLocality": "Köniz",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -22851,7 +22802,6 @@
         "rayonleiter-in-brot-backwaren-coop-koniz-bern-jchpds",
         "rayonleiter-in-brot-backwaren-coop-koniz-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -23257,7 +23207,6 @@
       },
       "addressLocality": "Schwarzenburg",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -23300,7 +23249,6 @@
         "verkaufer-in-food-kasse-coop-schwarzenburg-bern-ld5ki2",
         "verkaufer-in-food-kasse-coop-schwarzenburg-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -23359,7 +23307,6 @@
       },
       "addressLocality": "Köniz",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -23387,7 +23334,6 @@
         "rayonleiter-in-fruchte-gemuse-coop-koniz-bern-kvra1z",
         "rayonleiter-in-fruchte-gemuse-coop-koniz-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -23446,7 +23392,6 @@
       },
       "addressLocality": "Thun",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -23474,7 +23419,6 @@
         "verkaufer-in-food-coop-thun-bern-r0r9hv",
         "verkaufer-in-food-coop-thun-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -23659,7 +23603,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -23737,7 +23680,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -24295,7 +24237,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -24702,7 +24643,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-affoltern-am-albis-zurich-1y5k05",
-        "en": "food-sales-associate-coop-affoltern-am-albis-zurich-1y5k05",
+        "en": "verkaufer-in-food-coop-affoltern-am-albis-zurich-1y5k05",
         "de": "verkaufer-in-lebensmittel-coop-affoltern-am-albis-zurich",
         "fr": "verkaufer-dans-les-aliments-coop-affoltern-am-albis-zurich"
       },
@@ -24725,18 +24666,18 @@
         "en": [
           "seller-in-food-coop-genossenschaft-affoltern-am-albis-1y5k05",
           "seller-in-food-coop-affoltern-am-albis-zurich-1y5k05",
-          "seller-in-food-coop-genossenschaft-affoltern-am-albis-zurich-1y5k05"
+          "seller-in-food-coop-genossenschaft-affoltern-am-albis-zurich-1y5k05",
+          "food-sales-associate-coop-affoltern-am-albis-zurich-1y5k05"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-affoltern-am-albis-zurich",
         "seller-in-food-coop-genossenschaft-affoltern-am-albis-1y5k05",
         "seller-in-food-coop-affoltern-am-albis-zurich-1y5k05",
-        "seller-in-food-coop-genossenschaft-affoltern-am-albis-zurich-1y5k05"
+        "seller-in-food-coop-genossenschaft-affoltern-am-albis-zurich-1y5k05",
+        "food-sales-associate-coop-affoltern-am-albis-zurich-1y5k05"
       ],
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "retranslationAttempts": 2,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -25146,7 +25087,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-zurich-318chk",
-        "en": "salesman-food-coop-zurich-318chk",
+        "en": "verkaufer-in-food-coop-zurich-318chk",
         "de": "verkaufer-in-lebensmittel-coop-zurich",
         "fr": "verkaufer-dans-les-aliments-coop-zurich"
       },
@@ -25582,7 +25523,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-zurich-mu8fxz",
-        "en": "food-sales-associate-coop-zurich-mu8fxz",
+        "en": "verkaufer-in-food-coop-zurich-mu8fxz",
         "de": "verkaufer-in-lebensmittel-coop-zurich-32d220",
         "fr": "verkaufer-dans-les-aliments-coop-zurich-32d220"
       },
@@ -25598,21 +25539,21 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-zurich-2"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-zurich-mu8fxz",
-          "seller-in-food-coop-zurich-mu8fxz"
+          "seller-in-food-coop-zurich-mu8fxz",
+          "food-sales-associate-coop-zurich-mu8fxz"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-zurich-2",
         "seller-in-food-coop-genossenschaft-zurich-mu8fxz",
-        "seller-in-food-coop-zurich-mu8fxz"
+        "seller-in-food-coop-zurich-mu8fxz",
+        "food-sales-associate-coop-zurich-mu8fxz"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -25847,7 +25788,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-lachen-schwyz-3d49la",
-        "en": "salesman-food-coop-lachen-schwyz-3d49la",
+        "en": "verkaufer-in-food-coop-lachen-schwyz-3d49la",
         "de": "verkaufer-in-lebensmittel-coop-lachen-schwyz",
         "fr": "verkaufer-dans-les-aliments-coop-lachen-schwyz"
       },
@@ -25947,7 +25888,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-monchaltorf-zurich-jzq585",
-        "en": "food-sales-associate-coop-monchaltorf-zurich-jzq585",
+        "en": "verkaufer-in-food-coop-monchaltorf-zurich-jzq585",
         "de": "verkaufer-in-lebensmittel-coop-monchaltorf-zurich",
         "fr": "verkaufer-dans-les-aliments-coop-monchaltorf-zurich"
       },
@@ -25974,7 +25915,8 @@
         "en": [
           "seller-in-food-coop-genossenschaft-monchaltorf",
           "seller-in-food-coop-genossenschaft-monchaltorf-zurich-jzq585",
-          "seller-in-food-coop-monchaltorf-zurich-jzq585"
+          "seller-in-food-coop-monchaltorf-zurich-jzq585",
+          "food-sales-associate-coop-monchaltorf-zurich-jzq585"
         ],
         "de": [
           "verkaufer-in-food-coop-monchaltorf-zurich-73q4dq"
@@ -25990,11 +25932,10 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-monchaltorf",
         "verkaufer-in-food-coop-monchaltorf-zurich",
         "seller-in-food-coop-genossenschaft-monchaltorf-zurich-jzq585",
-        "seller-in-food-coop-monchaltorf-zurich-jzq585"
+        "seller-in-food-coop-monchaltorf-zurich-jzq585",
+        "food-sales-associate-coop-monchaltorf-zurich-jzq585"
       ],
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -26027,7 +25968,7 @@
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
         "it": "Cooker (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -26082,7 +26023,6 @@
         "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau",
         "cuisiniere-cuisinier-h-f-coop-genossenschaft-kreuzlingen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -26115,7 +26055,7 @@
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
         "it": "Chef / Chef (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin/Koch (m/w/d)",
         "fr": "Köchin / Koch (h/f/d)"
       },
@@ -26198,7 +26138,7 @@
       "firstSeenAt": "2026-08-11T13:12:21.038Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (f/m/div)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/h/div)"
       },
@@ -26253,7 +26193,6 @@
         "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich",
         "cuisiniere-cuisinier-h-f-d-coop-genossenschaft-volketswil"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -26366,9 +26305,7 @@
           "vendeur-euse-produits-frais-boulangerie-coop-genossenschaft-schenkon-o6pn6a"
         ]
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "retranslationAttempts": 1,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -26623,7 +26560,6 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-kreuzlingen-thurgau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -26763,7 +26699,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-lotzwil-bern-1rmk8z",
-        "en": "food-sales-associate-coop-lotzwil-bern-1rmk8z",
+        "en": "verkaufer-in-food-coop-lotzwil-bern-1rmk8z",
         "de": "verkaufer-in-lebensmittel-coop-lotzwil-bern",
         "fr": "verkaufer-dans-les-aliments-coop-lotzwil-bern"
       },
@@ -26785,17 +26721,17 @@
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-lotzwil-1rmk8z",
-          "seller-in-food-coop-lotzwil-bern-1rmk8z"
+          "seller-in-food-coop-lotzwil-bern-1rmk8z",
+          "food-sales-associate-coop-lotzwil-bern-1rmk8z"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-lotzwil-bern",
         "seller-in-food-coop-genossenschaft-lotzwil-1rmk8z",
-        "seller-in-food-coop-lotzwil-bern-1rmk8z"
+        "seller-in-food-coop-lotzwil-bern-1rmk8z",
+        "food-sales-associate-coop-lotzwil-bern-1rmk8z"
       ],
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "retranslationAttempts": 2,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -26848,7 +26784,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-frutigen-bern-cl5pme",
-        "en": "salesman-food-coop-frutigen-bern-cl5pme",
+        "en": "verkaufer-in-food-coop-frutigen-bern-cl5pme",
         "de": "verkaufer-in-lebensmittel-coop-frutigen-bern",
         "fr": "verkaufer-dans-les-aliments-coop-frutigen-bern"
       },
@@ -27140,7 +27076,6 @@
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil-8p6htu",
         "partenaire-en-franchise-coop-pronto-avec-station-service-coop-genossenschaft-allschwil"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -27402,7 +27337,6 @@
         "location": "Argovia",
         "canton": "AG"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -27482,7 +27416,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -27510,7 +27443,7 @@
       "firstSeenAt": "2026-08-12T00:52:26.790Z",
       "titleByLocale": {
         "it": "Cooker (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (h/f/d)"
       },
@@ -27567,7 +27500,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -28102,7 +28034,7 @@
       "titleByLocale": {
         "it": "Ordina picker, Berna, 100%",
         "en": "Order picker, Bern, 100 %",
-        "fr": ""
+        "fr": "Récupérateur de commandes, Berne, 100 %"
       },
       "descriptionByLocale": {
         "it": "## Ordina picker, Berna, 100%\n\nTransgourmet Schweiz AG — Bern, Bern, Svizzera\n\n## Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi. Transgourmet Schweiz AG appartiene al Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n- Scegli gli ordini dei clienti in tempo, senza errori e di alta qualità, anche nelle sale frigorifere (3-5 °C).\n- Mantenere gli ordini di configurazione e caricare correttamente i contenitori di trasporto.\n- Assegnare gli ordini al tour giusto e posizionarli nello spazio di consegna appropriato.\n- Si attivano forniture quando gli articoli vengono esauriti.\n- Lei sostiene con inventori e disfatta correttamente i rifiuti.\n- Si lavora sistema-gestito e rispettare tutte le linee guida di raccolta ordini, QS e ASIB.\n\n## Requisiti\n- Hai esperienza nella ricevuta e nella raccolta delle merci.\n- Hai un documento valido per il SUVA.\n- Si lavora orientato all'obiettivo, strutturato e con alta iniziativa.\n- Siete fisicamente resilienti e fatti per le stanze fredde.\n- Conosci i sistemi di gestione del magazzino.\n- Parli bene tedesco e sei affidabile.\n\n## La persona di contatto\nNicole Affentra\nHR/amministrazione\n\nTipo: A tempo pieno\n♪ Sede. ♪ Berna",
@@ -28183,9 +28115,9 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-12T00:52:26.790Z",
       "titleByLocale": {
+        "it": "Logistica notturna / logistica notturna",
         "en": "Night logistician/night logistician",
-        "fr": "Logisticien nocturne/Logisticien nocturne",
-        "it": ""
+        "fr": "Logisticien nocturne/Logisticien nocturne"
       },
       "descriptionByLocale": {
         "it": "## Logistica notturna / logistica notturna\n\nTransgourmet Schweiz AG — Chur, Grigioni, Svizzera\n\n## Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi. Transgourmet Schweiz AG appartiene al Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n- Monitorare e effettuare il consolidamento degli ordini del cliente\n- Assicurarsi di evitare danni alle merci durante la compattazione\n- Si controlla la completezza dei prodotti forniti per ogni tour\n- Gestisci i contenitori vuoti\n- Raccogli e distribuisci gli articoli di crossdocking\n- Voi prendete false consegne e portatele al vostro superiore\n- Assicura il rispetto delle linee guida operative per la sicurezza e la prevenzione degli infortuni sul lavoro\n- Conformi le linee guida legali QS\n\n## Requisiti\n- Hai completato un apprendistato come specialista di logistica EFZ o EBA o almeno 3 anni di esperienza professionale nella logistica\n- Hai un pass camion approvato SUVA e hanno un'esperienza di guida sufficiente\n- Lavori orientati agli obiettivi e strutturati\n- Lei mostra la propria iniziativa, sono affidabili e portare un alto impegno\n- Hai una buona conoscenza della gestione dei sistemi di gestione del magazzino\n- Siete fisicamente robusti e pronti a lavorare in frigoriferi con temperature comprese tra -20 °C e +5 °C\n- Hai una buona conoscenza del tedesco in parola e scrittura\n\n## La persona di contatto\nRita Kindle\nHR/amministrazione\n\nTipo: A tempo pieno\nRevisione:",
@@ -28576,7 +28508,6 @@
         "mitarbeiter-in-logistik-jumbo-wurenlingen-2",
         "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -29462,7 +29393,6 @@
       },
       "addressLocality": "Ostermundigen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -29517,7 +29447,6 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen-5bi52k",
         "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen-6e9e52"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -29576,7 +29505,6 @@
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -29604,7 +29532,6 @@
         "verkaufer-in-food-coop-bern-h2c8pa",
         "verkaufer-in-food-coop-bern-2"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -29775,7 +29702,6 @@
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "LU",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -29787,7 +29713,6 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2,
       "previousSlugs": [
         "polydesigner-in-3d-coop-city-luzern",
         "polydesigner-in-3d-coop-city-luzern-ukijwi",
@@ -29972,7 +29897,6 @@
       "previousSlugs": [
         "junior-supply-chain-manager-distribution-interdiscount-jegenstorf-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000
     },
@@ -30029,7 +29953,6 @@
         "de": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau-uurgta",
         "fr": "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-killwangen"
       },
-      "needsRetranslation": true,
       "addressLocality": "Killwangen",
       "sourceLang": "de",
       "addressRegion": "AG",
@@ -30070,7 +29993,6 @@
         "vendeur-euse-produits-frais-pain-et-viennoiseries-coop-genossenschaft-killwangen",
         "verkaufer-in-frischprodukte-brot-und-backwaren-coop-killwangen-aargau"
       ],
-      "retranslationAttempts": 2,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -30245,7 +30167,6 @@
         "verkaufer-in-food-brot-molkerei-fruchte-gemuse-neueroffnung-coop-affoltern-am-albis-zurich-d7wqi1",
         "verkaufer-in-food-brot-molkerei-fruchte-gemuse-neueroffnung-coop-affoltern-am-albis-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -30331,7 +30252,6 @@
         "rayonleiter-in-brot-backwaren-coop-kusnacht-zurich-ehqwcw",
         "rayonleiter-in-brot-backwaren-coop-kusnacht-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -30917,7 +30837,6 @@
       },
       "addressLocality": "Münsingen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -30951,7 +30870,6 @@
         "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-munsingen",
         "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-munsingen"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -31102,7 +31020,6 @@
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "AG",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -31130,7 +31047,6 @@
         "verkaufer-in-food-coop-city-aarau-aargau-m5bk1y",
         "verkaufer-in-food-coop-city-aarau-aargau"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -31189,7 +31105,6 @@
       },
       "addressLocality": "Oberägeri",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZG",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -31217,7 +31132,6 @@
         "verkaufer-in-frischprodukte-getranke-coop-oberageri-zug-oozz4r",
         "verkaufer-in-frischprodukte-getranke-coop-oberageri-zug"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -31946,7 +31860,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-belp-bern-qc3mut",
-        "en": "seller-in-food-coop-belp-bern-qc3mut",
+        "en": "verkaufer-in-food-coop-belp-bern-qc3mut",
         "de": "verkaufer-in-lebensmittel-coop-belp-bern",
         "fr": "verkaufer-dans-les-aliments-coop-belp-bern"
       },
@@ -32048,7 +31962,6 @@
         }
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-inkl-produktion-coop-genossenschaft-herzogenbuchsee",
@@ -32073,7 +31986,6 @@
         "venditore-di-prodotti-freschi-inclusa-la-produzione-coop-genossenschaft-herzogenbuchsee",
         "vendeur-vendeuse-produits-frais-avec-production-coop-genossenschaft-herzogenbuchsee-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -32132,7 +32044,6 @@
       },
       "addressLocality": "Bätterkinden",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -32160,7 +32071,6 @@
         "verkaufer-in-food-coop-batterkinden-bern-kuz9eh",
         "verkaufer-in-food-coop-batterkinden-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -32304,7 +32214,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-langnau-am-albis-zurich-hszxig",
-        "en": "food-sales-associate-coop-langnau-am-albis-zurich-hszxig",
+        "en": "verkaufer-in-food-coop-langnau-am-albis-zurich-hszxig",
         "de": "verkaufer-in-lebensmittel-coop-langnau-am-albis-zurich",
         "fr": "verkaufer-dans-les-aliments-coop-langnau-am-albis-zurich"
       },
@@ -32331,7 +32241,8 @@
         "en": [
           "salesman-in-food-coop-genossenschaft-langnau-am-albis-oq5txw",
           "seller-in-food-coop-genossenschaft-langnau-am-albis-hszxig",
-          "seller-in-food-coop-langnau-am-albis-zurich-hszxig"
+          "seller-in-food-coop-langnau-am-albis-zurich-hszxig",
+          "food-sales-associate-coop-langnau-am-albis-zurich-hszxig"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-langnau-am-albis-zurich-oq5txw"
@@ -32347,11 +32258,10 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-langnau-am-albis-oq5txw",
         "verkaufer-in-food-coop-langnau-am-albis-zurich",
         "seller-in-food-coop-genossenschaft-langnau-am-albis-hszxig",
-        "seller-in-food-coop-langnau-am-albis-zurich-hszxig"
+        "seller-in-food-coop-langnau-am-albis-zurich-hszxig",
+        "food-sales-associate-coop-langnau-am-albis-zurich-hszxig"
       ],
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "retranslationAttempts": 2,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -32502,7 +32412,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-toffen-bern-ejcbn0",
-        "en": "salesman-food-coop-toffen-bern-ejcbn0",
+        "en": "verkaufer-in-food-coop-toffen-bern-ejcbn0",
         "de": "verkaufer-in-lebensmittel-coop-toffen-bern",
         "fr": "verkaufer-dans-les-aliments-coop-toffen-bern"
       },
@@ -32589,7 +32499,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-bern-08dhr5",
-        "en": "food-sales-assistant-coop-bern-08dhr5",
+        "en": "verkaufer-in-food-coop-bern-08dhr5",
         "de": "verkaufer-in-lebensmittel-coop-bern-1c3dde",
         "fr": "verkaufer-dans-les-aliments-coop-bern-1c3dde"
       },
@@ -32605,8 +32515,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-ostermundigen-bern-2",
@@ -32615,7 +32523,8 @@
         ],
         "en": [
           "seller-in-food-coop-bern-08dhr5",
-          "seller-in-food-coop-genossenschaft-bern-08dhr5"
+          "seller-in-food-coop-genossenschaft-bern-08dhr5",
+          "food-sales-assistant-coop-bern-08dhr5"
         ]
       },
       "previousSlugs": [
@@ -32623,7 +32532,8 @@
         "verkaufer-in-food-coop-ostermundigen-bern-2-2",
         "verkaufer-in-food-coop-bern",
         "seller-in-food-coop-bern-08dhr5",
-        "seller-in-food-coop-genossenschaft-bern-08dhr5"
+        "seller-in-food-coop-genossenschaft-bern-08dhr5",
+        "food-sales-assistant-coop-bern-08dhr5"
       ],
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -33061,9 +32971,7 @@
         "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-xwhivl",
         "stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern"
       ],
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -33190,7 +33098,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-maur-zurich-46lffu",
-        "en": "seller-in-food-coop-maur-zurich-46lffu",
+        "en": "verkaufer-in-food-coop-genossenschaft-maur-zurich-46lffu",
         "de": "verkaufer-in-lebensmittel-coop-genossenschaft-maur-zurich",
         "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-maur-zurich"
       },
@@ -33404,7 +33312,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-samedan-graubunden-v1t4x2",
-        "en": "seller-in-food-coop-samedan-graubunden-v1t4x2",
+        "en": "verkaufer-in-food-coop-genossenschaft-samedan-graubunden-v1t4x2",
         "de": "verkaufer-in-lebensmittel-coop-genossenschaft-samedan-graubunden",
         "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-samedan-graubunden"
       },
@@ -33718,7 +33626,6 @@
         "location": "Grigioni",
         "canton": "GR"
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -34673,7 +34580,8 @@
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g",
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-de5fe2",
           "vendeur-ve-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
-          "vendeur-ve-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g"
+          "vendeur-ve-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-y52d8g",
+          "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-thalwil-zurich-4ou7bw",
@@ -34746,7 +34654,8 @@
         "conseiller-ere-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
         "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau-aly8kz",
         "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
-        "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau"
+        "consultant-commercial-a-do-it-jumbo-division-der-coop-genossenschaft-eppenberg-woschnau",
+        "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -35031,9 +34940,9 @@
       "firstSeenAt": "2026-08-10T13:20:23.473Z",
       "titleByLocale": {
         "it": "Project Manager Sponsoring",
+        "en": "Project Manager: in Sponsorship",
         "de": "Project-Manager:in Sponsoring",
-        "fr": "Responsable de projet : Sponsoring",
-        "en": ""
+        "fr": "Responsable de projet : Sponsoring"
       },
       "descriptionByLocale": {
         "it": "Project Manager:in sponsorizzazione\n\nCoop Società Cooperativa — Berna, Berna, Svizzera\n\nCompiti\nConduci interessanti progetti di sponsorizzazione nei settori della famiglia e dei giovani, dello sport e della cultura, dalla pianificazione fino al completamento con successo, assumendoti la responsabilità del budget.\nPianifichi, organizzi e realizzi eventi aziendali e pubblici nella regione di vendita Coop di Berna, tenendo sempre d'occhio le scadenze, i costi e la qualità.\nSvilupperai sponsorizzazioni creative insieme a partner interni ed esterni e garantirai la loro attuazione professionale sul posto.\nConduci trattative contrattuali con stakeholder esterni e mantieni una collaborazione basata sulla fiducia con i nostri partner.\nSei responsabile della documentazione del progetto e del controlling del progetto e ti assumi ulteriori compiti amministrativi relativi ai tuoi progetti.\n\nRequisiti\nHai un diploma di scuola universitaria professionale o una formazione continua nel campo della sponsorizzazione o della comunicazione.\nHai esperienza professionale nella sponsorizzazione e/o nella gestione di eventi.\nLavori in modo indipendente, organizzato e affidabile e convinci con la tua flessibilità e il tuo spiccato talento organizzativo.\nSei sicuro di negoziare e pronto ad accompagnare gli eventi anche la sera e nei fine settimana.\n- Agevolazioni: 5 volte il numero di superpunti nel supermercato\n- Condizioni di impiego: Cassa pensione: 2/3 versati da Coop\n- Orario di lavoro: 5 settimane di ferie\n-",
@@ -35840,9 +35749,9 @@
       "firstSeenAt": "2026-08-11T00:36:43.684Z",
       "titleByLocale": {
         "it": "Product Purchasing Manager Outdoor, Personalcare, Coffee & Kitchen 80-100 %",
+        "en": "Product Purchasing Manager Outdoor, Personalcare, Coffee & Kitchen 80-100 %",
         "de": "Product Purchasing Manager Outdoor, Personalcare, Kaffee & Küche 80-100%",
-        "fr": "Product Purchase Manager Outdoor, Personalcare, Cafe & Kitchen 80-100 %",
-        "en": ""
+        "fr": "Product Purchase Manager Outdoor, Personalcare, Cafe & Kitchen 80-100 %"
       },
       "descriptionByLocale": {
         "it": "## Product Purchasing Manager Outdoor, Personalcare, Coffee & Kitchen 80-100 %\n\nInterdiscount — Jegenstorf, Berna, Svizzera\n\n## A Interdiscount offriamo ai nostri clienti la migliore esperienza di shopping in Svizzera. Impegnarsi in un ambiente di lavoro dinamico e imprenditoriale. Prendere la responsabilità, essere proattivi con noi e sviluppare ulteriormente.\n\n## Compiti\n- Sei responsabile per il mercato olistico e lo sviluppo dei guadagni delle aree di prodotto Outdoor, Personalcare, Coffee & Kitchen e garantire il raggiungimento degli obiettivi di approvvigionamento, quota di mercato, vendite, redditività e qualità.\n- Come membro del team di gestione, si modella attivamente la strategia di categoria e business plan e guidare la loro implementazione.\n- Insieme ai responsabili dell'acquisto, svilupperai continuamente le gamme di prodotti e garantirai un rapporto qualità-prezzo ottimale con un focus sulle esigenze dei consumatori svizzeri.\n- Si sviluppa e implementa una pianificazione promozionale olistica attraverso i canali di vendita rilevanti (POS e online) in coordinamento con la gestione della categoria.\n- Si mantiene relazioni nazionali e internazionali fornitori e negoziare per garantire condizioni attraenti e una gamma competitiva.\n- Tu hai la responsabilità aziendale per la tua zona, analizza i KPI rilevanti e ottieni misure di ottimizzazione mirate.\n- Potrai osservare le tendenze e gli sviluppi competitivi e sviluppare i tuoi Gestione acquisti in modo mirato e orientato ai risultati.\n\n## Requisiti\n- Hai un'alta affinità per l'elettronica domestica / non-food e necessariamente portare esperienza in FMCG, vendita al dettaglio o e-commerce.\n- Hai una formazione di base commerciale con la formazione di amministrazione aziendale o un grado di amministrazione aziendale.\n- Hai almeno cinque anni di esperienza in una posizione paragonabile così come esperienza di leadership.\n- Hai competenze tedesche eleganti e buone abilità inglesi; La conoscenza del francese è un vantaggio.\n- Hai una buona conoscenza di MS Office e una profonda esperienza nel trattare con SAP.\n- Pensi al cliente e alla soluzione orientata e convinci attraverso un alto impegno e la volontà di imparare.\n- Lavori in modo indipendente, affidabile, analitico e orientato al team.\n\n## Cosa offriamo\n\n## La persona di contatto\nFederica Blumetti,\nHR Marketing\n+41 31 764 42 68\n\nTipo: Tempo parziale\n# Jegenstorf #",
@@ -35899,7 +35808,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000
     },
@@ -36708,7 +36616,7 @@
         "it": "Editorial Designer, 80-100%",
         "en": "Editorial Designer, 80-100%",
         "de": "Editorial Designer:in, 80-100 %",
-        "fr": ""
+        "fr": "Designer éditorial:en, 80-100%"
       },
       "descriptionByLocale": {
         "it": "Editorial Designer:in, 80-100%\n\nCoop Società Cooperativa — Basilea, Basilea Città, Svizzera\n\nCompiti\n- Progetti riviste e lavori su progetti versatili per i clienti\n- Sviluppi concetti di design, moodboard, stili e approcci di layout\n- Elabori le idee e le presenti ai clienti interni\n- Progetti i mezzi di comunicazione all'interno delle linee guida di design esistenti e realizzi anche formati digitali come grafica per social media, newsletter, presentazioni e documenti interattivi\n- Sei responsabile del disegno, della preparazione dei dati di stampa e del controllo qualità\n\nRequisiti\n- Sei un graphic designer:in o hai una laurea in comunicazione visiva e hai almeno due anni di esperienza professionale nel design\n- Pensi in modo sicuro in stampa e digitale e padroneggi Adobe InDesign, Illustrator, Photoshop e Acrobat\n- La gestione degli strumenti di intelligenza artificiale è una cosa ovvia per te\n- Introduci idee creative e le sviluppi ulteriormente dal punto di vista concettuale\n- Lavori in modo strutturato, preciso e indipendente, sei orientato al team e gestisci il feedback in modo costruttivo\n- Agevolazioni: fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, partecipazione all'abbonamento U, agevolazioni per eventi culturali, agevolazioni per attività ricreative\n- Condizioni di impiego: cassa pensione: 2/3 versati da Coop, contratto collettivo di lavoro (CCL), 18 settimane di congedo di maternità retribuito e 4",
@@ -36786,7 +36694,7 @@
       "firstSeenAt": "2026-08-08T00:41:53.560Z",
       "titleByLocale": {
         "it": "Cuoco/a Asiatico/a 80-100%",
-        "en": "Asia-Koch/Köchin 80-100%",
+        "en": "Asian cook/chef 80-100 %",
         "de": "Asia-Koch/Köchin 80-100%",
         "fr": "Cuisinier/ère Asiatique 80-100%"
       },
@@ -36839,7 +36747,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -37140,7 +37047,7 @@
       "firstSeenAt": "2026-08-07T03:32:35.721Z",
       "titleByLocale": {
         "it": "Chef Sushi 80%",
-        "en": "Sushi-Koch/Köchin 80%",
+        "en": "Sushi cook/chef 80 %",
         "de": "Sushi-Koch/Köchin 80%",
         "fr": "Chef Sushi 80%"
       },
@@ -37228,7 +37135,6 @@
         "sushi-koch-kochin-two-spice-ag-dietlikon-8fz8lg",
         "cuisinier-chef-de-sushi-two-spice-ag-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200
     },
@@ -37641,7 +37547,7 @@
         "it": "Polydesigner 3D (f/m/d)",
         "en": "Polydesigner 3D (f/m/d)",
         "de": "Poly-3D-Designer (w/m/d)",
-        "fr": "Polydesigner 3D (w/m/d)"
+        "fr": "Polydesigner 3D (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Compiti\n\n- Hai un occhio per i dettagli – in questo modo garantisci l'implementazione dei concetti specificati.\n\n- Con passione e una mano esperta, presenterete i nostri assortimenti.\n\n- Si assume volentieri la responsabilità per l'allestimento e lo smontaggio di promozioni e promozioni.\n\nRequisiti\n\n- Formazione completata come decoratore:in o polidesigner:in 3D? Allora sei nel posto giusto.\n\n- Hai già esperienza professionale, idealmente in un grande magazzino. Per fare centro.\n\n- Flessibile, resistente, orientato al cliente – siete proprio voi.\n\n- Conosce perfettamente il tedesco – sia per iscritto che oralmente.\n\n- Agevolazioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di superpunti nel supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati più convenienti presso Coop Mobile, sconto per il personale anche per i partner (che vivono nella stessa economia domestica)\n\n- Condizioni di impiego: Cassa pensioni: 2/3 sono versati da Coop, contratto collettivo di lavoro (CCL), 18 settimane di congedo di maternità e 4 settimane di congedo di paternità retribuite, premi di fedeltà, piano di risparmio presso la Cassa pensioni, regolamentazione flessibile e interessante per una pensione di vecchiaia anticipata a partire dal 58° anno di età\n\n- Orario di lavoro: 5 settimane di ferie\n\n- Formazione: oltre 600 corsi di formazione interni, supporto per corsi di formazione e perfezionamento esterni, gestione dei talenti con una vasta gamma di",
@@ -37652,7 +37558,7 @@
       "slugByLocale": {
         "it": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
         "en": "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
-        "de": "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304",
+        "de": "polydesigner-3d-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
         "fr": "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304"
       },
       "requirementsByLocale": {
@@ -37821,7 +37727,7 @@
       "firstSeenAt": "2026-08-07T13:11:31.008Z",
       "titleByLocale": {
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
       "descriptionByLocale": {
@@ -38423,7 +38329,6 @@
         "verkaufer-in-kassen-services-coop-murten-freiburg-i04ifg",
         "verkaufer-in-kassen-services-coop-murten-freiburg"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -38468,7 +38373,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-adelboden-bern-7e5oyl",
-        "en": "food-sales-associate-coop-adelboden-bern-7e5oyl",
+        "en": "verkaufer-in-food-coop-adelboden-bern-7e5oyl",
         "de": "verkaufer-in-lebensmittel-coop-adelboden-bern",
         "fr": "verkaufer-dans-les-aliments-coop-adelboden-bern"
       },
@@ -40213,7 +40118,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-bern-21du69",
-        "en": "food-sales-assistant-coop-bern-21du69",
+        "en": "verkaufer-in-food-coop-bern-21du69",
         "de": "verkaufer-in-lebensmittel-coop-bern",
         "fr": "verkaufer-dans-les-aliments-coop-bern"
       },
@@ -40318,7 +40223,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-bottmingen-basel-landschaft-wvb42s",
-        "en": "food-sales-assistant-coop-bottmingen-basel-landschaft-wvb42s",
+        "en": "verkaufer-in-food-coop-bottmingen-basel-landschaft-wvb42s",
         "de": "verkaufer-in-lebensmittel-coop-bottmingen-basel-landschaft",
         "fr": "verkaufer-dans-les-aliments-coop-bottmingen-basel-landschaft"
       },
@@ -40540,7 +40445,6 @@
         "wine-taster-coop-genossenschaft-burgdorf-r8h9v8"
       ],
       "sourceLang": "de",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -43691,7 +43595,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
-        "en": "salesman-in-food-coop-adelboden-bern-p8kwz2",
+        "en": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
         "de": "verkaufer-in-lebensmittel-coop-genossenschaft-adelboden-bern",
         "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-adelboden-bern"
       },
@@ -44848,7 +44752,7 @@
       "firstSeenAt": "2026-08-06T00:45:17.198Z",
       "titleByLocale": {
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
@@ -44915,7 +44819,6 @@
         "location": "Soletta",
         "canton": "SO"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -45244,7 +45147,8 @@
         "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-eyholz",
         "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-schwyz",
         "garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schwyz",
-        "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-suhr"
+        "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-suhr",
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -45260,7 +45164,8 @@
           "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-eyholz",
           "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-schwyz",
           "garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schwyz",
-          "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-suhr"
+          "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-suhr",
+          "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schwyz"
         ],
         "en": [
           "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-schwyz-8i1960",
@@ -45574,7 +45479,7 @@
         "it": "Responsabile di Turno Ristorante (m/f/d)",
         "en": "Restaurant Team Leader (m/f/d)",
         "de": "Teamleader Restaurant (w/m/d)",
-        "fr": ""
+        "fr": "Chef d'équipe Restaurant (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Squadra: Il ristorante (p/m/d)\n\nMarché Restaurants Schweiz AG. Dietlikon, Dietlikon, Sizera\n\nMarché Restaurants Schweiz AG è una delle 10 aziende svizzere più vendute nel settore della ristorazione a servizio completo ed è la principale nella ristorazione autostradale con il marchio \"Marché.\" Marché Restaurants Schweiz AG è una filiale separata del Gruppo Coop dal 2014.\n\nCon i nostri marchi e concetti, Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs, non siamo presenti solo alle autostrade o all'aeroporto di Zurigo, ma anche alle più grandi stazioni ferroviarie svizzere di Zurigo, Berna e Basilea, così come in alcuni centri commerciali famosi della Svizzera tedesca. In altre parole, rifiniamo la vita quotidiana dei nostri ospiti ovunque la gente stia godendo di una pausa pasto.\n\nCompiti - Gestione del turno autogestita - Leadership e promozione dei dipendenti - Pianificazione del turno, ordinazione, inventario e contabilità - Lavoro amministrativo, traffico postale, sistema di cassa - Consulenza e servizio agli ospiti, assistenza nelle attività quotidiane - Responsabile dell'igiene e della pulizia in conformità con gli standard HA 152\n\nRequisiti - Formazione completa in gastronomia - Buone competenze tedesche, ulteriori lingue di vantaggio - Prima esperienza di gestione, servizio e servizio orientato - Carisma positivo, amichevole e motivato - Giocatore di squadra, buone competenze organizzative - Temporale flessibile e mobile (sveglia e fine settimana turni) - Alta affinità per prodotti freschi e di alta qualità\n\nCosa offriamo\n\nIl Suo contatto Barbara Steger, Risorse umane\n\nTipo: a tempo pieno",
@@ -45627,7 +45532,6 @@
           "teamleader-restaurant-m-w-d-marche-restaurants-schweiz-ag-dietlikon-45w3dm"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -46283,10 +46187,10 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-06T14:06:03.677Z",
       "titleByLocale": {
+        "it": "Crewmember Burger King (m/f/d)",
         "en": "Crewmember Burger King (f/m/d)",
         "de": "Crewmember Burger King (w/m/d)",
-        "fr": "membre d'équipage Burger King (f/m/d)",
-        "it": ""
+        "fr": "membre d'équipage Burger King (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "## Crewmember Burger King (f/m/d)\n\nMarché Ristoranti Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\n## Marché Ristoranti Schweiz AG è una delle 10 aziende svizzere con il più alto fatturato nel settore della gastronomia a servizio completo ed è il chiaro numero 1 nella gastronomia autostradale con il marchio \"Marché\". Dal 2014, Marché Ristoranti Schweiz AG fa parte del Gruppo Coop come filiale indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – non siamo solo presenti sulle autostrade o all'aeroporto di Zurigo, ma anche nelle più grandi stazioni ferroviarie svizzere di Zurigo, Berna e Basilea, nonché in alcuni centri commerciali popolari della Svizzera tedesca. In altre parole, affinamo la vita quotidiana dei nostri ospiti, ovunque la gente si tratti di una pausa di cibo. 100 per cento di manzo puro, fiamme aperte per vere strisce grigliate, griglie professionali high-tech degli Stati Uniti e oltre 50 anni di esperienza - questi sono gli ingredienti per il miglior gusto griglia! Ogni hamburger è preparato a mano con molta passione e ingredienti freschi. Sei anche un fuoco e una fiamma per il miglior gusto alla griglia e il miglior divertimento hamburger? Entrate nella nostra squadra di Burger King!\n\n## Compiti\n- Servire e consigliare gli ospiti, servire il cassiere\n- Compilazione degli ordini secondo Burger King Standard\n- Preparare e produrre prodotti secondo i nostri standard di qualità\n- Lavorare sulle varie stazioni di cucina\n- Controllo della durata di tutti i prodotti\n- Igiene e pulizia secondo gli standard HACCP\n\n## Requisiti\n- Esperienza professionale nella gastronomia\n- Servizi orientati\n- Buona conoscenza del tedesco, altre lingue benefiche\n- carisma positivo, amichevole e motivato\n- Giocatore di squadra, capacità organizzative resilienti e buone\n- Flessibile e mobile in termini di tempo (cambio serale e fine settimana)\n\n## Cosa offriamo\n\n## La persona di contatto\nPia Kronberger\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
@@ -46331,7 +46235,6 @@
           "crewmember-burger-king-m-w-d-marche-dietlikon"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -46846,7 +46749,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -47519,7 +47421,8 @@
           "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
           "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schwyz",
           "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-dietikon-0xnuaz",
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-dietikon-zurich"
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-dietikon-zurich",
+          "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-schwyz"
         ],
         "en": [
           "verkaufsberater-in-deco-jumbo-schwyz-xqcsiz",
@@ -47575,7 +47478,8 @@
         "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
         "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-576232",
         "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-schwyz-tcuuz9",
-        "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schwyz"
+        "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schwyz",
+        "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-schwyz"
       ],
       "needsRetranslation": true,
       "salaryMin": 69500,
@@ -48376,7 +48280,7 @@
       "slugByLocale": {
         "it": "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j",
         "en": "polydesigner-in-3d-coop-city-zurich-qqky5j",
-        "de": "polydesigner-in-3d-coop-city-zurich-qqky5j",
+        "de": "polydesigner-in-3d-coop-genossenschaft-zurich-qqky5j",
         "fr": "polydesigner-in-3d-coop-city-zurich-qqky5j"
       },
       "addressLocality": "Zürich",
@@ -49464,7 +49368,7 @@
       "firstSeenAt": "2026-08-07T03:32:35.721Z",
       "titleByLocale": {
         "it": "Cuoca/Cuoco (donna/uomo/diverso)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière/Cuisinier (femme/homme/diverso)"
       },
@@ -49523,7 +49427,6 @@
         "chef-cook-m-f-d-coop-genossenschaft-sarnen",
         "cook-m-w-d-coop-genossenschaft-sarnen-c66mfq"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -50123,7 +50026,7 @@
       "firstSeenAt": "2026-08-07T03:32:35.721Z",
       "titleByLocale": {
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (en poids/m/j)"
       },
@@ -50178,7 +50081,6 @@
         "kochin-koch-m-w-d-coop-ristorante-aarau-aargau-1c7o4w",
         "kochin-koch-m-w-d-coop-ristorante-aarau-aargau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -52969,7 +52871,7 @@
       "firstSeenAt": "2026-08-05T00:49:58.678Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/h/d)"
       },
@@ -53029,7 +52931,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -53895,7 +53796,7 @@
       "firstSeenAt": "2026-08-05T14:10:06.380Z",
       "titleByLocale": {
         "it": "Chef (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (en poids/m/j)"
       },
@@ -53991,7 +53892,6 @@
         "location": "Grigioni",
         "canton": "GR"
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -54115,9 +54015,9 @@
       "firstSeenAt": "2026-08-05T14:10:06.380Z",
       "titleByLocale": {
         "it": "Senior IT Business Analyst nell'area SAP SD",
+        "en": "Senior IT Business Analyst in SAP SD",
         "de": "Senior IT Business Analyst im Bereich SAP SD",
-        "fr": "Senior IT Business Analyst dans le domaine SAP SD",
-        "en": ""
+        "fr": "Senior IT Business Analyst dans le domaine SAP SD"
       },
       "descriptionByLocale": {
         "it": "Senior IT Business Analyst nel settore SAP SD\n\nCoop Società Cooperativa — Basilea, Basilea Città, Svizzera\n\nCompiti\n- Acquisire, analizzare e ottimizzare i processi end-to-end nell'ambiente SAP SD\n- Agire come interfaccia centrale tra il dipartimento e lo sviluppo – con un solido know-how in SAP, sistemi di e-commerce e la loro integrazione\n- In parte come Product Owner, coordinare gli stakeholder delle vendite, del marketing e del management e consentire soluzioni sostenibili dai loro interessi\n- Assumersi la responsabilità end-to-end del processo lead-to-cash, tenendo conto dell'impatto lungo l'intera catena del valore\n- Formulare requisiti di alta qualità e realizzabili – tecnicamente corretti, testabili, tecnicamente realizzabili e con chiari criteri di accettazione\n\nRequisiti\n- Esperienza pluriennale come IT Business Analyst nei processi di vendita, ordinazione, consegna e/o resi\n- Conoscenza approfondita di SAP (SD)\n- Conoscenza dell'analisi dei processi, della gestione dei requisiti e dei metodi agili\n- Comprensione delle interfacce con settori quali: logistica/dati anagrafici/pricing/customer service/e-commerce/finanza\n- Agevolazioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di superpunti nel supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, Reka-Card: sconto al momento dell'acquisto\n- Condizioni di impiego: Cassa pensione: 2/3 è pagato da Coop, attraenti",
@@ -54157,7 +54057,6 @@
         "senior-it-business-analyst-im-bereich-sap-sd-coop-genossenschaft-basel",
         "senior-it-business-analyst-im-bereich-sap-sd-coop-basel-stadt"
       ],
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -55062,7 +54961,7 @@
       "titleByLocale": {
         "it": "Specialista: in Service-Altelier",
         "en": "Specialist: in Service-Altelier",
-        "de": "Fachmitarbeiter:in Service- Atelier",
+        "de": "Fachmitarbeiter:in Service-Altelier",
         "fr": "Spécialiste: en Service-Atelier"
       },
       "descriptionByLocale": {
@@ -55615,7 +55514,7 @@
         "it": "Membro del team ristorante (w/m/d)",
         "en": "Restaurant Team Member (w/m/d)",
         "de": "Teammember Restaurant (w/m/d)",
-        "fr": ""
+        "fr": "Membre de l'équipe Restaurant (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Teammember Restaurant (f/m/d)\n\nMarché Restaurants Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\nMarché Restaurants Schweiz AG è una delle 10 aziende svizzere con il maggior fatturato nel settore della ristorazione di sistema a servizio completo e con il marchio \"Marché\" è chiaramente il numero 1 nella ristorazione autostradale. Dal 2014 Marché Restaurants Schweiz AG fa parte del Gruppo Coop come società affiliata indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – siamo presenti non solo sulle autostrade o all'aeroporto di Zurigo, ma anche nelle principali stazioni ferroviarie svizzere di Zurigo, Berna e Basilea e in alcuni popolari centri commerciali della Svizzera tedesca. In altre parole, perfezioniamo la vita quotidiana dei nostri ospiti, ovunque le persone si concedano una pausa ristorativa.\n\nCompiti\n- Accogliere, servire e consigliare gli ospiti\n- Preparazione di snack e bevande fresche\n- Vendita panini freschi, insalate, food e bevande\n- Preparazione di specialità di caffè e tè, nonché bevande a base di latte\n- Vendita di prodotti freschi e bevande al caffè e juice counter\n- Allestimento e presentazione dell'offerta, lavori di preparazione e pulizia\n- Pulire, lavare e riporre le stoviglie\n- Funzionamento della cassa, incl. fatturazione\n- Igiene e pulizia secondo gli standard HACCP\n\nRequisiti\n- Esperienza professionale nel settore della ristorazione\n- Servizi e",
@@ -55668,7 +55567,6 @@
         "location": "Grigioni",
         "canton": "GR"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -55766,7 +55664,7 @@
       "firstSeenAt": "2026-08-04T14:20:06.697Z",
       "titleByLocale": {
         "it": "Cuoco / Cuoca (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (m/f/d)"
       },
@@ -55841,7 +55739,6 @@
         "location": "Turgovia",
         "canton": "TG"
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -64646,7 +64543,7 @@
       "firstSeenAt": "2026-08-03T15:09:21.498Z",
       "titleByLocale": {
         "it": "Cloud Software Ingegnere (Java/GCP) 80-100%",
-        "en": "Cloud Software Engineer (Java/GCP) 80-100%",
+        "en": "Cloud Software Engineer (Java/GCP) 80-100 %",
         "de": "Cloud Software Ingenieur (Java/GCP) 80-100%",
         "fr": "Cloud Software Ingénieur (Java/GCP) 80-100%"
       },
@@ -65123,10 +65020,10 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-03T15:09:21.498Z",
       "titleByLocale": {
+        "it": "Crewmember Burger King (m/f/d)",
         "en": "Crewmember Burger King (f/m/d)",
         "de": "Crewmember Burger King (w/m/d)",
-        "fr": "membre d'équipage Burger King (f/m/d)",
-        "it": ""
+        "fr": "membre d'équipage Burger King (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "## Crewmember Burger King (f/m/d)\n\nMarché Ristoranti Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\n## Marché Ristoranti Schweiz AG è una delle 10 aziende svizzere con il più alto fatturato nel settore della gastronomia a servizio completo ed è il chiaro numero 1 nella gastronomia autostradale con il marchio \"Marché\". Dal 2014, Marché Ristoranti Schweiz AG fa parte del Gruppo Coop come filiale indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – non siamo solo presenti sulle autostrade o all'aeroporto di Zurigo, ma anche nelle più grandi stazioni ferroviarie svizzere di Zurigo, Berna e Basilea, nonché in alcuni centri commerciali popolari della Svizzera tedesca. In altre parole, affinamo la vita quotidiana dei nostri ospiti, ovunque la gente si tratti di una pausa di cibo. 100 per cento di manzo puro, fiamme aperte per vere strisce grigliate, griglie professionali high-tech degli Stati Uniti e oltre 50 anni di esperienza - questi sono gli ingredienti per il miglior gusto griglia! Ogni hamburger è preparato a mano con molta passione e ingredienti freschi. Sei anche un fuoco e una fiamma per il miglior gusto alla griglia e il miglior divertimento hamburger? Entrate nella nostra squadra di Burger King!\n\n## Compiti\n- Servire e consigliare gli ospiti, servire il cassiere\n- Compilazione degli ordini secondo Burger King Standard\n- Preparare e produrre prodotti secondo i nostri standard di qualità\n- Lavorare sulle varie stazioni di cucina\n- Controllo della durata di tutti i prodotti\n- Igiene e pulizia secondo gli standard HACCP\n\n## Requisiti\n- Esperienza professionale nella gastronomia\n- Servizi orientati\n- Buona conoscenza del tedesco, altre lingue benefiche\n- carisma positivo, amichevole e motivato\n- Giocatore di squadra, capacità organizzative resilienti e buone\n- Flessibile e mobile in termini di tempo (cambio serale e fine settimana)\n\n## Cosa offriamo\n\n## La persona di contatto\nBarbara Steger\n, Risorse umane\n\nTipo: Tempo parziale\nDietlikon",
@@ -65173,7 +65070,6 @@
         "location": "Argovia",
         "canton": "AG"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -65255,7 +65151,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-kreuzlingen-thurgau"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -82802,7 +82697,6 @@
         "logistiker-in-coop-gossau-vmml9u",
         "logistiker-in-coop-gossau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -82880,7 +82774,6 @@
         "logistiker-in-coop-gossau-oypaij",
         "logistiker-in-coop-gossau-2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -111726,7 +111619,6 @@
         "logistiker-in-coop-basel-ywpl4s",
         "logistiker-in-coop-basel"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -111804,7 +111696,6 @@
         "logistiker-in-coop-basel-1q7pv4",
         "logistiker-in-coop-basel-2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -111848,9 +111739,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistentin-jumbo-basel-s6a28u",
-        "en": "retail-trade-expert-mann-assistant-jumbo-basel-s6a28u",
+        "en": "detailhandelsfachfrau-mann-assistentin-jumbo-basel-s6a28u",
         "de": "detailhandelsfachfrau-mann-assistentin-jumbo-grosshochstetten",
-        "fr": "expert-en-commerce-de-detail-mann-assistant-jumbo-basel-s6a28u"
+        "fr": "detailhandelsfachfrau-mann-assistentin-jumbo-basel-s6a28u"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -114924,7 +114815,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -114995,7 +114886,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -115066,7 +114957,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -115137,7 +115028,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -115208,7 +115099,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -115279,7 +115170,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -133535,7 +133426,6 @@
         "logistiker-in-coop-basel-ptcxrz",
         "logistiker-in-coop-basel-3"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -153201,7 +153091,7 @@
       "firstSeenAt": "2026-07-31T14:13:03.239Z",
       "titleByLocale": {
         "it": "Cucina / Cucinatore (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Chef/Cheffe (w/m/d)"
       },
@@ -153265,7 +153155,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -153381,7 +153270,7 @@
       "firstSeenAt": "2026-07-31T14:13:03.239Z",
       "titleByLocale": {
         "it": "Chef (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (en poids/m/j)"
       },
@@ -153441,7 +153330,6 @@
         "location": "Regione di Basilea",
         "canton": "BL"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -153558,7 +153446,6 @@
         "location": "Nidwaldo",
         "canton": "NW"
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -153677,9 +153564,9 @@
       "firstSeenAt": "2026-07-31T14:13:03.239Z",
       "titleByLocale": {
         "it": "Social Media Manager (f/m/d), 80-100%",
+        "en": "Social Media Manager (m/f/d), 80-100 %",
         "de": "Social Media Manager (w/m/d), 80-100%",
-        "fr": "Responsable des réseaux sociaux (h/f/d), 80-100 %",
-        "en": ""
+        "fr": "Responsable des réseaux sociaux (h/f/d), 80-100 %"
       },
       "descriptionByLocale": {
         "it": "Social Media Manager (f/m/d), 80-100%\n\nCoop Società Cooperativa — Basilea, Basilea Città, Svizzera\n\nCompiti\n- Pianifichi, crei e pubblichi contenuti mirati per diverse piattaforme (TikTok, Instagram, Snapchat, Facebook)\n- Sei responsabile della configurazione, del trasferimento e dell'ottimizzazione continua delle misure sociali a pagamento\n- Segui le nuove tecnologie e le tendenze dell'IA e sviluppa idee per i nostri canali\n- Realizzi autonomamente campagne sui social media dalla pianificazione alla realizzazione\n- Controlli le nostre performance sui social media e trovi nuovi modi per migliorarle\n\nRequisiti\n- I social media sono il tuo mondo: conosci le diverse piattaforme e le loro peculiarità e hai esperienza nella gestione degli annunci e nelle campagne social a pagamento\n- Hai conseguito una laurea (UNI/SUP) in comunicazione/marketing o un'esperienza professionale pluriennale e una formazione continua nel campo del social media marketing\n- Hai un'ottima conoscenza del tedesco parlato e scritto (altre lingue sono un plus) e hai un senso dei codici, della lingua e della tonalità della community\n- Sei interessato alle nuove tecnologie e alle applicazioni AI e riconosci il loro potenziale per i social media\n- Sei un talento organizzativo, lavori in modo strutturato e tieni sempre traccia anche di più progetti paralleli\n- Agevolazioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di superpunti nel",
@@ -153733,7 +153620,6 @@
         "social-media-manager-m-w-d-80-100-coop-genossenschaft-basel-stadt-tr0124",
         "social-media-manager-m-w-d-80-100-coop-basel-stadt-tr0124"
       ],
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500
     },
@@ -154100,7 +153986,6 @@
           "collaborateur-trice-logistik-jumbo-hochdorf"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -154224,7 +154109,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
-        "en": "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
+        "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-4xmp5j"
       },
@@ -160080,7 +159965,6 @@
         "collaborateur-trice-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz",
         "mitarbeiter-in-gastronomie-coop-ristorante-mels-sankt-gallen-1twjjz"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -160318,7 +160202,7 @@
         "it": "Cuoco / Cuoca - Hotel Pullman Basel Europe",
         "en": "Cook - Hotel Pullman Basel Europe",
         "de": "Koch:Köchin - Hotel Pullman Basel Europe",
-        "fr": ""
+        "fr": "Chef - Hôtel Pullman Basel Europe"
       },
       "descriptionByLocale": {
         "it": "Cuoco:cuoca - Hotel Pullman Basel Europe\n\nBâleHotels — Basilea, Basilea Città, Svizzera\n\nCompiti\n- Disponibilità a lavorare in diverse postazioni di cucina in un team di 2-3 dipendenti, compresi gli apprendisti\n- Preparazione, preparazione e impiattamento di tutti i piatti\n- Messa a disposizione autonoma della mise en place\n- Ordini e controllo merci in entrata nella sua area di competenza\n- Assistenza nella progettazione dell'offerta e nella presentazione di idee personali\n- Luogo di utilizzo principale: bistrot à la carte con un carico medio di 30-50 ospiti per servizio\n- Impieghi nel catering e nella produzione\n- Rispetto degli standard igienici e delle norme di sicurezza secondo ISO\n\nRequisiti\n- Formazione di cuoco/cuoca completata con successo\n- Prima esperienza in una posizione comparabile nel settore alberghiero/della ristorazione di alto livello\n- Tedesco sicuro per le trattative. Conoscenza dell'inglese e del francese vantaggiosa.\n- Passione per il cibo e la sua lavorazione creativa\n- entusiasmo per la cucina, motivazione e impegno\n- Abilità manuale, modo di lavorare autonomo e attento alla qualità\n- Flessibilità, affidabilità e resilienza\n- Tranquillità e visione d'insieme anche nel business più forte\n- Disponibilità a lavorare anche nei fine settimana e nei giorni festivi e con servizio parziale\n- Aspetto curato e buone maniere\n\nCosa offriamo\n\nIl tuo referente\nDiana Latigan\nRisorse umane\n\nTipo: Full-time\nSede: Basilea",
@@ -160373,7 +160257,6 @@
         "location": "Basilea",
         "canton": "BS"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -160399,7 +160282,7 @@
       "firstSeenAt": "2026-07-30T13:51:16.055Z",
       "titleByLocale": {
         "it": "Chef (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière (en poids/m/j)"
       },
@@ -160454,7 +160337,6 @@
         "location": "Lucerna",
         "canton": "LU"
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -160747,7 +160629,7 @@
       },
       "slugByLocale": {
         "it": "housekeeper-in-coop-genossenschaft-aarau-e8f33d",
-        "en": "housekeeper-in-coop-city-aarau-aargau-6v30zd",
+        "en": "housekeeper-in-coop-genossenschaft-aarau-e8f33d",
         "de": "hauswart-in-coop-genossenschaft-aarau-aargau-6v30zd",
         "fr": "femme-de-menage-coop-genossenschaft-aarau-e8f33d"
       },
@@ -163292,7 +163174,7 @@
       "firstSeenAt": "2026-07-29T14:19:10.525Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (w/m/d)"
       },
@@ -163354,7 +163236,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -163436,7 +163317,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-muri-aargau"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -164156,7 +164036,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -164186,10 +164065,10 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-07-28T00:23:32.122Z",
       "titleByLocale": {
+        "it": "Logistica notturna / logistica notturna",
         "en": "Night Logistics Specialist",
         "de": "Nachtlogistikerin / Nachtlogistiker",
-        "fr": "Spécialiste logistique de nuit",
-        "it": ""
+        "fr": "Spécialiste logistique de nuit"
       },
       "descriptionByLocale": {
         "it": "Logistica notturna /Logistica notturna\n\nTransgourmet Schweiz AG — Landquart, Grigioni, Svizzera\n\nIl nostro cuore batte per la gastronomia svizzera. Siamo qui per i nostri clienti con molto impegno. Nei nostri 31 mercati di ritiro, tramite servizio esterno e consegna, così come nel mondo digitale. Con un assortimento versatile, marchi propri attraenti, consulenza professionale e servizi innovativi. Transgourmet Schweiz AG appartiene al gruppo internazionale Transgourmet. L'azienda è leader nel commercio all'ingrosso svizzero di forniture e ritiro e conta circa 2'100 dipendenti e 100'000 clienti (ristoranti, hotel, mense, case di cura e ospedali e commercio al dettaglio).\n\nCompiti\n- Controlli ed esegui la densificazione degli ordini dei clienti\n- Fai attenzione ad evitare danni alle merci durante la compattazione\n- Controlli la completezza dei prodotti forniti per i singoli tour\n- Gestisci i contenitori vuoti\n- Rilevi e distribuisci gli articoli di cross-docking\n- Accetti consegne errate e le inoltri al tuo superiore\n- Garantisci il rispetto delle linee guida aziendali per la sicurezza sul lavoro e la prevenzione degli infortuni\n- Rispetti le linee guida legali QA\n\nRequisiti\n- Hai esperienza professionale nella logistica o hai completato un apprendistato come logista AFC o CFP\n- Possiedi una carta d'identità per carrelli elevatori Suva e hai sufficiente esperienza di guida\n- Tu",
@@ -164235,7 +164114,6 @@
         "nachtlogistikerin-nachtlogistiker-transgourmet-prodega-landquart-graubunden-2nz30i",
         "nachtlogistikerin-nachtlogistiker-transgourmet-prodega-landquart-graubunden"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -164488,7 +164366,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -164688,7 +164565,7 @@
         "it": "Membro del team Ristorante (w/m/d)",
         "en": "Restaurant Team Member (w/m/d)",
         "de": "Teammember Restaurant (w/m/d)",
-        "fr": ""
+        "fr": "Membre de l'équipe Restaurant (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Teammember Restaurant (f/m/d)\n\nMarché Restaurants Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\nMarché Restaurants Schweiz AG è una delle 10 aziende svizzere con il maggior fatturato nel settore della ristorazione di sistema a servizio completo e con il marchio \"Marché\" è chiaramente il numero 1 nella ristorazione autostradale. Dal 2014 Marché Restaurants Schweiz AG fa parte del Gruppo Coop come società affiliata indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – siamo presenti non solo sulle autostrade o all'aeroporto di Zurigo, ma anche nelle principali stazioni ferroviarie svizzere di Zurigo, Berna e Basilea e in alcuni popolari centri commerciali della Svizzera tedesca. In altre parole, perfezioniamo la vita quotidiana dei nostri ospiti, ovunque le persone si concedano una pausa ristorativa.\n\nCompiti\n- Accogliere, servire e consigliare gli ospiti\n- Preparazione di snack e bevande fresche\n- Vendita panini freschi, insalate, food e bevande\n- Preparazione di specialità di caffè e tè, nonché bevande a base di latte\n- Vendita di prodotti freschi e bevande al caffè e juice counter\n- Allestimento e presentazione dell'offerta, lavori di preparazione e pulizia\n- Pulire, lavare e riporre le stoviglie\n- Funzionamento della cassa, incl. fatturazione\n- Igiene e pulizia secondo gli standard HACCP\n\nRequisiti\n- Esperienza professionale nel settore della ristorazione\n- Servizi e",
@@ -164745,7 +164622,6 @@
         "location": "Soletta",
         "canton": "SO"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -164773,7 +164649,7 @@
         "it": "Membro del Team Ristorante (w/m/d)",
         "en": "Restaurant Team Member (m/f/d)",
         "de": "Teammember Restaurant (w/m/d)",
-        "fr": ""
+        "fr": "Membre de l'équipe Restaurant (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Teammember Restaurant (f/m/d)\n\nMarché Restaurants Schweiz AG — Dietlikon, Dietlikon, Svizzera\n\nMarché Restaurants Schweiz AG è una delle 10 aziende svizzere con il maggior fatturato nel settore della ristorazione di sistema a servizio completo e con il marchio \"Marché\" è chiaramente il numero 1 nella ristorazione autostradale. Dal 2014 Marché Restaurants Schweiz AG fa parte del Gruppo Coop come società affiliata indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – siamo presenti non solo sulle autostrade o all'aeroporto di Zurigo, ma anche nelle principali stazioni ferroviarie svizzere di Zurigo, Berna e Basilea e in alcuni popolari centri commerciali della Svizzera tedesca. In altre parole, perfezioniamo la vita quotidiana dei nostri ospiti, ovunque le persone si concedano una pausa ristorativa.\n\nCompiti\n- Accogliere, servire e consigliare gli ospiti\n- Preparazione di snack e bevande fresche\n- Vendita panini freschi, insalate, food e bevande\n- Preparazione di specialità di caffè e tè, nonché bevande a base di latte\n- Vendita di prodotti freschi e bevande al caffè e juice counter\n- Allestimento e presentazione dell'offerta, lavori di preparazione e pulizia\n- Pulire, lavare e riporre le stoviglie\n- Funzionamento della cassa, incl. fatturazione\n- Igiene e pulizia secondo gli standard HACCP\n\nRequisiti\n- Esperienza professionale nel settore della ristorazione\n- Servizi e",
@@ -164863,7 +164739,6 @@
         "location": "Zurigo",
         "canton": "ZH"
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -165961,7 +165836,6 @@
       "previousSlugs": [
         "mitarbeiter-in-wareneingang-coop-wangen-bei-olten-solothurn"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -166045,7 +165919,6 @@
         "associate-gastronomie-coop-ristorante-rickenbach-thurgau-u3lb8g",
         "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau-2"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -166125,7 +165998,6 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -166225,7 +166097,6 @@
         "mitarbeiter-in-gastronomie-thai-street-coop-genossenschaft-biel-bern",
         "mitarbeiter-in-gastronomie-thai-street-coop-ristorante-biel-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -167528,7 +167399,7 @@
       "firstSeenAt": "2026-07-27T15:11:07.476Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (h/f/d)"
       },
@@ -167596,7 +167467,6 @@
           "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-winterthur"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -167624,7 +167494,7 @@
       "firstSeenAt": "2026-07-27T15:11:07.476Z",
       "titleByLocale": {
         "it": "Cucina / Cucinatore (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Chef/Cheffe (w/m/d)"
       },
@@ -167738,7 +167608,6 @@
           "kochin-koch-m-w-d-coop-ristorante-bachenbulach-zurich-dxuxzu"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -167851,7 +167720,6 @@
           "collaborateur-trice-wareneingang-coop-genossenschaft-schafisheim-aargau-th1z14"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -168933,7 +168801,7 @@
       "firstSeenAt": "2026-07-27T15:11:07.476Z",
       "titleByLocale": {
         "it": "Cucina / Cucinatore (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Chef/Cheffe (w/m/d)"
       },
@@ -169017,7 +168885,6 @@
           "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-zurich-27f446"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -169097,7 +168964,6 @@
           "mitarbeiter-in-logistik-jumbo-schwyz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -170198,7 +170064,6 @@
           "collaborateur-trice-logistik-onlineshop-jumbo-arbon-thurgau-khdms4"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -171624,7 +171489,7 @@
         "it": "Addetto/a alla preparazione ordini",
         "en": "Order Picker",
         "de": "Kommissioniererin / Kommissionierer",
-        "fr": ""
+        "fr": "Récupérateur de commandes / Récupérateur de commandes"
       },
       "descriptionByLocale": {
         "it": "Commissionatrice / commissionatore\n\nTransgourmet Schweiz AG — Landquart, Landquart, Svizzera\n\nIl nostro cuore batte per la gastronomia svizzera. Siamo qui per i nostri clienti con molto impegno. Nei nostri 31 mercati di ritiro, tramite servizio esterno e consegna, così come nel mondo digitale. Con un assortimento versatile, marchi propri attraenti, consulenza professionale e servizi innovativi. Transgourmet Schweiz AG appartiene al gruppo internazionale Transgourmet. L'azienda è leader nel commercio all'ingrosso svizzero di forniture e ritiro e conta circa 2'100 dipendenti e 100'000 clienti (ristoranti, hotel, mense, case di cura e ospedali e commercio al dettaglio).\n\nCompiti\n- Commissionerai gli ordini dei clienti in tempo, senza errori e con la massima qualità, anche in celle frigorifere (3–5 °C).\n- Rispettare le sequenze di preparazione e caricare correttamente i contenitori di trasporto.\n- Assegni gli ordini al tour giusto e li metti nella posizione di consegna appropriata.\n- Attiva il rifornimento quando gli articoli si stanno esaurendo.\n- Supporta gli inventari e smaltisci i rifiuti a regola d'arte.\n- Lavori sotto la guida del sistema e rispetti tutte le linee guida di picking, QA e ASIB.\n\nRequisiti\n- Hai esperienza nel ricevimento merci e nel picking.\n- Possiedi una valida carta d'identità per carrelli elevatori Suva.\n- Lavori in modo mirato, strutturato e con grande iniziativa.\n- Sei fisicamente resistente e pronto per le celle frigorifere.\n- Tu",
@@ -171694,7 +171559,6 @@
         "kommissioniererin-kommissionierer-transgourmet-prodega-chur-graubunden",
         "kommissioniererin-kommissionierer-transgourmet-schweiz-ag-chur-u2dz1x"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -172855,7 +172719,7 @@
       "firstSeenAt": "2026-07-24T13:47:44.112Z",
       "titleByLocale": {
         "it": "Cucina / Cucinatore (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Chef/Cheffe (w/m/d)"
       },
@@ -172964,7 +172828,6 @@
         "location": "Turgovia",
         "canton": "TG"
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -172992,7 +172855,7 @@
       "firstSeenAt": "2026-07-24T13:47:44.112Z",
       "titleByLocale": {
         "it": "Cucina / Cuoco (w/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Chef/Cheffe (w/m/d)"
       },
@@ -173079,7 +172942,6 @@
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -173184,7 +173046,6 @@
           "collaborateur-trice-gastronomie-coop-ristorante-urtenen-schonbuhl-bern-qwi2si"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -173406,7 +173267,6 @@
           "mitarbeiter-in-wareneingang-coop-genossenschaft-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -177328,7 +177188,6 @@
         "location": "Argovia",
         "canton": "AG"
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -177818,7 +177677,7 @@
       "firstSeenAt": "2026-07-23T13:36:47.710Z",
       "titleByLocale": {
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
@@ -177873,7 +177732,6 @@
         "kochin-koch-m-w-d-coop-ristorante-seewen-schwyz-3m8sfw",
         "kochin-koch-m-w-d-coop-ristorante-seewen-schwyz"
       ],
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -178054,7 +177912,6 @@
           "mitarbeiter-in-gastronomie-coop-ristorante-zollikofen-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -178221,7 +178078,7 @@
       "firstSeenAt": "2026-07-23T13:36:47.710Z",
       "titleByLocale": {
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuire/cuire (f/m/d)"
       },
@@ -178276,7 +178133,6 @@
         "kochin-koch-m-w-d-coop-ristorante-interlaken-bern-ngzmj0",
         "kochin-koch-m-w-d-coop-ristorante-interlaken-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -182016,7 +181872,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -182100,7 +181955,6 @@
         "associate-gastronomie-coop-ristorante-rickenbach-thurgau-y3b5dz",
         "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -182214,7 +182068,7 @@
       "firstSeenAt": "2026-07-22T13:38:10.859Z",
       "titleByLocale": {
         "it": "Cucinare / cucinare (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuire / cuire (f/m/d)"
       },
@@ -182274,7 +182128,6 @@
         "kochin-koch-m-w-d-coop-ristorante-saanen-bern",
         "kochin-koch-m-w-d-coop-ristorante-saanen-bern-gw5wd7"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -184700,9 +184553,9 @@
       "firstSeenAt": "2026-07-21T13:54:40.708Z",
       "titleByLocale": {
         "it": "Gestore delle Applicazioni SAP Operations Senior",
+        "en": "Application Manager: in SAP Operations Senior",
         "de": "Applikations-Manager:in SAP Operations Senior",
-        "fr": "Gestionnaire des Applications SAP Operations Senior",
-        "en": ""
+        "fr": "Gestionnaire des Applications SAP Operations Senior"
       },
       "descriptionByLocale": {
         "it": "Application Manager:in SAP Operations Senior\n\nInterdiscount — Jegenstorf, Berna, Svizzera\n\nNoi di Interdiscount offriamo ai nostri clienti la migliore esperienza di acquisto in Svizzera. Impegnarsi in un ambiente di lavoro dinamico e imprenditoriale. Assumiti la responsabilità, sii proattivo con noi e continua a svilupparti.\n\nCompiti\n- Sei responsabile del supporto di 1°/2° livello per utenti e utenti chiave SAP secondo il processo di incidente (Jira) con particolare attenzione a SAP Retail (MM/SD) e per argomenti trasversali\n- Supporta il team di base SAP nel monitoraggio del sistema (monitoraggio), nella gestione degli utenti SAP e in altri compiti operativi\n- crei, gestisci e aggiorni la documentazione per garantire il trasferimento del know-how\n- Coordinerai la collaborazione con stakeholder interni, partner esterni e fornitori di servizi\n\nRequisiti\n- Hai completato una formazione IT e/o una formazione continua comparabile\n- Hai diversi anni di esperienza come manutentore di moduli SAP o Supporter (SAP R/3 e SAP S/4HANA) nei moduli e nelle aree tematiche menzionati con\n- Idealmente, hai esperienza nell'ambiente retail\n- Hai un'ottima conoscenza del tedesco parlato e scritto; altre lingue nazionali sono un vantaggio\n- Lavori in modo orientato alla soluzione e convinci con un forte concetto di servizio e assistenza\n- Comunichi in modo proattivo e adeguato al destinatario con diversi",
@@ -185418,7 +185271,6 @@
           "collaborateur-trice-gastronomie-coop-genossenschaft-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -185717,7 +185569,6 @@
           "mitarbeiter-in-gastronomie-coop-winterthur-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -185797,7 +185648,6 @@
       "previousSlugs": [
         "associate-gastronomie-coop-gossau-sankt-gallen-6pl5zs"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -187446,7 +187296,6 @@
           "mitarbeiter-in-gastronomie-coop-genossenschaft-seewen-schwyz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -187655,7 +187504,6 @@
           "ict-security-solutions-mitarbeiter-in-80-100-coop-basel-stadt"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -189170,7 +189018,6 @@
           "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -189201,7 +189048,7 @@
       "firstSeenAt": "2026-07-20T14:30:37.924Z",
       "titleByLocale": {
         "it": "Cucina asiatico/chef 100%",
-        "en": "Asia-Koch/Köchin 100%",
+        "en": "Asian cook/chef 100%",
         "de": "Asia-Koch/Köchin 100%",
         "fr": "Cuisinière/chef asiatique 100%"
       },
@@ -189249,7 +189096,6 @@
         "asia-koch-kochin-100-two-spice-dietlikon-cnwc7t",
         "asia-koch-kochin-100-two-spice-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -189280,9 +189126,9 @@
       "firstSeenAt": "2026-07-20T14:30:37.924Z",
       "titleByLocale": {
         "it": "Assistente cuoco / cuoco ausiliario 100%",
+        "en": "Assistant cook/auxiliary cook 100%",
         "de": "Hilfskoch/Hilfsköchin 100%",
-        "fr": "Cuisinier adjoint/cuisinier auxiliaire 100%",
-        "en": ""
+        "fr": "Cuisinier adjoint/cuisinier auxiliaire 100%"
       },
       "descriptionByLocale": {
         "it": "## Assistente cuoco / cuoco ausiliario 100%\n\nDue Spice AG — Dietlikon, Dietlikon, Svizzera\n\n## La Manufaktur di Yooji, che fa parte di Two Spice AG, offre una gamma versatile e squisita di sushi, sashimi e molto altro. Il sito di produzione del Two Spice Manufaktur si trova in Rümlang e impiega oltre 90 persone. Varie prelibatezze sono preparate ogni giorno e consegnate ai ristoranti e negozi di Yooji più volte al giorno. Prodotti appositamente sviluppati per il nostro marchio commerciale giapponese ZENBU sono prodotti anche in fabbrica. Prodotti ZENBU come Sushi, Poké, Onigiri e prelibatezze vegane sono prodotti per Coop e sono disponibili direttamente da Coop in tutta la Svizzera. Vuoi far parte della nostra squadra? E' la tua occasione!\n\n## Compiti\n- Preparare e fornire Mise en Place\n- Partecipazione attiva alla cucina calda e fredda\n- Produzione perfetta di prodotti da cucina secondo i requisiti quotidiani comunicati in conformità ai processi attuali\n- Compliance con ricette e garanzia di qualità\n- Rispetto e controllo degli standard igienico-sanitari nel settore della responsabilità\n- Lavori di pulizia e pulizia vari\n\n## Requisiti\n- Esperienza professionale come cuoca ausiliaria\n- L'esperienza nel settore eventi e banchetti è un vantaggio\n- Metodi di lavoro puliti e avanzati\n- Godere di processi strutturati\n- Prontezza per i servizi di spostamento, fine settimana e vacanza\n- competenze tedesche a livello A2, le competenze in inglese sono vantaggiose\n\n## Cosa offriamo\n\n## La persona di contatto\nPatchaya Greutmann\n, Risorse umane\n\nTipo: A tempo pieno\nDietlikon",
@@ -189339,7 +189185,6 @@
         "hilfskoch-hilfskochin-100-two-spice-dietlikon-strhci",
         "hilfskoch-hilfskochin-100-two-spice-dietlikon"
       ],
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -191598,9 +191443,9 @@
       "firstSeenAt": "2026-07-03T00:15:59.407Z",
       "titleByLocale": {
         "it": "Store Manager 100% (f/m/d)",
+        "en": "Store Manager 100% (m/f/d)",
         "de": "Store Manager 100% (w/m/d)",
-        "fr": "Gestionnaire de magasins 100% (f/m/d)",
-        "en": ""
+        "fr": "Gestionnaire de magasins 100% (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "Marché Ristoranti Schweiz AG è una delle 10 aziende svizzere con il più alto fatturato nel settore della gastronomia a servizio completo ed è il chiaro numero 1 nella gastronomia autostradale con il marchio \"Marché\". Dal 2014, Marché Ristoranti Schweiz AG fa parte del Gruppo Coop come filiale indipendente. Con i nostri marchi e concetti – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – non siamo solo presenti sulle autostrade o all'aeroporto di Zurigo, ma anche nelle più grandi stazioni ferroviarie svizzere di Zurigo, Berna e Basilea, nonché in alcuni centri commerciali popolari della Svizzera tedesca. O in altre parole: Rifiniamo la vita quotidiana dei nostri ospiti, ovunque la gente si tratti di una pausa di cibo sulla strada.\n\n50 anni fa, una meraviglia del gusto è nata a New Orleans, Louisiana. Quello che è iniziato con un piccolo ristorante e una grande idea è diventata una storia di successo mondiale che ora colpisce anche la Svizzera. Fondata nel 1972, Popeyes guarda indietro una storia di 50 anni e la tradizione culinaria. Dobbiamo dare inizio all'imprenditore e pioniere gastro Al Copeland. Aveva un piccolo ristorante - e una grande idea: Copeland ha introdotto lo stile di New Orleans Fried Chicken e ha reso il marchio conosciuto in tutto il mondo.\n\nCompiti\n\n- Funzionamento senza successo\n\n- Totale bilancio aziendale, pianificazione e controllo\n\n- Responsabile per il mantenimento di elevati standard di qualità e igiene\n\n- Pianificare, guidare e promuovere i dipendenti\n\n- Organizza l’istruzione e la formazione del tuo team\n\n- Sviluppo del team, reclutamento dei dipendenti\n\n- Rappresentare l'operazione dentro e fuori\n\nRequisiti\n\n- Allenamento completo in gastronomia\n\n- Esperienza nella gestione dei dipendenti\n\n- Alta affinità per l'ospitalità\n\n- Affidabile e orientato al servizio\n\n- Aspetto motivato, affidabile, esemplare\n\n- Buona conoscenza del tedesco nelle parole e nella scrittura\n\n- Flessibile e mobile (cambiamenti iniziali, serali e weekend)\n\n- Talenti organizzativi\n\nCosa offriamo\n\nLa persona di contatto\nBarbara Steger, Risorse Umane",
@@ -191675,7 +191520,6 @@
         "canton": "ZH"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -191719,7 +191563,7 @@
       "slugByLocale": {
         "it": "shiftleader-burger-king-80-100-m-w-d-marche-dietlikon-0imfoa",
         "en": "shiftleader-burger-king-80-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon-0imfoa",
-        "de": "shiftleader-burger-king-deitingen-sud-auf-abruf-m-w-d-marche-dietlikon-0imfoa",
+        "de": "shiftleader-burger-king-80-100-m-w-d-marche-dietlikon-0imfoa",
         "fr": "chef-d-equipe-burger-king-80-100-m-w-d-marche-restaurants-schweiz-ag-dietlikon-0imfoa"
       },
       "requirementsByLocale": {},
@@ -192059,9 +191903,9 @@
       },
       "slugByLocale": {
         "it": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh",
-        "en": "future-retail-leaders-coop-wattwil-sankt-gallen-f5i2hh",
+        "en": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh",
         "de": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-065067",
-        "fr": "futurs-leaders-retail-coop-wattwil-sankt-gallen-f5i2hh"
+        "fr": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh"
       },
       "requirementsByLocale": {},
       "addressLocality": "Wattwil",
@@ -192155,9 +191999,9 @@
       },
       "slugByLocale": {
         "it": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-sankt-gallen-iqa2ft",
-        "en": "emerging-retail-leaders-coop-mels-sankt-gallen-iqa2ft",
+        "en": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-sankt-gallen-iqa2ft",
         "de": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-d13185",
-        "fr": "jeunes-talents-de-direction-retail-coop-mels-sankt-gallen-iqa2ft"
+        "fr": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-sankt-gallen-iqa2ft"
       },
       "requirementsByLocale": {},
       "addressLocality": "Mels",
@@ -192334,9 +192178,9 @@
       },
       "slugByLocale": {
         "it": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-gco6iv",
-        "en": "shunting-specialist-railcare-wangen-bei-olten-solothurn-gco6iv",
+        "en": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-gco6iv",
         "de": "rangierspezialist-in-railcare-wangen-bei-olten",
-        "fr": "specialiste-de-man-uvre-railcare-wangen-bei-olten-solothurn-gco6iv"
+        "fr": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-gco6iv"
       },
       "requirementsByLocale": {},
       "addressLocality": "Wangen bei Olten",
@@ -192640,7 +192484,7 @@
       "crawledAt": "2026-08-16T23:59:15.032Z",
       "firstSeenAt": "2026-06-15T16:12:11.397Z",
       "titleByLocale": {
-        "it": "Nachwuchstalente Verkauf",
+        "it": "Vendita di talenti emergenti",
         "en": "Young talents sales",
         "de": "Nachwuchstalente Verkauf",
         "fr": "Ventes de jeunes talents"
@@ -192681,7 +192525,6 @@
           "nachwuchstalente-verkauf-coop-visp-wallis"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -192761,7 +192604,6 @@
           "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-schaffhausen"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -194341,7 +194183,6 @@
           "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-olten-solothurn"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -194421,7 +194262,6 @@
           "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-langnau-im-emmental-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -194501,7 +194341,6 @@
           "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-gstaad-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -196179,7 +196018,6 @@
         "personnel-en-saison-coop-genossenschaft-davos"
       ],
       "sourceLang": "de",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -197119,7 +196957,6 @@
           "mitarbeiter-in-inventuren-coop-mittelland-basel-zurich"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -197602,10 +197439,16 @@
       "crawledAt": "2026-08-16T12:25:28.813Z",
       "firstSeenAt": "2026-08-16T12:25:28.813Z",
       "titleByLocale": {
-        "de": "Verkäufer:in Food (Getränke)"
+        "de": "Verkäufer:in Food (Getränke)",
+        "it": "Venditore: in food (bevande)",
+        "en": "Seller: in food (drinks)",
+        "fr": "Vendeur: dans la nourriture (boissons)"
       },
       "descriptionByLocale": {
-        "de": "## Verkäufer:in Food (Getränke)\n\n**Coop Genossenschaft** — Spreitenbach, Aargau, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Spreitenbach"
+        "de": "## Verkäufer:in Food (Getränke)\n\n**Coop Genossenschaft** — Spreitenbach, Aargau, Svizzera\n\n## Aufgaben\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Anforderungen\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? Bingo, dann bewirb dich.\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Spreitenbach",
+        "it": "## Venditore: in food (bevande)\n\nCoop Genossenschaft — Spreitenbach, Aargau, Svizzera\n\n## Compiti\n- Amate la varietà, quindi servite e consigliate i nostri clienti in diversi dipartimenti – sempre cordiali e impegnati.\n- Grazie al vostro uso attivo, le merci vendono meglio e sono gestiti top.\n- È chiaro che si rispettano le nostre esigenze, sia esso freschezza e qualità, igiene, regolamenti di temperatura o la data di scadenza.\n- Il vostro impegno nei registri di cassa è anche variato se supportate il team.\n\n## Requisiti\n- Sei addestrato in vendita al dettaglio (istruzione primaria) o hai già acquisito molta esperienza nelle vendite? Bingo, allora applica.\n- I tempi di assegnazione sono flessibili, ma questo non vi causerà alcun problema.\n- Padroneggiare bene il tedesco, in conversazione e su carta.\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobile e prepagati su Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'abbonamento GA, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi culturali, sconti\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane vacanze, modelli di tempo di lavoro flessibili\n- Ulteriore istruzione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e Coop\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\n## La persona di contatto\nValeria Mazziari Randazzo\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Spreitenbach",
+        "en": "## Seller: in food (drinks)\n\n**Coop Genossenschaft** — Spreitenbach, Aargau, Svizzera\n\n## Tasks\n- You love variety, so you serve and advise our customers in different departments – always friendly and committed.\n- Thanks to your active use, the goods sell better and are managed top.\n- It is clear that you comply with our requirements, be it freshness and quality, hygiene, temperature regulations or the expiration date.\n- Your commitment at the cash registers is also varied if you support the team.\n\n## Requirements\n- Are you trained in retail (basic education) or have you already gained a lot of experience in sales? Bingo, then apply.\n- Your assignment times are flexible, but that won’t cause you any problems.\n- You master German well, in conversation and on paper.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: discount on purchase, discount on Mobility CarSharing, personal discount also for partners:in (living in the same household), discount on GA subscription, discounts on cultural events, discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Spreitenbach",
+        "fr": "## Vendeur: dans la nourriture (boissons)\n\n**Coop Genossenschaft** — Spreitenbach, Aargau, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Spreitenbach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -197977,7 +197820,6 @@
       },
       "addressLocality": "Gelterkinden",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BL",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -198006,8 +197848,7 @@
         "verkaufer-in-frischprodukte-coop-gelterkinden-basel-landschaft"
       ],
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "retranslationAttempts": 1
+      "salaryMax": 94000
     },
     {
       "id": "company-s3ee24",
@@ -198153,7 +197994,6 @@
       },
       "addressLocality": "Lachen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "SZ",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -198182,8 +198022,7 @@
         "verkaufer-in-kassen-services-coop-lachen-schwyz"
       ],
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "retranslationAttempts": 1
+      "salaryMax": 106000
     },
     {
       "id": "company-uhdqt9",
@@ -213989,7 +213828,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-zurich-dhpcwc",
-        "en": "salesman-food-coop-genossenschaft-zurich-dhpcwc",
+        "en": "verkaufer-in-food-coop-zurich-dhpcwc",
         "de": "verkaufer-in-lebensmittel-coop-zurich-d29155",
         "fr": "verkaufer-dans-les-aliments-coop-zurich-d29155"
       },
