@@ -1,6 +1,6 @@
 {
   "crawlerKey": "on-running",
-  "assembledAt": "2026-08-16T21:26:47.509Z",
+  "assembledAt": "2026-08-17T09:56:54.550Z",
   "jobs": [
     {
       "id": "on-running-4d8abe10a840",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7917274?gh_jid=7917274",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.385Z",
+      "crawledAt": "2026-08-17T09:56:47.621Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -58,14 +58,18 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "staff-security-engineer-platform-on-running-ch"
+          "staff-security-engineer-platform-on-running-ch",
+          "lead-platform-security-engineer-on-running-ch"
         ],
         "it": [
-          "staff-security-engineer-platform-on-running-ch"
+          "staff-security-engineer-platform-on-running-ch",
+          "lead-platform-security-ingegnere-on-running-zurich"
         ]
       },
       "previousSlugs": [
-        "staff-security-engineer-platform-on-running-ch"
+        "staff-security-engineer-platform-on-running-ch",
+        "lead-platform-security-engineer-on-running-ch",
+        "lead-platform-security-ingegnere-on-running-zurich"
       ],
       "firstSeenAt": "2026-08-14T10:16:45.847Z",
       "salaryMin": 73500,
@@ -112,7 +116,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984586?gh_jid=7984586",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.382Z",
+      "crawledAt": "2026-08-17T09:56:47.618Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -136,14 +140,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "specialist-material-quality-on-running-ch"
+        "specialist-material-quality-on-running-ch",
+        "specialista-material-quality-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-material-quality-on-running-ch"
+          "specialist-material-quality-on-running-ch",
+          "specialista-material-quality-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.099Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -188,7 +195,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7765598?gh_jid=7765598",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.379Z",
+      "crawledAt": "2026-08-17T09:56:47.616Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -212,11 +219,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-smu-designer-ftw-on-running-ch"
+        "senior-specialist-smu-designer-ftw-on-running-ch",
+        "senior-specialista-smu-designer-ftw-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-smu-designer-ftw-on-running-ch"
+          "senior-specialist-smu-designer-ftw-on-running-ch",
+          "senior-specialista-smu-designer-ftw-on-running-zurich"
         ],
         "de": [
           "senior-specialist-smu-designer-ftw-on-running-ch"
@@ -226,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.093Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -270,7 +280,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8099677?gh_jid=8099677",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.376Z",
+      "crawledAt": "2026-08-17T09:56:47.613Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -295,11 +305,13 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "senior-specialist-retail-campaign-production-emea-on-running-ch"
+          "senior-specialist-retail-campaign-production-emea-on-running-ch",
+          "senior-specialist-campaign-production-dtc-on-running-ch"
         ],
         "it": [
           "senior-specialist-campaign-production-dtc-on-running-ch",
-          "senior-specialist-retail-campaign-production-emea-on-running-ch"
+          "senior-specialist-retail-campaign-production-emea-on-running-ch",
+          "senior-specialista-campaign-production-dtc-on-running-zurich"
         ],
         "de": [
           "senior-specialist-campaign-production-dtc-on-running-ch"
@@ -310,7 +322,8 @@
       },
       "previousSlugs": [
         "senior-specialist-campaign-production-dtc-on-running-ch",
-        "senior-specialist-retail-campaign-production-emea-on-running-ch"
+        "senior-specialist-retail-campaign-production-emea-on-running-ch",
+        "senior-specialista-campaign-production-dtc-on-running-zurich"
       ],
       "firstSeenAt": "2026-07-31T22:12:12.846Z",
       "salaryMin": 101500,
@@ -324,7 +337,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-1c2f6512d3f9",
@@ -357,7 +371,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8119023?gh_jid=8119023",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.374Z",
+      "crawledAt": "2026-08-17T09:56:47.611Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -381,14 +395,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-product-quality-intelligence-on-running-ch"
+        "senior-specialist-product-quality-intelligence-on-running-ch",
+        "senior-specialista-product-quality-intelligence-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-product-quality-intelligence-on-running-ch"
+          "senior-specialist-product-quality-intelligence-on-running-ch",
+          "senior-specialista-product-quality-intelligence-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:41.459Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -433,7 +450,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074401?gh_jid=8074401",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.372Z",
+      "crawledAt": "2026-08-17T09:56:47.608Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -457,11 +474,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
+        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch",
+        "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
+          "senior-specialist-new-store-openings-project-manager-dms-on-running-ch",
+          "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich"
         ],
         "de": [
           "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
@@ -471,6 +490,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.087Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -515,7 +535,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8098307?gh_jid=8098307",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.371Z",
+      "crawledAt": "2026-08-17T09:56:47.607Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -539,11 +559,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-lightspray-footwear-developer-on-running-ch"
+        "senior-specialist-lightspray-footwear-developer-on-running-ch",
+        "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-lightspray-footwear-developer-on-running-ch"
+          "senior-specialist-lightspray-footwear-developer-on-running-ch",
+          "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich"
         ],
         "de": [
           "senior-specialist-lightspray-footwear-developer-on-running-ch"
@@ -597,7 +619,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8015208?gh_jid=8015208",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.370Z",
+      "crawledAt": "2026-08-17T09:56:47.606Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -621,11 +643,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-innovation-footwear-developer-on-running-ch"
+        "senior-specialist-innovation-footwear-developer-on-running-ch",
+        "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-innovation-footwear-developer-on-running-ch"
+          "senior-specialist-innovation-footwear-developer-on-running-ch",
+          "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich"
         ],
         "de": [
           "senior-specialist-innovation-footwear-developer-on-running-ch"
@@ -679,7 +703,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079080?gh_jid=8079080",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.369Z",
+      "crawledAt": "2026-08-17T09:56:47.604Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -703,11 +727,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-innovation-concept-design-on-running-ch"
+        "senior-specialist-innovation-concept-design-on-running-ch",
+        "senior-specialista-innovation-concept-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-innovation-concept-design-on-running-ch"
+          "senior-specialist-innovation-concept-design-on-running-ch",
+          "senior-specialista-innovation-concept-design-on-running-zurich"
         ],
         "de": [
           "senior-specialist-innovation-concept-design-on-running-ch"
@@ -728,7 +754,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-99e20a1fa954",
@@ -761,7 +788,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7835371?gh_jid=7835371",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.367Z",
+      "crawledAt": "2026-08-17T09:56:47.601Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -785,11 +812,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-group-capex-on-running-ch"
+        "senior-specialist-group-capex-on-running-ch",
+        "senior-specialista-group-capex-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-group-capex-on-running-ch"
+          "senior-specialist-group-capex-on-running-ch",
+          "senior-specialista-group-capex-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.190Z",
@@ -837,7 +866,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7727073?gh_jid=7727073",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.365Z",
+      "crawledAt": "2026-08-17T09:56:47.598Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -862,12 +891,14 @@
       },
       "previousSlugs": [
         "senior-specialist-tooling-engineer-on-running-ch",
-        "senior-specialist-footwear-tooling-engineer-on-running-ch"
+        "senior-specialist-footwear-tooling-engineer-on-running-ch",
+        "senior-specialista-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-specialist-tooling-engineer-on-running-ch",
-          "senior-specialist-footwear-tooling-engineer-on-running-ch"
+          "senior-specialist-footwear-tooling-engineer-on-running-ch",
+          "senior-specialista-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.199Z",
@@ -915,7 +946,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721405?gh_jid=7721405",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.363Z",
+      "crawledAt": "2026-08-17T09:56:47.597Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -939,14 +970,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-footwear-design-on-running-ch"
+        "senior-specialist-footwear-design-on-running-ch",
+        "senior-specialista-footwear-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-footwear-design-on-running-ch"
+          "senior-specialist-footwear-design-on-running-ch",
+          "senior-specialista-footwear-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.189Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -991,7 +1025,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8064121?gh_jid=8064121",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.362Z",
+      "crawledAt": "2026-08-17T09:56:47.595Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1015,11 +1049,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-finance-systems-on-running-ch"
+        "senior-specialist-finance-systems-on-running-ch",
+        "senior-specialista-finanza-systems-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-finance-systems-on-running-ch"
+          "senior-specialist-finance-systems-on-running-ch",
+          "senior-specialista-finanza-systems-on-running-zurich"
         ],
         "de": [
           "senior-specialist-finance-systems-on-running-ch"
@@ -1073,7 +1109,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053584?gh_jid=8053584",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.360Z",
+      "crawledAt": "2026-08-17T09:56:47.594Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1097,11 +1133,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-commercial-education-on-running-ch"
+        "senior-specialist-commercial-education-on-running-ch",
+        "senior-specialista-commercial-education-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-commercial-education-on-running-ch"
+          "senior-specialist-commercial-education-on-running-ch",
+          "senior-specialista-commercial-education-on-running-zurich"
         ],
         "de": [
           "senior-specialist-commercial-education-on-running-ch"
@@ -1155,7 +1193,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8016535?gh_jid=8016535",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.358Z",
+      "crawledAt": "2026-08-17T09:56:47.592Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1179,14 +1217,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-color-designer-performance-footwear-on-running-ch"
+        "senior-specialist-color-designer-performance-footwear-on-running-ch",
+        "senior-specialista-color-designer-performance-footwear-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-color-designer-performance-footwear-on-running-ch"
+          "senior-specialist-color-designer-performance-footwear-on-running-ch",
+          "senior-specialista-color-designer-performance-footwear-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.188Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1231,7 +1272,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8060038?gh_jid=8060038",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.356Z",
+      "crawledAt": "2026-08-17T09:56:47.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1255,11 +1296,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-3d-footwear-modeller-on-running-ch"
+        "senior-specialist-3d-footwear-modeller-on-running-ch",
+        "senior-specialista-3d-footwear-modeller-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-3d-footwear-modeller-on-running-ch"
+          "senior-specialist-3d-footwear-modeller-on-running-ch",
+          "senior-specialista-3d-footwear-modeller-on-running-zurich"
         ],
         "de": [
           "senior-specialist-3d-footwear-modeller-on-running-ch"
@@ -1269,6 +1312,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.075Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1313,7 +1357,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8114421?gh_jid=8114421",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.354Z",
+      "crawledAt": "2026-08-17T09:56:47.588Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1337,11 +1381,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-tooling-engineer-on-running-ch"
+        "senior-lead-tooling-engineer-on-running-ch",
+        "senior-lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-tooling-engineer-on-running-ch"
+          "senior-lead-tooling-engineer-on-running-ch",
+          "senior-lead-tooling-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-tooling-engineer-on-running-ch"
@@ -1351,6 +1397,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:10.964Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1395,7 +1442,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8119274?gh_jid=8119274",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.352Z",
+      "crawledAt": "2026-08-17T09:56:47.587Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1419,11 +1466,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-staff-software-engineer-on-running-ch"
+        "senior-lead-staff-software-engineer-on-running-ch",
+        "senior-lead-staff-software-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-staff-software-engineer-on-running-ch"
+          "senior-lead-staff-software-engineer-on-running-ch",
+          "senior-lead-staff-software-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-staff-software-engineer-on-running-ch"
@@ -1433,6 +1482,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:48:24.168Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1477,7 +1527,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.351Z",
+      "crawledAt": "2026-08-17T09:56:47.585Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1501,11 +1551,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-sports-engineer-on-running-ch"
+        "senior-lead-sports-engineer-on-running-ch",
+        "senior-lead-sports-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-sports-engineer-on-running-ch"
+          "senior-lead-sports-engineer-on-running-ch",
+          "senior-lead-sports-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-sports-engineer-on-running-ch"
@@ -1559,7 +1611,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.349Z",
+      "crawledAt": "2026-08-17T09:56:47.584Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1628,7 +1680,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7641466?gh_jid=7641466",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.348Z",
+      "crawledAt": "2026-08-17T09:56:47.583Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1652,11 +1704,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-pattern-engineer-on-running-ch"
+        "senior-lead-pattern-engineer-on-running-ch",
+        "senior-lead-pattern-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-pattern-engineer-on-running-ch"
+          "senior-lead-pattern-engineer-on-running-ch",
+          "senior-lead-pattern-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-pattern-engineer-on-running-ch"
@@ -1710,7 +1764,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8038187?gh_jid=8038187",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.346Z",
+      "crawledAt": "2026-08-17T09:56:47.581Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1734,14 +1788,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch"
+        "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch",
+        "senior-lead-consulenza-legale-proprieta-intellettuale-e-protezione-del-marchio-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch"
+          "senior-lead-legal-counsel-intellectual-property-brand-protection-on-running-ch",
+          "senior-lead-consulenza-legale-proprieta-intellettuale-e-protezione-del-marchio-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.184Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -1786,7 +1843,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8025652?gh_jid=8025652",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.344Z",
+      "crawledAt": "2026-08-17T09:56:47.580Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1810,11 +1867,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-last-engineer-on-running-ch"
+        "senior-lead-last-engineer-on-running-ch",
+        "senior-lead-last-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-last-engineer-on-running-ch"
+          "senior-lead-last-engineer-on-running-ch",
+          "senior-lead-last-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.183Z",
@@ -1862,7 +1921,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074415?gh_jid=8074415",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.342Z",
+      "crawledAt": "2026-08-17T09:56:47.577Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1931,7 +1990,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8106150?gh_jid=8106150",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.340Z",
+      "crawledAt": "2026-08-17T09:56:47.575Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2000,7 +2059,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053160?gh_jid=8053160",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.338Z",
+      "crawledAt": "2026-08-17T09:56:47.573Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2024,17 +2083,20 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-testing-on-running-ch"
+        "senior-lead-footwear-testing-on-running-ch",
+        "senior-lead-testing-calzature-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-testing-on-running-ch"
+          "senior-lead-footwear-testing-on-running-ch",
+          "senior-lead-testing-calzature-on-running-zurich"
         ],
         "de": [
           "senior-lead-footwear-testing-on-running-ch"
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.726Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2079,7 +2141,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7845232?gh_jid=7845232",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.335Z",
+      "crawledAt": "2026-08-17T09:56:47.571Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2103,11 +2165,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-materials-on-running-ch"
+        "senior-lead-footwear-materials-on-running-ch",
+        "senior-lead-calzature-materiali-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-materials-on-running-ch"
+          "senior-lead-footwear-materials-on-running-ch",
+          "senior-lead-calzature-materiali-on-running-zurich"
         ],
         "de": [
           "senior-lead-footwear-materials-on-running-ch"
@@ -2117,82 +2181,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.066Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "on-running-50f912a14fcf",
-      "slug": "senior-lead-footwear-sviluppatore-on-running-zurich",
-      "slugByLocale": {
-        "it": "senior-lead-footwear-sviluppatore-on-running-zurich",
-        "en": "senior-lead-footwear-developer-on-running-ch",
-        "de": "senior-lead-footwear-entwickler-on-running-zurich",
-        "fr": "senior-lead-footwear-developpeur-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Lead - Footwear Developer",
-      "titleByLocale": {
-        "it": "Senior Lead - Footwear Sviluppatore",
-        "en": "Senior Lead - Footwear Developer",
-        "de": "Senior Lead - Footwear Entwickler",
-        "fr": "Senior Lead - Footwear Développeur"
-      },
-      "description": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-      "descriptionByLocale": {
-        "it": "Designazione delle merci\n\nSviluppatore di calzature senior Lead\n\nIn breve:\n\nCome Senior Lead Footwear Developer for Performance Running, lei è il consulente tecnico strategico per la nostra categoria di prodotti più critica. Con sede nel nostro quartier generale di Zurigo, il suo ruolo è quello di garantire un allineamento di alto livello tra l'intento di progettazione e la fattibilità produttiva. Invece di gestire l'esecuzione granulare di ogni prodotto, fornisce la governance tecnica e il supporto cross-funzionale necessari per mantenere l'integrità delle prestazioni come scale di categoria.\n\nIl ruolo Senior Lead Development riferirà al Senior Lead Run Footwear Development sul team Performance Run che sosterrà le calzature globali.\n\nLa tua missione\n\n- Tecnico Stewardship: agire come il principale consulente tecnico durante le fasi di briefing e progettazione per garantire che i concetti di esecuzione delle prestazioni sono allineati con le capacità di produzione globale.\n\n- Sincronizzazione strategica: facilitare l'allineamento tecnico tra il Design/Product Management di Zurigo e i team di esecuzione asiatici, assicurando che l'\"anima di prestazione\" della categoria sia preservata in tutti i franchise.\n\n- Abilitazione dei processi: sostenere l'evoluzione degli standard di sviluppo individuando strozzature tecniche e consigliando le migliori pratiche che migliorano l'efficienza a livello di categoria.\n\n- Supporto consultivo ed eclatante: Sei've come punto di contatto tecnico per i partner di sviluppo asiatici, fornendo orientamenti su ostacoli tecnici complessi e sostenendo la risoluzione di escalation produttive ad alto livello.\n\n- Garanzia della qualità delle prestazioni: sostenere la convalida degli standard di vestibilità, sensibilità e durata, assicurando che i benchmark tecnici di categoria siano costantemente soddisfatti da diversi partner di fabbrica.\n\n- Facilitazione della conoscenza: promuovere una cultura dell'eccellenza tecnica mediante l'API che traduca il team di sviluppo più ampio e complesse innovazioni in quadri di sviluppo attuabili.\n\nLa tua storia\n\n- Esperienza: 8.12 anni di sviluppo calzaturiero, con un background radicato nella corsa ad alte prestazioni e complessità tecnica.\n\n- Leadership influenziale: capacità di provare ad influenzare la direzione dei prodotti e i risultati tecnici attraverso partnership e consulenza, piuttosto che la gestione diretta della linea o la proprietà del progetto.\n\n- Pensiero Sistemico: una profonda comprensione di come strumenti di prestazione, materiali e costruzione hanno un impatto sulla catena di fornitura globale e sul ciclo di vita del prodotto.\n\n- Ponte del '21: Eccezionale nella navigazione HQ e nelle dinamiche regionali, che funge da \"traduttore tecnico\" tra visione creativa ed esecuzione di fabbrica.\n\n- Sentenza strategica: Altamente qualificata nella valutazione dei compromessi tecnici e nella formulazione di raccomandazioni che bilanciano l'innovazione con la possibilità di effettuare la scalabilità commerciale.\n\n- Comunicazione consultiva: una voce di fiducia in grado di guidare gli stakeholder verso decisioni tecnicamente sane mantenendo forti relazioni interfunzionali.\n\nAttributi di un candidato di successo\n\n- Il consulente tecnico: Non è necessario tenere la penna su ogni pacchetto tecnico, ma sei la persona che tutti consultano quando un design spinge i confini della fisica.\n\n- Il partner strategico: Ti concentri sul \"come\" e \"why,\" assicurando la roadmap tecnica di categoria.s è robusta e scalabile.\n\n- Lo specialista di allineamento: Lei prospera nello spazio tra i team, assicurando che nessun dettaglio tecnico sia \"perdente nella traduzione\" tra Zurigo e i nostri partner produttivi globali.\n\nLa tua squadra\n\nUnirai al team di sviluppo calzature con sede a Zurigo, che funge da pilastro di competenza per la categoria Performance Running. Un collettivo ad alte prestazioni di ingegneri, sviluppatori e produttori che fungono da cuore tecnico del marchio. A Zurigo, il nostro team funge da collegamento primario tra la ricerca biomeccanica, la scienza dei materiali, il design e il Sourcing, assicurando che ogni innovazione sia fondata sulla realtà tecnica prima che raggiunga l'atleta.\n\nLa nostra missione è quella di non perdere le prestazioni e gli attributi tecnici delle nostre calzature da corsa. Non solo facilita la creazione di prodotti, ma anche di ingegnere del \"ridre.\" Nell'ambito della Performance Run verticale, sarete circondati da specialisti ossessionati dalla creazione del miglior prodotto da corsa, performante e desiderabile sul mercato. Siamo fieri di una cultura del rigor tecnico e della \"Swiss Engineering,\" dove ci mettiamo in gioco lo status quo per risolvere gli ostacoli biomeccanici più complessi del settore.\n\nIl vostro ruolo in questo team è quello di garantire che man mano che la nostra categoria si espande, i nostri standard tecnici e le prestazioni \"anima\" delle nostre calzature run rimangano senza compromessi.\n\nCosa offriamo\n\n- On è un datore di lavoro pari opportunità. Ci impegniamo a creare un ambiente di lavoro che sia equo e inclusivo, dove tutte le decisioni relative al reclutamento, avanzamento, e mantenimento sono esenti da discriminazioni.",
-        "en": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-        "de": "Warenbezeichnung\n\nSenior Lead Footwear Entwickler\n\nKurz gesagt:\n\nAls Senior Lead Footwear Developer for Performance Running sind Sie der strategische technische Berater für unsere kritischste Produktkategorie. Mit Sitz in unserem Züricher HQ haben Sie die Aufgabe, eine hohe Abstimmung zwischen Design-Intent und Fertigungstauglichkeit zu gewährleisten. Statt die granulare Ausführung jedes Produkts zu verwalten, bieten Sie die technische Governance und funktionsübergreifenden Support, die notwendig sind, um die Leistungsintegrität als Kategorieskalen zu erhalten.\n\nDie Rolle der Senior Lead Development wird der Senior Lead Run Footwear Development über das Performance Run Team zur Unterstützung globaler Schuhe berichten.\n\nIhre Mission\n\n- Technische Leitung: Handeln Sie als primärer technischer Berater während der Briefing- und Designphasen, um sicherzustellen, dass Leistungs-Laufkonzepte mit globalen Fertigungskapazitäten abgestimmt sind.\n\n- Strategische Digitalisierung: Technische Ausrichtung der Zürcher Design/Product Management-Technik mit den asiatischen Exekutionsteams, um die \"Performance Soul\" der Kategorie über alle Franchise-Länder hinweg zu erhalten.\n\n- Prozess Enablement: Unterstützung der Entwicklung von Entwicklungsstandards durch die Ermittlung technischer Engpässe und Beratung zu bewährten Verfahren, die die Effizienz der Kategorien verbessern.\n\n- Advisory & Escalation Support: Als Senior-Fachstelle für asiatische Entwicklungspartner, die Beratung zu komplexen technischen Hürden und die Lösung von hochkarätigen Produktionseskalationen unterstützen.\n\n- Performance Quality Assurance: Unterstützen Sie die Validierung von Standards für Passform, Gefühl und Haltbarkeit, um sicherzustellen, dass klassenweite technische Benchmarks durchgängig über verschiedene Fabrikpartner hinweg erfüllt werden.\n\n- Wissenserleichterung: Förderung einer Kultur technischer Exzellenz durch Mentoring des breiteren Entwicklungsteams und Umsetzung komplexer Innovationsdurchbrüche in umsetzbare Entwicklungsrahmen.\n\nIhre Geschichte\n\n- Erfahrung: 8-12 Jahre in der Schuhentwicklung, mit einem Hintergrund, der in Hochleistungs-Lauf und technische Komplexität verwurzelt ist.\n\n- Einflussreiche Führung: Bewährte Fähigkeit, Produktrichtung und technische Ergebnisse durch Partnerschaft und Beratung zu beeinflussen, anstatt direkte Leitungsführung oder Projekteigentum.\n\n- Systemisches Denken: Ein tiefes Verständnis dafür, wie sich Performance-Tooling, Materialien und Konstruktion auf die globale Lieferkette und den Produktlebenszyklus auswirken.\n\n- Collaborative Bridge: Außergewöhnliche Navigation auf HQ und regionale Dynamik, als \"technischer Übersetzer\" zwischen kreativer Vision und Fabrikausführung.\n\n- Strategisches Urteil: Hoch qualifizierte bei der Bewertung technischer Kompromisse und Empfehlungen, die die Innovation mit der kommerziellen Skalierbarkeit in Einklang bringen.\n\n- Beratung: Eine vertrauensvolle Stimme, die die Interessenträger in Richtung technisch fundierter Entscheidungen führen kann und gleichzeitig starke funktionsübergreifende Beziehungen aufrechterhält.\n\nEigenschaften eines erfolgreichen Kandidaten\n\n- Der Technische Berater: Sie müssen nicht den Stift auf jedem Tech-Pack halten, aber Sie sind die Person, die jeder konsultiert, wenn ein Design die Grenzen der Physik überschreitet.\n\n- Der strategische Partner: Sie konzentrieren sich auf das \"Wie\" und \"Warum\", wodurch die Kategorie, die technische Roadmap ist robust und skalierbar.\n\n- Der Alignment-Spezialist: Sie gedeihen im Raum zwischen Teams, um sicherzustellen, dass keine technischen Details zwischen Zürich und unseren globalen Produktionspartnern \"verloren\" sind.\n\nIhr Team\n\nSie werden Mitglied des Zürcher Footwear Development Teams, das als Senior-Säule der Expertise für die Kategorie Performance Running fungiert. Ein Hochleistungskollektiv aus Ingenieuren, Entwicklern und Machern, die als technisches Herz der Marke dienen. In Zürich fungiert unser Team als primäre Verbindung zwischen Biomechanischer Forschung, Materialwissenschaft, Design und Sourcing, um sicherzustellen, dass jede Innovation in der technischen Realität begründet ist, bevor es den Athleten erreicht.\n\nUnsere Mission ist es, die Leistungsfähigkeit und die technischen Eigenschaften unserer Laufschuhe unerbittlich zu erhöhen. Wir erleichtern nicht nur die Produktentwicklung, wir entwickeln das „Fahren\". Im Rahmen des Performance Run vertikal werden Sie von Spezialisten umgeben sein, die besessen sind, das beste passende, leistungsfähige und wünschenswerte Laufprodukt auf dem Markt zu schaffen. Wir sind stolz auf eine Kultur der technischen Strenge und „Swiss Engineering\", wo wir den Status Quo herausfordern, die komplexesten biomechanischen Hürden in der Branche zu lösen.\n\nIhre Rolle in diesem Team ist es, sicherzustellen, dass unsere technischen Standards und die Leistungsfähigkeit unserer Laufschuhe mit der Erweiterung unserer Kategorie unkompromisslos bleiben.\n\nWas wir anbieten\n\n- On ist ein Arbeitgeber der Chancengleichheit. Wir sind verpflichtet, ein Arbeitsumfeld zu schaffen, das gerecht und inklusive ist, wo alle Entscheidungen im Zusammenhang mit der Einstellung, dem Fortschritt und der Beibehaltung frei von Diskriminierung sind.",
-        "fr": "Désignation des marchandises\n\nDéveloppeur principal de chaussures en plomb\n\nEn bref:\n\nEn tant que développeur principal de chaussures de performance, vous êtes le conseiller technique stratégique de notre catégorie de produits la plus critique. Basée dans notre QG de Zurich, votre rôle est d'assurer un alignement de haut niveau entre l'intention de conception et la faisabilité de la fabrication.\n\nLe rôle de chef de file en développement rendra compte au chef de file en développement de chaussures sur l'équipe de performance en appui aux chaussures mondiales.\n\nVotre mission\n\n- Intendance technique : Agir comme conseiller technique principal pendant les phases de briefing et de conception pour s'assurer que les concepts de performance sont alignés sur les capacités de fabrication mondiales.\n\n- Synchronisation stratégique : Faciliter l'alignement technique entre la gestion de produits et de conception basée à Zurich et les équipes d'exécution basées en Asie, en veillant à ce que l'âme de performance de la catégorie soit préservée dans toutes les franchises.\n\n- Processus En 2006 : Appuyer l'évolution des normes de développement en identifiant les goulets d'étranglement techniques et en donnant des conseils sur les meilleures pratiques qui améliorent l'efficacité à l'échelle de la catégorie.\n\n- Appui consultatif et appui à l'escalade : servir de point de contact technique principal pour les partenaires de développement asiatiques, en fournissant des conseils sur les obstacles techniques complexes et en appuyant la résolution des escalades de la production.\n\n- Assurance de la qualité des performances : Soutenir la validation des normes d'ajustement, de sensation et de durabilité, en veillant à ce que les critères techniques de référence soient constamment respectés dans toute la catégorie par les différents partenaires d'usine.\n\n- Facilitation des connaissances : Favoriser une culture d'excellence technique en guidant l'équipe de développement en général et en traduisant des innovations complexes en cadres de développement réalisables.\n\nVotre histoire\n\n- Expérience : 8-12 ans de développement de la chaussure, avec un fond ancré dans la haute performance de course et la complexité technique.\n\n- Leadership influant : démontrer la capacité d'influencer l'orientation des produits et les résultats techniques par le biais de partenariats et de conseils, plutôt que de la gestion directe des lignes ou de la propriété des projets.\n\n- Pensée systémique : Une compréhension profonde de la façon dont l'outillage de performance, les matériaux et la construction influent sur la chaîne d'approvisionnement mondiale et le cycle de vie des produits.\n\n- Pont collaboratif : Exceptionnel pour la navigation au QG et dynamique régionale, agissant comme « traducteur technique » entre la vision créative et l'exécution en usine.\n\n- Jugement stratégique : Hautement qualifié pour évaluer les compromis techniques et pour formuler des recommandations qui équilibrent l'innovation et l'évolutivité commerciale.\n\n- Communication consultative : Une voix de confiance capable d'orienter les parties prenantes vers des décisions techniquement saines tout en maintenant de solides relations interfonctionnelles.\n\nAttributs d'un candidat reçu\n\n- Le conseiller technique : Vous n'avez pas besoin de tenir le stylo sur chaque pack technique, mais vous êtes la personne que tout le monde consulte quand un design repousse les limites de la physique.\n\n- Le partenaire stratégique : vous vous concentrez sur le \"comment\" et \"pourquoi\", en assurant la catégorie, la feuille de route technique est robuste et évolutive.\n\n- Le spécialiste de l'alignement : Vous vous développez dans l'espace entre les équipes, en veillant à ce qu'aucun détail technique ne soit \"perdu en traduction\" entre Zurich et nos partenaires manufacturiers mondiaux.\n\nVotre équipe\n\nVous rejoindrez l'équipe de développement de chaussures basée à Zurich, en tant que pilier senior de l'expertise de la catégorie Performance Running. Un collectif d'ingénieurs, de développeurs et de fabricants de haute performance qui servent de cœur technique de la marque. À Zurich, notre équipe est le premier lien entre la recherche biomécanique, la science des matériaux, le design et l'approvisionnement, assurant que chaque innovation est ancrée dans la réalité technique avant d'atteindre l'athlète.\n\nNotre mission est d'élever sans relâche les performances et les caractéristiques techniques de nos chaussures de course. Nous ne nous contentons pas de faciliter la création de produits; nous concevons le «ride». Dans le cadre de la Performance Run verticale, vous serez entourés de spécialistes qui sont obsédés par la création du meilleur équipement, performance et produit de course souhaitable sur le marché. Nous sommes fiers d'une culture de rigueur technique et de «Swiss Engineering», où nous défions le statu quo pour résoudre les obstacles biomécaniques les plus complexes dans l'industrie.\n\nVotre rôle au sein de cette équipe est de veiller à ce que, à mesure que notre catégorie s'étend, nos normes techniques et la performance « âme » de nos chaussures de course restent sans compromis.\n\nCe que nous offrons\n\n- Nous sommes déterminés à créer un milieu de travail équitable et inclusif, où toutes les décisions liées au recrutement, à l'avancement et au maintien en poste sont exemptes de discrimination."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.332Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
-      "jobReqId": "7908053",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "previousSlugs": [
-        "senior-lead-footwear-developer-on-running-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-lead-footwear-developer-on-running-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:36:27.182Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2237,7 +2226,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7995040?gh_jid=7995040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.329Z",
+      "crawledAt": "2026-08-17T09:56:47.569Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2261,6 +2250,86 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-04T11:36:27.180Z",
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "on-running-50f912a14fcf",
+      "slug": "senior-lead-footwear-sviluppatore-on-running-zurich",
+      "slugByLocale": {
+        "it": "senior-lead-footwear-sviluppatore-on-running-zurich",
+        "en": "senior-lead-footwear-developer-on-running-ch",
+        "de": "senior-lead-footwear-entwickler-on-running-zurich",
+        "fr": "senior-lead-footwear-developpeur-on-running-zurich"
+      },
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Senior Lead - Footwear Developer",
+      "titleByLocale": {
+        "it": "Senior Lead - Footwear Sviluppatore",
+        "en": "Senior Lead - Footwear Developer",
+        "de": "Senior Lead - Footwear Entwickler",
+        "fr": "Senior Lead - Footwear Développeur"
+      },
+      "description": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+      "descriptionByLocale": {
+        "it": "Designazione delle merci\n\nSviluppatore di calzature senior Lead\n\nIn breve:\n\nCome Senior Lead Footwear Developer for Performance Running, lei è il consulente tecnico strategico per la nostra categoria di prodotti più critica. Con sede nel nostro quartier generale di Zurigo, il suo ruolo è quello di garantire un allineamento di alto livello tra l'intento di progettazione e la fattibilità produttiva. Invece di gestire l'esecuzione granulare di ogni prodotto, fornisce la governance tecnica e il supporto cross-funzionale necessari per mantenere l'integrità delle prestazioni come scale di categoria.\n\nIl ruolo Senior Lead Development riferirà al Senior Lead Run Footwear Development sul team Performance Run che sosterrà le calzature globali.\n\nLa tua missione\n\n- Tecnico Stewardship: agire come il principale consulente tecnico durante le fasi di briefing e progettazione per garantire che i concetti di esecuzione delle prestazioni sono allineati con le capacità di produzione globale.\n\n- Sincronizzazione strategica: facilitare l'allineamento tecnico tra il Design/Product Management di Zurigo e i team di esecuzione asiatici, assicurando che l'\"anima di prestazione\" della categoria sia preservata in tutti i franchise.\n\n- Abilitazione dei processi: sostenere l'evoluzione degli standard di sviluppo individuando strozzature tecniche e consigliando le migliori pratiche che migliorano l'efficienza a livello di categoria.\n\n- Supporto consultivo ed eclatante: Sei've come punto di contatto tecnico per i partner di sviluppo asiatici, fornendo orientamenti su ostacoli tecnici complessi e sostenendo la risoluzione di escalation produttive ad alto livello.\n\n- Garanzia della qualità delle prestazioni: sostenere la convalida degli standard di vestibilità, sensibilità e durata, assicurando che i benchmark tecnici di categoria siano costantemente soddisfatti da diversi partner di fabbrica.\n\n- Facilitazione della conoscenza: promuovere una cultura dell'eccellenza tecnica mediante l'API che traduca il team di sviluppo più ampio e complesse innovazioni in quadri di sviluppo attuabili.\n\nLa tua storia\n\n- Esperienza: 8.12 anni di sviluppo calzaturiero, con un background radicato nella corsa ad alte prestazioni e complessità tecnica.\n\n- Leadership influenziale: capacità di provare ad influenzare la direzione dei prodotti e i risultati tecnici attraverso partnership e consulenza, piuttosto che la gestione diretta della linea o la proprietà del progetto.\n\n- Pensiero Sistemico: una profonda comprensione di come strumenti di prestazione, materiali e costruzione hanno un impatto sulla catena di fornitura globale e sul ciclo di vita del prodotto.\n\n- Ponte del '21: Eccezionale nella navigazione HQ e nelle dinamiche regionali, che funge da \"traduttore tecnico\" tra visione creativa ed esecuzione di fabbrica.\n\n- Sentenza strategica: Altamente qualificata nella valutazione dei compromessi tecnici e nella formulazione di raccomandazioni che bilanciano l'innovazione con la possibilità di effettuare la scalabilità commerciale.\n\n- Comunicazione consultiva: una voce di fiducia in grado di guidare gli stakeholder verso decisioni tecnicamente sane mantenendo forti relazioni interfunzionali.\n\nAttributi di un candidato di successo\n\n- Il consulente tecnico: Non è necessario tenere la penna su ogni pacchetto tecnico, ma sei la persona che tutti consultano quando un design spinge i confini della fisica.\n\n- Il partner strategico: Ti concentri sul \"come\" e \"why,\" assicurando la roadmap tecnica di categoria.s è robusta e scalabile.\n\n- Lo specialista di allineamento: Lei prospera nello spazio tra i team, assicurando che nessun dettaglio tecnico sia \"perdente nella traduzione\" tra Zurigo e i nostri partner produttivi globali.\n\nLa tua squadra\n\nUnirai al team di sviluppo calzature con sede a Zurigo, che funge da pilastro di competenza per la categoria Performance Running. Un collettivo ad alte prestazioni di ingegneri, sviluppatori e produttori che fungono da cuore tecnico del marchio. A Zurigo, il nostro team funge da collegamento primario tra la ricerca biomeccanica, la scienza dei materiali, il design e il Sourcing, assicurando che ogni innovazione sia fondata sulla realtà tecnica prima che raggiunga l'atleta.\n\nLa nostra missione è quella di non perdere le prestazioni e gli attributi tecnici delle nostre calzature da corsa. Non solo facilita la creazione di prodotti, ma anche di ingegnere del \"ridre.\" Nell'ambito della Performance Run verticale, sarete circondati da specialisti ossessionati dalla creazione del miglior prodotto da corsa, performante e desiderabile sul mercato. Siamo fieri di una cultura del rigor tecnico e della \"Swiss Engineering,\" dove ci mettiamo in gioco lo status quo per risolvere gli ostacoli biomeccanici più complessi del settore.\n\nIl vostro ruolo in questo team è quello di garantire che man mano che la nostra categoria si espande, i nostri standard tecnici e le prestazioni \"anima\" delle nostre calzature run rimangano senza compromessi.\n\nCosa offriamo\n\n- On è un datore di lavoro pari opportunità. Ci impegniamo a creare un ambiente di lavoro che sia equo e inclusivo, dove tutte le decisioni relative al reclutamento, avanzamento, e mantenimento sono esenti da discriminazioni.",
+        "en": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "de": "Warenbezeichnung\n\nSenior Lead Footwear Entwickler\n\nKurz gesagt:\n\nAls Senior Lead Footwear Developer for Performance Running sind Sie der strategische technische Berater für unsere kritischste Produktkategorie. Mit Sitz in unserem Züricher HQ haben Sie die Aufgabe, eine hohe Abstimmung zwischen Design-Intent und Fertigungstauglichkeit zu gewährleisten. Statt die granulare Ausführung jedes Produkts zu verwalten, bieten Sie die technische Governance und funktionsübergreifenden Support, die notwendig sind, um die Leistungsintegrität als Kategorieskalen zu erhalten.\n\nDie Rolle der Senior Lead Development wird der Senior Lead Run Footwear Development über das Performance Run Team zur Unterstützung globaler Schuhe berichten.\n\nIhre Mission\n\n- Technische Leitung: Handeln Sie als primärer technischer Berater während der Briefing- und Designphasen, um sicherzustellen, dass Leistungs-Laufkonzepte mit globalen Fertigungskapazitäten abgestimmt sind.\n\n- Strategische Digitalisierung: Technische Ausrichtung der Zürcher Design/Product Management-Technik mit den asiatischen Exekutionsteams, um die \"Performance Soul\" der Kategorie über alle Franchise-Länder hinweg zu erhalten.\n\n- Prozess Enablement: Unterstützung der Entwicklung von Entwicklungsstandards durch die Ermittlung technischer Engpässe und Beratung zu bewährten Verfahren, die die Effizienz der Kategorien verbessern.\n\n- Advisory & Escalation Support: Als Senior-Fachstelle für asiatische Entwicklungspartner, die Beratung zu komplexen technischen Hürden und die Lösung von hochkarätigen Produktionseskalationen unterstützen.\n\n- Performance Quality Assurance: Unterstützen Sie die Validierung von Standards für Passform, Gefühl und Haltbarkeit, um sicherzustellen, dass klassenweite technische Benchmarks durchgängig über verschiedene Fabrikpartner hinweg erfüllt werden.\n\n- Wissenserleichterung: Förderung einer Kultur technischer Exzellenz durch Mentoring des breiteren Entwicklungsteams und Umsetzung komplexer Innovationsdurchbrüche in umsetzbare Entwicklungsrahmen.\n\nIhre Geschichte\n\n- Erfahrung: 8-12 Jahre in der Schuhentwicklung, mit einem Hintergrund, der in Hochleistungs-Lauf und technische Komplexität verwurzelt ist.\n\n- Einflussreiche Führung: Bewährte Fähigkeit, Produktrichtung und technische Ergebnisse durch Partnerschaft und Beratung zu beeinflussen, anstatt direkte Leitungsführung oder Projekteigentum.\n\n- Systemisches Denken: Ein tiefes Verständnis dafür, wie sich Performance-Tooling, Materialien und Konstruktion auf die globale Lieferkette und den Produktlebenszyklus auswirken.\n\n- Collaborative Bridge: Außergewöhnliche Navigation auf HQ und regionale Dynamik, als \"technischer Übersetzer\" zwischen kreativer Vision und Fabrikausführung.\n\n- Strategisches Urteil: Hoch qualifizierte bei der Bewertung technischer Kompromisse und Empfehlungen, die die Innovation mit der kommerziellen Skalierbarkeit in Einklang bringen.\n\n- Beratung: Eine vertrauensvolle Stimme, die die Interessenträger in Richtung technisch fundierter Entscheidungen führen kann und gleichzeitig starke funktionsübergreifende Beziehungen aufrechterhält.\n\nEigenschaften eines erfolgreichen Kandidaten\n\n- Der Technische Berater: Sie müssen nicht den Stift auf jedem Tech-Pack halten, aber Sie sind die Person, die jeder konsultiert, wenn ein Design die Grenzen der Physik überschreitet.\n\n- Der strategische Partner: Sie konzentrieren sich auf das \"Wie\" und \"Warum\", wodurch die Kategorie, die technische Roadmap ist robust und skalierbar.\n\n- Der Alignment-Spezialist: Sie gedeihen im Raum zwischen Teams, um sicherzustellen, dass keine technischen Details zwischen Zürich und unseren globalen Produktionspartnern \"verloren\" sind.\n\nIhr Team\n\nSie werden Mitglied des Zürcher Footwear Development Teams, das als Senior-Säule der Expertise für die Kategorie Performance Running fungiert. Ein Hochleistungskollektiv aus Ingenieuren, Entwicklern und Machern, die als technisches Herz der Marke dienen. In Zürich fungiert unser Team als primäre Verbindung zwischen Biomechanischer Forschung, Materialwissenschaft, Design und Sourcing, um sicherzustellen, dass jede Innovation in der technischen Realität begründet ist, bevor es den Athleten erreicht.\n\nUnsere Mission ist es, die Leistungsfähigkeit und die technischen Eigenschaften unserer Laufschuhe unerbittlich zu erhöhen. Wir erleichtern nicht nur die Produktentwicklung, wir entwickeln das „Fahren\". Im Rahmen des Performance Run vertikal werden Sie von Spezialisten umgeben sein, die besessen sind, das beste passende, leistungsfähige und wünschenswerte Laufprodukt auf dem Markt zu schaffen. Wir sind stolz auf eine Kultur der technischen Strenge und „Swiss Engineering\", wo wir den Status Quo herausfordern, die komplexesten biomechanischen Hürden in der Branche zu lösen.\n\nIhre Rolle in diesem Team ist es, sicherzustellen, dass unsere technischen Standards und die Leistungsfähigkeit unserer Laufschuhe mit der Erweiterung unserer Kategorie unkompromisslos bleiben.\n\nWas wir anbieten\n\n- On ist ein Arbeitgeber der Chancengleichheit. Wir sind verpflichtet, ein Arbeitsumfeld zu schaffen, das gerecht und inklusive ist, wo alle Entscheidungen im Zusammenhang mit der Einstellung, dem Fortschritt und der Beibehaltung frei von Diskriminierung sind.",
+        "fr": "Désignation des marchandises\n\nDéveloppeur principal de chaussures en plomb\n\nEn bref:\n\nEn tant que développeur principal de chaussures de performance, vous êtes le conseiller technique stratégique de notre catégorie de produits la plus critique. Basée dans notre QG de Zurich, votre rôle est d'assurer un alignement de haut niveau entre l'intention de conception et la faisabilité de la fabrication.\n\nLe rôle de chef de file en développement rendra compte au chef de file en développement de chaussures sur l'équipe de performance en appui aux chaussures mondiales.\n\nVotre mission\n\n- Intendance technique : Agir comme conseiller technique principal pendant les phases de briefing et de conception pour s'assurer que les concepts de performance sont alignés sur les capacités de fabrication mondiales.\n\n- Synchronisation stratégique : Faciliter l'alignement technique entre la gestion de produits et de conception basée à Zurich et les équipes d'exécution basées en Asie, en veillant à ce que l'âme de performance de la catégorie soit préservée dans toutes les franchises.\n\n- Processus En 2006 : Appuyer l'évolution des normes de développement en identifiant les goulets d'étranglement techniques et en donnant des conseils sur les meilleures pratiques qui améliorent l'efficacité à l'échelle de la catégorie.\n\n- Appui consultatif et appui à l'escalade : servir de point de contact technique principal pour les partenaires de développement asiatiques, en fournissant des conseils sur les obstacles techniques complexes et en appuyant la résolution des escalades de la production.\n\n- Assurance de la qualité des performances : Soutenir la validation des normes d'ajustement, de sensation et de durabilité, en veillant à ce que les critères techniques de référence soient constamment respectés dans toute la catégorie par les différents partenaires d'usine.\n\n- Facilitation des connaissances : Favoriser une culture d'excellence technique en guidant l'équipe de développement en général et en traduisant des innovations complexes en cadres de développement réalisables.\n\nVotre histoire\n\n- Expérience : 8-12 ans de développement de la chaussure, avec un fond ancré dans la haute performance de course et la complexité technique.\n\n- Leadership influant : démontrer la capacité d'influencer l'orientation des produits et les résultats techniques par le biais de partenariats et de conseils, plutôt que de la gestion directe des lignes ou de la propriété des projets.\n\n- Pensée systémique : Une compréhension profonde de la façon dont l'outillage de performance, les matériaux et la construction influent sur la chaîne d'approvisionnement mondiale et le cycle de vie des produits.\n\n- Pont collaboratif : Exceptionnel pour la navigation au QG et dynamique régionale, agissant comme « traducteur technique » entre la vision créative et l'exécution en usine.\n\n- Jugement stratégique : Hautement qualifié pour évaluer les compromis techniques et pour formuler des recommandations qui équilibrent l'innovation et l'évolutivité commerciale.\n\n- Communication consultative : Une voix de confiance capable d'orienter les parties prenantes vers des décisions techniquement saines tout en maintenant de solides relations interfonctionnelles.\n\nAttributs d'un candidat reçu\n\n- Le conseiller technique : Vous n'avez pas besoin de tenir le stylo sur chaque pack technique, mais vous êtes la personne que tout le monde consulte quand un design repousse les limites de la physique.\n\n- Le partenaire stratégique : vous vous concentrez sur le \"comment\" et \"pourquoi\", en assurant la catégorie, la feuille de route technique est robuste et évolutive.\n\n- Le spécialiste de l'alignement : Vous vous développez dans l'espace entre les équipes, en veillant à ce qu'aucun détail technique ne soit \"perdu en traduction\" entre Zurich et nos partenaires manufacturiers mondiaux.\n\nVotre équipe\n\nVous rejoindrez l'équipe de développement de chaussures basée à Zurich, en tant que pilier senior de l'expertise de la catégorie Performance Running. Un collectif d'ingénieurs, de développeurs et de fabricants de haute performance qui servent de cœur technique de la marque. À Zurich, notre équipe est le premier lien entre la recherche biomécanique, la science des matériaux, le design et l'approvisionnement, assurant que chaque innovation est ancrée dans la réalité technique avant d'atteindre l'athlète.\n\nNotre mission est d'élever sans relâche les performances et les caractéristiques techniques de nos chaussures de course. Nous ne nous contentons pas de faciliter la création de produits; nous concevons le «ride». Dans le cadre de la Performance Run verticale, vous serez entourés de spécialistes qui sont obsédés par la création du meilleur équipement, performance et produit de course souhaitable sur le marché. Nous sommes fiers d'une culture de rigueur technique et de «Swiss Engineering», où nous défions le statu quo pour résoudre les obstacles biomécaniques les plus complexes dans l'industrie.\n\nVotre rôle au sein de cette équipe est de veiller à ce que, à mesure que notre catégorie s'étend, nos normes techniques et la performance « âme » de nos chaussures de course restent sans compromis.\n\nCe que nous offrons\n\n- Nous sommes déterminés à créer un milieu de travail équitable et inclusif, où toutes les décisions liées au recrutement, à l'avancement et au maintien en poste sont exemptes de discrimination."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-17T09:56:47.564Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
+      "jobReqId": "7908053",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "previousSlugs": [
+        "senior-lead-footwear-developer-on-running-ch",
+        "senior-lead-footwear-sviluppatore-on-running-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-footwear-developer-on-running-ch",
+          "senior-lead-footwear-sviluppatore-on-running-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:36:27.182Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2305,7 +2374,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054998?gh_jid=8054998",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.326Z",
+      "crawledAt": "2026-08-17T09:56:47.562Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2374,7 +2443,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7492423?gh_jid=7492423",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.324Z",
+      "crawledAt": "2026-08-17T09:56:47.560Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2398,14 +2467,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-costing-on-running-ch"
+        "senior-lead-footwear-costing-on-running-ch",
+        "senior-lead-calzature-costing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-costing-on-running-ch"
+          "senior-lead-footwear-costing-on-running-ch",
+          "senior-lead-calzature-costing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.058Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2450,7 +2522,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8056606?gh_jid=8056606",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.321Z",
+      "crawledAt": "2026-08-17T09:56:47.557Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2474,14 +2546,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-exhibiton-programming-on-running-ch"
+        "senior-lead-exhibiton-programming-on-running-ch",
+        "senior-lead-programmazione-exhibiton-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-exhibiton-programming-on-running-ch"
+          "senior-lead-exhibiton-programming-on-running-ch",
+          "senior-lead-programmazione-exhibiton-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:12.988Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -2526,7 +2601,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7976404?gh_jid=7976404",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.320Z",
+      "crawledAt": "2026-08-17T09:56:47.555Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2550,11 +2625,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-distribution-center-network-design-planning-on-running-ch"
+        "senior-lead-distribution-center-network-design-planning-on-running-ch",
+        "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-distribution-center-network-design-planning-on-running-ch"
+          "senior-lead-distribution-center-network-design-planning-on-running-ch",
+          "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich"
         ],
         "de": [
           "senior-lead-distribution-center-network-design-planning-on-running-ch"
@@ -2609,7 +2686,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7745510?gh_jid=7745510",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.318Z",
+      "crawledAt": "2026-08-17T09:56:47.553Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2634,17 +2711,20 @@
       },
       "previousSlugs": [
         "senior-lead-copy-on-running-ch",
-        "senior-lead-copy-on-running-zurich"
+        "senior-lead-copy-on-running-zurich",
+        "responsabile-senior-copiato-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-copy-on-running-ch"
+          "senior-lead-copy-on-running-ch",
+          "responsabile-senior-copiato-on-running-zurich"
         ],
         "fr": [
           "senior-lead-copy-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.896Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2689,7 +2769,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7120658?gh_jid=7120658",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.315Z",
+      "crawledAt": "2026-08-17T09:56:47.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2713,11 +2793,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-computational-designer-on-running-ch"
+        "senior-lead-computational-designer-on-running-ch",
+        "senior-lead-designer-computazionale-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-computational-designer-on-running-ch"
+          "senior-lead-computational-designer-on-running-ch",
+          "senior-lead-designer-computazionale-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2766,7 +2848,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8090454?gh_jid=8090454",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.313Z",
+      "crawledAt": "2026-08-17T09:56:47.548Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2790,11 +2872,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-commercialization-engineer-on-running-ch"
+        "senior-lead-commercialization-engineer-on-running-ch",
+        "senior-lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-commercialization-engineer-on-running-ch"
+          "senior-lead-commercialization-engineer-on-running-ch",
+          "senior-lead-commercialization-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-commercialization-engineer-on-running-ch"
@@ -2848,7 +2932,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053064?gh_jid=8053064",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.311Z",
+      "crawledAt": "2026-08-17T09:56:47.547Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2917,7 +3001,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8108532?gh_jid=8108532",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.308Z",
+      "crawledAt": "2026-08-17T09:56:47.543Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2941,11 +3025,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch"
+        "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch",
+        "senior-lead-art-direttore-brand-assets-athlete-editorial-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch"
+          "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch",
+          "senior-lead-art-direttore-brand-assets-athlete-editorial-on-running-zurich"
         ],
         "de": [
           "senior-lead-art-director-brand-assets-athlete-editorial-on-running-ch"
@@ -2955,6 +3041,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:16:45.775Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -2999,7 +3086,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053185?gh_jid=8053185",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.305Z",
+      "crawledAt": "2026-08-17T09:56:47.541Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3024,15 +3111,18 @@
       },
       "previousSlugs": [
         "lead-apparel-material-development-performance-on-running-ch",
-        "senior-lead-apparel-material-development-performance-on-running-ch"
+        "senior-lead-apparel-material-development-performance-on-running-ch",
+        "piombo-apparel-material-development-performance-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-apparel-material-development-performance-on-running-ch",
-          "senior-lead-apparel-material-development-performance-on-running-ch"
+          "senior-lead-apparel-material-development-performance-on-running-ch",
+          "piombo-apparel-material-development-performance-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.697Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3077,7 +3167,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7696157?gh_jid=7696157",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.303Z",
+      "crawledAt": "2026-08-17T09:56:47.539Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3146,7 +3236,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7988349?gh_jid=7988349",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.297Z",
+      "crawledAt": "2026-08-17T09:56:47.536Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3171,12 +3261,14 @@
       },
       "previousSlugs": [
         "lead-senior-accessoires-developpement-du-materiel-on-running-zurich",
-        "senior-lead-accessories-material-development-on-running-ch"
+        "senior-lead-accessories-material-development-on-running-ch",
+        "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-senior-accessoires-developpement-du-materiel-on-running-zurich",
-          "senior-lead-accessories-material-development-on-running-ch"
+          "senior-lead-accessories-material-development-on-running-ch",
+          "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich"
         ],
         "en": [
           "lead-senior-accessoires-developpement-du-materiel-on-running-zurich"
@@ -3189,6 +3281,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.041Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3233,7 +3326,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7573654?gh_jid=7573654",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.294Z",
+      "crawledAt": "2026-08-17T09:56:47.533Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3257,14 +3350,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-creative-apparel-marketing-on-running-ch"
+        "senior-director-of-creative-apparel-marketing-on-running-ch",
+        "senior-direttore-of-creative-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-creative-apparel-marketing-on-running-ch"
+          "senior-director-of-creative-apparel-marketing-on-running-ch",
+          "senior-direttore-of-creative-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.171Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -3309,7 +3405,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7918307?gh_jid=7918307",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.291Z",
+      "crawledAt": "2026-08-17T09:56:47.531Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3333,11 +3429,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-brand-moments-on-running-ch"
+        "senior-director-of-brand-moments-on-running-ch",
+        "senior-direttore-of-brand-moments-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-brand-moments-on-running-ch"
+          "senior-director-of-brand-moments-on-running-ch",
+          "senior-direttore-of-brand-moments-on-running-zurich"
         ],
         "de": [
           "senior-director-of-brand-moments-on-running-ch"
@@ -3391,7 +3489,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8044980?gh_jid=8044980",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.289Z",
+      "crawledAt": "2026-08-17T09:56:47.528Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3415,11 +3513,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "sample-maker-on-running-ch"
+        "sample-maker-on-running-ch",
+        "produttore-di-campioni-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sample-maker-on-running-ch"
+          "sample-maker-on-running-ch",
+          "produttore-di-campioni-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.168Z",
@@ -3467,7 +3567,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.286Z",
+      "crawledAt": "2026-08-17T09:56:47.526Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3536,7 +3636,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7491246?gh_jid=7491246",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.284Z",
+      "crawledAt": "2026-08-17T09:56:47.524Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3560,11 +3660,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "principal-engineer-operations-technology-on-running-ch"
+        "principal-engineer-operations-technology-on-running-ch",
+        "principal-ingegnere-operations-technology-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-engineer-operations-technology-on-running-ch"
+          "principal-engineer-operations-technology-on-running-ch",
+          "principal-ingegnere-operations-technology-on-running-zurich"
         ],
         "de": [
           "principal-engineer-operations-technology-on-running-ch"
@@ -3618,7 +3720,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8093827?gh_jid=8093827",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.282Z",
+      "crawledAt": "2026-08-17T09:56:47.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3642,11 +3744,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "principal-data-scientist-on-running-ch"
+        "principal-data-scientist-on-running-ch",
+        "principali-scienziati-di-dati-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-data-scientist-on-running-ch"
+          "principal-data-scientist-on-running-ch",
+          "principali-scienziati-di-dati-on-running-zurich"
         ],
         "de": [
           "principal-data-scientist-on-running-ch"
@@ -3700,7 +3804,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8095927?gh_jid=8095927",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.279Z",
+      "crawledAt": "2026-08-17T09:56:47.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3724,11 +3828,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-supply-chain-decision-intelligence-operations-research-on-running-ch"
+        "lead-supply-chain-decision-intelligence-operations-research-on-running-ch",
+        "lead-supply-chain-decision-intelligence-operations-ricerca-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-supply-chain-decision-intelligence-operations-research-on-running-ch"
+          "lead-supply-chain-decision-intelligence-operations-research-on-running-ch",
+          "lead-supply-chain-decision-intelligence-operations-ricerca-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -3777,7 +3883,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079590?gh_jid=8079590",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.276Z",
+      "crawledAt": "2026-08-17T09:56:47.516Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3801,11 +3907,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-robotics-and-plc-engineer-on-running-ch"
+        "lead-robotics-and-plc-engineer-on-running-ch",
+        "lead-robotics-and-plc-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-robotics-and-plc-engineer-on-running-ch"
+          "lead-robotics-and-plc-engineer-on-running-ch",
+          "lead-robotics-and-plc-ingegnere-on-running-zurich"
         ],
         "de": [
           "lead-robotics-and-plc-engineer-on-running-ch"
@@ -3815,6 +3923,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.015Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3859,7 +3968,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8083302?gh_jid=8083302",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.274Z",
+      "crawledAt": "2026-08-17T09:56:47.515Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3928,7 +4037,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8110850?gh_jid=8110850",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.272Z",
+      "crawledAt": "2026-08-17T09:56:47.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3952,11 +4061,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-polymer-process-engineer-lightspray-on-running-ch"
+        "lead-polymer-process-engineer-lightspray-on-running-ch",
+        "lead-polymer-process-ingegnere-lightspray-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-polymer-process-engineer-lightspray-on-running-ch"
+          "lead-polymer-process-engineer-lightspray-on-running-ch",
+          "lead-polymer-process-ingegnere-lightspray-on-running-zurich"
         ],
         "de": [
           "lead-polymer-process-engineer-lightspray-on-running-ch"
@@ -3966,6 +4077,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.877Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4010,7 +4122,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8098491?gh_jid=8098491",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.271Z",
+      "crawledAt": "2026-08-17T09:56:47.512Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4034,11 +4146,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-pattern-engineer-on-running-ch"
+        "lead-pattern-engineer-on-running-ch",
+        "lead-pattern-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-pattern-engineer-on-running-ch"
+          "lead-pattern-engineer-on-running-ch",
+          "lead-pattern-ingegnere-on-running-zurich"
         ],
         "de": [
           "lead-pattern-engineer-on-running-ch"
@@ -4092,7 +4206,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046066?gh_jid=8046066",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.268Z",
+      "crawledAt": "2026-08-17T09:56:47.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4116,11 +4230,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-inbound-transportation-operations-on-running-ch"
+        "lead-inbound-transportation-operations-on-running-ch",
+        "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-inbound-transportation-operations-on-running-ch"
+          "lead-inbound-transportation-operations-on-running-ch",
+          "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich"
         ],
         "de": [
           "lead-inbound-transportation-operations-on-running-ch"
@@ -4130,6 +4246,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.006Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4174,7 +4291,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972381?gh_jid=7972381",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.265Z",
+      "crawledAt": "2026-08-17T09:56:47.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4198,11 +4315,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
+        "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch",
+        "lead-generative-intelligence-and-search-ecosystem-analista-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
+          "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch",
+          "lead-generative-intelligence-and-search-ecosystem-analista-on-running-zurich"
         ],
         "de": [
           "lead-generative-intelligence-and-search-ecosystem-analyst-on-running-ch"
@@ -4212,6 +4331,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:04:22.958Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4256,7 +4376,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7606445?gh_jid=7606445",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.262Z",
+      "crawledAt": "2026-08-17T09:56:47.506Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4281,12 +4401,14 @@
       },
       "previousSlugs": [
         "lead-tooling-engineer-on-running-ch",
-        "lead-footwear-tooling-engineer-on-running-ch"
+        "lead-footwear-tooling-engineer-on-running-ch",
+        "lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-tooling-engineer-on-running-ch",
-          "lead-footwear-tooling-engineer-on-running-ch"
+          "lead-footwear-tooling-engineer-on-running-ch",
+          "lead-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.165Z",
@@ -4334,7 +4456,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7742550?gh_jid=7742550",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.260Z",
+      "crawledAt": "2026-08-17T09:56:47.505Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4358,11 +4480,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-material-designer-on-running-ch"
+        "lead-footwear-material-designer-on-running-ch",
+        "piombo-calzature-materiale-designer-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-material-designer-on-running-ch"
+          "lead-footwear-material-designer-on-running-ch",
+          "piombo-calzature-materiale-designer-on-running-zurich"
         ],
         "de": [
           "lead-footwear-material-designer-on-running-ch"
@@ -4372,6 +4496,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.998Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4416,7 +4541,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8078986?gh_jid=8078986",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.256Z",
+      "crawledAt": "2026-08-17T09:56:47.503Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4440,14 +4565,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-dynamic-testing-innovation-on-running-ch"
+        "lead-footwear-dynamic-testing-innovation-on-running-ch",
+        "lead-footwear-dynamic-testing-innovazione-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-dynamic-testing-innovation-on-running-ch"
+          "lead-footwear-dynamic-testing-innovation-on-running-ch",
+          "lead-footwear-dynamic-testing-innovazione-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.994Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4492,7 +4620,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054189?gh_jid=8054189",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.252Z",
+      "crawledAt": "2026-08-17T09:56:47.501Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4516,11 +4644,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-developer-pad-young-movers-on-running-ch"
+        "lead-footwear-developer-pad-young-movers-on-running-ch",
+        "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-developer-pad-young-movers-on-running-ch"
+          "lead-footwear-developer-pad-young-movers-on-running-ch",
+          "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
         ],
         "de": [
           "lead-footwear-developer-pad-young-movers-on-running-ch"
@@ -4530,6 +4660,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.701Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4574,7 +4705,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8096044?gh_jid=8096044",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.251Z",
+      "crawledAt": "2026-08-17T09:56:47.500Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4598,11 +4729,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-dtc-dms-retail-marketing-emea-on-running-ch"
+        "lead-dtc-dms-retail-marketing-emea-on-running-ch",
+        "responsabile-dtc-e-dms-retail-marketing-emea-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-dtc-dms-retail-marketing-emea-on-running-ch"
+          "lead-dtc-dms-retail-marketing-emea-on-running-ch",
+          "responsabile-dtc-e-dms-retail-marketing-emea-on-running-zurich"
         ],
         "de": [
           "lead-dtc-dms-retail-marketing-emea-on-running-ch"
@@ -4612,6 +4745,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:51:54.411Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4656,7 +4790,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8112176?gh_jid=8112176",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.247Z",
+      "crawledAt": "2026-08-17T09:56:47.498Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4725,7 +4859,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8066650?gh_jid=8066650",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.245Z",
+      "crawledAt": "2026-08-17T09:56:47.497Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4753,7 +4887,8 @@
         "lead-gestione-archivio-on-running-zurich",
         "lead-archive-management-on-running-ch",
         "lead-archivverwaltung-on-running-zurich",
-        "responsable-gestion-des-archives-on-running-zurich"
+        "responsable-gestion-des-archives-on-running-zurich",
+        "lead-costruzione-project-management-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4761,7 +4896,8 @@
           "lead-gestione-archivio-on-running-zurich",
           "lead-archive-management-on-running-ch",
           "lead-archivverwaltung-on-running-zurich",
-          "responsable-gestion-des-archives-on-running-zurich"
+          "responsable-gestion-des-archives-on-running-zurich",
+          "lead-costruzione-project-management-on-running-zurich"
         ],
         "en": [
           "lead-archive-management-on-running-ch"
@@ -4774,6 +4910,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:42:24.262Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4818,7 +4955,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7962925?gh_jid=7962925",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.243Z",
+      "crawledAt": "2026-08-17T09:56:47.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4842,11 +4979,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-commercialization-engineer-on-running-ch"
+        "lead-commercialization-engineer-on-running-ch",
+        "lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-commercialization-engineer-on-running-ch"
+          "lead-commercialization-engineer-on-running-ch",
+          "lead-commercialization-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.160Z",
@@ -4870,7 +5009,7 @@
         "it": "lead-test-di-abbigliamento-on-running-zurich",
         "en": "lead-apparel-testing-on-running-ch",
         "de": "blei-bekleidungstests-on-running-zurich",
-        "fr": "le-plomb-essai-d-habillement-on-running-zurich"
+        "fr": "responsable-tests-de-vetements-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4894,7 +5033,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7775612?gh_jid=7775612",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.241Z",
+      "crawledAt": "2026-08-17T09:56:47.495Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4919,13 +5058,17 @@
       },
       "previousSlugs": [
         "lead-apparel-testing-on-running-ch",
+        "le-plomb-essai-d-habillement-on-running-zurich",
+        "lead-test-di-abbigliamento-on-running-zurich",
         "responsable-tests-de-vetements-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-testing-on-running-ch"
+          "lead-apparel-testing-on-running-ch",
+          "lead-test-di-abbigliamento-on-running-zurich"
         ],
         "fr": [
+          "le-plomb-essai-d-habillement-on-running-zurich",
           "responsable-tests-de-vetements-on-running-zurich"
         ]
       },
@@ -4974,7 +5117,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721446?gh_jid=7721446",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.238Z",
+      "crawledAt": "2026-08-17T09:56:47.493Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4998,14 +5141,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-apparel-graphic-design-on-running-ch"
+        "lead-apparel-graphic-design-on-running-ch",
+        "piombo-apparel-graphic-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-graphic-design-on-running-ch"
+          "lead-apparel-graphic-design-on-running-ch",
+          "piombo-apparel-graphic-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.862Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5050,7 +5196,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984641?gh_jid=7984641",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.237Z",
+      "crawledAt": "2026-08-17T09:56:47.492Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5074,11 +5220,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-accessories-developer-technical-bags-on-running-ch"
+        "lead-accessories-developer-technical-bags-on-running-ch",
+        "lead-accessories-sviluppatore-technical-bags-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-accessories-developer-technical-bags-on-running-ch"
+          "lead-accessories-developer-technical-bags-on-running-ch",
+          "lead-accessories-sviluppatore-technical-bags-on-running-zurich"
         ],
         "de": [
           "lead-accessories-developer-technical-bags-on-running-ch"
@@ -5088,6 +5236,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.957Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -5132,7 +5281,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079396?gh_jid=8079396",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.234Z",
+      "crawledAt": "2026-08-17T09:56:47.491Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5157,11 +5306,13 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+          "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
         ],
         "it": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
-          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+          "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+          "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
         ],
         "de": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
@@ -5172,7 +5323,8 @@
       },
       "previousSlugs": [
         "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
-        "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+        "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+        "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
       ],
       "firstSeenAt": "2026-07-22T22:50:30.308Z",
       "salaryMin": 73500,
@@ -5186,7 +5338,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-5a413552254a",
@@ -5219,7 +5372,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7840993?gh_jid=7840993",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.231Z",
+      "crawledAt": "2026-08-17T09:56:47.489Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5243,11 +5396,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-strategy-operations-footwear-product-creation-on-running-ch"
+        "head-of-strategy-operations-footwear-product-creation-on-running-ch",
+        "responsabile-strategy-operations-footwear-product-creation-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-strategy-operations-footwear-product-creation-on-running-ch"
+          "head-of-strategy-operations-footwear-product-creation-on-running-ch",
+          "responsabile-strategy-operations-footwear-product-creation-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.153Z",
@@ -5295,7 +5450,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7831449?gh_jid=7831449",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.224Z",
+      "crawledAt": "2026-08-17T09:56:47.485Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5323,7 +5478,8 @@
         "responsabile-product-management-product-r-d-on-running-zurich",
         "head-of-product-management-product-r-d-on-running-ch",
         "leiter-product-management-product-r-d-on-running-zurich",
-        "responsable-product-management-product-r-d-on-running-zurich"
+        "responsable-product-management-product-r-d-on-running-zurich",
+        "responsabile-product-management-tennis-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5331,7 +5487,8 @@
           "responsabile-product-management-product-r-d-on-running-zurich",
           "head-of-product-management-product-r-d-on-running-ch",
           "leiter-product-management-product-r-d-on-running-zurich",
-          "responsable-product-management-product-r-d-on-running-zurich"
+          "responsable-product-management-product-r-d-on-running-zurich",
+          "responsabile-product-management-tennis-on-running-zurich"
         ],
         "en": [
           "head-of-product-management-product-r-d-on-running-ch"
@@ -5390,7 +5547,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7857798?gh_jid=7857798",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.222Z",
+      "crawledAt": "2026-08-17T09:56:47.483Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5414,11 +5571,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-product-development-accessories-on-running-ch"
+        "head-of-product-development-accessories-on-running-ch",
+        "responsabile-product-development-accessories-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-product-development-accessories-on-running-ch"
+          "head-of-product-development-accessories-on-running-ch",
+          "responsabile-product-development-accessories-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.150Z",
@@ -5466,7 +5625,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7954040?gh_jid=7954040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.218Z",
+      "crawledAt": "2026-08-17T09:56:47.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5490,11 +5649,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-internal-content-channels-on-running-ch"
+        "head-of-internal-content-channels-on-running-ch",
+        "responsabile-internal-content-channels-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-internal-content-channels-on-running-ch"
+          "head-of-internal-content-channels-on-running-ch",
+          "responsabile-internal-content-channels-on-running-zurich"
         ],
         "de": [
           "head-of-internal-content-channels-on-running-ch"
@@ -5548,7 +5709,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8010254?gh_jid=8010254",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.216Z",
+      "crawledAt": "2026-08-17T09:56:47.478Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5572,11 +5733,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-engineering-customer-experience-on-running-ch"
+        "head-of-engineering-customer-experience-on-running-ch",
+        "responsabile-engineering-customer-experience-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-engineering-customer-experience-on-running-ch"
+          "head-of-engineering-customer-experience-on-running-ch",
+          "responsabile-engineering-customer-experience-on-running-zurich"
         ],
         "de": [
           "head-of-engineering-customer-experience-on-running-ch"
@@ -5630,7 +5793,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7452087?gh_jid=7452087",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.210Z",
+      "crawledAt": "2026-08-17T09:56:47.473Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5654,11 +5817,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-data-science-commercial-ai-on-running-ch"
+        "head-of-data-science-commercial-ai-on-running-ch",
+        "responsabile-data-science-commercial-ai-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-data-science-commercial-ai-on-running-ch"
+          "head-of-data-science-commercial-ai-on-running-ch",
+          "responsabile-data-science-commercial-ai-on-running-zurich"
         ],
         "de": [
           "head-of-data-science-commercial-ai-on-running-ch"
@@ -5712,7 +5877,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7677225?gh_jid=7677225",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.205Z",
+      "crawledAt": "2026-08-17T09:56:47.469Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5736,11 +5901,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-creative-core-brand-design-on-running-ch"
+        "head-of-creative-core-brand-design-on-running-ch",
+        "responsabile-creative-core-brand-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-creative-core-brand-design-on-running-ch"
+          "head-of-creative-core-brand-design-on-running-ch",
+          "responsabile-creative-core-brand-design-on-running-zurich"
         ],
         "de": [
           "head-of-creative-core-brand-design-on-running-ch"
@@ -5794,7 +5961,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046508?gh_jid=8046508",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.202Z",
+      "crawledAt": "2026-08-17T09:56:47.466Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5818,11 +5985,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-business-process-excellence-on-running-ch"
+        "head-of-business-process-excellence-on-running-ch",
+        "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-business-process-excellence-on-running-ch"
+          "head-of-business-process-excellence-on-running-ch",
+          "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
         ],
         "de": [
           "head-of-business-process-excellence-on-running-ch"
@@ -5876,7 +6045,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7384378?gh_jid=7384378",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.197Z",
+      "crawledAt": "2026-08-17T09:56:47.461Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5902,14 +6071,17 @@
       "firstSeenAt": "2026-07-27T22:10:40.048Z",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-apparel-materials-development-performance-on-running-ch"
+          "head-of-apparel-materials-development-performance-on-running-ch",
+          "senior-lead-apparel-materials-development-performance-on-running-ch"
         ],
         "en": [
-          "head-of-apparel-materials-development-performance-on-running-ch"
+          "head-of-apparel-materials-development-performance-on-running-ch",
+          "senior-lead-apparel-materials-development-performance-on-running-ch"
         ]
       },
       "previousSlugs": [
-        "head-of-apparel-materials-development-performance-on-running-ch"
+        "head-of-apparel-materials-development-performance-on-running-ch",
+        "senior-lead-apparel-materials-development-performance-on-running-ch"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -5955,7 +6127,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7402412?gh_jid=7402412",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.194Z",
+      "crawledAt": "2026-08-17T09:56:47.458Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5980,15 +6152,18 @@
       },
       "previousSlugs": [
         "senior-director-of-brand-apparel-marketing-on-running-ch",
-        "global-senior-director-of-brand-apparel-marketing-on-running-ch"
+        "global-senior-director-of-brand-apparel-marketing-on-running-ch",
+        "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-director-of-brand-apparel-marketing-on-running-ch",
-          "global-senior-director-of-brand-apparel-marketing-on-running-ch"
+          "global-senior-director-of-brand-apparel-marketing-on-running-ch",
+          "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.169Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "baseSalary": {
@@ -6033,7 +6208,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7687729?gh_jid=7687729",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.191Z",
+      "crawledAt": "2026-08-17T09:56:47.450Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6057,11 +6232,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "global-head-of-brand-events-on-running-ch"
+        "global-head-of-brand-events-on-running-ch",
+        "global-responsabile-brand-events-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-brand-events-on-running-ch"
+          "global-head-of-brand-events-on-running-ch",
+          "global-responsabile-brand-events-on-running-zurich"
         ],
         "de": [
           "global-head-of-brand-events-on-running-ch"
@@ -6115,7 +6292,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8030127?gh_jid=8030127",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.188Z",
+      "crawledAt": "2026-08-17T09:56:47.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6139,11 +6316,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "fit-model-flexible-part-time-opportunity-on-running-ch"
+        "fit-model-flexible-part-time-opportunity-on-running-ch",
+        "fit-model-flexible-opportunita-part-time-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fit-model-flexible-part-time-opportunity-on-running-ch"
+          "fit-model-flexible-part-time-opportunity-on-running-ch",
+          "fit-model-flexible-opportunita-part-time-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.141Z",
@@ -6191,7 +6370,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8094019?gh_jid=8094019",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.186Z",
+      "crawledAt": "2026-08-17T09:56:47.446Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6215,11 +6394,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "evp-content-communications-lead-on-running-ch"
+        "evp-content-communications-lead-on-running-ch",
+        "contenuti-e-comunicazioni-evp-piombo-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "evp-content-communications-lead-on-running-ch"
+          "evp-content-communications-lead-on-running-ch",
+          "contenuti-e-comunicazioni-evp-piombo-on-running-zurich"
         ],
         "fr": [
           "evp-content-communications-lead-on-running-ch"
@@ -6271,7 +6452,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7214896?gh_jid=7214896",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.184Z",
+      "crawledAt": "2026-08-17T09:56:47.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6295,11 +6476,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-product-vertical-running-on-running-ch"
+        "director-of-product-vertical-running-on-running-ch",
+        "direttore-of-product-vertical-running-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-product-vertical-running-on-running-ch"
+          "director-of-product-vertical-running-on-running-ch",
+          "direttore-of-product-vertical-running-on-running-zurich"
         ],
         "de": [
           "director-of-product-vertical-running-on-running-ch"
@@ -6309,6 +6492,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.874Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6353,7 +6537,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7972311?gh_jid=7972311",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.178Z",
+      "crawledAt": "2026-08-17T09:56:47.441Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6377,14 +6561,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-product-testing-on-running-ch"
+        "director-of-product-testing-on-running-ch",
+        "direttore-of-product-testing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-product-testing-on-running-ch"
+          "director-of-product-testing-on-running-ch",
+          "direttore-of-product-testing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.134Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -6426,7 +6613,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7699563?gh_jid=7699563",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T21:26:40.165Z",
+      "crawledAt": "2026-08-17T09:56:47.436Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6450,11 +6637,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "director-of-innovation-management-strategy-on-running-ch"
+        "director-of-innovation-management-strategy-on-running-ch",
+        "direttore-of-innovation-management-strategy-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-innovation-management-strategy-on-running-ch"
+          "director-of-innovation-management-strategy-on-running-ch",
+          "direttore-of-innovation-management-strategy-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -6486,7 +6675,7 @@
       "companyDomain": "on-running.com",
       "title": "Chief of Staff - Retail Strategy",
       "titleByLocale": {
-        "it": "Capo di Stato Maggiore - Strategia al dettaglio",
+        "it": "Chief of Staff - Retail Strategy",
         "en": "Chief of Staff - Retail Strategy",
         "de": "Stabschef - Einzelhandelsstrategie",
         "fr": "Chef de cabinet - Stratégie de vente au détail"
@@ -6503,7 +6692,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7929715?gh_jid=7929715",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:40.145Z",
+      "crawledAt": "2026-08-17T09:56:47.428Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -6543,6 +6732,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.827Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
