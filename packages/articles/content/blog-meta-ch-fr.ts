@@ -3097,6 +3097,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.title': 'Primes d\'assurance santé dans le canton de Zoug et réductions de primes',
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.excerpt': 'Primes pour l\'assurance maladie obligatoire dans le canton de Zou : fourchettes de primes, franchises, modèles alternatifs et exigences pour bénéficier de réductions de primes.',
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.imageAlt': 'Une scène d\'un résident frontalier suisse avec sa famille dans un environnement naturel près du lac de Lugano, où se trouve le canton de Zoug.',
+    'blog.article.salari-svizzera-aumentati-2026.title': 'Travail.Suisse demande une augmentation généralisée des salaires en Suisse',
+    'blog.article.salari-svizzera-aumentati-2026.excerpt': 'Travail.Suisse demande une augmentation de 2 % pour tous les travailleurs, mais les négociations s\'annoncent difficiles.',
+    'blog.article.salari-svizzera-aumentati-2026.imageAlt': 'La situation salariale en Suisse, avec une augmentation de 2% demandée par Travail.Suisse',
 };
 
 export default blogMetaChFr;

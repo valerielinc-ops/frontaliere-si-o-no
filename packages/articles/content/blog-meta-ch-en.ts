@@ -3097,6 +3097,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.title': 'Canton Zug health insurance premiums and premium reductions',
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.excerpt': 'Premiums for compulsory health insurance in the canton of Zug: premium ranges, deductibles, alternative models and requirements for benefiting from premium reductions.',
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.imageAlt': 'A scene of a Swiss border resident with family in a natural environment near Lake Lugano, where the Canton of Zugo is located.',
+    'blog.article.salari-svizzera-aumentati-2026.title': 'Travail.Suisse calls for a general increase in wages in Switzerland',
+    'blog.article.salari-svizzera-aumentati-2026.excerpt': 'Travail.Suisse is asking for a 2% increase for all workers, but the negotiations are going to be difficult.',
+    'blog.article.salari-svizzera-aumentati-2026.imageAlt': 'Switzerland\'s salary situation, with 2% increase requested by Travail.Suisse',
 };
 
 export default blogMetaChEn;
