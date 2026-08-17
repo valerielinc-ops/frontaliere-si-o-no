@@ -3064,6 +3064,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Stipendien im Kanton Glarus: Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'Das Stipendium des Kantons Glarus ist eine wichtige Gelegenheit für Studierende, die ihr Studium in der Schweiz fortsetzen möchten.',
     'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Stipendien im Kanton Glarus: was ändert sich für Schweizer Studierende?',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'Haus in Glarus: Preise, Fonds und Nachhaltigkeit des Darlehens',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Durchschnittliche Hauspreise im Kanton Glarus, benötigte Eigenmittel und Tragbarkeit des Hypothekardarlehens.',
+    'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Im Kauf einer Wohnung im Kanton Glarus: durchschnittliche Preise und erforderliche Selbstfinanzierung',
 };
 
 export default blogMetaChDe;
