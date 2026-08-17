@@ -1043,6 +1043,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-canton-glarona-requisiti-e-domanda': { it: 'permesso-domicilio-c-canton-glarona-requisiti-e-domanda', en: 'c-permit-canton-glarus-requirements-and-application', de: 'c-bewilligung-kanton-glarus-anforderungen-und-antragstellung', fr: 'permis-de-domicile-c-canton-de-glarus-exigences-et-demande' },
  'assegni-familiari-canton-glarona': { it: 'assegni-familiari-canton-glarona', en: 'family-allowances-in-the-canton-of-glarus-amounts-and-demand', de: 'familienzulagen-im-kanton-glarus-betrage-und-antrag', fr: 'allocations-familiales-dans-le-canton-de-glaris-montants-et-demande' },
  'assegni-familiari-glarona-importi-e-domanda': { it: 'assegni-familiari-glarona-importi-e-domanda', en: 'assegni-familiari-glarona', de: 'ehelensicherung-kanton-glarnisch', fr: 'allocations-familiales-canton-de-glarona' },
+ 'sistema-scolastico-canton-glarona-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-glarona-iscrizione-e-cicli', en: 'education-system-canton-glarus-enrollment-and-cycles', de: 'bildungssystem-kanton-glarus-anmeldung-und-lehrjahre', fr: 'systeme-educatif-canton-de-glarus-inscription-et-cycles' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3052,6 +3052,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-glarona-importi-e-domanda.title': 'Assegni familiari nel Canton Glarona: importi e domanda',
     'blog.article.assegni-familiari-glarona-importi-e-domanda.excerpt': 'Impostazioni e importi mensili per i figli, condizioni di diritto e procedura di domanda.',
     'blog.article.assegni-familiari-glarona-importi-e-domanda.imageAlt': 'Immagine editoriale relativa a: Assegni familiari nel Canton Glarona: importi e domanda',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.title': 'Sistema scolastico Canton Glarona: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.excerpt': 'Scegli la scuola giusta per i tuoi figli in Canton Glarona',
+    'blog.article.sistema-scolastico-canton-glarona-iscrizione-e-cicli.imageAlt': 'Scuole elementari in Svizzera',
 };
 
 export default blogMetaChIt;
