@@ -3208,6 +3208,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-friburgo.title': 'Assegni familiari nel Canton Friburgo: importi e domanda',
     'blog.article.assegni-familiari-canton-friburgo.excerpt': 'I fatti sulla domanda e sull\'importo degli assegni familiari nel Canton Friburgo',
     'blog.article.assegni-familiari-canton-friburgo.imageAlt': 'Una famiglia con due figli che vive a Friburgo, Svizzera, e riceve l\'assegno di natalità',
+    'blog.article.sistema-scolastico-canton-friburgo.title': 'Sistema scolastico Canton Friburgo: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'L\'età di iscrizione, i cicli di studi e il calendario scolastico nel Cantone di Friburgo.',
+    'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'Scuola dell\'obbligo nel Cantone di Friburgo: cicli, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori.',
 };
 
 export default blogMetaChIt;

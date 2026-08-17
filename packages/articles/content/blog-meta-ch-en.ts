@@ -3208,6 +3208,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-friburgo.title': 'Family allowances in the canton of Fribourg: amounts and application',
     'blog.article.assegni-familiari-canton-friburgo.excerpt': 'Facts about the application and amount of family allowances in the Canton of Fribourg',
     'blog.article.assegni-familiari-canton-friburgo.imageAlt': 'A family with two children living in Fribourg, Switzerland, and receiving child allowance',
+    'blog.article.sistema-scolastico-canton-friburgo.title': 'School system Canton Fribourg: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'The age of enrolment, curricula and school calendar in the Canton of Freiburg.',
+    'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'School education in the Canton of Fribourg: cycles, age of enrollment, school calendar, languages of instruction and transition to upper secondary schools.',
 };
 
 export default blogMetaChEn;
