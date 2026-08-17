@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-27T18:43:05.063Z",
-    "label": "before",
-    "total": 24658,
-    "needsRetranslation": 10748,
-    "suppressed": 40,
-    "incomplete": 255,
-    "complete": 24403,
-    "missingByLocale": {
-      "it": 209,
-      "en": 124,
-      "de": 119,
-      "fr": 190
-    },
-    "topPending": [
-      {
-        "company": "Roche",
-        "pending": 41
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "Valora Group",
-        "pending": 10
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 6
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 6
-      },
-      {
-        "company": "LANDI",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-27T18:54:18.412Z",
-    "label": "after",
-    "total": 24658,
-    "needsRetranslation": 932,
-    "suppressed": 39,
-    "incomplete": 255,
-    "complete": 24403,
-    "missingByLocale": {
-      "it": 209,
-      "en": 124,
-      "de": 119,
-      "fr": 190
-    },
-    "topPending": [
-      {
-        "company": "Roche",
-        "pending": 41
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "Valora Group",
-        "pending": 10
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 6
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 6
-      },
-      {
-        "company": "LANDI",
-        "pending": 6
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-27T23:10:29.833Z",
     "label": "before",
     "total": 24723,
@@ -12002,6 +11888,162 @@
       {
         "company": "BKW",
         "pending": 222
+      },
+      {
+        "company": "JUMBO",
+        "pending": 185
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-17T03:04:34.484Z",
+    "label": "before",
+    "total": 26958,
+    "needsRetranslation": 10476,
+    "suppressed": 57,
+    "incomplete": 11462,
+    "complete": 15496,
+    "slotsPresent": 15496,
+    "flaggedAmongSlotsPresent": 213,
+    "verifiedTranslated": 15283,
+    "sourceCopyExcused": 615,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 46,
+      "en": 37,
+      "de": 45,
+      "fr": 53
+    },
+    "queueAge": {
+      "count": 10476,
+      "withTimestamp": 10476,
+      "oldestAgeDays": 125.7,
+      "p50AgeDays": 19.1,
+      "p90AgeDays": 67.8,
+      "buckets": {
+        "0-7d": 1585,
+        "7-30d": 4952,
+        "30-90d": 3647,
+        "90-180d": 292,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "railCare",
+        "pending": 1988
+      },
+      {
+        "company": "Roche",
+        "pending": 546
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 485
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 270
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 261
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 255
+      },
+      {
+        "company": "railCare",
+        "pending": 248
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 234
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "JUMBO",
+        "pending": 185
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-17T05:44:55.748Z",
+    "label": "after",
+    "total": 26958,
+    "needsRetranslation": 10263,
+    "suppressed": 57,
+    "incomplete": 11457,
+    "complete": 15501,
+    "slotsPresent": 15501,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15501,
+    "sourceCopyExcused": 615,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 46,
+      "en": 37,
+      "de": 44,
+      "fr": 53
+    },
+    "queueAge": {
+      "count": 10263,
+      "withTimestamp": 10263,
+      "oldestAgeDays": 125.8,
+      "p50AgeDays": 18.8,
+      "p90AgeDays": 67.9,
+      "buckets": {
+        "0-7d": 1541,
+        "7-30d": 4877,
+        "30-90d": 3555,
+        "90-180d": 290,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "railCare",
+        "pending": 1985
+      },
+      {
+        "company": "Roche",
+        "pending": 546
+      },
+      {
+        "company": "Pizzeria Ristorante Molino",
+        "pending": 485
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 270
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 261
+      },
+      {
+        "company": "LANDI Aarau-West AG",
+        "pending": 255
+      },
+      {
+        "company": "railCare",
+        "pending": 248
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 234
+      },
+      {
+        "company": "BKW",
+        "pending": 223
       },
       {
         "company": "JUMBO",
