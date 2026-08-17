@@ -30009,6 +30009,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'come-va-leconomia-di-confine-con-il-canton-ticino',
+ category: 'fiscale',
+ date: '2026-08-17T10:31:04.455Z',
+ image: '/images/blog/come-va-leconomia-di-confine-con-il-canton-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

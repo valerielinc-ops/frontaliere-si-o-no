@@ -1,18 +1,55 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-08-16T21:40:42.285Z",
-  "total": 0,
-  "discovered": null,
-  "written": 0,
+  "generatedAt": "2026-08-17T10:00:59.904Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 5128,
+  "avgDurationMs": 5128,
+  "durationHistory": [
+    5128
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Consulente tecnico (m/f) - 100%",
+      "slug": "consulente-tecnico-m-f-100-amag-group-pambio-noranco",
+      "url": "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-j23428.html",
+      "applyUrl": "https://jobs.amag-group.ch/Consulente-tecnico-mf-100-it-f23428.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Pambio-Noranco",
+      "addressLocality": "Pambio-Noranco",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "automotive",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-08-10",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-10-31",
+      "id": "amag-group-aef1560871fc",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-10T22:24:34.816Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }

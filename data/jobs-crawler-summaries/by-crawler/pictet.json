@@ -1,18 +1,54 @@
 {
   "key": "pictet",
   "label": "Pictet Group",
-  "generatedAt": "2026-08-16T21:26:26.566Z",
-  "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "generatedAt": "2026-08-17T10:02:37.813Z",
+  "total": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 17401,
-  "avgDurationMs": 17401,
+  "unchangedCount": 1,
+  "durationMs": 16797,
+  "avgDurationMs": 16797,
   "durationHistory": [
-    17401
+    16797
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "pictet-728a8a49bd5d",
+      "slug": "client-relationship-officer-pictet-singapore",
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Client Relationship Officer",
+      "location": "Singapore",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124907&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-17T10:02:27.952Z",
+      "addressLocality": "Singapore",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124907&selected_lang=en_GB",
+      "jobReqId": "124907",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "pictet-73ef067c6a43",
@@ -26,7 +62,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124893&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:17.769Z",
+      "crawledAt": "2026-08-17T10:02:29.270Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -41,7 +77,6 @@
       "postedDate": "2026-08-14",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124893&selected_lang=en_GB",
       "jobReqId": "124893",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:29:35.863Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -63,7 +98,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124884&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:18.974Z",
+      "crawledAt": "2026-08-17T10:02:29.916Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -78,7 +113,6 @@
       "postedDate": "2026-08-13",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124884&selected_lang=en_GB",
       "jobReqId": "124884",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-13T21:50:00.964Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -100,7 +134,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124810&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:19.749Z",
+      "crawledAt": "2026-08-17T10:02:30.665Z",
       "addressLocality": "Frankfurt",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -137,7 +171,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=123105&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:20.694Z",
+      "crawledAt": "2026-08-17T10:02:31.298Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -173,7 +207,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124613&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:21.314Z",
+      "crawledAt": "2026-08-17T10:02:31.919Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -209,7 +243,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124890&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:21.896Z",
+      "crawledAt": "2026-08-17T10:02:32.614Z",
       "addressLocality": "Hong Kong",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -224,7 +258,6 @@
       "postedDate": "2026-08-12",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124890&selected_lang=en_GB",
       "jobReqId": "124890",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-12T10:19:17.183Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -246,7 +279,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124806&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:22.518Z",
+      "crawledAt": "2026-08-17T10:02:33.226Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -282,7 +315,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124840&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-16T21:26:23.154Z",
+      "crawledAt": "2026-08-17T10:02:33.848Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -319,7 +352,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124439&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T21:26:23.713Z",
+      "crawledAt": "2026-08-17T10:02:34.529Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -343,7 +376,10 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pictet-2c3f8f54cd63",
       "slug": "tax-advisor-6-months-fixed-term-contract-pictet-geneva",
@@ -371,17 +407,17 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124838&selected_lang=en_GB",
       "jobReqId": "124838",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-06T11:59:00.644Z",
-      "_qualityScore": 79,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

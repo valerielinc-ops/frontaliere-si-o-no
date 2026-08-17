@@ -9325,6 +9325,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-breve-durata-canton-zugo-validita-proroga',
+    category: 'pratico',
+    date: '2026-08-17T09:55:05.441Z',
+    image: '/images/blog/permesso-l-breve-durata-canton-zugo-validita-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'assegni-familiari-canton-zugo',
+    category: 'pratico',
+    date: '2026-08-17T10:07:13.918Z',
+    image: '/images/blog/assegni-familiari-canton-zugo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'independenza-svizzera-sicurezza',
+    category: 'pratico',
+    date: '2026-08-17T10:13:40.281Z',
+    image: '/images/blog/independenza-svizzera-sicurezza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'sistema-scolastico-canton-zugo-iscrizione-e-cicli',
+    category: 'pratico',
+    date: '2026-08-17T10:27:42.514Z',
+    image: '/images/blog/sistema-scolastico-canton-zugo-iscrizione-e-cicli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

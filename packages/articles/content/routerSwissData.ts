@@ -1062,6 +1062,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'costo-elettricit-svizzera': { it: 'costo-elettricit-svizzera', en: 'switzerland-electricity-cost', de: 'schweiz-stromkosten', fr: 'cout-de-l-electricite-en-suisse' },
  'giornate-svizzere-statistica-2026': { it: 'giornate-svizzere-statistica-2026', en: 'swiss-statistical-days-2026', de: 'schweizerische-statistiktage-2026', fr: 'journees-suisses-de-statistiques-2026' },
  'travailsuisse-aumenti-salariali-2026': { it: 'travailsuisse-aumenti-salariali-2026', en: 'travailsuisse-2026-salary-increases', de: 'travailsuisse-lohne-2026', fr: 'travailsuisse-salaire-2026' },
+ 'permesso-l-breve-durata-canton-zugo-validita-proroga': { it: 'permesso-l-breve-durata-canton-zugo-validita-proroga', en: 'short-term-l-permit-canton-zug-validity-extension', de: 'kurzfristige-aufenthaltsbewilligung-l-kanton-zug-gultigkeit-verlangerung', fr: 'permis-l-courte-duree-canton-zoug-validite-prolongation' },
+ 'assegni-familiari-canton-zugo': { it: 'assegni-familiari-canton-zugo', en: 'family-allowances-cantone-zugo', de: 'familienbeihilfe-kanton-zugo', fr: 'allocations-familiales-canton-zugo' },
+ 'independenza-svizzera-sicurezza': { it: 'independenza-svizzera-sicurezza', en: 'neutrality-initiative-puts-switzerland-s-security-at-risk', de: 'unabhaengigkeit-schweiz-sicherheit', fr: 'independance-suisse-securite' },
+ 'sistema-scolastico-canton-zugo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-zugo-iscrizione-e-cicli', en: 'school-system-canton-zurich-enrolment-and-grades', de: 'bildungssystem-kanton-zuerich-anmeldung-und-stufen', fr: 'systeme-educatif-canton-de-zurich-inscription-et-niveaux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

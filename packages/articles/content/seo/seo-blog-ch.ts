@@ -40307,6 +40307,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-canton-zugo-validita-proroga': {
+    title: 'Permesso L di breve durata nel Canton Zugo: validità, proroga e passaggio al permesso B',
+    description: 'Guida completa sul permesso L di breve durata nel Canton Zugo: durata massima, condizioni per la proroga, vincoli con il datore di lavoro e requisiti',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, canton',
+    ogTitle: 'Permesso L Canton Zugo: tutto su validità e proroga',
+    ogDescription: 'Durata massima del permesso L a Zugo, procedure per la proroga, vincoli con il datore e requisiti per il permesso B. Guida pratica per lavoratori non UE.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-canton-zugo-validita-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L di breve durata nel Canton Zugo: validità, proroga e passaggio al permesso B",
+      "description": "Guida completa sul permesso L di breve durata nel Canton Zugo: durata massima, condizioni per la proroga, vincoli con il datore di lavoro e requisiti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-canton-zugo-validita-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Canton Zugo con lago e Alpi"
+      },
+      "datePublished": "2026-08-17T09:55:05+00:00",
+      "dateModified": "2026-08-17T09:55:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-canton-zugo-validita-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assegni-familiari-canton-zugo': {
+    title: 'Assegni familiari nel Cantone di Zugo: importi e domanda',
+    description: 'Le condizioni di diritto e i criteri di eleggibilità per gli assegni familiari nel Cantone di Zugo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, cantone, zugo',
+    ogTitle: 'Assegni familiari nel Cantone di Zugo: importi e domanda',
+    ogDescription: 'Le condizioni di diritto e i criteri di eleggibilità per gli assegni familiari nel Cantone di Zugo.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-canton-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari nel Cantone di Zugo: importi e domanda",
+      "description": "Le condizioni di diritto e i criteri di eleggibilità per gli assegni familiari nel Cantone di Zugo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-canton-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un bambino giocando in un parco a Lugano."
+      },
+      "datePublished": "2026-08-17T10:07:13+00:00",
+      "dateModified": "2026-08-17T10:07:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-canton-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-independenza-svizzera-sicurezza': {
+    title: 'L\'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera',
+    description: 'L\'iniziativa sulla neutralità è in votazione il prossimo 27 settembre e limita enormemente la capacità della Svizzera di agire in materia di politica estera',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, sulla, neutralità, mette',
+    ogTitle: 'L\'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera',
+    ogDescription: 'L\'iniziativa sulla neutralità è in votazione il prossimo 27 settembre e limita enormemente la capacità della Svizzera di agire in materia di politica estera e mette in pericolo la nostra sicurezza.',
+    canonicalPath: '/articoli-svizzera/independenza-svizzera-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera",
+      "description": "L'iniziativa sulla neutralità è in votazione il prossimo 27 settembre e limita enormemente la capacità della Svizzera di agire in materia di politica estera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/independenza-svizzera-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: L'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera"
+      },
+      "datePublished": "2026-08-17T10:13:40+00:00",
+      "dateModified": "2026-08-17T10:13:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/independenza-svizzera-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-scolastico-canton-zugo-iscrizione-e-cicli': {
+    title: 'Sistema scolastico del Cantone di Zurigo: iscrizione e cicli',
+    description: 'Il sistema scolastico del Cantone di Zurigo è caratterizzato da un ciclo di istruzione obbligatoria di 9 anni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, cantone, zurigo',
+    ogTitle: 'Sistema scolastico del Cantone di Zurigo: iscrizione e cicli',
+    ogDescription: 'Il sistema scolastico del Cantone di Zurigo è caratterizzato da un ciclo di istruzione obbligatoria di 9 anni.',
+    canonicalPath: '/articoli-svizzera/sistema-scolastico-canton-zugo-iscrizione-e-cicli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico del Cantone di Zurigo: iscrizione e cicli",
+      "description": "Il sistema scolastico del Cantone di Zurigo è caratterizzato da un ciclo di istruzione obbligatoria di 9 anni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-scolastico-canton-zugo-iscrizione-e-cicli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sistema scolastico del Cantone di Zurigo"
+      },
+      "datePublished": "2026-08-17T10:27:42+00:00",
+      "dateModified": "2026-08-17T10:27:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-scolastico-canton-zugo-iscrizione-e-cicli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
