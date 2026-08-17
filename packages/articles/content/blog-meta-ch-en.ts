@@ -3196,6 +3196,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-neutralita-si.title': 'Yes to a neutral and independent Switzerland',
     'blog.article.svizzera-neutralita-si.excerpt': 'National Councillor Lorenzo Quadri: \'Neutrality is not a comfortable choice, it presupposes a straight back\'',
     'blog.article.svizzera-neutralita-si.imageAlt': 'Frontalieri ticinesi in a Lugano square with Swiss flag',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Short-term permit L in the Canton of Freiburg: validity and extension',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'The short-term L permit in the Canton of Freiburg is valid for a maximum period of 1 year. Here are the conditions of extension and the transition to a residence permit.',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'A frontaliere crosses the border with Fribourg in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -3196,6 +3196,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-neutralita-si.title': 'Sì a una Svizzera neutrale e indipendente',
     'blog.article.svizzera-neutralita-si.excerpt': 'Il Consigliere Nazionale Lorenzo Quadri: \'La neutralità non è una scelta di comodo, presuppone una schiena dritta\'',
     'blog.article.svizzera-neutralita-si.imageAlt': 'Frontalieri ticinesi in una piazza di Lugano con bandiera svizzera',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Permesso L di breve durata nel Cantone di Friburgo: validità e proroga',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'Il permesso L di breve durata nel Cantone di Friburgo è valido per un periodo massimo di 1 anno. Ecco le condizioni di proroga e il passaggio al permesso di dimora.',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'Un frontaliere valica il confine con Friburgo in Svizzera',
 };
 
 export default blogMetaChIt;

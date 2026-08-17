@@ -3196,6 +3196,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-neutralita-si.title': 'Oui à une Suisse neutre et indépendante',
     'blog.article.svizzera-neutralita-si.excerpt': 'Le Conseiller National Lorenzo Quadri : « La neutralité n\'est pas un choix de confort, elle suppose un dos droit »',
     'blog.article.svizzera-neutralita-si.imageAlt': 'Frontaliers tessinois dans une place de Lugano avec drapeau suisse',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Fribourg : validité et prolongation',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'Le permis L de courte durée dans le canton de Fribourg est valable pour une durée maximale d\'un an. Voici les conditions de prolongation et de passage à l\'autorisation de séjour.',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'Un frontalier franchit la frontière avec Fribourg en Suisse',
 };
 
 export default blogMetaChFr;
