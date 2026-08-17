@@ -3136,6 +3136,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-zugo.title': 'Apprenticeship and vocational training in the Canton of Zug',
     'blog.article.apprendistato-zugo.excerpt': 'Settings and procedures for hiring an apprentice in the Canton of Zug, with reference to cantonal and federal laws.',
     'blog.article.apprendistato-zugo.imageAlt': 'Apprenticeship and vocational training in the Canton of Zug',
+    'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine: Measures Ordinance',
+    'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'The Federal Department of Economy, Training and Research (DEFR) amended Annexes 2 and 14a of the Ordinance in relation to the situation in Ukraine.',
+    'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Editorial image related to: Ucraina: Ordinanza per provvedimenti',
 };
 
 export default blogMetaChEn;

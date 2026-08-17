@@ -9406,6 +9406,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'seco-ordinanza-ucraina-2026',
+    category: 'fiscale',
+    date: '2026-08-17T13:56:59.110Z',
+    image: '/images/blog/seco-ordinanza-ucraina-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

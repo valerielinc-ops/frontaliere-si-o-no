@@ -3136,6 +3136,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-zugo.title': 'Apprentissage et formation professionnelle dans le canton de Zoug',
     'blog.article.apprendistato-zugo.excerpt': 'Paramètres et procédures pour l\'embauche d\'un apprenti dans le canton de Zoug, en référence aux lois cantonales et fédérales.',
     'blog.article.apprendistato-zugo.imageAlt': 'Apprentissage et formation professionnelle dans le canton de Zoug',
+    'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine : Ordonnance sur les mesures',
+    'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Le Département fédéral de l\'économie, de la formation et de la recherche (DEFR) a modifié les annexes 2 et 14a de l\'ordonnance en ce qui concerne la situation en Ukraine.',
+    'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Image éditoriale relative à: Ucraina: Ordinanza per provvedimenti',
 };
 
 export default blogMetaChFr;
