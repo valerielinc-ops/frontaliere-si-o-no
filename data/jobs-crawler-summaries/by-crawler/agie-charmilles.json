@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-17T10:14:35.398Z",
+  "generatedAt": "2026-08-17T22:07:02.169Z",
   "total": 31,
   "newCount": 0,
   "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 50291,
-  "avgDurationMs": 50291,
+  "durationMs": 50217,
+  "avgDurationMs": 50217,
   "durationHistory": [
-    50291
+    50217
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -768,6 +768,7 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -992,6 +993,7 @@
       "streetAddress": "Via Goldau 7",
       "postalCode": "6616",
       "firstSeenAt": "2026-07-28T12:04:39.538Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
