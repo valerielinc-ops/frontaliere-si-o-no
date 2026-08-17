@@ -1,16 +1,16 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-08-17T10:02:59.397Z",
+  "generatedAt": "2026-08-17T21:29:59.866Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5383,
-  "avgDurationMs": 5383,
+  "durationMs": 4090,
+  "avgDurationMs": 4090,
   "durationHistory": [
-    5383
+    4090
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -196,7 +196,7 @@
       "salaryMin": 58000,
       "salaryMax": 81000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -237,7 +237,7 @@
       "salaryMin": 51600,
       "salaryMax": 72000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
