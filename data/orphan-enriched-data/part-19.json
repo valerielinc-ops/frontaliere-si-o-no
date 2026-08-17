@@ -37793,7 +37793,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 109,
+      "totalImpressions": 110,
       "totalClicks": 2,
       "topQuery": "lavoro in svizzera per italiani",
       "title": "Ingegneri",
@@ -66478,6 +66478,74 @@
         "gsc",
         "translation-cache",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "senior-global-program-safety-capo-team-crm-novartis-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/senior-global-program-safety-capo-team-crm-novartis-basel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/senior-global-program-safety-capo-team-crm-novartis-basel/"
+      },
+      "queries": [
+        {
+          "query": "aziende farmaceutiche svizzera che assumono",
+          "clicks": 2,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro a basilea",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "novartis svizzera lavora con noi",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 2,
+      "topQuery": "aziende farmaceutiche svizzera che assumono",
+      "title": "Senior global program safety capo team crm novartis",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-global-program-safety-capo-team-crm-novartis-basel",
+        "en": "senior-global-program-safety-capo-team-crm-novartis-basel",
+        "de": "senior-global-program-safety-capo-team-crm-novartis-basel",
+        "fr": "senior-global-program-safety-capo-team-crm-novartis-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/senior-global-program-safety-capo-team-crm-novartis-basel",
+        "en": "/en/find-jobs-basel/senior-global-program-safety-capo-team-crm-novartis-basel",
+        "de": "/de/jobs-im-basel/senior-global-program-safety-capo-team-crm-novartis-basel",
+        "fr": "/fr/trouver-emploi-bale/senior-global-program-safety-capo-team-crm-novartis-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
