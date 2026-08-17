@@ -33,18 +33,12 @@ import { fileURLToPath } from 'node:url';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { withGuardOff } from './lib/slug-preservation-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const APPLY = process.argv.includes('--apply');
-
-// This script's whole purpose is to DROP contaminated entries from the
-// wrong job — writeJsonAtomic's slug-preservation guard (#5157) otherwise
-// sees that drop as an accidental loss and re-injects the exact
-// contamination this pass is removing (documented escape hatch in
-// scripts/lib/slug-preservation-guard.mjs).
-process.env.SLUG_PRESERVATION_GUARD = 'off';
 
 export function processFile(filePath) {
   const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -115,7 +109,12 @@ export function processFile(filePath) {
   }
 
   if (moved === 0) return null;
-  if (APPLY) writeJsonAtomic(filePath, slice);
+  // This script's whole purpose is to DROP contaminated entries from the
+  // wrong job — writeJsonAtomic's slug-preservation guard (#5157) otherwise
+  // sees that drop as an accidental loss and re-injects the exact
+  // contamination this pass is removing (documented escape hatch in
+  // scripts/lib/slug-preservation-guard.mjs). Scoped to this write only.
+  if (APPLY) withGuardOff(() => writeJsonAtomic(filePath, slice));
   return { moved };
 }
 

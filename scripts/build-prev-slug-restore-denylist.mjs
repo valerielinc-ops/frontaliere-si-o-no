@@ -51,17 +51,12 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { withGuardOff } from './lib/slug-preservation-guard.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 export const DENYLIST_PATH = path.join(ROOT, 'data', 'prev-slug-restore-denylist.json');
-
-// --clean strips denylisted slugs from by-crawler slices ON PURPOSE —
-// writeJsonAtomic's slug-preservation guard (#5157) otherwise re-injects the
-// exact poison this pass exists to remove (documented escape hatch in
-// scripts/lib/slug-preservation-guard.mjs).
-process.env.SLUG_PRESERVATION_GUARD = 'off';
 
 /**
  * The decontamination squash-merges on main whose slice-level slug REMOVALS
@@ -342,7 +337,12 @@ export function cleanSlices(denylistEntries, { dryRun = false, dir = BY_CRAWLER_
       report.filesChanged++;
       report.slugsRemoved += removed;
       report.perFile[file] = removed;
-      if (!dryRun) writeJsonAtomic(filePath, slice);
+      // --clean strips denylisted slugs from by-crawler slices ON PURPOSE —
+      // writeJsonAtomic's slug-preservation guard (#5157) otherwise
+      // re-injects the exact poison this pass exists to remove (documented
+      // escape hatch in scripts/lib/slug-preservation-guard.mjs). Scoped to
+      // this write only.
+      if (!dryRun) withGuardOff(() => writeJsonAtomic(filePath, slice));
     }
   }
   return report;
