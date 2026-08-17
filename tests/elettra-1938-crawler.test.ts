@@ -1,11 +1,39 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Mock only `fetchHtml` from the shared template — everything else
+// (slugify, stripHtml, fetchHtml's siblings) stays real.
+const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+vi.mock('@/scripts/lib/crawler-template.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, fetchHtml };
+});
+
 import {
   ELETTRA_1938_KEY,
   ELETTRA_1938_COMPANY_NAME,
   isElettra1938Job,
   isTrustedDomain,
+  fetchAllElettra1938Jobs,
 } from '../scripts/lib/elettra-1938-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const STABIO_CARD = `
+  <div class="vacancy__render">
+    <div class="vacancy__title"><h3><a href="/fiammcomponents/it/career/job-1">Tecnico elettrico</a></h3></div>
+    <span class="subtitle__informations" title="Sede">Stabio, Svizzera</span>
+    <span class="subtitle__informations" title="Azienda">Elettra 1938</span>
+    <div class="vacancy__description">Descrizione posizione.</div>
+  </div>
+`;
+
+const NON_STABIO_CARD = `
+  <div class="vacancy__render">
+    <div class="vacancy__title"><h3><a href="/fiammcomponents/it/career/job-2">Ingegnere</a></h3></div>
+    <span class="subtitle__informations" title="Sede">Avellino, Italia</span>
+    <span class="subtitle__informations" title="Azienda">FIAMM</span>
+    <div class="vacancy__description">Descrizione posizione.</div>
+  </div>
+`;
 
 describe('Elettra 1938 crawler parser', () => {
   // ── Constants ──
@@ -124,6 +152,27 @@ describe('Elettra 1938 crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── fetchAllElettra1938Jobs markup sanity check (network mocked, #5981) ──
+  describe('fetchAllElettra1938Jobs markup sanity check', () => {
+    it('parses Stabio jobs and skips non-Stabio cards on the shared portal', async () => {
+      fetchHtml.mockResolvedValueOnce(`<html><body>${STABIO_CARD}${NON_STABIO_CARD}</body></html>`);
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Tecnico elettrico');
+    });
+
+    it('returns an empty array when the portal has cards but none in Stabio (genuine zero)', async () => {
+      fetchHtml.mockResolvedValueOnce(`<html><body>${NON_STABIO_CARD}</body></html>`);
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toEqual([]);
+    });
+
+    it('throws instead of silently returning zero when the page has no .vacancy__render cards at all (markup drift)', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><body><div class="unexpected-layout">No cards here</div></body></html>');
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/markup\/selector drift/i);
     });
   });
 });

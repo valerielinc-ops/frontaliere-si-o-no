@@ -122,9 +122,12 @@ function detectEmploymentType(text = '') {
  * carrying `.subtitle__informations[title]` fields for Sede/Azienda/Funzione.
  * We keep only the ones located in Stabio, Switzerland — Elettra 1938's
  * (and sibling brand FZSONICK's) site.
+ * Returns `{ jobs, totalCards }` — `totalCards` is the portal-wide
+ * `.vacancy__render` count (before the Stabio filter), used by the caller
+ * to distinguish "selector matched nothing" from "no Stabio postings".
  */
 function parseCareerPage(html = '', pageUrl = '') {
-  if (!html) return [];
+  if (!html) return { jobs: [], totalCards: 0 };
   const { document } = new JSDOM(html).window;
   const jobs = [];
 
@@ -163,7 +166,7 @@ function parseCareerPage(html = '', pageUrl = '') {
     jobs.push({ title, url: url || pageUrl, location, company, profession, description });
   }
 
-  return jobs;
+  return { jobs, totalCards: cards.length };
 }
 
 /**
@@ -182,11 +185,27 @@ export async function fetchAllElettra1938Jobs() {
     return [];
   }
 
-  const listings = parseCareerPage(html, CAREER_URL);
-  console.log(`  📋 Listings found (Stabio, Svizzera): ${listings.length}`);
+  const { jobs: listings, totalCards } = parseCareerPage(html, CAREER_URL);
+  console.log(`  📋 Listings found (Stabio, Svizzera): ${listings.length} (of ${totalCards} total cards on the shared portal)`);
+
+  // Markup sanity check (#5981): the shared FIAMM Components / Gruppo Horien
+  // portal lists vacancies across MANY brands/countries, not just Elettra
+  // 1938's Stabio site — `cards` above is the portal-wide count, before the
+  // Stabio filter. Zero Stabio postings with cards > 0 is a genuine "no
+  // openings right now" (handled below, soft-exit). But zero cards means the
+  // `.vacancy__render` selector itself matched nothing anywhere on an
+  // otherwise-reachable page — that's markup/template drift, not a real
+  // empty state, and would otherwise silently look identical to a genuine
+  // zero. Throw (rather than the soft "keeping existing" return []) so the
+  // run fails loudly and distinguishably instead of masquerading as empty-ok.
+  if (totalCards === 0) {
+    throw new Error(
+      `Elettra 1938: found 0 ".vacancy__render" cards on the FIAMM Components portal (${CAREER_URL}) — likely markup/selector drift, not a genuine empty listing. Investigate the parser's selectors before treating this as empty-ok.`,
+    );
+  }
 
   if (!listings.length) {
-    console.warn('⚠️ No Elettra 1938 job listings found at the shared FIAMM Components portal.');
+    console.warn('⚠️ No Elettra 1938 job listings found at the shared FIAMM Components portal (Stabio, Svizzera) — portal markup intact, just no matching postings right now.');
     return [];
   }
 
