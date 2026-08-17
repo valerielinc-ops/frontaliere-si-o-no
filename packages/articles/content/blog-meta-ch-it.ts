@@ -3121,6 +3121,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'Sistema scolastico del Cantone di Zurigo: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'Il sistema scolastico del Cantone di Zurigo è caratterizzato da un ciclo di istruzione obbligatoria di 9 anni. Gli studenti frequentano le scuole elementari dal 1° al 6° grado, seguiti dalle scuole medie superiori.',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'Sistema scolastico del Cantone di Zurigo',
+    'blog.article.prodotti-elettrici-difettosi-est-i.title': 'Di più ESTI: un prodotto elettrico su quattro difettoso',
+    'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'Un prodotto elettrico su quattro è risultato difettoso durante i controlli dell\'Ispettorato federale degli impianti a corrente forte (ESTI).',
+    'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Immagine di un prodotto elettrico difettoso in Svizzera.',
 };
 
 export default blogMetaChIt;

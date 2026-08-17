@@ -3121,6 +3121,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'Système scolaire du canton de Zurich : inscription et cycles',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'Le système scolaire du canton de Zurich se caractérise par un cycle d\'enseignement obligatoire de 9 ans. Les élèves fréquentent les écoles primaires de la 1ère à la 6ème année, suivies des lycées.',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'Système éducatif du canton de Zurich',
+    'blog.article.prodotti-elettrici-difettosi-est-i.title': 'Plus D\'ESTI : un produit électrique sur quatre défectueux',
+    'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'Un produit électrique sur quatre s\'est avéré défectueux lors des contrôles de l\'Inspection fédérale des installations à courant fort (est).',
+    'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Image d\'un produit électrique défectueux en Suisse.',
 };
 
 export default blogMetaChFr;

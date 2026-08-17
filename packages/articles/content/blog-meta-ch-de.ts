@@ -3121,6 +3121,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'Schulsystem des Kantons Zürich: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'Das Schulsystem des Kantons Zürich zeichnet sich durch einen 9-jährigen Pflichtschulabschluss aus. Die Schüler besuchen die Grundschulen der 1. bis 6. Klasse, gefolgt von der Mittelschule.',
     'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'Bildungssystem des Kantons Zürich',
+    'blog.article.prodotti-elettrici-difettosi-est-i.title': 'Mehr Esti: Jedes vierte Elektroprodukt defekt',
+    'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'Jedes vierte elektrische Produkt hat sich bei den Kontrollen des Eidgenössischen Starkstrominspektorats (Esti) als defekt erwiesen.',
+    'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Bild eines defekten elektrischen Produkts in der Schweiz.',
 };
 
 export default blogMetaChDe;
