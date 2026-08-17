@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hirslanden",
-  "assembledAt": "2026-08-17T10:25:42.788Z",
+  "assembledAt": "2026-08-17T08:46:49.012Z",
   "jobs": [
     {
       "id": "hirslanden-bf2a5471fd58",
@@ -2662,19 +2662,24 @@
       "crawledAt": "2026-08-17T10:23:57.072Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-geneve",
         "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search-34",
         "instrumentist-nurse-or-ost-at-80-hirslanden-klinik-geneve",
-        "principali-hirslanden-klinik-search-4973e8"
+        "principali-hirslanden-klinik-search-4973e8",
+        "taches-principales-hirslanden-search-2-2",
+        "taches-principales-hirslanden-search-43",
+        "taches-principales-hirslanden-search-44"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-geneve",
           "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-klinik-geneve",
-          "principali-hirslanden-klinik-search-4973e8"
+          "principali-hirslanden-klinik-search-4973e8",
+          "taches-principales-hirslanden-search-2-2",
+          "taches-principales-hirslanden-search-43",
+          "taches-principales-hirslanden-search-44"
         ],
         "en": [
           "taches-principales-hirslanden-search-34",
@@ -2694,7 +2699,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-cab90f02db7e",
@@ -21065,17 +21071,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-a-wochenbett-e-chirugie-80-100-hirslanden-klinik-aarau",
+        "dipl-nursing-professional-a-postpartum-bed-and-chirugie-80-100-hirslanden-klinik-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-a-wochenbett-und-chirugie-80-100-hirslanden-aarau",
+        "specialiste-des-soins-infirmiers-a-lit-post-partum-et-chirugie-80-100-hirslanden-klinik-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-a-wochenbett-e-chirugie-80-100-hirslanden-klinik-aarau",
+          "dipl-nursing-professional-a-postpartum-bed-and-chirugie-80-100-hirslanden-klinik-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-a-wochenbett-und-chirugie-80-100-hirslanden-aarau",
+          "specialiste-des-soins-infirmiers-a-lit-post-partum-et-chirugie-80-100-hirslanden-klinik-aarau"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau",
+          "dipl-nursing-professional-a-postpartum-bed-and-chirugie-80-100-hirslanden-klinik-aarau"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-a-fur-nachtdienst-60-80-hirslanden-aarau",
+          "specialiste-des-soins-infirmiers-a-lit-post-partum-et-chirugie-80-100-hirslanden-klinik-aarau"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-a-wochenbett-und-chirugie-80-100-hirslanden-aarau"
         ]
       },
       "needsRetranslation": true,

@@ -15375,12 +15375,14 @@
       "jobReqId": "R78404",
       "previousSlugs": [
         "laborant-wissenschaftler-analytische-entwicklung-small-molecules-80-100-m-w-d-lonza-ch",
-        "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-ch-8e5b10"
+        "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-ch-8e5b10",
+        "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-wissenschaftler-analytische-entwicklung-small-molecules-80-100-m-w-d-lonza-ch",
-          "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-ch-8e5b10"
+          "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-ch-8e5b10",
+          "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-visp"
         ],
         "en": [
           "laborant-wissenschaftler-analytische-entwicklung-small-molecules-80-100-m-w-d-lonza-ch"
@@ -15542,7 +15544,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioprocess-ingegnere-cleaning-expert-80-100-m-w-d-lonza-visp"
+        ]
+      },
+      "previousSlugs": [
+        "bioprocess-ingegnere-cleaning-expert-80-100-m-w-d-lonza-visp"
+      ]
     },
     {
       "id": "lonza-be15e7e248b4",
@@ -15592,7 +15602,6 @@
       "crawledAt": "2026-08-17T09:54:39.093Z",
       "jobReqId": "R77734",
       "firstSeenAt": "2026-08-14T21:28:35.539Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -15605,7 +15614,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pmo-strategy-process-direttore-80-100-f-m-d-lonza-basel"
+        ]
+      },
+      "previousSlugs": [
+        "pmo-strategy-process-direttore-80-100-f-m-d-lonza-basel"
+      ]
     },
     {
       "id": "lonza-5474f9bf4e40",

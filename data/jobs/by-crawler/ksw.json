@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-17T09:52:00.178Z",
+  "assembledAt": "2026-08-17T08:58:13.724Z",
   "jobs": [
     {
       "id": "ksw-58fd221ee193",
@@ -4041,22 +4041,39 @@
       "department": "Klinik für Akutgeriatrie",
       "previousSlugs": [
         "oberarztin-oberarzt-geriatrie-ksw-ch",
-        "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur"
+        "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur",
+        "medico-specialista-in-endocrinologia-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+        "senior-physician-in-endocrinology-diabetology-kantonsspital-winterthur-ksw-winterthur",
+        "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
+        "medecin-senior-en-endocrinologie-diabetologie-kantonsspital-winterthur-ksw-winterthur",
+        "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+        "medecin-specialiste-en-endocrinologie-et-diabetologie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-geriatrie-ksw-ch",
-          "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur"
+          "medico-senior-geriatrie-kantonsspital-winterthur-ksw-winterthur",
+          "medico-specialista-in-endocrinologia-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+          "senior-physician-in-endocrinology-diabetology-kantonsspital-winterthur-ksw-winterthur",
+          "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
+          "medecin-senior-en-endocrinologie-diabetologie-kantonsspital-winterthur-ksw-winterthur",
+          "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+          "medecin-specialiste-en-endocrinologie-et-diabetologie-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "oberarztin-oberarzt-geriatrie-ksw-ch"
+          "oberarztin-oberarzt-geriatrie-ksw-ch",
+          "senior-physician-in-endocrinology-diabetology-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "oberarztin-oberarzt-geriatrie-ksw-ch"
+          "oberarztin-oberarzt-geriatrie-ksw-ch",
+          "medecin-senior-en-endocrinologie-diabetologie-kantonsspital-winterthur-ksw-winterthur",
+          "medecin-specialiste-en-endocrinologie-et-diabetologie-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T14:19:18.343Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4068,7 +4085,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-ed3a8f95b9eb",

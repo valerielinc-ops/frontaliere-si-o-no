@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-17T09:54:52.321Z",
+  "assembledAt": "2026-08-17T08:03:14.782Z",
   "jobs": [
     {
       "id": "bls-6818c194f1ed",
@@ -473,18 +473,31 @@
       },
       "previousSlugs": [
         "leiter-in-security-bahnproduktion-bls-ch",
-        "responsabile-security-bahnproduktion-bls-ag-bern"
+        "responsabile-security-bahnproduktion-bls-ag-bern",
+        "responsabile-business-partner-finanza-bahnproduktion-bls-ag-bern",
+        "head-in-business-partner-finance-railway-production-bls-ag-bern",
+        "leiter-in-business-partner-finance-bahnproduktion-bls-ch",
+        "responsable-en-business-partner-finance-railway-production-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-security-bahnproduktion-bls-ch",
-          "responsabile-security-bahnproduktion-bls-ag-bern"
+          "responsabile-security-bahnproduktion-bls-ag-bern",
+          "responsabile-business-partner-finanza-bahnproduktion-bls-ag-bern",
+          "head-in-business-partner-finance-railway-production-bls-ag-bern",
+          "leiter-in-business-partner-finance-bahnproduktion-bls-ch",
+          "responsable-en-business-partner-finance-railway-production-bls-ag-bern"
         ],
         "en": [
-          "leiter-in-security-bahnproduktion-bls-ch"
+          "leiter-in-security-bahnproduktion-bls-ch",
+          "head-in-business-partner-finance-railway-production-bls-ag-bern"
         ],
         "fr": [
-          "leiter-in-security-bahnproduktion-bls-ch"
+          "leiter-in-security-bahnproduktion-bls-ch",
+          "responsable-en-business-partner-finance-railway-production-bls-ag-bern"
+        ],
+        "de": [
+          "leiter-in-business-partner-finance-bahnproduktion-bls-ch"
         ]
       },
       "needsRetranslation": true,

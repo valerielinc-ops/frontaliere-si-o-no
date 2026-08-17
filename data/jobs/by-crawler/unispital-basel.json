@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-17T09:58:37.734Z",
+  "assembledAt": "2026-08-17T09:27:39.365Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -9808,12 +9808,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-27762-unispital-basel-ch",
-        "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-27762-universitatsspital-basel"
+        "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-27762-universitatsspital-basel",
+        "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-27762-unispital-basel-ch",
-          "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-27762-universitatsspital-basel"
+          "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-27762-universitatsspital-basel",
+          "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
+          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
+          "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "needsRetranslation": true,
