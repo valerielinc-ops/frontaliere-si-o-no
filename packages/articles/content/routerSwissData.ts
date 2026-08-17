@@ -1033,6 +1033,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'nidvaldo-trasporti-pubblici': { it: 'nidvaldo-trasporti-pubblici', en: 'nidwalden-public-transport-passes-zones', de: 'nidwalden-oev-abos-zonen', fr: 'nidwald-transports-publics-abonnements-zones' },
  'imposte-cantonal-glarona-aliquote-deduzioni': { it: 'imposte-cantonal-glarona-aliquote-deduzioni', en: 'canton-glarus-cantonal-taxes-rates-and-deductions', de: 'kanton-glarus-kantonal-steuern-satze-und-abzuge', fr: 'canton-de-glarus-imposition-cantonaux-taux-et-deductions' },
  'salari-mercato-lavoro-canton-nidvaldo': { it: 'salari-mercato-lavoro-canton-nidvaldo', en: 'wages-labor-market-canton-nidwalden', de: 'loehne-arbeitsmarkt-kanton-nidwalden', fr: 'salaires-marche-travail-canton-nidwald' },
+ 'patente-guida-canton-nidvaldo-conversione-ed-esami': { it: 'patente-guida-canton-nidvaldo-conversione-ed-esami', en: 'driver-s-license-in-the-canton-of-nidvaldo-conversion-and-exams', de: 'fuhrerschein-im-kanton-nidwalden-umschulung-und-prufungen', fr: 'permis-de-conduire-dans-le-canton-de-nidwald-conversion-et-examens' },
+ 'salari-mercato-lavoro-canton-nidvaldo-settori-livelli': { it: 'salari-mercato-lavoro-canton-nidvaldo-settori-livelli', en: 'salaries-labor-market-canton-nidwalden-sectors-levels', de: 'gehalter-arbeitsmarkt-kanton-nidwalden-sektoren-stufen', fr: 'salaire-marche-du-travail-canton-nidwalden-secteurs-niveaux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -9064,6 +9064,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-guida-canton-nidvaldo-conversione-ed-esami',
+    category: 'fiscale',
+    date: '2026-08-16T23:55:01.723Z',
+    image: '/images/blog/patente-guida-canton-nidvaldo-conversione-ed-esami.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'salari-mercato-lavoro-canton-nidvaldo-settori-livelli',
+    category: 'fiscale',
+    date: '2026-08-16T23:59:15.962Z',
+    image: '/images/blog/salari-mercato-lavoro-canton-nidvaldo-settori-livelli.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

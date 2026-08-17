@@ -3022,6 +3022,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-canton-nidvaldo.title': 'Salari e mercato del lavoro nel Cantone di Nidvaldo',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo.excerpt': 'Analisi dei settori che assumono, dei livelli salariali per formazione, dei contratti collettivi e del contesto normativo nel Cantone di Nidvaldo.',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo.imageAlt': 'Mercato del lavoro e salari nel Cantone di Nidvaldo in Svizzera',
+    'blog.article.patente-guida-canton-nidvaldo-conversione-ed-esami.title': 'Patente di guida nel Cantone di Nidvaldo: conversione e esami',
+    'blog.article.patente-guida-canton-nidvaldo-conversione-ed-esami.excerpt': 'Per ottenere la patente di guida nel Cantone di Nidvaldo, i frontaliari devono convertire la loro licenza estera e superare un esame teorico e pratico, nonché iscriversi a corsi obbligatori.',
+    'blog.article.patente-guida-canton-nidvaldo-conversione-ed-esami.imageAlt': 'Un frontaliere guida in Svizzera con grigio e nuvole',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.title': 'Salari e mercato del lavoro canton Nidvaldo: settori e livelli',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.excerpt': 'Mercato del lavoro nel Cantone di Nidvaldo: settori che assumono, livelli salariali per grado di formazione, contratti collettivi in vigore e salario minimo dove previsto.',
+    'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.imageAlt': 'Vista del lago di Lugano',
 };
 
 export default blogMetaChIt;
