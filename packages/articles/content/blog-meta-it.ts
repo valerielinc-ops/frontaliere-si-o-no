@@ -10022,6 +10022,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pernottamenti-alberghieri-a-luglio.title': 'Lieve ripresa dei pernottamenti alberghieri a luglio',
     'blog.article.pernottamenti-alberghieri-a-luglio.excerpt': 'Il numero di pernottamenti è aumentato dello 0,3% su base annua, secondo quanto comunicato dall\'Ufficio federale di statistica (UST) in occasione di una prima stima sperimentale.',
     'blog.article.pernottamenti-alberghieri-a-luglio.imageAlt': 'Immagine di un hotel in Ticino con un aumento di pernottamenti nel luglio 2026',
+    'blog.article.saronno-supermercato-evacuati.title': 'Fumo e odore di bruciato a Saronno',
+    'blog.article.saronno-supermercato-evacuati.excerpt': 'Intorno alle 10 clienti e personale sono stati fatti uscire dopo che all\'interno erano stati avvertiti odore di bruciato e presenza di fumo.',
+    'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evacuazione di un supermercato a Saronno',
 };
 
 export default blogMetaIt;

@@ -10020,6 +10020,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pernottamenti-alberghieri-a-luglio.title': 'Leichte Erholung der Hotelübernachtungen im Juli',
     'blog.article.pernottamenti-alberghieri-a-luglio.excerpt': 'Die Zahl der Logiernächte erhöhte sich gegenüber dem Vorjahr um 0,3%, wie das Bundesamt für Statistik (BfS) anlässlich einer ersten experimentellen Schätzung mitteilte.',
     'blog.article.pernottamenti-alberghieri-a-luglio.imageAlt': 'Bild eines Hotels in der Schweiz mit einem Anstieg der Übernachtungen im Juli 2026',
+    'blog.article.saronno-supermercato-evacuati.title': 'Rauch und Brandgeruch in Saronno',
+    'blog.article.saronno-supermercato-evacuati.excerpt': 'Gegen 10 Uhr wurden die Kundinnen und das Personal hinausgeschickt, nachdem ein Brandgeruch und Rauch im Inneren wahrgenommen worden waren.',
+    'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evakuierung eines Supermarktes in Saronno',
 };
 
 export default blogMetaDe;
