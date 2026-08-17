@@ -204,7 +204,7 @@ export async function fetchAllElettra1938Jobs() {
     const jobSlug = slugify(`${title} elettra-1938 ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc = descriptionText || `${title} — Posizione presso Elettra 1938 a ${location}. Elettra 1938 è un'azienda specializzata in impianti elettrici, automazione e domotica nel Canton Ticino, con sede a Mendrisio, oggi parte del gruppo FIAMM/FZSONICK.`;
+    const desc = descriptionText || `${title} — Posizione presso Elettra 1938 a ${location}. Elettra 1938 è un'azienda specializzata in impianti elettrici, automazione e domotica nel Canton Ticino, con sede a Stabio, oggi parte del gruppo FIAMM/FZSONICK.`;
 
     const job = {
       id: `elettra-1938-${urlHash}`,
