@@ -3181,6 +3181,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.title': 'Droits de succession et de donation à Zoug : taux et délais',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.excerpt': 'Dans le canton de Zoug, l\'impôt sur les successions et les donations est régi par une loi spécifique qui fixe des taux différents en fonction du degré de parenté et des exemptions pour le conjoint et les descendants.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.imageAlt': 'Une vue panoramique de Lugano, Suisse, avec une vue sur la ville et le lac.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Impôts cantonaux dans le canton de Fribourg : taux et déductions',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'Le taux moyen dans le canton de Fribourg est de 12,7 % et les déductions admises sont de 20,5 %.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'Une scène de Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaChFr;

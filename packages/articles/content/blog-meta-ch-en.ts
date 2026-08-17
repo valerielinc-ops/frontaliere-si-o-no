@@ -3181,6 +3181,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.title': 'Inheritance and gift taxes in Zug: rates and terms',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.excerpt': 'In the Canton of Zug, inheritance and gift tax is regulated by a specific law that establishes different rates based on the degree of kinship and exemptions for spouse and descendants.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.imageAlt': 'A panoramic view of Lugano, Switzerland, with a view of the city and lake.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Cantonal taxes in the canton of Fribourg: rates and deductions',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'The average rate in the Canton of Fribourg is 12.7% and the allowable deductions are 20.5%.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'A scene of Lugano with Lake Lugano in the foreground',
 };
 
 export default blogMetaChEn;

@@ -41243,6 +41243,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantoni-friburgo-aliquote-deduzioni': {
+    title: 'Imposte cantonali nel Canton Friburgo: aliquote e deduzioni',
+    description: 'L\'aliquota media nel Canton Friburgo è del 12,7% e le deduzioni ammesse sono del 20,5%. Leggi la guida per comprendere le aliquote e le deduzioni ammesse.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, canton, friburgo',
+    ogTitle: 'Imposte cantonali nel Canton Friburgo: aliquote e deduzioni',
+    ogDescription: 'L\'aliquota media nel Canton Friburgo è del 12,7% e le deduzioni ammesse sono del 20,5%. Leggi la guida per comprendere le aliquote e le deduzioni ammesse.',
+    canonicalPath: '/articoli-svizzera/imposte-cantoni-friburgo-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali nel Canton Friburgo: aliquote e deduzioni",
+      "description": "L'aliquota media nel Canton Friburgo è del 12,7% e le deduzioni ammesse sono del 20,5%. Leggi la guida per comprendere le aliquote e le deduzioni ammesse.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantoni-friburgo-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano con il Lago di Lugano in primo piano"
+      },
+      "datePublished": "2026-08-17T18:09:37+00:00",
+      "dateModified": "2026-08-17T18:09:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantoni-friburgo-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
