@@ -1089,6 +1089,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantoni-friburgo-aliquote-deduzioni': { it: 'imposte-cantoni-friburgo-aliquote-deduzioni', en: 'cantonal-taxes-in-the-canton-of-fribourg-rates-and-deductions', de: 'imposten-kantonen-freiburg-aliquoten-abzuge', fr: 'impostes-cantons-fribourg-aliquots-deductions' },
  'premi-cassa-malati-friburgo-riduzione': { it: 'premi-cassa-malati-friburgo-riduzione', en: 'premi-cassa-malati-friburgo', de: 'pflichtkrankenkassenpreise-kanton-freiburg', fr: 'premieres-maladie-obligatoire-canton-fribourg' },
  'permesso-di-domicilio-c-canton-friburgo': { it: 'permesso-di-domicilio-c-canton-friburgo', en: 'residence-permits-c-in-the-canton-of-freiburg-requirements-and-application', de: 'niederlassungsbewilligungen-c-im-kanton-freiburg-voraussetzungen-und-antrag', fr: 'permis-de-sejour-c-dans-le-canton-de-fribourg-exigences-et-demande' },
+ 'lugano-calciomercato': { it: 'lugano-calciomercato', en: 'russian-at-lugano-you-need-patience', de: 'russisch-im-lugano-geduld-ist-gefragt', fr: 'russe-a-lugano-il-faut-de-la-patience' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

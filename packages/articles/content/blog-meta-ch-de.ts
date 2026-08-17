@@ -3190,6 +3190,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Niederlassungsbewilligungen C im Kanton Freiburg: Voraussetzungen und Antrag',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Die Niederlassungsbewilligung C im Kanton Freiburg erfordert für Nicht-EU/EFTA Ausländer mindestens 5 Jahre Aufenthalt.',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Bild eines Mannes, der ein Formular für eine Aufenthaltsbewilligung C im Kanton Freiburg ausfüllt.',
+    'blog.article.lugano-calciomercato.title': 'Russisch im Lugano? Geduld ist gefragt',
+    'blog.article.lugano-calciomercato.excerpt': 'Die Verhandlungen zwischen Lugano und Stefano Russo haben nicht begonnen: Zuerst muss man sich für den Pokal qualifizieren.',
+    'blog.article.lugano-calciomercato.imageAlt': 'Ein Fußballspieler in Aktion in Lugano, mit dem See im Hintergrund.',
 };
 
 export default blogMetaChDe;
