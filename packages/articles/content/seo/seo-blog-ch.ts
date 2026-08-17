@@ -40111,6 +40111,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-premi-cassa-malati-cantone-zugo-riduzione-premi': {
+    title: 'Premi cassa malati cantone Zugo e riduzione premi',
+    description: 'I premi per l\'assicurazione malattia obbligatoria nel Cantone di Zugo sono ridotti in base alla fascia di reddito. La franchigia per gli adulti è di CHF 300',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, cantone',
+    ogTitle: 'Premi cassa malati cantone Zugo e riduzione premi',
+    ogDescription: 'I premi per l\'assicurazione malattia obbligatoria nel Cantone di Zugo sono ridotti in base alla fascia di reddito. La franchigia per gli adulti è di CHF 300, CHF 500, CHF 1000, CHF 1500, CHF 2000 e CHF 2500.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-cantone-zugo-riduzione-premi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati cantone Zugo e riduzione premi",
+      "description": "I premi per l'assicurazione malattia obbligatoria nel Cantone di Zugo sono ridotti in base alla fascia di reddito. La franchigia per gli adulti è di CHF 300",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-cantone-zugo-riduzione-premi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere svizzero con la famiglia in un ambiente naturale vicino al lago di Lugano, dove si trova il Cantone di Zugo."
+      },
+      "datePublished": "2026-08-17T08:03:04+00:00",
+      "dateModified": "2026-08-17T08:03:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-cantone-zugo-riduzione-premi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
