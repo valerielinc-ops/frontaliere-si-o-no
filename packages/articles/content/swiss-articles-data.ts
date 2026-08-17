@@ -9550,6 +9550,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'premi-cassa-malati-friburgo-riduzione',
+    category: 'fiscale',
+    date: '2026-08-17T18:57:41.324Z',
+    image: '/images/blog/premi-cassa-malati-friburgo-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'permesso-di-domicilio-c-canton-friburgo',
+    category: 'pratico',
+    date: '2026-08-17T19:06:36.213Z',
+    image: '/images/blog/permesso-di-domicilio-c-canton-friburgo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

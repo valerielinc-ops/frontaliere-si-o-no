@@ -3184,6 +3184,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Freiburg: Steuersätze und Abzüge',
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'Der durchschnittliche Steuersatz im Kanton Freiburg beträgt 12,7% und die zulässigen Abzüge 20,5%.',
     'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'Eine Szene von Lugano mit dem Luganersee im Vordergrund',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.title': 'Krankenkassenprämien Freiburg: So funktionieren die Prämienbänder',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.excerpt': 'Die Prämien der gesetzlichen Krankenversicherung im Kanton Freiburg wurden neu gestaltet, um den Bürgern eine gerechtere Deckung zu bieten.',
+    'blog.article.premi-cassa-malati-friburgo-riduzione.imageAlt': 'Foto eines Einwohners von Freiburg, Schweiz, mit einer Überschrift über die Änderungen der Pflichtkrankenkassenprämien im Kanton Freiburg.',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Niederlassungsbewilligungen C im Kanton Freiburg: Voraussetzungen und Antrag',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Die Niederlassungsbewilligung C im Kanton Freiburg erfordert für Nicht-EU/EFTA Ausländer mindestens 5 Jahre Aufenthalt.',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Bild eines Mannes, der ein Formular für eine Aufenthaltsbewilligung C im Kanton Freiburg ausfüllt.',
 };
 
 export default blogMetaChDe;
