@@ -3148,6 +3148,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.title': 'Asilo nido e custodia bambini in Canton Zug: costi',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.excerpt': 'I costi per l\'asilo nido e la custodia dei bambini in Canton Zug possono variare in base alla tariffa calcolata sul reddito e ai sussidi cantonali disponibili.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.imageAlt': 'Immagine di un asilo nido in Canton Zug',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.title': 'Affitti nel canton Zugo: canoni medi, depositi e diritti degli inquilini',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.excerpt': 'Guida pratica al mercato degli affitti nel Canton Zugo: canoni medi per zona, deposito di garanzia, contestazione del canone e procedure di disdetta secondo il diritto federale.',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.imageAlt': 'Lago di Zugo con edifici residenziali e barche al tramonto',
+    'blog.article.affitti-zugo-cantoni-medi.title': 'Mercato degli affitti nel Cantone di Zugo: canoni medi e diritto di locazione',
+    'blog.article.affitti-zugo-cantoni-medi.excerpt': 'Gli affitti nel Cantone di Zugo: i canoni medi e il diritto di locazione.',
+    'blog.article.affitti-zugo-cantoni-medi.imageAlt': 'Immagine di un mercato immobiliare in Zug, Svizzera, con enfasi sui canoni medi cantonali e sul diritto di locazione.',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.title': 'Siccità in Svizzera: spuntano i \'ladri di acqua\', preoccupato il 46%',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.excerpt': 'Fontane a secco e razionamenti: la crisi idrica svizzera tra furti e allarmi per il futuro. Il 60% prevede difficoltà entro 10 anni.',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.imageAlt': 'Bacino idrico screpolato nelle Alpi svizzere durante la siccità',
+    'blog.article.cyberattacco-stadler-rail.title': 'Ciberattacco a Stadler Rail: presunto hacker a processo a Zurigo',
+    'blog.article.cyberattacco-stadler-rail.excerpt': 'Un processo a Zurigo contro un presunto hacker ucraino accusato di hackeraggio di aziende, tra cui Stadler Rail.',
+    'blog.article.cyberattacco-stadler-rail.imageAlt': 'Un processo a Zurigo per hackeraggio di aziende, tra cui Stadler Rail.',
 };
 
 export default blogMetaChIt;

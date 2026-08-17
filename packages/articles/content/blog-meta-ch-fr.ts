@@ -3148,6 +3148,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.title': 'Garderie et garde d\'enfants dans le canton de Zoug : coûts',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.excerpt': 'Les frais de crèche et de garde d\'enfants dans le canton de Zoug peuvent varier en fonction du tarif calculé sur le revenu et des allocations cantonales disponibles.',
     'blog.article.asilo-nido-e-custodia-bambini-canton-zugo-costi.imageAlt': 'Image d\'une école maternelle dans le canton de Zug',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.title': 'Loyers dans le canton de Zoug : loyers moyens, dépôts et droits des locataires',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.excerpt': 'Guide pratique du marché locatif dans le canton de Zoug : redevances moyennes par zone, dépôt de garantie, contestation de la redevance et procédures de résiliation selon le droit fédéral.',
+    'blog.article.affitti-canton-zugo-canoni-medi-diritto-locazione.imageAlt': 'Lac de Zoug avec immeubles résidentiels et bateaux au coucher du soleil',
+    'blog.article.affitti-zugo-cantoni-medi.title': 'Marché locatif dans le canton de Zoug : loyers moyens et droit de location',
+    'blog.article.affitti-zugo-cantoni-medi.excerpt': 'Les loyers dans le canton de Zoug : les loyers moyens et le droit de location.',
+    'blog.article.affitti-zugo-cantoni-medi.imageAlt': 'Une scène d\'un marché immobilier à Zug, en Suisse, avec un focus sur les loyers médians cantonaux et le droit de location.',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.title': 'Sécheresse en Suisse : « voleurs d\'eau », 46% inquiets',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.excerpt': 'Fontaines sèches et rationnements : la crise suisse de l\'eau entre vols et alarmes pour l\'avenir. 60 % prévoient des difficultés dans les 10 ans.',
+    'blog.article.siccita-svizzera-ladri-acqua-preoccupazioni.imageAlt': 'Lit de réservoir fissuré dans les Alpes suisses pendant la sécheresse',
+    'blog.article.cyberattacco-stadler-rail.title': 'Cyberattaque contre Stadler Rail : un hacker présumé jugé à Zurich',
+    'blog.article.cyberattacco-stadler-rail.excerpt': 'Un procès à Zurich contre un hacker ukrainien présumé accusé de piratage d\'entreprises, dont Stadler Rail.',
+    'blog.article.cyberattacco-stadler-rail.imageAlt': 'Un cas d\'attaque informatique à la Cour de district de Zurich impliquant Stadler Rail.',
 };
 
 export default blogMetaChFr;
