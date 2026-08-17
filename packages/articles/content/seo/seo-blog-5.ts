@@ -68672,6 +68672,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-difficili-discussioni': {
+    title: 'Le discussioni salariali per il prossimo anno si preannunciano difficili',
+    description: 'Travail.Suisse chiede un aumento generale del 2% per tutti i lavoratori, ma USI giudica la richiesta scollegata dalla realtà economica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, discussioni, salariali, prossimo, anno',
+    ogTitle: 'Le discussioni salariali per il prossimo anno si preannunciano difficili',
+    ogDescription: 'Travail.Suisse chiede un aumento generale del 2% per tutti i lavoratori, ma USI giudica la richiesta scollegata dalla realtà economica.',
+    canonicalPath: '/articoli-frontaliere/salari-difficili-discussioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le discussioni salariali per il prossimo anno si preannunciano difficili",
+      "description": "Travail.Suisse chiede un aumento generale del 2% per tutti i lavoratori, ma USI giudica la richiesta scollegata dalla realtà economica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-difficili-discussioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un valico di confine tra Svizzera e Italia durante l'inverno"
+      },
+      "datePublished": "2026-08-17T09:03:26+00:00",
+      "dateModified": "2026-08-17T09:03:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-difficili-discussioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

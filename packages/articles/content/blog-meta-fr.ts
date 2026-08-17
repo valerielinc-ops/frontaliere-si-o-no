@@ -10014,6 +10014,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tendenza-frontalieri-ticino-2026-q2.title': 'Frontaliers du Tessin en croissance en 2026-Q2',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.excerpt': 'Total des frontaliers du canton du Tessin à 2026-Q2: 79 121',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.imageAlt': 'Tendenza frontalieri Ticino 2026-Q2',
+    'blog.article.salari-difficili-discussioni.title': 'Les discussions salariales pour l\'année prochaine s\'annoncent difficiles',
+    'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse demande une augmentation générale de 2 % pour tous les travailleurs, mais USI juge la demande déconnectée de la réalité économique.',
+    'blog.article.salari-difficili-discussioni.imageAlt': 'Photo d\'un poste-frontière entre Suisse et Italie en hiver',
 };
 
 export default blogMetaFr;

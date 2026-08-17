@@ -10013,6 +10013,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tendenza-frontalieri-ticino-2026-q2.title': 'Frontalieri Ticino in crescita nel 2026-Q2',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.excerpt': 'Frontalieri totali Canton Ticino al 2026-Q2: 79.121',
     'blog.article.tendenza-frontalieri-ticino-2026-q2.imageAlt': 'Tendenza frontalieri Ticino 2026-Q2',
+    'blog.article.salari-difficili-discussioni.title': 'Le discussioni salariali per il prossimo anno si preannunciano difficili',
+    'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse chiede un aumento generale del 2% per tutti i lavoratori, ma USI giudica la richiesta scollegata dalla realtà economica.',
+    'blog.article.salari-difficili-discussioni.imageAlt': 'Foto di un valico di confine tra Svizzera e Italia durante l\'inverno',
 };
 
 export default blogMetaIt;
