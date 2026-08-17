@@ -11,7 +11,6 @@
   ],
   "seedUrls": [
     "https://careers.abb/global/en/job/ABB1GLOBAL96145232EXTERNALENGLOBAL/Field-Service-Engineer_96145232",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00004790EXTERNALENGLOBAL/Sales-Specialist-Panel-Builder--80---100--_JR00004790-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00005941EXTERNALENGLOBAL/Sales-Specialist-OEM--Talent-Pool----80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018236EXTERNALENGLOBAL/Head-of-Trade---Structured-Finance",
@@ -41,6 +40,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042999EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043018EXTERNALENGLOBAL/XMLNAME--80---100---Software-Developer--NET-Desktop-Applications",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043136EXTERNALENGLOBAL/R-D-Engineer-Firmware--80--100",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043281EXTERNALENGLOBAL/Procurement-Specialist-Electronics--80-100----f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043385EXTERNALENGLOBAL/Category-Specialist-for-Corporate-Procurement_JR00043385-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043393EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Trainer---Power-Electronics",
@@ -51,7 +51,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043919EXTERNALENGLOBAL/Service-Test-Engineer"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-08-16T21:25:38.039Z",
+  "updatedAt": "2026-08-17T10:16:22.620Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00005941EXTERNALENGLOBAL/Sales-Specialist-OEM--Talent-Pool----80-100": {
       "location": "Baden, Aargau, Switzerland",
@@ -134,6 +134,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -256,14 +264,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100": {
       "location": "Morges, Vaud, Switzerland",
       "canton": "VD",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00004790EXTERNALENGLOBAL/Sales-Specialist-Panel-Builder--80---100--_JR00004790-1": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
