@@ -661,6 +661,23 @@ const EMPTY_OK_CRAWLERS = new Set([
   // linnea/wuerth-international/clinica-varini/saint-gobain-weber-isover;
   // re-arms automatically when DIC SA republishes a vacancy.
   'dic-sa',
+  // Elettra 1938 (Stabio TI, recruits through the shared Gruppo Horien /
+  // FIAMM Components InRecruiting portal, #5970): verified live
+  // 2026-08-17 — https://inrecruiting.intervieweb.it/fiammcomponents/it/career
+  // returns HTTP 200 with the listing markup unchanged (the `.vacancy__render`
+  // card selector the parser targets is still referenced in the page's own
+  // CSS, `#vacancyList`/`vacancyListCareer` AJAX plumbing intact) and the
+  // page's own `act1=vacancyListCareer` AJAX endpoint (used directly, no
+  // filters, same one the initial page load calls) returns
+  // `{"success":true,"data":"...Nessun annuncio disponibile..."}` — a
+  // genuinely empty listing, group-wide, not just for the Stabio/Svizzera
+  // location filter the parser applies afterward. `lastNonZeroJobs: 1` is
+  // physiological for this small electrical-systems brand, which historically
+  // has a single opening at a time on the shared portal. The parser is
+  // healthy; re-arms automatically when the group republishes a Stabio
+  // vacancy. Same legitimately-empty small-employer case as
+  // dic-sa/saint-gobain-weber-isover/clinica-varini.
+  'elettra-1938',
 ]);
 
 /** Read JSON file, return null on any error. */
