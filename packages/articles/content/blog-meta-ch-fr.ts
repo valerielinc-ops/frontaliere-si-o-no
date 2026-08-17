@@ -3061,6 +3061,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Garderie et garde d\'enfants Canton de Glaris coûts',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Tarifs calculés sur le revenu et allocations cantonales disponibles pour les ménages à faible revenu',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custodia dei bambini nel Cantone di Glarona: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Bourses d\'études dans le canton de Glaris : exigences et montants',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'La bourse du canton de Glaris est une opportunité importante pour les étudiants qui souhaitent poursuivre leurs études en Suisse.',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Bourses d\'études dans le canton de Glaris: qu\'est-ce qui change pour les étudiants suisses?',
 };
 
 export default blogMetaChFr;
