@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-08-17T10:28:13.840Z",
+  "generatedAt": "2026-08-17T22:08:55.097Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1380,
-  "avgDurationMs": 1380,
+  "durationMs": 1428,
+  "avgDurationMs": 1428,
   "durationHistory": [
-    1380
+    1428
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,6 +79,7 @@
       "currency": "CHF",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-06T15:13:02.185Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
