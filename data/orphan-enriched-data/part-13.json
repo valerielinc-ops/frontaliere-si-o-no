@@ -27612,7 +27612,7 @@
         {
           "query": "erzieher jobs lugano",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 23
         },
         {
           "query": "pädagoge jobs lugano",
@@ -27631,6 +27631,11 @@
         },
         {
           "query": "erzieher jobs schweiz",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "erzieher schweiz stellenangebote",
           "clicks": 0,
           "impressions": 1
         },
@@ -27660,7 +27665,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 37,
+      "totalImpressions": 40,
       "totalClicks": 0,
       "topQuery": "erzieher jobs lugano",
       "title": "Erzieher",
@@ -41908,6 +41913,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel/"
+      },
+      "queries": [
+        {
+          "query": "merian iselin klinik basel",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "merian iselin klinik basel",
+      "title": "Med praxisassistentin praxisassistentin mpa merian iselin klinik",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "en": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "de": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "fr": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "en": "/en/find-jobs-basel/med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "de": "/de/jobs-im-basel/med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "fr": "/fr/trouver-emploi-bale/med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {

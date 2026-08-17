@@ -11784,28 +11784,28 @@
       "queries": [
         {
           "query": "case anziani ticino offerte di lavoro",
-          "clicks": 68,
-          "impressions": 859
+          "clicks": 69,
+          "impressions": 864
         },
         {
           "query": "offerte lavoro casa di riposo svizzera",
           "clicks": 46,
-          "impressions": 470
+          "impressions": 474
         },
         {
           "query": "offerte di lavoro casa di riposo svizzera",
           "clicks": 41,
-          "impressions": 451
+          "impressions": 453
         },
         {
           "query": "case anziani lugano posti di lavoro",
-          "clicks": 22,
-          "impressions": 249
+          "clicks": 23,
+          "impressions": 252
         },
         {
           "query": "offerte di lavoro casa anziani ticino",
           "clicks": 22,
-          "impressions": 151
+          "impressions": 154
         },
         {
           "query": "casa anziani comunale bellinzona offerte di lavoro",
@@ -11825,17 +11825,17 @@
         {
           "query": "casa anziani chiasso lavoro",
           "clicks": 17,
-          "impressions": 106
+          "impressions": 107
         },
         {
           "query": "case di riposo ticino lavora con noi",
           "clicks": 13,
-          "impressions": 95
+          "impressions": 96
         },
         {
           "query": "casa anziani mendrisio lavoro",
           "clicks": 5,
-          "impressions": 86
+          "impressions": 87
         },
         {
           "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
@@ -11860,7 +11860,7 @@
         {
           "query": "concorso casa anziani bellinzona",
           "clicks": 3,
-          "impressions": 32
+          "impressions": 33
         },
         {
           "query": "offerte di lavoro centri diurni ticino",
@@ -11883,8 +11883,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 3449,
-      "totalClicks": 294,
+      "totalImpressions": 3472,
+      "totalClicks": 296,
       "topQuery": "case anziani ticino offerte di lavoro",
       "title": "Case anziani",
       "titleByLocale": {
@@ -52722,6 +52722,63 @@
         "slug-registry",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia/"
+      },
+      "queries": [
+        {
+          "query": "helsana",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "helsana",
+      "title": "Sachbearbeiter in backoffice versicherungsmissbrauch suva argovia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+        "en": "sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+        "de": "sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+        "fr": "sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+        "en": "/en/find-jobs-aargau/sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+        "de": "/de/jobs-im-aargau/sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia",
+        "fr": "/fr/trouver-emploi-argovie/sachbearbeiter-in-backoffice-versicherungsmissbrauch-80-100-suva-argovia"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

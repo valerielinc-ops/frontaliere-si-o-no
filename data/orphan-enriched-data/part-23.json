@@ -11967,6 +11967,68 @@
       ]
     },
     {
+      "slug": "bonigen",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/bonigen/",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/bonigen/"
+      },
+      "queries": [
+        {
+          "query": "\"arbeitszeit\" +\"12 stunden\"",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "\"arbeitszeit\" +\"zwölf-stunden-schichten\"",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "\"arbeitszeit\" +\"12 stunden\"",
+      "title": "Bonigen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "bonigen",
+        "en": "bonigen",
+        "de": "bonigen",
+        "fr": "bonigen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/bonigen",
+        "en": "/en/find-jobs-bern/bonigen",
+        "de": "/de/jobs-im-bern/bonigen",
+        "fr": "/fr/trouver-emploi-berne/bonigen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "botterens",
       "locale": "it",
       "path": "/en/find-jobs-fribourg/botterens",
@@ -17894,6 +17956,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "comptables",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/comptables/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/comptables/"
+      },
+      "queries": [
+        {
+          "query": "je cherche un job de comptable à berne",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "je cherche un job de comptable à berne",
+      "title": "Comptables",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "comptables",
+        "en": "comptables",
+        "de": "comptables",
+        "fr": "comptables"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/comptables",
+        "en": "/en/find-jobs-bern/comptables",
+        "de": "/de/jobs-im-bern/comptables",
+        "fr": "/fr/trouver-emploi-berne/comptables"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
