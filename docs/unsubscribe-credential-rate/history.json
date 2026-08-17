@@ -25,6 +25,18 @@
       "findings": [
         "first_fallback_after_zero_baseline"
       ]
+    },
+    {
+      "date": "2026-08-17",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 1,
+        "email_token": 59,
+        "missing": 97
+      },
+      "graded": 60,
+      "fallbackRate": 0.016666666666666666,
+      "findings": []
     }
   ]
 }
