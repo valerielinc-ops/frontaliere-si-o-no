@@ -1,18 +1,81 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-08-17T10:21:18.290Z",
-  "total": 21,
-  "newCount": 0,
+  "generatedAt": "2026-08-17T22:00:34.001Z",
+  "total": 23,
+  "newCount": 2,
   "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 70809,
-  "avgDurationMs": 70809,
+  "durationMs": 119010,
+  "avgDurationMs": 119010,
   "durationHistory": [
-    70809
+    119010
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
+      "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
+      "title": "Segretario/a Amministrativo/a",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "segretario-a-amministrativo-a-usi-locarno",
+      "department": "Istituto ricerche solari Aldo e Cele Daccó (IRSOL)",
+      "category": "staff",
+      "datePosted": "2026-08-17",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Locarno"
+      },
+      "id": "usi-universita-della-svizzera-italiana-9ed504ad13c4",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
+      "title": "Coordinatore",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "coordinatore-usi-lugano",
+      "department": "USI Startup Centre",
+      "category": "staff",
+      "datePosted": "2026-08-17",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-5132bcaf0603",
+      "sourceLang": "en",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -100,7 +163,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-2127129167ca",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -164,7 +227,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -177,13 +240,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro funzionale alla genetica",
+      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-funzionale-alla-genetica-usi-lugano",
+      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
       "department": "Institute of Oncology Research (IOR)",
       "category": "researcher",
       "datePosted": "2026-05-21",
@@ -196,7 +259,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c7a3db81dae5",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-05-21T13:45:01.598Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -228,7 +291,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-0c041bfbbfc0",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-04-29T22:47:38.313Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -292,7 +355,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-2b3f47cf60be",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -324,7 +387,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -388,7 +451,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-19ab83c519f2",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-07-17T22:09:12.866Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -452,7 +515,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-07-27T12:40:12.918Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -484,7 +547,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-07-10T10:25:30.321Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -644,7 +707,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-51bba80ca662",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
