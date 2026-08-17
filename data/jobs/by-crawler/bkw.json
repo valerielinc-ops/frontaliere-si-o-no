@@ -13544,7 +13544,6 @@
         "project-manager-elektroplanung-alle-bkw-visp",
         "chef-de-projet-elektroplanung-alle-bkw-visp",
         "responsabile-di-progetto-elektroplanung-alle-bkw-visp",
-        "responsabile-di-progetto-elektroplanung-alle-bkw-visp-slncxi",
         "projektleiter-in-elektroplanung-alle-bkw-ch-3",
         "responsabile-di-progetto-elektroplanung-alle-bkw-baden"
       ],
@@ -13557,7 +13556,6 @@
           "project-manager-elektroplanung-alle-bkw-visp",
           "chef-de-projet-elektroplanung-alle-bkw-visp",
           "responsabile-di-progetto-elektroplanung-alle-bkw-visp",
-          "responsabile-di-progetto-elektroplanung-alle-bkw-visp-slncxi",
           "projektleiter-in-elektroplanung-alle-bkw-ch-3",
           "responsabile-di-progetto-elektroplanung-alle-bkw-baden"
         ],
@@ -14404,12 +14402,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-elektroplanung-alle-bkw-ch",
-        "responsabile-di-progetto-elektroplanung-alle-bkw-visp"
+        "responsabile-di-progetto-elektroplanung-alle-bkw-visp",
+        "responsabile-di-progetto-elektroplanung-alle-bkw-visp-slncxi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-elektroplanung-alle-bkw-ch",
-          "responsabile-di-progetto-elektroplanung-alle-bkw-visp"
+          "responsabile-di-progetto-elektroplanung-alle-bkw-visp",
+          "responsabile-di-progetto-elektroplanung-alle-bkw-visp-slncxi"
         ]
       },
       "needsRetranslation": true,
@@ -23197,7 +23197,6 @@
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-32",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-28",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-29",
@@ -23210,7 +23209,6 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-32",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-28",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-29",
@@ -24139,7 +24137,6 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-22",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-21",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-24",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-32",
@@ -24153,7 +24150,6 @@
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-22",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-21",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-24",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-18",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-32",
@@ -24239,7 +24235,8 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-30",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare",
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24247,7 +24244,8 @@
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-30",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare",
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-33"
@@ -24728,13 +24726,15 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "apprenticeship-electrical-installer-in-efz-all-bkw-beatenberg",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-beatenberg",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-beatenberg"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-beatenberg",
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-32",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-beatenberg"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-beatenberg",
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd"
         ],
         "en": [
           "apprenticeship-electrical-installer-in-efz-all-bkw-beatenberg"

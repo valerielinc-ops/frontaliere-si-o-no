@@ -41,6 +41,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { mergeUrlKey } from './lib/job-url-key.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { withGuardOff } from './lib/slug-preservation-guard.mjs';
 
 const APPLY = process.argv.includes('--apply');
 const ROOT = process.cwd();
@@ -110,7 +111,12 @@ function processFile(file) {
   if (splitGroups === 0) return { file, splitGroups, reIded, decon, changed: false };
 
   if (APPLY) {
-    writeJsonAtomic(file, parsed);
+    // This migration intentionally clears cross-contaminated previousSlugs(*)
+    // on split-off siblings — writeJsonAtomic's slug-preservation guard
+    // (#5157) otherwise re-injects that exact contamination right back
+    // (documented escape hatch in scripts/lib/slug-preservation-guard.mjs).
+    // Scoped to this write only.
+    withGuardOff(() => writeJsonAtomic(file, parsed));
   }
   return { file, splitGroups, reIded, decon, changed: true };
 }
