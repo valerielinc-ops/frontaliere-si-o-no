@@ -3187,6 +3187,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-friburgo-riduzione.title': 'Premi assicurazione malattia Friburgo: come funzionano le fasce di premio',
     'blog.article.premi-cassa-malati-friburgo-riduzione.excerpt': 'I premi della assicurazione malattia obbligatoria nel Cantone di Friburgo sono stati ridisegnati per offrire una copertura più equa ai cittadini.',
     'blog.article.premi-cassa-malati-friburgo-riduzione.imageAlt': 'Foto di un cittadino di Friburgo, Svizzera, con didascalia sui cambiamenti ai premi della assicurazione malattia obbligatoria nel Cantone di Friburgo.',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Permessi di domicilio C nel Cantone di Friburgo: requisiti e domanda',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Il permesso di domicilio C nel Cantone di Friburgo richiede almeno 5 anni di residenza per i cittadini stranieri non UE/AELS.',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Immagine di un uomo che riempie un modulo per il permesso di domicilio C nel Cantone di Friburgo.',
 };
 
 export default blogMetaChIt;

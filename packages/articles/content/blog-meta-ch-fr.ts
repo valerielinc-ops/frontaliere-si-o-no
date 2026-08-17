@@ -3187,6 +3187,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-friburgo-riduzione.title': 'Fasce di premio assicurazione malattia Fribourg',
     'blog.article.premi-cassa-malati-friburgo-riduzione.excerpt': 'Les primes de l\'assurance maladie obligatoire dans le canton de Fribourg ont été redessinées pour offrir une couverture plus équitable aux citoyens.',
     'blog.article.premi-cassa-malati-friburgo-riduzione.imageAlt': 'Photo d\'un habitant de Fribourg, Suisse, avec une légende sur les changements des primes de l\'assurance maladie obligatoire dans le canton de Fribourg.',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Permis de séjour C dans le canton de Fribourg : exigences et demande',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Le permis de séjour C dans le canton de Fribourg nécessite au moins 5 ans de résidence pour les ressortissants étrangers non UE/AELE.',
+    'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Image d\'un homme qui remplit un formulaire pour un permis de résidence C dans le canton de Fribourg.',
 };
 
 export default blogMetaChFr;
