@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-08-17T10:02:04.495Z",
+  "assembledAt": "2026-08-17T21:48:47.619Z",
   "jobs": [
     {
       "id": "sanatorium-kilchberg-57bc0cc78487",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/289/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:02:01.585Z",
+      "crawledAt": "2026-08-17T21:48:45.381Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/344/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:57.586Z",
+      "crawledAt": "2026-08-17T21:48:41.394Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,7 +224,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/528/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:53.581Z",
+      "crawledAt": "2026-08-17T21:48:37.390Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/542/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:49.578Z",
+      "crawledAt": "2026-08-17T21:48:33.397Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/584/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:45.574Z",
+      "crawledAt": "2026-08-17T21:48:30.916Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/587/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:43.508Z",
+      "crawledAt": "2026-08-17T21:48:30.015Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -622,7 +622,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/595/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:42.645Z",
+      "crawledAt": "2026-08-17T21:48:29.243Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -710,7 +710,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/619/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:41.777Z",
+      "crawledAt": "2026-08-17T21:48:28.479Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -799,7 +799,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/620/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:40.911Z",
+      "crawledAt": "2026-08-17T21:48:27.648Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -878,7 +878,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/629/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:40.055Z",
+      "crawledAt": "2026-08-17T21:48:26.871Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -957,7 +957,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/633/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:39.183Z",
+      "crawledAt": "2026-08-17T21:48:26.078Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1008,6 +1008,227 @@
           "@type": "QuantitativeValue",
           "minValue": 66200,
           "maxValue": 100400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-1c2f76ea153e",
+      "slug": "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg",
+      "slugByLocale": {
+        "it": "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg",
+        "en": "apprenticeship-businesswoman-man-efz-from-august-2027-sanatorium-kilchberg-kilchberg",
+        "de": "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
+        "fr": "apprentissage-entreprise-homme-efz-a-partir-d-aout-2027-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Lehrstelle Kauffrau/-mann EFZ ab August 2027",
+      "titleByLocale": {
+        "it": "Apprendistato Kauffrau/-mann CFC ab August 2027",
+        "en": "Apprenticeship Businesswoman/Man EFZ from August 2027",
+        "de": "Lehrstelle Kauffrau/-mann EFZ ab August 2027",
+        "fr": "Apprentissage Entreprise/Homme EFZ à partir d'août 2027"
+      },
+      "description": "Lehrstelle Kauffrau/-mann EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Kauffrau/-mann EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 05.08.2026 Wir bieten ab August 2027 100% Verwaltung Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Als Kauffrau/-mann betreust du den Verwaltungsbereich des Gesundheitswesens und erwirbst berufliche Handlungskompetenz in folgenden Abteilungen: Empfang\n\nHauswirtschaft und Transport\n\nDu bringst eine abgeschlossene Sek A oder 10. Schuljahr mit gutem Notendurchschnitt mit\n\nDu arbeitest gerne im Team, bist aber auch selbstständig und übernimmst Verantwortung\n\nDu hast Interesse am Gesundheitswesen und bist offen für eine Ausbildung in der Psychiatrie\n\nDu hast ein ausgesprochenes Zahlenflair und Freude am digitalen Arbeiten\n\nDu bist dienstleistungsorientiert, schätzt den Kontakt zu unterschiedlichen Menschen und kommunizierst gerne auf verschiedenen Ebenen\n\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
+      "descriptionByLocale": {
+        "it": "Apprenticeship Businesswoman/Man EFZ da agosto 2027 | jobs@sani Salta al contenuto principale saltare alla barra di azione Purtroppo, il browser non può visualizzare cornici embedded apprendistato Kauffrau/-mann EFZ da agosto 2027 Sanatorium Kilchberg AG | online da: 05.08.2026 Offriamo da agosto 2027 100% amministrazione Il Sanatorium Kilchberg vi offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e apprezzativo. Porta i tuoi punti di forza e modella il futuro della clinica. Le tue responsabilità: Come mercante, sei responsabile per l'amministrazione del settore sanitario e acquisisci competenza professionale nei seguenti dipartimenti:\n\nPulizia e trasporto\n\nPorti un secondo completo A o 10. anno scolastico con buona media di grado con\n\nTi piace lavorare in un team, ma sei anche indipendente e ti assumerai la responsabilità\n\nSiete interessati all'assistenza sanitaria e sono aperti alla formazione in psichiatria\n\nHai una marcata sfumatura di numeri e gioia nel lavoro digitale\n\nSiete orientati al servizio, apprezzare il contatto con persone diverse e come comunicare su diversi livelli\n\n• Settore: Professioni commerciali\n• Tipo: 100.00%",
+        "en": "Apprenticeship Businesswoman/Man EFZ from August 2027 | jobs@sani Jump to the main content jump to the action bar Unfortunately, your browser cannot display embedded frames apprenticeship Kauffrau/-mann EFZ from August 2027 Sanatorium Kilchberg AG | online since: 05.08.2026 We offer from August 2027 100% administration The Sanatorium Kilchberg offers you a fulfilling working environment with exciting development opportunities in a dynamic and appreciative team. Bring your strengths and shape the future of the clinic. Your responsibilities: As a merchant, you are responsible for the administration of the healthcare sector and acquire professional competence in the following departments:\n\nHousekeeping and transport\n\nYou bring a completed sec A or 10. school year with good grade average with\n\nYou like to work in a team, but you are also self-employed and take responsibility\n\nYou are interested in health care and are open to training in psychiatry\n\nYou have a pronounced number flair and joy in digital work\n\nYou are service-oriented, appreciate contact with different people and like to communicate on different levels\n\n• Sector: Commercial professions\n• Type: 100.00%",
+        "de": "Lehrstelle Kauffrau/-mann EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Kauffrau/-mann EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 05.08.2026 Wir bieten ab August 2027 100% Verwaltung Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Als Kauffrau/-mann betreust du den Verwaltungsbereich des Gesundheitswesens und erwirbst berufliche Handlungskompetenz in folgenden Abteilungen: Empfang\n\nHauswirtschaft und Transport\n\nDu bringst eine abgeschlossene Sek A oder 10. Schuljahr mit gutem Notendurchschnitt mit\n\nDu arbeitest gerne im Team, bist aber auch selbstständig und übernimmst Verantwortung\n\nDu hast Interesse am Gesundheitswesen und bist offen für eine Ausbildung in der Psychiatrie\n\nDu hast ein ausgesprochenes Zahlenflair und Freude am digitalen Arbeiten\n\nDu bist dienstleistungsorientiert, schätzt den Kontakt zu unterschiedlichen Menschen und kommunizierst gerne auf verschiedenen Ebenen\n\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
+        "fr": "Apprenticeship Businesswoman/Man EFZ à partir d'août 2027.00 jobs@sani Aller au contenu principal sauter à la barre d'action Malheureusement, votre navigateur ne peut pas afficher les cadres intégrés apprentissage Kauffrau/-mann EFZ à partir d'août 2027 Sanatorium Kilchberg AG..00 en ligne depuis: 05.08.2026 Nous offrons à partir d'août 2027 100% administration Le Sanatorium Kilchberg vous offre un environnement de travail satisfaisant avec des opportunités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique. Vos responsabilités : En tant que marchand, vous êtes responsable de l'administration du secteur de la santé et vous acquérez des compétences professionnelles dans les départements suivants:\n\nMénage et transports\n\nVous apportez une sec A ou 10. année scolaire avec une bonne moyenne scolaire avec\n\nVous aimez travailler en équipe, mais vous êtes aussi un travailleur indépendant et vous assumez la responsabilité\n\nVous êtes intéressé par les soins de santé et êtes ouvert à la formation en psychiatrie\n\nVous avez un nombre prononcé flair et joie dans le travail numérique\n\nVous êtes orienté service, appréciez le contact avec différentes personnes et aimez communiquer à différents niveaux\n\n• Secteur: professions commerciales\n• Type : 100.00%"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/644/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-17T21:48:25.304Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/644/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
+        "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
+          "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T22:44:13.811Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-7cbb02962c44",
+      "slug": "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "it": "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg",
+        "en": "personnel-in-clinic-secretariat-sanatorium-kilchberg-kilchberg",
+        "de": "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg",
+        "fr": "personnel-secretariat-des-cliniques-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Sachbearbeiter/-in Kliniksekretariat",
+      "titleByLocale": {
+        "it": "Personale/in segreteria clinica",
+        "en": "Personnel/in clinic secretariat",
+        "de": "Sachbearbeiter/-in Kliniksekretariat",
+        "fr": "Personnel/secrétariat des cliniques"
+      },
+      "description": "Sachbearbeiter/-in Kliniksekretariat | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Sachbearbeiter/-in Kliniksekretariat Sanatorium Kilchberg AG | online seit: 06.08.2026 Wir suchen per 1. November 2026 oder nach Vereinbarung 60-80% Kliniksekretariat Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Administrative und organisatorische Unterstützung des medizinischen und psychologischen Fachpersonals\n\nZuständig für Prozessabläufe mit dem Gericht und der KESB\n\nEinführung des medizinischen Fachpersonals in die Prozessabläufe des Kliniksekretariates\n\nBereitschaft, als Ferienvertretung (10 Wochen) 100% zu arbeiten\n\nSporadische Einsätze am Empfang\n\nKaufmännische Grundausbildung sowie Erfahrung im medizinischen Bereich\n\nStilsicheres Deutsch in Wort und Schrift\n\nHohes Mass an Selbständigkeit, Flexibilität und Belastbarkeit\n\n• Bereich: Kaufmännische Berufe\n• Art: 80.00%",
+      "descriptionByLocale": {
+        "it": "Personale/in clinica segretariato | jobs@sani Salta al contenuto principale saltare alla barra d'azione Il browser non può purtroppo mostrare l'amministratore di cornici incorporati / - in clinica segretariato Sanatorium Kilchberg AG | online dal: 06.08.2026 Cerchiamo il 1 novembre 2026 o d'accordo 60-80% segretariato della clinica Il Kilchberg Sanatorium vi offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e apprezzativo. Porta i tuoi punti di forza e modella il futuro della clinica. I vostri compiti: istruzione commerciale di base e esperienza nel campo medico\n\nTedesco stilistico in Parola e scrittura\n\nAlto grado di indipendenza, flessibilità e resilienza\n\nIl pensiero in rete e il lavoro orientato alla soluzione\n\nAlta competenza sociale nel trattare i clienti interni ed esterni\n\nSupporto amministrativo e organizzativo per specialisti medici e psicologici\n\nResponsabile del contenzioso con il tribunale e KESB\n\nIntroduzione dello specialista medico nei processi del segretariato della clinica\n\n• Settore: Professioni commerciali\n• Specie: 80.00%",
+        "en": "Personnel/in clinic secretariat | jobs@sani Jump to the main content jump to the action bar Your browser can unfortunately not show embedded frames administrator / - in clinic secretariat Sanatorium Kilchberg AG | online since: 06.08.2026 We search on 1 November 2026 or by agreement 60-80% clinic secretariat The Kilchberg Sanatorium offers you a fulfilling working environment with exciting development opportunities in a dynamic and appreciative team. Bring your strengths and shape the future of the clinic. Your tasks: basic commercial education and experience in the medical field\n\nStylistic German in Word and Writing\n\nHigh degree of independence, flexibility and resilience\n\nNetworked thinking and solution-oriented work\n\nHigh social competence in dealing with internal and external customers\n\nAdministrative and organisational support for medical and psychological specialists\n\nResponsible for litigation with the court and KESB\n\nIntroduction of the medical specialist into the processes of the clinic secretariat\n\n• Sector: Commercial professions\n• Species: 80.00%",
+        "de": "Sachbearbeiter/-in Kliniksekretariat | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Sachbearbeiter/-in Kliniksekretariat Sanatorium Kilchberg AG | online seit: 06.08.2026 Wir suchen per 1. November 2026 oder nach Vereinbarung 60-80% Kliniksekretariat Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Administrative und organisatorische Unterstützung des medizinischen und psychologischen Fachpersonals\n\nZuständig für Prozessabläufe mit dem Gericht und der KESB\n\nEinführung des medizinischen Fachpersonals in die Prozessabläufe des Kliniksekretariates\n\nBereitschaft, als Ferienvertretung (10 Wochen) 100% zu arbeiten\n\nSporadische Einsätze am Empfang\n\nKaufmännische Grundausbildung sowie Erfahrung im medizinischen Bereich\n\nStilsicheres Deutsch in Wort und Schrift\n\nHohes Mass an Selbständigkeit, Flexibilität und Belastbarkeit\n\n• Bereich: Kaufmännische Berufe\n• Art: 80.00%",
+        "fr": "Personnel/dans le secrétariat de la clinique Emplois@sani Aller au contenu principal sauter à la barre d'action Votre navigateur ne peut malheureusement pas afficher les cadres intégrés administrateur / - dans le secrétariat de la clinique Sanatorium Kilchberg AG en ligne depuis: 06.08.2026 Nous recherchons le 1er novembre 2026 ou par accord 60-80% secrétariat de clinique Le Sanatorium de Kilchberg vous offre un environnement de travail satisfaisant avec des opportunités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique. Vos tâches: éducation et expérience commerciales de base dans le domaine médical\n\nL'allemand styliste dans la parole et l'écriture\n\nHaute indépendance, flexibilité et résilience\n\nRéflexion en réseau et travail axé sur la solution\n\nHaute compétence sociale dans le traitement des clients internes et externes\n\nAppui administratif et organisationnel aux spécialistes médicaux et psychologiques\n\nResponsable du litige avec le tribunal et la KESB\n\nIntroduction du médecin spécialiste dans les processus du secrétariat de la clinique\n\n• Secteur: professions commerciales\n• Espèce: 80.00%"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/645/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-17T21:48:24.532Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-07",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/645/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg",
+        "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg",
+          "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-08-07T01:08:49.383Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "sanatorium-kilchberg-f51d92b553f6",
+      "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Pflegefachperson HF/FH",
+      "titleByLocale": {
+        "it": "Pflegefachperson HF/FH",
+        "en": "Pflegefachperson HF/FH",
+        "de": "Pflegefachperson HF/FH",
+        "fr": "Pflegefachperson HF/FH"
+      },
+      "description": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
+      "descriptionByLocale": {
+        "it": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
+        "en": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
+        "de": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
+        "fr": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/652/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-17T21:48:23.628Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/652/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-17T10:01:35.662Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1106,230 +1327,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-1c2f76ea153e",
-      "slug": "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg",
-      "slugByLocale": {
-        "it": "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg",
-        "en": "apprenticeship-businesswoman-man-efz-from-august-2027-sanatorium-kilchberg-kilchberg",
-        "de": "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-        "fr": "apprentissage-entreprise-homme-efz-a-partir-d-aout-2027-sanatorium-kilchberg-kilchberg"
       },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Lehrstelle Kauffrau/-mann EFZ ab August 2027",
-      "titleByLocale": {
-        "it": "Apprendistato Kauffrau/-mann CFC ab August 2027",
-        "en": "Apprenticeship Businesswoman/Man EFZ from August 2027",
-        "de": "Lehrstelle Kauffrau/-mann EFZ ab August 2027",
-        "fr": "Apprentissage Entreprise/Homme EFZ à partir d'août 2027"
-      },
-      "description": "Lehrstelle Kauffrau/-mann EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Kauffrau/-mann EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 05.08.2026 Wir bieten ab August 2027 100% Verwaltung Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Als Kauffrau/-mann betreust du den Verwaltungsbereich des Gesundheitswesens und erwirbst berufliche Handlungskompetenz in folgenden Abteilungen: Empfang\n\nHauswirtschaft und Transport\n\nDu bringst eine abgeschlossene Sek A oder 10. Schuljahr mit gutem Notendurchschnitt mit\n\nDu arbeitest gerne im Team, bist aber auch selbstständig und übernimmst Verantwortung\n\nDu hast Interesse am Gesundheitswesen und bist offen für eine Ausbildung in der Psychiatrie\n\nDu hast ein ausgesprochenes Zahlenflair und Freude am digitalen Arbeiten\n\nDu bist dienstleistungsorientiert, schätzt den Kontakt zu unterschiedlichen Menschen und kommunizierst gerne auf verschiedenen Ebenen\n\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
-      "descriptionByLocale": {
-        "it": "Apprenticeship Businesswoman/Man EFZ da agosto 2027 | jobs@sani Salta al contenuto principale saltare alla barra di azione Purtroppo, il browser non può visualizzare cornici embedded apprendistato Kauffrau/-mann EFZ da agosto 2027 Sanatorium Kilchberg AG | online da: 05.08.2026 Offriamo da agosto 2027 100% amministrazione Il Sanatorium Kilchberg vi offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e apprezzativo. Porta i tuoi punti di forza e modella il futuro della clinica. Le tue responsabilità: Come mercante, sei responsabile per l'amministrazione del settore sanitario e acquisisci competenza professionale nei seguenti dipartimenti:\n\nPulizia e trasporto\n\nPorti un secondo completo A o 10. anno scolastico con buona media di grado con\n\nTi piace lavorare in un team, ma sei anche indipendente e ti assumerai la responsabilità\n\nSiete interessati all'assistenza sanitaria e sono aperti alla formazione in psichiatria\n\nHai una marcata sfumatura di numeri e gioia nel lavoro digitale\n\nSiete orientati al servizio, apprezzare il contatto con persone diverse e come comunicare su diversi livelli\n\n• Settore: Professioni commerciali\n• Tipo: 100.00%",
-        "en": "Apprenticeship Businesswoman/Man EFZ from August 2027 | jobs@sani Jump to the main content jump to the action bar Unfortunately, your browser cannot display embedded frames apprenticeship Kauffrau/-mann EFZ from August 2027 Sanatorium Kilchberg AG | online since: 05.08.2026 We offer from August 2027 100% administration The Sanatorium Kilchberg offers you a fulfilling working environment with exciting development opportunities in a dynamic and appreciative team. Bring your strengths and shape the future of the clinic. Your responsibilities: As a merchant, you are responsible for the administration of the healthcare sector and acquire professional competence in the following departments:\n\nHousekeeping and transport\n\nYou bring a completed sec A or 10. school year with good grade average with\n\nYou like to work in a team, but you are also self-employed and take responsibility\n\nYou are interested in health care and are open to training in psychiatry\n\nYou have a pronounced number flair and joy in digital work\n\nYou are service-oriented, appreciate contact with different people and like to communicate on different levels\n\n• Sector: Commercial professions\n• Type: 100.00%",
-        "de": "Lehrstelle Kauffrau/-mann EFZ ab August 2027 | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Lehrstelle Kauffrau/-mann EFZ ab August 2027 Sanatorium Kilchberg AG | online seit: 05.08.2026 Wir bieten ab August 2027 100% Verwaltung Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Als Kauffrau/-mann betreust du den Verwaltungsbereich des Gesundheitswesens und erwirbst berufliche Handlungskompetenz in folgenden Abteilungen: Empfang\n\nHauswirtschaft und Transport\n\nDu bringst eine abgeschlossene Sek A oder 10. Schuljahr mit gutem Notendurchschnitt mit\n\nDu arbeitest gerne im Team, bist aber auch selbstständig und übernimmst Verantwortung\n\nDu hast Interesse am Gesundheitswesen und bist offen für eine Ausbildung in der Psychiatrie\n\nDu hast ein ausgesprochenes Zahlenflair und Freude am digitalen Arbeiten\n\nDu bist dienstleistungsorientiert, schätzt den Kontakt zu unterschiedlichen Menschen und kommunizierst gerne auf verschiedenen Ebenen\n\n• Bereich: Kaufmännische Berufe\n• Art: 100.00%",
-        "fr": "Apprenticeship Businesswoman/Man EFZ à partir d'août 2027.00 jobs@sani Aller au contenu principal sauter à la barre d'action Malheureusement, votre navigateur ne peut pas afficher les cadres intégrés apprentissage Kauffrau/-mann EFZ à partir d'août 2027 Sanatorium Kilchberg AG..00 en ligne depuis: 05.08.2026 Nous offrons à partir d'août 2027 100% administration Le Sanatorium Kilchberg vous offre un environnement de travail satisfaisant avec des opportunités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique. Vos responsabilités : En tant que marchand, vous êtes responsable de l'administration du secteur de la santé et vous acquérez des compétences professionnelles dans les départements suivants:\n\nMénage et transports\n\nVous apportez une sec A ou 10. année scolaire avec une bonne moyenne scolaire avec\n\nVous aimez travailler en équipe, mais vous êtes aussi un travailleur indépendant et vous assumez la responsabilité\n\nVous êtes intéressé par les soins de santé et êtes ouvert à la formation en psychiatrie\n\nVous avez un nombre prononcé flair et joie dans le travail numérique\n\nVous êtes orienté service, appréciez le contact avec différentes personnes et aimez communiquer à différents niveaux\n\n• Secteur: professions commerciales\n• Type : 100.00%"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/644/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:37.435Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/644/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-        "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg",
-          "apprendistato-kauffrau-mann-cfc-ab-august-2027-sanatorium-kilchberg"
-        ],
-        "en": [
-          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "lehrstelle-kauffrau-mann-efz-ab-august-2027-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:44:13.811Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-7cbb02962c44",
-      "slug": "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg",
-      "slugByLocale": {
-        "it": "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg",
-        "en": "personnel-in-clinic-secretariat-sanatorium-kilchberg-kilchberg",
-        "de": "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg",
-        "fr": "personnel-secretariat-des-cliniques-sanatorium-kilchberg-kilchberg"
-      },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Sachbearbeiter/-in Kliniksekretariat",
-      "titleByLocale": {
-        "it": "Personale/in segreteria clinica",
-        "en": "Personnel/in clinic secretariat",
-        "de": "Sachbearbeiter/-in Kliniksekretariat",
-        "fr": "Personnel/secrétariat des cliniques"
-      },
-      "description": "Sachbearbeiter/-in Kliniksekretariat | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Sachbearbeiter/-in Kliniksekretariat Sanatorium Kilchberg AG | online seit: 06.08.2026 Wir suchen per 1. November 2026 oder nach Vereinbarung 60-80% Kliniksekretariat Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Administrative und organisatorische Unterstützung des medizinischen und psychologischen Fachpersonals\n\nZuständig für Prozessabläufe mit dem Gericht und der KESB\n\nEinführung des medizinischen Fachpersonals in die Prozessabläufe des Kliniksekretariates\n\nBereitschaft, als Ferienvertretung (10 Wochen) 100% zu arbeiten\n\nSporadische Einsätze am Empfang\n\nKaufmännische Grundausbildung sowie Erfahrung im medizinischen Bereich\n\nStilsicheres Deutsch in Wort und Schrift\n\nHohes Mass an Selbständigkeit, Flexibilität und Belastbarkeit\n\n• Bereich: Kaufmännische Berufe\n• Art: 80.00%",
-      "descriptionByLocale": {
-        "it": "Personale/in clinica segretariato | jobs@sani Salta al contenuto principale saltare alla barra d'azione Il browser non può purtroppo mostrare l'amministratore di cornici incorporati / - in clinica segretariato Sanatorium Kilchberg AG | online dal: 06.08.2026 Cerchiamo il 1 novembre 2026 o d'accordo 60-80% segretariato della clinica Il Kilchberg Sanatorium vi offre un ambiente di lavoro soddisfacente con interessanti opportunità di sviluppo in un team dinamico e apprezzativo. Porta i tuoi punti di forza e modella il futuro della clinica. I vostri compiti: istruzione commerciale di base e esperienza nel campo medico\n\nTedesco stilistico in Parola e scrittura\n\nAlto grado di indipendenza, flessibilità e resilienza\n\nIl pensiero in rete e il lavoro orientato alla soluzione\n\nAlta competenza sociale nel trattare i clienti interni ed esterni\n\nSupporto amministrativo e organizzativo per specialisti medici e psicologici\n\nResponsabile del contenzioso con il tribunale e KESB\n\nIntroduzione dello specialista medico nei processi del segretariato della clinica\n\n• Settore: Professioni commerciali\n• Specie: 80.00%",
-        "en": "Personnel/in clinic secretariat | jobs@sani Jump to the main content jump to the action bar Your browser can unfortunately not show embedded frames administrator / - in clinic secretariat Sanatorium Kilchberg AG | online since: 06.08.2026 We search on 1 November 2026 or by agreement 60-80% clinic secretariat The Kilchberg Sanatorium offers you a fulfilling working environment with exciting development opportunities in a dynamic and appreciative team. Bring your strengths and shape the future of the clinic. Your tasks: basic commercial education and experience in the medical field\n\nStylistic German in Word and Writing\n\nHigh degree of independence, flexibility and resilience\n\nNetworked thinking and solution-oriented work\n\nHigh social competence in dealing with internal and external customers\n\nAdministrative and organisational support for medical and psychological specialists\n\nResponsible for litigation with the court and KESB\n\nIntroduction of the medical specialist into the processes of the clinic secretariat\n\n• Sector: Commercial professions\n• Species: 80.00%",
-        "de": "Sachbearbeiter/-in Kliniksekretariat | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Sachbearbeiter/-in Kliniksekretariat Sanatorium Kilchberg AG | online seit: 06.08.2026 Wir suchen per 1. November 2026 oder nach Vereinbarung 60-80% Kliniksekretariat Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Ihre Aufgaben: Administrative und organisatorische Unterstützung des medizinischen und psychologischen Fachpersonals\n\nZuständig für Prozessabläufe mit dem Gericht und der KESB\n\nEinführung des medizinischen Fachpersonals in die Prozessabläufe des Kliniksekretariates\n\nBereitschaft, als Ferienvertretung (10 Wochen) 100% zu arbeiten\n\nSporadische Einsätze am Empfang\n\nKaufmännische Grundausbildung sowie Erfahrung im medizinischen Bereich\n\nStilsicheres Deutsch in Wort und Schrift\n\nHohes Mass an Selbständigkeit, Flexibilität und Belastbarkeit\n\n• Bereich: Kaufmännische Berufe\n• Art: 80.00%",
-        "fr": "Personnel/dans le secrétariat de la clinique Emplois@sani Aller au contenu principal sauter à la barre d'action Votre navigateur ne peut malheureusement pas afficher les cadres intégrés administrateur / - dans le secrétariat de la clinique Sanatorium Kilchberg AG en ligne depuis: 06.08.2026 Nous recherchons le 1er novembre 2026 ou par accord 60-80% secrétariat de clinique Le Sanatorium de Kilchberg vous offre un environnement de travail satisfaisant avec des opportunités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique. Vos tâches: éducation et expérience commerciales de base dans le domaine médical\n\nL'allemand styliste dans la parole et l'écriture\n\nHaute indépendance, flexibilité et résilience\n\nRéflexion en réseau et travail axé sur la solution\n\nHaute compétence sociale dans le traitement des clients internes et externes\n\nAppui administratif et organisationnel aux spécialistes médicaux et psychologiques\n\nResponsable du litige avec le tribunal et la KESB\n\nIntroduction du médecin spécialiste dans les processus du secrétariat de la clinique\n\n• Secteur: professions commerciales\n• Espèce: 80.00%"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/645/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:36.558Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-07",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/645/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg",
-        "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg",
-          "personale-in-segreteria-clinica-sanatorium-kilchberg-kilchberg"
-        ],
-        "en": [
-          "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "sachbearbeiter-in-kliniksekretariat-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T01:08:49.383Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sanatorium-kilchberg-f51d92b553f6",
-      "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-      "slugByLocale": {
-        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-        "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
-      },
-      "company": "Sanatorium Kilchberg",
-      "companyKey": "sanatorium-kilchberg",
-      "companyDomain": "sanatorium-kilchberg.ch",
-      "title": "Pflegefachperson HF/FH",
-      "titleByLocale": {
-        "de": "Pflegefachperson HF/FH",
-        "it": "Pflegefachperson HF/FH",
-        "en": "Pflegefachperson HF/FH",
-        "fr": "Pflegefachperson HF/FH"
-      },
-      "description": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
-      "descriptionByLocale": {
-        "de": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
-        "it": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
-        "en": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%",
-        "fr": "Pflegefachperson HF/FH | jobs@sani Zum Hauptinhalt springen Springe zur Aktionsleiste Ihr Browser kann leider keine eingebetteten Frames anzeigen Pflegefachperson HF/FH Sanatorium Kilchberg AG | online seit: 17.08.2026 Wir suchen ab 1. Dezember 2026 oder nach Vereinbarung 80% Psychotherapiestation Schwerpunkt Depression (Deutsch/Englisch) Zusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B2 erwartet Sie ein wohlwollendes, altersdurchmischtes Team, das sich gegenseitig unterstützt und seine vielfältigen Stärken einbringt. Unsere motivierende Arbeitsatmosphäre muss man erlebt haben. Ihre Aufgaben: Tätigkeit auf einer offenen Abteilung mit dem Schwerpunkt Depressionsbehandlung und Burnout auf Englisch\n\nIndividuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n\nDurchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n\nLeitung von stationären pflegetherapeutischen Gruppenangeboten\n\nArbeiten im Schichtdienst Frühdienst/Spätdienst/Wochenende\n\nUnterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nAbschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n\nHohe Fach- und Sozialkompetenz\n\n• Bereich: Pflegeberufe\n• Art: 80.00%"
-      },
-      "needsRetranslation": true,
-      "location": "Kilchberg",
-      "canton": "ZH",
-      "url": "https://recruitingapp-3010.umantis.com/Vacancies/652/Description/1",
-      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T10:01:35.662Z",
-      "addressLocality": "Kilchberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8802",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/652/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-17T10:01:35.662Z"
+      "crawlerMissStreak": 1
     }
   ]
 }
