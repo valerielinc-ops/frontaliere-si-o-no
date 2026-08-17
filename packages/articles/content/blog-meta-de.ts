@@ -10017,6 +10017,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.title': 'Wie geht es der Grenzwirtschaft? «Es hält, aber es gibt Zerbrechlichkeit»',
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.excerpt': 'Die Grenzwirtschaft zwischen dem Kanton Tessin und Italien steht auf dem Spiel. Wie geht\'s?',
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.imageAlt': 'Lugano Seeansicht',
+    'blog.article.pernottamenti-alberghieri-a-luglio.title': 'Leichte Erholung der Hotelübernachtungen im Juli',
+    'blog.article.pernottamenti-alberghieri-a-luglio.excerpt': 'Die Zahl der Logiernächte erhöhte sich gegenüber dem Vorjahr um 0,3%, wie das Bundesamt für Statistik (BfS) anlässlich einer ersten experimentellen Schätzung mitteilte.',
+    'blog.article.pernottamenti-alberghieri-a-luglio.imageAlt': 'Bild eines Hotels in der Schweiz mit einem Anstieg der Übernachtungen im Juli 2026',
 };
 
 export default blogMetaDe;

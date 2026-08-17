@@ -30018,6 +30018,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'pernottamenti-alberghieri-a-luglio',
+ category: 'pratico',
+ date: '2026-08-17T13:51:31.417Z',
+ image: '/images/blog/pernottamenti-alberghieri-a-luglio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
