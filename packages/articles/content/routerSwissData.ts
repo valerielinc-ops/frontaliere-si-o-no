@@ -1094,6 +1094,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-canton-friburgo-validita-e-proroga': { it: 'permesso-l-canton-friburgo-validita-e-proroga', en: 'permesso-l-canton-friburgo-validita-e-proroga-en', de: 'permesso-l-canton-friburgo-validita-e-proroga-de', fr: 'permesso-l-canton-friburgo-validita-e-proroga-fr' },
  'sospensione-lavori-muro-anti-migranti-big-bend-texas': { it: 'sospensione-lavori-muro-anti-migranti-big-bend-texas', en: 'suspension-of-work-on-anti-migrant-wall-in-big-bend-texas', de: 'arbeit-am-anti-migrant-wall-in-big-bend-texas-einstellen', fr: 'suspension-des-travaux-du-mur-anti-migrants-a-big-bend-au-texas' },
  'infantino-fifa-lamour-licenziato': { it: 'infantino-fifa-lamour-licenziato', en: 'infantino-fifa-lamour-fired', de: 'infantino-fifa-lamour-abgesetzt', fr: 'infantino-fifa-lamour-licencie' },
+ 'assegni-familiari-canton-friburgo': { it: 'assegni-familiari-canton-friburgo', en: 'child-allowance-canton-fribourg', de: 'kindergeld-kanton-freiburg', fr: 'allocation-natality-canton-fribourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

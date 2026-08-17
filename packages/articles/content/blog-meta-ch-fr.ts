@@ -3205,6 +3205,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.infantino-fifa-lamour-licenziato.title': 'Il accusa Infantino de trahison : licencié',
     'blog.article.infantino-fifa-lamour-licenziato.excerpt': 'La FIFA a limogé Kevin Lamour, haut responsable franco-suisse, après ses critiques publiques à l\'égard d\'Infantino et de ses plans d\'investissement pour la Coupe du Monde',
     'blog.article.infantino-fifa-lamour-licenziato.imageAlt': 'Résidents suisses protestent contre la FIFA et la nomination d\'Infantino en tant que président',
+    'blog.article.assegni-familiari-canton-friburgo.title': 'Allocations familiales dans le canton de Fribourg : montants et demande',
+    'blog.article.assegni-familiari-canton-friburgo.excerpt': 'Les faits sur la demande et le montant des allocations familiales dans le canton de Fribourg',
+    'blog.article.assegni-familiari-canton-friburgo.imageAlt': 'Une famille avec deux enfants vivant à Fribourg, Suisse, et recevant une allocation de naissance',
 };
 
 export default blogMetaChFr;
