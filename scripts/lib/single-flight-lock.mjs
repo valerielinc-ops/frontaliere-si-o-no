@@ -20,7 +20,14 @@ import { closeSync, openSync, readFileSync, unlinkSync, writeSync } from 'node:f
 // Un lock più vecchio di questo è considerato abbandonato anche se il pid
 // risultasse vivo (pid riciclato): meglio un doppio fetch raro che un lock
 // avvelenato che disattiva il cleanup per sempre.
-export const STALE_LOCK_MS = 30 * 60 * 1000;
+//
+// DEVE restare sopra il timeout del lavoro più lungo che gira sotto questo lock
+// (oggi il fetch di catch-up, `FETCH_TIMEOUT_MS` in prune-merged-worktrees.mjs):
+// se scadesse prima, una seconda sessione dichiarerebbe abbandonato il lock di un
+// titolare ancora al lavoro e si tornerebbe ai fetch concorrenti che questo lock
+// esiste per impedire. Invariante verificata in
+// tests/prune-fetch-single-flight.test.ts.
+export const STALE_LOCK_MS = 45 * 60 * 1000;
 
 // Ritorna true se il processo esiste ancora. `kill(pid, 0)` non invia segnali:
 // sonda solo l'esistenza. EPERM = esiste ma di un altro utente → vivo.

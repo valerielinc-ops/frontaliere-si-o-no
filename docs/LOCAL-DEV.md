@@ -231,7 +231,15 @@ Measured 2026-08-17: **695MB / 6'585 files in 7 seconds**, against
 `scripts/prune-merged-worktrees.mjs` (SessionStart hook) is the only local
 hook that touches the network. Its fetch is wrapped in a single-flight lock
 (`.git/frontaliere-prune-fetch.lock`, `scripts/lib/single-flight-lock.mjs`)
-with a 120s timeout, and it sweeps abandoned `tmp_pack_*` on the way out.
+with a 25-minute timeout, and it sweeps abandoned `tmp_pack_*` on the way out.
+
+The timeout is a **hang guard, not a work budget** — the lock is what prevents
+pile-up. Keep it above the slowest catch-up fetch you have measured (~20 min
+for 24k commits of arrears) and below `STALE_LOCK_MS`: too short and a
+far-behind repo has every recovery attempt killed mid-transfer, staying stale
+forever and leaking a temp pack per attempt; above the lock expiry and a second
+session declares the still-working holder abandoned. Both invariants are
+asserted in `tests/prune-fetch-single-flight.test.ts`.
 
 Any new hook or script that runs unattended and hits the network must reuse
 that lock. Unguarded, N sessions produce N concurrent fetches on one `.git`;
