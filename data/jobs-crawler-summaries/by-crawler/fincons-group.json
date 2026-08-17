@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-08-17T10:15:30.693Z",
+  "generatedAt": "2026-08-17T21:30:48.120Z",
   "total": 5,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1644,
-  "avgDurationMs": 1644,
+  "unchangedCount": 1,
+  "durationMs": 1939,
+  "avgDurationMs": 1939,
   "durationHistory": [
-    1644
+    1939
   ],
-  "newJobs": [
-    {
-      "title": "Test Engineer (MicroFocus QC)",
-      "slug": "test-engineer-microfocus-qc-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/brINhtcJka/Test-Engineer-MicroFocus-QC",
-      "applyUrl": "https://fincons.applytojob.com/apply/brINhtcJka/Test-Engineer-MicroFocus-QC",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-17",
-      "validThrough": "2026-11-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260817100348_E3JAGC1BLUEOYLBT",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Accounts Payable & Accounting Specialist",
@@ -223,5 +185,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Test Engineer (MicroFocus QC)",
+      "slug": "test-engineer-microfocus-qc-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/brINhtcJka/Test-Engineer-MicroFocus-QC",
+      "applyUrl": "https://fincons.applytojob.com/apply/brINhtcJka/Test-Engineer-MicroFocus-QC",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-17",
+      "validThrough": "2026-11-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260817100348_E3JAGC1BLUEOYLBT",
+        "listingLocation": "Lugano, Ticino, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-b448bf1827c4",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-17T10:15:30.690Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ]
 }
