@@ -1070,6 +1070,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scontro-tasse-vodese-2024': { it: 'scontro-tasse-vodese-2024', en: 'tax-clash-challenging-tax-voracity-in-the-canton-of-vaud', de: 'steuerstreit-herausforderung-steuergier-im-kanton-waadt', fr: 'choc-fiscal-defi-a-la-voracite-fiscale-dans-le-canton-de-vaud' },
  'pioggia-ritorno-siccita-ticino': { it: 'pioggia-ritorno-siccita-ticino', en: 'rain-returns-drought-ticino', de: 'regen-kehrt-zurueck-duerre-ticino', fr: 'pluie-revenu-secheresse-ticino' },
  'neutralita-iniziativa-pro-putin': { it: 'neutralita-iniziativa-pro-putin', en: 'the-neutrality-initiative-a-pro-putin-text-that-harms-switzerland', de: 'die-neutralitatsinitiative-ein-pro-putin-text-der-der-schweiz-schadet', fr: 'l-initiative-sur-la-neutralite-un-texte-pro-poutine-qui-nuit-a-la-suisse' },
+ 'apprendistato-zugo': { it: 'apprendistato-zugo', en: 'apprenticeship-zug', de: 'berufsausbildung-zug', fr: 'apprentissage-zoug' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

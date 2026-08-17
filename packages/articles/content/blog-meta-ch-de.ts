@@ -3133,6 +3133,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-iniziativa-pro-putin.title': 'Die Neutralitätsinitiative: Ein Pro-Putin-Text, der der Schweiz schadet',
     'blog.article.neutralita-iniziativa-pro-putin.excerpt': 'Die Neutralitätsinitiative ist ein Text, der die Handlungsfähigkeit der Schweiz in der Aussenpolitik einschränkt und ihre Sicherheit gefährdet.',
     'blog.article.neutralita-iniziativa-pro-putin.imageAlt': 'Eine Person, die eine Karte der Schweiz mit einer besorgten Miene betrachtet',
+    'blog.article.apprendistato-zugo.title': 'Lehre und Berufsausbildung im Kanton Zug',
+    'blog.article.apprendistato-zugo.excerpt': 'Einstellungen und Verfahren für die Anstellung eines Lehrlings im Kanton Zug unter Bezugnahme auf die kantonalen und bundesstaatlichen Gesetze.',
+    'blog.article.apprendistato-zugo.imageAlt': 'Berufsausbildung und berufliche Weiterbildung im Kanton Zug',
 };
 
 export default blogMetaChDe;
