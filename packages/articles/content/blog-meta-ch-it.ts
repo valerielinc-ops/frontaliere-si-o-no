@@ -3028,6 +3028,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.title': 'Salari e mercato del lavoro canton Nidvaldo: settori e livelli',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.excerpt': 'Mercato del lavoro nel Cantone di Nidvaldo: settori che assumono, livelli salariali per grado di formazione, contratti collettivi in vigore e salario minimo dove previsto.',
     'blog.article.salari-mercato-lavoro-canton-nidvaldo-settori-livelli.imageAlt': 'Vista del lago di Lugano',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'Non esiste un Cantone di Nidvaldo in Svizzera',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'La Svizzera ha 26 cantoni, ma non esiste un Cantone di Nidvaldo',
+    'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'Una mappa dell\'Europa con un dito puntato sul Cantone di Nidvaldo, che non esiste in Svizzera',
 };
 
 export default blogMetaChIt;
