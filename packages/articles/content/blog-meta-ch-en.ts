@@ -3124,6 +3124,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prodotti-elettrici-difettosi-est-i.title': 'More est: one in four defective electrical products',
     'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'One in four electrical products was found to be defective during inspections by the Federal Inspectorate of High Current Installations (ESTI).',
     'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Image of a defective electrical product in Switzerland.',
+    'blog.article.scontro-tasse-vodese-2024.title': 'Tax Clash: Challenging Tax Voracity in the Canton of Vaud',
+    'blog.article.scontro-tasse-vodese-2024.excerpt': 'The 12% initiative proposes a 12% discount on cantonal income and wealth tax.',
+    'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Taxes controversy in the Canton of Vaud',
 };
 
 export default blogMetaChEn;

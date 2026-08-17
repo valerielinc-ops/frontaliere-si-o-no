@@ -1067,6 +1067,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'independenza-svizzera-sicurezza': { it: 'independenza-svizzera-sicurezza', en: 'neutrality-initiative-puts-switzerland-s-security-at-risk', de: 'unabhaengigkeit-schweiz-sicherheit', fr: 'independance-suisse-securite' },
  'sistema-scolastico-canton-zugo-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-zugo-iscrizione-e-cicli', en: 'school-system-canton-zurich-enrolment-and-grades', de: 'bildungssystem-kanton-zuerich-anmeldung-und-stufen', fr: 'systeme-educatif-canton-de-zurich-inscription-et-niveaux' },
  'prodotti-elettrici-difettosi-est-i': { it: 'prodotti-elettrici-difettosi-est-i', en: 'defective-electrical-products-esti', de: 'defekte-elektroprodukte-esti', fr: 'produits-electriques-dedefectes-esti' },
+ 'scontro-tasse-vodese-2024': { it: 'scontro-tasse-vodese-2024', en: 'tax-clash-challenging-tax-voracity-in-the-canton-of-vaud', de: 'steuerstreit-herausforderung-steuergier-im-kanton-waadt', fr: 'choc-fiscal-defi-a-la-voracite-fiscale-dans-le-canton-de-vaud' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

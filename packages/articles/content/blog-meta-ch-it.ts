@@ -3124,6 +3124,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prodotti-elettrici-difettosi-est-i.title': 'Di più ESTI: un prodotto elettrico su quattro difettoso',
     'blog.article.prodotti-elettrici-difettosi-est-i.excerpt': 'Un prodotto elettrico su quattro è risultato difettoso durante i controlli dell\'Ispettorato federale degli impianti a corrente forte (ESTI).',
     'blog.article.prodotti-elettrici-difettosi-est-i.imageAlt': 'Immagine di un prodotto elettrico difettoso in Svizzera.',
+    'blog.article.scontro-tasse-vodese-2024.title': 'Scontro sulle tasse: sfida alla voracità fiscale nel Canton Vaud',
+    'blog.article.scontro-tasse-vodese-2024.excerpt': 'L\'iniziativa del 12% propone uno sconto del 12% sull\'imposta cantonale sul reddito e sul patrimonio.',
+    'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Il scontro sulle tasse nel Canton Vaud sfida la voracità fiscale',
 };
 
 export default blogMetaChIt;
