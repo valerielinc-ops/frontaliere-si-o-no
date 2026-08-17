@@ -3160,6 +3160,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cyberattacco-stadler-rail.title': 'Cyberangriff auf Stadler Rail: Mutmaßlicher Hacker vor Gericht in Zürich',
     'blog.article.cyberattacco-stadler-rail.excerpt': 'Ein Prozess in Zürich gegen einen mutmaßlichen ukrainischen Hacker, der des Hackens von Unternehmen, darunter Stadler Rail, beschuldigt wird.',
     'blog.article.cyberattacco-stadler-rail.imageAlt': 'Ein Hackerfall vor dem Bezirksgericht Zürich, der auch Stadler Rail betrifft.',
+    'blog.article.sanzioni-onu-2026-ch.title': 'UN-Sanktionen: Beschränkungen für Personen und Unternehmen',
+    'blog.article.sanzioni-onu-2026-ch.excerpt': 'Der Sanktionsausschuss der Vereinten Nationen hat die Liste der natürlichen Personen, Unternehmen und Organisationen, gegen die Sanktionen verhängt wurden, geändert. Die SESAM-Datenbank wird in der Quelle nicht erwähnt.',
+    'blog.article.sanzioni-onu-2026-ch.imageAlt': 'Frontalier, der die Liste der UN-Sanktionen überprüft.',
 };
 
 export default blogMetaChDe;

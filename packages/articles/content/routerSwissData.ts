@@ -1079,6 +1079,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-zugo-cantoni-medi': { it: 'affitti-zugo-cantoni-medi', en: 'affitti-zug-cantonal-rents', de: 'mieten-zug-kantonale-mieten', fr: 'locations-zug-revenus-cantonaux' },
  'siccita-svizzera-ladri-acqua-preoccupazioni': { it: 'siccita-svizzera-ladri-acqua-preoccupazioni', en: 'switzerland-drought-water-theft-concerns', de: 'schweiz-durre-wasser-diebstahl-sorgen', fr: 'suisse-secheresse-vols-eau-inquietudes' },
  'cyberattacco-stadler-rail': { it: 'cyberattacco-stadler-rail', en: 'stadler-rail-cyberattack', de: 'stadler-rail-hackfall', fr: 'attaque-informatique-stadler-rail' },
+ 'sanzioni-onu-2026-ch': { it: 'sanzioni-onu-2026-ch', en: 'un-sanctions-2026', de: 'un-sanktionen-2026', fr: 'sanctions-onu-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
