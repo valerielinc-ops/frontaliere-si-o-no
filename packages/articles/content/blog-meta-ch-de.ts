@@ -3208,6 +3208,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-friburgo.title': 'Familienzulagen im Kanton Freiburg: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-friburgo.excerpt': 'Der Sachverhalt zum Antrag und zur Höhe der Familienzulagen im Kanton Freiburg',
     'blog.article.assegni-familiari-canton-friburgo.imageAlt': 'Eine Familie mit zwei Kindern, die in Freiburg, Schweiz, wohnt und Kinderzulage erhält',
+    'blog.article.sistema-scolastico-canton-friburgo.title': 'Schulsystem Kanton Freiburg: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'Das Einschreibungsalter, die Studiengänge und der Schulkalender im Kanton Freiburg.',
+    'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'Schulbildung im Kanton Freiburg: Zyklen, Eintrittsalter, Schuljahreskalender, Lehrsprachen und Übergang an die Sekundarstufe.',
 };
 
 export default blogMetaChDe;

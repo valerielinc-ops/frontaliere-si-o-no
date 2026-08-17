@@ -3208,6 +3208,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-friburgo.title': 'Allocations familiales dans le canton de Fribourg : montants et demande',
     'blog.article.assegni-familiari-canton-friburgo.excerpt': 'Les faits sur la demande et le montant des allocations familiales dans le canton de Fribourg',
     'blog.article.assegni-familiari-canton-friburgo.imageAlt': 'Une famille avec deux enfants vivant à Fribourg, Suisse, et recevant une allocation de naissance',
+    'blog.article.sistema-scolastico-canton-friburgo.title': 'Système scolaire canton de Fribourg : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-friburgo.excerpt': 'L\'âge d\'inscription, les cursus et le calendrier scolaire dans le canton de Fribourg.',
+    'blog.article.sistema-scolastico-canton-friburgo.imageAlt': 'Éducation scolaire dans le canton de Fribourg : cycles, âge d\'inscription, calendrier scolaire, langues d\'enseignement et transition aux écoles secondaires supérieures.',
 };
 
 export default blogMetaChFr;
