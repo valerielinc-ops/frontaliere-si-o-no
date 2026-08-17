@@ -3058,6 +3058,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-glarona.title': 'Apprendistato e formazione professionale nel Cantone di Glarona',
     'blog.article.apprendistato-glarona.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Glarona.',
     'blog.article.apprendistato-glarona.imageAlt': 'Immagine di un giovane apprendista in formazione professionale presso un\'azienda del Cantone di Glarona.',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Asilo nido e custodia bambini Canton Glarona costi',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Tariffe calcolate sul reddito e sussidi cantonali disponibili per le famiglie con reddito basso',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custodia dei bambini nel Cantone di Glarona: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili',
 };
 
 export default blogMetaChIt;

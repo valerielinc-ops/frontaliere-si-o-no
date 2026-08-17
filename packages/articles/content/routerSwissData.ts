@@ -1045,6 +1045,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-glarona-importi-e-domanda': { it: 'assegni-familiari-glarona-importi-e-domanda', en: 'assegni-familiari-glarona', de: 'ehelensicherung-kanton-glarnisch', fr: 'allocations-familiales-canton-de-glarona' },
  'sistema-scolastico-canton-glarona-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-glarona-iscrizione-e-cicli', en: 'education-system-canton-glarus-enrollment-and-cycles', de: 'bildungssystem-kanton-glarus-anmeldung-und-lehrjahre', fr: 'systeme-educatif-canton-de-glarus-inscription-et-cycles' },
  'apprendistato-glarona': { it: 'apprendistato-glarona', en: 'apprenticeships-glarus', de: 'ausbildung-glarus', fr: 'apprentissage-glaris' },
+ 'asilo-nido-custodia-bambini-canton-glarona': { it: 'asilo-nido-custodia-bambini-canton-glarona', en: 'nursery-and-custody-of-children-in-the-canton-of-glarona', de: 'kindergarten-und-custodia-dei-bambini-im-kanton-glarona', fr: 'creche-et-custodia-des-enfants-au-canton-de-glarona' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

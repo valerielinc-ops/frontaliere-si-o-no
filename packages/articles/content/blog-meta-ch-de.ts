@@ -3058,6 +3058,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-glarona.title': 'Lehre und Berufsausbildung im Kanton Glarus',
     'blog.article.apprendistato-glarona.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Glarus.',
     'blog.article.apprendistato-glarona.imageAlt': 'Bild eines jungen Lehrlings in einer Ausbildung an einer Firma im Kanton Glarus.',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Kindertagesstätte und Kinderbetreuung Kanton Glarus Kosten',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Berechnete Einkommenstarife und kantonale Zuschüsse für einkommensschwache Haushalte verfügbar',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custodia dei bambini nel Cantone di Glarona: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili',
 };
 
 export default blogMetaChDe;

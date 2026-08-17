@@ -3058,6 +3058,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-glarona.title': 'Apprentissage et formation professionnelle dans le canton de Glaris',
     'blog.article.apprendistato-glarona.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, la rémunération de l\'apprenti et la maturité professionnelle dans le canton de Glaris.',
     'blog.article.apprendistato-glarona.imageAlt': 'Image d\'un apprenti jeune en formation professionnelle dans une entreprise du canton de Glaris.',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Garderie et garde d\'enfants Canton de Glaris coûts',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Tarifs calculés sur le revenu et allocations cantonales disponibles pour les ménages à faible revenu',
+    'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custodia dei bambini nel Cantone di Glarona: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili',
 };
 
 export default blogMetaChFr;
