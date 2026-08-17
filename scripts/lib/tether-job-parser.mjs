@@ -2,7 +2,9 @@
 /**
  * Tether Operations job parser — Recruitee API parser.
  *
- * API endpoint: https://tether.recruitee.com/api/offers
+ * API endpoints (tried in order, see API_ORIGINS): legacy
+ * https://tether.recruitee.com/api/offers, falling back to the custom-domain
+ * mirror https://careers.tether.io/api/offers if the legacy host fails.
  * Careers page: https://tether.recruitee.com/planb
  *
  * Tether is registered in Lugano, TI but all positions are remote.
@@ -27,8 +29,11 @@ export const TETHER_KEY = 'tether';
 export const TETHER_COMPANY_NAME = 'Tether Operations';
 export const TETHER_COMPANY_DOMAIN = 'tether.io';
 
-const API_URL = 'https://tether.recruitee.com/api/offers';
-const DETAIL_URL_BASE = 'https://tether.recruitee.com/o';
+// Recruitee-hosted API, tried first. `careers.tether.io` is Recruitee's
+// custom-domain mirror of the same ATS instance — falling back to it keeps
+// the crawler fetching if the legacy `.recruitee.com` host is ever
+// decommissioned, instead of silently reporting "0 offers" (#5982).
+const API_ORIGINS = ['https://tether.recruitee.com', 'https://careers.tether.io'];
 const HQ = getCompanyDefaults(TETHER_KEY);
 
 /* ── Helpers ───────────────────────────────────────────────── */
@@ -147,15 +152,18 @@ function isGenericOffer(offer = {}) {
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Fetch offers from the Recruitee API with timeout and error handling.
- * @returns {Array<object>} Raw offer objects from the API, or empty array on failure.
+ * Fetch offers from one Recruitee API origin, with timeout and error handling.
+ * @returns {Array<object>|null} Raw offer objects, or null on failure (so the
+ *   caller can distinguish "this origin is unreachable, try the next one"
+ *   from "this origin answered with a genuinely empty board").
  */
-async function fetchJobListings() {
-  console.log(`   Fetching from: ${API_URL}`);
+async function fetchFromOrigin(origin) {
+  const url = `${origin}/api/offers`;
+  console.log(`   Fetching from: ${url}`);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 25000);
   try {
-    const res = await fetch(API_URL, {
+    const res = await fetch(url, {
       signal: controller.signal,
       headers: {
         Accept: 'application/json',
@@ -163,19 +171,34 @@ async function fetchJobListings() {
       },
     });
     if (!res.ok) {
-      console.warn(`   ⚠️ HTTP ${res.status} from Recruitee API`);
-      return [];
+      console.warn(`   ⚠️ HTTP ${res.status} from ${url}`);
+      return null;
     }
     const data = await res.json();
     const offers = assertJsonListShape(data, { key: 'offers', source: TETHER_KEY });
     // Include ALL offers (remote company registered in Lugano) — filter only generic placeholders
     return offers.filter((o) => !isGenericOffer(o));
   } catch (err) {
-    console.warn(`   ⚠️ Fetch failed: ${err.message}`);
-    return [];
+    console.warn(`   ⚠️ Fetch failed for ${url}: ${err.message}`);
+    return null;
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Fetch offers, trying each known API origin in order until one answers.
+ * @returns {{ offers: Array<object>, origin: string|null }} `origin` is the
+ *   base URL that succeeded (used to build matching detail URLs), or null if
+ *   every origin failed.
+ */
+async function fetchJobListings() {
+  for (const origin of API_ORIGINS) {
+    const offers = await fetchFromOrigin(origin);
+    if (offers !== null) return { offers, origin };
+  }
+  console.warn('   ⚠️ All known API origins failed');
+  return { offers: [], origin: null };
 }
 
 /**
@@ -187,13 +210,15 @@ async function fetchJobListings() {
  */
 export async function fetchAllTetherJobs() {
   console.log(`🔍 Fetching Tether Operations jobs`);
-  console.log(`   Source: ${API_URL}\n`);
+  console.log(`   Origins: ${API_ORIGINS.join(', ')}\n`);
 
-  const offers = await fetchJobListings();
+  const { offers, origin } = await fetchJobListings();
   if (!offers || offers.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
   }
+
+  const detailUrlBase = `${origin || API_ORIGINS[0]}/o`;
 
   console.log(`  📋 Offers found: ${offers.length}`);
 
@@ -251,7 +276,7 @@ export async function fetchAllTetherJobs() {
       : new Date().toISOString().slice(0, 10);
 
     // Build detail + apply URLs
-    const detailUrl = `${DETAIL_URL_BASE}/${offer.slug}`;
+    const detailUrl = `${detailUrlBase}/${offer.slug}`;
     const applyUrl = offer.careers_apply_url || detailUrl;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
