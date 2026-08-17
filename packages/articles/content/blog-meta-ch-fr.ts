@@ -3082,6 +3082,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-glarona.title': 'Ouvrir une entreprise à Glaris : ce qu\'il faut',
     'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Canton de Glaris : inscription au registre du commerce, capital minimum, droits d\'inscription et obligations d\'assurance.',
     'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Scène d\'un entrepreneur suisse dans le canton de Glaris.',
+    'blog.article.sorveglianza-mercato-est-2025.title': 'Surveillance du marché est 2025 : haute sécurité des produits électriques',
+    'blog.article.sorveglianza-mercato-est-2025.excerpt': 'L\'Inspection fédérale des installations à courant fort (est) a effectué des vérifications de conformité et de sécurité sur plus de 1000 produits électriques en 2025.',
+    'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Contrôle des produits électriques en Suisse',
 };
 
 export default blogMetaChFr;

@@ -3082,6 +3082,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-glarona.title': 'Opening a business in Glarus: what you need',
     'blog.article.aprire-un-attivita-canton-glarona.excerpt': 'Canton Glarus: registration in the commercial register, minimum capital, registration fees and insurance obligations.',
     'blog.article.aprire-un-attivita-canton-glarona.imageAlt': 'Scene of a Swiss entrepreneur in Glarus.',
+    'blog.article.sorveglianza-mercato-est-2025.title': 'Esti 2025 market surveillance: high safety of electrical products',
+    'blog.article.sorveglianza-mercato-est-2025.excerpt': 'The Federal Inspectorate of High Current Installations (esti) conducted compliance and safety audits on over 1000 electrical products in 2025.',
+    'blog.article.sorveglianza-mercato-est-2025.imageAlt': 'Electric product control in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -9244,6 +9244,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sorveglianza-mercato-est-2025',
+    category: 'fiscale',
+    date: '2026-08-17T07:17:27.409Z',
+    image: '/images/blog/sorveglianza-mercato-est-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
