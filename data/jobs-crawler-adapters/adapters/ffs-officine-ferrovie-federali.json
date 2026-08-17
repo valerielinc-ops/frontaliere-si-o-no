@@ -10,6 +10,10 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/automobilmechatroniker-in-produktionsmechaniker-in-als-diagnostiker-in/ad0f31a5-2eb9-48c9-b1d8-408589667010",
+    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung-03-27/d6a87566-44e9-4a05-a0d7-15cc390fb908",
+    "https://jobs.sbb.ch/v2/offene-stellen/specialiste-de-la-manuvre-en-reconversion-professionnelle/92c798be-e5ec-4d51-a3db-2e8ae3fc0a35",
+    "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-grundstuecksgeschaefte-anlageobjekte/8e460863-7d1b-4159-845a-fc72740c9c1f",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4169895d-9700-489f-bbc6-b9f1b779f7c6",
     "https://jobs.sbb.ch/v2/offene-stellen/security-engineer-m-w-d-netzleitsystem-energie/6108af33-2f9c-4b20-b180-f811d5be0c7b",
     "https://jobs.sbb.ch/v2/offene-stellen/risk-manager-in-produktion-personenverkehr/a602aaa0-6b7b-4859-bd2a-038aabb7b5ea",
@@ -121,7 +125,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe/ee3d5e25-8635-4a78-812d-5975c8baaa3f",
     "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-fzm/2256905c-9633-4aa3-91ad-5c46b99eb8f4",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440",
-    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in-teilzeitausbildung/026a1ee8-929d-47ea-8b0a-8a18b9157145",
     "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-rangier-basel-2027/9aba6330-e7ba-47a7-9d5b-fd6f3577aa7b",
     "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/6c7f6e35-c7cd-48d4-89fe-153b56d40827",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fd78e6ea-6ae5-454d-bdf8-27bfdd1462f8",
@@ -162,5 +165,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-17T09:57:53.013Z"
+  "updatedAt": "2026-08-17T21:51:37.079Z"
 }
