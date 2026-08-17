@@ -43,6 +43,13 @@ import { mergeUrlKey } from './lib/job-url-key.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const APPLY = process.argv.includes('--apply');
+
+// This migration intentionally clears cross-contaminated previousSlugs(*) on
+// split-off siblings — writeJsonAtomic's slug-preservation guard (#5157)
+// otherwise re-injects that exact contamination right back (documented
+// escape hatch in scripts/lib/slug-preservation-guard.mjs; decontaminate-
+// prev-slugs.mjs's header names this script as a prior victim of the gap).
+process.env.SLUG_PRESERVATION_GUARD = 'off';
 const ROOT = process.cwd();
 const DIRS = [
   path.join(ROOT, 'data/jobs/by-crawler'),

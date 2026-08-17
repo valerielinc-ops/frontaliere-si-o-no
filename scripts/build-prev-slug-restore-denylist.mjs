@@ -57,6 +57,12 @@ const ROOT = path.resolve(__dirname, '..');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 export const DENYLIST_PATH = path.join(ROOT, 'data', 'prev-slug-restore-denylist.json');
 
+// --clean strips denylisted slugs from by-crawler slices ON PURPOSE —
+// writeJsonAtomic's slug-preservation guard (#5157) otherwise re-injects the
+// exact poison this pass exists to remove (documented escape hatch in
+// scripts/lib/slug-preservation-guard.mjs).
+process.env.SLUG_PRESERVATION_GUARD = 'off';
+
 /**
  * The decontamination squash-merges on main whose slice-level slug REMOVALS
  * are intentional and must never be "recovered".
