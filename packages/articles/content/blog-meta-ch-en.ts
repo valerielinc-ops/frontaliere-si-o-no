@@ -3049,6 +3049,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-glarona.title': 'Family allowances in the Canton of Glarus: amounts and demand',
     'blog.article.assegni-familiari-canton-glarona.excerpt': 'Family allowances in the Canton of Glarus: how they work, who they are intended for and what citizens must do to obtain them.',
     'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Editorial image related to: Assegni familiari nel Cantone Glarona: importi e domanda',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.title': 'Family allowances in the canton of Glarus: amounts and demand',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.excerpt': 'Monthly settings and amounts for children, legal conditions and application procedure.',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.imageAlt': 'Editorial image related to: Assegni familiari nel Canton Glarona: importi e domanda',
 };
 
 export default blogMetaChEn;

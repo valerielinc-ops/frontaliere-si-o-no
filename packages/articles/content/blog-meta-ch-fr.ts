@@ -3049,6 +3049,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-glarona.title': 'Allocations familiales dans le canton de Glaris : montants et demande',
     'blog.article.assegni-familiari-canton-glarona.excerpt': 'Les allocations familiales dans le canton de Glaris : comment elles fonctionnent, à qui elles sont destinées et ce que les citoyens doivent faire pour les obtenir.',
     'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Image éditoriale relative à: Assegni familiari nel Cantone Glarona: importi e domanda',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.title': 'Allocations familiales dans le canton de Glaris : montants et demande',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.excerpt': 'Paramètres et montants mensuels pour les enfants, conditions de droit et procédure de demande.',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.imageAlt': 'Image éditoriale relative à: Assegni familiari nel Canton Glarona: importi e domanda',
 };
 
 export default blogMetaChFr;

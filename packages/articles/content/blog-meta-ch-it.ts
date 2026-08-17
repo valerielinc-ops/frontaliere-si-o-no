@@ -3049,6 +3049,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-glarona.title': 'Assegni familiari nel Cantone Glarona: importi e domanda',
     'blog.article.assegni-familiari-canton-glarona.excerpt': 'Gli assegni familiari nel Cantone Glarona: come funzionano, a chi sono destinati e cosa devono fare i cittadini per ottenerli.',
     'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Immagine editoriale relativa a: Assegni familiari nel Cantone Glarona: importi e domanda',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.title': 'Assegni familiari nel Canton Glarona: importi e domanda',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.excerpt': 'Impostazioni e importi mensili per i figli, condizioni di diritto e procedura di domanda.',
+    'blog.article.assegni-familiari-glarona-importi-e-domanda.imageAlt': 'Immagine editoriale relativa a: Assegni familiari nel Canton Glarona: importi e domanda',
 };
 
 export default blogMetaChIt;
