@@ -3205,6 +3205,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.infantino-fifa-lamour-licenziato.title': 'Beschuldigte Infantino des Verrats: gefeuert',
     'blog.article.infantino-fifa-lamour-licenziato.excerpt': 'Die FIFA hat Kevin Lamour, einen hochrangigen französisch-schweizerischen Beamten, nach seiner öffentlichen Kritik an Infantino und seinen Investitionsplänen für die Weltmeisterschaft entlassen',
     'blog.article.infantino-fifa-lamour-licenziato.imageAlt': 'Schweizer Bewohner protestieren gegen die FIFA und die Nominierung von Infantino als Präsidenten',
+    'blog.article.assegni-familiari-canton-friburgo.title': 'Familienzulagen im Kanton Freiburg: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-friburgo.excerpt': 'Der Sachverhalt zum Antrag und zur Höhe der Familienzulagen im Kanton Freiburg',
+    'blog.article.assegni-familiari-canton-friburgo.imageAlt': 'Eine Familie mit zwei Kindern, die in Freiburg, Schweiz, wohnt und Kinderzulage erhält',
 };
 
 export default blogMetaChDe;
