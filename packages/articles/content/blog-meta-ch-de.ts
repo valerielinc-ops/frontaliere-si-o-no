@@ -3103,6 +3103,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costo-elettricit-svizzera.title': 'Vier Milliarden, damit es nicht an Licht fehlt',
     'blog.article.costo-elettricit-svizzera.excerpt': 'Die Schweiz müsste vier Milliarden Franken investieren, um stabile Energiereserven zu gewährleisten.',
     'blog.article.costo-elettricit-svizzera.imageAlt': 'Die Schweiz muss investieren, um eine stabile Energieversorgung sicherzustellen.',
+    'blog.article.giornate-svizzere-statistica-2026.title': 'Daten und Statistik im Zeitalter der künstlichen Intelligenz',
+    'blog.article.giornate-svizzere-statistica-2026.excerpt': 'Die Schweizer Statistiktage finden vom 25. bis 27. August 2026 in Rorschach im Kanton St. Gallen statt.',
+    'blog.article.giornate-svizzere-statistica-2026.imageAlt': 'Schweizerische Statistiktage 2026',
 };
 
 export default blogMetaChDe;

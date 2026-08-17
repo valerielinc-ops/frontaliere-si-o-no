@@ -3103,6 +3103,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costo-elettricit-svizzera.title': 'Four billion to keep the light from missing',
     'blog.article.costo-elettricit-svizzera.excerpt': 'Switzerland should invest CHF 4 billion to ensure stable energy reserves.',
     'blog.article.costo-elettricit-svizzera.imageAlt': 'The Switzerland needs to invest to ensure stable energy reserves.',
+    'blog.article.giornate-svizzere-statistica-2026.title': 'Data and statistics in the age of artificial intelligence',
+    'blog.article.giornate-svizzere-statistica-2026.excerpt': 'The Swiss Statistics Days will be held from 25 to 27 August 2026 in Rorschach, in the Canton of St. Gallen.',
+    'blog.article.giornate-svizzere-statistica-2026.imageAlt': 'Swiss Statistical Days 2026',
 };
 
 export default blogMetaChEn;
