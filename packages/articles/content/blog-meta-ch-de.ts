@@ -3031,6 +3031,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'Es gibt keinen Kanton Nidwalden in der Schweiz',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'Die Schweiz hat 26 Kantone, aber es gibt keinen Kanton Nidwalden',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'Eine Karte Europas mit einem Finger auf dem nicht existierenden Nidvaldo-Kanton',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Führerschein in Nidwalden: Umschulung und Pflichtprüfungen',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'Um den ausländischen Führerschein in der Schweiz umzuwandeln, sind folgende Unterlagen vorzulegen: Reisepass, ausländischer Führerschein und eine Kopie des Miet- oder Eigentumsvertrages.',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Bild eines Frontalierers, der zum Verkehrsbüro geht, um seine ausländische Führerschein zu umschreiben',
 };
 
 export default blogMetaChDe;

@@ -3031,6 +3031,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'Il n\'existe pas de canton de Nidwald en Suisse',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'La Suisse compte 26 cantons, mais il n\'existe pas de canton de Nidwald',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'Une carte de l\'Europe avec un doigt pointé sur le canton de Nidvaldo, qui n\'existe pas en Suisse',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Permis de conduire à Nidwald : conversion et examens obligatoires',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'Pour convertir le permis de conduire étranger en Suisse, vous devez présenter les documents suivants : le passeport, le permis de conduire étranger et une copie du contrat de location ou de la propriété.',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Image d\'un frontalier allant à la direction de la circulation pour convertir son permis de conduire étranger',
 };
 
 export default blogMetaChFr;

@@ -3031,6 +3031,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'Non esiste un Cantone di Nidvaldo in Svizzera',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'La Svizzera ha 26 cantoni, ma non esiste un Cantone di Nidvaldo',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'Una mappa dell\'Europa con un dito puntato sul Cantone di Nidvaldo, che non esiste in Svizzera',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Patente di guida in Nidvaldo: conversione e esami obbligatori',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'Per convertire la licenza di guida estera in Svizzera, è necessario presentare i seguenti documenti: il passaporto, la licenza di guida estera e una copia del contratto di affitto o della proprietà.',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Immagine di un frontaliere che si reca all\'ufficio della circolazione per convertire la licenza di guida estera',
 };
 
 export default blogMetaChIt;
