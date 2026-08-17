@@ -628,6 +628,22 @@ const EMPTY_OK_CRAWLERS = new Set([
   // healthy and re-arms as soon as an Alprose/CH listing reappears. Same
   // legitimately-empty regional-filter case as manor and alten-switzerland.
   'baronie',
+  // Bitfinex (Lugano TI, cryptocurrency exchange): verified live 2026-08-17
+  // (issue #5968) — the careers site migrated ATS domains from
+  // bitfinex.recruitee.com to the custom domain careers.bitfinex.com
+  // (bitfinex.recruitee.com now 302-redirects there), but it is still the
+  // same Recruitee backend (window.recruitee.customIntegrationsApi.companyId
+  // 26705) and the parser's `API_URL`
+  // (https://bitfinex.recruitee.com/api/offers) still resolves and returns
+  // HTTP 200 with the unchanged `{"offers":[...]}` shape — confirmed by
+  // querying the new custom-domain endpoint
+  // (https://careers.bitfinex.com/api/offers), which returns the identical
+  // `{"offers":[]}`. The rendered careers page states in plain text
+  // "Currently we don't have any open positions." Bitfinex genuinely has
+  // zero open roles right now; the parser and API are healthy and re-arm
+  // automatically when a position is republished. Same legitimately-empty
+  // small-employer case as linnea/dxt-commodities/gavi.
+  'bitfinex',
 ]);
 
 /** Read JSON file, return null on any error. */
