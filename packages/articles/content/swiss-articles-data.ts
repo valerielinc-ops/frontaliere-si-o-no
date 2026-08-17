@@ -9415,6 +9415,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'neutralita-fronte-no-lancia-allarme',
+    category: 'fiscale',
+    date: '2026-08-17T14:03:26.979Z',
+    image: '/images/blog/neutralita-fronte-no-lancia-allarme.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

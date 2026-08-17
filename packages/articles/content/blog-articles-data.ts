@@ -30027,6 +30027,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'saronno-supermercato-evacuati',
+ category: 'pratico',
+ date: '2026-08-17T14:07:22.350Z',
+ image: '/images/blog/saronno-supermercato-evacuati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

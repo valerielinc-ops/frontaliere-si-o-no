@@ -3139,6 +3139,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine: Measures Ordinance',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'The Federal Department of Economy, Training and Research (DEFR) amended Annexes 2 and 14a of the Ordinance in relation to the situation in Ukraine.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Editorial image related to: Ucraina: Ordinanza per provvedimenti',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutrality, the front of',
+    'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'An inter-party committee is calling for the initiative to be rejected on 27 September, which would limit foreign policy and weaken Swiss defence.',
+    'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'A protest in Lugano against the neutrality initiative.',
 };
 
 export default blogMetaChEn;

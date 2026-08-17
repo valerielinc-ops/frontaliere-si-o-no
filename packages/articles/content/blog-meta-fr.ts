@@ -10023,6 +10023,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pernottamenti-alberghieri-a-luglio.title': 'Légère reprise des nuitées hôtelières en juillet',
     'blog.article.pernottamenti-alberghieri-a-luglio.excerpt': 'Le nombre de nuitées a augmenté de 0,3% sur une base annuelle, selon ce qui a été communiqué par l\'Office fédéral de la statistique (OFS) lors d\'une première estimation expérimentale.',
     'blog.article.pernottamenti-alberghieri-a-luglio.imageAlt': 'Image d\'un hôtel en Suisse avec une augmentation des nuitées en juillet 2026',
+    'blog.article.saronno-supermercato-evacuati.title': 'Fumée et odeur de brûlé à Saronno',
+    'blog.article.saronno-supermercato-evacuati.excerpt': 'Vers 10 heures, les clients et le personnel ont été libérés après avoir senti à l\'intérieur une odeur de brûlé et de fumée.',
+    'blog.article.saronno-supermercato-evacuati.imageAlt': 'Evacuation d\'un supermarché à Saronno',
 };
 
 export default blogMetaFr;
