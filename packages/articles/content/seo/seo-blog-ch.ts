@@ -40736,6 +40736,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-studio-canton-zugo-requisiti-importi': {
+    title: 'Borse di studio e prestiti nel Canton Zugo: requisiti, importi e scadenze',
+    description: 'Guida completa alle borse di studio e prestiti cantonali nel Canton Zugo: requisiti di residenza e reddito, importi massimi per livello di studio, scadenza 30',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, prestiti, canton',
+    ogTitle: 'Borse di studio Canton Zugo: requisiti e importi 2024',
+    ogDescription: 'Scopri come ottenere borse di studio e prestiti d\'onore nel Canton Zugo: requisiti di residenza, limiti di reddito, massimali annuali e procedure di domanda. Scadenza 30 aprile.',
+    canonicalPath: '/articoli-svizzera/borse-studio-canton-zugo-requisiti-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio e prestiti nel Canton Zugo: requisiti, importi e scadenze",
+      "description": "Guida completa alle borse di studio e prestiti cantonali nel Canton Zugo: requisiti di residenza e reddito, importi massimi per livello di studio, scadenza 30",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-canton-zugo-requisiti-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario nel Canton Zugo con studenti e bandiere svizzere"
+      },
+      "datePublished": "2026-08-17T15:07:41+00:00",
+      "dateModified": "2026-08-17T15:07:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-canton-zugo-requisiti-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-e-custodia-bambini-canton-zugo-costi': {
+    title: 'Asilo nido e custodia bambini in Canton Zug: costi',
+    description: 'I costi per l\'asilo nido e la custodia dei bambini in Canton Zug possono variare in base alla tariffa calcolata sul reddito e ai sussidi cantonali disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini in Canton Zug: costi',
+    ogDescription: 'I costi per l\'asilo nido e la custodia dei bambini in Canton Zug possono variare in base alla tariffa calcolata sul reddito e ai sussidi cantonali disponibili.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-e-custodia-bambini-canton-zugo-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini in Canton Zug: costi",
+      "description": "I costi per l'asilo nido e la custodia dei bambini in Canton Zug possono variare in base alla tariffa calcolata sul reddito e ai sussidi cantonali disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-e-custodia-bambini-canton-zugo-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un asilo nido in Canton Zug"
+      },
+      "datePublished": "2026-08-17T15:14:36+00:00",
+      "dateModified": "2026-08-17T15:14:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-e-custodia-bambini-canton-zugo-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
