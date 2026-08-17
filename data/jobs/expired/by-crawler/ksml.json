@@ -1,5 +1,73 @@
 [
   {
+    "slug": "test-test-test-40033",
+    "title": "TEST",
+    "titleByLocale": {
+      "de": "TEST",
+      "it": "TEST",
+      "en": "TEST",
+      "fr": "ESSAI"
+    },
+    "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+    "companyKey": "ksml",
+    "location": "TEST",
+    "addressLocality": "TEST",
+    "descriptionByLocale": {
+      "de": "TEST — Stelle bei TEST, TEST (Kanton Bern). Publiziert auf dem Kantonalen Stellenmarkt für Lehrerinnen und Lehrer (KSML).",
+      "it": "TEST — lavoro a TEST, TEST (Canton di Berna). Pubblicato sul mercato del lavoro cantonale per gli insegnanti (KSML).",
+      "en": "TEST — job at TEST, TEST (Canton of Bern). Published on the Cantonal Job Market for Teachers (KSML).",
+      "fr": "ESSAI — travail à ESSAI, ESSAI (Canton de Berne). Publié sur le Marché cantonal de l'emploi des enseignants (KSML)."
+    },
+    "slugByLocale": {
+      "de": "test-test-test-40033",
+      "it": "test-test-test-40033",
+      "en": "test-test-test-40033",
+      "fr": "essai-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-test-40033"
+    },
+    "sector": "Istruzione / Scuola pubblica",
+    "expiredAt": "2026-08-17T21:58:35.408Z",
+    "postalCode": "TEST",
+    "streetAddress": "TEST",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "test2-test2-test2-40034",
+    "title": "TEST2",
+    "titleByLocale": {
+      "de": "TEST2",
+      "it": "TEST2",
+      "en": "TEST2",
+      "fr": "ESSAI2"
+    },
+    "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+    "companyKey": "ksml",
+    "location": "TEST2",
+    "addressLocality": "TEST2",
+    "descriptionByLocale": {
+      "de": "TEST2 — Stelle bei TEST2, TEST2 (Kanton Bern). Publiziert auf dem Kantonalen Stellenmarkt für Lehrerinnen und Lehrer (KSML).",
+      "it": "TEST2 — lavoro a TEST2, TEST2 (Cantone di Berna). Pubblicato sul mercato del lavoro cantonale per gli insegnanti (KSML).",
+      "en": "TEST2 — job at TEST2, TEST2 (Canton of Bern). Published on the Cantonal Job Market for Teachers (KSML).",
+      "fr": "TEST2 — travail à TEST2, TEST2 (Canton de Berne). Publié sur le Marché cantonal de l'emploi des enseignants (KSML)."
+    },
+    "slugByLocale": {
+      "de": "test2-test2-test2-40034",
+      "it": "test2-test2-test2-40034",
+      "en": "test2-test2-test2-40034",
+      "fr": "essai2-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-test2-40034"
+    },
+    "sector": "Istruzione / Scuola pubblica",
+    "expiredAt": "2026-08-17T21:58:35.408Z",
+    "postalCode": "TEST2",
+    "streetAddress": "TEST2",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "einzellektionen-per-kind-in-4-schuljahr-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zimmerwald",
     "title": "Einzellektionen für Kind in 4. Schuljahr",
     "titleByLocale": {
