@@ -3100,6 +3100,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-svizzera-aumentati-2026.title': 'Travail.Suisse fordert eine generelle Lohnerhöhung in der Schweiz',
     'blog.article.salari-svizzera-aumentati-2026.excerpt': 'Travail.Suisse fordert eine Erhöhung um 2% für alle Arbeitnehmer, aber die Verhandlungen werden schwierig.',
     'blog.article.salari-svizzera-aumentati-2026.imageAlt': 'Die Löhne in der Schweiz, mit 2-Prozent-Zuwachs gefordert von Travail.Suisse',
+    'blog.article.costo-elettricit-svizzera.title': 'Vier Milliarden, damit es nicht an Licht fehlt',
+    'blog.article.costo-elettricit-svizzera.excerpt': 'Die Schweiz müsste vier Milliarden Franken investieren, um stabile Energiereserven zu gewährleisten.',
+    'blog.article.costo-elettricit-svizzera.imageAlt': 'Die Schweiz muss investieren, um eine stabile Energieversorgung sicherzustellen.',
 };
 
 export default blogMetaChDe;
