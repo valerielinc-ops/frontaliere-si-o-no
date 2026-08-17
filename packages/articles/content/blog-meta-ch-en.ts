@@ -3133,6 +3133,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-iniziativa-pro-putin.title': 'The neutrality initiative: a pro-Putin text that harms Switzerland',
     'blog.article.neutralita-iniziativa-pro-putin.excerpt': 'The neutrality initiative is a text that limits Switzerland\'s ability to act on foreign policy and endangers its security.',
     'blog.article.neutralita-iniziativa-pro-putin.imageAlt': 'A person looking at a map of Switzerland with a worried expression',
+    'blog.article.apprendistato-zugo.title': 'Apprenticeship and vocational training in the Canton of Zug',
+    'blog.article.apprendistato-zugo.excerpt': 'Settings and procedures for hiring an apprentice in the Canton of Zug, with reference to cantonal and federal laws.',
+    'blog.article.apprendistato-zugo.imageAlt': 'Apprenticeship and vocational training in the Canton of Zug',
 };
 
 export default blogMetaChEn;

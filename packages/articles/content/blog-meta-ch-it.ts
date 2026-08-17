@@ -3133,6 +3133,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-iniziativa-pro-putin.title': 'L\'iniziativa sulla neutralità: un testo pro-Putin che danneggia la Svizzera',
     'blog.article.neutralita-iniziativa-pro-putin.excerpt': 'L\'iniziativa sulla neutralità è un testo che limita la capacità della Svizzera di agire in materia di politica estera e mette in pericolo la sua sicurezza.',
     'blog.article.neutralita-iniziativa-pro-putin.imageAlt': 'Una persona che guarda una mappa della Svizzera con una espressione preoccupata',
+    'blog.article.apprendistato-zugo.title': 'Apprendistato e formazione professionale nel Canton Zugo',
+    'blog.article.apprendistato-zugo.excerpt': 'Impostazioni e procedure per l\'assunzione di un apprendista nel Canton Zugo, con riferimento alle leggi cantonali e federali.',
+    'blog.article.apprendistato-zugo.imageAlt': 'Scene di apprendimento professionale e formazione nel Canton Zugo',
 };
 
 export default blogMetaChIt;

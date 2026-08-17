@@ -40619,6 +40619,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-zugo': {
+    title: 'Apprendistato e formazione professionale nel Canton Zugo',
+    description: 'Impostazioni e procedure per l\'assunzione di un apprendista nel Canton Zugo, con riferimento alle leggi cantonali e federali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato e formazione professionale nel Canton Zugo',
+    ogDescription: 'Impostazioni e procedure per l\'assunzione di un apprendista nel Canton Zugo, con riferimento alle leggi cantonali e federali.',
+    canonicalPath: '/articoli-svizzera/apprendistato-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Canton Zugo",
+      "description": "Impostazioni e procedure per l'assunzione di un apprendista nel Canton Zugo, con riferimento alle leggi cantonali e federali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scene di apprendimento professionale e formazione nel Canton Zugo"
+      },
+      "datePublished": "2026-08-17T13:36:28+00:00",
+      "dateModified": "2026-08-17T13:36:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
