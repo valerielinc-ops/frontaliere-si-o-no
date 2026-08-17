@@ -1080,6 +1080,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'siccita-svizzera-ladri-acqua-preoccupazioni': { it: 'siccita-svizzera-ladri-acqua-preoccupazioni', en: 'switzerland-drought-water-theft-concerns', de: 'schweiz-durre-wasser-diebstahl-sorgen', fr: 'suisse-secheresse-vols-eau-inquietudes' },
  'cyberattacco-stadler-rail': { it: 'cyberattacco-stadler-rail', en: 'stadler-rail-cyberattack', de: 'stadler-rail-hackfall', fr: 'attaque-informatique-stadler-rail' },
  'sanzioni-onu-2026-ch': { it: 'sanzioni-onu-2026-ch', en: 'un-sanctions-2026', de: 'un-sanktionen-2026', fr: 'sanctions-onu-2026' },
+ 'trasporti-pubblici-zugo-abbonamenti': { it: 'trasporti-pubblici-zugo-abbonamenti', en: 'public-transport-zug-subscriptions', de: 'offentliche-verkehrsmittel-zug-abos', fr: 'transports-publics-zoug-abonnements' },
+ 'minuscoli-droni-sonore-epfl': { it: 'minuscoli-droni-sonore-epfl', en: 'epfl-research-mini-drones-sound-waves', de: 'epfl-forschung-mini-drohnen-schallwellen', fr: 'recherche-epfl-mini-drones-ondes-sonores' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
