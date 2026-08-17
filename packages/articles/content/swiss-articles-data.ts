@@ -9577,6 +9577,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-neutralita-si',
+    category: 'fiscale',
+    date: '2026-08-17T20:08:07.338Z',
+    image: '/images/blog/svizzera-neutralita-si.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

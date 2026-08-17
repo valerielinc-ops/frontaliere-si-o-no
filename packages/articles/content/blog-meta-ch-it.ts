@@ -3193,6 +3193,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lugano-calciomercato.title': 'Russo al Lugano? serve pazienza',
     'blog.article.lugano-calciomercato.excerpt': 'La trattativa tra il Lugano e Stefano Russo non è decollata: prima serve la qualificazione in Coppa.',
     'blog.article.lugano-calciomercato.imageAlt': 'Un giocatore di calcio in azione a Lugano, con il lago sullo sfondo.',
+    'blog.article.svizzera-neutralita-si.title': 'Sì a una Svizzera neutrale e indipendente',
+    'blog.article.svizzera-neutralita-si.excerpt': 'Il Consigliere Nazionale Lorenzo Quadri: \'La neutralità non è una scelta di comodo, presuppone una schiena dritta\'',
+    'blog.article.svizzera-neutralita-si.imageAlt': 'Frontalieri ticinesi in una piazza di Lugano con bandiera svizzera',
 };
 
 export default blogMetaChIt;
