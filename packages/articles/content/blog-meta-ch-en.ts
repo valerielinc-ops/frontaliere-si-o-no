@@ -3031,6 +3031,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.title': 'There is no Canton of Nidvaldo in Switzerland',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.excerpt': 'Switzerland has 26 cantons, but there is no Canton of Nidvaldo',
     'blog.article.imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote.imageAlt': 'A map of Europe with a finger pointed at the non-existent Nidvaldo canton',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Driving licence in Nidvaldo: conversion and mandatory exams',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'To convert your foreign driver\'s license in Switzerland, you need to present the following documents: your passport, your foreign driver\'s license, and a copy of your rental agreement or property.',
+    'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Image of a frontaliere going to the traffic office to convert their foreign driving license',
 };
 
 export default blogMetaChEn;

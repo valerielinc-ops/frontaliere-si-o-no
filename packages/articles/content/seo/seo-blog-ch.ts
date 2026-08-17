@@ -39293,6 +39293,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-canton-nidvaldo-conversione': {
+    title: 'Patente di guida in Nidvaldo: conversione e esami obbligatori',
+    description: 'Per convertire la licenza di guida estera in Svizzera, è necessario presentare i seguenti documenti: il passaporto, la licenza di guida estera e una copia',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, nidvaldo, conversione, esami',
+    ogTitle: 'Convertire la licenza di guida estera in Svizzera',
+    ogDescription: 'Per convertire la licenza di guida estera in Svizzera, è necessario presentare i seguenti documenti: il passaporto, la licenza di guida estera e una copia del contratto di affitto o della proprietà.',
+    canonicalPath: '/articoli-svizzera/patente-guida-canton-nidvaldo-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida in Nidvaldo: conversione e esami obbligatori",
+      "description": "Per convertire la licenza di guida estera in Svizzera, è necessario presentare i seguenti documenti: il passaporto, la licenza di guida estera e una copia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-canton-nidvaldo-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che si reca all'ufficio della circolazione per convertire la licenza di guida estera"
+      },
+      "datePublished": "2026-08-17T01:54:54+00:00",
+      "dateModified": "2026-08-17T01:54:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-canton-nidvaldo-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
