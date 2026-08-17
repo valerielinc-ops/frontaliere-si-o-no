@@ -3073,6 +3073,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AVS et prestations complémentaires Canton de Glaris : la caisse de compensation',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'Le canton de Glaris offre des prestations complémentaires pour couvrir le minimum vital, en plus des prestations de l\'AVS.',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'image d\'un lac en Suisse',
+    'blog.article.affitti-glarona-2026.title': 'Marché locatif dans le canton de Glaris : loyers moyens et droit de location',
+    'blog.article.affitti-glarona-2026.excerpt': 'Les loyers dans le canton de Glaris ont augmenté en 2026. Voici les loyers moyens et les informations pratiques pour les bailleurs et les locataires.',
+    'blog.article.affitti-glarona-2026.imageAlt': 'Une famille suisse cherchant un appartement à Glarona',
 };
 
 export default blogMetaChFr;

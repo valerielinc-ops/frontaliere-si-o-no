@@ -3073,6 +3073,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AVS e prestazioni complementari Canton Glarona: la cassa di compensazione',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'Il Canton Glarona offre prestazioni complementari per coprire il minimo vitale, in aggiunta alle prestazioni dell\'AVS.',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'immagine di un lago in Svizzera',
+    'blog.article.affitti-glarona-2026.title': 'Mercato degli affitti in Canton Glarona: canoni medi e diritto di locazione',
+    'blog.article.affitti-glarona-2026.excerpt': 'Gli affitti in Canton Glarona sono aumentati nel 2026. Ecco i canoni medi e le informazioni pratiche per i locatori e gli inquilini.',
+    'blog.article.affitti-glarona-2026.imageAlt': 'Una famiglia svizzera in cerca di un appartamento a Glarona',
 };
 
 export default blogMetaChIt;

@@ -3073,6 +3073,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AHV und Ergänzungsleistungen Kanton Glarus: die Ausgleichskasse',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'Der Kanton Glarus bietet neben den Leistungen der AHV Ergänzungsleistungen zur Deckung des Existenzminimums an.',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'Bild eines Sees in der Schweiz',
+    'blog.article.affitti-glarona-2026.title': 'Mietmarkt im Kanton Glarus: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-glarona-2026.excerpt': 'Die Mieten im Kanton Glarus stiegen im Jahr 2026. Hier die Durchschnittsmieten und die praktischen Informationen für Vermieter und Mieter.',
+    'blog.article.affitti-glarona-2026.imageAlt': 'Eine Schweizer Familie sucht nach einem Apartment in Glarona',
 };
 
 export default blogMetaChDe;

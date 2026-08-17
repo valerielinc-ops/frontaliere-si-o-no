@@ -3073,6 +3073,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AVS and complementary services Canton Glarus: the compensation fund',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'The Glarus Canton offers complementary performance to cover the vital minimum, in addition to the performance of the AVS.',
     'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'image of a lake in Switzerland',
+    'blog.article.affitti-glarona-2026.title': 'Rental market in the canton of Glarus: average fees and rental rights',
+    'blog.article.affitti-glarona-2026.excerpt': 'Rents in Canton Glarus increased in 2026. Here are the average fees and practical information for landlords and tenants.',
+    'blog.article.affitti-glarona-2026.imageAlt': 'A Swiss family searching for an apartment in Glarona',
 };
 
 export default blogMetaChEn;
