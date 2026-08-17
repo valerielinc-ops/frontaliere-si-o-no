@@ -9388,6 +9388,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'neutralita-iniziativa-pro-putin',
+    category: 'novita',
+    date: '2026-08-17T13:28:18.499Z',
+    image: '/images/blog/neutralita-iniziativa-pro-putin.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

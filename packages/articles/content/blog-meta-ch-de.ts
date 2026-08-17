@@ -3130,6 +3130,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pioggia-ritorno-siccita-ticino.title': 'Regen und Abkühlung, wir sind fast da. Aber die Trockenheit lässt nicht nach',
     'blog.article.pioggia-ritorno-siccita-ticino.excerpt': 'Wetter Schweiz prognostiziert Niederschlag und sinkende Temperaturen im Tessin, aber die Dürre wird nicht gelöst',
     'blog.article.pioggia-ritorno-siccita-ticino.imageAlt': 'Regen in Lugano: Warten auf das Ende der Dürre',
+    'blog.article.neutralita-iniziativa-pro-putin.title': 'Die Neutralitätsinitiative: Ein Pro-Putin-Text, der der Schweiz schadet',
+    'blog.article.neutralita-iniziativa-pro-putin.excerpt': 'Die Neutralitätsinitiative ist ein Text, der die Handlungsfähigkeit der Schweiz in der Aussenpolitik einschränkt und ihre Sicherheit gefährdet.',
+    'blog.article.neutralita-iniziativa-pro-putin.imageAlt': 'Eine Person, die eine Karte der Schweiz mit einer besorgten Miene betrachtet',
 };
 
 export default blogMetaChDe;

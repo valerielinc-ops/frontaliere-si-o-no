@@ -3130,6 +3130,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pioggia-ritorno-siccita-ticino.title': 'Rain and chill, we\'re almost there. But drought doesn\'t stop',
     'blog.article.pioggia-ritorno-siccita-ticino.excerpt': 'Weather Switzerland predicts precipitation and falling temperatures in Ticino, but the drought will not be solved',
     'blog.article.pioggia-ritorno-siccita-ticino.imageAlt': 'Rain in Lugano: wait for the end of the drought',
+    'blog.article.neutralita-iniziativa-pro-putin.title': 'The neutrality initiative: a pro-Putin text that harms Switzerland',
+    'blog.article.neutralita-iniziativa-pro-putin.excerpt': 'The neutrality initiative is a text that limits Switzerland\'s ability to act on foreign policy and endangers its security.',
+    'blog.article.neutralita-iniziativa-pro-putin.imageAlt': 'A person looking at a map of Switzerland with a worried expression',
 };
 
 export default blogMetaChEn;

@@ -3130,6 +3130,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pioggia-ritorno-siccita-ticino.title': 'Pioggia e refrigerio, ci siamo quasi. Ma la siccità non molla',
     'blog.article.pioggia-ritorno-siccita-ticino.excerpt': 'Meteo Svizzera prevede precipitazioni e calo delle temperature in Ticino, ma la siccità non sarà risolta',
     'blog.article.pioggia-ritorno-siccita-ticino.imageAlt': 'Pioggia a Lugano: attesa per la fine della siccità',
+    'blog.article.neutralita-iniziativa-pro-putin.title': 'L\'iniziativa sulla neutralità: un testo pro-Putin che danneggia la Svizzera',
+    'blog.article.neutralita-iniziativa-pro-putin.excerpt': 'L\'iniziativa sulla neutralità è un testo che limita la capacità della Svizzera di agire in materia di politica estera e mette in pericolo la sua sicurezza.',
+    'blog.article.neutralita-iniziativa-pro-putin.imageAlt': 'Una persona che guarda una mappa della Svizzera con una espressione preoccupata',
 };
 
 export default blogMetaChIt;
