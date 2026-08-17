@@ -10017,6 +10017,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salari-difficili-discussioni.title': 'Les discussions salariales pour l\'année prochaine s\'annoncent difficiles',
     'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse demande une augmentation générale de 2 % pour tous les travailleurs, mais USI juge la demande déconnectée de la réalité économique.',
     'blog.article.salari-difficili-discussioni.imageAlt': 'Photo d\'un poste-frontière entre Suisse et Italie en hiver',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.title': 'L\'économie du Tessin : « Regge mais fragiles »',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.excerpt': 'L\'économie frontalière entre le canton du Tessin et l\'Italie est en discussion. Comment ça se passe ?',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.imageAlt': 'Vue du lac de Lugano',
 };
 
 export default blogMetaFr;

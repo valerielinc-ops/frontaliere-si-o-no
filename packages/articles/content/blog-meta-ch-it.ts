@@ -3109,6 +3109,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.travailsuisse-aumenti-salariali-2026.title': 'Di più Travail.Suisse chiede aumenti salariali del 2%, USI frena',
     'blog.article.travailsuisse-aumenti-salariali-2026.excerpt': 'Travail.Suisse chiede aumenti salariali del 2%, mentre l\'USI frena con un aumento medio dell\'1%.',
     'blog.article.travailsuisse-aumenti-salariali-2026.imageAlt': 'Immagine di un evento in Svizzera',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.title': 'Permesso L di breve durata nel Canton Zugo: validità, proroga e passaggio al permesso B',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.excerpt': 'Durata massima del permesso L nel Canton Zugo, condizioni per la proroga, vincoli con il datore di lavoro e requisiti per passare al permesso di dimora B.',
+    'blog.article.permesso-l-breve-durata-canton-zugo-validita-proroga.imageAlt': 'Panorama del Canton Zugo con lago e Alpi',
+    'blog.article.assegni-familiari-canton-zugo.title': 'Assegni familiari nel Cantone di Zugo: importi e domanda',
+    'blog.article.assegni-familiari-canton-zugo.excerpt': 'Le condizioni di diritto e i criteri di eleggibilità per gli assegni familiari nel Cantone di Zugo.',
+    'blog.article.assegni-familiari-canton-zugo.imageAlt': 'Foto di un bambino giocando in un parco a Lugano.',
+    'blog.article.independenza-svizzera-sicurezza.title': 'L\'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera',
+    'blog.article.independenza-svizzera-sicurezza.excerpt': 'PLR, Centro, Verdi liberali, PS e Verdi sostengono l\'iniziativa.',
+    'blog.article.independenza-svizzera-sicurezza.imageAlt': 'Immagine editoriale relativa a: L\'iniziativa sulla neutralità mette a rischio la sicurezza della Svizzera',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.title': 'Sistema scolastico del Cantone di Zurigo: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.excerpt': 'Il sistema scolastico del Cantone di Zurigo è caratterizzato da un ciclo di istruzione obbligatoria di 9 anni. Gli studenti frequentano le scuole elementari dal 1° al 6° grado, seguiti dalle scuole medie superiori.',
+    'blog.article.sistema-scolastico-canton-zugo-iscrizione-e-cicli.imageAlt': 'Sistema scolastico del Cantone di Zurigo',
 };
 
 export default blogMetaChIt;

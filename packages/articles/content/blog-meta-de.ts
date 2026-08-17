@@ -10014,6 +10014,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salari-difficili-discussioni.title': 'Die Lohngespräche für das kommende Jahr stehen vor schwierigen Herausforderungen',
     'blog.article.salari-difficili-discussioni.excerpt': 'Travail.Suisse fordert eine allgemeine Erhöhung von 2% für alle Arbeitnehmer, aber USI hält die Forderung FÜR von der wirtschaftlichen Realität abgekoppelt.',
     'blog.article.salari-difficili-discussioni.imageAlt': 'Fotografie eines Grenzübergangs zwischen Schweiz und Italien im Winter',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.title': 'Wie geht es der Grenzwirtschaft? «Es hält, aber es gibt Zerbrechlichkeit»',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.excerpt': 'Die Grenzwirtschaft zwischen dem Kanton Tessin und Italien steht auf dem Spiel. Wie geht\'s?',
+    'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.imageAlt': 'Lugano Seeansicht',
 };
 
 export default blogMetaDe;
