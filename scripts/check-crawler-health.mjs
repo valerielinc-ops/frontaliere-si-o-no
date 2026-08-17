@@ -644,6 +644,23 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when a position is republished. Same legitimately-empty
   // small-employer case as linnea/dxt-commodities/gavi.
   'bitfinex',
+  // DIC SA ingénieurs (Aigle VD, jobs.ch/jobup.ch company UUID
+  // ee30c164-1431-42ab-af87-d45a5dc3579f, #5969): verified live 2026-08-17 —
+  // the jobs.ch public search API
+  // (https://job-search-api.jobs.ch/search?companyIds=ee30c164-1431-42ab-af87-d45a5dc3579f)
+  // returns HTTP 200 with the unchanged `{documents:[],numPages:0,totalHits:0}`
+  // shape (same endpoint/shape still used successfully by sibling jobs.ch
+  // parsers, e.g. equans/city-pop), and the company profile page
+  // (https://www.jobup.ch/fr/societes/ee30c164-1431-42ab-af87-d45a5dc3579f-dic-sa/)
+  // explicitly reports `jobCount":0`/`totalHits":0`. This is not the 2026-07-08
+  // detail-locale 404 bug (already fixed by PR #3838 — the parser has used the
+  // 'en' detail-locale prefix since then); the API/parser are healthy and
+  // simply have nothing to return. `lastNonZeroJobs: 1` is physiological for
+  // this small civil-engineering consultancy, which historically has a single
+  // opening at a time. Same legitimately-empty small-employer case as
+  // linnea/wuerth-international/clinica-varini/saint-gobain-weber-isover;
+  // re-arms automatically when DIC SA republishes a vacancy.
+  'dic-sa',
 ]);
 
 /** Read JSON file, return null on any error. */
