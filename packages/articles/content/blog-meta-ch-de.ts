@@ -3061,6 +3061,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Kindertagesstätte und Kinderbetreuung Kanton Glarus Kosten',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Berechnete Einkommenstarife und kantonale Zuschüsse für einkommensschwache Haushalte verfügbar',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custodia dei bambini nel Cantone di Glarona: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Stipendien im Kanton Glarus: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'Das Stipendium des Kantons Glarus ist eine wichtige Gelegenheit für Studierende, die ihr Studium in der Schweiz fortsetzen möchten.',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Stipendien im Kanton Glarus: was ändert sich für Schweizer Studierende?',
 };
 
 export default blogMetaChDe;

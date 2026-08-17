@@ -9181,6 +9181,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'borse-studio-canton-glarona-requisiti-e-importi',
+    category: 'fiscale',
+    date: '2026-08-17T03:52:20.281Z',
+    image: '/images/blog/borse-studio-canton-glarona-requisiti-e-importi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3061,6 +3061,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Asilo nido e custodia bambini Canton Glarona costi',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Tariffe calcolate sul reddito e sussidi cantonali disponibili per le famiglie con reddito basso',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custodia dei bambini nel Cantone di Glarona: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Borse di studio nel Canton Glarona: requisiti e importi',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'La borsa di studio del Canton Glarona è un\'opportunità importante per gli studenti che intendono proseguire gli studi in Svizzera.',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Borse di studio nel Canton Glarona: cosa cambia nella vita degli studenti svizzeri?',
 };
 
 export default blogMetaChIt;

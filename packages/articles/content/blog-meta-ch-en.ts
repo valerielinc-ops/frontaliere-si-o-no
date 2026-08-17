@@ -3061,6 +3061,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.title': 'Nursery and childcare Canton Glarus costs',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.excerpt': 'Income Calculated Rates and Cantonal Subsidies Available for Low-Income Families',
     'blog.article.asilo-nido-custodia-bambini-canton-glarona.imageAlt': 'Custody of children in the Canton of Glarona: nurseries, day-care families, after-school, tariffs calculated on income and cantonal subsidies available',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.title': 'Scholarships in the canton of Glarus: requirements and amounts',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.excerpt': 'The Glarus Canton Scholarship is an important opportunity for students who intend to continue their studies in Switzerland.',
+    'blog.article.borse-studio-canton-glarona-requisiti-e-importi.imageAlt': 'Scholarships in Glarus canton: what changes for Swiss students?',
 };
 
 export default blogMetaChEn;
