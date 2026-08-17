@@ -39761,6 +39761,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scolastico-in-svizzera': {
+    title: 'È tempo di tornare a scuola in molti cantoni | Frontaliere Ticino',
+    description: 'Iniziano le lezioni nei cantoni di Zurigo, Appenzello Interno, Grigioni e altri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tempo, tornare, scuola, molti',
+    ogTitle: 'Scolastico in Svizzera',
+    ogDescription: 'Iniziano le lezioni nei cantoni di Zurigo, Appenzello Interno, Grigioni e altri.',
+    canonicalPath: '/articoli-svizzera/scolastico-in-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "È tempo di tornare a scuola in molti cantoni",
+      "description": "Iniziano le lezioni nei cantoni di Zurigo, Appenzello Interno, Grigioni e altri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scolastico-in-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "immagine di scuola in Svizzera"
+      },
+      "datePublished": "2026-08-17T05:01:03+00:00",
+      "dateModified": "2026-08-17T05:01:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scolastico-in-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

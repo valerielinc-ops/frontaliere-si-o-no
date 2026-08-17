@@ -3067,6 +3067,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'Casa a Glarona: prezzi, fondi e sostenibilità del mutuo',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Prezzi medi delle case nel Cantone di Glarona, fondi propri richiesti e sostenibilità del mutuo ipotecario.',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Comprare casa nel Cantone di Glarona: prezzi medi e fondi propri richiesti',
+    'blog.article.scolastico-in-svizzera.title': 'È tempo di tornare a scuola in molti cantoni',
+    'blog.article.scolastico-in-svizzera.excerpt': 'Iniziano le lezioni nei cantoni di Zurigo, Appenzello Interno, Grigioni e altri',
+    'blog.article.scolastico-in-svizzera.imageAlt': 'immagine di scuola in Svizzera',
 };
 
 export default blogMetaChIt;

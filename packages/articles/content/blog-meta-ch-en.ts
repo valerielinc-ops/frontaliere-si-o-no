@@ -3067,6 +3067,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'House in Glarus: prices, funds and sustainability of the mortgage',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Average house prices in the Canton of Glarus, own funds required and sustainability of the mortgage loan.',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Buying a house in the Glarus Canton: median prices and required own funds',
+    'blog.article.scolastico-in-svizzera.title': 'It\'s time to go back to school in many cantons',
+    'blog.article.scolastico-in-svizzera.excerpt': 'Classes begin in the cantons of Zurich, Inner Appenzell, Graubünden and others',
+    'blog.article.scolastico-in-svizzera.imageAlt': 'school in Switzerland',
 };
 
 export default blogMetaChEn;

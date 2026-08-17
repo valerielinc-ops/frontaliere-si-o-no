@@ -3067,6 +3067,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.title': 'Haus in Glarus: Preise, Fonds und Nachhaltigkeit des Darlehens',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.excerpt': 'Durchschnittliche Hauspreise im Kanton Glarus, benötigte Eigenmittel und Tragbarkeit des Hypothekardarlehens.',
     'blog.article.comprare-casa-canton-glarona-prezzi-e-mutuo-ipotecario.imageAlt': 'Im Kauf einer Wohnung im Kanton Glarus: durchschnittliche Preise und erforderliche Selbstfinanzierung',
+    'blog.article.scolastico-in-svizzera.title': 'Es ist Zeit, in vielen Kantonen wieder zur Schule zu gehen',
+    'blog.article.scolastico-in-svizzera.excerpt': 'Der Unterricht beginnt in den Kantonen Zürich, Appenzell Innerrhoden, Graubünden und anderen',
+    'blog.article.scolastico-in-svizzera.imageAlt': 'Schule in der Schweiz',
 };
 
 export default blogMetaChDe;
