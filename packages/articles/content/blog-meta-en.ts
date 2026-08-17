@@ -10018,6 +10018,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.title': 'Ticino border economy: fragile balance',
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.excerpt': 'The border economy between the Canton of Ticino and Italy is in question. How is it going?',
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.imageAlt': 'Lugano lake view',
+    'blog.article.pernottamenti-alberghieri-a-luglio.title': 'Slight recovery in hotel overnight stays in July',
+    'blog.article.pernottamenti-alberghieri-a-luglio.excerpt': 'The number of overnight stays increased by 0.3% on an annual basis, according to the Federal Statistical Office (FSO) on the occasion of an initial experimental estimate.',
+    'blog.article.pernottamenti-alberghieri-a-luglio.imageAlt': 'Image of a hotel in Ticino with an increase in overnight stays in July 2026',
 };
 
 export default blogMetaEn;

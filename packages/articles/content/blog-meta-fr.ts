@@ -10020,6 +10020,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.title': 'L\'économie du Tessin : « Regge mais fragiles »',
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.excerpt': 'L\'économie frontalière entre le canton du Tessin et l\'Italie est en discussion. Comment ça se passe ?',
     'blog.article.come-va-leconomia-di-confine-con-il-canton-ticino.imageAlt': 'Vue du lac de Lugano',
+    'blog.article.pernottamenti-alberghieri-a-luglio.title': 'Légère reprise des nuitées hôtelières en juillet',
+    'blog.article.pernottamenti-alberghieri-a-luglio.excerpt': 'Le nombre de nuitées a augmenté de 0,3% sur une base annuelle, selon ce qui a été communiqué par l\'Office fédéral de la statistique (OFS) lors d\'une première estimation expérimentale.',
+    'blog.article.pernottamenti-alberghieri-a-luglio.imageAlt': 'Image d\'un hôtel en Suisse avec une augmentation des nuitées en juillet 2026',
 };
 
 export default blogMetaFr;
