@@ -3175,6 +3175,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.title': 'Starting a business in the Canton of Zurich: trade register and costs',
     'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.excerpt': 'The costs of opening a business in the Canton of Zurich and the procedure for registration in the commercial register.',
     'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.imageAlt': 'Business setup in the Canton of Zurich, Switzerland',
+    'blog.article.patente-guida-cantone-zugo-conversione.title': 'Driver\'s license in the Canton of Zug: conversion of the foreign license',
+    'blog.article.patente-guida-cantone-zugo-conversione.excerpt': 'The conversion of the foreign driving license is mandatory for border workers residing in the Canton of Zug.',
+    'blog.article.patente-guida-cantone-zugo-conversione.imageAlt': 'Image of a guide driving a foreigner in the Canton of Zug.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.title': 'Inheritance and gift taxes in Zug: rates and terms',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.excerpt': 'In the Canton of Zug, inheritance and gift tax is regulated by a specific law that establishes different rates based on the degree of kinship and exemptions for spouse and descendants.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.imageAlt': 'A panoramic view of Lugano, Switzerland, with a view of the city and lake.',
 };
 
 export default blogMetaChEn;

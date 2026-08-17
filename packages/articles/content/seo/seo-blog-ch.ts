@@ -41165,6 +41165,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-cantone-zugo-conversione': {
+    title: 'Patente di guida nel Cantone di Zugo: conversione della licenza estera',
+    description: 'La conversione della licenza di guida estera è obbligatoria per i frontaliere che risiedono nel Cantone di Zugo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, cantone, zugo, conversione',
+    ogTitle: 'Conversione della licenza di guida estera nel Cantone di Zugo',
+    ogDescription: 'La conversione della licenza di guida estera è obbligatoria per i frontaliere che risiedono nel Cantone di Zugo.',
+    canonicalPath: '/articoli-svizzera/patente-guida-cantone-zugo-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida nel Cantone di Zugo: conversione della licenza estera",
+      "description": "La conversione della licenza di guida estera è obbligatoria per i frontaliere che risiedono nel Cantone di Zugo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-cantone-zugo-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una guida che guida un frontaliere nel Cantone di Zugo."
+      },
+      "datePublished": "2026-08-17T17:33:42+00:00",
+      "dateModified": "2026-08-17T17:33:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-cantone-zugo-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-di-succesione-e-donazione-canton-zugo-aliquote': {
+    title: 'Imposte di successione e donazione a Zugo: aliquote e termini',
+    description: 'L\'imposta di successione e donazione nel Cantone di Zugo è regolata da una legge specifica che stabilisce aliquote differenti in base al grado di parentela',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, successione, donazione, zugo',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Zugo: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini da rispettare.',
+    ogDescription: 'L\'imposta di successione e donazione nel Cantone di Zugo è regolata da una legge specifica che stabilisce aliquote differenti in base al grado di parentela e alle esenzioni per coniuge e discendenti.',
+    canonicalPath: '/articoli-svizzera/imposta-di-succesione-e-donazione-canton-zugo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte di successione e donazione a Zugo: aliquote e termini",
+      "description": "L'imposta di successione e donazione nel Cantone di Zugo è regolata da una legge specifica che stabilisce aliquote differenti in base al grado di parentela",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-succesione-e-donazione-canton-zugo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una panoramica di Lugano, in Svizzera, con una vista sulla città e il lago."
+      },
+      "datePublished": "2026-08-17T17:45:01+00:00",
+      "dateModified": "2026-08-17T17:45:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-succesione-e-donazione-canton-zugo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
