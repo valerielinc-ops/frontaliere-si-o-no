@@ -11,8 +11,14 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-17T09:52:12.986Z",
+  "updatedAt": "2026-08-17T21:32:17.163Z",
   "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Gen%C3%A8ve-Technicien%C2%B7ne-de-Maintenance-Navigation-%2880-100%29/1427091833/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "Skyguide",
+      "postedDate": "2026-08-17"
+    },
     "https://jobs.skyguide.ch/job/Geneva-System-Integration-and-Test-Engineer-%2880-100%29/1425050133/": {
       "location": "Geneva",
       "canton": "GE",
