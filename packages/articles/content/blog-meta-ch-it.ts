@@ -3091,6 +3091,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonal-zugo-aliquote.title': 'Imposte cantonali in Zugo: aliquote, scaglioni, deduzioni',
     'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Risultati concreti delle imposte cantonali di Zugo: aliquote, scaglioni, deduzioni ammesse, scadenze di consegna e portale online dell\'amministrazione fiscale cantonale.',
     'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Vista panoramica di Lugano, Svizzera, con enfasi sulle politiche fiscali cantonali.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.title': 'Imposte nel Cantone di Zugo: aliquote e scadenze',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.excerpt': 'L\'amministrazione fiscale cantonale di Zugo rilascia le informazioni sulle imposte cantonali e comunali, comprese le aliquote, gli scaglioni, le deduzioni ammesse, le scadenze di consegna e il portale online.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.imageAlt': 'Immagine di un cartello stradale a Lugano con indicazione delle aliquote fiscali.',
 };
 
 export default blogMetaChIt;

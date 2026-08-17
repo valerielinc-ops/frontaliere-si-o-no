@@ -3091,6 +3091,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonal-zugo-aliquote.title': 'Kantonale Steuern in Zug: Steuersätze, Staffeln, Abzüge',
     'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Konkrete Ergebnisse der kantonalen Zuger Steuern: Sätze, Staffelungen, zulässige Abzüge, Liefertermine und Online-Portal der kantonalen Steuerverwaltung.',
     'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Panoramablick auf Lugano, Schweiz, mit Schwerpunkt auf die kantonalen Finanzpolitiken.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.title': 'Steuern im Kanton Zug: Sätze und Fristen',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.excerpt': 'Die kantonale Steuerverwaltung Zug gibt Auskunft über die kantonalen und kommunalen Steuern einschliesslich der Sätze, Staffelungen, zulässigen Abzüge, Liefertermine und des Online-Portals.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.imageAlt': 'Bild eines Verkehrsschilds in Lugano mit Steuernennung.',
 };
 
 export default blogMetaChDe;

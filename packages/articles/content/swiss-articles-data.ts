@@ -9271,6 +9271,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposte-cantonal-zugo-aliquote-deduzioni',
+    category: 'fiscale',
+    date: '2026-08-17T07:51:32.494Z',
+    image: '/images/blog/imposte-cantonal-zugo-aliquote-deduzioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
