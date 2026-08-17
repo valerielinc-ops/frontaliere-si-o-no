@@ -10008,6 +10008,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-17.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 17. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-17.seoDescription': 'Grenzgänger-Bulletin vom 17. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-17.ogDescription': 'Die Zahlen vom 17. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.tendenza-frontalieri-ticino-2026-q2.title': 'Grenzgänger Tessin im Wachstum 2026-Q2',
+    'blog.article.tendenza-frontalieri-ticino-2026-q2.excerpt': 'Grenzgänger gesamt Kanton Tessin bis 2026-Q2: 79.121',
+    'blog.article.tendenza-frontalieri-ticino-2026-q2.imageAlt': 'Tendenza frontalieri Ticino 2026-Q2',
 };
 
 export default blogMetaDe;

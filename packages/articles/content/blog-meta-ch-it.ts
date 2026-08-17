@@ -3094,6 +3094,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.title': 'Imposte nel Cantone di Zugo: aliquote e scadenze',
     'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.excerpt': 'L\'amministrazione fiscale cantonale di Zugo rilascia le informazioni sulle imposte cantonali e comunali, comprese le aliquote, gli scaglioni, le deduzioni ammesse, le scadenze di consegna e il portale online.',
     'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.imageAlt': 'Immagine di un cartello stradale a Lugano con indicazione delle aliquote fiscali.',
+    'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.title': 'Premi cassa malati cantone Zugo e riduzione premi',
+    'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.excerpt': 'I premi per l\'assicurazione malattia obbligatoria nel Cantone di Zugo: fasce di premio, franchigie, modelli alternativi e requisiti per beneficiare della riduzione dei premi.',
+    'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.imageAlt': 'Una scena di un frontaliere svizzero con la famiglia in un ambiente naturale vicino al lago di Lugano, dove si trova il Cantone di Zugo.',
 };
 
 export default blogMetaChIt;

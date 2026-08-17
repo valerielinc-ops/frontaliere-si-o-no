@@ -3094,6 +3094,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.title': 'Steuern im Kanton Zug: Sätze und Fristen',
     'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.excerpt': 'Die kantonale Steuerverwaltung Zug gibt Auskunft über die kantonalen und kommunalen Steuern einschliesslich der Sätze, Staffelungen, zulässigen Abzüge, Liefertermine und des Online-Portals.',
     'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.imageAlt': 'Bild eines Verkehrsschilds in Lugano mit Steuernennung.',
+    'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.title': 'Krankenversicherungsprämien im Kanton Zug und Prämiensenkungen',
+    'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.excerpt': 'Prämien für die Pflichtkrankenversicherung im Kanton Zug: Prämienbereiche, Selbstbeteiligungen, alternative Modelle und Anforderungen für den Vorteil von Prämiensenkungen.',
+    'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.imageAlt': 'Eine Szene eines schweizerischen Grenzgängers mit Familie in einem natürlichen Umfeld nahe dem Luganersee, wo der Kanton Zugo liegt.',
 };
 
 export default blogMetaChDe;
