@@ -3046,6 +3046,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Glarus: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'Was braucht man, um eine Niederlassungsbewilligung C im Kanton Glarus zu erhalten?',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Bild eines Ausländers, der sich auf die Einreichung einer C-Bewilligung vorbereitet',
+    'blog.article.assegni-familiari-canton-glarona.title': 'Familienzulagen im Kanton Glarus: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-glarona.excerpt': 'Familienzulagen im Kanton Glarus: Wie sie funktionieren, für wen sie bestimmt sind und was die Bürgerinnen und Bürger dafür tun müssen.',
+    'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Redaktionelles Bild zu: Assegni familiari nel Cantone Glarona: importi e domanda',
 };
 
 export default blogMetaChDe;

@@ -3046,6 +3046,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Permis de séjour C dans le canton de Glaris : exigences et demande',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'Que faut-il pour obtenir un permis de séjour C dans le canton de Glaris ?',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Image d\'un étranger qui se prépare à soumettre une demande de permis de domicile C',
+    'blog.article.assegni-familiari-canton-glarona.title': 'Allocations familiales dans le canton de Glaris : montants et demande',
+    'blog.article.assegni-familiari-canton-glarona.excerpt': 'Les allocations familiales dans le canton de Glaris : comment elles fonctionnent, à qui elles sont destinées et ce que les citoyens doivent faire pour les obtenir.',
+    'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Image éditoriale relative à: Assegni familiari nel Cantone Glarona: importi e domanda',
 };
 
 export default blogMetaChFr;

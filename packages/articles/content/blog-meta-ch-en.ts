@@ -3046,6 +3046,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Residence permit C in the Canton of Glarus: requirements and application',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'What does it take to obtain a residence permit C in the Canton of Glarus?',
     'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Image of a foreigner preparing to submit a C permit application',
+    'blog.article.assegni-familiari-canton-glarona.title': 'Family allowances in the Canton of Glarus: amounts and demand',
+    'blog.article.assegni-familiari-canton-glarona.excerpt': 'Family allowances in the Canton of Glarus: how they work, who they are intended for and what citizens must do to obtain them.',
+    'blog.article.assegni-familiari-canton-glarona.imageAlt': 'Editorial image related to: Assegni familiari nel Cantone Glarona: importi e domanda',
 };
 
 export default blogMetaChEn;
