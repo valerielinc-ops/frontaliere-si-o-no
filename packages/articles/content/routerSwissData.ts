@@ -1086,6 +1086,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi': { it: 'aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi', en: 'open-a-business-in-canton-zurich-switzerland', de: 'unternehmen-in-kanton-zuerich-schweiz-gruenden', fr: 'ouvrir-une-entreprise-dans-le-canton-de-zurich-suisse' },
  'patente-guida-cantone-zugo-conversione': { it: 'patente-guida-cantone-zugo-conversione', en: 'canton-zug-driving-license-conversion', de: 'fuehrerschein-kanton-zug-umstellung', fr: 'permis-de-conduire-canton-de-zoug-conversion' },
  'imposta-di-succesione-e-donazione-canton-zugo-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-zugo-aliquote', en: 'inheritance-and-donation-tax-zug-cantonal-rates', de: 'erbschafts-und-schenkungssteuer-kanton-zug-kantonal-satze', fr: 'impot-de-succession-et-de-dons-canton-de-zoug-taux-cantonaux' },
+ 'imposte-cantoni-friburgo-aliquote-deduzioni': { it: 'imposte-cantoni-friburgo-aliquote-deduzioni', en: 'cantonal-taxes-in-the-canton-of-fribourg-rates-and-deductions', de: 'imposten-kantonen-freiburg-aliquoten-abzuge', fr: 'impostes-cantons-fribourg-aliquots-deductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

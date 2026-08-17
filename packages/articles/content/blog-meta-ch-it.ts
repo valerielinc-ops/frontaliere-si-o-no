@@ -3181,6 +3181,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.title': 'Imposte di successione e donazione a Zugo: aliquote e termini',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.excerpt': 'Nel Cantone di Zugo, l\'imposta di successione e donazione è regolata da una legge specifica che stabilisce aliquote differenti in base al grado di parentela e alle esenzioni per coniuge e discendenti.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.imageAlt': 'Una panoramica di Lugano, in Svizzera, con una vista sulla città e il lago.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Imposte cantonali nel Canton Friburgo: aliquote e deduzioni',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'L\'aliquota media nel Canton Friburgo è del 12,7% e le deduzioni ammesse sono del 20,5%.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'Una scena di Lugano con il Lago di Lugano in primo piano',
 };
 
 export default blogMetaChIt;

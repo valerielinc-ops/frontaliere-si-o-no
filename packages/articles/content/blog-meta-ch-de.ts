@@ -3181,6 +3181,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.title': 'Erbschafts- und Schenkungssteuern in Zug: Sätze und Fristen',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.excerpt': 'Im Kanton Zug wird die Erbschafts- und Schenkungssteuer durch ein spezifisches Gesetz geregelt, das je nach Verwandtschaftsgrad unterschiedliche Sätze und Befreiungen für Ehegatten und Nachkommen festlegt.',
     'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.imageAlt': 'Eine Panoramabild von Lugano, Schweiz, mit einem Blick auf die Stadt und den See.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.title': 'Kantonale Steuern im Kanton Freiburg: Steuersätze und Abzüge',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.excerpt': 'Der durchschnittliche Steuersatz im Kanton Freiburg beträgt 12,7% und die zulässigen Abzüge 20,5%.',
+    'blog.article.imposte-cantoni-friburgo-aliquote-deduzioni.imageAlt': 'Eine Szene von Lugano mit dem Luganersee im Vordergrund',
 };
 
 export default blogMetaChDe;
