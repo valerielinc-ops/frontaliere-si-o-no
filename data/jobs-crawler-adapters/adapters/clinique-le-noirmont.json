@@ -10,50 +10,36 @@
   ],
   "seedUrls": [
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1031",
-    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1029",
-    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1022",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1020",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/966",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1037"
   ],
   "notes": "Dedicated Clinique Le Noirmont crawler parses the Offres-demploi page and extracts descriptions from /File and /FileDownload PDF endpoints.",
-  "updatedAt": "2026-08-16T21:24:34.214Z",
+  "updatedAt": "2026-08-17T10:02:59.192Z",
   "seedMetaByUrl": {
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1031": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-08-16"
-    },
-    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1029": {
-      "location": "Le Noirmont",
-      "canton": "JU",
-      "company": "Clinique Le Noirmont",
-      "postedDate": "2026-08-16"
-    },
-    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1022": {
-      "location": "Le Noirmont",
-      "canton": "JU",
-      "company": "Clinique Le Noirmont",
-      "postedDate": "2026-08-16"
+      "postedDate": "2026-08-17"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1020": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-08-16"
+      "postedDate": "2026-08-17"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/966": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-08-16"
+      "postedDate": "2026-08-17"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1037": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-08-16"
+      "postedDate": "2026-08-17"
     }
   }
 }
