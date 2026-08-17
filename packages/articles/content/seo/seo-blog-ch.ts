@@ -39371,6 +39371,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-canton-glarona': {
+    title: 'Permesso L di breve durata nel Canton Glarona: validità e proroga',
+    description: 'Informazioni sul permesso L di breve durata nel Canton Glarona. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, canton',
+    ogTitle: 'Permesso L di breve durata nel Canton Glarona',
+    ogDescription: 'Informazioni sul permesso L di breve durata nel Canton Glarona',
+    canonicalPath: '/articoli-svizzera/permesso-l-canton-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L di breve durata nel Canton Glarona: validità e proroga",
+      "description": "Informazioni sul permesso L di breve durata nel Canton Glarona. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-canton-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine relativa al permesso L di breve durata nel Canton Glarona"
+      },
+      "datePublished": "2026-08-17T02:10:15+00:00",
+      "dateModified": "2026-08-17T02:10:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-canton-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

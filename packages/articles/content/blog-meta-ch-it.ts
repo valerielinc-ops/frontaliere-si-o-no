@@ -3037,6 +3037,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Permessi di dimora B nel Canton di Glarona: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'Il permesso di dimora B nel Canton di Glarona è valido per un massimo di 1 anno. I requisiti e i documenti richiesti sono specificati nella Convenzione italo-svizzera contro le doppie imposizioni.',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'Un frontaliere davanti alla vista del Lago di Lugano',
+    'blog.article.permesso-l-canton-glarona.title': 'Permesso L di breve durata nel Canton Glarona: validità e proroga',
+    'blog.article.permesso-l-canton-glarona.excerpt': 'Il permesso L di breve durata nel Canton Glarona è un documento importante per i lavoratori frontalieri.',
+    'blog.article.permesso-l-canton-glarona.imageAlt': 'Immagine relativa al permesso L di breve durata nel Canton Glarona',
 };
 
 export default blogMetaChIt;
