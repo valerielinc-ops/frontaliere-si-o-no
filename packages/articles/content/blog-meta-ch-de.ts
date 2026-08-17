@@ -3175,6 +3175,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.title': 'Geschäft im Kanton Zürich eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.excerpt': 'Die Kosten für die Gründung eines Unternehmens im Kanton Zürich und das Verfahren für die Eintragung ins Handelsregister.',
     'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.imageAlt': 'Gründung einer Geschäftstätigkeit im Kanton Zürich, Schweiz',
+    'blog.article.patente-guida-cantone-zugo-conversione.title': 'Führerschein im Kanton Zug: Umtausch des ausländischen Führerscheins',
+    'blog.article.patente-guida-cantone-zugo-conversione.excerpt': 'Der Umtausch des ausländischen Führerscheins ist für Grenzgänger mit Wohnsitz im Kanton Zug obligatorisch.',
+    'blog.article.patente-guida-cantone-zugo-conversione.imageAlt': 'Bild einer Führerin, die einen Frontalier im Kanton Zug lenkt.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.title': 'Erbschafts- und Schenkungssteuern in Zug: Sätze und Fristen',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.excerpt': 'Im Kanton Zug wird die Erbschafts- und Schenkungssteuer durch ein spezifisches Gesetz geregelt, das je nach Verwandtschaftsgrad unterschiedliche Sätze und Befreiungen für Ehegatten und Nachkommen festlegt.',
+    'blog.article.imposta-di-succesione-e-donazione-canton-zugo-aliquote.imageAlt': 'Eine Panoramabild von Lugano, Schweiz, mit einem Blick auf die Stadt und den See.',
 };
 
 export default blogMetaChDe;
