@@ -3100,6 +3100,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-svizzera-aumentati-2026.title': 'Travail.Suisse calls for a general increase in wages in Switzerland',
     'blog.article.salari-svizzera-aumentati-2026.excerpt': 'Travail.Suisse is asking for a 2% increase for all workers, but the negotiations are going to be difficult.',
     'blog.article.salari-svizzera-aumentati-2026.imageAlt': 'Switzerland\'s salary situation, with 2% increase requested by Travail.Suisse',
+    'blog.article.costo-elettricit-svizzera.title': 'Four billion to keep the light from missing',
+    'blog.article.costo-elettricit-svizzera.excerpt': 'Switzerland should invest CHF 4 billion to ensure stable energy reserves.',
+    'blog.article.costo-elettricit-svizzera.imageAlt': 'The Switzerland needs to invest to ensure stable energy reserves.',
 };
 
 export default blogMetaChEn;
