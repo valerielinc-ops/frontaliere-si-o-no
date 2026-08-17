@@ -3190,6 +3190,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Permessi di domicilio C nel Cantone di Friburgo: requisiti e domanda',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Il permesso di domicilio C nel Cantone di Friburgo richiede almeno 5 anni di residenza per i cittadini stranieri non UE/AELS.',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Immagine di un uomo che riempie un modulo per il permesso di domicilio C nel Cantone di Friburgo.',
+    'blog.article.lugano-calciomercato.title': 'Russo al Lugano? serve pazienza',
+    'blog.article.lugano-calciomercato.excerpt': 'La trattativa tra il Lugano e Stefano Russo non è decollata: prima serve la qualificazione in Coppa.',
+    'blog.article.lugano-calciomercato.imageAlt': 'Un giocatore di calcio in azione a Lugano, con il lago sullo sfondo.',
 };
 
 export default blogMetaChIt;

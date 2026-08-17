@@ -3190,6 +3190,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Residence permits C in the Canton of Freiburg: requirements and application',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Residence permit C in the Canton of Freiburg requires at least 5 years of residence for non-EU/EFTA foreign nationals.',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Image of a man filling out a form for a residence permit C in the Canton of Fribourg.',
+    'blog.article.lugano-calciomercato.title': 'Russian at Lugano? you need patience',
+    'blog.article.lugano-calciomercato.excerpt': 'The negotiation between Lugano and Stefano Russo has not taken off: first you need to qualify for the Cup.',
+    'blog.article.lugano-calciomercato.imageAlt': 'A football player in action at Lugano, with the lake in the background.',
 };
 
 export default blogMetaChEn;

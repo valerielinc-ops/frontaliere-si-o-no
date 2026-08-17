@@ -3190,6 +3190,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-domicilio-c-canton-friburgo.title': 'Permis de séjour C dans le canton de Fribourg : exigences et demande',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.excerpt': 'Le permis de séjour C dans le canton de Fribourg nécessite au moins 5 ans de résidence pour les ressortissants étrangers non UE/AELE.',
     'blog.article.permesso-di-domicilio-c-canton-friburgo.imageAlt': 'Image d\'un homme qui remplit un formulaire pour un permis de résidence C dans le canton de Fribourg.',
+    'blog.article.lugano-calciomercato.title': 'Russe à Lugano ? il faut de la patience',
+    'blog.article.lugano-calciomercato.excerpt': 'Les négociations entre Lugano et Stefano Russo n\'ont pas décollé : il faut d\'abord se qualifier en Coupe.',
+    'blog.article.lugano-calciomercato.imageAlt': 'Un joueur de football en action à Lugano, avec le lac en arrière-plan.',
 };
 
 export default blogMetaChFr;

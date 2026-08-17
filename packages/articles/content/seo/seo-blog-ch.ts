@@ -41360,6 +41360,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-calciomercato': {
+    title: 'Russo al Lugano? serve pazienza | Frontaliere Ticino',
+    description: 'La trattativa tra il Lugano e Stefano Russo non è decollata: prima serve la qualificazione in Coppa. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, russo, lugano, serve, pazienza',
+    ogTitle: 'Russo al Lugano? Serve pazienza',
+    ogDescription: 'La trattativa tra il Lugano e Stefano Russo non è decollata: prima serve la qualificazione in Coppa.',
+    canonicalPath: '/articoli-svizzera/lugano-calciomercato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Russo al Lugano? serve pazienza",
+      "description": "La trattativa tra il Lugano e Stefano Russo non è decollata: prima serve la qualificazione in Coppa. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lugano-calciomercato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giocatore di calcio in azione a Lugano, con il lago sullo sfondo."
+      },
+      "datePublished": "2026-08-17T20:01:34+00:00",
+      "dateModified": "2026-08-17T20:01:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lugano-calciomercato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
