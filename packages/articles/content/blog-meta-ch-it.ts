@@ -3199,6 +3199,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Permesso L di breve durata nel Cantone di Friburgo: validità e proroga',
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'Il permesso L di breve durata nel Cantone di Friburgo è valido per un periodo massimo di 1 anno. Ecco le condizioni di proroga e il passaggio al permesso di dimora.',
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'Un frontaliere valica il confine con Friburgo in Svizzera',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.title': 'Texas, sospesi i lavori per il muro anti-migranti a Big Bend',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.excerpt': 'La decisione dell\'amministrazione Trump di sospendere i lavori per il muro anti-migranti a Big Bend, in Texas, potrebbe avere implicazioni per la politica fiscale svizzera.',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.imageAlt': 'L\'amministrazione Trump sospenderà i lavori per il muro anti-migranti a Big Bend, in Texas.',
+    'blog.article.infantino-fifa-lamour-licenziato.title': 'Accusò Infantino di tradimento: licenziato',
+    'blog.article.infantino-fifa-lamour-licenziato.excerpt': 'La FIFA ha licenziato Kevin Lamour, alto funzionario franco-svizzero, dopo le sue critiche pubbliche rivolte a Infantino e ai suoi piani di investimento per il Mondiale',
+    'blog.article.infantino-fifa-lamour-licenziato.imageAlt': 'Frontalieri residenti in Svizzera protestano contro la FIFA e la nomina di Infantino come presidente',
 };
 
 export default blogMetaChIt;

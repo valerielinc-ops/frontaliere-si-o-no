@@ -68828,6 +68828,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-concorsa-interna-ticino': {
+    title: 'La concorrenza interna in Ticino mobiliterà gli elettori',
+    description: 'La concorrenza interna in Ticino potrebbe influenzare gli elettori, ma come?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, concorrenza, interna, mobiliterà, elettori',
+    ogTitle: 'La concorrenza interna in Ticino mobiliterà gli elettori',
+    ogDescription: 'La concorrenza interna in Ticino potrebbe influenzare gli elettori, ma non sono ancora specificati i dettagli.',
+    canonicalPath: '/articoli-frontaliere/concorsa-interna-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La concorrenza interna in Ticino mobiliterà gli elettori",
+      "description": "La concorrenza interna in Ticino potrebbe influenzare gli elettori, ma come?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/concorsa-interna-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La concorrenza interna in Ticino"
+      },
+      "datePublished": "2026-08-17T21:56:03+00:00",
+      "dateModified": "2026-08-17T21:56:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/concorsa-interna-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

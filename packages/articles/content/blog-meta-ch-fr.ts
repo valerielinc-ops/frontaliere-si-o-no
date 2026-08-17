@@ -3199,6 +3199,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Permis L de courte durée dans le canton de Fribourg : validité et prolongation',
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'Le permis L de courte durée dans le canton de Fribourg est valable pour une durée maximale d\'un an. Voici les conditions de prolongation et de passage à l\'autorisation de séjour.',
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'Un frontalier franchit la frontière avec Fribourg en Suisse',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.title': 'Texas, travaux suspendus pour le mur anti-migrants à Big Bend',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.excerpt': 'La décision de l\'administration Trump de suspendre les travaux pour le mur anti-migrants à Big Bend, au Texas, pourrait avoir des implications pour la politique fiscale suisse.',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.imageAlt': 'L\'administration Trump suspendra le travaux du mur anti-migrants à Big Bend, au Texas.',
+    'blog.article.infantino-fifa-lamour-licenziato.title': 'Il accusa Infantino de trahison : licencié',
+    'blog.article.infantino-fifa-lamour-licenziato.excerpt': 'La FIFA a limogé Kevin Lamour, haut responsable franco-suisse, après ses critiques publiques à l\'égard d\'Infantino et de ses plans d\'investissement pour la Coupe du Monde',
+    'blog.article.infantino-fifa-lamour-licenziato.imageAlt': 'Résidents suisses protestent contre la FIFA et la nomination d\'Infantino en tant que président',
 };
 
 export default blogMetaChFr;

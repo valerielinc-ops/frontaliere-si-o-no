@@ -3199,6 +3199,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Short-term permit L in the Canton of Freiburg: validity and extension',
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'The short-term L permit in the Canton of Freiburg is valid for a maximum period of 1 year. Here are the conditions of extension and the transition to a residence permit.',
     'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'A frontaliere crosses the border with Fribourg in Switzerland',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.title': 'Texas, work on the anti-migrant wall in Big Bend suspended',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.excerpt': 'The Trump administration\'s decision to suspend work on the anti-migrant wall in Big Bend, Texas, could have implications for Swiss tax policy.',
+    'blog.article.sospensione-lavori-muro-anti-migranti-big-bend-texas.imageAlt': 'The Trump administration will suspend work on the anti-migrant wall in Big Bend, Texas.',
+    'blog.article.infantino-fifa-lamour-licenziato.title': 'He accused Infantino of treason: fired',
+    'blog.article.infantino-fifa-lamour-licenziato.excerpt': 'FIFA has fired Kevin Lamour, a senior French-Swiss official, after his public criticism of Infantino and his World Cup investment plans',
+    'blog.article.infantino-fifa-lamour-licenziato.imageAlt': 'Swiss residents protest against FIFA and Infantino\'s nomination as president',
 };
 
 export default blogMetaChEn;
