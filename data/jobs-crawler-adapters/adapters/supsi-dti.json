@@ -13,9 +13,8 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-08-16T21:47:44.382Z",
+  "updatedAt": "2026-08-17T10:11:00.886Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando-26_1015",
     "https://www.supsi.ch/bando26_2004",
     "https://www.supsi.ch/bando26_2005",
     "https://www.supsi.ch/bando26_5036",
@@ -23,6 +22,7 @@
     "https://www.supsi.ch/bando26_5020",
     "https://www.supsi.ch/bando26_5028",
     "https://www.supsi.ch/bando26_5021",
+    "https://www.supsi.ch/bando26_5022",
     "https://www.supsi.ch/bando26_5023",
     "https://www.supsi.ch/bando26_5027",
     "https://www.supsi.ch/bando26_5037",
@@ -32,15 +32,6 @@
     "https://www.supsi.ch/bando26_4013"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando-26_1015": {
-      "location": "Dipartimento ambiente costruzioni e design (DACD)",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-16"
-    },
     "https://www.supsi.ch/bando26_2004": {
       "location": "Manno",
       "canton": "TI",
@@ -96,6 +87,15 @@
       "expiresAt": "2026-08-31"
     },
     "https://www.supsi.ch/bando26_5021": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5022": {
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
