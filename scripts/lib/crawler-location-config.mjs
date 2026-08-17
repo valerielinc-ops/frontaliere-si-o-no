@@ -383,7 +383,7 @@ export const COMPANY_HQ = {
   'faulhaber':                    { city: 'Croglio',            canton: 'TI', postalCode: '6981', addressRegion: 'TI' },
   'kudelski-nagra':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'franklin-university':          { city: 'Sorengo',            canton: 'TI', postalCode: '6924', addressRegion: 'TI' },
-  'elettra-1938':                 { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'elettra-1938':                 { city: 'Stabio',             canton: 'TI', postalCode: '6855', addressRegion: 'TI' },
   'zurich-insurance':             { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
   // ── Cathedral Phase 2 Wave C Batch 2 ──
   'nestle':                       { city: 'Vevey',              canton: 'VD', postalCode: '1800', addressRegion: 'VD' },
