@@ -3097,6 +3097,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.title': 'Krankenversicherungsprämien im Kanton Zug und Prämiensenkungen',
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.excerpt': 'Prämien für die Pflichtkrankenversicherung im Kanton Zug: Prämienbereiche, Selbstbeteiligungen, alternative Modelle und Anforderungen für den Vorteil von Prämiensenkungen.',
     'blog.article.premi-cassa-malati-cantone-zugo-riduzione-premi.imageAlt': 'Eine Szene eines schweizerischen Grenzgängers mit Familie in einem natürlichen Umfeld nahe dem Luganersee, wo der Kanton Zugo liegt.',
+    'blog.article.salari-svizzera-aumentati-2026.title': 'Travail.Suisse fordert eine generelle Lohnerhöhung in der Schweiz',
+    'blog.article.salari-svizzera-aumentati-2026.excerpt': 'Travail.Suisse fordert eine Erhöhung um 2% für alle Arbeitnehmer, aber die Verhandlungen werden schwierig.',
+    'blog.article.salari-svizzera-aumentati-2026.imageAlt': 'Die Löhne in der Schweiz, mit 2-Prozent-Zuwachs gefordert von Travail.Suisse',
 };
 
 export default blogMetaChDe;

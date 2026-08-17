@@ -1058,6 +1058,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonal-zugo-aliquote': { it: 'imposte-cantonal-zugo-aliquote', en: 'zurich-cantonal-taxes-rates', de: 'kantonale-steuern-zuerich-schweiz', fr: 'impots-cantonaux-zurich-suisse' },
  'imposte-cantonal-zugo-aliquote-deduzioni': { it: 'imposte-cantonal-zugo-aliquote-deduzioni', en: 'zurich-cantonal-taxes-rates-and-deductions', de: 'zurich-kantonalsteuer-satze-und-abzuge', fr: 'taxes-cantonales-zurich-taux-et-deductions' },
  'premi-cassa-malati-cantone-zugo-riduzione-premi': { it: 'premi-cassa-malati-cantone-zugo-riduzione-premi', en: 'premi-cassa-malati-canton-zugo-riduzione-premi', de: 'premi-cassa-malati-kanton-zugo-riduzione-premi', fr: 'premi-cassa-malati-canton-de-zoug-riduzione-premi' },
+ 'salari-svizzera-aumentati-2026': { it: 'salari-svizzera-aumentati-2026', en: 'salaries-switzerland-increased-2026', de: 'lohn-schweiz-zuwachs-2026', fr: 'situation-salariale-suisse-augmentation-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
