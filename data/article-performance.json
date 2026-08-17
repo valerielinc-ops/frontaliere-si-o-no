@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-10T05:19:56Z",
+  "generatedAt": "2026-08-17T04:37:42Z",
   "windowDays": 30,
-  "articleCount": 12652,
-  "articlesScored": 1626,
+  "articleCount": 13308,
+  "articlesScored": 1597,
   "filters": {
     "newsletter": {
       "applied": true,
@@ -12,7 +12,7 @@
   "sources": {
     "gsc": {
       "ok": true,
-      "rows": 952
+      "rows": 946
     },
     "ga4": {
       "ok": true,
@@ -20,13 +20,13 @@
     },
     "posthog": {
       "ok": true,
-      "rows": 1184
+      "rows": 1225
     },
     "adsense": {
       "ok": true,
-      "rows": 1226,
-      "totalRevenue": 10.4,
-      "totalAcrossAllChannels": 199.57,
+      "rows": 1216,
+      "totalRevenue": 10.36,
+      "totalAcrossAllChannels": 183.76,
       "matchedHints": true,
       "matchedChannelNames": [
         "frontaliereticino.ch/articoli-frontaliere",
@@ -35,52 +35,52 @@
         "frontaliereticino.ch/fr/articles-frontalier"
       ],
       "perChannel": {
-        "frontaliereticino.ch/articoli-frontaliere": 6.76,
-        "frontaliereticino.ch/articoli-svizzera": 1.11,
-        "frontaliereticino.ch/aziende-che-assumono": 3.71,
-        "frontaliereticino.ch/calcola-stipendio": 0.97,
-        "frontaliereticino.ch/cerca-lavoro-argovia": 0.23,
-        "frontaliereticino.ch/cerca-lavoro-basilea": 0.47,
-        "frontaliereticino.ch/cerca-lavoro-berna": 0.75,
-        "frontaliereticino.ch/cerca-lavoro-friburgo": 0.06,
-        "frontaliereticino.ch/cerca-lavoro-ginevra": 0.34,
-        "frontaliereticino.ch/cerca-lavoro-glarona": 0.14,
-        "frontaliereticino.ch/cerca-lavoro-grigioni": 4.33,
-        "frontaliereticino.ch/cerca-lavoro-lucerna": 0.3,
-        "frontaliereticino.ch/cerca-lavoro-neuchatel": 0.12,
-        "frontaliereticino.ch/cerca-lavoro-obvaldo": 0.17,
-        "frontaliereticino.ch/cerca-lavoro-san-gallo": 0.26,
-        "frontaliereticino.ch/cerca-lavoro-sciaffusa": 0.14,
-        "frontaliereticino.ch/cerca-lavoro-soletta": 0.28,
+        "frontaliereticino.ch/articoli-frontaliere": 6.37,
+        "frontaliereticino.ch/articoli-svizzera": 1.34,
+        "frontaliereticino.ch/aziende-che-assumono": 3.33,
+        "frontaliereticino.ch/calcola-stipendio": 0.74,
+        "frontaliereticino.ch/cerca-lavoro-argovia": 0.2,
+        "frontaliereticino.ch/cerca-lavoro-basilea": 0.48,
+        "frontaliereticino.ch/cerca-lavoro-berna": 0.77,
+        "frontaliereticino.ch/cerca-lavoro-friburgo": 0.07,
+        "frontaliereticino.ch/cerca-lavoro-ginevra": 0.31,
+        "frontaliereticino.ch/cerca-lavoro-giura": 0.06,
+        "frontaliereticino.ch/cerca-lavoro-glarona": 0.13,
+        "frontaliereticino.ch/cerca-lavoro-grigioni": 3.93,
+        "frontaliereticino.ch/cerca-lavoro-lucerna": 0.36,
+        "frontaliereticino.ch/cerca-lavoro-neuchatel": 0.14,
+        "frontaliereticino.ch/cerca-lavoro-nidvaldo": 0.22,
+        "frontaliereticino.ch/cerca-lavoro-obvaldo": 0.07,
+        "frontaliereticino.ch/cerca-lavoro-san-gallo": 0.28,
+        "frontaliereticino.ch/cerca-lavoro-soletta": 0.19,
         "frontaliereticino.ch/cerca-lavoro-svitto": 0.04,
-        "frontaliereticino.ch/cerca-lavoro-svizzera": 22.76,
-        "frontaliereticino.ch/cerca-lavoro-ticino": 110.82,
-        "frontaliereticino.ch/cerca-lavoro-turgovia": 0.16,
-        "frontaliereticino.ch/cerca-lavoro-vallese": 1.45,
-        "frontaliereticino.ch/cerca-lavoro-vaud": 0.35,
-        "frontaliereticino.ch/cerca-lavoro-zugo": 0.17,
-        "frontaliereticino.ch/cerca-lavoro-zurigo": 2.58,
-        "frontaliereticino.ch/compara-servizi": 0.99,
-        "frontaliereticino.ch/de/grenzgaenger-artikel": 4.72,
+        "frontaliereticino.ch/cerca-lavoro-svizzera": 18.84,
+        "frontaliereticino.ch/cerca-lavoro-ticino": 100.22,
+        "frontaliereticino.ch/cerca-lavoro-turgovia": 0.13,
+        "frontaliereticino.ch/cerca-lavoro-vallese": 1.55,
+        "frontaliereticino.ch/cerca-lavoro-vaud": 0.43,
+        "frontaliereticino.ch/cerca-lavoro-zurigo": 2.51,
+        "frontaliereticino.ch/compara-servizi": 1,
+        "frontaliereticino.ch/de/grenzgaenger-artikel": 4.71,
         "frontaliereticino.ch/de/jobs-im-tessin": 2.92,
-        "frontaliereticino.ch/de/jobs-in-zurich": 2.73,
+        "frontaliereticino.ch/de/jobs-in-zurich": 2.25,
         "frontaliereticino.ch/en/cross-border-articles": 1.62,
-        "frontaliereticino.ch/en/find-jobs-ticino": 11.58,
-        "frontaliereticino.ch/en/find-jobs-zurich": 1.32,
-        "frontaliereticino.ch/fr/articles-frontalier": 0.91,
-        "frontaliereticino.ch/fr/trouver-emploi-tessin": 2.36,
-        "frontaliereticino.ch/fr/trouver-emploi-zurich": 0.89,
-        "frontaliereticino.ch/guida-frontaliere": 4.3,
-        "frontaliereticino.ch/prezzi-benzina": 2.96,
-        "frontaliereticino.ch/prezzi-diesel": 0.91,
-        "frontaliereticino.ch/traffico-dogane": 1.96,
-        "frontaliereticino.ch/cerca-lavoro-nidvaldo": 0.32,
-        "frontaliereticino.ch/cerca-lavoro-uri": 0.09,
-        "frontaliereticino.ch/mercato-lavoro-ticino": 0.37,
+        "frontaliereticino.ch/en/find-jobs-ticino": 12.01,
+        "frontaliereticino.ch/en/find-jobs-zurich": 1.64,
+        "frontaliereticino.ch/fr/articles-frontalier": 1.03,
+        "frontaliereticino.ch/fr/trouver-emploi-tessin": 2.41,
+        "frontaliereticino.ch/fr/trouver-emploi-zurich": 0.86,
+        "frontaliereticino.ch/guida-frontaliere": 3.95,
+        "frontaliereticino.ch/mercato-lavoro-ticino": 0.32,
+        "frontaliereticino.ch/meteo-frontalieri": 0,
+        "frontaliereticino.ch/prezzi-benzina": 2.94,
+        "frontaliereticino.ch/prezzi-diesel": 0.96,
+        "frontaliereticino.ch/traffico-dogane": 1.94,
         "frontaliereticino.ch/cerca-lavoro-appenzello": 0.07,
-        "frontaliereticino.ch/cerca-lavoro-giura": 0.05,
-        "frontaliereticino.ch/premi-cassa-malati": 0.03,
-        "frontaliereticino.ch/meteo-frontalieri": 0
+        "frontaliereticino.ch/cerca-lavoro-sciaffusa": 0.13,
+        "frontaliereticino.ch/cerca-lavoro-uri": 0.11,
+        "frontaliereticino.ch/cerca-lavoro-zugo": 0.16,
+        "frontaliereticino.ch/premi-cassa-malati": 0.02
       },
       "pages": 1
     }
@@ -92,15 +92,15 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/apprendisti-ticino-incidenti-2026/",
       "title": "Apprendisti in Ticino: cifre allarmanti sugli incidenti",
-      "score": 21.072,
+      "score": 20.385,
       "cluster": "novita",
       "publishedAt": "2026-04-25T23:07:28+00:00",
       "metrics": {
         "clicks": null,
         "impressions": null,
         "ctr": null,
-        "pageviews": 241,
-        "adsenseRevenue": 0.4103,
+        "pageviews": 229,
+        "adsenseRevenue": 0.3803,
         "scrollP50": null
       }
     },
@@ -109,15 +109,15 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/confine-italia-svizzera-6-regole-doganali/",
       "title": "Dogana Italia-Svizzera: 6 regole e limiti da conoscere nel 2026",
-      "score": 13.091,
+      "score": 13.616,
       "cluster": "mobilita",
       "publishedAt": "2026-04-17T08:11:48+00:00",
       "metrics": {
-        "clicks": 63,
-        "impressions": 5280,
-        "ctr": 0.0119,
-        "pageviews": 176,
-        "adsenseRevenue": 0.2996,
+        "clicks": 67,
+        "impressions": 5402,
+        "ctr": 0.0124,
+        "pageviews": 182,
+        "adsenseRevenue": 0.3022,
         "scrollP50": 25
       }
     },
@@ -126,15 +126,15 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere/",
       "title": "Vivere in Svizzera o in Italia da frontaliere: il confronto 2026",
-      "score": 7.147,
+      "score": 8.761,
       "cluster": "pratico",
       "publishedAt": "2026-03-15T20:00:00+01:00",
       "metrics": {
-        "clicks": 43,
-        "impressions": 1660,
-        "ctr": 0.0259,
-        "pageviews": 109,
-        "adsenseRevenue": 0.1856,
+        "clicks": 50,
+        "impressions": 1969,
+        "ctr": 0.0254,
+        "pageviews": 147,
+        "adsenseRevenue": 0.2441,
         "scrollP50": 25
       }
     },
@@ -143,15 +143,15 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/mutuo-casa-frontalieri-italia/",
       "title": "Mutuo per frontalieri: comprare casa in Italia",
-      "score": 6.278,
+      "score": 4.612,
       "cluster": "pratico",
       "publishedAt": "2026-02-25T00:00:00+01:00",
       "metrics": {
-        "clicks": 37,
-        "impressions": 1188,
-        "ctr": 0.0311,
-        "pageviews": 114,
-        "adsenseRevenue": 0.1941,
+        "clicks": 28,
+        "impressions": 1076,
+        "ctr": 0.026,
+        "pageviews": 76,
+        "adsenseRevenue": 0.1262,
         "scrollP50": 25
       }
     },
@@ -160,49 +160,32 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/educatore-infanzia-ticino-stipendio/",
       "title": "Educatore infanzia in Ticino: stipendio e requisiti",
-      "score": 4.247,
+      "score": 3.422,
       "cluster": "pratico",
       "publishedAt": "2026-06-05T03:20:12+00:00",
       "metrics": {
-        "clicks": 26,
-        "impressions": 1282,
-        "ctr": 0.0203,
-        "pageviews": 58,
-        "adsenseRevenue": 0.0987,
-        "scrollP50": 25
+        "clicks": 20,
+        "impressions": 1201,
+        "ctr": 0.0167,
+        "pageviews": 43,
+        "adsenseRevenue": 0.0714,
+        "scrollP50": 37.5
       }
     },
     {
-      "slug": "venditti-estival-lugano-2026",
+      "slug": "educatore-infanzia-ticino-stipendio-requisiti",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/venditti-estival-lugano-2026/",
-      "title": "Antonello Venditti a Lugano: prevendita aperta per il concerto del 10 luglio",
-      "score": 3.664,
-      "cluster": "novita",
-      "publishedAt": "2026-04-29T10:46:48+00:00",
-      "metrics": {
-        "clicks": 18,
-        "impressions": 1161,
-        "ctr": 0.0155,
-        "pageviews": 52,
-        "adsenseRevenue": 0.0885,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "guida-pensione-frontaliere-avs-lpp",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp/",
-      "title": "Pensione frontaliere 2026: AVS, LPP e terzo pilastro spiegati",
-      "score": 3.476,
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti/",
+      "title": "Educatore dell'infanzia in Ticino: stipendio e requisiti",
+      "score": 3.158,
       "cluster": "pratico",
-      "publishedAt": "2026-03-15T19:50:07+00:00",
+      "publishedAt": "2026-05-25T09:32:56+00:00",
       "metrics": {
-        "clicks": 17,
-        "impressions": 844,
-        "ctr": 0.0201,
-        "pageviews": 84,
-        "adsenseRevenue": 0.143,
+        "clicks": 19,
+        "impressions": 770,
+        "ctr": 0.0247,
+        "pageviews": 58,
+        "adsenseRevenue": 0.0963,
         "scrollP50": 25
       }
     },
@@ -211,84 +194,16 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/guida-cambio-franco-euro-frontaliere/",
       "title": "Cambio CHF-EUR per frontalieri: guida completa per risparmiare",
-      "score": 3.392,
+      "score": 3.124,
       "cluster": "pratico",
       "publishedAt": "2026-03-15T18:59:29+00:00",
       "metrics": {
-        "clicks": 22,
-        "impressions": 556,
-        "ctr": 0.0396,
-        "pageviews": 63,
-        "adsenseRevenue": 0.1073,
-        "scrollP50": 25
-      }
-    },
-    {
-      "slug": "centro-breggia-risparmio-casa-arriva-balerna",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna/",
-      "title": "Risparmio Casa arriva al Centro Breggia di Balerna: cosa cambia per i frontalieri",
-      "score": 3.066,
-      "cluster": "pratico",
-      "publishedAt": "2026-04-16T08:17:41+00:00",
-      "metrics": {
-        "clicks": 20,
-        "impressions": 255,
-        "ctr": 0.0784,
-        "pageviews": 61,
-        "adsenseRevenue": 0.1038,
-        "scrollP50": 37.5
-      }
-    },
-    {
-      "slug": "cessione-bper-bcc-varese-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cessione-bper-bcc-varese-2026/",
-      "title": "Cessione Bper-BCC: le sei filiali interessate in provincia di Varese",
-      "score": 2.982,
-      "cluster": "novita",
-      "publishedAt": "2026-04-30T10:28:35+00:00",
-      "metrics": {
-        "clicks": 20,
-        "impressions": 660,
-        "ctr": 0.0303,
-        "pageviews": 47,
-        "adsenseRevenue": 0.08,
-        "scrollP50": 25
-      }
-    },
-    {
-      "slug": "lavoretti-estivi-2026-regole-frontaliere",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere/",
-      "title": "Lavoretti estivi, ecco le regole da conoscere",
-      "score": 2.906,
-      "cluster": "lavoro",
-      "publishedAt": "2026-06-09T00:59:36+00:00",
-      "metrics": {
         "clicks": 19,
-        "impressions": 550,
-        "ctr": 0.0345,
-        "pageviews": 46,
-        "adsenseRevenue": 0.0783,
+        "impressions": 553,
+        "ctr": 0.0344,
+        "pageviews": 58,
+        "adsenseRevenue": 0.0963,
         "scrollP50": 37.5
-      }
-    },
-    {
-      "slug": "calendario-festivi-ticino-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/calendario-festivi-ticino-2026/",
-      "title": "Giorni festivi Ticino 2026: calendario completo e ponti",
-      "score": 2.638,
-      "cluster": "fiscale",
-      "publishedAt": "2026-06-04T02:52:40+00:00",
-      "metrics": {
-        "clicks": 7,
-        "impressions": 2657,
-        "ctr": 0.0026,
-        "pageviews": 16,
-        "adsenseRevenue": 0.0272,
-        "scrollP50": 25
       }
     },
     {
@@ -296,15 +211,15 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti/",
       "title": "Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G",
-      "score": 2.638,
+      "score": 2.936,
       "cluster": "pratico",
       "publishedAt": "2026-07-19T05:54:11+00:00",
       "metrics": {
         "clicks": 16,
-        "impressions": 359,
-        "ctr": 0.0446,
-        "pageviews": 45,
-        "adsenseRevenue": 0.0766,
+        "impressions": 368,
+        "ctr": 0.0435,
+        "pageviews": 59,
+        "adsenseRevenue": 0.098,
         "scrollP50": null
       }
     },
@@ -313,33 +228,67 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/radar-controlli-velocita-ticino-aprile-2026/",
       "title": "Radar mobili in Ticino: dove e quando faranno più rumore ad aprile 2026",
-      "score": 2.523,
+      "score": 2.868,
       "cluster": "novita",
       "publishedAt": "2026-04-18T11:46:45+00:00",
       "metrics": {
-        "clicks": 15,
-        "impressions": 1050,
-        "ctr": 0.0143,
-        "pageviews": 33,
-        "adsenseRevenue": 0.0562,
+        "clicks": 17,
+        "impressions": 1097,
+        "ctr": 0.0155,
+        "pageviews": 40,
+        "adsenseRevenue": 0.0664,
         "scrollP50": 25
       }
     },
     {
-      "slug": "educatore-infanzia-ticino-stipendio-requisiti",
+      "slug": "calendario-festivi-ticino-2026",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti/",
-      "title": "Educatore dell'infanzia in Ticino: stipendio e requisiti",
-      "score": 2.515,
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/calendario-festivi-ticino-2026/",
+      "title": "Giorni festivi Ticino 2026: calendario completo e ponti",
+      "score": 2.732,
+      "cluster": "fiscale",
+      "publishedAt": "2026-06-04T02:52:40+00:00",
+      "metrics": {
+        "clicks": 7,
+        "impressions": 2876,
+        "ctr": 0.0024,
+        "pageviews": 16,
+        "adsenseRevenue": 0.0266,
+        "scrollP50": 25
+      }
+    },
+    {
+      "slug": "cessione-bper-bcc-varese-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/cessione-bper-bcc-varese-2026/",
+      "title": "Cessione Bper-BCC: le sei filiali interessate in provincia di Varese",
+      "score": 2.727,
+      "cluster": "novita",
+      "publishedAt": "2026-04-30T10:28:35+00:00",
+      "metrics": {
+        "clicks": 18,
+        "impressions": 663,
+        "ctr": 0.0271,
+        "pageviews": 44,
+        "adsenseRevenue": 0.0731,
+        "scrollP50": 25
+      }
+    },
+    {
+      "slug": "centro-breggia-risparmio-casa-arriva-balerna",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/centro-breggia-risparmio-casa-arriva-balerna/",
+      "title": "Risparmio Casa arriva al Centro Breggia di Balerna: cosa cambia per i frontalieri",
+      "score": 2.488,
       "cluster": "pratico",
-      "publishedAt": "2026-05-25T09:32:56+00:00",
+      "publishedAt": "2026-04-16T08:17:41+00:00",
       "metrics": {
         "clicks": 15,
-        "impressions": 733,
-        "ctr": 0.0205,
-        "pageviews": 46,
-        "adsenseRevenue": 0.0783,
-        "scrollP50": 25
+        "impressions": 221,
+        "ctr": 0.0679,
+        "pageviews": 51,
+        "adsenseRevenue": 0.0847,
+        "scrollP50": 50
       }
     },
     {
@@ -347,16 +296,33 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/radar-ticino-velocita-2026/",
       "title": "Radar sempre attivi: ecco dove dal 4 al 10 maggio",
-      "score": 2.3,
+      "score": 2.45,
       "cluster": "novita",
       "publishedAt": "2026-05-01T15:50:24+00:00",
       "metrics": {
-        "clicks": 13,
-        "impressions": 742,
+        "clicks": 14,
+        "impressions": 801,
         "ctr": 0.0175,
         "pageviews": 29,
-        "adsenseRevenue": 0.0494,
+        "adsenseRevenue": 0.0482,
         "scrollP50": null
+      }
+    },
+    {
+      "slug": "lavoretti-estivi-2026-regole-frontaliere",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/lavoretti-estivi-2026-regole-frontaliere/",
+      "title": "Lavoretti estivi, ecco le regole da conoscere",
+      "score": 2.301,
+      "cluster": "lavoro",
+      "publishedAt": "2026-06-09T00:59:36+00:00",
+      "metrics": {
+        "clicks": 15,
+        "impressions": 490,
+        "ctr": 0.0306,
+        "pageviews": 44,
+        "adsenseRevenue": 0.0731,
+        "scrollP50": 25
       }
     },
     {
@@ -364,33 +330,33 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/lavoro-carceri-ticino/",
       "title": "Lavoro in carcere: 15 posti disponibili",
-      "score": 2.218,
+      "score": 2.148,
       "cluster": "lavoro",
       "publishedAt": "2026-03-21T17:56:57+00:00",
       "metrics": {
-        "clicks": 15,
-        "impressions": 277,
-        "ctr": 0.0542,
-        "pageviews": 48,
-        "adsenseRevenue": 0.0817,
+        "clicks": 14,
+        "impressions": 286,
+        "ctr": 0.049,
+        "pageviews": 49,
+        "adsenseRevenue": 0.0814,
         "scrollP50": 25
       }
     },
     {
-      "slug": "rincari-festival-estate-ticino",
+      "slug": "guida-pensione-frontaliere-avs-lpp",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/rincari-festival-estate-ticino/",
-      "title": "Concerti in Svizzera: i prezzi volano nell'estate 2026",
-      "score": 2.112,
-      "cluster": "novita",
-      "publishedAt": "2026-07-14T13:36:41+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp/",
+      "title": "Pensione frontaliere 2026: AVS, LPP e terzo pilastro spiegati",
+      "score": 2.121,
+      "cluster": "pratico",
+      "publishedAt": "2026-03-15T19:50:07+00:00",
       "metrics": {
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "pageviews": 28,
-        "adsenseRevenue": 0.0477,
-        "scrollP50": null
+        "clicks": 9,
+        "impressions": 704,
+        "ctr": 0.0128,
+        "pageviews": 59,
+        "adsenseRevenue": 0.098,
+        "scrollP50": 25
       }
     },
     {
@@ -398,15 +364,15 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/chiasso-dogana-tempi-attesa/",
       "title": "Tempi di attesa alla dogana di Chiasso: cosa sapere",
-      "score": 2.071,
+      "score": 2.093,
       "cluster": "mobilita",
       "publishedAt": "2026-05-08T17:11:26+00:00",
       "metrics": {
         "clicks": 11,
-        "impressions": 797,
-        "ctr": 0.0138,
+        "impressions": 853,
+        "ctr": 0.0129,
         "pageviews": 27,
-        "adsenseRevenue": 0.046,
+        "adsenseRevenue": 0.0448,
         "scrollP50": 50
       }
     },
@@ -415,31 +381,167 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino/",
       "title": "Frontaliere lavoro stagionale Ticino",
-      "score": 2,
+      "score": 2.087,
       "cluster": "fiscale",
       "publishedAt": "2026-05-30T02:31:29+00:00",
       "metrics": {
-        "clicks": 12,
-        "impressions": 170,
-        "ctr": 0.0706,
+        "clicks": 11,
+        "impressions": 169,
+        "ctr": 0.0651,
+        "pageviews": 33,
+        "adsenseRevenue": 0.0548,
+        "scrollP50": 87.5
+      }
+    },
+    {
+      "slug": "ticino-traffico-2024",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/ticino-traffico-2024/",
+      "title": "Ticino ostaggio del traffico: chi sfrutta paghi",
+      "score": 1.71,
+      "cluster": "novita",
+      "publishedAt": "2026-07-16T18:10:34+00:00",
+      "metrics": {
+        "clicks": null,
+        "impressions": null,
+        "ctr": null,
+        "pageviews": 23,
+        "adsenseRevenue": 0.0382,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "malattia-frontaliere-guida-assicurazione",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/malattia-frontaliere-guida-assicurazione/",
+      "title": "Malattia e infortunio frontaliere: guida LAMal, IJM e diritti",
+      "score": 1.689,
+      "cluster": "pratico",
+      "publishedAt": "2026-03-15T20:02:00+01:00",
+      "metrics": {
+        "clicks": 6,
+        "impressions": 1104,
+        "ctr": 0.0054,
         "pageviews": 29,
-        "adsenseRevenue": 0.0494,
-        "scrollP50": 75
+        "adsenseRevenue": 0.0482,
+        "scrollP50": 37.5
       }
     }
   ],
   "losers": [
     {
-      "slug": "stipendio-logopedista-frontaliero-ticino",
+      "slug": "siccit-estate-2026-ticino",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino/",
-      "title": "Quanto guadagna un logopedista frontaliere in Ticino?",
-      "score": -0.292,
-      "cluster": "lavoro",
-      "publishedAt": "2026-07-18T13:30:12+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/siccit-estate-2026-ticino/",
+      "title": "Siccità in Ticino: estate 2026 a rischio",
+      "score": -0.296,
+      "cluster": "novita",
+      "publishedAt": "2026-05-01T22:08:30+00:00",
       "metrics": {
         "clicks": 0,
         "impressions": 51,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "frontaliere-pittore-ticino-stipendio-requisiti",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-pittore-ticino-stipendio-requisiti/",
+      "title": "Lavorare come pittore in Ticino: stipendio, requisiti e permesso G",
+      "score": -0.295,
+      "cluster": "pratico",
+      "publishedAt": "2026-07-20T20:08:00+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 52,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "frontaliereticino-chi-sono-i-frontalieri-ticino",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliereticino-chi-sono-i-frontalieri-ticino/",
+      "title": "Chi sono i frontalieri in Ticino? La risposta è qui.",
+      "score": -0.294,
+      "cluster": "generic",
+      "publishedAt": "2026-07-24T02:14:37+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 53,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "fuochi-allaperto-ticino-grazie-normativa-2024",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/fuochi-allaperto-ticino-grazie-normativa-2024/",
+      "title": "Fuochi all'aperto in Ticino: divieto revocato dal 1° maggio 2024",
+      "score": -0.293,
+      "cluster": "novita",
+      "publishedAt": "2026-04-15T13:01:49+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 54,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "ostetrica-frontaliere-ticino-quanto-guadagna",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna/",
+      "title": "Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione",
+      "score": -0.292,
+      "cluster": "generic",
+      "publishedAt": "2026-07-18T22:53:36+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 53,
+        "ctr": 0,
+        "pageviews": 1,
+        "adsenseRevenue": 0.0017,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "dichiarazione-imposta-digitale-ticino-26",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26/",
+      "title": "Dichiarazione d’imposta sempre più digitale in Ticino nel 2026",
+      "score": -0.291,
+      "cluster": "fiscale",
+      "publishedAt": null,
+      "metrics": {
+        "clicks": 0,
+        "impressions": 56,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "ticino-attenti-ai-radar-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/ticino-attenti-ai-radar-2026/",
+      "title": "Ticino, attenti ai radar: quando e dove i controlli della velocità",
+      "score": -0.29,
+      "cluster": "novita",
+      "publishedAt": "2026-03-22T11:06:11+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 57,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -451,12 +553,12 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/ristorni-lombardia-ticino/",
       "title": "Ristorni, Svizzera minaccia Lombardia: ritiri la tassa",
-      "score": -0.286,
+      "score": -0.29,
       "cluster": "fiscale",
       "publishedAt": "2026-07-02T10:16:35+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 58,
+        "impressions": 55,
         "ctr": 0,
         "pageviews": 1,
         "adsenseRevenue": 0.0017,
@@ -464,50 +566,33 @@
       }
     },
     {
-      "slug": "omaggio-angeli-ponte-chiasso",
+      "slug": "supsi-bachelor-sostenibilita-2027",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/omaggio-angeli-ponte-chiasso/",
-      "title": "Como, omaggio agli Angeli di Ponte Chiasso: posata la targa simbolica",
-      "score": -0.286,
-      "cluster": "generic",
-      "publishedAt": "2026-04-22T03:43:21+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/supsi-bachelor-sostenibilita-2027/",
+      "title": "SUPSI lancia bachelor in Sostenibilità nel 2027: focus su Ticino",
+      "score": -0.289,
+      "cluster": "novita",
+      "publishedAt": "2026-04-04T18:59:11+00:00",
       "metrics": {
         "clicks": 0,
         "impressions": 58,
         "ctr": 0,
-        "pageviews": 1,
-        "adsenseRevenue": 0.0017,
+        "pageviews": null,
+        "adsenseRevenue": null,
         "scrollP50": null
       }
     },
     {
-      "slug": "orario-lavoro-settimanale-svizzera-2025",
+      "slug": "cross-border-teleworking-2026",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/orario-lavoro-settimanale-svizzera-2025/",
-      "title": "Orario di lavoro settimanale in Svizzera: 40 ore e 3 minuti nel 2025",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/cross-border-teleworking-2026/",
+      "title": "Lavoratori frontalieri e telelavoro: cosa cambia nel 2026",
       "score": -0.285,
-      "cluster": "lavoro",
-      "publishedAt": "2026-05-23T13:50:22+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 57,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-parrucchieri-estetisti-ticino-permesso-stipendio/",
-      "title": "Lavora come parrucchiere o estetista in Ticino da frontaliere: permesso, stipendio e opportunità",
-      "score": -0.284,
       "cluster": "pratico",
-      "publishedAt": "2026-07-11T20:13:41+00:00",
+      "publishedAt": "2026-05-07T21:34:21+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 58,
+        "impressions": 62,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -515,16 +600,16 @@
       }
     },
     {
-      "slug": "slowup-strade-trasporti-limiti-2026",
+      "slug": "galleria-del-ceneri-chiusa-per-problemi-tecnici",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/slowup-strade-trasporti-limiti-2026/",
-      "title": "SlowUp 2026: strade chiuse e trasporti limitati tra Bellinzona e Locarno",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici/",
+      "title": "La galleria del Monte Ceneri è stata chiusa per problemi tecnici",
       "score": -0.282,
-      "cluster": "mobilita",
-      "publishedAt": "2026-04-15T09:48:19+00:00",
+      "cluster": "generic",
+      "publishedAt": "2026-04-05T13:27:30+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 60,
+        "impressions": 65,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -536,12 +621,12 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-agenzia-sicurezza-guadagno-ticino/",
       "title": "Quanto guadagna un agente di sicurezza frontaliere in Ticino?",
-      "score": -0.282,
+      "score": -0.272,
       "cluster": "lavoro",
       "publishedAt": "2026-07-21T04:43:00+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 60,
+        "impressions": 74,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -549,121 +634,19 @@
       }
     },
     {
-      "slug": "autostrada-a9-chiusure-11-15-maggio-2026",
+      "slug": "salario-minimo-ticino-intesa-storica",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/autostrada-a9-chiusure-11-15-maggio-2026/",
-      "title": "Nuove chiusure notturne sull'autostrada A9: ecco i tratti coinvolti",
-      "score": -0.277,
-      "cluster": "mobilita",
-      "publishedAt": "2026-05-10T11:18:23+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 64,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "dichiarazione-imposta-digitale-ticino-26",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26/",
-      "title": "Dichiarazione d’imposta sempre più digitale in Ticino nel 2026",
-      "score": -0.275,
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/salario-minimo-ticino-intesa-storica/",
+      "title": "Salario Minimo Ticino: Un'Intesa Storica Sfiora l'Accordo",
+      "score": -0.269,
       "cluster": "fiscale",
-      "publishedAt": null,
+      "publishedAt": "2026-03-02T11:11:03+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 66,
+        "impressions": 81,
         "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "lavori-linea-locarno-cadenazzo-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/lavori-linea-locarno-cadenazzo-2026/",
-      "title": "Lavori ferrovia Locarno-Cadenazzo, bus sostitutivi in marzo 2026",
-      "score": -0.271,
-      "cluster": "mobilita",
-      "publishedAt": "2026-03-03T11:32:33+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 53,
-        "ctr": 0,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "blocco-ristorni-ticino-italia-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/blocco-ristorni-ticino-italia-2026/",
-      "title": "Blocco ristorni Ticino-Italia: cosa cambia per i frontalieri",
-      "score": -0.268,
-      "cluster": "fiscale",
-      "publishedAt": "2026-05-13T00:07:22+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 73,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino/",
-      "title": "Quanto guadagna un operatore CNC frontaliere in Ticino?",
-      "score": -0.265,
-      "cluster": "lavoro",
-      "publishedAt": "2026-07-20T08:38:14+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 60,
-        "ctr": 0,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "cross-border-teleworking-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/cross-border-teleworking-2026/",
-      "title": "Lavoratori frontalieri e telelavoro: cosa cambia nel 2026",
-      "score": -0.265,
-      "cluster": "pratico",
-      "publishedAt": "2026-05-07T21:34:21+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 75,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "supsi-bachelor-sostenibilita-2027",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/supsi-bachelor-sostenibilita-2027/",
-      "title": "SUPSI lancia bachelor in Sostenibilità nel 2027: focus su Ticino",
-      "score": -0.264,
-      "cluster": "novita",
-      "publishedAt": "2026-04-04T18:59:11+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 76,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
+        "pageviews": 1,
+        "adsenseRevenue": 0.0017,
         "scrollP50": null
       }
     },
@@ -677,7 +660,41 @@
       "publishedAt": "2026-04-10T19:44:10+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 77,
+        "impressions": 83,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "pensioni-agosto-2026-cedolino-inps",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/pensioni-agosto-2026-cedolino-inps/",
+      "title": "Pensioni agosto 2026: cedolino INPS e variazioni importo",
+      "score": -0.262,
+      "cluster": "pensioni",
+      "publishedAt": "2026-07-29T14:27:29+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 84,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "blocco-ristorni-ticino-italia-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/blocco-ristorni-ticino-italia-2026/",
+      "title": "Blocco ristorni Ticino-Italia: cosa cambia per i frontalieri",
+      "score": -0.262,
+      "cluster": "fiscale",
+      "publishedAt": "2026-05-13T00:07:22+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 84,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -689,7 +706,7 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/tassa-salute-frontalieri-lombardia-piemonte/",
       "title": "Tassa salute frontalieri: Lombardia richiede allineamento, Piemonte dice no",
-      "score": -0.256,
+      "score": -0.258,
       "cluster": "fiscale",
       "publishedAt": "2026-05-01T04:49:50+00:00",
       "metrics": {
@@ -702,36 +719,36 @@
       }
     },
     {
-      "slug": "carburanti-ticino-aumento-prezzi",
+      "slug": "traffico-san-gottardo-pasquetta-2026",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/carburanti-ticino-aumento-prezzi/",
-      "title": "Prezzi Carburanti Ticino 2026 — Benzina e Diesel Aggiornati | Frontaliere Ticino",
-      "score": -0.251,
-      "cluster": "mobilita",
-      "publishedAt": "2026-04-07T06:58:22+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026/",
+      "title": "10 km di coda al San Gottardo: disagi record per Pasquetta",
+      "score": -0.256,
+      "cluster": "novita",
+      "publishedAt": "2026-04-06T13:43:52+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 88,
+        "impressions": 96,
         "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
+        "pageviews": 1,
+        "adsenseRevenue": 0.0017,
         "scrollP50": null
       }
     },
     {
-      "slug": "funivia-monteviasco-orari-corsi",
+      "slug": "ticino-blocca-ristorni-roma-berna",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/funivia-monteviasco-orari-corsi/",
-      "title": "Funivia di Monteviasco: nuovi orari e più corse per una mobilità potenziata",
-      "score": -0.25,
-      "cluster": "generic",
-      "publishedAt": "2026-03-21T15:10:47+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/ticino-blocca-ristorni-roma-berna/",
+      "title": "Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo",
+      "score": -0.256,
+      "cluster": "fiscale",
+      "publishedAt": "2026-07-02T11:17:10+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 54,
+        "impressions": 89,
         "ctr": 0,
-        "pageviews": 3,
-        "adsenseRevenue": 0.0051,
+        "pageviews": null,
+        "adsenseRevenue": null,
         "scrollP50": null
       }
     },
@@ -740,7 +757,7 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/ristorni-italia-sospesi/",
       "title": "Ristorni all'Italia",
-      "score": -0.249,
+      "score": -0.255,
       "cluster": "fiscale",
       "publishedAt": "2026-06-12T03:07:58+00:00",
       "metrics": {
@@ -753,16 +770,16 @@
       }
     },
     {
-      "slug": "galleria-del-ceneri-chiusa-per-problemi-tecnici",
+      "slug": "riapertura-bagno-bellinzona-2026",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici/",
-      "title": "La galleria del Monte Ceneri è stata chiusa per problemi tecnici",
-      "score": -0.245,
-      "cluster": "generic",
-      "publishedAt": "2026-04-05T13:27:30+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/riapertura-bagno-bellinzona-2026/",
+      "title": "Bagno pubblico di Bellinzona riapre il 9 maggio 2026",
+      "score": -0.248,
+      "cluster": "novita",
+      "publishedAt": "2026-05-06T11:07:45+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 94,
+        "impressions": 97,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -774,7 +791,7 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/incidente-a2-lodrino-frontalieri/",
       "title": "Incidente sull'A2 in direzione sud: chiusura e soccorsi",
-      "score": -0.242,
+      "score": -0.248,
       "cluster": "mobilita",
       "publishedAt": "2026-05-03T22:24:06+00:00",
       "metrics": {
@@ -787,16 +804,101 @@
       }
     },
     {
-      "slug": "ticino-blocca-ristorni-roma-berna",
+      "slug": "tax-free-come-cresce",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/ticino-blocca-ristorni-roma-berna/",
-      "title": "Ticino blocca 50,2 milioni di ristorni alla Lombardia: tensioni e dialogo",
-      "score": -0.239,
-      "cluster": "fiscale",
-      "publishedAt": "2026-07-02T11:17:10+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/tax-free-come-cresce/",
+      "title": "A Como il Tax Free continua a crescere grazie ai clienti ticinesi",
+      "score": -0.236,
+      "cluster": "generic",
+      "publishedAt": "2026-04-06T11:57:25+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 99,
+        "impressions": 108,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "cuoco-frontaliere-ticino-guadagno",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/cuoco-frontaliere-ticino-guadagno/",
+      "title": "Quanto guadagna un cuoco frontaliere in Ticino?",
+      "score": -0.231,
+      "cluster": "fiscale",
+      "publishedAt": "2026-07-23T18:51:31+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 104,
+        "ctr": 0,
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "tassa-salute-frontalieri-licata-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/tassa-salute-frontalieri-licata-2026/",
+      "title": "Stop alla tassa salute per frontalieri: Licata chiede confronto nazionale",
+      "score": -0.226,
+      "cluster": "fiscale",
+      "publishedAt": "2026-05-12T08:37:29+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 118,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "carburanti-ticino-aumento-prezzi",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/carburanti-ticino-aumento-prezzi/",
+      "title": "Prezzi Carburanti Ticino 2026 — Benzina e Diesel Aggiornati | Frontaliere Ticino",
+      "score": -0.222,
+      "cluster": "mobilita",
+      "publishedAt": "2026-04-07T06:58:22+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 122,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "lavori-linea-locarno-cadenazzo-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/lavori-linea-locarno-cadenazzo-2026/",
+      "title": "Lavori ferrovia Locarno-Cadenazzo, bus sostitutivi in marzo 2026",
+      "score": -0.221,
+      "cluster": "mobilita",
+      "publishedAt": "2026-03-03T11:32:33+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 116,
+        "ctr": 0,
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "a2-traffico-ritardi-lugano-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/a2-traffico-ritardi-lugano-2026/",
+      "title": "A2 in tilt: ritardi oltre l'ora tra Chiasso e Lugano",
+      "score": -0.211,
+      "cluster": "novita",
+      "publishedAt": "2026-04-30T06:30:06+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 132,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -808,80 +910,12 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026/",
       "title": "Autostrada A9 verso Chiasso chiusa di notte: ecco quando e perché",
-      "score": -0.23,
+      "score": -0.194,
       "cluster": "mobilita",
       "publishedAt": "2026-04-10T20:56:32+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 108,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "tax-free-come-cresce",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/tax-free-come-cresce/",
-      "title": "A Como il Tax Free continua a crescere grazie ai clienti ticinesi",
-      "score": -0.211,
-      "cluster": "generic",
-      "publishedAt": "2026-04-06T11:57:25+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 125,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "traffico-san-gottardo-pasquetta-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026/",
-      "title": "10 km di coda al San Gottardo: disagi record per Pasquetta",
-      "score": -0.203,
-      "cluster": "novita",
-      "publishedAt": "2026-04-06T13:43:52+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 156,
-        "ctr": 0,
-        "pageviews": 1,
-        "adsenseRevenue": 0.0017,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "tassa-salute-frontalieri-licata-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/tassa-salute-frontalieri-licata-2026/",
-      "title": "Stop alla tassa salute per frontalieri: Licata chiede confronto nazionale",
-      "score": -0.196,
-      "cluster": "fiscale",
-      "publishedAt": "2026-05-12T08:37:29+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 139,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "a2-traffico-ritardi-lugano-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/a2-traffico-ritardi-lugano-2026/",
-      "title": "A2 in tilt: ritardi oltre l'ora tra Chiasso e Lugano",
-      "score": -0.188,
-      "cluster": "novita",
-      "publishedAt": "2026-04-30T06:30:06+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 146,
+        "impressions": 148,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -893,12 +927,12 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/lombardia-tassa-sanitaria-frontalieri-2026/",
       "title": "Lombardia conferma tassa sanitaria per frontalieri: ecco cosa cambia",
-      "score": -0.183,
+      "score": -0.185,
       "cluster": "fiscale",
       "publishedAt": "2026-04-29T05:33:35+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 151,
+        "impressions": 157,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -906,20 +940,20 @@
       }
     },
     {
-      "slug": "stipendi-svizzeri-crescono-2025",
+      "slug": "frontaliere-ticino-permessi-g",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendi-svizzeri-crescono-2025/",
-      "title": "Stipendi svizzeri in crescita: +1,6% nel 2025",
-      "score": -0.172,
-      "cluster": "lavoro",
-      "publishedAt": "2026-04-28T15:22:44+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-ticino-permessi-g/",
+      "title": "Frontaliere Ticino: Permessi G e lavoro autonomo in Svizzera",
+      "score": -0.18,
+      "cluster": "pratico",
+      "publishedAt": "2026-07-12T02:09:09+00:00",
       "metrics": {
-        "clicks": 1,
-        "impressions": 76,
-        "ctr": 0.0132,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
-        "scrollP50": 25
+        "clicks": 0,
+        "impressions": 162,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
+        "scrollP50": null
       }
     },
     {
@@ -927,32 +961,32 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti/",
       "title": "Lavorare come pasticcere in Ticino: stipendio e requisiti",
-      "score": -0.156,
+      "score": -0.178,
       "cluster": "pratico",
       "publishedAt": "2026-07-21T02:48:50+00:00",
       "metrics": {
         "clicks": 1,
         "impressions": 73,
         "ctr": 0.0137,
-        "pageviews": null,
-        "adsenseRevenue": 0.0017,
-        "scrollP50": null
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
+        "scrollP50": 25
       }
     },
     {
-      "slug": "infermieri-orario-lavoro-ticino-2026",
+      "slug": "tilo-stabio-malpensa-sospensione-2026",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/infermieri-orario-lavoro-ticino-2026/",
-      "title": "Infermieri, no a riduzione orario massimo settimanale",
-      "score": -0.149,
-      "cluster": "lavoro",
-      "publishedAt": "2026-04-29T09:08:33+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026/",
+      "title": "TILO Stabio-Malpensa: stop ai treni per un mese",
+      "score": -0.166,
+      "cluster": "mobilita",
+      "publishedAt": "2026-05-30T01:51:32+00:00",
       "metrics": {
-        "clicks": 1,
-        "impressions": 55,
-        "ctr": 0.0182,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
+        "clicks": 0,
+        "impressions": 175,
+        "ctr": 0,
+        "pageviews": null,
+        "adsenseRevenue": null,
         "scrollP50": null
       }
     },
@@ -961,12 +995,12 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/mercato-agricolo-besozzo-superiore/",
       "title": "Besozzo Superiore: nasce il mercato agricolo al Parco del Cioss",
-      "score": -0.146,
+      "score": -0.158,
       "cluster": "novita",
       "publishedAt": "2026-05-04T22:52:10+00:00",
       "metrics": {
         "clicks": 0,
-        "impressions": 185,
+        "impressions": 183,
         "ctr": 0,
         "pageviews": null,
         "adsenseRevenue": null,
@@ -974,138 +1008,19 @@
       }
     },
     {
-      "slug": "frontaliere-dietista-ticino-stipendio-requisiti",
+      "slug": "ottico-optometrista-ticino-guida",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti/",
-      "title": "Lavorare come dietista in Ticino: stipendio, requisiti e permesso G",
-      "score": -0.144,
-      "cluster": "pratico",
-      "publishedAt": "2026-07-19T07:35:36+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 62,
-        "ctr": 0.0161,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "tilo-stabio-malpensa-sospensione-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026/",
-      "title": "TILO Stabio-Malpensa: stop ai treni per un mese",
-      "score": -0.139,
-      "cluster": "mobilita",
-      "publishedAt": "2026-05-30T01:51:32+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 191,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "bike-sharing-como-riapre-30-aprile",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/bike-sharing-como-riapre-30-aprile/",
-      "title": "Bike sharing a Como: 80 bici dal 30 aprile. Dove trovarle e come funziona",
-      "score": -0.13,
-      "cluster": "pensioni",
-      "publishedAt": "2026-04-14T21:10:37+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 106,
-        "ctr": 0.0094,
-        "pageviews": null,
-        "adsenseRevenue": 0.0017,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "frontaliere-saldatore-ticino-stipendio-requisiti",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti/",
-      "title": "Frontaliere saldatore: stipendio, requisiti e titolo di studio",
-      "score": -0.128,
-      "cluster": "lavoro",
-      "publishedAt": "2026-07-20T07:47:23+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 84,
-        "ctr": 0.0119,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "stipendio-saldatore-frontaliere-ticino",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-saldatore-frontaliere-ticino/",
-      "title": "Quanto guadagna un saldatore frontaliere in Ticino?",
-      "score": -0.123,
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/ottico-optometrista-ticino-guida/",
+      "title": "Ottico optometrista in Ticino: stipendio e requisiti",
+      "score": -0.154,
       "cluster": "fiscale",
-      "publishedAt": "2026-07-20T07:25:07+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 227,
-        "ctr": 0,
-        "pageviews": 2,
-        "adsenseRevenue": 0.0034,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "riapertura-bagno-bellinzona-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/riapertura-bagno-bellinzona-2026/",
-      "title": "Bagno pubblico di Bellinzona riapre il 9 maggio 2026",
-      "score": -0.122,
-      "cluster": "novita",
-      "publishedAt": "2026-05-06T11:07:45+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 116,
-        "ctr": 0.0086,
-        "pageviews": null,
-        "adsenseRevenue": 0.0017,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "stipendio-segretaria-frontaliera-ticino",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-segretaria-frontaliera-ticino/",
-      "title": "Quanto guadagna un segretaria frontaliere in Ticino?",
-      "score": -0.117,
-      "cluster": "lavoro",
-      "publishedAt": "2026-07-20T10:42:27+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 72,
-        "ctr": 0.0139,
-        "pageviews": 3,
-        "adsenseRevenue": 0.0051,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "navigazione-lago-lugano-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/navigazione-lago-lugano-2026/",
-      "title": "Navigazione Lago di Lugano: stagione 2026 al via",
-      "score": -0.112,
-      "cluster": "novita",
-      "publishedAt": "2026-03-22T03:08:23+00:00",
+      "publishedAt": "2026-07-19T08:31:00+00:00",
       "metrics": {
         "clicks": 1,
         "impressions": 51,
         "ctr": 0.0196,
-        "pageviews": 4,
-        "adsenseRevenue": 0.0068,
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
         "scrollP50": null
       }
     },
@@ -1114,15 +1029,32 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/vertigini-montagna-frontalieri/",
       "title": "Vertigini in montagna: rischio sottovalutato per i frontalieri",
-      "score": -0.105,
+      "score": -0.133,
       "cluster": "generic",
       "publishedAt": "2026-05-08T06:02:57+00:00",
       "metrics": {
         "clicks": 1,
-        "impressions": 112,
-        "ctr": 0.0089,
+        "impressions": 105,
+        "ctr": 0.0095,
+        "pageviews": 1,
+        "adsenseRevenue": 0.0017,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "edilizia-ticino-estate-sfide-ssic",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/edilizia-ticino-estate-sfide-ssic/",
+      "title": "Edilizia in Ticino: le sfide del settore prima dell'estate",
+      "score": -0.123,
+      "cluster": "generic",
+      "publishedAt": "2026-07-29T03:28:10+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 94,
+        "ctr": 0.0106,
         "pageviews": 2,
-        "adsenseRevenue": 0.0034,
+        "adsenseRevenue": 0.0033,
         "scrollP50": null
       }
     },
@@ -1131,15 +1063,83 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026/",
       "title": "Disagi alla linea Tilo tra Mendrisio e Malpensa: cosa cambia",
-      "score": -0.103,
+      "score": -0.12,
       "cluster": "mobilita",
       "publishedAt": "2026-04-11T05:25:28+00:00",
       "metrics": {
         "clicks": 1,
-        "impressions": 90,
-        "ctr": 0.0111,
+        "impressions": 70,
+        "ctr": 0.0143,
         "pageviews": 3,
-        "adsenseRevenue": 0.0051,
+        "adsenseRevenue": 0.005,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "stipendio-segretaria-frontaliera-ticino",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-segretaria-frontaliera-ticino/",
+      "title": "Quanto guadagna un segretaria frontaliere in Ticino?",
+      "score": -0.118,
+      "cluster": "lavoro",
+      "publishedAt": "2026-07-20T10:42:27+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 72,
+        "ctr": 0.0139,
+        "pageviews": 3,
+        "adsenseRevenue": 0.005,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "nuovi-maestri-lavoro-varese-leonardo-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/nuovi-maestri-lavoro-varese-leonardo-2026/",
+      "title": "Nuovi Maestri del Lavoro 2026: Leonardo primeggia in provincia di Varese",
+      "score": -0.118,
+      "cluster": "lavoro",
+      "publishedAt": "2026-04-27T21:39:17+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 53,
+        "ctr": 0.0189,
+        "pageviews": 6,
+        "adsenseRevenue": 0.01,
+        "scrollP50": 25
+      }
+    },
+    {
+      "slug": "petrolio-e-gas-svizzera-approvvigionamento-2026",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026/",
+      "title": "Petrolio e gas in Svizzera: approvvigionamento sicuro nel 2026",
+      "score": -0.113,
+      "cluster": "novita",
+      "publishedAt": "2026-04-15T11:14:49+00:00",
+      "metrics": {
+        "clicks": 0,
+        "impressions": 248,
+        "ctr": 0,
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "dogana-chiasso-centro-tecnologico",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/dogana-chiasso-centro-tecnologico/",
+      "title": "La dogana di Chiasso si prepara a diventare un moderno centro tecnologico",
+      "score": -0.113,
+      "cluster": "mobilita",
+      "publishedAt": "2026-04-03T03:23:23+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 131,
+        "ctr": 0.0076,
+        "pageviews": 1,
+        "adsenseRevenue": 0.0017,
         "scrollP50": null
       }
     },
@@ -1148,83 +1148,32 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/grasshopper-zeidler-allenatore-2026/",
       "title": "Peter Zeidler nuovo tecnico del Grasshopper",
-      "score": -0.102,
+      "score": -0.112,
       "cluster": "novita",
       "publishedAt": "2026-05-04T01:04:15+00:00",
       "metrics": {
         "clicks": 1,
-        "impressions": 66,
-        "ctr": 0.0152,
+        "impressions": 53,
+        "ctr": 0.0189,
         "pageviews": 4,
-        "adsenseRevenue": 0.0068,
+        "adsenseRevenue": 0.0066,
         "scrollP50": null
       }
     },
     {
-      "slug": "guida-michelin-ticino",
+      "slug": "moschea-lugano-pregassona-2026",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/guida-michelin-ticino/",
-      "title": "Anche la Svizzera italiana nella Guida Michelin dei borghi più belli",
-      "score": -0.094,
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/moschea-lugano-pregassona-2026/",
+      "title": "Nuova moschea a Lugano: interrogazioni e dubbi",
+      "score": -0.098,
       "cluster": "novita",
-      "publishedAt": "2026-03-25T07:18:18+00:00",
+      "publishedAt": "2026-04-28T20:15:06+00:00",
       "metrics": {
         "clicks": 1,
-        "impressions": 77,
-        "ctr": 0.013,
-        "pageviews": 4,
-        "adsenseRevenue": 0.0068,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "stipendio-assistente-dentale-frontaliere-ticino",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino/",
-      "title": "Quanto guadagna un assistente dentale frontaliere in Ticino?",
-      "score": -0.093,
-      "cluster": "lavoro",
-      "publishedAt": "2026-07-18T23:16:03+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 78,
-        "ctr": 0.0128,
-        "pageviews": 4,
-        "adsenseRevenue": 0.0068,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "ucraini-in-ticino-aiuti-incognite",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite/",
-      "title": "Ucraini in Ticino, il permesso S tra aiuti e incognite",
-      "score": -0.09,
-      "cluster": "pratico",
-      "publishedAt": "2026-04-06T09:21:15+00:00",
-      "metrics": {
-        "clicks": 1,
-        "impressions": 82,
-        "ctr": 0.0122,
-        "pageviews": 4,
-        "adsenseRevenue": 0.0068,
-        "scrollP50": null
-      }
-    },
-    {
-      "slug": "petrolio-e-gas-svizzera-approvvigionamento-2026",
-      "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/petrolio-e-gas-svizzera-approvvigionamento-2026/",
-      "title": "Petrolio e gas in Svizzera: approvvigionamento sicuro nel 2026",
-      "score": -0.074,
-      "cluster": "novita",
-      "publishedAt": "2026-04-15T11:14:49+00:00",
-      "metrics": {
-        "clicks": 0,
-        "impressions": 262,
-        "ctr": 0,
-        "pageviews": 3,
-        "adsenseRevenue": 0.0051,
+        "impressions": 126,
+        "ctr": 0.0079,
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
         "scrollP50": null
       }
     },
@@ -1233,49 +1182,100 @@
       "locale": "it",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/usi-supsi-25-milioni-casse-malati/",
       "title": "Taglio da 25 milioni per USI e SUPSI: cosa cambia per i frontalieri",
-      "score": -0.071,
+      "score": -0.086,
       "cluster": "fiscale",
       "publishedAt": "2026-04-17T12:02:52+00:00",
       "metrics": {
         "clicks": 1,
-        "impressions": 81,
-        "ctr": 0.0123,
+        "impressions": 62,
+        "ctr": 0.0161,
         "pageviews": 5,
-        "adsenseRevenue": 0.0085,
+        "adsenseRevenue": 0.0083,
         "scrollP50": null
       }
     },
     {
-      "slug": "agesp-rifiuti-primo-maggio-2026",
+      "slug": "frontaliere-elettricista-ticino-stipendio-requisiti",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/agesp-rifiuti-primo-maggio-2026/",
-      "title": "Agesp: orari raccolta rifiuti primo maggio 2026",
-      "score": -0.059,
-      "cluster": "mobilita",
-      "publishedAt": "2026-04-28T22:53:56+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-elettricista-ticino-stipendio-requisiti/",
+      "title": "Frontaliere elettricista in Ticino: stipendio medio, requisiti e permesso G",
+      "score": -0.074,
+      "cluster": "pratico",
+      "publishedAt": "2026-07-24T15:31:34+00:00",
       "metrics": {
         "clicks": 1,
-        "impressions": 120,
-        "ctr": 0.0083,
-        "pageviews": 4,
-        "adsenseRevenue": 0.0068,
+        "impressions": 130,
+        "ctr": 0.0077,
+        "pageviews": 3,
+        "adsenseRevenue": 0.005,
         "scrollP50": null
       }
     },
     {
-      "slug": "parrucchiere-frontaliere-ticino",
+      "slug": "frontaliere-ticino-ottico-optometrista",
       "locale": "it",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/parrucchiere-frontaliere-ticino/",
-      "title": "Quanto guadagna un parrucchiere frontaliere in Ticino",
-      "score": -0.053,
-      "cluster": "lavoro",
-      "publishedAt": "2026-07-21T03:21:59+00:00",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/frontaliere-ticino-ottico-optometrista/",
+      "title": "Quanto guadagna un ottico optometrista frontaliere in Ticino?",
+      "score": -0.058,
+      "cluster": "fiscale",
+      "publishedAt": "2026-07-19T08:00:36+00:00",
       "metrics": {
-        "clicks": 0,
-        "impressions": 270,
-        "ctr": 0,
-        "pageviews": null,
-        "adsenseRevenue": null,
+        "clicks": 1,
+        "impressions": 71,
+        "ctr": 0.0141,
+        "pageviews": 2,
+        "adsenseRevenue": 0.0033,
+        "scrollP50": 37.5
+      }
+    },
+    {
+      "slug": "ucraini-in-ticino-aiuti-incognite",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite/",
+      "title": "Ucraini in Ticino, il permesso S tra aiuti e incognite",
+      "score": -0.057,
+      "cluster": "pratico",
+      "publishedAt": "2026-04-06T09:21:15+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 127,
+        "ctr": 0.0079,
+        "pageviews": 4,
+        "adsenseRevenue": 0.0066,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "stipendio-contabile-frontaliere-ticino",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-contabile-frontaliere-ticino/",
+      "title": "Quanto guadagna un contabile frontaliere in Ticino?",
+      "score": -0.051,
+      "cluster": "fiscale",
+      "publishedAt": "2026-07-20T10:18:49+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 134,
+        "ctr": 0.0075,
+        "pageviews": 4,
+        "adsenseRevenue": 0.0066,
+        "scrollP50": null
+      }
+    },
+    {
+      "slug": "stipendio-muratore-frontaliere-ticino",
+      "locale": "it",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/stipendio-muratore-frontaliere-ticino/",
+      "title": "Quanto guadagna un muratore frontaliere in Ticino?",
+      "score": -0.045,
+      "cluster": "fiscale",
+      "publishedAt": "2026-07-23T03:50:52+00:00",
+      "metrics": {
+        "clicks": 1,
+        "impressions": 62,
+        "ctr": 0.0161,
+        "pageviews": 7,
+        "adsenseRevenue": 0.0116,
         "scrollP50": null
       }
     }
@@ -1284,11 +1284,11 @@
     "topClusters": [
       {
         "cluster": "pratico",
-        "weight": 0.4
+        "weight": 0.45
       },
       {
         "cluster": "novita",
-        "weight": 0.3
+        "weight": 0.25
       },
       {
         "cluster": "fiscale",
@@ -1313,34 +1313,35 @@
     "topKeywords": [
       "apprendisti",
       "incidenti",
-      "mortali",
       "ticino",
+      "mortali",
       "allarmanti",
       "2026",
-      "cifre",
-      "conoscere",
       "contante",
+      "conoscere",
+      "cifre",
       "urgenti",
-      "mutuo",
-      "alcol",
       "convenienza",
+      "alcol",
+      "viaggia",
       "franchigie",
-      "viaggia"
+      "dettagliato"
     ],
-    "averageWordCount": 1492,
+    "averageWordCount": 1482,
     "topQuestionPatterns": [
       "cosa",
       "dove",
+      "chi",
       "quando"
     ]
   },
   "sourceQuality": {
-    "medianWinnerRate": 0.0123,
+    "medianWinnerRate": 0.0125,
     "perDomain": {
       "frontaliereticino.ch": {
-        "total": 1626,
+        "total": 1597,
         "winners": 20,
-        "winnerRate": 0.0123
+        "winnerRate": 0.0125
       }
     }
   }
