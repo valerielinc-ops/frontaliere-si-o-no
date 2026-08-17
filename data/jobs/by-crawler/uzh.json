@@ -1,6 +1,6 @@
 {
   "crawlerKey": "uzh",
-  "assembledAt": "2026-08-17T09:52:17.920Z",
+  "assembledAt": "2026-08-17T09:30:24.220Z",
   "jobs": [
     {
       "id": "uzh-112f21e462d0",
@@ -5103,18 +5103,33 @@
         "hr-fachperson-universitat-zurich",
         "hr-specialist-universitat-zurich-zurich",
         "risorse-umane-fachperson-universitat-zurich-zurich",
-        "hr-professional-universitat-zurich"
+        "hr-professional-universitat-zurich",
+        "risorse-umane-spezialist-in-dozierende-universitat-zurich-zurich",
+        "hr-specialist-in-lecturers-universitat-zurich-zurich",
+        "hr-spezialist-in-dozierende-uzh-zurich",
+        "ressources-humaines-spezialist-in-dozierende-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-fachperson-uzh-zurich",
-          "risorse-umane-fachperson-universitat-zurich-zurich"
+          "risorse-umane-fachperson-universitat-zurich-zurich",
+          "risorse-umane-spezialist-in-dozierende-universitat-zurich-zurich",
+          "hr-specialist-in-lecturers-universitat-zurich-zurich",
+          "hr-spezialist-in-dozierende-uzh-zurich",
+          "ressources-humaines-spezialist-in-dozierende-universitat-zurich-zurich"
         ],
         "en": [
           "hr-fachperson-universitat-zurich-zurich",
           "hr-fachperson-universitat-zurich",
           "hr-specialist-universitat-zurich-zurich",
-          "hr-professional-universitat-zurich"
+          "hr-professional-universitat-zurich",
+          "hr-specialist-in-lecturers-universitat-zurich-zurich"
+        ],
+        "de": [
+          "hr-spezialist-in-dozierende-uzh-zurich"
+        ],
+        "fr": [
+          "ressources-humaines-spezialist-in-dozierende-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.604Z",

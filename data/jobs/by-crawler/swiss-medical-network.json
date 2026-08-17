@@ -2454,14 +2454,15 @@
       "titleByLocale": {
         "it": "Applicazioni cliniche del proprietario del prodotto",
         "en": "Product Owner clinical applications",
-        "de": "Product Owner klinische Applikationen",
-        "fr": "Applications cliniques du propriétaire du produit"
+        "fr": "Applications cliniques du propriétaire du produit",
+        "de": "Product Owner klinische Applikationen"
       },
       "slug": "product-owner-klinische-applikationen-swiss-medical-network",
       "slugByLocale": {
         "it": "applicazioni-cliniche-del-proprietario-del-prodotto-swiss-medical-network-zofingen",
         "en": "product-owner-clinical-applications-swiss-medical-network-zofingen",
-        "fr": "applications-cliniques-du-proprietaire-du-produit-swiss-medical-network-zofingen"
+        "fr": "applications-cliniques-du-proprietaire-du-produit-swiss-medical-network-zofingen",
+        "de": "product-owner-klinische-applikationen-swiss-medical-network"
       },
       "category": "healthcare",
       "datePosted": "2026-07-15",
@@ -2628,7 +2629,8 @@
           "maxValue": 78800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135978059-dipl-pflegefachperson-bettenstation-stundenlohn",

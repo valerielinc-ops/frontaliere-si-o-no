@@ -900,8 +900,7 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salaryMin": 79000,
-      "salaryMax": 120000,
-      "needsRetranslation": true
+      "salaryMax": 120000
     },
     {
       "id": "company-pcquoc",
@@ -1220,9 +1219,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
-          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310",
           "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
           "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
@@ -1239,7 +1235,10 @@
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
-          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27"
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-wallisellen-zurich-p0wx27",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-biel-bern",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-grenchen-solothurn",
+          "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-heimberg-bern"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-fldc7z",
@@ -1288,7 +1287,10 @@
         "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
         "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
         "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
-        "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310"
+        "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310",
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-biel-bern",
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-grenchen-solothurn",
+        "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-heimberg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5282,7 +5284,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-vqgt0x",
           "home-delivery-technician-for-electrical-household-appliances-fust-swiss-household-services-ag-pratteln",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-vqgt0x",
           "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln",
@@ -5301,7 +5302,8 @@
           "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft-576dn5",
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft",
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
+          "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-dubendorf"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
@@ -5323,7 +5325,8 @@
           "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
           "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
           "installation-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
-          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-basel-landschaft-576dn5"
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-basel-landschaft-576dn5",
+          "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-dubendorf"
         ]
       },
       "previousSlugs": [
@@ -5355,7 +5358,8 @@
         "home-delivery-fitter-in-electrical-household-appliances-fust-swiss-household-services-ag-pratteln",
         "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln-basel-landschaft-576dn5",
         "installation-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
-        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-basel-landschaft-576dn5"
+        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-basel-landschaft-576dn5",
+        "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-dubendorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12968,15 +12972,15 @@
       },
       "titleByLocale": {
         "de": "Stv. Gruppenleiter:in Produktion Nachtschicht Panofina",
-        "it": "Stv. gruppo leader: in produzione South Night shift Panofina",
-        "en": "Stv. group leader: in production South Night shift Panofina",
-        "fr": "Stv. chef de groupe: dans la production South Night sheet Panofina"
+        "it": "Vice Responsabile Produzione Turno Notturno Panofina",
+        "en": "Assistant Group Leader Production Night Shift Panofina",
+        "fr": "Responsable Adjoint Production Équipe de Nuit Panofina"
       },
       "descriptionByLocale": {
-        "de": "## Stv. Gruppenleiter:in Produktion Nachtschicht Panofina\n\n**Coop Genossenschaft** — Schafisheim, Aargau, Svizzera\n\n## Aufgaben\n- Stellvertretung der Gruppenleitung bei Abwesenheit\n- Eigenständiges Handeln während der Nachtschicht, Ausgleich zwischen Verantwortung und Kompetenzen\n- Führung und Instruktion der Mitarbeitenden in der Nachtschicht\n- Personalressourcenplanung nach Vorgaben und Bedarfsplanung der AVOR\n- Einhaltung der geforderten Qualität der Produkte auf den Linien\n\n## Anforderungen\n- Erfahrung in der Lebensmittelindustrie und erste Führungserfahrung\n- Bereitschaft zur Dauernachtschicht und Wochenend-/Feiertagsarbeit\n- Schnelle Auffassungsgabe, vernetztes Denken und gute Deutschkenntnisse\n- Hohe Zuverlässigkeit, Pflichtbewusstsein und eine schnelle Auffassungsgabe\n\n## Was wir bieten\n\n## Deine Ansprechperson\nMelise Dogan\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schafisheim",
-        "it": "## Stv. gruppo leader: in produzione South Night shift Panofina\n\nCoop cooperative — Schafisheim, Aargau, Svizzera\n\n## Compiti\n- Gestione del gruppo aggiunto in assenza\n- Agire indipendentemente durante il turno notturno, bilanciare le responsabilità e le competenze\n- Leadership e istruzione dei dipendenti durante il turno di notte\n- Pianificazione delle risorse del personale secondo le specifiche e la pianificazione delle esigenze di AVOR\n- Rispetto della qualità richiesta dei prodotti sulle linee\n\n## Requisiti\n- Esperienza nell'industria alimentare e prima esperienza di leadership\n- Prontezza per il turno di notte permanente e il lavoro di fine settimana / giorno\n- Rapida comprensione, pensiero in rete e buona conoscenza del tedesco\n- Alta affidabilità, senso di dovere e rapida comprensione\n\n## Cosa offriamo\n\n## La persona di contatto\nCorinne Elmiger\nHR Marketing\n\nTipo: Tempo parziale\nSchafisheim",
-        "en": "## Stv. group leader: in production South Night shift Panofina\n\n**Coop cooperative** — Schafisheim, Aargau, Svizzera\n\n## Tasks\n- Deputy group management in absence\n- Acting independently during the night shift, balancing responsibility and competences\n- Leadership and instruction of employees during the night shift\n- Staff resource planning according to specifications and needs planning of AVOR\n- Compliance with the required quality of products on the lines\n\n## Requirements\n- Experience in the food industry and initial leadership experience\n- Readiness for permanent night shift and weekend/holiday work\n- Quick comprehension, networked thinking and good knowledge of German\n- High reliability, sense of duty and a quick understanding\n\n## What we offer\n\n## Your contact person\nCorinne Elmiger\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schafisheim",
-        "fr": "## Stv. chef de groupe: dans la production South Night sheet Panofina\n\n**Coopérative de coopératives** — Schafisheim, Aargau, Svizzera\n\n## Tâche\n- Gestion du groupe adjoint en absence\n- Agir de façon indépendante pendant le quart de nuit, équilibrer les responsabilités et les compétences\n- Leadership et instruction des employés pendant le quart de nuit\n- Planification des ressources du personnel selon les spécifications et la planification des besoins de l'AVOR\n- Conformité avec la qualité requise des produits sur les lignes\n\n## Exigences\n- Expérience dans l'industrie alimentaire et expérience initiale en leadership\n- Préparation pour le travail de nuit permanent et le travail de fin de semaine ou de jour\n- Compréhension rapide, pensée en réseau et bonne connaissance de l'allemand\n- Haute fiabilité, sens du devoir et compréhension rapide\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nCorinne Elmiger\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Schafisheim"
+        "de": "Stv. Gruppenleiter:in Produktion Nachtschicht Panofina\n\nCoop Genossenschaft — Schafisheim, Aargau, Svizzera\n\nAufgaben\n- Stellvertretung der Gruppenleitung bei Abwesenheit\n- Eigenständiges Handeln während der Nachtschicht, Ausgleich zwischen Verantwortung und Kompetenzen\n- Führung und Instruktion der Mitarbeitenden in der Nachtschicht\n- Personalressourcenplanung nach Vorgaben und Bedarfsplanung der AVOR\n- Einhaltung der geforderten Qualität der Produkte auf den Linien\n\nAnforderungen\n- Erfahrung in der Lebensmittelindustrie und erste Führungserfahrung\n- Bereitschaft zur Dauernachtschicht und Wochenend-/Feiertagsarbeit\n- Schnelle Auffassungsgabe, vernetztes Denken und gute Deutschkenntnisse\n- Hohe Zuverlässigkeit, Pflichtbewusstsein und eine schnelle Auffassungsgabe\n\nWas wir bieten\n\nDeine Ansprechperson\nMelise Dogan\nHR Marketing\n\nTipo: Part-time\nSede: Schafisheim",
+        "it": "Capogruppo sostituto:in produzione turno notturno Panofina\n\nCoop Società Cooperativa — Schafisheim, Argovia, Svizzera\n\nCompiti\n- Sostituzione della direzione del gruppo in caso di assenza\n- Agire autonomamente durante il turno di notte, equilibrio tra responsabilità e competenze\n- Gestione e istruzione dei dipendenti durante il turno di notte\n- Pianificazione delle risorse umane secondo le specifiche e la pianificazione della domanda dell'AVOR\n- Rispetto della qualità richiesta dei prodotti sulle linee\n\nRequisiti\n- Esperienza nel settore alimentare e prima esperienza manageriale\n- Disponibilità al turno notturno permanente e al lavoro nei fine settimana/nei giorni festivi\n- Rapida capacità di comprensione, pensiero interconnesso e buona conoscenza del tedesco\n- Elevata affidabilità, senso del dovere e capacità di comprensione rapida\n\nCosa offriamo\n\nIl tuo referente\nMelise Dogan\nHR Marketing\n\nTipo: Part-time\nSede: Schafisheim",
+        "en": "Group leader:in production night shift Panofina\n\nCoop Cooperative — Schafisheim, Aargau, Sizzera\n\nTasks - representation of the group management in absentia - independent action during the night shift, balance between responsibility and competence - leadership and instruction of employees in the night shift - personnel resources planning according to the specifications and requirements of the AVOR - compliance with the required quality of the products on the lines\n\nRequirements - experience in the food industry and first management experience - readiness for continuous night shift and weekend / holiday work - fast understanding, networked thinking and good German knowledge - high reliability, duty-consciousness and a fast understanding\n\nWhat we offer\n\nYour contact Melise Dogan HR Marketing\n\nTipo: Part-time Sede: Schafisheim",
+        "fr": "Chef de groupe:en production nuit Panofina\n\nCoopérative de coop — Schafisheim, Aargau, Sizzera\n\nTâches - représentation de la direction de groupe par défaut - action indépendante pendant le quart de nuit, équilibre entre responsabilité et compétence - direction et instruction des employés dans le quart de nuit - planification des ressources en personnel selon les spécifications et les exigences de l'AVOR - conformité avec la qualité requise des produits sur les lignes\n\nExigences - expérience dans l'industrie alimentaire et première expérience de gestion - préparation pour un travail continu de nuit et de week-end / vacances - compréhension rapide, pensée en réseau et bonne connaissance allemande - haute fiabilité, conscience du devoir et une compréhension rapide\n\nCe que nous offrons\n\nVotre interlocuteur Melise Dogan HR Marketing\n\nTipo: Sede à temps partiel: Schafisheim"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -27597,10 +27601,34 @@
           "chauffeur-in-kat-ce-coop-genossenschaft-bern-be4a5o",
           "chauffeur-cat-ce-coop-genossenschaft-bern",
           "chauffeur-cat-ce-coop-genossenschaft-bern-19lwx3",
-          "chauffeur-en-cat-ce-coop-genossenschaft-bern-19lwx3"
+          "chauffeur-en-cat-ce-coop-genossenschaft-bern-19lwx3",
+          "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen",
+          "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen",
+          "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen",
+          "chauffeur-au-cat-c-ce-fust-oberburen-sankt-gallen",
+          "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+          "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen-y86c7u",
+          "chauffeur-in-kat-c-ce-fust-swiss-household-services-ag-oberburen",
+          "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen-y86c7u",
+          "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen",
+          "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
+          "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
+          "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+          "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+          "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen",
+          "chauffeur-in-cat-ce-coop-genossenschaft-gossau-sankt-gallen"
         ],
         "fr": [
-          "chauffeur-in-kat-ce-coop-genossenschaft-bern-be4a5o"
+          "chauffeur-in-kat-ce-coop-genossenschaft-bern-be4a5o",
+          "chauffeur-au-cat-c-ce-fust-swiss-household-services-ag-oberburen",
+          "chauffeur-en-cat-ce-coop-genossenschaft-gossau-sankt-gallen"
+        ],
+        "en": [
+          "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen"
+        ],
+        "de": [
+          "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-tc5y73",
+          "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-3uewa3"
         ]
       },
       "previousSlugs": [
@@ -27608,7 +27636,27 @@
         "chauffeur-in-kat-ce-coop-genossenschaft-bern-be4a5o",
         "chauffeur-cat-ce-coop-genossenschaft-bern",
         "chauffeur-cat-ce-coop-genossenschaft-bern-19lwx3",
-        "chauffeur-en-cat-ce-coop-genossenschaft-bern-19lwx3"
+        "chauffeur-en-cat-ce-coop-genossenschaft-bern-19lwx3",
+        "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen",
+        "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen",
+        "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen",
+        "chauffeur-au-cat-c-ce-fust-oberburen-sankt-gallen",
+        "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+        "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen-y86c7u",
+        "chauffeur-in-kat-c-ce-fust-swiss-household-services-ag-oberburen",
+        "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen-y86c7u",
+        "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen",
+        "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
+        "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
+        "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+        "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+        "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen",
+        "chauffeur-in-cat-ce-coop-genossenschaft-gossau-sankt-gallen",
+        "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen",
+        "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-tc5y73",
+        "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-3uewa3",
+        "chauffeur-au-cat-c-ce-fust-swiss-household-services-ag-oberburen",
+        "chauffeur-en-cat-ce-coop-genossenschaft-gossau-sankt-gallen"
       ]
     },
     {
