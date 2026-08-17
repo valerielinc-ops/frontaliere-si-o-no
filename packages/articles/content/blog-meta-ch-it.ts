@@ -3070,6 +3070,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scolastico-in-svizzera.title': 'È tempo di tornare a scuola in molti cantoni',
     'blog.article.scolastico-in-svizzera.excerpt': 'Iniziano le lezioni nei cantoni di Zurigo, Appenzello Interno, Grigioni e altri',
     'blog.article.scolastico-in-svizzera.imageAlt': 'immagine di scuola in Svizzera',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AVS e prestazioni complementari Canton Glarona: la cassa di compensazione',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'Il Canton Glarona offre prestazioni complementari per coprire il minimo vitale, in aggiunta alle prestazioni dell\'AVS.',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'immagine di un lago in Svizzera',
 };
 
 export default blogMetaChIt;

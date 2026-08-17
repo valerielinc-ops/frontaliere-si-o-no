@@ -3070,6 +3070,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scolastico-in-svizzera.title': 'It\'s time to go back to school in many cantons',
     'blog.article.scolastico-in-svizzera.excerpt': 'Classes begin in the cantons of Zurich, Inner Appenzell, Graubünden and others',
     'blog.article.scolastico-in-svizzera.imageAlt': 'school in Switzerland',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AVS and complementary services Canton Glarus: the compensation fund',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'The Glarus Canton offers complementary performance to cover the vital minimum, in addition to the performance of the AVS.',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'image of a lake in Switzerland',
 };
 
 export default blogMetaChEn;

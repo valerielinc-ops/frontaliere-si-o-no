@@ -3070,6 +3070,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scolastico-in-svizzera.title': 'Es ist Zeit, in vielen Kantonen wieder zur Schule zu gehen',
     'blog.article.scolastico-in-svizzera.excerpt': 'Der Unterricht beginnt in den Kantonen Zürich, Appenzell Innerrhoden, Graubünden und anderen',
     'blog.article.scolastico-in-svizzera.imageAlt': 'Schule in der Schweiz',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.title': 'AHV und Ergänzungsleistungen Kanton Glarus: die Ausgleichskasse',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.excerpt': 'Der Kanton Glarus bietet neben den Leistungen der AHV Ergänzungsleistungen zur Deckung des Existenzminimums an.',
+    'blog.article.avs-e-prestazioni-complementari-canton-glarona.imageAlt': 'Bild eines Sees in der Schweiz',
 };
 
 export default blogMetaChDe;

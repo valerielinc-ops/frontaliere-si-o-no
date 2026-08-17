@@ -9208,6 +9208,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-e-prestazioni-complementari-canton-glarona',
+    category: 'fiscale',
+    date: '2026-08-17T05:25:23.396Z',
+    image: '/images/blog/avs-e-prestazioni-complementari-canton-glarona.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
