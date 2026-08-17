@@ -3034,6 +3034,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-canton-nidvaldo-conversione.title': 'Führerschein in Nidwalden: Umschulung und Pflichtprüfungen',
     'blog.article.patente-guida-canton-nidvaldo-conversione.excerpt': 'Um den ausländischen Führerschein in der Schweiz umzuwandeln, sind folgende Unterlagen vorzulegen: Reisepass, ausländischer Führerschein und eine Kopie des Miet- oder Eigentumsvertrages.',
     'blog.article.patente-guida-canton-nidvaldo-conversione.imageAlt': 'Bild eines Frontalierers, der zum Verkehrsbüro geht, um seine ausländische Führerschein zu umschreiben',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Aufenthaltsbewilligungen B im Kanton Glarus: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Glarus ist maximal 1 Jahr gültig. Die Anforderungen und erforderlichen Unterlagen sind im italienisch-schweizerischen Doppelbesteuerungsabkommen festgelegt.',
+    'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'Ein Frontalier vor der Aussicht auf den Luganersee',
 };
 
 export default blogMetaChDe;
