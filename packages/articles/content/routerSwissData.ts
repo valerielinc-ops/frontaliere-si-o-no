@@ -1091,6 +1091,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-di-domicilio-c-canton-friburgo': { it: 'permesso-di-domicilio-c-canton-friburgo', en: 'residence-permits-c-in-the-canton-of-freiburg-requirements-and-application', de: 'niederlassungsbewilligungen-c-im-kanton-freiburg-voraussetzungen-und-antrag', fr: 'permis-de-sejour-c-dans-le-canton-de-fribourg-exigences-et-demande' },
  'lugano-calciomercato': { it: 'lugano-calciomercato', en: 'russian-at-lugano-you-need-patience', de: 'russisch-im-lugano-geduld-ist-gefragt', fr: 'russe-a-lugano-il-faut-de-la-patience' },
  'svizzera-neutralita-si': { it: 'svizzera-neutralita-si', en: 'switzerland-neutrality-yes', de: 'schweiz-neutralita-jja', fr: 'suisse-neutralite-oui' },
+ 'permesso-l-canton-friburgo-validita-e-proroga': { it: 'permesso-l-canton-friburgo-validita-e-proroga', en: 'permesso-l-canton-friburgo-validita-e-proroga-en', de: 'permesso-l-canton-friburgo-validita-e-proroga-de', fr: 'permesso-l-canton-friburgo-validita-e-proroga-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3196,6 +3196,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-neutralita-si.title': 'Ja zu einer neutralen und unabhängigen Schweiz',
     'blog.article.svizzera-neutralita-si.excerpt': 'Nationalrat Lorenzo Quadri: \'Neutralität ist keine bequeme Entscheidung, sie setzt einen geraden Rücken voraus\'',
     'blog.article.svizzera-neutralita-si.imageAlt': 'Frontalieri ticinesi in einem Platz von Lugano mit Schweizer Flagge',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.title': 'Kurzaufenthaltsbewilligung L im Kanton Freiburg: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.excerpt': 'Die Kurzaufenthaltsbewilligung L im Kanton Freiburg ist maximal 1 Jahr gültig. Hier sind die Bedingungen für die Verlängerung und den Übergang zur Aufenthaltsbewilligung.',
+    'blog.article.permesso-l-canton-friburgo-validita-e-proroga.imageAlt': 'Ein Frontalier überquert die Grenze mit Fribourg in der Schweiz',
 };
 
 export default blogMetaChDe;
