@@ -3043,6 +3043,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Health insurance premiums Canton Glarus and premium reductions',
     'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'The sick pay premium system in the Canton of Glarus with premium bands and deductibles',
     'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'The healthcare insurance premiums system in the Canton of Glarus',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Residence permit C in the Canton of Glarus: requirements and application',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'What does it take to obtain a residence permit C in the Canton of Glarus?',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Image of a foreigner preparing to submit a C permit application',
 };
 
 export default blogMetaChEn;

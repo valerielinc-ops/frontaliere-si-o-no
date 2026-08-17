@@ -1040,6 +1040,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-canton-glarona-requisiti-e-rinnovo': { it: 'permesso-dimora-b-canton-glarona-requisiti-e-rinnovo', en: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo', de: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo', fr: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo' },
  'permesso-l-canton-glarona': { it: 'permesso-l-canton-glarona', en: 'permit-l-canton-glarona', de: 'aufenthaltstitel-l-kanton-glaris', fr: 'permis-l-canton-de-glaris' },
  'premi-cassa-malati-glarona-riduzione': { it: 'premi-cassa-malati-glarona-riduzione', en: 'healthcare-insurance-premiums-glarus', de: 'gesundheitsversicherungspramien-glarus', fr: 'systeme-de-primes-dassurance-maladie-glaris' },
+ 'permesso-domicilio-c-canton-glarona-requisiti-e-domanda': { it: 'permesso-domicilio-c-canton-glarona-requisiti-e-domanda', en: 'c-permit-canton-glarus-requirements-and-application', de: 'c-bewilligung-kanton-glarus-anforderungen-und-antragstellung', fr: 'permis-de-domicile-c-canton-de-glarus-exigences-et-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

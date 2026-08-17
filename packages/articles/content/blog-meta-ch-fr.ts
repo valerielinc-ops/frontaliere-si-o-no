@@ -3043,6 +3043,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Primes caisse-maladie canton de Glaris et réduction des primes',
     'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'Le système de primes caisse-maladie dans le canton de Glaris avec fourchettes de primes et franchises',
     'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'Le système de primes d\'assurance maladie dans le canton de Glaris',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Permis de séjour C dans le canton de Glaris : exigences et demande',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'Que faut-il pour obtenir un permis de séjour C dans le canton de Glaris ?',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Image d\'un étranger qui se prépare à soumettre une demande de permis de domicile C',
 };
 
 export default blogMetaChFr;
