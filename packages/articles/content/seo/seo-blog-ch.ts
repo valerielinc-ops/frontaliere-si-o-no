@@ -40268,6 +40268,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-travailsuisse-aumenti-salariali-2026': {
+    title: 'Di più Travail.Suisse chiede aumenti salariali del 2%, USI frena',
+    description: 'Travail.Suisse chiede aumenti salariali del 2% mentre l\'USI frena con un aumento medio dell\'1%. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, travail, suisse, chiede, aumenti',
+    ogTitle: 'Travailsuisse aumenti salariali 2026',
+    ogDescription: 'Travail.Suisse chiede aumenti salariali del 2% mentre l\'USI frena con un aumento medio dell\'1%.',
+    canonicalPath: '/articoli-svizzera/travailsuisse-aumenti-salariali-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Travail.Suisse chiede aumenti salariali del 2%, USI frena",
+      "description": "Travail.Suisse chiede aumenti salariali del 2% mentre l'USI frena con un aumento medio dell'1%. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/travailsuisse-aumenti-salariali-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un evento in Svizzera"
+      },
+      "datePublished": "2026-08-17T09:31:57+00:00",
+      "dateModified": "2026-08-17T09:31:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/travailsuisse-aumenti-salariali-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
