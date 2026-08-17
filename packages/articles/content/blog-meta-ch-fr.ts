@@ -3193,6 +3193,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lugano-calciomercato.title': 'Russe à Lugano ? il faut de la patience',
     'blog.article.lugano-calciomercato.excerpt': 'Les négociations entre Lugano et Stefano Russo n\'ont pas décollé : il faut d\'abord se qualifier en Coupe.',
     'blog.article.lugano-calciomercato.imageAlt': 'Un joueur de football en action à Lugano, avec le lac en arrière-plan.',
+    'blog.article.svizzera-neutralita-si.title': 'Oui à une Suisse neutre et indépendante',
+    'blog.article.svizzera-neutralita-si.excerpt': 'Le Conseiller National Lorenzo Quadri : « La neutralité n\'est pas un choix de confort, elle suppose un dos droit »',
+    'blog.article.svizzera-neutralita-si.imageAlt': 'Frontaliers tessinois dans une place de Lugano avec drapeau suisse',
 };
 
 export default blogMetaChFr;

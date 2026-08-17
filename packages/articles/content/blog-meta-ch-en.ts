@@ -3193,6 +3193,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lugano-calciomercato.title': 'Russian at Lugano? you need patience',
     'blog.article.lugano-calciomercato.excerpt': 'The negotiation between Lugano and Stefano Russo has not taken off: first you need to qualify for the Cup.',
     'blog.article.lugano-calciomercato.imageAlt': 'A football player in action at Lugano, with the lake in the background.',
+    'blog.article.svizzera-neutralita-si.title': 'Yes to a neutral and independent Switzerland',
+    'blog.article.svizzera-neutralita-si.excerpt': 'National Councillor Lorenzo Quadri: \'Neutrality is not a comfortable choice, it presupposes a straight back\'',
+    'blog.article.svizzera-neutralita-si.imageAlt': 'Frontalieri ticinesi in a Lugano square with Swiss flag',
 };
 
 export default blogMetaChEn;

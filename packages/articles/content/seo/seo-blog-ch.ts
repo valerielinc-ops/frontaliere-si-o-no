@@ -41399,6 +41399,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-neutralita-si': {
+    title: 'Sì a una Svizzera neutrale e indipendente | Frontaliere Ticino',
+    description: 'L\'iniziativa popolare sulla neutralità del 27 settembre: mantenere la neutralità permanente e armata della Svizzera. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutrale, indipendente, consigliere, nazionale',
+    ogTitle: 'Svizzera: sì alla neutralità e all\'indipendenza',
+    ogDescription: 'L\'iniziativa popolare sulla neutralità del 27 settembre: mantenere la neutralità permanente e armata della Svizzera',
+    canonicalPath: '/articoli-svizzera/svizzera-neutralita-si/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sì a una Svizzera neutrale e indipendente",
+      "description": "L'iniziativa popolare sulla neutralità del 27 settembre: mantenere la neutralità permanente e armata della Svizzera. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-neutralita-si.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri ticinesi in una piazza di Lugano con bandiera svizzera"
+      },
+      "datePublished": "2026-08-17T20:08:07+00:00",
+      "dateModified": "2026-08-17T20:08:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-neutralita-si/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
