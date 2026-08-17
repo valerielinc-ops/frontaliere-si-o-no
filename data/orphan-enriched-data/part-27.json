@@ -75288,10 +75288,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "sales-associate-bern-westside-hourly-up-to-80pt-guess-europe-sagl-bern-ticino-switzerland",
         "it": "vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
-        "en": "vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
-        "de": "vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
-        "fr": "vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern"
+        "fr": "sales-associate-bern-westside-heures-jusqu-a-80pt-guess-europe-sagl-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
@@ -75299,13 +75298,14 @@
         "de": "/de/jobs-im-st-gallen/vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
         "fr": "/fr/trouver-emploi-berne/vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.workable.com/guess-europe-sagl/j/31d1b48d9e",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
