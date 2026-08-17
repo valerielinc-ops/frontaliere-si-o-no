@@ -3043,6 +3043,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Krankenkassenprämien Kanton Glarus und Prämienverbilligung',
     'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'Das Krankenkassen-Prämiensystem im Kanton Glarus mit Prämienbändern und Franchisen',
     'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'Das Gesundheitsversicherungsprämiensystem im Kanton Glarus',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Niederlassungsbewilligung C im Kanton Glarus: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'Was braucht man, um eine Niederlassungsbewilligung C im Kanton Glarus zu erhalten?',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Bild eines Ausländers, der sich auf die Einreichung einer C-Bewilligung vorbereitet',
 };
 
 export default blogMetaChDe;

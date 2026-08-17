@@ -3043,6 +3043,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-glarona-riduzione.title': 'Premi cassa malati Cantone Glarona e riduzione premi',
     'blog.article.premi-cassa-malati-glarona-riduzione.excerpt': 'Il sistema di premi cassa malati nel Cantone di Glarona con fasce di premio e franchigie',
     'blog.article.premi-cassa-malati-glarona-riduzione.imageAlt': 'Il sistema di premi cassa malati nel Cantone di Glarona',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.title': 'Permesso di domicilio C nel Cantone di Glarona: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.excerpt': 'Cosa serve per ottenere un permesso di domicilio C nel Cantone di Glarona?',
+    'blog.article.permesso-domicilio-c-canton-glarona-requisiti-e-domanda.imageAlt': 'Immagine di un frontaliere che si prepara a presentare la domanda di permesso di domicilio C',
 };
 
 export default blogMetaChIt;
