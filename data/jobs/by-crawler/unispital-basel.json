@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-16T21:36:37.705Z",
+  "assembledAt": "2026-08-17T09:27:39.365Z",
   "jobs": [
     {
       "id": "unispital-basel-060d3af500a7",
@@ -4247,81 +4247,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:05:36.017Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "unispital-basel-f1a736be88c6",
-      "slug": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
-      "slugByLocale": {
-        "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
-        "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
-        "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
-      },
-      "company": "Universitätsspital Basel",
-      "companyKey": "unispital-basel",
-      "companyDomain": "unispital-basel.ch",
-      "title": "Radiologiefachperson (MTRA) oder Pflegefachperson (HF/FH)",
-      "titleByLocale": {
-        "it": "Specialista di radiologia (MTRA) o infermiere (HF/FH)",
-        "en": "Radiology specialist (MTRA) or nurse (HF/FH)",
-        "de": "Radiologiefachperson (MTRA) oder Pflegefachperson (HF/FH)",
-        "fr": "Pflegefachperson (HF/FH)"
-      },
-      "description": "Aufgaben:\n• Eigenständiges und verantwortungsvolles Arbeiten im hochmodernen Herzkatheterlabor mit neuester Infrastruktur im Bereich der Koronardiagnostik und einem umfassenden Spektrum komplexer koronarer Behandlungstechniken\n\n• Umfassende Betreuung der Patienten während diagnostischen und therapeutischen Eingriffen sowie steriles Arbeiten in der invasiven Kardiologie bei verschiedenen diagnostischen und interventionellen Prozeduren\n\n• Teilnahme am 24-Stunden Pikettdienst im Rahmen der Zentrumsversorgung der Nordwestschweiz\n\n• Dokumentation und Leistungserfassung\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als dipl. Radiologie- oder Pflegefachperson (HF/FH), idealerweise ergänzt durch Berufserfahrung im Akut- und/oder Notfallbereich\n\n• Ein hohes Verantwortungs- und Qualitätsbewusstsein, das sich in Ihrem täglichen Handeln widerspiegelt\n\n• Ausgeprägte Teamfähigkeit und Kommunikationsstärke, verbunden mit einer selbstständigen und zugleich teamorientierten Arbeitsweise im professionellen Umgang mit Patient*innen\n\n• Die Fähigkeit, die interprofessionelle Zusammenarbeit aktiv zu fördern, kombiniert mit einer proaktiven, flexiblen und offenen Haltung gegenüber Wandel und Innovation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Lavoro indipendente e responsabile nel laboratorio di cateteri cardiaci all'avanguardia con l'ultima infrastruttura nel campo della diagnosi coronarica e una gamma completa di complesse tecniche di trattamento coronarico\n• Cura completa dei pazienti durante le procedure diagnostiche e terapeutiche e lavoro sterile in cardiologia invasiva in varie procedure diagnostiche e interventistiche\n• Partecipazione al servizio piquet di 24 ore nel centro della Svizzera nordoccidentale\n• Documentazione e rilevamento delle prestazioni Requisiti:\n• Una formazione completa come dipl. specialista in radiologia o infermieristica (HF/FH), idealmente completato da esperienza professionale in aree acute e/o di emergenza\n• Un elevato senso di responsabilità e qualità riflessa nelle vostre azioni quotidiane\n• Capacità di squadra goffrata e forza di comunicazione combinata con un modo indipendente e allo stesso tempo orientato al team di lavorare con i pazienti\n• La capacità di promuovere attivamente la cooperazione interprofessionale, unita ad un atteggiamento proattivo, flessibile e aperto verso il cambiamento e l'innovazione Offriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n• Vantaggi nello shopping, nello sport e nel tempo libero\n• Supporto per spostamento e alloggiamento\n• 25 giorni festivi più 5 anche free flexitage\n• Sostegno alla formazione continua e alla pianificazione della carriera\n• Campus nel cuore di Basilea e il Dreiländereck\n• Servizi per l'infanzia completi\n• Programma di sport e di esercizio gratuito",
-        "en": "Tasks:\n• Independent and responsible work in the state-of-the-art heart catheter laboratory with the latest infrastructure in the field of coronary diagnosis and a comprehensive range of complex coronary treatment techniques\n• Comprehensive care of patients during diagnostic and therapeutic procedures as well as sterile work in invasive cardiology in various diagnostic and interventional procedures\n• Participation in the 24-hour piquet service as part of the centre of Northwestern Switzerland\n• Documentation and performance detection Requirements:\n• A completed training as a dipl. radiology or nursing specialist (HF/FH), ideally complemented by professional experience in acute and/or emergency areas\n• A high sense of responsibility and quality reflected in your daily actions\n• Embossed team skills and communication strength combined with an independent and at the same time team-oriented way of working with patients\n• The ability to actively promote interprofessional cooperation, combined with a proactive, flexible and open attitude towards change and innovation We offer:\n• Attractive wage policy and excellent social benefits\n• Benefits in shopping, sports and leisure\n• Support for moving and housing\n• 25 Holiday days plus 5 also free flexitage\n• Support for continuing and continuing training and career planning\n• Campus in the heart of Basel and the Dreiländereck\n• Comprehensive childcare facilities\n• Free sports and exercise program",
-        "de": "Aufgaben:\n• Eigenständiges und verantwortungsvolles Arbeiten im hochmodernen Herzkatheterlabor mit neuester Infrastruktur im Bereich der Koronardiagnostik und einem umfassenden Spektrum komplexer koronarer Behandlungstechniken\n\n• Umfassende Betreuung der Patienten während diagnostischen und therapeutischen Eingriffen sowie steriles Arbeiten in der invasiven Kardiologie bei verschiedenen diagnostischen und interventionellen Prozeduren\n\n• Teilnahme am 24-Stunden Pikettdienst im Rahmen der Zentrumsversorgung der Nordwestschweiz\n\n• Dokumentation und Leistungserfassung\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als dipl. Radiologie- oder Pflegefachperson (HF/FH), idealerweise ergänzt durch Berufserfahrung im Akut- und/oder Notfallbereich\n\n• Ein hohes Verantwortungs- und Qualitätsbewusstsein, das sich in Ihrem täglichen Handeln widerspiegelt\n\n• Ausgeprägte Teamfähigkeit und Kommunikationsstärke, verbunden mit einer selbstständigen und zugleich teamorientierten Arbeitsweise im professionellen Umgang mit Patient*innen\n\n• Die Fähigkeit, die interprofessionelle Zusammenarbeit aktiv zu fördern, kombiniert mit einer proaktiven, flexiblen und offenen Haltung gegenüber Wandel und Innovation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Tâches :\n• Travail indépendant et responsable dans le laboratoire de cathètre cardiaque à la pointe de la technologie avec les dernières infrastructures dans le domaine du diagnostic coronaire et une gamme complète de techniques de traitement coronaire complexes\n• Soins complets des patients pendant les procédures diagnostiques et thérapeutiques ainsi que le travail stérile en cardiologie invasive dans diverses procédures diagnostiques et interventionnelles\n• Participation au service de piquets 24h/24 dans le centre de la Suisse du Nord-Ouest\n• Documentation et détection des performances Exigences:\n• Une formation terminée en tant que dipl. spécialiste de la radiologie ou des soins infirmiers (HF/FH), idéalement complété par une expérience professionnelle dans les zones d'urgence\n• Un sens élevé de responsabilité et de qualité reflété dans vos actions quotidiennes\n• Compétences d'équipe et force de communication associées à une façon indépendante et en même temps orientée vers l'équipe de travail avec les patients\n• La capacité de promouvoir activement la coopération interprofessionnelle, associée à une attitude proactive, souple et ouverte envers le changement et l'innovation Nous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n• Avantages dans le shopping, le sport et les loisirs\n• Appui au déménagement et au logement\n• 25 jours fériés plus 5 flexitage gratuit\n• Soutien à la formation continue et à la planification des carrières\n• Campus au cœur de Bâle et de la Dreiländereck\n• Établissements de garde d'enfants complets\n• Programme de sports et d'exercices gratuits"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachperson-mtra-oder-pflegefachperson-hf-fh/310a3bb4-6bd4-49d5-b942-e79b53ad0ea8",
-      "source": "USB Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-16T21:35:55.252Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4031",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=26460",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
-        ],
-        "fr": [
-          "pflegefachperson-hf-fh-universitatsspital-basel-basel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-04T16:00:17.899Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
