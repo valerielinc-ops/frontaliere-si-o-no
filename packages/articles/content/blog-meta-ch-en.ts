@@ -3091,6 +3091,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonal-zugo-aliquote.title': 'Cantonal taxes in Zug: rates, brackets, deductions',
     'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Concrete results of cantonal taxes in Zug: rates, brackets, allowable deductions, delivery deadlines and online portal of the cantonal tax administration.',
     'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Panoramic view of Lugano, Switzerland, with emphasis on cantonal fiscal policies.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.title': 'Taxes in the Canton of Zug: rates and deadlines',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.excerpt': 'The cantonal tax administration of Zug releases information on cantonal and municipal taxes, including rates, brackets, allowable deductions, delivery deadlines and the online portal.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.imageAlt': 'Image of a road sign in Lugano with tax rate indication.',
 };
 
 export default blogMetaChEn;

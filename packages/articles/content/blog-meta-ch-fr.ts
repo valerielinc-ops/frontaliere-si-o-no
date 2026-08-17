@@ -3091,6 +3091,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonal-zugo-aliquote.title': 'Impôts cantonaux à Zoug : taux, tranches, déductions',
     'blog.article.imposte-cantonal-zugo-aliquote.excerpt': 'Résultats concrets des impôts cantonaux de Zoug : taux, échelonnements, déductions admises, délais de livraison et portail en ligne de l\'administration fiscale cantonale.',
     'blog.article.imposte-cantonal-zugo-aliquote.imageAlt': 'Vue panoramique de Lugano, Suisse, avec un accent sur les politiques fiscales cantonales.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.title': 'Impôts dans le canton de Zoug : taux et échéances',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.excerpt': 'L\'administration fiscale cantonale de Zoug délivre les informations sur les impôts cantonaux et communaux, y compris les taux, les tranches, les déductions admises, les délais de livraison et le portail en ligne.',
+    'blog.article.imposte-cantonal-zugo-aliquote-deduzioni.imageAlt': 'Image d\'un panneau de signalisation routière à Lugano avec indication des taux d\'impôt.',
 };
 
 export default blogMetaChFr;
