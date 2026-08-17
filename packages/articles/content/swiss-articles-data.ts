@@ -9379,6 +9379,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'pioggia-ritorno-siccita-ticino',
+    category: 'fiscale',
+    date: '2026-08-17T13:21:25.681Z',
+    image: '/images/blog/pioggia-ritorno-siccita-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

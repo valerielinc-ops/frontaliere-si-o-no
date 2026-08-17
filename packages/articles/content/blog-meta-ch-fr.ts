@@ -3127,6 +3127,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scontro-tasse-vodese-2024.title': 'Choc fiscal : défi à la voracité fiscale dans le canton de Vaud',
     'blog.article.scontro-tasse-vodese-2024.excerpt': 'L\'initiative des 12% propose une remise de 12% sur l\'impôt cantonal sur le revenu et la fortune.',
     'blog.article.scontro-tasse-vodese-2024.imageAlt': 'Conflit fiscal dans le canton de Vaud',
+    'blog.article.pioggia-ritorno-siccita-ticino.title': 'Pluie et rafraîchissement, nous y sommes presque. Mais la sécheresse ne cède pas',
+    'blog.article.pioggia-ritorno-siccita-ticino.excerpt': 'Météo Suisse prévoit des précipitations et une baisse des températures au Tessin, mais la sécheresse ne sera pas résolue',
+    'blog.article.pioggia-ritorno-siccita-ticino.imageAlt': 'Pluie à Lugano: attendre la fin de la sécheresse',
 };
 
 export default blogMetaChFr;
