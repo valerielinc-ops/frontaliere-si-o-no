@@ -3172,6 +3172,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terremoto-indonesia-vittime-68.title': 'Erdbeben in Indonesien: Zahl der Todesopfer steigt auf 68',
     'blog.article.terremoto-indonesia-vittime-68.excerpt': 'Schwerer Personal- und Medikamentenmangel verschärft die Gesundheitskrise in den betroffenen Gebieten.',
     'blog.article.terremoto-indonesia-vittime-68.imageAlt': 'Terremoto in Indonesia: sale a 68 il numero delle vittime',
+    'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.title': 'Geschäft im Kanton Zürich eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.excerpt': 'Die Kosten für die Gründung eines Unternehmens im Kanton Zürich und das Verfahren für die Eintragung ins Handelsregister.',
+    'blog.article.aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi.imageAlt': 'Gründung einer Geschäftstätigkeit im Kanton Zürich, Schweiz',
 };
 
 export default blogMetaChDe;

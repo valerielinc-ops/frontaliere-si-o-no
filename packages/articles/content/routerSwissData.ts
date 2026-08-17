@@ -1083,6 +1083,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'trasporti-pubblici-zugo-abbonamenti': { it: 'trasporti-pubblici-zugo-abbonamenti', en: 'public-transport-zug-subscriptions', de: 'offentliche-verkehrsmittel-zug-abos', fr: 'transports-publics-zoug-abonnements' },
  'minuscoli-droni-sonore-epfl': { it: 'minuscoli-droni-sonore-epfl', en: 'epfl-research-mini-drones-sound-waves', de: 'epfl-forschung-mini-drohnen-schallwellen', fr: 'recherche-epfl-mini-drones-ondes-sonores' },
  'terremoto-indonesia-vittime-68': { it: 'terremoto-indonesia-vittime-68', en: 'earthquake-in-indonesia-the-number-of-victims-rises-to-68', de: 'erdbeben-in-indonesien-zahl-der-todesopfer-steigt-auf-68', fr: 'seisme-en-indonesie-le-bilan-s-alourdit-a-68-morts' },
+ 'aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi': { it: 'aprire-un-attivita-canton-zugo-registro-di-commercio-e-costi', en: 'open-a-business-in-canton-zurich-switzerland', de: 'unternehmen-in-kanton-zuerich-schweiz-gruenden', fr: 'ouvrir-une-entreprise-dans-le-canton-de-zurich-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
