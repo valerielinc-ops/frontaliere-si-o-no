@@ -1038,6 +1038,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-nidvaldo-aliquote', en: 'imposte-of-succession-and-donation-canton-nidvaldo-rates', de: 'erbschafts-und-schenkungsteuer-kanton-nidvaldo-satze', fr: 'impots-de-succession-et-de-donation-canton-nidvaldo-taux' },
  'patente-guida-canton-nidvaldo-conversione': { it: 'patente-guida-canton-nidvaldo-conversione', en: 'patente-guida-canton-nidvaldo-conversione-ed-esami', de: 'fahrerlaubnis-kanton-nidvaldo-umstellung', fr: 'permis-de-conduire-canton-nidvaldo-conversion' },
  'permesso-dimora-b-canton-glarona-requisiti-e-rinnovo': { it: 'permesso-dimora-b-canton-glarona-requisiti-e-rinnovo', en: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo', de: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo', fr: 'permesso-di-dimora-b-canton-glarona-requisiti-e-rinnovo' },
+ 'permesso-l-canton-glarona': { it: 'permesso-l-canton-glarona', en: 'permit-l-canton-glarona', de: 'aufenthaltstitel-l-kanton-glaris', fr: 'permis-l-canton-de-glaris' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

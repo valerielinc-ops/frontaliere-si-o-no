@@ -3037,6 +3037,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Residence permits B in the Canton of Glarus: requirements and renewal',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'The residence permit B in the Canton of Glarus is valid for a maximum of 1 year. The requirements and documents required are specified in the Italian-Swiss Double Taxation Convention.',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'A frontaliere in front of the view of Lake Lugano',
+    'blog.article.permesso-l-canton-glarona.title': 'Short-term permit L in the canton of Glarus: validity and extension',
+    'blog.article.permesso-l-canton-glarona.excerpt': 'The short-term L permit in the Glarus Canton is an important document for frontier workers.',
+    'blog.article.permesso-l-canton-glarona.imageAlt': 'Image related to permit L of short duration in Canton Glarona',
 };
 
 export default blogMetaChEn;

@@ -3037,6 +3037,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Permis de séjour B dans le canton de Glaris : exigences et renouvellement',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'Le permis de séjour B dans le canton de Glaris est valable pour une durée maximale d\'un an. Les exigences et les documents requis sont spécifiés dans la Convention italo-suisse contre les doubles impositions.',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'Un frontalier devant la vue du lac de Lugano',
+    'blog.article.permesso-l-canton-glarona.title': 'Permis L de courte durée dans le canton de Glaris : validité et prolongation',
+    'blog.article.permesso-l-canton-glarona.excerpt': 'Le permis L de courte durée dans le canton de Glaris est un document important pour les travailleurs frontaliers.',
+    'blog.article.permesso-l-canton-glarona.imageAlt': 'Image liée au permis L de courte durée dans le canton de Glaris',
 };
 
 export default blogMetaChFr;

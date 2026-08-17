@@ -3037,6 +3037,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.title': 'Aufenthaltsbewilligungen B im Kanton Glarus: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.excerpt': 'Die Aufenthaltsbewilligung B im Kanton Glarus ist maximal 1 Jahr gültig. Die Anforderungen und erforderlichen Unterlagen sind im italienisch-schweizerischen Doppelbesteuerungsabkommen festgelegt.',
     'blog.article.permesso-dimora-b-canton-glarona-requisiti-e-rinnovo.imageAlt': 'Ein Frontalier vor der Aussicht auf den Luganersee',
+    'blog.article.permesso-l-canton-glarona.title': 'Kurzaufenthaltsbewilligung L im Kanton Glarus: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-canton-glarona.excerpt': 'Die Kurzzeitbewilligung L im Kanton Glarus ist ein wichtiges Dokument für Grenzgänger.',
+    'blog.article.permesso-l-canton-glarona.imageAlt': 'Bild zum Aufenthaltstitel L mit kurzer Gültigkeit im Kanton Glarona',
 };
 
 export default blogMetaChDe;
