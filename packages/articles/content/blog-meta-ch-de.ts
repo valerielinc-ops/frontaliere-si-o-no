@@ -3301,6 +3301,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Kantons- und Gemeindesteuern in Basel-Stadt: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Die Kantons- und Gemeindesteuern in Basel-Stadt gehören zu den höchsten der Schweiz.',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'Die Stadt Basel, Hauptstadt des Kantons Basel-Stadt.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Aufenthaltsbewilligung B in Basel-Stadt: Voraussetzungen und Verfahren',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Hier finden Sie die Voraussetzungen und Unterlagen zur Erlangung der Aufenthaltsbewilligung B im Kanton Basel-Stadt sowie das Erneuerungsverfahren und die zuständige Stelle.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Kantonsamt für Migration Basel-Stadt',
 };
 
 export default blogMetaChDe;

@@ -3301,6 +3301,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Cantonal and municipal taxes in Basel City: rates and deductions',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Cantonal and municipal taxes in Basel City are among the highest in Switzerland.',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'The city of Basel, capital of the Canton of Basel-City.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Residence permit B in Basel City: requirements and procedure',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Here are the requirements and documents necessary to obtain the residence permit B in the Canton of Basel-City, as well as the renewal procedure and the competent office.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Basel City Migration Office',
 };
 
 export default blogMetaChEn;
