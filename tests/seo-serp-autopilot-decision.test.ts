@@ -8,7 +8,7 @@
  */
 import { describe, expect, it } from 'vitest';
 
-const { decideVariant, chooseNextVariant } = await import('@/scripts/seo-serp-autopilot.mjs');
+const { decideVariant, chooseNextVariant, chooseExploitTarget } = await import('@/scripts/seo-serp-autopilot.mjs');
 
 const DAY = 24 * 60 * 60 * 1000;
 const iso = (daysAgo: number) => new Date(Date.now() - daysAgo * DAY).toISOString();
@@ -128,6 +128,75 @@ describe('chooseNextVariant', () => {
   });
 });
 
+/**
+ * The exploit arithmetic on its own. `decideVariant` reaches the same code
+ * through a full history+KPI fixture (see the three-arm suite below); these
+ * pin the two margins directly, because `uplift` and `lead` coincide at two
+ * arms and telling them apart is the entire point of the function.
+ */
+describe('chooseExploitTarget', () => {
+  const score = (ctr: number) => ({ ctr, samples: 3, impressions: 100_000, clicks: Math.round(ctr * 1000) });
+
+  it('measures the uplift against the arm it would replace, not the runner-up', () => {
+    // Two strong arms nearly tied, far above the incumbent. The runner-up
+    // margin is 0.05 and would refuse the switch; the margin over the arm
+    // actually being replaced is 2.0 and obviously worth taking.
+    const scores = { a: score(3.0), b: score(2.95), c: score(1.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b', 'c'], 'c', 0.15);
+    expect(out.winner).toBe('a');
+    expect(out.runnerUp).toBe('b');
+    expect(out.uplift).toBeCloseTo(2.0, 6);
+    expect(out.lead).toBeCloseTo(0.05, 6);
+    expect(out.shouldSwitch).toBe(true);
+  });
+
+  it('still refuses a switch that is genuinely marginal', () => {
+    // Same shape, but this time the incumbent is one of the two leaders: the
+    // gain really is 0.05, and the threshold really should block it.
+    const scores = { a: score(3.0), b: score(2.95), c: score(1.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b', 'c'], 'b', 0.15);
+    expect(out.winner).toBe('a');
+    expect(out.uplift).toBeCloseTo(0.05, 6);
+    expect(out.shouldSwitch).toBe(false);
+  });
+
+  it('reports no switch margin at all when the winner is already live', () => {
+    const scores = { a: score(3.0), b: score(2.0), c: score(1.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b', 'c'], 'a', 0.15);
+    expect(out.shouldSwitch).toBe(false);
+    // Nothing is being replaced, so the switch margin does not exist rather
+    // than being zero — and the number worth reading is the lead over the
+    // closest challenger, which is what `winner_already_active` carries.
+    expect(out.uplift).toBeNull();
+    expect(out.lead).toBeCloseTo(1.0, 6);
+  });
+
+  it('keeps the two-arm behaviour unchanged', () => {
+    // The guard against a silent change to what runs in production today:
+    // with two arms, replaced-arm and runner-up are the same arm, so the two
+    // margins agree.
+    const scores = { a: score(3.0), b: score(2.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b'], 'b', 0.15);
+    expect(out.uplift).toBeCloseTo(1.0, 6);
+    expect(out.lead).toBeCloseTo(1.0, 6);
+    expect(out.shouldSwitch).toBe(true);
+  });
+
+  it('does not throw on a single-arm experiment, which has no runner-up', () => {
+    // `variants` is injectable and `chooseNextVariant` already answers for one
+    // arm, so this arity is reachable. Reading ranked[1] blind evaluates
+    // `scores[undefined].ctr` and throws.
+    const scores = { a: score(3.0) };
+    let out: ReturnType<typeof chooseExploitTarget> | undefined;
+    expect(() => { out = chooseExploitTarget(scores, ['a'], 'a', 0.15); }).not.toThrow();
+    expect(out!.winner).toBe('a');
+    expect(out!.runnerUp).toBe('a');
+    expect(out!.uplift).toBeNull();
+    expect(out!.lead).toBe(0);
+    expect(out!.shouldSwitch).toBe(false);
+  });
+});
+
 // Three arms was the whole point of making the mechanism n-ary, and it is the
 // case that could not be written at all until `variants` became injectable —
 // VARIANTS is a module constant with two entries, so the n-ary behaviour
@@ -207,6 +276,36 @@ describe('decideVariant with three arms', () => {
     // third_arm was last seen 35 days ago, year_intent 21 — the overdue one
     // wins, which is what stops a third arm from starving.
     expect(chooseNextVariant('intent_simulation', threeArmHistory(10), ARMS)).toBe('third_arm');
+  });
+
+  it('can actually switch TO the injected arm, not merely score it', () => {
+    // Every other three-arm case here has the winner inside the VARIANTS
+    // module constant, so all of them stay green even if the exploit branch
+    // ranks VARIANTS instead of the injected `variants` — scoring an arm it
+    // can never choose. Only a fixture where the injected arm WINS tells the
+    // two apart: ranking VARIANTS would crown intent_simulation at 6.10 for an
+    // uplift of 0.10 over the live arm, refuse the switch as below threshold,
+    // and silently strand the best arm at 7.80.
+    const d = decideVariant({
+      currentVariant: 'year_intent',
+      history: {
+        lastSwitchAt: iso(10),
+        snapshots: [
+          snap('year_intent', 7, 100_000, 6_000),         // 6.00%
+          snap('year_intent', 14, 100_000, 6_000),
+          snap('intent_simulation', 21, 100_000, 6_100),  // 6.10%
+          snap('intent_simulation', 28, 100_000, 6_100),
+          snap('third_arm', 35, 100_000, 7_800),          // 7.80%
+          snap('third_arm', 42, 100_000, 7_800),
+        ],
+      },
+      currentKpi: HEALTHY_KPI,
+      nowIso: new Date().toISOString(),
+      variants: ARMS,
+    });
+    expect(d.mode).toBe('exploit');
+    expect(d.nextVariant).toBe('third_arm');
+    expect(d.reason).toMatch(/^switch_to_winner_uplift_1\.8/);
   });
 });
 
