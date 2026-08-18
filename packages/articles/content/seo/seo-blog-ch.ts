@@ -43232,6 +43232,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-twint-addebito-diretto-fatture': {
+    title: 'Twint lancia l\'addebito diretto per bollette e cassa malati',
+    description: 'Twint introduce l\'addebito diretto per cassa malati, elettricità e abbonamenti dal 2027. Sostituzione dei sistemi LSV+ entro fine settembre 2028.',
+    keywords: 'frontalieri, ticino, svizzera, italia, twint, lancia, addebito, diretto',
+    ogTitle: 'Twint lancia l\'addebito diretto per fatture e cassa malati in Svizzera',
+    ogDescription: 'Dal 2027 Twint introdurrà l\'addebito diretto per i pagamenti ricorrenti come cassa malati e bollette, sostituendo gli LSV+ entro il 2028.',
+    canonicalPath: '/articoli-svizzera/twint-addebito-diretto-fatture/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Twint lancia l'addebito diretto per bollette e cassa malati",
+      "description": "Twint introduce l'addebito diretto per cassa malati, elettricità e abbonamenti dal 2027. Sostituzione dei sistemi LSV+ entro fine settembre 2028.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/twint-addebito-diretto-fatture.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con app di pagamento Twint in primo piano in Svizzera"
+      },
+      "datePublished": "2026-08-18T09:15:54+00:00",
+      "dateModified": "2026-08-18T09:15:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/twint-addebito-diretto-fatture/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

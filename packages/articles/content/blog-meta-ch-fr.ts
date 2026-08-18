@@ -3334,6 +3334,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprentissage et formation professionnelle dans le canton de Bâle-Ville',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, une rémunération d\'apprenti et une maturité professionnelle dans le canton de Bâle-Ville',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Image d\'un apprenti dans une entreprise de Bâle',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint lance le prélèvement automatique pour les factures et la caisse-maladie',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'Nouveauté pour les paiements récurrents en Suisse : Twint introduira le prélèvement automatique pour les caisses-maladie, l\'électricité et les abonnements.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone avec l\'application de paiement Twint en premier plan en Suisse',
 };
 
 export default blogMetaChFr;
