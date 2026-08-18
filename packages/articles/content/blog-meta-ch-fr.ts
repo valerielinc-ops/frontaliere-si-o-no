@@ -3376,6 +3376,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologue : 90 000 francs pour 1,5 jour de travail',
     'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Les données divulguées révèlent des salaires entre 90 000 et 475 000 francs par an. Baume-Schneider s\'attaque aux primes liées au chiffre d\'affaires dans le système de santé suisse.',
     'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Département de radiologie avec appareil d\'IRM dans une clinique suisse',
+    'blog.article.soglie-patrimonio-banche-svizzera.title': 'Si vous avez cet argent, les banques vous considèrent comme riche',
+    'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Des banques régionales aux établissements privés : découvrez les seuils de patrimoine qui classent les clients et les avantages du changement de catégorie.',
+    'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Bureau bancaire moderne suisse avec documents financiers et gestion patrimoniale',
 };
 
 export default blogMetaChFr;

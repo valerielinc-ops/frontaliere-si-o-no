@@ -3376,6 +3376,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologe: 90.000 Franken für 1,5 Arbeitstage',
     'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Durchgesickerte Daten zeigen Gehälter zwischen 90.000 und 475.000 Franken pro Jahr. Baume-Schneider greift Umsatzprämien im Schweizer Gesundheitssystem an.',
     'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Radiologische Abteilung mit MRT-Gerät in einer Schweizer Klinik',
+    'blog.article.soglie-patrimonio-banche-svizzera.title': 'Wenn Sie dieses Geld haben, betrachten die Banken Sie als wohlhabend',
+    'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Von Regionalbanken bis hin zu Privatinstituten: Erfahren Sie, welche Eigenkapitalschwellen Kunden kategorisieren und welche Vorteile ein Wechsel der Kategorie mit sich bringt.',
+    'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Modernes Schweizer Bankbüro mit Finanzdokumenten und Vermögensmanagement-Schreibtisch',
 };
 
 export default blogMetaChDe;
