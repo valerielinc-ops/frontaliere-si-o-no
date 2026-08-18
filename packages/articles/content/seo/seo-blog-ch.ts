@@ -43037,6 +43037,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-formazione-professionale-basilea-citta': {
+    title: 'Apprendistato a Basilea Città: come trova un posto di tirocinio',
+    description: 'Basilea Città ha una normativa specifica per l\'apprendistato e la formazione professionale. I giovani frontalieri possono trovare un posto di tirocinio presso',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, basilea, città, trova',
+    ogTitle: 'Apprendistato e formazione professionale a Basilea Città: come trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale',
+    ogDescription: 'Basilea Città ha una normativa specifica per l\'apprendistato e la formazione professionale. I giovani frontalieri possono trovare un posto di tirocinio presso aziende locali.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato a Basilea Città: come trova un posto di tirocinio",
+      "description": "Basilea Città ha una normativa specifica per l'apprendistato e la formazione professionale. I giovani frontalieri possono trovare un posto di tirocinio presso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in apprendistato a Basilea Città"
+      },
+      "datePublished": "2026-08-18T07:49:04+00:00",
+      "dateModified": "2026-08-18T07:49:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-professionale-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

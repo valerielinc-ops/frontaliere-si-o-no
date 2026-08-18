@@ -3319,6 +3319,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Basel City Canton School System: Enrollment and Cycles',
     'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'School cycles and ages of enrolment in the Canton of Basel-City.',
     'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'A student of junior high school in Basel City learns with a teacher',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Apprenticeship in Basel City: how to find an internship',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Basel City has specific regulations for apprenticeships and vocational training. Young frontier workers can find an internship at local companies.',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'A foreigner in apprenticeship in Basel City',
 };
 
 export default blogMetaChEn;
