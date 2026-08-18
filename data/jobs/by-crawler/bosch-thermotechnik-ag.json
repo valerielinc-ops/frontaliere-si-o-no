@@ -163,9 +163,9 @@
       },
       "slugByLocale": {
         "it": "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-thermotechnik-ag-buttikon",
-        "en": "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-buttikon",
+        "en": "service-technician-area-of-hydraulics-100-f-m-div-ref289394q-bosch-thermotechnik-ag-buttikon",
         "de": "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-buttikon",
-        "fr": "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-buttikon"
+        "fr": "technicien-de-service-zone-hydraulique-100-f-m-div-ref289394q-bosch-thermotechnik-ag-buttikon"
       },
       "id": "bosch-thermotechnik-ag-ff0eb29cb1fd",
       "previousSlugsByLocale": {
@@ -175,7 +175,11 @@
           "technicien-de-service-hydraulique-100-f-m-div-ref289394q-bosch-thermotechnik-ag-buttikon"
         ],
         "fr": [
-          "technicien-de-service-hydraulique-100-f-m-div-ref289394q-bosch-thermotechnik-ag-buttikon"
+          "technicien-de-service-hydraulique-100-f-m-div-ref289394q-bosch-thermotechnik-ag-buttikon",
+          "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-buttikon"
+        ],
+        "en": [
+          "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-buttikon"
         ]
       },
       "previousSlugs": [
@@ -237,7 +241,7 @@
         "it": "premaster-nella-gestione-dei-prodotti-f-m-div-ref-293937-gg-bosch-thermotechnik-ag-frauenfeld",
         "en": "premaster-in-product-management-f-m-div-ref-293937-gg-bosch-thermotechnik-ag-frauenfeld",
         "de": "premaster-im-produktmanagement-w-m-div-ref293937g-bosch-frauenfeld",
-        "fr": "premaster-im-produktmanagement-w-m-div-ref293937g-bosch-thermotechnik-ag-frauenfeld"
+        "fr": "premaster-dans-la-gestion-des-produits-f-m-div-ref-293937-gg-bosch-thermotechnik-ag-frauenfeld"
       },
       "id": "bosch-thermotechnik-ag-c63b7d8eba33",
       "salaryMin": 57500,
@@ -261,7 +265,6 @@
         ],
         "fr": [
           "premaster-en-gestion-des-produits-f-m-div-ref-293937-gg-bosch-thermotechnik-ag-frauenfeld",
-          "premaster-dans-la-gestion-des-produits-f-m-div-ref-293937-gg-bosch-thermotechnik-ag-frauenfeld",
           "premaster-im-produktmanagement-w-m-div-ref293937g-bosch-frauenfeld",
           "premaster-im-produktmanagement-w-m-div-ref293937g-bosch-thermotechnik-ag-frauenfeld"
         ],
