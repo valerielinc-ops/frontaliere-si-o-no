@@ -1,18 +1,19 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-08-18T09:51:20.601Z",
-  "total": 3,
-  "newCount": 2,
-  "updatedCount": 0,
+  "generatedAt": "2026-08-18T22:09:46.787Z",
+  "total": 2,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4226,
-  "avgDurationMs": 4226,
+  "unchangedCount": 0,
+  "durationMs": 4468,
+  "avgDurationMs": 4468,
   "durationHistory": [
-    4226
+    4468
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fondation-domus-b22f9013dfc2",
       "slug": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
@@ -25,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T09:51:18.113Z",
+      "crawledAt": "2026-08-18T22:09:44.340Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -39,11 +40,13 @@
       "featured": false,
       "postedDate": "2026-08-18",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T09:51:18.113Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -59,7 +62,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/71519aea-c081-4704-be57-8a2a6786f33f/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T09:51:18.449Z",
+      "crawledAt": "2026-08-18T22:09:44.776Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -73,56 +76,17 @@
       "featured": false,
       "postedDate": "2026-08-18",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/71519aea-c081-4704-be57-8a2a6786f33f/?source=[platform]",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T09:51:18.449Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "fondation-domus-3dabd2ac9637",
-      "slug": "fornello-100-fondation-domus-ardon",
-      "company": "Fondation Domus",
-      "companyKey": "fondation-domus",
-      "companyDomain": "fondation-domus.ch",
-      "title": "Cuisinier (100%)",
-      "location": "Ardon",
-      "canton": "VS",
-      "url": "https://www.jobup.ch/fr/emplois/detail/4103aa04-450b-4c9d-8dc4-6b86a87f0ac5/?source=[platform]",
-      "source": "Fondation Domus Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:44:38.195Z",
-      "addressLocality": "Ardon",
-      "postalCode": "1957",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Social / Fondation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/4103aa04-450b-4c9d-8dc4-6b86a87f0ac5/?source=[platform]",
-      "firstSeenAt": "2026-08-13T10:23:02.786Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "addressRegion": "VS",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
