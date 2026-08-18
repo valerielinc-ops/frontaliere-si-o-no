@@ -9,6 +9,8 @@ const {
   unsubscribeGuardBreaches,
   UNSUB_RATE_CAP_PCT,
   MIN_SENDS_FOR_UNSUB_GUARD,
+  loadCampaignSegmentReport,
+  MissingIndexError,
 } = await import('@/scripts/lib/newsletter-ab-data.mjs');
 const { buildDeliveryDocId } = await import('@/functions/src/lib/deliveryDocId.js');
 
@@ -252,5 +254,57 @@ describe('unsubscribeGuardBreaches', () => {
     ];
     const report = aggregateSegmentReport(deliveries, { unsubscribedEmails: new Set(['a@x.com']) }); // 50%
     expect(unsubscribeGuardBreaches(report, 60)).toEqual([]); // below a looser 60% cap
+  });
+});
+
+// The unsubscribe window query is the one query in this module that combines an
+// equality filter with a range filter, so it is the only one that needs a
+// composite index. firestore.indexes.json declares events(event_type ASC,
+// timestamp DESC) and nothing else, so the direction is not a style choice.
+describe('loadCampaignSegmentReport — unsubscribe window query', () => {
+  const CAMPAIGN = 'weekly_2026-06-15';
+  const EMAIL = 'a@b.com';
+
+  function stubDb(recorded: any[]) {
+    const makeQuery = (group: string) => {
+      const calls: any = { group, wheres: [] as any[], orderBys: [] as any[] };
+      recorded.push(calls);
+      const q: any = {
+        where(field: string, op: string, value: unknown) { calls.wheres.push({ field, op, value }); return q; },
+        orderBy(field: string, dir?: string) { calls.orderBys.push({ field, dir }); return q; },
+        get: async () => ({
+          docs: group === 'campaign_deliveries'
+            ? [{
+                id: buildDeliveryDocId(CAMPAIGN, EMAIL),
+                data: () => ({ email: EMAIL, sent_at: new Date('2026-06-15T08:00:00Z'), provider: 'resend', segment: 'hot_jobs' }),
+                ref: { parent: { parent: { id: EMAIL } } },
+              }]
+            : [],
+        }),
+      };
+      return q;
+    };
+    return { collectionGroup: (group: string) => makeQuery(group) };
+  }
+
+  it('orders the unsubscribe window explicitly, so it runs on the declared index', async () => {
+    const recorded: any[] = [];
+    await loadCampaignSegmentReport(stubDb(recorded), CAMPAIGN);
+
+    const unsubQuery = recorded.find((c) => c.wheres.some((w: any) => w.field === 'event_type' && w.value === 'unsubscribe'));
+    expect(unsubQuery).toBeDefined();
+    expect(unsubQuery.wheres.filter((w: any) => w.field === 'timestamp')).toHaveLength(2);
+    // Without this the implicit order is ascending, which no declared index serves.
+    expect(unsubQuery.orderBys).toEqual([{ field: 'timestamp', dir: 'desc' }]);
+  });
+});
+
+describe('MissingIndexError', () => {
+  it('names the fields of the query that failed, not always campaign_id', () => {
+    const err = new MissingIndexError('events', 'event_type + timestamp', new Error('original'));
+    expect(err.message).toContain('events.event_type + timestamp');
+    expect(err.message).not.toContain('campaign_id');
+    expect(err.fields).toBe('event_type + timestamp');
+    expect(err.original).toBeInstanceOf(Error);
   });
 });
