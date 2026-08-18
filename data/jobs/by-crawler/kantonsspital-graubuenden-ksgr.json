@@ -25,13 +25,22 @@
       "crawledAt": "2026-08-17T21:51:39.353Z",
       "slug": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        "de": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
+        "it": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
+        "en": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
+        "fr": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Fachperson Gesundheit EFZ Kardiologie / Nephrologie"
+        "de": "Fachperson Gesundheit EFZ Kardiologie / Nephrologie",
+        "it": "Salute EFZ Cardiologia / Nefrologia",
+        "en": "Health EFZ Cardiology / Nephrology",
+        "fr": "Santé EFZ Cardiologie / Néphrologie"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. Oktober 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du betreust und unterstützt unsere Patientinnen und Patienten bei den Aktivitäten des täglichen Lebens\n\n• Du führst angeordnete, medizinisch-diagnostische sowie medizinisch-technische Massnahmen fachgerecht durch\n\n• Du übernimmst allgemeine sowie patientenbezogene administrative Aufgaben und trägst zu einem reibungslosen Stationsablauf bei\n\nAnforderungen:\n• Einen Abschluss als Fachfrau / Fachmann Gesundheit EFZ\n\n• Freude an der Pflege und Betreuung von Menschen sowie ein echtes Interesse an ihren individuellen Bedürfnissen\n\n• Teamfähigkeit, Motivation sowie eine offene und kooperative Art, mit der du unser Team bereicherst\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. Oktober 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du betreust und unterstützt unsere Patientinnen und Patienten bei den Aktivitäten des täglichen Lebens\n\n• Du führst angeordnete, medizinisch-diagnostische sowie medizinisch-technische Massnahmen fachgerecht durch\n\n• Du übernimmst allgemeine sowie patientenbezogene administrative Aufgaben und trägst zu einem reibungslosen Stationsablauf bei\n\nAnforderungen:\n• Einen Abschluss als Fachfrau / Fachmann Gesundheit EFZ\n\n• Freude an der Pflege und Betreuung von Menschen sowie ein echtes Interesse an ihren individuellen Bedürfnissen\n\n• Teamfähigkeit, Motivation sowie eine offene und kooperative Art, mit der du unser Team bereicherst\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare il 1 ottobre 2026 o per accordo come\n\nCompiti:\n• Supporti e supporti i nostri pazienti nelle attività della vita quotidiana\n\n• Effettuate misure ordinate, mediche-diagnostiche e mediche-tecniche professionalmente\n\n• Si assume compiti amministrativi generali e relativi al paziente e contribuisce a un'operazione di stazione liscia\n\nRequisiti\n• Una laurea in medicina specialistica EFZ\n\n• Gioia nella cura e la cura per le persone e un autentico interesse per le loro esigenze individuali\n\n• Lavoro di squadra, motivazione e un modo aperto e cooperativo per arricchire il nostro team\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on October 1, 2026 or by arrangement as\n\nTasks:\n• You support and support our patients in the activities of daily life\n\n• You carry out ordered, medical-diagnostic and medical-technical measures professionally\n\n• You take on general as well as patient-related administrative tasks and contribute to a smooth station operation\n\nRequirements\n• A degree as a specialist health EFZ\n\n• Joy in caring for and caring for people as well as a genuine interest in their individual needs\n\n• Teamwork, motivation and an open and cooperative way to enrich our team\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer le 1er octobre 2026 ou par arrangement\n\nTâches :\n• Vous aidez nos patients dans les activités de la vie quotidienne\n\n• Vous effectuez des mesures ordonnées, médico-diagnostiques et médico-techniques professionnelles\n\n• Vous assumez des tâches administratives générales et liées au patient et contribuez à un fonctionnement en douceur de la station\n\nExigences\n• Diplôme de spécialiste en santé EFZ\n\n• La joie de prendre soin et de prendre soin des personnes ainsi qu'un véritable intérêt pour leurs besoins individuels\n\n• Travail d'équipe, motivation et une façon ouverte et coopérative d'enrichir notre équipe\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +53,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 87000,
@@ -3293,7 +3301,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z"
+      "firstSeenAt": "2026-05-17T10:33:43.517Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10020180",

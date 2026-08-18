@@ -5481,14 +5481,16 @@
         "diploma-in-nursing-hf-nursing-medicine-m-f-d-solothurner-spitaler-ag-soh-olten",
         "dipl-consultant-principal-m-j-solothurner-spitaler-soh-olten",
         "diplome-e-en-soins-infirmiers-medecine-hf-h-f-solothurner-spitaler-ag-soh-olten",
-        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-ag-soh-olten"
+        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-ag-soh-olten",
+        "dipl-pflegefachfrau-pflegefachmann-hf-medizin-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-solothurner-spitaeler-olten",
           "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-soh-ch",
           "infermiera-infermiera-hf-medicina-f-m-d-solothurner-spitaler-ag-soh-olten",
-          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-ag-soh-olten"
+          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-w-m-d-solothurner-spitaler-ag-soh-olten",
+          "dipl-pflegefachfrau-pflegefachmann-hf-medizin-m-w-d-solothurner-spitaler-ag-soh-olten"
         ],
         "en": [
           "dipl-senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
@@ -7363,14 +7365,16 @@
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
         "nuclear-medicine-radiology-technologist-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "technicien-ne-en-radiologie-specialise-e-en-medecine-nucleaire-h-f-solothurner-spitaler-ag-soh-solothurn",
-        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-ag-soh-solothurn"
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-m-w-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-solothurner-spitaeler",
           "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
           "specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-ag-soh-solothurn"
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-m-w-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "en": [
           "radiology-specialist-w-m-d-solothurner-spitaler-ag-soh-solothurn",
@@ -14283,7 +14287,7 @@
       "id": "soh-solothurner-spitaeler-325459e39c0e",
       "slug": "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach",
       "slugByLocale": {
-        "de": "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-solothurner-spitaeler",
+        "de": "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch",
         "it": "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-soh-dornach",
         "en": "assistant-doctor-assistant-internal-medicine-and-surgery-m-f-d-solothurner-spitaler-ag-soh-dornach",
         "fr": "assistant-medecin-assistant-medecine-interne-et-chirurgie-h-f-d-solothurner-spitaler-ag-soh-dornach"
@@ -14338,12 +14342,15 @@
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-solothurner-spitaler-ag-soh-dornach"
+        ],
+        "de": [
+          "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-solothurner-spitaeler"
         ]
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-solothurner-spitaeler",
-        "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach",
-        "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-solothurner-spitaler-ag-soh-dornach"
+        "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-solothurner-spitaler-ag-soh-dornach",
+        "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -14357,7 +14364,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T09:51:58.648Z"
+      "firstSeenAt": "2026-08-17T09:51:58.648Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "soh-solothurner-spitaeler-475a1b8b4931",

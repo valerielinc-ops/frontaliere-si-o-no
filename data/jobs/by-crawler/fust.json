@@ -1221,9 +1221,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
-          "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
           "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
@@ -1240,7 +1237,10 @@
           "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-heimberg-bern",
           "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310",
-          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen"
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-oberburen",
+          "sales-consultant-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
+          "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
+          "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-fldc7z",
@@ -5286,7 +5286,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-vqgt0x",
           "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln",
           "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln-576dn5",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln",
@@ -5305,7 +5304,8 @@
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
           "technicien-de-livraison-a-domicile-d-appareils-electromenagers-electriques-fust-swiss-household-services-ag-dubendorf",
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-vqgt0x"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-vqgt0x",
+          "home-delivery-technician-for-electrical-household-appliances-fust-swiss-household-services-ag-pratteln"
         ],
         "en": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-basel-landschaft-d3bmkh",
@@ -9624,11 +9624,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-aliment-coop-genossenschaft-zurich-7bbd30",
-          "vendeur-aliment-coop-genossenschaft-zurich-7caddd",
-          "vendeur-aliment-coop-genossenschaft-zurich-a058jr",
-          "vendeur-aliment-coop-genossenschaft-zurich-cd82ab",
-          "vendeur-aliment-coop-genossenschaft-zurich-d61d8i",
           "verkaufer-in-food-grundnahrung-getranke-coop-oberageri-zug",
           "venditore-in-cibo-bevande-vino-coop-genossenschaft-muttenz",
           "seller-in-food-drinks-wine-coop-genossenschaft-muttenz-basel-landschaft",
@@ -9643,7 +9638,12 @@
           "food-salesperson-coop-genossenschaft-zurich-195e28",
           "food-salesperson-coop-genossenschaft-zurich-5657fd",
           "food-salesperson-coop-genossenschaft-zurich-57xrkh",
-          "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-zurich"
+          "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-zurich",
+          "food-salesperson-coop-genossenschaft-zurich-7caddd",
+          "food-salesperson-coop-genossenschaft-zurich-99172e",
+          "food-salesperson-coop-genossenschaft-zurich-a058jr",
+          "food-salesperson-coop-genossenschaft-zurich-ixjaym",
+          "food-salesperson-coop-genossenschaft-zurich-rwdwcg"
         ],
         "en": [
           "seller-in-food-basic-food-drinks-coop-genossenschaft-oberageri",
@@ -13064,8 +13064,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim",
-          "stv-chef-de-groupe-dans-la-production-south-night-sheet-panofina-coop-genossenschaft-schafisheim-aargau",
           "stv-group-leader-in-production-south-night-shift-panofina-coop-genossenschaft-schafisheim-aargau",
           "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
           "stv-gruppenleiter-in-produktion-sud-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-mpqq88",
@@ -13083,7 +13081,9 @@
           "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
           "chef-de-groupe-en-production-de-nuit-panofina-coop-genossenschaft-schafisheim-aargau",
           "group-leader-production-night-shift-panofina-coop-genossenschaft-schafisheim",
-          "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-bina86"
+          "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau-bina86",
+          "stv-gruppo-leader-in-produzione-south-night-shift-panofina-coop-genossenschaft-schafisheim",
+          "leader-del-gruppo-in-turno-notturno-di-produzione-panofina-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
@@ -15322,7 +15322,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-vguxb6",
           "amministratore-delegato-coop-genossenschaft-sankt-moritz",
           "managing-director-in-coop-genossenschaft-sankt-moritz-onj02s",
           "managing-director-in-coop-genossenschaft-sankt-moritz",
@@ -15341,7 +15340,8 @@
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen",
           "amministratore-delegato-coop-genossenschaft-st-gallen-sankt-gallen",
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru",
-          "directeur-general-coop-genossenschaft-st-gallen"
+          "directeur-general-coop-genossenschaft-st-gallen",
+          "geschaftsfuhrer-in-import-parfumerie-st-gallen-sankt-gallen"
         ],
         "en": [
           "geschaftsfuhrer-in-coop-genossenschaft-st-gallen-sankt-gallen-bmvuru",
@@ -16824,7 +16824,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-dietikon-zurich-z40wl8",
           "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-dietikon-e6qfc8",
           "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-dietikon",
           "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-dietikon",
@@ -16843,7 +16842,8 @@
           "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-schwyz",
           "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-dietikon-0xnuaz",
           "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-dietikon-zurich",
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-schwyz"
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-schwyz",
+          "consulente-commerciale-a-deco-jumbo-dietikon"
         ],
         "en": [
           "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-schwyz-xqcsiz",
