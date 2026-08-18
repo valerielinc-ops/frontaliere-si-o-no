@@ -3319,6 +3319,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Schulsystem Kanton Basel-Stadt: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'Die Schulzyklen und das Einschreibungsalter im Kanton Basel-Stadt.',
     'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'Ein Schüler der Realschule in Basel Stadt lernt mit einem Lehrer',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Lehre in Basel-Stadt: So finden Sie eine Lehrstelle',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Basel-Stadt hat eine spezifische Regelung für die Lehre und Berufsausbildung. Junge Grenzgänger können bei lokalen Betrieben eine Lehrstelle finden.',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'Ein Frontalier in Ausbildung in Basel-Stadt',
 };
 
 export default blogMetaChDe;

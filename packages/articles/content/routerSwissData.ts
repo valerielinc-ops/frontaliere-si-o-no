@@ -1132,6 +1132,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-basilea-citt': { it: 'assegni-familiari-canton-basilea-citt', en: 'basel-city-child-allowance-switzerland', de: 'basel-stadt-kindergeld-schweiz', fr: 'bale-ville-prestations-etudes-suisse' },
  'occupazione-disoccupazione-svizzera-q2-2026': { it: 'occupazione-disoccupazione-svizzera-q2-2026', en: 'switzerland-employment-unemployment-q2-2026', de: 'beschaeftigung-arbeitslosigkeit-schweiz-q2-2026', fr: 'emploi-chomage-suisse-q2-2026' },
  'sistema-scolastico-canton-basilea-citta': { it: 'sistema-scolastico-canton-basilea-citta', en: 'school-system-canton-basel-city', de: 'schoolestsystem-kanton-basel-stadt', fr: 'systeme-educatif-canton-de-bale-ville' },
+ 'apprendistato-formazione-professionale-basilea-citta': { it: 'apprendistato-formazione-professionale-basilea-citta', en: 'apprenticeship-professional-training-basel-city', de: 'ausbildung-berufliche-bildung-basel-stadt', fr: 'stage-formation-professionnelle-bale-ville' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

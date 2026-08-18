@@ -3319,6 +3319,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Système scolaire canton Bâle-Ville : inscription et cycles',
     'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'Les cycles scolaires et les âges d\'inscription dans le canton de Bâle-Ville.',
     'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'Un élève de l\'école secondaire inférieure de Bâle-Ville apprend avec un professeur',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Apprentissage à Bâle-Ville : comment trouver une place d\'apprentissage',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Bâle-Ville a une réglementation spécifique pour l\'apprentissage et la formation professionnelle. Les jeunes frontaliers peuvent trouver un stage dans des entreprises locales.',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'Un frontalier en stage à Bâle-Ville',
 };
 
 export default blogMetaChFr;

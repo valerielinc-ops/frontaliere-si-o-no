@@ -3319,6 +3319,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Sistema scolastico canton Basilea Città: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'I cicli di scuola e le età di iscrizione nel Cantone di Basilea Città.',
     'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'A studente di scuola media inferiore nella scuola di Basilea Città impara con un professore',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Apprendistato a Basilea Città: come trova un posto di tirocinio',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Basilea Città ha una normativa specifica per l\'apprendistato e la formazione professionale. I giovani frontalieri possono trovare un posto di tirocinio presso aziende locali.',
+    'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'Un frontaliere in apprendistato a Basilea Città',
 };
 
 export default blogMetaChIt;

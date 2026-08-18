@@ -9955,6 +9955,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'apprendistato-formazione-professionale-basilea-citta',
+    category: 'pratico',
+    date: '2026-08-18T07:49:04.827Z',
+    image: '/images/blog/apprendistato-formazione-professionale-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
