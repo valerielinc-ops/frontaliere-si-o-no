@@ -3247,6 +3247,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Primes d\'assurance maladie dans le canton de Soleure et réductions de primes',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Faits clés sur la réduction des primes de caisse-maladie dans le canton de Soleure',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Image d\'un bâtiment hospitalier en Suisse',
+    'blog.article.permesso-domicilio-c-soletta.title': 'Permis de séjour C canton de Soleure : exigences et demande',
+    'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analyse des exigences, des critères d\'intégration et de la procédure de demande du permis de séjour C dans le canton de Soleure.',
+    'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Bâtiment administratif dans le canton de Soleure',
 };
 
 export default blogMetaChFr;

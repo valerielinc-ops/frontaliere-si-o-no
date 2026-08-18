@@ -42101,6 +42101,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-domicilio-c-soletta': {
+    title: 'Permesso di domicilio C canton Soletta: requisiti e domanda',
+    description: 'Guida ufficiale al permesso di domicilio C nel Cantone di Soletta: requisiti di residenza, criteri di integrazione, lingua e procedura di domanda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, canton, soletta',
+    ogTitle: 'Permesso di domicilio C nel Cantone di Soletta: requisiti e procedura',
+    ogDescription: 'Scopri i criteri di integrazione, i requisiti di residenza e i passaggi procedurali per ottenere il permesso di domicilio C nel Cantone di Soletta.',
+    canonicalPath: '/articoli-svizzera/permesso-domicilio-c-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di domicilio C canton Soletta: requisiti e domanda",
+      "description": "Guida ufficiale al permesso di domicilio C nel Cantone di Soletta: requisiti di residenza, criteri di integrazione, lingua e procedura di domanda.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-domicilio-c-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo nel Cantone di Soletta"
+      },
+      "datePublished": "2026-08-18T02:02:28+00:00",
+      "dateModified": "2026-08-18T02:02:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-domicilio-c-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

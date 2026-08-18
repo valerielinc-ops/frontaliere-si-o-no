@@ -9739,6 +9739,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-domicilio-c-soletta',
+    category: 'pratico',
+    date: '2026-08-18T02:02:28.862Z',
+    image: '/images/blog/permesso-domicilio-c-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

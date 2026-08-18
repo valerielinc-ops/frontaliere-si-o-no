@@ -3247,6 +3247,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Canton health insurance premiums Slab and premium reduction',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Key facts about the reduction of sick pay premiums in the Canton of Solothurn',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Image of a hospital building in Switzerland',
+    'blog.article.permesso-domicilio-c-soletta.title': 'Residence permit C canton Solothurn: requirements and application',
+    'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analysis of the requirements, integration criteria and procedure for applying for residence permit C in the Canton of Solothurn.',
+    'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Administrative building in the Canton of Solothurn',
 };
 
 export default blogMetaChEn;
