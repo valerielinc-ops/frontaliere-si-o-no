@@ -84,7 +84,7 @@ describe('ledger dei punteggi: i due modi silenziosi di riaprire il buco', () =>
     const offenders: string[] = [];
     for (const name of ledgerScripts()) {
       const src = readFileSync(join(SCRIPTS_DIR, name), 'utf8');
-      for (const handler of catchHandlers(src)) {
+      for (const handler of catchHandlers(src).map(stripComments)) {
         if (!/\bprocess\.exit\s*\(/.test(handler)) continue;
         if (/\bflushScores(BeforeExit)?\s*\(/.test(handler)) continue;
         offenders.push(name);
@@ -119,23 +119,54 @@ describe('ledger dei punteggi: i due modi silenziosi di riaprire il buco', () =>
     // dei delta, altrimenti il guard misurerebbe una regione sbagliata.
     expect(critical).toMatch(/_dirtyModels\.clear\(\)/);
     expect(critical).toMatch(/_pendingCounterDeltas\.delete\(modelId\)/);
-    const withoutComments = critical
-      .replace(/\/\*[\s\S]*?\*\//g, '')
-      .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
-    expect(withoutComments).not.toMatch(/\bawait\b/);
+    expect(stripComments(critical)).not.toMatch(/\bawait\b/);
   });
 });
 
-/** I file sotto `scripts/` che importano davvero il ledger dei punteggi. */
+/**
+ * I file sotto `scripts/` che scrivono davvero nel ledger.
+ *
+ * NON e' «chi importa flushScores»: `callLLM()` fa da solo `initScoreStore()`
+ * alla prima chiamata (`if (!_storeInitialized) await initScoreStore()`), quindi
+ * uno script che chiama `callLLM` persiste su Firestore anche se non nomina mai
+ * il flush — e sono proprio quelli che perdevano tutto, perche' non avendo mai
+ * scritto `flushScores` non comparivano nemmeno nel gate qui sopra.
+ *
+ * L'import puo' essere statico o dinamico (`await import('./lib/ai-models.mjs')`):
+ * `send-newsletter.mjs` e `backfill-ai-search-optimization.mjs` usano il secondo,
+ * ed e' l'altra meta' del punto cieco.
+ */
 function ledgerScripts(): string[] {
-  const candidates = [
-    ...readdirSync(SCRIPTS_DIR).filter((f) => f.endsWith('.mjs')),
-    ...readdirSync(join(SCRIPTS_DIR, 'lib')).filter((f) => f.endsWith('.mjs')).map((f) => join('lib', f)),
-  ];
-  return candidates.filter((name) => {
+  return walkMjs(SCRIPTS_DIR).filter((name) => {
     const src = readFileSync(join(SCRIPTS_DIR, name), 'utf8');
-    return /import\s*\{[^}]*\bflush(Scores|ScoresBeforeExit)\b[^}]*\}\s*from\s*['"][^'"]*ai-models\.mjs['"]/.test(src);
+    if (!/ai-models\.mjs['"]/.test(src)) return false;
+    return /\bcallLLM\b|\bcallSingleModel\b|\bflush(Scores|ScoresBeforeExit)\b/.test(src);
   });
+}
+
+/**
+ * Via i commenti prima di cercare la chiamata al flush.
+ *
+ * Non e' cosmesi: il primo giro di questo gate passava perche' il commento che
+ * SPIEGA la fix nomina `flushScores()` con le parentesi, e la regex lo contava
+ * come chiamata. Un guard che si accontenta di leggere il proprio commento non
+ * e' un guard — l'ha mostrato la prova per mutazione, che restava verde.
+ */
+function stripComments(src: string): string {
+  return src
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
+}
+
+/** Tutti i `.mjs` sotto `scripts/`, ricorsivo, path relativi a SCRIPTS_DIR. */
+function walkMjs(root: string, rel = ''): string[] {
+  const out: string[] = [];
+  for (const entry of readdirSync(join(root, rel), { withFileTypes: true })) {
+    const next = rel ? join(rel, entry.name) : entry.name;
+    if (entry.isDirectory()) out.push(...walkMjs(root, next));
+    else if (entry.name.endsWith('.mjs')) out.push(next);
+  }
+  return out;
 }
 
 /**
