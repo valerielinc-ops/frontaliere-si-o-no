@@ -10036,6 +10036,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infortuni-lavoro-varese-uil-2026.title': 'Accidents at work in Varese: UIL data and 7 deaths',
     'blog.article.infortuni-lavoro-varese-uil-2026.excerpt': 'The Inail data for the first half of 2026 processed by Uil Lombardia report an increase in accidents of 6% in Varese and seven fatal cases.',
     'blog.article.infortuni-lavoro-varese-uil-2026.imageAlt': 'Industrial landscape and construction sites in Varese province',
+    'blog.article.bollettino-frontaliere-2026-08-18.title': 'Cross-border daily brief – August 18, 2026: 622 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-18.excerpt': 'Today\'s numbers, August 18, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'The day\'s numbers for cross-border commuters – August 18, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Cross-border brief, August 18, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'The numbers for August 18, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

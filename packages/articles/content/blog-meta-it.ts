@@ -10037,6 +10037,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infortuni-lavoro-varese-uil-2026.title': 'Infortuni sul lavoro a Varese: dati Uil e 7 morti',
     'blog.article.infortuni-lavoro-varese-uil-2026.excerpt': 'I dati Inail del primo semestre 2026 elaborati dalla Uil Lombardia segnalano un aumento degli infortuni del 6% a Varese e sette casi mortali.',
     'blog.article.infortuni-lavoro-varese-uil-2026.imageAlt': 'Panorama industriale e cantieri nella provincia di Varese',
+    'blog.article.bollettino-frontaliere-2026-08-18.title': 'Bollettino del frontaliere – 18 agosto 2026: 622 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-18.excerpt': 'I numeri di oggi, 18 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'I numeri del giorno per i frontalieri – 18 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Bollettino frontalieri del 18 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'I numeri del 18 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
