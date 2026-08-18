@@ -186,7 +186,7 @@ import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
 // va testata senza importare questo file. Vedi la sua intestazione per il
 // difetto che toglie (la query identificante buttata via) e per il ponte con
 // le voci gia' scritte.
-import { newsUrlKey, legacyNewsUrlKey } from './lib/news-url-key.mjs';
+import { newsUrlKey } from './lib/news-url-key.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -2239,25 +2239,27 @@ function isSourceUrlAlreadyUsed(headlineUrl) {
   const exact = findCrossSectionSourceDuplicate(normalized, loadAllSectionSourceUrls(), SECTION_NAME);
   if (exact.used) return exact;
 
-  // ── PONTE VERSO LE VOCI DI FORMA 1 (scritte prima della fix sulla query) ──
+  // ── NESSUN PONTE VERSO LE VOCI DI FORMA 1 — e' deliberato ──
   //
-  // Le voci gia' nei ledger sono chiavate sul path nudo. Senza questa ricerca
-  // una fonte gia' consumata tornerebbe «libera» per un giro, e il ramo
-  // CROSS-SEZIONE di #251 e' quello senza rete a valle.
+  // La tentazione e' cercare anche sotto la chiave vecchia (path nudo), per non
+  // «liberare» per un giro le fonti gia' consumate. Misurato: sarebbe una
+  // ricerca che si accende SOLO quando `legacyKey !== normalized`, cioe' solo
+  // sugli URL con parametri identificanti — esattamente i casi che questa fix
+  // esiste per sbloccare. Quando le due chiavi coincidono la ricerca sopra ha
+  // gia' risposto, quindi il ponte non ha un solo ramo utile.
   //
-  // Il corpus deve filtrare per `keyForm` per non ri-collassare (lib
-  // source-url-ledger.mjs); qui NON serve, ed e' una proprieta' strutturale,
-  // non fortuna: il ledger del sito e' una mappa piatta `chiave → articleId`, e
-  // una chiave di forma 2 contiene sempre `?` mentre una di forma 1 non lo
-  // contiene mai. Le due popolazioni sono quindi disgiunte per costruzione, e
-  // `legacyKey` puo' pescare solo fra le voci vecchie. Quando `legacyKey ===
-  // normalized` (URL senza parametri identificanti) le due forme coincidono e
-  // la ricerca sopra ha gia' risposto.
-  const legacyKey = legacyNewsUrlKey(headlineUrl);
-  if (legacyKey !== normalized) {
-    const legacy = findCrossSectionSourceDuplicate(legacyKey, loadAllSectionSourceUrls(), SECTION_NAME);
-    if (legacy.used) return legacy;
-  }
+  // E su quei casi la voce vecchia e' una chiave COLLASSATA: per
+  // `www3.ti.ch/dfe/dr/ustat/index.php` (presente nel ledger reale) un
+  // documento nuovo `...index.php?idNews=999` la colpirebbe comunque, e ogni
+  // altro documento di quella fonte con lui. Il blocco si auto-alimenta: nessuna
+  // chiave di forma 2 verrebbe mai scritta per quel path, e la voce che avvelena
+  // esce solo col trim FIFO a 500 voci di saveSourceUrls().
+  //
+  // Il prezzo di non avere il ponte e' l'opposto e finisce: il singolo documento
+  // gia' consumato sotto la chiave vecchia puo' essere ripreso UNA volta, dopo di
+  // che viene registrato in forma 2 e il dedup riprende a funzionare. Un
+  // duplicato possibile una volta per fonte, invece di ogni documento nuovo di
+  // quella fonte bloccato per ~500 articoli.
 
   // Fuzzy URL slug vs existing article ID match
   const urlWords = extractUrlSlugWords(headlineUrl);

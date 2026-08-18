@@ -83,7 +83,10 @@ function urlKeyBase(u) {
  * @returns {string}
  */
 export function legacyNewsUrlKey(rawUrl) {
-  const raw = String(rawUrl ?? '');
+  // Stesso pre-decode di newsUrlKey: nel ramo catch (URL non parsabile) la
+  // stringa grezza finisce nella chiave cosi' com'e', e senza questo passaggio
+  // le due funzioni divergerebbero sullo stesso input malformato.
+  const raw = String(rawUrl ?? '').replace(/&amp;/gi, '&');
   try {
     return urlKeyBase(new URL(raw));
   } catch {
@@ -127,6 +130,13 @@ export function newsUrlKey(rawUrl) {
   }
   if (parts.length === 0) return base;
   parts.sort((a, b) => (a[0] === b[0] ? (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0) : a[0] < b[0] ? -1 : 1));
-  const query = parts.slice(0, MAX_KEY_PARAMS).map(([n, v]) => `${n}=${v}`).join('&');
+  // Nome e valore tornano CODIFICATI. `searchParams` li consegna decodificati,
+  // quindi un valore che contiene `&` o `=` (arrivato come `%26`/`%3D`)
+  // rientrerebbe nella chiave come separatore vero: `?id=1%26p%3D2` e
+  // `?id=1&p=2` collasserebbero su una chiave sola pur essendo due documenti.
+  const query = parts
+    .slice(0, MAX_KEY_PARAMS)
+    .map(([n, v]) => `${encodeURIComponent(n)}=${encodeURIComponent(v)}`)
+    .join('&');
   return `${base}?${query}`;
 }

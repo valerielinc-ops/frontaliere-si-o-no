@@ -109,14 +109,23 @@ describe('newsUrlKey — la query che identifica il documento non si butta', () 
     expect(newsUrlKey(it)).toBe(legacyNewsUrlKey(it));
   });
 
-  it('la chiave di forma 2 contiene sempre `?`, quella di forma 1 mai', () => {
-    // E' la proprieta' su cui si appoggia il ponte di compatibilita' in
-    // `isSourceUrlAlreadyUsed`: nel ledger piatto del sito le voci vecchie
-    // (forma 1) e quelle nuove (forma 2) sono disgiunte per costruzione,
-    // quindi la ricerca sulla chiave legacy non puo' pescare una voce nuova e
-    // ri-collassare cio' che la fix ha appena separato. Sul corpus, dove il
-    // ledger e' fatto di oggetti, la stessa garanzia richiede `keyForm`.
-    expect(newsUrlKey('https://ex.com/n?id=7')).toContain('?');
-    expect(legacyNewsUrlKey('https://ex.com/n?id=7')).not.toContain('?');
+  it('un separatore codificato nel valore non collassa due documenti', () => {
+    // `searchParams` consegna i valori DECODIFICATI. Re-inserirli grezzi
+    // farebbe rientrare un `%26` come separatore vero, e questi due URL —
+    // che sono due documenti — finirebbero sulla stessa chiave.
+    const uno = newsUrlKey('https://ex.com/n?id=1%26p%3D2');
+    const due = newsUrlKey('https://ex.com/n?id=1&p=2');
+    expect(uno).not.toBe(due);
+    expect(uno).toBe('https://ex.com/n?id=1%26p%3D2');
+    expect(due).toBe('https://ex.com/n?id=1&p=2');
+  });
+
+  it('le due forme trattano allo stesso modo un input malformato', () => {
+    // Il pre-decode di `&amp;` sta in entrambe: sul ramo catch la stringa
+    // grezza entra nella chiave, e una sola delle due che decodifica
+    // produrrebbe chiavi diverse per lo stesso input.
+    const rotto = 'non-un-url?a=1&amp;b=2';
+    expect(newsUrlKey(rotto)).toBe(legacyNewsUrlKey(rotto));
+    expect(newsUrlKey(rotto)).not.toContain('&amp;');
   });
 });
