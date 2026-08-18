@@ -3328,6 +3328,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint lance le prélèvement automatique pour les paiements récurrents',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Les plus de six millions d\'utilisateurs de Twint pourront autoriser, gérer et afficher les autorisations de débit direct pour les paiements récurrents auprès des revendeurs proposant cette solution',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Image d\'une personne qui utilise l\'application Twint pour autoriser le virement direct',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprentis, les instructions ne suffisent pas : « Il faut les suivre de près »',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Le Tribunal fédéral appelle les formateurs à une surveillance accrue et à un accompagnement constant après les blessures graves rapportées par un apprenti',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Un apprenti dans un environnement de travail dangereux avec un superviseur',
 };
 
 export default blogMetaChFr;

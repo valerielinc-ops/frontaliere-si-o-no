@@ -3328,6 +3328,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint launches direct debit for recurring payments',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Twint\'s more than six million users will be able to authorize, manage, and view direct debit authorizations for recurring payments at retailers that offer the solution',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Image of a person using the Twint app to authorize direct debit',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprentices, instructions are not enough: "They must be followed closely"',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'The Federal Court calls on trainers to be more vigilant and to be constantly accompanied after the serious injuries sustained by an apprentice',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'An apprentice in a hazardous work environment with a supervisor',
 };
 
 export default blogMetaChEn;
