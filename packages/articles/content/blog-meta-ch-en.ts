@@ -3139,7 +3139,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine: Measures Ordinance',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'The Federal Department of Economy, Training and Research (DEFR) amended Annexes 2 and 14a of the Ordinance in relation to the situation in Ukraine.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Editorial image related to: Ucraina: Ordinanza per provvedimenti',
-    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutrality, the front of',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutrality: the No camp sounds the alarm',
     'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'An inter-party committee is calling for the initiative to be rejected on 27 September, which would limit foreign policy and weaken Swiss defence.',
     'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'A protest in Lugano against the neutrality initiative.',
     'blog.article.borse-studio-canton-zugo-requisiti-importi.title': 'Scholarships and loans in the Canton of Zug: requirements, amounts and deadlines',
@@ -3340,6 +3340,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'The Villa Negroni Study Centre Foundation is associated with SUPSI',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'On 8 July, the Council of State approved the association of the Villa Negroni Study Centre Foundation (CSVN) with SUPSI.',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'The Fondazione Centro Studi Villa Negroni joins SUPSI',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Nursery and childcare in the Canton of Basel-City: costs',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergartens and day families in the Canton of Basel-City: prices calculated on income and available cantonal subsidies',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Photo of a nursery in a residential area of Basel City',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Scholarships Canton Basel City requirements and amounts',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Requirements and amounts of scholarships offered by the Canton of Basel-City for Swiss and foreign students.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Scholarships offered by the Canton Basel City',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asylum in Switzerland: transfer to Italy resumed',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'After almost four years of blockade, Switzerland is once again transferring Italian asylum seekers to Italy thanks to the new European pact.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'The Federal Palace in Bern seat of the Swiss government',
+    'blog.article.italia-rimpatrio-asilo.title': 'Asylum seekers resume transfers to Italy',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'Switzerland will resume transfers of asylum seekers to Italy, after almost four years of blockade.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Asylum seekers at the train station of Chiasso, Switzerland',
 };
 
 export default blogMetaChEn;

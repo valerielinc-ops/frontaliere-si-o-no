@@ -3139,7 +3139,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine: Verordnung über Maßnahmen',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Das Eidgenössische Departement für Wirtschaft, Bildung und Forschung (WBF) hat die Anhänge 2 und 14a der Verordnung im Hinblick auf die Situation in der Ukraine geändert.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Redaktionelles Bild zu: Ucraina: Ordinanza per provvedimenti',
-    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralität, die Front des',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralität: Das Nein-Lager schlägt Alarm',
     'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'Ein überparteiliches Komitee fordert die Ablehnung der Initiative am 27. September, würde die Aussenpolitik einschränken und die Schweizer Verteidigung schwächen.',
     'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'Eine Demonstration in Lugano gegen die Neutralitätsinitiative.',
     'blog.article.borse-studio-canton-zugo-requisiti-importi.title': 'Stipendien und Darlehen im Kanton Zug: Voraussetzungen, Beträge und Fristen',
@@ -3340,6 +3340,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'Die Stiftung Studienzentrum Villa Negroni schließt sich der SUPSI an',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Der Staatsrat hat am 8. Juli die Vereinigung der Stiftung Centro Studi Villa Negroni (CSVN) mit der SUPSI genehmigt.',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'Die Fondazione Centro Studi Villa Negroni sich SUPSI anschließt',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Basel-Stadt: Kosten',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergärten und Tagesfamilien im Kanton Basel-Stadt: Berechnete Einkommenspreise und verfügbare Kantonsbeiträge',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto einer Kita in einem Wohngebiet von Basel-Stadt',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Stipendien Kanton Basel-Stadt Anforderungen und Beträge',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Voraussetzungen und Höhe der Stipendien des Kantons Basel-Stadt für in- und ausländische Studierende.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Stipendien des Kantons Basel-Stadt',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asyl in der Schweiz: Wiederaufnahme des Umzugs nach Italien',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'Nach fast vier Jahren Blockade überstellt die Schweiz dank des neuen europäischen Pakts Asylsuchende mit italienischer Zuständigkeit wieder nach Italien.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'Das Bundeshaus in Bern Sitz der Schweizer Regierung',
+    'blog.article.italia-rimpatrio-asilo.title': 'Asylsuchende nehmen die Überstellungen nach Italien wieder auf',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'Die Schweiz wird die Überstellungen von Asylsuchenden nach Italien nach fast vier Jahren Blockade wieder aufnehmen.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Asylsuchende an der Bahnhof von Chiasso, Schweiz',
 };
 
 export default blogMetaChDe;
