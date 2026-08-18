@@ -3283,6 +3283,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.title': 'Permis de conduire de Solothurn : quoi faire et comment procéder',
     'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.excerpt': 'Conversion d\'un permis de conduire étranger dans le canton de Soleure : comment demander une conversion et quoi faire pendant les examens.',
     'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.imageAlt': 'Un conducteur dans une voiture sur la route suisse près de Lugano.',
+    'blog.article.premi-cassa-malati-basilea-citt-riduzione.title': 'Primes caisse-maladie dans le canton de Bâle-Ville : réduction annoncée',
+    'blog.article.premi-cassa-malati-basilea-citt-riduzione.excerpt': 'Le canton de Bâle-Ville a annoncé la réduction des primes pour la caisse-maladie.',
+    'blog.article.premi-cassa-malati-basilea-citt-riduzione.imageAlt': 'Image de Bâle-Ville, Suisse, avec un forfait maladie réduit',
+    'blog.article.diritto-locazione-conciliazione-ticino.title': 'Droit de la location en Suisse : comment éviter les tribunaux',
+    'blog.article.diritto-locazione-conciliazione-ticino.excerpt': 'Des augmentations de loyer aux litiges entre locataires et propriétaires : voici comment gérer les conflits locatifs et éviter la Pretura selon les experts.',
+    'blog.article.diritto-locazione-conciliazione-ticino.imageAlt': 'Manuel du droit du bail et clés en Suisse',
 };
 
 export default blogMetaChFr;
