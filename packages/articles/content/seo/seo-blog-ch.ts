@@ -40698,16 +40698,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-neutralita-fronte-no-lancia-allarme': {
-    title: 'Neutralità, il fronte del | Frontaliere Ticino',
+    title: 'Neutralità, il fronte del «No» lancia l\'allarme | Frontaliere Ticino',
     description: 'Un comitato interpartitico chiede di respingere l\'iniziativa sulla neutralità, limiterebbe la politica estera e indebolirebbe la difesa svizzera.',
     keywords: 'frontalieri, ticino, svizzera, italia, neutralità, fronte, comitato, interpartitico',
-    ogTitle: 'Neutralità, il fronte del',
+    ogTitle: 'Neutralità, il fronte del «No» lancia l\'allarme',
     ogDescription: 'Un comitato interpartitico chiede di respingere l\'iniziativa sulla neutralità, limiterebbe la politica estera e indebolirebbe la difesa svizzera.',
     canonicalPath: '/articoli-svizzera/neutralita-fronte-no-lancia-allarme/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Neutralità, il fronte del",
+      "headline": "Neutralità, il fronte del «No» lancia l'allarme",
       "description": "Un comitato interpartitico chiede di respingere l'iniziativa sulla neutralità, limiterebbe la politica estera e indebolirebbe la difesa svizzera.",
       "image": {
         "@type": "ImageObject",
@@ -43150,6 +43150,318 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/twint-addebito-diretto-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendisti-istruzioni-sicurezza': {
+    title: 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
+    description: 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante per gli apprendisti dopo le gravi lesioni riportate',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendisti, istruzioni, bastano, vanno',
+    ogTitle: 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
+    ogDescription: 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante per gli apprendisti dopo le gravi lesioni riportate da un apprendista',
+    canonicalPath: '/articoli-svizzera/apprendisti-istruzioni-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»",
+      "description": "Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante per gli apprendisti dopo le gravi lesioni riportate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendisti-istruzioni-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un apprendista in un ambiente di lavoro pericoloso con un formatore"
+      },
+      "datePublished": "2026-08-18T09:01:49+00:00",
+      "dateModified": "2026-08-18T09:01:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendisti-istruzioni-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-e-formazione-professionale-basilea-citta': {
+    title: 'Apprendistato e formazione professionale nel Canton Basilea Città',
+    description: 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Canton Basilea Città. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato e formazione professionale nel Canton Basilea Città',
+    ogDescription: 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Canton Basilea Città',
+    canonicalPath: '/articoli-svizzera/apprendistato-e-formazione-professionale-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Canton Basilea Città",
+      "description": "Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell'apprendista e maturità professionale nel Canton Basilea Città. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-e-formazione-professionale-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un apprendista in un'azienda basilese"
+      },
+      "datePublished": "2026-08-18T09:10:28+00:00",
+      "dateModified": "2026-08-18T09:10:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-e-formazione-professionale-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-twint-addebito-diretto-fatture': {
+    title: 'Twint lancia l\'addebito diretto per bollette e cassa malati',
+    description: 'Twint introduce l\'addebito diretto per cassa malati, elettricità e abbonamenti dal 2027. Sostituzione dei sistemi LSV+ entro fine settembre 2028.',
+    keywords: 'frontalieri, ticino, svizzera, italia, twint, lancia, addebito, diretto',
+    ogTitle: 'Twint lancia l\'addebito diretto per fatture e cassa malati in Svizzera',
+    ogDescription: 'Dal 2027 Twint introdurrà l\'addebito diretto per i pagamenti ricorrenti come cassa malati e bollette, sostituendo gli LSV+ entro il 2028.',
+    canonicalPath: '/articoli-svizzera/twint-addebito-diretto-fatture/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Twint lancia l'addebito diretto per bollette e cassa malati",
+      "description": "Twint introduce l'addebito diretto per cassa malati, elettricità e abbonamenti dal 2027. Sostituzione dei sistemi LSV+ entro fine settembre 2028.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/twint-addebito-diretto-fatture.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con app di pagamento Twint in primo piano in Svizzera"
+      },
+      "datePublished": "2026-08-18T09:15:54+00:00",
+      "dateModified": "2026-08-18T09:15:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/twint-addebito-diretto-fatture/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi': {
+    title: 'La fondazione centro studi villa negroni si associa alla SUPSI',
+    description: 'Il Consiglio di Stato ha approvato lo scorso 8 luglio l\'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI, segnando un passo',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, centro, studi, villa',
+    ogTitle: 'La Fondazione Centro Studi Villa Negroni si associa alla SUPSI',
+    ogDescription: 'Il Consiglio di Stato ha approvato lo scorso 8 luglio l\'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI, segnando un passo significativo per la formazione continua nei settori assicurativo, bancario, finanziario',
+    canonicalPath: '/articoli-svizzera/la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La fondazione centro studi villa negroni si associa alla SUPSI",
+      "description": "Il Consiglio di Stato ha approvato lo scorso 8 luglio l'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI, segnando un passo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Fondazione Centro Studi Villa Negroni si associa alla SUPSI"
+      },
+      "datePublished": "2026-08-18T09:23:49+00:00",
+      "dateModified": "2026-08-18T09:23:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-e-custodia-bambini-canton-basilea-citta': {
+    title: 'Asilo nido e custodia bambini nel Cantone di Basilea Città: costi',
+    description: 'Gli asili nido e le famiglie diurne nel Cantone di Basilea Città: prezzi calcolati sul reddito e sussidi cantonali disponibili. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini nel Cantone di Basilea Città: costi',
+    ogDescription: 'Gli asili nido e le famiglie diurne nel Cantone di Basilea Città: prezzi calcolati sul reddito e sussidi cantonali disponibili',
+    canonicalPath: '/articoli-svizzera/asilo-nido-e-custodia-bambini-canton-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini nel Cantone di Basilea Città: costi",
+      "description": "Gli asili nido e le famiglie diurne nel Cantone di Basilea Città: prezzi calcolati sul reddito e sussidi cantonali disponibili. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-e-custodia-bambini-canton-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un asilo nido in un quartiere residenziale di Basilea Città"
+      },
+      "datePublished": "2026-08-18T09:33:30+00:00",
+      "dateModified": "2026-08-18T09:33:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-e-custodia-bambini-canton-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borse-di-studio-basilea-citta': {
+    title: 'Borse di studio Canton Basilea Città requisiti e importi',
+    description: 'Requisiti e importi delle borse di studio offerte dal Canton Basilea Città per gli studenti svizzeri e stranieri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, basilea',
+    ogTitle: 'Borse di studio Canton Basilea Città',
+    ogDescription: 'Requisiti e importi delle borse di studio offerte dal Canton Basilea Città',
+    canonicalPath: '/articoli-svizzera/borse-di-studio-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Canton Basilea Città requisiti e importi",
+      "description": "Requisiti e importi delle borse di studio offerte dal Canton Basilea Città per gli studenti svizzeri e stranieri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-di-studio-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Borse di studio offerte dal Canton Basilea Città"
+      },
+      "datePublished": "2026-08-18T09:41:09+00:00",
+      "dateModified": "2026-08-18T09:41:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-di-studio-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-trasferimento-richiedenti-asilo-italia': {
+    title: 'Asilo in Svizzera: riprende il trasferimento verso l\'Italia',
+    description: 'La Svizzera torna a trasferire richiedenti asilo in Italia dopo quattro anni di blocco. Dettagli sui numeri, le percentuali e le nuove regole. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, riprende, trasferimento, verso',
+    ogTitle: 'Asilo Svizzera: riprendono i trasferimenti verso l\'Italia',
+    ogDescription: 'Dopo quattro anni di blocco, la Svizzera riavvia i trasferimenti dei richiedenti asilo verso l\'Italia. Scopri tutti i dati ufficiali della SEM e le nuove regole europee.',
+    canonicalPath: '/articoli-svizzera/svizzera-trasferimento-richiedenti-asilo-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo in Svizzera: riprende il trasferimento verso l'Italia",
+      "description": "La Svizzera torna a trasferire richiedenti asilo in Italia dopo quattro anni di blocco. Dettagli sui numeri, le percentuali e le nuove regole. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-trasferimento-richiedenti-asilo-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo Federale a Berna sede del governo svizzero"
+      },
+      "datePublished": "2026-08-18T09:44:15+00:00",
+      "dateModified": "2026-08-18T09:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-trasferimento-richiedenti-asilo-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-italia-rimpatrio-asilo': {
+    title: 'Richiedenti l\'asilo, riprendono i trasferimenti verso l\'Italia',
+    description: 'La Svizzera riprenderà i trasferimenti di richiedenti l\'asilo verso l\'Italia, dopo quasi quattro anni di blocco. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiedenti, asilo, riprendono, trasferimenti',
+    ogTitle: 'La Svizzera riprenderà i trasferimenti di richiedenti l\'asilo verso l\'Italia',
+    ogDescription: 'La Svizzera riprenderà i trasferimenti di richiedenti l\'asilo verso l\'Italia, dopo quasi quattro anni di blocco.',
+    canonicalPath: '/articoli-svizzera/italia-rimpatrio-asilo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richiedenti l'asilo, riprendono i trasferimenti verso l'Italia",
+      "description": "La Svizzera riprenderà i trasferimenti di richiedenti l'asilo verso l'Italia, dopo quasi quattro anni di blocco. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/italia-rimpatrio-asilo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Richiedenti l'asilo alla stazione ferroviaria di Chiasso"
+      },
+      "datePublished": "2026-08-18T09:52:42+00:00",
+      "dateModified": "2026-08-18T09:52:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/italia-rimpatrio-asilo/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

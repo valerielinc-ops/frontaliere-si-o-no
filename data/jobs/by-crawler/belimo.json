@@ -1,6 +1,6 @@
 {
   "crawlerKey": "belimo",
-  "assembledAt": "2026-08-17T21:39:16.549Z",
+  "assembledAt": "2026-08-18T10:24:00.925Z",
   "jobs": [
     {
       "id": "belimo-edc05be4fba1",
@@ -33,7 +33,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Montagemitarbeiterin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1163094055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:12.323Z",
+      "crawledAt": "2026-08-18T10:23:57.869Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montagemitarbeiter-in-temporar-belimo-hinwil"
+        "montagemitarbeiter-in-temporar-belimo-hinwil",
+        "personale-di-montaggio-in-temporaneo-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montagemitarbeiter-in-temporar-belimo-hinwil"
+          "montagemitarbeiter-in-temporar-belimo-hinwil",
+          "personale-di-montaggio-in-temporaneo-belimo-hinwil"
         ],
         "en": [
           "montagemitarbeiter-in-temporar-belimo-hinwil"
@@ -68,6 +70,180 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:18:15.051Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "belimo-24c351acfe38",
+      "slug": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil",
+      "slugByLocale": {
+        "it": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil",
+        "en": "logistician-in-temporary-belimo-hinwil",
+        "de": "logistiker-in-temporar-belimo-hinwil",
+        "fr": "logisticien-in-temporaire-belimo-hinwil"
+      },
+      "company": "Belimo",
+      "companyKey": "belimo",
+      "companyDomain": "belimo.com",
+      "title": "Logistiker:in (temporär)",
+      "titleByLocale": {
+        "it": "impiegata/impiegato in logistica (temporär)",
+        "en": "Logistician:in (temporary)",
+        "de": "Logistiker:in (temporär)",
+        "fr": "Logisticien:in (temporaire)"
+      },
+      "description": ".\n\nLust auf Bewegung statt Stillstand? Dann bist du bei uns genau richtig. Für unseren Standort Hinwil suchen wir engagierte Logistiker:innen, die mit anpacken – ob im Lager oder in der Fertigung. Du bringst Erfahrung mit, hast den SUVA-anerkannten Staplerausweis in der Tasche und bist sofort einsatzbereit? Perfekt!\n\nWas wirst du tun\n\n• Kommissionieren, verpacken, ein- und auslagern von Waren\n\n• Be- und Entladen von Lastwagen\n\n• Materialversorgung der Produktionslinien\n\n• Allgemeine Lagerarbeiten\n\n• Einhalten von Sicherheits- und Qualitätsstandards\n\nWer du bist\n\n• Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Zuverlässige und elbstständige Arbeitsweise\n\n• Teamgeist, Flexibilität und körperliche Fitness\n\n• Gute Deutschkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+      "descriptionByLocale": {
+        "it": ".\n\nVuoi muoversi invece di stare fermo? Allora hai ragione con noi. Per la nostra posizione a Hinwil, siamo alla ricerca di logistici dedicati: donne che possono aiutare – sia nel magazzino che nella produzione. Porti l'esperienza, hai il carrello elevatore omologato SUVA in tasca e sei pronto per l'uso immediatamente? Perfetto!\n\nCosa farai\n\n• Acquisto, imballaggio, entrata e rimozione delle merci\n\n• Caricamento e scarico di camion\n\n• Fornitura dei materiali alle linee di produzione\n\n• Lavori del magazzino generale\n\n• Rispetto degli standard di sicurezza e qualità\n\nChi sei\n\n• Esperienza come logistica:\n\n• Passante per carrelli elevatori riconosciuto SUVA\n\n• Metodi di lavoro affidabili e indipendenti\n\n• Spirito di squadra, flessibilità e fitness\n\n• Buona conoscenza del tedesco\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+        "en": ".\n\nWant to move instead of standstill? Then you are exactly right with us. For our location in Hinwil, we are looking for dedicated logisticians: women who can help – whether in the warehouse or in production. You bring experience, have the SUVA-approved forklift in your pocket and are ready for use immediately? Perfect!\n\nWhat will you do\n\n• Order picking, packaging, entry and removal of goods\n\n• Loading and unloading of trucks\n\n• Material supply to production lines\n\n• General warehouse work\n\n• Compliance with safety and quality standards\n\nWho you are\n\n• Experience as a logistician:\n\n• SUVA-recognised forklift pass\n\n• Reliable and independent working methods\n\n• Team spirit, flexibility and physical fitness\n\n• Good knowledge of German\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+        "de": ".\n\nLust auf Bewegung statt Stillstand? Dann bist du bei uns genau richtig. Für unseren Standort Hinwil suchen wir engagierte Logistiker:innen, die mit anpacken – ob im Lager oder in der Fertigung. Du bringst Erfahrung mit, hast den SUVA-anerkannten Staplerausweis in der Tasche und bist sofort einsatzbereit? Perfekt!\n\nWas wirst du tun\n\n• Kommissionieren, verpacken, ein- und auslagern von Waren\n\n• Be- und Entladen von Lastwagen\n\n• Materialversorgung der Produktionslinien\n\n• Allgemeine Lagerarbeiten\n\n• Einhalten von Sicherheits- und Qualitätsstandards\n\nWer du bist\n\n• Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Zuverlässige und elbstständige Arbeitsweise\n\n• Teamgeist, Flexibilität und körperliche Fitness\n\n• Gute Deutschkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+        "fr": ".\n\nVous voulez bouger au lieu d'arrêter ? Alors vous avez raison avec nous. Pour notre emplacement à Hinwil, nous recherchons des logisticiens dévoués : des femmes qui peuvent aider – que ce soit dans l'entrepôt ou en production. Vous apportez de l'expérience, avez le chariot élévateur homologué VUSA dans votre poche et sont prêts à être utilisés immédiatement? Parfait !\n\nQue ferez-vous ?\n\n• Cueillette, emballage, entrée et retrait des marchandises\n\n• Chargement et déchargement des camions\n\n• Fourniture de matériaux aux lignes de production\n\n• Travaux généraux d'entreposage\n\n• Respect des normes de sécurité et de qualité\n\nQui vous êtes\n\n• Expérience en tant que logisticien :\n\n• Passage de chariot élévateur reconnu VUSA\n\n• Méthodes de travail fiables et indépendantes\n\n• Esprit d'équipe, flexibilité et forme physique\n\n• Bonne connaissance de l'allemand\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+      },
+      "location": "Hinwil",
+      "canton": "ZH",
+      "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
+      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T10:23:57.268Z",
+      "addressLocality": "Hinwil",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brunnenbachstrasse 1",
+      "postalCode": "8340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione edifici",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
+      "jobReqId": "1165121155",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "logistiker-in-temporar-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+        "logistician-in-night-shift-100-belimo-hinwil",
+        "logistiker-in-nachtschicht-100-belimo-hinwil",
+        "logisticien-en-service-de-nuit-100-belimo-hinwil",
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-temporar-belimo-hinwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-in-temporar-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+          "logistician-in-night-shift-100-belimo-hinwil",
+          "logistiker-in-nachtschicht-100-belimo-hinwil",
+          "logisticien-en-service-de-nuit-100-belimo-hinwil",
+          "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-temporar-belimo-hinwil"
+        ],
+        "en": [
+          "logistiker-in-temporar-belimo-hinwil",
+          "logistician-in-night-shift-100-belimo-hinwil"
+        ],
+        "de": [
+          "logistiker-in-nachtschicht-100-belimo-hinwil"
+        ],
+        "fr": [
+          "logistiker-in-temporar-belimo-hinwil",
+          "logisticien-en-service-de-nuit-100-belimo-hinwil"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T12:37:09.156Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "belimo-65f0863dcfab",
+      "slug": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
+      "slugByLocale": {
+        "it": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
+        "en": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
+        "de": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
+        "fr": "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+      },
+      "company": "Belimo",
+      "companyKey": "belimo",
+      "companyDomain": "belimo.com",
+      "title": "Stellvertretung Teamleitung Montage Tagschicht (100%)",
+      "titleByLocale": {
+        "it": "Specialista Manufacturing Production, Processing & Assembly",
+        "en": "Specialist Manufacturing Production, Processing & Assembly",
+        "de": "Stellvertretung Teamleitung Montage Tagschicht (100%)",
+        "fr": "Spécialiste Manufacturing Production, Processing & Assembly"
+      },
+      "description": "In dieser Funktion unterstützt du die Teamleitung der Montage Tagschicht bei der Führung und Weiterentwicklung des Teams, übernimmst Verantwortung für Mitarbeitende und Prozesse und trägst dazu bei, eine effiziente, sichere und qualitativ hochwertige Produktion sicherzustellen. Dabei arbeitest du eng mit verschiedenen Schnittstellen zusammen und bringst dich aktiv in Verbesserungsinitiativen ein.\n\nWas wirst du tun\n\n• Stellvertretung des Gruppenleiters Tagschicht\n\n• Unterstützung bei der Führung und Entwicklung der Mitarbeitenden\n\n• Sicherstellung eines reibungslosen Produktionsablaufs (Sicherheit, Qualität, Termine und\nProduktivität)\n\n• Personaleinsatz-, Kapazitäts- und Fertigungsplanung\n\n• Unterstützung bei Lean-, KVP- und Shopfloor-Aktivitäten\n\n• Mitarbeit bei der Optimierung von Prozessen und Arbeitsplätzen\n\n• Enge Zusammenarbeit mit Planung, Qualität, Logistik und Technik\n\n• Mitarbeit im operativen Tagesgeschäft bei Bedarf\n\nWer du bist\n\n• Erfahrung in einem Produktions- oder Montageumfeld\n\n• Führungserfahrung oder Potenzial, Führungsverantwortung zu übernehmen\n\n• Strukturierte, selbstständige und zuverlässige Arbeitsweise\n\n• Hohe Sozialkompetenz sowie Team- und Kommunikationsfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute SAP- und MS-Office-Kenntnisse\n\n• Lean-, KVP- oder Shopfloor-Erfahrung von Vorteil\n\n• Technische Grundausbildung wünschenswert, aber nicht zwingend erforderlich\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+      "descriptionByLocale": {
+        "it": "In questo ruolo, supporti la gestione del team del turno diurno di assemblea nella leadership e nello sviluppo ulteriore del team, assumi la responsabilità dei dipendenti e dei processi e aiuti a garantire una produzione efficiente, sicura e di alta qualità. Si lavora a stretto contatto con diverse interfacce e partecipare attivamente a iniziative di miglioramento.\n\nCosa farai\n\n• Capo gruppo aggiunto\n\n• Sostegno alla gestione e allo sviluppo dei dipendenti\n\n• garantire un processo di produzione regolare (sicurezza, qualità, scadenze e\nProduzione\n\n• Distribuzione del personale, pianificazione della capacità e della produzione\n\n• Supporto per attività di magra, CIP e negozio\n\n• Partecipazione all'ottimizzazione dei processi e dei luoghi di lavoro\n\n• stretta collaborazione con la pianificazione, la qualità, la logistica e la tecnologia\n\n• Partecipazione alle operazioni giornaliere se necessario\n\nChi sei\n\n• Esperienza in un ambiente di produzione o montaggio\n\n• Esperienza di leadership o potenziale di assumere responsabilità di leadership\n\n• Metodo di lavoro strutturato, indipendente e affidabile\n\n• competenze sociali elevate, così come competenze di squadra e comunicazione\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Buone conoscenze SAP e MS Office\n\n• Lean, KVP o negozio esperienza piano è vantaggioso\n\n• Formazione tecnica di base auspicabile ma non obbligatoria\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+        "en": "In this role, you support the team management of the assembly day shift in the leadership and further development of the team, take responsibility for employees and processes and help ensure efficient, safe and high-quality production. You work closely with different interfaces and actively participate in improvement initiatives.\n\nWhat will you do\n\n• Deputy group leader Day shift\n\n• Support in the management and development of employees\n\n• ensuring a smooth production process (safety, quality, deadlines and\nProductivity\n\n• Personnel deployment, capacity and production planning\n\n• Support for lean, CIP and shop floor activities\n\n• Participation in the optimization of processes and workplaces\n\n• Close cooperation with planning, quality, logistics and technology\n\n• Participation in day-to-day operations if required\n\nWho you are\n\n• Experience in a production or assembly environment\n\n• Leadership experience or potential to assume leadership responsibility\n\n• Structured, independent and reliable working method\n\n• High social skills as well as team and communication skills\n\n• Very good knowledge of German in word and writing\n\n• Good SAP and MS Office knowledge\n\n• Lean, KVP or shop floor experience is beneficial\n\n• Basic technical training desirable but not mandatory\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+        "de": "In dieser Funktion unterstützt du die Teamleitung der Montage Tagschicht bei der Führung und Weiterentwicklung des Teams, übernimmst Verantwortung für Mitarbeitende und Prozesse und trägst dazu bei, eine effiziente, sichere und qualitativ hochwertige Produktion sicherzustellen. Dabei arbeitest du eng mit verschiedenen Schnittstellen zusammen und bringst dich aktiv in Verbesserungsinitiativen ein.\n\nWas wirst du tun\n\n• Stellvertretung des Gruppenleiters Tagschicht\n\n• Unterstützung bei der Führung und Entwicklung der Mitarbeitenden\n\n• Sicherstellung eines reibungslosen Produktionsablaufs (Sicherheit, Qualität, Termine und\nProduktivität)\n\n• Personaleinsatz-, Kapazitäts- und Fertigungsplanung\n\n• Unterstützung bei Lean-, KVP- und Shopfloor-Aktivitäten\n\n• Mitarbeit bei der Optimierung von Prozessen und Arbeitsplätzen\n\n• Enge Zusammenarbeit mit Planung, Qualität, Logistik und Technik\n\n• Mitarbeit im operativen Tagesgeschäft bei Bedarf\n\nWer du bist\n\n• Erfahrung in einem Produktions- oder Montageumfeld\n\n• Führungserfahrung oder Potenzial, Führungsverantwortung zu übernehmen\n\n• Strukturierte, selbstständige und zuverlässige Arbeitsweise\n\n• Hohe Sozialkompetenz sowie Team- und Kommunikationsfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute SAP- und MS-Office-Kenntnisse\n\n• Lean-, KVP- oder Shopfloor-Erfahrung von Vorteil\n\n• Technische Grundausbildung wünschenswert, aber nicht zwingend erforderlich\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+        "fr": "Dans ce rôle, vous soutenez la gestion de l'équipe du quart de jour de montage dans le leadership et le développement de l'équipe, prenez la responsabilité des employés et des processus et contribuez à assurer une production efficace, sûre et de haute qualité. Vous travaillez en étroite collaboration avec différentes interfaces et participez activement aux initiatives d'amélioration.\n\nQue ferez-vous ?\n\n• Chef de groupe adjoint\n\n• Soutien à la gestion et au perfectionnement des employés\n\n• assurer un processus de production en douceur (sécurité, qualité, délais et\nProductivité\n\n• Déploiement du personnel, planification des capacités et de la production\n\n• Appui aux activités de maigre, de CIP et d'atelier\n\n• Participation à l'optimisation des processus et des lieux de travail\n\n• Coopération étroite avec la planification, la qualité, la logistique et la technologie\n\n• Participation aux opérations quotidiennes si nécessaire\n\nQui vous êtes\n\n• Expérience dans un environnement de production ou de montage\n\n• Expérience ou possibilité d'assumer la responsabilité du leadership\n\n• Méthode de travail structurée, indépendante et fiable\n\n• Compétences sociales élevées ainsi que compétences en équipe et en communication\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Bonnes connaissances SAP et MS Office\n\n• Lean, KVP ou l'expérience d'atelier est bénéfique\n\n• Formation technique de base souhaitable mais non obligatoire\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+      },
+      "location": "Hinwil",
+      "canton": "ZH",
+      "url": "https://jobsredirect.belimo.com/job/Hinwil-Stellvertretung-Teamleitung-Montage-Tagschicht-%28100%29-Zuri-8340/1165050855/",
+      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T10:23:56.683Z",
+      "addressLocality": "Hinwil",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brunnenbachstrasse 1",
+      "postalCode": "8340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione edifici",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-07",
+      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Stellvertretung-Teamleitung-Montage-Tagschicht-%28100%29-Zuri-8340/1165050855/",
+      "jobReqId": "1165050855",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-12T22:18:09.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
+          "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+        ],
+        "de": [
+          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
+          "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
+        "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -112,7 +288,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Montagemitarbeiterin-f%C3%BCr-verl%C3%A4ngerte-Wochenendschichten-%2812-Stunden-Pr%C3%A4senz-Tag-oder-Nacht%29-Z%C3%BCri-8340/1163258255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:11.784Z",
+      "crawledAt": "2026-08-18T10:23:56.072Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -163,175 +339,6 @@
       }
     },
     {
-      "id": "belimo-65f0863dcfab",
-      "slug": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
-      "slugByLocale": {
-        "it": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
-        "en": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
-        "de": "specialist-manufacturing-production-processing-assembly-belimo-hinwil",
-        "fr": "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "Stellvertretung Teamleitung Montage Tagschicht (100%)",
-      "titleByLocale": {
-        "it": "Specialista Manufacturing Production, Processing & Assembly",
-        "en": "Specialist Manufacturing Production, Processing & Assembly",
-        "de": "Stellvertretung Teamleitung Montage Tagschicht (100%)",
-        "fr": "Spécialiste Manufacturing Production, Processing & Assembly"
-      },
-      "description": "In dieser Funktion unterstützt du die Teamleitung der Montage Tagschicht bei der Führung und Weiterentwicklung des Teams, übernimmst Verantwortung für Mitarbeitende und Prozesse und trägst dazu bei, eine effiziente, sichere und qualitativ hochwertige Produktion sicherzustellen. Dabei arbeitest du eng mit verschiedenen Schnittstellen zusammen und bringst dich aktiv in Verbesserungsinitiativen ein.\n\nWas wirst du tun\n\n• Stellvertretung des Gruppenleiters Tagschicht\n\n• Unterstützung bei der Führung und Entwicklung der Mitarbeitenden\n\n• Sicherstellung eines reibungslosen Produktionsablaufs (Sicherheit, Qualität, Termine und\nProduktivität)\n\n• Personaleinsatz-, Kapazitäts- und Fertigungsplanung\n\n• Unterstützung bei Lean-, KVP- und Shopfloor-Aktivitäten\n\n• Mitarbeit bei der Optimierung von Prozessen und Arbeitsplätzen\n\n• Enge Zusammenarbeit mit Planung, Qualität, Logistik und Technik\n\n• Mitarbeit im operativen Tagesgeschäft bei Bedarf\n\nWer du bist\n\n• Erfahrung in einem Produktions- oder Montageumfeld\n\n• Führungserfahrung oder Potenzial, Führungsverantwortung zu übernehmen\n\n• Strukturierte, selbstständige und zuverlässige Arbeitsweise\n\n• Hohe Sozialkompetenz sowie Team- und Kommunikationsfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute SAP- und MS-Office-Kenntnisse\n\n• Lean-, KVP- oder Shopfloor-Erfahrung von Vorteil\n\n• Technische Grundausbildung wünschenswert, aber nicht zwingend erforderlich\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
-      "descriptionByLocale": {
-        "it": "In questo ruolo, supporti la gestione del team del turno diurno di assemblea nella leadership e nello sviluppo ulteriore del team, assumi la responsabilità dei dipendenti e dei processi e aiuti a garantire una produzione efficiente, sicura e di alta qualità. Si lavora a stretto contatto con diverse interfacce e partecipare attivamente a iniziative di miglioramento.\n\nCosa farai\n\n• Capo gruppo aggiunto\n\n• Sostegno alla gestione e allo sviluppo dei dipendenti\n\n• garantire un processo di produzione regolare (sicurezza, qualità, scadenze e\nProduzione\n\n• Distribuzione del personale, pianificazione della capacità e della produzione\n\n• Supporto per attività di magra, CIP e negozio\n\n• Partecipazione all'ottimizzazione dei processi e dei luoghi di lavoro\n\n• stretta collaborazione con la pianificazione, la qualità, la logistica e la tecnologia\n\n• Partecipazione alle operazioni giornaliere se necessario\n\nChi sei\n\n• Esperienza in un ambiente di produzione o montaggio\n\n• Esperienza di leadership o potenziale di assumere responsabilità di leadership\n\n• Metodo di lavoro strutturato, indipendente e affidabile\n\n• competenze sociali elevate, così come competenze di squadra e comunicazione\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Buone conoscenze SAP e MS Office\n\n• Lean, KVP o negozio esperienza piano è vantaggioso\n\n• Formazione tecnica di base auspicabile ma non obbligatoria\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
-        "en": "In this role, you support the team management of the assembly day shift in the leadership and further development of the team, take responsibility for employees and processes and help ensure efficient, safe and high-quality production. You work closely with different interfaces and actively participate in improvement initiatives.\n\nWhat will you do\n\n• Deputy group leader Day shift\n\n• Support in the management and development of employees\n\n• ensuring a smooth production process (safety, quality, deadlines and\nProductivity\n\n• Personnel deployment, capacity and production planning\n\n• Support for lean, CIP and shop floor activities\n\n• Participation in the optimization of processes and workplaces\n\n• Close cooperation with planning, quality, logistics and technology\n\n• Participation in day-to-day operations if required\n\nWho you are\n\n• Experience in a production or assembly environment\n\n• Leadership experience or potential to assume leadership responsibility\n\n• Structured, independent and reliable working method\n\n• High social skills as well as team and communication skills\n\n• Very good knowledge of German in word and writing\n\n• Good SAP and MS Office knowledge\n\n• Lean, KVP or shop floor experience is beneficial\n\n• Basic technical training desirable but not mandatory\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
-        "de": "In dieser Funktion unterstützt du die Teamleitung der Montage Tagschicht bei der Führung und Weiterentwicklung des Teams, übernimmst Verantwortung für Mitarbeitende und Prozesse und trägst dazu bei, eine effiziente, sichere und qualitativ hochwertige Produktion sicherzustellen. Dabei arbeitest du eng mit verschiedenen Schnittstellen zusammen und bringst dich aktiv in Verbesserungsinitiativen ein.\n\nWas wirst du tun\n\n• Stellvertretung des Gruppenleiters Tagschicht\n\n• Unterstützung bei der Führung und Entwicklung der Mitarbeitenden\n\n• Sicherstellung eines reibungslosen Produktionsablaufs (Sicherheit, Qualität, Termine und\nProduktivität)\n\n• Personaleinsatz-, Kapazitäts- und Fertigungsplanung\n\n• Unterstützung bei Lean-, KVP- und Shopfloor-Aktivitäten\n\n• Mitarbeit bei der Optimierung von Prozessen und Arbeitsplätzen\n\n• Enge Zusammenarbeit mit Planung, Qualität, Logistik und Technik\n\n• Mitarbeit im operativen Tagesgeschäft bei Bedarf\n\nWer du bist\n\n• Erfahrung in einem Produktions- oder Montageumfeld\n\n• Führungserfahrung oder Potenzial, Führungsverantwortung zu übernehmen\n\n• Strukturierte, selbstständige und zuverlässige Arbeitsweise\n\n• Hohe Sozialkompetenz sowie Team- und Kommunikationsfähigkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute SAP- und MS-Office-Kenntnisse\n\n• Lean-, KVP- oder Shopfloor-Erfahrung von Vorteil\n\n• Technische Grundausbildung wünschenswert, aber nicht zwingend erforderlich\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
-        "fr": "Dans ce rôle, vous soutenez la gestion de l'équipe du quart de jour de montage dans le leadership et le développement de l'équipe, prenez la responsabilité des employés et des processus et contribuez à assurer une production efficace, sûre et de haute qualité. Vous travaillez en étroite collaboration avec différentes interfaces et participez activement aux initiatives d'amélioration.\n\nQue ferez-vous ?\n\n• Chef de groupe adjoint\n\n• Soutien à la gestion et au perfectionnement des employés\n\n• assurer un processus de production en douceur (sécurité, qualité, délais et\nProductivité\n\n• Déploiement du personnel, planification des capacités et de la production\n\n• Appui aux activités de maigre, de CIP et d'atelier\n\n• Participation à l'optimisation des processus et des lieux de travail\n\n• Coopération étroite avec la planification, la qualité, la logistique et la technologie\n\n• Participation aux opérations quotidiennes si nécessaire\n\nQui vous êtes\n\n• Expérience dans un environnement de production ou de montage\n\n• Expérience ou possibilité d'assumer la responsabilité du leadership\n\n• Méthode de travail structurée, indépendante et fiable\n\n• Compétences sociales élevées ainsi que compétences en équipe et en communication\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Bonnes connaissances SAP et MS Office\n\n• Lean, KVP ou l'expérience d'atelier est bénéfique\n\n• Formation technique de base souhaitable mais non obligatoire\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-Stellvertretung-Teamleitung-Montage-Tagschicht-%28100%29-Zuri-8340/1165050855/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:11.104Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-07",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Stellvertretung-Teamleitung-Montage-Tagschicht-%28100%29-Zuri-8340/1165050855/",
-      "jobReqId": "1165050855",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-12T22:18:09.204Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
-        ],
-        "de": [
-          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
-        ]
-      },
-      "previousSlugs": [
-        "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "belimo-24c351acfe38",
-      "slug": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil",
-      "slugByLocale": {
-        "it": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil",
-        "en": "logistician-in-temporary-belimo-hinwil",
-        "de": "logistiker-in-temporar-belimo-hinwil",
-        "fr": "logisticien-in-temporaire-belimo-hinwil"
-      },
-      "company": "Belimo",
-      "companyKey": "belimo",
-      "companyDomain": "belimo.com",
-      "title": "Logistiker:in (temporär)",
-      "titleByLocale": {
-        "it": "impiegata/impiegato in logistica (temporär)",
-        "en": "Logistician:in (temporary)",
-        "de": "Logistiker:in (temporär)",
-        "fr": "Logisticien:in (temporaire)"
-      },
-      "description": ".\n\nLust auf Bewegung statt Stillstand? Dann bist du bei uns genau richtig. Für unseren Standort Hinwil suchen wir engagierte Logistiker:innen, die mit anpacken – ob im Lager oder in der Fertigung. Du bringst Erfahrung mit, hast den SUVA-anerkannten Staplerausweis in der Tasche und bist sofort einsatzbereit? Perfekt!\n\nWas wirst du tun\n\n• Kommissionieren, verpacken, ein- und auslagern von Waren\n\n• Be- und Entladen von Lastwagen\n\n• Materialversorgung der Produktionslinien\n\n• Allgemeine Lagerarbeiten\n\n• Einhalten von Sicherheits- und Qualitätsstandards\n\nWer du bist\n\n• Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Zuverlässige und elbstständige Arbeitsweise\n\n• Teamgeist, Flexibilität und körperliche Fitness\n\n• Gute Deutschkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
-      "descriptionByLocale": {
-        "it": ".\n\nVuoi muoversi invece di stare fermo? Allora hai ragione con noi. Per la nostra posizione a Hinwil, siamo alla ricerca di logistici dedicati: donne che possono aiutare – sia nel magazzino che nella produzione. Porti l'esperienza, hai il carrello elevatore omologato SUVA in tasca e sei pronto per l'uso immediatamente? Perfetto!\n\nCosa farai\n\n• Acquisto, imballaggio, entrata e rimozione delle merci\n\n• Caricamento e scarico di camion\n\n• Fornitura dei materiali alle linee di produzione\n\n• Lavori del magazzino generale\n\n• Rispetto degli standard di sicurezza e qualità\n\nChi sei\n\n• Esperienza come logistica:\n\n• Passante per carrelli elevatori riconosciuto SUVA\n\n• Metodi di lavoro affidabili e indipendenti\n\n• Spirito di squadra, flessibilità e fitness\n\n• Buona conoscenza del tedesco\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
-        "en": ".\n\nWant to move instead of standstill? Then you are exactly right with us. For our location in Hinwil, we are looking for dedicated logisticians: women who can help – whether in the warehouse or in production. You bring experience, have the SUVA-approved forklift in your pocket and are ready for use immediately? Perfect!\n\nWhat will you do\n\n• Order picking, packaging, entry and removal of goods\n\n• Loading and unloading of trucks\n\n• Material supply to production lines\n\n• General warehouse work\n\n• Compliance with safety and quality standards\n\nWho you are\n\n• Experience as a logistician:\n\n• SUVA-recognised forklift pass\n\n• Reliable and independent working methods\n\n• Team spirit, flexibility and physical fitness\n\n• Good knowledge of German\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
-        "de": ".\n\nLust auf Bewegung statt Stillstand? Dann bist du bei uns genau richtig. Für unseren Standort Hinwil suchen wir engagierte Logistiker:innen, die mit anpacken – ob im Lager oder in der Fertigung. Du bringst Erfahrung mit, hast den SUVA-anerkannten Staplerausweis in der Tasche und bist sofort einsatzbereit? Perfekt!\n\nWas wirst du tun\n\n• Kommissionieren, verpacken, ein- und auslagern von Waren\n\n• Be- und Entladen von Lastwagen\n\n• Materialversorgung der Produktionslinien\n\n• Allgemeine Lagerarbeiten\n\n• Einhalten von Sicherheits- und Qualitätsstandards\n\nWer du bist\n\n• Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Zuverlässige und elbstständige Arbeitsweise\n\n• Teamgeist, Flexibilität und körperliche Fitness\n\n• Gute Deutschkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
-        "fr": ".\n\nVous voulez bouger au lieu d'arrêter ? Alors vous avez raison avec nous. Pour notre emplacement à Hinwil, nous recherchons des logisticiens dévoués : des femmes qui peuvent aider – que ce soit dans l'entrepôt ou en production. Vous apportez de l'expérience, avez le chariot élévateur homologué VUSA dans votre poche et sont prêts à être utilisés immédiatement? Parfait !\n\nQue ferez-vous ?\n\n• Cueillette, emballage, entrée et retrait des marchandises\n\n• Chargement et déchargement des camions\n\n• Fourniture de matériaux aux lignes de production\n\n• Travaux généraux d'entreposage\n\n• Respect des normes de sécurité et de qualité\n\nQui vous êtes\n\n• Expérience en tant que logisticien :\n\n• Passage de chariot élévateur reconnu VUSA\n\n• Méthodes de travail fiables et indépendantes\n\n• Esprit d'équipe, flexibilité et forme physique\n\n• Bonne connaissance de l'allemand\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
-      },
-      "location": "Hinwil",
-      "canton": "ZH",
-      "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
-      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:10.564Z",
-      "addressLocality": "Hinwil",
-      "addressRegion": "Zürich",
-      "streetAddress": "Brunnenbachstrasse 1",
-      "postalCode": "8340",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione edifici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-%28tempor%C3%A4r%29-Z%C3%BCri-8340/1165121155/",
-      "jobReqId": "1165121155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "logistiker-in-temporar-belimo-hinwil",
-        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
-        "logistician-in-night-shift-100-belimo-hinwil",
-        "logistiker-in-nachtschicht-100-belimo-hinwil",
-        "logisticien-en-service-de-nuit-100-belimo-hinwil",
-        "logisticien-en-equipe-de-nuit-100-belimo-hinwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-temporar-belimo-hinwil",
-          "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
-          "logistician-in-night-shift-100-belimo-hinwil",
-          "logistiker-in-nachtschicht-100-belimo-hinwil",
-          "logisticien-en-service-de-nuit-100-belimo-hinwil",
-          "logisticien-en-equipe-de-nuit-100-belimo-hinwil"
-        ],
-        "en": [
-          "logistiker-in-temporar-belimo-hinwil",
-          "logistician-in-night-shift-100-belimo-hinwil"
-        ],
-        "de": [
-          "logistiker-in-nachtschicht-100-belimo-hinwil"
-        ],
-        "fr": [
-          "logistiker-in-temporar-belimo-hinwil",
-          "logisticien-en-service-de-nuit-100-belimo-hinwil"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-16T12:37:09.156Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "belimo-8a7afe38e144",
       "slug": "head-of-district-energy-metering-emea-100-belimo-hinwil",
       "slugByLocale": {
@@ -362,7 +369,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Head-of-District-Energy-&-Metering-%28EMEA%29-%28100%29-Z%C3%BCri-8340/1163687855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:10.022Z",
+      "crawledAt": "2026-08-18T10:23:55.289Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -390,6 +397,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:34:42.685Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -434,7 +442,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Head-of-District-Energy-&-Metering-%28EMEA%29-%28100%29-Zuri-8340/1163687755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:09.478Z",
+      "crawledAt": "2026-08-18T10:23:54.691Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -473,7 +481,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "belimo-92b6e5675ff9",
@@ -506,7 +515,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Internship-Embedded-Software-Development-100-Zuri-8340/1165276055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:08.933Z",
+      "crawledAt": "2026-08-18T10:23:54.092Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -526,11 +535,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-embedded-software-development-100-belimo-hinwil"
+        "internship-embedded-software-development-100-belimo-hinwil",
+        "sviluppo-del-software-incorporato-di-stage-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-embedded-software-development-100-belimo-hinwil"
+          "internship-embedded-software-development-100-belimo-hinwil",
+          "sviluppo-del-software-incorporato-di-stage-100-belimo-hinwil"
         ],
         "de": [
           "internship-embedded-software-development-100-belimo-hinwil"
@@ -540,6 +551,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:21.666Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "baseSalary": {
@@ -584,7 +596,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Shop-Floor-Engineer-&-Stv_-Head-of-Shop-Floor-%2880-100%29-Z%C3%BCri-8340/1164948755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:08.406Z",
+      "crawledAt": "2026-08-18T10:23:53.502Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -660,7 +672,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Project-Manager-%2880-100%29-Zuri-8340/1164383755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:07.867Z",
+      "crawledAt": "2026-08-18T10:23:52.908Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -735,7 +747,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Project-Manager-%2880-100%29-Z%C3%BCri-8340/1164383855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:07.325Z",
+      "crawledAt": "2026-08-18T10:23:52.320Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -755,11 +767,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-manager-80-100-belimo-hinwil"
+        "senior-project-manager-80-100-belimo-hinwil",
+        "responsabile-di-progetto-senior-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-80-100-belimo-hinwil"
+          "senior-project-manager-80-100-belimo-hinwil",
+          "responsabile-di-progetto-senior-80-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -808,7 +822,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Development-Engineer-Electronics-%2880-100%29-Zuri-8340/1165271655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:06.533Z",
+      "crawledAt": "2026-08-18T10:23:51.323Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -872,7 +886,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-SAP%E2%80%AFApplication-Manager%E2%80%AFPPQM-%2880-100%29-Zuri-8340/1165110355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:06.007Z",
+      "crawledAt": "2026-08-18T10:23:50.737Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -892,11 +906,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sap-application-manager-pp-qm-80-100-belimo-hinwil"
+        "sap-application-manager-pp-qm-80-100-belimo-hinwil",
+        "responsabile-dell-applicazione-sap-pp-qm-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-application-manager-pp-qm-80-100-belimo-hinwil"
+          "sap-application-manager-pp-qm-80-100-belimo-hinwil",
+          "responsabile-dell-applicazione-sap-pp-qm-80-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -945,7 +961,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Strategic-Project-Buyer-Mechanics-Zuri-8340/1164918555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:05.474Z",
+      "crawledAt": "2026-08-18T10:23:50.148Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -966,11 +982,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "strategic-project-buyer-mechanics-belimo-hinwil"
+          "strategic-project-buyer-mechanics-belimo-hinwil",
+          "strategic-procurement-project-expert-mechanics-belimo-hinwil"
         ],
         "it": [
           "strategic-procurement-project-expert-mechanics-belimo-hinwil",
-          "strategic-project-buyer-mechanics-belimo-hinwil"
+          "strategic-project-buyer-mechanics-belimo-hinwil",
+          "meccanica-degli-esperti-del-progetto-di-approvvigionamento-strategico-belimo-hinwil"
         ],
         "en": [
           "strategic-procurement-project-expert-mechanics-belimo-hinwil"
@@ -981,7 +999,8 @@
       },
       "previousSlugs": [
         "strategic-procurement-project-expert-mechanics-belimo-hinwil",
-        "strategic-project-buyer-mechanics-belimo-hinwil"
+        "strategic-project-buyer-mechanics-belimo-hinwil",
+        "meccanica-degli-esperti-del-progetto-di-approvvigionamento-strategico-belimo-hinwil"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:18:02.869Z",
@@ -1029,7 +1048,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Specialist-Purchasing-Electronic-Components-Zuri-8340/1164920355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:04.939Z",
+      "crawledAt": "2026-08-18T10:23:49.557Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1049,6 +1068,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-12T22:18:03.399Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1093,7 +1113,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Product-Engineering-Expert-Damper-Actuators-%2880-100%29-Zuri-8340/1164981055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:04.403Z",
+      "crawledAt": "2026-08-18T10:23:48.969Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1113,11 +1133,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
+        "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
+        "attuatori-esperti-di-ingegneria-del-prodotto-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
+          "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
+          "attuatori-esperti-di-ingegneria-del-prodotto-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-30T22:16:04.250Z",
@@ -1165,7 +1187,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleiterin-Montage-Abendschicht-Zuri-8340/1165010355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:03.866Z",
+      "crawledAt": "2026-08-18T10:23:48.381Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1186,11 +1208,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-montage-abendschicht-belimo-hinwil",
-        "chef-d-equipe-en-soiree-d-assemblee-belimo-hinwil"
+        "chef-d-equipe-en-soiree-d-assemblee-belimo-hinwil",
+        "team-leader-in-assemblea-turno-serale-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-montage-abendschicht-belimo-hinwil"
+          "teamleiter-in-montage-abendschicht-belimo-hinwil",
+          "team-leader-in-assemblea-turno-serale-belimo-hinwil"
         ],
         "en": [
           "teamleiter-in-montage-abendschicht-belimo-hinwil"
@@ -1246,7 +1270,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleitung-Fertigung-Wochenende-Tag-Z%C3%BCri-8340/1165015355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:03.324Z",
+      "crawledAt": "2026-08-18T10:23:47.796Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1272,7 +1296,8 @@
         "gestione-delle-strutture-80-100-belimo-hinwil",
         "facility-manager-80-100-belimo-hinwil",
         "gestionnaire-des-installations-80-100-belimo-hinwil",
-        "responsabile-della-facilita-80-100-belimo-hinwil"
+        "responsabile-della-facilita-80-100-belimo-hinwil",
+        "gestione-del-team-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1281,7 +1306,8 @@
           "gestione-delle-strutture-80-100-belimo-hinwil",
           "facility-manager-80-100-belimo-hinwil",
           "gestionnaire-des-installations-80-100-belimo-hinwil",
-          "responsabile-della-facilita-80-100-belimo-hinwil"
+          "responsabile-della-facilita-80-100-belimo-hinwil",
+          "gestione-del-team-belimo-hinwil"
         ],
         "en": [
           "teamleitung-fertigung-wochenende-tag-belimo-hinwil"
@@ -1340,7 +1366,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HSE-Manager-%28100%29-Z%C3%BCri-8340/1165043155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:02.788Z",
+      "crawledAt": "2026-08-18T10:23:47.199Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1360,11 +1386,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hse-manager-100-belimo-hinwil"
+        "hse-manager-100-belimo-hinwil",
+        "responsabile-hse-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hse-manager-100-belimo-hinwil"
+          "hse-manager-100-belimo-hinwil",
+          "responsabile-hse-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -1399,7 +1427,7 @@
         "it": "(Senior) Configurazione della variante SAP Expert (80-100%)",
         "en": "(Senior) SAP Expert Variant Configuration (80-100%)",
         "de": "(Senior) SAP Expert Variant Konfiguration (80-100%)",
-        "fr": "(Aîné) Configuration de la variante d'expert SAP (80-100%)"
+        "fr": "(Senior) SAP Expert Variant Configuration (80-100%)"
       },
       "description": "Summary\n\nAs (Senior) SAP Expert Variant Configuration, you will take end-to-end ownership of our Product Configuration Lifecycle Management architecture and shape the future of our global SAP landscape. You will work closely with internal stakeholders, external partners, and international teams to design scalable, high-performing, and integrated solutions based on SAP Variant Configuration. Your role is key to enabling innovative business models and product offering strategies while ensuring top-level data quality.\n\nWhat You'll Do\n\n• Collaborate closely with internal business stakeholders and translate business requirements into technical solutions.\n\n• Own the end-to-end variant configuration solution architecture across SAP, CPQ, PLM, and connected platforms.\n\n• Design and guide integrated configuration solutions to ensure a seamless flow of configuration, pricing, and master data across connected systems.\n\n• Build and maintain SAP LO-VC models hands-on (high-level configuration).\n\n• Analyze requirements beyond standard Variant Configuration modeling and define specifications for development enhancements.\n\n• Coordinate cross-functional teams within a global IT environment.\n\n• Manage external partners and modelers, ensuring quality and timely delivery.\n\n• Evaluate new technologies and innovations in configuration and CPQ solutions and assess their value for Belimo.\n\nWho You Are\n\n• Bachelor’s degree in Information Systems, Computer Science, Engineering, or a comparable qualification.\n\n• Independent, structured, and solution-oriented mindset with a passion for continuous improvement.\n\n• Extensive hands-on experience with SAP LO-VC, including material variant concepts and their application in complex configuration processes.\n\n• Proven experience designing and supporting solution landscapes where SAP LO-VC is integrated with external configuration engines.\n\n• Deep expertise in SAP ERP logistics processes and VC-related integration scenarios.\n\n• Strong analytical and conceptual thinking skills with the ability to translate complex requirements into scalable solution concepts.\n\n• Experience with SAP VCP/CPS, CPQ solutions, SAP Commerce (Hybris), PLM environments (preferably Siemens Teamcenter), or ABAP development is considered a strong asset.\n\n• Strong communication and stakeholder management skills with the ability to collaborate across global teams; fluent in English, German is an advantage, and legally authorized to work in Switzerland.\n\nWho We Are\n\nAt Belimo, we take pride in making our company a rewarding place to work. Our leaders are value-driven and encourage new ideas in their teams around the world. Through our passion, our employees are not only creating amazing products, they are revolutionizing the HVAC industry. Investing in our people is at the heart of Belimo's approach to engaging diverse creative talent to grow an industry-leading company. The success of our corporate brand is based on the expertise and commitment of each individual.",
       "descriptionByLocale": {
@@ -1413,7 +1441,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-%28Senior%29-SAP-Expert-Variant-Configuration-%2880-100%29-Zuri-8340/1165102755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:02.256Z",
+      "crawledAt": "2026-08-18T10:23:46.611Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1433,14 +1461,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-sap-expert-variant-configuration-80-100-belimo-hinwil"
+        "senior-sap-expert-variant-configuration-80-100-belimo-hinwil",
+        "senior-configurazione-della-variante-sap-expert-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sap-expert-variant-configuration-80-100-belimo-hinwil"
+          "senior-sap-expert-variant-configuration-80-100-belimo-hinwil",
+          "senior-configurazione-della-variante-sap-expert-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-14T23:18:50.558Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1485,7 +1516,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Manager-PM-Excellence-%2880-100%29-Zuri-8340/1165220355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:39:01.722Z",
+      "crawledAt": "2026-08-18T10:23:46.020Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1505,17 +1536,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manager-pm-excellence-80-100-belimo-hinwil"
+        "manager-pm-excellence-80-100-belimo-hinwil",
+        "manager-pm-eccellenza-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-pm-excellence-80-100-belimo-hinwil"
+          "manager-pm-excellence-80-100-belimo-hinwil",
+          "manager-pm-eccellenza-80-100-belimo-hinwil"
         ],
         "de": [
           "manager-pm-excellence-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-08-04T11:39:45.793Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1560,7 +1594,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Elektronikerin-EFZ-Z%C3%BCri-8340/1165047655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:01.179Z",
+      "crawledAt": "2026-08-18T10:23:45.432Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1580,11 +1614,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-elektroniker-in-efz-belimo-hinwil"
+        "lehrstelle-als-elektroniker-in-efz-belimo-hinwil",
+        "apprendistato-come-elektroniker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-elektroniker-in-efz-belimo-hinwil"
+          "lehrstelle-als-elektroniker-in-efz-belimo-hinwil",
+          "apprendistato-come-elektroniker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-elektroniker-in-efz-belimo-hinwil"
@@ -1639,7 +1675,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-Nachtschicht-%28100%29-Z%C3%BCri-8340/1164974855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:00.650Z",
+      "crawledAt": "2026-08-18T10:23:44.843Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1659,11 +1695,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-nachtschicht-100-belimo-hinwil"
+        "logistiker-in-nachtschicht-100-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-nachtschicht-100-belimo-hinwil"
+          "logistiker-in-nachtschicht-100-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
         ]
       },
       "needsRetranslation": true,
@@ -1712,7 +1750,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Logistikerin-EFZ-Z%C3%BCri-8340/1165049455/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:39:00.119Z",
+      "crawledAt": "2026-08-18T10:23:44.255Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1732,11 +1770,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-belimo-hinwil"
+        "lehrstelle-als-logistiker-in-efz-belimo-hinwil",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-logistiker-in-efz-belimo-hinwil"
+          "lehrstelle-als-logistiker-in-efz-belimo-hinwil",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-belimo-hinwil"
@@ -1791,7 +1831,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Spezialist-Arbeitsplatz-Systembau-%28100%29-Z%C3%BCri-8340/1165192955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:59.576Z",
+      "crawledAt": "2026-08-18T10:23:43.666Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1811,11 +1851,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-arbeitsplatz-systembau-100-belimo-hinwil"
+        "spezialist-arbeitsplatz-systembau-100-belimo-hinwil",
+        "specialista-di-sistemi-di-lavoro-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-arbeitsplatz-systembau-100-belimo-hinwil"
+          "spezialist-arbeitsplatz-systembau-100-belimo-hinwil",
+          "specialista-di-sistemi-di-lavoro-100-belimo-hinwil"
         ],
         "en": [
           "spezialist-arbeitsplatz-systembau-100-belimo-hinwil"
@@ -1869,7 +1911,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-EFZ-%28100%29-Z%C3%BCri-8340/1165196555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:59.033Z",
+      "crawledAt": "2026-08-18T10:23:43.072Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1889,11 +1931,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-efz-100-belimo-hinwil"
+        "logistiker-in-efz-100-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-efz-100-belimo-hinwil"
+          "logistiker-in-efz-100-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-cfc-100-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-efz-100-belimo-hinwil"
@@ -1948,7 +1992,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Logistikerin-Wochenendschicht-Z%C3%BCri-8340/1164975155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:58.505Z",
+      "crawledAt": "2026-08-18T10:23:42.478Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -1968,11 +2012,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-wochenendschicht-belimo-hinwil"
+        "logistiker-in-wochenendschicht-belimo-hinwil",
+        "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-wochenendschicht-belimo-hinwil"
+          "logistiker-in-wochenendschicht-belimo-hinwil",
+          "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-wochenendschicht-belimo-hinwil"
@@ -2027,7 +2073,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Polymechanikerin-EFZ-Z%C3%BCri-8340/1165049655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:57.962Z",
+      "crawledAt": "2026-08-18T10:23:41.890Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2047,11 +2093,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
+        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+        "apprendistato-come-polymechaniker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
+          "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+          "apprendistato-come-polymechaniker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
@@ -2106,7 +2154,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Kauffrau-mann-EFZ-Z%C3%BCri-8340/1165039955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:57.428Z",
+      "crawledAt": "2026-08-18T10:23:41.301Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2126,11 +2174,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil"
+        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+        "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil"
+          "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+          "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil"
@@ -2185,7 +2235,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Embedded-MatlabSimulink-Developer-HVAC-Application-%2880-100%29-Zuri-8340/1165187955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:38:56.898Z",
+      "crawledAt": "2026-08-18T10:23:40.715Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2205,6 +2255,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-28T22:11:47.348Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2249,7 +2300,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Fachfrau-mann-Betriebsunterhalt-EFZ-Z%C3%BCri-8340/1165066855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:56.365Z",
+      "crawledAt": "2026-08-18T10:23:40.121Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2269,11 +2320,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil"
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil",
+        "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil"
+          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil",
+          "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-belimo-hinwil"
@@ -2328,7 +2381,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Informatikerin-EFZ-Z%C3%BCri-8340/1165049755/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:55.833Z",
+      "crawledAt": "2026-08-18T10:23:39.525Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2348,11 +2401,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+        "lehrstelle-als-informatiker-in-efz-belimo-hinwil",
+        "apprendistato-come-informatiker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+          "lehrstelle-als-informatiker-in-efz-belimo-hinwil",
+          "apprendistato-come-informatiker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
@@ -2407,7 +2462,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Konstrukteurin-EFZ-Z%C3%BCri-8340/1165049555/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:55.301Z",
+      "crawledAt": "2026-08-18T10:23:38.934Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2427,11 +2482,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil"
+        "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil",
+        "apprendistato-come-konstrukteur-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil"
+          "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil",
+          "apprendistato-come-konstrukteur-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-konstrukteur-in-efz-belimo-hinwil"
@@ -2486,7 +2543,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-Automatikerin-EFZ-Z%C3%BCri-8340/1165049955/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:54.774Z",
+      "crawledAt": "2026-08-18T10:23:38.338Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2506,11 +2563,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-automatiker-in-efz-belimo-hinwil"
+        "lehrstelle-als-automatiker-in-efz-belimo-hinwil",
+        "apprendistato-come-automatiker-in-cfc-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-automatiker-in-efz-belimo-hinwil"
+          "lehrstelle-als-automatiker-in-efz-belimo-hinwil",
+          "apprendistato-come-automatiker-in-cfc-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-automatiker-in-efz-belimo-hinwil"
@@ -2565,7 +2624,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Lehrstelle-als-ICT-Fachfrau-mann-Z%C3%BCri-8340/1165049855/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:54.237Z",
+      "crawledAt": "2026-08-18T10:23:37.748Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2585,11 +2644,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil",
+        "apprendistato-come-ict-fachfrau-mann-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+          "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil",
+          "apprendistato-come-ict-fachfrau-mann-belimo-hinwil"
         ],
         "en": [
           "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
@@ -2644,7 +2705,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Senior-Model-Based-System-Engineer-%2880-100%29-Zuri-8340/1165170355/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:38:53.696Z",
+      "crawledAt": "2026-08-18T10:23:37.127Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2675,7 +2736,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "belimo-32d5f78b4bdf",
@@ -2708,7 +2770,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-MES-Process-Engineer-%28Manufacturing-Execution-System%29-Zuri-8340/1164183055/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:53.168Z",
+      "crawledAt": "2026-08-18T10:23:36.535Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2773,7 +2835,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Zuri-8340/1164470155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:38:52.628Z",
+      "crawledAt": "2026-08-18T10:23:35.945Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2794,11 +2856,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil",
-        "hvac-building-automation-expert-80-100-belimo-hinwil"
+        "hvac-building-automation-expert-80-100-belimo-hinwil",
+        "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil"
+          "hvac-building-automation-expert-80-100-belimo-hinwil",
+          "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
         ],
         "fr": [
           "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
@@ -2817,6 +2881,84 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "belimo-53a9e8650f11",
+      "slug": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
+      "slugByLocale": {
+        "de": "hvac-building-automation-expert-80-100-belimo-hinwil-khg4xl",
+        "it": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
+        "en": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
+        "fr": "hvac-building-automation-expert-80-100-belimo-hinwil-2"
+      },
+      "company": "Belimo",
+      "companyKey": "belimo",
+      "companyDomain": "belimo.com",
+      "title": "HVAC Building Automation Expert (80-100%)",
+      "titleByLocale": {
+        "de": "HVAC Building Automation Expert (80-100%)",
+        "en": "HVAC Building Automation Expert (80-100%)",
+        "it": "HVAC Building Automation Expert (80-100%)",
+        "fr": "HVAC Building Automation Expert (80-100%)"
+      },
+      "description": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+      "descriptionByLocale": {
+        "de": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+        "it": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+        "en": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+        "fr": "Gestalte die Zukunft der HVAC- und Gebäudeautomation mit! In dieser Rolle verbindest du Technik-Know-how, Markttrends und interne Stakeholder, um aus vielversprechenden Ideen innovative Lösungen zu machen. Du begleitest Ideen von der ersten Skizze bis zum Pitch vor den Business Units und förderst aktiv unsere Innovationskultur.\n\nWas wirst du tun\n\n• Unterstützen von Explorationsprojekten mit deiner Expertise in HVAC und Gebäudeautomation\n\n• Steuern des Eingangs und der Bewertung von Produktideen im Idea Portal\n\n• Austausch mit Ideengeber:innen, um Zweck, Kontext und Kundenproblem vollständig zu verstehen\n\n• Organisieren und Moderieren von ad-hoc, interdisziplinären Teams zur Beurteilung und Weiterentwicklung von Ideen\n\n• Vorbereiten und Halten überzeugender Idea-Pitches für die zuständigen Business Units\n\n• Laufendes Beobachten von Trends, neuen Anwendungen und Technologien in der HVAC- und Gebäudeautomationsbranche\n\n• Internes „Lobbying“ für vielversprechende Ideen durch inspirierende Kommunikation und Storytelling\n\n• Fördern einer Innovationskultur und proaktives Informieren der Ideengeber:innen über den Status ihrer Vorschläge\n\nWer du bist\n\n• Abgeschlossenes Hochschul- oder Fachhochschulstudium in einem relevanten technischen Fachbereich\n\n• Mehrjährige Berufserfahrung in der HVAC- und Gebäudeautomationsbranche, z. B. in der Systemintegration oder in der HVAC-Planung bzw. im Engineering\n\n• Ausgeprägte Selbstmanagement-Fähigkeiten sowie die Fähigkeit, mehrere Aufgaben gleichzeitig zu organisieren und zu priorisieren\n\n• Proaktive, eigeninitiativ geprägte Arbeitsweise sowie ein strukturierter, prozessorientierter Arbeitsstil\n\n• Starke analytische, konzeptionelle und kreative Denkfähigkeit\n\n• Hohe Bereitschaft zur kontinuierlichen Weiterbildung und professionellen Entwicklung\n\n• Fliessende Englischkenntnisse\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen."
+      },
+      "location": "Hinwil",
+      "canton": "ZH",
+      "url": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Z%C3%BCri-8340/1164470055/",
+      "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T10:23:35.358Z",
+      "addressLocality": "Hinwil",
+      "addressRegion": "Zürich",
+      "streetAddress": "Brunnenbachstrasse 1",
+      "postalCode": "8340",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione edifici",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-26",
+      "applyUrl": "https://jobsredirect.belimo.com/job/Hinwil-HVAC-Building-Automation-Expert-%2880-100%29-Z%C3%BCri-8340/1164470055/",
+      "jobReqId": "1164470055",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hvac-building-automation-expert-80-100-belimo-hinwil"
+        ],
+        "de": [
+          "hvac-building-automation-expert-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "hvac-building-automation-expert-80-100-belimo-hinwil"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T10:23:35.358Z"
     },
     {
       "id": "belimo-f9540a3a0b3f",
@@ -2849,7 +2991,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Teamleiterin-Instandhaltung-%28100%29-Z%C3%BCri-8340/1165168255/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:51.556Z",
+      "crawledAt": "2026-08-18T10:23:34.764Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2869,11 +3011,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-instandhaltung-100-belimo-hinwil"
+        "teamleiter-in-instandhaltung-100-belimo-hinwil",
+        "team-leader-in-manutenzione-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-instandhaltung-100-belimo-hinwil"
+          "teamleiter-in-instandhaltung-100-belimo-hinwil",
+          "team-leader-in-manutenzione-100-belimo-hinwil"
         ],
         "en": [
           "teamleiter-in-instandhaltung-100-belimo-hinwil"
@@ -2928,7 +3072,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Instandhaltungsfachmann-frau-%28100%29-Z%C3%BCri-8340/1164972655/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:51.023Z",
+      "crawledAt": "2026-08-18T10:23:34.172Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -2949,11 +3093,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsfachmann-frau-100-belimo-hinwil",
-        "professionnel-d-entretien-100-belimo-hinwil"
+        "professionnel-d-entretien-100-belimo-hinwil",
+        "manutenzione-professionale-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsfachmann-frau-100-belimo-hinwil"
+          "instandhaltungsfachmann-frau-100-belimo-hinwil",
+          "manutenzione-professionale-100-belimo-hinwil"
         ],
         "en": [
           "instandhaltungsfachmann-frau-100-belimo-hinwil"
@@ -2994,7 +3140,7 @@
         "it": "Global Capo squadra Procurement - Plastic Solutions",
         "en": "Global Team Leader Procurement - Plastic Solutions",
         "de": "Global Team Leader Procurement - Plastic Solutions",
-        "fr": "Approvisionnement de chef d'équipe mondial - Solutions plastiques"
+        "fr": "Global Team Leader Procurement - Plastic Solutions"
       },
       "description": "Summary\n\nHier gestaltest Du nicht nur Einkauf – Du prägst aktiv unsere globale Lieferkette im Bereich Plastic Solutions. Mit Deinem Team entwickelst Du Strategien, stärkst Partnerschaften und bringst Ideen in echte Umsetzung.\n\nWas Du tun wirst\n\n• Du führst und entwickelst das Team Plastic Solutions und übernimmst die fachliche sowie disziplinarische Verantwortung für unsere operativen und strategischen Einkäuferinnen und Einkäufer.\n\n• Du entwickelst und implementierst eine wettbewerbsfähige, innovative und nachhaltige Beschaffungsstrategie für Kunststoffteile, Baugruppen und Module und stellst die Kosten-, Qualitäts- und Lieferperformance über alle Standorte hinweg sicher.\n\n• Du verantwortest das strategische Lieferantenmanagement – von Verhandlungen und Vertragsabschlüssen über die Bewertung bis hin zur kontinuierlichen Entwicklung unserer internationalen Lieferanten.\n\n• Du leitest und priorisierst Sourcing- und bereichsübergreifende Sortimentsprojekte und bringst diese erfolgreich zum Abschluss.\n\n• Du übernimmst das Eskalationsmanagement bei kritischen Lieferanten- oder Qualitätsthemen und entwickelst pragmatische und nachhaltige Lösungen.\n\n• Du verantwortest Controlling und Reporting und arbeitest eng mit den Bereichen Innovation und Quality zusammen, um neue Ideen in leistungsfähige und zukunftsfähige Lieferketten zu überführen.\n\nWer Du bist\n\n• Du verfügst über eine technische oder kaufmännische Grundausbildung und hast Dich idealerweise im Bereich Maschinenbau, Betriebswirtschaft, oder Einkauf weitergebildet (BSc, MAS Supply-Chain, Operations o.ä.)\n\n• Du bringst mehrjährige Erfahrung im technischen Einkauf mit – idealerweise in einem internationalen Umfeld.\n\n• Du verfügst über fundiertes Know-how in Kunststofftechnologien, insbesondere im Spritzguss und in Automatisierungslösungen.\n\n• Du denkst strategisch und unternehmerisch, handelst lösungsorientiert und behältst auch in einem dynamischen Umfeld den Überblick\n\n• Du überzeugst durch Leadership, hohe Sozialkompetenz, Verhandlungsgeschick und eine offene, kommunikative Art.\n\n• Du bewegst Dich sicher in internationalen und interkulturellen Kontexten und verfügst über sehr gute Deutsch- und Englischkenntnisse\n\n• Du arbeitest routiniert mit SAP S/4HANA, insbesondere im Modul MM, und bringst eine Reisebereitschaft von rund 10 % mit.\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
       "descriptionByLocale": {
@@ -3008,7 +3154,7 @@
       "url": "https://jobsredirect.belimo.com/job/Hinwil-Global-Team-Leader-Procurement-Plastic-Solutions-Zuri-8340/1164955155/",
       "source": "Belimo Dedicated Parser (SuccessFactors Career Site Builder)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:38:50.475Z",
+      "crawledAt": "2026-08-18T10:23:33.562Z",
       "addressLocality": "Hinwil",
       "addressRegion": "Zürich",
       "streetAddress": "Brunnenbachstrasse 1",
@@ -3029,11 +3175,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
-        "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil"
+        "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil",
+        "global-capo-squadra-procurement-plastic-solutions-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-team-leader-procurement-plastic-solutions-belimo-hinwil"
+          "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
+          "global-capo-squadra-procurement-plastic-solutions-belimo-hinwil"
         ],
         "fr": [
           "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil"
