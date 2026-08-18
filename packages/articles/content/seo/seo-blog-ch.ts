@@ -43817,6 +43817,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-easygov-pmi-svizzere': {
+    title: 'EasyGov alleggerisce le PMI svizzere | Frontaliere Ticino',
+    description: 'Studio dell\'Università di San Gallo per SECO: EasyGov riduce tempi e costi amministrativi per le PMI svizzere. Analisi condotta ad agosto 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, easygov, alleggerisce, svizzere, studio',
+    ogTitle: 'EasyGov alleggerisce le PMI svizzere',
+    ogDescription: 'Lo studio di USG-SECO (agosto 2026) conferma: EasyGov riduce tempi e costi amministrativi per PMI svizzere. Una piattaforma digitale che semplifica la burocrazia federale, cantonale e comunale.',
+    canonicalPath: '/articoli-svizzera/easygov-pmi-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EasyGov alleggerisce le PMI svizzere",
+      "description": "Studio dell'Università di San Gallo per SECO: EasyGov riduce tempi e costi amministrativi per le PMI svizzere. Analisi condotta ad agosto 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/easygov-pmi-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con dipendenti che lavorano su computer con dashboard digitali per la gestione della burocrazia"
+      },
+      "datePublished": "2026-08-18T23:24:45+00:00",
+      "dateModified": "2026-08-18T23:24:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/easygov-pmi-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

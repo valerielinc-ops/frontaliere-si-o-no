@@ -3379,6 +3379,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soglie-patrimonio-banche-svizzera.title': 'Wenn Sie dieses Geld haben, betrachten die Banken Sie als wohlhabend',
     'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Von Regionalbanken bis hin zu Privatinstituten: Erfahren Sie, welche Eigenkapitalschwellen Kunden kategorisieren und welche Vorteile ein Wechsel der Kategorie mit sich bringt.',
     'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Modernes Schweizer Bankbüro mit Finanzdokumenten und Vermögensmanagement-Schreibtisch',
+    'blog.article.easygov-pmi-svizzere.title': 'EasyGov entlastet Schweizer KMU',
+    'blog.article.easygov-pmi-svizzere.excerpt': 'Studie der Universität St. Gallen für SECO: EasyGov reduziert Zeit und Verwaltungskosten für Schweizer KMU. Die Analyse wurde im August 2026 durchgeführt.',
+    'blog.article.easygov-pmi-svizzere.imageAlt': 'Schweizer Verwaltungsbüro mit Mitarbeitern an Computern und digitalen Dashboards zur Verwaltung',
 };
 
 export default blogMetaChDe;
