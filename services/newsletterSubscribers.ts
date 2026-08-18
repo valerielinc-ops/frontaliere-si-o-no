@@ -199,6 +199,14 @@ export type NewsletterEventInput = {
  jobSearchQuery?: string | null;
  geoCountry?: string | null;
  metadata?: Record<string, any> | null;
+ /**
+  * WHICH credential authorised the act, for the `unsubscribe` event only
+  * (#5719's field, extended to this writer — see
+  * `unsubscribeNewsletterSubscriber`). `'autologin_code'` | `'email_token'` |
+  * `'legacy_auth_token'`; anything else is read as "no opinion" by
+  * scripts/lib/unsubscribeCredentialMetrics.mjs.
+  */
+ credential?: string | null;
 };
 
 export type NewsletterDeliveryInput = {
@@ -622,10 +630,19 @@ function buildNewsletterUnsubscribeFields(
  *
  * The event is best-effort — the opt-out itself must land even if the
  * subcollection write fails — but it is written, which the SPA path never did.
+ *
+ * `credential` names what authorised THIS write, in the same vocabulary the
+ * Cloud Function uses (#5719). It is not decoration: App.tsx cannot reach this
+ * writer without an `ac` autologin code (or the legacy `at`/`authToken` custom
+ * token) — the session branch needs the exchange to have succeeded, and the
+ * session-less fall-through under it is guarded by `if (!autologinCode ||
+ * codeForged) return`. So every event this writer emits belongs to the cohort
+ * whose exit #5724's `ac` TTL is about to put a clock on, and leaving the field
+ * off hid exactly that cohort from the monitor built to count it.
  */
 export async function unsubscribeNewsletterSubscriber(
  db: Firestore,
- input: { email: string; sourceChannel?: string; sourcePage?: string | null },
+ input: { email: string; sourceChannel?: string; sourcePage?: string | null; credential?: string | null },
 ): Promise<{ ok: boolean; email: string; fields: Record<string, any> }> {
  const email = normalizeNewsletterEmail(input.email);
  const sourceChannel = sanitizeString(input.sourceChannel) || 'unsubscribe_link';
@@ -642,6 +659,7 @@ export async function unsubscribeNewsletterSubscriber(
  eventType: 'unsubscribe',
  sourceChannel,
  sourcePage: input.sourcePage ?? null,
+ credential: input.credential ?? null,
  });
  } catch (err) {
  reportCaughtError(err, 'newsletter.unsubscribeEvent');
@@ -683,6 +701,17 @@ export async function recordNewsletterEvent(
  job_slug: sanitizeString(input.jobSlug),
  job_search_query: sanitizeString(input.jobSearchQuery),
  geo_country: sanitizeString(input.geoCountry),
+ // The field #5719 added to the Cloud Function writer, and the reason this
+ // one had to grow it too: `scripts/check-unsubscribe-credential-rate.mjs`
+ // sizes the population whose exit depends on the `ac` fallback before
+ // #5724 gives `ac` a TTL, and it grades by this field. Measured read-only
+ // against production on 2026-08-18 over a 7-day window: of 209
+ // `unsubscribe_link` events, 52 came from THIS writer and carried no
+ // `credential` at all — every single day from 2026-08-13 on, i.e. not
+ // pre-deploy residue but a second writer the field never reached. The
+ // monitor scored them `missing` and dropped them from its denominator, so
+ // the number the LPD rollout decision reads was half the population.
+ credential: sanitizeString(input.credential),
  metadata: input.metadata || null,
  timestamp: serverTimestamp(),
  occurred_at: nowIso(),

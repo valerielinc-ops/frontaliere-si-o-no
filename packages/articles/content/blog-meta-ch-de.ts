@@ -3364,6 +3364,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.servizio-pubblico-obbligo-contanti.title': 'Öffentlicher Dienst sagt Nein zur Bargeld-Acceptanz',
     'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Nationalrates (WAK-N) empfiehlt, die Initiative von Roland Büchel abzulehnen.',
     'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Bild einer Szene in Lugano mit einem öffentlichen Verkehrssystem, das nur elektronische Zahlungen akzeptiert.',
+    'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asyl, Kader befragt den Bundesrat zu den Kosten',
+    'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri bittet um Klarheit über die Kosten, die dem Bund durch die Blockade der Dublin-Überweisungen nach Italien ab Dezember 2022 entstehen.',
+    'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Bundeshaus in Bern Sitz des Bundesrates',
+    'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Spital Graubünden: 518 Millionen für neuen Flügel',
+    'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Zwölf Baujahre gehen zu Ende. Das Kantonsspital Graubünden in Chur weiht die neue Struktur mit 518 Millionen Franken ein. Erhöhte Operationssäle, Umzug Ende November.',
+    'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Kantonalspital Graubünden, moderner Flügel mit fünf Etagen und einheitlichem Notfalleingang',
+    'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Spital Graubünden: 518 Millionen für 12 Jahre',
+    'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'Der neue Flügel des Kantonsspitals Graubünden wird Ende November 2026 nach Investitionen von 518 Millionen in Betrieb genommen. Operationssäle werden von 10 auf 13 erhöht.',
+    'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Neuer Flügel des Kantonsspitals Graubünden in Chur: modernes 5-stöckiges Gebäude mit erweiterten Operationssälen',
 };
 
 export default blogMetaChDe;

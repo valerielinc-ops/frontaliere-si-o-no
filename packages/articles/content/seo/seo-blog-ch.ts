@@ -43622,6 +43622,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-blocco-trasferimenti-asilo': {
+    title: 'Asilo, Quadri interroga il Consiglio federale sui costi',
+    description: 'Lorenzo Quadri chiede al Consiglio federale i costi del blocco dei trasferimenti asilo verso l\'Italia dal dicembre 2022. Analisi della mozione e dei rimborsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, quadri, interroga, consiglio',
+    ogTitle: 'Asilo: Quadri interroga il Consiglio federale sui costi',
+    ogDescription: 'Lorenzo Quadri chiede al Consiglio federale i costi del blocco dei trasferimenti asilo verso l\'Italia dal dicembre 2022. Analisi della mozione e dei rimborsi.',
+    canonicalPath: '/articoli-svizzera/costi-blocco-trasferimenti-asilo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo, Quadri interroga il Consiglio federale sui costi",
+      "description": "Lorenzo Quadri chiede al Consiglio federale i costi del blocco dei trasferimenti asilo verso l'Italia dal dicembre 2022. Analisi della mozione e dei rimborsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-blocco-trasferimenti-asilo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna sede del Consiglio federale"
+      },
+      "datePublished": "2026-08-18T18:10:58+00:00",
+      "dateModified": "2026-08-18T18:10:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-blocco-trasferimenti-asilo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ospedale-grigioni-ampliamento-2026': {
+    title: 'Ospedale Grigioni: 518 milioni per nuova ala | Frontaliere Ticino',
+    description: 'Ospedale Grigioni inaugura nuova ala dopo 12 anni. 518 milioni di investimenti, sale operatorie da 10 a 13, trasloco novembre 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, grigioni, milioni, nuova',
+    ogTitle: 'Ospedale Grigioni: 518 milioni per nuova ala',
+    ogDescription: 'Dodici anni di cantiere terminano. L\'ospedale cantonale dei Grigioni a Coira inaugura la nuova ala con 518 milioni di franchi investiti. Sale operatorie aumentate da 10 a 13, pronto soccorso e chirurgia nello stesso piano. Trasloco a fine novembre.',
+    canonicalPath: '/articoli-svizzera/ospedale-grigioni-ampliamento-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale Grigioni: 518 milioni per nuova ala",
+      "description": "Ospedale Grigioni inaugura nuova ala dopo 12 anni. 518 milioni di investimenti, sale operatorie da 10 a 13, trasloco novembre 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedale-grigioni-ampliamento-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale cantonale dei Grigioni, nuova ala con architettura moderna e accesso al pronto soccorso unico"
+      },
+      "datePublished": "2026-08-18T19:20:17+00:00",
+      "dateModified": "2026-08-18T19:20:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ospedale-grigioni-ampliamento-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ospedale-grigioni-ampliamento-500m': {
+    title: 'Ospedale Grigioni: 518 milioni per 12 anni | Frontaliere Ticino',
+    description: 'Nuova ala Ospedale cantonale Grigioni entra in servizio fine novembre 2026 dopo 518 milioni investiti. Sale operatorie da 10 a 13, pronto soccorso e terapia',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, grigioni, milioni, anni',
+    ogTitle: 'Ospedale Grigioni: 518 milioni per 12 anni',
+    ogDescription: 'L\'Ospedale cantonale dei Grigioni a Coira completa il suo ampliamento da 518 milioni dopo 12 anni. Nuova ala con 13 sale operatorie, pronto soccorso e terapia intensiva sullo stesso piano. Trasloco fine novembre 2026. Giornata porte aperte sabato.',
+    canonicalPath: '/articoli-svizzera/ospedale-grigioni-ampliamento-500m/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale Grigioni: 518 milioni per 12 anni",
+      "description": "Nuova ala Ospedale cantonale Grigioni entra in servizio fine novembre 2026 dopo 518 milioni investiti. Sale operatorie da 10 a 13, pronto soccorso e terapia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedale-grigioni-ampliamento-500m.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuova ala dell'Ospedale cantonale dei Grigioni a Coira: edificio moderno a 5 piani con ampliamento della capacità operatoria"
+      },
+      "datePublished": "2026-08-18T19:56:19+00:00",
+      "dateModified": "2026-08-18T19:56:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ospedale-grigioni-ampliamento-500m/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

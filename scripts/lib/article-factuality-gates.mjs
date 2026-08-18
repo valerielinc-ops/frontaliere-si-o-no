@@ -1314,6 +1314,22 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // difetto reale da mostrare. Ri-misurare se il corpus cresce di molto o se
 // emerge un hit minuscolo — a quel punto il fix e' un boundary aggiuntivo o
 // la rimozione del flag, non prima.
+//
+// LCL e LCO (follow-up #6017, item 2/3 di #6005) verificate con la stessa
+// disciplina: misurate sul corpus tirato con la stessa regex a confini di
+// lettera — 3 occorrenze in 2 file (`LCL`), 7 in 4 file (`LCO`). `LCL`
+// fabbrica DUE leggi diverse e incompatibili nello stesso corpus: «legge
+// cantonale sulla naturalizzazione del Cantone di Lucerna... (LCL 2020,
+// art. 15)» in un articolo e «La legge cantonale sul lavoro (LCL) del 15
+// dicembre 1995» in un altro — stesso acronimo, domini e date che si
+// escludono, la stessa firma di fabbricazione di LFW. `LCO` («Federal Act
+// on Combating Organized Crime (LCO)», 2013) e' invece consistente ma
+// sopravvive identica a it/en/de/fr in `infiltrazioni-criminali-ticino-
+// grigioni` — nessuna legge federale svizzera con questa sigla esiste, la
+// lotta alla criminalita' organizzata e' nel Codice penale (art. 260ter
+// CP), lo stesso argomento «sopravvive alla traduzione» gia' usato per
+// LFW/LPS. Zero occorrenze minuscole/miste di `lcl`/`lco` sullo stesso
+// corpus tirato, stessa verifica di cui sopra.
 export const FABRICATED_NORM_ACRONYMS = [
   {
     acronym: 'LFW',
@@ -1324,6 +1340,16 @@ export const FABRICATED_NORM_ACRONYMS = [
     acronym: 'LPS',
     re: /(?<![A-Za-z])LPS(?![A-Za-z])/i,
     real: 'non esiste: previdenza → LAVS/LAI/LPP, assicurazione malattie → LAMal/LVAMal, permesso di soggiorno → LStrI (RS 142.20)',
+  },
+  {
+    acronym: 'LCL',
+    re: /(?<![A-Za-z])LCL(?![A-Za-z])/i,
+    real: "non esiste: la legge sul lavoro è LL (RS 822.11); la cittadinanza svizzera è la LCit (RS 141.0) più il diritto cantonale, nessuna sigla ufficiale «LCL»",
+  },
+  {
+    acronym: 'LCO',
+    re: /(?<![A-Za-z])LCO(?![A-Za-z])/i,
+    real: 'non esiste: il contrasto alla criminalità organizzata è nel Codice penale, art. 260ter CP (RS 311.0)',
   },
 ];
 
