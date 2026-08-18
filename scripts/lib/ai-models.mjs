@@ -1322,6 +1322,123 @@ const MAX_CONSECUTIVE_429 = 2;
 const _consecutiveContentFailures = new Map();
 const MAX_CONSECUTIVE_CONTENT_FAILURES = 2;
 
+// ── Adaptive per-call timeout ceiling ────────────────────────
+/**
+ * A call that HANGS burns the caller's full per-request timeout before the
+ * cascade is allowed to move on, and that wait is the single largest piece of
+ * dead wall-clock a healthy run still pays.
+ *
+ * The measurement (generate-article.yml, 14 consecutive `success` runs,
+ * 2026-08-18 09:01-11:06 UTC): 4 of the 14 lost 60,0 ± 0,003 s each to ONE
+ * hung call, always on `nvidia/meta/llama-3.1-8b-instruct` — 240 s over 14
+ * runs, 17,1 s/run, 4,3 % of run duration. The 60,0 s is the caller's own
+ * `timeout: 60_000` (the fact-check call), not a retry loop: both provider
+ * retry loops already refuse to retry a timeout, and the hard cap never fired.
+ *
+ * Why the two mechanisms that look like they should catch it do not:
+ *
+ *  - The score ledger DOES record it — the timeout reaches
+ *    `recordModelFailure(model, { exhausted: true })`, i.e. SCORE_EXHAUSTED
+ *    (-50), and that is persisted. It is arithmetically INERT: the same
+ *    model's persisted score is +36819 (172.042 successes / 3.286 failures,
+ *    read from `ai_model_scores/_all` on 2026-08-18 11:25 Z), so -50 moves it
+ *    by 0,14 % and it stays rank 1 of 340 — the runner-up sits at +120.
+ *    Nothing observed recently can outvote an UNBOUNDED cumulative sum, so
+ *    "make the ledger notice" is not available as a fix here.
+ *
+ *  - Banning or demoting the model would be wrong on the evidence: 98,1 %
+ *    lifetime success, ~26 successful calls in the very run that then lost 60 s
+ *    to one hang, and a direct probe of integrate.api.nvidia.com (5 calls,
+ *    ~2400-token prompt, max_tokens 4000) answered 5/5 in 1,2-5,3 s. This is a
+ *    live endpoint that occasionally hangs, not a dead one — exactly the case
+ *    a persisted exhaustion must never be allowed to punish.
+ *
+ * So the recoverable waste is not WHICH model, it is HOW LONG we keep waiting
+ * on a model we have already watched answer fast in this same process. The
+ * ceiling below is derived from that model's own observed successful latency
+ * and is deliberately weak in every direction that could hurt:
+ *
+ *   - it only ever LOWERS the caller's timeout, never raises it;
+ *   - it needs ADAPTIVE_TIMEOUT_MIN_SAMPLES successful calls before it says
+ *     anything at all (an unobserved model keeps the caller's number);
+ *   - it tracks the MAXIMUM successful latency, never a mean, and that maximum
+ *     only ever grows within a process — the ceiling can widen, never narrow;
+ *   - it never goes below ADAPTIVE_TIMEOUT_FLOOR_MS, whatever the samples say;
+ *   - last-resort tiers are exempt: `_callLocal` deliberately raises the
+ *     timeout floor for slow CPU inference and claude-cli has a cold start, so
+ *     "fast so far" is not a promise either of them makes;
+ *   - and a timeout that fires under a ceiling WE narrowed does not mark the
+ *     model exhausted on its own (see ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES
+ *     and the timeout circuit-breaker in callLLM). That is the graceful
+ *     degradation: if the guess is wrong the run loses one call, not its
+ *     best model for the remaining wall-clock budget.
+ *
+ * Expected saving, stated as the conditional it is: the ceiling becomes
+ * `max(FLOOR, MULT × observedMax)`, so it recovers `60 s − that` per hang and
+ * recovers nothing once `MULT × observedMax ≥ 60 s`. With the latency profile
+ * measured above (1,2-5,3 s) the ceiling lands on the 20 s floor, i.e. ~40 s
+ * per event → the 17,1 s/run tax falls to ~5,7 s/run. It is a modest,
+ * bounded win on a 4,3 % problem; it is NOT a fix for a dead endpoint,
+ * because the measurement says there isn't one.
+ */
+const ADAPTIVE_TIMEOUT_MIN_SAMPLES = _envInt('AI_ADAPTIVE_TIMEOUT_MIN_SAMPLES', 10);
+const ADAPTIVE_TIMEOUT_MULT = _envInt('AI_ADAPTIVE_TIMEOUT_MULT', 4);
+const ADAPTIVE_TIMEOUT_FLOOR_MS = _envInt('AI_ADAPTIVE_TIMEOUT_FLOOR_MS', 20_000);
+/**
+ * How many timeouts under a ceiling THIS module narrowed a model may collect
+ * before the normal timeout circuit-breaker applies to it after all. 1 means
+ * "the first one is on us, the second is on the model": a single clamped
+ * timeout is as likely to be our multiplier being too tight as it is to be the
+ * provider hanging, and banning the run's best model on our own guess is the
+ * failure mode this whole block exists to avoid.
+ */
+const ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES = _envInt('AI_ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES', 1);
+
+/** @type {Map<string, {samples: number, maxMs: number}>} model → observed successful-call latency */
+const _callLatency = new Map();
+/** @type {Map<string, number>} model → timeouts served under a ceiling we narrowed */
+const _clampedTimeouts = new Map();
+
+/** Read a positive integer override from the environment, else the default. */
+function _envInt(name, fallback) {
+  const v = parseInt((process.env[name] || '').trim(), 10);
+  return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
+/**
+ * The per-call timeout a model has EARNED, given what it has been observed to
+ * do. Pure on purpose (no clock, no maps, no env): the whole point of the
+ * block above is that every guard is checkable in isolation.
+ *
+ * @param {{samples: number, maxMs: number}|undefined} observed
+ * @param {number} requestedMs the caller's own timeout — the hard ceiling
+ * @param {{minSamples?: number, mult?: number, floorMs?: number}} [knobs]
+ * @returns {number} ms; equal to `requestedMs` whenever the evidence is thin
+ */
+export function computeAdaptiveTimeoutMs(observed, requestedMs, knobs = {}) {
+  const minSamples = knobs.minSamples ?? ADAPTIVE_TIMEOUT_MIN_SAMPLES;
+  const mult = knobs.mult ?? ADAPTIVE_TIMEOUT_MULT;
+  const floorMs = knobs.floorMs ?? ADAPTIVE_TIMEOUT_FLOOR_MS;
+  if (!(requestedMs > 0)) return requestedMs;
+  if (!observed || !(observed.samples >= minSamples) || !(observed.maxMs > 0)) return requestedMs;
+  const earned = Math.max(floorMs, Math.ceil(observed.maxMs * mult));
+  return Math.min(requestedMs, earned);
+}
+
+/** Record one SUCCESSFUL call's wall-clock latency for a model. */
+function _recordCallLatency(model, ms) {
+  if (!model || !(ms >= 0)) return;
+  const cur = _callLatency.get(model) || { samples: 0, maxMs: 0 };
+  cur.samples++;
+  if (ms > cur.maxMs) cur.maxMs = ms;
+  _callLatency.set(model, cur);
+}
+
+/** Observability + test seam for the latency evidence behind the ceiling. */
+export function getCallLatencyStats() {
+  return Object.fromEntries([..._callLatency.entries()].map(([m, v]) => [m, { ...v }]));
+}
+
 // Provider-level cooldown: when a provider returns 429, all its models
 // get a temporary cooldown to avoid wasting retries on sibling models.
 // Maps provider name → cooldown-until timestamp (ms).
@@ -2950,6 +3067,8 @@ export function resetState() {
   _modelDetails.clear();
   _dirtyModels.clear();
   _consecutive429.clear();
+  _callLatency.clear();
+  _clampedTimeouts.clear();
   _consecutiveContentFailures.clear();
   _learnedRequestTokenLimits.clear();
   _learnedSchemaIncompatible.clear();
@@ -4499,11 +4618,19 @@ const HARD_CALL_HEARTBEAT_MS = 60_000;
  * an uncapped model call by construction.
  */
 function _callModel(model, messages, opts) {
-  const capMs = _hardCallCapMs(model, opts || {});
+  // Adaptive ceiling (see ADAPTIVE_TIMEOUT_* above): narrow the caller's
+  // per-request timeout to what THIS model has been observed to need, but only
+  // on real evidence and never below the floor. `_hardCallCapMs` is sized off
+  // the same (possibly narrowed) opts on purpose — it is the backstop for when
+  // the per-request abort does not fire, so it must stay above it, not above a
+  // number we no longer use.
+  const effOpts = _withAdaptiveTimeout(model, opts);
+  const clamped = (effOpts?.timeout || 0) < (opts?.timeout || 0);
+  const capMs = _hardCallCapMs(model, effOpts || {});
   const started = Date.now();
   let heartbeat;
   let capTimer;
-  const call = (async () => _routeModelCall(model, messages, opts))();
+  const call = (async () => _routeModelCall(model, messages, effOpts))();
   const capped = new Promise((_resolve, reject) => {
     capTimer = setTimeout(() => {
       const err = new Error(
@@ -4525,10 +4652,54 @@ function _callModel(model, messages, opts) {
   // swallow its eventual settlement so it can never surface as an
   // unhandledRejection after the cascade has already moved on.
   call.catch(() => {});
-  return Promise.race([call, capped]).finally(() => {
+  return Promise.race([call, capped]).then(
+    (result) => {
+      // Only SUCCESSFUL calls feed the ceiling: a failure's duration says
+      // nothing about how long this model needs to answer. The span measured
+      // is the whole _callModel, so a success that arrived after an in-call
+      // 429 retry + backoff counts its wait too — that inflates the observed
+      // maximum, which WIDENS the ceiling. The error is deliberately on the
+      // permissive side; a narrower one would ban healthy calls.
+      _recordCallLatency(model, Date.now() - started);
+      return result;
+    },
+    (err) => {
+      // Tag a timeout that fired under a ceiling WE narrowed, so the circuit
+      // breaker in callLLM can decline to ban the model on our own guess the
+      // first time. Untagged timeouts (the caller's own number ran out) keep
+      // the pre-existing behaviour exactly.
+      if (clamped && _isTimeoutError(err)) {
+        // Some abort errors arrive as host objects (DOMException); a frozen or
+        // sealed one must not turn a timeout into a different exception.
+        try {
+          err.adaptiveTimeoutClamped = true;
+          err.adaptiveTimeoutMs = effOpts?.timeout;
+        } catch { /* untaggable — falls back to the pre-existing behaviour */ }
+      }
+      throw err;
+    },
+  ).finally(() => {
     clearTimeout(capTimer);
     clearInterval(heartbeat);
   });
+}
+
+/** Is this error the timeout class the retry loops and the breaker recognise? */
+function _isTimeoutError(e) {
+  return e?.name === 'AbortError' || e?.name === 'TimeoutError' || /timeout|aborted/i.test(e?.message || '');
+}
+
+/**
+ * Return `opts` with its per-request timeout narrowed to what `model` has
+ * earned, or `opts` untouched when the evidence is thin, the caller asked for
+ * nothing, or the model is a last-resort tier (whose own floors mean "fast so
+ * far" is not a promise it makes — see `_callLocal` / `_callClaudeCli`).
+ */
+function _withAdaptiveTimeout(model, opts) {
+  if (!opts?.timeout || _isLastResortProvider(model)) return opts;
+  const eff = computeAdaptiveTimeoutMs(_callLatency.get(model), opts.timeout);
+  if (eff >= opts.timeout) return opts;
+  return { ...opts, timeout: eff };
 }
 
 /** Route a model call to the correct provider */
@@ -4850,6 +5021,7 @@ export async function callLLM(messages, opts = {}) {
       // ✅ Success — boost this model's score so it stays near the top
       recordModelSuccess(model);
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+      _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
       _recordLastResortOutcome(model, 'served');
       if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
       if (provider === PROVIDER.OMNIROUTE) _omniRouteConsecutiveFailures = 0;
@@ -4931,7 +5103,25 @@ export async function callLLM(messages, opts = {}) {
       // timeout there is expected load, not a dead provider.
       const isTimeoutFailure = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(msg);
       let markedExhausted = false;
-      if (isTimeoutFailure && !_isLastResortProvider(model)) {
+      // A timeout served under a ceiling THIS module narrowed below what the
+      // caller asked for is not yet evidence about the model: it is evidence
+      // about our multiplier. Banning the run's best model on that would be
+      // strictly worse than the 60s it saves — measured 2026-08-18, the model
+      // that hangs is also the one with 172.042 successes and rank 1 of 340.
+      // So the first such timeout costs one call and nothing else; from
+      // ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES onwards the model is treated
+      // exactly as before. Timeouts on the caller's OWN number are untagged
+      // and keep the pre-existing behaviour with no change at all.
+      let spared = false;
+      if (isTimeoutFailure && e.adaptiveTimeoutClamped) {
+        const n = (_clampedTimeouts.get(model) || 0) + 1;
+        _clampedTimeouts.set(model, n);
+        if (n <= ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES) {
+          spared = true;
+          console.warn(`⏱️  [${model}] Timed out at the adaptive ${Math.round((e.adaptiveTimeoutMs || 0) / 1000)}s ceiling (caller asked ${Math.round((o.timeout || 0) / 1000)}s) — not exhausting on our own guess (${n}/${ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES})`);
+        }
+      }
+      if (isTimeoutFailure && !spared && !_isLastResortProvider(model)) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
         markedExhausted = true;
