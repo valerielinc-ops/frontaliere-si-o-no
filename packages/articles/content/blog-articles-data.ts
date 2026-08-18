@@ -30054,6 +30054,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lugano-mobilita-del-futuro',
+ category: 'novita',
+ date: '2026-08-18T00:42:44.367Z',
+ image: '/images/blog/lugano-mobilita-del-futuro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

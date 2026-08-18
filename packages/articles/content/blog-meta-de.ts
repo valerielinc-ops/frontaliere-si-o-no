@@ -10029,6 +10029,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'CSR und Belästigung am Arbeitsplatz: Die Präventionsdebatte',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'Die Abgeordneten Tamara Merlo und Maura Mossi Nembrini fordern nach einem neuen Fall aus dem Jahr 2026 unabhängige Überprüfungen.',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'Ansicht des Kantons Tessin mit institutionellen Gebäuden',
+    'blog.article.lugano-mobilita-del-futuro.title': 'Tessin Lugano, der erste Schritt zur Mobilität der Zukunft',
+    'blog.article.lugano-mobilita-del-futuro.excerpt': 'Der erste Schritt für die neue öffentliche Mobilität in Lugano beginnt',
+    'blog.article.lugano-mobilita-del-futuro.imageAlt': 'Arbeiten in Gang für die neue Öffentliche Verkehrsmittel in Lugano',
 };
 
 export default blogMetaDe;
