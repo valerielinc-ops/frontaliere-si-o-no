@@ -11246,12 +11246,6 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // translation that independently hallucinates this institution in a
   // different language was never checked at all.
   assertNoFabricatedLaborOfficeCrossLocale(data);
-  // Same gap, different table: runFactualityGates() (Step 3a.0b-bis, above)
-  // only ever sees data.content.it, before translateArticle() exists — a
-  // fabricated norm acronym (LFW/LCL/LCO) survives translation identical
-  // (see checkFabricatedNormAcronyms doc) and was never re-checked on
-  // en/de/fr. Same wiring publish-journalist-article.mjs uses post-translate.
-  assertNoFabricatedNormAcronyms({ en: data.content.en, de: data.content.de, fr: data.content.fr });
 
   // Step 3b.2: Fabricated NORM-ACRONYM check on the EN/DE/FR translations —
   // BLOCKING, and exactly the same shape of gap as Step 3b.1 above, one
