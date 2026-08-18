@@ -318,12 +318,12 @@
     },
     {
       "id": "suva-0e2ca6c38430",
-      "slug": "finanz-controller-in-80-100-suva-luzern",
+      "slug": "controllori-finanziari-in-80-100-suva-luzern",
       "slugByLocale": {
         "de": "finanz-controller-in-80-100-suva-luzern",
-        "it": "finanz-controller-in-80-100-suva-luzern",
-        "en": "finanz-controller-in-80-100-suva-luzern",
-        "fr": "finanz-controller-in-80-100-suva-luzern"
+        "it": "controllori-finanziari-in-80-100-suva-luzern",
+        "en": "financial-controllers-in-80-100-suva-luzern",
+        "fr": "controleurs-financiers-dans-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -378,7 +378,21 @@
         }
       },
       "addressRegion": "LU",
-      "firstSeenAt": "2026-08-17T21:29:39.245Z"
+      "firstSeenAt": "2026-08-17T21:29:39.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanz-controller-in-80-100-suva-luzern"
+        ],
+        "en": [
+          "finanz-controller-in-80-100-suva-luzern"
+        ],
+        "fr": [
+          "finanz-controller-in-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "finanz-controller-in-80-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-ef557af14653",
@@ -1650,15 +1664,13 @@
       "previousSlugs": [
         "spezialist-in-fallfuhrung-80-100-suva-spezialist-in-fallfuhrung-80-100",
         "spezialist-in-fallfuhrung-80-100-suva-zurich",
-        "specialista-nella-gestione-dei-casi-80-100-suva-zurich",
-        "specialista-nella-gestione-dei-casi-80-100-suva-spezialist-in-fallfuhrung-80-100"
+        "specialista-nella-gestione-dei-casi-80-100-suva-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-fallfuhrung-80-100-suva-spezialist-in-fallfuhrung-80-100",
           "spezialist-in-fallfuhrung-80-100-suva-zurich",
-          "specialista-nella-gestione-dei-casi-80-100-suva-zurich",
-          "specialista-nella-gestione-dei-casi-80-100-suva-spezialist-in-fallfuhrung-80-100"
+          "specialista-nella-gestione-dei-casi-80-100-suva-zurich"
         ],
         "en": [
           "spezialist-in-fallfuhrung-80-100-suva-spezialist-in-fallfuhrung-80-100"

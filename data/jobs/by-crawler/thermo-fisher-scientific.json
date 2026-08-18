@@ -848,12 +848,12 @@
     },
     {
       "id": "thermo-fisher-scientific-38961a7efddf",
-      "slug": "account-manager-thermo-fisher-scientific-ch",
+      "slug": "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland",
       "slugByLocale": {
         "en": "account-manager-thermo-fisher-scientific-ch",
-        "it": "account-manager-thermo-fisher-scientific-ch",
+        "it": "gestione-account-thermo-fisher-scientific-schweiz-ag-reinach-switzerland",
         "de": "account-manager-thermo-fisher-scientific-ch",
-        "fr": "account-manager-thermo-fisher-scientific-ch"
+        "fr": "gestionnaire-de-compte-thermo-fisher-scientific-schweiz-ag-reinach-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -909,7 +909,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:37:30.040Z"
+      "firstSeenAt": "2026-08-17T21:37:30.040Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-manager-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
+          "account-manager-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-2c0796a87203",

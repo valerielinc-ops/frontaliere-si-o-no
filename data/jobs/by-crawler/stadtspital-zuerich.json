@@ -10447,12 +10447,12 @@
     },
     {
       "id": "stadtspital-zuerich-c967a7231364",
-      "slug": "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
+      "slug": "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
-        "it": "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
-        "en": "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
-        "fr": "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
+        "it": "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich",
+        "en": "assistant-psychologist-in-neuropsychology-stadtspital-zurich-zurich",
+        "fr": "assistant-psychologue-en-neuropsychologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -10501,11 +10501,19 @@
       "referenceNumber": "51344",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344"
+          "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
+          "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344"
+        "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
+        "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

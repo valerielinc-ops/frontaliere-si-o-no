@@ -17057,12 +17057,12 @@
     },
     {
       "id": "luks-5cade8756bec",
-      "slug": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
+      "slug": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-        "it": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-        "en": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-        "fr": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        "it": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
+        "en": "dipl-caregiver-hf-endoscopy-100-luzerner-kantonsspital-luks-stans",
+        "fr": "dipl-endoscopie-hf-du-soignant-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17118,7 +17118,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:36:29.399Z"
+      "firstSeenAt": "2026-08-17T21:36:29.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+      ]
     },
     {
       "id": "luks-4ff2bab44af5",
@@ -17126,8 +17140,8 @@
       "slugByLocale": {
         "de": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
         "it": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-e-viszerale-chirurgie-sowie-adipositaszentrum-80-100-luzerner-kantonsspital-luks-stans",
-        "en": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie",
-        "fr": "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        "en": "mpa-doctor-secretary-in-secretariat-clinic-general-and-visceral-surgery-and-obesity-center-80-100-luzerner-kantonsspital",
+        "fr": "mpa-doctorat-secretaire-dans-la-clinique-de-secretariat-general-et-centre-de-chirurgie-viscerale-et-d-obesite-80-100"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17175,6 +17189,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        ],
+        "en": [
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
+        ],
+        "fr": [
+          "mpa-arztsekretar-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie"
         ]
       },
       "previousSlugs": [
@@ -17196,12 +17216,12 @@
     },
     {
       "id": "luks-796f71c8e89a",
-      "slug": "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
+      "slug": "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
-        "it": "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
-        "en": "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
-        "fr": "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
+        "it": "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans",
+        "en": "senior-physician-senior-intensive-care-physician-50-100-luzerner-kantonsspital-luks-stans",
+        "fr": "medecin-principal-medecin-principal-en-soins-intensifs-50-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17257,7 +17277,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:36:29.393Z"
+      "firstSeenAt": "2026-08-17T21:36:29.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
+        ],
+        "en": [
+          "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
+      ]
     },
     {
       "id": "luks-8a782f42d4fd",
@@ -17265,8 +17299,8 @@
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-fur-bettenstation-mit",
         "it": "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-per-bettenstation-con-schwerpunkten-nephrologie-hamatologie-e-gastroenterologie-50-100-luzerner-kantonsspital-luk",
-        "en": "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-fur-bettenstation-mit",
-        "fr": "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-fur-bettenstation-mit"
+        "en": "nursing-expert-nursing-expert-level-1-bachelor-of-science-in-nursing-for-bed-station-with-emphasis-on-nephrology",
+        "fr": "expert-en-soins-infirmiers-expert-en-soins-infirmiers-niveau-1-bachelor-of-science-in-nursing-for-bed-station-avec-l"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17314,6 +17348,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-fur-bettenstation-mit"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-fur-bettenstation-mit"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-stufe-1-bachelor-of-science-in-pflege-fur-bettenstation-mit"
         ]
       },
       "previousSlugs": [
@@ -17339,8 +17379,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-bettenstation-mit-schwerpunkt-neurologie-und-allg",
         "it": "pflegefachfrau-pflegefachmann-hf-fh-per-bettenstation-con-schwerpunkt-neurologie-e-allg-innere-medizin-70-100-luzerner-kantonsspital-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-fur-bettenstation-mit-schwerpunkt-neurologie-und-allg",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-fur-bettenstation-mit-schwerpunkt-neurologie-und-allg"
+        "en": "nursing-specialist-hf-fh-for-bed-station-with-focus-on-neurology-and-general-care-internal-medicine-70-100-luzerner",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-pour-les-postes-de-lit-avec-un-accent-sur-la-neurologie-et-les-soins-generaux"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17388,6 +17428,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-fur-bettenstation-mit-schwerpunkt-neurologie-und-allg"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-bettenstation-mit-schwerpunkt-neurologie-und-allg"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-bettenstation-mit-schwerpunkt-neurologie-und-allg"
         ]
       },
       "previousSlugs": [
@@ -17413,8 +17459,8 @@
       "slugByLocale": {
         "de": "chefarztin-chefarzt-klinik-fur-hals-nasen-ohren-und-gesichtschirurgie-100-luks-luzern",
         "it": "chefarztin-chefarzt-klinik-per-hals-nasen-ohren-e-gesichtschirurgie-100-luzerner-kantonsspital-luks-luzern",
-        "en": "chefarztin-chefarzt-klinik-fur-hals-nasen-ohren-und-gesichtschirurgie-100-luks-luzern",
-        "fr": "chefarztin-chefarzt-klinik-fur-hals-nasen-ohren-und-gesichtschirurgie-100-luks-luzern"
+        "en": "chief-physician-chief-physician-clinic-for-neck-nose-ear-and-face-surgery-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "medecin-en-chef-medecin-en-chef-clinique-pour-chirurgie-du-cou-du-nez-de-l-oreille-et-du-visage-100-luzerner"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17461,6 +17507,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "chefarztin-chefarzt-klinik-fur-hals-nasen-ohren-und-gesichtschirurgie-100-luks-luzern"
+        ],
+        "en": [
+          "chefarztin-chefarzt-klinik-fur-hals-nasen-ohren-und-gesichtschirurgie-100-luks-luzern"
+        ],
+        "fr": [
           "chefarztin-chefarzt-klinik-fur-hals-nasen-ohren-und-gesichtschirurgie-100-luks-luzern"
         ]
       },

@@ -6196,11 +6196,11 @@
     },
     {
       "id": "swiss-re-33ecae114e3b",
-      "slug": "ai-engineer-swiss-re-ch",
+      "slug": "ai-ingegnere-swiss-re-madrid-es",
       "slugByLocale": {
         "en": "ai-engineer-swiss-re-ch",
-        "it": "ai-engineer-swiss-re-ch",
-        "de": "ai-engineer-swiss-re-ch",
+        "it": "ai-ingegnere-swiss-re-madrid-es",
+        "de": "ai-ingenieur-swiss-re-madrid-es",
         "fr": "ai-engineer-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -6255,7 +6255,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-17T21:41:47.376Z"
+      "firstSeenAt": "2026-08-17T21:41:47.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-swiss-re-ch"
+        ],
+        "de": [
+          "ai-engineer-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-1b18ba86cf64",
@@ -18309,14 +18320,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "requirement-engineer-swiss-re-ch",
-        "sr-requirement-engineer-swiss-re-ch",
-        "requirement-ingegnere-swiss-re-mexico-city-mx"
+        "sr-requirement-engineer-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "requirement-engineer-swiss-re-ch",
-          "sr-requirement-engineer-swiss-re-ch",
-          "requirement-ingegnere-swiss-re-mexico-city-mx"
+          "sr-requirement-engineer-swiss-re-ch"
         ],
         "de": [
           "requirement-engineer-swiss-re-ch"
@@ -23494,15 +23503,13 @@
       "previousSlugs": [
         "engineering-underwriter-swiss-re-ch",
         "engineering-underwriter-swiss-re-ch-2",
-        "engineering-underwriter-swiss-re-ch-3",
-        "ingegneria-underwriter-swiss-re-mumbai-in"
+        "engineering-underwriter-swiss-re-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-underwriter-swiss-re-ch",
           "engineering-underwriter-swiss-re-ch-2",
-          "engineering-underwriter-swiss-re-ch-3",
-          "ingegneria-underwriter-swiss-re-mumbai-in"
+          "engineering-underwriter-swiss-re-ch-3"
         ],
         "fr": [
           "engineering-underwriter-swiss-re-ch-2"
@@ -23526,12 +23533,12 @@
     },
     {
       "id": "swiss-re-e1b5b68ee568",
-      "slug": "financial-reporting-associate-swiss-re-ch-2",
+      "slug": "reporting-finanziario-associato-swiss-re-kansas-city-mo-us",
       "slugByLocale": {
         "en": "financial-reporting-associate-swiss-re-ch",
-        "it": "financial-reporting-associate-swiss-re-ch-2",
+        "it": "reporting-finanziario-associato-swiss-re-kansas-city-mo-us",
         "de": "financial-reporting-associate-swiss-re-ch-2",
-        "fr": "financial-reporting-associate-swiss-re-ch-2"
+        "fr": "associe-a-l-information-financiere-swiss-re-kansas-city-mo-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -23589,11 +23596,16 @@
       "firstSeenAt": "2026-08-17T21:37:13.379Z",
       "previousSlugsByLocale": {
         "it": [
-          "financial-reporting-associate-swiss-re-ch"
+          "financial-reporting-associate-swiss-re-ch",
+          "financial-reporting-associate-swiss-re-ch-2"
+        ],
+        "fr": [
+          "financial-reporting-associate-swiss-re-ch-2"
         ]
       },
       "previousSlugs": [
-        "financial-reporting-associate-swiss-re-ch"
+        "financial-reporting-associate-swiss-re-ch",
+        "financial-reporting-associate-swiss-re-ch-2"
       ]
     },
     {
@@ -24336,8 +24348,8 @@
       "slugByLocale": {
         "en": "business-services-team-lead-swiss-re-ch",
         "it": "business-services-team-lead-swiss-re-ch",
-        "de": "business-services-team-lead-swiss-re-ch",
-        "fr": "business-services-team-lead-swiss-re-ch"
+        "de": "business-services-teamleiter-swiss-re-mexico-city-mx",
+        "fr": "business-services-chef-d-equipe-swiss-re-mexico-city-mx"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",

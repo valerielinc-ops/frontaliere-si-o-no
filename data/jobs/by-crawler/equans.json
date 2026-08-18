@@ -6706,8 +6706,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-equans-st-gallen",
-          "responsabile-di-progetto-gebaudeautomation-equans-switzerland-st-gallen"
+          "projektleiter-in-gebaudeautomation-equans-st-gallen"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-equans-st-gallen"
@@ -6717,8 +6716,7 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-equans-st-gallen",
-        "responsabile-di-progetto-gebaudeautomation-equans-switzerland-st-gallen"
+        "projektleiter-in-gebaudeautomation-equans-st-gallen"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -6945,8 +6943,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-equans-winterthur",
-          "responsabile-di-progetto-gebaudeautomation-equans-switzerland-winterthur"
+          "projektleiter-in-gebaudeautomation-equans-winterthur"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-equans-winterthur"
@@ -6956,8 +6953,7 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-equans-winterthur",
-        "responsabile-di-progetto-gebaudeautomation-equans-switzerland-winterthur"
+        "projektleiter-in-gebaudeautomation-equans-winterthur"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -7026,8 +7022,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-service-gebaudeautomation-equans-zurich",
-          "responsabile-di-progetto-service-gebaudeautomation-equans-switzerland-zurich"
+          "projektleiter-in-service-gebaudeautomation-equans-zurich"
         ],
         "en": [
           "projektleiter-in-service-gebaudeautomation-equans-zurich"
@@ -7037,8 +7032,7 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-service-gebaudeautomation-equans-zurich",
-        "responsabile-di-progetto-service-gebaudeautomation-equans-switzerland-zurich"
+        "projektleiter-in-service-gebaudeautomation-equans-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -7135,12 +7129,12 @@
     },
     {
       "id": "equans-d7aaff17025b",
-      "slug": "kaltesystemmonteur-in-equans-switzerland-chur",
+      "slug": "fitter-del-sistema-di-refrigerazione-in-equans-switzerland-chur",
       "slugByLocale": {
         "de": "kaltesystemmonteur-in-equans-chur",
-        "it": "kaltesystemmonteur-in-equans-switzerland-chur",
-        "en": "kaltesystemmonteur-in-equans-switzerland-chur",
-        "fr": "kaltesystemmonteur-in-equans-switzerland-chur"
+        "it": "fitter-del-sistema-di-refrigerazione-in-equans-switzerland-chur",
+        "en": "refrigeration-system-fitter-in-equans-switzerland-chur",
+        "fr": "installation-du-systeme-de-refrigeration-en-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7188,11 +7182,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kaltesystemmonteur-in-equans-chur"
+          "kaltesystemmonteur-in-equans-chur",
+          "kaltesystemmonteur-in-equans-switzerland-chur"
+        ],
+        "en": [
+          "kaltesystemmonteur-in-equans-switzerland-chur"
+        ],
+        "fr": [
+          "kaltesystemmonteur-in-equans-switzerland-chur"
         ]
       },
       "previousSlugs": [
-        "kaltesystemmonteur-in-equans-chur"
+        "kaltesystemmonteur-in-equans-chur",
+        "kaltesystemmonteur-in-equans-switzerland-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7210,12 +7212,12 @@
     },
     {
       "id": "equans-36202d9fd096",
-      "slug": "bauleitende-r-monteur-in-kalte-equans-frauenfeld",
+      "slug": "direttore-della-costruzione-r-installer-nel-freddo-equans-switzerland-frauenfeld",
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-kalte-equans-frauenfeld",
-        "it": "bauleitende-r-monteur-in-kalte-equans-frauenfeld",
-        "en": "bauleitende-r-monteur-in-kalte-equans-frauenfeld",
-        "fr": "bauleitende-r-monteur-in-kalte-equans-frauenfeld"
+        "it": "direttore-della-costruzione-r-installer-nel-freddo-equans-switzerland-frauenfeld",
+        "en": "construction-manager-r-installer-in-the-cold-equans-switzerland-frauenfeld",
+        "fr": "gestionnaire-de-construction-r-installateur-dans-le-froid-equans-switzerland-frauenfeld"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7273,16 +7275,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:35:25.439Z"
+      "firstSeenAt": "2026-08-17T21:35:25.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-monteur-in-kalte-equans-frauenfeld"
+        ],
+        "en": [
+          "bauleitende-r-monteur-in-kalte-equans-frauenfeld"
+        ],
+        "fr": [
+          "bauleitende-r-monteur-in-kalte-equans-frauenfeld"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-monteur-in-kalte-equans-frauenfeld"
+      ]
     },
     {
       "id": "equans-75dc8a72b10c",
-      "slug": "servicetechniker-in-sanitar-equans-switzerland-winterthur",
+      "slug": "tecnico-di-servizio-in-sanitari-equans-switzerland-winterthur",
       "slugByLocale": {
         "de": "servicetechniker-in-sanitar-equans-winterthur",
-        "it": "servicetechniker-in-sanitar-equans-switzerland-winterthur",
-        "en": "servicetechniker-in-sanitar-equans-winterthur",
-        "fr": "servicetechniker-in-sanitar-equans-winterthur"
+        "it": "tecnico-di-servizio-in-sanitari-equans-switzerland-winterthur",
+        "en": "service-technician-in-sanitary-equans-switzerland-winterthur",
+        "fr": "technicien-de-service-en-sanitaire-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7330,11 +7346,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-sanitar-equans-winterthur",
+          "servicetechniker-in-sanitar-equans-switzerland-winterthur"
+        ],
+        "en": [
+          "servicetechniker-in-sanitar-equans-winterthur"
+        ],
+        "fr": [
           "servicetechniker-in-sanitar-equans-winterthur"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-sanitar-equans-winterthur"
+        "servicetechniker-in-sanitar-equans-winterthur",
+        "servicetechniker-in-sanitar-equans-switzerland-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7352,12 +7376,12 @@
     },
     {
       "id": "equans-118577bf45c7",
-      "slug": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-frauenfeld",
+      "slug": "tecnico-di-servizio-in-installatore-di-sistema-freddo-refrigerazione-in-equans-switzerland-frauenfeld",
       "slugByLocale": {
         "de": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld",
-        "it": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-frauenfeld",
-        "en": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld",
-        "fr": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld"
+        "it": "tecnico-di-servizio-in-installatore-di-sistema-freddo-refrigerazione-in-equans-switzerland-frauenfeld",
+        "en": "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-frauenfeld",
+        "fr": "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-frauenfeld"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7405,11 +7429,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld",
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-frauenfeld"
+        ],
+        "en": [
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld"
+        ],
+        "fr": [
           "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld"
+        "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld",
+        "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-frauenfeld"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7427,12 +7459,12 @@
     },
     {
       "id": "equans-076d7a88fa16",
-      "slug": "sanitarmonteur-in-equans-chur",
+      "slug": "impianto-sanitario-in-equans-switzerland-chur-8cb752",
       "slugByLocale": {
         "de": "sanitarmonteur-in-equans-chur",
-        "it": "sanitarmonteur-in-equans-chur",
-        "en": "sanitarmonteur-in-equans-chur",
-        "fr": "sanitarmonteur-in-equans-chur"
+        "it": "impianto-sanitario-in-equans-switzerland-chur-8cb752",
+        "en": "sanitary-fitter-in-equans-switzerland-chur",
+        "fr": "installation-sanitaire-en-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7490,16 +7522,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:35:25.386Z"
+      "firstSeenAt": "2026-08-17T21:35:25.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarmonteur-in-equans-chur"
+        ],
+        "en": [
+          "sanitarmonteur-in-equans-chur"
+        ],
+        "fr": [
+          "sanitarmonteur-in-equans-chur"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarmonteur-in-equans-chur"
+      ]
     },
     {
       "id": "equans-4a2e3a588210",
-      "slug": "heizungsinstallateur-in-heizung-kalte-equans-chur",
+      "slug": "installatore-di-riscaldamento-in-riscaldamento-freddo-equans-switzerland-chur-5dfbde",
       "slugByLocale": {
         "de": "heizungsinstallateur-in-heizung-kalte-equans-chur",
-        "it": "heizungsinstallateur-in-heizung-kalte-equans-chur",
-        "en": "heizungsinstallateur-in-heizung-kalte-equans-chur",
-        "fr": "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        "it": "installatore-di-riscaldamento-in-riscaldamento-freddo-equans-switzerland-chur-5dfbde",
+        "en": "heating-installer-in-heating-cold-equans-switzerland-chur",
+        "fr": "installateur-de-chauffage-en-chauffage-froid-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7557,7 +7603,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:35:25.368Z"
+      "firstSeenAt": "2026-08-17T21:35:25.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        ],
+        "en": [
+          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        ],
+        "fr": [
+          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-in-heizung-kalte-equans-chur"
+      ]
     },
     {
       "id": "equans-e05d6d344ff5",
@@ -7565,8 +7625,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-equans-chur",
         "it": "installatore-trice-elettrico-a-in-equans-switzerland-chur",
-        "en": "elektroinstallateur-in-equans-switzerland-chur",
-        "fr": "elektroinstallateur-in-equans-switzerland-chur"
+        "en": "electrical-installer-in-equans-switzerland-chur",
+        "fr": "installateur-electrique-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7615,10 +7675,17 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-equans-chur"
+        ],
+        "en": [
+          "elektroinstallateur-in-equans-switzerland-chur"
+        ],
+        "fr": [
+          "elektroinstallateur-in-equans-switzerland-chur"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-equans-chur"
+        "elektroinstallateur-in-equans-chur",
+        "elektroinstallateur-in-equans-switzerland-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7636,12 +7703,12 @@
     },
     {
       "id": "equans-da712b3e80f8",
-      "slug": "servicetechniker-in-luftung-equans-switzerland-winterthur",
+      "slug": "tecnico-di-servizio-in-ventilazione-equans-switzerland-winterthur",
       "slugByLocale": {
         "de": "servicetechniker-in-luftung-equans-winterthur",
-        "it": "servicetechniker-in-luftung-equans-switzerland-winterthur",
-        "en": "servicetechniker-in-luftung-equans-winterthur",
-        "fr": "servicetechniker-in-luftung-equans-winterthur"
+        "it": "tecnico-di-servizio-in-ventilazione-equans-switzerland-winterthur",
+        "en": "service-technician-in-ventilation-equans-switzerland-winterthur",
+        "fr": "technicien-de-service-dans-la-ventilation-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7689,11 +7756,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-luftung-equans-winterthur",
+          "servicetechniker-in-luftung-equans-switzerland-winterthur"
+        ],
+        "en": [
+          "servicetechniker-in-luftung-equans-winterthur"
+        ],
+        "fr": [
           "servicetechniker-in-luftung-equans-winterthur"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-luftung-equans-winterthur"
+        "servicetechniker-in-luftung-equans-winterthur",
+        "servicetechniker-in-luftung-equans-switzerland-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

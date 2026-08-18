@@ -81,18 +81,14 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch",
-        "bauingenieur-in-fachhochschule-graubunden-chur",
-        "ingegnere-civile-fachhochschule-graubunden-chur"
+        "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "salaryMin": 57500,
@@ -111,12 +107,12 @@
     },
     {
       "id": "fhgr-e0b13eea1efe",
-      "slug": "organisationsassistenz-fachhochschule-graubunden-zurich",
+      "slug": "assistenza-organizzativa-fachhochschule-graubunden-zurich",
       "slugByLocale": {
         "de": "organisationsassistenz-fhgr-ch",
-        "it": "organisationsassistenz-fachhochschule-graubunden-zurich",
-        "en": "organisationsassistenz-fachhochschule-graubunden-zurich",
-        "fr": "organisationsassistenz-fachhochschule-graubunden-zurich"
+        "it": "assistenza-organizzativa-fachhochschule-graubunden-zurich",
+        "en": "organizational-assistance-fachhochschule-graubunden-zurich",
+        "fr": "aide-organisationnelle-fachhochschule-graubunden-zurich"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -162,11 +158,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "organisationsassistenz-fhgr-ch"
+          "organisationsassistenz-fhgr-ch",
+          "organisationsassistenz-fachhochschule-graubunden-zurich"
+        ],
+        "en": [
+          "organisationsassistenz-fachhochschule-graubunden-zurich"
+        ],
+        "fr": [
+          "organisationsassistenz-fachhochschule-graubunden-zurich"
         ]
       },
       "previousSlugs": [
-        "organisationsassistenz-fhgr-ch"
+        "organisationsassistenz-fhgr-ch",
+        "organisationsassistenz-fachhochschule-graubunden-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

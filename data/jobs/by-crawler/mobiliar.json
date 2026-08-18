@@ -178,8 +178,8 @@
       "slugByLocale": {
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-chur-aussenagentur-ilanz-mobiliar",
         "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-chur-aussenagentur-ilanz-die-mobiliar-chur",
-        "en": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-chur-aussenagentur-ilanz-mobiliar",
-        "fr": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-chur-aussenagentur-ilanz-mobiliar"
+        "en": "insurance-and-pension-advisor-m-f-d-general-agency-chur-external-agency-ilanz-die-mobiliar-chur",
+        "fr": "conseiller-en-assurance-et-pension-h-f-d-agence-generale-chur-agence-exterieure-ilanz-die-mobiliar-chur"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -225,6 +225,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-chur-aussenagentur-ilanz-mobiliar"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-chur-aussenagentur-ilanz-mobiliar"
+        ],
+        "fr": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-chur-aussenagentur-ilanz-mobiliar"
         ]
       },
@@ -347,12 +353,12 @@
     },
     {
       "id": "mobiliar-04df34299d82",
-      "slug": "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
+      "slug": "senior-underwriter-liability-company-international-m-f-d-die-mobiliar-zurich",
       "slugByLocale": {
         "de": "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
-        "it": "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
+        "it": "senior-underwriter-liability-company-international-m-f-d-die-mobiliar-zurich",
         "en": "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
-        "fr": "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch"
+        "fr": "societe-d-assurance-principale-de-responsabilite-internationale-h-f-d-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -420,7 +426,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-17T21:42:30.371Z"
+      "firstSeenAt": "2026-08-17T21:42:30.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-c4207c6c3a15",
@@ -489,8 +506,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-im-innendienst-mit-herz-m-w-generalagentur-mittelthurgau-mobiliar-ch",
-          "schadenspezialist-im-servizio-interno-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-weinfelden"
+          "schadenspezialist-im-innendienst-mit-herz-m-w-generalagentur-mittelthurgau-mobiliar-ch"
         ],
         "en": [
           "schadenspezialist-im-innendienst-mit-herz-m-w-generalagentur-mittelthurgau-mobiliar-ch"
@@ -500,8 +516,7 @@
         ]
       },
       "previousSlugs": [
-        "schadenspezialist-im-innendienst-mit-herz-m-w-generalagentur-mittelthurgau-mobiliar-ch",
-        "schadenspezialist-im-servizio-interno-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-weinfelden"
+        "schadenspezialist-im-innendienst-mit-herz-m-w-generalagentur-mittelthurgau-mobiliar-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -570,7 +585,6 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
-          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-zurich-die-mobiliar-zurich",
           "vorsorgeberater-generalagentur-zurich-m-w-d-100"
         ],
         "en": [
@@ -582,7 +596,6 @@
       },
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-zurich-mobiliar-ch",
-        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-zurich-die-mobiliar-zurich",
         "vorsorgeberater-generalagentur-zurich-m-w-d-100"
       ],
       "salaryMin": 73500,
@@ -665,8 +678,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "leiter-finanzen-w-m-d-generalagentur-aarau-mobiliar-ch",
-          "leiter-finanzen-m-w-d-agenzia-generale-aarau-die-mobiliar-aarau"
+          "leiter-finanzen-w-m-d-generalagentur-aarau-mobiliar-ch"
         ],
         "en": [
           "leiter-finanzen-w-m-d-generalagentur-aarau-mobiliar-ch"
@@ -676,8 +688,7 @@
         ]
       },
       "previousSlugs": [
-        "leiter-finanzen-w-m-d-generalagentur-aarau-mobiliar-ch",
-        "leiter-finanzen-m-w-d-agenzia-generale-aarau-die-mobiliar-aarau"
+        "leiter-finanzen-w-m-d-generalagentur-aarau-mobiliar-ch"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -948,8 +959,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch",
-          "sachbearbeiter-kundendialog-e-triage-m-w-d-die-mobiliar-oder-nach-vereinbarung-und-ist-befristet-auf-ein-jahr"
+          "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
         ],
         "en": [
           "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
@@ -959,8 +969,7 @@
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch",
-        "sachbearbeiter-kundendialog-e-triage-m-w-d-die-mobiliar-oder-nach-vereinbarung-und-ist-befristet-auf-ein-jahr"
+        "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1041,8 +1050,7 @@
       "sfJobId": "1165278655",
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-generalagentur-meilen-mobiliar-ch",
-          "kv-apprendistato-cfc-2027-agenzia-generale-meilen-die-mobiliar-generalagentur-meilen"
+          "kv-lehrstelle-efz-2027-generalagentur-meilen-mobiliar-ch"
         ],
         "en": [
           "kv-lehrstelle-efz-2027-generalagentur-meilen-mobiliar-ch"
@@ -1052,8 +1060,7 @@
         ]
       },
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-generalagentur-meilen-mobiliar-ch",
-        "kv-apprendistato-cfc-2027-agenzia-generale-meilen-die-mobiliar-generalagentur-meilen"
+        "kv-lehrstelle-efz-2027-generalagentur-meilen-mobiliar-ch"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -4470,8 +4470,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern",
-          "zwei-ausbildungsstellen-come-wissenschaftliche-r-bibliothekar-in-mas-biw-universitat-bern"
+          "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern"
         ],
         "en": [
           "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern"
@@ -4481,8 +4480,7 @@
         ]
       },
       "previousSlugs": [
-        "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern",
-        "zwei-ausbildungsstellen-come-wissenschaftliche-r-bibliothekar-in-mas-biw-universitat-bern"
+        "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4671,12 +4669,12 @@
     },
     {
       "id": "unibe-b1009f07c3c1",
-      "slug": "assistenztierarztin-assistenztierarzt-universitat-bern-bern",
+      "slug": "assistente-veterinario-veterinario-assistito-universitat-bern-bern",
       "slugByLocale": {
         "de": "assistenztierarztin-assistenztierarzt-unibe-bern",
-        "it": "assistenztierarztin-assistenztierarzt-universitat-bern-bern",
-        "en": "assistenztierarztin-assistenztierarzt-universitat-bern-bern",
-        "fr": "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
+        "it": "assistente-veterinario-veterinario-assistito-universitat-bern-bern",
+        "en": "assistant-veterinarian-assistant-veterinarian-universitat-bern-bern",
+        "fr": "veterinaire-adjoint-veterinaire-assistant-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4722,11 +4720,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenztierarztin-assistenztierarzt-unibe-bern"
+          "assistenztierarztin-assistenztierarzt-unibe-bern",
+          "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
+        ],
+        "en": [
+          "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
+        ],
+        "fr": [
+          "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "assistenztierarztin-assistenztierarzt-unibe-bern"
+        "assistenztierarztin-assistenztierarzt-unibe-bern",
+        "assistenztierarztin-assistenztierarzt-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4744,12 +4750,12 @@
     },
     {
       "id": "unibe-71bf06bff842",
-      "slug": "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern",
+      "slug": "personale-in-contabilita-universitat-bern-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-debitorenbuchhaltung-unibe-bern",
-        "it": "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern",
-        "en": "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern",
-        "fr": "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern"
+        "it": "personale-in-contabilita-universitat-bern-bern",
+        "en": "personnel-in-accounts-receivable-universitat-bern-bern",
+        "fr": "personnel-dans-les-comptes-debiteurs-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4796,11 +4802,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-debitorenbuchhaltung-unibe-bern"
+          "sachbearbeiter-in-debitorenbuchhaltung-unibe-bern",
+          "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-debitorenbuchhaltung-unibe-bern"
+        "sachbearbeiter-in-debitorenbuchhaltung-unibe-bern",
+        "sachbearbeiter-in-debitorenbuchhaltung-universitat-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

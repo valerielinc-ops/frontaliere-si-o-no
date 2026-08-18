@@ -4912,14 +4912,6 @@
       "hiringOrganizationName": "Emil Frey Betriebs AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lagerist-in-kleinteilelager-emil-frey-safenwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lagerist-in-kleinteilelager-emil-frey-safenwil"
-        ]
-      },
       "firstSeenAt": "2026-08-14T21:32:17.406Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5084,12 +5076,12 @@
     },
     {
       "id": "emil-frey-d1a4788ea706",
-      "slug": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
+      "slug": "navette-zurigo-emil-frey-opfikon-zurich",
       "slugByLocale": {
         "de": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
-        "it": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
-        "en": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
-        "fr": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+        "it": "navette-zurigo-emil-frey-opfikon-zurich",
+        "en": "navette-driver-zurich-emil-frey-opfikon-zurich",
+        "fr": "conducteur-navette-zurich-emil-frey-opfikon-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5145,7 +5137,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:32:53.559Z"
+      "firstSeenAt": "2026-08-17T21:32:53.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+        ],
+        "en": [
+          "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+        ],
+        "fr": [
+          "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "navette-fahrer-in-zurich-emil-frey-opfikon-zurich"
+      ]
     }
   ]
 }

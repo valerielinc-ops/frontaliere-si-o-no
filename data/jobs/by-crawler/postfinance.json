@@ -211,9 +211,9 @@
       "slug": "kundenberater-in-postfinance-corner-postfinance",
       "slugByLocale": {
         "it": "kundenberater-in-postfinance-corner-postfinance",
-        "en": "kundenberater-in-postfinance-corner-postfinance-uster",
+        "en": "customer-advisor-in-postfinance-corner-postfinance-uster",
         "de": "kundenberater-in-postfinance-corner-postfinance-uster",
-        "fr": "kundenberater-in-postfinance-corner-postfinance-uster"
+        "fr": "conseiller-client-dans-postfinance-corner-postfinance-uster"
       },
       "sourceLang": "de",
       "department": [
@@ -251,7 +251,18 @@
       },
       "addressLocality": "Uster",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-17T21:49:16.998Z"
+      "firstSeenAt": "2026-08-17T21:49:16.998Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "kundenberater-in-postfinance-corner-postfinance-uster"
+        ],
+        "fr": [
+          "kundenberater-in-postfinance-corner-postfinance-uster"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-postfinance-corner-postfinance-uster"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Sustainable-Investing-Specialist-%28wmd%29/74342-de_DE",
@@ -341,12 +352,12 @@
         "en": "Senior specialist: in process design & digitalization",
         "fr": "Spécialiste senior: conception de processus & numérisation"
       },
-      "slug": "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance",
+      "slug": "specialista-senior-nella-progettazione-e-digitalizzazione-dei-processi-postfinance-bern",
       "slugByLocale": {
-        "it": "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance",
-        "en": "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance",
+        "it": "specialista-senior-nella-progettazione-e-digitalizzazione-dei-processi-postfinance-bern",
+        "en": "senior-specialist-in-process-design-digitalization-postfinance-bern",
         "de": "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance",
-        "fr": "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
+        "fr": "specialiste-senior-conception-de-processus-numerisation-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -384,7 +395,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-17T21:49:16.998Z"
+      "firstSeenAt": "2026-08-17T21:49:16.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
+        ],
+        "en": [
+          "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
+        ],
+        "fr": [
+          "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Technical-Product-Owner-%28wmd%29/73124-de_DE",

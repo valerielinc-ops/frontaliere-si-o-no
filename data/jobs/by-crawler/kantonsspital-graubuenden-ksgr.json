@@ -23,12 +23,12 @@
       "employmentType": "60 - 60%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-08-17T21:51:39.353Z",
-      "slug": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
+      "slug": "salute-efz-cardiologia-nefrologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
-        "it": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
-        "en": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur",
-        "fr": "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        "it": "salute-efz-cardiologia-nefrologia-kantonsspital-graubunden-chur",
+        "en": "health-efz-cardiology-nephrology-kantonsspital-graubunden-chur",
+        "fr": "sante-efz-cardiologie-nephrologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachperson Gesundheit EFZ Kardiologie / Nephrologie",
@@ -57,7 +57,21 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-17T21:51:39.353Z"
+      "firstSeenAt": "2026-08-17T21:51:39.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-kardiologie-nephrologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10145048",

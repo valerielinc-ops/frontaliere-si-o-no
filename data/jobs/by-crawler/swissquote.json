@@ -1263,8 +1263,8 @@
       "slugByLocale": {
         "de": "fachmann-frau-kundendialog-efz-e-profil-m-profil-swissquote-dubendorf",
         "it": "fachmann-frau-kundendialog-cfc-e-profil-m-profil-swissquote-dubendorf",
-        "en": "fachmann-frau-kundendialog-efz-e-profil-m-profil-swissquote-dubendorf",
-        "fr": "fachmann-frau-kundendialog-efz-e-profil-m-profil-swissquote-dubendorf"
+        "en": "professional-female-customer-dialogue-efz-e-profile-m-profile-swissquote-dubendorf",
+        "fr": "dialogue-client-professionnel-feminin-efz-profil-e-profil-m-swissquote-dubendorf"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1312,6 +1312,12 @@
       "streetAddress": "Zürichstrasse 132",
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-kundendialog-efz-e-profil-m-profil-swissquote-dubendorf"
+        ],
+        "en": [
+          "fachmann-frau-kundendialog-efz-e-profil-m-profil-swissquote-dubendorf"
+        ],
+        "fr": [
           "fachmann-frau-kundendialog-efz-e-profil-m-profil-swissquote-dubendorf"
         ]
       },

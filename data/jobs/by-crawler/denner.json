@@ -997,15 +997,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-biel-bienne"
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner",
-        "assistant-branch-manager-denner-ag-biel-bienne",
-        "directeur-adjoint-de-succursale-denner-ag-biel-bienne",
-        "assistent-in-filialleitung-denner-biel-bienne"
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -1089,7 +1085,6 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-bellach",
           "assistent-in-filialleitung-denner-3",
           "assistent-in-filialleitung-denner-ag-bellach",
           "vice-direttore-di-filiale-denner-ag-baar",
@@ -1100,22 +1095,15 @@
           "assistent-in-filialleitung-denner-ag-bellach-7edga6"
         ],
         "en": [
-          "assistant-in-branch-management-denner-ag-bellach",
-          "assistent-in-filialleitung-denner-bellach",
           "assistent-in-filialleitung-denner-ag-bellach-7edga6",
           "assistant-branch-manager-denner-ag-baar"
         ],
         "fr": [
-          "assistant-dans-la-gestion-des-succursales-denner-ag-bellach",
-          "assistent-in-filialleitung-denner-bellach",
           "assistent-in-filialleitung-denner-ag-bellach-7edga6"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistant-in-branch-management-denner-ag-bellach",
-        "assistant-dans-la-gestion-des-succursales-denner-ag-bellach",
-        "assistent-in-filialleitung-denner-bellach",
         "assistent-in-filialleitung-denner-3",
         "assistent-in-filialleitung-denner-ag-bellach",
         "vice-direttore-di-filiale-denner-ag-baar",
@@ -1205,7 +1193,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-denner-ag-winterthur-bf71e1",
           "verkaufer-in-denner-ag-winterthur-ylequg",
           "verkaufer-in-denner-ag-winterthur"
         ],
@@ -1223,7 +1210,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "venditore-denner-ag-winterthur-bf71e1",
         "verkaufer-in-denner-ag-winterthur-ylequg",
         "verkaufer-in-denner-ag-winterthur"
       ],
@@ -1306,13 +1292,11 @@
       "crawledAt": "2026-08-17T21:30:53.192Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-oensingen"
+          "stv-filialleiter-in-denner"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-oensingen"
+        "stv-filialleiter-in-denner"
       ],
       "needsRetranslation": true,
       "salaryMin": 59000,
@@ -1396,7 +1380,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-frauenfeld",
           "vendeur-dans-le-salaire-horaire-denner-zollikofen",
           "vendeur-en-salaire-horaire-denner-effretikon",
           "vendeur-en-salaire-horaire-denner-monchaltorf",
@@ -1421,9 +1404,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "seller-denner-ag-frauenfeld-008421",
-        "vendeur-denner-ag-frauenfeld-008421",
-        "verkaufer-in-im-stundenlohn-denner-frauenfeld",
         "venditore-nel-salario-orario-denner-freienbach",
         "venditore-nel-salario-orario-denner-frick",
         "venditore-nel-salario-orario-denner-frutigen",
@@ -1579,8 +1559,7 @@
       "crawledAt": "2026-08-17T21:30:52.724Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-matzingen"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-matzingen"
@@ -1591,9 +1570,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "seller-in-the-hourly-wage-denner-ag-matzingen",
-        "vendeur-dans-le-salaire-horaire-denner-ag-matzingen",
-        "venditore-nel-salario-orario-denner-ag-matzingen",
         "verkaufer-in-im-stundenlohn-denner-matzingen"
       ],
       "needsRetranslation": true,
@@ -1615,10 +1591,10 @@
       "id": "denner-1b089886a72f",
       "slug": "venditore-nel-salario-orario-denner-oberwil-bl",
       "slugByLocale": {
-        "it": "venditore-nel-salario-orario-denner-oberwil-bl",
-        "en": "seller-in-the-hourly-wage-denner-oberwil-bl",
+        "it": "venditore-nel-salario-orario-denner-ag-oberwil-bl",
+        "en": "seller-in-the-hourly-wage-denner-ag-oberwil-bl",
         "de": "verkaufer-in-im-stundenlohn-denner-oberwil-bl",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-oberwil-bl"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-ag-oberwil-bl"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1681,16 +1657,20 @@
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-oberwil-bl"
+          "verkaufer-in-im-stundenlohn-denner-oberwil-bl",
+          "seller-in-the-hourly-wage-denner-oberwil-bl"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-oberwil-bl"
+          "verkaufer-in-im-stundenlohn-denner-oberwil-bl",
+          "vendeur-dans-le-salaire-horaire-denner-oberwil-bl"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-oberwil-bl"
+        "verkaufer-in-im-stundenlohn-denner-oberwil-bl",
+        "seller-in-the-hourly-wage-denner-oberwil-bl",
+        "vendeur-dans-le-salaire-horaire-denner-oberwil-bl"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -1710,10 +1690,10 @@
       "id": "denner-b706398367d6",
       "slug": "stv-branch-manager-in-denner-rorschach",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-rorschach",
-        "en": "stv-filialleiter-in-denner-rorschach",
+        "it": "stv-branch-manager-in-denner-ag-rorschach",
+        "en": "stv-branch-manager-in-denner-rorschach",
         "de": "stv-filialleiter-in-denner-rorschach",
-        "fr": "directeur-de-succursale-stv-in-denner-rorschach"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-rorschach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1776,13 +1756,18 @@
           "stv-filialleiter-in-denner"
         ],
         "fr": [
+          "stv-filialleiter-in-denner-rorschach",
+          "directeur-de-succursale-stv-in-denner-rorschach"
+        ],
+        "en": [
           "stv-filialleiter-in-denner-rorschach"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-2",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-rorschach"
+        "stv-filialleiter-in-denner-rorschach",
+        "directeur-de-succursale-stv-in-denner-rorschach"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1802,7 +1787,7 @@
       "id": "denner-0dd165c4d333",
       "slug": "gestione-denner-lausanne",
       "slugByLocale": {
-        "it": "gestione-denner-lausanne",
+        "it": "gestione-denner-sa-lausanne",
         "en": "gerant-e-denner-sa-lausanne-t4fcx9",
         "de": "gerant-e-denner-sa-lausanne-t4fcx9",
         "fr": "gerant-e-denner-lausanne"
@@ -1892,8 +1877,8 @@
       "slug": "adjoint-e-gerant-e-denner",
       "slugByLocale": {
         "it": "adjoint-e-gerant-e-denner-sa-renens-vd",
-        "en": "deputy-managing-officer-denner-renens-vd",
-        "de": "stellvertretender-geschaftsfuhrer-denner-renens-vd",
+        "en": "deputy-managing-officer-denner-sa-renens-vd",
+        "de": "stellvertretender-geschaftsfuhrer-denner-sa-renens-vd",
         "fr": "adjoint-e-gerant-e-denner-renens-vd"
       },
       "company": "Denner",
@@ -1960,7 +1945,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T10:15:37.611Z"
+      "firstSeenAt": "2026-08-17T10:15:37.611Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "deputy-managing-officer-denner-renens-vd"
+        ],
+        "de": [
+          "stellvertretender-geschaftsfuhrer-denner-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-managing-officer-denner-renens-vd",
+        "stellvertretender-geschaftsfuhrer-denner-renens-vd"
+      ]
     },
     {
       "id": "denner-95dce1672fce",
