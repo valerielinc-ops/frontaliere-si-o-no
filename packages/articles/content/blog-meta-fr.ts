@@ -10032,6 +10032,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'RSE et harcèlement au travail : le débat sur la prévention',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'Les députés Tamara Merlo et Maura Mossi Nembrini demandent des vérifications indépendantes après une nouvelle affaire apparue en 2026.',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'Vue du Canton du Tessin avec des bâtiments institutionnels',
+    'blog.article.lugano-mobilita-del-futuro.title': 'Tessin Lugano, premier pas vers la mobilité du futur',
+    'blog.article.lugano-mobilita-del-futuro.excerpt': 'La première étape de la nouvelle mobilité publique commence à Lugano',
+    'blog.article.lugano-mobilita-del-futuro.imageAlt': 'Travaux en cours pour la nouvelle mobilité publique à Lugano',
 };
 
 export default blogMetaFr;

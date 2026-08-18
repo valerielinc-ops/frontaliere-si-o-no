@@ -10031,6 +10031,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'RSI e molestie sul lavoro: il dibattito sulla prevenzione',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'Le deputate Tamara Merlo e Maura Mossi Nembrini chiedono verifiche indipendenti dopo un nuovo caso emerso nel 2026.',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'Panorama del Canton Ticino con edifici istituzionali',
+    'blog.article.lugano-mobilita-del-futuro.title': 'Ticino Lugano, primo passo verso la mobilità del futuro',
+    'blog.article.lugano-mobilita-del-futuro.excerpt': 'Inizia il primo passo per la nuova mobilità pubblica a Lugano',
+    'blog.article.lugano-mobilita-del-futuro.imageAlt': 'Lavori in corso a Lugano per la nuova mobilità pubblica',
 };
 
 export default blogMetaIt;

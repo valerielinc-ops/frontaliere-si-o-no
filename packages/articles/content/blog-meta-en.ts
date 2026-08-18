@@ -10030,6 +10030,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'CSR and harassment at work: the debate on prevention',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'MEPs Tamara Merlo and Maura Mossi Nembrini are calling for independent verifications after a new case emerged in 2026.',
     'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'View of Canton Ticino with institutional buildings',
+    'blog.article.lugano-mobilita-del-futuro.title': 'Ticino Lugano, the first step towards the mobility of the future',
+    'blog.article.lugano-mobilita-del-futuro.excerpt': 'The first step for the new public mobility in Lugano begins',
+    'blog.article.lugano-mobilita-del-futuro.imageAlt': 'Works in progress for the new public transportation in Lugano',
 };
 
 export default blogMetaEn;
