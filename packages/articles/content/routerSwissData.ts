@@ -1125,6 +1125,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-succesione-donazione-canton-soletta-aliquote': { it: 'imposta-succesione-donazione-canton-soletta-aliquote', en: 'inheritance-and-gift-taxes-in-the-canton-of-solothurn', de: 'erbschafts-und-schenkungssteuern-im-kanton-solothurn', fr: 'impots-de-succession-et-donation-dans-le-canton-de-soleure' },
  'twint-addebito-diretto': { it: 'twint-addebito-diretto', en: 'twint-direct-debit-2027', de: 'twint-direct-debit-2027', fr: 'twint-debit-direct-2027' },
  'dazi-usa-svizzera-2026': { it: 'dazi-usa-svizzera-2026', en: 'dazi-usa-switzerland-2026', de: 'dazi-usa-schweiz-2026', fr: 'dazi-usa-suisse-2026' },
+ 'imposte-cantonali-basilea-citta-aliquote': { it: 'imposte-cantonali-basilea-citta-aliquote', en: 'cantonal-and-municipal-taxes-in-basel-city-rates-and-deductions', de: 'steuern-kanton-basel-stadt-besteuerung', fr: 'impots-canton-de-basel-ville-imposition' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

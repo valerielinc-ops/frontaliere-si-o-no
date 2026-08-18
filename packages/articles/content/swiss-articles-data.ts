@@ -9892,6 +9892,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposte-cantonali-basilea-citta-aliquote',
+    category: 'fiscale',
+    date: '2026-08-18T06:47:30.240Z',
+    image: '/images/blog/imposte-cantonali-basilea-citta-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
