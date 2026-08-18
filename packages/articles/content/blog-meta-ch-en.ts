@@ -3331,6 +3331,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprentices, instructions are not enough: "They must be followed closely"',
     'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'The Federal Court calls on trainers to be more vigilant and to be constantly accompanied after the serious injuries sustained by an apprentice',
     'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'An apprentice in a hazardous work environment with a supervisor',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprenticeship and vocational training in the Canton of Basel-City',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'How to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Canton Basel City',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Image of an apprentice in a Basle company',
 };
 
 export default blogMetaChEn;

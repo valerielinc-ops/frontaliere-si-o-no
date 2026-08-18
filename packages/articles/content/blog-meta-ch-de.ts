@@ -3331,6 +3331,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprendisti, Anweisungen genau befolgen',
     'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Das Bundesgericht fordert die Ausbilder auf, nach den schweren Verletzungen eines Auszubildenden die Aufsicht zu verstärken und die Lehrlinge kontinuierlich zu unterstützen.',
     'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Ein Praktikant in einer gefährlichen Arbeitsumgebung mit einem Beauftragten',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Lehre und Berufsausbildung im Kanton Basel-Stadt',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Basel-Stadt',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Bild eines Praktikanten in einer Basler Firma',
 };
 
 export default blogMetaChDe;
