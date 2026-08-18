@@ -213,6 +213,19 @@ jobs:
         # annotate with `// locale-segment-ok: <reason>` or rebaseline post-review.
         run: npm run lint:hardcoded-locale-segments
 
+      - name: Verify evergreen comune topics pool is current
+        # Deterministic ratchet (follow-up of #6001, issue #6019): fails if
+        # public/evergreen-comune-topics.json does not match what
+        # data/municipalities produces right now. tests/evergreen-comune-topics-published.test.ts
+        # already asserts this same equality, but the script's own --check
+        # mode — documented in its header as "Use it in CI" — was never
+        # actually wired into a workflow; this closes that gap so the
+        # dedicated gate the script was written for exists, not just an
+        # incidental one via the vitest suite. On drift: run
+        # `node scripts/build-evergreen-comune-topics.mjs` and commit the
+        # result.
+        run: npm run check:evergreen-comune-topics
+
       - name: Fetch base ref for the factuality diff
         # The main checkout is shallow (fetch-depth: 1), so the base commit is
         # not present and the gate below would silently no-op. A depth-50 fetch
