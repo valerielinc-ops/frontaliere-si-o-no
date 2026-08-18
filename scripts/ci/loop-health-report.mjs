@@ -64,6 +64,14 @@ function runStats(workflow, since) {
     const k = r.conclusion || r.status || 'unknown';
     by[k] = (by[k] || 0) + 1;
   }
+  // PUNTO CIECO NOTO, non una svista: `cancelled` NON è una cosa sola. GitHub marca
+  // `cancelled` anche il job che sfonda `timeout-minutes` (è la premessa di
+  // `scan-job-timeouts.mjs`), quindi un timeout esce sia da `fail` sia da `real` e questo
+  // report non lo vede. Il discriminante esiste — `total_count` dei job della run, zero
+  // per uno scarto in coda e >0 per un timeout: è quello che usa `hasNoJobs` in
+  // `close-recovered-failure-issues.mjs` (#5333). Qui NON si applica per costo: sarebbe
+  // una chiamata `gh api .../jobs` per run, su una finestra di 1000 run × 11 workflow.
+  // Per i timeout la fonte giusta resta `scan-job-timeouts.mjs`, che li apre come issue.
   const real = total - (by.cancelled || 0) - (by.skipped || 0); // run che hanno lavorato
   const fail = by.failure || 0;
   return { total, real, fail, ok: by.success || 0, cancelled: by.cancelled || 0, skipped: by.skipped || 0, rate: real ? fail / real : 0 };
