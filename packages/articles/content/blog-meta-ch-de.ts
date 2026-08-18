@@ -3307,6 +3307,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Niederlassungsbewilligung C im Kanton Basel-Stadt: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'Für Personen, die in Basel-Stadt wohnen möchten, ist eine Niederlassungsbewilligung C obligatorisch. Hier ist, was zu tun ist und wie man es anfordert.',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'Eine Familie in der Schweiz, die einen Aufenthaltstitel C beantragt',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Kurzaufenthaltsbewilligung L Kanton Basel-Stadt: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'Die maximale Dauer der Erlaubnis L beträgt ein Jahr. Sie kann verlängert werden, wenn bestimmte Bedingungen erfüllt sind.',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'Ein Frontalier lebt in Basel-Stadt und arbeitet in einem Unternehmen aus dem Kanton Tessin.',
 };
 
 export default blogMetaChDe;

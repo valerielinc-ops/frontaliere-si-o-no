@@ -42881,6 +42881,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-canton-basilea-citta': {
+    title: 'Permesso L di breve durata canton Basilea Città: validità e proroga',
+    description: 'La durata massima del permesso L è di un anno. Può essere prorogato se si soddisfano determinate condizioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, canton',
+    ogTitle: 'Permesso L di breve durata canton Basilea Città: validità e proroga',
+    ogDescription: 'La durata massima del permesso L è di un anno. Può essere prorogato se si soddisfano determinate condizioni.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-canton-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L di breve durata canton Basilea Città: validità e proroga",
+      "description": "La durata massima del permesso L è di un anno. Può essere prorogato se si soddisfano determinate condizioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-canton-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona frontaliere risiede a Basilea Città e lavora in una ditta del canton Ticino."
+      },
+      "datePublished": "2026-08-18T07:18:11+00:00",
+      "dateModified": "2026-08-18T07:18:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-canton-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
