@@ -281,19 +281,47 @@ jobs:
         id: corpus
         if: ${{ github.event_name == 'pull_request' }}
         env:
-          # `origin/<base>` è già stato fetchato dallo step "Fetch base ref for
-          # the factuality diff" qui sopra, che usa lo stesso riferimento: una
-          # sola nozione di base per i due gate che ne hanno bisogno.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
           BASE_REF: ${{ github.base_ref }}
         run: |
-          set -o pipefail
-          base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
-          if [ -z "$base" ]; then
-            echo "merge-base non risolta → nessuna esclusione, gira la suite intera"
+          # I path toccati arrivano dall'API della PR, non da `git diff`, e la
+          # ragione è MISURATA su questa stessa PR (run 32182836022): la prima
+          # stesura usava `git merge-base HEAD origin/$BASE_REF` e stampava
+          # «merge-base non risolta», cioè non escludeva niente.
+          #
+          # Perché: `actions/checkout@v5` qui fa un fetch shallow (`fetch-depth: 1`)
+          # e NON crea il remote-tracking ref `refs/remotes/origin/main`; il
+          # `git fetch --no-tags --depth=50 origin <base>` dello step della
+          # factuality qui sopra aggiorna FETCH_HEAD, non `origin/<base>`. E
+          # anche avendo il ref, due storie shallow possono non avere una base
+          # comune entro la profondità fetchata. L'API non ha nessuno di questi
+          # problemi: risponde con l'elenco esatto dei file della PR, senza
+          # storia locale.
+          #
+          # Il fallback su git resta per il caso in cui l'API non risponda.
+          # Entrambi i rami sono `|| true`: qualunque guasto lascia
+          # changed-paths.txt vuoto → `skip` vuoto → suite INTERA. La direzione
+          # del fail-safe è quella giusta: un guasto qui costa tempo, mai
+          # copertura.
+          : > changed-paths.txt
+          if [ -n "$PR_NUMBER" ]; then
+            gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+              --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+          fi
+          if [ ! -s changed-paths.txt ]; then
+            echo "API senza risposta utile → fallback su git"
+            base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
+            if [ -n "$base" ]; then
+              git diff --name-only "$base" HEAD > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+            fi
+          fi
+          count="$(wc -l < changed-paths.txt | tr -d ' ')"
+          echo "path toccati dalla PR: $count"
+          if [ "$count" = "0" ]; then
+            echo "elenco vuoto → nessuna esclusione, gira la suite intera"
             exit 0
           fi
-          git diff --name-only "$base" HEAD > changed-paths.txt || : > changed-paths.txt
-          echo "path toccati dalla PR: $(wc -l < changed-paths.txt)"
           decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
