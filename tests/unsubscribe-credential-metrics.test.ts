@@ -57,9 +57,14 @@ describe('unsubscribeCredentialMetrics — aggregate / fallbackRate', () => {
     expect(agg.uncredentialedShare).toBeCloseTo(5 / 28, 10);
   });
 
-  it('fallbackRate is autologin_code / (autologin_code + email_token), excluding "missing" from the denominator', () => {
+  it('fallbackRate is autologin_code / every credentialed event, excluding "missing" from the denominator', () => {
     const agg = aggregate(records({ autologin: 5, email: 15, missing: 1000 }));
     expect(agg.fallbackRate).toBeCloseTo(0.25, 10);
+    // …and `legacy_auth_token` is IN that denominator, not quietly dropped:
+    // 5 / (5 + 10 + 5) = 25% too, which would read 33% if the third family
+    // were excluded the way `missing` is.
+    const withLegacy = aggregate(records({ autologin: 5, email: 10, legacy: 5, missing: 1000 }));
+    expect(withLegacy.fallbackRate).toBeCloseTo(0.25, 10);
   });
 
   it('fallbackRate is null (not 0) when nothing is graded — an all-missing or empty window is not a perfect score', () => {
