@@ -10052,6 +10052,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.economia-varese-2024-imposte.title': 'Voici les entreprises qui paient le plus d\'impôts à Varesotto',
     'blog.article.economia-varese-2024-imposte.excerpt': 'Le classement du Made in Varese 2026 sur les budgets 2024 place Bticino en tête, suivi de Sea Exercices Aéroportuaires et de Novartis Farma.',
     'blog.article.economia-varese-2024-imposte.imageAlt': 'Entreprises qui paient plus d\'impôts dans la zone de Varese',
+    'blog.article.migros-delica-nuovo-direttore-2027.title': 'Migros Delica : Moritz Werner est le nouveau directeur depuis 2027',
+    'blog.article.migros-delica-nuovo-direttore-2027.excerpt': 'À partir du 1er janvier 2027, Moritz Werner dirigera le producteur Migros Delica en succédant à Thomas Gubler.',
+    'blog.article.migros-delica-nuovo-direttore-2027.imageAlt': 'Nouveau directeur de Migros Delica Moritz Werner',
 };
 
 export default blogMetaFr;
