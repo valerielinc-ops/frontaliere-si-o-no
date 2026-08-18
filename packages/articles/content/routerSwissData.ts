@@ -1145,6 +1145,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'italia-rimpatrio-asilo': { it: 'italia-rimpatrio-asilo', en: 'italy-restarts-asylum-repatriations', de: 'italien-erneuert-asylabgeschobungen', fr: 'italie-reprend-l-expulsion-des-demandeurs-d-asile' },
  'asilo-statistica-luglio-2026': { it: 'asilo-statistica-luglio-2026', en: 'asylum-statistics-july-2026', de: 'asylstatistik-juli-2026', fr: 'statistique-en-matiere-d-asile-juillet-2026' },
  'cassis-neutralita': { it: 'cassis-neutralita', en: 'cassis-neutrality', de: 'cassis-neutralitat', fr: 'cassis-neutralite' },
+ 'affitti-basilea-citta': { it: 'affitti-basilea-citta', en: 'basel-city-rentals', de: 'mieten-basel-stadt', fr: 'locations-basel-ville' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
