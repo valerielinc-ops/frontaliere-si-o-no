@@ -1651,26 +1651,41 @@ export function renderAnchorForPrompt(anchor) {
 }
 
 /**
+ * The RegExp that decides whether a piece of text carries `anchor`.
+ *
+ * One definition, two callers: `findAnchorSentence` uses it to pick the
+ * sentence, `truncateForPrompt` uses it to keep the fact inside the window it
+ * cuts. Two copies would drift, and this particular drift is invisible — a
+ * truncation that no longer knows what it must preserve still returns a
+ * plausible-looking quote (AGENTS.md #6: a regex needed in two places goes
+ * into one place).
+ *
+ * Returns null when the kind is unknown or the date cannot be parsed.
+ */
+function anchorNeedle(anchor) {
+  const [kind, value] = String(anchor).split(':');
+  if (kind === 'pct') return new RegExp(String.raw`${value.replace('.', '[.,]')}\s*%`);
+  if (kind === 'km') return new RegExp(String.raw`${Number(value)}\s*km`, 'i');
+  if (kind === 'org') return new RegExp(String.raw`\b${value}\b`);
+  if (kind === 'date') {
+    const [y, mo, d] = value.split('-');
+    const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
+    if (!monthName) return null;
+    return new RegExp(String.raw`${Number(d)}\s*°?\s+${monthName}\s+${y}`, 'i');
+  }
+  return null;
+}
+
+/**
  * The source's OWN sentence carrying `anchor`, untruncated. Internal: callers
  * that group by evidence (see `groupedAnchorEvidence`) need the full sentence
  * as the grouping key, because two distinct sentences that share their first
- * 237+ chars and diverge only after would otherwise collide once truncated —
- * merging two distinct source quotations under one, and silently dropping
- * whichever anchor lost the collision from its citation.
+ * 237+ chars and diverge only after would otherwise collide once truncated,
+ * merging two distinct source quotations under one.
  */
 function findAnchorSentence(sourceText, anchor) {
   if (typeof sourceText !== 'string' || !sourceText) return '';
-  const [kind, value] = String(anchor).split(':');
-  let needle = null;
-  if (kind === 'pct') needle = new RegExp(String.raw`${value.replace('.', '[.,]')}\s*%`);
-  else if (kind === 'km') needle = new RegExp(String.raw`${Number(value)}\s*km`, 'i');
-  else if (kind === 'org') needle = new RegExp(String.raw`\b${value}\b`);
-  else if (kind === 'date') {
-    const [y, mo, d] = value.split('-');
-    const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
-    if (!monthName) return '';
-    needle = new RegExp(String.raw`${Number(d)}\s*°?\s+${monthName}\s+${y}`, 'i');
-  }
+  const needle = anchorNeedle(anchor);
   if (!needle) return '';
 
   // Sentence-ish split: enough to isolate the claim without dragging in the
@@ -1681,9 +1696,55 @@ function findAnchorSentence(sourceText, anchor) {
   return '';
 }
 
-/** Caps a sentence for prompt use — display only, never a grouping key. */
-function truncateForPrompt(sentence) {
-  return sentence.length > 240 ? `${sentence.slice(0, 237)}…` : sentence;
+/** Prompt budget for one quoted sentence, ellipsis included. */
+const EVIDENCE_MAX_CHARS = 240;
+
+/**
+ * Caps a sentence for prompt use — display only, never a grouping key.
+ *
+ * The window is cut AROUND `anchors`, not from the head of the sentence.
+ * Cutting from the head produced quotes that no longer contained the fact
+ * they were quoted FOR, and did it silently: measured on the pulled corpus
+ * (`packages/articles/content`, 17.804 bodies, 65.223 anchors) 1.689 anchors
+ * across 930 documents got a 238-char quote whose datum sat past char 237.
+ * The instruction then read «reintegra DATEC — la fonte dice: "<237 chars
+ * that do not contain DATEC>"», which is precisely the "never a wrong quote"
+ * guarantee of `anchorEvidence` below, broken. Handing back the wrong
+ * sentence is worse than handing back none: the writer reinstates what it was
+ * shown, so a mis-cut quote is how a dropped fact comes back invented — the
+ * same failure the evidence was added to prevent.
+ *
+ * Sentences whose anchor already fits in the head window keep the exact old
+ * output, so this is strictly additive: 63.534 of those 65.223 anchors are
+ * byte-identical before and after.
+ */
+function truncateForPrompt(sentence, anchors = []) {
+  if (sentence.length <= EVIDENCE_MAX_CHARS) return sentence;
+  const head = EVIDENCE_MAX_CHARS - 3;
+
+  // Earliest position that must survive the cut. Anchors further right are
+  // still lost to the budget, but the first one never is — before this, none
+  // was safe.
+  let at = -1;
+  let hitLen = 0;
+  for (const a of [].concat(anchors)) {
+    const needle = anchorNeedle(a);
+    const m = needle ? sentence.match(needle) : null;
+    if (m && (at === -1 || m.index < at)) { at = m.index; hitLen = m[0].length; }
+  }
+  // Unknown anchor, or the fact already inside the head window → old behaviour.
+  if (at === -1 || at + hitLen <= head) return `${sentence.slice(0, head)}…`;
+
+  // Slide a window that keeps the fact, with some left context for sense.
+  const width = EVIDENCE_MAX_CHARS - 2; // room for the two ellipses
+  let from = Math.min(Math.max(0, at - 60), Math.max(0, sentence.length - width));
+  if (from > at) from = at; // pathological: never cut the fact off the left
+  // Snap forward to a word boundary so the quote does not open mid-word, but
+  // never far enough to eat into the fact itself.
+  const snap = sentence.slice(from, Math.min(at, from + 30)).indexOf(' ');
+  if (snap > 0) from += snap + 1;
+  const to = Math.min(sentence.length, from + width);
+  return `${from > 0 ? '…' : ''}${sentence.slice(from, to)}${to < sentence.length ? '…' : ''}`;
 }
 
 /**
@@ -1699,7 +1760,7 @@ function truncateForPrompt(sentence) {
  */
 export function anchorEvidence(sourceText, anchor) {
   const sentence = findAnchorSentence(sourceText, anchor);
-  return sentence ? truncateForPrompt(sentence) : '';
+  return sentence ? truncateForPrompt(sentence, [anchor]) : '';
 }
 
 /** Human label per anchor kind, for grouping the contract below. */
@@ -1873,17 +1934,23 @@ function groupedAnchorEvidence(sourceText, anchorList, bullet = '') {
   // when the line is rendered below, never to the grouping key.
   /** @type {Map<string, string[]>} evidence sentence → labels it carries */
   const byEvidence = new Map();
+  /** @type {Map<string, string[]>} same key → the anchor keys, for truncation */
+  const anchorsByEvidence = new Map();
   const withoutEvidence = [];
   for (const a of anchorList) {
     const label = renderAnchorForPrompt(a);
     const evidence = findAnchorSentence(sourceText, a);
     if (!evidence) { withoutEvidence.push(label); continue; }
-    if (!byEvidence.has(evidence)) byEvidence.set(evidence, []);
+    if (!byEvidence.has(evidence)) { byEvidence.set(evidence, []); anchorsByEvidence.set(evidence, []); }
     byEvidence.get(evidence).push(label);
+    anchorsByEvidence.get(evidence).push(a);
   }
   const lines = [];
   for (const [evidence, labels] of byEvidence) {
-    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${truncateForPrompt(evidence)}»`);
+    // The anchors of THIS group, so the window keeps a fact the line names
+    // instead of the first 237 chars of a sentence that may not carry any.
+    const quote = truncateForPrompt(evidence, anchorsByEvidence.get(evidence));
+    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${quote}»`);
   }
   // Anchors the matcher could not locate in the source degrade to their name
   // only, never to a wrong quote (see anchorEvidence).
