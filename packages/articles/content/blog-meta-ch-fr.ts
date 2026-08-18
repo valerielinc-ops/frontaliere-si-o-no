@@ -3217,6 +3217,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.title': 'Bourses Canton de Fribourg : exigences et montants',
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.excerpt': 'Exigences et montants maximaux pour les bourses Canton de Fribourg : un guide pratique pour les étudiants',
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.imageAlt': 'Étudiant dans un campus universitaire avec vue sur le lac de Lugano',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Acheter une maison à Fribourg : prix et hypothèque',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Prix moyens des maisons à Fribourg, fonds propres requis, viabilité du prêt hypothécaire et taxe de passage',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'Une maison à Fribourg, avec la note: "Maison à vendre à Fribourg"',
 };
 
 export default blogMetaChFr;

@@ -1098,6 +1098,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-friburgo': { it: 'sistema-scolastico-canton-friburgo', en: 'school-system-canton-fribourg', de: 'schulsystem-kanton-freiburg', fr: 'systeme-educatif-canton-fribourg' },
  'apprendistato-e-formazione-professionale-canton-friburgo': { it: 'apprendistato-e-formazione-professionale-canton-friburgo', en: 'apprenticeships-and-professional-training-in-fribourg-canton', de: 'berufsausbildung-und-professionelle-ausbildung-kanton-freiburg', fr: 'apprentissages-et-formation-professionnelle-canton-de-fribourg' },
  'borse-di-studio-friburgo-requisiti-e-importi': { it: 'borse-di-studio-friburgo-requisiti-e-importi', en: 'scholarships-canton-fribourg', de: 'stipendien-kanton-freiburg', fr: 'bourses-d-etudes-canton-fribourg' },
+ 'comprare-casa-canton-friburgo-prezzi-e-mutuo': { it: 'comprare-casa-canton-friburgo-prezzi-e-mutuo', en: 'buy-house-friburg', de: 'kaufen-haus-fribourg', fr: 'acheter-maison-fribourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -3217,6 +3217,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.title': 'Stipendien Kanton Freiburg: Voraussetzungen und Beträge',
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.excerpt': 'Anforderungen und Höchstbeträge für Stipendien Kanton Freiburg: Ein praktischer Leitfaden für Studierende',
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.imageAlt': 'Student an einer Universität mit Blick auf den Luganersee',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Haus kaufen in Freiburg: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Durchschnittliche Hauspreise in Freiburg, geforderte Eigenmittel, Tragbarkeit des Hypothekendarlehens und Stempelsteuer',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'Ein Haus in Fribourg, mit der Note: "Haus zum Verkauf in Fribourg"',
 };
 
 export default blogMetaChDe;
