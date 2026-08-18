@@ -3217,6 +3217,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.title': 'Scholarships Canton Fribourg: requirements and amounts',
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.excerpt': 'Requirements and maximum amounts for scholarships Canton Fribourg: a practical guide for students',
     'blog.article.borse-di-studio-friburgo-requisiti-e-importi.imageAlt': 'Student in a university campus with view on Lake Lugano',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Buying a house in Freiburg: prices and mortgage',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Average house prices in Freiburg, own funds required, mortgage loan sustainability and transfer tax',
+    'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'A house in Friburg, with the note: "House for sale in Friburg"',
 };
 
 export default blogMetaChEn;
