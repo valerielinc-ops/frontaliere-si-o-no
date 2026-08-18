@@ -29,39 +29,52 @@
  * not a log line, so Cloud Logging is not an option and never was; this
  * reads Firestore directly, the same shape as scripts/lib/newsletter-ab-data.mjs.
  *
- * WHY THIS DOES NOT USE A collectionGroup('events') QUERY
+ * WHY THIS READS collectionGroup('events') — AND WHY IT ONCE DID NOT
  *
- * The obvious read is `db.collectionGroup('events').where('event_type',
- * '==', 'unsubscribe').where('timestamp', '>=', since)` — and
- * `firestore.indexes.json` even declares the composite index that would
- * need (`event_type ASC, timestamp DESC`, COLLECTION_GROUP scope). Verified
- * read-only against production (2026-08-14): that index is NOT deployed —
- * the query fails `FAILED_PRECONDITION: query requires an index`, and so
- * does a BARE collectionGroup('events') query on `timestamp` alone, and so
- * does a query scoped to a single subscriber's OWN `events` subcollection
- * once it combines the `event_type` equality filter with an `orderBy`.
- * Deploying the missing index is a write to project infrastructure, which
- * this monitor — read-only by design, like its twin — does not make.
+ * This monitor used to read candidates from the TOP-LEVEL
+ * `newsletter_subscribers` collection by `unsubscribed_at`, then walk each
+ * candidate's own `events` subcollection (N+1). The header justifying that
+ * said the composite index `events(event_type ASC, timestamp DESC)` declared
+ * in firestore.indexes.json was "NOT deployed", verified 2026-08-14.
  *
- * The workaround costs nothing extra and needs no index: `unsubscribed_at`
- * range queries on the TOP-LEVEL `newsletter_subscribers` collection are
- * plain single-field queries (auto-indexed, verified working), and an
- * EQUALITY-ONLY (no orderBy) query against one subscriber's own `events`
- * subcollection also needs no explicit index (verified working). So this
- * reads candidates via the first, then reads each candidate's own
- * `unsubscribe` events via the second, filtering client-side for the
- * window and for `source_channel === 'unsubscribe_link'`. N+1, but N is
- * capped (SUBSCRIBER_DOC_CAP) and bounded by `unsubscribed_at` volume,
- * which this channel measures at ~150/week — a few seconds of reads, not a
- * scan.
+ * That conclusion was wrong, and wrong in an instructive way. Re-measured
+ * read-only against production on 2026-08-18:
  *
- * KNOWN BLIND SPOT: a subscriber whose CURRENT `unsubscribed_at` falls
- * outside the window (e.g. they unsubscribed via `unsubscribe_link` inside
- * the window, then took some OTHER action that moved `unsubscribed_at`
- * again, in or out of range) will not be picked up as a candidate. Accepted
- * for the same reason the twin accepts its dominant-policy heuristic: the
- * alternative is the missing collectionGroup index, which is out of this
- * monitor's authority to fix.
+ *   FAIL  event_type== + timestamp>=            (no orderBy)  FAILED_PRECONDITION
+ *   OK    same query + .orderBy('timestamp','desc')           459 docs
+ *   OK    bare collectionGroup('events') on timestamp alone   docs returned
+ *
+ * The index IS deployed. What fails is the query with NO explicit order,
+ * because Firestore then asks for the (event_type ASC, timestamp ASC)
+ * variant, which nothing declares — the same defect that kept the newsletter
+ * A/B report dead, fixed the same day in scripts/lib/newsletter-ab-data.mjs.
+ * The second claim ("a BARE collectionGroup query on `timestamp` alone" also
+ * fails) was wrong too: that is a single-field query served by the
+ * `events.timestamp` fieldOverride already in firestore.indexes.json. Only
+ * the third claim held — a query scoped to ONE subscriber's own `events`
+ * subcollection is COLLECTION scope, which a COLLECTION_GROUP index does not
+ * serve.
+ *
+ * WHAT THE WORKAROUND WAS COSTING
+ *
+ * Its own header called the gap a KNOWN BLIND SPOT: a subscriber whose
+ * CURRENT `unsubscribed_at` has since moved out of the window is never picked
+ * up as a candidate, so their in-window unsubscribe events are invisible. On
+ * this site that is not a corner case — a login re-subscribes a disiscritto
+ * and moves `unsubscribed_at`, which is the documented behaviour behind the
+ * 186 resurrected subscribers of #5747.
+ *
+ * Measured, same window, both paths (production, 2026-08-18, 7 days):
+ *
+ *   per-subscriber (old)  158 records, 136 candidate docs + 136 subqueries
+ *   collectionGroup (new) 206 records, one query
+ *   missed by the old path: 48 of 206 (23%), and it saw nothing the new one missed
+ *
+ * The fallback rate moves 0.63% -> 0.49% (1/158 -> 1/206): the single
+ * `autologin_code` event is found either way, so this widens the denominator
+ * rather than raising the alarm. All 48 recovered records carry
+ * `credential: null`, i.e. exactly the resurrected cohort the blind spot was
+ * systematically hiding — the population this monitor exists to size.
  *
  * Usage:
  *   node scripts/check-unsubscribe-credential-rate.mjs               # 7-day window
@@ -94,7 +107,9 @@ const HISTORY_DAYS = 60;
  *  mistake (or an unexpectedly wide window) from turning a daily job into a
  *  scan of the whole `newsletter_subscribers` collection. ~150/week measured
  *  on this channel, so 3000 is generous even for a 30-day dispatch. */
-const SUBSCRIBER_DOC_CAP = 3000;
+/** How far an event's write `timestamp` may trail its `occurred_at`; see readUnsubscribeLinkEvents. */
+const WRITE_LAG_MARGIN_MS = 60 * 60 * 1000;
+const EVENT_DOC_CAP = 5000;
 const DEFAULT_HOURS = 168; // 7 days — this channel's volume (~20-50 credentialed events/week today) needs the wider window a 24h read would starve.
 
 const args = process.argv.slice(2);
@@ -140,32 +155,41 @@ async function getFirestoreAdmin() {
 /* ── Firestore read (see header for why this shape, not collectionGroup) ── */
 
 async function readUnsubscribeLinkEvents(db, sinceDate) {
-  const snap = await db.collection('newsletter_subscribers')
-    .where('unsubscribed_at', '>=', sinceDate)
-    .limit(SUBSCRIBER_DOC_CAP)
+  // `timestamp` is when the event was WRITTEN, `occurred_at` is when it
+  // HAPPENED, and the two drift: measured read-only against production on
+  // 2026-08-18, up to 919s apart on this channel (and far more on the backfill
+  // channels, which this monitor filters out anyway). Widening the query
+  // window by a margin and then filtering on `occurred_at` keeps the window
+  // semantics byte-identical to the per-subscriber read this replaces.
+  const from = new Date(sinceDate.getTime() - WRITE_LAG_MARGIN_MS);
+  const snap = await db.collectionGroup('events')
+    .where('event_type', '==', 'unsubscribe')
+    .where('timestamp', '>=', from)
+    // Load-bearing, not cosmetic — see the header. Without it Firestore asks
+    // for an (event_type ASC, timestamp ASC) index that nothing declares.
+    .orderBy('timestamp', 'desc')
+    .limit(EVENT_DOC_CAP)
     .get();
 
   const records = [];
   for (const doc of snap.docs) {
-    const evSnap = await doc.ref.collection('events').where('event_type', '==', 'unsubscribe').get();
-    for (const evDoc of evSnap.docs) {
-      const data = evDoc.data() || {};
-      // Only the credential-verified path (functions/src/newsletterSubscriptionManagement.js,
-      // action === 'unsubscribe') ever sets `credential`. Other writers of
-      // `event_type: 'unsubscribe'`-ish events under different
-      // `source_channel`s (bulk LPD requests, lost-unsubscribe recovery) are
-      // not this monitor's population — see unsubscribeCredentialMetrics.mjs.
-      if (data.source_channel !== CREDENTIAL_LINK_CHANNEL) continue;
-      const occurredAt = data.occurred_at ? new Date(data.occurred_at) : null;
-      // The parent doc's `unsubscribed_at >= sinceDate` filter is a superset
-      // (a subscriber can carry OLDER unsubscribe_link events too, e.g. a
-      // resubscribe/unsubscribe cycle) — re-check the window on the event
-      // itself.
-      if (!occurredAt || Number.isNaN(occurredAt.getTime()) || occurredAt < sinceDate) continue;
-      records.push({ credential: data.credential ?? null, occurredAt });
-    }
+    const data = doc.data() || {};
+    // Only the credential-verified path (functions/src/newsletterSubscriptionManagement.js,
+    // action === 'unsubscribe') ever sets `credential`. Other writers of
+    // `event_type: 'unsubscribe'`-ish events under different
+    // `source_channel`s (bulk LPD requests, lost-unsubscribe recovery) are
+    // not this monitor's population — see unsubscribeCredentialMetrics.mjs.
+    if (data.source_channel !== CREDENTIAL_LINK_CHANNEL) continue;
+    const occurredAt = data.occurred_at ? new Date(data.occurred_at) : null;
+    if (!occurredAt || Number.isNaN(occurredAt.getTime()) || occurredAt < sinceDate) continue;
+    records.push({ credential: data.credential ?? null, occurredAt });
   }
-  return { records, candidateDocs: snap.size };
+  // The cap drops the OLDEST events (the query is ordered newest-first), so a
+  // saturated read silently shortens the window rather than failing. Say so.
+  if (snap.size >= EVENT_DOC_CAP) {
+    log(`⚠️  Event cap reached (${EVENT_DOC_CAP}): the oldest part of the window was not read.`);
+  }
+  return { records, scannedEvents: snap.size };
 }
 
 /* ── State ──────────────────────────────────────────────────── */
@@ -181,9 +205,9 @@ function loadHistory(outDir) {
 
 /* ── Report ─────────────────────────────────────────────────── */
 
-function report(agg, verdict, hours, candidateDocs, hadFallbackBefore) {
+function report(agg, verdict, hours, scannedEvents, hadFallbackBefore) {
   const lines = [];
-  lines.push(`Finestra: ultime ${hours}h · canale \`${CREDENTIAL_LINK_CHANNEL}\` · ${candidateDocs} iscritti candidati (\`unsubscribed_at\` nella finestra)`);
+  lines.push(`Finestra: ultime ${hours}h · canale \`${CREDENTIAL_LINK_CHANNEL}\` · ${scannedEvents} eventi \`unsubscribe\` letti (tutti i canali) nella finestra allargata`);
   lines.push('');
   lines.push('| famiglia | conteggio | nel rapporto |');
   lines.push('|---|---:|---|');
@@ -218,8 +242,8 @@ function runbook(agg, verdict) {
 
 export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT_DIR, now = new Date() } = {}) {
   const sinceDate = new Date(now.getTime() - hours * 3600_000);
-  const { records, candidateDocs } = await readUnsubscribeLinkEvents(db, sinceDate);
-  log(`📥 ${candidateDocs} iscritti candidati, ${records.length} eventi \`unsubscribe_link\` nella finestra.`);
+  const { records, scannedEvents } = await readUnsubscribeLinkEvents(db, sinceDate);
+  log(`📥 ${scannedEvents} eventi \`unsubscribe\` letti, ${records.length} del canale \`unsubscribe_link\` nella finestra.`);
 
   const agg = aggregate(records);
   const history = loadHistory(outDir);
@@ -243,7 +267,7 @@ export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT
   const historyPath = path.join(outDir, 'history.json');
   fs.writeFileSync(historyPath, `${JSON.stringify({ days }, null, 2)}\n`, 'utf8');
 
-  const body = report(agg, verdict, hours, candidateDocs, hadFallbackBefore);
+  const body = report(agg, verdict, hours, scannedEvents, hadFallbackBefore);
   log(`\n${body}\n`);
 
   const alertPath = path.join(outDir, 'alert.json');
@@ -269,7 +293,7 @@ export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT
     fs.rmSync(alertPath);
   }
 
-  return { agg, verdict, alertWritten, alertPath, historyPath, candidateDocs };
+  return { agg, verdict, alertWritten, alertPath, historyPath, scannedEvents };
 }
 
 /* ── Main ───────────────────────────────────────────────────── */
