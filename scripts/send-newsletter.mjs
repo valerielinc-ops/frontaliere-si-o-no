@@ -192,6 +192,7 @@ async function initFirebase() {
 let callLLM;
 let initScoreStore;
 let flushScores;
+let flushScoresBeforeExit;
 
 async function initAI() {
   try {
@@ -199,6 +200,7 @@ async function initAI() {
     callLLM = ai.callLLM;
     initScoreStore = ai.initScoreStore;
     flushScores = ai.flushScores;
+    flushScoresBeforeExit = ai.flushScoresBeforeExit;
     console.log('\u2705 AI model chain loaded');
   } catch (e) {
     console.warn('\u26a0\ufe0f AI models unavailable:', e.message);
@@ -2666,5 +2668,16 @@ async function main() {
 
 // Only run main() when executed directly — allows import for tests / dry-run.
 if (import.meta.url === `file://${process.argv[1]}`) {
-  main().catch((e) => { console.error('\u274c Fatal:', e); process.exit(1); });
+  main().catch(async (e) => {
+    // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
+    // errore butta via gli esiti dei modelli accumulati dalla run \u2014 per lo
+    // piu' fallimenti, cioe' il segnale che serve al ledger. I due
+    // `await flushScores()` dentro main() coprono solo i percorsi riusciti.
+    // Bounded e non-throwing (vedi flushScoresBeforeExit); la guardia serve
+    // perche' qui il binding e' popolato da initAI() e resta undefined se
+    // ai-models non e' disponibile.
+    if (flushScoresBeforeExit) await flushScoresBeforeExit();
+    console.error('\u274c Fatal:', e);
+    process.exit(1);
+  });
 }
