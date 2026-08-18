@@ -9667,6 +9667,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-gli-affitti-canton-friburgo',
+    category: 'fiscale',
+    date: '2026-08-18T00:30:29.495Z',
+    image: '/images/blog/mercato-gli-affitti-canton-friburgo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

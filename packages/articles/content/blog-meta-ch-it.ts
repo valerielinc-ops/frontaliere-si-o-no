@@ -3223,6 +3223,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Asilo nido e custodia bambini nel Cantone di Friburgo: costi e opzioni',
     'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'Il Cantone di Friburgo offre diverse opzioni di asilo nido e custodia bambini, con tariffe calcolate sul reddito e sussidi cantonali disponibili.',
     'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'Una famiglia di tre persone risiede nel Cantone di Friburgo e cerca di trovare un asilo nido adatto ai loro bambini.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Affitti a Friburgo: canoni e diritto di locazione',
+    'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'I canoni medi per zona nel Cantone di Friburgo sono di CHF 1\'200.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'immagine per articolo su affitti e diritto di locazione nel Cantone di Friburgo',
 };
 
 export default blogMetaChIt;

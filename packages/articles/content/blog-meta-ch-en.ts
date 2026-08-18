@@ -3223,6 +3223,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Nursery and childcare in the Canton of Freiburg: costs and options',
     'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'The Canton of Freiburg offers several daycare and childcare options, with income-based fees and cantonal subsidies available.',
     'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'A family of three people resides in the Canton of Fribourg and is looking for a suitable daycare for their children.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Rentals in Freiburg: fees and rental rights',
+    'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'The average rents per area in the Canton of Freiburg are CHF 1,200.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'image for article on rentals and tenancy law in Fribourg Canton',
 };
 
 export default blogMetaChEn;
