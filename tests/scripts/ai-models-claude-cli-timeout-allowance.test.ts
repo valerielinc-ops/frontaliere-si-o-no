@@ -60,6 +60,29 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
     );
   });
 
+  // Misura, non taratura: 120_000ms e' il punto in cui le chiamate MORIVANO
+  // nella run 32161215947 — tre su tre troncate mentre emettevano ancora.
+  // Non e' il vecchio valore della costante ripetuto qui per inerzia: e' il
+  // dato osservato che rende quel valore inadeguato, e resta vero anche se la
+  // costante cambia ancora. Il confronto e' quindi un ORDINE fra il floor e
+  // una durata misurata, non un pin sul numero corrente.
+  //
+  // Serve perche' le altre asserzioni non lo coprono: una prova di mutazione
+  // (2026-08-18) ha rimesso il floor a 120_000 e le altre 11 sono restate
+  // tutte verdi, perche' 120s < tetto e la formula della quota non cambia.
+  // Senza questa riga la meta' «alza il floor» del lavoro non ha presidio.
+  const MORTE_OSSERVATA_MS = 120_000;
+
+  it('il minimo sta SOPRA la durata a cui le chiamate morivano davvero', () => {
+    assert.ok(
+      MIN() > MORTE_OSSERVATA_MS,
+      `minimo ${MIN()}ms: non basta stare sotto il tetto, deve stare SOPRA i ` +
+      `${MORTE_OSSERVATA_MS}ms a cui la run 32161215947 troncava chiamate ancora ` +
+      'vive. Un floor pari o inferiore a quella soglia ripropone il difetto ' +
+      'ogni volta che l\'allowance residua e\' scarsa e la quota non lo alza.',
+    );
+  });
+
   it('la quota concessa e\' una frazione propria dell\'allowance, non tutta', () => {
     const s = SHARE();
     assert.ok(
