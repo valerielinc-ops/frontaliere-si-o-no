@@ -3220,6 +3220,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Acheter une maison à Fribourg : prix et hypothèque',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Prix moyens des maisons à Fribourg, fonds propres requis, viabilité du prêt hypothécaire et taxe de passage',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'Une maison à Fribourg, avec la note: "Maison à vendre à Fribourg"',
+    'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Garderie et garde d\'enfants dans le canton de Fribourg : coûts et options',
+    'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'Le canton de Fribourg offre plusieurs options de crèche et de garde d\'enfants, avec des tarifs calculés sur le revenu et des allocations cantonales disponibles.',
+    'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'Une famille de trois personnes réside dans le canton de Fribourg et cherche un jardin d\'enfants adapté à leurs enfants.',
 };
 
 export default blogMetaChFr;

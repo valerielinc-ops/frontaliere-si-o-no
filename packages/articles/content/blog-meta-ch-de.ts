@@ -3220,6 +3220,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Haus kaufen in Freiburg: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Durchschnittliche Hauspreise in Freiburg, geforderte Eigenmittel, Tragbarkeit des Hypothekendarlehens und Stempelsteuer',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'Ein Haus in Fribourg, mit der Note: "Haus zum Verkauf in Fribourg"',
+    'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Freiburg: Kosten und Optionen',
+    'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'Der Kanton Freiburg bietet verschiedene Möglichkeiten der Kindertagesstätte und Kinderbetreuung mit einkommensabhängigen Tarifen und kantonalen Zuschüssen an.',
+    'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'Eine Familie von drei Personen wohnt im Kanton Freiburg und sucht nach einem geeigneten Kindergarten für ihre Kinder.',
 };
 
 export default blogMetaChDe;
