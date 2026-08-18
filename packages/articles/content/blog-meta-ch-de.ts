@@ -3328,6 +3328,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint startet Lastschriftverfahren für wiederkehrende Zahlungen',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Die mehr als sechs Millionen Twint-Benutzer können Lastschriftberechtigungen für wiederkehrende Zahlungen bei Händlern, die eine solche Lösung anbieten, autorisieren, verwalten und anzeigen',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Bild einer Person, die die Twint-App verwendet, um den direkten Abzug zu autorisieren',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprendisti, Anweisungen genau befolgen',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Das Bundesgericht fordert die Ausbilder auf, nach den schweren Verletzungen eines Auszubildenden die Aufsicht zu verstärken und die Lehrlinge kontinuierlich zu unterstützen.',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Ein Praktikant in einer gefährlichen Arbeitsumgebung mit einem Beauftragten',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Lehre und Berufsausbildung im Kanton Basel-Stadt',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Basel-Stadt',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Bild eines Praktikanten in einer Basler Firma',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint startet Lastschriftverfahren für Rechnungen und Krankenkassen',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'Neu für wiederkehrende Zahlungen in der Schweiz: Twint führt das Lastschriftverfahren für Krankenkasse, Strom und Abos ein.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone mit Twint-Zahlungs-App im Vordergrund in der Schweiz',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'Die Stiftung Studienzentrum Villa Negroni schließt sich der SUPSI an',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Der Staatsrat hat am 8. Juli die Vereinigung der Stiftung Centro Studi Villa Negroni (CSVN) mit der SUPSI genehmigt.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'Die Fondazione Centro Studi Villa Negroni sich SUPSI anschließt',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Basel-Stadt: Kosten',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergärten und Tagesfamilien im Kanton Basel-Stadt: Berechnete Einkommenspreise und verfügbare Kantonsbeiträge',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto einer Kita in einem Wohngebiet von Basel-Stadt',
 };
 
 export default blogMetaChDe;

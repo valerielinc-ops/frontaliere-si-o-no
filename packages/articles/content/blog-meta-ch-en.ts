@@ -3328,6 +3328,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint launches direct debit for recurring payments',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Twint\'s more than six million users will be able to authorize, manage, and view direct debit authorizations for recurring payments at retailers that offer the solution',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Image of a person using the Twint app to authorize direct debit',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprentices, instructions are not enough: "They must be followed closely"',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'The Federal Court calls on trainers to be more vigilant and to be constantly accompanied after the serious injuries sustained by an apprentice',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'An apprentice in a hazardous work environment with a supervisor',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprenticeship and vocational training in the Canton of Basel-City',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'How to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Canton Basel City',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Image of an apprentice in a Basle company',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint launches direct debit for bills and sick pay',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'New for recurring payments in Switzerland: Twint will introduce direct debit for sick cash, electricity and subscriptions.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone with Twint payment app in the foreground in Switzerland',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'The Villa Negroni Study Centre Foundation is associated with SUPSI',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'On 8 July, the Council of State approved the association of the Villa Negroni Study Centre Foundation (CSVN) with SUPSI.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'The Fondazione Centro Studi Villa Negroni joins SUPSI',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Nursery and childcare in the Canton of Basel-City: costs',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergartens and day families in the Canton of Basel-City: prices calculated on income and available cantonal subsidies',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Photo of a nursery in a residential area of Basel City',
 };
 
 export default blogMetaChEn;

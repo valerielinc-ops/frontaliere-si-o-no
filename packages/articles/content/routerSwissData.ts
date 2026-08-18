@@ -1135,6 +1135,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-professionale-basilea-citta': { it: 'apprendistato-formazione-professionale-basilea-citta', en: 'apprenticeship-professional-training-basel-city', de: 'ausbildung-berufliche-bildung-basel-stadt', fr: 'stage-formation-professionnelle-bale-ville' },
  'calo-disoccupazione-svizzera-secondo-trimestre': { it: 'calo-disoccupazione-svizzera-secondo-trimestre', en: 'switzerland-unemployment-rate-decreases-q2-2026', de: 'schweiz-arbeitslosenquote-sinkt-zweiten-quartal-2026', fr: 'chute-chomage-suisse-deuxieme-trimestre-2026' },
  'twint-addebito-diretto-2027': { it: 'twint-addebito-diretto-2027', en: 'twint-direct-debit', de: 'twint-direkter-abzug', fr: 'twint-virement-direct' },
+ 'apprendisti-istruzioni-sicurezza': { it: 'apprendisti-istruzioni-sicurezza', en: 'apprentices-safety-instructions', de: 'praktikanten-sicherheitsanweisungen', fr: 'apprentis-instructions-securite' },
+ 'apprendistato-e-formazione-professionale-basilea-citta': { it: 'apprendistato-e-formazione-professionale-basilea-citta', en: 'apprenticeship-and-professional-training-in-basel-city', de: 'ausbildung-und-fachausbildung-in-basel-stadt', fr: 'formation-professionnelle-et-apprentissage-a-basel-ville' },
+ 'twint-addebito-diretto-fatture': { it: 'twint-addebito-diretto-fatture', en: 'twint-direct-debit-bills', de: 'twint-lastschrift-rechnungen', fr: 'twint-prelevement-automatique-factures' },
+ 'la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi': { it: 'la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi', en: 'fondazione-centro-studi-villa-negroni-joins-supsi', de: 'fondazione-centro-studi-villa-negroni-sich-supsi-anschliessen', fr: 'fondazione-centro-studi-villa-negroni-se-joint-a-supsi' },
+ 'asilo-nido-e-custodia-bambini-canton-basilea-citta': { it: 'asilo-nido-e-custodia-bambini-canton-basilea-citta', en: 'nursery-and-childcare-in-basel-city', de: 'kindertagesstatte-und-kindertagespflege-in-basel-stadt', fr: 'garderie-d-enfants-et-soins-d-enfants-a-basel-ville' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

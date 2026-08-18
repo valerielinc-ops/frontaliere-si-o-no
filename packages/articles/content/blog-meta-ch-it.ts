@@ -3328,6 +3328,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint lancia l\'addebito diretto per i pagamenti ricorrenti',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Gli oltre sei milioni di utenti di Twint potranno autorizzare, gestire e visualizzare le autorizzazioni di addebito diretto per i pagamenti ricorrenti presso i rivenditori che offrono tale soluzione',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Immagine di una persona che utilizza l\'app Twint per autorizzare l\'addebito diretto',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante dopo le gravi lesioni riportate da un apprendista',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Un apprendista in un ambiente di lavoro pericoloso con un formatore',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprendistato e formazione professionale nel Canton Basilea Città',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Canton Basilea Città',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Immagine di un apprendista in un\'azienda basilese',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint lancia l\'addebito diretto per bollette e cassa malati',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'Novità per i pagamenti ricorrenti in Svizzera: Twint introdurrà l\'addebito diretto per cassa malati, elettricità e abbonamenti.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone con app di pagamento Twint in primo piano in Svizzera',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'La fondazione centro studi villa negroni si associa alla SUPSI',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Il Consiglio di Stato ha approvato lo scorso 8 luglio l\'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'La Fondazione Centro Studi Villa Negroni si associa alla SUPSI',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Asilo nido e custodia bambini nel Cantone di Basilea Città: costi',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Gli asili nido e le famiglie diurne nel Cantone di Basilea Città: prezzi calcolati sul reddito e sussidi cantonali disponibili',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto di un asilo nido in un quartiere residenziale di Basilea Città',
 };
 
 export default blogMetaChIt;

@@ -3328,6 +3328,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint lance le prélèvement automatique pour les paiements récurrents',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Les plus de six millions d\'utilisateurs de Twint pourront autoriser, gérer et afficher les autorisations de débit direct pour les paiements récurrents auprès des revendeurs proposant cette solution',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Image d\'une personne qui utilise l\'application Twint pour autoriser le virement direct',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprentis, les instructions ne suffisent pas : « Il faut les suivre de près »',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Le Tribunal fédéral appelle les formateurs à une surveillance accrue et à un accompagnement constant après les blessures graves rapportées par un apprenti',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Un apprenti dans un environnement de travail dangereux avec un superviseur',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprentissage et formation professionnelle dans le canton de Bâle-Ville',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, une rémunération d\'apprenti et une maturité professionnelle dans le canton de Bâle-Ville',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Image d\'un apprenti dans une entreprise de Bâle',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint lance le prélèvement automatique pour les factures et la caisse-maladie',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'Nouveauté pour les paiements récurrents en Suisse : Twint introduira le prélèvement automatique pour les caisses-maladie, l\'électricité et les abonnements.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone avec l\'application de paiement Twint en premier plan en Suisse',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'La fondation Centro Studi Villa Negroni s\'associe à SUPSI',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Le Conseil d\'État a approuvé le 8 juillet dernier l\'association de la Fondation Centro Studi Villa Negroni (CSVN) à la SUPSI.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'La Fondazione Centro Studi Villa Negroni se joint à SUPSI',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Garderie et garde d\'enfants dans le canton de Bâle-Ville : coûts',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Les crèches et les familles de jour dans le canton de Bâle-Ville : prix calculés sur le revenu et allocations cantonales disponibles',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Photo d\'une garderie d\'enfants dans un quartier résidentiel de Bâle-Ville',
 };
 
 export default blogMetaChFr;
