@@ -3274,6 +3274,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Mercato degli affitti nel Cantone di Soletta: canoni medi e diritto di locazione',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'I canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità di conciliazione in materia di locazione nel Cantone di Soletta.',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'Vista sul Cantone di Soletta, Svizzera, con enfasi sul mercato immobiliare',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Acquisto abitazione Soletta: prezzi, fondi propri e spese',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'Il Cantone di Soletta offre prezzi medi per l\'acquisto di una casa, ma ci sono fondi propri richiesti e spese notarili da considerare.',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'Una vista della città di Soletta, con un frontaliere che guarda la sua casa.',
 };
 
 export default blogMetaChIt;

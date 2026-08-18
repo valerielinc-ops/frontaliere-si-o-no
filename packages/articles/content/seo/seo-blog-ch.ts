@@ -42452,6 +42452,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-canton-soletta-prezzi-mutuo': {
+    title: 'Acquisto abitazione Soletta: prezzi, fondi propri e spese',
+    description: 'Il Cantone di Soletta offre prezzi medi per l\'acquisto di una casa, ma ci sono fondi propri richiesti e spese notarili da considerare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquisto, abitazione, soletta, prezzi',
+    ogTitle: 'Comprare casa nel Cantone di Soletta: prezzi, fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili',
+    ogDescription: 'Il Cantone di Soletta offre prezzi medi per l\'acquisto di una casa, ma ci sono fondi propri richiesti e spese notarili da considerare.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-canton-soletta-prezzi-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquisto abitazione Soletta: prezzi, fondi propri e spese",
+      "description": "Il Cantone di Soletta offre prezzi medi per l'acquisto di una casa, ma ci sono fondi propri richiesti e spese notarili da considerare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-canton-soletta-prezzi-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista della città di Soletta, con un frontaliere che guarda la sua casa."
+      },
+      "datePublished": "2026-08-18T03:35:08+00:00",
+      "dateModified": "2026-08-18T03:35:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-canton-soletta-prezzi-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

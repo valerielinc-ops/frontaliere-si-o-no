@@ -3274,6 +3274,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Marché locatif dans le canton de Soleure : loyers moyens et droit de location',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'Les loyers moyens par zone, dépôt de garantie, contestation du loyer initial, résiliation et autorité de conciliation en matière de location dans le canton de Soleure.',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'Vue du canton de Soleure, Suisse, avec un focus sur le marché immobilier',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Achat logement Soleure : prix, fonds propres et dépenses',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'Le canton de Soleure propose des prix moyens pour l\'achat d\'une maison, mais il y a des fonds propres requis et des frais de notaire à prendre en compte.',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'Une vue de la ville de Soleure, avec un frontalier qui regarde sa maison.',
 };
 
 export default blogMetaChFr;
