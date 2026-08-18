@@ -3343,6 +3343,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Asilo nido e custodia bambini nel Cantone di Basilea Città: costi',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Gli asili nido e le famiglie diurne nel Cantone di Basilea Città: prezzi calcolati sul reddito e sussidi cantonali disponibili',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto di un asilo nido in un quartiere residenziale di Basilea Città',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Borse di studio Canton Basilea Città requisiti e importi',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Requisiti e importi delle borse di studio offerte dal Canton Basilea Città per gli studenti svizzeri e stranieri.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Borse di studio offerte dal Canton Basilea Città',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asilo in Svizzera: riprende il trasferimento verso l\'Italia',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'Dopo quasi quattro anni di blocco, la Svizzera torna a trasferire verso l\'Italia i richiedenti asilo di competenza italiana grazie al nuovo patto europeo.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'Il Palazzo Federale a Berna sede del governo svizzero',
+    'blog.article.italia-rimpatrio-asilo.title': 'Richiedenti l\'asilo, riprendono i trasferimenti verso l\'Italia',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'La Svizzera riprenderà i trasferimenti di richiedenti l\'asilo verso l\'Italia, dopo quasi quattro anni di blocco.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Richiedenti l\'asilo alla stazione ferroviaria di Chiasso',
 };
 
 export default blogMetaChIt;

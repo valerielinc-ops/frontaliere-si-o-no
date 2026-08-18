@@ -3343,6 +3343,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Basel-Stadt: Kosten',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergärten und Tagesfamilien im Kanton Basel-Stadt: Berechnete Einkommenspreise und verfügbare Kantonsbeiträge',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto einer Kita in einem Wohngebiet von Basel-Stadt',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Stipendien Kanton Basel-Stadt Anforderungen und Beträge',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Voraussetzungen und Höhe der Stipendien des Kantons Basel-Stadt für in- und ausländische Studierende.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Stipendien des Kantons Basel-Stadt',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asyl in der Schweiz: Wiederaufnahme des Umzugs nach Italien',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'Nach fast vier Jahren Blockade überstellt die Schweiz dank des neuen europäischen Pakts Asylsuchende mit italienischer Zuständigkeit wieder nach Italien.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'Das Bundeshaus in Bern Sitz der Schweizer Regierung',
+    'blog.article.italia-rimpatrio-asilo.title': 'Asylsuchende nehmen die Überstellungen nach Italien wieder auf',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'Die Schweiz wird die Überstellungen von Asylsuchenden nach Italien nach fast vier Jahren Blockade wieder aufnehmen.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Asylsuchende an der Bahnhof von Chiasso, Schweiz',
 };
 
 export default blogMetaChDe;
