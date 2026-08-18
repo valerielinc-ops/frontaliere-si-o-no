@@ -5203,6 +5203,34 @@ const PROMPT_TOKEN_CEILING = 10600;
 const IT_GENERATION_MAX_TOKENS = 8000;
 
 /**
+ * Decisione di cascata (issue #6020, follow-up di #6000): 8000 resta
+ * INVARIATO, non e' un buco lasciato aperto.
+ *
+ * Il costo misurato: il pre-flight del cascade salta ogni modello con
+ * `MODEL_MAX_OUTPUT_TOKENS[model] < IT_GENERATION_MAX_TOKENS` (vedi
+ * `lib/ai-models.mjs`, guard `modelLimit && o.maxTokens > modelLimit`) —
+ * a 8000 sono fuori Cohere-command-r-08-2024 e command-r7b-12-2024 (4096) e
+ * Phi-4-mini-reasoning (4000). Scendere a 4000, come ha gia' fatto il
+ * gemello del corpus (#6595-6607), li farebbe rientrare.
+ *
+ * Perche' non ancora: il fabbisogno reale (~2500-3000 token per il testo IT)
+ * lascerebbe margine anche a 4000, ma QUI il prompt di INGRESSO satura gia'
+ * `PROMPT_TOKEN_CEILING` sopra — ogni ramo e' `over=1` anche a scala
+ * esaurita finche' l'impalcatura statica (33.645 contro i ~15.700 del
+ * gemello, vedi commento su `PROMPT_TOKEN_CEILING`) non e' compressa. Il
+ * pre-flight sull'INPUT saltera' comunque quei tre modelli sui casi peggiori
+ * anche con un `maxTokens` di OUTPUT piu' basso, quindi abbassare questa
+ * costante ora comprerebbe zero modelli aggiuntivi e solo restringerebbe il
+ * margine di output per gli altri — un cambio di logica di generazione senza
+ * il beneficio che lo giustifica sul corpus.
+ *
+ * Riallineamento: quando la riduzione del prompt (item 1 di #6020) porta il
+ * caso peggiore sotto `PROMPT_TOKEN_BUDGET`, questa costante va rivalutata
+ * nello stesso giro — a quel punto i tre modelli tornano davvero
+ * raggiungibili e il confronto costo/beneficio cambia.
+ */
+
+/**
  * Accorcia il testo di RIMEDIO (refinement di headline e fact-check) che i
  * tentativi successivi al primo aggiungono al prompt.
  *
