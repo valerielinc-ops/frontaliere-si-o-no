@@ -1,18 +1,52 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-18T10:11:56.433Z",
+  "generatedAt": "2026-08-18T22:12:16.482Z",
   "total": 79,
-  "newCount": 1,
-  "updatedCount": 77,
-  "removedCount": 3,
-  "unchangedCount": 1,
-  "durationMs": 52263,
-  "avgDurationMs": 52263,
+  "newCount": 2,
+  "updatedCount": 74,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 45530,
+  "avgDurationMs": 45530,
   "durationHistory": [
-    52263
+    45530
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Business-Manager---Market-Israel--Greece---Cyprus--Turkey---100---f-m-d-_r-19439-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Business-Manager---Market-Israel--Greece---Cyprus--Turkey---100---f-m-d-_r-19439-1",
+      "title": "Team Business Manager - Market Israel, Greece & Cyprus, Turkey - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "team-business-manager-market-israel-greece-cyprus-turkey-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-08-18",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager---Intermediaries--Geneva--100---f-m-d-_r-19069-3",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager---Intermediaries--Geneva--100---f-m-d-_r-19069-3",
@@ -251,8 +285,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -287,8 +321,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -474,42 +508,6 @@
       }
     },
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Transformational-Change-Management-Specialist-100---f-m-d-_r-19277-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Transformational-Change-Management-Specialist-100---f-m-d-_r-19277-1",
-      "title": "Junior Transformational Change Management Specialist 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "junior-transformational-change-management-specialist-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-08-11",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T21:53:49.982Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Product-Owner-Global-Control-Sourcing--Managing--Execution-and-Reporting-Solution-80-100---f-m-d-_r-19385-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Product-Owner-Global-Control-Sourcing--Managing--Execution-and-Reporting-Solution-80-100---f-m-d-_r-19385-2",
       "title": "Product Owner Global Control Sourcing, Managing, Execution and Reporting Solution 80-100% (f/m/d)",
@@ -536,6 +534,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-11T10:10:01.064Z",
+      "needsRetranslation": true,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -606,6 +605,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -965,41 +965,6 @@
       }
     },
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Project-Manager----Product-Control-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-until-31032028--possible-extension-_r-19403-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Project-Manager----Product-Control-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-until-31032028--possible-extension-_r-19403-1",
-      "title": "Finance Project Manager - Product Control 100% (f/m/d) - (Contract through our external payroll partner, immediate start until 31.03.2028, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "finance-project-manager-product-control-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-until-31-03-2028-possible-extension-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-08-03",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-03T22:13:22.585Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Head-Data-Center-of-Excellence-100---f-m-d-_r-18127-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Head-Data-Center-of-Excellence-100---f-m-d-_r-18127-1",
       "title": "Team Head Tax Reporting and Reconciliation Data Services 100% (f/m/d)",
@@ -1103,52 +1068,11 @@
         "translation": 25,
         "completeness": 9
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Process-Designer---Source-to-Pay--Global--100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19272-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Process-Designer---Source-to-Pay--Global--100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19272-1",
-      "title": "Process Designer — Source-to-Pay (Global) 100% (f/m/d) (Contract through our external payroll partner with immediate start until 31.12.2026, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "process-designer-source-to-pay-global-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2026-possible-extension-julius-baer",
-      "category": "hr",
-      "datePosted": "2026-07-17",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-17T10:54:38.510Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
     },
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Control-Framework-100---f-m-d-_r-19112-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer---Control-Framework-100---f-m-d-_r-19112-2",
-      "title": "Compliance Officer - Control Framework 100% (f/m/d)",
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19366-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19366-2",
+      "title": "Assistant Relationship Manager Intermediaries 100% (f/m/d)",
       "company": "Julius Baer",
       "companyKey": "julius-baer",
       "location": "Zurich",
@@ -1159,48 +1083,9 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "compliance-officer-control-framework-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-07-13",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-13T21:58:04.445Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Frontend--React--Developer---Financial-Platforms-80---100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-6-months-with-possible-extension-_r-19028",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Frontend--React--Developer---Financial-Platforms-80---100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-6-months-with-possible-extension-_r-19028",
-      "title": "Senior Frontend (React) Developer – Financial Platforms 80 - 100% (f/m/d) - (Contract through our external payroll partner with immediate start for 6 months with possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-frontend-react-developer-financial-platforms-80-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-6-months-with-possible-extension-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-06-25",
+      "slug": "assistant-relationship-manager-intermediaries-100-f-m-d-julius-baer",
+      "category": "wealth-management",
+      "datePosted": "2026-07-31",
       "source": "julius-baer-workday-crawler",
       "employmentType": "FULL_TIME",
       "sourceLang": "en",
@@ -1210,21 +1095,52 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
+      "firstSeenAt": "2026-07-31T11:37:22.793Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Private-Banking-Compliance-Officer-Region-Americas---Iberia-80----100---f-m-d-_r-18693-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Private-Banking-Compliance-Officer-Region-Americas---Iberia-80----100---f-m-d-_r-18693-2",
+      "title": "Private Banking Compliance Officer Region Americas & Iberia 80% - 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "private-banking-compliance-officer-region-americas-iberia-80-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-07-31",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-31T11:37:22.793Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
       }
     }
   ],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/SAP-Ariba-Configuration-Specialist---Upstream--SLP--Sourcing---Contracts--100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19271-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/SAP-Ariba-Configuration-Specialist---Upstream--SLP--Sourcing---Contracts--100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19271-1",
@@ -1260,6 +1176,126 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Transformational-Change-Management-Specialist-100---f-m-d-_r-19277-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Transformational-Change-Management-Specialist-100---f-m-d-_r-19277-1",
+      "title": "Junior Transformational Change Management Specialist 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-transformational-change-management-specialist-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-08-11",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T21:53:49.982Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Project-Manager----Product-Control-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-until-31032028--possible-extension-_r-19403-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Project-Manager----Product-Control-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-until-31032028--possible-extension-_r-19403-1",
+      "title": "Finance Project Manager - Product Control 100% (f/m/d) - (Contract through our external payroll partner, immediate start until 31.03.2028, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "finance-project-manager-product-control-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-until-31-03-2028-possible-extension-julius-baer",
+      "category": "finance",
+      "datePosted": "2026-08-03",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-08-03T22:13:22.585Z",
+      "salaryMin": 189000,
+      "salaryMax": 331500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-80---100--for-Zurich-Desk--f-m-d-_r-18931-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-80---100--for-Zurich-Desk--f-m-d-_r-18931-2",
+      "title": "Assistant Relationship Manager 80 - 100% for Zurich Desk (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "assistant-relationship-manager-80-100-for-zurich-desk-f-m-d-julius-baer",
+      "category": "wealth-management",
+      "datePosted": "2026-06-29",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 25,
         "completeness": 14
       }
