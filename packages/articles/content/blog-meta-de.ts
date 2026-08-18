@@ -10026,6 +10026,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.concorsa-interna-ticino.title': 'Der interne Wettbewerb im Tessin wird die Wähler mobilisieren',
     'blog.article.concorsa-interna-ticino.excerpt': 'Der interne Wettbewerb im Tessin könnte die Wähler beeinflussen, aber wie?',
     'blog.article.concorsa-interna-ticino.imageAlt': 'Innere Konkurrenz in Tessin',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'CSR und Belästigung am Arbeitsplatz: Die Präventionsdebatte',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'Die Abgeordneten Tamara Merlo und Maura Mossi Nembrini fordern nach einem neuen Fall aus dem Jahr 2026 unabhängige Überprüfungen.',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'Ansicht des Kantons Tessin mit institutionellen Gebäuden',
 };
 
 export default blogMetaDe;

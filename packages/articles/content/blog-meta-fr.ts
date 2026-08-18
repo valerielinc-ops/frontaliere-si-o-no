@@ -10029,6 +10029,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.concorsa-interna-ticino.title': 'La concurrence interne au Tessin mobilisera les électeurs',
     'blog.article.concorsa-interna-ticino.excerpt': 'La concurrence interne au Tessin pourrait influencer les électeurs, mais comment ?',
     'blog.article.concorsa-interna-ticino.imageAlt': 'Concurrence interne au Tessin',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'RSE et harcèlement au travail : le débat sur la prévention',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'Les députés Tamara Merlo et Maura Mossi Nembrini demandent des vérifications indépendantes après une nouvelle affaire apparue en 2026.',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'Vue du Canton du Tessin avec des bâtiments institutionnels',
 };
 
 export default blogMetaFr;

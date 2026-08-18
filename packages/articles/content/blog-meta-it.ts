@@ -10028,6 +10028,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.concorsa-interna-ticino.title': 'La concorrenza interna in Ticino mobiliterà gli elettori',
     'blog.article.concorsa-interna-ticino.excerpt': 'La concorrenza interna in Ticino potrebbe influenzare gli elettori, ma come?',
     'blog.article.concorsa-interna-ticino.imageAlt': 'La concorrenza interna in Ticino',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'RSI e molestie sul lavoro: il dibattito sulla prevenzione',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'Le deputate Tamara Merlo e Maura Mossi Nembrini chiedono verifiche indipendenti dopo un nuovo caso emerso nel 2026.',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'Panorama del Canton Ticino con edifici istituzionali',
 };
 
 export default blogMetaIt;

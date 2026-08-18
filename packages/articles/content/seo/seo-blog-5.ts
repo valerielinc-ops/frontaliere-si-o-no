@@ -68867,6 +68867,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rsi-molestie-lavoro-governo-prevenzione': {
+    title: 'RSI e molestie sul lavoro: il dibattito sulla prevenzione',
+    description: 'Le deputate Tamara Merlo e Maura Mossi Nembrini interpellano il Governo ticinese sulle misure di prevenzione delle molestie alla RSI nel 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, molestie, lavoro, dibattito, sulla',
+    ogTitle: 'RSI e molestie sul lavoro: interpellanza in Ticino',
+    ogDescription: 'Approfondimento sull\'interpellanza presentata al Consiglio di Stato ticinese in merito alle misure di prevenzione delle molestie alla RSI e alla SSR.',
+    canonicalPath: '/articoli-frontaliere/rsi-molestie-lavoro-governo-prevenzione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "RSI e molestie sul lavoro: il dibattito sulla prevenzione",
+      "description": "Le deputate Tamara Merlo e Maura Mossi Nembrini interpellano il Governo ticinese sulle misure di prevenzione delle molestie alla RSI nel 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rsi-molestie-lavoro-governo-prevenzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Canton Ticino con edifici istituzionali"
+      },
+      "datePublished": "2026-08-18T00:06:01+00:00",
+      "dateModified": "2026-08-18T00:06:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rsi-molestie-lavoro-governo-prevenzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
