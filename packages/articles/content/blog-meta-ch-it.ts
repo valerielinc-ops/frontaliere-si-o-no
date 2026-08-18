@@ -3370,6 +3370,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Ospedale Grigioni: 518 milioni per nuova ala',
     'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Dodici anni di cantiere terminano. L\'ospedale cantonale dei Grigioni a Coira inaugura la nuova struttura con 518 milioni di franchi investiti. Sale operatorie aumentate, trasloco fine novembre.',
     'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Ospedale cantonale dei Grigioni, nuova ala con architettura moderna e accesso al pronto soccorso unico',
+    'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Ospedale Grigioni: 518 milioni per 12 anni',
+    'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'La nuova ala dell\'Ospedale cantonale dei Grigioni entra in servizio a fine novembre 2026 dopo 518 milioni investiti. Sale operatorie aumentano da 10 a 13.',
+    'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Nuova ala dell\'Ospedale cantonale dei Grigioni a Coira: edificio moderno a 5 piani con ampliamento della capacità operatoria',
 };
 
 export default blogMetaChIt;
