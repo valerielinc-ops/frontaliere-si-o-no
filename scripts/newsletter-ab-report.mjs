@@ -170,6 +170,9 @@ async function main() {
     breaches = unsubscribeGuardBreaches(segmentReport);
     report.segments = segmentReport.bySegment;
     report.unsubscribeGuard = { capPct: UNSUB_RATE_CAP_PCT, overallRate: segmentReport.overallUnsubscribeRate, breaches };
+    // A consumer reading rates without knowing the window is still open will
+    // conclude the newest campaign is the healthiest, every time.
+    report.window = { closed: segmentReport.windowClosed, daysRemaining: segmentReport.windowDaysRemaining };
   } catch (e) {
     segmentError = e;
     report.segments = null;
@@ -227,6 +230,16 @@ async function main() {
 
   const segments = Object.keys(segmentReport.bySegment).sort();
   console.log(`Per-segment (open/click/unsubscribe) — campaign ${campaignId}:`);
+  if (!segmentReport.windowClosed) {
+    // Without this line the newest campaign always reads as an improvement:
+    // its unsubscribes have not happened yet. Sends are spread over days by
+    // the per-subscriber send hour, so the window can still be open a week
+    // after the campaign date.
+    console.log(
+      `    ⚠️  Attribution window still OPEN (${segmentReport.windowDaysRemaining} more day(s)):`
+      + ' unsubscribe rates below are partial and can only go up. Not comparable with a closed campaign.',
+    );
+  }
   if (segments.length === 0) {
     console.log('    (no segment-tagged sends for this campaign)');
   }
@@ -240,7 +253,8 @@ async function main() {
   }
   console.log(`    ${'TOTAL'.padEnd(16)} sends=${String(segmentReport.totalSends).padStart(5)}  unsubscribe-rate=${segmentReport.overallUnsubscribeRate.toFixed(2)}% (guard cap ${UNSUB_RATE_CAP_PCT}%)`);
   if (breaches.length) {
-    console.log(`\n🚨 UNSUBSCRIBE GUARD BREACH (cap ${UNSUB_RATE_CAP_PCT}%):`);
+    console.log(`\n🚨 UNSUBSCRIBE GUARD BREACH (cap ${UNSUB_RATE_CAP_PCT}%)`
+      + (segmentReport.windowClosed ? ':' : ' — and the window is still open, so this is a floor:'));
     for (const b of breaches) {
       console.log(`    ${b.scope}: ${b.rate.toFixed(2)}% (${b.unsubscribes}/${b.sends} sends)`);
     }

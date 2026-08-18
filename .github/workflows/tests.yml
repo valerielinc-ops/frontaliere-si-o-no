@@ -108,7 +108,33 @@ jobs:
   typecheck:
     name: typecheck (tsc --noEmit)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 15 -> 30 il 2026-08-18, stesso difetto e stessa misura del job `vitest`
+    # qui sotto: il tetto stava sotto il caso peggiore reale e uccideva run
+    # sane invece di rilevare un guasto.
+    #
+    # Misurato sulle ultime 500 run: 248 job `success` arrivano al massimo a
+    # 813s, ma il massimo COMPLESSIVO della finestra e' 914s — cioe' 14s oltre
+    # il tetto di 900s, ed e' l'unica morte da cap (job 95740926372, Checkout
+    # 885s, `tsc` mai partito). Il massimo sta quindi GIA' sopra il tetto: non
+    # e' un margine stretto, e' un tetto sotto la distribuzione che deve
+    # contenere. Rimisurato in indipendente da un secondo agente su una
+    # finestra piu' stretta (85 run, 68 `success` / 17 `cancelled`) e su 131
+    # job isolati per nome (105 `success` / 22 `cancelled`): i due massimi
+    # 813s e 914s tornano identici in tutti e tre i campioni.
+    #
+    # La causa non e' `tsc` (33s in locale, e nei job sani resta la fetta
+    # corta): sta nel Checkout, i cui massimi il 2026-08-18 sono raddoppiati
+    # dalle ~14:00Z su tutti i workflow del repo. NON e' la crescita del repo:
+    # `data/` + `public/` tracciati crescevano del 5,6% e 2,9% nei periodi
+    # SENZA kill (17-08 e mattina del 18-08) e sono piatti a -0,1% fra le
+    # 14:00Z e le 20:00Z, dove i kill si concentrano tutti. Un tetto tarato su un
+    # checkout sano diventa una ghigliottina quando il checkout rallenta, e
+    # converte una lentezza in un fallimento duro che nessun `if: failure()`
+    # vede (un kill da `timeout-minutes` produce `cancelled`, non `failure`).
+    #
+    # 30 min = 2,0x il massimo osservato (914s). Ri-misurare se il p99
+    # si muove, non ri-derivare a occhio.
+    timeout-minutes: 30
     env:
       # tsc tiene l'intero program in memoria: 4,4 GB di RSS misurati in locale
       # sull'albero completo. Il default di Node su un runner a 16 GB è più
@@ -143,13 +169,37 @@ jobs:
   vitest:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
-    # 20 min (was 15 at 4 shards): the single runner now executes all ~847 test
-    # files. The measured job wall is 536s (run 28099661052), so 1200s is a ~2.2×
-    # headroom against a slow-runner spike — wide enough to keep a transient slow
-    # run from going RED on a JOB timeout instead of a real failure. (Per-test
-    # timeouts are unchanged from vitest.config.ts and were not hit in the
-    # measured run.)
-    timeout-minutes: 20
+    # 30 min (was 20, era 15 a 4 shard). Il 20 NON era piu' un tetto di
+    # sicurezza: era il vincolo che troncava la distribuzione. Misurato su 500
+    # run di questo workflow (2026-08-14 -> 18), 285 job vitest `success`:
+    # p50 14m42s, p95 17m23s, p99 19m00s, max 20m00s ESATTI (run 32167869565,
+    # passato a 1200s netti). Un massimo che coincide al secondo col tetto e'
+    # la firma di una distribuzione tagliata, non di un tetto capiente.
+    #
+    # Delle 113 run `cancelled` della finestra, 11 sono uccise dal tetto e 102
+    # sono concurrency: le due popolazioni non si sovrappongono nemmeno
+    # (max concurrency 16m57s, min cap-kill 20m00s, zero casi in mezzo). Le 11
+    # sono TUTTE del 2026-08-18 fra le 14:37Z e le 18:13Z, cioe' l'11,8% dei
+    # job del giorno e il 25,0% nella finestra 14:00-19:00Z.
+    #
+    # La causa non sono i test: i due step vitest sommati non superano mai
+    # 11m35s, e il wall meno il Checkout ha massimo 15m50s. Sta nel Checkout,
+    # i cui tempi sono raddoppiati (p50 2m28s -> 3m06s, p90 3m04s -> 5m12s,
+    # max 8m14s; p99 10m15s su tutti i job misurabili). Non e' il repo che
+    # cresce: i byte tracciati sotto `data/` e `public/` sono piatti (-0,1%)
+    # proprio nella finestra dei kill, e crescevano del 3-6% al giorno nei
+    # giorni che di kill non ne hanno avuto nessuno. Il commento precedente citava 75s di
+    # Checkout e 536s di wall per dichiarare "2,2x di margine": quei numeri sono
+    # scaduti, il margine reale era 1,36x al p50 e 1,00x al massimo.
+    #
+    # 30 min copre il caso peggiore osservato (~26m = 15m50s di test + 10m15s di
+    # checkout al p99) con margine. NON scendere a 25: sarebbe solo il 2% sopra
+    # quel caso peggiore, cioe' di nuovo un tetto che tronca invece di proteggere.
+    # Un job vitest davvero appeso costa 10 minuti di runner in piu'; un tetto
+    # troppo basso costa un `cancelled` che `if: failure()` non vede e che
+    # `gh pr checks` mostra come `fail`, bloccando l'auto-merge di PR sane.
+    # Rimisurare quando il p99 del Checkout si muove.
+    timeout-minutes: 30
     steps:
       # NIENTE `sparse-checkout` qui, ed è una scelta MISURATA, non un'omissione.
       # Questo checkout è un fetch bulk shallow (`fetch-depth: 1` implicito, no

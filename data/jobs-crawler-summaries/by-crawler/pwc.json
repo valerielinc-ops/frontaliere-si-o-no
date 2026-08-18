@@ -1,18 +1,19 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-18T10:09:36.461Z",
+  "generatedAt": "2026-08-18T21:55:14.736Z",
   "total": 127,
-  "newCount": 1,
-  "updatedCount": 79,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 80,
+  "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 3257,
-  "avgDurationMs": 3257,
+  "durationMs": 2629,
+  "avgDurationMs": 2629,
   "durationHistory": [
-    3257
+    2629
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Junior Legal Counsel (Fokus Datenschutz und Compliance)",
       "slug": "junior-legal-counsel-fokus-datenschutz-und-compliance-pwc-zurich",
@@ -35,16 +36,20 @@
       "validThrough": "2036-08-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 75,
+      "id": "pwc-0a3f6c68a584",
+      "salaryMin": 64500,
+      "salaryMax": 102500,
+      "currency": "CHF",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T10:09:36.422Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Manager / Senior Manager SAP S/4HANA Technical Transformation, Integration and Clean Core",
       "slug": "manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core-pwc-zurich",
@@ -322,6 +327,7 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -392,6 +398,7 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -845,6 +852,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:03:02.989Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1051,76 +1059,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Young Talent Programme – eingeschränkte Revisionen (70 - 100%)",
-      "slug": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
-      "url": "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/ad773c11-bd1d-433a-b64f-533a463ee9da",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Young-Talent-Programme---eingeschrnkte-Revisionen--70---100--_732820WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zug",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-29",
-      "validThrough": "2036-06-25",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Associate / Senior Associate - Data Protection und Compliance (Fokus Datenschutz)",
-      "slug": "associate-senior-associate-data-protection-e-compliance-fokus-datenschutz-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-data-protection-und-compliance-fokus-datenschutz/76351e47-b58f-4c70-ae2e-b5774fd1845e",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/FY27---IFS---OGC---PA---Zrich---Senior-Associate-2---Start-01082026_741021WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-27",
-      "validThrough": "2036-07-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-433df61f4397",
-      "salaryMin": 113000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-27T22:10:42.489Z",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "(Senior) Associate - Sustainable Finance (Financial Services)",
@@ -1473,7 +1414,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-17T22:05:45.953Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1511,7 +1451,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-08T22:21:17.082Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -209,7 +209,41 @@ jobs:
           # (Il rischio non è solo di lentezza: è il partial clone ad aver
           # stallato un Checkout per 11 MINUTI su questo stesso job — run
           # 27672265799, PR #2394 — lasciando la review idle senza diagnosi.)
-        timeout-minutes: 8
+        #
+        # 8 -> 20 il 2026-08-18. Il tetto di 8 min era tarato per intercettare
+        # quello stallo da 11 minuti, ma la banda utile fra «sano» e «rotto»
+        # si è chiusa e il tetto ha smesso di discriminare.
+        #
+        # Misurato sulle ultime 800 run del workflow (263 Checkout del job
+        # `review`, finestra 08-12 → 08-18): i 248 Checkout `success` hanno
+        # p50 154s, p95 270s, p99 442s e **max 472s** — cioè 8 SECONDI sotto
+        # il tetto di 480s. Le 6 morti valgono tutte **esattamente 480,000s**:
+        # è il valore del tetto, non un valore prodotto da un guasto. Fra le
+        # due popolazioni non c'è nessun buco, e uno strumento senza buco non
+        # sta misurando la differenza che dichiara di misurare — sta tagliando
+        # la coda della propria distribuzione. Lo `0 success sopra 480s` è
+        # censurato per costruzione: un checkout che supera il tetto smette di
+        # essere `success` per definizione.
+        #
+        # Il 2026-08-18 i tempi di Checkout sono raddoppiati su tutto il repo
+        # dalle 14:00Z: p95 di giornata 419s contro i 206-240s dei sei giorni
+        # precedenti, e 9 dei 12 Checkout sani più lenti dell'intera finestra
+        # sono di oggi. Risultato: 5 review uccise su 4 PR distinte (#6029
+        # 14:36, #6030 15:19, #6037 16:10, #6041 17:32, #6037 di nuovo 18:59)
+        # contro UNA sola nei sei giorni precedenti. #6037 è rimasta senza
+        # nessuna review — non è un ritardo, è una PR che il ciclo non può più
+        # prendere, perché `auto-merge-on-lgtm` aspetta un `## LGTM` che nessuno
+        # scriverà mai.
+        #
+        # E la cura era peggiore del male: un Checkout lento che comunque
+        # finisce lascia la review partire, mentre il kill la cancella del
+        # tutto. Il tetto non stava prevenendo il danno, lo stava causando.
+        #
+        # 20 min = 2,5x il massimo sano osservato, e resta 18x sotto il budget
+        # del job (360 min), quindi un wedge vero viene ancora fermato in
+        # tempo utile. Ri-misurare se il p99 si muove, non ri-derivare a
+        # occhio: il numero vecchio era stato scelto su un singolo incidente.
+        timeout-minutes: 20
 
       # Headroom install (~63s misurati su run 30353920865) in BACKGROUND: è
       # lavoro puramente I/O (pipx da PyPI) che non dipende da nulla degli step
