@@ -9973,6 +9973,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'twint-addebito-diretto-2027',
+    category: 'fiscale',
+    date: '2026-08-18T08:08:43.815Z',
+    image: '/images/blog/twint-addebito-diretto-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

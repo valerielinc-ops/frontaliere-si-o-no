@@ -3325,6 +3325,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'More UST: unemployment falls in the second quarter of the year',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'The unemployment rate as defined by the ILO stood at 4.9%. In the first quarter it was 5.2%.',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Switzerland unemployment rate decreases in Q2 2026',
+    'blog.article.twint-addebito-diretto-2027.title': 'Twint launches direct debit for recurring payments',
+    'blog.article.twint-addebito-diretto-2027.excerpt': 'Twint\'s more than six million users will be able to authorize, manage, and view direct debit authorizations for recurring payments at retailers that offer the solution',
+    'blog.article.twint-addebito-diretto-2027.imageAlt': 'Image of a person using the Twint app to authorize direct debit',
 };
 
 export default blogMetaChEn;
