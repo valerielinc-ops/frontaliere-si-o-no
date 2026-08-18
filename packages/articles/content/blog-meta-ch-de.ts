@@ -3322,6 +3322,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Lehre in Basel-Stadt: So finden Sie eine Lehrstelle',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Basel-Stadt hat eine spezifische Regelung für die Lehre und Berufsausbildung. Junge Grenzgänger können bei lokalen Betrieben eine Lehrstelle finden.',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'Ein Frontalier in Ausbildung in Basel-Stadt',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'Mehr USt: sinkende Arbeitslosigkeit im zweiten Quartal des Jahres',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'Die Arbeitslosenquote nach ILO-Definition lag bei 4,9%. Im ersten Quartal lag sie bei 5,2%.',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Schweiz: Arbeitslosenquote sinkt im zweiten Quartal 2026',
 };
 
 export default blogMetaChDe;
