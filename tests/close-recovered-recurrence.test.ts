@@ -33,6 +33,7 @@ import {
   decideChronicEscalation,
   decideChronicDeescalation,
   countRecurrences,
+  dropPhantomCancellations,
   alreadyRecurrenceHeld,
   recurrenceHoldNote,
   chronicEscalationNote,
@@ -42,6 +43,7 @@ import {
   CHRONIC_LABELS,
   DEFAULT_CHRONIC_RECURRENCES,
   DEFAULT_RECURRENCE_WINDOW_HOURS,
+  DEFAULT_MAX_FAILURE_RATE,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
 const NOW = Date.parse('2026-08-18T08:00:00Z');
@@ -371,4 +373,133 @@ test('la soglia 5 resta selettiva sulla famiglia crawler', () => {
   for (const n of [6, 9]) {
     eq(decideChronicEscalation(sample(n), { now }).hold, true, `${n} ricorrenze è cronica`);
   }
+});
+
+// ── #5333: la cancellazione a job-zero non è un fallimento ────────────────────
+//
+// `tests` su push-a-main gira con `cancel-in-progress: false`, ma GitHub tiene un
+// solo run PENDING per gruppo e scarta il pending superato a ogni push successivo:
+// esce una run `cancelled` che non ha mai eseguito un job. Contarla come fallimento
+// gonfia il tasso e pinna aperta la issue. Il discriminante è `total_count` dei job:
+// zero = scartata in coda; >0 = ha lavorato, e in particolare il TIMEOUT
+// (`timeout-minutes`) esce anch'esso `cancelled` — è la premessa di
+// `scan-job-timeouts.mjs` — ed è il guasto che ha riaperto #5333.
+
+/** Una run `cancelled` (non `failure`): distingue lo scarto in coda dal test rosso. */
+const cancelledRun = (minutesAgo, databaseId) => ({
+  databaseId,
+  status: 'completed',
+  conclusion: 'cancelled',
+  createdAt: new Date(NOW - minutesAgo * 60000).toISOString(),
+});
+
+/** `isPhantom` finto: job-zero per gli id elencati, e conta le chiamate. */
+const phantomOracle = (jobZeroIds) => {
+  const calls: number[] = [];
+  const fn = (id) => {
+    calls.push(id);
+    return jobZeroIds.includes(id);
+  };
+  fn.calls = calls;
+  return fn;
+};
+
+test('una cancellazione a job-zero esce dallo storico; una con job resta', () => {
+  const phantom = cancelledRun(10, 901);
+  const timedOut = cancelledRun(20, 902); // job cancellato da `timeout-minutes`
+  const runs = [phantom, timedOut, run(30, true)];
+  const isPhantom = phantomOracle([901]);
+
+  const kept = dropPhantomCancellations(runs, isPhantom);
+  deepEq(kept.map((r) => r.databaseId), [902, 100030]);
+  // Il costo si paga solo sulle righe `cancelled`: la run verde non viene interrogata.
+  deepEq(isPhantom.calls, [901, 902]);
+});
+
+test('senza il filtro la cancellazione a job-zero conta come fallimento', () => {
+  // Il controfattuale esplicito: è la riga che il gate contava PRIMA della fix.
+  const runs = [run(5, true), run(15, true), run(25, true), cancelledRun(35, 901)];
+  eq(decideRecurrenceHold(runs, opts).failures, 1, 'un `cancelled` non è `success`');
+  const filtered = dropPhantomCancellations(runs, phantomOracle([901]));
+  eq(decideRecurrenceHold(filtered, opts).failures, 0);
+});
+
+test('un timeout NON viene filtrato: resta un fallimento misurato', () => {
+  // La regressione da temere è l'opposta della fix: filtrare tutti i `cancelled`
+  // (come fa `loop-health-report.mjs` con `real = total - cancelled - skipped`)
+  // renderebbe il gate cieco proprio ai timeout — cioè a #5333.
+  const runs = [
+    run(5, true), run(15, true), run(25, true),
+    cancelledRun(35, 902), cancelledRun(60, 903), cancelledRun(90, 904),
+  ];
+  const filtered = dropPhantomCancellations(runs, phantomOracle([])); // nessuno job-zero
+  const d = decideRecurrenceHold(filtered, opts);
+  eq(d.sample, 6, 'i timeout restano nel denominatore');
+  eq(d.failures, 3);
+  eq(d.hold, true, 'tre timeout in 8h sono un guasto che ricorre, non rumore');
+});
+
+test('oracolo non disponibile → la run resta (PROCEED-SAFE, bias verso l\'hold)', () => {
+  // `hasNoJobs` torna `false` su errore gh/API: non esclude nulla.
+  const runs = [run(5, true), cancelledRun(35, 901)];
+  deepEq(dropPhantomCancellations(runs, () => false).length, 2);
+  deepEq(dropPhantomCancellations(null as never, () => true), []);
+});
+
+test('#5333: lo storico misurato di `tests` passa da hold a chiusura', () => {
+  // Dati veri, non inventati: `gh run list -w tests -b main -L 100`, finestra di 8h
+  // che precede il commento di hold del 2026-08-18T14:56:48Z. `s` = success,
+  // `c` = cancelled; tutte e 5 le `c` hanno `total_count: 0` (misurato una per una
+  // con `gh api .../actions/runs/<id>/jobs?per_page=1`).
+  const MEASURED: Array<[number, string]> = [
+    [28, 's'], [40, 's'], [47, 'c'], [68, 's'], [81, 's'], [92, 's'], [104, 's'],
+    [123, 's'], [135, 's'], [141, 'c'], [148, 's'], [153, 'c'], [161, 's'], [180, 's'],
+    [215, 's'], [222, 'c'], [231, 's'], [247, 's'], [264, 'c'], [264, 's'], [328, 's'],
+    [554, 's'], [994, 's'], [1073, 's'], [1115, 's'], [1279, 's'],
+  ];
+  const jobZero: number[] = [];
+  const runs = MEASURED.map(([m, c], i) => {
+    const databaseId = 700000 + i;
+    if (c === 'c') jobZero.push(databaseId);
+    return { databaseId, status: 'completed', conclusion: c === 's' ? 'success' : 'cancelled',
+      createdAt: new Date(NOW - m * 60000).toISOString() };
+  });
+
+  // PRIMA: è esattamente il commento postato sulla issue.
+  const before = decideRecurrenceHold(runs, opts);
+  eq(before.failures, 5);
+  eq(before.sample, 21);
+  eq(before.streak, 2);
+  eq((before.rate * 100).toFixed(1), '23.8');
+  eq(before.hold, true);
+
+  // DOPO: nessun fallimento reale nella finestra → transitorio rientrato.
+  const after = decideRecurrenceHold(dropPhantomCancellations(runs, phantomOracle(jobZero)), opts);
+  eq(after.failures, 0);
+  eq(after.sample, 16);
+  eq(after.hold, false);
+  matches(after.reason, /transitorio rientrato/);
+});
+
+test('denominatore che si restringe: il tasso diventa più volatile, non più permissivo', () => {
+  // Effetto collaterale reale della fix, da conoscere: su un workflow molto
+  // cancellato (`Deploy to GitHub Pages`, 91/100 righe `cancelled` su main il
+  // 2026-08-18) il campione crolla, e un solo fallimento vero può superare la
+  // valvola del 2%. Il filtro NON è una scorciatoia verso la chiusura.
+  const noisy = [
+    run(5, true), run(20, true), run(35, true),
+    ...Array.from({ length: 40 }, (_, i) => cancelledRun(50 + i * 5, 800 + i)),
+    run(300, false),
+  ];
+  const jobZero = Array.from({ length: 40 }, (_, i) => 800 + i);
+  const before = decideRecurrenceHold(noisy, opts);
+  eq(before.sample, 44);
+  eq(before.failures, 41, '40 scarti in coda + 1 fallimento vero, indistinguibili');
+  eq(before.hold, true, 'un workflow sano risulterebbe rotto al 93%');
+
+  const d = decideRecurrenceHold(dropPhantomCancellations(noisy, phantomOracle(jobZero)), opts);
+  eq(d.sample, 4, 'il campione crolla da 44 a 4: il tasso resta misurabile ma volatile');
+  eq(d.failures, 1);
+  eq(d.hold, false, 'un solo fallimento con 3 verdi dopo resta un transitorio (maxRecurrences)');
+  ok(d.rate > DEFAULT_MAX_FAILURE_RATE, `1/4 = ${d.rate} sfonda la valvola del 2%: a chiudere è maxRecurrences, non il tasso`);
 });
