@@ -32,6 +32,7 @@ import {
   getStats as getAiStats,
   isAnyModelAvailable,
   printRunSummary,
+  flushScoresBeforeExit,
 } from './lib/ai-models.mjs';
 import { lineDelimitedObjectMap, serializeWithLineDelimited } from './lib/related-search-serialize.mjs';
 // Push-safety ceiling for the writer's `enriched` output — single source of
@@ -625,7 +626,12 @@ async function main() {
   printRunSummary();
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
+  // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
+  // errore butta via gli esiti dei modelli accumulati dalla run — per lo
+  // piu' fallimenti, cioe' il segnale che serve al ledger. Bounded e
+  // non-throwing (vedi flushScoresBeforeExit).
+  await flushScoresBeforeExit();
   console.error('❌ Fatal:', err);
   process.exit(1);
 });

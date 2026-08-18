@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { callLLM, flushScores } from './lib/ai-models.mjs';
+import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { decodeHtmlEntities } from './lib/dedicated-crawler-common.mjs';
 
@@ -323,7 +323,12 @@ async function main() {
   await flushScores();
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
+  // Mirror of the success path's `await flushScores()` at the end of main():
+  // without this the failure path drops every outcome of the run, because
+  // `process.exit()` on the next line skips the `beforeExit` hook that would
+  // otherwise flush. Bounded and non-throwing (see flushScoresBeforeExit).
+  await flushScoresBeforeExit();
   console.error(`❌ generate-company-parser failed: ${err instanceof Error ? err.message : String(err)}`);
   process.exit(1);
 });

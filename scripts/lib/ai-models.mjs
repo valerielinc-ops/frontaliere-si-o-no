@@ -765,11 +765,22 @@ let _claudeCliBinaryMissing = false;
 // timeout is a transient blip worth retrying next call. But once several
 // timeouts land back-to-back within one run, that's not a blip — it's the
 // subprocess itself unable to finish in time — and every further attempt is
-// a guaranteed 60s loss for a fallback that already has a template result
+// a guaranteed 120s loss for a fallback that already has a template result
 // ready. Trip after CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD consecutive timeouts.
+//
+// The threshold was 8, sized off the 159/162 incident above where volume was
+// never the constraint. Issue #432 (2026-08-18) measured the opposite shape:
+// runs that only ever offer claude-cli/haiku 2-4 times *total*, each one a
+// 120000ms timeout with zero stdout bytes — the counter never gets anywhere
+// near 8, so the breaker can't trip at the volume these runs actually
+// produce, and every run repays the full storm cost from zero. 3 keeps a
+// single transient blip from tripping it (the exemption above still holds:
+// one timeout is not a storm) while matching the low end of the observed
+// per-run volume, so a 4-attempt storm run now spares its last attempt
+// instead of paying for all of them every time.
 let _claudeCliConsecutiveTimeouts = 0;
 let _claudeCliTimeoutStormDetected = false;
-const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
+const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 3;
 
 // Same in-run, never-persisted breaker shape as _claudeCliTimeoutStormDetected
 // above, omniroute/auto. _isLastResortProvider() exempts OmniRoute from
@@ -1695,7 +1706,37 @@ const _modelDetails = new Map();
 /** @type {Set<string>} models whose score changed since last persist */
 const _dirtyModels = new Set();
 
+/**
+ * Per-model successes/failures accumulated since the LAST SUCCESSFUL persist —
+ * the delta, not the total. This is what goes to Firestore, as an atomic
+ * `FieldValue.increment`, and it exists because the aggregate doc is shared by
+ * every workflow of both repos while `_modelDetails` is a per-process total.
+ *
+ * The failure mode it removes (measured 2026-08-18 on `claude-cli/haiku`, run
+ * 32134269129): two runs overlap, both load `successes: N`, one adds 4 and
+ * writes N+4, the other adds a failure and writes N — a textbook lost update.
+ * `{merge: true}` does not help here: it merges different FIELDS, so a second
+ * writer naming the same field still wins outright with a stale absolute value.
+ * An increment carries no baseline, so there is nothing stale to write back.
+ *
+ * Cleared only when the write lands; restored on failure, exactly like
+ * `_dirtyModels` (see _persistScoresToFirestore).
+ * @type {Map<string, {successes: number, failures: number}>}
+ */
+const _pendingCounterDeltas = new Map();
+
+/**
+ * Per-model outcomes of THIS run — never cleared by a persist, which is the
+ * whole point: `_modelScores` is preloaded from Firestore at startup, so a
+ * scoreboard built from it lists ~270 models most of which this run never
+ * touched. printRunSummary() reads this map so "which models actually worked"
+ * is answerable from the run log instead of from the ledger.
+ * @type {Map<string, {successes: number, failures: number}>}
+ */
+const _runOutcomes = new Map();
+
 let _firestoreDb = null;     // Firestore instance (null until initScoreStore)
+let _firestoreFieldValue = null; // admin.firestore.FieldValue (atomic increments)
 let _storeInitialized = false;
 let _persistTimer = null;    // Debounce timer
 let _mutationCount = 0;      // Mutations since last persist
@@ -2274,6 +2315,13 @@ export async function initScoreStore() {
       admin.initializeApp({ credential: admin.credential.applicationDefault() });
     }
     _firestoreDb = admin.firestore();
+    // Atomic counter increments (see _pendingCounterDeltas). Captured here and
+    // not re-imported at write time because this is the only place that already
+    // holds the admin module. There is no REST fallback to worry about: unlike
+    // load-rc-env.mjs, this store has NO REST path — when `import('firebase-admin')`
+    // fails the catch below sets `_firestoreDb = null` and the run is memory-only,
+    // so `FieldValue` is available on exactly the paths that persist at all.
+    _firestoreFieldValue = admin.firestore?.FieldValue || null;
 
     // Load all persisted scores from the single aggregate doc (1 read).
     // If the aggregate doesn't exist yet, fall back to the legacy per-model
@@ -2389,6 +2437,31 @@ export async function initScoreStore() {
   }
 }
 
+/**
+ * Test seam: install a stand-in Firestore client without going through
+ * `initScoreStore()`.
+ *
+ * It exists because the store has exactly one door and it is nailed shut for a
+ * test: `initScoreStore()` imports firebase-admin and, when that import or the
+ * credential is missing, sets `_firestoreDb = null` and returns — so a test
+ * process silently exercises the memory-only path and every assertion about
+ * persistence passes vacuously. That is the shape of bug this module just had
+ * (a write that never happened, with nothing red), so the coverage has to reach
+ * the real write path, not a mock of it.
+ *
+ * Deliberately does NOT call `_registerExitHooks()`: a test must not leave
+ * signal handlers behind. Pair it with `resetState()`.
+ *
+ * @param {any} db          object with .collection(name).doc(id).set(data, opts)
+ * @param {any} [fieldValue] object with .increment(n); null exercises the
+ *                           absolute-write degraded path on purpose
+ */
+export function __installScoreStoreForTests(db, fieldValue = null) {
+  _firestoreDb = db;
+  _firestoreFieldValue = fieldValue;
+  _storeInitialized = true;
+}
+
 // ── Firestore persist (debounced) ────────────────────────────
 
 /**
@@ -2405,6 +2478,16 @@ async function _persistScoresToFirestore() {
   const toPersist = [..._dirtyModels];
   _dirtyModels.clear();
   _mutationCount = 0;
+  // Snapshot the counter deltas alongside the dirty set: both are cleared here
+  // and both are restored together if the write fails, so a retry cannot double
+  // count and a failed write cannot silently swallow a success.
+  /** @type {Map<string, {successes: number, failures: number}>} */
+  const deltaSnapshot = new Map();
+  for (const modelId of toPersist) {
+    const d = _pendingCounterDeltas.get(modelId);
+    if (d && (d.successes || d.failures)) deltaSnapshot.set(modelId, { ...d });
+    _pendingCounterDeltas.delete(modelId);
+  }
 
   /** @type {Record<string, any>} */
   const modelsDelta = {};
@@ -2415,11 +2498,31 @@ async function _persistScoresToFirestore() {
     const entry = {
       modelId,                 // Original model ID (with slashes)
       score,
-      successes: details.successes,
-      failures: details.failures,
       lastUsed: now,
       updatedAt: now,
     };
+
+    // successes/failures go out as an ATOMIC INCREMENT of this process's delta,
+    // never as the absolute total (see _pendingCounterDeltas for the measured
+    // lost update this replaces). A model can be dirty for a reason that is not
+    // an outcome — a learned token limit, a schema incompatibility — and then it
+    // has no delta: the counter fields are OMITTED rather than written as 0,
+    // because restating a stale absolute is exactly the defect being removed.
+    const counterDelta = deltaSnapshot.get(modelId);
+    if (counterDelta) {
+      if (_firestoreFieldValue && typeof _firestoreFieldValue.increment === 'function') {
+        if (counterDelta.successes) entry.successes = _firestoreFieldValue.increment(counterDelta.successes);
+        if (counterDelta.failures) entry.failures = _firestoreFieldValue.increment(counterDelta.failures);
+      } else {
+        // Unreachable on the firebase-admin path (initScoreStore captures
+        // FieldValue from the same module that produced the client, and there is
+        // no REST path for this store). Kept so a future client without the
+        // sentinel degrades to the old absolute write instead of dropping the
+        // outcome on the floor.
+        entry.successes = details.successes;
+        entry.failures = details.failures;
+      }
+    }
 
     // If model is exhausted, persist the reset time (next midnight UTC) —
     // but ONLY for 'quota' exhaustion, which is the one reason that
@@ -2471,8 +2574,17 @@ async function _persistScoresToFirestore() {
     await ref.set({ models: modelsDelta, updatedAt: now }, { merge: true });
   } catch (err) {
     console.warn(`⚠️  [ScoreStore] Persist failed: ${err?.message || err}`);
-    // Re-add dirty models so next flush retries them
+    // Re-add dirty models so next flush retries them — and give them back their
+    // counter deltas, merged onto whatever accumulated while this write was in
+    // flight. Without this half the retry would rewrite score and lastUsed while
+    // the outcomes it was carrying vanished with the rejected promise.
     for (const m of toPersist) _dirtyModels.add(m);
+    for (const [m, d] of deltaSnapshot) {
+      const cur = _pendingCounterDeltas.get(m) || { successes: 0, failures: 0 };
+      cur.successes += d.successes;
+      cur.failures += d.failures;
+      _pendingCounterDeltas.set(m, cur);
+    }
   }
 }
 
@@ -2503,22 +2615,64 @@ export async function flushScores() {
   await _persistScoresToFirestore();
 }
 
+/** How long an exit is allowed to wait for the final ledger write. */
+const EXIT_FLUSH_TIMEOUT_MS = 8_000;
+
+/**
+ * Flush before leaving the process — the ONE call every exit path goes through.
+ *
+ * `flushScores()` on its own is the right primitive but the wrong contract for
+ * an exit: it can reject (network), and it can hang as long as the Firestore
+ * client wants to retry. Either would turn "persist my scores" into "fail or
+ * stall the run", which is why the previous exit handlers fired the persist and
+ * did NOT await it. Firing without awaiting is not a compromise, though — it is
+ * a guaranteed loss, because `_persistScoresToFirestore()` clears `_dirtyModels`
+ * before it awaits `ref.set()`: the process leaves with the mutations already
+ * marked clean and never written.
+ *
+ * So: await it, bounded and non-throwing. A timeout logs and gives up rather
+ * than holding the runner. Returns true when the write landed, so a caller (and
+ * a test) can tell "flushed" from "gave up".
+ */
+export async function flushScoresBeforeExit(timeoutMs = EXIT_FLUSH_TIMEOUT_MS) {
+  if (!_firestoreDb || (_dirtyModels.size === 0 && !_persistTimer)) return true;
+  let timer = null;
+  const pending = _dirtyModels.size;
+  try {
+    const timeout = new Promise((resolve) => {
+      timer = setTimeout(() => resolve('timeout'), timeoutMs);
+      // NOT unref'd: this promise races a write we are deliberately waiting for.
+    });
+    const outcome = await Promise.race([flushScores().then(() => 'flushed'), timeout]);
+    if (outcome === 'timeout') {
+      console.warn(`⚠️  [ScoreStore] Final flush timed out after ${timeoutMs}ms — ${pending} model(s) not persisted`);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.warn(`⚠️  [ScoreStore] Final flush failed: ${err?.message || err}`);
+    return false;
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
 /** Register process exit hooks for final flush */
 function _registerExitHooks() {
   if (_exitHooked) return;
   _exitHooked = true;
 
-  const flush = () => {
-    // Synchronous-ish: we can't truly await in exit handlers,
-    // but we fire the persist and give it a moment
-    if (_dirtyModels.size > 0 && _firestoreDb) {
-      _persistScoresToFirestore().catch(() => {});
-    }
-  };
-
-  process.on('beforeExit', async () => { await flushScores(); });
-  process.on('SIGINT', () => { flush(); process.exit(130); });
-  process.on('SIGTERM', () => { flush(); process.exit(143); });
+  process.on('beforeExit', async () => { await flushScoresBeforeExit(); });
+  // Signal handlers await the same bounded flush before exiting. The old pair
+  // called the persist and then `process.exit()` on the very next statement,
+  // which cannot ever complete a write — the comment claimed it gave the persist
+  // "a moment" and there was no moment. Note this is the LATENT half of the
+  // loss, not the dominant one: on the corpus the hard kill of
+  // generate-article.yml is SIGKILL, measured 42 times out of 42 with zero
+  // SIGTERM, and SIGKILL runs no handler at all. What this fixes is the
+  // cooperative stop (a cancelled workflow, a local Ctrl-C).
+  process.on('SIGINT', async () => { await flushScoresBeforeExit(); process.exit(130); });
+  process.on('SIGTERM', async () => { await flushScoresBeforeExit(); process.exit(143); });
 }
 
 // ── Score mutation (with Firestore persistence) ──────────────
@@ -2529,8 +2683,24 @@ export function recordModelSuccess(modelId) {
   const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
   d.successes++;
   _modelDetails.set(modelId, d);
+  _bumpOutcome(modelId, 'successes');
   _dirtyModels.add(modelId);
   _schedulePersist();
+}
+
+/**
+ * Record one outcome in both the not-yet-persisted delta and the run tally.
+ * Two maps and not one because they are cleared by different events: the delta
+ * empties on every successful write, the run tally never does (printRunSummary
+ * reads it at the very end).
+ */
+function _bumpOutcome(modelId, field) {
+  const pending = _pendingCounterDeltas.get(modelId) || { successes: 0, failures: 0 };
+  pending[field]++;
+  _pendingCounterDeltas.set(modelId, pending);
+  const run = _runOutcomes.get(modelId) || { successes: 0, failures: 0 };
+  run[field]++;
+  _runOutcomes.set(modelId, run);
 }
 
 /**
@@ -2588,6 +2758,7 @@ export function recordModelFailure(modelId, { nonRetryable = false, exhausted = 
   const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
   d.failures++;
   _modelDetails.set(modelId, d);
+  _bumpOutcome(modelId, 'failures');
   _dirtyModels.add(modelId);
   _schedulePersist();
 }
@@ -3080,9 +3251,26 @@ export function getStats() {
     consecutive429s: Object.fromEntries(_consecutive429),  // FRO-325
     activeCooldowns: Object.fromEntries([..._providerCooldown].map(([p, t]) => [p, Math.max(0, Math.ceil((t - Date.now()) / 1000))])),
     scoreBoard: getScoreBoard(),
+    runOutcomes: getRunOutcomes(),
     storeBackend: _firestoreDb ? 'firestore' : 'memory',
     dirtyModels: _dirtyModels.size,
   };
+}
+
+/**
+ * Models this run actually called, with the outcome of each — busiest first.
+ *
+ * Deliberately NOT `getScoreBoard()`: that one is built from `_modelScores`,
+ * which initScoreStore preloads from Firestore (270 entries on 2026-08-18), so
+ * it describes the ledger and not the run. This describes the run, which is the
+ * question "sta funzionando questo modello?" actually asks.
+ */
+export function getRunOutcomes() {
+  return [..._runOutcomes.entries()]
+    .map(([model, o]) => ({ model, successes: o.successes, failures: o.failures }))
+    .sort((a, b) => (b.successes + b.failures) - (a.successes + a.failures)
+      || b.successes - a.successes
+      || a.model.localeCompare(b.model));
 }
 
 // Formats one last-resort tier's bucket for printRunSummary()'s compact
@@ -3103,6 +3291,37 @@ function _formatLastResortTier(name, t, isCompeting) {
     parts.push(`${t.skipped} skipped(${reasons})`);
   }
   return `${name} ${parts.join('/')}${isCompeting ? ' [competing]' : ''}`;
+}
+
+// Max models named on the `models:` line. A run touches a handful (the run
+// 32134269129 touched 2); the cap exists so a pathological cascade can't emit a
+// 270-entry line into logs that are already large.
+const RUN_OUTCOME_LINE_MAX = 24;
+
+/**
+ * One compact, grep-able line naming the models this run actually called.
+ *
+ * Why it exists: until 2026-08-18 a model that succeeded at position 0 of the
+ * chain logged NOTHING — `✅ Fallback to X succeeded` only prints when `i > 0` —
+ * so "quale modello ha scritto l'articolo" was unanswerable from the run log,
+ * and the ledger that should have answered it was wrong (see
+ * _pendingCounterDeltas). This line answers it from the log alone.
+ *
+ * `ok`/`ko` and not ✓/✗ so the line survives `grep` in a terminal that mangles
+ * the check marks; the `models:` prefix so it can be pulled out of a 5000-line
+ * run with one pattern. The `ledger=` tail is the observer for the loss itself:
+ * `pending>0` at summary time means mutations are still unwritten at the moment
+ * the run is about to end.
+ */
+function _formatRunOutcomesLine(s) {
+  const outcomes = s.runOutcomes || [];
+  const tail = ` [ledger=${s.storeBackend} pending=${s.dirtyModels}]`;
+  if (outcomes.length === 0) return `   models: none called this run${tail}`;
+  const shown = outcomes.slice(0, RUN_OUTCOME_LINE_MAX)
+    .map((o) => `${o.model} ${o.successes}ok/${o.failures}ko`)
+    .join(' · ');
+  const hidden = outcomes.length - Math.min(outcomes.length, RUN_OUTCOME_LINE_MAX);
+  return `   models: ${shown}${hidden > 0 ? ` · +${hidden} more` : ''}${tail}`;
 }
 
 /**
@@ -3135,6 +3354,7 @@ export function printRunSummary() {
   lines.push(lrReached
     ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t], competing.includes(t))).join(' · ')}`
     : `   last-resort: ${lrTiers.join('/')} not reached this run`);
+  lines.push(_formatRunOutcomesLine(s));
   if (s.errors.length > 0) {
     lines.push(`   Errors: ${s.errors.length}`);
   }
@@ -3153,6 +3373,8 @@ export function resetState() {
   _modelScores.clear();
   _modelDetails.clear();
   _dirtyModels.clear();
+  _pendingCounterDeltas.clear();
+  _runOutcomes.clear();
   _consecutive429.clear();
   _callLatency.clear();
   _clampedTimeouts.clear();
@@ -4369,7 +4591,13 @@ async function _callClaudeCli(model, messages, opts) {
   const args = [
     '-p', userPrompt,
     '--model', apiModel,
-    '--output-format', 'json',
+    // `stream-json` e non `json`: con `json` il CLI non scrive un solo byte
+    // finche' non ha finito, ed e' quello che rende «0 byte a 120s»
+    // indistinguibile fra tre cause che vogliono rimedi opposti. `--verbose` e'
+    // obbligatorio perche' sotto `-p` il CLI emetta davvero gli eventi, ed e'
+    // accettato insieme a `-p` (verificato eseguendolo, CLI 2.1.234). Il perche'
+    // esteso e le latenze misurate stanno su createClaudeCliStreamTrace.
+    '--output-format', 'stream-json', '--verbose',
     '--tools', '',
     '--permission-mode', 'bypassPermissions',
     '--safe-mode',
@@ -4391,7 +4619,7 @@ async function _callClaudeCli(model, messages, opts) {
   // counts against the caller's wall-clock budget (correct) while the actual
   // per-process timeout still reflects the true remaining budget at the
   // moment it starts (not at the moment it was queued).
-  const { code, stdout, stderr } = await _withClaudeCliSlot(async () => {
+  const { code, stdout, stderr, trace } = await _withClaudeCliSlot(async () => {
     // Same deadline-capping rationale as _callLocal above — cap to the
     // caller's remaining wall-clock budget so a last-resort call can't
     // outlive the run.
@@ -4403,11 +4631,19 @@ async function _callClaudeCli(model, messages, opts) {
     return _runClaudeCliProcess(args, timeoutMs);
   });
 
-  let parsed;
-  try {
-    parsed = JSON.parse(stdout);
-  } catch {
-    throw new Error(`[${model}] claude CLI non-JSON output (exit ${code}): ${(stdout || stderr).slice(0, 300)}`);
+  // La riga `type:"result"` del JSONL, non piu' l'intero stdout: sotto
+  // `stream-json` lo stdout e' una sequenza di eventi e `JSON.parse(stdout)`
+  // fallirebbe su ogni chiamata, anche perfettamente riuscita. La riga ha la
+  // stessa forma esatta dell'oggetto che `--output-format json` restituiva
+  // (`is_error` + `result`), quindi da qui in giu' non cambia niente — ed e'
+  // anche la ragione per cui i mock dei test che gia' emettono
+  // `{type:'result', …}` continuano a valere.
+  const parsed = trace.result;
+  if (!parsed) {
+    // Nessun evento `result`: qui la diagnosi del flusso serve quanto sul
+    // timeout — un processo uscito 0 senza result non e' la stessa cosa di uno
+    // che ha scritto spazzatura.
+    throw new Error(`[${model}] claude CLI senza evento result (exit ${code})${trace.describe()}: ${(stdout || stderr).slice(0, 300)}`);
   }
   if (code !== 0 || parsed.is_error) {
     throw new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
@@ -4433,6 +4669,156 @@ function _getChildProcessModule() {
 }
 
 /**
+ * ── DOVE SI E' FERMATO, NON SOLO CHE SI E' FERMATO ──────────────────────────
+ *
+ * Tracciatore incrementale del flusso `stream-json` del CLI `claude`. Esiste
+ * per una ragione sola: rendere DIAGNOSTICABILE il timeout.
+ *
+ * Con `--output-format json` il CLI non scrive niente su stdout finche' non ha
+ * finito — misurato il 2026-08-18 in locale con la CLI 2.1.234 e gli argomenti
+ * esatti di produzione: primo byte a 8442ms su una chiamata che chiude a
+ * 8995ms. Quindi «0 byte a 120s», la firma IDENTICA di ogni fallimento di
+ * `claude-cli/haiku` in produzione (0 successi in assoluto, run 32140876038:
+ * tre tentativi alle 13:12/13:32/13:34 del 2026-08-18, tutti a 120000ms esatti,
+ * 0 byte, stderr vuoto), non distingue tre cause che vogliono rimedi opposti:
+ *
+ *   - la CLI non e' mai partita        → il floor non c'entra niente
+ *   - l'API stallava dopo l'avvio      → il floor non c'entra niente
+ *   - la risposta era solo lenta       → e allora si', il floor e' stretto
+ *
+ * E' quella cecita' ad aver bruciato tre tentativi alla cieca di fila (floor
+ * 60s→120s, semaforo CLAUDE_CLI_MAX_CONCURRENCY, soglia del breaker portata a 3
+ * da #438): nessuno dei tre aveva un dato su cui puntare. Questa classe non
+ * ripara il difetto, lo rende misurabile — ed e' deliberatamente tutto cio' che
+ * fa: nessuna delle tre leve sopra viene toccata nello stesso giro.
+ *
+ * Con `--output-format stream-json --verbose` il primo byte arriva invece a
+ * 942ms, e la sequenza osservata su una chiamata sana e':
+ *
+ *     942ms  system/init
+ *    2699ms  system/thinking_tokens
+ *    4009ms  rate_limit_event
+ *    5065ms  assistant
+ *    5119ms  result/success
+ *
+ * Da cui le tre risposte che il messaggio di timeout ora puo' dare: «nessun
+ * evento» (non e' partita), «fermo dopo system/init a Nms» (stallo a monte),
+ * «fermo dopo assistant» (generazione lenta).
+ *
+ * PERCHE' `rate_limit_event` E' RIPORTATO A PARTE. E' il candidato causale piu'
+ * forte oggi invisibile: lo stesso `CLAUDE_CODE_OAUTH_TOKEN` di Max plan e'
+ * condiviso con `pr-review-loop`, `issue-fix` e il redflag-fixer, quindi un
+ * limite di sessione spiegherebbe esattamente la forma del difetto — funziona
+ * in locale, mai in CI. Il campo c'e' SEMPRE, anche quando l'evento non e'
+ * comparso ('nessun rate_limit_event'), per la stessa ragione per cui il
+ * conteggio dei byte di stdout c'e' anche a zero (vedi il ramo di timeout piu'
+ * sotto): un campo che appare solo quando c'e' qualcosa costringe chi legge il
+ * prossimo incidente a distinguere «non e' successo» da «non lo guardavamo».
+ *
+ * PERCHE' UN BUFFER. Le righe JSONL possono arrivare spezzate fra due eventi
+ * `data`: un chunk NON e' una riga. Si accumula e si taglia sui `\n`; il
+ * residuo senza `\n` finale e' una riga intera solo a processo chiuso (`end()`),
+ * mentre a timeout e' precisamente il segnale «stava scrivendo quando l'abbiamo
+ * ucciso», e come tale viene riportato invece che parsato.
+ *
+ * @param {{now?: () => number}} [deps] iniezione dell'orologio, per i test.
+ */
+export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
+  const startedAt = now();
+  const state = {
+    events: 0,
+    malformed: 0,
+    firstEventAtMs: null,
+    lastEventAtMs: null,
+    lastEventLabel: null,
+    rateLimit: null,
+    result: null,
+  };
+  let buffer = '';
+
+  function absorbLine(raw) {
+    const line = raw.trim();
+    if (!line) return;
+    let evt;
+    try {
+      evt = JSON.parse(line);
+    } catch {
+      state.malformed += 1;
+      return;
+    }
+    if (!evt || typeof evt !== 'object') {
+      state.malformed += 1;
+      return;
+    }
+    const atMs = Math.max(0, now() - startedAt);
+    state.events += 1;
+    if (state.firstEventAtMs === null) state.firstEventAtMs = atMs;
+    state.lastEventAtMs = atMs;
+    const type = typeof evt.type === 'string' ? evt.type : 'sconosciuto';
+    state.lastEventLabel = typeof evt.subtype === 'string' ? `${type}/${evt.subtype}` : type;
+    if (type === 'rate_limit_event') {
+      const info = evt.rate_limit_info && typeof evt.rate_limit_info === 'object' ? evt.rate_limit_info : {};
+      state.rateLimit = {
+        atMs,
+        status: typeof info.status === 'string' ? info.status : 'sconosciuto',
+        kind: typeof info.rateLimitType === 'string' ? info.rateLimitType : 'sconosciuto',
+      };
+    }
+    if (type === 'result') state.result = evt;
+  }
+
+  return {
+    state,
+    /** Un chunk non e' una riga: si bufferizza e si taglia sui `\n`. */
+    feed(chunk) {
+      buffer += String(chunk);
+      let nl = buffer.indexOf('\n');
+      while (nl !== -1) {
+        absorbLine(buffer.slice(0, nl));
+        buffer = buffer.slice(nl + 1);
+        nl = buffer.indexOf('\n');
+      }
+    },
+    /**
+     * A processo chiuso il residuo senza `\n` e' una riga intera — e nei mock
+     * dei test e' l'unica forma in cui il payload arriva mai.
+     */
+    end() {
+      if (!buffer) return;
+      const rest = buffer;
+      buffer = '';
+      absorbLine(rest);
+    },
+    /** Byte di una riga non ancora terminata: a timeout vale «stava scrivendo». */
+    get pendingBytes() { return buffer.length; },
+    /** L'evento `type:"result"`, o null se non e' mai arrivato. */
+    get result() { return state.result; },
+    /**
+     * La frase che va nel messaggio d'errore. Sempre non vuota: anche «non e'
+     * arrivato niente» e' un'informazione, ed e' quella che serviva.
+     */
+    describe() {
+      if (state.events === 0) {
+        return buffer.length
+          ? ` — stream: nessun evento completo, ${buffer.length} byte di riga a meta' (il CLI aveva iniziato a scrivere)`
+          : ' — stream: nessun evento (il CLI non ne ha scritto uno solo: si e\' fermato prima di partire)';
+      }
+      const parti = [
+        `${state.events} ${state.events === 1 ? 'evento' : 'eventi'}`,
+        `fermo dopo ${state.lastEventLabel} a ${state.lastEventAtMs}ms`,
+      ];
+      if (state.events > 1) parti.push(`primo evento a ${state.firstEventAtMs}ms`);
+      if (buffer.length) parti.push(`${buffer.length} byte di riga a meta'`);
+      if (state.malformed) parti.push(`${state.malformed} righe illeggibili`);
+      parti.push(state.rateLimit
+        ? `rate_limit_event a ${state.rateLimit.atMs}ms (status=${state.rateLimit.status}, tipo=${state.rateLimit.kind})`
+        : 'nessun rate_limit_event');
+      return ` — stream: ${parti.join(', ')}`;
+    },
+  };
+}
+
+/**
  * Spawn the `claude` CLI with stdin closed (its default stdin-wait-then-read
  * behavior adds ~3s latency when nothing is piped in — confirmed via live
  * test) and a hard kill-timeout so a hung subprocess can't outlive the run.
@@ -4453,6 +4839,9 @@ async function _runClaudeCliProcess(args, timeoutMs) {
     let stdout = '';
     let stderr = '';
     let settled = false;
+    // Il tracciatore parte con il processo, non con il primo byte: e' la
+    // distanza fra lo spawn e il primo evento a dire se la CLI e' mai partita.
+    const trace = createClaudeCliStreamTrace();
     const timer = setTimeout(() => {
       if (settled) return;
       settled = true;
@@ -4482,11 +4871,18 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       // distinguere «non e' arrivato niente» da «la diagnostica non c'era».
       const stdoutExcerpt = ` — stdout: ${stdout.length} bytes`
         + (stdout ? `: ${stdout.slice(0, 200)}` : ' (nessun byte scritto dal processo)');
-      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}${stdoutExcerpt}`);
+      // …e ora anche DOVE si e' fermato, che e' la domanda a cui il conteggio
+      // dei byte da solo non poteva rispondere: sotto `--output-format json` lo
+      // stdout resta a 0 byte fino all'ultimo istante di una chiamata
+      // perfettamente sana (8442ms su 8995ms, misurato), quindi «0 byte» non
+      // era mai stata la prova di «non e' partita». Sotto `stream-json` lo e'.
+      // Va per primo perche' e' il campo su cui si decide il prossimo rimedio.
+      const streamExcerpt = trace.describe();
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${streamExcerpt}${stderrExcerpt}${stdoutExcerpt}`);
       err.name = 'TimeoutError';
       reject(err);
     }, timeoutMs);
-    child.stdout.on('data', (d) => { stdout += d; });
+    child.stdout.on('data', (d) => { stdout += d; trace.feed(d); });
     child.stderr.on('data', (d) => { stderr += d; });
     child.on('error', (err) => {
       if (settled) return;
@@ -4498,7 +4894,10 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       if (settled) return;
       settled = true;
       clearTimeout(timer);
-      resolve({ code, stdout, stderr });
+      // L'ultima riga puo' non avere il `\n`: senza questo flush il `result`
+      // resterebbe nel buffer e ogni chiamata riuscita passerebbe per fallita.
+      trace.end();
+      resolve({ code, stdout, stderr, trace });
     });
   });
 }
