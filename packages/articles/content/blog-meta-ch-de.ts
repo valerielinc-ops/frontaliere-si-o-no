@@ -3214,6 +3214,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.title': 'Lehre im Kanton Freiburg: Lehrstellen finden',
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.excerpt': 'Wie die Lehre und Berufsausbildung im Kanton Freiburg funktioniert: Beschäftigungsmöglichkeiten, Lehrverträge und Berufsmaturität',
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.imageAlt': 'Berufsausbildung in der Schweiz',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.title': 'Stipendien Kanton Freiburg: Voraussetzungen und Beträge',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.excerpt': 'Anforderungen und Höchstbeträge für Stipendien Kanton Freiburg: Ein praktischer Leitfaden für Studierende',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.imageAlt': 'Student an einer Universität mit Blick auf den Luganersee',
 };
 
 export default blogMetaChDe;

@@ -3214,6 +3214,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.title': 'Apprenticeship in the Canton of Freiburg: find an internship',
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.excerpt': 'How apprenticeships and vocational training work in the Canton of Freiburg: job opportunities, internship contracts and professional maturity',
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.imageAlt': 'Apprenticeships in Switzerland',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.title': 'Scholarships Canton Fribourg: requirements and amounts',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.excerpt': 'Requirements and maximum amounts for scholarships Canton Fribourg: a practical guide for students',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.imageAlt': 'Student in a university campus with view on Lake Lugano',
 };
 
 export default blogMetaChEn;
