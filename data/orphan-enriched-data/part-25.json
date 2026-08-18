@@ -21514,9 +21514,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "data-center-technicien-microsoft-zurich",
-        "en": "data-center-technicien-microsoft-zurich",
-        "de": "data-center-technicien-microsoft-zurich",
+        "en": "data-center-technician-microsoft-zurich",
+        "de": "data-center-techniker-microsoft-zurich",
         "fr": "data-center-technicien-microsoft-zurich"
       },
       "localePaths": {
@@ -21531,6 +21530,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -79483,10 +79483,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-25"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/zusteller-in-briefe-und-pakete-post-25",
-        "en": "/en/find-jobs-ticino/zusteller-in-briefe-und-pakete-post-25",
-        "de": "/de/jobs-im-tessin/zusteller-in-briefe-und-pakete-post-25",
-        "fr": "/fr/trouver-emploi-tessin/zusteller-in-briefe-und-pakete-post-25"
+        "it": "/cerca-lavoro-argovia/zusteller-in-briefe-und-pakete-post-25",
+        "en": "/en/find-jobs-aargau/zusteller-in-briefe-und-pakete-post-25",
+        "de": "/de/jobs-im-aargau/zusteller-in-briefe-und-pakete-post-25",
+        "fr": "/fr/trouver-emploi-argovie/zusteller-in-briefe-und-pakete-post-25"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
