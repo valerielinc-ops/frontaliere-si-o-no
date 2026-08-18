@@ -3280,6 +3280,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Abonnements für öffentliche Verkehrsmittel Kanton Solothurn Zonen und Tarife',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Informationen zu Tarifen und Zonen des öffentlichen Verkehrs im Kanton Solothurn',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Öffentliche Verkehrsmittel im Kanton Solothurn',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.title': 'Solothurn-Führerschein: Was zu tun ist und wie vorzugehen',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.excerpt': 'Umbau des ausländischen Führerscheins im Kanton Solothurn: Wie beantrage ich den Umbau und was mache ich während der Prüfungen?',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.imageAlt': 'Ein Fahrer in einem Auto auf der Schweizer Straße bei Lugano.',
 };
 
 export default blogMetaChDe;

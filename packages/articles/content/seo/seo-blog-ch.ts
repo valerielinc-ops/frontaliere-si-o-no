@@ -42530,6 +42530,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-di-guida-canton-soletta-conversione-ed-esami': {
+    title: 'Patente Soletta: cosa fare e come procedere | Frontaliere Ticino',
+    description: 'Conversione della patente di guida estera nel Cantone di Soletta: cosa fare e come procedere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, soletta, cosa, fare',
+    ogTitle: 'Conversione patente di guida estera nel Cantone di Soletta',
+    ogDescription: 'Conversione della patente di guida estera nel Cantone di Soletta: cosa fare e come procedere.',
+    canonicalPath: '/articoli-svizzera/patente-di-guida-canton-soletta-conversione-ed-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente Soletta: cosa fare e come procedere",
+      "description": "Conversione della patente di guida estera nel Cantone di Soletta: cosa fare e come procedere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-di-guida-canton-soletta-conversione-ed-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un guidatore in un'auto sulla strada svizzera vicino a Lugano."
+      },
+      "datePublished": "2026-08-18T04:08:47+00:00",
+      "dateModified": "2026-08-18T04:08:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-di-guida-canton-soletta-conversione-ed-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

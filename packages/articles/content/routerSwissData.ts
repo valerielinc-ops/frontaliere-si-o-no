@@ -1119,6 +1119,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione': { it: 'affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione', en: 'solothurn-rental-market-average-prices-and-tenant-rights', de: 'mietpreise-im-kanton-soelothurn-und-mieterrechte', fr: 'le-marche-locatif-du-canton-de-soleure-prix-moyens-et-droits-du-locataire' },
  'comprare-casa-canton-soletta-prezzi-mutuo': { it: 'comprare-casa-canton-soletta-prezzi-mutuo', en: 'buying-a-house-in-sothurn', de: 'eine-haus-kauft-in-soletta', fr: 'acheter-une-maison-a-soleure' },
  'trasporti-pubblici-canton-soletta-abbonamenti': { it: 'trasporti-pubblici-canton-soletta-abbonamenti', en: 'public-transport-canton-solothurn-tickets', de: 'oeffentliche-verkehrsmittel-kanton-solothurn-fahrkarten', fr: 'transports-publics-canton-de-soleure-abonnements' },
+ 'patente-di-guida-canton-soletta-conversione-ed-esami': { it: 'patente-di-guida-canton-soletta-conversione-ed-esami', en: 'soletta-switzerland-driving-license-conversion-exams', de: 'fahrerschein-kanton-soletta-umstellung-und-pruefungen', fr: 'permis-de-conduire-canton-soletta-conversion-et-examens' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
