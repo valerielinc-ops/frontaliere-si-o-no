@@ -322,6 +322,16 @@ jobs:
             echo "elenco vuoto → nessuna esclusione, gira la suite intera"
             exit 0
           fi
+          # L'endpoint `pulls/<n>/files` tronca a 3000 file. Un troncamento non
+          # e' un errore — risponde 200 con una lista PARZIALE — quindi il
+          # fail-safe sul fallimento non lo copre: un path corpus caduto oltre
+          # il taglio farebbe escludere un gate che invece doveva bloccare.
+          # Sopra la soglia si rinuncia a decidere e gira la suite intera, che
+          # e' la stessa direzione di ogni altro fallimento qui.
+          if [ "$count" -ge 3000 ]; then
+            echo "elenco al cap dell'API ($count): possibile troncamento → suite intera"
+            exit 0
+          fi
           decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"

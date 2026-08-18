@@ -130,6 +130,48 @@ describe('registro dei gate corpus-wide (split del cammino bloccante)', () => {
     expect(dead).toEqual([]);
   });
 
+  it('nessuna radice sorvegliata passa da un symlink', () => {
+    // LA REGRESSIONE CHE HA TROVATO LA REVIEW su questa stessa PR.
+    //
+    // `services/locales/blog-body` e `blog-body-ch` sono symlink dentro
+    // `packages/articles/content/` — git li traccia come UN file, mode 120000.
+    // Un `watch` che li nomina non matcha MAI un diff vero, perché sia
+    // `git diff --name-only` sia l'API della PR riportano il path reale
+    // (`packages/articles/content/blog-body…`), mai l'alias. La prima stesura
+    // del registro sorvegliava l'alias per `blog-body-typescript-syntax`: il
+    // gate nato per l'apostrofo non escapato del 2026-07-29 non poteva restare
+    // bloccante sulla PR che porta quell'apostrofo.
+    //
+    // Il controllo di esistenza qui sopra NON bastava — l'alias esiste
+    // eccome. Serve questo, che guarda il MODO e non la presenza.
+    const viaSymlink: string[] = [];
+    for (const entry of corpusWideRegistry()) {
+      for (const w of entry.watch) {
+        const stripped = w.replace(/\/$/, '');
+        let out = '';
+        try {
+          out = execFileSync('git', ['ls-files', '-s', '--', stripped], {
+            cwd: ROOT,
+            encoding: 'utf-8',
+            maxBuffer: 64 * 1024 * 1024,
+          });
+        } catch {
+          continue;
+        }
+        // `ls-files -s -- <dir>` elenca OGNI file sotto la directory, quindi
+        // guardare la prima riga direbbe «symlink» per `services/locales/` solo
+        // perché il primo figlio in ordine è `blog-body`. Symlink è il path
+        // sorvegliato, non un suo discendente: cerco la riga il cui NOME è
+        // esattamente `stripped`.
+        const self = out
+          .split('\n')
+          .find((line) => line.endsWith(`\t${stripped}`));
+        if (self && self.startsWith('120000')) viaSymlink.push(`${entry.file} → ${w}`);
+      }
+    }
+    expect(viaSymlink).toEqual([]);
+  });
+
   it('la misura dichiarata è presente e plausibile per ogni voce', () => {
     // Il registro giustifica la propria esistenza con una cifra misurata. Una
     // voce senza misura è una voce che nessuno può contestare, e fra un anno
@@ -153,6 +195,21 @@ describe('registro dei gate corpus-wide (split del cammino bloccante)', () => {
       expect(blocking).toContain('tests/generated-content-parses.test.ts');
       expect(blocking).toContain('tests/article-hero-image-integrity.test.ts');
       expect(blocking).toContain('tests/render-article-pages-single-vs-full.test.ts');
+    });
+
+    it('un diff su un BODY del corpus tiene bloccante il gate di sintassi', () => {
+      // Il path e' quello REALE con cui un body arriva in un diff. La prima
+      // stesura sorvegliava l'alias symlink `services/locales/blog-body/` e
+      // questa asserzione sarebbe fallita: e' il caso d'uso primario del gate
+      // (l'apostrofo non escapato del 2026-07-29 e' atterrato esattamente come
+      // `packages/articles/content/blog-body-ch/fr/<slug>.ts`).
+      const blocking = blockingTestsFor([
+        'packages/articles/content/blog-body-ch/fr/frontaliere-insegnante-scuola-ticino.ts',
+      ]);
+      expect(blocking).toContain('tests/blog-body-typescript-syntax.test.ts');
+      expect(blockingTestsFor(['packages/articles/content/blog-body/it/x.ts'])).toContain(
+        'tests/blog-body-typescript-syntax.test.ts',
+      );
     });
 
     it('un diff sul renderer li tiene bloccanti via chiusura degli import', () => {

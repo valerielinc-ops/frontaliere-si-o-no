@@ -57,17 +57,21 @@
  * escluderebbe niente e non proteggerebbe niente: fallirebbe in silenzio, che
  * è il modo peggiore di rompere un gate.
  */
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   listDatasetDependentTests,
   listDatasetIndependentTests,
   localImports,
-} from './dataset-dependent-tests.mjs';
+} from "./dataset-dependent-tests.mjs";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const ROOT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "..",
+  "..",
+);
 
 /**
  * Il registro. `seconds` è MISURATO (run 32172467043), non stimato: serve a
@@ -78,75 +82,70 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
  * `watch` = radici DATI lette dal filesystem, path POSIX relativi alla root.
  * Un valore che finisce con `/` è un prefisso di directory, altrimenti è un
  * file esatto. Il codice importato NON va qui: lo deriva `blockingTestsFor`.
+ *
+ * ─── MAI un path che passa da un SYMLINK ──────────────────────────────────
+ *
+ * `services/locales/blog-body` e `blog-body-ch` sono symlink (git li traccia
+ * come UN file, mode 120000) dentro `packages/articles/content/`. Un `watch`
+ * che li nomina non matcha MAI un diff vero: `git diff --name-only` e l'API
+ * della PR riportano il path reale, `packages/articles/content/blog-body…`,
+ * mai l'alias. Una prima stesura di questo registro aveva esattamente quel
+ * difetto su `blog-body-typescript-syntax.test.ts` — il gate nato per
+ * l'apostrofo non escapato del 2026-07-29 non poteva restare bloccante sulla
+ * PR che porta quell'apostrofo, e degradava a solo-post-merge in silenzio.
+ * Sembrava coperto e non lo era, che è la forma di guasto peggiore.
+ *
+ * Ora è impossibile per costruzione: `tests/corpus-wide-test-partition.test.ts`
+ * fallisce se un `watch` è un symlink. Il path da scrivere qui è quello reale.
  */
 const REGISTRY = [
   {
-    file: 'tests/article-hero-image-integrity.test.ts',
+    file: "tests/article-hero-image-integrity.test.ts",
     seconds: 53.9,
     // Rende davvero le pagine della sezione `svizzera` con `renderArticlePages`
     // e verifica src/width/height delle hero contro i file immagine reali.
-    watch: [
-      'packages/articles/content/',
-      'services/locales/blog-body-ch/',
-      'services/locales/blog-body/',
-      'public/images/blog/',
-      'data/swiss-articles-data.ts',
-      'data/blog-articles-data.ts',
-    ],
+    watch: ["packages/articles/content/", "public/images/blog/"],
   },
   {
-    file: 'tests/generated-content-parses.test.ts',
+    file: "tests/generated-content-parses.test.ts",
     seconds: 53.2,
     // `transformSync` di esbuild su ogni modulo generato dei due corpora.
-    watch: ['packages/articles/content/', 'services/locales/'],
+    watch: ["packages/articles/content/", "services/locales/"],
   },
   {
-    file: 'tests/render-article-pages-single-vs-full.test.ts',
+    file: "tests/render-article-pages-single-vs-full.test.ts",
     seconds: 24.7,
     // Byte-equivalenza fra render narrow (fast-publish) e render pieno.
-    watch: [
-      'packages/articles/content/',
-      'services/locales/blog-body-ch/',
-      'services/locales/blog-body/',
-      'data/swiss-articles-data.ts',
-      'data/blog-articles-data.ts',
-    ],
+    watch: ["packages/articles/content/"],
   },
   {
-    file: 'tests/render-article-hub-pages-narrow-vs-full.test.ts',
+    file: "tests/render-article-hub-pages-narrow-vs-full.test.ts",
     seconds: 20.1,
-    watch: [
-      'packages/articles/content/',
-      'services/locales/',
-      'data/swiss-articles-data.ts',
-      'data/blog-articles-data.ts',
-    ],
+    watch: ["packages/articles/content/", "services/locales/"],
   },
   {
-    file: 'tests/articles-archive-chronological.test.ts',
+    file: "tests/articles-archive-chronological.test.ts",
     seconds: 17.3,
     // Ordine cronologico dell'archivio: legge i registri e rende gli hub.
-    watch: [
-      'packages/articles/content/',
-      'services/locales/',
-      'data/swiss-articles-data.ts',
-      'data/blog-articles-data.ts',
-    ],
+    watch: ["packages/articles/content/", "services/locales/"],
   },
   {
-    file: 'tests/job-locale-consistency.test.ts',
+    file: "tests/job-locale-consistency.test.ts",
     seconds: 16.7,
     // Unico del gruppo a NON riguardare gli articoli: ratchet a tasso sul
     // dataset job assemblato. La radice dati è la slice committata, non
     // `data/jobs.json` che è un artefatto gitignored derivato da quella.
-    watch: ['data/jobs/', 'data/jobs-crawler-summaries/'],
+    watch: ["data/jobs/", "data/jobs-crawler-summaries/"],
   },
   {
-    file: 'tests/blog-body-typescript-syntax.test.ts',
+    file: "tests/blog-body-typescript-syntax.test.ts",
     seconds: 15.5,
     // esbuild su ENTRAMBI i corpora body (l'apostrofo non escapato del
     // 2026-07-29 passò perché il guard ne copriva uno solo).
-    watch: ['services/locales/blog-body/', 'services/locales/blog-body-ch/'],
+    watch: [
+      "packages/articles/content/blog-body/",
+      "packages/articles/content/blog-body-ch/",
+    ],
   },
 ];
 
@@ -162,7 +161,10 @@ export function listCorpusWideTests() {
  * nuovo entra nel complemento senza che nessuno tocchi niente.
  */
 function listAllTests() {
-  return [...listDatasetDependentTests(), ...listDatasetIndependentTests()].sort();
+  return [
+    ...listDatasetDependentTests(),
+    ...listDatasetIndependentTests(),
+  ].sort();
 }
 
 /**
@@ -184,7 +186,7 @@ export function corpusWideSeconds() {
   return Number(REGISTRY.reduce((a, e) => a + e.seconds, 0).toFixed(1));
 }
 
-const toPosixRel = (abs) => path.relative(ROOT, abs).split(path.sep).join('/');
+const toPosixRel = (abs) => path.relative(ROOT, abs).split(path.sep).join("/");
 
 /**
  * Chiusura degli import locali di un test, come insieme di path POSIX relativi.
@@ -208,12 +210,15 @@ function importClosure(relFile) {
 
 const closureCache = new Map();
 function cachedClosure(relFile) {
-  if (!closureCache.has(relFile)) closureCache.set(relFile, importClosure(relFile));
+  if (!closureCache.has(relFile))
+    closureCache.set(relFile, importClosure(relFile));
   return closureCache.get(relFile);
 }
 
 function matchesWatch(changedPath, watch) {
-  return watch.some((w) => (w.endsWith('/') ? changedPath.startsWith(w) : changedPath === w));
+  return watch.some((w) =>
+    w.endsWith("/") ? changedPath.startsWith(w) : changedPath === w,
+  );
 }
 
 /**
@@ -230,7 +235,9 @@ function matchesWatch(changedPath, watch) {
  * vederlo girare prima del merge, non dopo.
  */
 export function blockingTestsFor(changedPaths) {
-  const changed = [...new Set(changedPaths.map((p) => p.trim()).filter(Boolean))];
+  const changed = [
+    ...new Set(changedPaths.map((p) => p.trim()).filter(Boolean)),
+  ];
   if (changed.length === 0) return [];
   const out = [];
   for (const entry of REGISTRY) {
@@ -265,19 +272,25 @@ export function skippableTestsFor(changedPaths) {
  */
 export function parseCorpusSkipList(raw) {
   const allowed = new Set(listCorpusWideTests());
-  return [...new Set(String(raw ?? '').split(/[\s,]+/).filter(Boolean))]
+  return [
+    ...new Set(
+      String(raw ?? "")
+        .split(/[\s,]+/)
+        .filter(Boolean),
+    ),
+  ]
     .filter((f) => allowed.has(f))
     .sort();
 }
 
 function readChangedPathsFromStdin() {
-  let raw = '';
+  let raw = "";
   try {
-    raw = fs.readFileSync(0, 'utf-8');
+    raw = fs.readFileSync(0, "utf-8");
   } catch {
-    raw = '';
+    raw = "";
   }
-  return raw.split('\n');
+  return raw.split("\n");
 }
 
 // ─── CLI ──────────────────────────────────────────────────────────────────
@@ -286,14 +299,17 @@ function readChangedPathsFromStdin() {
 // `--blocking`       legge i path cambiati da stdin, stampa i test che restano
 //                    bloccanti (uno per riga; vuoto = nessuno)
 // `--gha-output`     come sopra ma in forma `key=value` per $GITHUB_OUTPUT
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
+) {
   const argv = process.argv.slice(2);
-  if (argv.includes('--seconds')) {
+  if (argv.includes("--seconds")) {
     console.log(String(corpusWideSeconds()));
-  } else if (argv.includes('--blocking') || argv.includes('--gha-output')) {
+  } else if (argv.includes("--blocking") || argv.includes("--gha-output")) {
     const changed = readChangedPathsFromStdin();
     const blocking = blockingTestsFor(changed);
-    if (argv.includes('--gha-output')) {
+    if (argv.includes("--gha-output")) {
       // `skip` = i corpus-wide che questo diff NON rende pertinenti, quindi
       // esclusi dal job bloccante. `blocking` = quelli che restano gate della
       // PR, identici a oggi. La decisione è per-test: un diff su
@@ -303,12 +319,12 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
       //
       // Se questo script fallisce, lo step chiamante lascia `skip` VUOTO e la
       // suite gira intera: un errore qui non può mai tradursi in gate saltato.
-      console.log(`skip=${skippableTestsFor(changed).join(' ')}`);
-      console.log(`blocking=${blocking.join(' ')}`);
+      console.log(`skip=${skippableTestsFor(changed).join(" ")}`);
+      console.log(`blocking=${blocking.join(" ")}`);
     } else {
-      console.log(blocking.join('\n'));
+      console.log(blocking.join("\n"));
     }
   } else {
-    console.log(listCorpusWideTests().join('\n'));
+    console.log(listCorpusWideTests().join("\n"));
   }
 }

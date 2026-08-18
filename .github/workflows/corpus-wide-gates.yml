@@ -86,9 +86,17 @@ on:
       # I renderer e i registri che i sette gate esercitano. Sono file che
       # cambiano per mano umana, quindi il push scatta (al contrario del
       # corpus, vedi la testata).
-      - 'build-plugins/ogPagesPlugin.ts'
-      - 'build-plugins/seoHubsPlugin.ts'
-      - 'build-plugins/spaBundleResolver.ts'
+      #
+      # `build-plugins/**` e non l'elenco dei tre plugin di ingresso: la
+      # chiusura degli import di questi test raggiunge anche
+      # `build-plugins/shared/seoPageShell.ts`, `staticPagesPlugin.ts`,
+      # `articlesSiteShellBootstrap.ts` e altri, che una lista scritta a mano
+      # dimenticherebbe — e la dimenticanza non si vedrebbe: il gate
+      # aspetterebbe fino a 6h il cron invece di rigirare subito. Qui la
+      # granularita' non serve a risparmiare (il workflow non blocca nessuno),
+      # serve a non perdere l'evento. Sul lato PR, dove il costo conta, il
+      # trigger e' invece DERIVATO dalla chiusura degli import.
+      - 'build-plugins/**'
       - 'packages/articles/engine/**'
       - 'data/blog-articles-data.ts'
       - 'data/swiss-articles-data.ts'
