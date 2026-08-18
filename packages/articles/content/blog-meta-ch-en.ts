@@ -3379,6 +3379,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soglie-patrimonio-banche-svizzera.title': 'If you have this money, the banks consider you wealthy',
     'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'From regional banks to private institutions: discover the capital thresholds that classify clients and what advantages the change of category offers.',
     'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Modern Swiss bank office with financial documents and wealth management desk setup',
+    'blog.article.easygov-pmi-svizzere.title': 'EasyGov eases Swiss SMEs',
+    'blog.article.easygov-pmi-svizzere.excerpt': 'Study by the University of St. Gallen for SECO: EasyGov reduces administrative time and costs for Swiss SMEs. Analysis conducted in August 2026.',
+    'blog.article.easygov-pmi-svizzere.imageAlt': 'Swiss administrative office with staff working on computers displaying digital dashboards for bureaucratic management',
 };
 
 export default blogMetaChEn;
