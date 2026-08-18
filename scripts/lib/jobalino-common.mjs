@@ -134,7 +134,12 @@ export function parseJobalinoListingHtml(html = '') {
   // Each opening is a single <a class="reflink" href="…/job/{HASH}/{slug}">…</a>.
   // The href may carry a trailing query string (e.g. `?origin=joblist`) —
   // strip it so the captured URL stays canonical.
-  const tileRx = /<a\s+href="(https:\/\/my\.jobalino\.ch\/job\/([a-f0-9]+)\/([a-z0-9-]+))(?:\?[^"]*)?"[^>]*class="reflink"[^>]*>([\s\S]*?)<\/a>/g;
+  // Jobalino appends `_NNNN` to disambiguate slugs that collide with an
+  // existing opening (e.g. two "Fachperson Gesundheit EFZ" postings) —
+  // `[a-z0-9-]` alone drops every collision-suffixed tile, and on days
+  // where most/all active openings happen to collide this silently zeroes
+  // the whole listing (see #5998).
+  const tileRx = /<a\s+href="(https:\/\/my\.jobalino\.ch\/job\/([a-f0-9]+)\/([a-z0-9_-]+))(?:\?[^"]*)?"[^>]*class="reflink"[^>]*>([\s\S]*?)<\/a>/g;
   let m;
   while ((m = tileRx.exec(html))) {
     const url = m[1];
