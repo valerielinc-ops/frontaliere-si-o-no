@@ -3250,6 +3250,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-soletta.title': 'Permis de séjour C canton de Soleure : exigences et demande',
     'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analyse des exigences, des critères d\'intégration et de la procédure de demande du permis de séjour C dans le canton de Soleure.',
     'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Bâtiment administratif dans le canton de Soleure',
+    'blog.article.permesso-l-soletta-validita-e-proroga.title': 'Permis L à Soleure : durée et conditions',
+    'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'Le permis L de courte durée dans le canton de Soleure est valable pour une durée maximale d\'un an. Les conditions de prolongation et de passage à l\'autorisation de séjour sont décrites ci-dessous.',
+    'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Scène d\'une rue de Soleure avec un panneau indiquant la durée maximale d\'un permis L à court terme.',
 };
 
 export default blogMetaChFr;

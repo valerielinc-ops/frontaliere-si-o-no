@@ -3250,6 +3250,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-soletta.title': 'Niederlassungsbewilligung C Kanton Solothurn: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analyse der Voraussetzungen, der Integrationskriterien und des Verfahrens zur Beantragung der Niederlassungsbewilligung C im Kanton Solothurn.',
     'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Verwaltungsgebäude im Kanton Solothurn',
+    'blog.article.permesso-l-soletta-validita-e-proroga.title': 'Erlaubnis L in Solothurn: Dauer und Bedingungen',
+    'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'Die Kurzzeitbewilligung L im Kanton Solothurn ist maximal 1 Jahr gültig. Die Bedingungen für die Verlängerung und den Übergang zur Aufenthaltsbewilligung sind nachfolgend beschrieben.',
+    'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Szene einer Strasse in Solothurn mit einem Schild, das die Höchstdauer eines kurzfristigen L-Visums anzeigt.',
 };
 
 export default blogMetaChDe;
