@@ -250,6 +250,54 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
+      - name: Decide i gate corpus-wide pertinenti a questo diff
+        # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
+        #
+        # Sette file di test costano 201,4s misurati (run 32172467043): il 20,1%
+        # del tempo-file della suite per l'1,2% dei test. Non sono lenti per
+        # test — `tests/seo-completeness.test.ts` ne fa 65.750 in 21s — sono
+        # lenti perché iterano sull'intero corpus (~14.748 file) o rendono una
+        # sezione. Il costo è O(corpus) e cresce da solo a ogni articolo
+        # pubblicato, quindi il problema peggiora mentre nessuno tocca niente.
+        #
+        # NON sono stati tolti né allentati (Non-Negotiable #1). Girano:
+        #   - QUI, bloccanti e identici a prima, quando il diff tocca i dati che
+        #     scandiscono o il codice che li rende — cioè quando sono il gate
+        #     che serve. La decisione è PER-TEST: un diff su
+        #     `data/jobs/by-crawler/**` (il caso più frequente del repo) tiene
+        #     bloccante il solo `job-locale-consistency`, non tutti e sette;
+        #   - su main, sempre, in `.github/workflows/corpus-wide-gates.yml`, che
+        #     a rosso apre una issue `Workflow Failure: corpus-wide gates`
+        #     chiusa dal reconciler orario `close-recovered-failure-issues.yml`.
+        #
+        # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
+        # lascia `skip` VUOTO, quindi la suite gira INTERA. Un guasto qui costa
+        # tempo, mai copertura. `|| true` sul fetch e `|| echo` sul merge-base
+        # servono a questo.
+        #
+        # Solo su `pull_request`: su `push` a main, `github.base_ref` è vuoto e
+        # non esiste un diff da valutare — lì la suite gira intera come oggi, e
+        # il verdetto di salute di main resta completo.
+        id: corpus
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          # `origin/<base>` è già stato fetchato dallo step "Fetch base ref for
+          # the factuality diff" qui sopra, che usa lo stesso riferimento: una
+          # sola nozione di base per i due gate che ne hanno bisogno.
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -o pipefail
+          base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
+          if [ -z "$base" ]; then
+            echo "merge-base non risolta → nessuna esclusione, gira la suite intera"
+            exit 0
+          fi
+          git diff --name-only "$base" HEAD > changed-paths.txt || : > changed-paths.txt
+          echo "path toccati dalla PR: $(wc -l < changed-paths.txt)"
+          decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
+          printf '%s\n' "$decision"
+          printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
@@ -307,6 +355,11 @@ jobs:
         # (progettata per i 4 shard di un tempo) → due file sono già supportati.
         env:
           VITEST_DATASET_GROUP: independent
+          # Vuoto su push a main e su qualunque esito anomalo dello step
+          # "Decide i gate corpus-wide" → nessuna esclusione, suite intera.
+          # `parseCorpusSkipList` filtra comunque il valore contro il registro:
+          # questa env non puo' spegnere un test che non sia uno dei sette.
+          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
       - name: Wait for background assemble
@@ -324,6 +377,7 @@ jobs:
       - name: vitest run (test che leggono il dataset)
         env:
           VITEST_DATASET_GROUP: dependent
+          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
 
       - name: Upload test timing
