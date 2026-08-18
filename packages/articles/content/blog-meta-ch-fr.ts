@@ -3373,6 +3373,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Hôpital Grisons : 518 millions pour 12 ans',
     'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'La nouvelle aile de l\'Hôpital cantonal des Grisons entre en service fin novembre 2026 après 518 millions investis. Les salles d\'opération passent de 10 à 13.',
     'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Nouvelle aile de l\'Hôpital cantonal des Grisons à Coire : bâtiment moderne de 5 étages avec capacité opératoire accrue',
+    'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologue : 90 000 francs pour 1,5 jour de travail',
+    'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Les données divulguées révèlent des salaires entre 90 000 et 475 000 francs par an. Baume-Schneider s\'attaque aux primes liées au chiffre d\'affaires dans le système de santé suisse.',
+    'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Département de radiologie avec appareil d\'IRM dans une clinique suisse',
 };
 
 export default blogMetaChFr;
