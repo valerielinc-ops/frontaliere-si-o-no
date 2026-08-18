@@ -1,18 +1,62 @@
 {
   "key": "marriott",
   "label": "Marriott International",
-  "generatedAt": "2026-08-18T10:08:04.660Z",
+  "generatedAt": "2026-08-18T21:49:56.890Z",
   "total": 33,
-  "newCount": 2,
+  "newCount": 3,
   "updatedCount": 32,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8179,
-  "avgDurationMs": 8179,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9338,
+  "avgDurationMs": 9338,
   "durationHistory": [
-    8179
+    9338
   ],
   "newJobs": [
+    {
+      "id": "marriott-f017de30919e",
+      "slug": "chef-de-rang-brasserie-1519-long-term-w-verbier-marriott-verbier",
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Chef de rang Brasserie 1519 ( Long Term) - W Verbier",
+      "location": "Verbier",
+      "canton": "VS",
+      "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-long-term-w-verbier/job/9D402A95B1C981E3C12DEBAC15DF9E74",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-18T21:49:51.986Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-food-beverage",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26077774/apply/email",
+      "_marriottMeta": {
+        "requisitionID": "26077774",
+        "uniqueID": "9D402A95B1C981E3C12DEBAC15DF9E74",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Food and Beverage Services",
+        "accountName": "Non-Management",
+        "publishEndDate": "2026-10-02T07:55:00.000Z"
+      },
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
     {
       "id": "marriott-30fc8675545c",
       "slug": "technicien-de-maintenance-marriott-geneva",
@@ -25,7 +69,7 @@
       "url": "https://careers.marriott.com/technicien-de-maintenance/job/1FB67B5B32F6B012D3EBB20ED0B67AFE",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.949Z",
+      "crawledAt": "2026-08-18T21:49:52.019Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -69,7 +113,7 @@
       "url": "https://careers.marriott.com/university-intern-europe/job/1E4FD36D17B06C69384293E3A86B938E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.950Z",
+      "crawledAt": "2026-08-18T21:49:52.020Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -115,7 +159,7 @@
       "url": "https://careers.marriott.com/lenox-bar-shiftleader/job/5691728F680BFEE1D3CC5CCD770BF06D",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.923Z",
+      "crawledAt": "2026-08-18T21:49:52.000Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -161,7 +205,7 @@
       "url": "https://careers.marriott.com/polyvalent-equipier-winter-26-27-w-verbier/job/D525744F937689D3E7437FC821EBF7B6",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.930Z",
+      "crawledAt": "2026-08-18T21:49:52.003Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -185,6 +229,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-28T07:15:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:48:30.756Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -206,7 +251,7 @@
       "url": "https://careers.marriott.com/guest-experience-expert/job/B2F632002FE8E0F09EC4878BD9B9C2A4",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.916Z",
+      "crawledAt": "2026-08-18T21:49:51.996Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -251,7 +296,7 @@
       "url": "https://careers.marriott.com/apprenti-cuisine/job/BFA9E82A2AA9817DFCA0FC17123E0678",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.882Z",
+      "crawledAt": "2026-08-18T21:49:51.982Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -275,6 +320,7 @@
         "accountName": "Non-Management",
         "publishEndDate": ""
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T22:08:34.826Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -296,7 +342,7 @@
       "url": "https://careers.marriott.com/pastry-apprentice/job/0C19C84F5C97A08AC1FEB031144DA0BD",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.929Z",
+      "crawledAt": "2026-08-18T21:49:52.002Z",
       "addressLocality": "Geneva",
       "streetAddress": "Quai du Mont-Blanc 11",
       "postalCode": "1201",
@@ -320,6 +366,7 @@
         "accountName": "Non-Management",
         "publishEndDate": ""
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-11T22:08:34.858Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -341,7 +388,7 @@
       "url": "https://careers.marriott.com/commis-de-salle/job/C3E1734C3C4B5CDB5535DAEB7267A2C8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.898Z",
+      "crawledAt": "2026-08-18T21:49:51.990Z",
       "addressLocality": "Geneva",
       "streetAddress": "Chemin du Ruisseau 1, Cointrin",
       "postalCode": "1216",
@@ -367,11 +414,11 @@
       },
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T01:22:34.813Z",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -387,7 +434,7 @@
       "url": "https://careers.marriott.com/reservations-agent/job/7ED57351900E09C86F45B317F7654BF3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.931Z",
+      "crawledAt": "2026-08-18T21:49:52.004Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -411,6 +458,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-21T10:09:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T22:02:55.118Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -432,7 +480,7 @@
       "url": "https://careers.marriott.com/demi-chef-de-partie-winter-26-27-w-verbier/job/ED5438B95DC8FA50D602C06807877131",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.902Z",
+      "crawledAt": "2026-08-18T21:49:51.992Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -478,7 +526,7 @@
       "url": "https://careers.marriott.com/revenue-manager/job/90B8C5A925E4FF06689F0FC7BF6A01F7",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.937Z",
+      "crawledAt": "2026-08-18T21:49:52.007Z",
       "addressLocality": "Zurich",
       "streetAddress": "Turbinenstrasse 20",
       "postalCode": "8005",
@@ -523,7 +571,7 @@
       "url": "https://careers.marriott.com/banquet-setup/job/BB4B64E30B597ABC20B1B8267CE5689B",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.889Z",
+      "crawledAt": "2026-08-18T21:49:51.985Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -547,6 +595,7 @@
         "accountName": "Non-Management",
         "publishEndDate": ""
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-31T11:54:42.256Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -568,7 +617,7 @@
       "url": "https://careers.marriott.com/reservations-and-revenue-coordinator/job/E21E2AC79C481444847FA8154B78E07E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.935Z",
+      "crawledAt": "2026-08-18T21:49:52.005Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -613,7 +662,7 @@
       "url": "https://careers.marriott.com/demi-chef-de-partie/job/97753EDDD693C63DD014536A5C6B3CAE",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.901Z",
+      "crawledAt": "2026-08-18T21:49:51.992Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -659,7 +708,7 @@
       "url": "https://careers.marriott.com/event-service-shiftleader/job/BFBD92656F2154B7B1928794C8BE6ED5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.906Z",
+      "crawledAt": "2026-08-18T21:49:51.994Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -705,7 +754,7 @@
       "url": "https://careers.marriott.com/hotel-cleanliness-supervisor/job/831E774E9FCD040C504144C0AD0684A8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.922Z",
+      "crawledAt": "2026-08-18T21:49:51.998Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -751,7 +800,7 @@
       "url": "https://careers.marriott.com/waiter-tress-brasserie-u-yama-winter-26-27-w-verbier/job/C052454AD38407D9CFAEF4C3FAA13254",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.952Z",
+      "crawledAt": "2026-08-18T21:49:52.025Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -775,6 +824,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-11T09:59:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T22:36:11.370Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -796,7 +846,7 @@
       "url": "https://careers.marriott.com/b-f-intern-service-6-months-w-verbier/job/63736DD59DCB0805E1E2E77BE0B25B21",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.884Z",
+      "crawledAt": "2026-08-18T21:49:51.984Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -841,7 +891,7 @@
       "url": "https://careers.marriott.com/floor-supervisor-style-captain-winter-26-27-w-verbier/job/8E15A5FCF8417750478C877DB2A22D70",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.912Z",
+      "crawledAt": "2026-08-18T21:49:51.996Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -865,6 +915,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-06T09:09:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T12:18:41.615Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -886,7 +937,7 @@
       "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/DB31F33B87DABA5BF1AFD72F058E0693",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.943Z",
+      "crawledAt": "2026-08-18T21:49:52.009Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -910,6 +961,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-06T09:31:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T22:27:08.326Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -931,7 +983,7 @@
       "url": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/CBCF560B0E9421284AFA5686DB3C8EDE",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.948Z",
+      "crawledAt": "2026-08-18T21:49:52.018Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -980,7 +1032,7 @@
       "url": "https://careers.marriott.com/w-verbier-le-spa-intern-6-months-w-verbier/job/229185A49A7BA262D7C845EC24E37546",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.951Z",
+      "crawledAt": "2026-08-18T21:49:52.024Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1004,6 +1056,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-06T08:39:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T12:18:41.634Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1025,7 +1078,7 @@
       "url": "https://careers.marriott.com/waiter-tress-morning-winter-26-27-w-verbier/job/B6E914F28A18CC7B48C4729D73A6A896",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.952Z",
+      "crawledAt": "2026-08-18T21:49:52.026Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1049,6 +1102,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-09-06T14:43:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T22:27:08.332Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1070,7 +1124,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/CB864D6EC4EA909A8676BDA04A2E2DC3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.891Z",
+      "crawledAt": "2026-08-18T21:49:51.987Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1096,11 +1150,11 @@
       },
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-22T22:39:53.163Z",
-      "_qualityScore": 88,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -1116,7 +1170,7 @@
       "url": "https://careers.marriott.com/event-manager/job/6113FC1F970900B0BA13527F50509351",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.905Z",
+      "crawledAt": "2026-08-18T21:49:51.993Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1161,7 +1215,7 @@
       "url": "https://careers.marriott.com/spa-director-long-term-w-verbier/job/F6F0CF4382BDA65787BB967BF130D631",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.941Z",
+      "crawledAt": "2026-08-18T21:49:52.008Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1185,6 +1239,7 @@
         "accountName": "Management",
         "publishEndDate": "2026-09-04T13:01:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-21T22:51:52.293Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1206,7 +1261,7 @@
       "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/B4D31364295A972DAB8B20B01D0163F4",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.944Z",
+      "crawledAt": "2026-08-18T21:49:52.014Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1230,6 +1285,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-08-29T09:03:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-16T11:32:57.246Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1251,7 +1307,7 @@
       "url": "https://careers.marriott.com/f-b-service-expert/job/45214FB03CFA7F41A04564570634859F",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.910Z",
+      "crawledAt": "2026-08-18T21:49:51.995Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1297,7 +1353,7 @@
       "url": "https://careers.marriott.com/djette-winter-26-27-w-verbier/job/93967E418627E3E591E744F8E578E9AA",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.899Z",
+      "crawledAt": "2026-08-18T21:49:51.991Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1343,7 +1399,7 @@
       "url": "https://careers.marriott.com/whatever-whenever-agent-guest-relations-winter-26-27-w-verbier/job/1BDF4690DB0491402108BE74D5190523",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.954Z",
+      "crawledAt": "2026-08-18T21:49:52.027Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1367,6 +1423,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-08-21T10:05:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:25:14.286Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1388,7 +1445,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-winter-26-27-w-verbier/job/4C4E09A8014C2CC1AFC25907B222EDC4",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.893Z",
+      "crawledAt": "2026-08-18T21:49:51.989Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1434,7 +1491,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier/job/592A8FF32EE0F0C52DB3001CB0BF55CC",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:08:00.892Z",
+      "crawledAt": "2026-08-18T21:49:51.987Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1458,6 +1515,7 @@
         "accountName": "Non-Management",
         "publishEndDate": "2026-08-29T13:13:00.000Z"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-04T12:53:17.295Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1468,8 +1526,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "marriott-788e69a5dd7f",
       "slug": "servizio-apprendistato-marriott-international-geneva",
@@ -1519,5 +1576,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
