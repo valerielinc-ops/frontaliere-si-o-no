@@ -3235,6 +3235,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Public transport passes in the canton of Freiburg: zones and fares',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Here are the details on public transport subscriptions in the Canton of Freiburg.',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
+    'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Residence permit B in Soleta: requirements and procedure',
+    'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'The requirements for obtaining a B residence permit in the Canton of Solothurn are specified in the cantonal law.',
+    'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'A view of Solothurn with its Gothic arch, symbol of the Canton Solothurn',
 };
 
 export default blogMetaChEn;
