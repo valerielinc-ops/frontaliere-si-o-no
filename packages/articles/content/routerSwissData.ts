@@ -1106,6 +1106,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'trasporti-pubblici-canton-friburgo-abbonamenti': { it: 'trasporti-pubblici-canton-friburgo-abbonamenti', en: 'fribourg-public-transport-abonements', de: 'fribourg-oeffentliche-verkehr-abos', fr: 'fribourg-transports-en-commun-abonnements' },
  'permesso-di-dimora-b-canton-soletta': { it: 'permesso-di-dimora-b-canton-soletta', en: 'residence-permit-b-in-soleta-requirements-and-procedure', de: 'permesso-di-dimora-b-kanton-soletta', fr: 'permesso-di-dimora-b-canton-de-soleure' },
  'salari-mercato-lavoro-friburgo-settori-livelli': { it: 'salari-mercato-lavoro-friburgo-settori-livelli', en: 'salaries-labor-market-fribourg-sectors-levels', de: 'lohne-arbeitsmarkt-freiburg-sektoren-niveaus', fr: 'salaire-marche-du-travail-fribourg-secteurs-niveaux' },
+ 'patente-di-guida-friburgo-conversione-ed-esami': { it: 'patente-di-guida-friburgo-conversione-ed-esami', en: 'driving-license-fribourg-conversion-and-exams', de: 'fuehrerschein-freiburg-umstellung-und-pruefungen', fr: 'permis-de-conduire-fribourg-conversion-et-examen' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

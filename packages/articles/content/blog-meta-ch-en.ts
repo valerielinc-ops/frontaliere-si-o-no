@@ -3241,6 +3241,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Wages and labour market canton Freiburg: sectors and levels',
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Facts and figures on the employment situation in the canton of Fribourg: wages, growing sectors, collective agreements and minimum wage.',
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Fribourg, Switzerland, urban landscape',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Driving licence in Freiburg: conversion and requirements',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Conversion of the foreign driver\'s license in the Canton of Freiburg, theoretical and practical exams, compulsory courses and competent traffic office.',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Scene with car in Switzerland, Fribourg Canton, with driving license',
 };
 
 export default blogMetaChEn;

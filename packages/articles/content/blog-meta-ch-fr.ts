@@ -3241,6 +3241,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Salaires et marché du travail canton de Fribourg : secteurs et niveaux',
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Faits et chiffres sur la situation de l\'emploi dans le canton de Fribourg : salaires, secteurs en croissance, conventions collectives et salaire minimum.',
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Paysage urbain de Fribourg, Suisse',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Permis de conduire à Fribourg : conversion et exigences',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Conversion du permis de conduire étranger dans le canton de Fribourg, examens théoriques et pratiques, cours obligatoires et bureau de la circulation compétent.',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Scène avec voiture en Suisse, canton de Fribourg, avec permis de conduire',
 };
 
 export default blogMetaChFr;
