@@ -111,6 +111,15 @@ jobs:
         # for. Falls back to a full unshallow fetch if shallow-since ever
         # fails (network hiccup, git version quirk, unparseable `since`)
         # rather than silently under-covering the scan window.
+        #
+        # timeout-minutes here is load-bearing, not cosmetic: this step now
+        # carries the network cost the old fetch-depth:0 Checkout used to,
+        # and Checkout's own timeout-minutes:5 exists specifically so a
+        # degenerate fetch fails fast instead of riding the job's 25min cap
+        # to a `cancelled` state — which `if: failure()`/`if: always()` steps
+        # (Upload scan artifacts) can't distinguish from a clean run. Without
+        # a cap here that protection silently didn't move with the fetch.
+        timeout-minutes: 12
         env:
           SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
         run: |
