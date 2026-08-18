@@ -1,0 +1,228 @@
+name: corpus-wide gates
+
+# I sette gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
+# delle PR e messi qui. Non è una rimozione: è un trasloco, e questo file è
+# l'indirizzo nuovo.
+#
+# ─── COSA È STATO SPOSTATO, E PERCHÉ PROPRIO QUESTI ───────────────────────
+#
+# Tempi per file dal reporter json del run `tests.yml` 32172467043 su main
+# (1739 file, 1001s di tempo-file):
+#
+#     53.9s   7 test   tests/article-hero-image-integrity.test.ts
+#     53.2s   2 test   tests/generated-content-parses.test.ts
+#     24.7s   3 test   tests/render-article-pages-single-vs-full.test.ts
+#     20.1s   2 test   tests/render-article-hub-pages-narrow-vs-full.test.ts
+#     17.3s   4 test   tests/articles-archive-chronological.test.ts
+#     16.7s   2 test   tests/job-locale-consistency.test.ts
+#     15.5s   1 test   tests/blog-body-typescript-syntax.test.ts
+#     ─────
+#     201.4s  21 test — il 20,1% del tempo-file per l'1,2% dei test
+#
+# Non sono lenti per test: `tests/seo-completeness.test.ts` fa 65.750 test in
+# 21s. Sono lenti perché ciascuno itera su tutto — ~14.748 file di corpus, o un
+# render di sezione intera. Il costo è O(corpus) e la pipeline pubblica articoli
+# di continuo, quindi il conto peggiora da solo mentre nessuno tocca niente.
+# Questa è la differenza con ogni altro test della suite, ed è il criterio del
+# registro (`scripts/ci/corpus-wide-tests.mjs`): non «i più lenti», ma quelli
+# che crescono col corpus.
+#
+# ─── PERCHÉ NON UN JOB NON-BLOCCANTE NELLA STESSA tests.yml ───────────────
+#
+# Era l'opzione più economica da scrivere e la peggiore da tenere. Due ragioni,
+# entrambe già scritte nel repo:
+#
+#   - La CONCORRENZA. La testata di tests.yml racconta che il fan-out a 4 shard
+#     è stato collassato in un job solo perché sul piano Free l'account condivide
+#     un pool da ~20 job e il fan-out per-PR affamava auto-merge, review e
+#     pr-body-contract. Aggiungere un job per PR rispenderebbe esattamente la
+#     risorsa che quella modifica aveva liberato — e per far girare gate che su
+#     quella PR misurano un corpus identico a quello già misurato su main.
+#   - Un check non-bloccante ROSSO su una PR è, in pratica, un check che nessuno
+#     guarda: non ferma il merge e non apre niente. Sarebbe stata la versione
+#     mascherata della cancellazione.
+#
+# Su main il costo di concorrenza non esiste (nessuna PR in attesa dietro) e il
+# rosso diventa una issue con un destinatario.
+#
+# ─── PERCHÉ `schedule` È IL TRIGGER PRINCIPALE E NON `push` ───────────────
+#
+# Il corpus di questo repo NON arriva da una PR: `sync-articles-sitemaps.yml`
+# committa `packages/articles/content` con l'extraheader GITHUB_TOKEN di
+# `actions/checkout`, e per la regola anti-ricorsione di GitHub quel commit non
+# innesca NIENTE. Un `push: paths: ['packages/articles/content/**']` non
+# scatterebbe mai — la stessa lezione già scritta in
+# rerender-article-hubs.yml:66-73 e mirror-articles-engine.yml:54-60. Chi
+# progettasse questo file su un `push:` otterrebbe un gate che sembra armato e
+# non parte mai: peggio che non averlo.
+#
+# Quindi tre trigger, in ordine di quanto ci si conta:
+#   1. workflow_run sul sync che PORTA il corpus — reattivo al contenuto vero,
+#      e dopo che il commit è atterrato (non prima, come farebbe il
+#      repository_dispatch di nanako, che parte a fine della SUA run).
+#   2. schedule — la rete di sicurezza che copre il sync fallito o assente, e
+#      l'unico trigger che resta in piedi se la sottoscrizione (1) non fira.
+#   3. push su main, ristretto ai RENDERER e ai registri: quelli sì arrivano da
+#      PR di persone, quindi il push scatta davvero. Chiude la finestra fra il
+#      merge di una PR che il diff aveva reso bloccante e il cron successivo.
+#   4. workflow_dispatch — richiesto da AGENTS.md per validare un workflow nuovo
+#      con `gh workflow run corpus-wide-gates.yml --ref main`.
+
+on:
+  workflow_run:
+    workflows: ['Sync article sitemaps, feeds and ticker from the articles API']
+    types: [completed]
+    branches: [main]
+
+  schedule:
+    # Sfasato dai cron che gli portano il dato o se lo contendono:
+    # sync-articles-sitemaps.yml a :23, mirror-articles-engine.yml a :19,
+    # rerender-article-hubs.yml a :47. Alle :53 il corpus è fermo.
+    - cron: '53 */6 * * *'
+
+  push:
+    branches: [main]
+    paths:
+      # I renderer e i registri che i sette gate esercitano. Sono file che
+      # cambiano per mano umana, quindi il push scatta (al contrario del
+      # corpus, vedi la testata).
+      #
+      # `build-plugins/**` e non l'elenco dei tre plugin di ingresso: la
+      # chiusura degli import di questi test raggiunge anche
+      # `build-plugins/shared/seoPageShell.ts`, `staticPagesPlugin.ts`,
+      # `articlesSiteShellBootstrap.ts` e altri, che una lista scritta a mano
+      # dimenticherebbe — e la dimenticanza non si vedrebbe: il gate
+      # aspetterebbe fino a 6h il cron invece di rigirare subito. Qui la
+      # granularita' non serve a risparmiare (il workflow non blocca nessuno),
+      # serve a non perdere l'evento. Sul lato PR, dove il costo conta, il
+      # trigger e' invece DERIVATO dalla chiusura degli import.
+      - 'build-plugins/**'
+      - 'packages/articles/engine/**'
+      - 'data/blog-articles-data.ts'
+      - 'data/swiss-articles-data.ts'
+      # Self-test: un push che tocca solo il meccanismo lo fa comunque girare
+      # per intero, così la modifica è verificata invece che sperata.
+      - '.github/workflows/corpus-wide-gates.yml'
+      - 'scripts/ci/corpus-wide-tests.mjs'
+      - 'vitest.config.ts'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # per github-issue-creator sul fallimento
+  actions: read # la jobs API che il reporter usa per il body diagnostico
+
+# Serializza: due run concorrenti misurerebbero lo stesso corpus e la seconda
+# non aggiungerebbe informazione. `cancel-in-progress: false` per la stessa
+# ragione scritta in tests.yml per i run su main — qui la domanda è «il corpus
+# è sano ADESSO», e una run cancellata non risponde, distrugge la risposta.
+concurrency:
+  group: corpus-wide-gates
+  cancel-in-progress: false
+
+jobs:
+  corpus-gates:
+    name: corpus-wide gates (post-merge)
+    runs-on: ubuntu-latest
+    # I sette gate misurano 201s di tempo-file, ma girano in parallelo sui 4
+    # vCPU del runner; il grosso del wall è checkout + npm ci + l'assemble.
+    # 30 min è largo apposta: qui un timeout non blocca nessuna PR, mentre un
+    # rosso da timeout su un corpus cresciuto sarebbe un falso allarme che
+    # costa una issue.
+    timeout-minutes: 30
+    steps:
+      # Checkout PIENO, come i job di tests.yml e per la stessa ragione
+      # misurata: qui in più è un requisito di correttezza, perché questi test
+      # LEGGONO packages/articles/content, services/locales e public/images.
+      # Uno sparse-checkout li renderebbe verdi su un corpus vuoto — il modo
+      # più silenzioso di perdere il gate (docs/LOCAL-DEV.md, e il caso
+      # `tests/noindex-builders.test.ts` che è rosso in worktree sparse).
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: npm ci
+        run: npm ci
+
+      - name: Cache assemble-jobs output
+        # Identico a tests.yml e deploy.yml: cache content-addressable sotto
+        # .cache/assemble-jobs, il fingerprint interno dello script garantisce
+        # che la cascata restore-keys non possa riesumare un jobs.json stale.
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      - name: Assemble data/jobs.json
+        # `tests/job-locale-consistency.test.ts` è l'unico dei sette a leggere
+        # il dataset assemblato, ed è gitignored. Senza questo step il test non
+        # fallisce: si AUTO-SALTA con un warning ("data/jobs.json absent —
+        # ratchets skipped"), cioè diventerebbe un gate verde che non misura
+        # niente. Qui non è in `background:` come in tests.yml — non c'è un
+        # gruppo indipendente da far girare nel frattempo.
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Migrate canton-aware tracking
+        # Stesso ordine di tests.yml: legge data/jobs.json e riscrive il
+        # registro degli slug. Idempotente.
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: vitest run (solo i gate corpus-wide)
+        # `only` esclude il complemento del registro: girano esattamente i sette
+        # file, con le stesse soglie e gli stessi assert che avevano dentro
+        # tests.yml. Nessuna env di tolleranza, nessuno `--bail`, nessun
+        # `continue-on-error`: se questo step è rosso, il job è rosso.
+        env:
+          VITEST_CORPUS_GROUP: only
+        run: npm test -- --reporter=default
+
+      # ─── LA METÀ CHE RENDE LO SPOSTAMENTO ONESTO ────────────────────────
+      #
+      # CHI CHIUDE: `close-recovered-failure-issues.yml` (cron :17 di ogni ora).
+      # Il titolo è `Workflow Failure: <name:>` esattamente perché quel
+      # reconciler fa `gh run list -w "<nome>"` su main e chiude la issue quando
+      # il run successivo è verde. Il titolo NON va cambiato senza cambiare il
+      # `name:` in cima a questo file: un mismatch è il caso peggiore — la issue
+      # SEMBRA coperta, il reconciler la prende in carico, non trova nessun run
+      # con quel nome e per bias conservativo la lascia aperta per sempre
+      # (#5437, verificato da tests/failure-issue-closers.test.ts).
+      #
+      # Il dedup sul titolo (github-issue-creator.mjs, primi 60 char) fa sì che
+      # un corpus rotto per sei run consecutive produca UNA issue con sei
+      # commenti 🔁, non sei issue.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug
+          context: |
+            Uno o più gate corpus-wide sono rossi su `main`.
+
+            Questi sette gate NON girano nel job bloccante `vitest (unit + integration)`
+            delle PR che non toccano il corpus — girano qui. Un rosso qui è quindi
+            un difetto **già su main**, non un difetto di una PR in attesa.
+
+            Cosa scandiscono, e come riprodurre in locale (checkout pieno, non
+            un worktree sparse — leggono `packages/articles/content/`,
+            `services/locales/` e `public/images/blog/`):
+
+            ```
+            node scripts/assemble-jobs-dataset.mjs --stats
+            VITEST_CORPUS_GROUP=only npm test
+            ```
+
+            L'elenco esatto dei file, con la misura e la radice dati di ciascuno,
+            sta in `scripts/ci/corpus-wide-tests.mjs`.
+
+            Se il rosso arriva da un articolo appena pubblicato, la riparazione va
+            nel corpus (`packages/articles/content/`), non nel gate.
