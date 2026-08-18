@@ -12,7 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { callLLM, isAnyModelAvailable } from './lib/ai-models.mjs';
+import { callLLM, isAnyModelAvailable, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { reduceSalaryToPartTime } from './lib/structured-salary.mjs';
@@ -1131,7 +1131,12 @@ async function main() {
   console.log(`\n✅ Re-enriched ${enriched.length} jobs → data/jobs.json + public/data/jobs.json`);
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
+  // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
+  // errore butta via gli esiti dei modelli accumulati dalla run — per lo
+  // piu' fallimenti, cioe' il segnale che serve al ledger. Bounded e
+  // non-throwing (vedi flushScoresBeforeExit).
+  await flushScoresBeforeExit();
   console.error(`❌ re-enrich failed: ${err?.message || err}`);
   process.exit(1);
 });
