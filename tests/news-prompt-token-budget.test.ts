@@ -38,6 +38,7 @@ import { estimateRequestTokens } from '../scripts/lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from '../scripts/lib/ai-search-template.mjs';
 import { JSON_QUOTE_SAFETY_RULE_IT } from '../scripts/lib/llm-json-repair.mjs';
 import { buildSourceContract } from '../scripts/lib/article-factuality-gates.mjs';
+import { buildWinnerFingerprintMessage, isFrontalieriDomainTerm } from '../scripts/lib/article-topic-selector.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const CREATE_ARTICLE = path.join(HERE, '..', 'scripts', 'create-article.mjs');
@@ -160,6 +161,53 @@ const NEWS_PARAGRAPH = `Il Consiglio di Stato del Canton Ticino ha approvato il 
 // L'estrazione della pagina taglia a 8000 char; il prompt ritronca a MAX_SOURCE_CHARS.
 const NEWS_PAGE_CONTENT = NEWS_PARAGRAPH.repeat(11).slice(0, 8000);
 
+// ── Il messaggio di winner-fingerprint: c'E' in produzione, e non e' nella scala
+//
+// E' l'unico dep che in produzione viene da un file sotto `data/`
+// (`data/article-performance.json`, committato e checkoutato dai workflow), ed
+// e' iniettato come terzo messaggio di sistema FUORI dalla scala di riduzione:
+// la scala non puo' toglierlo, quindi pesa sempre.
+//
+// Un fixture con `null` qui e' il punto cieco del worktree sparse: `data/` non
+// e' materializzato, il prompt sembra piu' leggero di quello che parte, e il
+// tetto viene tarato basso. Misurato: col messaggio a null il caso peggiore
+// dava 10275, col messaggio reale (499 char) 10417 — cioe' il tetto sarebbe
+// nato gia' sfondato in produzione, e la riga [prompt-budget-ceiling] avrebbe
+// segnalato una regressione su codice non modificato.
+//
+// Costruito col builder REALE (`buildWinnerFingerprintMessage`) su un payload
+// di caso peggiore, non con una stringa scritta a mano: il builder non mette un
+// cap sulla lunghezza degli elenchi, quindi il massimo lo detta il file. Il
+// payload qui ha i 15 slot di `topKeywords` che il file porta gia' oggi, ma
+// tutti occupati da termini che superano `isFrontalieriDomainTerm` — oggi ne
+// passa 1 su 15, e quel rapporto puo' solo salire. Risultato 678 char contro i
+// 499 di oggi: margine strutturale, non inventato.
+const WINNER_FINGERPRINT_KEYWORDS = [
+  'frontalieri', 'imposta alla fonte', 'permesso G', 'tassazione', 'naspi',
+  'assegni familiari', 'disoccupazione', 'cassa malati', 'contributi avs',
+  'busta paga', 'telelavoro', 'ristorno', 'ticino', 'salario minimo', 'imponibile',
+];
+const WINNER_FINGERPRINT_MESSAGE: string = buildWinnerFingerprintMessage({
+  winnerFingerprint: {
+    topClusters: ['pratico', 'novita', 'fiscale', 'lavoro', 'mobilita'],
+    topAngles: ['come funziona', 'confronto pratico', 'guida completa', 'esempio concreto', 'quando conviene'],
+    topKeywords: WINNER_FINGERPRINT_KEYWORDS,
+    averageWordCount: 1482,
+    topQuestionPatterns: ['cosa', 'dove', 'chi', 'quando'],
+  },
+});
+
+// ── La data della fonte: RELATIVA, perche' il prompt la usa per un ramo
+//
+// `AGENTS.md` vieta le date assolute nei fixture, e qui non sarebbe inerte:
+// `buildSourceContract` aggiunge il blocco «FONTE NON RECENTE» oltre 30 giorni
+// (misurato: +111 token) confrontando con `new Date()` reale. Con una data
+// assoluta il peso del prompt dipenderebbe da quando gira il test. Fissata a
+// 160 giorni indietro: sempre oltre la soglia, quindi il ramo esercitato e' il
+// piu' pesante e resta lo stesso a ogni esecuzione.
+const SOURCE_AGE_DAYS = 160;
+const SOURCE_PUBLISHED_AT = new Date(Date.now() - SOURCE_AGE_DAYS * 86_400_000).toISOString();
+
 const BASE_DEPS = {
   existingIds,
   CREATE_ARTICLE_MIN_IT_WORDS: 900,
@@ -174,10 +222,10 @@ const BASE_DEPS = {
   PROMPT_TOKEN_BUDGET,
   PROMPT_TOKEN_CEILING,
   IT_GENERATION_MAX_TOKENS,
-  _winnerFingerprintMessage: null,
+  _winnerFingerprintMessage: WINNER_FINGERPRINT_MESSAGE,
   AI_MODELS: { GEMINI_FLASH: 'gemini-2.5-flash' },
   GH_MODEL_HEAVY: 'gpt-4o',
-  lastSourcePublishedAt: '2026-03-12T08:00:00.000Z',
+  lastSourcePublishedAt: SOURCE_PUBLISHED_AT,
 };
 
 /** Assembla catturando stderr: il blocco logga, e il log e' parte del contratto. */
@@ -291,6 +339,45 @@ describe('estrazione', () => {
     expect(prompt, "la fonte non e' finita nel prompt").toContain('imposta alla fonte');
     expect(prompt, 'il fixture non satura MAX_SOURCE_CHARS').toContain('[...contenuto troncato per brevità]');
     expect(articleSchema?.schema, "lo schema JSON non e' stato costruito").toBeTruthy();
+  });
+
+  test('i pezzi ritagliati sono INTERI, non gusci che passano toBeTruthy()', () => {
+    // Ogni assert del ratchet e' un `<=`: una mutilazione che ALLEGGERISCE il
+    // prompt le supera tutte. Provato davvero — sostituendo
+    // `buildArticleJsonSchema` con `() => ({ name: 'a', schema: { type: 'object' } })`
+    // i 19 test restavano verdi mentre il prompt calava di 515 token (−5,3%).
+    // `toBeTruthy()` da solo non e' una guardia: qui i pezzi ritagliati hanno un
+    // pavimento di struttura, che una mutilazione non puo' soddisfare per caso.
+    const { articleSchema } = newsPrompt();
+
+    const props = Object.keys((articleSchema as { schema: { properties?: object } }).schema.properties || {});
+    for (const campo of ['id', 'category', 'slugs', 'content', 'seo', 'imageAlt']) {
+      expect(props, `lo schema ritagliato non ha il campo «${campo}»: il ritaglio e' mutilato`).toContain(campo);
+    }
+    expect(
+      JSON.stringify((articleSchema as { schema: unknown }).schema).length,
+      "lo schema serializzato e' troppo corto per essere quello vero — e conta nella stima",
+    ).toBeGreaterThanOrEqual(1500);
+
+    expect(CATEGORIES.length, 'CATEGORIES ritagliato incompleto').toBeGreaterThanOrEqual(4);
+    expect(AVAILABLE_IMAGES.length, 'AVAILABLE_IMAGES ritagliato incompleto').toBeGreaterThanOrEqual(10);
+    expect(
+      EVERGREEN_FACTS_BRIEF.length,
+      'EVERGREEN_FACTS_BRIEF ritagliato troppo corto: il ramo evergreen misurerebbe un brief che non esiste',
+    ).toBeGreaterThanOrEqual(1200);
+
+    // Il winner-fingerprint arriva davvero nei messaggi, e non come stringa vuota.
+    expect(WINNER_FINGERPRINT_MESSAGE.length, 'il messaggio di winner-fingerprint non e\' stato costruito')
+      .toBeGreaterThanOrEqual(600);
+    expect(
+      WINNER_FINGERPRINT_KEYWORDS.filter((k) => isFrontalieriDomainTerm(k)).length,
+      "le keyword del fixture non superano piu' il filtro di dominio: il messaggio si accorcia e il caso peggiore non e' piu' tale",
+    ).toBeGreaterThanOrEqual(14);
+    const { llmMessages } = newsPrompt();
+    expect(
+      llmMessages.filter((m) => m.role === 'system').length,
+      "il messaggio di winner-fingerprint non e' entrato in llmMessages: la misura e' piu' leggera del prompt reale",
+    ).toBe(2);
   });
 });
 
@@ -407,11 +494,18 @@ describe('il budget di output', () => {
     expect(limits.length, 'MODEL_MAX_OUTPUT_TOKENS non parsata — aggiornare questo test').toBeGreaterThanOrEqual(5);
 
     const lowest = Math.min(...limits);
+    // La distanza, non un letterale. Asserire `<= 8000` sarebbe stato un guard
+    // che sembra un guard: `lowest` compariva solo nel messaggio d'errore, e un
+    // modello nuovo con cap 2000 avrebbe allargato la distanza a 6000 lasciando
+    // il test verde — mentre il commento qui sopra promette il contrario.
+    const DISTANZA_MAX = 4000; // misurata oggi: 8000 − 4000. Puo' solo SCENDERE, fino a 0.
     expect(
-      IT_GENERATION_MAX_TOKENS,
-      `IT_GENERATION_MAX_TOKENS=${IT_GENERATION_MAX_TOKENS} si e' allontanato ancora dal cap di output piu' basso `
-      + `della flotta (${lowest}): la distanza puo' solo scendere, e il traguardo e' <= ${lowest}.`,
-    ).toBeLessThanOrEqual(8000);
+      IT_GENERATION_MAX_TOKENS - lowest,
+      `IT_GENERATION_MAX_TOKENS=${IT_GENERATION_MAX_TOKENS} dista ${IT_GENERATION_MAX_TOKENS - lowest} dal cap di `
+      + `output piu' basso della flotta (${lowest}), sopra i ${DISTANZA_MAX} dichiarati. La distanza puo' solo `
+      + `scendere, e il traguardo e' 0 (cioe' IT_GENERATION_MAX_TOKENS <= ${lowest}): ogni modello che dichiara `
+      + 'meno viene saltato dal pre-flight prima ancora di guardare il prompt.',
+    ).toBeLessThanOrEqual(DISTANZA_MAX);
   });
 
   test("il budget e' un SIMBOLO, non un letterale sparso nel call-site", () => {

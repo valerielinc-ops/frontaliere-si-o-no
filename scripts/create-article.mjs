@@ -5120,9 +5120,16 @@ const PROMPT_TOKEN_BUDGET = 8000;
  * riduzione completa — cioe' il numero che parte davvero, non quello prima di
  * comprimere:
  *
- *   news frontaliere        9795   news frontaliere al retry   10245
- *   news svizzera           9825   news svizzera al retry      10275
- *   evergreen frontaliere   9210   evergreen svizzera           9240
+ *   news frontaliere        9988   news frontaliere al retry   10438
+ *   news svizzera          10018   news svizzera al retry      10468
+ *   evergreen frontaliere   9428   evergreen svizzera           9458
+ *
+ * Il fixture include il messaggio di winner-fingerprint, che in produzione c'e'
+ * sempre e la scala di riduzione non puo' togliere (arriva da
+ * `data/article-performance.json`, fuori dal ladder). Ometterlo — che e' cio'
+ * che un worktree sparse invita a fare, perche' `data/` non e' materializzato —
+ * abbassava il caso peggiore misurato di ~193 token e avrebbe fatto nascere
+ * questo tetto gia' sfondato in produzione.
  *
  * Due cose che vanno lette insieme, perche' separate ingannano:
  *
@@ -5134,15 +5141,16 @@ const PROMPT_TOKEN_BUDGET = 8000;
  *    che nominava un modello e nessuna che nominasse il prompt).
  * 2. Il gemello del corpus sta a 8500 con la stessa scala. La distanza NON e'
  *    la scala di riduzione — quella e' identica byte per byte — e' l'impalcatura
- *    statica: qui il prompt intero misura 33.645 caratteri contro i ~15.700
+ *    statica: qui il prompt intero misura 33.645 caratteri (11.392 token)
+ *    contro i ~15.700
  *    dichiarati dal corpus. Comprimerla e' lavoro di prompt engineering che
  *    cambia cosa esce, non osservabilita': fuori dal perimetro della PR che ha
  *    introdotto questa costante, e dichiarato nel suo piano di completamento.
  *
- * Il margine sul massimo misurato e' volutamente stretto (125 token): il
+ * Il margine sul massimo misurato e' volutamente stretto (132 token): il
  * prossimo blocco che si aggiunge al prompt deve trovarlo, non assorbirlo.
  */
-const PROMPT_TOKEN_CEILING = 10400;
+const PROMPT_TOKEN_CEILING = 10600;
 
 /**
  * Il `maxTokens` che le due chiamate di generazione IT passano davvero a
