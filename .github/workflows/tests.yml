@@ -300,6 +300,92 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
+      - name: Decide i gate corpus-wide pertinenti a questo diff
+        # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
+        #
+        # Sette file di test costano 201,4s misurati (run 32172467043): il 20,1%
+        # del tempo-file della suite per l'1,2% dei test. Non sono lenti per
+        # test — `tests/seo-completeness.test.ts` ne fa 65.750 in 21s — sono
+        # lenti perché iterano sull'intero corpus (~14.748 file) o rendono una
+        # sezione. Il costo è O(corpus) e cresce da solo a ogni articolo
+        # pubblicato, quindi il problema peggiora mentre nessuno tocca niente.
+        #
+        # NON sono stati tolti né allentati (Non-Negotiable #1). Girano:
+        #   - QUI, bloccanti e identici a prima, quando il diff tocca i dati che
+        #     scandiscono o il codice che li rende — cioè quando sono il gate
+        #     che serve. La decisione è PER-TEST: un diff su
+        #     `data/jobs/by-crawler/**` (il caso più frequente del repo) tiene
+        #     bloccante il solo `job-locale-consistency`, non tutti e sette;
+        #   - su main, sempre, in `.github/workflows/corpus-wide-gates.yml`, che
+        #     a rosso apre una issue `Workflow Failure: corpus-wide gates`
+        #     chiusa dal reconciler orario `close-recovered-failure-issues.yml`.
+        #
+        # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
+        # lascia `skip` VUOTO, quindi la suite gira INTERA. Un guasto qui costa
+        # tempo, mai copertura. `|| true` sul fetch e `|| echo` sul merge-base
+        # servono a questo.
+        #
+        # Solo su `pull_request`: su `push` a main, `github.base_ref` è vuoto e
+        # non esiste un diff da valutare — lì la suite gira intera come oggi, e
+        # il verdetto di salute di main resta completo.
+        id: corpus
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          # I path toccati arrivano dall'API della PR, non da `git diff`, e la
+          # ragione è MISURATA su questa stessa PR (run 32182836022): la prima
+          # stesura usava `git merge-base HEAD origin/$BASE_REF` e stampava
+          # «merge-base non risolta», cioè non escludeva niente.
+          #
+          # Perché: `actions/checkout@v5` qui fa un fetch shallow (`fetch-depth: 1`)
+          # e NON crea il remote-tracking ref `refs/remotes/origin/main`; il
+          # `git fetch --no-tags --depth=50 origin <base>` dello step della
+          # factuality qui sopra aggiorna FETCH_HEAD, non `origin/<base>`. E
+          # anche avendo il ref, due storie shallow possono non avere una base
+          # comune entro la profondità fetchata. L'API non ha nessuno di questi
+          # problemi: risponde con l'elenco esatto dei file della PR, senza
+          # storia locale.
+          #
+          # Il fallback su git resta per il caso in cui l'API non risponda.
+          # Entrambi i rami sono `|| true`: qualunque guasto lascia
+          # changed-paths.txt vuoto → `skip` vuoto → suite INTERA. La direzione
+          # del fail-safe è quella giusta: un guasto qui costa tempo, mai
+          # copertura.
+          : > changed-paths.txt
+          if [ -n "$PR_NUMBER" ]; then
+            gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+              --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+          fi
+          if [ ! -s changed-paths.txt ]; then
+            echo "API senza risposta utile → fallback su git"
+            base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
+            if [ -n "$base" ]; then
+              git diff --name-only "$base" HEAD > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+            fi
+          fi
+          count="$(wc -l < changed-paths.txt | tr -d ' ')"
+          echo "path toccati dalla PR: $count"
+          if [ "$count" = "0" ]; then
+            echo "elenco vuoto → nessuna esclusione, gira la suite intera"
+            exit 0
+          fi
+          # L'endpoint `pulls/<n>/files` tronca a 3000 file. Un troncamento non
+          # e' un errore — risponde 200 con una lista PARZIALE — quindi il
+          # fail-safe sul fallimento non lo copre: un path corpus caduto oltre
+          # il taglio farebbe escludere un gate che invece doveva bloccare.
+          # Sopra la soglia si rinuncia a decidere e gira la suite intera, che
+          # e' la stessa direzione di ogni altro fallimento qui.
+          if [ "$count" -ge 3000 ]; then
+            echo "elenco al cap dell'API ($count): possibile troncamento → suite intera"
+            exit 0
+          fi
+          decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
+          printf '%s\n' "$decision"
+          printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
@@ -357,6 +443,11 @@ jobs:
         # (progettata per i 4 shard di un tempo) → due file sono già supportati.
         env:
           VITEST_DATASET_GROUP: independent
+          # Vuoto su push a main e su qualunque esito anomalo dello step
+          # "Decide i gate corpus-wide" → nessuna esclusione, suite intera.
+          # `parseCorpusSkipList` filtra comunque il valore contro il registro:
+          # questa env non puo' spegnere un test che non sia uno dei sette.
+          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
       - name: Wait for background assemble
@@ -374,6 +465,7 @@ jobs:
       - name: vitest run (test che leggono il dataset)
         env:
           VITEST_DATASET_GROUP: dependent
+          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
 
       - name: Upload test timing
