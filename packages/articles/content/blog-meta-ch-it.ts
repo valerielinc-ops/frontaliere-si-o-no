@@ -3367,6 +3367,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asilo, Quadri interroga il Consiglio federale sui costi',
     'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri chiede chiarezza sui costi sostenuti dalla Confederazione per il blocco dei trasferimenti Dublino verso l\'Italia dal dicembre 2022.',
     'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Palazzo federale a Berna sede del Consiglio federale',
+    'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Ospedale Grigioni: 518 milioni per nuova ala',
+    'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Dodici anni di cantiere terminano. L\'ospedale cantonale dei Grigioni a Coira inaugura la nuova struttura con 518 milioni di franchi investiti. Sale operatorie aumentate, trasloco fine novembre.',
+    'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Ospedale cantonale dei Grigioni, nuova ala con architettura moderna e accesso al pronto soccorso unico',
 };
 
 export default blogMetaChIt;
