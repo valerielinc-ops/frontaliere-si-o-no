@@ -3238,6 +3238,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Aufenthaltsbewilligung B in Solothurn: Voraussetzungen und Verfahren',
     'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'Die Voraussetzungen für eine Aufenthaltsbewilligung B im Kanton Solothurn sind im kantonalen Gesetz festgelegt.',
     'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'Ein Blick auf Solothurn mit seiner gotischen Arkade, Symbol des Kantons Solothurn',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Löhne und Arbeitsmarkt Kanton Freiburg: Branchen und Niveaus',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Zahlen und Fakten zur Arbeitssituation im Kanton Freiburg: Löhne, Wachstumsbranchen, Tarifverträge und Mindestlohn.',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Stadtlandschaft Fribourg, Schweiz',
 };
 
 export default blogMetaChDe;
