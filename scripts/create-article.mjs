@@ -94,7 +94,7 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 import {
@@ -11246,6 +11246,12 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // translation that independently hallucinates this institution in a
   // different language was never checked at all.
   assertNoFabricatedLaborOfficeCrossLocale(data);
+  // Same gap, different table: runFactualityGates() (Step 3a.0b-bis, above)
+  // only ever sees data.content.it, before translateArticle() exists — a
+  // fabricated norm acronym (LFW/LCL/LCO) survives translation identical
+  // (see checkFabricatedNormAcronyms doc) and was never re-checked on
+  // en/de/fr. Same wiring publish-journalist-article.mjs uses post-translate.
+  assertNoFabricatedNormAcronyms({ en: data.content.en, de: data.content.de, fr: data.content.fr });
 
   // Step 3c: Sanitize bold + URLs + nav links on translated content
   console.error('✂️  Sanitizzazione grassetto (traduzioni):');
