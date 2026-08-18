@@ -22,9 +22,13 @@ import {
 import { runCheck } from '../scripts/check-unsubscribe-credential-rate.mjs';
 
 describe('unsubscribeCredentialMetrics — classifyCredential', () => {
-  it('recognizes both real values', () => {
+  it('recognizes all three real values', () => {
     expect(classifyCredential('autologin_code')).toBe('autologin_code');
     expect(classifyCredential('email_token')).toBe('email_token');
+    // The `at`/`authToken` custom-token link shape, still parsed by
+    // services/newsletterAutologinSignal.ts and still reachable by the SPA
+    // writer. Graded, not `missing`: a credential somebody's exit rode.
+    expect(classifyCredential('legacy_auth_token')).toBe('legacy_auth_token');
   });
 
   it('folds anything else (undefined, null, unknown string) into "missing"', () => {
@@ -35,20 +39,22 @@ describe('unsubscribeCredentialMetrics — classifyCredential', () => {
   });
 });
 
-function records(spec: { autologin?: number; email?: number; missing?: number }) {
+function records(spec: { autologin?: number; email?: number; legacy?: number; missing?: number }) {
   const out: Array<{ credential: string | null }> = [];
   for (let i = 0; i < (spec.autologin || 0); i++) out.push({ credential: 'autologin_code' });
   for (let i = 0; i < (spec.email || 0); i++) out.push({ credential: 'email_token' });
+  for (let i = 0; i < (spec.legacy || 0); i++) out.push({ credential: 'legacy_auth_token' });
   for (let i = 0; i < (spec.missing || 0); i++) out.push({ credential: null });
   return out;
 }
 
 describe('unsubscribeCredentialMetrics — aggregate / fallbackRate', () => {
   it('counts each family and computes graded/total correctly', () => {
-    const agg = aggregate(records({ autologin: 2, email: 18, missing: 5 }));
-    expect(agg.counts).toEqual({ autologin_code: 2, email_token: 18, missing: 5 });
-    expect(agg.graded).toBe(20);
-    expect(agg.total).toBe(25);
+    const agg = aggregate(records({ autologin: 2, email: 18, legacy: 3, missing: 5 }));
+    expect(agg.counts).toEqual({ autologin_code: 2, email_token: 18, legacy_auth_token: 3, missing: 5 });
+    expect(agg.graded).toBe(23);
+    expect(agg.total).toBe(28);
+    expect(agg.uncredentialedShare).toBeCloseTo(5 / 28, 10);
   });
 
   it('fallbackRate is autologin_code / (autologin_code + email_token), excluding "missing" from the denominator', () => {
@@ -77,6 +83,47 @@ describe('unsubscribeCredentialMetrics — evaluate', () => {
     const v = evaluate(agg, { baselineIsZero: true });
     expect(v.alert).toBe(false);
     expect(v.findings.map((f) => f.code)).toContain('insufficient_sample');
+  });
+
+  // ── uncredentialed_share: the denominator defends itself ────────────────
+  //
+  // Replays the real defect. Production, 7 days to 2026-08-18: 209
+  // `unsubscribe_link` events, 111 graded (110 email_token + 1
+  // autologin_code) and 98 with no `credential` key. 46 of those 98 were the
+  // Cloud Function before #5719 deployed — real residue, confined to 08-11
+  // and 08-12. The other 52 were a SECOND writer,
+  // services/newsletterSubscribers.ts, every single day from 08-13 on, which
+  // #5719's docstring did not know existed. `missing` is dropped from the
+  // rate as pre-deploy noise, so the monitor printed 0,90% and looked calm
+  // while a third of its own population sat outside the division — and every
+  // one of those 52, by construction, was an `ac`-authorised exit, i.e. the
+  // cohort the whole file exists to count before #5724 puts a TTL on `ac`.
+  it('a large `missing` share is REPORTED, not silently dropped from the denominator', () => {
+    const agg = aggregate(records({ autologin: 1, email: 110, missing: 98 }));
+    const v = evaluate(agg, { baselineIsZero: false });
+    const finding = v.findings.find((f) => f.code === 'uncredentialed_share');
+    expect(finding, 'the shape that hid a whole writer for six days must not evaluate as healthy').toBeTruthy();
+    expect(finding!.alert).toBe(true);
+    expect(finding!.priority).toBe(2);
+    expect(v.alert).toBe(true);
+    // And it names both writers, because the field signature of the
+    // uncredentialed events is what tells residue from regression.
+    expect(finding!.message).toContain('services/newsletterSubscribers.ts');
+    expect(finding!.message).toContain('newsletterSubscriptionManagement.js');
+  });
+
+  it('a `missing` share under the threshold does NOT fire — real pre-#5719 residue drains out on its own', () => {
+    const agg = aggregate(records({ autologin: 1, email: 110, missing: 10 }));
+    const v = evaluate(agg, { baselineIsZero: false });
+    expect(v.findings.map((f) => f.code)).not.toContain('uncredentialed_share');
+  });
+
+  it('does not fire on a window too small to mean anything (total < MIN_SAMPLE)', () => {
+    // 3 of 6 is 50%, and says nothing at all. The finding needs volume for
+    // the same reason `insufficient_sample` does.
+    const agg = aggregate(records({ email: 3, missing: 3 }));
+    const v = evaluate(agg, { baselineIsZero: true });
+    expect(v.findings.map((f) => f.code)).not.toContain('uncredentialed_share');
   });
 
   it('healthy rate (well under WARN) with a non-zero baseline → no findings, no alert', () => {
