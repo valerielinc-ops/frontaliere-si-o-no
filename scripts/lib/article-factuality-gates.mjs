@@ -1337,8 +1337,23 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // riferimenti svizzeri `RS <numero>` e `cpv.`, che sono gia' locale-neutri.
 // L'obiezione «una parola come "legge" non regge su de/fr/en» e' corretta per
 // una singola parola italiana, e infatti qui non ce n'e' una sola.
+// I `\b` di chiusura NON sono uniformi, ed e' deliberato: dipende da come si
+// comporta la composizione nella lingua. `Artikel` la vuole (`Artikeln?\b`)
+// perche' i composti tedeschi con `Artikel-` in testa NON sono giuridici —
+// `Artikelnummer` e' un codice di prodotto e `Artikelserie` una serie
+// giornalistica, due parole normalissime in un pezzo su una banca; la `n?`
+// tiene dentro il dativo plurale «in den Artikeln 5 und 6», che il `\b` secco
+// perderebbe. `Gesetz(?:es|e)?` e `Bundesgesetz` restano invece APERTI a
+// prefisso, perche' li' la composizione va nell'altra direzione: `Gesetzgebung`
+// (legislazione), `Gesetzbuch` (codice), `Gesetzentwurf` (disegno di legge),
+// `Gesetzeslage` (quadro normativo), `Bundesgesetzblatt` (il foglio federale
+// delle leggi) sono TUTTI contesto di citazione normativa. Chiuderli darebbe
+// falsi negativi, non toglierebbe falsi positivi — lo stesso difetto per cui
+// qui sopra `legislazion[ei]` ha il plurale invece del solo singolare. Il test
+// «i composti tedeschi giuridici restano cue» codifica questa scelta perche'
+// non venga «riparata» al giro dopo.
 const NORM_CITATION_CUE =
-  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]|articles?|Artikel|art\.|cpv\.|Abs\.|RS\s*\d)/i;
+  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)/i;
 
 export const FABRICATED_NORM_ACRONYMS = [
   {

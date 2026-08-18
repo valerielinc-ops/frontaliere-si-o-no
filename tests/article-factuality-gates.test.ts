@@ -721,6 +721,39 @@ describe('checkFabricatedNormAcronyms', () => {
     }
   });
 
+  // Il tedesco compone in due direzioni opposte, e il `\b` va messo solo da
+  // una parte. Questi due test codificano la scelta perche' non venga
+  // «riparata» al giro dopo: chiudere `Gesetz`/`Bundesgesetz` farebbe passare
+  // il primo test e romperebbe il secondo.
+  it('leaves the bank LCL alone when the German word is a product or a news article', () => {
+    const frasiSenzaCitazione = [
+      'Die Artikelnummer der LCL-Karte steht auf der Rueckseite.',
+      'Eine Artikelserie ueber die LCL und die Grenzgaenger erscheint woechentlich.',
+      'Das Artikelbild der LCL-Broschuere zeigt eine Filiale in Genf.',
+    ];
+    for (const frase of frasiSenzaCitazione) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  it('keeps German legal compounds as citation cues, by design', () => {
+    // `Gesetz-` in testa a un composto e' SEMPRE dominio giuridico: chiudere
+    // l'alternativa con `\b` darebbe falsi negativi, non toglierebbe falsi
+    // positivi. `Artikeln` invece e' il dativo plurale di una citazione vera,
+    // ed e' il motivo della `n?`.
+    const frasiConCitazione = [
+      'Die kantonale Gesetzgebung (LCL) vom 15. Dezember 1995 legt einen Mindestlohn fest.',
+      'Das Bundesgesetzblatt nennt die LCL als Grundlage fuer den Mindestlohn.',
+      'Das Gesetzbuch verweist auf die LCL fuer den Mindestlohn der Grenzgaenger.',
+      'Der Gesetzentwurf zur LCL sieht einen Mindestlohn fuer Grenzgaenger vor.',
+      'Artikel 5 der LCL legt den Mindestlohn fuer Grenzgaenger fest.',
+      'In den Artikeln 5 und 6 der LCL steht der Mindestlohn der Grenzgaenger.',
+    ];
+    for (const frase of frasiConCitazione) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
 
   // Il falso negativo che NASCE con la guardia: `re.exec` torna solo la prima
   // occorrenza, quindi una menzione legittima messa in cima nasconde una
