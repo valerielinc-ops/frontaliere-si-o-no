@@ -26,7 +26,13 @@
  *   any A/B assignment.
  * - PostHog measurement: bucket-assignment event (fires for every non-bot
  *   visitor, both arms — needed to validate the split ratio) + gate-shown
- *   event + outcome event (disabled / subscribe CTA clicked / abandoned).
+ *   event + outcome event (disabled / subscribe CTA clicked / abandoned /
+ *   reload_still_blocked). 'disabled' is reported from two places: the
+ *   in-place recheck, and — via a sessionStorage marker that survives the
+ *   reload — the document that comes back after the gate's own reload button,
+ *   which is the only path on which a paused blocker actually stops reporting
+ *   itself. Hiding the tab is recorded as `tab_hidden`, never as an outcome:
+ *   it is how the visitor reaches the extension menu.
  * - GA4 measurement (#3654 UX pass): distinct named events for every
  *   interactive element in the gate — popup_cta_subscribe, popup_cta_adblock,
  *   popup_adblock_disable, popup_instructions_toggle — each carrying
@@ -55,7 +61,7 @@ import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
 
 type GateLocale = 'it' | 'en' | 'de' | 'fr';
-type GateOutcome = 'disabled' | 'subscribe_clicked' | 'abandoned';
+type GateOutcome = 'disabled' | 'subscribe_clicked' | 'abandoned' | 'reload_still_blocked';
 
 // Self-contained 4-locale copy, matching the OfferwallNewsletterGate pattern —
 // keeps this gate free of any dependency on the on-demand locale chunk loader.
@@ -158,6 +164,32 @@ function normalizeLocale(code?: string | null): GateLocale {
   return 'it';
 }
 
+/**
+ * The gate's reload button unloads the page on purpose, so whatever happens
+ * next — blocker gone or still there — happens in a different document than
+ * the one that asked. Without a marker that survives the reload, the only
+ * path on which a visitor CAN successfully disable a blocker is also the one
+ * path whose outcome we never see. sessionStorage, not localStorage: the
+ * question is scoped to this visit.
+ */
+const RELOAD_MARKER_KEY = 'ft_adblock_reload_pending';
+const RELOAD_MARKER_TTL_MS = 5 * 60 * 1000;
+
+function markReloadFromGate(): void {
+  try { sessionStorage.setItem(RELOAD_MARKER_KEY, String(Date.now())); } catch { /* storage disabled — outcome simply stays unknown */ }
+}
+
+/** Reads and clears the marker. Stale markers (restored tab, much later) do not count. */
+function consumeReloadMarker(): boolean {
+  try {
+    const raw = sessionStorage.getItem(RELOAD_MARKER_KEY);
+    if (!raw) return false;
+    sessionStorage.removeItem(RELOAD_MARKER_KEY);
+    const at = Number(raw);
+    return Number.isFinite(at) && Date.now() - at < RELOAD_MARKER_TTL_MS;
+  } catch { return false; }
+}
+
 function trackPopupEvent(eventName: string, buttonName: string): void {
   try {
     Analytics.trackEvent(eventName, {
@@ -187,6 +219,10 @@ const AdBlockGate: React.FC = () => {
   const [rechecking, setRechecking] = useState(false);
   const [recheckFailed, setRecheckFailed] = useState(false);
   const outcomeLoggedRef = useRef(false);
+  // The gate asks the visitor to leave the page; that is not abandonment.
+  // These two keep the intended flow from being logged as one.
+  const tabHiddenLoggedRef = useRef(false);
+  const reloadInitiatedRef = useRef(false);
   const activeTabRef = useRef(nav?.activeTab);
   activeTabRef.current = nav?.activeTab;
   const bucketRef = useRef<AdBlockAbBucket | null>(null);
@@ -221,11 +257,32 @@ const AdBlockGate: React.FC = () => {
     if (bucket !== 'test') return; // control arm: no detection, no gate, ever.
 
     let cancelled = false;
+    // Read before the probe: this document exists because the previous one
+    // reloaded itself from the gate, and this is where that path's outcome
+    // becomes observable at all.
+    const cameBackFromGateReload = consumeReloadMarker();
     detectAdBlock().then((blocked) => {
-      if (cancelled || !blocked) return;
+      if (cancelled) return;
+      if (cameBackFromGateReload) {
+        // A reload is the only way a paused blocker stops reporting itself:
+        // cosmetic filter rules already injected into the previous document
+        // survive the pause, which is why the in-place recheck so rarely
+        // succeeds (see the comment on handleRecheck).
+        try {
+          Analytics.trackUIInteraction(
+            'adblock_gate',
+            'modal',
+            'outcome',
+            blocked ? 'reload_still_blocked' : 'disabled',
+            'after_reload',
+          );
+        } catch { /* no-op */ }
+      }
+      if (!blocked) return;
       // Never trap the visitor on the escape-hatch page itself.
       if (activeTabRef.current === 'subscribe') return;
       outcomeLoggedRef.current = false;
+      tabHiddenLoggedRef.current = false;
       setRecheckFailed(false);
       setOpen(true);
       try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'show', 'detected'); } catch { /* no-op */ }
@@ -252,6 +309,7 @@ const AdBlockGate: React.FC = () => {
     detectAdBlock().then((blocked) => {
       if (cancelled || !blocked) return;
       outcomeLoggedRef.current = false;
+      tabHiddenLoggedRef.current = false;
       setRecheckFailed(false);
       setOpen(true);
       try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'show', 'detected_revisit'); } catch { /* no-op */ }
@@ -275,17 +333,38 @@ const AdBlockGate: React.FC = () => {
     return () => { document.body.style.overflow = prevOverflow; };
   }, [open]);
 
-  // Log an "abandoned" outcome if the visitor leaves/hides the tab while the
-  // gate is still open without picking either option.
+  // "Abandoned" now means the visitor really walked away. Two things used to
+  // be counted as abandonment and are not:
+  //
+  //  - visibilitychange → hidden fires when the visitor switches to the
+  //    browser's extension menu to turn the blocker off — the single action
+  //    this gate exists to ask for. Because logOutcome is one-shot, that
+  //    reading also SEALED the outcome, so the 'disabled' that followed was
+  //    dropped. Measured over 2026-07-27..08-18: outcome=disabled 0 while the
+  //    in-page popup_adblock_disable counter recorded 4, and
+  //    'subscribe_clicked' — the one outcome reachable without leaving the
+  //    page — matched its counter exactly (3 = 3).
+  //  - the gate's own reload button, which unloads the page deliberately; the
+  //    outcome of that path is decided after the reload, in the mount effect.
+  //
+  // Tab-hiding is still worth counting, just not as an outcome.
   useEffect(() => {
     if (!open) return;
-    const handleLeave = () => logOutcome('abandoned');
-    const handleVisibility = () => { if (document.visibilityState === 'hidden') handleLeave(); };
-    document.addEventListener('visibilitychange', handleVisibility);
-    window.addEventListener('pagehide', handleLeave);
+    const handleHidden = () => {
+      if (document.visibilityState !== 'hidden') return;
+      if (tabHiddenLoggedRef.current) return;
+      tabHiddenLoggedRef.current = true;
+      try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'tab_hidden', 'while_open'); } catch { /* no-op */ }
+    };
+    const handleUnload = () => {
+      if (reloadInitiatedRef.current) return; // our own reload, not a departure
+      logOutcome('abandoned');
+    };
+    document.addEventListener('visibilitychange', handleHidden);
+    window.addEventListener('pagehide', handleUnload);
     return () => {
-      document.removeEventListener('visibilitychange', handleVisibility);
-      window.removeEventListener('pagehide', handleLeave);
+      document.removeEventListener('visibilitychange', handleHidden);
+      window.removeEventListener('pagehide', handleUnload);
     };
   }, [open, logOutcome]);
 
@@ -315,6 +394,10 @@ const AdBlockGate: React.FC = () => {
 
   const handleReload = () => {
     trackPopupEvent('popup_cta_adblock', 'reload_cta');
+    // Set BOTH before reloading: the ref stops this unload being read as a
+    // departure, the marker lets the next document report what happened.
+    reloadInitiatedRef.current = true;
+    markReloadFromGate();
     window.location.reload();
   };
 
