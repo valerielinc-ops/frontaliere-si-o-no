@@ -715,6 +715,25 @@ function getLocalLlmTimeoutMs() {
   return Number.isFinite(v) && v > 0 ? v : 1_500_000; // 25 min default — see comment above
 }
 
+// Tetto per una singola chiamata locale, per quanto grande sia l'allowance
+// residua — stesso ruolo di CLAUDE_CLI_MAX_TIMEOUT_MS (vedi il commento sopra
+// CLAUDE_CLI_MIN_TIMEOUT_MS: "il floor faceva da soffitto"). Senza un tetto
+// che PUO' crescere sopra getLocalLlmTimeoutMs(), quel floor smette di essere
+// un minimo e torna a essere l'unico valore possibile anche quando
+// l'allowance residua e' molto piu' ampia — stesso pattern segnalato dalla
+// review di #451 su _callClaudeCli, non toccato allora perche' fuori dal
+// finding originale. Piu' alto del tetto CLI perche' l'inferenza CPU locale
+// e' strutturalmente piu' lenta — il floor stesso e' gia' 1.500.000ms (25min)
+// di default, contro i 180.000ms del CLI.
+const LOCAL_LLM_MAX_TIMEOUT_MS = 3_000_000; // 50 min, 2x il floor di default
+
+// Quota dell'allowance residua concessa a UNA chiamata locale — stessa forma
+// e stesso razionale di CLAUDE_CLI_ALLOWANCE_SHARE (vedi quel commento).
+// Nessuna evidenza diagnostica di troncamento live come per claude-cli (la
+// review di #451 lo nota esplicitamente), ma l'asimmetria "floor che non
+// cresce mai dentro l'allowance" e' la stessa per costruzione.
+const LOCAL_LLM_ALLOWANCE_SHARE = 1 / 3;
+
 // ── OmniRoute (self-hosted local AI gateway, OpenAI-compatible) ──────
 // Opt-in: inert unless OMNIROUTE_ENABLED is truthy. OmniRoute runs
 // persistently on the host (Homebrew CLI v3.8.48+, http://localhost:20128)
@@ -816,7 +835,85 @@ const CLAUDE_CLI_MAX_CONCURRENCY = 2;
 // Per-call timeout FLOOR for the claude CLI subprocess (raised 60s → 120s by
 // the T2 diagnosis, see _callClaudeCli). Shared so _hardCallCapMs sizes its
 // backstop off the same floor instead of a second copy of the literal.
-const CLAUDE_CLI_MIN_TIMEOUT_MS = 120_000;
+//
+// ── 120s → 180s, E SOPRATTUTTO: IL FLOOR ERA IL SOFFITTO (2026-08-18) ───────
+//
+// Il nome dice «floor», ma nel percorso dominante questa costante agiva da
+// TETTO. In _callClaudeCli il timeout era
+//
+//     min( max(opts.timeout, FLOOR), remaining )
+//
+// e per la generazione articolo `opts.timeout` e' 90s: il `max` dava sempre
+// 120s, e il `min` con `remaining` non mordeva quasi mai perche' `remaining`
+// e' dell'ordine dei 600-1000s. Risultato: ogni chiamata riceveva 120s tondi
+// mentre l'allowance residua ne offriva quasi mille.
+//
+//   run 32161215947 (corpus, 2026-08-18 16:36Z), tre timeout su tre:
+//     ⏳ in-flight 60s (hard cap 1020s) → ucciso a 120s   ← 900s inutilizzati
+//     ⏳ in-flight 60s (hard cap  630s)
+//
+// Cosa dice la diagnostica di #441/#6034 (`--output-format stream-json`), che
+// prima non c'era. I tre timeout NON erano chiamate mute:
+//
+//     173 eventi, fermo dopo system/thinking_tokens a 119522ms, stdout 3525 B
+//     123 eventi, fermo dopo assistant           a  94721ms, stdout 71169 B
+//     175 eventi, fermo dopo assistant           a  87255ms, stdout 84574 B
+//
+// primo evento a 620-1013ms, `rate_limit_event status=allowed tipo=five_hour`
+// in tutti e tre. Non e' quota, non e' rate limit, non e' un CLI che non
+// parte: e' una chiamata che sta lavorando e viene troncata. Il primo caso
+// emetteva ancora a 478ms dal cap. Il vecchio «stdout: 0 bytes» dei log
+// precedenti era un artefatto del buffering di `--output-format json`, non la
+// prova di un subprocess bloccato — vedi createClaudeCliStreamTrace.
+//
+// Misurato in locale sullo stesso prompt-articolo, flag di produzione, laptop
+// scarico (2026-08-18): una chiamata SANA e riuscita ha impiegato 116,9s
+// (primo byte 1836ms, 72 KB) — 3,1s sotto il cap — e una seconda stava ancora
+// emettendo a 300s (127 KB) quando l'ho fermata io. Il caso sano non e' «~45s»:
+// e' molto variabile e sfiora o supera i 120s gia' senza contesa. Un cap fisso
+// a 120s taglia quindi a meta' la distribuzione dei casi sani.
+//
+// ── PERCHE' NON BASTA UN NUMERO FISSO PIU' GRANDE ──────────────────────────
+//
+// L'allowance non e' una costante: e' `remaining` del budget di sezione, e nello
+// STESSO run vale 1020s e 630s (decade mentre la run brucia budget; la serie
+// osservata nel run 32147257594 e' 1020→900→865→854→775→758→685→586→496→392→
+// 302→136). Un fisso grande sfonda quando l'allowance residua e' piccola, un
+// fisso piccolo spreca quando e' grande. Da qui la forma: la chiamata prende
+// una QUOTA dell'allowance residua, con questo valore come minimo vero e
+// CLAUDE_CLI_MAX_TIMEOUT_MS come tetto. Vedi _callClaudeCli.
+//
+// 180s e non di piu' come minimo: e' il minimo a valere anche quando
+// l'allowance e' quasi finita, dove la quota e' piccola e vince lui. Tenerlo
+// basso e' cio' che impedisce a `CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD` timeout
+// consecutivi di divorare una sezione corta — con 120s il caso peggiore era
+// 3×120=360s, con 180s e' 3×180=540s, e la clamp a `remaining` in
+// _callClaudeCli lo tiene comunque dentro l'allowance per costruzione.
+const CLAUDE_CLI_MIN_TIMEOUT_MS = 180_000;
+
+// Tetto per una singola chiamata al CLI, per quanto grande sia l'allowance
+// residua. Serve a impedire che una sezione lunga (allowance 2400s) regali
+// 800s a UNA chiamata: oltre i 600s una chiamata che non ha finito non e' piu'
+// «lenta», e la cascata ha bisogno del budget che resta per i modelli dopo.
+// Sopra la piu' lunga osservata (>300s in locale) con margine ~2x.
+const CLAUDE_CLI_MAX_TIMEOUT_MS = 600_000;
+
+// Quota dell'allowance residua concessa a UNA chiamata del CLI.
+//
+// 1/3 e non 1/2: il breaker scatta a CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD (3)
+// timeout consecutivi, quindi il caso peggiore e' una serie geometrica
+//
+//     1/3 + (2/3)(1/3) + (2/3)²(1/3) = 1 - (2/3)³ = 19/27 ≈ 0,704
+//
+// cioe' una tempesta piena lascia comunque ~30% del budget di sezione alla
+// cascata dei modelli successivi. (Questa riga diceva 0,578 e ~42%: numero
+// sbagliato, trovato dalla review del sito #6045. Verificato sulla serie
+// osservata, 1020s → 340+227+151 = 718s, cioe' 70,3%. Il test simula la
+// formula vera e misura ~73%, non la serie idealizzata.) A 1/2 la stessa
+// serie fa 1 - (1/2)³ = 0,875 e la sezione resterebbe senza tempo per il
+// fallback. Sull'allowance osservata: 1020s → 340s a chiamata (2,8x
+// l'odierno), 630s → 210s.
+const CLAUDE_CLI_ALLOWANCE_SHARE = 1 / 3;
 let _claudeCliInFlight = 0;
 const _claudeCliWaiters = [];
 
@@ -4503,7 +4600,7 @@ async function _getLocalDispatcher(timeoutMs) {
 async function _callLocal(model, messages, opts) {
   const apiModel = getApiModelId(model); // = getLocalLlmModelId()
   // Raise the timeout floor for slow CPU inference (caller's timeout may be ~60s).
-  let timeout = Math.max(opts.timeout || 0, getLocalLlmTimeoutMs());
+  const baseTimeoutMs = Math.max(opts.timeout || 0, getLocalLlmTimeoutMs());
   // Cap to the caller's remaining wall-clock budget (opts.deadlineMs, e.g.
   // create-article.mjs's RUN_WALL_BUDGET_MS). Without this, a single
   // local/fallback call can outlive the overall run deadline by its whole
@@ -4515,9 +4612,16 @@ async function _callLocal(model, messages, opts) {
   // svizzera budget, leaving zero time for any later fallback attempt.
   // Floor at 15s so a near-expired deadline still gets one honest last try
   // instead of silently degrading to a 0ms request.
+  //
+  // Stessa forma quota-su-`remaining` di _callClaudeCli (2026-08-18, issue
+  // #451 review): baseTimeoutMs sopra non deve MAI restare un tetto quando
+  // l'allowance residua e' grande. clamp( max(baseTimeoutMs, min(remaining ×
+  // SHARE, MAX)), 15s, remaining ).
+  let timeout = baseTimeoutMs;
   if (opts.deadlineMs) {
     const remaining = opts.deadlineMs - Date.now();
-    timeout = Math.max(15_000, Math.min(timeout, remaining));
+    const quota = Math.min(Math.floor(remaining * LOCAL_LLM_ALLOWANCE_SHARE), LOCAL_LLM_MAX_TIMEOUT_MS);
+    timeout = Math.max(15_000, Math.min(Math.max(baseTimeoutMs, quota), remaining));
   }
   const dispatcher = await _getLocalDispatcher(timeout);
   return _callOpenAICompatible(apiModel, messages, { ...opts, timeout }, {
@@ -4623,10 +4727,25 @@ async function _callClaudeCli(model, messages, opts) {
     // Same deadline-capping rationale as _callLocal above — cap to the
     // caller's remaining wall-clock budget so a last-resort call can't
     // outlive the run.
+    //
+    // In piu' (2026-08-18): la chiamata CRESCE dentro l'allowance residua
+    // invece di restare inchiodata al minimo. Prima qui c'era
+    // `Math.min(baseTimeoutMs, remaining)`, e siccome `baseTimeoutMs` era 120s
+    // mentre `remaining` valeva 600-1000s, il minimo faceva da tetto e
+    // troncava chiamate che stavano ancora emettendo (vedi il blocco sopra
+    // CLAUDE_CLI_MIN_TIMEOUT_MS). Ora il tempo concesso e'
+    //
+    //     clamp( max(baseTimeoutMs, min(remaining × SHARE, MAX)), 15s, remaining )
+    //
+    // quindi: mai sotto il minimo, mai sopra il tetto, mai oltre l'allowance —
+    // e la clamp finale a `remaining` e' cio' che rende impossibile per
+    // costruzione che una tempesta di timeout sfondi il budget di sezione,
+    // qualunque valore prendano il minimo e la soglia del breaker.
     let timeoutMs = baseTimeoutMs;
     if (opts.deadlineMs) {
       const remaining = opts.deadlineMs - Date.now();
-      timeoutMs = Math.max(15_000, Math.min(timeoutMs, remaining));
+      const quota = Math.min(Math.floor(remaining * CLAUDE_CLI_ALLOWANCE_SHARE), CLAUDE_CLI_MAX_TIMEOUT_MS);
+      timeoutMs = Math.max(15_000, Math.min(Math.max(baseTimeoutMs, quota), remaining));
     }
     return _runClaudeCliProcess(args, timeoutMs);
   });
@@ -5072,10 +5191,22 @@ const HARD_CALL_CAP_GRACE_MS = 60_000;
 function _hardCallCapMs(model, opts) {
   const provider = getProvider(model);
   let base = Math.max(opts?.timeout || 0, 30_000);
-  // Mirror the per-provider timeout floors _callLocal / _callClaudeCli apply,
-  // otherwise the cap would fire before their own timeout ever could.
-  if (provider === PROVIDER.LOCAL) base = Math.max(base, getLocalLlmTimeoutMs());
-  else if (provider === PROVIDER.CLAUDE_CLI) base = Math.max(base, CLAUDE_CLI_MIN_TIMEOUT_MS);
+  // Mirror the per-provider timeout ceilings _callLocal / _callClaudeCli can
+  // grow to, otherwise the cap would fire before their own timeout ever
+  // could. LOCAL: dimensionato sul MASSIMO che _callLocal puo' concedersi
+  // (LOCAL_LLM_MAX_TIMEOUT_MS), non sul floor — stessa correzione applicata a
+  // CLAUDE_CLI sotto, sizarlo sul floor lascerebbe il backstop sotto il
+  // timeout che deve fare da backstop quando la quota supera il floor.
+  if (provider === PROVIDER.LOCAL) base = Math.max(base, LOCAL_LLM_MAX_TIMEOUT_MS);
+  // CLAUDE_CLI: dimensionato sul MASSIMO che _callClaudeCli puo' concedersi,
+  // non sul minimo. Da quando il timeout cresce dentro l'allowance residua
+  // (vedi CLAUDE_CLI_ALLOWANCE_SHARE) una chiamata puo' legittimamente durare
+  // fino a CLAUDE_CLI_MAX_TIMEOUT_MS: sizarlo sul minimo lascerebbe il backstop
+  // sotto il timeout che deve fare da backstop, cioe' il cap scatterebbe per
+  // primo su ogni chiamata lunga — esattamente il fallimento che il commento
+  // qui sopra («otherwise the cap would fire before their own timeout ever
+  // could») esiste per prevenire.
+  else if (provider === PROVIDER.CLAUDE_CLI) base = Math.max(base, CLAUDE_CLI_MAX_TIMEOUT_MS);
   const attempts = Math.max(1, opts?.maxRetriesPerModel || 1);
   let cap = attempts * (base + MAX_RETRY_AFTER_MS) * 2 + HARD_CALL_CAP_GRACE_MS;
   if (opts?.deadlineMs) {
