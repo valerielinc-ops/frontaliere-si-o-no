@@ -3361,6 +3361,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-basilea-citta.title': 'Basel City Rental Market: Average Rentals and Lease Fee',
     'blog.article.affitti-basilea-citta.excerpt': 'Average rents by area, security deposit and rental right in Basel City.',
     'blog.article.affitti-basilea-citta.imageAlt': 'Editorial image related to: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
+    'blog.article.servizio-pubblico-obbligo-contanti.title': 'Public service, the commission says no to the obligation to accept cash',
+    'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'The Committee on Economy and Taxation of the National Council (CET-N) recommends rejecting Roland Büchel\'s initiative.',
+    'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Image of a scene in Lugano with a public transportation system that only accepts electronic payments.',
 };
 
 export default blogMetaChEn;
