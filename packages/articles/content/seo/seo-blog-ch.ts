@@ -41672,6 +41672,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-di-studio-friburgo-requisiti-e-importi': {
+    title: 'Borse di studio Canton Friburgo: requisiti e importi',
+    description: 'Una guida pratica per gli studenti che vogliono ottenere una borsa di studio Canton Friburgo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, friburgo',
+    ogTitle: 'Borse di studio Canton Friburgo: requisiti e importi',
+    ogDescription: 'Una guida pratica per gli studenti che vogliono ottenere una borsa di studio Canton Friburgo',
+    canonicalPath: '/articoli-svizzera/borse-di-studio-friburgo-requisiti-e-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Canton Friburgo: requisiti e importi",
+      "description": "Una guida pratica per gli studenti che vogliono ottenere una borsa di studio Canton Friburgo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-di-studio-friburgo-requisiti-e-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente universitario in un campus con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-08-18T00:02:01+00:00",
+      "dateModified": "2026-08-18T00:02:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-di-studio-friburgo-requisiti-e-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

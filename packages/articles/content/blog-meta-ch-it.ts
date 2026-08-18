@@ -3214,6 +3214,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.title': 'Apprendistato nel Cantone di Friburgo: trovare un posto di tirocinio',
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.excerpt': 'Come funziona l\'apprendistato e la formazione professionale nel Cantone di Friburgo: opportunità di lavoro, contratti di tirocinio e maturità professionale',
     'blog.article.apprendistato-e-formazione-professionale-canton-friburgo.imageAlt': 'La formazione professionale in Svizzera',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.title': 'Borse di studio Canton Friburgo: requisiti e importi',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.excerpt': 'Requisiti e importi massimi per le borse di studio Canton Friburgo: una guida pratica per gli studenti',
+    'blog.article.borse-di-studio-friburgo-requisiti-e-importi.imageAlt': 'Studente universitario in un campus con vista sul Lago di Lugano',
 };
 
 export default blogMetaChIt;
