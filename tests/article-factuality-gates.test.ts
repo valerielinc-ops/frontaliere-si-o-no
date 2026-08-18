@@ -736,6 +736,57 @@ describe('checkFabricatedNormAcronyms', () => {
     }
   });
 
+  // Terza domanda adversarial del giro: `RS\s*\d` prenderebbe uno standard
+  // tecnico («RS 232») accanto a LCL. Misurato: no, e per due ragioni
+  // indipendenti. Lo standard seriale si scrive col trattino, e `\s*` non
+  // copre `-`; e «RS 232» col numero puntato E' una citazione vera — RS 232.11
+  // e' la legge sui marchi. Restringere al formato puntato romperebbe `RS 101`
+  // (la Costituzione) e `RS 220` (il CO), che di punto non ne hanno: sarebbe
+  // il falso negativo del caso 2, non una chiusura di falso positivo.
+  it('does not read a hyphenated technical standard as a Swiss RS citation', () => {
+    expect(
+      checkFabricatedNormAcronyms('Il terminale di pagamento LCL usa ancora un cavo RS-232 in cassa.'),
+    ).toEqual([]);
+  });
+
+  it('keeps an unpunctuated RS number as a citation cue', () => {
+    // `RS 101` e' la Costituzione: nessun punto, e deve restare cue.
+    expect(
+      codes(checkFabricatedNormAcronyms('La LCL richiamata in RS 101 fissa un minimo salariale ai frontalieri.')),
+    ).toContain('fabricated-norm-acronym');
+  });
+
+  // Caso 3 del commento: `Gesetz` resta aperto a prefisso per i composti VERI,
+  // ma `gesetzt` non e' un composto — e' il participio di `setzen`, parola
+  // ordinaria in qualunque pezzo de-locale. Senza il `(?!t)` una frase come la
+  // prima qui sotto flaggava `critical` una banca legittima.
+  it('leaves the bank LCL alone when the German word is the participle gesetzt', () => {
+    const frasiSenzaCitazione = [
+      'Der Rahmen fuer die LCL-Karte der Grenzgaenger ist gesetzt.',
+      'Gesetzt den Fall, dass die LCL ihre Gebuehren fuer Grenzgaenger erhoeht.',
+      'Die gesetzte Frist fuer den LCL-Kontowechsel laeuft Ende Monat ab.',
+      'Ein gesetzter Termin bei der LCL-Filiale in Genf dauert rund 30 Minuten.',
+    ];
+    for (const frase of frasiSenzaCitazione) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // Stesso difetto dei composti tedeschi, ma in italiano e in inglese: senza
+  // il `\b` la coda di `articol-` prendeva chi SCRIVE sui giornali invece di
+  // chi cita una legge. Nessuna delle due lingue ha l'argomento della
+  // composizione che tiene aperto `Gesetz-`, quindi qui il `\b` va messo.
+  it('leaves the bank LCL alone for articolista and the rest of the articol- tail', () => {
+    const frasiSenzaCitazione = [
+      "L'articolista che segue la LCL sui giornali ticinesi firma una rubrica settimanale.",
+      'La produzione articolistica sulla LCL e i frontalieri e cresciuta molto nel 2024.',
+      'Gli articolisti economici citano la LCL fra le banche piu attive sul confine.',
+    ];
+    for (const frase of frasiSenzaCitazione) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
   it('keeps German legal compounds as citation cues, by design', () => {
     // `Gesetz-` in testa a un composto e' SEMPRE dominio giuridico: chiudere
     // l'alternativa con `\b` darebbe falsi negativi, non toglierebbe falsi
@@ -746,6 +797,8 @@ describe('checkFabricatedNormAcronyms', () => {
       'Das Bundesgesetzblatt nennt die LCL als Grundlage fuer den Mindestlohn.',
       'Das Gesetzbuch verweist auf die LCL fuer den Mindestlohn der Grenzgaenger.',
       'Der Gesetzentwurf zur LCL sieht einen Mindestlohn fuer Grenzgaenger vor.',
+      'Der Gesetzestext der LCL nennt den Mindestlohn fuer Grenzgaenger.',
+      'Die Gesetzeslage rund um die LCL bleibt fuer Grenzgaenger unveraendert.',
       'Artikel 5 der LCL legt den Mindestlohn fuer Grenzgaenger fest.',
       'In den Artikeln 5 und 6 der LCL steht der Mindestlohn der Grenzgaenger.',
     ];

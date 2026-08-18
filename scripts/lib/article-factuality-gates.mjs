@@ -1337,23 +1337,45 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // riferimenti svizzeri `RS <numero>` e `cpv.`, che sono gia' locale-neutri.
 // L'obiezione «una parola come "legge" non regge su de/fr/en» e' corretta per
 // una singola parola italiana, e infatti qui non ce n'e' una sola.
-// I `\b` di chiusura NON sono uniformi, ed e' deliberato: dipende da come si
-// comporta la composizione nella lingua. `Artikel` la vuole (`Artikeln?\b`)
-// perche' i composti tedeschi con `Artikel-` in testa NON sono giuridici —
-// `Artikelnummer` e' un codice di prodotto e `Artikelserie` una serie
-// giornalistica, due parole normalissime in un pezzo su una banca; la `n?`
-// tiene dentro il dativo plurale «in den Artikeln 5 und 6», che il `\b` secco
-// perderebbe. `Gesetz(?:es|e)?` e `Bundesgesetz` restano invece APERTI a
-// prefisso, perche' li' la composizione va nell'altra direzione: `Gesetzgebung`
-// (legislazione), `Gesetzbuch` (codice), `Gesetzentwurf` (disegno di legge),
-// `Gesetzeslage` (quadro normativo), `Bundesgesetzblatt` (il foglio federale
-// delle leggi) sono TUTTI contesto di citazione normativa. Chiuderli darebbe
-// falsi negativi, non toglierebbe falsi positivi — lo stesso difetto per cui
-// qui sopra `legislazion[ei]` ha il plurale invece del solo singolare. Il test
-// «i composti tedeschi giuridici restano cue» codifica questa scelta perche'
-// non venga «riparata» al giro dopo.
+// La chiusura di ogni alternativa NON e' uniforme, ed e' deliberato: dipende
+// da come compone la lingua, e ci sono TRE casi distinti, non due.
+//
+// 1. Chiuse con `\b` — la coda del prefisso e' fitta di parole ordinarie:
+//    `Artikeln?\b` (`Artikelnummer` e' un codice prodotto, `Artikelserie` una
+//    serie giornalistica; la `n?` tiene il dativo plurale «in den Artikeln 5
+//    und 6»), `articol[oi]\b` (`articolista`, `articolistica`: chi scrive sui
+//    giornali, non chi cita una legge) e la famiglia
+//    `legg[ei]\b`/`legislazion[ei]\b`/`lois?\b`.
+// 2. Aperte a prefisso — li' la composizione va nell'altra direzione, e i
+//    composti sono TUTTI contesto di citazione normativa: `Gesetzgebung`,
+//    `Gesetzbuch`, `Gesetzentwurf`, `Gesetzeslage`, `Bundesgesetzblatt`.
+//    Chiudere `Gesetz`/`Bundesgesetz` darebbe falsi NEGATIVI, non toglierebbe
+//    falsi positivi — lo stesso difetto per cui `legislazion[ei]` ha il
+//    plurale invece del solo singolare. `articles?` sta QUI e non nel caso 1,
+//    benche' l'italiano `articol[oi]` sia chiuso: la coda inglese di
+//    `article-` non e' fitta di parole ordinarie come quella italiana, e' di
+//    nuovo dominio giuridico (`articled clerk`, `articling student` sono il
+//    praticante di studio legale). Un `\b` qui sarebbe una chiusura senza un
+//    caso che la giustifichi — e infatti la prova di mutazione la lascia
+//    verde, cioe' nessun test morirebbe togliendola.
+// 3. Aperta MA con una sola coda esclusa — `Gesetz(?:es|e)?(?!t)`. Restare
+//    aperti vale per i composti veri, cioe' per le parole che hanno `Gesetz`
+//    come RADICE; `gesetzt` non e' un composto, e' il participio di `setzen`
+//    («der Rahmen ist gesetzt», «gesetzt den Fall») piu' le sue forme declinate
+//    `gesetzte/-r/-n/-m/-s`. Condivide le prime sei lettere per coincidenza
+//    morfologica, non per composizione, ed e' parola comunissima in un pezzo
+//    de-locale: entro i 120 caratteri di `contextWindow` bastava a far scattare
+//    `fabricated-norm-acronym` `critical` su una banca legittima. La `t` e'
+//    l'unica coda esclusa perche' nessun composto giuridico con `Gesetz-` in
+//    testa comincia per `t`; `Gesetzestext` sopravvive per backtracking
+//    (`es` fallisce il lookahead, `e` lo passa lasciando `stext`).
+//
+// I test «leaves the bank LCL alone …» e «keeps German legal compounds as
+// citation cues» codificano le tre scelte insieme, perche' non vengano
+// «riparate» una per giro: chiudere le aperte fa passare il primo e rompe il
+// secondo, e togliere il `(?!t)` rompe il terzo.
 const NORM_CITATION_CUE =
-  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)/i;
+  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?(?!t)|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]\b|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)/i;
 
 export const FABRICATED_NORM_ACRONYMS = [
   {
