@@ -3304,6 +3304,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Aufenthaltsbewilligung B in Basel-Stadt: Voraussetzungen und Verfahren',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Hier finden Sie die Voraussetzungen und Unterlagen zur Erlangung der Aufenthaltsbewilligung B im Kanton Basel-Stadt sowie das Erneuerungsverfahren und die zuständige Stelle.',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Kantonsamt für Migration Basel-Stadt',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Niederlassungsbewilligung C im Kanton Basel-Stadt: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'Für Personen, die in Basel-Stadt wohnen möchten, ist eine Niederlassungsbewilligung C obligatorisch. Hier ist, was zu tun ist und wie man es anfordert.',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'Eine Familie in der Schweiz, die einen Aufenthaltstitel C beantragt',
 };
 
 export default blogMetaChDe;

@@ -3304,6 +3304,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Permis de séjour B à Bâle-Ville : exigences et procédure',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Voici les conditions et les documents nécessaires pour obtenir le permis de séjour B dans le canton de Bâle-Ville, ainsi que la procédure de renouvellement et le bureau compétent.',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Office cantonal de migration de la ville de Bâle',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Permis de séjour C dans le canton de Bâle-Ville : exigences et demande',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'Pour ceux qui veulent vivre à Bâle-Ville, un permis de séjour C est obligatoire. Voici ce qu\'il faut faire et comment le demander.',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'Une famille suisse qui demande un permis de séjour C',
 };
 
 export default blogMetaChFr;

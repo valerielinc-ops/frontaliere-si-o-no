@@ -3304,6 +3304,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Permesso di dimora B a Basilea Città: requisiti e procedura',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Ecco i requisiti e i documenti necessari per ottenere il permesso di dimora B nel Cantone di Basilea Città, nonché la procedura di rinnovo e l\'ufficio competente.',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Ufficio cantonale della migrazione del Cantone di Basilea Città',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Permesso di domicilio C nel Cantone di Basilea Città: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'Per chi vuole vivere a Basilea Città, un permesso di domicilio C è obbligatorio. Ecco cosa bisogna fare e come richiederlo.',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'Una famiglia in Svizzera che richiede un permesso di domicilio C',
 };
 
 export default blogMetaChIt;
