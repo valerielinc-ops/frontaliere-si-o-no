@@ -1,52 +1,18 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-17T21:37:24.361Z",
-  "total": 83,
-  "newCount": 2,
+  "generatedAt": "2026-08-18T10:11:56.433Z",
+  "total": 79,
+  "newCount": 1,
   "updatedCount": 77,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 40301,
-  "avgDurationMs": 40301,
+  "removedCount": 3,
+  "unchangedCount": 1,
+  "durationMs": 52263,
+  "avgDurationMs": 52263,
   "durationHistory": [
-    40301
+    52263
   ],
   "newJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager-Intermediaries-100---f-m-d-_r-19253-2",
-      "title": "Assistant Relationship Manager Intermediaries 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "assistant-relationship-manager-intermediaries-100-f-m-d-julius-baer",
-      "category": "wealth-management",
-      "datePosted": "2026-07-20",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager---Intermediaries--Geneva--100---f-m-d-_r-19069-3",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager---Intermediaries--Geneva--100---f-m-d-_r-19069-3",
@@ -110,11 +76,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-17T09:53:25.040Z",
-      "_qualityScore": 60,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -145,11 +111,11 @@
         "location": "Geneva"
       },
       "firstSeenAt": "2026-08-17T09:53:25.040Z",
-      "_qualityScore": 58,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -180,11 +146,11 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-17T09:53:25.040Z",
-      "_qualityScore": 58,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -285,8 +251,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:18:32.503Z",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -321,8 +287,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:18:32.503Z",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -357,8 +323,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -570,7 +536,6 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-11T10:10:01.064Z",
-      "needsRetranslation": true,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1140,47 +1105,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/SAP-Ariba-Configuration-Specialist---Upstream--SLP--Sourcing---Contracts--100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19271-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/SAP-Ariba-Configuration-Specialist---Upstream--SLP--Sourcing---Contracts--100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19271-1",
-      "title": "SAP Ariba Configuration Specialist — Upstream (SLP, Sourcing & Contracts) 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 31.12.2026, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "sap-ariba-configuration-specialist-upstream-slp-sourcing-contracts-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2026-possible-extension-julius-baer",
-      "category": "hr",
-      "datePosted": "2026-07-17",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-17T10:54:38.510Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Process-Designer---Source-to-Pay--Global--100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19272-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Process-Designer---Source-to-Pay--Global--100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19272-1",
@@ -1288,6 +1213,47 @@
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "currency": "CHF",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/SAP-Ariba-Configuration-Specialist---Upstream--SLP--Sourcing---Contracts--100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19271-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/SAP-Ariba-Configuration-Specialist---Upstream--SLP--Sourcing---Contracts--100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19271-1",
+      "title": "SAP Ariba Configuration Specialist — Upstream (SLP, Sourcing & Contracts) 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 31.12.2026, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "sap-ariba-configuration-specialist-upstream-slp-sourcing-contracts-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2026-possible-extension-julius-baer",
+      "category": "hr",
+      "datePosted": "2026-07-17",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-17T10:54:38.510Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "currency": "CHF",
       "crawlerMissStreak": 2,
       "_qualityScore": 84,
