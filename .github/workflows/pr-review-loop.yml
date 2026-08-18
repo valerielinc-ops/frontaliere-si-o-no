@@ -209,7 +209,35 @@ jobs:
           # (Il rischio non è solo di lentezza: è il partial clone ad aver
           # stallato un Checkout per 11 MINUTI su questo stesso job — run
           # 27672265799, PR #2394 — lasciando la review idle senza diagnosi.)
-        timeout-minutes: 8
+        # ATTENZIONE: questo tetto sta DENTRO il corpo della distribuzione, non
+        # oltre. Misurato il 2026-08-18 sui 30 Checkout riusciti piu' recenti di
+        # questo job: min 155s, p50 215s, p95 459s, **max 472s** — contro un cap
+        # di 480s. La distribuzione e' bimodale: un modo veloce (155-261s, 23/30)
+        # e un modo lento (331-472s, 7/30). Il cap tagliava la cima del modo
+        # lento, quindi il campione dei "sani" e' censurato: e' il cap stesso a
+        # produrre il max di 472s.
+        #
+        # Il costo: sulle ultime 60 run, 18 hanno lavorato davvero (le altre 40
+        # sono `should_review == false`). Di quelle 18, TRE sono morte sul cap a
+        # 480s esatti (32174056349, 32166122112, 32158857815) e DUE sono state
+        # cancellate mentre erano ancora dentro il Checkout (32157777892 a 398s,
+        # 32165988266 a 438s). Cinque su diciotto — il 28% — non hanno prodotto
+        # nessuna review, e la PR resta verde e senza reviewer: il sintomo e'
+        # «PR ferma con tutti i check a posto», che non ha una diagnosi ovvia
+        # perche' un `cancelled` non e' un rosso e nessuno strato lo raccoglie.
+        #
+        # Perche' 15 e non 4 come in issue-triage.yml (#6041): li' i Checkout
+        # sani stanno in 69-188s e i persi a 352-400s, due nuvole separate, e un
+        # tetto stretto le divide. Qui NON si separano — sani fino a 472s, persi
+        # da 480s — quindi un tetto stretto ucciderebbe i sani del modo lento.
+        # Lo stesso commento di #6041 avvisava che ogni job ha la sua
+        # distribuzione e il suo tetto; questo e' il caso che intendeva.
+        #
+        # 15 min = ~1,9x il massimo osservato: lascia respirare il modo lento e
+        # continua a limitare uno stallo vero (il partial clone ne produsse uno
+        # da 11 minuti, run 27672265799 — vedi sopra). Non rallenta niente: e'
+        # un tetto, non un'attesa. Il job cap e' 360 min, quindi c'e' spazio.
+        timeout-minutes: 15
 
       # Headroom install (~63s misurati su run 30353920865) in BACKGROUND: è
       # lavoro puramente I/O (pipx da PyPI) che non dipende da nulla degli step
