@@ -51230,10 +51230,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-        "en": "produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-        "de": "produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-        "fr": "produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
+        "de": "produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/produktionsmitarbeiter-im-3-schichtbetrieb-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
@@ -51247,6 +51244,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
