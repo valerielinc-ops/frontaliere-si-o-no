@@ -1103,6 +1103,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-gli-affitti-canton-friburgo': { it: 'mercato-gli-affitti-canton-friburgo', en: 'rental-market-fribourg-canton', de: 'mietmarkt-kanton-freiburg', fr: 'marche-des-location-canton-fribourg' },
  'dolce-far-niente-benessere-svizzera': { it: 'dolce-far-niente-benessere-svizzera', en: 'dolce-far-niente-wellness-switzerland', de: 'dolce-far-niente-wohlbefinden-schweiz', fr: 'dolce-far-niente-bien-etre-suisse' },
  'avs-prestazioni-friburgo': { it: 'avs-prestazioni-friburgo', en: 'avs-benefits-fribourg', de: 'avs-leistungen-fribourg', fr: 'avs-prestations-fribourg' },
+ 'trasporti-pubblici-canton-friburgo-abbonamenti': { it: 'trasporti-pubblici-canton-friburgo-abbonamenti', en: 'fribourg-public-transport-abonements', de: 'fribourg-oeffentliche-verkehr-abos', fr: 'fribourg-transports-en-commun-abonnements' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

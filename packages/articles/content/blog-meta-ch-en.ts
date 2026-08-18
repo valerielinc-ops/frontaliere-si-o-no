@@ -3232,6 +3232,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-friburgo.title': 'AVS and complementary services in the Canton of Freiburg',
     'blog.article.avs-prestazioni-friburgo.excerpt': 'Analysis of the first pillar in the Canton of Freiburg: cantonal compensation fund, calculation of annuities, gaps and complementary benefits.',
     'blog.article.avs-prestazioni-friburgo.imageAlt': 'Panoramic view of Fribourg city and its cathedral in Switzerland',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Public transport passes in the canton of Freiburg: zones and fares',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Here are the details on public transport subscriptions in the Canton of Freiburg.',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
 };
 
 export default blogMetaChEn;
