@@ -1,16 +1,16 @@
 {
   "key": "trafigura",
   "label": "Trafigura",
-  "generatedAt": "2026-08-17T21:30:14.783Z",
-  "total": 9,
+  "generatedAt": "2026-08-18T10:24:05.319Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13516,
-  "avgDurationMs": 13516,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10721,
+  "avgDurationMs": 10721,
   "durationHistory": [
-    13516
+    10721
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/London-United-Kingdom/Oil-Programme-QA-Lead_R-018547",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:03.589Z",
+      "crawledAt": "2026-08-18T10:23:56.688Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Oil-Programme-QA-Lead_R-018546",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:04.337Z",
+      "crawledAt": "2026-08-18T10:23:57.438Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Gasoline-Blending-Operator_R-018360",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:07.454Z",
+      "crawledAt": "2026-08-18T10:23:58.947Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:05.177Z",
+      "crawledAt": "2026-08-18T10:23:58.202Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Financial-Engineer_R-017858",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:08.345Z",
+      "crawledAt": "2026-08-18T10:23:59.718Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:09.188Z",
+      "crawledAt": "2026-08-18T10:24:00.460Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:10.016Z",
+      "crawledAt": "2026-08-18T10:24:01.238Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:30:11.210Z",
+      "crawledAt": "2026-08-18T10:24:02.004Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "trafigura-de6b5a1f5e62",
       "slug": "programma-di-laurea-commerciale-di-ginevra-trafigura-geneva",
@@ -353,5 +352,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
