@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 18 Aug 2026 00:36:24 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 00:49:28 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -16,6 +16,44 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS et prestations complémentaires dans le canton de Fribourg</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/avs-prestations-fribourg/</link>
+      <description><![CDATA[Analyse du premier pilier dans le canton de Fribourg : caisse de compensation cantonale, calcul des rentes, lacunes et prestations complémentaires.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Rôle de la caisse cantonale de compensation dans le canton de Fribourg
+- Calcul de la rente AVS et gestion des lacunes contributives
+- Prestation des prestations complémentaires pour le minimum vital
+- Compétences de l'OFAS en matière de sécurité sociale fédérale
+
+## Faits clés
+- **Chose** : Gestion AVS et prestations complémentaires
+- Où : Canton de Fribourg
+- Qui : Caisse de compensation cantonale et OFAS
+- Domaine : Premier pilier et sécurité sociale
+- Couverture : Soutien au minimum vital
+
+Dans le paysage de la prévoyance suisse, le premier pilier représente la base fondamentale de la sécurité financière vieillesse et survivants. Au sein du canton de Fribourg, la gestion opérationnelle des positions d'assurance et des cotisations relève de la caisse de compensation cantonale. Cette entité interagit directement avec les travailleurs, les employeurs et les résidents pour assurer la bonne application des réglementations fédérales établies en matière d'AVS, d'AI et d'APG. La structure administrative locale coordonne également les demandes et les paiements, en veillant à ce que chaque citoyen ou résident puisse s'appuyer sur un point de référence territorial pour sa situation de prévoyance.
+
+### Le rôle de la caisse cantonale et de l'OFAS
+
+La distinction entre les entités administratives fédérales et cantonales est fondamentale pour comprendre qui décide quoi dans la prévoyance suisse. Alors que l'OFAS (Office fédéral des assurances sociales) définit le cadre
+Le calcul de la rente AVS est basé sur les années de cotisation cumulées et sur le revenu moyen réalisé au cours de la vie active. Dans le canton de Fribourg, comme dans le reste de la Suisse, la présence de lacunes en matière de cotisations résultant de périodes non couvertes par des versements peut réduire considérablement le montant de la rente mensuelle à laquelle vous avez droit une fois que vous avez atteint l'âge de référence. Vérifier régulièrement son relevé individuel auprès de la caisse de compensation permet de repérer rapidement d'éventuelles périodes manquantes et d'évaluer les versements rétroactifs autorisés par la loi fédérale dans les délais impartis.
+
+### Prestations complémentaires et couverture du minimum vital
+
+Lorsque la rente AVS ou AI n'est pas suffisante pour couvrir les dépenses essentielles à la vie quotidienne, le système suisse prévoit l'accès aux prestations complémentaires. Dans le canton de Fribourg, cet instrument de soutien est administré en étroite collaboration avec les autorités cantonales compétentes afin de garantir que chaque résident indigent ou à revenus limités atteigne le minimum vital garanti par la loi. Les prestations complémentaires couvrent la différence entre les dépenses reconnues et les revenus imputables de l'assuré, y compris les coûts liés aux frais de maladie et d'invalidité reconnus par la législation en vigueur. Pour accéder à cette aide, il faut présenter une demande formelle à la caisse de compensation ou aux offices cantonaux concernés,
+
+## Outils utiles pour la planification
+Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
+Pour procéder à la demande de prestations ou pour régulariser sa position contributive dans le canton de Fribourg, il faut suivre une procédure structurée et rigoureuse. La première étape consiste à contacter directement la caisse de compensation cantonale de Fribourg pour demander le relevé du compte individuel AVS, en vérifiant l'absence de lacunes de cotisation. En cas de périodes non couvertes, il est nécessaire de rassembler les documents attestant de l'activité professionnelle ou des périodes d'études et de résidence en Suisse pour évaluer le recouvrement des cotisations dans les délais prévus par la législation fédérale.
+
+Dans le cas où les revenus mensuels ne couvrent pas les besoins primaires, la demande de prestations complémentaires doit être déposée à l'aide des formulaires officiels mis à disposition par l'administration cantonale. La demande doit être accompagnée de tous les justificatifs fiscaux, des attestations de revenus, des frais de location et des polices de l'assurance maladie obligatoire LAMal. Après l'envoi, le bureau compétent procède à la vérification des exigences en matière de revenus et de patrimoine, en émettant une décision formelle fixant le montant mensuel de l'allocation complémentaire. Pour approfondir le calcul de vos revenus et mieux planifier votre situation financière, nous vous invitons à utiliser notre outil dédié [calcolatore stipendio e imposte](nav:calculator).]]></content:encoded>
+      <pubDate>Tue, 18 Aug 2026 00:49:28 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/avs-prestazioni-friburgo</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-friburgo.webp" medium="image"/>
+    </item>
     <item>
       <title>Douceur de ne rien faire et bien-être : pourquoi s&apos;arrêter est bon pour la santé</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/dolce-far-niente-bien-etre-suisse/</link>
@@ -2890,42 +2928,6 @@ Vérifiez les [échéances fiscales](nav:calendar) : déclarations, ristournes �
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/sorveglianza-mercato-est-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/sorveglianza-mercato-est-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Ouvrir une entreprise à Glaris : ce qu&apos;il faut</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/ouvrir-un-entreprise-a-glaris/</link>
-      <description><![CDATA[Canton de Glaris : inscription au registre du commerce, capital minimum, droits d'inscription et obligations d'assurance.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Ouvrir une entreprise à Glaris nécessite un certain nombre d'étapes et d'exigences. - La société doit être enregistrée auprès de l'Office d'Etat pour la Formation Professionnelle (ASEF). - Il est nécessaire de respecter les réglementations fiscales et d'assurance. - La société doit être inscrite au registre du commerce du canton de Glaris. - Il est conseillé de consulter un avocat ou un conseiller financier pour s'assurer que tout est en ordre.
-
-## Faits clés
-- **Forme juridique** : il est obligatoire d'enregistrer la société auprès de l'Office d'Etat pour la Formation Professionnelle (ASEF). - Capital minimum : le capital minimum pour les sociétés à responsabilité limitée est de CHF 20 000 (art. 731c du Code des impôts directs, 1er janvier 2010). - Frais d'inscription : les frais d'inscription pour les sociétés à responsabilité limitée sont de 500 CHF (art. 733 du Code des impôts directs, 1er janvier 2010). - Obligations d'assurance : les sociétés à responsabilité limitée sont tenues de souscrire une assurance responsabilité civile (art. 20 du Code des assurances, 1er janvier 2008). - Registre du commerce : les sociétés à responsabilité limitée doivent être inscrites au registre du commerce du canton de Glaris (art. 5 du Code de commerce, 1er janvier 2003). - Office d'Etat pour la Formation Professionnelle (ASEF) : l'ASEF est l'organisme responsable de l'enregistrement des sociétés dans le canton de Glaris.
-
-## Exigences d'enregistrement
-- La société doit
-L'obligation d'enregistrer la société auprès de l'Office d'Etat pour la Formation Professionnelle (ASEF) est une exigence essentielle pour les sociétés à responsabilité limitée dans le canton de Glaris. Cette étape est fondamentale pour l'inscription de la société au registre de la commune de Glaris et pour l'obtention de la licence commerciale.
-
-Pour ouvrir une entreprise à Glaris, vous devez suivre les étapes suivantes :
-
-- Choisir un nom pour la société : le nom doit être unique et ne peut pas déjà être utilisé par d'autres sociétés. Vous pouvez utiliser le service de vérification du nom de la société offert par l'ASEF. - Enregistrer la société auprès de l'ASEF : il est nécessaire de déposer une demande d'enregistrement de la société, qui doit être accompagnée d'une série de documents, dont le certificat d'incorporation, le règlement de la société et la déclaration des associés. - **Obtenir la licence commerciale** : la licence commerciale est nécessaire pour l'ouverture d'une activité commerciale dans le canton de Glaris. Il est possible d'obtenir la licence auprès du bureau municipal de Glaris. - Payer les taxes et impôts : vous devez payer les frais d'enregistrement de la société et les impôts sur les bénéfices. - Délivrer les garanties : il est nécessaire de délivrer des garanties pour l'ouverture de l'activité commerciale.
-
-Voici quelques exemples concrets :
-
-- Exemple 1 : une société à responsabilité limitée veut ouvrir une entreprise de restauration à Glaris. La société doit
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-Pour ouvrir une entreprise dans le canton de Glaris, il est nécessaire d'enregistrer la société auprès de l'Office d'Etat pour la Formation Professionnelle (ASEF) et de souscrire une assurance responsabilité civile. Il est important de noter que la procédure d'ouverture d'une activité peut varier en fonction du type d'activité et de sa localisation géographique.
-
-📊 Voici un exemple de la façon dont la procédure d'ouverture d'une entreprise pourrait être structurée dans le canton de Glaris :
-
-1. Enregistrement de la société : il est nécessaire d'enregistrer la société auprès de l'ASEF, qui est responsable de la formation professionnelle et de la protection des consommateurs dans le canton de Glaris. La procédure d'enregistrement peut être effectuée via le site Web de l'ASEF ou au siège de l'entité. 2. Assurance responsabilité civile : il est nécessaire de souscrire une assurance responsabilité civile pour couvrir tout dommage ou perte causé par l'activité. Le montant de l'assurance peut varier en fonction du type d'activité et de sa localisation géographique. 3. Obligations fiscales : vous devez vous inscrire auprès de l'Agence des impôts du canton de Glaris pour effectuer des paiements fiscaux et recevoir des informations sur les impôts à payer. 4. Licence commerciale : il est nécessaire d'obtenir une licence commerciale pour exercer une activité commerciale dans le canton de Glaris. La licence peut être obtenue auprès du Service Commercial du canton de Glaris. 5. Assurance contre les
-
-Offre d'emploi au Tessin? Simulez votre [fiche de paie nette](nav:payslip) : salaire brut, état civil et commune de résidence.]]></content:encoded>
-      <pubDate>Mon, 17 Aug 2026 05:54:28 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/aprire-un-attivita-canton-glarona</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-un-attivita-canton-glarona.webp" medium="image"/>
     </item>
   </channel>
 </rss>

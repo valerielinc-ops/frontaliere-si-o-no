@@ -3229,6 +3229,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dolce-far-niente-benessere-svizzera.title': 'Dolce far niente und Wohlbefinden: Warum aufhören gut für die Gesundheit ist',
     'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'Die Abwesenheit von Reizen reduziert Stress, verlangsamt den Herzschlag und regt laut Wissenschaft die Kreativität an. Eine Analyse des Wertes der Ruhezeit.',
     'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Moment der Entspannung und Inaktivität in einer Schweizer Naturlandschaft',
+    'blog.article.avs-prestazioni-friburgo.title': 'AHV und Ergänzungsleistungen im Kanton Freiburg',
+    'blog.article.avs-prestazioni-friburgo.excerpt': 'Analyse der ersten Säule im Kanton Freiburg: Kantonale Ausgleichskasse, Rentenberechnung, Lücken und Ergänzungsleistungen.',
+    'blog.article.avs-prestazioni-friburgo.imageAlt': 'Panoramablick auf die Stadt Fribourg und ihre Kathedrale in der Schweiz',
 };
 
 export default blogMetaChDe;
