@@ -3226,6 +3226,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Rentals in Freiburg: fees and rental rights',
     'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'The average rents per area in the Canton of Freiburg are CHF 1,200.',
     'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'image for article on rentals and tenancy law in Fribourg Canton',
+    'blog.article.dolce-far-niente-benessere-svizzera.title': 'Sweet doing nothing and well-being: because stopping is good for your health',
+    'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'The absence of stimuli reduces stress, slows the heartbeat and stimulates creativity according to science. An analysis of the value of rest.',
+    'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Moment of relaxation and inactivity in a Swiss natural setting',
 };
 
 export default blogMetaChEn;

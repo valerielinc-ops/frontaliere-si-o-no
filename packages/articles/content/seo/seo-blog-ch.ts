@@ -41828,6 +41828,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dolce-far-niente-benessere-svizzera': {
+    title: 'Dolce far niente e benessere: perche fermarsi fa bene alla salute',
+    description: 'Scopri perche la scienza consiglia il dolce far niente: l\'assenza di stimoli riduce lo stress e il battito cardiaco. Approfondimenti sul benessere in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dolce, niente, benessere, perche',
+    ogTitle: 'Dolce far niente e benessere: perche fermarsi fa bene alla salute',
+    ogDescription: 'L\'assenza di stimoli riduce lo stress, rallenta il battito cardiaco e stimola la creativita secondo la scienza. Un\'analisi completa sul valore del riposo e del recupero psicofisico in Svizzera.',
+    canonicalPath: '/articoli-svizzera/dolce-far-niente-benessere-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dolce far niente e benessere: perche fermarsi fa bene alla salute",
+      "description": "Scopri perche la scienza consiglia il dolce far niente: l'assenza di stimoli riduce lo stress e il battito cardiaco. Approfondimenti sul benessere in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dolce-far-niente-benessere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Momento di relax e inattivita in un contesto naturale svizzero"
+      },
+      "datePublished": "2026-08-18T00:36:24+00:00",
+      "dateModified": "2026-08-18T00:36:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dolce-far-niente-benessere-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

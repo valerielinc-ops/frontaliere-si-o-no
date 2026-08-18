@@ -3226,6 +3226,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Mieten in Freiburg: Mieten und Mietrecht',
     'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'Die durchschnittlichen Gebühren pro Zone im Kanton Freiburg betragen CHF 1\'200.',
     'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'Bild für Artikel über Mieten und Mietrecht im Kanton Freiburg',
+    'blog.article.dolce-far-niente-benessere-svizzera.title': 'Dolce far niente und Wohlbefinden: Warum aufhören gut für die Gesundheit ist',
+    'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'Die Abwesenheit von Reizen reduziert Stress, verlangsamt den Herzschlag und regt laut Wissenschaft die Kreativität an. Eine Analyse des Wertes der Ruhezeit.',
+    'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Moment der Entspannung und Inaktivität in einer Schweizer Naturlandschaft',
 };
 
 export default blogMetaChDe;
