@@ -5110,6 +5110,49 @@ export function parseArticleIdentityField(raw, opts = {}) {
 const PROMPT_TOKEN_BUDGET = 8000;
 
 /**
+ * Il tetto che `tests/news-prompt-token-budget.test.ts` fa rispettare OGGI.
+ * E' un RATCHET, non il traguardo: puo' solo SCENDERE, e scende fino a
+ * `PROMPT_TOKEN_BUDGET`.
+ *
+ * Vive separato dal budget perche' il traguardo (8000) non e' raggiungibile in
+ * una sola PR su QUESTO lato. Misurato dal test sul caso peggiore (fonte oltre
+ * MAX_SOURCE_CHARS, 50 id da 104 char, 4 headline correlate), DOPO la scala di
+ * riduzione completa — cioe' il numero che parte davvero, non quello prima di
+ * comprimere:
+ *
+ *   news frontaliere        9988   news frontaliere al retry   10438
+ *   news svizzera          10018   news svizzera al retry      10468
+ *   evergreen frontaliere   9428   evergreen svizzera           9458
+ *
+ * Il fixture include il messaggio di winner-fingerprint, che in produzione c'e'
+ * sempre e la scala di riduzione non puo' togliere (arriva da
+ * `data/article-performance.json`, fuori dal ladder). Ometterlo — che e' cio'
+ * che un worktree sparse invita a fare, perche' `data/` non e' materializzato —
+ * abbassava il caso peggiore misurato di ~193 token e avrebbe fatto nascere
+ * questo tetto gia' sfondato in produzione.
+ *
+ * Due cose che vanno lette insieme, perche' separate ingannano:
+ *
+ * 1. Ogni ramo e' SOPRA `PROMPT_TOKEN_BUDGET` anche a scala esaurita. Il
+ *    pre-flight qui sotto stampa `over=1` su tutti, ed e' la verita': ogni
+ *    modello con un cap di input piu' stretto viene saltato prima della
+ *    chiamata. E' la stessa forma dell'interruzione di 11 ore sul corpus il
+ *    2026-08-14 (60+ run `success` senza un articolo scritto, ogni riga di log
+ *    che nominava un modello e nessuna che nominasse il prompt).
+ * 2. Il gemello del corpus sta a 8500 con la stessa scala. La distanza NON e'
+ *    la scala di riduzione — quella e' identica byte per byte — e' l'impalcatura
+ *    statica: qui il prompt intero misura 33.645 caratteri (11.392 token)
+ *    contro i ~15.700
+ *    dichiarati dal corpus. Comprimerla e' lavoro di prompt engineering che
+ *    cambia cosa esce, non osservabilita': fuori dal perimetro della PR che ha
+ *    introdotto questa costante, e dichiarato nel suo piano di completamento.
+ *
+ * Il margine sul massimo misurato e' volutamente stretto (132 token): il
+ * prossimo blocco che si aggiunge al prompt deve trovarlo, non assorbirlo.
+ */
+const PROMPT_TOKEN_CEILING = 10600;
+
+/**
  * Il `maxTokens` che le due chiamate di generazione IT passano davvero a
  * `callLLM` piu' sotto. Estratto in una costante perche' le due chiamate non
  * possano divergere fra loro.
@@ -5804,6 +5847,23 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     console.error(
       `  ⚠️  prompt ancora sopra budget dopo ${_shrinkLadder.length} gradini di riduzione `
       + `(${_promptEstTokens} > ${_promptTokenTarget}): i modelli col contesto piu' stretto verranno saltati dal pre-flight.`,
+    );
+  }
+  // Il tetto e' l'altra meta' del pre-flight, e distingue due situazioni che
+  // `over=1` da solo confonde: «sopra il cap della flotta, come oggi sappiamo
+  // di essere» e «sopra anche il massimo che questo repo ha mai misurato»,
+  // cioe' una crescita nuova del prompt. La seconda e' una regressione e va
+  // detta nel run, non solo scoperta dal test in CI.
+  //
+  // Prefisso DIVERSO dal marker (`[prompt-budget-ceiling]`, non
+  // `[prompt-budget]`) di proposito: un watchdog che grep-a `[prompt-budget`
+  // le trova entrambe, ma chi estrae i campi `branch=/est=/over=` dal marker
+  // non si ritrova a parsare una riga che quei campi non li ha.
+  if (_promptEstTokens > PROMPT_TOKEN_CEILING) {
+    console.error(
+      `  🔺 [prompt-budget-ceiling] est=${_promptEstTokens} ceiling=${PROMPT_TOKEN_CEILING}: il prompt supera `
+      + 'anche il tetto, che e\' un ratchet e puo\' solo scendere — il costo del blocco appena aggiunto va '
+      + 'compensato altrove, non assorbito alzando il tetto.',
     );
   }
 
