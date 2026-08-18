@@ -9784,6 +9784,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-di-studio-canton-soletta',
+    category: 'pratico',
+    date: '2026-08-18T02:57:56.148Z',
+    image: '/images/blog/borse-di-studio-canton-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -3262,6 +3262,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-soletta.title': 'Assegni familiari nel Canton Soletta: importi e domanda',
     'blog.article.assegni-familiari-canton-soletta.excerpt': 'La procedura per richiedere gli assegni familiari nel Canton Soletta.',
     'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Immagine di un frontaliere con un bambino',
+    'blog.article.borse-di-studio-canton-soletta.title': 'Borse di studio Canton Soletta: requisiti e importi',
+    'blog.article.borse-di-studio-canton-soletta.excerpt': 'Le borse di studio del Canton Soletta sono finanziamenti per gli studenti di Soletta. Ecco i requisiti e gli importi massimi.',
+    'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Borse di studio Canton Soletta per studenti',
 };
 
 export default blogMetaChIt;

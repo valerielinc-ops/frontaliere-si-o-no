@@ -3262,6 +3262,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-soletta.title': 'Familienzulagen im Kanton Solothurn: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-soletta.excerpt': 'Das Verfahren zur Beantragung von Familienzulagen im Kanton Solothurn.',
     'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Bild eines Ausländers mit einem Kind',
+    'blog.article.borse-di-studio-canton-soletta.title': 'Stipendien Kanton Solothurn: Voraussetzungen und Beträge',
+    'blog.article.borse-di-studio-canton-soletta.excerpt': 'Die Stipendien des Kantons Solothurn sind Fördermittel für Solothurner Studierende. Hier die Anforderungen und Maximalbeträge.',
+    'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Stipendien für Soletta-Studierende',
 };
 
 export default blogMetaChDe;
