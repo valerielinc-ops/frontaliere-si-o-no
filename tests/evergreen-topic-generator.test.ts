@@ -152,16 +152,24 @@ describe('buildComuneEvergreenTopics', () => {
     const MAX_KM = 30; // COMUNE_MAX_DISTANCE_KM in evergreen-topic-generator.mjs
     const computed = buildComuneEvergreenTopics(MUNICIPALITIES as never);
 
-    // Still a real bound: the dataset resolves 517 rows to a canton here, and
-    // the radius must leave a meaningful tail out rather than take everything.
-    expect(computed.length).toBeLessThan(MUNICIPALITIES.length);
+    // Still a real bound, and it must bite against the RESOLVED count, not the
+    // row count: 518 rows resolve to 506 cantons, so `< MUNICIPALITIES.length`
+    // would also pass with no cap at all (506 < 518) — it asserted nothing.
+    const resolved = MUNICIPALITIES.filter((m) => m?.name && resolveComuneCanton(m)).length;
+    expect(computed.length).toBeLessThan(resolved);
 
     const selected = new Set(computed.map((t) => t.keyword));
-    const withinRadius = MUNICIPALITIES.filter(
-      (m) => m?.name && resolveComuneCanton(m) && m.distanceKm <= MAX_KM,
-    );
-    const beyondRadius = MUNICIPALITIES.filter(
-      (m) => m?.name && resolveComuneCanton(m) && m.distanceKm > MAX_KM,
+    // `typeof === 'number'` mirrors the implementation, which promises to drop
+    // a comune with no usable distanceKm rather than sort it as if it were at
+    // the border. Without it a row with `distanceKm: undefined` falls out of
+    // BOTH lists and the count assertion below still passes — the promise
+    // would go unobserved. Latent today (0 such rows) but not free.
+    const usable = (m: (typeof MUNICIPALITIES)[number]) =>
+      m?.name && resolveComuneCanton(m) && typeof m.distanceKm === 'number';
+    const withinRadius = MUNICIPALITIES.filter((m) => usable(m) && m.distanceKm <= MAX_KM);
+    const beyondRadius = MUNICIPALITIES.filter((m) => usable(m) && m.distanceKm > MAX_KM);
+    expect(withinRadius.length + beyondRadius.length).toBe(
+      MUNICIPALITIES.filter((m) => m?.name && resolveComuneCanton(m)).length,
     );
 
     expect(withinRadius.length).toBeGreaterThan(0);
@@ -186,7 +194,8 @@ describe('buildComuneEvergreenTopics', () => {
     const expectedPerCanton = new Map<string, number>();
     for (const m of MUNICIPALITIES) {
       const canton = resolveComuneCanton(m);
-      if (!canton || !m?.name || m.distanceKm > MAX_KM) continue;
+      if (!canton || !m?.name || typeof m.distanceKm !== 'number') continue;
+      if (m.distanceKm > MAX_KM) continue;
       expectedPerCanton.set(canton, (expectedPerCanton.get(canton) ?? 0) + 1);
     }
 

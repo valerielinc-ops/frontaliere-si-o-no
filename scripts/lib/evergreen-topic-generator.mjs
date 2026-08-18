@@ -50,9 +50,20 @@ function readPublishedComuneTopics() {
     const parsed = JSON.parse(fs.readFileSync(PUBLISHED_TOPICS, 'utf-8'));
     const topics = parsed?.topics;
     // A short list means the file is truncated or the datasets collapsed;
-    // computing is better than publishing a silently narrowed pool. Floor is
-    // half the pre-#5563 value: one candidate per comune now, not two.
-    if (!Array.isArray(topics) || topics.length < 50) return null;
+    // computing is better than reading a silently narrowed pool.
+    //
+    // The floor tracks the real value or it stops being a guard. It was 50,
+    // set when the published file held 85 — about 59% of real, a sane
+    // tripwire. The commute-radius change took the file to 437, which left
+    // that same 50 covering 11%: the file could lose 89% of its content and
+    // still be accepted. Concretely, a revert of the published file to its
+    // old 85 entries — the exact starvation this is meant to catch — would
+    // have passed. 300 restores roughly the original ratio.
+    //
+    // Keep this in step with the twin floors in
+    // scripts/build-evergreen-comune-topics.mjs (which refuses to WRITE a
+    // short file) and tests/evergreen-comune-topics-published.test.ts.
+    if (!Array.isArray(topics) || topics.length < 300) return null;
     return topics;
   } catch {
     return null;
@@ -112,24 +123,26 @@ const PROVINCE_CANTON = {
 // close enough to be a plausible commute AND clearly closer than the
 // nearest crossing of a *different* canton.
 //
-// Important dataset limitation: borderCrossings.ts only carries Ticino (27
-// crossings) and one Vallese crossing (Sempione/Iselle-Gondo) — it has zero
-// Grigioni entries. That means this fallback can only ever confidently
-// resolve a comune to Ticino or Vallese, never Grigioni, no matter how
-// close a comune actually sits to the real Graubünden border. Concretely,
-// this resolves all 9 Monza e Brianza (MB) comuni to Ticino (17.7-21.1km
-// from a real crossing, ~80km+ clear of the nearest Vallese one — the
-// Brianza plain immediately south of the Chiasso/Mendrisio corridor). It
-// does NOT resolve any of the 26 BG/BS/TN/BZ comuni: every one of them is
-// 76-206km from the nearest crossing in this dataset (Val di Scalve, Val
-// Camonica, Val di Sole and Alta Val Venosta are nowhere near a Ticino or
-// Vallese crossing), even though some — Alta Val Venosta comuni like Tubre
-// in particular — plausibly border Graubünden in reality. Without a
-// canton-tagged crossing for that border segment there's no data-driven way
-// to confirm it here, so per the same "exclude rather than risk a wrong
-// claim" rule as above, they stay unmapped. A future PR that adds Grigioni
-// crossings to borderCrossings.ts could revisit this.
-const GEO_RESOLVE_MAX_KM = 30; // MB's farthest comune is 21.1km; BG/BS/TN/BZ's nearest is 76km — huge margin either side of this cutoff.
+// This resolves all 9 Monza e Brianza (MB) comuni to Ticino (17.7-21.1km from
+// a real crossing, ~80km+ clear of the nearest Vallese one — the Brianza plain
+// immediately south of the Chiasso/Mendrisio corridor), and 25 of the 26
+// BG/BS/TN/BZ comuni to Grigioni. Only Rabbi (TN) stays unresolved.
+//
+// This paragraph used to say the opposite — that borderCrossings.ts "only
+// carries Ticino (27 crossings) and one Vallese crossing … zero Grigioni
+// entries", and therefore "does NOT resolve any of the 26 BG/BS/TN/BZ comuni".
+// That went stale and was believed for a while, on both copies of this file.
+// Measured 2026-08-18 on both: 143 crossings across 13 cantons, including 9
+// Grigioni (Umbrail, Munt La Schera, Martina-Nauders, Samnaun-Spiss, Forcola
+// di Livigno among them), and the 25/26 above.
+//
+// Worth knowing WHY it survived: the site has a test asserting the correct
+// behaviour (`tests/evergreen-topic-generator.test.ts`), and this repo does
+// not. A comment can only go stale unnoticed on the side where nothing
+// executes the claim — which is the same blind spot the loop drift check has,
+// since it compares files one by one and cannot see a test missing from one
+// side.
+const GEO_RESOLVE_MAX_KM = 30; // MB's farthest comune is 21.1km. NB: this is haversine-to-crossing, a different measurement from the dataset's own `distanceKm` used further down — see COMUNE_MAX_DISTANCE_KM.
 const GEO_RESOLVE_MIN_MARGIN_KM = 20; // nearest different-canton crossing must be at least this much farther, or the comune is treated as ambiguous.
 
 const CANTON_CODE_TO_NAME = { TI: 'Ticino', GR: 'Grigioni', VS: 'Vallese' };
@@ -159,11 +172,9 @@ export function resolveComuneCanton(m) {
 // The selection bar is a COMMUTE RADIUS, not a per-canton head count.
 //
 // It used to be `{ Ticino: 40, Grigioni: 25, Vallese: 20 }` = 85 comuni, while
-// the dataset resolves almost every one of its 518 rows to a canton: 506 on
-// the corpus copy (Ticino 343, Grigioni 99, Vallese 64) and 517 on the site
-// copy (Ticino 329, Grigioni 124, Vallese 64). Both numbers are given because
-// this file is `mode: identical` and the two dataset copies differ — see the
-// note under the table. Either way the cap left 400+ comuni unused, and the
+// the dataset resolves 506 of its 518 rows to a canton (Ticino 343, Grigioni
+// 99, Vallese 64 — the same on both copies since #211 was ported to the site;
+// see the note under the table). That left 421 comuni unused, and the
 // resulting pool was too small to keep the `frontaliere` section fed: with
 // the profession half also
 // halved by #5563, `buildStructuralEvergreenTopics()` fell 310 → 155 in
@@ -213,9 +224,8 @@ export function resolveComuneCanton(m) {
 // would silently turn each widening step into a canton-resolution change — a far
 // larger blast radius than the widening intends.
 //
-// Measured 2026-08-18 on the CORPUS copy of the dataset (the site copy differs;
-// see the note below) — comuni selected per canton, and the resulting
-// structural pool including the 70 professions:
+// Measured 2026-08-18, and now the same on both copies — comuni selected per
+// canton, and the resulting structural pool including the 70 professions:
 //
 //     radius   Ticino  Grigioni  Vallese   comuni   structural pool
 //      20km     251       50       27       328          398
@@ -228,18 +238,25 @@ export function resolveComuneCanton(m) {
 // So this moves the structural pool 155 → 507 and the runtime pool 382 → 734,
 // well past the 537 the section had before the collapse.
 //
-// This file is `mode: identical` and ships to both repos, but the two copies
-// of municipalities.ts and borderCrossings.ts are NOT manifest-governed and
-// have drifted in both directions: the corpus carries the #211 SO→LC province
-// fix the site lacks, the site carries Graubunden border crossings the corpus
-// lacks. So the same radius selects 437 comuni on the corpus and 446 on the
-// site (Ticino 312, Grigioni 98, Vallese 36). Both are healthy; the gap is the
-// datasets, not this rule. Don't read the two counts as a discrepancy to fix.
+// This file is `mode: identical` and ships to both repos. The datasets it
+// reads — municipalities.ts, borderCrossings.ts — are NOT manifest-governed,
+// so they can drift without anything noticing, and they had: the site was
+// missing the #211 SO→LC province fix, and the same radius gave 446 comuni
+// there against 437 here.
+//
+// That gap was not cosmetic. The 25 mislabelled rows are Lecco-shore comuni
+// that `PROVINCE_CANTON` sent to Grigioni, an unreachable commute; under the
+// old count cap only 3 of them reached the pool, and widening the radius took
+// that to 23 published keywords of the form "vivere a <Lecco comune> e
+// lavorare in Grigioni da frontaliere". The cap had been hiding the defect
+// rather than containing it. #211 was ported to the site in the same change
+// that widened the radius, so both sides now select the same 437.
 //
 // Why 30km and not "take all 506": the last 69 comuni are the ones with the
-// least plausible search intent, and they are overwhelmingly Vallese —
-// Gaby (59km, 405 residents), Rassa (54km, 68 residents), Piode (53km, 188),
-// Campertogno (50km, 231). A keyword like "vivere a Rassa e lavorare in
+// least plausible search intent. They split Vallese 28 / Grigioni 24 /
+// Ticino 17 — a Vallese plurality, not a Vallese monopoly — and the extreme
+// cases are Gaby (59km, 405 residents), Rassa (54km, 68 residents),
+// Piode (53km, 188), Campertogno (50km, 231). A keyword like "vivere a Rassa e lavorare in
 // Vallese da frontaliere" addresses a 68-person alpine comune an hour and a
 // half from the border; publishing it costs a generation slot and returns
 // nothing. Spending the whole dataset at once would also leave no graduated
