@@ -1302,6 +1302,18 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // (Ministero del Lavoro e delle Politiche Sociali) e `TULPS` (Testo Unico
 // Leggi Pubblica Sicurezza) sono norme VERE e devono restare fuori match —
 // 8 file al 2026-08-18.
+//
+// Il flag `i` e' piu' permissivo di INSTITUTION_RE (`[A-Z]{2,8}`, sezione 5)
+// e la review su #6005 lo ha segnalato come rischio di falso positivo non
+// escluso: una occorrenza minuscola di `lfw`/`lps` dentro una parola
+// straniera o un acronimo di prodotto passerebbe anch'essa. Verificato
+// 2026-08-18 sull'intero corpus tirato (`packages/articles/content/`,
+// 17.872 file su it/en/de/fr): zero occorrenze minuscole o miste, solo la
+// forma maiuscola esatta della sigla inventata. Il flag oggi non cattura
+// altro che la sigla stessa: restringerlo toglierebbe copertura senza un
+// difetto reale da mostrare. Ri-misurare se il corpus cresce di molto o se
+// emerge un hit minuscolo — a quel punto il fix e' un boundary aggiuntivo o
+// la rimozione del flag, non prima.
 export const FABRICATED_NORM_ACRONYMS = [
   {
     acronym: 'LFW',
