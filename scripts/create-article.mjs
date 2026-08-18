@@ -182,6 +182,11 @@ import {
 // l'intestazione del modulo per la differenza fra duplicare il CONTENUTO
 // (bloccato) e coprire lo stesso TEMA con due tagli (ammesso).
 import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
+// La chiave di identita' della fonte sta in un modulo a se' perche' e' pura e
+// va testata senza importare questo file. Vedi la sua intestazione per il
+// difetto che toglie (la query identificante buttata via) e per il ponte con
+// le voci gia' scritte.
+import { newsUrlKey, legacyNewsUrlKey } from './lib/news-url-key.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -489,7 +494,11 @@ relevant=<yes|no>; reason=<una frase di massimo 15 parole>`;
  *
  * @param {Array<{headline: string, url?: string, relatedHeadlines?: string[]}>} headlines
  * @param {object} [opts]
- * @param {number} [opts.maxClassifier=12]  - max LLM classifier calls per invocation
+ * @param {number} [opts.maxClassifier=headlines.length]  - max LLM classifier calls per
+ *   invocation. Il default NON e' una costante: e' la lunghezza della lista in
+ *   ingresso, cioe' «nessun tetto oltre i candidati che ci sono». Diceva `12`,
+ *   che era il default di una versione precedente e rendeva il ramo di budget
+ *   esaurito raggiungibile sulla carta e irraggiungibile nei fatti.
  * @returns {Promise<Array>} filtered headlines (preserves order)
  */
 async function applyPreSpendTopicGate(headlines, opts = {}) {
@@ -2125,15 +2134,19 @@ function saveSourceUrls(map) {
   }
 }
 
-/** Normalize a news source URL for dedup: strip query params, hash, trailing slash */
+/**
+ * Chiave del ledger per un URL di fonte.
+ *
+ * Delega a `newsUrlKey` (`lib/news-url-key.mjs`), che tiene i parametri di
+ * query IDENTIFICANTI e butta solo quelli di tracciamento. Questa funzione
+ * buttava via tutta la query, e su una fonte che identifica il documento solo
+ * li' — `ti.ch/…/dettaglio-comunicato/?NEWS_ID=<n>`, `uil.it/newssx.asp?ID_News=<n>`
+ * — ogni item del feed collassava sulla stessa chiave: il primo articolo
+ * veniva registrato e tutti i successivi della stessa fonte risultavano
+ * «gia' usati» e venivano scartati in silenzio.
+ */
 function normalizeNewsUrl(rawUrl) {
-  try {
-    const u = new URL(rawUrl);
-    // Remove tracking params, keep the path
-    return `${u.protocol}//${u.hostname}${u.pathname}`.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return rawUrl.toLowerCase().replace(/\/$/, '');
-  }
+  return newsUrlKey(rawUrl);
 }
 
 function isGoogleNewsRssUrl(rawUrl) {
@@ -2225,6 +2238,27 @@ function isSourceUrlAlreadyUsed(headlineUrl) {
   // Exact match — sezione attiva per prima, poi le sorelle.
   const exact = findCrossSectionSourceDuplicate(normalized, loadAllSectionSourceUrls(), SECTION_NAME);
   if (exact.used) return exact;
+
+  // ── PONTE VERSO LE VOCI DI FORMA 1 (scritte prima della fix sulla query) ──
+  //
+  // Le voci gia' nei ledger sono chiavate sul path nudo. Senza questa ricerca
+  // una fonte gia' consumata tornerebbe «libera» per un giro, e il ramo
+  // CROSS-SEZIONE di #251 e' quello senza rete a valle.
+  //
+  // Il corpus deve filtrare per `keyForm` per non ri-collassare (lib
+  // source-url-ledger.mjs); qui NON serve, ed e' una proprieta' strutturale,
+  // non fortuna: il ledger del sito e' una mappa piatta `chiave → articleId`, e
+  // una chiave di forma 2 contiene sempre `?` mentre una di forma 1 non lo
+  // contiene mai. Le due popolazioni sono quindi disgiunte per costruzione, e
+  // `legacyKey` puo' pescare solo fra le voci vecchie. Quando `legacyKey ===
+  // normalized` (URL senza parametri identificanti) le due forme coincidono e
+  // la ricerca sopra ha gia' risposto.
+  const legacyKey = legacyNewsUrlKey(headlineUrl);
+  if (legacyKey !== normalized) {
+    const legacy = findCrossSectionSourceDuplicate(legacyKey, loadAllSectionSourceUrls(), SECTION_NAME);
+    if (legacy.used) return legacy;
+  }
+
   // Fuzzy URL slug vs existing article ID match
   const urlWords = extractUrlSlugWords(headlineUrl);
   if (urlWords.length < 2) return { used: false };
