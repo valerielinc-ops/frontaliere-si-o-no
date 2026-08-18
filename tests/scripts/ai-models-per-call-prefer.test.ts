@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   AI_MODELS,
@@ -181,38 +181,91 @@ describe('cap di chiamate per-run — la domanda che la guardia del prompt deve 
     resetState();
   });
 
-  it('e interrogabile PRIMA di costruire il prompt, e riguarda solo claude-cli', () => {
-    // A inizio run nessuna chiamata e' stata spesa: il cap non e' raggiunto.
-    expect(isPerRunCallCapReached(HAIKU)).toBe(false);
-    // E per un provider senza cap per-run la risposta e' sempre false, anche
-    // con la variabile impostata: il cap e' di claude-cli, non globale.
-    process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = '1';
-    expect(isPerRunCallCapReached(RIVALE)).toBe(false);
+  /**
+   * Cosa questi test possono e NON possono dimostrare, detto prima.
+   *
+   * `_claudeCliCallsThisRun` e' privato del modulo e cresce solo dentro
+   * `callLLM`, dopo un tentativo vero verso il provider. Da fuori il contatore
+   * resta 0, e a contatore 0 `isPerRunCallCapReached` torna `false` per OGNI
+   * valore del cap. Quindi un test che si limita ad asserire `false` passerebbe
+   * anche contro `() => false`: non e' un osservatore, e' una decorazione.
+   *
+   * Cio' che invece si osserva da fuori e' il WARN, che e' la novita' vera di
+   * corpus#423. E' su quello che stanno le asserzioni che discriminano.
+   */
+
+  async function freshModule() {
+    // Il flag del warn-once e' di modulo e `resetState()` NON lo azzera (vedi
+    // il residuo in fondo), quindi senza un'istanza nuova il secondo test del
+    // file troverebbe il warn gia' speso e verde per il motivo sbagliato.
+    vi.resetModules();
+    return import('../../scripts/lib/ai-models.mjs');
+  }
+
+  it('a contatore 0 la guardia e inerte per qualunque cap — e per questo si puo interrogare prima del prompt', () => {
+    // Asserzione di UNIFORMITA', non di semantica: e' la proprieta' che rende
+    // sicuro chiamarla mentre si costruisce il prompt. Che `0` valga
+    // «illimitato» lo dimostra il test dopo, non questo.
+    for (const cap of [undefined, '0', '1', '40', 'spento']) {
+      if (cap === undefined) delete process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN;
+      else process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = cap;
+      expect(isPerRunCallCapReached(HAIKU)).toBe(false);
+      expect(isPerRunCallCapReached(RIVALE)).toBe(false);
+    }
   });
 
-  it('CLAUDE_CLI_MAX_CALLS_PER_RUN=0 NON e un kill switch: 0 = illimitato', () => {
+  it('CLAUDE_CLI_MAX_CALLS_PER_RUN=0 NON e un kill switch: 0 = illimitato, e lo dice nel log', async () => {
     // LA TRAPPOLA, SCRITTA COME TEST.
     //
     // La lettura naturale di «cap = 0» su un modello a pagamento e' «zero
     // chiamate». La semantica reale e' l opposto esatto: cap disattivato. Chi
     // la usa per spegnere Haiku in fretta toglie l unico tetto che c era, e non
     // se ne accorge — il comportamento e' identico a quello nominale finche' la
-    // run non supera le 40 chiamate. Da questa PR c e' un warn-once che lo dice.
+    // run non supera le 40 chiamate.
     //
     // La convenzione NON e' stata invertita: e' condivisa col gemello
-    // `mode: identical` del corpus e con gli altri cap del file. Questa riga
-    // impedisce a un futuro «sistemiamo 0 = spento» di passare per una svista
-    // su UN SOLO lato.
-    process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = '0';
-    expect(isPerRunCallCapReached(HAIKU)).toBe(false);
+    // `mode: identical` del corpus e con gli altri cap del file. Il warn e' la
+    // traccia che distingue «l ho voluto» da «pensavo di aver spento», ed e'
+    // l unico effetto di `0` visibile da fuori: qui casca un `0 = spento`
+    // introdotto per svista su UN SOLO lato.
+    const mod = await freshModule();
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = '0';
+      expect(mod.isPerRunCallCapReached(HAIKU)).toBe(false);
+      const detti = warn.mock.calls.map((c) => String(c[0])).join('\n');
+      expect(detti).toContain('ILLIMITATE');
+      expect(warn).toHaveBeenCalledTimes(1);
 
-    // La leva che spegne davvero e' un altra, ed e' quella sopra.
-    process.env.AI_MODELS_PREFER = '';
-    expect(applyModelsPrefer(['a', 'b'], [HAIKU])).toEqual(['a', 'b']);
+      // Warn-ONCE: la guardia viene interrogata a ogni prompt, e una riga per
+      // chiamata renderebbe il log illeggibile proprio nella run che sta
+      // sforando.
+      mod.isPerRunCallCapReached(HAIKU);
+      mod.isPerRunCallCapReached(HAIKU);
+      expect(warn).toHaveBeenCalledTimes(1);
+    } finally {
+      warn.mockRestore();
+    }
   });
 
-  it('un valore malformato non spegne il cap: si torna al default', () => {
-    process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = 'spento';
-    expect(isPerRunCallCapReached(HAIKU)).toBe(false); // default 40, 0 chiamate spese
+  it('un valore malformato non spegne il cap e non emette il warn dell illimitato', async () => {
+    // `spento` non e' un intero >= 0: si torna al default 40, che NON e'
+    // illimitato — quindi la riga di log non deve comparire. E' la meta' che
+    // impedisce al warn di diventare rumore su ogni typo.
+    const mod = await freshModule();
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = 'spento';
+      expect(mod.isPerRunCallCapReached(HAIKU)).toBe(false);
+      expect(warn.mock.calls.map((c) => String(c[0])).join('\n')).not.toContain('ILLIMITATE');
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('la leva che spegne DAVVERO claude-cli e AI_MODELS_PREFER vuota, non il cap', () => {
+    process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN = '0';
+    process.env.AI_MODELS_PREFER = '';
+    expect(applyModelsPrefer(['a', 'b'], [HAIKU])).toEqual(['a', 'b']);
   });
 });
