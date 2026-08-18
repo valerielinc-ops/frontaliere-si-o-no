@@ -3316,6 +3316,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Beschäftigung in der Schweiz: +0,8% im 2. Quartal 2026',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'Im zweiten Quartal 2026 steigt die Beschäftigung in der Schweiz um 0,8%, während die ILO-Arbeitslosenquote nach Angaben des BfS auf 4,9% steigt.',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Beschäftigungsstatistiken in der Schweiz im zweiten Quartal 2026',
+    'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Schulsystem Kanton Basel-Stadt: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'Die Schulzyklen und das Einschreibungsalter im Kanton Basel-Stadt.',
+    'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'Ein Schüler der Realschule in Basel Stadt lernt mit einem Lehrer',
 };
 
 export default blogMetaChDe;

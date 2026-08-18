@@ -42998,6 +42998,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-scolastico-canton-basilea-citta': {
+    title: 'Sistema scolastico canton Basilea Città: iscrizione e cicli',
+    description: 'I cicli di scuola e le età di iscrizione nel Cantone di Basilea Città. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, canton, basilea',
+    ogTitle: 'Sistema scolastico canton Basilea Città iscrizione e cicli',
+    ogDescription: 'I cicli di scuola e le età di iscrizione nel Cantone di Basilea Città.',
+    canonicalPath: '/articoli-svizzera/sistema-scolastico-canton-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico canton Basilea Città: iscrizione e cicli",
+      "description": "I cicli di scuola e le età di iscrizione nel Cantone di Basilea Città. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-scolastico-canton-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "A studente di scuola media inferiore nella scuola di Basilea Città impara con un professore"
+      },
+      "datePublished": "2026-08-18T07:39:21+00:00",
+      "dateModified": "2026-08-18T07:39:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-scolastico-canton-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
