@@ -3379,6 +3379,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soglie-patrimonio-banche-svizzera.title': 'Si vous avez cet argent, les banques vous considèrent comme riche',
     'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Des banques régionales aux établissements privés : découvrez les seuils de patrimoine qui classent les clients et les avantages du changement de catégorie.',
     'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Bureau bancaire moderne suisse avec documents financiers et gestion patrimoniale',
+    'blog.article.easygov-pmi-svizzere.title': 'EasyGov soulage les PME suisses',
+    'blog.article.easygov-pmi-svizzere.excerpt': 'Étude de l\'Université de Saint-Gall pour SECO : EasyGov réduit les délais et les coûts administratifs pour les PME suisses. Analyse réalisée en août 2026.',
+    'blog.article.easygov-pmi-svizzere.imageAlt': 'Bureau administratif suisse avec personnel travaillant sur des ordinateurs et tableaux de bord numériques',
 };
 
 export default blogMetaChFr;
