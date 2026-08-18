@@ -3358,6 +3358,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassis-neutralita.title': 'Popular votes, Cassis\' first',
     'blog.article.cassis-neutralita.excerpt': 'Federal Councillor Ignazio Cassis takes responsibility for the neutrality initiative',
     'blog.article.cassis-neutralita.imageAlt': 'Ignazio Cassis in first line for the initiative on neutrality',
+    'blog.article.affitti-basilea-citta.title': 'Basel City Rental Market: Average Rentals and Lease Fee',
+    'blog.article.affitti-basilea-citta.excerpt': 'Average rents by area, security deposit and rental right in Basel City.',
+    'blog.article.affitti-basilea-citta.imageAlt': 'Editorial image related to: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
 };
 
 export default blogMetaChEn;

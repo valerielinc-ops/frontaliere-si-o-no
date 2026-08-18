@@ -21,16 +21,10 @@ import { assignSubjectVariant } from '../../services/newsletter-subject-assign.m
 import { EXPERIMENT_EXCLUDED_PROVIDERS } from '../../functions/src/lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId } from '../../functions/src/lib/deliveryDocId.js';
 import { toMillis } from './firestoreTimestamp.mjs';
+import { MissingIndexError } from './missing-index-error.mjs';
 
-/** Thrown when the single-field collectionGroup index is missing. */
-export class MissingIndexError extends Error {
-  constructor(group, original) {
-    super(`Missing Firestore collectionGroup index for "${group}.campaign_id"`);
-    this.name = 'MissingIndexError';
-    this.group = group;
-    this.original = original;
-  }
-}
+// Re-exported so existing importers keep a single entry point for this module.
+export { MissingIndexError };
 
 /**
  * Load per-(provider × variant) totals for one campaign.
@@ -43,7 +37,7 @@ export async function loadCampaignVariantTotals(db, campaignId) {
     try {
       return await db.collectionGroup(group).where('campaign_id', '==', campaignId).get();
     } catch (e) {
-      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, e);
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, 'campaign_id', e);
       throw e;
     }
   };
@@ -246,7 +240,7 @@ export async function loadCampaignSegmentReport(db, campaignId, opts = {}) {
     try {
       return await db.collectionGroup(group).where('campaign_id', '==', campaignId).get();
     } catch (e) {
-      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, e);
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, 'campaign_id', e);
       throw e;
     }
   };
@@ -306,13 +300,20 @@ export async function loadCampaignSegmentReport(db, campaignId, opts = {}) {
     const windowEnd = maxSentAt + attributionWindowDays * DAY_MS;
     let unsubSnap;
     try {
+      // The explicit descending order is load-bearing, not cosmetic: a range
+      // filter with no orderBy makes Firestore ask for (event_type ASC,
+      // timestamp ASC), which nothing declares, while firestore.indexes.json
+      // already ships (event_type ASC, timestamp DESC). Ordering the other way
+      // serves the same rows off the index we already have — and the rows only
+      // feed a Set below, so their order is irrelevant to the result.
       unsubSnap = await db.collectionGroup('events')
         .where('event_type', '==', 'unsubscribe')
         .where('timestamp', '>=', new Date(minSentAt))
         .where('timestamp', '<', new Date(windowEnd))
+        .orderBy('timestamp', 'desc')
         .get();
     } catch (e) {
-      if (String(e?.message || '').includes('index')) throw new MissingIndexError('events', e);
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError('events', 'event_type + timestamp', e);
       throw e;
     }
     for (const doc of unsubSnap.docs) {
