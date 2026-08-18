@@ -3220,6 +3220,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Buying a house in Freiburg: prices and mortgage',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Average house prices in Freiburg, own funds required, mortgage loan sustainability and transfer tax',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'A house in Friburg, with the note: "House for sale in Friburg"',
+    'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Nursery and childcare in the Canton of Freiburg: costs and options',
+    'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'The Canton of Freiburg offers several daycare and childcare options, with income-based fees and cantonal subsidies available.',
+    'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'A family of three people resides in the Canton of Fribourg and is looking for a suitable daycare for their children.',
 };
 
 export default blogMetaChEn;

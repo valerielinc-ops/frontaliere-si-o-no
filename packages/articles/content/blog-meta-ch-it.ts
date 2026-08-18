@@ -3220,6 +3220,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.title': 'Comprare casa in Friburgo: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.excerpt': 'Prezzi medi delle case in Friburgo, fondi propri richiesti, sostenibilità del mutuo ipotecario e imposta sui trapassi',
     'blog.article.comprare-casa-canton-friburgo-prezzi-e-mutuo.imageAlt': 'Una casa in Friburgo, con la nota: "Casa in vendita in Friburgo"',
+    'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Asilo nido e custodia bambini nel Cantone di Friburgo: costi e opzioni',
+    'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'Il Cantone di Friburgo offre diverse opzioni di asilo nido e custodia bambini, con tariffe calcolate sul reddito e sussidi cantonali disponibili.',
+    'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'Una famiglia di tre persone risiede nel Cantone di Friburgo e cerca di trovare un asilo nido adatto ai loro bambini.',
 };
 
 export default blogMetaChIt;
