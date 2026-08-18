@@ -39,18 +39,29 @@
  * against the same ISTAT source, e.g. Cantù: 40000 curated vs 40266 ISTAT,
  * Livigno: 6700 curated vs 6740 ISTAT.
  *
- * PRE-EXISTING DATA ISSUE FOUND, NOT FIXED HERE (out of scope for #4922):
- * 25 rows below carry `province: 'SO'` (Sondrio) but are geographically
- * Lecco (LC) comuni on Lake Como's eastern "Lario" shore — Abbadia Lariana,
+ * PROVINCE FIX (issue #211, follow-up to #184, fixed 2026-08-10 on the corpus
+ * copy; ported here 2026-08-18 — see the note at the end of this block):
+ * 25 rows carried `province: 'SO'` (Sondrio) but are geographically Lecco
+ * (LC) comuni on Lake Como's eastern "Lario" shore — Abbadia Lariana,
  * Bellano, Bosisio Parini, Bulciago, Casargo, Cesana Brianza, Civate,
  * Colico, Costa Masnaga, Dervio, Dorio, Esino Lario, Lierna, Mandello del
  * Lario, Molteno, Nibionno, Oliveto Lario, Pagnona, Perledo, Rogeno,
  * Sueglio, Suello, Valmadrera, Valvarrone, Varenna (ISTAT has no "SO"
- * record for any of them — matched under LC instead). The mislabel predates
- * this fix and is left as-is to keep this change surgical (province drives
- * corridor grouping elsewhere, a bigger blast radius than a population
- * value); flagged here for a follow-up. Their population, where it needed
- * fixing, was still sourced correctly (under LC) by this pass.
+ * record for any of them — matched under LC instead). Corrected to
+ * `province: 'LC'` in place; rows were left where they physically sat in the
+ * file (the block is sorted by comune name, not contiguous per province, so
+ * extracting them would have reordered unrelated rows for no gain).
+ *
+ * WHY IT WAS PORTED HERE (2026-08-18). This block used to say the mislabel was
+ * "left as-is to keep this change surgical". That was defensible while the
+ * evergreen comune pool was capped at 40 per canton: only 3 of these 25 rows
+ * made it into the pool. Widening the pool to a 30km commute radius released
+ * the rest, and `public/evergreen-comune-topics.json` went from 3 to 23
+ * keywords of the form "vivere a <Lecco-shore comune> e lavorare in Grigioni
+ * da frontaliere" — an unreachable commute, published as data the article
+ * generator reads at runtime. The cap had been hiding the defect, not
+ * containing it. With this fix those 23 are gone (measured: 0), and this file's
+ * data rows are now byte-identical to the corpus copy.
  *
  * avgRentMonthly: NOT sourced by this fix. No verified per-comune Italian
  * rental-market source was found for these 518 minor comuni (see #4922
@@ -433,45 +444,45 @@ export const MUNICIPALITIES: Municipality[] = [
  { name: 'Villette', province: 'VB', lat: 46.1322, lng: 8.5353, irpefAddizionale: 0.55, distanceKm: 15, avgRentMonthly: 450, population: 275, fascia: '1' },
  { name: 'Vogogna', province: 'VB', lat: 46.009, lng: 8.293, irpefAddizionale: 0.55, distanceKm: 33, avgRentMonthly: 450, population: 1693, fascia: '1A' },
  // ── Sondrio (SO) — 99 comuni ──
- { name: 'Abbadia Lariana', province: 'SO', lat: 45.9, lng: 9.3341, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 3163, fascia: '1A' },
+ { name: 'Abbadia Lariana', province: 'LC', lat: 45.9, lng: 9.3341, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 3163, fascia: '1A' },
  { name: 'Albaredo Per San Marco', province: 'SO', lat: 46.1035, lng: 9.59, irpefAddizionale: 0.55, distanceKm: 41, avgRentMonthly: 400, population: 292, fascia: '1' },
  { name: 'Albosaggia', province: 'SO', lat: 46.1472, lng: 9.8532, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 2989, fascia: '1' },
  { name: 'Andalo Valtellino', province: 'SO', lat: 46.1336, lng: 9.4735, irpefAddizionale: 0.55, distanceKm: 39, avgRentMonthly: 400, population: 603, fascia: '1' },
  { name: 'Aprica', province: 'SO', lat: 46.1527, lng: 10.1517, irpefAddizionale: 0.55, distanceKm: 12, avgRentMonthly: 400, population: 1459, fascia: '1' },
  { name: 'Ardenno', province: 'SO', lat: 46.1643, lng: 9.6449, irpefAddizionale: 0.55, distanceKm: 35, avgRentMonthly: 400, population: 3218, fascia: '1' },
- { name: 'Bellano', province: 'SO', lat: 46.0422, lng: 9.3014, irpefAddizionale: 0.55, distanceKm: 10, avgRentMonthly: 480, population: 3300, fascia: '1' },
+ { name: 'Bellano', province: 'LC', lat: 46.0422, lng: 9.3014, irpefAddizionale: 0.55, distanceKm: 10, avgRentMonthly: 480, population: 3300, fascia: '1' },
  { name: 'Bema', province: 'SO', lat: 46.0788, lng: 9.5812, irpefAddizionale: 0.55, distanceKm: 43, avgRentMonthly: 400, population: 115, fascia: '1' },
  { name: 'Berbenno di Valtellina', province: 'SO', lat: 46.169, lng: 9.7434, irpefAddizionale: 0.55, distanceKm: 27, avgRentMonthly: 400, population: 4056, fascia: '1' },
  { name: 'Bianzone', province: 'SO', lat: 46.1882, lng: 10.1094, irpefAddizionale: 0.55, distanceKm: 7, avgRentMonthly: 400, population: 1250, fascia: '1' },
  { name: 'Bormio', province: 'SO', lat: 46.4679, lng: 10.3709, irpefAddizionale: 0.5, distanceKm: 4, avgRentMonthly: 550, population: 4100, fascia: '1' },
- { name: 'Bosisio Parini', province: 'SO', lat: 45.8023, lng: 9.2907, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 3246, fascia: '1A' },
+ { name: 'Bosisio Parini', province: 'LC', lat: 45.8023, lng: 9.2907, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 3246, fascia: '1A' },
  { name: 'Buglio in Monte', province: 'SO', lat: 46.1828, lng: 9.6748, irpefAddizionale: 0.55, distanceKm: 32, avgRentMonthly: 400, population: 2033, fascia: '1' },
- { name: 'Bulciago', province: 'SO', lat: 45.7547, lng: 9.291, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 2922, fascia: '1' },
+ { name: 'Bulciago', province: 'LC', lat: 45.7547, lng: 9.291, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 2922, fascia: '1' },
  { name: 'Caiolo', province: 'SO', lat: 46.15, lng: 9.8145, irpefAddizionale: 0.55, distanceKm: 23, avgRentMonthly: 400, population: 1051, fascia: '1' },
  { name: 'Campodolcino', province: 'SO', lat: 46.3987, lng: 9.35, irpefAddizionale: 0.5, distanceKm: 3, avgRentMonthly: 380, population: 1000, fascia: '1' },
- { name: 'Casargo', province: 'SO', lat: 46.0395, lng: 9.3882, irpefAddizionale: 0.55, distanceKm: 30, avgRentMonthly: 400, population: 849, fascia: '1A' },
+ { name: 'Casargo', province: 'LC', lat: 46.0395, lng: 9.3882, irpefAddizionale: 0.55, distanceKm: 30, avgRentMonthly: 400, population: 849, fascia: '1A' },
  { name: 'Caspoggio', province: 'SO', lat: 46.2646, lng: 9.8639, irpefAddizionale: 0.55, distanceKm: 17, avgRentMonthly: 400, population: 1332, fascia: '1' },
  { name: 'Castello Dell\'Acqua', province: 'SO', lat: 46.146, lng: 10.0136, irpefAddizionale: 0.55, distanceKm: 13, avgRentMonthly: 400, population: 602, fascia: '1' },
  { name: 'Castione Andevenno', province: 'SO', lat: 46.1728, lng: 9.8002, irpefAddizionale: 0.55, distanceKm: 23, avgRentMonthly: 400, population: 1590, fascia: '1' },
  { name: 'Cedrasco', province: 'SO', lat: 46.149, lng: 9.7674, irpefAddizionale: 0.55, distanceKm: 27, avgRentMonthly: 400, population: 420, fascia: '1' },
  { name: 'Cercino', province: 'SO', lat: 46.1581, lng: 9.5081, irpefAddizionale: 0.55, distanceKm: 39, avgRentMonthly: 400, population: 815, fascia: '1' },
- { name: 'Cesana Brianza', province: 'SO', lat: 45.8168, lng: 9.2995, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 2347, fascia: '1A' },
+ { name: 'Cesana Brianza', province: 'LC', lat: 45.8168, lng: 9.2995, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 2347, fascia: '1A' },
  { name: 'Chiavenna', province: 'SO', lat: 46.3217, lng: 9.3997, irpefAddizionale: 0.6, distanceKm: 3, avgRentMonthly: 400, population: 7200, fascia: '1' },
  { name: 'Chiesa in Valmalenco', province: 'SO', lat: 46.2641, lng: 9.8497, irpefAddizionale: 0.55, distanceKm: 18, avgRentMonthly: 400, population: 2263, fascia: '1' },
  { name: 'Chiuro', province: 'SO', lat: 46.1708, lng: 9.9894, irpefAddizionale: 0.55, distanceKm: 11, avgRentMonthly: 400, population: 2437, fascia: '1' },
  { name: 'Cino', province: 'SO', lat: 46.1581, lng: 9.4861, irpefAddizionale: 0.55, distanceKm: 38, avgRentMonthly: 400, population: 337, fascia: '1' },
- { name: 'Civate', province: 'SO', lat: 45.8281, lng: 9.3429, irpefAddizionale: 0.55, distanceKm: 24, avgRentMonthly: 400, population: 3723, fascia: '1A' },
+ { name: 'Civate', province: 'LC', lat: 45.8281, lng: 9.3429, irpefAddizionale: 0.55, distanceKm: 24, avgRentMonthly: 400, population: 3723, fascia: '1A' },
  { name: 'Civo', province: 'SO', lat: 46.1543, lng: 9.5608, irpefAddizionale: 0.55, distanceKm: 41, avgRentMonthly: 400, population: 1120, fascia: '1' },
- { name: 'Colico', province: 'SO', lat: 46.1344, lng: 9.3742, irpefAddizionale: 0.6, distanceKm: 8, avgRentMonthly: 480, population: 7800, fascia: '1' },
+ { name: 'Colico', province: 'LC', lat: 46.1344, lng: 9.3742, irpefAddizionale: 0.6, distanceKm: 8, avgRentMonthly: 480, population: 7800, fascia: '1' },
  { name: 'Colorina', province: 'SO', lat: 46.1511, lng: 9.7328, irpefAddizionale: 0.55, distanceKm: 29, avgRentMonthly: 400, population: 1342, fascia: '1' },
  { name: 'Cosio Valtellino', province: 'SO', lat: 46.1337, lng: 9.5292, irpefAddizionale: 0.55, distanceKm: 42, avgRentMonthly: 400, population: 5568, fascia: '1' },
- { name: 'Costa Masnaga', province: 'SO', lat: 45.768, lng: 9.2764, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 4752, fascia: '1A' },
+ { name: 'Costa Masnaga', province: 'LC', lat: 45.768, lng: 9.2764, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 4752, fascia: '1A' },
  { name: 'Dazio', province: 'SO', lat: 46.1613, lng: 9.6008, irpefAddizionale: 0.55, distanceKm: 38, avgRentMonthly: 400, population: 508, fascia: '1' },
  { name: 'Delebio', province: 'SO', lat: 46.1361, lng: 9.4606, irpefAddizionale: 0.55, distanceKm: 38, avgRentMonthly: 400, population: 3323, fascia: '1' },
- { name: 'Dervio', province: 'SO', lat: 46.0766, lng: 9.3045, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 2538, fascia: '1A' },
- { name: 'Dorio', province: 'SO', lat: 46.1391, lng: 9.3966, irpefAddizionale: 0.55, distanceKm: 34, avgRentMonthly: 400, population: 339, fascia: '1A' },
+ { name: 'Dervio', province: 'LC', lat: 46.0766, lng: 9.3045, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 2538, fascia: '1A' },
+ { name: 'Dorio', province: 'LC', lat: 46.1391, lng: 9.3966, irpefAddizionale: 0.55, distanceKm: 34, avgRentMonthly: 400, population: 339, fascia: '1A' },
  { name: 'Dubino', province: 'SO', lat: 46.1534, lng: 9.4613, irpefAddizionale: 0.55, distanceKm: 38, avgRentMonthly: 400, population: 3815, fascia: '1' },
- { name: 'Esino Lario', province: 'SO', lat: 45.9939, lng: 9.3332, irpefAddizionale: 0.55, distanceKm: 26, avgRentMonthly: 400, population: 749, fascia: '1A' },
+ { name: 'Esino Lario', province: 'LC', lat: 45.9939, lng: 9.3332, irpefAddizionale: 0.55, distanceKm: 26, avgRentMonthly: 400, population: 749, fascia: '1A' },
  { name: 'Faedo Valtellino', province: 'SO', lat: 46.153, lng: 9.9061, irpefAddizionale: 0.55, distanceKm: 17, avgRentMonthly: 400, population: 514, fascia: '1' },
  { name: 'Forcola', province: 'SO', lat: 46.1588, lng: 9.6708, irpefAddizionale: 0.55, distanceKm: 33, avgRentMonthly: 400, population: 755, fascia: '1' },
  { name: 'Fusine', province: 'SO', lat: 46.149, lng: 9.7491, irpefAddizionale: 0.55, distanceKm: 28, avgRentMonthly: 400, population: 559, fascia: '1' },
@@ -479,23 +490,23 @@ export const MUNICIPALITIES: Municipality[] = [
  { name: 'Grosio', province: 'SO', lat: 46.2989, lng: 10.2745, irpefAddizionale: 0.55, distanceKm: 16, avgRentMonthly: 400, population: 4260, fascia: '1' },
  { name: 'Grosotto', province: 'SO', lat: 46.2799, lng: 10.2584, irpefAddizionale: 0.55, distanceKm: 14, avgRentMonthly: 400, population: 1657, fascia: '1' },
  { name: 'Lanzada', province: 'SO', lat: 46.2693, lng: 9.8692, irpefAddizionale: 0.55, distanceKm: 16, avgRentMonthly: 400, population: 1234, fascia: '1' },
- { name: 'Lierna', province: 'SO', lat: 45.9592, lng: 9.3025, irpefAddizionale: 0.55, distanceKm: 24, avgRentMonthly: 400, population: 2116, fascia: '1A' },
+ { name: 'Lierna', province: 'LC', lat: 45.9592, lng: 9.3025, irpefAddizionale: 0.55, distanceKm: 24, avgRentMonthly: 400, population: 2116, fascia: '1A' },
  { name: 'Livigno', province: 'SO', lat: 46.5384, lng: 10.1357, irpefAddizionale: 0.4, distanceKm: 0, avgRentMonthly: 600, population: 6700, fascia: '1' },
  { name: 'Lovero', province: 'SO', lat: 46.2314, lng: 10.2286, irpefAddizionale: 0.55, distanceKm: 12, avgRentMonthly: 400, population: 622, fascia: '1' },
  { name: 'Madesimo', province: 'SO', lat: 46.4333, lng: 9.35, irpefAddizionale: 0.5, distanceKm: 2, avgRentMonthly: 500, population: 560, fascia: '1' },
- { name: 'Mandello del Lario', province: 'SO', lat: 45.9143, lng: 9.317, irpefAddizionale: 0.6, distanceKm: 18, avgRentMonthly: 530, population: 10500, fascia: '1A' },
+ { name: 'Mandello del Lario', province: 'LC', lat: 45.9143, lng: 9.317, irpefAddizionale: 0.6, distanceKm: 18, avgRentMonthly: 530, population: 10500, fascia: '1A' },
  { name: 'Mantello', province: 'SO', lat: 46.1522, lng: 9.4885, irpefAddizionale: 0.55, distanceKm: 39, avgRentMonthly: 400, population: 752, fascia: '1' },
  { name: 'Mazzo di Valtellina', province: 'SO', lat: 46.2586, lng: 10.2567, irpefAddizionale: 0.55, distanceKm: 14, avgRentMonthly: 400, population: 1015, fascia: '1' },
  { name: 'Mello', province: 'SO', lat: 46.1542, lng: 9.5479, irpefAddizionale: 0.55, distanceKm: 40, avgRentMonthly: 400, population: 953, fascia: '1' },
  { name: 'Mese', province: 'SO', lat: 46.3053, lng: 9.3803, irpefAddizionale: 0.55, distanceKm: 20, avgRentMonthly: 400, population: 1865, fascia: '1' },
- { name: 'Molteno', province: 'SO', lat: 45.7804, lng: 9.3074, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 3513, fascia: '1' },
+ { name: 'Molteno', province: 'LC', lat: 45.7804, lng: 9.3074, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 3513, fascia: '1' },
  { name: 'Montagna in Valtellina', province: 'SO', lat: 46.1785, lng: 9.903, irpefAddizionale: 0.55, distanceKm: 16, avgRentMonthly: 400, population: 2936, fascia: '1' },
  { name: 'Morbegno', province: 'SO', lat: 46.1362, lng: 9.5731, irpefAddizionale: 0.6, distanceKm: 12, avgRentMonthly: 400, population: 12300, fascia: '1A' },
- { name: 'Nibionno', province: 'SO', lat: 45.7465, lng: 9.2689, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 3551, fascia: '1A' },
+ { name: 'Nibionno', province: 'LC', lat: 45.7465, lng: 9.2689, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 400, population: 3551, fascia: '1A' },
  { name: 'Novate Mezzola', province: 'SO', lat: 46.2218, lng: 9.4536, irpefAddizionale: 0.5, distanceKm: 6, avgRentMonthly: 380, population: 1800, fascia: '1' },
- { name: 'Oliveto Lario', province: 'SO', lat: 45.9292, lng: 9.2859, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 1154, fascia: '1A' },
- { name: 'Pagnona', province: 'SO', lat: 46.0597, lng: 9.4029, irpefAddizionale: 0.55, distanceKm: 32, avgRentMonthly: 400, population: 310, fascia: '1A' },
- { name: 'Perledo', province: 'SO', lat: 46.0128, lng: 9.2963, irpefAddizionale: 0.55, distanceKm: 23, avgRentMonthly: 400, population: 848, fascia: '1A' },
+ { name: 'Oliveto Lario', province: 'LC', lat: 45.9292, lng: 9.2859, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 1154, fascia: '1A' },
+ { name: 'Pagnona', province: 'LC', lat: 46.0597, lng: 9.4029, irpefAddizionale: 0.55, distanceKm: 32, avgRentMonthly: 400, population: 310, fascia: '1A' },
+ { name: 'Perledo', province: 'LC', lat: 46.0128, lng: 9.2963, irpefAddizionale: 0.55, distanceKm: 23, avgRentMonthly: 400, population: 848, fascia: '1A' },
  { name: 'Piantedo', province: 'SO', lat: 46.1342, lng: 9.4293, irpefAddizionale: 0.55, distanceKm: 36, avgRentMonthly: 400, population: 1424, fascia: '1' },
  { name: 'Piateda', province: 'SO', lat: 46.1588, lng: 9.9423, irpefAddizionale: 0.55, distanceKm: 15, avgRentMonthly: 400, population: 2071, fascia: '1' },
  { name: 'Piuro', province: 'SO', lat: 46.3288, lng: 9.4397, irpefAddizionale: 0.5, distanceKm: 2, avgRentMonthly: 360, population: 1910, fascia: '1' },
@@ -503,7 +514,7 @@ export const MUNICIPALITIES: Municipality[] = [
  { name: 'Ponte in Valtellina', province: 'SO', lat: 46.1769, lng: 9.9824, irpefAddizionale: 0.55, distanceKm: 11, avgRentMonthly: 400, population: 2199, fascia: '1' },
  { name: 'Postalesio', province: 'SO', lat: 46.1741, lng: 9.7754, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 650, fascia: '1' },
  { name: 'Prata Camportaccio', province: 'SO', lat: 46.3072, lng: 9.3952, irpefAddizionale: 0.55, distanceKm: 20, avgRentMonthly: 400, population: 2943, fascia: '1' },
- { name: 'Rogeno', province: 'SO', lat: 45.7824, lng: 9.274, irpefAddizionale: 0.55, distanceKm: 20, avgRentMonthly: 400, population: 3035, fascia: '1' },
+ { name: 'Rogeno', province: 'LC', lat: 45.7824, lng: 9.274, irpefAddizionale: 0.55, distanceKm: 20, avgRentMonthly: 400, population: 3035, fascia: '1' },
  { name: 'Rogolo', province: 'SO', lat: 46.1357, lng: 9.4873, irpefAddizionale: 0.55, distanceKm: 40, avgRentMonthly: 400, population: 573, fascia: '1' },
  { name: 'Samolaco', province: 'SO', lat: 46.2463, lng: 9.3949, irpefAddizionale: 0.55, distanceKm: 27, avgRentMonthly: 400, population: 2899, fascia: '1' },
  { name: 'San Giacomo Filippo', province: 'SO', lat: 46.3374, lng: 9.3707, irpefAddizionale: 0.55, distanceKm: 16, avgRentMonthly: 400, population: 371, fascia: '1' },
@@ -511,8 +522,8 @@ export const MUNICIPALITIES: Municipality[] = [
  { name: 'Sondalo', province: 'SO', lat: 46.3333, lng: 10.3333, irpefAddizionale: 0.55, distanceKm: 8, avgRentMonthly: 400, population: 4100, fascia: '1A' },
  { name: 'Sondrio', province: 'SO', lat: 46.17, lng: 9.8727, irpefAddizionale: 0.7, distanceKm: 15, avgRentMonthly: 420, population: 21500, fascia: '1A' },
  { name: 'Spriana', province: 'SO', lat: 46.2198, lng: 9.8648, irpefAddizionale: 0.55, distanceKm: 17, avgRentMonthly: 400, population: 81, fascia: '1' },
- { name: 'Sueglio', province: 'SO', lat: 46.0861, lng: 9.3324, irpefAddizionale: 0.55, distanceKm: 27, avgRentMonthly: 400, population: 155, fascia: '1A' },
- { name: 'Suello', province: 'SO', lat: 45.8168, lng: 9.3115, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 1737, fascia: '1A' },
+ { name: 'Sueglio', province: 'LC', lat: 46.0861, lng: 9.3324, irpefAddizionale: 0.55, distanceKm: 27, avgRentMonthly: 400, population: 155, fascia: '1A' },
+ { name: 'Suello', province: 'LC', lat: 45.8168, lng: 9.3115, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 400, population: 1737, fascia: '1A' },
  { name: 'Talamona', province: 'SO', lat: 46.1361, lng: 9.6105, irpefAddizionale: 0.55, distanceKm: 38, avgRentMonthly: 400, population: 4580, fascia: '1' },
  { name: 'Tartano', province: 'SO', lat: 46.1032, lng: 9.6869, irpefAddizionale: 0.55, distanceKm: 34, avgRentMonthly: 400, population: 201, fascia: '1' },
  { name: 'Teglio', province: 'SO', lat: 46.1717, lng: 10.0667, irpefAddizionale: 0.55, distanceKm: 10, avgRentMonthly: 370, population: 4700, fascia: '1A' },
@@ -525,9 +536,9 @@ export const MUNICIPALITIES: Municipality[] = [
  { name: 'Valdidentro', province: 'SO', lat: 46.5089, lng: 10.2908, irpefAddizionale: 0.5, distanceKm: 3, avgRentMonthly: 480, population: 4100, fascia: '1' },
  { name: 'Valdisotto', province: 'SO', lat: 46.4252, lng: 10.3574, irpefAddizionale: 0.55, distanceKm: 14, avgRentMonthly: 400, population: 3544, fascia: '1' },
  { name: 'Valfurva', province: 'SO', lat: 46.4167, lng: 10.5126, irpefAddizionale: 0.5, distanceKm: 5, avgRentMonthly: 420, population: 2600, fascia: '1' },
- { name: 'Valmadrera', province: 'SO', lat: 45.8463, lng: 9.3582, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 11271, fascia: '1A' },
- { name: 'Valvarrone', province: 'SO', lat: 46.0849, lng: 9.3614, irpefAddizionale: 0.55, distanceKm: 29, avgRentMonthly: 400, population: 512, fascia: '1A' },
- { name: 'Varenna', province: 'SO', lat: 46.0107, lng: 9.2836, irpefAddizionale: 0.5, distanceKm: 12, avgRentMonthly: 600, population: 750, fascia: '1' },
+ { name: 'Valmadrera', province: 'LC', lat: 45.8463, lng: 9.3582, irpefAddizionale: 0.55, distanceKm: 25, avgRentMonthly: 400, population: 11271, fascia: '1A' },
+ { name: 'Valvarrone', province: 'LC', lat: 46.0849, lng: 9.3614, irpefAddizionale: 0.55, distanceKm: 29, avgRentMonthly: 400, population: 512, fascia: '1A' },
+ { name: 'Varenna', province: 'LC', lat: 46.0107, lng: 9.2836, irpefAddizionale: 0.5, distanceKm: 12, avgRentMonthly: 600, population: 750, fascia: '1' },
  { name: 'Verceia', province: 'SO', lat: 46.1979, lng: 9.4518, irpefAddizionale: 0.55, distanceKm: 33, avgRentMonthly: 400, population: 1072, fascia: '1' },
  { name: 'Vervio', province: 'SO', lat: 46.2528, lng: 10.2402, irpefAddizionale: 0.55, distanceKm: 12, avgRentMonthly: 400, population: 205, fascia: '1' },
  { name: 'Villa di Chiavenna', province: 'SO', lat: 46.331, lng: 9.4894, irpefAddizionale: 0.5, distanceKm: 2, avgRentMonthly: 370, population: 1100, fascia: '1' },

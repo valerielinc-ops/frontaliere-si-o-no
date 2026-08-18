@@ -25,9 +25,13 @@ describe('published evergreen comune topics', () => {
   it('carries a real pool, not a collapsed one', () => {
     const published = JSON.parse(fs.readFileSync(PUBLISHED, 'utf-8'));
 
-    // The reader treats anything under 50 as unusable and recomputes; a file
-    // that trips its own floor would be silently ignored in production.
-    expect(published.topics.length).toBeGreaterThanOrEqual(50);
+    // The reader treats anything under its floor as unusable and recomputes; a
+    // file that trips its own floor would be silently ignored in production.
+    // Keep in step with readPublishedComuneTopics() in
+    // scripts/lib/evergreen-topic-generator.mjs and with the writer's refusal
+    // in scripts/build-evergreen-comune-topics.mjs — all three were 50, which
+    // covered 59% of the old 85-topic file and only 11% of today's 437.
+    expect(published.topics.length).toBeGreaterThanOrEqual(300);
     for (const t of published.topics) {
       expect(typeof t.keyword).toBe('string');
       expect(t.keyword.length).toBeGreaterThan(0);
