@@ -94,6 +94,29 @@ describe('ledger dei punteggi: i due modi silenziosi di riaprire il buco', () =>
     expect(offenders).toEqual([]);
   });
 
+  it('chi chiama callLLM e poi process.exit nomina un flush da qualche parte', () => {
+    // Il gate qui sopra guarda dentro i `.catch(`, ed e' li' che vive la forma
+    // piu' comune del difetto. Ma non tutte le uscite sono in un catch:
+    // `analytics-report.mjs` chiamava `callLLM` e chiudeva `main()` con un
+    // `process.exit(0)` in fondo al percorso RIUSCITO, senza flush da nessuna
+    // parte del file. `exit(0)` salta `beforeExit` esattamente come `exit(1)`,
+    // quindi quello script non ha mai persistito un solo esito.
+    //
+    // Il guard e' volutamente grossolano — «il file nomina un flush» — perche'
+    // decidere staticamente se OGNI cammino di uscita flusha vorrebbe un
+    // control-flow graph. Un file che chiama callLLM, esce con process.exit e
+    // non nomina mai il flush pero' e' perdita certa, senza analisi.
+    const offenders: string[] = [];
+    for (const name of ledgerScripts()) {
+      const src = stripComments(readFileSync(join(SCRIPTS_DIR, name), 'utf8'));
+      if (!/\bcallLLM\b|\bcallSingleModel\b/.test(src)) continue;
+      if (!/\bprocess\.exit\s*\(/.test(src)) continue;
+      if (/\bflushScores(BeforeExit)?\s*\(/.test(src)) continue;
+      offenders.push(name);
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('lo snapshot del ledger e il suo clear sono un blocco sincrono', () => {
     // Perche' due invocazioni concorrenti di `_persistScoresToFirestore()` — il
     // debounce di `_schedulePersist` e il flush di `flushScoresBeforeExit`

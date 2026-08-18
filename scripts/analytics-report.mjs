@@ -4466,6 +4466,16 @@ async function main() {
     console.log('');
   }
 
+  // Il blocco «suggerimenti AI da Clarity» piu' sopra chiama `callLLM`, che
+  // inizializza da solo lo score store: questa run scrive nel ledger dei
+  // punteggi anche se il file non nomina mai `initScoreStore`. `process.exit(0)`
+  // salta `beforeExit` esattamente come `exit(1)`, quindi senza questo flush gli
+  // esiti se ne vanno col processo — il ramo riuscito era l'unico che questo
+  // script aveva, e non persisteva niente. Import dinamico come sopra: se
+  // ai-models non e' mai stato caricato, il flush esce subito a mani vuote.
+  const { flushScoresBeforeExit } = await import('./lib/ai-models.mjs');
+  await flushScoresBeforeExit();
+
   process.exit(0);
 }
 
