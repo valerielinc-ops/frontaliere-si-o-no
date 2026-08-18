@@ -143,13 +143,34 @@ jobs:
   vitest:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
-    # 20 min (was 15 at 4 shards): the single runner now executes all ~847 test
-    # files. The measured job wall is 536s (run 28099661052), so 1200s is a ~2.2×
-    # headroom against a slow-runner spike — wide enough to keep a transient slow
-    # run from going RED on a JOB timeout instead of a real failure. (Per-test
-    # timeouts are unchanged from vitest.config.ts and were not hit in the
-    # measured run.)
-    timeout-minutes: 20
+    # 30 min (was 20, era 15 a 4 shard). Il 20 NON era piu' un tetto di
+    # sicurezza: era il vincolo che troncava la distribuzione. Misurato su 500
+    # run di questo workflow (2026-08-14 -> 18), 285 job vitest `success`:
+    # p50 14m42s, p95 17m23s, p99 19m00s, max 20m00s ESATTI (run 32167869565,
+    # passato a 1200s netti). Un massimo che coincide al secondo col tetto e'
+    # la firma di una distribuzione tagliata, non di un tetto capiente.
+    #
+    # Delle 113 run `cancelled` della finestra, 11 sono uccise dal tetto e 102
+    # sono concurrency: le due popolazioni non si sovrappongono nemmeno
+    # (max concurrency 16m57s, min cap-kill 20m00s, zero casi in mezzo). Le 11
+    # sono TUTTE del 2026-08-18 fra le 14:37Z e le 18:13Z, cioe' l'11,8% dei
+    # job del giorno e il 25,0% nella finestra 14:00-19:00Z.
+    #
+    # La causa non sono i test: i due step vitest sommati non superano mai
+    # 11m35s, e il wall meno il Checkout ha massimo 15m50s. E' `actions/checkout`
+    # che e' degradato (p50 2m28s -> 3m06s, p90 3m04s -> 5m12s, max 8m14s; p99
+    # 10m15s su tutti i job misurabili). Il commento precedente citava 75s di
+    # Checkout e 536s di wall per dichiarare "2,2x di margine": quei numeri sono
+    # scaduti, il margine reale era 1,36x al p50 e 1,00x al massimo.
+    #
+    # 30 min copre il caso peggiore osservato (~26m = 15m50s di test + 10m15s di
+    # checkout al p99) con margine. NON scendere a 25: sarebbe solo il 2% sopra
+    # quel caso peggiore, cioe' di nuovo un tetto che tronca invece di proteggere.
+    # Un job vitest davvero appeso costa 10 minuti di runner in piu'; un tetto
+    # troppo basso costa un `cancelled` che `if: failure()` non vede e che
+    # `gh pr checks` mostra come `fail`, bloccando l'auto-merge di PR sane.
+    # Rimisurare quando il p99 del Checkout si muove.
+    timeout-minutes: 30
     steps:
       # NIENTE `sparse-checkout` qui, ed è una scelta MISURATA, non un'omissione.
       # Questo checkout è un fetch bulk shallow (`fetch-depth: 1` implicito, no
