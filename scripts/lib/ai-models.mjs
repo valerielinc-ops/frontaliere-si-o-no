@@ -765,11 +765,22 @@ let _claudeCliBinaryMissing = false;
 // timeout is a transient blip worth retrying next call. But once several
 // timeouts land back-to-back within one run, that's not a blip — it's the
 // subprocess itself unable to finish in time — and every further attempt is
-// a guaranteed 60s loss for a fallback that already has a template result
+// a guaranteed 120s loss for a fallback that already has a template result
 // ready. Trip after CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD consecutive timeouts.
+//
+// The threshold was 8, sized off the 159/162 incident above where volume was
+// never the constraint. Issue #432 (2026-08-18) measured the opposite shape:
+// runs that only ever offer claude-cli/haiku 2-4 times *total*, each one a
+// 120000ms timeout with zero stdout bytes — the counter never gets anywhere
+// near 8, so the breaker can't trip at the volume these runs actually
+// produce, and every run repays the full storm cost from zero. 3 keeps a
+// single transient blip from tripping it (the exemption above still holds:
+// one timeout is not a storm) while matching the low end of the observed
+// per-run volume, so a 4-attempt storm run now spares its last attempt
+// instead of paying for all of them every time.
 let _claudeCliConsecutiveTimeouts = 0;
 let _claudeCliTimeoutStormDetected = false;
-const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
+const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 3;
 
 // Same in-run, never-persisted breaker shape as _claudeCliTimeoutStormDetected
 // above, omniroute/auto. _isLastResortProvider() exempts OmniRoute from
