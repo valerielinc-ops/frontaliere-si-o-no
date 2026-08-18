@@ -1330,6 +1330,53 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // CP), lo stesso argomento «sopravvive alla traduzione» gia' usato per
 // LFW/LPS. Zero occorrenze minuscole/miste di `lcl`/`lco` sullo stesso
 // corpus tirato, stessa verifica di cui sopra.
+// Cue di CITAZIONE GIURIDICA, multilingue per costruzione: serve alle entry
+// che portano un `context` (oggi solo `LCL`, vedi sotto). Copre le quattro
+// lingue del corpus — it `legge/legislazione/articolo/art.`, fr `loi/article`,
+// de `Gesetz/Bundesgesetz/Artikel/Abs.`, en `law on/act on/article` — piu' i
+// riferimenti svizzeri `RS <numero>` e `cpv.`, che sono gia' locale-neutri.
+// L'obiezione «una parola come "legge" non regge su de/fr/en» e' corretta per
+// una singola parola italiana, e infatti qui non ce n'e' una sola.
+// La chiusura di ogni alternativa NON e' uniforme, ed e' deliberato: dipende
+// da come compone la lingua, e ci sono TRE casi distinti, non due.
+//
+// 1. Chiuse con `\b` — la coda del prefisso e' fitta di parole ordinarie:
+//    `Artikeln?\b` (`Artikelnummer` e' un codice prodotto, `Artikelserie` una
+//    serie giornalistica; la `n?` tiene il dativo plurale «in den Artikeln 5
+//    und 6»), `articol[oi]\b` (`articolista`, `articolistica`: chi scrive sui
+//    giornali, non chi cita una legge) e la famiglia
+//    `legg[ei]\b`/`legislazion[ei]\b`/`lois?\b`.
+// 2. Aperte a prefisso — li' la composizione va nell'altra direzione, e i
+//    composti sono TUTTI contesto di citazione normativa: `Gesetzgebung`,
+//    `Gesetzbuch`, `Gesetzentwurf`, `Gesetzeslage`, `Bundesgesetzblatt`.
+//    Chiudere `Gesetz`/`Bundesgesetz` darebbe falsi NEGATIVI, non toglierebbe
+//    falsi positivi — lo stesso difetto per cui `legislazion[ei]` ha il
+//    plurale invece del solo singolare. `articles?` sta QUI e non nel caso 1,
+//    benche' l'italiano `articol[oi]` sia chiuso: la coda inglese di
+//    `article-` non e' fitta di parole ordinarie come quella italiana, e' di
+//    nuovo dominio giuridico (`articled clerk`, `articling student` sono il
+//    praticante di studio legale). Un `\b` qui sarebbe una chiusura senza un
+//    caso che la giustifichi — e infatti la prova di mutazione la lascia
+//    verde, cioe' nessun test morirebbe togliendola.
+// 3. Aperta MA con una sola coda esclusa — `Gesetz(?:es|e)?(?!t)`. Restare
+//    aperti vale per i composti veri, cioe' per le parole che hanno `Gesetz`
+//    come RADICE; `gesetzt` non e' un composto, e' il participio di `setzen`
+//    («der Rahmen ist gesetzt», «gesetzt den Fall») piu' le sue forme declinate
+//    `gesetzte/-r/-n/-m/-s`. Condivide le prime sei lettere per coincidenza
+//    morfologica, non per composizione, ed e' parola comunissima in un pezzo
+//    de-locale: entro i 120 caratteri di `contextWindow` bastava a far scattare
+//    `fabricated-norm-acronym` `critical` su una banca legittima. La `t` e'
+//    l'unica coda esclusa perche' nessun composto giuridico con `Gesetz-` in
+//    testa comincia per `t`; `Gesetzestext` sopravvive per backtracking
+//    (`es` fallisce il lookahead, `e` lo passa lasciando `stext`).
+//
+// I test «leaves the bank LCL alone …» e «keeps German legal compounds as
+// citation cues» codificano le tre scelte insieme, perche' non vengano
+// «riparate» una per giro: chiudere le aperte fa passare il primo e rompe il
+// secondo, e togliere il `(?!t)` rompe il terzo.
+const NORM_CITATION_CUE =
+  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?(?!t)|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]\b|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)/i;
+
 export const FABRICATED_NORM_ACRONYMS = [
   {
     acronym: 'LFW',
@@ -1345,6 +1392,28 @@ export const FABRICATED_NORM_ACRONYMS = [
     acronym: 'LCL',
     re: /(?<![A-Za-z])LCL(?![A-Za-z])/i,
     real: "non esiste: la legge sul lavoro è LL (RS 822.11); la cittadinanza svizzera è la LCit (RS 141.0) più il diritto cantonale, nessuna sigla ufficiale «LCL»",
+    // A bare substring match on `LCL` also matches the real French bank (ex
+    // Crédit Lyonnais) — a future article mentioning it (this corpus already
+    // has 175 files on frontalieri Francia-Svizzera and 29 naming other
+    // French banks) would be rejected as a fabricated norm.
+    //
+    // Il primo giro di questa guardia chiedeva un ANNO vicino. Non basta, ed
+    // e' misurato: «Dal 2024 LCL offre un conto dedicato ai frontalieri» —
+    // una frase bancaria del tutto ordinaria — porta un anno a due parole
+    // dalla sigla e veniva rigettata lo stesso. In un articolo su conti e
+    // mercati un anno vicino e' la norma, non l'eccezione, quindi come
+    // discriminante non separa niente.
+    //
+    // Serve invece il segno di una CITAZIONE di norma. L'obiezione con cui
+    // era stato scelto l'anno («non una parola specifica di una lingua, il
+    // check gira anche su de/fr/en») e' giusta contro UNA parola italiana, e
+    // infatti `NORM_CITATION_CUE` e' multilingue per costruzione. Entrambe le
+    // fabbricazioni reali del corpus restano rilevate — `(LCL) del 15
+    // dicembre 1995` ha «legge» 28 caratteri prima, `(LCL 2020, art. 15)` ha
+    // «art.» subito dopo — e le due sono le sole occorrenze vere: negli altri
+    // tre file la sigla e' `LCLoc`, che il lookahead `(?![A-Za-z])` esclude.
+    context: NORM_CITATION_CUE,
+    contextWindow: 120,
   },
   {
     acronym: 'LCO',
@@ -1370,22 +1439,73 @@ export function checkFabricatedNormAcronyms(text, opts = {}) {
   const issues = [];
   if (typeof text !== 'string' || !text) return issues;
   const locale = opts.locale || 'it';
-  for (const { acronym, re, real } of FABRICATED_NORM_ACRONYMS) {
+  for (const { acronym, re, real, context, contextWindow } of FABRICATED_NORM_ACRONYMS) {
     // `re` is deliberately non-global: a `g` regex carries `lastIndex` across
-    // calls, and this table is module-level shared state.
-    const m = re.exec(text);
-    if (!m) continue;
-    issues.push(issue(
-      'fabricated-norm-acronym',
-      'critical',
-      `[${locale}] Sigla normativa inventata: «${acronym}» — ${real}`,
-      text.slice(Math.max(0, m.index - 90), m.index + 60),
-      'Cita la norma reale con la sua sigla ufficiale, oppure togli la citazione. '
-      + "Una sigla di legge inesistente è una fabbricazione anche quando la frase intorno è corretta, "
-      + "e sopravvive alla traduzione: va tolta nell'originale, non nei singoli locali.",
-    ));
+    // calls, and this table is module-level shared state. Lo scan qui sotto
+    // usa quindi un CLONE locale con flag `g`, mai la regex della tabella:
+    // l'invariante `entry.re.global === false` resta vera e nessuna entry
+    // diventa stateful fra due chiamate.
+    //
+    // Perche' non basta la prima occorrenza: con una guardia `context` il
+    // primo match puo' essere legittimo (la banca francese LCL) e nascondere
+    // una fabbricazione piu' in basso nello stesso testo. Senza `context` il
+    // difetto non poteva esistere, perche' il primo match era sempre anche
+    // l'issue: nasce con la guardia e va chiuso con lei.
+    const scan = new RegExp(re.source, re.flags.includes('g') ? re.flags : `${re.flags}g`);
+    let m;
+    while ((m = scan.exec(text)) !== null) {
+      if (m[0] === '') { scan.lastIndex += 1; continue; }
+      if (context) {
+        const w = contextWindow ?? 80;
+        const nearby = text.slice(Math.max(0, m.index - w), m.index + m[0].length + w);
+        if (!context.test(nearby)) continue;
+      }
+      issues.push(issue(
+        'fabricated-norm-acronym',
+        'critical',
+        `[${locale}] Sigla normativa inventata: «${acronym}» — ${real}`,
+        text.slice(Math.max(0, m.index - 90), m.index + 60),
+        'Cita la norma reale con la sua sigla ufficiale, oppure togli la citazione. '
+        + "Una sigla di legge inesistente è una fabbricazione anche quando la frase intorno è corretta, "
+        + "e sopravvive alla traduzione: va tolta nell'originale, non nei singoli locali.",
+      ));
+      break; // una sola issue per sigla, come prima
+    }
   }
   return issues;
+}
+
+/**
+ * BLOCKING — checkFabricatedNormAcronyms() across every locale a caller
+ * already has content for, in ONE place so every producer wires the same
+ * check the same way instead of each re-deriving it.
+ *
+ * `runFactualityGates()` already runs checkFabricatedNormAcronyms(), but only
+ * where a caller actually invokes runFactualityGates — and that is exactly
+ * where this gate leaked: create-article.mjs's AI-generation path calls it
+ * only on `data.content.it`, before translateArticle() exists, so an acronym
+ * that survives translation unchanged (see checkFabricatedNormAcronyms doc)
+ * was never re-checked on en/de/fr. publish-journalist-article.mjs never
+ * calls runFactualityGates at all — a journalist submission passed through
+ * no norm-acronym check in ANY locale, IT included. Same shape of gap as
+ * assertNoFabricatedLaborOfficeCrossLocale, and wired the same way: called
+ * directly on IT content, and again on en/de/fr after translateArticle().
+ *
+ * @param {Record<string, {title?: string, body1?: string, body2?: string, body3?: string} | undefined>} contentByLocale
+ */
+export function assertNoFabricatedNormAcronyms(contentByLocale) {
+  const issues = [];
+  for (const [locale, content] of Object.entries(contentByLocale || {})) {
+    if (!content) continue;
+    const text = [content.title || '', content.body1 || '', content.body2 || '', content.body3 || ''].join(' ');
+    for (const found of checkFabricatedNormAcronyms(text, { locale })) {
+      issues.push(found.message);
+    }
+  }
+  if (issues.length > 0) {
+    const msg = issues.map((i, idx) => `  ${idx + 1}. ${i}`).join('\n');
+    throw new Error(`Articolo rigettato — sigla normativa fabbricata:\n${msg}`);
+  }
 }
 
 // ─── 6. Contradictory dates for the same named norm ───────────────────
