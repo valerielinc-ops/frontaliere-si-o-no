@@ -1130,6 +1130,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-basilea-citta-requisiti-domanda': { it: 'permesso-domicilio-c-basilea-citta-requisiti-domanda', en: 'residence-permit-c-in-the-canton-of-basel-city-requirements-and-application', de: 'aufenthaltstitel-c-basel-stadt-anforderungen-bescheinigung', fr: 'permis-de-sejour-c-basilea-citta-requisitos-demande' },
  'permesso-l-breve-durata-canton-basilea-citta': { it: 'permesso-l-breve-durata-canton-basilea-citta', en: 'short-term-permit-l-canton-basel-city-validity-and-extension', de: 'kurzaufenthaltsbewilligung-l-kanton-basel-stadt-gultigkeit-und-verlangerung', fr: 'permis-l-de-courte-duree-canton-bale-ville-validite-et-prorogation' },
  'assegni-familiari-canton-basilea-citt': { it: 'assegni-familiari-canton-basilea-citt', en: 'basel-city-child-allowance-switzerland', de: 'basel-stadt-kindergeld-schweiz', fr: 'bale-ville-prestations-etudes-suisse' },
+ 'occupazione-disoccupazione-svizzera-q2-2026': { it: 'occupazione-disoccupazione-svizzera-q2-2026', en: 'switzerland-employment-unemployment-q2-2026', de: 'beschaeftigung-arbeitslosigkeit-schweiz-q2-2026', fr: 'emploi-chomage-suisse-q2-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

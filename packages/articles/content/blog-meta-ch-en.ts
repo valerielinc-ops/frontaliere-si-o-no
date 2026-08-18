@@ -3313,6 +3313,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-basilea-citt.title': 'Family allowances in the canton of Basel-City: amounts and application',
     'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Monthly amounts per child and application procedures',
     'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Basel City, Switzerland',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Employment in Switzerland: +0.8% in Q2 2026',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'In the second quarter of 2026, employment in Switzerland grew by 0.8% while the ILO unemployment rate rose to 4.9% according to UST data.',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Employment statistics in Switzerland for the second quarter of 2026',
 };
 
 export default blogMetaChEn;

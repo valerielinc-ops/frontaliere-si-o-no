@@ -3313,6 +3313,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-basilea-citt.title': 'Allocations familiales dans le canton de Bâle-Ville : montants et demande',
     'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Montants mensuels par enfant et procédures de demande',
     'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Bâle-Ville, Suisse',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Emploi en Suisse : +0,8 % au deuxième trimestre 2026',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'Au deuxième trimestre 2026, l\'emploi en Suisse augmente de 0,8% tandis que le taux de chômage de l\'OIT augmente à 4,9% selon les données DE l\'OFS.',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Statistiques de l emploi en Suisse au deuxième trimestre 2026',
 };
 
 export default blogMetaChFr;

@@ -3313,6 +3313,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-basilea-citt.title': 'Assegni familiari nel Canton Basilea Città: importi e domanda',
     'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Importi mensili per figlio e procedure di domanda',
     'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Basilea Città, Svizzera',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Occupazione in Svizzera: +0,8% nel secondo trimestre 2026',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'Nel secondo trimestre 2026 l occupazione in Svizzera cresce dello 0,8% mentre il tasso di disoccupazione ILO sale al 4,9% secondo i dati dell UST.',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Statistiche sull occupazione in Svizzera nel secondo trimestre del 2026',
 };
 
 export default blogMetaChIt;

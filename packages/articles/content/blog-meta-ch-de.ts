@@ -3313,6 +3313,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-basilea-citt.title': 'Familienzulagen im Kanton Basel-Stadt: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Monatliche Beträge pro Kind und Antragsverfahren',
     'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Basel-Stadt, Schweiz',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Beschäftigung in der Schweiz: +0,8% im 2. Quartal 2026',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'Im zweiten Quartal 2026 steigt die Beschäftigung in der Schweiz um 0,8%, während die ILO-Arbeitslosenquote nach Angaben des BfS auf 4,9% steigt.',
+    'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Beschäftigungsstatistiken in der Schweiz im zweiten Quartal 2026',
 };
 
 export default blogMetaChDe;
