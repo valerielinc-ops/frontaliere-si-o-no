@@ -30,7 +30,7 @@
  * rigenerazioni erano muti 4 su 4. Muti significa `JSON.parse` riuscito e
  * normalizzatore a `null`: un documento sintatticamente completo, che un
  * troncamento non puo' produrre. Questo file e' il gemello `mode: adapted`
- * (vedi `scripts/ci/loop-sync-manifest.json`) di quel modulo: stessa forma di
+ * (registrato nel manifest del ciclo agentico condiviso) di quel modulo: stessa forma di
  * output, adattato alle firme locali (`repairLlmJson()` qui non e' esportata
  * separatamente come sul corpus, e i test sotto usano vitest, non node --test)
  * — vedi valerielinc-ops/frontaliere-si-o-no#6027.
@@ -51,7 +51,7 @@
 const REQUIRED_IT_BODY_FIELDS = ['title', 'excerpt', 'body1', 'body2', 'body3'];
 
 /** Quante chiavi elencare prima di troncare l'elenco, per tenere la riga leggibile. */
-const MAX_KEYS = 12;
+const MAX_DIAG_KEYS = 12;
 
 /**
  * Il testo finisce a meta' o e' un documento chiuso?
@@ -100,8 +100,8 @@ function keysOf(value) {
   if (typeof value !== 'object') return typeof value;
   const keys = Object.keys(value);
   if (keys.length === 0) return '{}';
-  const shown = keys.slice(0, MAX_KEYS).join(',');
-  return keys.length > MAX_KEYS ? `${shown},+${keys.length - MAX_KEYS}` : shown;
+  const shown = keys.slice(0, MAX_DIAG_KEYS).join(',');
+  return keys.length > MAX_DIAG_KEYS ? `${shown},+${keys.length - MAX_DIAG_KEYS}` : shown;
 }
 
 /** `assente` / `vuoto` / `nonstringa` / `<N>ch` per ognuno dei campi richiesti. */
