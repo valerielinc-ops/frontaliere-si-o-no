@@ -182,3 +182,54 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
     );
   });
 });
+
+/**
+ * ── STESSO DIFETTO, GEMELLO NON TOCCATO ─────────────────────────────────────
+ *
+ * La review di #451 su questo stesso file ha trovato lo stesso pattern in
+ * `_callLocal`: `Math.max(opts.timeout || 0, getLocalLlmTimeoutMs())` seguito
+ * da un `Math.min(timeout, remaining)` che clampa solo verso il basso — il
+ * floor CPU-inference non cresceva mai dentro l'allowance residua, esattamente
+ * come CLAUDE_CLI_MIN_TIMEOUT_MS prima del fix sopra. Stessa forma applicata
+ * qui: `_callLocal` prende una quota di `remaining`, e `_hardCallCapMs`
+ * dimensiona il backstop LOCAL sul tetto e non piu' sul floor.
+ */
+const LOCAL_MAX = () => costante('LOCAL_LLM_MAX_TIMEOUT_MS');
+const LOCAL_SHARE = () => costante('LOCAL_LLM_ALLOWANCE_SHARE');
+
+describe('il timeout locale cresce dentro l\'allowance residua (stesso pattern di _callClaudeCli)', () => {
+  it('il tetto locale sta SOPRA il floor di default (1_500_000ms) — altrimenti il floor torna a fare da soffitto', () => {
+    assert.ok(
+      LOCAL_MAX() > 1_500_000,
+      `tetto locale ${LOCAL_MAX()}ms non sopra il floor di default 1500000ms: la quota ` +
+      'non potrebbe mai alzare nulla e siamo tornati al difetto gemello di quello del CLI',
+    );
+  });
+
+  it('la quota locale e\' una frazione propria dell\'allowance, non tutta', () => {
+    const s = LOCAL_SHARE();
+    assert.ok(s > 0 && s < 1, `quota locale ${s}: a >=1 una sola chiamata si prende l'intera sezione`);
+  });
+
+  it('_callLocal usa Math.max(baseTimeoutMs, quota): la riga che il difetto gemello non aveva', () => {
+    assert.ok(
+      /Math\.max\(\s*baseTimeoutMs\s*,\s*quota\s*\)/.test(SRC.slice(SRC.indexOf('async function _callLocal'), SRC.indexOf('async function _callLocal') + 2000)),
+      'in _callLocal il timeout non prende piu\' il massimo fra baseTimeoutMs e la quota ' +
+      'dell\'allowance: e\' esattamente la forma il cui difetto gemello (floor come tetto) ' +
+      'la review di #451 ha trovato non toccata',
+    );
+    assert.ok(
+      /remaining \* LOCAL_LLM_ALLOWANCE_SHARE/.test(SRC),
+      'la quota locale non e\' piu\' derivata da `remaining`: un valore fisso spreca quando ' +
+      'l\'allowance e\' grande e sfonda quando e\' piccola',
+    );
+  });
+
+  it('il backstop _hardCallCapMs per LOCAL e\' dimensionato sul TETTO, non sul floor', () => {
+    assert.ok(
+      /provider === PROVIDER\.LOCAL\) base = Math\.max\(base, LOCAL_LLM_MAX_TIMEOUT_MS\)/.test(SRC),
+      '_hardCallCapMs dimensiona il cap locale sul floor invece che sul tetto: una chiamata ' +
+      'che usa la quota verrebbe abbattuta dal backstop prima del suo timeout',
+    );
+  });
+});
