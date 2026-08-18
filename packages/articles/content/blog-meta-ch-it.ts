@@ -3271,6 +3271,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Apprendistato e formazione professionale nel Cantone di Soletta',
     'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Soletta.',
     'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Immagine della scena di un apprendista in un\'azienda svizzera',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Mercato degli affitti nel Cantone di Soletta: canoni medi e diritto di locazione',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'I canoni medi per zona, deposito di garanzia, contestazione del canone iniziale, disdetta e autorità di conciliazione in materia di locazione nel Cantone di Soletta.',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'Vista sul Cantone di Soletta, Svizzera, con enfasi sul mercato immobiliare',
 };
 
 export default blogMetaChIt;

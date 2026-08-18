@@ -3271,6 +3271,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Apprentissage et formation professionnelle dans le canton de Soleure',
     'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, la rémunération de l\'apprenti et la maturité professionnelle dans le canton de Soleure.',
     'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Image de la scène d\'un apprenti dans une entreprise suisse',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Marché locatif dans le canton de Soleure : loyers moyens et droit de location',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'Les loyers moyens par zone, dépôt de garantie, contestation du loyer initial, résiliation et autorité de conciliation en matière de location dans le canton de Soleure.',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'Vue du canton de Soleure, Suisse, avec un focus sur le marché immobilier',
 };
 
 export default blogMetaChFr;
