@@ -868,6 +868,7 @@ async function _withClaudeCliSlot(fn) {
 const DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN = 40;
 let _claudeCliCallsThisRun = 0;
 let _claudeCliMaxCallsWarned = false;
+let _claudeCliUnlimitedWarned = false;
 
 /**
  * CLAUDE_CLI_MAX_CALLS_PER_RUN — max claude-cli/* calls this process attempts
@@ -877,17 +878,81 @@ let _claudeCliMaxCallsWarned = false;
  * + >=0, not `Number.parseInt(x) || default`, because that idiom can't
  * distinguish a real 0 from "unparseable". Malformed value (non-integer,
  * negative) → falls back to the default and warns ONCE per process.
+ *
+ * ── `0` NON E' UN KILL SWITCH, E SEMBRA ESSERLO ────────────────────────────
+ *
+ * E' la trappola di questa variabile: la lettura naturale di «cap = 0» su un
+ * modello a pagamento e' «zero chiamate», e la semantica reale e' l'opposto
+ * esatto — illimitate. Chi la usa per spegnere Haiku in fretta toglie l'unico
+ * tetto che c'era.
+ *
+ * NON e' stata cambiata in «0 = nessuna chiamata», per tre motivi:
+ *   1. e' la convenzione gia' documentata e testata su questo file, che e'
+ *      `mode: identical` col gemello del sito — invertirla di soppiatto qui
+ *      renderebbe i due lati d'accordo sul testo e in disaccordo sui fatti;
+ *   2. `0 = illimitato` e' la stessa convenzione degli altri cap del file, e
+ *      spezzarla in un punto solo e' peggio che tenerla;
+ *   3. spegnere Haiku ha gia' due leve vere (vedi il warn qui sotto), quindi
+ *      questa non deve diventarne una terza con una semantica sua.
+ *
+ * Resta pero' il fatto che un `0` messo per sbaglio non lascia traccia. Da qui
+ * il warn-once: non blocca niente, ma mette nel log della run la riga che
+ * distingue «l'ho voluto» da «pensavo di aver spento».
  */
 function _getClaudeCliMaxCallsPerRun() {
   const raw = (process.env.CLAUDE_CLI_MAX_CALLS_PER_RUN || '').trim();
   if (!raw) return DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN;
   const n = Number(raw);
-  if (Number.isInteger(n) && n >= 0) return n;
+  if (Number.isInteger(n) && n >= 0) {
+    if (n === 0 && !_claudeCliUnlimitedWarned) {
+      _claudeCliUnlimitedWarned = true;
+      console.warn(
+        '⚠️ CLAUDE_CLI_MAX_CALLS_PER_RUN="0" = cap DISATTIVATO (chiamate claude-cli ILLIMITATE '
+        + 'in questa run), non "nessuna chiamata". Per spegnere davvero la preferenza Haiku: '
+        + 'AI_MODELS_PREFER="" (leva di rollback, vale anche sul prefer per-chiamata) oppure '
+        + 'ENABLE_HAIKU_ARTICLE_FALLBACK non impostata (toglie del tutto il provider).',
+      );
+    }
+    return n;
+  }
   if (!_claudeCliMaxCallsWarned) {
     _claudeCliMaxCallsWarned = true;
     console.warn(`⚠️ CLAUDE_CLI_MAX_CALLS_PER_RUN="${raw}" invalid (expected a non-negative integer, 0 = unlimited) — using default ${DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN}.`);
   }
   return DEFAULT_CLAUDE_CLI_MAX_CALLS_PER_RUN;
+}
+
+/**
+ * True se `model` non puo' PIU' essere servito in questa run perche' il cap di
+ * chiamate per-run del suo provider e' esaurito. Oggi solo `claude-cli/*` ha un
+ * cap per-run (CLAUDE_CLI_MAX_CALLS_PER_RUN); per ogni altro provider e' false.
+ *
+ * ── PERCHE' E' ESPORTATA, E NON SOLO UN `if` DENTRO callLLM ────────────────
+ *
+ * Stessa ragione di `getDeclaredRequestTokenLimit`: un chiamante deve poter
+ * chiedere «questo modello mi rispondera' davvero?» PRIMA di costruire il
+ * prompt, e la risposta deve venire da questa stessa funzione — non da una
+ * copia che scivola.
+ *
+ * Il caso concreto e' `_preferisceModelloSenzaCap` in `create-article.mjs`, che
+ * salta la scala di riduzione del prompt quando il preferito non dichiara un
+ * cap di input. `isModelAvailable` non conosce questo cap (guarda solo
+ * exhausted + presenza della chiave), quindi superate le N chiamate haiku
+ * spariva dalla catena mentre la guardia continuava a rispondere «c'e'»: per
+ * ogni headline successiva prompt intero (~9500 token), tutti i modelli free
+ * scartati dal pre-flight, tentativo 1 morto con ALL_MODELS_EXHAUSTED e
+ * recupero solo al tentativo 2 via `err.retryRequestTokenBudget`. Esattamente
+ * il tentativo sprecato che quella guardia esiste per evitare.
+ *
+ * NB: non e' `isModelAvailable` a essere stata estesa. «Disponibile» li'
+ * significa configurato e non bruciato, ed e' letta anche da chi conta i
+ * modelli configurati (`isAnyModelAvailable`): infilarci un contatore che
+ * cambia a meta' run renderebbe quella domanda non piu' rispondibile.
+ */
+export function isPerRunCallCapReached(model) {
+  if (getProvider(model) !== PROVIDER.CLAUDE_CLI) return false;
+  const cap = _getClaudeCliMaxCallsPerRun();
+  return cap > 0 && _claudeCliCallsThisRun >= cap;
 }
 
 // ── API keys (lazy-loaded from environment) ──────────────────
@@ -2779,16 +2844,38 @@ function _normalizePrefer(prefer) {
  * altrimenti l'opt-in esplicito via `AI_MODELS_PREFER`, altrimenti
  * `DEFAULT_MODELS_PREFER` — che e' vuoto, vedi sopra.
  *
- * `AI_MODELS_PREFER=""` resta la leva di rollback istantaneo (stessa convenzione
- * di AI_COMPETING_TIERS / AI_LAST_RESORT_ORDER): esplicitamente vuota →
- * nessuna preferenza, senza warning, perche' e' una scelta e non un refuso.
+ * ── LA LEVA DI ROLLBACK VA LETTA PER PRIMA, O NON E' UNA LEVA ──────────────
+ *
+ * `AI_MODELS_PREFER=""` (esplicitamente vuota, non «non impostata») spegne OGNI
+ * preferenza, compresa quella per-chiamata. Stessa convenzione di
+ * AI_COMPETING_TIERS / AI_LAST_RESORT_ORDER, e nessun warning: e' una scelta,
+ * non un refuso.
+ *
+ * L'ordine conta, ed e' stato sbagliato per un giorno. Con il per-call letto
+ * per primo la leva copriva solo il ramo env-only — che in produzione non
+ * esiste: `create-article.mjs` passa SEMPRE `prefer: PREFERRED_GENERATION_MODELS`
+ * su entrambe le chiamate che generano il corpo. Verificato eseguendo il
+ * codice: con `AI_MODELS_PREFER=""` nell'ambiente,
+ * `applyModelsPrefer(['a','b'], ['claude-cli/haiku'])` tornava
+ * `['claude-cli/haiku','a','b']`. Cioe' l'unica leva documentata come «rollback
+ * istantaneo» su un modello A PAGAMENTO non fermava il percorso che lo paga.
+ *
+ * Il costo dell'inversione e' nullo per gli altri chiamanti: `undefined` (il
+ * caso normale) non tocca nulla, e un valore non vuoto continua a perdere
+ * contro `opts.prefer` — la preferenza per-chiamata resta piu' specifica
+ * dell'opt-in di processo. Solo la stringa vuota, che e' un atto deliberato,
+ * vince su tutto.
+ *
+ * NON confondere con `CLAUDE_CLI_MAX_CALLS_PER_RUN`: quella e' un cap, e `0`
+ * vale ILLIMITATO (vedi `_getClaudeCliMaxCallsPerRun`). Usarla come interruttore
+ * ottiene l'opposto di spegnere.
  */
 function _preferFor(optsPrefer) {
+  const raw = process.env.AI_MODELS_PREFER;
+  if (raw !== undefined && raw.trim() === '') return []; // leva di rollback esplicita
   const perCall = _normalizePrefer(optsPrefer);
   if (perCall.length) return perCall;
-  const raw = process.env.AI_MODELS_PREFER;
   if (raw === undefined) return DEFAULT_MODELS_PREFER;
-  if (raw.trim() === '') return []; // leva di rollback esplicita
   return _normalizePrefer(raw);
 }
 
@@ -5001,7 +5088,11 @@ export async function callLLM(messages, opts = {}) {
     // the counter only tracks real attempts.
     if (provider === PROVIDER.CLAUDE_CLI) {
       const cap = _getClaudeCliMaxCallsPerRun();
-      if (cap > 0 && _claudeCliCallsThisRun >= cap) {
+      // Il confronto passa da `isPerRunCallCapReached`, non da un `>=` scritto
+      // qui: e' la stessa funzione che i chiamanti interrogano PRIMA di
+      // costruire il prompt, e due copie della soglia divergerebbero senza che
+      // niente lo dica. Vedi il commento della funzione.
+      if (isPerRunCallCapReached(model)) {
         _logPreflightSkipOnce(model, 'claudeCliCap', `claude-cli call cap reached (${cap}/run, CLAUDE_CLI_MAX_CALLS_PER_RUN)`);
         errors.push(`${model}: skipped — claude-cli call cap reached (${cap}/run)`);
         _recordLastResortSkip(model, 'claude-cli call cap reached');
