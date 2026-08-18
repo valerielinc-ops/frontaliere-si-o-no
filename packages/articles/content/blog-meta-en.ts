@@ -10059,6 +10059,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Living in Oggebbio and working in Ticino as a border worker',
     'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Practical guide to move to Oggebbio and become a border worker in Ticino: connections, tax at source, costs and new agreement.',
     'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'View of Oggebbio on Lake Maggiore near the Ticino border',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.title': 'Living in Faloppio and working in Ticino as a border worker',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.excerpt': 'Tax settings, permissions, advantages and disadvantages of the transfer',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere who works in Ticino and resides in Faloppio',
 };
 
 export default blogMetaEn;

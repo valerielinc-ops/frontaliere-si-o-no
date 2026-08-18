@@ -10060,6 +10060,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Vivere a Oggebbio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Guida pratica per trasferirsi a Oggebbio e fare il frontaliere in Ticino: collegamenti, imposta alla fonte, costi e nuovo accordo.',
     'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'Panorama di Oggebbio sul Lago Maggiore vicino al confine con il Ticino',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.title': 'Vivere a Faloppio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.excerpt': 'Impostazioni fiscali, permessi, vantaggi e svantaggi del trasferimento',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e risiede a Faloppio',
 };
 
 export default blogMetaIt;

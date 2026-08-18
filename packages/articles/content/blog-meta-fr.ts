@@ -10061,6 +10061,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Vivre à Oggebbio et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Guide pratique pour se déplacer à Oggebbio et devenir frontalier au Tessin : liaisons, taxe à la source, coûts et nouvel accord.',
     'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'Vue d\'Oggebbio sur le lac Majeur près de la frontière du Tessin',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.title': 'Vivre à Faloppio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.excerpt': 'Paramètres fiscaux, autorisations, avantages et inconvénients du transfert',
+    'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere qui travaille en Suisse et réside à Faloppio',
 };
 
 export default blogMetaFr;
