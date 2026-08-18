@@ -3322,6 +3322,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Apprenticeship in Basel City: how to find an internship',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Basel City has specific regulations for apprenticeships and vocational training. Young frontier workers can find an internship at local companies.',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'A foreigner in apprenticeship in Basel City',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'More UST: unemployment falls in the second quarter of the year',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'The unemployment rate as defined by the ILO stood at 4.9%. In the first quarter it was 5.2%.',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Switzerland unemployment rate decreases in Q2 2026',
 };
 
 export default blogMetaChEn;

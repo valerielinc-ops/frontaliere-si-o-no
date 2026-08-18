@@ -3322,6 +3322,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Apprentissage à Bâle-Ville : comment trouver une place d\'apprentissage',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Bâle-Ville a une réglementation spécifique pour l\'apprentissage et la formation professionnelle. Les jeunes frontaliers peuvent trouver un stage dans des entreprises locales.',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'Un frontalier en stage à Bâle-Ville',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'Plus OFS : baisse du chômage au deuxième trimestre de l\'année',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'Le taux de chômage selon la définition de l\'OIT s\'est établi à 4,9 %. Au premier trimestre, il était de 5,2 %.',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Chute du chômage en Suisse au deuxième trimestre 2026',
 };
 
 export default blogMetaChFr;

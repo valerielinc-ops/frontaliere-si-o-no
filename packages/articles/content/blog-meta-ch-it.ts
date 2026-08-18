@@ -3322,6 +3322,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-basilea-citta.title': 'Apprendistato a Basilea Città: come trova un posto di tirocinio',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.excerpt': 'Basilea Città ha una normativa specifica per l\'apprendistato e la formazione professionale. I giovani frontalieri possono trovare un posto di tirocinio presso aziende locali.',
     'blog.article.apprendistato-formazione-professionale-basilea-citta.imageAlt': 'Un frontaliere in apprendistato a Basilea Città',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'Di più UST: cala disoccupazione nel secondo trimestre dell\'anno',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'Il tasso di disoccupazione secondo la definizione dell\'ILO si è attestato al 4,9%. Nel primo trimestre era al 5,2%.',
+    'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Cala disoccupazione Svizzera secondo trimestre 2026',
 };
 
 export default blogMetaChIt;
