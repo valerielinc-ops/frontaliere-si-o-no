@@ -5199,36 +5199,67 @@ const PROMPT_TOKEN_CEILING = 10600;
  * passato lo stesso, per restare parallelo al gemello del corpus e perche' se
  * un giorno la stima includesse anche l'output userebbe gia' il numero della
  * chiamata vera invece di uno inventato.
- */
-const IT_GENERATION_MAX_TOKENS = 8000;
-
-/**
- * Decisione di cascata (issue #6020, follow-up di #6000): 8000 resta
- * INVARIATO, non e' un buco lasciato aperto.
  *
- * Il costo misurato: il pre-flight del cascade salta ogni modello con
- * `MODEL_MAX_OUTPUT_TOKENS[model] < IT_GENERATION_MAX_TOKENS` (vedi
- * `lib/ai-models.mjs`, guard `modelLimit && o.maxTokens > modelLimit`) —
- * a 8000 sono fuori Cohere-command-r-08-2024 e command-r7b-12-2024 (4096) e
- * Phi-4-mini-reasoning (4000). Scendere a 4000, come ha gia' fatto il
- * gemello del corpus (#6595-6607), li farebbe rientrare.
+ * ── Decisione di cascata (issue #6020, follow-up di #6000): resta 8000 ──
  *
- * Perche' non ancora: il fabbisogno reale (~2500-3000 token per il testo IT)
- * lascerebbe margine anche a 4000, ma QUI il prompt di INGRESSO satura gia'
- * `PROMPT_TOKEN_CEILING` sopra — ogni ramo e' `over=1` anche a scala
- * esaurita finche' l'impalcatura statica (33.645 contro i ~15.700 del
- * gemello, vedi commento su `PROMPT_TOKEN_CEILING`) non e' compressa. Il
- * pre-flight sull'INPUT saltera' comunque quei tre modelli sui casi peggiori
- * anche con un `maxTokens` di OUTPUT piu' basso, quindi abbassare questa
- * costante ora comprerebbe zero modelli aggiuntivi e solo restringerebbe il
- * margine di output per gli altri — un cambio di logica di generazione senza
- * il beneficio che lo giustifica sul corpus.
+ * Non e' un buco lasciato aperto. Il costo e' misurato, non stimato.
+ *
+ * Il pre-flight del cascade salta ogni modello il cui cap di OUTPUT sta sotto
+ * il `maxTokens` richiesto (`scripts/lib/ai-models.mjs`, guard
+ * `if (modelLimit && o.maxTokens > modelLimit)` con
+ * `modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId]`). Incrociando quella
+ * tabella con `DEFAULT_CHAIN` (101 membri), a 8000 restano fuori
+ * esattamente tre membri del roster:
+ *
+ *   cohere/command-r-08-2024      4096
+ *   cohere/command-r7b-12-2024    4096
+ *   Phi-4-mini-reasoning          4000
+ *
+ * A 4000 non ne resta fuori nessuno: il confronto e' `>`, quindi un
+ * `maxTokens` di 4000 non esclude un cap di 4000.
+ *
+ * NON e' della partita `Cohere-command-r-08-2024`, l'omonimo di GitHub
+ * Models: e' stato tolto da `AI_MODELS` il 2026-07-05 (HTTP 400
+ * `unknown_model`, ritirato live), la sua riga in
+ * `MODEL_MAX_OUTPUT_TOKENS` e' l'unico residuo, e un modello fuori dal
+ * roster non puo' «rientrare». Il membro con quel cap e' l'omonimo Cohere
+ * diretto qui sopra — due id diversi, due provider diversi.
+ *
+ * Scendere a 4000 e' cio' che ha gia' fatto il gemello del corpus
+ * (nanakokyobashi-rgb/frontaliere-articles#186, merge commit 5ed1336a,
+ * mergiata il 2026-08-10) sulla misura «~2500-3000 token per il testo IT» — 900 parole
+ * piu' faq, seo e overhead JSON — che vale anche qui, perche'
+ * `CREATE_ARTICLE_MIN_IT_WORDS` e' 900 su entrambi i lati.
+ *
+ * Perche' non ancora, QUI: quei tre modelli sono gia' saltati PRIMA, dal
+ * pre-flight sull'INPUT, e su ogni ramo. Il cap di input dichiarato per
+ * tutti e tre e' 8000 (`getDeclaredRequestTokenLimit()`, via
+ * `DEFAULT_REQUEST_TOKENS_BY_PROVIDER`), mentre il prompt assemblato pesa
+ * — misurato sul fixture del caso peggiore di
+ * `tests/news-prompt-token-budget.test.ts` — 9428 (evergreen frontaliere),
+ * 9458 (evergreen svizzera), 9988 e 10018 al primo tentativo, 10438 e 10468
+ * al retry sui due rami news. Quindi abbassare questa costante oggi
+ * comprerebbe ZERO modelli e restringerebbe solo il margine di output per
+ * tutti gli altri.
+ *
+ * Un numero da non confondere, perche' e' il modo piu' facile di leggere
+ * male questa decisione: `over=1` nel marker `[prompt-budget]` si misura
+ * contro `PROMPT_TOKEN_BUDGET` (8000), non contro `PROMPT_TOKEN_CEILING`
+ * (10600). Il tetto NON e' superato da nessun ramo — il caso peggiore
+ * misurato e' 10468 — ed e' un ratchet, non il bersaglio; il bersaglio, che
+ * ogni ramo sfora, e' il budget. L'impalcatura statica (33.645 char contro i
+ * ~15.700 del gemello, vedi il commento su `PROMPT_TOKEN_CEILING`) e' cio'
+ * che va compresso prima.
  *
  * Riallineamento: quando la riduzione del prompt (item 1 di #6020) porta il
  * caso peggiore sotto `PROMPT_TOKEN_BUDGET`, questa costante va rivalutata
- * nello stesso giro — a quel punto i tre modelli tornano davvero
- * raggiungibili e il confronto costo/beneficio cambia.
+ * nello stesso giro — e con lei NIENTE ALTRO, ora che il retry di
+ * parse-error la legge invece di ripetere il suo numero.
+ * `tests/create-article-cascade-decision.test.ts` tiene i tre nomi
+ * agganciati al roster misurato: se il roster cambia, il commento diventa
+ * rosso invece di invecchiare in silenzio.
  */
+const IT_GENERATION_MAX_TOKENS = 8000;
 
 /**
  * Accorcia il testo di RIMEDIO (refinement di headline e fact-check) che i
@@ -5950,7 +5981,15 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     console.error(`   ${describeJsonParseError(itRepaired, parseErr)}`);
     console.error(`   ${describeRawForDiagnostics(itRaw)}`);
     const isTruncation = /Unterminated|Unexpected end/i.test(parseErr.message);
-    const retryTokens = isTruncation ? 16000 : 8000;
+    // Il ramo non-troncamento rispedisce lo STESSO budget della chiamata
+    // originale, e quel budget e' `IT_GENERATION_MAX_TOKENS`: scritto come
+    // numero letterale era l'unico punto da cui la divergenza che la costante
+    // esiste per impedire sarebbe rientrata — abbassare la costante avrebbe
+    // lasciato il retry a chiedere 8000, cioe' a farsi saltare dal pre-flight
+    // esattamente i modelli che la riduzione voleva far rientrare (vedi la
+    // decisione di cascata sul JSDoc della costante). Oggi il valore e' lo
+    // stesso: e' un no-op misurato, non un cambio di comportamento.
+    const retryTokens = isTruncation ? 16000 : IT_GENERATION_MAX_TOKENS;
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
     try {
       const itRaw2 = useGeminiDirect
