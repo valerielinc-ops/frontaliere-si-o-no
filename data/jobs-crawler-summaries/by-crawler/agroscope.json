@@ -1,18 +1,49 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-17T10:21:54.262Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-08-18T09:53:36.075Z",
+  "total": 13,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5073,
-  "avgDurationMs": 5073,
+  "durationMs": 6434,
+  "avgDurationMs": 6434,
   "durationHistory": [
-    5073
+    6434
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
+      "slug": "leiter-in-versuchsstation-gemusebau-wissenschaftlich-technische-r-mitarbeiter-in-agroscope-ins",
+      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ins, Schweiz",
+      "addressLocality": "Ins",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-01",
+      "validThrough": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Laborant/-in Saatgutqualität",
@@ -260,43 +291,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Leiter/-in Versuchsstation Gemüsebau (wissenschaftlich-technische/-r Mitarbeiter/-in)",
-      "slug": "responsabile-versuchsstation-gemusebau-wissenschaftlich-technische-r-collaboratore-trice-in-confederazione-svizzera-ins",
-      "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19512",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Ins, Schweiz",
-      "addressLocality": "Ins",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-01",
-      "validThrough": "2026-08-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-93b4d74bb39f",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-14T21:41:22.783Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "HR-Fachperson - Personalverwaltung",
