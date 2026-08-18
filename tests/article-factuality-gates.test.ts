@@ -24,6 +24,8 @@ import {
   checkTaxPlausibility,
   checkCrossSectionNumericConflicts,
   checkFabricatedInstitutionAcronyms,
+  checkFabricatedNormAcronyms,
+  FABRICATED_NORM_ACRONYMS,
   checkContradictoryNormDates,
   checkSourceFreshness,
   extractSourceAnchors,
@@ -583,6 +585,85 @@ describe('checkFabricatedInstitutionAcronyms', () => {
     );
     expect(codes(issues)).toContain('unknown-institution');
     expect(issues[0].severity).toBe('major');
+  });
+});
+
+describe('checkFabricatedNormAcronyms', () => {
+  // corpus#323 e la sua recidiva del 15-16/08/2026 su nanakokyobashi-rgb/
+  // frontaliere-articles: `(LFW)` e `(LPS)` sono ricomparsi in 9 corpi su 4
+  // locali DOPO la chiusura dell'incidente, e hanno bloccato la CI del corpus
+  // su OGNI branch. Il gate sulle ISTITUZIONI non li vedeva perche' `Legge`
+  // non e' in INSTITUTION_NOUN — e' quel buco che questo describe presidia.
+  it('flags an invented law acronym as blocking', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'La legge federale sul lavoro (LFW) del 20 marzo 1943 prevede che l\'apprendistato duri 3 anni.',
+    );
+    expect(codes(issues)).toContain('fabricated-norm-acronym');
+    expect(issues[0].severity).toBe('critical');
+    expect(issues[0].message).toContain('LFW');
+  });
+
+  it('flags LPS, whose two spelled-out forms are both non-existent laws', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'La legge federale sulle prestazioni sociali (LPS) stabilisce i requisiti minimi.',
+    ))).toContain('fabricated-norm-acronym');
+    expect(codes(checkFabricatedNormAcronyms(
+      'La legge sul permesso di soggiorno in Svizzera (LPS) stabilisce le norme.',
+    ))).toContain('fabricated-norm-acronym');
+  });
+
+  // Il confine e' su LETTERE, non `\b`: queste due sono norme VERE e il gate le
+  // deve lasciare passare, altrimenti blocca contenuto legittimo.
+  it('leaves MLPS and TULPS alone — real norms that contain the letters', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Il Ministero del Lavoro e delle Politiche Sociali (MLPS) e il TULPS del 1931 restano applicabili.',
+    )).toEqual([]);
+  });
+
+  it('accepts the repaired citations', () => {
+    expect(checkFabricatedNormAcronyms(
+      'La legge sul lavoro (LL, RS 822.11) del 13 marzo 1964 regola la durata del lavoro; '
+      + 'la formazione professionale di base e\' retta dalla LFPr (RS 412.10).',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'La legge federale sugli stranieri e la loro integrazione (LStrI, RS 142.20) regola il permesso di soggiorno.',
+    )).toEqual([]);
+  });
+
+  // La ragione per cui il controllo sta FUORI dal ramo `locale === 'it'` di
+  // runFactualityGates: `(LFW)` e' arrivato byte-identico anche nei corpi
+  // de/fr/en di `apprendistato-urie-2024-2025`. Un gate solo-italiano avrebbe
+  // lasciato passare le tre traduzioni.
+  it('blocks in a non-Italian locale too, not only in Italian', () => {
+    const de = runFactualityGates({
+      sections: { body1: 'Nach dem Bundesarbeitsgesetz (LFW) vom 13. März 1943 ist die Lehre ein Vertrag.' },
+      locale: 'de',
+      italianSections: { body1: 'Secondo la legge sul lavoro il rapporto di tirocinio e\' un contratto di formazione.' },
+    });
+    expect(de.passed).toBe(false);
+    expect(codes(de.blocking)).toContain('fabricated-norm-acronym');
+  });
+
+  it('is wired into runFactualityGates as a blocking gate for Italian', () => {
+    const res = runFactualityGates({
+      sections: { body1: 'Secondo la legge federale sul lavoro (LFW) del 1943, il contratto e\' annuale.' },
+      locale: 'it',
+    });
+    expect(res.passed).toBe(false);
+    expect(codes(res.blocking)).toContain('fabricated-norm-acronym');
+  });
+
+  // Le regex della tabella sono module-level e condivise fra le chiamate: con
+  // il flag `g` porterebbero `lastIndex` da una chiamata all'altra e il gate
+  // salterebbe un articolo si' e uno no. Difetto invisibile a un test a
+  // chiamata singola, quindi va asserito sulla tabella.
+  it('keeps the shared patterns non-global, so no lastIndex leaks between calls', () => {
+    for (const entry of FABRICATED_NORM_ACRONYMS as any[]) {
+      expect(entry.re.global).toBe(false);
+    }
+    const text = 'La legge federale sul lavoro (LFW) del 1943 vale ovunque.';
+    expect(codes(checkFabricatedNormAcronyms(text))).toContain('fabricated-norm-acronym');
+    expect(codes(checkFabricatedNormAcronyms(text))).toContain('fabricated-norm-acronym');
   });
 });
 

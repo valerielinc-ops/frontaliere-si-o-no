@@ -1272,6 +1272,84 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
   return issues;
 }
 
+// ─── 5b. Fabricated NORM acronyms ──────────────────────────────
+//
+// corpus#323 e la sua recidiva del 15-16/08/2026: `(LFW)` per la legge sul
+// lavoro e `(LPS)` per due leggi che non esistono sono ricomparsi in 9 corpi su
+// 4 locali DOPO che l'incidente era stato chiuso, perché nessuno dei gate di
+// questo file li poteva vedere.
+//
+// Il punto cieco è STRUTTURALE, non una voce mancante in una lista:
+// INSTITUTION_RE (sezione 5) riconosce solo nomi di ENTE — `Ufficio`,
+// `Istituto`, `Agenzia`, `Autorità`, ... — e `Legge` non è fra questi. Una
+// sigla NORMATIVA inventata non produce quindi né `fabricated-institution`,
+// né `unknown-institution`, né una observation per il learner del
+// defect-memory: attraversa tutti e tre i tier senza toccarne nessuno.
+// L'altra metà della difesa (`FABRICATED_ACRONYMS` in create-article.mjs)
+// contiene già quattro sigle di legge inventate (`LCFL`, `LFP`, `RTL`, `LTL`)
+// ma non queste due, e vive fuori da questo modulo.
+//
+// Perché una tabella byte-exact e non un'euristica «acronimo + anno»: quella
+// è già stata misurata e scartata in #261 — 41 hit su 16.676 file, per lo più
+// norme e istituzioni VERE (`SECO 2024`, `KVG 2023`, `SCP 2026`, il nome di
+// una scuola). Qui entrano solo sigle osservate dal vivo nel corpus e
+// verificate come inesistenti: le stesse che il test sui dati
+// (generator/tests/telelavoro-frontalieri-normative-citations.test.mjs) cerca
+// su tutti i corpi. Guard e test guardano la stessa lista di nomi, quindi non
+// possono divergere su cosa sia fabbricato.
+//
+// I confini sono su LETTERE e non `\b`, esattamente come nel test: `MLPS`
+// (Ministero del Lavoro e delle Politiche Sociali) e `TULPS` (Testo Unico
+// Leggi Pubblica Sicurezza) sono norme VERE e devono restare fuori match —
+// 8 file al 2026-08-18.
+export const FABRICATED_NORM_ACRONYMS = [
+  {
+    acronym: 'LFW',
+    re: /(?<![A-Za-z])LFW(?![A-Za-z])/i,
+    real: "la legge sul lavoro è LL (RS 822.11, 13 marzo 1964); per l'apprendistato è la LFPr (RS 412.10)",
+  },
+  {
+    acronym: 'LPS',
+    re: /(?<![A-Za-z])LPS(?![A-Za-z])/i,
+    real: 'non esiste: previdenza → LAVS/LAI/LPP, assicurazione malattie → LAMal/LVAMal, permesso di soggiorno → LStrI (RS 142.20)',
+  },
+];
+
+/**
+ * Flags known-fabricated NORM acronyms, in any locale.
+ *
+ * Locale-independent by construction: an invented acronym survives translation
+ * unchanged — `(LFW)` arrived byte-identical in the de/fr/en bodies of
+ * `apprendistato-urie-2024-2025` — so judging it on Italian alone would let
+ * the three translations through. Same argument already written for
+ * FABRICATED_LABOR_OFFICE_ACRONYMS in create-article.mjs.
+ *
+ * @param {string} text
+ * @param {{locale?: string}} [opts]
+ * @returns {Array<{code: string, severity: string, message: string}>}
+ */
+export function checkFabricatedNormAcronyms(text, opts = {}) {
+  const issues = [];
+  if (typeof text !== 'string' || !text) return issues;
+  const locale = opts.locale || 'it';
+  for (const { acronym, re, real } of FABRICATED_NORM_ACRONYMS) {
+    // `re` is deliberately non-global: a `g` regex carries `lastIndex` across
+    // calls, and this table is module-level shared state.
+    const m = re.exec(text);
+    if (!m) continue;
+    issues.push(issue(
+      'fabricated-norm-acronym',
+      'critical',
+      `[${locale}] Sigla normativa inventata: «${acronym}» — ${real}`,
+      text.slice(Math.max(0, m.index - 90), m.index + 60),
+      'Cita la norma reale con la sua sigla ufficiale, oppure togli la citazione. '
+      + "Una sigla di legge inesistente è una fabbricazione anche quando la frase intorno è corretta, "
+      + "e sopravvive alla traduzione: va tolta nell'originale, non nei singoli locali.",
+    ));
+  }
+  return issues;
+}
+
 // ─── 6. Contradictory dates for the same named norm ───────────────────
 //
 // "Il Decreto Omnibus è stato varato il 1° gennaio 2023" coexisted with "Il 1°
@@ -2146,6 +2224,12 @@ export function runFactualityGates(params = {}) {
   issues.push(...checkInlineArithmetic(fullText, localeOptions));
   issues.push(...checkTaxPlausibility(fullText, localeOptions));
   issues.push(...checkCrossSectionNumericConflicts(sections, localeOptions));
+  // Fuori dal ramo `locale === 'it'` di proposito: una sigla normativa
+  // inventata resta identica in de/fr/en (vedi checkFabricatedNormAcronyms),
+  // quindi il giorno in cui le traduzioni passeranno di qui il controllo
+  // c'è già e non va ricordato. `critical` → finisce in `blocking`, e il
+  // chiamante rigetta l'articolo (create-article.mjs, `if (!gateResult.passed)`).
+  issues.push(...checkFabricatedNormAcronyms(fullText, localeOptions));
 
   if (locale === 'it') {
     issues.push(...checkFabricatedInstitutionAcronyms(fullText, {
