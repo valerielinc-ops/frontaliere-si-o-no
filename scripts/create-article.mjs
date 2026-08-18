@@ -88,6 +88,7 @@ import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { describePayloadRejection } from './lib/llm-payload-diagnostics.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
@@ -4111,9 +4112,13 @@ async function callLLM(messages, opts = {}) {
       let itContent = null;
       let parseErr = null;
       let repaired = null;
+      // Hoisted above the try (was a `const` scoped inside it) so the
+      // diagnostic line below — which needs `parsed` even when normalization
+      // fails on an otherwise-valid document — can see it.
+      let parsed;
       try {
         repaired = repairLlmJson(result);
-        const parsed = JSON.parse(repaired);
+        parsed = JSON.parse(repaired);
         itContent = normalizeItalianContentFromPayload(parsed);
       } catch (e) {
         parseErr = e;
@@ -4127,6 +4132,18 @@ async function callLLM(messages, opts = {}) {
         // was unreproducible (no evidence of what the model actually sent).
         // Log the parse error + a snippet so a recurring malformed-JSON
         // pattern from a specific model can actually be root-caused.
+        //
+        // The line below is UNCONDITIONAL on purpose (frontaliere-si-o-no#6027,
+        // gemello di frontaliere-articles#437): the guard used to be
+        // `if (parseErr)`, which meant the majority case — JSON.parse()
+        // succeeds but normalizeItalianContentFromPayload() returns null —
+        // printed nothing at all. Measured on the corpus twin (2026-08-18):
+        // 49 of 64 collected rejections are "non normalizzabile", and in the
+        // run that spent 76% of the step regenerating, all 4 were silent.
+        // This is the only line that can tell "truncated" (lever: maxTokens)
+        // apart from "wrong shape" (lever: prompt/normalizer) — they want
+        // opposite fixes.
+        console.error(`  🧪 rigetto: ${describePayloadRejection({ raw: result, repaired, parsed, parseErr, model: modelUsedRef.model })}`);
         if (parseErr) {
           console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
           console.error(`  📄 ${describeRawForDiagnostics(result)}`);
@@ -4153,6 +4170,17 @@ async function callLLM(messages, opts = {}) {
 
       if (missing.length > 0) {
         console.error(`  ⚠️  output JSON incompleto: ${missing.join(', ')} (tentativo ${attempt}/${maxBody2Retries}) — rigenero...`);
+        // The "missing fields" branch was as blind as the muted one above: it
+        // named the fields but not the model that actually answered (the
+        // "🤖 [1/5] ... con <modello>" banner announces the PREFERRED model,
+        // not necessarily the one that responded from the cascade), nor how
+        // long the output was, nor whether it looked truncated. `body1,
+        // body2, body3` alone is compatible with both a truncation and an
+        // extra wrapper. Same line as the branch above, so the two count
+        // together.
+        if (itContent) {
+          console.error(`  🧪 rigetto: ${describePayloadRejection({ raw: result, repaired, parsed, parseErr, model: modelUsedRef.model })}`);
+        }
         // Penalize the model only for genuine content failures, not budget-induced
         // exits. When wallBudgetExceeded() is true the throw below is caused by
         // time pressure, not by model output quality; scoring it as a failure would
