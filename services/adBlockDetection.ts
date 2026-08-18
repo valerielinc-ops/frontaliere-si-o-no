@@ -35,6 +35,8 @@ const BAIT_CLASSNAMES = [
 const NETWORK_PROBE_URL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
 
 const SETTLE_DELAY_MS = 120;
+/** How long to keep re-checking the bait before giving up on it. */
+const BAIT_DEADLINE_MS = 900;
 const NETWORK_TIMEOUT_MS = 1500;
 
 function detectViaBaitElement(): Promise<boolean> {
@@ -58,7 +60,13 @@ function detectViaBaitElement(): Promise<boolean> {
  resolve(false);
  return;
  }
- window.setTimeout(() => {
+ // Poll rather than look once. A blocker applies its cosmetic rules from a
+ // content script, and on a slow device that can land well after a single
+ // 120ms check has already concluded "not blocked" — a false negative that
+ // costs the whole visitor. Resolving as soon as the bait is hidden keeps the
+ // fast path fast; the deadline only bounds the slow one.
+ const startedAt = Date.now();
+ const check = () => {
  let blocked = false;
  try {
  const rect = bait.getBoundingClientRect();
@@ -67,9 +75,14 @@ function detectViaBaitElement(): Promise<boolean> {
  } catch {
  blocked = false;
  }
+ if (blocked || Date.now() - startedAt >= BAIT_DEADLINE_MS) {
  try { bait.remove(); } catch { /* noop */ }
  resolve(blocked);
- }, SETTLE_DELAY_MS);
+ return;
+ }
+ window.setTimeout(check, SETTLE_DELAY_MS);
+ };
+ window.setTimeout(check, SETTLE_DELAY_MS);
  });
 }
 
@@ -102,15 +115,94 @@ function detectViaNetworkProbe(): Promise<boolean> {
  * both are independently indicative and neither has known false-positive
  * modes beyond "ambiguous" (which resolves to `false` internally already).
  */
-export async function detectAdBlock(): Promise<boolean> {
- if (typeof window === 'undefined') return false;
- try {
- const [baitBlocked, networkBlocked] = await Promise.all([
- detectViaBaitElement(),
- detectViaNetworkProbe(),
- ]);
- return baitBlocked || networkBlocked;
- } catch {
- return false;
+/**
+ * What the page already knows about this visitor's ad blocker.
+ *
+ * `source` matters when reading the numbers. 'funding_choices' is Google's own
+ * detection, which this site already runs: the ad blocking recovery tag is in
+ * index.html and Ad Manager reports on it. Measured 2026-06-16..08-17, Google
+ * saw a ~5% extension rate while the heuristic below fired on 2.5% of the same
+ * population — the local probe finds roughly half of what Google does, which is
+ * why it is now the fallback rather than the answer.
+ */
+export type AdBlockSignal = {
+ blocked: boolean;
+ /** The visitor already allowlisted this site — never gate them again. */
+ adsAllowed: boolean;
+ source: 'funding_choices' | 'heuristic';
+ status: string | number | null;
+};
+
+/** Shape index.html's AD_BLOCK_DATA_READY bridge stashes on window. */
+type FcBridgePayload = { blocked?: boolean; adsAllowed?: boolean; status?: string | number | null };
+
+const FC_SIGNAL_EVENT = 'frontaliere:adblock-data';
+const FC_WAIT_MS = 3000;
+
+function readFcSignal(): AdBlockSignal | null {
+ const raw = (window as unknown as { __ftAdBlock?: FcBridgePayload }).__ftAdBlock;
+ if (!raw || typeof raw.blocked !== 'boolean') return null;
+ return {
+ blocked: raw.blocked,
+ adsAllowed: raw.adsAllowed === true,
+ source: 'funding_choices',
+ status: raw.status ?? null,
+ };
+}
+
+function waitForFcSignal(timeoutMs: number): Promise<AdBlockSignal | null> {
+ const immediate = readFcSignal();
+ if (immediate) return Promise.resolve(immediate);
+ // Only wait when there is something to wait FOR. index.html's bridge sets
+ // this flag synchronously, before the Funding Choices tag, so its absence
+ // means no answer is coming — a server render, a test, a page that never
+ // shipped the bridge. Waiting the full timeout on those would delay the gate
+ // for everyone to no purpose.
+ if (!(window as unknown as { __ftFcAdBlockBridge?: unknown }).__ftFcAdBlockBridge) {
+ return Promise.resolve(null);
  }
+ return new Promise((resolve) => {
+ let settled = false;
+ const finish = (value: AdBlockSignal | null) => {
+ if (settled) return;
+ settled = true;
+ window.removeEventListener(FC_SIGNAL_EVENT, onData);
+ window.clearTimeout(timer);
+ resolve(value);
+ };
+ const onData = () => finish(readFcSignal());
+ window.addEventListener(FC_SIGNAL_EVENT, onData);
+ const timer = window.setTimeout(() => finish(null), timeoutMs);
+ });
+}
+
+export async function detectAdBlockDetailed(): Promise<AdBlockSignal> {
+ const none: AdBlockSignal = { blocked: false, adsAllowed: false, source: 'heuristic', status: null };
+ if (typeof window === 'undefined') return none;
+ try {
+ // Both start now. Google's answer wins when it arrives — it is maintained
+ // against the filter lists, it separates extension-level from network-level
+ // blocking, and it reports whether the visitor already allowlisted the site,
+ // which no bait element can ever know. Running the local probe concurrently
+ // rather than after means a silent Funding Choices costs the wait once, not
+ // the wait plus a probe.
+ const heuristic = Promise.all([detectViaBaitElement(), detectViaNetworkProbe()])
+ .then(([baitBlocked, networkBlocked]) => baitBlocked || networkBlocked)
+ .catch(() => false);
+
+ const fc = await waitForFcSignal(FC_WAIT_MS);
+ if (fc) return fc;
+
+ // Funding Choices never reported. Silence is weak evidence of a
+ // network-level blocker, its own script being a common target, but it is
+ // equally consistent with a slow network — so read the probe rather than
+ // convict on silence.
+ return { ...none, blocked: await heuristic };
+ } catch {
+ return none;
+ }
+}
+
+export async function detectAdBlock(): Promise<boolean> {
+ return (await detectAdBlockDetailed()).blocked;
 }
