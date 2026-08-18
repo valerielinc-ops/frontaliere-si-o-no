@@ -3786,9 +3786,9 @@
       "id": "pdgr-8f979cb015d3",
       "slug": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
+        "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
         "en": "employee-hotelry-psychiatrische-dienste-graubunden-chur",
-        "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "fr": "employe-hotel-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -3854,7 +3854,6 @@
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
       ],
-      "firstSeenAt": "2026-08-17T10:22:26.015Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3867,7 +3866,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-08-17T10:22:26.015Z"
     }
   ]
 }

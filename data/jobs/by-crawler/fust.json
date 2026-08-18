@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-08-18T10:06:40.029Z",
+  "assembledAt": "2026-08-18T09:04:35.582Z",
   "jobs": [
     {
       "id": "company-sev3n5",
@@ -2312,7 +2312,8 @@
       "country": "CH",
       "retranslationAttempts": 0,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-bhdm5o",
@@ -15493,7 +15494,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-1mxh41",
@@ -21115,7 +21117,9 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-1y7yes",
@@ -22615,7 +22619,8 @@
       "country": "CH",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-u0alg5",
@@ -23561,7 +23566,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-ybe3g0",
@@ -24059,7 +24065,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-d0pzxs",
@@ -25267,7 +25274,8 @@
         "chef-d-equipe-deformation-du-chocolat-en-production-coop-genossenschaft-pratteln-basel-landschaft",
         "teamleiter-in-produktion-schokolade-verformung-coop-genossenschaft-pratteln-basel-landschaft"
       ],
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-gwby3y",
@@ -25729,7 +25737,8 @@
       "country": "CH",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-ex6doa",
@@ -26654,7 +26663,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-tkeh04",

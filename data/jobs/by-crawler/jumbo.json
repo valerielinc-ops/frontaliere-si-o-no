@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-18T09:51:23.066Z",
+  "assembledAt": "2026-08-18T09:14:11.991Z",
   "jobs": [
     {
       "id": "jumbo-968e5744-950",
@@ -19854,9 +19854,9 @@
       "id": "jumbo-e05a2826-3fe",
       "slug": "consulente-a-do-it-jumbo-division-der-coop-genossenschaft-rumlang",
       "slugByLocale": {
+        "de": "verkausberater-in-do-it-jumbo-rumlang-zurich-5b3b56",
         "it": "consulente-a-do-it-jumbo-division-der-coop-genossenschaft-rumlang",
         "en": "consultant-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang",
-        "de": "verkausberater-in-do-it-jumbo-rumlang-zurich-5b3b56",
         "fr": "consultant-en-do-it-jumbo-division-der-coop-genossenschaft-rumlang"
       },
       "company": "JUMBO",
@@ -19913,12 +19913,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkausberater-in-do-it-jumbo-rumlang",
-        "consultant-in-do-it-jumbo-rumlang",
-        "consultant-en-do-it-jumbo-rumlang",
-        "consulente-a-do-it-jumbo-rumlang"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.251Z",
       "previousSlugsByLocale": {
         "it": [
           "verkausberater-in-do-it-jumbo-rumlang",
@@ -19936,28 +19944,20 @@
           "verkausberater-in-do-it-jumbo-rumlang"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.251Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkausberater-in-do-it-jumbo-rumlang",
+        "consultant-in-do-it-jumbo-rumlang",
+        "consultant-en-do-it-jumbo-rumlang",
+        "consulente-a-do-it-jumbo-rumlang"
+      ]
     },
     {
       "id": "jumbo-35f6e2dc-864",
       "slug": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-dietlikon",
       "slugByLocale": {
+        "de": "verkaufsberater-in-do-it-jumbo-dietlikon-zurich-6qzxba",
         "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-dietlikon",
         "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-dietlikon",
-        "de": "verkaufsberater-in-do-it-jumbo-dietlikon-zurich-6qzxba",
         "fr": "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-dietlikon"
       },
       "company": "JUMBO",
@@ -20014,12 +20014,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-dietlikon",
-        "sales-consultant-in-do-it-jumbo-dietlikon",
-        "consultant-en-ventes-a-do-it-jumbo-dietlikon",
-        "consulente-di-vendita-in-do-it-jumbo-dietlikon"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.250Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-dietlikon",
@@ -20037,28 +20045,20 @@
           "verkaufsberater-in-do-it-jumbo-dietlikon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.250Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-dietlikon",
+        "sales-consultant-in-do-it-jumbo-dietlikon",
+        "consultant-en-ventes-a-do-it-jumbo-dietlikon",
+        "consulente-di-vendita-in-do-it-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-a642f54a-bae",
       "slug": "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang",
       "slugByLocale": {
+        "de": "verkausberater-in-garden-jumbo-rumlang-zurich-96b928",
         "it": "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-rumlang",
         "en": "consultant-in-garden-jumbo-division-der-coop-genossenschaft-rumlang",
-        "de": "verkausberater-in-garden-jumbo-rumlang-zurich-96b928",
         "fr": "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-rumlang"
       },
       "company": "JUMBO",
@@ -20115,12 +20115,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkausberater-in-garden-jumbo-rumlang",
-        "consultant-in-garden-jumbo-rumlang",
-        "consultant-en-jardin-jumbo-rumlang",
-        "consulente-in-giardino-jumbo-rumlang"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.248Z",
       "previousSlugsByLocale": {
         "it": [
           "verkausberater-in-garden-jumbo-rumlang",
@@ -20138,28 +20146,20 @@
           "verkausberater-in-garden-jumbo-rumlang"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.248Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkausberater-in-garden-jumbo-rumlang",
+        "consultant-in-garden-jumbo-rumlang",
+        "consultant-en-jardin-jumbo-rumlang",
+        "consulente-in-giardino-jumbo-rumlang"
+      ]
     },
     {
       "id": "jumbo-9e1aee9d-3bf",
       "slug": "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-bern",
       "slugByLocale": {
+        "de": "verkausberater-in-garden-jumbo-bern-appsio",
         "it": "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-bern",
         "en": "consultant-in-garden-jumbo-division-der-coop-genossenschaft-bern",
-        "de": "verkausberater-in-garden-jumbo-bern-appsio",
         "fr": "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-bern"
       },
       "company": "JUMBO",
@@ -20216,12 +20216,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkausberater-in-garden-jumbo-bern",
-        "consultant-in-garden-jumbo-bern",
-        "consultant-en-jardin-jumbo-bern",
-        "consulente-in-giardino-jumbo-bern"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.246Z",
       "previousSlugsByLocale": {
         "it": [
           "verkausberater-in-garden-jumbo-bern",
@@ -20239,28 +20247,20 @@
           "verkausberater-in-garden-jumbo-bern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.246Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkausberater-in-garden-jumbo-bern",
+        "consultant-in-garden-jumbo-bern",
+        "consultant-en-jardin-jumbo-bern",
+        "consulente-in-giardino-jumbo-bern"
+      ]
     },
     {
       "id": "jumbo-8db1ee23-745",
       "slug": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-allmendingen-bei-bern",
       "slugByLocale": {
+        "de": "verkaufsberater-in-garden-jumbo-allmendingen-bei-bern-f954eo",
         "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-allmendingen-bei-bern",
         "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-allmendingen-bei-bern",
-        "de": "verkaufsberater-in-garden-jumbo-allmendingen-bei-bern-f954eo",
         "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-allmendingen-bei-bern"
       },
       "company": "JUMBO",
@@ -20317,12 +20317,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-allmendingen-bei-bern",
-        "sales-advisor-in-garden-jumbo-allmendingen-bei-bern",
-        "conseiller-commercial-a-garden-jumbo-allmendingen-bei-bern",
-        "consulente-vendite-in-garden-jumbo-allmendingen-bei-bern"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.245Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-allmendingen-bei-bern",
@@ -20340,20 +20348,12 @@
           "verkaufsberater-in-garden-jumbo-allmendingen-bei-bern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.245Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-allmendingen-bei-bern",
+        "sales-advisor-in-garden-jumbo-allmendingen-bei-bern",
+        "conseiller-commercial-a-garden-jumbo-allmendingen-bei-bern",
+        "consulente-vendite-in-garden-jumbo-allmendingen-bei-bern"
+      ]
     },
     {
       "id": "jumbo-43fc348a-b36",
@@ -20453,9 +20453,9 @@
       "id": "jumbo-1db5f5c8-80c",
       "slug": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
       "slugByLocale": {
+        "de": "verkaufsberater-in-do-it-jumbo-schwyz-0x8edq",
         "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
         "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-        "de": "verkaufsberater-in-do-it-jumbo-schwyz-0x8edq",
         "fr": "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
       },
       "company": "JUMBO",
@@ -20512,12 +20512,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-schwyz",
-        "sales-consultant-in-do-it-jumbo-schwyz",
-        "consultant-en-ventes-a-do-it-jumbo-schwyz",
-        "consulente-di-vendita-in-do-it-jumbo-schwyz"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.238Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-schwyz",
@@ -20535,28 +20543,20 @@
           "verkaufsberater-in-do-it-jumbo-schwyz"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.238Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-schwyz",
+        "sales-consultant-in-do-it-jumbo-schwyz",
+        "consultant-en-ventes-a-do-it-jumbo-schwyz",
+        "consulente-di-vendita-in-do-it-jumbo-schwyz"
+      ]
     },
     {
       "id": "jumbo-943fb743-3b6",
       "slug": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon-thurgau-h0yj5t",
       "slugByLocale": {
+        "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-h0yj5t",
         "it": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon-thurgau-h0yj5t",
         "en": "sales-advisor-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon-9114a0",
-        "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-thurgau-h0yj5t",
         "fr": "conseiller-commercial-en-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon-9114a0"
       },
       "company": "JUMBO",
@@ -20613,16 +20613,12 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-        "sales-advisor-in-garden-and-plants-jumbo-arbon",
-        "conseiller-commercial-en-jardin-et-plantes-jumbo-arbon",
-        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
-          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
+          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
+          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon-uivx8f"
         ],
         "en": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
@@ -20636,8 +20632,13 @@
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:57:37.237Z",
+      "previousSlugs": [
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+        "sales-advisor-in-garden-and-plants-jumbo-arbon",
+        "conseiller-commercial-en-jardin-et-plantes-jumbo-arbon",
+        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
+        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon-uivx8f"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20649,7 +20650,9 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T09:57:37.237Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-2c633edc-57c",

@@ -159,6 +159,7 @@
         "fr": "latteniere-pemsa-bellinzona"
       },
       "id": "pemsa-53d955610e1c",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -172,8 +173,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:36:04.826Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-17T21:36:04.826Z"
     },
     {
       "title": "PAVIMENTATORE STRADALE",
@@ -257,7 +257,7 @@
       "description": "Pemsa Valais vi accompagna nella ricerca di un impiego, sia che si tratti di incarichi a tempo determinato che di posti di lavoro a tempo indeterminato.\n\n## Il tuo incarico:\n• Preparazione del cantiere\n• Preparazione della superficie di applicazione\n• Tutti i tipi di pittura, intonacatura e finiture decorative\n• Posa della carta da parati\n• Posa della tela di vetro (Scandatex, Variolies)\n• Posa dell’isolamento perimetrale\n• Liscatura di piccola entità, intonacatura\n• Nuove costruzioni e ristrutturazioni di grande entità\n\n## E ora parliamo di te?\nNon esitare a inviarci la tua candidatura completa (CV, lettera di motivazione, diploma, certificati di lavoro, documento d’identità). Risponderemo solo alle candidature il cui profilo corrisponda a quanto richiesto.",
       "titleByLocale": {
         "it": "Imbianchino",
-        "en": "Imbianchino",
+        "en": "Whitening",
         "de": "Aufhellung",
         "fr": "Blanchiment"
       },
@@ -274,6 +274,7 @@
         "fr": "blanchiment-pemsa-riddes"
       },
       "id": "pemsa-cdb3bf154177",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -295,8 +296,7 @@
       },
       "previousSlugs": [
         "whitening-pemsa-riddes"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Piastrellista (M/F)",
@@ -1054,7 +1054,8 @@
         }
       },
       "firstSeenAt": "2026-08-14T21:34:29.990Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Falegname/a installatore/trice",
@@ -2243,7 +2244,8 @@
         }
       },
       "firstSeenAt": "2026-08-13T10:23:26.209Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Muratore e carpentiere",

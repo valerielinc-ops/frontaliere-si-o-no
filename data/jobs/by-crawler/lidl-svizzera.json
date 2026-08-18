@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-08-18T09:48:32.303Z",
+  "assembledAt": "2026-08-18T09:22:31.074Z",
   "jobs": [
     {
       "id": "company-7qn8x6",
@@ -926,6 +926,8 @@
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-matran-1yw6nk",
         "salesperson-m-f-d-40-matran-lidl-svizzera-matran"
       ],
+      "salaryMin": 27400,
+      "salaryMax": 41600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -938,9 +940,7 @@
       },
       "addressLocality": "Matran",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 27400,
-      "salaryMax": 41600
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-115lp6",
@@ -1189,15 +1189,15 @@
       "crawledAt": "2026-08-18T09:48:04.938Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
+        "de": "Sachbearbeiter / Sachbearbeiterin Recruiting (m/w/d) 80-100%",
         "it": "Personale / Personale reclutamento (m/f/d) 80-100 %",
         "en": "Personnel / Personnel Recruiting (m/f/d) 80-100 %",
-        "de": "Sachbearbeiter / Sachbearbeiterin Recruiting (m/w/d) 80-100%",
         "fr": "Personnel / Recrutement du personnel (h/f/d) 80-100 %"
       },
       "descriptionByLocale": {
+        "de": "Einleitung\nDu willst ins Recruiting einsteigen? Du suchst einen Job, in dem du Verantwortung übernehmen und dich aktiv einbringen kannst? Dann bist du bei Lidl Schweiz genau richtig! An unserem Hauptsitz in Weinfelden erwarten dich ein motiviertes Team und spannende Aufgaben im dynamischen Umfeld des Detailhandels. Zur Vervollständigung unseres Teams suchen wir eine selbständig agierende Persönlichkeit mit Wissensdurst und Freude am Kontakt mit Menschen. Deine Aufgaben\n- Rekrutierung von Mitarbeitenden für alle Bereiche und Standorte - Durchführung von Telefoninterviews - Sparring-Partner von Vorgesetzten im Bewerbungsprozess - Mitarbeit bei diversen Sourcing-Massnahmen für spezielle Zielgruppen - Administrative Aufgaben rund um das Thema Recruiting Dein Profil\n- Abgeschlossene kaufmännische Grundausbildung - Erfahrung im Bereich Human Resources von Vorteil - Systemkenntnisse bzgl. SF Recruiting von Vorteil - Sehr gute Kommunikationsfähigkeit, Organisationstalent und Durchsetzungsvermögen - Sehr gute Deutsch- und Französischkenntnisse Wir bieten\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
         "it": "Introduzione\n\nVuoi entrare nel reclutamento? Stai cercando un lavoro in cui puoi assumerti la responsabilità e partecipare attivamente? Allora siete esattamente al Lidl Svizzera! Presso la nostra sede a Weinfelden, un team motivato e interessanti compiti vi aspettano nell'ambiente dinamico del commercio al dettaglio. Per completare il nostro team, stiamo cercando una personalità indipendente con una sete di conoscenza e di piacere a contatto con le persone.\nI tuoi compiti\n\n- Reclutamento dei dipendenti per tutte le aree e località\n\n- Condurre interviste telefoniche\n\n- Partner di diffusione dei supervisori nel processo di applicazione\n\n- Cooperazione in varie misure di approvvigionamento\n\n- Attività amministrative relative al reclutamento\n\nIl tuo profilo\n\n- Formazione commerciale di base\n\n- L'esperienza nel campo delle risorse umane è benefica\n\n- La conoscenza del sistema per il reclutamento di SF è utile\n\n- Molto buone capacità di comunicazione, talento organizzativo e assertività\n\n- Ottima conoscenza del tedesco e del francese\n\nOffriamo\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una formazione intensiva. Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
         "en": "Introduction\n\nWant to get into recruitment? Are you looking for a job where you can take responsibility and actively participate? Then you are exactly right at Lidl Switzerland! At our headquarters in Weinfelden, a motivated team and exciting tasks await you in the dynamic environment of the retail trade. To complete our team, we are looking for an independent personality with a thirst for knowledge and pleasure in contact with people.\nYour tasks\n\n- Recruitment of employees for all areas and locations\n\n- Conducting telephone interviews\n\n- Sparring partners of supervisors in the application process\n\n- Cooperation in various sourcing measures for special target groups\n\n- Administrative tasks related to recruiting\n\nYour profile\n\n- Basic commercial training completed\n\n- Experience in the field of human resources is beneficial\n\n- System knowledge regarding SF recruiting is beneficial\n\n- Very good communication skills, organisational talent and assertiveness\n\n- Very good knowledge of German and French\n\nWe offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive training. In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
-        "de": "Einleitung\nDu willst ins Recruiting einsteigen? Du suchst einen Job, in dem du Verantwortung übernehmen und dich aktiv einbringen kannst? Dann bist du bei Lidl Schweiz genau richtig! An unserem Hauptsitz in Weinfelden erwarten dich ein motiviertes Team und spannende Aufgaben im dynamischen Umfeld des Detailhandels. Zur Vervollständigung unseres Teams suchen wir eine selbständig agierende Persönlichkeit mit Wissensdurst und Freude am Kontakt mit Menschen. Deine Aufgaben\n- Rekrutierung von Mitarbeitenden für alle Bereiche und Standorte - Durchführung von Telefoninterviews - Sparring-Partner von Vorgesetzten im Bewerbungsprozess - Mitarbeit bei diversen Sourcing-Massnahmen für spezielle Zielgruppen - Administrative Aufgaben rund um das Thema Recruiting Dein Profil\n- Abgeschlossene kaufmännische Grundausbildung - Erfahrung im Bereich Human Resources von Vorteil - Systemkenntnisse bzgl. SF Recruiting von Vorteil - Sehr gute Kommunikationsfähigkeit, Organisationstalent und Durchsetzungsvermögen - Sehr gute Deutsch- und Französischkenntnisse Wir bieten\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
         "fr": "Présentation\n\nVous voulez entrer dans le recrutement? Vous cherchez un emploi où vous pouvez prendre des responsabilités et participer activement? Alors vous avez exactement raison à Lidl Suisse! Au siège de Weinfelden, une équipe motivée et des tâches passionnantes vous attendent dans l'environnement dynamique du commerce de détail. Pour compléter notre équipe, nous recherchons une personnalité indépendante avec soif de connaissance et de plaisir en contact avec les gens.\nVos tâches\n\n- Recrutement d'employés pour toutes les zones et tous les lieux\n\n- Entretiens téléphoniques\n\n- Faire participer les partenaires des superviseurs au processus de demande\n\n- Coopération dans diverses mesures d'approvisionnement en faveur de groupes cibles particuliers\n\n- Tâches administratives liées au recrutement\n\nVotre profil\n\n- Formation commerciale de base terminée\n\n- L'expérience dans le domaine des ressources humaines est bénéfique\n\n- La connaissance du système concernant le recrutement des SF est bénéfique\n\n- Très bonnes compétences en communication, talent organisationnel et assurance\n\n- Très bonne connaissance de l'allemand et du français\n\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
@@ -1225,6 +1225,8 @@
         "sachbearbeiter-sachbearbeiterin-recruiting-m-w-d-80-100-lidl-svizzera-weinfelden",
         "sachbearbeiter-sachbearbeiterin-recruiting-m-w-d-80-100-lidl-svizzera-weinfelden-ycxc8o"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1237,9 +1239,7 @@
       },
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-jjj6lq",
@@ -1267,16 +1267,16 @@
       "crawledAt": "2026-08-18T09:48:04.938Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
+        "fr": "Vendeur / Vendeuse (h/f/d) 40% — Fribourg",
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Fribourg",
         "en": "Seller (m/f/d) 40% — Fribourg",
-        "de": "Verkäufer (m/w/d) 40 % — Freiburg — Fribourg",
-        "fr": "Vendeur / Vendeuse (h/f/d) 40% — Fribourg"
+        "de": "Verkäufer (m/w/d) 40 % — Freiburg"
       },
       "descriptionByLocale": {
+        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Contribution à une expérience d'achat positive pour notre clientèle - Activité de caissier - Mise en rayon et gestion des marchandises dans le magasin - Contribution à la propreté de l'espace de vente Votre profil\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout - Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Bonne condition physique - Présentation conviviale et soignée - Fiabilité et sens des responsabilités - Bonnes connaissances en français Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
         "it": "Introduzione\n\nSei appassionato di vendere? Vuoi dare il meglio di te ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping? Vuoi fare parte di una squadra d'oro? Quindi hai colpito la porta destra. Vi offriamo interessanti e varie opportunità di carriera nell'ambiente di vendita al dettaglio dinamico.\nLa tua missione\n\n- Contributo a una positiva esperienza di shopping per i nostri clienti\n\n- Attività di cassa\n\n- Posizionamento e gestione delle merci nel negozio\n\n- Contributo allo spazio di vendita pulito\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o campi simili è un bene\n\n- Flessibilità nelle ore di lavoro (dal lunedì al sabato tra le 5:00 e le 10:00; turno mattina e/o serale intorno alle 9:00 ciascuna)\n\n- Buone condizioni fisiche\n\n- Presentazione facile da usare e pulita\n\n- Affidabilità e responsabilità\n\n- Buona conoscenza in francese\nLa nostra offerta\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Contribuisce a plasmare il futuro. Crescere ogni giorno professionalmente e personalmente. Durante la vostra formazione iniziale approfondita, vi prepareremo per la vostra missione varia e interessante. Date le vostre buone competenze personali, gli sviluppi professionali interni sono possibili. Inoltre, vi garantiamo un lavoro sicuro, un team di sogno, i privilegi del CTC Lidl, un'eccellente previsione professionale e molti altri benefici interessanti. Prendi la tua occasione e applica ora online!",
         "en": "Introduction\n\nAre you passionate about selling? You want to give the best of yourself every day in order to offer our customers the best shopping experience? Would you like to be part of a gold team? So you hit the right door. We offer you exciting and varied career opportunities in the dynamic retail environment.\nYour Mission\n\n- Contribution to a positive shopping experience for our customers\n\n- Cashier activity\n\n- Placement and management of goods in the store\n\n- Contribution to clean sales space\nYour profile\n\n- Professional experience in sales or similar fields is an asset\n\n- Flexibility in working hours (Monday to Saturday between 5:00 a.m. and 10:00 p.m.; morning and/or evening shift around 9:00 a.m. each)\n\n- Good physical condition\n\n- User-friendly and neat presentation\n\n- Reliability and accountability\n\n- Good knowledge in French\nOur offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Contributes to shaping the future. Grow every day professionally and personally. During your in-depth initial training, we will prepare you for your varied and interesting mission. Given your good personal skills, internal professional developments are possible. In addition, we guarantee you a safe job, a dream team, the privileges of the CTC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!",
-        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Flexibilität in der Arbeitszeit (Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr; Morgen- und/oder Abendschicht jeweils um 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Benutzerfreundliche und gepflegte Präsentation\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!",
-        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Contribution à une expérience d'achat positive pour notre clientèle - Activité de caissier - Mise en rayon et gestion des marchandises dans le magasin - Contribution à la propreté de l'espace de vente Votre profil\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout - Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Bonne condition physique - Présentation conviviale et soignée - Fiabilité et sens des responsabilités - Bonnes connaissances en français Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
+        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Flexibilität in der Arbeitszeit (Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr; Morgen- und/oder Abendschicht jeweils um 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Benutzerfreundliche und gepflegte Präsentation\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -1304,6 +1304,8 @@
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-fribourg",
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-fribourg-jjj6lq"
       ],
+      "salaryMin": 27400,
+      "salaryMax": 41600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1316,9 +1318,7 @@
       },
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 27400,
-      "salaryMax": 41600
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-yjhyy2",
@@ -1346,16 +1346,16 @@
       "crawledAt": "2026-08-18T09:48:04.938Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
+        "fr": "Vendeur / Vendeuse (h/f/d) 40% — Givisiez",
         "it": "Vendeur / Vendeuse (f/m/d) 40% — Givisiez",
         "en": "Seller (m/f/d) 40% — Givisiez",
-        "de": "Verkäufer (m/w/d) 40 % — Givisiez",
-        "fr": "Vendeur / Vendeuse (h/f/d) 40% — Givisiez"
+        "de": "Verkäufer (m/w/d) 40 % — Givisiez"
       },
       "descriptionByLocale": {
+        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Contribution à une expérience d'achat positive pour notre clientèle - Activité de caissier - Mise en rayon et gestion des marchandises dans le magasin - Contribution à la propreté de l'espace de vente Votre profil\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout - Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Bonne condition physique - Présentation conviviale et soignée - Fiabilité et sens des responsabilités - Bonnes connaissances en français Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
         "it": "Introduzione\n\nSei appassionato di vendere? Vuoi dare il meglio di te ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping? Vuoi fare parte di una squadra d'oro? Quindi hai colpito la porta destra. Vi offriamo interessanti e varie opportunità di carriera nell'ambiente di vendita al dettaglio dinamico.\nLa tua missione\n\n- Contributo a una positiva esperienza di shopping per i nostri clienti\n\n- Attività di cassa\n\n- Posizionamento e gestione delle merci nel negozio\n\n- Contributo allo spazio di vendita pulito\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o campi simili è un bene\n\n- Flessibilità nelle ore di lavoro (dal lunedì al sabato tra le 5:00 e le 10:00; turno mattina e/o serale intorno alle 9:00 ciascuna)\n\n- Buone condizioni fisiche\n\n- Presentazione facile da usare e pulita\n\n- Affidabilità e responsabilità\n\n- Buona conoscenza in francese\nLa nostra offerta\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Contribuisce a plasmare il futuro. Crescere ogni giorno professionalmente e personalmente. Durante la vostra formazione iniziale approfondita, vi prepareremo per la vostra missione varia e interessante. Date le vostre buone competenze personali, gli sviluppi professionali interni sono possibili. Inoltre, vi garantiamo un lavoro sicuro, un team di sogno, i privilegi del CTC Lidl, un'eccellente previsione professionale e molti altri benefici interessanti. Prendi la tua occasione e applica ora online!",
         "en": "Introduction\n\nAre you passionate about selling? You want to give the best of yourself every day in order to offer our customers the best shopping experience? Would you like to be part of a gold team? So you hit the right door. We offer you exciting and varied career opportunities in the dynamic retail environment.\nYour Mission\n\n- Contribution to a positive shopping experience for our customers\n\n- Cashier activity\n\n- Placement and management of goods in the store\n\n- Contribution to clean sales space\nYour profile\n\n- Professional experience in sales or similar fields is an asset\n\n- Flexibility in working hours (Monday to Saturday between 5:00 a.m. and 10:00 p.m.; morning and/or evening shift around 9:00 a.m. each)\n\n- Good physical condition\n\n- User-friendly and neat presentation\n\n- Reliability and accountability\n\n- Good knowledge in French\nOur offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Contributes to shaping the future. Grow every day professionally and personally. During your in-depth initial training, we will prepare you for your varied and interesting mission. Given your good personal skills, internal professional developments are possible. In addition, we guarantee you a safe job, a dream team, the privileges of the CTC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!",
-        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Flexibilität in der Arbeitszeit (Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr; Morgen- und/oder Abendschicht jeweils um 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Benutzerfreundliche und gepflegte Präsentation\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!",
-        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Contribution à une expérience d'achat positive pour notre clientèle - Activité de caissier - Mise en rayon et gestion des marchandises dans le magasin - Contribution à la propreté de l'espace de vente Votre profil\n- Une expérience professionnelle dans la vente ou dans un domaine similaire est un atout - Flexibilité concernant les heures de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Bonne condition physique - Présentation conviviale et soignée - Fiabilité et sens des responsabilités - Bonnes connaissances en français Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
+        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Flexibilität in der Arbeitszeit (Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr; Morgen- und/oder Abendschicht jeweils um 9:00 Uhr)\n\n- Gute körperliche Verfassung\n\n- Benutzerfreundliche und gepflegte Präsentation\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -1383,6 +1383,8 @@
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-givisiez",
         "vendeur-vendeuse-m-w-d-40-lidl-svizzera-givisiez-yjhyy2"
       ],
+      "salaryMin": 27400,
+      "salaryMax": 41600,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1395,9 +1397,7 @@
       },
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 27400,
-      "salaryMax": 41600
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-4bok3w",
@@ -1425,16 +1425,16 @@
       "crawledAt": "2026-08-18T09:48:04.938Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
+        "fr": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 60-80% — Sierre",
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60-80% — Sierre",
         "en": "Seller / Team Manager (m/f/d) 60-80% — Sierre",
-        "de": "Verkäufer / Team Manager (m/w/d) 60-80% - Sierre",
-        "fr": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 60-80% — Sierre"
+        "de": "Verkäufer / Team Manager (m/w/d) 60-80% - Sierre"
       },
       "descriptionByLocale": {
+        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Ta mission\n- Responsable d'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Soutien à la planification du personnel, à la gestion du personnel et à l'organisation du magasin - Commander et présenter la marchandise - Encaissement Ton profil\n- Expérience professionnelle dans la vente ou dans un domaine similaire - Dans l’idéal, formation professionnelle achevée dans le commerce de détail - Flexibilité en ce qui concerne les horaires de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Aptitudes en matière de communication et plaisir des contacts humains - Motivation élevée, flexibilité et résistance au stress - Bonnes connaissances en français à l’écrit et à l’oral Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
         "it": "Introduzione\n\nSei appassionato di vendere? Vuoi dare il meglio di te ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping? Vuoi fare parte di una squadra d'oro? Quindi hai colpito la porta destra. Vi offriamo interessanti e varie opportunità di carriera nell'ambiente di vendita al dettaglio dinamico.\nLa tua missione\n\n- Team Leader secondo la pianificazione\n\n- Assicurare la soddisfazione e gli standard di vendita dei clienti nei nostri negozi\n\n- Supporto per la pianificazione del personale, la gestione del personale e l'organizzazione del negozio\n\n- Ordinare e presentare le merci\n\n- Contanti\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o nei campi simili\n\n- Formazione professionale completata nel commercio al dettaglio\n\n- Flessibilità per quanto riguarda l'orario di lavoro (dal lunedì al sabato tra le 5 e le 10; turno mattina e/o serale di circa 9 ore ciascuna)\n\n- Capacità di comunicazione e godimento dei contatti umani\n\n- Alta motivazione, flessibilità e resistenza allo stress\n\n- Buona conoscenza in francese scritto e orale\nLa nostra offerta\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Contribuisce a plasmare il futuro. Crescere ogni giorno professionalmente e personalmente. Durante la vostra formazione iniziale approfondita, vi prepareremo per la vostra missione varia e interessante. Date le vostre buone competenze personali, gli sviluppi professionali interni sono possibili. Inoltre, vi garantiamo un lavoro sicuro, un team di sogno, i privilegi del CTC Lidl, un'eccellente previsione professionale e molti altri benefici interessanti. Prendi la tua occasione e applica ora online!",
         "en": "Introduction\n\nAre you passionate about selling? You want to give the best of yourself every day in order to offer our customers the best shopping experience? Would you like to be part of a gold team? So you hit the right door. We offer you exciting and varied career opportunities in the dynamic retail environment.\nYour mission\n\n- Team Leader according to planning\n\n- Ensure customer satisfaction and sales standards in our stores\n\n- Support for personnel planning, personnel management and store organization\n\n- Order and present the goods\n\n- Cash\nYour profile\n\n- Professional experience in sales or similar fields\n\n- Ideally, vocational training completed in the retail trade\n\n- Flexibility with regard to working hours (Monday to Saturday between 5 a.m. and 10 p.m.; morning and/or evening shift about 9 a.m. each)\n\n- Communication skills and enjoyment of human contacts\n\n- High motivation, flexibility and stress resistance\n\n- Good knowledge in written and oral French\nOur offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Contributes to shaping the future. Grow every day professionally and personally. During your in-depth initial training, we will prepare you for your varied and interesting mission. Given your good personal skills, internal professional developments are possible. In addition, we guarantee you a safe job, a dream team, the privileges of the CTC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!",
-        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Teamleiter nach Planung\n\n- Sicherstellen der Kundenzufriedenheit und Verkaufsstandards in unseren Geschäften\n\n- Unterstützung der Personalplanung, des Personalmanagements und der Lagerorganisation\n\n- Bestellung und Präsentation der Ware\n\n- Bargeld\nDein Profil\n\n- Berufserfahrung im Vertrieb oder ähnlichen Bereichen\n\n- Idealerweise abgeschlossene Berufsausbildung im Einzelhandel\n\n- Flexibilität in Bezug auf Arbeitszeiten (Montag bis Samstag zwischen 5 und 22 Uhr; Morgen- und/oder Abendschicht jeweils um 9 Uhr)\n\n- Kommunikationsfähigkeit und Genuss menschlicher Kontakte\n\n- Hohe Motivation, Flexibilität und Stressresistenz\n\n- Gute Kenntnisse in schriftlichem und mündlichem Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!",
-        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Ta mission\n- Responsable d'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Soutien à la planification du personnel, à la gestion du personnel et à l'organisation du magasin - Commander et présenter la marchandise - Encaissement Ton profil\n- Expérience professionnelle dans la vente ou dans un domaine similaire - Dans l’idéal, formation professionnelle achevée dans le commerce de détail - Flexibilité en ce qui concerne les horaires de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Aptitudes en matière de communication et plaisir des contacts humains - Motivation élevée, flexibilité et résistance au stress - Bonnes connaissances en français à l’écrit et à l’oral Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
+        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Teamleiter nach Planung\n\n- Sicherstellen der Kundenzufriedenheit und Verkaufsstandards in unseren Geschäften\n\n- Unterstützung der Personalplanung, des Personalmanagements und der Lagerorganisation\n\n- Bestellung und Präsentation der Ware\n\n- Bargeld\nDein Profil\n\n- Berufserfahrung im Vertrieb oder ähnlichen Bereichen\n\n- Idealerweise abgeschlossene Berufsausbildung im Einzelhandel\n\n- Flexibilität in Bezug auf Arbeitszeiten (Montag bis Samstag zwischen 5 und 22 Uhr; Morgen- und/oder Abendschicht jeweils um 9 Uhr)\n\n- Kommunikationsfähigkeit und Genuss menschlicher Kontakte\n\n- Hohe Motivation, Flexibilität und Stressresistenz\n\n- Gute Kenntnisse in schriftlichem und mündlichem Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -1462,6 +1462,8 @@
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-sierre",
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-sierre-4bok3w"
       ],
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1474,9 +1476,7 @@
       },
       "addressLocality": "Sierre",
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 48400,
-      "salaryMax": 73200
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-fsvn7i",
@@ -1504,16 +1504,16 @@
       "crawledAt": "2026-08-18T09:48:04.938Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
+        "fr": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 60% — Moudon",
         "it": "Vendeur / Vendeuse responsable d'équipe (f/m/d) 60% — Moudon",
         "en": "Salesman responsible for team (m/f/d) 60% — Moudon",
-        "de": "Verkäufer verantwortlich für Team (m/w/d) 60% — Moudon",
-        "fr": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 60% — Moudon"
+        "de": "Verkäufer verantwortlich für Team (m/w/d) 60% — Moudon"
       },
       "descriptionByLocale": {
+        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Responsable d'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Soutien à la planification du personnel, à la gestion du personnel et à l'organisation du magasin - Commander et présenter la marchandise - Encaissement Votre profil\n- Expérience professionnelle dans la vente ou dans un domaine similaire - Dans l’idéal, formation professionnelle achevée dans le commerce de détail - Flexibilité en ce qui concerne les horaires de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Aptitudes en matière de communication et plaisir des contacts humains - Motivation élevée, flexibilité et résistance au stress - Bonnes connaissances en français à l’écrit et à l’oral Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !",
         "it": "Introduzione\n\nSei appassionato di vendere? Vuoi dare il meglio di te ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping? Vuoi fare parte di una squadra d'oro? Quindi hai colpito la porta destra. Vi offriamo interessanti e varie opportunità di carriera nell'ambiente di vendita al dettaglio dinamico.\nLa tua missione\n\n- Team Leader secondo la pianificazione\n\n- Assicurare la soddisfazione e gli standard di vendita dei clienti nei nostri negozi\n\n- Supporto per la pianificazione del personale, la gestione del personale e l'organizzazione del negozio\n\n- Ordinare e presentare le merci\n\n- Contanti\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o nei campi simili\n\n- Formazione professionale completata nel commercio al dettaglio\n\n- Flessibilità per quanto riguarda l'orario di lavoro (dal lunedì al sabato tra le 5 e le 10; turno mattina e/o serale di circa 9 ore ciascuna)\n\n- Capacità di comunicazione e godimento dei contatti umani\n\n- Alta motivazione, flessibilità e resistenza allo stress\n\n- Buona conoscenza in francese scritto e orale\nLa nostra offerta\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Contribuisce a plasmare il futuro. Crescere ogni giorno professionalmente e personalmente. Durante la vostra formazione iniziale approfondita, vi prepareremo per la vostra missione varia e interessante. Date le vostre buone competenze personali, gli sviluppi professionali interni sono possibili. Inoltre, vi garantiamo un lavoro sicuro, un team di sogno, i privilegi del CTC Lidl, un'eccellente previsione professionale e molti altri benefici interessanti. Prendi la tua occasione e applica ora online!",
         "en": "Introduction\n\nAre you passionate about selling? You want to give the best of yourself every day in order to offer our customers the best shopping experience? Would you like to be part of a gold team? So you hit the right door. We offer you exciting and varied career opportunities in the dynamic retail environment.\nYour Mission\n\n- Team Leader according to planning\n\n- Ensure customer satisfaction and sales standards in our stores\n\n- Support for personnel planning, personnel management and store organization\n\n- Order and present the goods\n\n- Cash\nYour profile\n\n- Professional experience in sales or similar fields\n\n- Ideally, vocational training completed in the retail trade\n\n- Flexibility with regard to working hours (Monday to Saturday between 5 a.m. and 10 p.m.; morning and/or evening shift about 9 a.m. each)\n\n- Communication skills and enjoyment of human contacts\n\n- High motivation, flexibility and stress resistance\n\n- Good knowledge in written and oral French\nOur offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Contributes to shaping the future. Grow every day professionally and personally. During your in-depth initial training, we will prepare you for your varied and interesting mission. Given your good personal skills, internal professional developments are possible. In addition, we guarantee you a safe job, a dream team, the privileges of the CTC Lidl, excellent professional foresight and many other interesting benefits. Take your chance and apply now online!",
-        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Teamleiter nach Planung\n\n- Sicherstellen der Kundenzufriedenheit und Verkaufsstandards in unseren Geschäften\n\n- Unterstützung der Personalplanung, des Personalmanagements und der Lagerorganisation\n\n- Bestellung und Präsentation der Ware\n\n- Bargeld\nDein Profil\n\n- Berufserfahrung im Vertrieb oder ähnlichen Bereichen\n\n- Idealerweise abgeschlossene Berufsausbildung im Einzelhandel\n\n- Flexibilität in Bezug auf Arbeitszeiten (Montag bis Samstag zwischen 5 und 22 Uhr; Morgen- und/oder Abendschicht jeweils um 9 Uhr)\n\n- Kommunikationsfähigkeit und Genuss menschlicher Kontakte\n\n- Hohe Motivation, Flexibilität und Stressresistenz\n\n- Gute Kenntnisse in schriftlichem und mündlichem Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!",
-        "fr": "Introduction\nTu es passionné par la vente ? Tu souhaites donner le meilleur de toi-même au quotidien afin de proposer à notre clientèle la meilleure expérience d’achat ? Tu aimerais faire partie d'une équipe en or ? Alors tu as frappé à la bonne porte. Nous te proposons des possibilités de carrière passionnantes et variées, dans l’environnement dynamique du commerce de détail. Votre mission\n- Responsable d'équipe selon la planification - Assurer la satisfaction des clients et les standards de la vente dans nos magasins - Soutien à la planification du personnel, à la gestion du personnel et à l'organisation du magasin - Commander et présenter la marchandise - Encaissement Votre profil\n- Expérience professionnelle dans la vente ou dans un domaine similaire - Dans l’idéal, formation professionnelle achevée dans le commerce de détail - Flexibilité en ce qui concerne les horaires de travail (du lundi au samedi entre 5h00 et 22h00 ; équipe du matin et/ou du soir d’environ 9 heures chacun) - Aptitudes en matière de communication et plaisir des contacts humains - Motivation élevée, flexibilité et résistance au stress - Bonnes connaissances en français à l’écrit et à l’oral Notre offre\nChez Lidl Suisse, il y a de la place pour les ambitions et les innovations. Contribue à forger l’avenir. Grandis chaque jour professionnellement et personnellement. Pendant ta formation initiale approfondie, nous te préparerons à ta mission variée et intéressante. Au vu de tes bonnes aptitudes personnelles, des évolutions professionnelles internes sont possibles. Par ailleurs, nous te garantissons un emploi sûr, une équipe de rêve, les privilèges de la CCT Lidl, une excellente prévoyance professionnelle et plein d’autres avantages intéressants. Saisis ta chance et postule maintenant en ligne !"
+        "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Teamleiter nach Planung\n\n- Sicherstellen der Kundenzufriedenheit und Verkaufsstandards in unseren Geschäften\n\n- Unterstützung der Personalplanung, des Personalmanagements und der Lagerorganisation\n\n- Bestellung und Präsentation der Ware\n\n- Bargeld\nDein Profil\n\n- Berufserfahrung im Vertrieb oder ähnlichen Bereichen\n\n- Idealerweise abgeschlossene Berufsausbildung im Einzelhandel\n\n- Flexibilität in Bezug auf Arbeitszeiten (Montag bis Samstag zwischen 5 und 22 Uhr; Morgen- und/oder Abendschicht jeweils um 9 Uhr)\n\n- Kommunikationsfähigkeit und Genuss menschlicher Kontakte\n\n- Hohe Motivation, Flexibilität und Stressresistenz\n\n- Gute Kenntnisse in schriftlichem und mündlichem Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "needsRetranslation": true,
       "slugByLocale": {
@@ -1541,6 +1541,8 @@
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-moudon",
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-moudon-fsvn7i"
       ],
+      "salaryMin": 36300,
+      "salaryMax": 54900,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1553,9 +1555,7 @@
       },
       "addressLocality": "Moudon",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 36300,
-      "salaryMax": 54900
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-2nto85",
@@ -1585,7 +1585,7 @@
       "crawledAt": "2026-08-18T09:48:04.938Z",
       "firstSeenAt": "2026-08-17T21:30:20.055Z",
       "titleByLocale": {
-        "en": "Venditore / Venditrice (m/f/d) 20-80%",
+        "en": "Salesman / Salesman (m/f/d) 20-80%",
         "it": "Venditore / Venditrice (m/f/d) 20-80%",
         "de": "Verkäufer / Verkäufer (m/w/d) 20-80%",
         "fr": "Vendeur / Vendeur (h/f/d) 20-80%"
@@ -1624,6 +1624,8 @@
         "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione",
         "salesman-salesman-m-f-d-20-80-lidl-svizzera-arbedo-castione"
       ],
+      "salaryMin": 47200,
+      "salaryMax": 72400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1636,10 +1638,7 @@
       },
       "addressLocality": "Arbedo-Castione",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 47200,
-      "salaryMax": 72400
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-4wuiy2",
@@ -3278,7 +3277,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -3500,7 +3498,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -7586,21 +7583,23 @@
         "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
       },
       "titleByLocale": {
+        "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Wädenswil",
         "it": "Verkäufer / Verkäuferin con Schichtverantwortung (m/w/d) 60-80% — Wädenswil",
         "en": "Seller with shift responsibility (m/f/d) 60-80% — Wädenswil",
-        "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Wädenswil",
         "fr": "Vendeur avec responsabilité de quart (h/f/d) 60-80% — Wädenswil"
       },
       "descriptionByLocale": {
+        "de": "Einleitung\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung - Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen - Unterstützung in der Personalplanung, Personalführung und Filialorganisation - Warendisposition und Warenpräsentation - Kassiertätigkeit Dein Profil\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht) - Kommunikative Fähigkeiten und Freude am Umgang mit Menschen - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Gute Deutschkenntnisse in Wort und Schrift Wir bieten\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
         "it": "Introduzione\n\nVendere è la tua passione? Vuoi fare del tuo meglio ogni giorno per offrire ai nostri clienti la migliore esperienza di shopping possibile? Vuoi fare parte di una squadra che è necessaria ogni giorno? Allora hai ragione con noi. Le opportunità di carriera emozionanti e versatili vi aspettano nell'ambiente dinamico del retail.\nI tuoi compiti\n\n- Rischio di responsabilità in assenza di gestione e vice\n\n- Attuazione dell'orientamento del cliente e degli standard di vendita nelle nostre filiali\n\n- Sostegno alla pianificazione del personale, alla gestione del personale e all'organizzazione di filiali\n\n- Buona disposizione e presentazione\n\n- Attività di cassa\nIl tuo profilo\n\n- Esperienza professionale nelle vendite o ambiente simile\n\n- Formazione professionale completata idealmente nel commercio al dettaglio\n\n- Flessibilità rispetto agli orari operativi (MO-SA tra le 05:00 e le 22:00);\n\n- Capacità comunicative e piacere nel trattare con le persone\n\n- Alta motivazione, impegno e resilienza\n\n- Buona conoscenza del tedesco nelle parole e nella scrittura\nOffriamo\n\nA Lidl Svizzera, c'è spazio per l'ambizione e l'innovazione. Partecipa attivamente. Crescere ogni giorno a livello professionale e personale. Vi prepariamo per i vostri vari e interessanti compiti con una formazione intensiva. Se desiderato e con buona idoneità personale, vi svilupperemo nella gestione del ramo aggiunto (m/f/d). Inoltre, vi offriamo la sicurezza di un lavoro permanente, una grande squadra, i vantaggi del Lidl GAV, un'eccellente fornitura professionale e altri benefici interessanti. Cogliete l'opportunità e applicate online ora!",
         "en": "Introduction\n\nSelling is your passion? Do you want to do your best every day to offer our customers the best possible shopping experience? Do you want to be part of a team that is needed every day? Then you are exactly right with us. Exciting and versatile career opportunities await you in the dynamic retail environment.\nYour tasks\n\n- Shift responsibility in the absence of branch management and deputy\n\n- Implementation of customer orientation and sales standards in our branches\n\n- Support in personnel planning, personnel management and branch organisation\n\n- Goods disposition and presentation\n\n- Cash activity\nYour profile\n\n- Professional experience in sales or similar environment\n\n- Ideally completed vocational training in the retail trade\n\n- Flexibility regarding operating times (MO-SA between 05:00 and 22:00); Early and/or late shift\n\n- Communicative skills and pleasure in dealing with people\n\n- High motivation, commitment and resilience\n\n- Good knowledge of German in words and writing\nWe offer\n\nAt Lidl Switzerland, there is room for ambition and innovation. Actively participate. Grow daily on a professional and personal level. We prepare you for your varied and interesting tasks with an intensive training. If desired and with good personal suitability, we will develop you into the deputy branch management (m/f/d). In addition, we offer you the security of a permanent job, a great team, the advantages of the Lidl GAV, an excellent occupational provision and other attractive benefits. Take the opportunity & apply online now!",
-        "de": "Einleitung\nDer Verkauf ist deine Passion? Du möchtest täglich dein Bestes geben, um unserer Kundschaft das bestmögliche Einkaufserlebnis zu bieten? Du möchtest Teil eines Teams werden, das jeden Tag gebraucht wird? Dann bist du bei uns genau richtig. Es erwarten dich spannende und vielseitige Karrieremöglichkeiten im dynamischen Umfeld des Detailhandels. Deine Aufgaben\n- Schichtverantwortung bei Abwesenheit der Filialleitung sowie Stellvertretung - Umsetzung der Kundenorientierung und Vertriebsstandards in unseren Filialen - Unterstützung in der Personalplanung, Personalführung und Filialorganisation - Warendisposition und Warenpräsentation - Kassiertätigkeit Dein Profil\n- Berufserfahrung im Verkauf oder ähnlichem Umfeld - Idealerweise abgeschlossene Berufsausbildung im Detailhandel - Flexibilität betreffend der Einsatzzeiten (MO-SA zwischen 05:00-22:00 Uhr; Früh- und/oder Spätschicht) - Kommunikative Fähigkeiten und Freude am Umgang mit Menschen - Hohe Motivation, Einsatzbereitschaft und Belastbarkeit - Gute Deutschkenntnisse in Wort und Schrift Wir bieten\nBei Lidl Schweiz ist Raum für Ambitionen und Innovationen. Gestalte aktiv mit. Wachse täglich auf beruflicher sowie persönlicher Ebene. Auf deine abwechslungsreichen und interessanten Aufgaben bereiten wir dich mit einer intensiven Einarbeitung vor. Bei Wunsch und guter persönlicher Eignung entwickeln wir dich zur stellvertretenden Filialleitung (m/w/d). Zudem bieten wir dir die Sicherheit einer Festanstellung, ein tolles Team, die Vorzüge des Lidl-GAVs, eine hervorragende berufliche Vorsorge sowie weitere attraktive Benefits. Nutze die Chance & bewirb dich jetzt online!",
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Déplacement des responsabilités en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des marchandises\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle en vente ou dans un environnement similaire\n\n- Une formation professionnelle idéalement complétée dans le commerce de détail\n\n- Flexibilité en ce qui concerne les temps d'exploitation (MO-SA entre 5 h et 22 h);\n\n- Compétences de communication et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en mots et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -7672,9 +7671,7 @@
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
         "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
-      ],
-      "salaryMin": 58800,
-      "salaryMax": 89200
+      ]
     },
     {
       "id": "company-aq9sns",
@@ -19241,7 +19238,9 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen",
+          "seller-with-shift-responsibility-m-w-d-60-802-chur-lidl-svizzera-chur",
+          "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-chur-lidl-svizzera-chur"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn"
@@ -19252,7 +19251,9 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn",
+        "seller-with-shift-responsibility-m-w-d-60-802-chur-lidl-svizzera-chur",
+        "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-chur-lidl-svizzera-chur"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

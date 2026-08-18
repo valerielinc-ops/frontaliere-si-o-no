@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-08-18T09:54:13.519Z",
+  "assembledAt": "2026-08-18T09:38:25.398Z",
   "jobs": [
     {
       "id": "sicpa-55364142a9bf",
@@ -293,7 +293,14 @@
         "test-lead-sicpa-prilly",
         "testleiter-sicpa-sa-prilly",
         "plomb-d-essai-sicpa-sa-prilly",
-        "responsabile-delle-proposte-sicpa-sa-prilly"
+        "responsabile-delle-proposte-sicpa-sa-prilly",
+        "tecnico-di-laboratorio-sicpa-sa-prilly",
+        "laboratory-technician-sicpa-sa-prilly",
+        "labortechniker-sicpa-sa-prilly",
+        "technicien-ne-de-laboratoire-sicpa-prilly",
+        "automazione-tecnico-sicpa-sa-prilly",
+        "automation-technician-sicpa-prilly",
+        "automation-techniker-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -302,18 +309,28 @@
           "test-lead-sicpa-prilly",
           "testleiter-sicpa-sa-prilly",
           "plomb-d-essai-sicpa-sa-prilly",
-          "responsabile-delle-proposte-sicpa-sa-prilly"
+          "responsabile-delle-proposte-sicpa-sa-prilly",
+          "tecnico-di-laboratorio-sicpa-sa-prilly",
+          "laboratory-technician-sicpa-sa-prilly",
+          "labortechniker-sicpa-sa-prilly",
+          "technicien-ne-de-laboratoire-sicpa-prilly",
+          "automazione-tecnico-sicpa-sa-prilly",
+          "automation-technician-sicpa-prilly",
+          "automation-techniker-sicpa-sa-prilly"
         ],
         "en": [
-          "test-lead-sicpa-prilly"
+          "test-lead-sicpa-prilly",
+          "laboratory-technician-sicpa-sa-prilly"
         ],
         "de": [
           "proposals-manager-sicpa-prilly",
-          "testleiter-sicpa-sa-prilly"
+          "testleiter-sicpa-sa-prilly",
+          "labortechniker-sicpa-sa-prilly"
         ],
         "fr": [
           "proposals-manager-sicpa-prilly",
-          "plomb-d-essai-sicpa-sa-prilly"
+          "plomb-d-essai-sicpa-sa-prilly",
+          "technicien-ne-de-laboratoire-sicpa-prilly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:33:06.660Z",

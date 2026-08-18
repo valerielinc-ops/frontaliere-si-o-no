@@ -2855,15 +2855,15 @@
       "companyDomain": "sika.com",
       "title": "Junior Salesforce Security Consultant",
       "titleByLocale": {
-        "it": "Junior Salesforce Security Consulente",
         "en": "Junior Salesforce Security Consultant",
+        "it": "Junior Salesforce Security Consulente",
         "de": "Junior Salesforce Security Berater",
         "fr": "Consultant en sécurité Junior Salesforce"
       },
       "description": "Are you passionate about IT security and Salesforce.com? Join our Applications & CRM team as a Consultant for Salesforce IT Security and play a key role in securing our salesforce environment. Be the driving force to improve our security posture in all Sika Salesforce orgs and related systems and support the Cyber Defense Team with event monitoring, alerting and forensic analysis. Apply now and make an impact!",
       "descriptionByLocale": {
-        "it": "Sei appassionato di sicurezza IT e Salesforce.com? Unisciti al nostro team di applicazioni e CRM come consulente per la sicurezza IT di Salesforce e gioca un ruolo chiave nel garantire il nostro ambiente di forza di vendita. Essere la forza trainante per migliorare la nostra postura di sicurezza in tutti Sika Salesforce ogs e sistemi correlati e sostenere il Cyber Defense Team con monitoraggio eventi, allerta e analisi forense. Applicare ora e fare un impatto!",
         "en": "Are you passionate about IT security and Salesforce.com? Join our Applications & CRM team as a Consultant for Salesforce IT Security and play a key role in securing our salesforce environment. Be the driving force to improve our security posture in all Sika Salesforce orgs and related systems and support the Cyber Defense Team with event monitoring, alerting and forensic analysis. Apply now and make an impact!",
+        "it": "Sei appassionato di sicurezza IT e Salesforce.com? Unisciti al nostro team di applicazioni e CRM come consulente per la sicurezza IT di Salesforce e gioca un ruolo chiave nel garantire il nostro ambiente di forza di vendita. Essere la forza trainante per migliorare la nostra postura di sicurezza in tutti Sika Salesforce ogs e sistemi correlati e sostenere il Cyber Defense Team con monitoraggio eventi, allerta e analisi forense. Applicare ora e fare un impatto!",
         "de": "Sie interessieren sich für IT-Sicherheit und Salesforce.com? Treten Sie unserem Applications & CRM-Team als Berater für Salesforce IT Security bei und spielen Sie eine wichtige Rolle bei der Sicherung unserer Salesforce-Umgebung. Seien Sie die treibende Kraft, um unsere Sicherheitslage in allen Sika Salesforce-Organisationen und verwandten Systemen zu verbessern, und unterstützen Sie das Cyber Defense Team bei der Ereignisüberwachung, Alarmierung und forensischen Analyse. Bewerben Sie sich jetzt und machen Sie eine Wirkung!",
         "fr": "Êtes-vous passionné par la sécurité informatique et Salesforce.com? Rejoignez notre équipe Applications & CRM en tant que consultant pour Salesforce IT Security et jouez un rôle clé dans la sécurisation de notre environnement de vente. Soyez la force motrice pour améliorer notre posture de sécurité dans tous les orgs de Sika Salesforce et les systèmes connexes et soutenez l'équipe de cyberdéfense avec la surveillance des événements, alerte et analyse médico-légale. Appliquer maintenant et faire un impact!"
       },
@@ -2890,6 +2890,18 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-45904dda-5b8d-4a2b-b3fd-623a5dbddd43.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-08-17T21:57:35.139Z",
       "previousSlugsByLocale": {
         "it": [
@@ -2904,19 +2916,7 @@
       },
       "previousSlugs": [
         "junior-salesforce-security-consultant-sika-ch"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "sika-0731946ae70b",
