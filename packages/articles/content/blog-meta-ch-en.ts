@@ -3256,6 +3256,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Short-term permit L Canton Solothurn: validity and extension',
     'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'What does a border worker need to know to obtain a short-term L permit in the Canton of Solothurn?',
     'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Municipality office in Canton Soletta',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'School system of the Canton of Solothurn: enrolment and cycles',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Cycles, age of enrollment, school calendar, languages of instruction and transition to high school.',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'Swiss elementary school: compulsory cycle and school calendar',
 };
 
 export default blogMetaChEn;
