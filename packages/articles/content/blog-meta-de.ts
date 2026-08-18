@@ -10055,6 +10055,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.besnate-ponte-ferrovia-incidente.title': '68-jährige Frau fällt von der Eisenbahnbrücke in Besnate',
     'blog.article.besnate-ponte-ferrovia-incidente.excerpt': 'Eine 68-jährige Frau stürzt von einer Eisenbahnbrücke in Besnate, in ernstem Zustand. Der Unfall ereignet sich kurz nach 10 Uhr in der Via Monte Rosa in der Nähe des Bahnhofs.',
     'blog.article.besnate-ponte-ferrovia-incidente.imageAlt': 'Eine 68-jährige Frau stürzt von einem Eisenbahnbrücke in Besnate ab und leidet an schweren Verletzungen.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Wohnen in Oggebbio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Praktischer Leitfaden für den Umzug nach Oggebbio und als Grenzgänger im Tessin: Verbindungen, Quellensteuer, Kosten und neue Vereinbarung.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'Blick auf Oggebbio am Lago Maggiore nahe der Tessiner Grenze',
 };
 
 export default blogMetaDe;

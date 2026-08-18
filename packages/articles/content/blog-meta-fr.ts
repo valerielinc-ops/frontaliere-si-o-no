@@ -10058,6 +10058,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.besnate-ponte-ferrovia-incidente.title': 'Une femme de 68 ans tombe du pont ferroviaire de Besnate',
     'blog.article.besnate-ponte-ferrovia-incidente.excerpt': 'Une femme de 68 ans tombe d\'un pont de chemin de fer à Besnate, dans un état grave. L\'accident se produit peu après 10h via Monte Rosa, près de la gare.',
     'blog.article.besnate-ponte-ferrovia-incidente.imageAlt': 'Une femme de 68 ans tombe d\'un pont ferroviaire à Besnate, gravement blessée.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Vivre à Oggebbio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Guide pratique pour se déplacer à Oggebbio et devenir frontalier au Tessin : liaisons, taxe à la source, coûts et nouvel accord.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'Vue d\'Oggebbio sur le lac Majeur près de la frontière du Tessin',
 };
 
 export default blogMetaFr;

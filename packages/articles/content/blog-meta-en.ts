@@ -10056,6 +10056,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.besnate-ponte-ferrovia-incidente.title': '68-year-old woman falls from railway bridge in Besnate',
     'blog.article.besnate-ponte-ferrovia-incidente.excerpt': 'A 68-year-old woman falls from a railway bridge in Besnate, in serious condition. The accident takes place shortly after 10 am in Via Monte Rosa, near the station.',
     'blog.article.besnate-ponte-ferrovia-incidente.imageAlt': 'A 68-year-old woman falls off a railway bridge in Besnate, seriously injured.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Living in Oggebbio and working in Ticino as a border worker',
+    'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Practical guide to move to Oggebbio and become a border worker in Ticino: connections, tax at source, costs and new agreement.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'View of Oggebbio on Lake Maggiore near the Ticino border',
 };
 
 export default blogMetaEn;

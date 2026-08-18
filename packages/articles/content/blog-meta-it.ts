@@ -10057,6 +10057,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.besnate-ponte-ferrovia-incidente.title': 'Donna di 68 anni cade dal ponte ferroviario a Besnate',
     'blog.article.besnate-ponte-ferrovia-incidente.excerpt': 'Una donna di 68 anni cade da un ponte della ferrovia a Besnate, in gravi condizioni. L\'incidente avviene poco dopo le 10 in via Monte Rosa, nei pressi della stazione.',
     'blog.article.besnate-ponte-ferrovia-incidente.imageAlt': 'Una donna di 68 anni cade da un ponte della ferrovia a Besnate, in gravi condizioni.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.title': 'Vivere a Oggebbio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-oggebbio-lavorare-ticino.excerpt': 'Guida pratica per trasferirsi a Oggebbio e fare il frontaliere in Ticino: collegamenti, imposta alla fonte, costi e nuovo accordo.',
+    'blog.article.vivere-oggebbio-lavorare-ticino.imageAlt': 'Panorama di Oggebbio sul Lago Maggiore vicino al confine con il Ticino',
 };
 
 export default blogMetaIt;
