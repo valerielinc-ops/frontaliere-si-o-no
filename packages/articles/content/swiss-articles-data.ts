@@ -9901,6 +9901,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-di-dimora-b-canton-basilea-citta',
+    category: 'pratico',
+    date: '2026-08-18T06:57:51.193Z',
+    image: '/images/blog/permesso-di-dimora-b-canton-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

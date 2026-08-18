@@ -3301,6 +3301,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Impôts cantonaux et communaux à Bâle-Ville : taux et déductions',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Les impôts cantonaux et communaux à Bâle-Ville sont parmi les plus élevés de Suisse.',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'La ville de Bâle, capitale du Canton de Bâle-Ville.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Permis de séjour B à Bâle-Ville : exigences et procédure',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Voici les conditions et les documents nécessaires pour obtenir le permis de séjour B dans le canton de Bâle-Ville, ainsi que la procédure de renouvellement et le bureau compétent.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Office cantonal de migration de la ville de Bâle',
 };
 
 export default blogMetaChFr;

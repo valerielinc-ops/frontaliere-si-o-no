@@ -3301,6 +3301,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Imposte cantonali e comunali in Basilea Città: aliquote e deduzioni',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Le imposte cantonali e comunali in Basilea Città sono tra le più alte della Svizzera.',
     'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'La città di Basilea, capitale del Cantone di Basilea Città.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Permesso di dimora B a Basilea Città: requisiti e procedura',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Ecco i requisiti e i documenti necessari per ottenere il permesso di dimora B nel Cantone di Basilea Città, nonché la procedura di rinnovo e l\'ufficio competente.',
+    'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Ufficio cantonale della migrazione del Cantone di Basilea Città',
 };
 
 export default blogMetaChIt;
