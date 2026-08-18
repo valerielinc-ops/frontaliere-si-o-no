@@ -69218,6 +69218,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-oggebbio-lavorare-ticino': {
+    title: 'Vivere a Oggebbio e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per vivere a Oggebbio e lavorare in Ticino come frontaliere: collegamenti, imposta alla fonte, LAMal e nuovo accordo fiscale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, oggebbio, lavorare, pratica',
+    ogTitle: 'Vivere a Oggebbio e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri le regole fiscali, i costi, i collegamenti e le tutele per chi vive a Oggebbio e lavora nel Canton Ticino come frontaliere.',
+    canonicalPath: '/articoli-frontaliere/vivere-oggebbio-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Oggebbio e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per vivere a Oggebbio e lavorare in Ticino come frontaliere: collegamenti, imposta alla fonte, LAMal e nuovo accordo fiscale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-oggebbio-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Oggebbio sul Lago Maggiore vicino al confine con il Ticino"
+      },
+      "datePublished": "2026-08-18T13:10:26+00:00",
+      "dateModified": "2026-08-18T13:10:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-oggebbio-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
