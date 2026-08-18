@@ -1104,6 +1104,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dolce-far-niente-benessere-svizzera': { it: 'dolce-far-niente-benessere-svizzera', en: 'dolce-far-niente-wellness-switzerland', de: 'dolce-far-niente-wohlbefinden-schweiz', fr: 'dolce-far-niente-bien-etre-suisse' },
  'avs-prestazioni-friburgo': { it: 'avs-prestazioni-friburgo', en: 'avs-benefits-fribourg', de: 'avs-leistungen-fribourg', fr: 'avs-prestations-fribourg' },
  'trasporti-pubblici-canton-friburgo-abbonamenti': { it: 'trasporti-pubblici-canton-friburgo-abbonamenti', en: 'fribourg-public-transport-abonements', de: 'fribourg-oeffentliche-verkehr-abos', fr: 'fribourg-transports-en-commun-abonnements' },
+ 'permesso-di-dimora-b-canton-soletta': { it: 'permesso-di-dimora-b-canton-soletta', en: 'residence-permit-b-in-soleta-requirements-and-procedure', de: 'permesso-di-dimora-b-kanton-soletta', fr: 'permesso-di-dimora-b-canton-de-soleure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

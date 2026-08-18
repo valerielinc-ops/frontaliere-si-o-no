@@ -3235,6 +3235,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Öffentliche Verkehrsmittel im Kanton Freiburg: Zonen und Tarife',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Hier finden Sie die Details zu den ÖV-Abos im Kanton Freiburg.',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
+    'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Aufenthaltsbewilligung B in Solothurn: Voraussetzungen und Verfahren',
+    'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'Die Voraussetzungen für eine Aufenthaltsbewilligung B im Kanton Solothurn sind im kantonalen Gesetz festgelegt.',
+    'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'Ein Blick auf Solothurn mit seiner gotischen Arkade, Symbol des Kantons Solothurn',
 };
 
 export default blogMetaChDe;

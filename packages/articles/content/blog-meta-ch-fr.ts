@@ -3235,6 +3235,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Abonnements transports publics dans le canton de Fribourg : zones et tarifs',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Voici les détails des abonnements aux transports publics dans le canton de Fribourg.',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
+    'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Permis de séjour B à Soleure : exigences et procédure',
+    'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'Les conditions d\'obtention d\'un permis de séjour B dans le canton de Soleure sont précisées dans la loi cantonale.',
+    'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'Vue de Soleure avec sa arcade gothique, symbole du canton de Soleure',
 };
 
 export default blogMetaChFr;

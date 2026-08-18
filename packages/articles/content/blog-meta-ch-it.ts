@@ -3235,6 +3235,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo: zone e tariffe',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Ecco i dettagli sugli abbonamenti dei trasporti pubblici nel Cantone di Friburgo.',
     'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
+    'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Permesso di dimora B in Soletta: requisiti e procedura',
+    'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'I requisiti per ottenere un permesso di dimora B nel Canton Soletta sono specificati nella legge cantonale.',
+    'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'Una vista di Soletta con la sua arcata gotica, simbolo del Canton Soletta',
 };
 
 export default blogMetaChIt;
