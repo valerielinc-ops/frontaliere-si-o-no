@@ -43739,6 +43739,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendi-radiologi-bonus-svizzera': {
+    title: 'Radiologo: 90mila franchi per 1,5 giorni di lavoro',
+    description: 'Hacker trafugano dati 3R: radiologi guadagnano da 90mila a 475mila franchi annui. Ministra Baume-Schneider condanna bonus legati al fatturato che violano',
+    keywords: 'frontalieri, ticino, svizzera, italia, radiologo, 90mila, franchi, giorni',
+    ogTitle: 'Radiologi svizzeri: i veri guadagni svelati dagli hacker',
+    ogDescription: 'La società 3R ha subito un furto di dati: stipendi radiologi svelati da 90mila a 475mila franchi. Bonus fino al 18% del fatturato. Ministra Baume-Schneider: «difficilmente accettabili».',
+    canonicalPath: '/articoli-svizzera/stipendi-radiologi-bonus-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radiologo: 90mila franchi per 1,5 giorni di lavoro",
+      "description": "Hacker trafugano dati 3R: radiologi guadagnano da 90mila a 475mila franchi annui. Ministra Baume-Schneider condanna bonus legati al fatturato che violano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-radiologi-bonus-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambulatorio radiologico con apparecchiatura per risonanza magnetica in una clinica svizzera"
+      },
+      "datePublished": "2026-08-18T21:22:38+00:00",
+      "dateModified": "2026-08-18T21:22:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendi-radiologi-bonus-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

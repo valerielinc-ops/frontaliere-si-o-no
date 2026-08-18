@@ -3373,6 +3373,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Graubünden Hospital: 518 million over 12 years',
     'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'The new wing of the Cantonal Hospital of Graubünden comes into service at the end of November 2026 after 518 million invested. Operating rooms increase from 10 to 13.',
     'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'New wing of Grisons Cantonal Hospital in Chur: modern 5-floor building with expanded operating capacity',
+    'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologist: CHF 90,000 for 1.5 days of work',
+    'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Leaked data reveal salaries between 90,000 and 475,000 francs per year. Baume-Schneider attacks turnover bonuses in the Swiss healthcare system.',
+    'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Radiology department with MRI machine in a Swiss medical clinic',
 };
 
 export default blogMetaChEn;

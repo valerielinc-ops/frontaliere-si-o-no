@@ -3373,6 +3373,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Ospedale Grigioni: 518 milioni per 12 anni',
     'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'La nuova ala dell\'Ospedale cantonale dei Grigioni entra in servizio a fine novembre 2026 dopo 518 milioni investiti. Sale operatorie aumentano da 10 a 13.',
     'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Nuova ala dell\'Ospedale cantonale dei Grigioni a Coira: edificio moderno a 5 piani con ampliamento della capacità operatoria',
+    'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologo: 90mila franchi per 1,5 giorni di lavoro',
+    'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Dati trapelati rivelano stipendi tra 90mila e 475mila franchi annui. Baume-Schneider attacca i bonus legati al fatturato nel sistema sanitario svizzero.',
+    'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Ambulatorio radiologico con apparecchiatura per risonanza magnetica in una clinica svizzera',
 };
 
 export default blogMetaChIt;
