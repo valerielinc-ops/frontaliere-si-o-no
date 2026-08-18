@@ -183,9 +183,26 @@ export function resolveComuneCanton(m) {
 //
 // 30km is borrowed, not invented: GEO_RESOLVE_MAX_KM above is this file's
 // already-committed answer to "close enough to be a plausible commute", and
-// starting from the same number rather than a fresh guess is the point. The
-// two agree closely where both apply (the MB comuni: 17.7-21.1km haversine vs
-// 19-22km `distanceKm`).
+// starting from the same number rather than a fresh guess is the point.
+//
+// But the two are NOT the same measurement, and the difference is bigger than
+// it looks. GEO_RESOLVE_MAX_KM is haversine to the nearest tagged crossing;
+// this one is the dataset's own `distanceKm`. They match on the MB comuni
+// (17.7-21.1km haversine vs 19-22km `distanceKm`) — which is where the
+// agreement was first checked — but that sample is not representative.
+// Measured across all 506 resolved comuni on the corpus copy: median gap
+// -1.1km, range -20.8 to +20.9km; and in the 25-35km band that this cutoff
+// actually decides, median -4.5km with a floor of -20.5km. Swapping one metric
+// for the other would move 37 of the 506 across the line — Civo
+// (`distanceKm` 41, haversine 20), Val Masino (34 vs 13), Curon Venosta
+// (31 vs 11): Valtellina and Val Venosta comuni where the road out of the
+// valley is nothing like the straight line to a crossing.
+//
+// `distanceKm` is the right one HERE: it is the field the sort has always
+// used, and road distance is what a commuter actually pays. Haversine is the
+// right one THERE: canton attribution is a question about which border you
+// are near, not how long the drive is. Don't unify them on the strength of
+// their sharing a number today.
 //
 // They are deliberately kept as SEPARATE constants, and must stay that way:
 // they answer different questions and are allowed to diverge. GEO_RESOLVE_MAX_KM
