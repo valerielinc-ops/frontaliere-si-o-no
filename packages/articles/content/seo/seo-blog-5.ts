@@ -69179,6 +69179,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-besnate-ponte-ferrovia-incidente': {
+    title: 'Donna di 68 anni cade dal ponte ferroviario a Besnate',
+    description: 'Una donna di 68 anni cade da un ponte della ferrovia a Besnate, in gravi condizioni. L\'incidente avviene poco dopo le 10 in via Monte Rosa, nei pressi',
+    keywords: 'frontalieri, ticino, svizzera, italia, donna, anni, cade, ponte',
+    ogTitle: 'Cade dal ponte della ferrovia a Besnate: in gravi condizioni una donna di 68 anni',
+    ogDescription: 'Una donna di 68 anni cade da un ponte della ferrovia a Besnate, in gravi condizioni. L\'incidente avviene poco dopo le 10 in via Monte Rosa, nei pressi della stazione.',
+    canonicalPath: '/articoli-frontaliere/besnate-ponte-ferrovia-incidente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Donna di 68 anni cade dal ponte ferroviario a Besnate",
+      "description": "Una donna di 68 anni cade da un ponte della ferrovia a Besnate, in gravi condizioni. L'incidente avviene poco dopo le 10 in via Monte Rosa, nei pressi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/besnate-ponte-ferrovia-incidente.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna di 68 anni cade da un ponte della ferrovia a Besnate, in gravi condizioni."
+      },
+      "datePublished": "2026-08-18T11:37:53+00:00",
+      "dateModified": "2026-08-18T11:37:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/besnate-ponte-ferrovia-incidente/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

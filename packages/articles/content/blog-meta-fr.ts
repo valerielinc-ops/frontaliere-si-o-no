@@ -10055,6 +10055,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.migros-delica-nuovo-direttore-2027.title': 'Migros Delica : Moritz Werner est le nouveau directeur depuis 2027',
     'blog.article.migros-delica-nuovo-direttore-2027.excerpt': 'À partir du 1er janvier 2027, Moritz Werner dirigera le producteur Migros Delica en succédant à Thomas Gubler.',
     'blog.article.migros-delica-nuovo-direttore-2027.imageAlt': 'Nouveau directeur de Migros Delica Moritz Werner',
+    'blog.article.besnate-ponte-ferrovia-incidente.title': 'Une femme de 68 ans tombe du pont ferroviaire de Besnate',
+    'blog.article.besnate-ponte-ferrovia-incidente.excerpt': 'Une femme de 68 ans tombe d\'un pont de chemin de fer à Besnate, dans un état grave. L\'accident se produit peu après 10h via Monte Rosa, près de la gare.',
+    'blog.article.besnate-ponte-ferrovia-incidente.imageAlt': 'Une femme de 68 ans tombe d\'un pont ferroviaire à Besnate, gravement blessée.',
 };
 
 export default blogMetaFr;
