@@ -3262,6 +3262,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-soletta.title': 'Allocations familiales dans le canton de Soleure : montants et demande',
     'blog.article.assegni-familiari-canton-soletta.excerpt': 'La procédure de demande d\'allocations familiales dans le canton de Soleure.',
     'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Image d\'un étranger avec un enfant',
+    'blog.article.borse-di-studio-canton-soletta.title': 'Bourses Canton de Soleure : exigences et montants',
+    'blog.article.borse-di-studio-canton-soletta.excerpt': 'Les bourses du canton de Soleure sont des financements pour les étudiants de Soleure. Voici les exigences et les montants maximaux.',
+    'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Bourses d\'études pour les étudiants de Soletta',
 };
 
 export default blogMetaChFr;

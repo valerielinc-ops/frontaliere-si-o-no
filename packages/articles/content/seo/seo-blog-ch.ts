@@ -42296,6 +42296,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-di-studio-canton-soletta': {
+    title: 'Borse di studio Canton Soletta: requisiti e importi',
+    description: 'Le borse di studio del Canton Soletta sono finanziamenti per gli studenti di Soletta. Ecco i requisiti e gli importi massimi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, soletta',
+    ogTitle: 'Borse di studio Canton Soletta: requisiti e importi',
+    ogDescription: 'Le borse di studio del Canton Soletta sono finanziamenti per gli studenti di Soletta. Ecco i requisiti e gli importi massimi.',
+    canonicalPath: '/articoli-svizzera/borse-di-studio-canton-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Canton Soletta: requisiti e importi",
+      "description": "Le borse di studio del Canton Soletta sono finanziamenti per gli studenti di Soletta. Ecco i requisiti e gli importi massimi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-di-studio-canton-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Borse di studio Canton Soletta per studenti"
+      },
+      "datePublished": "2026-08-18T02:57:56+00:00",
+      "dateModified": "2026-08-18T02:57:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-di-studio-canton-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

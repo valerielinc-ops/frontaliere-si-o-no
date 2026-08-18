@@ -3262,6 +3262,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-soletta.title': 'Family allowances in the canton of Solothurn: amounts and application',
     'blog.article.assegni-familiari-canton-soletta.excerpt': 'The procedure for claiming family allowances in the Canton of Solothurn.',
     'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Image of a foreigner with a child',
+    'blog.article.borse-di-studio-canton-soletta.title': 'Canton Solothurn Scholarships: Requirements and Amounts',
+    'blog.article.borse-di-studio-canton-soletta.excerpt': 'The scholarships of the Canton of Solothurn are funding for students of Solothurn. Here are the requirements and maximum amounts.',
+    'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Scholarships for Soletta students',
 };
 
 export default blogMetaChEn;

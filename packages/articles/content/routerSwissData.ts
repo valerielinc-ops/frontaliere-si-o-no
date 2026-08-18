@@ -1113,6 +1113,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-breve-durata-canton-soletta': { it: 'permesso-l-breve-durata-canton-soletta', en: 'short-term-permit-l-canton-solothurn-validity-and-extension', de: 'permesso-l-breve-durata-kanton-soletta', fr: 'permis-l-de-courte-duree-canton-de-soleure-validite-et-prorogation' },
  'sistema-scolastico-canton-soletta-iscrizione-e-cicli': { it: 'sistema-scolastico-canton-soletta-iscrizione-e-cicli', en: 'canton-soletta-school-system-enrolment-and-cycles', de: 'schulwesen-kanton-soletta-anmeldung-und-schuljahre', fr: 'systeme-d-enseignement-canton-soletta-inscription-et-cycles' },
  'assegni-familiari-canton-soletta': { it: 'assegni-familiari-canton-soletta', en: 'family-allowances-in-the-canton-of-solothurn-amounts-and-application', de: 'familienzulagen-im-kanton-solothurn-betrage-und-antrag', fr: 'allocations-familiales-dans-le-canton-de-soleure-montants-et-demande' },
+ 'borse-di-studio-canton-soletta': { it: 'borse-di-studio-canton-soletta', en: 'scholarships-canton-soletta', de: 'stipendien-kanton-soletta', fr: 'bourses-d-etudes-canton-soletta' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
