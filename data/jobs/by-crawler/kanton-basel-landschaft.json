@@ -3088,8 +3088,7 @@
         "hr-generalist-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal",
         "hr-generalistin-hr-generalist-kanton-basel-landschaft-liestal",
         "ressources-humaines-generalistin-ressources-humaines-generalist-kantonale-verwaltung-basel-landschaft-liestal",
-        "hr-generalistin-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal",
-        "juristin-jurist-kantonale-verwaltung-basel-landschaft-liestal"
+        "hr-generalistin-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3104,8 +3103,7 @@
           "hr-generalist-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal",
           "hr-generalistin-hr-generalist-kanton-basel-landschaft-liestal",
           "ressources-humaines-generalistin-ressources-humaines-generalist-kantonale-verwaltung-basel-landschaft-liestal",
-          "hr-generalistin-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal",
-          "juristin-jurist-kantonale-verwaltung-basel-landschaft-liestal"
+          "hr-generalistin-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "en": [
           "juristin-jurist-kanton-basel-landschaft-liestal",
@@ -4274,8 +4272,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-kanton-basel-landschaft",
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-kantonale-verwaltung-basel-landschaft-munchenstein"
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-kanton-basel-landschaft"
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-kantonale-verwaltung-basel-landschaft-munchenstein"
@@ -4286,7 +4283,6 @@
       },
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-kanton-basel-landschaft",
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-kantonale-verwaltung-basel-landschaft-munchenstein",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-kantonale-verwaltung-basel-landschaft-munchenstein"
       ],
       "salaryMin": 62000,
@@ -4305,12 +4301,12 @@
     },
     {
       "id": "kanton-basel-landschaft-bd947a5a31ae",
-      "slug": "fachlehrperson-sport-kanton-basel-landschaft-oberdorf",
+      "slug": "istruttore-di-sport-kantonale-verwaltung-basel-landschaft-oberdorf",
       "slugByLocale": {
         "de": "fachlehrperson-sport-kanton-basel-landschaft-oberdorf",
-        "it": "fachlehrperson-sport-kanton-basel-landschaft-oberdorf",
-        "en": "fachlehrperson-sport-kantonale-verwaltung-basel-landschaft-oberdorf",
-        "fr": "fachlehrperson-sport-kanton-basel-landschaft-oberdorf"
+        "it": "istruttore-di-sport-kantonale-verwaltung-basel-landschaft-oberdorf",
+        "en": "sport-specialist-instructor-kantonale-verwaltung-basel-landschaft-oberdorf",
+        "fr": "instructeur-specialise-dans-le-sport-kantonale-verwaltung-basel-landschaft-oberdorf"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4366,16 +4362,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:32:15.916Z"
+      "firstSeenAt": "2026-08-17T21:32:15.916Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlehrperson-sport-kanton-basel-landschaft-oberdorf"
+        ],
+        "en": [
+          "fachlehrperson-sport-kantonale-verwaltung-basel-landschaft-oberdorf"
+        ],
+        "fr": [
+          "fachlehrperson-sport-kanton-basel-landschaft-oberdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachlehrperson-sport-kanton-basel-landschaft-oberdorf",
+        "fachlehrperson-sport-kantonale-verwaltung-basel-landschaft-oberdorf"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-8a66e356039b",
-      "slug": "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf",
+      "slug": "specialista-insegnante-inglese-francese-kantonale-verwaltung-basel-landschaft-oberdorf",
       "slugByLocale": {
         "de": "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf",
-        "it": "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf",
-        "en": "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf",
-        "fr": "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf"
+        "it": "specialista-insegnante-inglese-francese-kantonale-verwaltung-basel-landschaft-oberdorf",
+        "en": "specialist-teacher-english-french-kantonale-verwaltung-basel-landschaft-oberdorf",
+        "fr": "professeur-specialise-anglais-francais-kantonale-verwaltung-basel-landschaft-oberdorf"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4431,7 +4442,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:32:15.889Z"
+      "firstSeenAt": "2026-08-17T21:32:15.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf"
+        ],
+        "en": [
+          "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf"
+        ],
+        "fr": [
+          "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachlehrperson-englisch-franzosisch-kanton-basel-landschaft-oberdorf"
+      ]
     }
   ]
 }

@@ -9962,8 +9962,8 @@
       "slugByLocale": {
         "de": "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch",
         "it": "liaison-librarian-architektur-stadtebau-e-raumplanung-m-w-d-eth-zurich",
-        "en": "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch",
-        "fr": "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch"
+        "en": "liaison-librarian-architecture-urban-design-and-spatial-planning-m-f-d-eth-zurich-zurich",
+        "fr": "architecture-bibliothecaire-de-liaison-amenagement-urbain-et-amenagement-du-territoire-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10007,6 +10007,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "liaison-librarian-architektur-stadtebau-und-raumplanung-m-w-d-eth-zurich-ch"
         ]
       },
@@ -10175,12 +10181,12 @@
     },
     {
       "id": "eth-zurich-bb433f7358b8",
-      "slug": "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch",
+      "slug": "personale-nella-gestione-del-magazzino-e-nella-consulenza-clienti-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch",
-        "it": "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch",
-        "en": "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch",
-        "fr": "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch"
+        "it": "personale-nella-gestione-del-magazzino-e-nella-consulenza-clienti-m-f-d-eth-zurich-zurich",
+        "en": "personnel-in-warehouse-management-customer-consulting-m-f-d-eth-zurich-zurich",
+        "fr": "personnel-en-gestion-d-entrepot-et-conseil-a-la-clientele-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10235,7 +10241,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-17T21:34:23.909Z"
+      "firstSeenAt": "2026-08-17T21:34:23.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-lagerbewirtschaftung-kundenberatung-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-09763ee1725f",

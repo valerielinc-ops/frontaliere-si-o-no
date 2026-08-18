@@ -117,7 +117,7 @@
     },
     {
       "id": "company-rnfd68",
-      "slug": "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68",
+      "slug": "venditore-in-20-sabato-nel-negozio-dietlikon-jysk-jysk-dietlikon",
       "company": "JYSK",
       "title": "Verkäufer/in 20% Samstag in der Filiale Dietlikon - JYSK",
       "location": "Dietlikon",
@@ -149,20 +149,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68",
-        "en": "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68",
+        "it": "venditore-in-20-sabato-nel-negozio-dietlikon-jysk-jysk-dietlikon",
+        "en": "seller-in-20-saturday-in-the-store-dietlikon-jysk-jysk-dietlikon",
         "de": "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68",
-        "fr": "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68"
+        "fr": "vendeur-dans-20-samedi-dans-le-magasin-dietlikon-jysk-jysk-dietlikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon"
+          "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon",
+          "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68"
+        ],
+        "en": [
+          "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68"
+        ],
+        "fr": [
+          "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon"
+        "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon",
+        "verkaufer-in-20-samstag-in-der-filiale-dietlikon-jysk-dietlikon-rnfd68"
       ],
       "salaryMin": 14700,
       "salaryMax": 22300,
@@ -3490,9 +3498,6 @@
         ],
         "fr": [
           "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw"
-        ],
-        "de": [
-          "verkaufer-in-a-50-in-der-filiale-dietlikon-jysk-dietlikon-mku4mw"
         ]
       },
       "previousSlugs": [
@@ -3803,25 +3808,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil",
-          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
-        ],
-        "en": [
-          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
-        ],
-        "de": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
-        ],
-        "fr": [
-          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil"
         ]
       },
       "previousSlugs": [
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil",
-        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
-        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx",
-        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil-d4jqyx"
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-wadenswil-jysk-wadenswil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

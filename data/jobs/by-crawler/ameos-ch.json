@@ -709,8 +709,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
         "it": "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
-        "en": "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
-        "fr": "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+        "en": "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
+        "fr": "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -755,6 +755,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+        ],
+        "fr": [
           "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
         ]
       },

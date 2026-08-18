@@ -2249,7 +2249,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen",
-        "en": "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-ebrmy3",
+        "en": "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "de": "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-ebrmy3",
         "fr": "chauffeur-au-cat-c-ce-fust-swiss-household-services-ag-oberburen"
       },
@@ -2275,6 +2275,9 @@
           "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen"
         ],
         "fr": [
+          "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-ebrmy3"
+        ],
+        "en": [
           "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-ebrmy3"
         ]
       },
@@ -3387,7 +3390,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-ittigen",
-        "en": "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-ittigen-bern",
         "de": "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-ittigen"
       },
@@ -3414,6 +3417,9 @@
           "chef-cheffe-m-w-d-coop-genossenschaft-ittigen"
         ],
         "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb"
+        ],
+        "en": [
           "kochin-koch-m-w-d-coop-ristorante-ittigen-bern-5lhbqb"
         ]
       },
@@ -13230,7 +13236,7 @@
     },
     {
       "id": "company-onj28",
-      "slug": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil",
+      "slug": "franchising-partner-a-coop-pronto-senza-stazione-a-gas-coop-genossenschaft-allschwil",
       "company": "Coop Genossenschaft",
       "title": "Franchising Partner:in Coop Pronto ohne Tankstelle",
       "location": "Allschwil",
@@ -13262,10 +13268,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28",
-        "en": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28",
+        "it": "franchising-partner-a-coop-pronto-senza-stazione-a-gas-coop-genossenschaft-allschwil",
+        "en": "franchising-partner-in-coop-pronto-without-gas-station-coop-genossenschaft-allschwil",
         "de": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28",
-        "fr": "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28"
+        "fr": "franchising-partner-a-coop-pronto-sans-station-service-coop-genossenschaft-allschwil"
       },
       "addressLocality": "Allschwil",
       "sourceLang": "de",
@@ -13282,7 +13288,23 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28",
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil"
+        ],
+        "en": [
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28"
+        ],
+        "fr": [
+          "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28"
+        ]
+      },
+      "previousSlugs": [
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil-0onj28",
+        "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-genossenschaft-allschwil"
+      ]
     },
     {
       "id": "company-4kyqmh",
@@ -13445,7 +13467,7 @@
     },
     {
       "id": "company-wl42bb",
-      "slug": "weihnachtsaushilfe-coop-genossenschaft-zurich",
+      "slug": "assistenza-natalizia-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Weihnachtsaushilfe",
       "location": "Zürich",
@@ -13486,10 +13508,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb",
-        "en": "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb",
+        "it": "assistenza-natalizia-coop-genossenschaft-zurich",
+        "en": "christmas-assistance-coop-genossenschaft-zurich",
         "de": "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb",
-        "fr": "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb"
+        "fr": "aide-a-noel-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -13505,11 +13527,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb",
+          "weihnachtsaushilfe-coop-genossenschaft-zurich"
+        ],
+        "en": [
+          "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb"
+        ]
+      },
+      "previousSlugs": [
+        "weihnachtsaushilfe-coop-genossenschaft-zurich-wl42bb",
+        "weihnachtsaushilfe-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-5awqjq",
-      "slug": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich",
+      "slug": "consulenti-di-vendita-in-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater: in",
       "location": "Winterthur",
@@ -13541,10 +13579,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq",
-        "en": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq",
+        "it": "consulenti-di-vendita-in-coop-genossenschaft-winterthur",
+        "en": "sales-consultants-in-coop-genossenschaft-winterthur",
         "de": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq",
-        "fr": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq"
+        "fr": "consultants-en-ventes-en-coop-genossenschaft-winterthur"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -13561,11 +13599,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq",
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq"
+        ],
+        "fr": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-5awqjq",
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich"
+      ]
     },
     {
       "id": "company-6kow82",
-      "slug": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-2",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Winterthur",
@@ -13606,10 +13660,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82",
-        "en": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82",
+        "it": "consulente-commerciale-in-coop-genossenschaft-winterthur",
+        "en": "sales-consultant-in-coop-genossenschaft-winterthur",
         "de": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82",
-        "fr": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82"
+        "fr": "consultant-en-ventes-coop-genossenschaft-winterthur"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -13626,11 +13680,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82",
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-2"
+        ],
+        "en": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82"
+        ],
+        "fr": [
+          "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82",
+        "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-2"
+      ]
     },
     {
       "id": "company-d2u7ka",
-      "slug": "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau",
+      "slug": "personale-nello-shopping-dormire-gioventu-e-tappeti-coop-genossenschaft-oberentfelden",
       "company": "Coop Genossenschaft",
       "title": "Sachbearbeiter:in Einkauf Schlafen, Jugend & Teppiche",
       "location": "Oberentfelden",
@@ -13680,10 +13750,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka",
-        "en": "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka",
+        "it": "personale-nello-shopping-dormire-gioventu-e-tappeti-coop-genossenschaft-oberentfelden",
+        "en": "personnel-in-shopping-sleeping-youth-carpets-coop-genossenschaft-oberentfelden",
         "de": "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka",
-        "fr": "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka"
+        "fr": "personnel-dans-le-shopping-dormant-jeunes-tapis-coop-genossenschaft-oberentfelden"
       },
       "addressLocality": "Oberentfelden",
       "sourceLang": "de",
@@ -13700,11 +13770,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka",
+          "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau"
+        ],
+        "en": [
+          "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka"
+        ],
+        "fr": [
+          "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau-d2u7ka",
+        "sachbearbeiter-in-einkauf-schlafen-jugend-teppiche-livique-oberentfelden-aargau"
+      ]
     },
     {
       "id": "company-q954ln",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen",
+      "slug": "home-consegna-fitter-negli-elettrodomestici-fust-swiss-household-services-ag-oberburen",
       "company": "Fust | Swiss Household Services AG",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Oberbüren",
@@ -13741,10 +13827,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln",
+        "it": "home-consegna-fitter-negli-elettrodomestici-fust-swiss-household-services-ag-oberburen",
+        "en": "home-delivery-fitter-in-electrical-household-appliances-fust-swiss-household-services-ag-oberburen",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln"
+        "fr": "installation-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-swiss-household-services-ag-oberburen"
       },
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
@@ -13761,11 +13847,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen"
+        ],
+        "en": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln"
+        ],
+        "fr": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln"
+        ]
+      },
+      "previousSlugs": [
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen-q954ln",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen"
+      ]
     },
     {
       "id": "company-rn0zq",
-      "slug": "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern",
+      "slug": "personale-nei-creditori-80-100-interdiscount-jegenstorf",
       "company": "Interdiscount",
       "title": "Sachbearbeiter:in Kreditoren 80-100%",
       "location": "Jegenstorf",
@@ -13802,10 +13904,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq",
-        "en": "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq",
+        "it": "personale-nei-creditori-80-100-interdiscount-jegenstorf",
+        "en": "personnel-in-creditors-80-100-interdiscount-jegenstorf",
         "de": "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq",
-        "fr": "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq"
+        "fr": "personnel-en-creanciers-80-100-interdiscount-jegenstorf"
       },
       "addressLocality": "Jegenstorf",
       "sourceLang": "de",
@@ -13822,11 +13924,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq",
+          "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern-0rn0zq",
+        "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf-bern"
+      ]
     },
     {
       "id": "company-y5pv94",
-      "slug": "rayonleiter-in-nonfood-coop-unterentfelden-aargau",
+      "slug": "rayon-leader-in-nonfood-coop-genossenschaft-unterentfelden",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Nonfood",
       "location": "Unterentfelden",
@@ -13872,10 +13990,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94",
+        "it": "rayon-leader-in-nonfood-coop-genossenschaft-unterentfelden",
         "en": "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94",
         "de": "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94",
-        "fr": "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94"
+        "fr": "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-unterentfelden"
       },
       "addressLocality": "Unterentfelden",
       "sourceLang": "de",
@@ -13892,11 +14010,24 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94",
+          "rayonleiter-in-nonfood-coop-unterentfelden-aargau"
+        ],
+        "fr": [
+          "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-nonfood-coop-unterentfelden-aargau-y5pv94",
+        "rayonleiter-in-nonfood-coop-unterentfelden-aargau"
+      ]
     },
     {
       "id": "company-l8x4vq",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug",
+      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-risch-rotkreuz",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Risch-Rotkreuz",
@@ -13933,10 +14064,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq",
+        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-risch-rotkreuz",
+        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-risch-rotkreuz",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq"
+        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-risch-rotkreuz"
       },
       "addressLocality": "Risch-Rotkreuz",
       "sourceLang": "de",
@@ -13953,11 +14084,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug-l8x4vq",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-risch-rotkreuz-zug"
+      ]
     },
     {
       "id": "company-bc8dxb",
-      "slug": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz",
+      "slug": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-kussnacht",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Grundnahrungsmittel",
       "location": "Küssnacht",
@@ -14003,10 +14150,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb",
-        "en": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb",
+        "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-kussnacht",
+        "en": "rayon-conductor-in-staple-food-coop-genossenschaft-kussnacht",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb",
-        "fr": "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb"
+        "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-kussnacht"
       },
       "addressLocality": "Küssnacht",
       "sourceLang": "de",
@@ -14023,11 +14170,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb",
+          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz"
+        ],
+        "en": [
+          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb"
+        ],
+        "fr": [
+          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-bc8dxb",
+        "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz"
+      ]
     },
     {
       "id": "company-lmdav3",
-      "slug": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern",
+      "slug": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-meggen",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Grundnahrungsmittel",
       "location": "Meggen",
@@ -14073,10 +14236,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3",
-        "en": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3",
+        "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-meggen",
+        "en": "rayon-conductor-in-staple-food-coop-genossenschaft-meggen",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3",
-        "fr": "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3"
+        "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-meggen"
       },
       "addressLocality": "Meggen",
       "sourceLang": "de",
@@ -14093,11 +14256,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3",
+          "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern"
+        ],
+        "en": [
+          "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3"
+        ],
+        "fr": [
+          "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern-lmdav3",
+        "rayonleiter-in-grundnahrungsmittel-coop-meggen-luzern"
+      ]
     },
     {
       "id": "company-s2ykiv",
-      "slug": "verkaufer-in-fisch-coop-emmen-luzern",
+      "slug": "vendor-in-pesce-coop-genossenschaft-emmen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Fisch",
       "location": "Emmen",
@@ -14143,10 +14322,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv",
-        "en": "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv",
+        "it": "vendor-in-pesce-coop-genossenschaft-emmen",
+        "en": "vendor-in-fish-coop-genossenschaft-emmen",
         "de": "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv",
-        "fr": "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv"
+        "fr": "fournisseur-dans-le-poisson-coop-genossenschaft-emmen"
       },
       "addressLocality": "Emmen",
       "sourceLang": "de",
@@ -14163,11 +14342,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv",
+          "verkaufer-in-fisch-coop-emmen-luzern"
+        ],
+        "en": [
+          "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv"
+        ],
+        "fr": [
+          "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-fisch-coop-emmen-luzern-s2ykiv",
+        "verkaufer-in-fisch-coop-emmen-luzern"
+      ]
     },
     {
       "id": "company-1lv416",
-      "slug": "verkaufer-in-food-coop-luzern",
+      "slug": "venditore-in-food-coop-genossenschaft-luzern-6fe948",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Luzern",
@@ -14213,10 +14408,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-luzern-1lv416",
-        "en": "verkaufer-in-food-coop-luzern-1lv416",
+        "it": "venditore-in-food-coop-genossenschaft-luzern-6fe948",
+        "en": "seller-in-food-coop-genossenschaft-luzern-6fe948",
         "de": "verkaufer-in-food-coop-luzern-1lv416",
-        "fr": "verkaufer-in-food-coop-luzern-1lv416"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-luzern-6fe948"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -14233,7 +14428,23 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-luzern-1lv416",
+          "verkaufer-in-food-coop-luzern"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-luzern-1lv416"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-luzern-1lv416"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-luzern-1lv416",
+        "verkaufer-in-food-coop-luzern"
+      ]
     },
     {
       "id": "company-jjl6fh",

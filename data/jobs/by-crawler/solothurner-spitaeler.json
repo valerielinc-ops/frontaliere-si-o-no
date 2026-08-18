@@ -9705,8 +9705,7 @@
       "previousSlugsByLocale": {
         "de": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
-          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
-          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn"
+          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
         ],
         "it": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn",
@@ -9726,8 +9725,7 @@
           "senior-controller-business-accounting-w-m-d-solothurner-spitaler-soh-solothurn",
           "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-soh-solothurn",
           "senior-controller-betriebsbuchhaltung-w-m-d-solothurner-spitaler-soh-solothurn",
-          "senior-controller-betriebsbuchhaltung-m-w-d-solothurner-spitaler-soh-solothurn",
-          "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn"
+          "senior-controller-betriebsbuchhaltung-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn",
@@ -9764,8 +9762,7 @@
         "senior-controller-business-accounting-w-m-d-solothurner-spitaler-soh-solothurn",
         "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-soh-solothurn",
         "senior-controller-betriebsbuchhaltung-w-m-d-solothurner-spitaler-soh-solothurn",
-        "senior-controller-betriebsbuchhaltung-m-w-d-solothurner-spitaler-soh-solothurn",
-        "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn"
+        "senior-controller-betriebsbuchhaltung-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.031Z",
       "salaryMin": 94500,
@@ -14876,8 +14873,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch",
         "it": "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-soh-dornach",
-        "en": "assistant-doctor-assistant-internal-medicine-and-surgery-m-f-d-solothurner-spitaler-soh-dornach",
-        "fr": "assistant-medecin-assistant-medecine-interne-et-chirurgie-h-f-d-solothurner-spitaler-soh-dornach"
+        "en": "assistant-doctor-assistant-internal-medicine-and-surgery-m-f-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "assistant-medecin-assistant-medecine-interne-et-chirurgie-h-f-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -14926,14 +14923,18 @@
           "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch"
+          "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch",
+          "assistant-doctor-assistant-internal-medicine-and-surgery-m-f-d-solothurner-spitaler-soh-dornach"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch"
+          "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch",
+          "assistant-medecin-assistant-medecine-interne-et-chirurgie-h-f-d-solothurner-spitaler-soh-dornach"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch"
+        "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-ch",
+        "assistant-doctor-assistant-internal-medicine-and-surgery-m-f-d-solothurner-spitaler-soh-dornach",
+        "assistant-medecin-assistant-medecine-interne-et-chirurgie-h-f-d-solothurner-spitaler-soh-dornach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

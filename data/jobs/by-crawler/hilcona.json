@@ -67,8 +67,8 @@
       "slugByLocale": {
         "de": "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel",
         "it": "apprendistato-come-informatiker-informatikerin-efz-applikationsentwicklung-2027-bell-schweiz-ag-basel",
-        "en": "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel",
-        "fr": "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel"
+        "en": "teaching-as-computer-scientist-efz-application-development-2027-bell-schweiz-ag-basel",
+        "fr": "enseignement-comme-informaticien-efz-application-development-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -108,6 +108,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel"
+        ],
+        "fr": [
           "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel"
         ]
       },
@@ -10047,10 +10053,7 @@
       "previousSlugs": [
         "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "industrial-electrician-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "betriebselektriker-m-w-d-hilcona-ampfing",
-        "betriebselektriker-m-w-d-hilcona-undefined",
-        "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "betriebselektriker-m-w-d-hilcona-ampfing"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
       "salaryMin": 64500,
