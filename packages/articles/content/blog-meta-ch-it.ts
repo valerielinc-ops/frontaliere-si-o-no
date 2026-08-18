@@ -3364,6 +3364,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.servizio-pubblico-obbligo-contanti.title': 'Servizio pubblico, la commissione dice no all\'obbligo di accettare contanti',
     'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio nazionale (CET-N) raccomanda di respingere l\'iniziativa di Roland Büchel.',
     'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Immagine di una scena in Lugano con un sistema di trasporto pubblico che accetta solo pagamenti elettronici.',
+    'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asilo, Quadri interroga il Consiglio federale sui costi',
+    'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri chiede chiarezza sui costi sostenuti dalla Confederazione per il blocco dei trasferimenti Dublino verso l\'Italia dal dicembre 2022.',
+    'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Palazzo federale a Berna sede del Consiglio federale',
 };
 
 export default blogMetaChIt;

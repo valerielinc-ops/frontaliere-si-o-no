@@ -10090,6 +10090,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'costi-blocco-trasferimenti-asilo',
+    category: 'fiscale',
+    date: '2026-08-18T18:10:58.333Z',
+    image: '/images/blog/costi-blocco-trasferimenti-asilo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

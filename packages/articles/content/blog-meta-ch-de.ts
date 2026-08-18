@@ -3364,6 +3364,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.servizio-pubblico-obbligo-contanti.title': 'Öffentlicher Dienst sagt Nein zur Bargeld-Acceptanz',
     'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Nationalrates (WAK-N) empfiehlt, die Initiative von Roland Büchel abzulehnen.',
     'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Bild einer Szene in Lugano mit einem öffentlichen Verkehrssystem, das nur elektronische Zahlungen akzeptiert.',
+    'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asyl, Kader befragt den Bundesrat zu den Kosten',
+    'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri bittet um Klarheit über die Kosten, die dem Bund durch die Blockade der Dublin-Überweisungen nach Italien ab Dezember 2022 entstehen.',
+    'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Bundeshaus in Bern Sitz des Bundesrates',
 };
 
 export default blogMetaChDe;

@@ -3364,6 +3364,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.servizio-pubblico-obbligo-contanti.title': 'Servizio pubblico, la commissione dice no all\'obbligo di contanti',
     'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'La Commission de l\'économie et des redevances du Conseil national (cet-N) recommande de rejeter l\'initiative de Roland Büchel.',
     'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Image d\'une scène à Lugano avec un système de transport en commun qui ne prend que des paiements électroniques.',
+    'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asile, Cadres interroge le Conseil fédéral sur les coûts',
+    'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri demande des éclaircissements sur les coûts supportés par la Confédération pour le blocage des transferts de Dublin vers l\'Italie depuis décembre 2022.',
+    'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Palais fédéral à Berne siège du Conseil fédéral',
 };
 
 export default blogMetaChFr;
