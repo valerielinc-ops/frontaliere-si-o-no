@@ -3139,7 +3139,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine: Verordnung über Maßnahmen',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Das Eidgenössische Departement für Wirtschaft, Bildung und Forschung (WBF) hat die Anhänge 2 und 14a der Verordnung im Hinblick auf die Situation in der Ukraine geändert.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Redaktionelles Bild zu: Ucraina: Ordinanza per provvedimenti',
-    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralität, die Front des',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralität: Das Nein-Lager schlägt Alarm',
     'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'Ein überparteiliches Komitee fordert die Ablehnung der Initiative am 27. September, würde die Aussenpolitik einschränken und die Schweizer Verteidigung schwächen.',
     'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'Eine Demonstration in Lugano gegen die Neutralitätsinitiative.',
     'blog.article.borse-studio-canton-zugo-requisiti-importi.title': 'Stipendien und Darlehen im Kanton Zug: Voraussetzungen, Beträge und Fristen',

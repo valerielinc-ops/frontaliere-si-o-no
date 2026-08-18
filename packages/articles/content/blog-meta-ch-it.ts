@@ -3139,7 +3139,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ucraina: Ordinanza per provvedimenti',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Il Dipartimento federale dell’economia, della formazione e della ricerca (DEFR) ha modificato gli allegati 2 e 14a dell’ordinanza in relazione alla situazione in Ucraina.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Immagine editoriale relativa a: Ucraina: Ordinanza per provvedimenti',
-    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralità, il fronte del',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralità, il fronte del «No» lancia l\'allarme',
     'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'Un comitato interpartitico chiede di respingere l\'iniziativa il 27 settembre, limiterebbe la politica estera e indebolirebbe la difesa svizzera.',
     'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'Una manifestazione a Lugano contro l\'iniziativa sulla neutralità.',
     'blog.article.borse-studio-canton-zugo-requisiti-importi.title': 'Borse di studio e prestiti nel Canton Zugo: requisiti, importi e scadenze',
