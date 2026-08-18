@@ -9793,6 +9793,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asilo-nido-canton-soletta-costi',
+    category: 'pratico',
+    date: '2026-08-18T03:06:46.710Z',
+    image: '/images/blog/asilo-nido-canton-soletta-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
