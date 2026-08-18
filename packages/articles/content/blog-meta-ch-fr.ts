@@ -3340,6 +3340,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'La fondation Centro Studi Villa Negroni s\'associe à SUPSI',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Le Conseil d\'État a approuvé le 8 juillet dernier l\'association de la Fondation Centro Studi Villa Negroni (CSVN) à la SUPSI.',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'La Fondazione Centro Studi Villa Negroni se joint à SUPSI',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Garderie et garde d\'enfants dans le canton de Bâle-Ville : coûts',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Les crèches et les familles de jour dans le canton de Bâle-Ville : prix calculés sur le revenu et allocations cantonales disponibles',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Photo d\'une garderie d\'enfants dans un quartier résidentiel de Bâle-Ville',
 };
 
 export default blogMetaChFr;

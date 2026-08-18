@@ -3340,6 +3340,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'Die Stiftung Studienzentrum Villa Negroni schließt sich der SUPSI an',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Der Staatsrat hat am 8. Juli die Vereinigung der Stiftung Centro Studi Villa Negroni (CSVN) mit der SUPSI genehmigt.',
     'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'Die Fondazione Centro Studi Villa Negroni sich SUPSI anschließt',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Basel-Stadt: Kosten',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergärten und Tagesfamilien im Kanton Basel-Stadt: Berechnete Einkommenspreise und verfügbare Kantonsbeiträge',
+    'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto einer Kita in einem Wohngebiet von Basel-Stadt',
 };
 
 export default blogMetaChDe;
