@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T07:38:54.930Z",
+  "generatedAt": "2026-08-18T07:19:47.576Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -34,19 +34,19 @@
       },
       "intent_simulation": {
         "samples": 16,
-        "impressions": 1363112,
-        "clicks": 104461,
-        "ctr": 7.663
+        "impressions": 1450693,
+        "clicks": 109895,
+        "ctr": 7.575
       }
     }
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 118854,
-    "totalClicks": 8320,
-    "weightedCtr": 7,
+    "totalImpressions": 109151,
+    "totalClicks": 7261,
+    "weightedCtr": 6.652,
     "opportunities": 1,
-    "exposures": 7350
+    "exposures": 5430
   },
   "changed": false,
   "published": false
