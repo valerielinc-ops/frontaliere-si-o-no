@@ -841,6 +841,15 @@ const RUN_HISTORY_LIMIT = 100;
  * `per_page=1` tiene il payload minimo: la risposta porta comunque `total_count` sull'intero
  * set. PROCEED-SAFE: errore gh/API → false (non esclude nulla), lo stesso bias-verso-l'hold
  * di ogni altro fallback di questo file.
+ *
+ * PERCHÉ job-zero e non "cancelled" tout court, che non costerebbe nemmeno una chiamata:
+ * `loop-health-report.mjs` sceglie la scorciatoia (`real = total - cancelled - skipped`) e
+ * qui sarebbe SBAGLIATA. GitHub marca `cancelled` anche il job che sfonda `timeout-minutes`
+ * — è la premessa su cui `scan-job-timeouts.mjs` è costruito per intero — e il timeout è
+ * proprio il guasto che ha RIAPERTO #5333 (`typecheck (tsc --noEmit)`, "the job has
+ * exceeded the maximum execution time"). Filtrare tutti i `cancelled` renderebbe il gate
+ * cieco all'unica famiglia di fallimento che stava osservando. `total_count === 0`
+ * separa le due: uno scarto in coda non ha job, un timeout ne ha.
  */
 function hasNoJobs(databaseId) {
   const out = gh(
@@ -853,6 +862,35 @@ function hasNoJobs(databaseId) {
   } catch {
     return false;
   }
+}
+
+/**
+ * Toglie dallo storico le run `cancelled` che non hanno mai eseguito un job — vedi
+ * `hasNoJobs` per il perché. Puro e iniettabile (`isPhantom`) perché è QUESTO il ramo che
+ * decide se una cancellazione fisiologica diventa un fallimento misurato, e un ramo del
+ * genere va provato con un test, non a occhio: `recentCompletedRuns` non è testabile
+ * (parla con `gh` a ogni riga), questa lo è.
+ *
+ * Nota che il filtro toglie la run da NUMERATORE e DENOMINATORE insieme: è voluto — una
+ * run mai partita non è né un fallimento né un'osservazione — ma su un workflow molto
+ * cancellato rende il campione più piccolo e quindi il tasso più volatile. Vedi il test
+ * "denominatore che si restringe".
+ *
+ * COSTO, misurato il 2026-08-18 su `main` (`gh run list -b main -L 100`, per workflow):
+ * `Deploy to GitHub Pages` 91/100 righe `cancelled`, `Follow-up drainer` 24/75,
+ * `tests` 15/100, mediana degli altri 0. Quindi NON è vero che sia "sempre una
+ * minoranza": sul workflow più cancellato del repo è quasi l'intero listing, cioè ~91
+ * chiamate `gh api` per singola issue e per passata oraria. Resta sostenibile solo
+ * perché le issue di fallimento aperte sono poche (4 al momento della misura, con un
+ * solo workflow ripetuto) e il rate limit è 5000/h; se quel numero cresce, la leva è
+ * memoizzare per `workflowName` dentro la passata, non allargare il filtro.
+ *
+ * @param {Array<{conclusion?: string, databaseId?: number}>} runs
+ * @param {(databaseId: number) => boolean} isPhantom
+ */
+export function dropPhantomCancellations(runs, isPhantom) {
+  if (!Array.isArray(runs)) return [];
+  return runs.filter((r) => r?.conclusion !== 'cancelled' || !isPhantom(r?.databaseId));
 }
 
 // Le run COMPLETATE più recenti del workflow su main, dalla più nuova alla più vecchia,
@@ -873,13 +911,12 @@ function recentCompletedRuns(workflowName) {
   // L'ordine di `gh run list` è già newest-first, ma la streak verde ne dipende in modo
   // portante (un ordine invertito la calcolerebbe dal fondo della storia): riordinare
   // esplicitamente costa nulla e toglie la dipendenza da un contratto non scritto.
-  const completed = runs
-    .filter((r) => r.status === 'completed')
-    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
-    // Un cancelled a job-zero non è mai partito (vedi hasNoJobs): non conta come run.
-    // Chiamata gh in più solo per le righe `cancelled` — tipicamente una minoranza della
-    // finestra, mai le 100 dell'intero listing.
-    .filter((r) => r.conclusion !== 'cancelled' || !hasNoJobs(r.databaseId));
+  const completed = dropPhantomCancellations(
+    runs
+      .filter((r) => r.status === 'completed')
+      .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
+    hasNoJobs,
+  );
   return completed.length ? completed : null;
 }
 
