@@ -1651,17 +1651,14 @@ export function renderAnchorForPrompt(anchor) {
 }
 
 /**
- * The source's OWN sentence carrying `anchor`, trimmed for prompt use.
- *
- * A gate that only names what is missing leaves the writer to reconstruct the
- * fact from memory — which is how a dropped "80%" comes back as an invented
- * one, and how the same anchor gets lost again on the next attempt. Handing
- * back the source sentence makes the repair mechanical: the material to
- * reinstate is already in front of the writer, quoted from the very text the
- * recall check reads. Returns '' when the anchor cannot be located (the
- * instruction then degrades to naming it, never to a wrong quote).
+ * The source's OWN sentence carrying `anchor`, untruncated. Internal: callers
+ * that group by evidence (see `groupedAnchorEvidence`) need the full sentence
+ * as the grouping key, because two distinct sentences that share their first
+ * 237+ chars and diverge only after would otherwise collide once truncated —
+ * merging two distinct source quotations under one, and silently dropping
+ * whichever anchor lost the collision from its citation.
  */
-export function anchorEvidence(sourceText, anchor) {
+function findAnchorSentence(sourceText, anchor) {
   if (typeof sourceText !== 'string' || !sourceText) return '';
   const [kind, value] = String(anchor).split(':');
   let needle = null;
@@ -1679,12 +1676,30 @@ export function anchorEvidence(sourceText, anchor) {
   // Sentence-ish split: enough to isolate the claim without dragging in the
   // whole paragraph, and tolerant of the ragged text scrapers produce.
   for (const sentence of sourceText.split(/(?<=[.!?])\s+|\n+/)) {
-    if (needle.test(sentence)) {
-      const clean = sentence.replace(/\s+/g, ' ').trim();
-      return clean.length > 240 ? `${clean.slice(0, 237)}…` : clean;
-    }
+    if (needle.test(sentence)) return sentence.replace(/\s+/g, ' ').trim();
   }
   return '';
+}
+
+/** Caps a sentence for prompt use — display only, never a grouping key. */
+function truncateForPrompt(sentence) {
+  return sentence.length > 240 ? `${sentence.slice(0, 237)}…` : sentence;
+}
+
+/**
+ * The source's OWN sentence carrying `anchor`, trimmed for prompt use.
+ *
+ * A gate that only names what is missing leaves the writer to reconstruct the
+ * fact from memory — which is how a dropped "80%" comes back as an invented
+ * one, and how the same anchor gets lost again on the next attempt. Handing
+ * back the source sentence makes the repair mechanical: the material to
+ * reinstate is already in front of the writer, quoted from the very text the
+ * recall check reads. Returns '' when the anchor cannot be located (the
+ * instruction then degrades to naming it, never to a wrong quote).
+ */
+export function anchorEvidence(sourceText, anchor) {
+  const sentence = findAnchorSentence(sourceText, anchor);
+  return sentence ? truncateForPrompt(sentence) : '';
 }
 
 /** Human label per anchor kind, for grouping the contract below. */
@@ -1852,19 +1867,23 @@ export function matchedAnchors(articleText, anchors) {
  * @param bullet line prefix (the two gates indent differently)
  */
 function groupedAnchorEvidence(sourceText, anchorList, bullet = '') {
+  // Keyed on the FULL, untruncated sentence: two distinct sentences sharing
+  // their first 237+ chars would collide on the truncated form and merge
+  // under one quotation (see findAnchorSentence). Truncation applies only
+  // when the line is rendered below, never to the grouping key.
   /** @type {Map<string, string[]>} evidence sentence → labels it carries */
   const byEvidence = new Map();
   const withoutEvidence = [];
   for (const a of anchorList) {
     const label = renderAnchorForPrompt(a);
-    const evidence = anchorEvidence(sourceText, a);
+    const evidence = findAnchorSentence(sourceText, a);
     if (!evidence) { withoutEvidence.push(label); continue; }
     if (!byEvidence.has(evidence)) byEvidence.set(evidence, []);
     byEvidence.get(evidence).push(label);
   }
   const lines = [];
   for (const [evidence, labels] of byEvidence) {
-    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${evidence}»`);
+    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${truncateForPrompt(evidence)}»`);
   }
   // Anchors the matcher could not locate in the source degrade to their name
   // only, never to a wrong quote (see anchorEvidence).
