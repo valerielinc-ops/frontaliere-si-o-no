@@ -3367,6 +3367,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asylum, Quadri asks the Federal Council about the costs',
     'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri asks for clarity on the costs incurred by the Confederation for the blockade of Dublin transfers to Italy since December 2022.',
     'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Federal Palace in Bern seat of the Federal Council',
+    'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Graubünden Hospital: 518 million for new wing',
+    'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Twelve years of construction end. The cantonal hospital of Graubünden in Chur inaugurates the new structure with 518 million francs invested. Operating rooms increased, moving at the end of November.',
+    'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Grisons Cantonal Hospital, modern architectural design of new five-story wing with unified emergency entrance',
+    'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Graubünden Hospital: 518 million over 12 years',
+    'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'The new wing of the Cantonal Hospital of Graubünden comes into service at the end of November 2026 after 518 million invested. Operating rooms increase from 10 to 13.',
+    'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'New wing of Grisons Cantonal Hospital in Chur: modern 5-floor building with expanded operating capacity',
 };
 
 export default blogMetaChEn;
