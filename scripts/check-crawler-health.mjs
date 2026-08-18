@@ -678,6 +678,23 @@ const EMPTY_OK_CRAWLERS = new Set([
   // vacancy. Same legitimately-empty small-employer case as
   // dic-sa/saint-gobain-weber-isover/clinica-varini.
   'elettra-1938',
+  // Cham Swiss Properties AG (Cham ZG, jobs.ch company id 142189, #5997):
+  // verified live 2026-08-18 — the jobs.ch public search API
+  // (https://job-search-api.jobs.ch/search?companyIds=142189) returns HTTP 200
+  // with the unchanged `{documents:[],numPages:0,totalHits:0}` shape (same
+  // endpoint/shape still used successfully by sibling jobs.ch parsers, e.g.
+  // dic-sa/city-pop), and the company profile page
+  // (https://www.jobs.ch/en/companies/142189-cham-swiss-properties-ag/) is
+  // still the sole, active record — no `redirectToCompanyId`/
+  // `redirectToCompanySlug`, confirming id 142189 hasn't migrated the way DIC
+  // SA's did. This is not a selector break; the API/parser are healthy and
+  // simply have nothing to return right now. `lastNonZeroJobs: 1` is
+  // physiological for this small real-estate developer, which historically
+  // has a single opening at a time (the parser's own docblock already notes
+  // this). Same legitimately-empty small-employer case as
+  // dic-sa/elettra-1938/saint-gobain-weber-isover; re-arms automatically when
+  // Cham Swiss Properties republishes a vacancy.
+  'cham-swiss-properties',
 ]);
 
 /** Read JSON file, return null on any error. */
