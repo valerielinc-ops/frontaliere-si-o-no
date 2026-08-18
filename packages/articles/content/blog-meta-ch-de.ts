@@ -3244,6 +3244,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Führerschein in Freiburg: Umstellung und Voraussetzungen',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Umwandlung des ausländischen Führerscheins im Kanton Freiburg, theoretische und praktische Prüfungen, Pflichtkurse und zuständiges Strassenverkehrsamt.',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Szene mit Auto in der Schweiz, Kanton Freiburg, mit Führerschein',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Krankenkassenprämien Kanton Solothurn und Prämienverbilligung',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Wichtige Fakten zur Reduzierung der Krankenversicherungsprämien im Kanton Solothurn',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Bild eines Krankenhauses in der Schweiz',
 };
 
 export default blogMetaChDe;

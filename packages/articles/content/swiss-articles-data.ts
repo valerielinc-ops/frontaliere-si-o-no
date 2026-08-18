@@ -9730,6 +9730,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-canton-soletta-riduzione',
+    category: 'fiscale',
+    date: '2026-08-18T01:51:08.948Z',
+    image: '/images/blog/premi-cassa-malati-canton-soletta-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
