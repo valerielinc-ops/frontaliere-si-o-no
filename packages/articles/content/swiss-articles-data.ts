@@ -9685,6 +9685,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'avs-prestazioni-friburgo',
+    category: 'pensione',
+    date: '2026-08-18T00:49:28.665Z',
+    image: '/images/blog/avs-prestazioni-friburgo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

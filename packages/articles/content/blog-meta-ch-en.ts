@@ -3229,6 +3229,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dolce-far-niente-benessere-svizzera.title': 'Sweet doing nothing and well-being: because stopping is good for your health',
     'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'The absence of stimuli reduces stress, slows the heartbeat and stimulates creativity according to science. An analysis of the value of rest.',
     'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Moment of relaxation and inactivity in a Swiss natural setting',
+    'blog.article.avs-prestazioni-friburgo.title': 'AVS and complementary services in the Canton of Freiburg',
+    'blog.article.avs-prestazioni-friburgo.excerpt': 'Analysis of the first pillar in the Canton of Freiburg: cantonal compensation fund, calculation of annuities, gaps and complementary benefits.',
+    'blog.article.avs-prestazioni-friburgo.imageAlt': 'Panoramic view of Fribourg city and its cathedral in Switzerland',
 };
 
 export default blogMetaChEn;

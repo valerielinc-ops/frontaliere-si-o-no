@@ -3229,6 +3229,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dolce-far-niente-benessere-svizzera.title': 'Dolce far niente e benessere: perche fermarsi fa bene alla salute',
     'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'L\'assenza di stimoli riduce lo stress, rallenta il battito cardiaco e stimola la creativita secondo la scienza. Un\'analisi sul valore del riposo.',
     'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Momento di relax e inattivita in un contesto naturale svizzero',
+    'blog.article.avs-prestazioni-friburgo.title': 'AVS e prestazioni complementari nel Cantone di Friburgo',
+    'blog.article.avs-prestazioni-friburgo.excerpt': 'Analisi del primo pilastro nel Cantone di Friburgo: cassa di compensazione cantonale, calcolo rendite, lacune e prestazioni complementari.',
+    'blog.article.avs-prestazioni-friburgo.imageAlt': 'Vista panoramica della citta di Friburgo e della sua cattedrale in Svizzera',
 };
 
 export default blogMetaChIt;
