@@ -3295,6 +3295,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.twint-addebito-diretto.title': 'Twint startet Lastschriftverfahren im Jahr 2027',
     'blog.article.twint-addebito-diretto.excerpt': 'Das Lastschriftverfahren ermöglicht es den Nutzern, wiederkehrende Zahlungen über die Twint-App abzuwickeln.',
     'blog.article.twint-addebito-diretto.imageAlt': 'Bild eines Nutzers, der die Twint-App verwendet',
+    'blog.article.dazi-usa-svizzera-2026.title': 'Zölle USA-Schweiz: Der Steuersatz sinkt auf 12,5%, aber das Risiko bleibt',
+    'blog.article.dazi-usa-svizzera-2026.excerpt': 'Der Zollsatz, den die USA auf Schweizer Waren anwenden, hat sich bei 12,5% stabilisiert, aber das Risiko einer neuen Abgabe bleibt bestehen',
+    'blog.article.dazi-usa-svizzera-2026.imageAlt': 'Lugano mit belebten Geschäften und Straßen',
 };
 
 export default blogMetaChDe;
