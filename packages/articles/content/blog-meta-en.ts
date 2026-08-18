@@ -10044,6 +10044,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Ferragosto checks: 9 irregular workers and suspensions',
     'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'The Guardia di Finanza carried out checks in August in the province of Varese, identifying 9 irregular workers and suspensions of two activities.',
     'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Image of a controller checking the work permits of a cross-border worker.',
+    'blog.article.frontalieriticone2026-q2.title': 'Ticino frontier workers: +0.64% compared to the previous quarter',
+    'blog.article.frontalieriticone2026-q2.excerpt': 'The number of border workers in the Canton of Ticino increased by +0.64% compared to the previous quarter, but decreased by -0.57% compared to the same quarter of the previous year.',
+    'blog.article.frontalieriticone2026-q2.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland. A crowded waterfront promenade with a lake in the background.',
 };
 
 export default blogMetaEn;

@@ -10043,6 +10043,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Kontrollen im August: 9 irreguläre Arbeitnehmer und Aussetzungen',
     'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'Die Finanzpolizei führte Ferragosto-Kontrollen in der Provinz Varese durch und identifizierte 9 irreguläre Arbeitnehmer und die Aussetzung von zwei Tätigkeiten.',
     'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Bild eines Kontrollbeamten, der die Arbeitsgenehmigungen eines Grenzgängers überprüft.',
+    'blog.article.frontalieriticone2026-q2.title': 'Grenzgänger Tessin: +0,64% gegenüber dem Vorquartal',
+    'blog.article.frontalieriticone2026-q2.excerpt': 'Die Zahl der Grenzgänger im Kanton Tessin stieg gegenüber dem Vorquartal um +0,64%, ging aber gegenüber dem Vorjahresquartal um -0,57% zurück.',
+    'blog.article.frontalieriticone2026-q2.imageAlt': 'Luftbild von Lugano, Ticino, Schweiz. Eine belebte Uferpromenade mit einem See im Hintergrund.',
 };
 
 export default blogMetaDe;
