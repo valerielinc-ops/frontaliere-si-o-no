@@ -765,11 +765,22 @@ let _claudeCliBinaryMissing = false;
 // timeout is a transient blip worth retrying next call. But once several
 // timeouts land back-to-back within one run, that's not a blip — it's the
 // subprocess itself unable to finish in time — and every further attempt is
-// a guaranteed 60s loss for a fallback that already has a template result
+// a guaranteed 120s loss for a fallback that already has a template result
 // ready. Trip after CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD consecutive timeouts.
+//
+// The threshold was 8, sized off the 159/162 incident above where volume was
+// never the constraint. Issue #432 (2026-08-18) measured the opposite shape:
+// runs that only ever offer claude-cli/haiku 2-4 times *total*, each one a
+// 120000ms timeout with zero stdout bytes — the counter never gets anywhere
+// near 8, so the breaker can't trip at the volume these runs actually
+// produce, and every run repays the full storm cost from zero. 3 keeps a
+// single transient blip from tripping it (the exemption above still holds:
+// one timeout is not a storm) while matching the low end of the observed
+// per-run volume, so a 4-attempt storm run now spares its last attempt
+// instead of paying for all of them every time.
 let _claudeCliConsecutiveTimeouts = 0;
 let _claudeCliTimeoutStormDetected = false;
-const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 8;
+const CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD = 3;
 
 // Same in-run, never-persisted breaker shape as _claudeCliTimeoutStormDetected
 // above, omniroute/auto. _isLastResortProvider() exempts OmniRoute from
@@ -4580,7 +4591,13 @@ async function _callClaudeCli(model, messages, opts) {
   const args = [
     '-p', userPrompt,
     '--model', apiModel,
-    '--output-format', 'json',
+    // `stream-json` e non `json`: con `json` il CLI non scrive un solo byte
+    // finche' non ha finito, ed e' quello che rende «0 byte a 120s»
+    // indistinguibile fra tre cause che vogliono rimedi opposti. `--verbose` e'
+    // obbligatorio perche' sotto `-p` il CLI emetta davvero gli eventi, ed e'
+    // accettato insieme a `-p` (verificato eseguendolo, CLI 2.1.234). Il perche'
+    // esteso e le latenze misurate stanno su createClaudeCliStreamTrace.
+    '--output-format', 'stream-json', '--verbose',
     '--tools', '',
     '--permission-mode', 'bypassPermissions',
     '--safe-mode',
@@ -4602,7 +4619,7 @@ async function _callClaudeCli(model, messages, opts) {
   // counts against the caller's wall-clock budget (correct) while the actual
   // per-process timeout still reflects the true remaining budget at the
   // moment it starts (not at the moment it was queued).
-  const { code, stdout, stderr } = await _withClaudeCliSlot(async () => {
+  const { code, stdout, stderr, trace } = await _withClaudeCliSlot(async () => {
     // Same deadline-capping rationale as _callLocal above — cap to the
     // caller's remaining wall-clock budget so a last-resort call can't
     // outlive the run.
@@ -4614,11 +4631,19 @@ async function _callClaudeCli(model, messages, opts) {
     return _runClaudeCliProcess(args, timeoutMs);
   });
 
-  let parsed;
-  try {
-    parsed = JSON.parse(stdout);
-  } catch {
-    throw new Error(`[${model}] claude CLI non-JSON output (exit ${code}): ${(stdout || stderr).slice(0, 300)}`);
+  // La riga `type:"result"` del JSONL, non piu' l'intero stdout: sotto
+  // `stream-json` lo stdout e' una sequenza di eventi e `JSON.parse(stdout)`
+  // fallirebbe su ogni chiamata, anche perfettamente riuscita. La riga ha la
+  // stessa forma esatta dell'oggetto che `--output-format json` restituiva
+  // (`is_error` + `result`), quindi da qui in giu' non cambia niente — ed e'
+  // anche la ragione per cui i mock dei test che gia' emettono
+  // `{type:'result', …}` continuano a valere.
+  const parsed = trace.result;
+  if (!parsed) {
+    // Nessun evento `result`: qui la diagnosi del flusso serve quanto sul
+    // timeout — un processo uscito 0 senza result non e' la stessa cosa di uno
+    // che ha scritto spazzatura.
+    throw new Error(`[${model}] claude CLI senza evento result (exit ${code})${trace.describe()}: ${(stdout || stderr).slice(0, 300)}`);
   }
   if (code !== 0 || parsed.is_error) {
     throw new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
@@ -4644,6 +4669,156 @@ function _getChildProcessModule() {
 }
 
 /**
+ * ── DOVE SI E' FERMATO, NON SOLO CHE SI E' FERMATO ──────────────────────────
+ *
+ * Tracciatore incrementale del flusso `stream-json` del CLI `claude`. Esiste
+ * per una ragione sola: rendere DIAGNOSTICABILE il timeout.
+ *
+ * Con `--output-format json` il CLI non scrive niente su stdout finche' non ha
+ * finito — misurato il 2026-08-18 in locale con la CLI 2.1.234 e gli argomenti
+ * esatti di produzione: primo byte a 8442ms su una chiamata che chiude a
+ * 8995ms. Quindi «0 byte a 120s», la firma IDENTICA di ogni fallimento di
+ * `claude-cli/haiku` in produzione (0 successi in assoluto, run 32140876038:
+ * tre tentativi alle 13:12/13:32/13:34 del 2026-08-18, tutti a 120000ms esatti,
+ * 0 byte, stderr vuoto), non distingue tre cause che vogliono rimedi opposti:
+ *
+ *   - la CLI non e' mai partita        → il floor non c'entra niente
+ *   - l'API stallava dopo l'avvio      → il floor non c'entra niente
+ *   - la risposta era solo lenta       → e allora si', il floor e' stretto
+ *
+ * E' quella cecita' ad aver bruciato tre tentativi alla cieca di fila (floor
+ * 60s→120s, semaforo CLAUDE_CLI_MAX_CONCURRENCY, soglia del breaker portata a 3
+ * da #438): nessuno dei tre aveva un dato su cui puntare. Questa classe non
+ * ripara il difetto, lo rende misurabile — ed e' deliberatamente tutto cio' che
+ * fa: nessuna delle tre leve sopra viene toccata nello stesso giro.
+ *
+ * Con `--output-format stream-json --verbose` il primo byte arriva invece a
+ * 942ms, e la sequenza osservata su una chiamata sana e':
+ *
+ *     942ms  system/init
+ *    2699ms  system/thinking_tokens
+ *    4009ms  rate_limit_event
+ *    5065ms  assistant
+ *    5119ms  result/success
+ *
+ * Da cui le tre risposte che il messaggio di timeout ora puo' dare: «nessun
+ * evento» (non e' partita), «fermo dopo system/init a Nms» (stallo a monte),
+ * «fermo dopo assistant» (generazione lenta).
+ *
+ * PERCHE' `rate_limit_event` E' RIPORTATO A PARTE. E' il candidato causale piu'
+ * forte oggi invisibile: lo stesso `CLAUDE_CODE_OAUTH_TOKEN` di Max plan e'
+ * condiviso con `pr-review-loop`, `issue-fix` e il redflag-fixer, quindi un
+ * limite di sessione spiegherebbe esattamente la forma del difetto — funziona
+ * in locale, mai in CI. Il campo c'e' SEMPRE, anche quando l'evento non e'
+ * comparso ('nessun rate_limit_event'), per la stessa ragione per cui il
+ * conteggio dei byte di stdout c'e' anche a zero (vedi il ramo di timeout piu'
+ * sotto): un campo che appare solo quando c'e' qualcosa costringe chi legge il
+ * prossimo incidente a distinguere «non e' successo» da «non lo guardavamo».
+ *
+ * PERCHE' UN BUFFER. Le righe JSONL possono arrivare spezzate fra due eventi
+ * `data`: un chunk NON e' una riga. Si accumula e si taglia sui `\n`; il
+ * residuo senza `\n` finale e' una riga intera solo a processo chiuso (`end()`),
+ * mentre a timeout e' precisamente il segnale «stava scrivendo quando l'abbiamo
+ * ucciso», e come tale viene riportato invece che parsato.
+ *
+ * @param {{now?: () => number}} [deps] iniezione dell'orologio, per i test.
+ */
+export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
+  const startedAt = now();
+  const state = {
+    events: 0,
+    malformed: 0,
+    firstEventAtMs: null,
+    lastEventAtMs: null,
+    lastEventLabel: null,
+    rateLimit: null,
+    result: null,
+  };
+  let buffer = '';
+
+  function absorbLine(raw) {
+    const line = raw.trim();
+    if (!line) return;
+    let evt;
+    try {
+      evt = JSON.parse(line);
+    } catch {
+      state.malformed += 1;
+      return;
+    }
+    if (!evt || typeof evt !== 'object') {
+      state.malformed += 1;
+      return;
+    }
+    const atMs = Math.max(0, now() - startedAt);
+    state.events += 1;
+    if (state.firstEventAtMs === null) state.firstEventAtMs = atMs;
+    state.lastEventAtMs = atMs;
+    const type = typeof evt.type === 'string' ? evt.type : 'sconosciuto';
+    state.lastEventLabel = typeof evt.subtype === 'string' ? `${type}/${evt.subtype}` : type;
+    if (type === 'rate_limit_event') {
+      const info = evt.rate_limit_info && typeof evt.rate_limit_info === 'object' ? evt.rate_limit_info : {};
+      state.rateLimit = {
+        atMs,
+        status: typeof info.status === 'string' ? info.status : 'sconosciuto',
+        kind: typeof info.rateLimitType === 'string' ? info.rateLimitType : 'sconosciuto',
+      };
+    }
+    if (type === 'result') state.result = evt;
+  }
+
+  return {
+    state,
+    /** Un chunk non e' una riga: si bufferizza e si taglia sui `\n`. */
+    feed(chunk) {
+      buffer += String(chunk);
+      let nl = buffer.indexOf('\n');
+      while (nl !== -1) {
+        absorbLine(buffer.slice(0, nl));
+        buffer = buffer.slice(nl + 1);
+        nl = buffer.indexOf('\n');
+      }
+    },
+    /**
+     * A processo chiuso il residuo senza `\n` e' una riga intera — e nei mock
+     * dei test e' l'unica forma in cui il payload arriva mai.
+     */
+    end() {
+      if (!buffer) return;
+      const rest = buffer;
+      buffer = '';
+      absorbLine(rest);
+    },
+    /** Byte di una riga non ancora terminata: a timeout vale «stava scrivendo». */
+    get pendingBytes() { return buffer.length; },
+    /** L'evento `type:"result"`, o null se non e' mai arrivato. */
+    get result() { return state.result; },
+    /**
+     * La frase che va nel messaggio d'errore. Sempre non vuota: anche «non e'
+     * arrivato niente» e' un'informazione, ed e' quella che serviva.
+     */
+    describe() {
+      if (state.events === 0) {
+        return buffer.length
+          ? ` — stream: nessun evento completo, ${buffer.length} byte di riga a meta' (il CLI aveva iniziato a scrivere)`
+          : ' — stream: nessun evento (il CLI non ne ha scritto uno solo: si e\' fermato prima di partire)';
+      }
+      const parti = [
+        `${state.events} ${state.events === 1 ? 'evento' : 'eventi'}`,
+        `fermo dopo ${state.lastEventLabel} a ${state.lastEventAtMs}ms`,
+      ];
+      if (state.events > 1) parti.push(`primo evento a ${state.firstEventAtMs}ms`);
+      if (buffer.length) parti.push(`${buffer.length} byte di riga a meta'`);
+      if (state.malformed) parti.push(`${state.malformed} righe illeggibili`);
+      parti.push(state.rateLimit
+        ? `rate_limit_event a ${state.rateLimit.atMs}ms (status=${state.rateLimit.status}, tipo=${state.rateLimit.kind})`
+        : 'nessun rate_limit_event');
+      return ` — stream: ${parti.join(', ')}`;
+    },
+  };
+}
+
+/**
  * Spawn the `claude` CLI with stdin closed (its default stdin-wait-then-read
  * behavior adds ~3s latency when nothing is piped in — confirmed via live
  * test) and a hard kill-timeout so a hung subprocess can't outlive the run.
@@ -4664,6 +4839,9 @@ async function _runClaudeCliProcess(args, timeoutMs) {
     let stdout = '';
     let stderr = '';
     let settled = false;
+    // Il tracciatore parte con il processo, non con il primo byte: e' la
+    // distanza fra lo spawn e il primo evento a dire se la CLI e' mai partita.
+    const trace = createClaudeCliStreamTrace();
     const timer = setTimeout(() => {
       if (settled) return;
       settled = true;
@@ -4693,11 +4871,18 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       // distinguere «non e' arrivato niente» da «la diagnostica non c'era».
       const stdoutExcerpt = ` — stdout: ${stdout.length} bytes`
         + (stdout ? `: ${stdout.slice(0, 200)}` : ' (nessun byte scritto dal processo)');
-      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${stderrExcerpt}${stdoutExcerpt}`);
+      // …e ora anche DOVE si e' fermato, che e' la domanda a cui il conteggio
+      // dei byte da solo non poteva rispondere: sotto `--output-format json` lo
+      // stdout resta a 0 byte fino all'ultimo istante di una chiamata
+      // perfettamente sana (8442ms su 8995ms, misurato), quindi «0 byte» non
+      // era mai stata la prova di «non e' partita». Sotto `stream-json` lo e'.
+      // Va per primo perche' e' il campo su cui si decide il prossimo rimedio.
+      const streamExcerpt = trace.describe();
+      const err = new Error(`claude CLI timed out after ${timeoutMs}ms${streamExcerpt}${stderrExcerpt}${stdoutExcerpt}`);
       err.name = 'TimeoutError';
       reject(err);
     }, timeoutMs);
-    child.stdout.on('data', (d) => { stdout += d; });
+    child.stdout.on('data', (d) => { stdout += d; trace.feed(d); });
     child.stderr.on('data', (d) => { stderr += d; });
     child.on('error', (err) => {
       if (settled) return;
@@ -4709,7 +4894,10 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       if (settled) return;
       settled = true;
       clearTimeout(timer);
-      resolve({ code, stdout, stderr });
+      // L'ultima riga puo' non avere il `\n`: senza questo flush il `result`
+      // resterebbe nel buffer e ogni chiamata riuscita passerebbe per fallita.
+      trace.end();
+      resolve({ code, stdout, stderr, trace });
     });
   });
 }
