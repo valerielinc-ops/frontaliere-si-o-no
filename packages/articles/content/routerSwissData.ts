@@ -1134,6 +1134,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-basilea-citta': { it: 'sistema-scolastico-canton-basilea-citta', en: 'school-system-canton-basel-city', de: 'schoolestsystem-kanton-basel-stadt', fr: 'systeme-educatif-canton-de-bale-ville' },
  'apprendistato-formazione-professionale-basilea-citta': { it: 'apprendistato-formazione-professionale-basilea-citta', en: 'apprenticeship-professional-training-basel-city', de: 'ausbildung-berufliche-bildung-basel-stadt', fr: 'stage-formation-professionnelle-bale-ville' },
  'calo-disoccupazione-svizzera-secondo-trimestre': { it: 'calo-disoccupazione-svizzera-secondo-trimestre', en: 'switzerland-unemployment-rate-decreases-q2-2026', de: 'schweiz-arbeitslosenquote-sinkt-zweiten-quartal-2026', fr: 'chute-chomage-suisse-deuxieme-trimestre-2026' },
+ 'twint-addebito-diretto-2027': { it: 'twint-addebito-diretto-2027', en: 'twint-direct-debit', de: 'twint-direkter-abzug', fr: 'twint-virement-direct' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

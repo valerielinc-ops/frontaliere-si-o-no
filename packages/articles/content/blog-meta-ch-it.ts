@@ -3325,6 +3325,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'Di più UST: cala disoccupazione nel secondo trimestre dell\'anno',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'Il tasso di disoccupazione secondo la definizione dell\'ILO si è attestato al 4,9%. Nel primo trimestre era al 5,2%.',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Cala disoccupazione Svizzera secondo trimestre 2026',
+    'blog.article.twint-addebito-diretto-2027.title': 'Twint lancia l\'addebito diretto per i pagamenti ricorrenti',
+    'blog.article.twint-addebito-diretto-2027.excerpt': 'Gli oltre sei milioni di utenti di Twint potranno autorizzare, gestire e visualizzare le autorizzazioni di addebito diretto per i pagamenti ricorrenti presso i rivenditori che offrono tale soluzione',
+    'blog.article.twint-addebito-diretto-2027.imageAlt': 'Immagine di una persona che utilizza l\'app Twint per autorizzare l\'addebito diretto',
 };
 
 export default blogMetaChIt;

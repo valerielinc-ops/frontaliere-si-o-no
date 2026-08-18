@@ -3325,6 +3325,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'Plus OFS : baisse du chômage au deuxième trimestre de l\'année',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'Le taux de chômage selon la définition de l\'OIT s\'est établi à 4,9 %. Au premier trimestre, il était de 5,2 %.',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Chute du chômage en Suisse au deuxième trimestre 2026',
+    'blog.article.twint-addebito-diretto-2027.title': 'Twint lance le prélèvement automatique pour les paiements récurrents',
+    'blog.article.twint-addebito-diretto-2027.excerpt': 'Les plus de six millions d\'utilisateurs de Twint pourront autoriser, gérer et afficher les autorisations de débit direct pour les paiements récurrents auprès des revendeurs proposant cette solution',
+    'blog.article.twint-addebito-diretto-2027.imageAlt': 'Image d\'une personne qui utilise l\'application Twint pour autoriser le virement direct',
 };
 
 export default blogMetaChFr;

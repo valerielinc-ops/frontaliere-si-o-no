@@ -43115,6 +43115,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-twint-addebito-diretto-2027': {
+    title: 'Twint lancia l\'addebito diretto per i pagamenti ricorrenti',
+    description: 'Gli oltre sei milioni di utenti di Twint potranno autorizzare, gestire e visualizzare le autorizzazioni di addebito diretto per i pagamenti ricorrenti presso',
+    keywords: 'frontalieri, ticino, svizzera, italia, twint, lancia, addebito, diretto',
+    ogTitle: 'Twint lancia l\'addebito diretto per i pagamenti ricorrenti',
+    ogDescription: 'Gli oltre sei milioni di utenti di Twint potranno autorizzare, gestire e visualizzare le autorizzazioni di addebito diretto per i pagamenti ricorrenti presso i rivenditori che offrono tale soluzione',
+    canonicalPath: '/articoli-svizzera/twint-addebito-diretto-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Twint lancia l'addebito diretto per i pagamenti ricorrenti",
+      "description": "Gli oltre sei milioni di utenti di Twint potranno autorizzare, gestire e visualizzare le autorizzazioni di addebito diretto per i pagamenti ricorrenti presso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/twint-addebito-diretto-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una persona che utilizza l'app Twint per autorizzare l'addebito diretto"
+      },
+      "datePublished": "2026-08-18T08:08:43+00:00",
+      "dateModified": "2026-08-18T08:08:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/twint-addebito-diretto-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

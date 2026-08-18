@@ -3325,6 +3325,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.title': 'Mehr USt: sinkende Arbeitslosigkeit im zweiten Quartal des Jahres',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.excerpt': 'Die Arbeitslosenquote nach ILO-Definition lag bei 4,9%. Im ersten Quartal lag sie bei 5,2%.',
     'blog.article.calo-disoccupazione-svizzera-secondo-trimestre.imageAlt': 'Schweiz: Arbeitslosenquote sinkt im zweiten Quartal 2026',
+    'blog.article.twint-addebito-diretto-2027.title': 'Twint startet Lastschriftverfahren für wiederkehrende Zahlungen',
+    'blog.article.twint-addebito-diretto-2027.excerpt': 'Die mehr als sechs Millionen Twint-Benutzer können Lastschriftberechtigungen für wiederkehrende Zahlungen bei Händlern, die eine solche Lösung anbieten, autorisieren, verwalten und anzeigen',
+    'blog.article.twint-addebito-diretto-2027.imageAlt': 'Bild einer Person, die die Twint-App verwendet, um den direkten Abzug zu autorisieren',
 };
 
 export default blogMetaChDe;
