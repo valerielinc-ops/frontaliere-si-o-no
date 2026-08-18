@@ -10035,6 +10035,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infortuni-lavoro-varese-uil-2026.title': 'Arbeitsunfälle in Varese: UIL-Daten und 7 Todesfälle',
     'blog.article.infortuni-lavoro-varese-uil-2026.excerpt': 'Die von der Uil Lombardia verarbeiteten INAIL-Daten für das erste Halbjahr 2026 zeigen einen Anstieg der Unfälle in Varese um 6% und sieben Todesfälle.',
     'blog.article.infortuni-lavoro-varese-uil-2026.imageAlt': 'Industrielandschaft und Baustellen in der Provinz Varese',
+    'blog.article.bollettino-frontaliere-2026-08-18.title': 'Grenzgänger-Tagesbulletin – 18. August 2026: 622 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-18.excerpt': 'Die Zahlen von heute, 18. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 18. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Grenzgänger-Bulletin vom 18. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'Die Zahlen vom 18. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
