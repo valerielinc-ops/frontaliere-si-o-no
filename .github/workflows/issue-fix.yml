@@ -72,9 +72,25 @@ jobs:
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
         # posteriori. Col tetto e' un `failure` diagnosticabile.
-        # Ha gia' blob:none (#4189) e i numeri lo confermano: Checkout 129-262s su
-        # 4 run, max = 1% di un cap da 360min. Nessun altro cambio, solo il tetto.
-        timeout-minutes: 10
+        # RIMISURATO il 2026-08-18 (era 10min, derivato da 4 run): su 72 Checkout
+        # `success` delle ultime 300 run — min 125s, p50 198s, p95 370s, p99 480s,
+        # **max 571s** — il tetto di 600s stava 29 SECONDI sopra il massimo sano.
+        # Non c'e' separazione fra le due popolazioni: 571s sano e 600s morto sono
+        # adiacenti, quindi il tetto stava troncando la coda della propria
+        # distribuzione invece di discriminare un guasto.
+        # Due morti reali, entrambe oggi (13:27:56Z run 32142498996 e 15:17:20Z run
+        # 32153527680), durata esatta 600,000s e annotazione letterale
+        # "The action 'Checkout' has timed out after 10 minutes": il Checkout e'
+        # morto PRIMA che Claude partisse, quindi due issue (follow-up #6004 e
+        # #6001) non sono state riparate. Il rimedio era peggio del male — un
+        # Checkout lento che finisce lascia comunque lavorare il fixer, il kill lo
+        # annulla del tutto.
+        # Questo workflow e' strutturalmente il piu' lento dei quattro del ciclo:
+        # e' l'unico senza sparse-checkout, quindi materializza l'albero pieno.
+        # Nuovo tetto = 2,5x il massimo osservato (571s), e resta il 6,7% del
+        # budget del job (`timeout-minutes: 360`), quindi scatta sempre prima.
+        # Rimisurare quando il p99 si muove; non ri-derivare da un campione < 30.
+        timeout-minutes: 24
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

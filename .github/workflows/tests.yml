@@ -108,7 +108,27 @@ jobs:
   typecheck:
     name: typecheck (tsc --noEmit)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 15 -> 30 il 2026-08-18, stesso difetto e stessa misura del job `vitest`
+    # qui sotto: il tetto stava sotto il caso peggiore reale e uccideva run
+    # sane invece di rilevare un guasto.
+    #
+    # Misurato sulle ultime 500 run: 248 job `success` arrivano al massimo a
+    # 813s, ma il massimo COMPLESSIVO della finestra e' 914s — cioe' 14s oltre
+    # il tetto di 900s, ed e' l'unica morte da cap (job 95740926372, Checkout
+    # 885s, `tsc` mai partito). Il caso peggiore osservato, 999s alle 16:39,
+    # sta GIA' sopra il tetto: non e' un margine stretto, e' un tetto sotto la
+    # distribuzione che deve contenere.
+    #
+    # La causa non e' `tsc` (33s in locale, e nei job sani resta la fetta
+    # corta): e' `actions/checkout`, che il 2026-08-18 si e' degradato dalle
+    # 14:00Z in poi su tutti i workflow del repo. Un tetto tarato su un
+    # checkout sano diventa una ghigliottina quando il checkout rallenta, e
+    # converte una lentezza in un fallimento duro che nessun `if: failure()`
+    # vede (un kill da `timeout-minutes` produce `cancelled`, non `failure`).
+    #
+    # 30 min = 2,0x il caso peggiore osservato (999s). Ri-misurare se il p99
+    # si muove, non ri-derivare a occhio.
+    timeout-minutes: 30
     env:
       # tsc tiene l'intero program in memoria: 4,4 GB di RSS misurati in locale
       # sull'albero completo. Il default di Node su un runner a 16 GB è più
