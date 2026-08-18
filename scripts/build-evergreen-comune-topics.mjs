@@ -2,8 +2,9 @@
 /**
  * Precompute the per-comune evergreen topics and publish them as data.
  *
- * The article generator needs ~85 long-tail keywords of the shape "vivere a X
- * e lavorare in Y da frontaliere". Deriving them takes four site datasets —
+ * The article generator needs a few hundred long-tail keywords of the shape
+ * "vivere a X e lavorare in Y da frontaliere" (446 as of 2026-08-18; it was 85
+ * until the per-canton count cap became a commute-distance cap). Deriving them takes four site datasets —
  * municipalities, border crossings, the crossing slugs and the wait averages —
  * because the canton is assigned by geographic proximity. Those datasets have
  * 20+ and 25+ consumers in the site respectively; they are site core and cannot

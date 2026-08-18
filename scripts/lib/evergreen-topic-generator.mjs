@@ -159,9 +159,13 @@ export function resolveComuneCanton(m) {
 // The selection bar is a COMMUTE RADIUS, not a per-canton head count.
 //
 // It used to be `{ Ticino: 40, Grigioni: 25, Vallese: 20 }` = 85 comuni, while
-// the dataset resolves 506 of its 518 rows to a canton (Ticino 343, Grigioni
-// 99, Vallese 64). That left 421 comuni unused, and the resulting pool was too
-// small to keep the `frontaliere` section fed: with the profession half also
+// the dataset resolves almost every one of its 518 rows to a canton: 506 on
+// the corpus copy (Ticino 343, Grigioni 99, Vallese 64) and 517 on the site
+// copy (Ticino 329, Grigioni 124, Vallese 64). Both numbers are given because
+// this file is `mode: identical` and the two dataset copies differ — see the
+// note under the table. Either way the cap left 400+ comuni unused, and the
+// resulting pool was too small to keep the `frontaliere` section fed: with
+// the profession half also
 // halved by #5563, `buildStructuralEvergreenTopics()` fell 310 → 155 in
 // 7045b166 (2026-08-14), the runtime pool went 537 → 382, and the section
 // saturated outright — `EVERGREEN_POOL_OUTCOME saturated=1 pool=382
@@ -177,16 +181,24 @@ export function resolveComuneCanton(m) {
 // distance depending only on how many comuni happened to share its canton.
 // Stating the radius directly makes the bar uniform and dataset-stable.
 //
-// 30km is not a new number: it is GEO_RESOLVE_MAX_KM above, this file's
-// already-committed definition of "close enough to be a plausible commute".
-// The two are measured slightly differently — that one is haversine to the
-// nearest tagged crossing, this one is the dataset's own `distanceKm` — but
-// they agree closely where both exist (the MB comuni: 17.7-21.1km haversine vs
-// 19-22km `distanceKm`), so carrying one commute radius rather than two is
-// the honest reading, not a coincidence being exploited.
+// 30km is borrowed, not invented: GEO_RESOLVE_MAX_KM above is this file's
+// already-committed answer to "close enough to be a plausible commute", and
+// starting from the same number rather than a fresh guess is the point. The
+// two agree closely where both apply (the MB comuni: 17.7-21.1km haversine vs
+// 19-22km `distanceKm`).
 //
-// Measured 2026-08-18 on the CORPUS copy of the dataset — comuni selected per
-// canton, and the resulting structural pool including the 70 professions:
+// They are deliberately kept as SEPARATE constants, and must stay that way:
+// they answer different questions and are allowed to diverge. GEO_RESOLVE_MAX_KM
+// decides WHICH CANTON a comune belongs to; raising it re-labels comuni and
+// changes `resolveComuneCanton` for everything downstream. COMUNE_MAX_DISTANCE_KM
+// only decides which already-labelled comuni are worth a keyword, and the table
+// below is an explicit plan to raise IT alone. Merging them into one constant
+// would silently turn each widening step into a canton-resolution change — a far
+// larger blast radius than the widening intends.
+//
+// Measured 2026-08-18 on the CORPUS copy of the dataset (the site copy differs;
+// see the note below) — comuni selected per canton, and the resulting
+// structural pool including the 70 professions:
 //
 //     radius   Ticino  Grigioni  Vallese   comuni   structural pool
 //      20km     251       50       27       328          398
