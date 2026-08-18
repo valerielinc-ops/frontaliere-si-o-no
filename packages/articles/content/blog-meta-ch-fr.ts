@@ -3280,6 +3280,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Abonnements transports publics Canton Soleure zones et tarifs',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Informations sur les tarifs et les zones des transports publics dans le canton de Soleure',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Transports publics dans le canton de Soleure',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.title': 'Permis de conduire de Solothurn : quoi faire et comment procéder',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.excerpt': 'Conversion d\'un permis de conduire étranger dans le canton de Soleure : comment demander une conversion et quoi faire pendant les examens.',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.imageAlt': 'Un conducteur dans une voiture sur la route suisse près de Lugano.',
 };
 
 export default blogMetaChFr;

@@ -3280,6 +3280,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Abbonamenti trasporti pubblici Canton Soletta zone e tariffe',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Informazioni sui tarifferi e le zone dei trasporti pubblici nel Canton Soletta',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Trasporti pubblici nel Canton Soletta',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.title': 'Patente Soletta: cosa fare e come procedere',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.excerpt': 'Conversione della patente di guida estera nel Cantone di Soletta: come richiedere la conversione e cosa fare durante gli esami.',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.imageAlt': 'Un guidatore in un\'auto sulla strada svizzera vicino a Lugano.',
 };
 
 export default blogMetaChIt;

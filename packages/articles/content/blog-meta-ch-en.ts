@@ -3280,6 +3280,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Public transport subscriptions Canton Solothurn zones and fares',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Information on fares and public transport zones in the canton of Solothurn',
     'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Public transport in the Canton of Solothurn',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.title': 'Soleta licence: what to do and how to proceed',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.excerpt': 'Conversion of the foreign driver\'s license in the Canton of Solothurn: how to apply for the conversion and what to do during the exams.',
+    'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.imageAlt': 'A driver in a car on the Swiss road near Lugano.',
 };
 
 export default blogMetaChEn;
