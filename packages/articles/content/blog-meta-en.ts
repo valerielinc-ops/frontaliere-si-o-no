@@ -10047,6 +10047,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieriticone2026-q2.title': 'Ticino frontier workers: +0.64% compared to the previous quarter',
     'blog.article.frontalieriticone2026-q2.excerpt': 'The number of border workers in the Canton of Ticino increased by +0.64% compared to the previous quarter, but decreased by -0.57% compared to the same quarter of the previous year.',
     'blog.article.frontalieriticone2026-q2.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland. A crowded waterfront promenade with a lake in the background.',
+    'blog.article.economia-varese-2024-imposte.title': 'Here are the companies that pay the most taxes in Varese',
+    'blog.article.economia-varese-2024-imposte.excerpt': 'The ranking of Made in Varese 2026 on the 2024 financial statements sees Bticino in first place, followed by Sea Esercizi Aeroportuali and Novartis Farma.',
+    'blog.article.economia-varese-2024-imposte.imageAlt': 'Companies that pay more taxes in the Varese area',
 };
 
 export default blogMetaEn;

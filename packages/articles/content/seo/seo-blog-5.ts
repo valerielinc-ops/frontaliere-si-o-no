@@ -69101,6 +69101,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economia-varese-2024-imposte': {
+    title: 'Ecco le imprese che pagano più imposte nel Varesotto',
+    description: 'La classifica di Made in Varese 2026 sui bilanci 2024 vede al primo posto Bticino, seguita da Sea Esercizi Aeroportuali e Novartis Farma. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ecco, imprese, pagano, imposte',
+    ogTitle: 'Ecco le imprese che pagano più imposte nel Varesotto',
+    ogDescription: 'La classifica di Made in Varese 2026 sui bilanci 2024 vede al primo posto Bticino, seguita da Sea Esercizi Aeroportuali e Novartis Farma.',
+    canonicalPath: '/articoli-frontaliere/economia-varese-2024-imposte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ecco le imprese che pagano più imposte nel Varesotto",
+      "description": "La classifica di Made in Varese 2026 sui bilanci 2024 vede al primo posto Bticino, seguita da Sea Esercizi Aeroportuali e Novartis Farma. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-varese-2024-imposte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprese che pagano più imposte nel Varesotto"
+      },
+      "datePublished": "2026-08-18T10:01:21+00:00",
+      "dateModified": "2026-08-18T10:01:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/economia-varese-2024-imposte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

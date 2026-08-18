@@ -1,19 +1,21 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-08-17T21:47:40.305Z",
-  "total": 7,
+  "generatedAt": "2026-08-18T09:55:53.419Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 38896,
-  "avgDurationMs": 38896,
+  "unchangedCount": 1,
+  "durationMs": 33212,
+  "avgDurationMs": 33212,
   "durationHistory": [
-    38896
+    33212
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-6c6a92505e13",
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diakoniewerk-neumunster-gesundheitswelt",
@@ -21,7 +23,6 @@
       "companyKey": "diakoniewerk-neumuenster",
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=04ad0c56-b519-4611-9463-95c7933900c2,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
@@ -45,7 +46,7 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +55,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

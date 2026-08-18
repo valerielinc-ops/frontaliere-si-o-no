@@ -3139,7 +3139,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ucraina: Ordinanza per provvedimenti',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Il Dipartimento federale dell’economia, della formazione e della ricerca (DEFR) ha modificato gli allegati 2 e 14a dell’ordinanza in relazione alla situazione in Ucraina.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Immagine editoriale relativa a: Ucraina: Ordinanza per provvedimenti',
-    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralità, il fronte del',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralità, il fronte del «No» lancia l\'allarme',
     'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'Un comitato interpartitico chiede di respingere l\'iniziativa il 27 settembre, limiterebbe la politica estera e indebolirebbe la difesa svizzera.',
     'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'Una manifestazione a Lugano contro l\'iniziativa sulla neutralità.',
     'blog.article.borse-studio-canton-zugo-requisiti-importi.title': 'Borse di studio e prestiti nel Canton Zugo: requisiti, importi e scadenze',
@@ -3343,6 +3343,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Asilo nido e custodia bambini nel Cantone di Basilea Città: costi',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Gli asili nido e le famiglie diurne nel Cantone di Basilea Città: prezzi calcolati sul reddito e sussidi cantonali disponibili',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Foto di un asilo nido in un quartiere residenziale di Basilea Città',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Borse di studio Canton Basilea Città requisiti e importi',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Requisiti e importi delle borse di studio offerte dal Canton Basilea Città per gli studenti svizzeri e stranieri.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Borse di studio offerte dal Canton Basilea Città',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asilo in Svizzera: riprende il trasferimento verso l\'Italia',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'Dopo quasi quattro anni di blocco, la Svizzera torna a trasferire verso l\'Italia i richiedenti asilo di competenza italiana grazie al nuovo patto europeo.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'Il Palazzo Federale a Berna sede del governo svizzero',
+    'blog.article.italia-rimpatrio-asilo.title': 'Richiedenti l\'asilo, riprendono i trasferimenti verso l\'Italia',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'La Svizzera riprenderà i trasferimenti di richiedenti l\'asilo verso l\'Italia, dopo quasi quattro anni di blocco.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Richiedenti l\'asilo alla stazione ferroviaria di Chiasso',
 };
 
 export default blogMetaChIt;

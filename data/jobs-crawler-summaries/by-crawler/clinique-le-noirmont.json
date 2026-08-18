@@ -1,16 +1,16 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-08-17T21:29:59.866Z",
-  "total": 6,
+  "generatedAt": "2026-08-18T09:49:25.485Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4090,
-  "avgDurationMs": 4090,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5039,
+  "avgDurationMs": 5039,
   "durationHistory": [
-    4090
+    5039
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -163,8 +163,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Gestionnaire en intendance (F/H) 50%",
       "slug": "responsabile-della-gestione-f-m-50-clinique-le-noirmont-le-noirmont",
@@ -197,7 +196,6 @@
       "salaryMax": 81000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -238,7 +236,6 @@
       "salaryMax": 72000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,5 +244,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

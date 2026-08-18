@@ -3139,7 +3139,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-ordinanza-ucraina-2026.title': 'Ukraine : Ordonnance sur les mesures',
     'blog.article.seco-ordinanza-ucraina-2026.excerpt': 'Le Département fédéral de l\'économie, de la formation et de la recherche (DEFR) a modifié les annexes 2 et 14a de l\'ordonnance en ce qui concerne la situation en Ukraine.',
     'blog.article.seco-ordinanza-ucraina-2026.imageAlt': 'Image éditoriale relative à: Ucraina: Ordinanza per provvedimenti',
-    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralité, le front du',
+    'blog.article.neutralita-fronte-no-lancia-allarme.title': 'Neutralité: le camp du Non tire la sonnette d\'alarme',
     'blog.article.neutralita-fronte-no-lancia-allarme.excerpt': 'Un comité interpartite demande de rejeter l\'initiative le 27 septembre, ce qui limiterait la politique étrangère et affaiblirait la défense suisse.',
     'blog.article.neutralita-fronte-no-lancia-allarme.imageAlt': 'Une manifestation à Lugano contre l\'initiative de neutralité.',
     'blog.article.borse-studio-canton-zugo-requisiti-importi.title': 'Bourses et prêts dans le canton de Zoug : exigences, montants et échéances',
@@ -3343,6 +3343,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Garderie et garde d\'enfants dans le canton de Bâle-Ville : coûts',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Les crèches et les familles de jour dans le canton de Bâle-Ville : prix calculés sur le revenu et allocations cantonales disponibles',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Photo d\'une garderie d\'enfants dans un quartier résidentiel de Bâle-Ville',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Bourses Canton Bâle-Ville exigences et montants',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Exigences et montants des bourses offertes par le canton de Bâle-Ville pour les étudiants suisses et étrangers.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Bourses d\'études offertes par le canton de Bâle-Ville',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asile en Suisse : reprise du transfert vers l\'Italie',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'Après près de quatre ans de blocage, la Suisse transfère à nouveau vers l\'Italie les demandeurs d\'asile relevant de la compétence italienne grâce au nouveau pacte européen.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'Le Palais fédéral à Berne siège du gouvernement suisses',
+    'blog.article.italia-rimpatrio-asilo.title': 'Demandeurs d\'asile, reprennent les transferts vers l\'Italie',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'La Suisse va reprendre les transferts de demandeurs d\'asile vers l\'Italie, après près de quatre ans de blocage.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Demandeurs d\'asile à la gare de Chiasso, Suisse',
 };
 
 export default blogMetaChFr;
