@@ -18,37 +18,72 @@ import { spawn } from 'node:child_process';
 export function createCatFileBatch(cwd) {
   const proc = spawn('git', ['cat-file', '--batch'], { cwd, stdio: ['pipe', 'pipe', 'ignore'] });
   const queue = [];
-  let buf = Buffer.alloc(0);
+  // Pending stdout bytes as a list of un-merged chunks, not a single
+  // concatenated Buffer. A large historical blob (e.g. a 30MB slice file)
+  // arrives over the pipe as hundreds of ~64KB reads; re-running
+  // `Buffer.concat([buf, chunk])` on every single one of those (as this
+  // used to) re-copies the ENTIRE accumulated buffer each time — O(n^2) in
+  // the blob size. Measured: ~1s per 30MB historical version fetched this
+  // way, x400 commits walked per file by callers that index a whole slice's
+  // history → multi-minute stalls that cancelled the "Recover Lost
+  // previousSlugs" job (#5025) despite it already using this shared batch
+  // process instead of spawning one `git show` per blob (the fix
+  // #4654/#5027 targeted). Chunks are only merged once, via a single
+  // Buffer.concat, at the point a full response has actually arrived.
+  let chunks = [];
+  let chunksLen = 0;
 
   proc.stdout.on('data', (chunk) => {
-    buf = buf.length ? Buffer.concat([buf, chunk]) : chunk;
+    chunks.push(chunk);
+    chunksLen += chunk.length;
     drain();
   });
   proc.on('error', (err) => {
     while (queue.length) queue.shift().reject(err);
   });
 
+  // Absolute offset of the first '\n' across the pending chunks, or -1 if
+  // not yet received. The header line (hex OID + type + byte size) is a few
+  // dozen bytes and — per git's batch-mode framing — always precedes the
+  // body, so this stops at the first (usually only) chunk that contains it
+  // without touching any body bytes queued behind it.
+  function findHeaderEnd() {
+    let offset = 0;
+    for (const c of chunks) {
+      const idx = c.indexOf(10);
+      if (idx !== -1) return offset + idx;
+      offset += c.length;
+    }
+    return -1;
+  }
+
+  function consumeThrough(n) {
+    const full = chunks.length === 1 && chunks[0].length >= n ? chunks[0] : Buffer.concat(chunks, chunksLen);
+    const rest = full.subarray(n);
+    chunks = rest.length ? [rest] : [];
+    chunksLen = rest.length;
+  }
+
   function drain() {
     for (;;) {
-      const nl = buf.indexOf(10);
-      if (nl === -1) return;
-      const header = buf.subarray(0, nl).toString('utf8');
-      const parts = header.split(' ');
-      if (parts[1] === 'missing') {
-        buf = buf.subarray(nl + 1);
-        queue.shift()?.resolve(null);
-        continue;
-      }
+      if (chunksLen === 0) return;
+      const nl = findHeaderEnd();
+      if (nl === -1) return; // header not fully arrived yet
+      const headerBuf = chunks[0].length >= nl ? chunks[0].subarray(0, nl) : Buffer.concat(chunks, chunksLen).subarray(0, nl);
+      const parts = headerBuf.toString('utf8').split(' ');
       const size = Number(parts[2]);
-      if (!Number.isFinite(size)) {
-        buf = buf.subarray(nl + 1);
+      if (parts[1] === 'missing' || !Number.isFinite(size)) {
+        consumeThrough(nl + 1);
         queue.shift()?.resolve(null);
         continue;
       }
       const need = nl + 1 + size + 1;
-      if (buf.length < need) return;
-      const content = buf.subarray(nl + 1, nl + 1 + size).toString('utf8');
-      buf = buf.subarray(need);
+      if (chunksLen < need) return; // body still arriving — no copy yet
+      const full = chunks.length === 1 ? chunks[0] : Buffer.concat(chunks, chunksLen);
+      const content = full.subarray(nl + 1, nl + 1 + size).toString('utf8');
+      const rest = full.subarray(need);
+      chunks = rest.length ? [rest] : [];
+      chunksLen = rest.length;
       queue.shift()?.resolve(content);
     }
   }
