@@ -3310,6 +3310,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Permis L de courte durée canton Bâle-Ville : validité et prorogation',
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'La durée maximale du permis L est d\'un an. Il peut être prolongé si certaines conditions sont remplies.',
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'Un frontalier réside à Bâle-Ville et travaille dans une entreprise du canton du Tessin.',
+    'blog.article.assegni-familiari-canton-basilea-citt.title': 'Allocations familiales dans le canton de Bâle-Ville : montants et demande',
+    'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Montants mensuels par enfant et procédures de demande',
+    'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Bâle-Ville, Suisse',
 };
 
 export default blogMetaChFr;

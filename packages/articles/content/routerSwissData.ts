@@ -1129,6 +1129,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-di-dimora-b-canton-basilea-citta': { it: 'permesso-di-dimora-b-canton-basilea-citta', en: 'permesso-di-dimora-b-canton-basilea-citta-en', de: 'permesso-di-dimora-b-canton-basilea-citta-de', fr: 'permesso-di-dimora-b-canton-basilea-citta-fr' },
  'permesso-domicilio-c-basilea-citta-requisiti-domanda': { it: 'permesso-domicilio-c-basilea-citta-requisiti-domanda', en: 'residence-permit-c-in-the-canton-of-basel-city-requirements-and-application', de: 'aufenthaltstitel-c-basel-stadt-anforderungen-bescheinigung', fr: 'permis-de-sejour-c-basilea-citta-requisitos-demande' },
  'permesso-l-breve-durata-canton-basilea-citta': { it: 'permesso-l-breve-durata-canton-basilea-citta', en: 'short-term-permit-l-canton-basel-city-validity-and-extension', de: 'kurzaufenthaltsbewilligung-l-kanton-basel-stadt-gultigkeit-und-verlangerung', fr: 'permis-l-de-courte-duree-canton-bale-ville-validite-et-prorogation' },
+ 'assegni-familiari-canton-basilea-citt': { it: 'assegni-familiari-canton-basilea-citt', en: 'basel-city-child-allowance-switzerland', de: 'basel-stadt-kindergeld-schweiz', fr: 'bale-ville-prestations-etudes-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

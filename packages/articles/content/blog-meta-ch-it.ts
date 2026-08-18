@@ -3310,6 +3310,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Permesso L di breve durata canton Basilea Città: validità e proroga',
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'La durata massima del permesso L è di un anno. Può essere prorogato se si soddisfano determinate condizioni.',
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'Una persona frontaliere risiede a Basilea Città e lavora in una ditta del canton Ticino.',
+    'blog.article.assegni-familiari-canton-basilea-citt.title': 'Assegni familiari nel Canton Basilea Città: importi e domanda',
+    'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Importi mensili per figlio e procedure di domanda',
+    'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Basilea Città, Svizzera',
 };
 
 export default blogMetaChIt;
