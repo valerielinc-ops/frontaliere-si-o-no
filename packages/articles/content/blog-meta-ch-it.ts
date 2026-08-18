@@ -3376,6 +3376,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologo: 90mila franchi per 1,5 giorni di lavoro',
     'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Dati trapelati rivelano stipendi tra 90mila e 475mila franchi annui. Baume-Schneider attacca i bonus legati al fatturato nel sistema sanitario svizzero.',
     'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Ambulatorio radiologico con apparecchiatura per risonanza magnetica in una clinica svizzera',
+    'blog.article.soglie-patrimonio-banche-svizzera.title': 'Se hai questi soldi, le banche ti considerano benestante',
+    'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Dalle banche regionali agli istituti privati: scopri le soglie di patrimonio che classificano i clienti e quali vantaggi offre il cambio di categoria.',
+    'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Ufficio bancario moderno in Svizzera con documenti finanziari e gestione patrimoniale sulla scrivania',
 };
 
 export default blogMetaChIt;
