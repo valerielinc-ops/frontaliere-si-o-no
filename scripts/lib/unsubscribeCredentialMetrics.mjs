@@ -40,6 +40,37 @@
  * regression at the write site) is reported (`no_signal`), never silently
  * read as "empty  == healthy".
  *
+ * AND THAT EXCLUSION IS WHY `uncredentialed_share` EXISTS
+ *
+ * "Excluded because it predates the deploy" was true of the events, and false
+ * of the claim it was resting on. #5719's own docstring said it had given the
+ * field to every `unsubscribe_link` event; it had given it to ONE of the two
+ * writers. `services/newsletterSubscribers.ts` — the SPA "Disiscriviti" write,
+ * added by #5690 four hours and fifty minutes EARLIER the same afternoon —
+ * emitted the same event on the same channel with no `credential` key at all,
+ * and nothing here could tell that apart from pre-deploy residue.
+ *
+ * Measured read-only against production, 7 days to 2026-08-18, 209
+ * `unsubscribe_link` events:
+ *
+ *   email_token                 110   (Cloud Function, credentialed)
+ *   autologin_code                1   (Cloud Function, credentialed)
+ *   missing, Cloud-Function shape 46   ALL on 08-11/08-12, none after → real
+ *                                      pre-#5719 residue, ages out on its own
+ *   missing, SPA-writer shape     52   EVERY day from 08-13 to 08-18 → not
+ *                                      residue: a writer the field never
+ *                                      reached
+ *
+ * The two are separable by field signature (the SPA writer emits
+ * `user_id`/`metadata`/`source_page`; the function emits
+ * `unsubscribe_ip`/`unsubscribe_method`), and the split is clean: 46 + 52,
+ * with the boundary exactly at the deploy. So the monitor was grading 111 of
+ * 163 post-deploy events and calling the answer 0,90%, while the 52 it dropped
+ * were — by construction, see App.tsx — `ac`-authorised exits, i.e. the
+ * population it was built to size. `uncredentialed_share` is the finding that
+ * refuses to make that mistake silently a second time: a `missing` share this
+ * large now says so out loud instead of quietly shrinking the denominator.
+ *
  * WHY THIS IS A SEPARATE MODULE
  *
  * Same reasoning as scripts/lib/autologinRefusalMetrics.mjs, its twin for
@@ -51,14 +82,18 @@
  * `tests/unsubscribe-credential-metrics.test.ts` pins it against fixtures.
  */
 
-/** The only `source_channel` value the credential-verified unsubscribe path
- *  writes (functions/src/newsletterSubscriptionManagement.js, `action ===
- *  'unsubscribe'`). Other channels — bulk LPD requests, lost-unsubscribe
+/** The `source_channel` of the credentialed unsubscribe paths. TWO writers
+ *  emit it, not one — functions/src/newsletterSubscriptionManagement.js
+ *  (`action === 'unsubscribe'`, the RFC 8058 one-click and the session-less
+ *  fallback) and services/newsletterSubscribers.ts
+ *  (`unsubscribeNewsletterSubscriber`, the SPA "Disiscriviti" write driven by
+ *  App.tsx). Both set `credential`; that they must is pinned by
+ *  tests/newsletter-unsubscribe-integrity.test.ts, which runs both and
+ *  compares the events. Other channels — bulk LPD requests, lost-unsubscribe
  *  recovery, the logged-in account settings page's own
- *  `subscription_unsubscribed` event — never go through
- *  `verifyOptOutCredential` and never carry `credential`; folding them into
- *  the denominator would look identical to `credential` disappearing from
- *  the ONE path that actually sets it. */
+ *  `subscription_unsubscribed` event — never authenticate a credential and
+ *  never carry one; folding them into the denominator would look identical to
+ *  `credential` disappearing from the paths that do set it. */
 export const CREDENTIAL_LINK_CHANNEL = 'unsubscribe_link';
 
 /**
@@ -85,10 +120,29 @@ export const FALLBACK_RATE_URGENT = 0.25;
  */
 export const MIN_SAMPLE = 20;
 
-/** @returns {'autologin_code'|'email_token'|'missing'} */
+/**
+ * Share of `missing` (uncredentialed) events in the window above which the
+ * monitor says so instead of quietly narrowing its denominator.
+ *
+ * 20% and not 10%: the honest `missing` population — Cloud Function events
+ * written before #5719 deployed — drains out of a 7-day window within a week
+ * of that deploy, so a steady share above a fifth is a WRITER, not residue.
+ * The real one measured 52/163 = 32% and sat there day after day (see the
+ * header). Set at 10% this finding would fire on the last legitimate day of
+ * the residue and be dismissed as noise, which is how a real one gets ignored.
+ */
+export const UNCREDENTIALED_SHARE_WARN = 0.20;
+
+/** @returns {'autologin_code'|'email_token'|'legacy_auth_token'|'missing'} */
 export function classifyCredential(value) {
   if (value === 'autologin_code') return 'autologin_code';
   if (value === 'email_token') return 'email_token';
+  // The `at`/`authToken` Firebase custom token of the pre-`ac` link shape
+  // (services/newsletterAutologinSignal.ts still parses it). A third primary
+  // credential, neither the email HMAC nor the `ac` — graded, because it is a
+  // credential somebody's exit actually rode, and a denominator that dropped
+  // it would understate the population exactly the way `missing` did.
+  if (value === 'legacy_auth_token') return 'legacy_auth_token';
   return 'missing';
 }
 
@@ -97,23 +151,24 @@ export function classifyCredential(value) {
  * the report and the alert both read.
  */
 export function aggregate(records) {
-  const counts = { autologin_code: 0, email_token: 0, missing: 0 };
+  const counts = { autologin_code: 0, email_token: 0, legacy_auth_token: 0, missing: 0 };
   for (const rec of records || []) {
     if (!rec) continue;
     counts[classifyCredential(rec.credential)] += 1;
   }
-  const graded = counts.autologin_code + counts.email_token;
+  const graded = counts.autologin_code + counts.email_token + counts.legacy_auth_token;
   const total = graded + counts.missing;
   return {
     counts,
     graded,
     total,
+    uncredentialedShare: total === 0 ? null : counts.missing / total,
     fallbackRate: fallbackRate({ counts }),
   };
 }
 
 /**
- * autologin_code / (autologin_code + email_token).
+ * autologin_code / (every credentialed event).
  *
  * `null`, not 0, when there is nothing graded to divide: an empty window is
  * not a perfect score (see aggregate()'s docstring on `missing`) — the same
@@ -122,7 +177,7 @@ export function aggregate(records) {
  */
 export function fallbackRate(agg) {
   const c = agg?.counts || {};
-  const denom = (c.autologin_code || 0) + (c.email_token || 0);
+  const denom = (c.autologin_code || 0) + (c.email_token || 0) + (c.legacy_auth_token || 0);
   if (denom === 0) return null;
   return (c.autologin_code || 0) / denom;
 }
@@ -162,6 +217,26 @@ export function evaluate(agg, { baselineIsZero = true } = {}) {
       alert: true,
       priority: 2,
     };
+  }
+
+  // ── The denominator has to defend itself (#5719's false claim) ──────────
+  //
+  // Every finding below divides by `graded`, and `graded` is whatever is left
+  // after `missing` has been dropped. That drop is only safe while `missing`
+  // means "written before #5719 deployed" — a set that shrinks to nothing
+  // within a window's length. When it does NOT shrink, the drop is not
+  // hygiene, it is a writer that never learned to stamp the field, and every
+  // percentage under it is computed on half a population while looking
+  // exactly as calm as a healthy one. That is what happened, for six days,
+  // and no finding existed that could say it.
+  const uncredentialed = agg?.uncredentialedShare ?? null;
+  if (total >= MIN_SAMPLE && uncredentialed !== null && uncredentialed >= UNCREDENTIALED_SHARE_WARN) {
+    findings.push({
+      code: 'uncredentialed_share',
+      priority: 2,
+      alert: true,
+      message: `${counts.missing} dei ${total} eventi \`${CREDENTIAL_LINK_CHANNEL}\` della finestra non hanno il campo \`credential\` (${pct(uncredentialed)} ≥ ${pct(UNCREDENTIALED_SHARE_WARN)}): sopra questa quota non è più residuo pre-#5719 — è un writer che non lo scrive, e la quota fallback qui sotto è calcolata su ${graded} eventi invece che su ${total}. I due writer del canale sono functions/src/newsletterSubscriptionManagement.js e services/newsletterSubscribers.ts: guarda la firma dei campi degli eventi scoperti (\`user_id\`/\`metadata\`/\`source_page\` = writer SPA, \`unsubscribe_ip\`/\`unsubscribe_method\` = Cloud Function) per sapere quale.`,
+    });
   }
 
   if (graded < MIN_SAMPLE) {

@@ -1148,6 +1148,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-basilea-citta': { it: 'affitti-basilea-citta', en: 'basel-city-rentals', de: 'mieten-basel-stadt', fr: 'locations-basel-ville' },
  'servizio-pubblico-obbligo-contanti': { it: 'servizio-pubblico-obbligo-contanti', en: 'public-transport-obligation-to-accept-cash', de: 'oeffentlicher-verkehrspflicht-zur-akzeptierung-von-baremid', fr: 'transports-publics-obligation-de-accepter-des-billets-de-banque' },
  'costi-blocco-trasferimenti-asilo': { it: 'costi-blocco-trasferimenti-asilo', en: 'costs-asylum-transfers-block', de: 'kosten-asyl-transfers-blockade', fr: 'couts-blocage-transferts-asile' },
+ 'ospedale-grigioni-ampliamento-2026': { it: 'ospedale-grigioni-ampliamento-2026', en: 'grisons-hospital-expansion-2026', de: 'graubuenden-spital-erweiterung-2026', fr: 'grisons-hopital-extension-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

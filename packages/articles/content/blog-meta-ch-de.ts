@@ -3367,6 +3367,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asyl, Kader befragt den Bundesrat zu den Kosten',
     'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri bittet um Klarheit über die Kosten, die dem Bund durch die Blockade der Dublin-Überweisungen nach Italien ab Dezember 2022 entstehen.',
     'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Bundeshaus in Bern Sitz des Bundesrates',
+    'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Spital Graubünden: 518 Millionen für neuen Flügel',
+    'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Zwölf Baujahre gehen zu Ende. Das Kantonsspital Graubünden in Chur weiht die neue Struktur mit 518 Millionen Franken ein. Erhöhte Operationssäle, Umzug Ende November.',
+    'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Kantonalspital Graubünden, moderner Flügel mit fünf Etagen und einheitlichem Notfalleingang',
 };
 
 export default blogMetaChDe;

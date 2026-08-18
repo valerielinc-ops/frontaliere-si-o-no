@@ -3367,6 +3367,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asile, Cadres interroge le Conseil fédéral sur les coûts',
     'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri demande des éclaircissements sur les coûts supportés par la Confédération pour le blocage des transferts de Dublin vers l\'Italie depuis décembre 2022.',
     'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Palais fédéral à Berne siège du Conseil fédéral',
+    'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Hôpital Grisons : 518 millions pour une nouvelle aile',
+    'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Douze ans de chantier se terminent. L\'hôpital cantonal des Grisons à Coire inaugure la nouvelle structure avec 518 millions de francs investis. Salles d\'opération augmentées, déménagement fin novembre.',
+    'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Hôpital cantonal des Grisons, nouvelle aile moderne avec entrée unique aux urgences',
 };
 
 export default blogMetaChFr;
