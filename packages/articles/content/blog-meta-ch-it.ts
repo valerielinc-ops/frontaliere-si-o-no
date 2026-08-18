@@ -3337,6 +3337,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.twint-addebito-diretto-fatture.title': 'Twint lancia l\'addebito diretto per bollette e cassa malati',
     'blog.article.twint-addebito-diretto-fatture.excerpt': 'Novità per i pagamenti ricorrenti in Svizzera: Twint introdurrà l\'addebito diretto per cassa malati, elettricità e abbonamenti.',
     'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone con app di pagamento Twint in primo piano in Svizzera',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'La fondazione centro studi villa negroni si associa alla SUPSI',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Il Consiglio di Stato ha approvato lo scorso 8 luglio l\'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'La Fondazione Centro Studi Villa Negroni si associa alla SUPSI',
 };
 
 export default blogMetaChIt;

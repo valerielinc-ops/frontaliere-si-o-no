@@ -3337,6 +3337,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.twint-addebito-diretto-fatture.title': 'Twint startet Lastschriftverfahren für Rechnungen und Krankenkassen',
     'blog.article.twint-addebito-diretto-fatture.excerpt': 'Neu für wiederkehrende Zahlungen in der Schweiz: Twint führt das Lastschriftverfahren für Krankenkasse, Strom und Abos ein.',
     'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone mit Twint-Zahlungs-App im Vordergrund in der Schweiz',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'Die Stiftung Studienzentrum Villa Negroni schließt sich der SUPSI an',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Der Staatsrat hat am 8. Juli die Vereinigung der Stiftung Centro Studi Villa Negroni (CSVN) mit der SUPSI genehmigt.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'Die Fondazione Centro Studi Villa Negroni sich SUPSI anschließt',
 };
 
 export default blogMetaChDe;
