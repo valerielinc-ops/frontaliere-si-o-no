@@ -826,6 +826,35 @@ function fetchIssueComments(issueNumber) {
 // spinge verso la chiusura (il comportamento vecchio), mai verso l'hold.
 const RUN_HISTORY_LIMIT = 100;
 
+/**
+ * True quando la run `databaseId` non ha eseguito NEMMENO UN job. Un `cancelled` a
+ * job-zero è un run che GitHub ha scartato ANCORA IN CODA — mai osservata sul comportamento
+ * del workflow, non un fallimento. Misurato su #5333: `tests` a push-su-main gira con
+ * `cancel-in-progress: false` apposta perché "main deve arrivare a un verdetto" (vedi
+ * tests.yml), ma GitHub tiene comunque un solo run pending per gruppo di concorrenza e
+ * scarta il pending superato a ogni push successivo — "un burst di N merge costa 2 run,
+ * non N", per usare le parole del workflow stesso. Contare quello scarto come fallimento
+ * in `decideRecurrenceHold` gonfia artificialmente il tasso: nella finestra dell'8h che
+ * ha tenuto #5333 aperta con "5 fallimenti su 21 run (23.8%)", tutti e 5 i "fallimenti"
+ * erano cancellazioni a job-zero — zero timeout, zero test rossi — eppure la issue restava
+ * bloccata da un artefatto della concorrenza scambiato per un guasto che ricorreva.
+ * `per_page=1` tiene il payload minimo: la risposta porta comunque `total_count` sull'intero
+ * set. PROCEED-SAFE: errore gh/API → false (non esclude nulla), lo stesso bias-verso-l'hold
+ * di ogni altro fallback di questo file.
+ */
+function hasNoJobs(databaseId) {
+  const out = gh(
+    ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=1`],
+    { allowFailure: true },
+  );
+  if (out === null) return false;
+  try {
+    return JSON.parse(out)?.total_count === 0;
+  } catch {
+    return false;
+  }
+}
+
 // Le run COMPLETATE più recenti del workflow su main, dalla più nuova alla più vecchia,
 // o null se il workflow non ha run (rinominato/cancellato) o il listing è fallito — nel
 // qual caso lasciamo conservativamente aperta la issue, come da sempre.
@@ -846,7 +875,11 @@ function recentCompletedRuns(workflowName) {
   // esplicitamente costa nulla e toglie la dipendenza da un contratto non scritto.
   const completed = runs
     .filter((r) => r.status === 'completed')
-    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+    // Un cancelled a job-zero non è mai partito (vedi hasNoJobs): non conta come run.
+    // Chiamata gh in più solo per le righe `cancelled` — tipicamente una minoranza della
+    // finestra, mai le 100 dell'intero listing.
+    .filter((r) => r.conclusion !== 'cancelled' || !hasNoJobs(r.databaseId));
   return completed.length ? completed : null;
 }
 
