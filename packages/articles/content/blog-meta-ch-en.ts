@@ -3364,6 +3364,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.servizio-pubblico-obbligo-contanti.title': 'Public service, the commission says no to the obligation to accept cash',
     'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'The Committee on Economy and Taxation of the National Council (CET-N) recommends rejecting Roland Büchel\'s initiative.',
     'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Image of a scene in Lugano with a public transportation system that only accepts electronic payments.',
+    'blog.article.costi-blocco-trasferimenti-asilo.title': 'Asylum, Quadri asks the Federal Council about the costs',
+    'blog.article.costi-blocco-trasferimenti-asilo.excerpt': 'Lorenzo Quadri asks for clarity on the costs incurred by the Confederation for the blockade of Dublin transfers to Italy since December 2022.',
+    'blog.article.costi-blocco-trasferimenti-asilo.imageAlt': 'Federal Palace in Bern seat of the Federal Council',
 };
 
 export default blogMetaChEn;
