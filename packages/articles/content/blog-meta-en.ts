@@ -10027,6 +10027,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.concorsa-interna-ticino.title': 'Internal competition in Ticino will mobilize voters',
     'blog.article.concorsa-interna-ticino.excerpt': 'Internal competition in Ticino could affect voters, but how?',
     'blog.article.concorsa-interna-ticino.imageAlt': 'Internal competition in Ticino',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.title': 'CSR and harassment at work: the debate on prevention',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.excerpt': 'MEPs Tamara Merlo and Maura Mossi Nembrini are calling for independent verifications after a new case emerged in 2026.',
+    'blog.article.rsi-molestie-lavoro-governo-prevenzione.imageAlt': 'View of Canton Ticino with institutional buildings',
 };
 
 export default blogMetaEn;
