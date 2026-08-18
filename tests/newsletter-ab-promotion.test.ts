@@ -374,5 +374,26 @@ describe('loadCampaignSegmentReport — window and channel', () => {
     expect(r.windowClosed).toBe(false);
     expect(r.windowDaysRemaining).toBeGreaterThan(5);
   });
+
+  it('counts an unsubscribe whose source_channel is absent, instead of dropping it', async () => {
+    // The guard reads `d.source_channel && d.source_channel !== CREDENTIAL_LINK_CHANNEL`,
+    // and that leading conjunct is a decision, not a null-check habit: an event
+    // with no channel at all is COUNTED. Measured on 2026-08-19 it guards no
+    // live producer — both writers of `event_type: 'unsubscribe'` stamp the
+    // field (functions/src/newsletterSubscriptionManagement.js:1207 and the SPA
+    // path `unsubscribeNewsletterSubscriber` that landed with #5690), and the
+    // Resend webhook writes `unsubscribed`, a spelling this query never reads.
+    // It is a deliberate default in the one direction that is safe to be wrong
+    // in: an opt-out we cannot attribute must inflate the rate, never vanish
+    // from it. `sanitizeString` returns null rather than undefined, so both
+    // shapes are pinned here. Dropping the conjunct leaves every other test in
+    // this file green — which is the whole reason this one exists.
+    const senzaCampo = {
+      event_type: 'unsubscribe', email: EMAIL,
+      timestamp: new Date('2026-06-16T08:00:00Z'), occurred_at: '2026-06-16T08:00:00.000Z',
+    };
+    expect((await loadCampaignSegmentReport(stubDb([senzaCampo]), CAMPAIGN)).totalUnsubscribes).toBe(1);
+    expect((await loadCampaignSegmentReport(stubDb([unsub(null)]), CAMPAIGN)).totalUnsubscribes).toBe(1);
+  });
 });
 
