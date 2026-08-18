@@ -234,6 +234,31 @@ async function getRemoteConfigTemplate() {
   return { rc, template };
 }
 
+/**
+ * The client ships a hardcoded variant for when the public-config fetch fails
+ * (REMOTE_CONFIG_DEFAULTS in services/firebase.ts). Remote Config can be
+ * republished from here, that constant cannot — so every promotion silently
+ * widens the gap between what the autopilot chose and what a visitor whose
+ * config fetch failed actually gets. Nothing else compares the pair, so this
+ * run is the only place the drift can surface. Warning only: an SEO title
+ * fallback is not worth failing a scheduled job over.
+ */
+function warnIfClientFallbackDrifted(promotedVariant) {
+  try {
+    const src = fs.readFileSync(path.resolve(ROOT, 'services/firebase.ts'), 'utf8');
+    const m = /SEO_SERP_EXPERIMENT_VARIANT:\s*'([^']+)'/.exec(src);
+    if (!m) return;
+    if (m[1] !== promotedVariant) {
+      console.warn(
+        `⚠️  Client fallback drift: services/firebase.ts serves '${m[1]}' when the public config fails, `
+        + `but the promoted variant is '${promotedVariant}'. Update REMOTE_CONFIG_DEFAULTS.`,
+      );
+    }
+  } catch {
+    // Reading the client source is a courtesy check, never a reason to fail.
+  }
+}
+
 async function main() {
   const nowIso = toIsoDate(Date.now());
   const year = process.env.SEO_SERP_EXPERIMENT_YEAR || String(new Date().getUTCFullYear());
@@ -352,31 +377,6 @@ async function main() {
 
   console.log(`🧾 History updated: ${path.relative(ROOT, HISTORY_PATH)}`);
   console.log(`🧾 Last run report: ${path.relative(ROOT, LAST_RUN_PATH)}`);
-}
-
-/**
- * The client ships a hardcoded variant for when the public-config fetch fails
- * (REMOTE_CONFIG_DEFAULTS in services/firebase.ts). Remote Config can be
- * republished from here, that constant cannot — so every promotion silently
- * widens the gap between what the autopilot chose and what a visitor whose
- * config fetch failed actually gets. Nothing else compares the pair, so this
- * run is the only place the drift can surface. Warning only: an SEO title
- * fallback is not worth failing a scheduled job over.
- */
-function warnIfClientFallbackDrifted(promotedVariant) {
-  try {
-    const src = fs.readFileSync(path.resolve(ROOT, 'services/firebase.ts'), 'utf8');
-    const m = /SEO_SERP_EXPERIMENT_VARIANT:\s*'([^']+)'/.exec(src);
-    if (!m) return;
-    if (m[1] !== promotedVariant) {
-      console.warn(
-        `\u26a0\ufe0f  Client fallback drift: services/firebase.ts serves '${m[1]}' when the public config fails, `
-        + `but the promoted variant is '${promotedVariant}'. Update REMOTE_CONFIG_DEFAULTS.`,
-      );
-    }
-  } catch {
-    // Reading the client source is a courtesy check, never a reason to fail.
-  }
 }
 
 main().catch((err) => {
