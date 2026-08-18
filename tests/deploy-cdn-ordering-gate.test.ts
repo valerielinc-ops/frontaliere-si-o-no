@@ -194,13 +194,30 @@ function gateFiles() {
   return { outFile, sumFile };
 }
 
+// A lone spawn finishes a 6s-budget case in ~7,4s, so 20s left 2,7x of headroom
+// before the kill. Batched, the polls serialize on process spawn (each poll is
+// a fake `gh` → bash + jq, plus a curl) and the per-child wall time grows with
+// the batch: measured 10,0s at 12 concurrent, 13,0s at 24, 19,5s at 48 — i.e.
+// the 20s ceiling is ~1,0x away from a batch only four times this one's size,
+// on a runner slower than this laptop. The cost is spawn serialization, not
+// CPU: adding 8 CPU-saturating loops did not move those numbers.
+//
+// A trip would fail loudly, not silently — the child is SIGTERM'd before it
+// writes $GITHUB_OUTPUT, so `cdn_wait_result` comes back undefined and the
+// assertions go red — but red-for-the-wrong-reason on a busy runner is exactly
+// the flake this file should not add. Hence: the sync runner keeps the 20s it
+// always had (one spawn at a time, unchanged from before the batching), and
+// only the batched runner gets the wider ceiling.
+const GATE_KILL_MS_SOLO = 20000;
+const GATE_KILL_MS_BATCHED = 60000;
+
 // `stdio` is deliberately NOT here: `execFileSync` takes it, `execFile` does
 // not. Everything the two runners genuinely share lives in this one place.
-function gateOpts(env: Record<string, string>, outFile: string, sumFile: string) {
+function gateOpts(env: Record<string, string>, outFile: string, sumFile: string, killMs: number) {
   return {
     env: { PATH: process.env.PATH ?? '', GITHUB_OUTPUT: outFile, GITHUB_STEP_SUMMARY: sumFile, ...env },
     encoding: 'utf8' as const,
-    timeout: 20000,
+    timeout: killMs,
   };
 }
 
@@ -219,7 +236,7 @@ function runGate(args: string[], env: Record<string, string> = {}): GateRun {
   let stdout = '';
   try {
     stdout = execFileSync('bash', [GATE_SH, ...args], {
-      ...gateOpts(env, outFile, sumFile),
+      ...gateOpts(env, outFile, sumFile, GATE_KILL_MS_SOLO),
       stdio: ['ignore', 'pipe', 'pipe'],
     });
   } catch (e: unknown) {
@@ -244,7 +261,7 @@ function runGate(args: string[], env: Record<string, string> = {}): GateRun {
 function runGateAsync(args: string[], env: Record<string, string> = {}): Promise<GateRun> {
   const { outFile, sumFile } = gateFiles();
   return new Promise((resolvePromise) => {
-    execFile('bash', [GATE_SH, ...args], gateOpts(env, outFile, sumFile), (err, stdout) => {
+    execFile('bash', [GATE_SH, ...args], gateOpts(env, outFile, sumFile, GATE_KILL_MS_BATCHED), (err, stdout) => {
       const status = (err as { code?: number } | null)?.code;
       resolvePromise(collectGate(outFile, sumFile, err ? (status ?? 1) : 0, stdout ?? ''));
     });
@@ -492,6 +509,16 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
         return [RACE_KEY, runGateAsync([_expected], env)] as [string, Promise<GateRun>];
       })(),
     ];
+    // The keys come from three different places — the `it.each` labels, the
+    // conclusion strings, a literal — and a duplicate among them would make one
+    // test silently assert against ANOTHER test's run, with no signal at all:
+    // the Map would just overwrite, `recorded()` would find a value, and every
+    // assertion would be evaluated against the wrong process. Today they are
+    // all distinct; this is what keeps them so when a case is added.
+    const keys = jobs.map(([key]) => key);
+    expect(new Set(keys).size, `duplicate batch key — one test would read another's run: ${keys.join(', ')}`).toBe(
+      keys.length,
+    );
     const settled = await Promise.all(jobs.map(([, p]) => p));
     jobs.forEach(([key], i) => gateRuns.set(key, settled[i]));
   }, 120_000);
@@ -623,28 +650,9 @@ function runPrep(env: Record<string, string>): { code: number; stdout: string } 
   }
 }
 
-/**
- * `runPrep` is a pure function of its env: a fresh temp cwd, no network (no
- * CDN_DEPLOY_KEY), no shared state. Two of the cases below assert *different*
- * things about the *same* invocation — "goes on past the CDN push" and "still
- * performs the push itself" are both properties of the unflagged run — so the
- * script is executed once and both read that one stdout, instead of paying for
- * an identical second spawn.
- */
-const prepRuns = new Map<string, { code: number; stdout: string }>();
-function runPrepOnce(env: Record<string, string>): { code: number; stdout: string } {
-  const key = JSON.stringify(Object.entries(env).sort());
-  let r = prepRuns.get(key);
-  if (!r) {
-    r = runPrep(env);
-    prepRuns.set(key, r);
-  }
-  return r;
-}
-
 describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and nothing else', () => {
   it('with the flag: the early phase returns after the CDN push, without touching the rest of the prep', () => {
-    const r = runPrepOnce({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
+    const r = runPrep({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
     expect(r.code, 'the early phase must never fail the leg').toBe(0);
     expect(r.stdout, 'must run the CDN push section').toMatch(/no offloadable assets present|skipping CDN push|CDN payload/);
     // The full prep's terminal marker must NOT appear: the tar pack, the byte
@@ -657,7 +665,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     // Proves the flag is what stops the script, not an unrelated early return:
     // unflagged, execution reaches the fatal drop-assets/tar section (and, in
     // this bare temp dir with no CDN push, fails there).
-    const r = runPrepOnce({ CDN_TARGET: 'pages' });
+    const r = runPrep({ CDN_TARGET: 'pages' });
     expect(r.stdout, 'unflagged run must not stop at the early phase').not.toMatch(/early CDN push/);
     expect(
       r.stdout + String(r.code),
@@ -667,14 +675,14 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
 
   it('a CDN_BASE already exported by the early phase makes the full prep SKIP its own push', () => {
     // This is the handshake that keeps the payload published exactly once.
-    const r = runPrepOnce({ CDN_BASE: 'https://cdn.frontaliereticino.ch', CDN_TARGET: 'pages' });
+    const r = runPrep({ CDN_BASE: 'https://cdn.frontaliereticino.ch', CDN_TARGET: 'pages' });
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
   });
 
   it('NEGATIVE CASE — without CDN_BASE the full prep still performs the push itself', () => {
     // The pre-hoist behaviour must survive verbatim, so a failed early push
     // degrades to "pushed at the original position", never to "never pushed".
-    const r = runPrepOnce({ CDN_TARGET: 'pages' });
+    const r = runPrep({ CDN_TARGET: 'pages' });
     expect(r.stdout).not.toMatch(/skipping the CDN push/);
     expect(r.stdout).toMatch(/no offloadable assets present|skipping CDN push, assets stay in dist|CDN payload/);
   });
