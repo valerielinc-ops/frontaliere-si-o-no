@@ -3265,6 +3265,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-di-studio-canton-soletta.title': 'Canton Solothurn Scholarships: Requirements and Amounts',
     'blog.article.borse-di-studio-canton-soletta.excerpt': 'The scholarships of the Canton of Solothurn are funding for students of Solothurn. Here are the requirements and maximum amounts.',
     'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Scholarships for Soletta students',
+    'blog.article.asilo-nido-canton-soletta-costi.title': 'Nursery and childcare Insole: costs and subsidies',
+    'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Complete guide to childcare in the Canton of Solothurn: income-based rates, nurseries, day families and after-school.',
+    'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Daycare and childcare in the Canton of Solothurn',
 };
 
 export default blogMetaChEn;

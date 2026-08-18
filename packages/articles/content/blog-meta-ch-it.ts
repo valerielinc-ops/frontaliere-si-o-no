@@ -3265,6 +3265,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-di-studio-canton-soletta.title': 'Borse di studio Canton Soletta: requisiti e importi',
     'blog.article.borse-di-studio-canton-soletta.excerpt': 'Le borse di studio del Canton Soletta sono finanziamenti per gli studenti di Soletta. Ecco i requisiti e gli importi massimi.',
     'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Borse di studio Canton Soletta per studenti',
+    'blog.article.asilo-nido-canton-soletta-costi.title': 'Asilo nido e custodia bambini Soletta: costi e sussidi',
+    'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Guida completa alla custodia dei bambini nel Cantone di Soletta: tariffe basate sul reddito, asili nido, famiglie diurne e doposcuola.',
+    'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Asilo nido e custodia bambini nel Cantone di Soletta',
 };
 
 export default blogMetaChIt;

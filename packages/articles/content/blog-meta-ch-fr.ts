@@ -3265,6 +3265,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-di-studio-canton-soletta.title': 'Bourses Canton de Soleure : exigences et montants',
     'blog.article.borse-di-studio-canton-soletta.excerpt': 'Les bourses du canton de Soleure sont des financements pour les étudiants de Soleure. Voici les exigences et les montants maximaux.',
     'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Bourses d\'études pour les étudiants de Soletta',
+    'blog.article.asilo-nido-canton-soletta-costi.title': 'Garderie et garde d\'enfants Soleure : coûts et subventions',
+    'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Guide complet de garde d\'enfants dans le canton de Soleure : tarifs basés sur le revenu, crèches, familles de jour et après l\'école.',
+    'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Creche et garde d\'enfants dans le Canton de Soleure',
 };
 
 export default blogMetaChFr;

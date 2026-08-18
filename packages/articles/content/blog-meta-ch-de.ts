@@ -3265,6 +3265,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-di-studio-canton-soletta.title': 'Stipendien Kanton Solothurn: Voraussetzungen und Beträge',
     'blog.article.borse-di-studio-canton-soletta.excerpt': 'Die Stipendien des Kantons Solothurn sind Fördermittel für Solothurner Studierende. Hier die Anforderungen und Maximalbeträge.',
     'blog.article.borse-di-studio-canton-soletta.imageAlt': 'Stipendien für Soletta-Studierende',
+    'blog.article.asilo-nido-canton-soletta-costi.title': 'Kindertagesstätte und Kinderbetreuung Solothurn: Kosten und Leistungen',
+    'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Umfassender Leitfaden zur Kinderbetreuung im Kanton Solothurn: einkommensabhängige Tarife, Kindergärten, Tages- und Nachschulfamilien.',
+    'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Kinderkrippe und Kinderbetreuung im Kanton Solothurn',
 };
 
 export default blogMetaChDe;
