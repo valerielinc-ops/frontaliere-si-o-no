@@ -3370,6 +3370,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Hôpital Grisons : 518 millions pour une nouvelle aile',
     'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Douze ans de chantier se terminent. L\'hôpital cantonal des Grisons à Coire inaugure la nouvelle structure avec 518 millions de francs investis. Salles d\'opération augmentées, déménagement fin novembre.',
     'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Hôpital cantonal des Grisons, nouvelle aile moderne avec entrée unique aux urgences',
+    'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Hôpital Grisons : 518 millions pour 12 ans',
+    'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'La nouvelle aile de l\'Hôpital cantonal des Grisons entre en service fin novembre 2026 après 518 millions investis. Les salles d\'opération passent de 10 à 13.',
+    'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Nouvelle aile de l\'Hôpital cantonal des Grisons à Coire : bâtiment moderne de 5 étages avec capacité opératoire accrue',
 };
 
 export default blogMetaChFr;
