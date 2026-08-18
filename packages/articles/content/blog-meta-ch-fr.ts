@@ -3292,6 +3292,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Impôts de succession et donation dans le canton de Soleure',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'Le canton de Soleure applique des taux différents pour la succession et la donation, avec des exemptions pour le conjoint et les descendants.',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'Une scène de Lugano, en Suisse, qui représente la taxation cantonale.',
+    'blog.article.twint-addebito-diretto.title': 'Twint lance le prélèvement automatique en 2027',
+    'blog.article.twint-addebito-diretto.excerpt': 'Le prélèvement automatique permettra aux utilisateurs de gérer les paiements récurrents via l\'application Twint.',
+    'blog.article.twint-addebito-diretto.imageAlt': 'Image d\'un utilisateur qui utilise l\'application Twint',
 };
 
 export default blogMetaChFr;
