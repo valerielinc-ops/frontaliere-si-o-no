@@ -194,6 +194,46 @@ export function chooseNextVariant(currentVariant, history, variants = VARIANTS) 
     .sort((a, b) => (lastSampledAt(history, a) ?? -Infinity) - (lastSampledAt(history, b) ?? -Infinity))[0];
 }
 
+/**
+ * What the exploit branch would do: which arm leads, and the two margins the
+ * decision reads. Pure, so the arithmetic can be driven directly at arities
+ * `decideVariant` needs a whole history+KPI fixture to reach.
+ *
+ * The two margins are NOT interchangeable, and are named apart because
+ * conflating them is exactly the defect this function exists to prevent:
+ *
+ * - `uplift` is winner-minus-CURRENT — the gain from replacing the live arm,
+ *   and the only margin that may gate a switch. It is `null` when the winner
+ *   is already live: there is no arm being replaced, so the switch margin does
+ *   not exist rather than being zero.
+ * - `lead` is winner-minus-RUNNER-UP — how safe an already-live winner is, and
+ *   the number `winner_already_active` has always carried.
+ *
+ * With two arms they coincide whenever a switch is on the table (if the winner
+ * is not current, current IS the runner-up), which is why gating the switch on
+ * `lead` stayed invisible. At three arms they diverge: 7.60 / 7.55 / 6.00 with
+ * the worst arm live reads `lead` 0.05 — under the threshold, no switch — while
+ * `uplift` is 1.60. Read the wrong one and the autopilot pins the site to its
+ * worst arm, for REVALIDATE_DAYS at a stretch, because exploit returns before
+ * rotation can be reached.
+ *
+ * Precondition: `currentVariant` is one of `variants`. `decideVariant`
+ * guarantees it by bootstrapping out first, so there is no defensive branch
+ * here for a value that cannot arrive.
+ */
+export function chooseExploitTarget(scores, variants, currentVariant, minUplift = MIN_UPLIFT_ABS) {
+  const ranked = variants.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
+  const winner = ranked[0];
+  // A one-arm experiment has no runner-up. `variants` is injectable and
+  // `chooseNextVariant` already answers for a single arm, so this arity is
+  // reachable; reading `ranked[1]` blind makes the exploit branch evaluate
+  // `scores[undefined].ctr` and throw.
+  const runnerUp = ranked.length > 1 ? ranked[1] : winner;
+  const uplift = winner === currentVariant ? null : scores[winner].ctr - scores[currentVariant].ctr;
+  const lead = scores[winner].ctr - scores[runnerUp].ctr;
+  return { winner, runnerUp, uplift, lead, shouldSwitch: uplift !== null && uplift >= minUplift };
+}
+
 export function decideVariant({ currentVariant, history, currentKpi, nowIso, variants = VARIANTS }) {
   const decision = {
     nextVariant: currentVariant,
@@ -235,29 +275,24 @@ export function decideVariant({ currentVariant, history, currentKpi, nowIso, var
 
   if (comparable && !dueForRevalidation) {
     decision.mode = 'exploit';
-    const ranked = variants.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
-    const winner = ranked[0];
-    const runnerUp = ranked[1];
-    if (winner !== currentVariant) {
-      // The margin that decides a switch is against the arm being REPLACED,
-      // not against the runner-up. With two arms those are the same thing, so
-      // this was invisible; with three it is the difference between working
-      // and not. Arms at 7.60 / 7.55 / 6.00 with the worst one live would see
-      // winner-minus-runner-up = 0.05, below the threshold, and the autopilot
-      // would sit on the worst arm forever while the best beat it by 1.6.
-      const uplift = scores[winner].ctr - scores[currentVariant].ctr;
-      if (uplift >= MIN_UPLIFT_ABS) {
-        decision.nextVariant = winner;
-        decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
-      } else {
-        decision.reason = 'uplift_below_threshold';
-      }
+    // `variants`, not the VARIANTS module constant: the exploit branch has to
+    // rank the same arms the rest of the function scored, or an injected third
+    // arm gets a score and is then never ranked.
+    const { winner, uplift, lead, shouldSwitch } = chooseExploitTarget(scores, variants, currentVariant);
+    if (shouldSwitch) {
+      decision.nextVariant = winner;
+      decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
+      return decision;
+    }
+    if (uplift !== null) {
+      // A switch was on the table — the winner is not the live arm — and the
+      // gain over the arm it would replace did not clear the bar.
+      decision.reason = 'uplift_below_threshold';
       return decision;
     }
     // The winner is already live, so the question is no longer "should we
     // switch" but "how safe is the lead" — and that is measured against the
     // closest challenger.
-    const lead = scores[winner].ctr - scores[runnerUp].ctr;
     decision.reason = lead >= MIN_UPLIFT_ABS ? 'winner_already_active' : 'uplift_below_threshold';
     return decision;
   }
