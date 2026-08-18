@@ -52,6 +52,15 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
+        # Tetto Checkout (classe #5145/#5144/#5162/#5171, non coperta lì: quel
+        # giro filtrava sui job `fetch-depth: 0`, questo è già `fetch-depth: 1`).
+        # Senza tetto sullo step, un fetch degenere consuma l'intero budget del
+        # job (6min) e muore `cancelled` — stato invisibile a `if: failure()`.
+        # È esattamente ciò che ha inghiottito questo job in #5567 (fetch mai
+        # completato, cancellato dopo 6m0s). Checkout sano misurato 69-188s su
+        # 12 run (mediana ~159s): 4min di tetto sta sopra il massimo osservato,
+        # lasciando margine per i passi seguenti (~30-40s tipici).
+        timeout-minutes: 4
 
       # ZERO Claude: il triage classifica con regex su titolo+label (bash puro) →
       # la quota Max NON viene toccata dal triage (era ~50 run Claude/giorno, il
@@ -207,6 +216,13 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
+        # Stesso costrutto del job `triage` sopra (#5567): senza tetto sullo
+        # step, un fetch degenere consuma l'intero budget del job (8min) e
+        # muore `cancelled`, invisibile a `if: failure()`. Checkout sano
+        # misurato 115-168s su 8 run (mediana ~150s): 5min di tetto sta sopra
+        # il massimo osservato, lasciando margine per i passi seguenti
+        # (~30-50s tipici).
+        timeout-minutes: 5
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
