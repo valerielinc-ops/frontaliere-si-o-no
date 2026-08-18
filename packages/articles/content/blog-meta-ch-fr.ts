@@ -3361,6 +3361,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-basilea-citta.title': 'Marché locatif à Bâle-Ville : loyers moyens et droit de location',
     'blog.article.affitti-basilea-citta.excerpt': 'Les loyers moyens par zone, dépôt de garantie et droit de location à Bâle-Ville.',
     'blog.article.affitti-basilea-citta.imageAlt': 'Image éditoriale relative à: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
+    'blog.article.servizio-pubblico-obbligo-contanti.title': 'Servizio pubblico, la commissione dice no all\'obbligo di contanti',
+    'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'La Commission de l\'économie et des redevances du Conseil national (cet-N) recommande de rejeter l\'initiative de Roland Büchel.',
+    'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Image d\'une scène à Lugano avec un système de transport en commun qui ne prend que des paiements électroniques.',
 };
 
 export default blogMetaChFr;

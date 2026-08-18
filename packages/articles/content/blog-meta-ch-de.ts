@@ -3361,6 +3361,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-basilea-citta.title': 'Mietmarkt Basel-Stadt: Durchschnittsmieten und Mietrecht',
     'blog.article.affitti-basilea-citta.excerpt': 'Die Durchschnittsmieten pro Zone, Kaution und Mietrecht in Basel-Stadt.',
     'blog.article.affitti-basilea-citta.imageAlt': 'Redaktionelles Bild zu: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
+    'blog.article.servizio-pubblico-obbligo-contanti.title': 'Öffentlicher Dienst sagt Nein zur Bargeld-Acceptanz',
+    'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'Die Kommission für Wirtschaft und Abgaben des Nationalrates (WAK-N) empfiehlt, die Initiative von Roland Büchel abzulehnen.',
+    'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Bild einer Szene in Lugano mit einem öffentlichen Verkehrssystem, das nur elektronische Zahlungen akzeptiert.',
 };
 
 export default blogMetaChDe;

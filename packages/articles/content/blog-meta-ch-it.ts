@@ -3361,6 +3361,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-basilea-citta.title': 'Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
     'blog.article.affitti-basilea-citta.excerpt': 'I canoni medi per zona, deposito di garanzia e diritto di locazione in Basilea Città.',
     'blog.article.affitti-basilea-citta.imageAlt': 'Immagine editoriale relativa a: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
+    'blog.article.servizio-pubblico-obbligo-contanti.title': 'Servizio pubblico, la commissione dice no all\'obbligo di accettare contanti',
+    'blog.article.servizio-pubblico-obbligo-contanti.excerpt': 'La Commissione dell\'economia e dei tributi del Consiglio nazionale (CET-N) raccomanda di respingere l\'iniziativa di Roland Büchel.',
+    'blog.article.servizio-pubblico-obbligo-contanti.imageAlt': 'Immagine di una scena in Lugano con un sistema di trasporto pubblico che accetta solo pagamenti elettronici.',
 };
 
 export default blogMetaChIt;
