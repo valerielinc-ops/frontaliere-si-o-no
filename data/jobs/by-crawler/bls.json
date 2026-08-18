@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-17T21:34:12.205Z",
+  "assembledAt": "2026-08-18T09:46:27.831Z",
   "jobs": [
     {
       "id": "bls-6818c194f1ed",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:09.052Z",
+      "crawledAt": "2026-08-18T09:46:24.625Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -70,11 +70,13 @@
         ]
       },
       "previousSlugs": [
-        "junior-produktemanager-in-autoverlad-bls-ch"
+        "junior-produktemanager-in-autoverlad-bls-ch",
+        "junior-product-manager-in-autoverlad-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-produktemanager-in-autoverlad-bls-ch"
+          "junior-produktemanager-in-autoverlad-bls-ch",
+          "junior-product-manager-in-autoverlad-bls-ag-bern"
         ],
         "en": [
           "junior-produktemanager-in-autoverlad-bls-ch"
@@ -84,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:20:22.725Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -129,7 +132,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-vorgaben/184b247b-4707-4fae-88db-5ff01e37fe60",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:08.072Z",
+      "crawledAt": "2026-08-18T09:46:23.655Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -166,11 +169,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-vorgaben-bls-ch"
+        "teamleiter-in-vorgaben-bls-ch",
+        "team-leader-nelle-specifiche-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-vorgaben-bls-ch"
+          "teamleiter-in-vorgaben-bls-ch",
+          "team-leader-nelle-specifiche-bls-ag-bern"
         ],
         "en": [
           "teamleiter-in-vorgaben-bls-ch"
@@ -180,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:34:11.461Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -225,7 +231,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:07.359Z",
+      "crawledAt": "2026-08-18T09:46:22.752Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,7 +269,8 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -273,7 +280,8 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -329,7 +337,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:06.507Z",
+      "crawledAt": "2026-08-18T09:46:21.936Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -364,14 +372,16 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
         "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
           "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
-          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
@@ -427,7 +437,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-security-bahnproduktion/cc7f35ab-c2f8-4a13-b3d3-3873fb67088e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:05.695Z",
+      "crawledAt": "2026-08-18T09:46:21.091Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -466,7 +476,8 @@
         "responsabile-business-partner-finanza-bahnproduktion-bls-ag-bern",
         "head-in-business-partner-finance-railway-production-bls-ag-bern",
         "leiter-in-business-partner-finance-bahnproduktion-bls-ch",
-        "responsable-en-business-partner-finance-railway-production-bls-ag-bern"
+        "responsable-en-business-partner-finance-railway-production-bls-ag-bern",
+        "responsabile-security-bahnproduktion-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -474,7 +485,8 @@
           "responsabile-business-partner-finanza-bahnproduktion-bls-ag-bern",
           "head-in-business-partner-finance-railway-production-bls-ag-bern",
           "leiter-in-business-partner-finance-bahnproduktion-bls-ch",
-          "responsable-en-business-partner-finance-railway-production-bls-ag-bern"
+          "responsable-en-business-partner-finance-railway-production-bls-ag-bern",
+          "responsabile-security-bahnproduktion-bls-ag-bern"
         ],
         "en": [
           "leiter-in-security-bahnproduktion-bls-ch",
@@ -519,7 +531,7 @@
       "title": "Applikations-Manager:in IAM",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in IAM",
-        "en": "Application Manager: in IAM",
+        "en": "Applikations-Manager:in IAM",
         "de": "Applikations-Manager:in IAM",
         "fr": "Gestionnaire d'applications: dans IAM"
       },
@@ -535,7 +547,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/applikations-manager-in-iam/fd2c2f22-9bec-4fb3-8d6c-80fb0d3db40d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:04.914Z",
+      "crawledAt": "2026-08-18T09:46:20.221Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -569,11 +581,13 @@
         ]
       },
       "previousSlugs": [
-        "applikations-manager-in-iam-bls-ch"
+        "applikations-manager-in-iam-bls-ch",
+        "gestione-delle-applicazioni-in-iam-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-iam-bls-ch"
+          "applikations-manager-in-iam-bls-ch",
+          "gestione-delle-applicazioni-in-iam-bls-ag-bern"
         ],
         "fr": [
           "applikations-manager-in-iam-bls-ch"
@@ -626,7 +640,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-17T21:34:04.065Z",
+      "crawledAt": "2026-08-18T09:46:19.273Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -660,6 +674,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -704,7 +719,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:03.298Z",
+      "crawledAt": "2026-08-18T09:46:18.330Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -738,11 +753,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+        "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
+          "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+          "team-leader-in-tunneltechnik-lotschberg-base-tunnel-lbt-bls-ag-bern"
         ],
         "fr": [
           "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
@@ -795,7 +812,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/adcb2459-2080-47bc-964b-82d7764e2de5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:02.387Z",
+      "crawledAt": "2026-08-18T09:46:17.516Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,11 +847,13 @@
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-bahnbau-bls-ch"
+        "baufuhrer-in-bahnbau-bls-ch",
+        "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-in-bahnbau-bls-ch"
+          "baufuhrer-in-bahnbau-bls-ch",
+          "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern"
         ],
         "en": [
           "baufuhrer-in-bahnbau-bls-ch"
@@ -890,7 +909,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:01.540Z",
+      "crawledAt": "2026-08-18T09:46:16.561Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -926,11 +945,13 @@
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+          "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+          "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf"
         ],
         "en": [
           "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
@@ -986,7 +1007,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-17T21:34:00.456Z",
+      "crawledAt": "2026-08-18T09:46:15.568Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -1018,6 +1039,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1062,7 +1084,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-inwerkstatt/018ea1ac-f126-44b0-ae9f-d19992805f0e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:33:59.426Z",
+      "crawledAt": "2026-08-18T09:46:14.866Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1094,11 +1116,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-werkstatt-bls-ch"
+        "teamleiter-in-werkstatt-bls-ch",
+        "team-leader-in-officina-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-werkstatt-bls-ch"
+          "teamleiter-in-werkstatt-bls-ch",
+          "team-leader-in-officina-bls-ag-bonigen"
         ],
         "en": [
           "teamleiter-in-werkstatt-bls-ch"
@@ -1154,7 +1178,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/dba4554d-b4c7-4b34-9dbe-5172c585b85b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:33:58.573Z",
+      "crawledAt": "2026-08-18T09:46:13.669Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1253,7 +1277,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:33:57.796Z",
+      "crawledAt": "2026-08-18T09:46:12.798Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1288,11 +1312,13 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-thun-bls-ch"
+        "metallbauer-in-nautiker-in-thun-bls-ch",
+        "metalworker-in-navigatore-in-thun-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-thun-bls-ch"
+          "metallbauer-in-nautiker-in-thun-bls-ch",
+          "metalworker-in-navigatore-in-thun-bls-ag-bern"
         ],
         "en": [
           "metallbauer-in-nautiker-in-thun-bls-ch"
@@ -1348,7 +1374,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:33:56.994Z",
+      "crawledAt": "2026-08-18T09:46:12.136Z",
       "addressLocality": "Interlaken",
       "addressCountry": "CH",
       "country": "CH",
@@ -1382,11 +1408,13 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-interlaken-bls-ch"
+        "metallbauer-in-nautiker-in-interlaken-bls-ch",
+        "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-interlaken-bls-ch"
+          "metallbauer-in-nautiker-in-interlaken-bls-ch",
+          "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
         ],
         "en": [
           "metallbauer-in-nautiker-in-interlaken-bls-ch"
@@ -1415,9 +1443,9 @@
       "id": "bls-270396f3fc69",
       "slug": "project-manager-in-project-management-office-pmo-bls-ag-bern",
       "slugByLocale": {
-        "de": "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
         "it": "project-manager-in-project-management-office-pmo-bls-ag-bern",
-        "en": "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
+        "en": "project-manager-in-project-management-office-pmo-bls-ag-bern",
+        "de": "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
         "fr": "gestionnaire-de-projet-au-bureau-de-gestion-de-projet-bgp-bls-ag-bern"
       },
       "company": "BLS AG",
@@ -1425,16 +1453,16 @@
       "companyDomain": "bls.ch",
       "title": "Teilprojektleiter:in Projektmanagement Office (PMO)",
       "titleByLocale": {
-        "de": "Teilprojektleiter:in Projektmanagement Office (PMO)",
         "it": "Project Manager: in Project Management Office (PMO)",
         "en": "Project Manager: in Project Management Office (PMO)",
+        "de": "Teilprojektleiter:in Projektmanagement Office (PMO)",
         "fr": "Gestionnaire de projet : au Bureau de gestion de projet (BGP)"
       },
       "description": "Der Ausbau des Lötschberg-Basistunnels (LBT) ist eines der bedeutendsten Infrastrukturprojekte der Schweiz. Hier gestaltest du die Zukunft der Bahn aktiv mit. Mit deinem Know-how sorgst du dafür, dass komplexe Projekte sicher gesteuert, fundierte Entscheidungen getroffen und Investitionen nachhaltig umgesetzt werden.\n\nStellenantritt: per 1. Januar 2027 oder nach Vereinbarung\n\nDas wartet auf dich:\n\n• Als Sparringpartner:in unterstützt und vertrittst du den Leiter Projektmanagement Office Alptransit\n• Du berätst das Projektteam bei betriebswirtschaftlichen, finanziellen, methodischen und strategischen Fragestellungen\n• Das Projektmanagement Office führst du in enger Zusammenarbeit mit dem Leiter eigenständig weiter\n• Betriebswirtschaftliche Konzepte, Reportings und Analysen entwickelst du als Grundlage für fundierte Entscheidungen\n• Projektcontrolling, Risikomanagement sowie internes und externes Berichtswesen steuerst du zuverlässig\n\nDas bringst du mit:\n\n• Hochschulabschluss in Betriebswirtschaft oder Bauingenieurwesen (FH oder Uni) mit betriebswirtschaftlicher Weiterbildung oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung im Projektmanagement sowie in der Steuerung komplexer, interdisziplinärer Projekte\n• Fundierte Kenntnisse im Projektcontrolling sowie Erfahrung mit SAP und digitalen Arbeitsmitteln\n• Eine proaktive, beratungsstarke Persönlichkeit mit hoher Dienstleistungsorientierung und Hands-on-Mentalität\n• Gute Kenntnisse der Baubranche sowie betriebswirtschaftlicher Zusammenhänge\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
       "descriptionByLocale": {
-        "de": "Der Ausbau des Lötschberg-Basistunnels (LBT) ist eines der bedeutendsten Infrastrukturprojekte der Schweiz. Hier gestaltest du die Zukunft der Bahn aktiv mit. Mit deinem Know-how sorgst du dafür, dass komplexe Projekte sicher gesteuert, fundierte Entscheidungen getroffen und Investitionen nachhaltig umgesetzt werden.\n\nStellenantritt: per 1. Januar 2027 oder nach Vereinbarung\n\nDas wartet auf dich:\n\n• Als Sparringpartner:in unterstützt und vertrittst du den Leiter Projektmanagement Office Alptransit\n• Du berätst das Projektteam bei betriebswirtschaftlichen, finanziellen, methodischen und strategischen Fragestellungen\n• Das Projektmanagement Office führst du in enger Zusammenarbeit mit dem Leiter eigenständig weiter\n• Betriebswirtschaftliche Konzepte, Reportings und Analysen entwickelst du als Grundlage für fundierte Entscheidungen\n• Projektcontrolling, Risikomanagement sowie internes und externes Berichtswesen steuerst du zuverlässig\n\nDas bringst du mit:\n\n• Hochschulabschluss in Betriebswirtschaft oder Bauingenieurwesen (FH oder Uni) mit betriebswirtschaftlicher Weiterbildung oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung im Projektmanagement sowie in der Steuerung komplexer, interdisziplinärer Projekte\n• Fundierte Kenntnisse im Projektcontrolling sowie Erfahrung mit SAP und digitalen Arbeitsmitteln\n• Eine proaktive, beratungsstarke Persönlichkeit mit hoher Dienstleistungsorientierung und Hands-on-Mentalität\n• Gute Kenntnisse der Baubranche sowie betriebswirtschaftlicher Zusammenhänge\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "it": "L'espansione del tunnel di base Lötschberg (LBT) è uno dei progetti infrastrutturali più importanti della Svizzera. Qui si forma attivamente il futuro della ferrovia. Con il vostro know-how, assicuratevi che i progetti complessi siano gestiti in modo sicuro, vengono prese decisioni informate e gli investimenti sono implementati in modo sostenibile.\n\nApertura del lavoro: dal 1° gennaio 2027 o d'accordo\n\nTi aspetta:\n\n• Come partner di sparring: supporti e rappresenti il capo dell'ufficio di gestione del progetto Alptransit\n• Si consiglia al team di progetto di questioni commerciali, finanziarie, metodologiche e strategiche\n• L'ufficio di gestione del progetto è gestito in modo indipendente in stretta collaborazione con il direttore\n• Concetti aziendali, reportistica e analisi si sviluppano come base per decisioni informate\n• Si controlla il controllo del progetto, la gestione dei rischi e la segnalazione interna ed esterna in modo affidabile\n\nQuesto è ciò che portate con voi:\n\n• Laurea in economia aziendale o ingegneria civile (FH o università) con formazione di amministrazione aziendale o istruzione equivalente\n• Diversi anni di esperienza nella gestione del progetto e nella gestione di progetti complessi e interdisciplinari\n• Conoscenza approfondita del controllo del progetto e dell'esperienza con SAP e strumenti digitali\n• Una personalità proattiva e di consulenza con un alto orientamento di servizio e mentalità hands-on\n• Buona conoscenza dell'industria edile e dei collegamenti commerciali\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio.\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
         "en": "The expansion of the Lötschberg Base Tunnel (LBT) is one of the most important infrastructure projects in Switzerland. Here you actively shape the future of the railway. With your know-how, you ensure that complex projects are safely managed, informed decisions are made and investments are implemented sustainably.\n\nJob opening: as of 1 January 2027 or by agreement\n\nThis is waiting for you:\n\n• As a sparring partner: you support and represent the Head of Project Management Office Alptransit\n• You advise the project team on business, financial, methodological and strategic issues\n• The project management office is independently managed in close cooperation with the manager\n• Business concepts, reporting and analyses you develop as a basis for informed decisions\n• You control project controlling, risk management and internal and external reporting reliably\n\nThis is what you bring with you:\n\n• University degree in business administration or civil engineering (FH or university) with business administration training or equivalent education\n• Several years of experience in project management and in the management of complex, interdisciplinary projects\n• In-depth knowledge of project controlling as well as experience with SAP and digital tools\n• A proactive, consulting personality with a high service orientation and hands-on mentality\n• Good knowledge of the construction industry and business connections\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• Work where it suits you best. Whether in the home office or in the office.\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten holiday days per year\n\n• Financial support for external further education as well as an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health.\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "de": "Der Ausbau des Lötschberg-Basistunnels (LBT) ist eines der bedeutendsten Infrastrukturprojekte der Schweiz. Hier gestaltest du die Zukunft der Bahn aktiv mit. Mit deinem Know-how sorgst du dafür, dass komplexe Projekte sicher gesteuert, fundierte Entscheidungen getroffen und Investitionen nachhaltig umgesetzt werden.\n\nStellenantritt: per 1. Januar 2027 oder nach Vereinbarung\n\nDas wartet auf dich:\n\n• Als Sparringpartner:in unterstützt und vertrittst du den Leiter Projektmanagement Office Alptransit\n• Du berätst das Projektteam bei betriebswirtschaftlichen, finanziellen, methodischen und strategischen Fragestellungen\n• Das Projektmanagement Office führst du in enger Zusammenarbeit mit dem Leiter eigenständig weiter\n• Betriebswirtschaftliche Konzepte, Reportings und Analysen entwickelst du als Grundlage für fundierte Entscheidungen\n• Projektcontrolling, Risikomanagement sowie internes und externes Berichtswesen steuerst du zuverlässig\n\nDas bringst du mit:\n\n• Hochschulabschluss in Betriebswirtschaft oder Bauingenieurwesen (FH oder Uni) mit betriebswirtschaftlicher Weiterbildung oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung im Projektmanagement sowie in der Steuerung komplexer, interdisziplinärer Projekte\n• Fundierte Kenntnisse im Projektcontrolling sowie Erfahrung mit SAP und digitalen Arbeitsmitteln\n• Eine proaktive, beratungsstarke Persönlichkeit mit hoher Dienstleistungsorientierung und Hands-on-Mentalität\n• Gute Kenntnisse der Baubranche sowie betriebswirtschaftlicher Zusammenhänge\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "fr": "L'agrandissement du tunnel de base de Lötschberg (LBT) est l'un des plus importants projets d'infrastructure en Suisse. Ici vous façonnez activement l'avenir du chemin de fer. Grâce à votre savoir-faire, vous veillez à ce que les projets complexes soient gérés en toute sécurité, que des décisions éclairées soient prises et que les investissements soient réalisés de manière durable.\n\nOuverture d'emploi: à partir du 1er janvier 2027 ou par accord\n\nCeci vous attend :\n\n• En tant que partenaire d'éparpillement: vous soutenez et représentez le Chef du Bureau de Gestion de Projet Alptransit\n• Vous conseillez l'équipe du projet sur les questions d'affaires, financières, méthodologiques et stratégiques\n• Le bureau de gestion du projet est géré de manière indépendante en étroite collaboration avec le directeur.\n• Concepts d'affaires, rapports et analyses que vous développez comme base de décisions éclairées\n• Vous contrôlez de manière fiable le contrôle de projet, la gestion des risques et les rapports internes et externes\n\nC'est ce que vous apportez avec vous :\n\n• Diplôme universitaire en administration des affaires ou en génie civil (FH ou université) avec formation en administration des affaires ou formation équivalente\n• Plusieurs années d'expérience en gestion de projets et en gestion de projets interdisciplinaires complexes\n• Connaissance approfondie du contrôle des projets ainsi que de l'expérience du SAP et des outils numériques\n• Une personnalité proactive, consultante avec une orientation de service élevée et une mentalité pratique\n• Bonne connaissance de l'industrie de la construction et des liens commerciaux\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau.\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an\n\n• Un soutien financier pour la formation continue externe ainsi qu'un apprentissage interne passionnant et une offre de cours sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
       },
       "location": "Bern",
@@ -1442,7 +1470,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teilprojektleiter-in-projektmanagement-office-pmo/787cdb61-7897-4e58-8cf3-6e0e075a8941",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:33:56.245Z",
+      "crawledAt": "2026-08-18T09:46:11.333Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1460,35 +1488,38 @@
       "pensum": "70-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/787cdb61-7897-4e58-8cf3-6e0e075a8941",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
+        "project-manager-in-project-management-office-pmo-bls-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
+          "project-manager-in-project-management-office-pmo-bls-ag-bern"
+        ],
+        "fr": [
+          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
+        ],
+        "en": [
+          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
+        ]
       },
       "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "firstSeenAt": "2026-08-17T21:33:56.245Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-17T21:33:56.245Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
-        ],
-        "fr": [
-          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
-        ]
-      },
-      "previousSlugs": [
-        "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
-      ]
+      "addressRegion": "BE"
     }
   ]
 }
