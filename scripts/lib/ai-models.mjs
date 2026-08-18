@@ -907,7 +907,7 @@ const CLAUDE_CLI_MAX_TIMEOUT_MS = 600_000;
 //
 // cioe' una tempesta piena lascia comunque ~30% del budget di sezione alla
 // cascata dei modelli successivi. (Questa riga diceva 0,578 e ~42%: numero
-// sbagliato, trovato dalla review di questa PR. Verificato sulla serie
+// sbagliato, trovato dalla review del sito #6045. Verificato sulla serie
 // osservata, 1020s → 340+227+151 = 718s, cioe' 70,3%. Il test simula la
 // formula vera e misura ~73%, non la serie idealizzata.) A 1/2 la stessa
 // serie fa 1 - (1/2)³ = 0,875 e la sezione resterebbe senza tempo per il
