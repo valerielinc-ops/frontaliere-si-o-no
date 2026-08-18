@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-08-17T21:28:27.807Z",
+  "assembledAt": "2026-08-18T09:42:50.518Z",
   "jobs": [
     {
       "id": "stadt-bern-91e56a86ea70",
@@ -9,7 +9,7 @@
         "it": "cucinare-cucinare-stadt-bern-bern",
         "en": "koch-kochin-stadt-bern",
         "de": "koch-kochin-stadt-bern-bern",
-        "fr": "cuire-faire-cuire-stadt-bern-bern-563762"
+        "fr": "cuisinier-cuisiniere-stadt-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -17,7 +17,7 @@
       "title": "Koch / Köchin",
       "titleByLocale": {
         "it": "Cuoco / Cuoca",
-        "en": "Cook / cook",
+        "en": "Koch / Köchin",
         "de": "Koch / Köchin",
         "fr": "Cuisinier / Cuisinière"
       },
@@ -28,12 +28,13 @@
         "de": "Die \"Zieglerküche\" vereint eine moderne, prozessorientierte Grossproduktion von rund 4'200 Mahlzeiten pro Woche mit dem Auftrag, stellensuchende Personen sozial und beruflich zu integrieren. Wir sind ein motiviertes Team und schreiben das Mit- und Füreinander gross.\n\nAufgaben:\n• Mitarbeit in einer grossen Produktionsküche mit rund 4200 Mahlzeiten pro Woche im Cook & Chill-Verfahren\n\n• Zubereitung ausgewogener Menüs für Bernmobil und 16 familienergänzende Einrichtungen in der Stadt Bern (Kitas, Tagesschulen)\n\n• Einhaltung der vorgegebenen Qualitäts- und Hygienestandards, Reinigungs- und Werterhaltungsarbeiten nach HACCP-Vorgabe\n\n• Aktive Mitwirkung bei der Weiterentwicklung von Rezepturen und Abläufen\n\n• Zusammenarbeit mit einem engagierten Team und mit Personen aus der Arbeitsintegration\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Koch/Köchin, gute Deutschkenntnisse in Wort und Schrift\n\n• Idealerweise Erfahrung in der Gemeinschaftsgastronomie oder in einer Produktionsküche\n\n• Freude an der Ausbildung von Menschen und an der Vermittlung von Fachwissen\n\n• Organisationstalent, belastbar und flexibel – auch in hektischen Momenten, hohes Qualitäts- und Hygienebewusstsein\n\n• Teamfähig und offen für die Zusammenarbeit mit Menschen aus verschiedensten Hintergründen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Description Le «Cookhouse» combine une grande production moderne et axée sur le processus d'environ 4 200 repas par semaine avec l'ordre d'intégrer les demandeurs d'emploi socialement et professionnellement. Nous sommes une équipe motivée et écrivons la co- et la co-promotion.\n\nTâches - Collaboration dans une grande cuisine de production avec environ 4200 repas par semaine dans le processus Cook & Chill - Préparation de menus équilibrés pour Bernmobil et 16 établissements complémentaires familiaux dans la ville de Berne (Kitas, écoles de jour) - Conformité aux normes de qualité et d'hygiène spécifiées, nettoyage et entretien de la valeur selon la norme HA-Berneberg - Participation active au développement des recettes et des processus - Coopération avec une équipe dédiée et avec les personnes de l'intégration professionnelle\n\nExigences - Formation complète en tant que cuisinier/cuisinier, bonne connaissance allemande en paroles et en écriture - Expérience idéale dans la gastronomie communautaire ou dans une cuisine de production - joie dans la formation des gens et dans l'enseignement des connaissances spécialisées - talent organisationnel, résilient et flexible - même dans les moments agités, la haute qualité et la sensibilisation à l'hygiène - capable de travailler en équipe et ouvert à la coopération avec des personnes de différents horizons\n\nNous offrons Pour la vie de sens & ville Vous changez quelque chose avec nous. Vous aidez à façonner la vie de ville, à porter des responsabilités et à rendre Berne plus habitable.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils professionnels. Nous sommes engagés avec passion et conviction envers les personnes qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. Pour notre ville. Pour Berne."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/koch-koechin/bb260aca-9b8c-451e-ad8b-404bbcdaeaee",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.563Z",
+      "crawledAt": "2026-08-18T09:42:35.352Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,6 +61,8 @@
         "koch-kochin-stadt-bern-bern-e7xp98",
         "cook-cook-stadt-bern-bern",
         "koch-kochin-stadt-bern-bd84qc",
+        "cuire-faire-cuire-stadt-bern-bern-563762",
+        "cucinare-cucinare-stadt-bern-bern",
         "cuisinier-cuisiniere-stadt-bern"
       ],
       "previousSlugsByLocale": {
@@ -68,7 +71,8 @@
           "cucinare-cucinare-stadt-bern-bern-563762",
           "cucinare-cucinare-stadt-bern-bern-e7xp98",
           "cuire-faire-cuire-stadt-bern-bern",
-          "koch-kochin-stadt-bern-bern-e7xp98"
+          "koch-kochin-stadt-bern-bern-e7xp98",
+          "cucinare-cucinare-stadt-bern-bern"
         ],
         "en": [
           "cook-cook-stadt-bern-bern-563762",
@@ -79,6 +83,7 @@
         "fr": [
           "koch-kochin-stadt-bern-bern",
           "cuire-faire-cuire-stadt-bern-bern",
+          "cuire-faire-cuire-stadt-bern-bern-563762",
           "cuisinier-cuisiniere-stadt-bern"
         ]
       },
@@ -128,7 +133,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-beitraege-und-zulagen/8e8e03d0-de0b-43f6-9bab-841ffe365a0e",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.563Z",
+      "crawledAt": "2026-08-18T09:42:35.352Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -206,7 +211,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/38ec7719-0a08-4b60-a95c-f1b18fff9e05",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.562Z",
+      "crawledAt": "2026-08-18T09:42:35.351Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -229,7 +234,8 @@
         "educazione-sociale-in-wg-alpenegg-stadt-bern-bern",
         "social-education-in-wg-alpenegg-stadt-bern-bern",
         "sozialpadagog-in-wg-alpenegg-stadt-bern-bern",
-        "education-sociale-au-gt-alpenegg-stadt-bern-bern"
+        "education-sociale-au-gt-alpenegg-stadt-bern-bern",
+        "istruzione-sociale-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -237,7 +243,8 @@
           "educazione-sociale-in-wg-alpenegg-stadt-bern-bern",
           "social-education-in-wg-alpenegg-stadt-bern-bern",
           "sozialpadagog-in-wg-alpenegg-stadt-bern-bern",
-          "education-sociale-au-gt-alpenegg-stadt-bern-bern"
+          "education-sociale-au-gt-alpenegg-stadt-bern-bern",
+          "istruzione-sociale-stadt-bern-bern"
         ],
         "en": [
           "sozialpadagog-in-stadt-bern-bern",
@@ -252,101 +259,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:51:15.862Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-a37099937ee8",
-      "slug": "chauffeur-cat-c-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "chauffeur-cat-c-stadt-bern-bern",
-        "en": "chauffeur-cat-c-stadt-bern-bern",
-        "de": "chauffeurin-kat-c-stadt-bern-bern",
-        "fr": "chauffeur-cat-c-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "ChauffeurIn Kat. C",
-      "titleByLocale": {
-        "it": "Chauffeur Cat. C",
-        "en": "Chauffeur Cat. C",
-        "de": "ChauffeurIn Kat. C",
-        "fr": "Chauffeur Cat. C"
-      },
-      "description": "Aufgaben:\n• Hakengerät mit Kran zur Entleerung der Sammelstellen führen\n\n• Kehrichtwagen auf verschiedenen Sammeltouren gemäss Plan führen\n\n• Bordcomputer bedienen und Verwiegevorgang überwachen\n\n• Wöchentliche Pflege und Unterhalt der Fahrzeuge\n\n• Mögliche Samstagseinsätze\n\nAnforderungen:\n• Abgeschlossene Berufslehre, Führerausweis Kat. C\n\n• Fahrpraxis als ChauffeurIn und Erfahrung im Umgang mit LKW-Kran von Vorteil\n\n• Gute Dienstleistungsorientierung mit Freude an Kundenkontakt und Teamarbeit\n\n• Zuverlässige, verantwortungsvolle und belastbare Persönlichkeit mit guten Deutschkenntnissen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Dispositivo di aggancio con gru per svuotare i punti di raccolta\n\n• Trasportatori su vari tour di raccolta secondo il piano\n\n• Computer operativi a bordo e monitoraggio della pesatura\n\n• Cura settimanale e manutenzione dei veicoli\n\n• Possibili missioni di sabato\n\nRequisiti\n• Formazione professionale completa, patente di guida Cat. C\n\n• Esperienza di guida come autista ed esperienza nella gestione di una gru per camion è un vantaggio\n\n• Buon servizio orientamento con piacere nel contatto con il cliente e lavoro di squadra\n\n• Personalità affidabile, responsabile e resiliente con una buona conoscenza del tedesco\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Tasks:\n• Hooking device with crane to empty the collection points\n\n• Carrying sweepers on various collection tours according to plan\n\n• Operating on-board computers and monitoring weighing\n\n• Weekly care and maintenance of vehicles\n\n• Possible Saturday missions\n\nRequirements\n• Completed vocational apprenticeship, driving licence Cat. C\n\n• Driving experience as a chauffeur and experience in handling a truck crane is an advantage\n\n• Good service orientation with pleasure in customer contact and teamwork\n\n• Reliable, responsible and resilient personality with a good knowledge of German\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Aufgaben:\n• Hakengerät mit Kran zur Entleerung der Sammelstellen führen\n\n• Kehrichtwagen auf verschiedenen Sammeltouren gemäss Plan führen\n\n• Bordcomputer bedienen und Verwiegevorgang überwachen\n\n• Wöchentliche Pflege und Unterhalt der Fahrzeuge\n\n• Mögliche Samstagseinsätze\n\nAnforderungen:\n• Abgeschlossene Berufslehre, Führerausweis Kat. C\n\n• Fahrpraxis als ChauffeurIn und Erfahrung im Umgang mit LKW-Kran von Vorteil\n\n• Gute Dienstleistungsorientierung mit Freude an Kundenkontakt und Teamarbeit\n\n• Zuverlässige, verantwortungsvolle und belastbare Persönlichkeit mit guten Deutschkenntnissen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Tâches :\n• Dispositif de crochet avec grue pour vider les points de collecte\n\n• Transport de balayeurs sur diverses visites de collection selon le plan\n\n• Fonctionnement des ordinateurs de bord et pesage de surveillance\n\n• Soins hebdomadaires et entretien des véhicules\n\n• Missions du samedi possibles\n\nExigences\n• Apprentissage professionnel terminé, permis de conduire Cat. C\n\n• Expérience de conduite en tant que chauffeur et expérience dans la manipulation d'une grue de camion est un avantage\n\n• Bonne orientation de service avec plaisir dans le contact client et le travail d'équipe\n\n• Une personnalité fiable, responsable et résiliente avec une bonne connaissance de l'allemand\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/chauffeurin-kat-c/f2574343-d385-4779-819b-0df3829de450",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.562Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Murtenstrasse 100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/chauffeurin-kat-c/f2574343-d385-4779-819b-0df3829de450",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chauffeurin-kat-c-stadt-bern-bern",
-        "chauffeur-cat-c-stadt-bern-bern",
-        "logisticista-chauffeur-stadt-bern-bern",
-        "logistician-chauffeur-stadt-bern-bern",
-        "logistiker-in-chauffeur-in-stadt-bern-bern",
-        "logisticien-chauffeur-stadt-bern-bern",
-        "logistiker-in-chauffeur-in-stadt-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeurin-kat-c-stadt-bern-bern",
-          "chauffeur-cat-c-stadt-bern-bern",
-          "logisticista-chauffeur-stadt-bern-bern",
-          "logistician-chauffeur-stadt-bern-bern",
-          "logistiker-in-chauffeur-in-stadt-bern-bern",
-          "logisticien-chauffeur-stadt-bern-bern",
-          "logistiker-in-chauffeur-in-stadt-bern"
-        ],
-        "en": [
-          "chauffeurin-kat-c-stadt-bern-bern",
-          "logistician-chauffeur-stadt-bern-bern"
-        ],
-        "fr": [
-          "chauffeurin-kat-c-stadt-bern-bern",
-          "logisticien-chauffeur-stadt-bern-bern"
-        ],
-        "de": [
-          "logistiker-in-chauffeur-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-17T10:57:53.340Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -392,7 +304,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-motorgeraetemechaniker/1f8b077d-0f26-4cad-b3c6-9f8f9d27aa6f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.561Z",
+      "crawledAt": "2026-08-18T09:42:35.345Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -415,7 +327,8 @@
         "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
         "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
         "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-        "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
+        "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern",
+        "apprendistato-come-motorgeratemechaniker-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -423,7 +336,8 @@
           "apprendistato-come-motorgeratemechaniker-in-cfc-stadt-bern",
           "teaching-as-a-motorized-mechanic-efz-stadt-bern-bern",
           "lehre-als-motorgeratemechaniker-in-efz-stadt-bern-bern",
-          "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern"
+          "enseignement-en-tant-que-mecanicien-motorise-efz-stadt-bern-bern",
+          "apprendistato-come-motorgeratemechaniker-stadt-bern"
         ],
         "en": [
           "lehrstelle-als-motorgeratemechaniker-stadt-bern-bern",
@@ -483,7 +397,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/teilprojektleiter-in-gis-bern/b832fa96-c5fc-4d2d-9fa8-18f53d176e3b",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.561Z",
+      "crawledAt": "2026-08-18T09:42:35.345Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -507,7 +421,8 @@
         "project-manager-stadt-bern-bern",
         "projektleiter-in-stadt-bern-bern",
         "gestionnaire-de-projet-stadt-bern-bern",
-        "projektleiter-in-stadt-bern"
+        "projektleiter-in-stadt-bern",
+        "project-manager-in-gis-bern-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -516,7 +431,8 @@
           "project-manager-stadt-bern-bern",
           "projektleiter-in-stadt-bern-bern",
           "gestionnaire-de-projet-stadt-bern-bern",
-          "projektleiter-in-stadt-bern"
+          "projektleiter-in-stadt-bern",
+          "project-manager-in-gis-bern-stadt-bern-bern"
         ],
         "en": [
           "teilprojektleiter-in-gis-bern-stadt-bern-bern",
@@ -576,7 +492,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-garten-und-landschaftsbau/6733ce74-06ef-4e2c-850c-1efb5fb003ba",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.560Z",
+      "crawledAt": "2026-08-18T09:42:35.344Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -595,11 +511,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+        "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern",
+        "apprendistato-gartner-in-garten-e-landschaftsbau-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
+          "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern",
+          "apprendistato-gartner-in-garten-e-landschaftsbau-stadt-bern"
         ],
         "en": [
           "lehrstelle-gartner-in-garten-und-landschaftsbau-stadt-bern-bern"
@@ -637,7 +555,7 @@
       "title": "ICT-Security Operations Manager*in",
       "titleByLocale": {
         "it": "Gestione delle operazioni di sicurezza delle TIC*",
-        "en": "ICT Security Operations Manager*",
+        "en": "ICT-Security Operations Manager*in",
         "de": "ICT-Security Operations Manager*in",
         "fr": "Gestionnaire des opérations de sécurité des TIC*"
       },
@@ -648,12 +566,13 @@
         "de": "Zur Verstärkung unseres Teams suchen wir per 1. September 2026 oder nach Vereinbarung eine engagierte Persönlichkeit. In einem kleinen Team bist du dafür verantwortlich, sicherheitsrelevante Ereignisse zu analysieren und deren mögliche Auswirkungen auf die städtische und schulische Infrastruktur einzuschätzen. Wenn du Freude am selbständigen Arbeiten hast und in einem dynamischen IT-Umfeld arbeiten möchtest, freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Bedienen, steuern, weiterentwickeln und überwachen der unternehmensweiten ICT-Sicherheitssysteme\n\n• Beurteilen der Wirksamkeit der getroffenen Sicherheitsvorkehrungen und Initiieren von weiteren Massnahmen zur Verbesserung der Sicherheit\n\n• Analysieren von sicherheitsrelevanten Ereignissen und deren möglichen Auswirkungen auf ICT-Systeme hinsichtlich Hardware, Software, Kommunikationsnetzen und -diensten\n\n• Einleiten und Koordinieren von Sofortmassnahmen wie z.B. Schutz-, Übergangs-, Ausweich- und Eskalationsmassnahmen im Falle sicherheitsbedrohender Ereignisse\n\n• Mitarbeiten beim Evaluieren und Beschaffen von Sicherheitssystemen und -tools\n\nAnforderungen:\n• Abgeschlossene Berufslehre im Informatik-Umfeld und weiterführende Ausbildungen wie z.B. HF, FH (idealerweise im Cyber Security-Bereich)\n\n• Praxiserfahrung im Bereich der operativen IT-Sicherheit (Loganalyse, SIEM, Schwachstellenmanagement), insbesondere auch im Microsoft-Umfeld (MS Defender)\n\n• Kommunikative und teamfähige Persönlichkeit\n\n• Hohes Mass an Selbstständigkeit, persönlichem Engagement und Flexibilität\n\n• Kontaktfreudigkeit und die Bereitschaft, sich rasch in neue Arbeitsgebiete einzuarbeiten\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Pour renforcer notre équipe, nous recherchons une personnalité engagée au 1er septembre 2026 ou après accord. Dans une petite équipe, vous êtes chargé d'analyser les événements liés à la sécurité et d'évaluer leur impact potentiel sur les infrastructures urbaines et scolaires. Si vous aimez travailler de manière indépendante et que vous souhaitez travailler dans un environnement informatique dynamique, nous attendons avec impatience votre application.\n\nTâches :\n• Exploitation, contrôle, mise au point et suivi de systèmes intégrés de sécurité informatique\n\n• Évaluer l ' efficacité des mesures de sécurité prises et prendre de nouvelles mesures pour améliorer la sécurité\n\n• Analyser les événements liés à la sécurité et leur impact potentiel sur les systèmes TIC en termes de matériel, de logiciels, de réseaux et de services de communication\n\n• Ouverture et coordination de mesures immédiates telles que la protection, la transition, l ' évasion et l ' escalade en cas d ' événements mettant en danger la sécurité\n\n• Aider à évaluer et à acquérir des systèmes et des outils de sécurité\n\nExigences\n• Achevé l'apprentissage professionnel dans l'environnement informatique et la formation continue comme HF, FH (idéalement dans le secteur de la cybersécurité)\n\n• Expérience pratique dans le domaine de la sécurité informatique opérationnelle (analyse de journal, SIEM, gestion de la vulnérabilité), en particulier dans l'environnement Microsoft (MS Defender)\n\n• Personnalité communicative et capable d'équipe\n\n• Haute indépendance, engagement personnel et flexibilité\n\n• La sociabilité et la volonté de se familiariser rapidement avec de nouveaux domaines de travail\n\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/ict-security-operations-manager-in/7625c351-f01f-4511-b322-73f00fc8ddfb",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.560Z",
+      "crawledAt": "2026-08-18T09:42:35.344Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -672,11 +591,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-security-operations-manager-in-stadt-bern-bern"
+        "ict-security-operations-manager-in-stadt-bern-bern",
+        "gestione-delle-operazioni-di-sicurezza-delle-tic-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-security-operations-manager-in-stadt-bern-bern"
+          "ict-security-operations-manager-in-stadt-bern-bern",
+          "gestione-delle-operazioni-di-sicurezza-delle-tic-stadt-bern-bern"
         ],
         "fr": [
           "ict-security-operations-manager-in-stadt-bern-bern"
@@ -728,7 +649,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in/4ca8d9f5-83f5-47e9-8527-07d1d0f78b30",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.560Z",
+      "crawledAt": "2026-08-18T09:42:35.344Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -750,14 +671,16 @@
         "vorarbeiter-in-stadt-bern-bern",
         "vorarbeiter-in-stadt-bern-bern-2",
         "foreman-stadt-bern-bern",
-        "contremaitre-stadt-bern-bern"
+        "contremaitre-stadt-bern-bern",
+        "foreman-stadt-bern-bern-da3c9d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorarbeiter-in-stadt-bern-bern",
           "vorarbeiter-in-stadt-bern-bern-2",
           "foreman-stadt-bern-bern",
-          "contremaitre-stadt-bern-bern"
+          "contremaitre-stadt-bern-bern",
+          "foreman-stadt-bern-bern-da3c9d"
         ],
         "en": [
           "vorarbeiter-in-stadt-bern-bern-2"
@@ -768,84 +691,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:11:03.767Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-882983a7f26a",
-      "slug": "team-leader-in-service-desk-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "team-leader-in-service-desk-stadt-bern-bern",
-        "en": "team-leader-in-service-desk-stadt-bern-bern",
-        "de": "teamleiter-in-service-desk-stadt-bern-bern",
-        "fr": "chef-d-equipe-au-comptoir-de-service-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Teamleiter*in Service Desk",
-      "titleByLocale": {
-        "it": "Team Leader* in Service Desk",
-        "en": "Team Leader* in Service Desk",
-        "de": "Teamleiter*in Service Desk",
-        "fr": "Chef d'équipe* au comptoir de service"
-      },
-      "description": "Per 1. September 2026 oder nach Vereinbarung suchen wir Dich als Teamleiter*in Service Desk\n\nAufgaben:\n• Du führst und entwickelst das Service Desk in fachlicher, personeller und organisatorischer Hinsicht (inkl. Planung, Einsatz und Förderung der Mitarbeitenden und sowie der Lernenden)\n\n• Du trägst die Gesamtverantwortung für das Service Desk und stellst einen professionellen, stabilen, effizienten und zukunftsorientierten IT Supportbetrieb sowie eine hohe Kundenzufriedenheit sicher\n\n• In deiner Rolle als Prozessowner*in verantwortest du die dir zugewiesenen Prozesse (Incident Management, Major Incident Management und Problem Management). Die kontinuierliche Optimierung dieser Prozesse, die Steuerung relevanter KPI's sowie die Zusammenarbeit mit verschiedenen Schnitstellen fallen dir leicht.\n\n• Du arbeitest in interdisziplinären Teams und Gremien und wirkst in verschiedensten Projekten aktiv mit\n\n• Du fühlst dich in einem dynamischen Umfeld wohl und verfügst über eine ausgeprägte Hands-on-Mentalität. Dein Team zu unterstützen und im Tagesgeschäft aktiv mitzuwirken, ist für dich selbstverständlich\n\nAnforderungen:\n• abgeschlossene ICT-Ausbildung, idealerweise mit Weiterbildung auf Stufe HF oder FH, evtl. vergleichbare Qualifikation und mehrjährige Berufserfahrung\n\n• fundierte Kenntnisse im Prozessmanagement (Weiterentwicklung, Optimierung und Verankerung)\n\n• ausgewiesene, mehrjährige Führungserfahrung\n\n• hohe Kundenorientierung, Zuverlässigkeit und klare Kommunikation\n\n• Lust und Freude, Veränderungen aktiv mitzugestalten, gepaart mit der nötigen Ruhe, Ausdauer und Lösungsorientierung\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Dal 1 settembre 2026 o su appuntamento, ti stiamo cercando come Team Leader* in Service Desk\n\nCompiti:\n• Condurre e sviluppare il servizio in termini professionali, di personale e organizzativi (compresa la pianificazione, la distribuzione e la promozione di dipendenti e studenti)\n\n• Ti assumi la responsabilità generale per il servizio e garantisci operazioni di supporto IT professionali, stabili, efficienti e orientate al futuro e un'elevata soddisfazione del cliente\n\n• Nel vostro ruolo di proprietario di processo, siete responsabili dei processi assegnati a voi (gestione degli incidenti, gestione degli incidenti principali e gestione dei problemi). L'ottimizzazione continua di questi processi, il controllo dei KPI rilevanti e la collaborazione con varie interfacce sono facili per voi.\n\n• Lavori in team e comitati interdisciplinari e partecipi attivamente a vari progetti\n\n• Ti senti a tuo agio in un ambiente dinamico e hai una forte mentalità hands-on. Sostenere il vostro team e partecipare attivamente al business giorno per giorno è una questione naturalmente per voi\n\nRequisiti\n• Formazione ICT completata, idealmente con ulteriore formazione a livello HF o FH, possibilmente qualificazione comparabile e diversi anni di esperienza professionale\n\n• Conoscenza approfondita della gestione dei processi (ulteriore sviluppo, ottimizzazione e ancoraggio)\n\n• provata, diversi anni di esperienza di leadership\n\n• Alto orientamento del cliente, affidabilità e comunicazione chiara\n\n• Desiderio e gioia di modellare attivamente il cambiamento, accoppiato con l'orientamento calma, resistenza e soluzione necessario\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "As of September 1, 2026 or by appointment, we are looking for you as Team Leader* in Service Desk\n\nTasks:\n• You lead and develop the service desk in professional, personnel and organizational terms (including planning, deployment and promotion of employees and learners)\n\n• You take overall responsibility for the service desk and ensure professional, stable, efficient and future-oriented IT support operations as well as high customer satisfaction\n\n• In your role as a process owner, you are responsible for the processes assigned to you (incident management, major incident management and problem management). The continuous optimization of these processes, the control of relevant KPIs and the cooperation with various interfaces are easy for you.\n\n• You work in interdisciplinary teams and committees and actively participate in various projects\n\n• You feel comfortable in a dynamic environment and have a strong hands-on mentality. Supporting your team and actively participating in day-to-day business is a matter of course for you\n\nRequirements\n• ICT training completed, ideally with further training at HF or FH level, possibly comparable qualification and several years of professional experience\n\n• In-depth knowledge of process management (further development, optimization and anchoring)\n\n• proven, several years of leadership experience\n\n• High customer orientation, reliability and clear communication\n\n• Desire and joy to actively shape change, coupled with the necessary calm, endurance and solution orientation\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Per 1. September 2026 oder nach Vereinbarung suchen wir Dich als Teamleiter*in Service Desk\n\nAufgaben:\n• Du führst und entwickelst das Service Desk in fachlicher, personeller und organisatorischer Hinsicht (inkl. Planung, Einsatz und Förderung der Mitarbeitenden und sowie der Lernenden)\n\n• Du trägst die Gesamtverantwortung für das Service Desk und stellst einen professionellen, stabilen, effizienten und zukunftsorientierten IT Supportbetrieb sowie eine hohe Kundenzufriedenheit sicher\n\n• In deiner Rolle als Prozessowner*in verantwortest du die dir zugewiesenen Prozesse (Incident Management, Major Incident Management und Problem Management). Die kontinuierliche Optimierung dieser Prozesse, die Steuerung relevanter KPI's sowie die Zusammenarbeit mit verschiedenen Schnitstellen fallen dir leicht.\n\n• Du arbeitest in interdisziplinären Teams und Gremien und wirkst in verschiedensten Projekten aktiv mit\n\n• Du fühlst dich in einem dynamischen Umfeld wohl und verfügst über eine ausgeprägte Hands-on-Mentalität. Dein Team zu unterstützen und im Tagesgeschäft aktiv mitzuwirken, ist für dich selbstverständlich\n\nAnforderungen:\n• abgeschlossene ICT-Ausbildung, idealerweise mit Weiterbildung auf Stufe HF oder FH, evtl. vergleichbare Qualifikation und mehrjährige Berufserfahrung\n\n• fundierte Kenntnisse im Prozessmanagement (Weiterentwicklung, Optimierung und Verankerung)\n\n• ausgewiesene, mehrjährige Führungserfahrung\n\n• hohe Kundenorientierung, Zuverlässigkeit und klare Kommunikation\n\n• Lust und Freude, Veränderungen aktiv mitzugestalten, gepaart mit der nötigen Ruhe, Ausdauer und Lösungsorientierung\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "En date du 1er septembre 2026 ou sur rendez-vous, nous vous recherchons comme chef d'équipe* dans Service Desk\n\nTâches :\n• Vous dirigez et développez le service en termes professionnels, personnels et organisationnels (y compris la planification, le déploiement et la promotion des employés et des apprenants)\n\n• Vous assumez la responsabilité globale du bureau de service et vous assurez des opérations de soutien informatique professionnelles, stables, efficaces et orientées vers l'avenir ainsi que la satisfaction élevée de la clientèle\n\n• Dans votre rôle de propriétaire de processus, vous êtes responsable des processus qui vous sont assignés (gestion des incidents, gestion des incidents majeurs et gestion des problèmes). L'optimisation continue de ces processus, le contrôle des KPI pertinents et la coopération avec différentes interfaces sont faciles pour vous.\n\n• Vous travaillez dans des équipes et des comités interdisciplinaires et participez activement à divers projets\n\n• Vous vous sentez à l'aise dans un environnement dynamique et avez une forte mentalité pratique. Soutenir votre équipe et participer activement aux affaires quotidiennes est une question bien sûr pour vous\n\nExigences\n• Formation aux TIC terminée, idéalement avec une formation continue au niveau HF ou FH, éventuellement une qualification comparable et plusieurs années d'expérience professionnelle\n\n• Connaissance approfondie de la gestion des processus (développement, optimisation et ancrage)\n\n• prouvé, plusieurs années d'expérience en leadership\n\n• Orientation client élevée, fiabilité et communication claire\n\n• Désir et joie de façonner activement le changement, associé au calme nécessaire, endurance et orientation de la solution\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/teamleiter-in-service-desk/89e94143-e052-4049-b631-e11070be3dc8",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.559Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/teamleiter-in-service-desk/89e94143-e052-4049-b631-e11070be3dc8",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-service-desk-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-service-desk-stadt-bern-bern"
-        ],
-        "en": [
-          "teamleiter-in-service-desk-stadt-bern-bern"
-        ],
-        "fr": [
-          "teamleiter-in-service-desk-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T22:06:49.588Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -891,7 +736,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.558Z",
+      "crawledAt": "2026-08-18T09:42:35.343Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -910,11 +755,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+        "apprendistato-kauffrau-kaufmann-cfc-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern"
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+          "apprendistato-kauffrau-kaufmann-cfc-stadt-bern"
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.102Z",
@@ -963,7 +810,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.558Z",
+      "crawledAt": "2026-08-18T09:42:35.343Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -982,11 +829,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
+        "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern",
+        "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
+          "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern",
+          "apprendistato-kauffrau-kaufmann-cfc-per-sporttalente-stadt-bern"
         ],
         "en": [
           "lehrstelle-kauffrau-kaufmann-efz-fur-sporttalente-stadt-bern-bern"
@@ -996,84 +845,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.100Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-429017004519",
-      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-geomatiker-in-stadt-bern",
-        "en": "teaching-as-a-geomatician-stadt-bern-bern",
-        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
-        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehre als Geomatiker*in",
-      "titleByLocale": {
-        "it": "Apprendistato come Geomatiker*in",
-        "en": "Teaching as a geomatician",
-        "de": "Lehre als Geomatiker*in",
-        "fr": "Enseignement en tant que géomatique"
-      },
-      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossene Sekundarschule\n\n• Gute Leistungen in Geometrie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossene Sekundarschule\n\n• Gute Leistungen in Geometrie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.554Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-02",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-geomatiker-in-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ],
-        "en": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehre-als-geomatiker-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:32:20.634Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1119,7 +890,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus/29134946-fe7c-401c-9145-fc0346411a20",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.554Z",
+      "crawledAt": "2026-08-18T09:42:35.340Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1138,11 +909,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus-stadt-bern-bern"
+        "mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus-stadt-bern-bern",
+        "collaboratore-trice-in-kasse-im-hallen-e-freibad-weyermannshaus-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus-stadt-bern-bern"
+          "mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus-stadt-bern-bern",
+          "collaboratore-trice-in-kasse-im-hallen-e-freibad-weyermannshaus-stadt-bern"
         ],
         "en": [
           "mitarbeiter-in-kasse-im-hallen-und-freibad-weyermannshaus-stadt-bern-bern"
@@ -1197,7 +970,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachspezialist-in-gebaeudeautomation-msrl/51750204-7bb2-4d25-a3bb-65508e08067b",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.553Z",
+      "crawledAt": "2026-08-18T09:42:35.339Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1216,11 +989,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-gebaudeautomation-msrl-stadt-bern-bern"
+        "fachspezialist-in-gebaudeautomation-msrl-stadt-bern-bern",
+        "specialista-nell-automazione-degli-edifici-msrl-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-gebaudeautomation-msrl-stadt-bern-bern"
+          "fachspezialist-in-gebaudeautomation-msrl-stadt-bern-bern",
+          "specialista-nell-automazione-degli-edifici-msrl-stadt-bern-bern"
         ],
         "en": [
           "fachspezialist-in-gebaudeautomation-msrl-stadt-bern-bern"
@@ -1275,7 +1050,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.553Z",
+      "crawledAt": "2026-08-18T09:42:35.339Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1294,11 +1069,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-recyclist-in-stadt-bern-bern"
+        "lehrstelle-recyclist-in-stadt-bern-bern",
+        "apprendistato-recyclist-in-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-recyclist-in-stadt-bern-bern"
+          "lehrstelle-recyclist-in-stadt-bern-bern",
+          "apprendistato-recyclist-in-stadt-bern"
         ],
         "en": [
           "lehrstelle-recyclist-in-stadt-bern-bern"
@@ -1308,6 +1085,86 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:32:20.633Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-429017004519",
+      "slug": "apprendistato-come-geomatiker-in-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-geomatiker-in-stadt-bern",
+        "en": "teaching-as-a-geomatician-stadt-bern-bern",
+        "de": "lehre-als-geomatiker-in-stadt-bern-bern",
+        "fr": "enseignement-en-tant-que-geomatique-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehre als Geomatiker*in",
+      "titleByLocale": {
+        "it": "Apprendistato come Geomatiker*in",
+        "en": "Teaching as a geomatician",
+        "de": "Lehre als Geomatiker*in",
+        "fr": "Enseignement en tant que géomatique"
+      },
+      "description": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossene Sekundarschule\n\n• Gute Leistungen in Geometrie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Ti piacciono i dati geografici e le scienze informatiche? Ti piace lavorare in esterno e in ufficio e sei accurato e attento?\n\nCompiti:\n• Misurare i dati spaziali e registrarli nel sistema\n\n• Programmazione strumenti di misura e apprendimento per posizionarli correttamente\n\n• Area di attività dell'indagine ufficiale / Conoscere la geoinformazione\n\n• Visita alla Scuola Professionale di Zurigo (corsi di blocco)\n\n• Partecipare a corsi intercompany\n\n• Maturità professionale (BMS) è possibile\n\nRequisiti\n• Scuola secondaria completa\n\n• Buoni risultati in geometria, matematica e tedesco\n\n• Buona immaginazione spaziale\n\n• Il fascino tecnico e la gioia nel mondo del lavoro digitale\n\n• La gioia di affrontare le persone\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Do you enjoy geographic data and computer science? Do you like working<br/> outdoors and in the office and are accurate and careful?\n\nTasks:\n• Measure spatial data and record them in the system\n\n• Programming measuring instruments and learning to position them correctly\n\n• Task area of official surveying / Getting to know geoinformation\n\n• Visit to the Vocational School in Zurich (block courses)\n\n• Attending intercompany courses\n\n• Professional Maturity (BMS) is possible\n\nRequirements\n• Completed secondary school\n\n• Good achievements in geometry, mathematics and German\n\n• Good spatial imagination\n\n• Technical flair and joy in the digital working world\n\n• The joy of dealing with people\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Hast du Freude an geografischen Daten und Informatik? Arbeitest du gerne<br/>im Freien und im Büro und bist dabei genau und sorgfältig?\n\nAufgaben:\n• Geodaten ausmessen und im System erfassen\n\n• Messgeräte programmieren und korrekt positionieren lernen\n\n• Aufgabengebiet der amtlichen Vermessung / Geoinformation kennenlernen\n\n• Besuch der Berufsschule in Zürich (Blockkurse)\n\n• Überbetriebliche Kurse besuchen\n\n• Berufsmaturitiät (BMS) möglich\n\nAnforderungen:\n• Abgeschlossene Sekundarschule\n\n• Gute Leistungen in Geometrie, Mathematik und deutscher Sprache\n\n• Gutes räumliches Vorstellungsvermögen\n\n• Technisches Flair und Freude an der digitalen Arbeitswelt\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Vous aimez les données géographiques et l'informatique? Vous aimez travailler à l'extérieur et au bureau, et êtes précis et prudent?\n\nTâches :\n• Mesurer les données spatiales et les enregistrer dans le système\n\n• Programmation d'instruments de mesure et d'apprentissage pour les positionner correctement\n\n• Domaine d'activité de l'arpentage officiel / Apprendre à connaître la géoinformation\n\n• Visite à l'école professionnelle de Zurich (cours en bloc)\n\n• Cours interentreprises\n\n• La maturité professionnelle (BMS) est possible\n\nExigences\n• Enseignement secondaire terminé\n\n• Bonnes réalisations en géométrie, mathématiques et allemand\n\n• Bonne imagination spatiale\n\n• Le style technique et la joie dans le monde du travail numérique\n\n• La joie de traiter avec les gens\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:42:35.339Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-02",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-geomatiker-in-stadt-bern-bern",
+        "apprendistato-come-geomatiker-in-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-geomatiker-in-stadt-bern-bern",
+          "apprendistato-come-geomatiker-in-stadt-bern"
+        ],
+        "en": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehre-als-geomatiker-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-03T12:32:20.634Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1353,7 +1210,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst-verwaltungsgebaeude-schwarztorstrasse/cab2a115-5d53-449c-b5f3-97a62be8d43e",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.552Z",
+      "crawledAt": "2026-08-18T09:42:35.338Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1372,11 +1229,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
+        "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern",
+        "personale-specializzato-nell-edificio-di-amministrazione-del-servizio-domestico-schwarztorstrasse-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
+          "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern",
+          "personale-specializzato-nell-edificio-di-amministrazione-del-servizio-domestico-schwarztorstrasse-stadt-bern-bern"
         ],
         "en": [
           "fachmitarbeiter-in-hausdienst-verwaltungsgebaude-schwarztorstrasse-stadt-bern-bern"
@@ -1431,7 +1290,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-kuechenangestellte-r-eba/9b8797fe-f121-469c-aade-cbc8778404d8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.552Z",
+      "crawledAt": "2026-08-18T09:42:35.338Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1450,11 +1309,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
+        "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern",
+        "apprendistato-come-kuchenangestellte-r-afp-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
+          "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern",
+          "apprendistato-come-kuchenangestellte-r-afp-stadt-bern"
         ],
         "en": [
           "lehrstelle-als-kuchenangestellte-r-eba-stadt-bern-bern"
@@ -1464,166 +1325,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.113Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-fd7a56696c6e",
-      "slug": "lehrstellen-come-fachperson-betreuung-cfc-specializzazione-kinder-stadt-bern",
-      "slugByLocale": {
-        "it": "lehrstellen-come-fachperson-betreuung-cfc-specializzazione-kinder-stadt-bern",
-        "en": "apprenticeships-as-a-specialist-care-efz-specialty-children-stadt-bern-bern",
-        "de": "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern",
-        "fr": "apprentissage-comme-specialiste-care-efz-enfants-specialises-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstellen als Fachperson Betreuung EFZ, Fachrichtung Kinder - Tagesbetreuung",
-      "titleByLocale": {
-        "it": "Lehrstellen come Fachperson Betreuung CFC, specializzazione Kinder - Tagesbetreuung",
-        "en": "Apprenticeships as a specialist Care EFZ, specialty children",
-        "de": "Lehrstellen als Fachperson Betreuung EFZ, Fachrichtung Kinder - Tagesbetreuung",
-        "fr": "Apprentissage comme spécialiste Care EFZ, enfants spécialisés"
-      },
-      "description": "\"Mit Kindern wachsen - starte deine Zukunft jetzt!\" Die Tagesbetreuung bietet Kindern eine sicheren, wertschätzenden und anregenden Lebensraum ausserhalb des Unterrichts. Als Lernende der Tagesbetreuung arbeitest du mehrheitlich mit Kindern im Zyklus 1 (4-8 Jahre) und Zyklus 2 (8-12 Jahre). Die Kinder werden in altersgetrennten Gruppen betreut. Bewirb dich jetzt und werde Teil eines Berufs mit Sinn, Herz und Perspektive.\n\nAufgaben:\n• Du betreust Kinder im Schulalter und förderst sie nach pädagogischen Grundsätzen\n\n• Du lernst, mit dem ganzen Betreuungsteam zusammenzuarbeiten\n\n• Du gestaltest Aktivitäten und leitest sie an\n\n• Du sorgst für vielfältige Lernerfahrungen für die Kinder und Jugendlichen\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen\n\n• Du hast Freude am Umgang mit Kindern und Jugendlichen\n\n• Du arbeitest gerne im Team, bist kommunikativ und kannst mit Konflikten umgehen\n\n• Du bist ausgeglichen, belastbar und flexibel\n\n• Du hast ein hohes Verantwortungsbewusstsein, kannst Dich gut in andere hineinfühlen, bist hilfsbereit und geduldig\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "“Fonda con i bambini – inizia subito il tuo futuro!” L'assistenza giornaliera offre ai bambini uno spazio di vita sicuro, apprezzato e stimolante al di fuori della classe. Come apprendista diurno, la maggior parte di voi lavora con i bambini in ciclo 1 (4-8 anni) e ciclo 2 (8-12 anni). I bambini sono curati in gruppi separati di età. Applicare ora e diventare parte di una professione con significato, cuore e prospettiva.\n\nCompiti:\n• Si prende cura dei bambini in età scolare e li promuove secondo i principi pedagogici\n\n• Impara a lavorare con l'intero team di assistenza\n\n• Crea attività e guidali\n\n• Fornisci esperienze di apprendimento diversificate per bambini e giovani\n\nRequisiti\n• Hai completato la scuola reale o secondaria\n\n• Ti piace avere a che fare con i bambini e i giovani\n\n• Ti piace lavorare in una squadra, sono comunicativi e possono affrontare conflitti\n\n• Sei equilibrato, resistente e flessibile\n\n• Hai un alto senso di responsabilità, può sentirsi bene per gli altri, sono utili e pazienti\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "“Grow with children – start your future now!” Day care offers children a safe, appreciative and stimulating living space outside of class. As a day care learner, the majority of you work with children in cycle 1 (4-8 years) and cycle 2 (8-12 years). Children are cared for in age-separated groups. Apply now and become part of a profession with meaning, heart and perspective.\n\nTasks:\n• You look after school-age children and promote them according to pedagogical principles\n\n• You learn to work with the entire care team\n\n• You create activities and guide them\n\n• You provide diverse learning experiences for children and young people\n\nRequirements\n• You have completed Real or Secondary School\n\n• You enjoy dealing with children and young people\n\n• You enjoy working in a team, are communicative and can deal with conflicts\n\n• You are balanced, resilient and flexible\n\n• You have a high sense of responsibility, can feel good about others, are helpful and patient\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "\"Mit Kindern wachsen - starte deine Zukunft jetzt!\" Die Tagesbetreuung bietet Kindern eine sicheren, wertschätzenden und anregenden Lebensraum ausserhalb des Unterrichts. Als Lernende der Tagesbetreuung arbeitest du mehrheitlich mit Kindern im Zyklus 1 (4-8 Jahre) und Zyklus 2 (8-12 Jahre). Die Kinder werden in altersgetrennten Gruppen betreut. Bewirb dich jetzt und werde Teil eines Berufs mit Sinn, Herz und Perspektive.\n\nAufgaben:\n• Du betreust Kinder im Schulalter und förderst sie nach pädagogischen Grundsätzen\n\n• Du lernst, mit dem ganzen Betreuungsteam zusammenzuarbeiten\n\n• Du gestaltest Aktivitäten und leitest sie an\n\n• Du sorgst für vielfältige Lernerfahrungen für die Kinder und Jugendlichen\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen\n\n• Du hast Freude am Umgang mit Kindern und Jugendlichen\n\n• Du arbeitest gerne im Team, bist kommunikativ und kannst mit Konflikten umgehen\n\n• Du bist ausgeglichen, belastbar und flexibel\n\n• Du hast ein hohes Verantwortungsbewusstsein, kannst Dich gut in andere hineinfühlen, bist hilfsbereit und geduldig\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "Grow avec des enfants – commencez votre avenir maintenant! La garderie offre aux enfants un espace de vie sûr, agréable et stimulant en dehors de la classe. En tant qu'apprenant de jour, la majorité d'entre vous travaillent avec des enfants du cycle 1 (4-8 ans) et du cycle 2 (8-12 ans). Les enfants sont pris en charge dans des groupes séparés par l'âge. Appliquer maintenant et devenir partie d'une profession avec sens, coeur et perspective.\n\nTâches :\n• Vous prenez soin des enfants d'âge scolaire et les promeut selon les principes pédagogiques\n\n• Vous apprenez à travailler avec toute l'équipe de soins\n\n• Vous créez des activités et les guidez\n\n• Vous offrez diverses expériences d'apprentissage aux enfants et aux jeunes\n\nExigences\n• Vous avez terminé l'école réelle ou secondaire\n\n• Vous aimez traiter avec les enfants et les jeunes\n\n• Vous aimez travailler en équipe, être communicatif et gérer les conflits\n\n• Vous êtes équilibré, résilient et flexible\n\n• Vous avez un haut sens des responsabilités, vous pouvez vous sentir bien envers les autres, sont utiles et patients\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-tagesbetreuung/9f889b3c-9da3-481d-b642-cb6e0114928d",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.549Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Effingerstrasse 21",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-tagesbetreuung/9f889b3c-9da3-481d-b642-cb6e0114928d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern",
-        "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-tagesbetreuung-stadt-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern",
-          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-tagesbetreuung-stadt-bern"
-        ],
-        "en": [
-          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.115Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-b1f5a6d675e7",
-      "slug": "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern",
-        "en": "apprenticeship-as-childcare-specialist-kita-efz-stadt-bern-bern",
-        "de": "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern",
-        "fr": "apprentissage-en-tant-que-specialiste-de-la-garde-des-enfants-kita-efz-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehrstelle als Fachperson Kinderbetreuung EFZ Kita",
-      "titleByLocale": {
-        "it": "Apprendistato come Fachperson Kinderbetreuung CFC Kita",
-        "en": "Apprenticeship as childcare specialist Kita EFZ",
-        "de": "Lehrstelle als Fachperson Kinderbetreuung EFZ Kita",
-        "fr": "Apprentissage en tant que spécialiste de la garde des enfants Kita EFZ"
-      },
-      "description": "Starte deine Zukunft bei uns und sorge jeden Tag für strahlende Kinderaugen.<br/><br/>Bewerbungsfrist: <b>31. August 2026</b>\n\nAufgaben:\n• Du begleitest und betreust Kinder im Alter von 3 Monaten bis zu ihrem Eintritt in den Kindergarten/Schule\n\n• Du gestaltest und leitest Aktivitäten mit den Kindern\n\n• Du unterstützt Kinder in der Entfaltung ihrer Persönlichkeit\n\n• Du arbeitest in einem Team von engagierten Betreuungspersonen\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen\n\n• Du interessierst Dich für die Entwicklung von kleinen Kindern\n\n• Du bist sehr geduldig, belastbar und zuverlässig\n\n• Du hast ein hohes Verantwortungsbewusstsein\n\n• Du bist engagiert, flexibel und arbeitest gerne im Team\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "Avviare il vostro futuro con noi e prendersi cura degli occhi dei bambini luminosi ogni giorno. > > Termine per l'applicazione: <b>31. Agosto 2026\n\nCompiti:\n• Accompagnate e curate i bambini di età compresa tra 3 mesi fino all'ingresso all'asilo/scuola\n\n• Progettare e condurre attività con i bambini\n\n• Voi sostenete i bambini nello sviluppo della loro personalità\n\n• Lavori in un team di caregiver dedicati\n\nRequisiti\n• Hai completato la scuola reale o secondaria\n\n• Sei interessato allo sviluppo di bambini piccoli\n\n• Sei molto paziente, resiliente e affidabile\n\n• Hai un alto senso di responsabilità\n\n• Sei impegnato, flessibile e divertiti a lavorare in un team\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "Start your future with us and take care of bright children’s eyes every day. <br/><br/>Application deadline: <b>31. August 2026</b>\n\nTasks:\n• You accompany and care for children aged 3 months until they enter kindergarten/school\n\n• You design and lead activities with the children\n\n• You support children in the development of their personality\n\n• You work in a team of dedicated caregivers\n\nRequirements\n• You have completed Real or Secondary School\n\n• You are interested in the development of young children\n\n• You are very patient, resilient and reliable\n\n• You have a high sense of responsibility\n\n• You are committed, flexible and enjoy working in a team\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "Starte deine Zukunft bei uns und sorge jeden Tag für strahlende Kinderaugen.<br/><br/>Bewerbungsfrist: <b>31. August 2026</b>\n\nAufgaben:\n• Du begleitest und betreust Kinder im Alter von 3 Monaten bis zu ihrem Eintritt in den Kindergarten/Schule\n\n• Du gestaltest und leitest Aktivitäten mit den Kindern\n\n• Du unterstützt Kinder in der Entfaltung ihrer Persönlichkeit\n\n• Du arbeitest in einem Team von engagierten Betreuungspersonen\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen\n\n• Du interessierst Dich für die Entwicklung von kleinen Kindern\n\n• Du bist sehr geduldig, belastbar und zuverlässig\n\n• Du hast ein hohes Verantwortungsbewusstsein\n\n• Du bist engagiert, flexibel und arbeitest gerne im Team\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "Commencez votre avenir avec nous et prenez soin des yeux d'enfants lumineux chaque jour. <br/><br/> Date limite de présentation des demandes : <b>31. août 2026</b>\n\nTâches :\n• Vous accompagnez et prenez soin des enfants âgés de 3 mois jusqu'à ce qu'ils entrent dans la maternelle/école\n\n• Vous concevez et dirigez des activités avec les enfants\n\n• Vous aidez les enfants à développer leur personnalité\n\n• Vous travaillez dans une équipe de soignants dévoués\n\nExigences\n• Vous avez terminé l'école réelle ou secondaire\n\n• Vous êtes intéressé par le développement des jeunes enfants\n\n• Vous êtes très patient, résistant et fiable\n\n• Vous avez un grand sens des responsabilités\n\n• Vous êtes engagé, flexible et aimez travailler en équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachperson-kinderbetreuung-efz-kita/5c03c988-ec6f-4274-9397-c161f426293f",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.549Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Effingerstrasse 21",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachperson-kinderbetreuung-efz-kita/5c03c988-ec6f-4274-9397-c161f426293f",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern",
-        "lehrstelle-als-fachperson-kinderbetreuung-efz-kita-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern",
-          "lehrstelle-als-fachperson-kinderbetreuung-efz-kita-stadt-bern-bern"
-        ],
-        "en": [
-          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:53.114Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1669,7 +1370,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-siedlungsentwaesserung/50ae6097-bbce-4def-a687-fd7fafc57b1a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.548Z",
+      "crawledAt": "2026-08-18T09:42:35.337Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1731,84 +1432,6 @@
       }
     },
     {
-      "id": "stadt-bern-29b2c46f3f8d",
-      "slug": "collaboratore-trice-in-punkt6-stadt-bern",
-      "slugByLocale": {
-        "it": "collaboratore-trice-in-punkt6-stadt-bern",
-        "en": "employees-in-point-6-stadt-bern-bern",
-        "de": "mitarbeiter-in-punkt6-stadt-bern-bern",
-        "fr": "employes-au-point-6-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Mitarbeiter*in Punkt6",
-      "titleByLocale": {
-        "it": "Collaboratore/trice*in Punkt6",
-        "en": "Employees* in point 6",
-        "de": "Mitarbeiter*in Punkt6",
-        "fr": "Employés* au point 6"
-      },
-      "description": "\"Punkt 6\" ist ein Angebot von PINTO. Es ist ein Aufenthaltsraum, in dem sich obdachlose Menschen aufwärmen, verpflegen und waschen können. Das Angebot an der Nägeligasse 3a ist ab 1. November 2026 bis 31. März 2027 täglich von 6.00 bis 10.00und 18.00 bis 22.30 Uhr geöffnet.<br/><br/>Für den Aufenthaltsraum für obdachlose Menschen Punkt6 suchen wir eine Persönlichkeit.\n\nAufgaben:\n• Niederschwellige Begleitung und Unterstützung von Menschen in unterschiedlichen Lebenslagen\n\n• Mitgestaltung eines sicheren und respektvollen Begegnungsortes durch Vermittlung von Regeln und Förderung eines konfliktarmen Miteinanders\n\n• Deeskalierender Umgang mit herausfordernden Situationen und Konflikten\n\n• Zubereitung und Ausgabe von Speisen und Getränken\n\n• Interdisziplinäre Zusammenarbeit, Vernetzung und kurze fallbezogene/schichtbezogene Dokumentation\n\nAnforderungen:\n• Konfliktdeeskalation sowie professioneller und sicherer Umgang mit herausfordernden Situationen\n\n• Reflektierte Arbeitsweise und Bereitschaft zur fachlichen sowie persönlichen Weiterentwicklung\n\n• Freude an der Arbeit mit Menschen in unterschiedlichen Lebenslagen\n\n• Teamfähigkeit und Offenheit für die Zusammenarbeit in einem diversen Umfeld sowie gute mündliche und schriftliche Deutschkenntnisse\n\n• Erfahrung im Sozial- oder Gesundheitsbereich von Vorteil; Fremdsprachenkenntnisse erwünscht\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "\"Punta 6\" è un'offerta di PINTO. Si tratta di un salone dove i senzatetto possono riscaldarsi, nutrire e lavarsi. L'offerta a Nageligasse 3a è dal 1 novembre 2026 al 31. Marzo 2027 aperto tutti i giorni dalle 6.00 alle 10.00 e dalle 18.00 alle 22.30. <br/>\n\nCompiti:\n• Accompagnamento a bassa soglia e sostegno delle persone in situazioni diverse\n\n• Co-creazione di un luogo di incontro sicuro e rispettoso attraverso la mediazione di regole e la promozione della cooperazione a basso conflitto\n\n• Gestione de-escalating di situazioni e conflitti difficili\n\n• Preparazione e distribuzione di alimenti e bevande\n\n• Collaborazione interdisciplinare, networking e documentazione breve caso/strato\n\nRequisiti\n• Conflitto de-escalation e gestione professionale e sicura di situazioni difficili\n\n• Metodi di lavoro e volontà risolti per lo sviluppo professionale e personale\n\n• Godetevi il lavoro con le persone in situazioni diverse\n\n• Lavoro di squadra e apertura per la cooperazione in un ambiente diverso e buona conoscenza orale e scritta del tedesco\n\n• esperienza sociale o sanitaria è benefica; Conoscenza delle lingue straniere desiderate\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "\"Point 6\" is an offer from PINTO. It is a lounge where homeless people can warm up, feed and wash. The offer at Nageligasse 3a is from 1 November 2026 to 31. March 2027 open daily from 6.00 to 10.00 and 18.00 to 22.30. <br/><br/ >For the living room for homeless people point6 we are looking for a personality.\n\nTasks:\n• Low-threshold accompaniment and support of people in different situations\n\n• Co-creation of a safe and respectful meeting place through mediation of rules and promotion of low-conflict cooperation\n\n• De-escalating handling of challenging situations and conflicts\n\n• Preparation and distribution of food and beverages\n\n• Interdisciplinary collaboration, networking and brief case/layer documentation\n\nRequirements\n• Conflict de-escalation and professional and safe handling of challenging situations\n\n• Reflected working methods and willingness for professional and personal development\n\n• Enjoy working with people in different situations\n\n• Teamwork and openness for cooperation in a diverse environment as well as good oral and written knowledge of German\n\n• social or health experience is beneficial; Knowledge of foreign languages desired\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "\"Punkt 6\" ist ein Angebot von PINTO. Es ist ein Aufenthaltsraum, in dem sich obdachlose Menschen aufwärmen, verpflegen und waschen können. Das Angebot an der Nägeligasse 3a ist ab 1. November 2026 bis 31. März 2027 täglich von 6.00 bis 10.00und 18.00 bis 22.30 Uhr geöffnet.<br/><br/>Für den Aufenthaltsraum für obdachlose Menschen Punkt6 suchen wir eine Persönlichkeit.\n\nAufgaben:\n• Niederschwellige Begleitung und Unterstützung von Menschen in unterschiedlichen Lebenslagen\n\n• Mitgestaltung eines sicheren und respektvollen Begegnungsortes durch Vermittlung von Regeln und Förderung eines konfliktarmen Miteinanders\n\n• Deeskalierender Umgang mit herausfordernden Situationen und Konflikten\n\n• Zubereitung und Ausgabe von Speisen und Getränken\n\n• Interdisziplinäre Zusammenarbeit, Vernetzung und kurze fallbezogene/schichtbezogene Dokumentation\n\nAnforderungen:\n• Konfliktdeeskalation sowie professioneller und sicherer Umgang mit herausfordernden Situationen\n\n• Reflektierte Arbeitsweise und Bereitschaft zur fachlichen sowie persönlichen Weiterentwicklung\n\n• Freude an der Arbeit mit Menschen in unterschiedlichen Lebenslagen\n\n• Teamfähigkeit und Offenheit für die Zusammenarbeit in einem diversen Umfeld sowie gute mündliche und schriftliche Deutschkenntnisse\n\n• Erfahrung im Sozial- oder Gesundheitsbereich von Vorteil; Fremdsprachenkenntnisse erwünscht\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "\"Point 6\" est une offre de PINTO. C'est un salon où les sans-abri peuvent se réchauffer, se nourrir et se laver. L'offre au Nageligasse 3a est du 1er novembre 2026 au 31. Mars 2027 ouvert tous les jours de 6,00 à 10,00 et de 18,00 à 22,30. <br/><br/ >Pour le salon pour les sans-abri point6 nous cherchons une personnalité.\n\nTâches :\n• Accompagnement et soutien de personnes à bas seuil dans différentes situations\n\n• Co-création d'un lieu de rencontre sûr et respectueux grâce à la médiation des règles et à la promotion de la coopération en cas de faible conflit\n\n• Désescalade du traitement des situations et des conflits difficiles\n\n• Préparation et distribution des denrées alimentaires et des boissons\n\n• Collaboration interdisciplinaire, mise en réseau et brève documentation cas/couche\n\nExigences\n• Désescalade des conflits et gestion professionnelle et sécuritaire des situations difficiles\n\n• Reflétant les méthodes de travail et la volonté de développement professionnel et personnel\n\n• Profitez de travailler avec des gens dans différentes situations\n\n• Travail d'équipe et ouverture pour la coopération dans un environnement diversifié ainsi que bonne connaissance orale et écrite de l'allemand\n\n• l'expérience sociale ou de santé est bénéfique;\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-punkt6/a9b495f7-6c94-42f8-8411-51d4bc956a6e",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.547Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3007",
-      "streetAddress": "Schwarztorstrasse 23",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-punkt6/a9b495f7-6c94-42f8-8411-51d4bc956a6e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-punkt6-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-punkt6-stadt-bern-bern"
-        ],
-        "en": [
-          "mitarbeiter-in-punkt6-stadt-bern-bern"
-        ],
-        "fr": [
-          "mitarbeiter-in-punkt6-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T11:28:45.590Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-e611dcd916f3",
       "slug": "sachbearbeiter-in-e-fuhrung-einer-geschaftsstelle-stadt-bern",
       "slugByLocale": {
@@ -1840,7 +1463,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sachbearbeiter-in-und-fuehrung-einer-geschaeftsstelle/4d4f4f80-7f01-40c3-8e9f-af40290b36d0",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.547Z",
+      "crawledAt": "2026-08-18T09:42:35.337Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1887,6 +1510,86 @@
       }
     },
     {
+      "id": "stadt-bern-29b2c46f3f8d",
+      "slug": "collaboratore-trice-in-punkt6-stadt-bern",
+      "slugByLocale": {
+        "it": "collaboratore-trice-in-punkt6-stadt-bern",
+        "en": "employees-in-point-6-stadt-bern-bern",
+        "de": "mitarbeiter-in-punkt6-stadt-bern-bern",
+        "fr": "employes-au-point-6-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Mitarbeiter*in Punkt6",
+      "titleByLocale": {
+        "it": "Collaboratore/trice*in Punkt6",
+        "en": "Employees* in point 6",
+        "de": "Mitarbeiter*in Punkt6",
+        "fr": "Employés* au point 6"
+      },
+      "description": "\"Punkt 6\" ist ein Angebot von PINTO. Es ist ein Aufenthaltsraum, in dem sich obdachlose Menschen aufwärmen, verpflegen und waschen können. Das Angebot an der Nägeligasse 3a ist ab 1. November 2026 bis 31. März 2027 täglich von 6.00 bis 10.00und 18.00 bis 22.30 Uhr geöffnet.<br/><br/>Für den Aufenthaltsraum für obdachlose Menschen Punkt6 suchen wir eine Persönlichkeit.\n\nAufgaben:\n• Niederschwellige Begleitung und Unterstützung von Menschen in unterschiedlichen Lebenslagen\n\n• Mitgestaltung eines sicheren und respektvollen Begegnungsortes durch Vermittlung von Regeln und Förderung eines konfliktarmen Miteinanders\n\n• Deeskalierender Umgang mit herausfordernden Situationen und Konflikten\n\n• Zubereitung und Ausgabe von Speisen und Getränken\n\n• Interdisziplinäre Zusammenarbeit, Vernetzung und kurze fallbezogene/schichtbezogene Dokumentation\n\nAnforderungen:\n• Konfliktdeeskalation sowie professioneller und sicherer Umgang mit herausfordernden Situationen\n\n• Reflektierte Arbeitsweise und Bereitschaft zur fachlichen sowie persönlichen Weiterentwicklung\n\n• Freude an der Arbeit mit Menschen in unterschiedlichen Lebenslagen\n\n• Teamfähigkeit und Offenheit für die Zusammenarbeit in einem diversen Umfeld sowie gute mündliche und schriftliche Deutschkenntnisse\n\n• Erfahrung im Sozial- oder Gesundheitsbereich von Vorteil; Fremdsprachenkenntnisse erwünscht\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "\"Punta 6\" è un'offerta di PINTO. Si tratta di un salone dove i senzatetto possono riscaldarsi, nutrire e lavarsi. L'offerta a Nageligasse 3a è dal 1 novembre 2026 al 31. Marzo 2027 aperto tutti i giorni dalle 6.00 alle 10.00 e dalle 18.00 alle 22.30. <br/>\n\nCompiti:\n• Accompagnamento a bassa soglia e sostegno delle persone in situazioni diverse\n\n• Co-creazione di un luogo di incontro sicuro e rispettoso attraverso la mediazione di regole e la promozione della cooperazione a basso conflitto\n\n• Gestione de-escalating di situazioni e conflitti difficili\n\n• Preparazione e distribuzione di alimenti e bevande\n\n• Collaborazione interdisciplinare, networking e documentazione breve caso/strato\n\nRequisiti\n• Conflitto de-escalation e gestione professionale e sicura di situazioni difficili\n\n• Metodi di lavoro e volontà risolti per lo sviluppo professionale e personale\n\n• Godetevi il lavoro con le persone in situazioni diverse\n\n• Lavoro di squadra e apertura per la cooperazione in un ambiente diverso e buona conoscenza orale e scritta del tedesco\n\n• esperienza sociale o sanitaria è benefica; Conoscenza delle lingue straniere desiderate\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "\"Point 6\" is an offer from PINTO. It is a lounge where homeless people can warm up, feed and wash. The offer at Nageligasse 3a is from 1 November 2026 to 31. March 2027 open daily from 6.00 to 10.00 and 18.00 to 22.30. <br/><br/ >For the living room for homeless people point6 we are looking for a personality.\n\nTasks:\n• Low-threshold accompaniment and support of people in different situations\n\n• Co-creation of a safe and respectful meeting place through mediation of rules and promotion of low-conflict cooperation\n\n• De-escalating handling of challenging situations and conflicts\n\n• Preparation and distribution of food and beverages\n\n• Interdisciplinary collaboration, networking and brief case/layer documentation\n\nRequirements\n• Conflict de-escalation and professional and safe handling of challenging situations\n\n• Reflected working methods and willingness for professional and personal development\n\n• Enjoy working with people in different situations\n\n• Teamwork and openness for cooperation in a diverse environment as well as good oral and written knowledge of German\n\n• social or health experience is beneficial; Knowledge of foreign languages desired\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "\"Punkt 6\" ist ein Angebot von PINTO. Es ist ein Aufenthaltsraum, in dem sich obdachlose Menschen aufwärmen, verpflegen und waschen können. Das Angebot an der Nägeligasse 3a ist ab 1. November 2026 bis 31. März 2027 täglich von 6.00 bis 10.00und 18.00 bis 22.30 Uhr geöffnet.<br/><br/>Für den Aufenthaltsraum für obdachlose Menschen Punkt6 suchen wir eine Persönlichkeit.\n\nAufgaben:\n• Niederschwellige Begleitung und Unterstützung von Menschen in unterschiedlichen Lebenslagen\n\n• Mitgestaltung eines sicheren und respektvollen Begegnungsortes durch Vermittlung von Regeln und Förderung eines konfliktarmen Miteinanders\n\n• Deeskalierender Umgang mit herausfordernden Situationen und Konflikten\n\n• Zubereitung und Ausgabe von Speisen und Getränken\n\n• Interdisziplinäre Zusammenarbeit, Vernetzung und kurze fallbezogene/schichtbezogene Dokumentation\n\nAnforderungen:\n• Konfliktdeeskalation sowie professioneller und sicherer Umgang mit herausfordernden Situationen\n\n• Reflektierte Arbeitsweise und Bereitschaft zur fachlichen sowie persönlichen Weiterentwicklung\n\n• Freude an der Arbeit mit Menschen in unterschiedlichen Lebenslagen\n\n• Teamfähigkeit und Offenheit für die Zusammenarbeit in einem diversen Umfeld sowie gute mündliche und schriftliche Deutschkenntnisse\n\n• Erfahrung im Sozial- oder Gesundheitsbereich von Vorteil; Fremdsprachenkenntnisse erwünscht\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "\"Point 6\" est une offre de PINTO. C'est un salon où les sans-abri peuvent se réchauffer, se nourrir et se laver. L'offre au Nageligasse 3a est du 1er novembre 2026 au 31. Mars 2027 ouvert tous les jours de 6,00 à 10,00 et de 18,00 à 22,30. <br/><br/ >Pour le salon pour les sans-abri point6 nous cherchons une personnalité.\n\nTâches :\n• Accompagnement et soutien de personnes à bas seuil dans différentes situations\n\n• Co-création d'un lieu de rencontre sûr et respectueux grâce à la médiation des règles et à la promotion de la coopération en cas de faible conflit\n\n• Désescalade du traitement des situations et des conflits difficiles\n\n• Préparation et distribution des denrées alimentaires et des boissons\n\n• Collaboration interdisciplinaire, mise en réseau et brève documentation cas/couche\n\nExigences\n• Désescalade des conflits et gestion professionnelle et sécuritaire des situations difficiles\n\n• Reflétant les méthodes de travail et la volonté de développement professionnel et personnel\n\n• Profitez de travailler avec des gens dans différentes situations\n\n• Travail d'équipe et ouverture pour la coopération dans un environnement diversifié ainsi que bonne connaissance orale et écrite de l'allemand\n\n• l'expérience sociale ou de santé est bénéfique;\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-punkt6/a9b495f7-6c94-42f8-8411-51d4bc956a6e",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:42:35.336Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3007",
+      "streetAddress": "Schwarztorstrasse 23",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-punkt6/a9b495f7-6c94-42f8-8411-51d4bc956a6e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-punkt6-stadt-bern-bern",
+        "collaboratore-trice-in-punkt6-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-punkt6-stadt-bern-bern",
+          "collaboratore-trice-in-punkt6-stadt-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-punkt6-stadt-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-punkt6-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T11:28:45.590Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-e2b76eb0000f",
       "slug": "terziario-professionale-stadt-bern-bern",
       "slugByLocale": {
@@ -1918,7 +1621,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/betreuungsfachperson-tertiaer/aff6bd5e-a2a9-423b-b80f-92bce94d7e92",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.546Z",
+      "crawledAt": "2026-08-18T09:42:35.335Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1937,11 +1640,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betreuungsfachperson-tertiar-stadt-bern-bern"
+        "betreuungsfachperson-tertiar-stadt-bern-bern",
+        "terziario-professionale-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betreuungsfachperson-tertiar-stadt-bern-bern"
+          "betreuungsfachperson-tertiar-stadt-bern-bern",
+          "terziario-professionale-stadt-bern-bern"
         ],
         "en": [
           "betreuungsfachperson-tertiar-stadt-bern-bern"
@@ -1960,86 +1665,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-cc9284abd74a",
-      "slug": "capo-della-cura-di-giorno-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "capo-della-cura-di-giorno-stadt-bern-bern",
-        "en": "head-of-day-care-stadt-bern-bern",
-        "de": "leiter-in-tagesbetreuung-stadt-bern-bern",
-        "fr": "chef-de-la-garderie-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Leiter*in Tagesbetreuung",
-      "titleByLocale": {
-        "it": "Capo della cura di giorno",
-        "en": "Head of Day Care",
-        "de": "Leiter*in Tagesbetreuung",
-        "fr": "Chef de la garderie"
-      },
-      "description": "Aufgaben:\n• Verantwortlich für die operative Führung einer Tagesbetreuung im personellen, pädagogischen, organisatorischen und administrativen Bereich\n\n• Partnerschaftliche Zusammenarbeit mit den Eltern in der Praxis pflegen und fördern\n\n• Enge Zusammenarbeit mit einer zweiten Leitungsperson eines weiteren Kinderbetreuungsbetriebs am Schulstandort pflegen\n\n• Mitwirkung in Arbeitsgruppen und Konferenzen innerhalb der Stadt Bern, sowie Zusammenarbeit mit der Schule, Fachstellen und weiteren internen Stellen\n\nAnforderungen:\n• Diplomabschluss einer höheren Fachschule für Kindererziehung, Sozialpädagogik oder eine verwandte Ausbildung aus den Bereichen Pädagogik oder Psychologie sowie Zusatzausbildung in Personalführung\n\n• Mehrjährige Berufserfahrung, Erfahrung in der Personalführung sowie betriebswirtschaftliche und administrative Kenntnisse\n\n• Planerische und organisatorische Fähigkeiten, IT-Affinität\n\n• Ressourcen- und Lösungsorientierung\n\n• Differenzierte Kommunikation, Durchsetzungsvermögen, Kritik- und Konfliktfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Responsabile per la gestione operativa dell'assistenza diurna nel settore del personale, pedagogico, organizzativo e amministrativo\n\n• Mantenere e promuovere la partnership con i genitori in pratica\n\n• Mantenere una stretta collaborazione con un secondo manager di un'altra società di assistenza all'interno della scuola\n\n• Partecipazione a gruppi di lavoro e conferenze all'interno della città di Berna, nonché cooperazione con la scuola, gli uffici specializzati e gli altri uffici interni\n\nRequisiti\n• Diploma di laurea da una scuola tecnica superiore per l'educazione dei bambini, pedagogia sociale o una formazione correlata nei settori della pedagogia o della psicologia, nonché formazione aggiuntiva nella gestione del personale\n\n• Diversi anni di esperienza professionale, esperienza nella gestione delle risorse umane e conoscenza commerciale e amministrativa\n\n• Pianificazione e capacità organizzative, affinità IT\n\n• Orientamento risorse e soluzioni\n\n• Comunicazione differenziata, assertività, critica e capacità di conflitto\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Tasks:\n• Responsible for the operational management of day care in the personnel, pedagogical, organizational and administrative area\n\n• Maintain and promote partnership with parents in practice\n\n• Maintain close cooperation with a second manager of another childcare company at the school location\n\n• Participation in working groups and conferences within the city of Bern, as well as cooperation with the school, specialist offices and other internal offices\n\nRequirements\n• Diploma degree from a higher technical school for child education, social pedagogy or a related education in the fields of pedagogy or psychology as well as additional training in personnel management\n\n• Several years of professional experience, experience in human resources management and business and administrative knowledge\n\n• Planning and organizational skills, IT affinity\n\n• Resource and solution orientation\n\n• Differentiated communication, assertiveness, criticism and conflict ability\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Aufgaben:\n• Verantwortlich für die operative Führung einer Tagesbetreuung im personellen, pädagogischen, organisatorischen und administrativen Bereich\n\n• Partnerschaftliche Zusammenarbeit mit den Eltern in der Praxis pflegen und fördern\n\n• Enge Zusammenarbeit mit einer zweiten Leitungsperson eines weiteren Kinderbetreuungsbetriebs am Schulstandort pflegen\n\n• Mitwirkung in Arbeitsgruppen und Konferenzen innerhalb der Stadt Bern, sowie Zusammenarbeit mit der Schule, Fachstellen und weiteren internen Stellen\n\nAnforderungen:\n• Diplomabschluss einer höheren Fachschule für Kindererziehung, Sozialpädagogik oder eine verwandte Ausbildung aus den Bereichen Pädagogik oder Psychologie sowie Zusatzausbildung in Personalführung\n\n• Mehrjährige Berufserfahrung, Erfahrung in der Personalführung sowie betriebswirtschaftliche und administrative Kenntnisse\n\n• Planerische und organisatorische Fähigkeiten, IT-Affinität\n\n• Ressourcen- und Lösungsorientierung\n\n• Differenzierte Kommunikation, Durchsetzungsvermögen, Kritik- und Konfliktfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Tâches :\n• Responsable de la gestion opérationnelle des garderies dans les domaines personnel, pédagogique, organisationnel et administratif\n\n• Maintenir et promouvoir le partenariat avec les parents dans la pratique\n\n• Maintenir une coopération étroite avec un deuxième gestionnaire d'une autre entreprise de garde d'enfants à l'école\n\n• Participation à des groupes de travail et des conférences dans la ville de Berne, ainsi que coopération avec l'école, les bureaux spécialisés et d'autres bureaux internes\n\nExigences\n• Diplôme d ' une école technique supérieure pour l ' éducation des enfants, la pédagogie sociale ou une formation connexe dans les domaines de la pédagogie ou de la psychologie, ainsi que formation supplémentaire en gestion du personnel\n\n• Plusieurs années d'expérience professionnelle, d'expérience en gestion des ressources humaines et de connaissances en affaires et en administration\n\n• Planification et compétences organisationnelles, affinité informatique\n\n• Orientation des ressources et des solutions\n\n• Communication différenciée, affirmation, critique et capacité de conflit\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/leiter-in-tagesbetreuung/dc866cbb-9d99-478a-9934-efb2af6d1d08",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.545Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3005",
-      "streetAddress": "Sulgeneckstrasse 59",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-09",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/leiter-in-tagesbetreuung/dc866cbb-9d99-478a-9934-efb2af6d1d08",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-tagesbetreuung-stadt-bern-bern",
-        "leiter-in-tagesbetreuung-stadt-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-tagesbetreuung-stadt-bern-bern",
-          "leiter-in-tagesbetreuung-stadt-bern"
-        ],
-        "en": [
-          "leiter-in-tagesbetreuung-stadt-bern-bern"
-        ],
-        "fr": [
-          "leiter-in-tagesbetreuung-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:25:17.775Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -2076,7 +1701,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere/4c5bd33e-3bae-4bc7-b20e-4a246ac69cd7",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.545Z",
+      "crawledAt": "2026-08-18T09:42:35.335Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2095,11 +1720,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
+        "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern",
+        "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
+          "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern",
+          "apprendistato-tierpfleger-in-cfc-specializzazione-wildtiere-stadt-bern"
         ],
         "en": [
           "lehrstelle-tierpfleger-in-efz-fachrichtung-wildtiere-stadt-bern-bern"
@@ -2109,84 +1736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.132Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-beb5401848b9",
-      "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
-        "en": "apprenticeship-as-an-expert-expert-in-business-maintenance-stadt-bern-bern",
-        "de": "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
-        "fr": "apprentissage-en-tant-qu-expert-expert-en-maintenance-d-entreprise-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
-      "titleByLocale": {
-        "it": "Apprendistato come Fachmann/Fachfrau Betriebsunterhalt",
-        "en": "Apprenticeship as an expert / expert in business maintenance",
-        "de": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
-        "fr": "Apprentissage en tant qu'expert / expert en maintenance d'entreprise"
-      },
-      "description": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklichen Tätigkeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Ti piace affrontare, sono praticamente dotati e piace essere in aria fresca?\n\nCompiti:\n• Conoscere i vari compiti del servizio di lavoro di una comunità\n\n• Eseguire lavori di manutenzione su strade, sentieri, sponde, aree verdi e la rete canale\n\n• Mantenere e mantenere macchinari e attrezzature\n\nRequisiti\n• Formazione elementare completa\n\n• Divertimento dell'artigianato\n\n• Personalità orientata al servizio e orientata al team\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Do you like to tackle, are practically gifted and like to be in the fresh air?\n\nTasks:\n• Getting to know the various tasks of the work service of a community\n\n• Carry out maintenance work on roads, paths, shores, green areas and the canal network\n\n• Maintaining and maintaining machinery and equipment\n\nRequirements\n• Completed elementary education\n\n• Enjoying craftsmanship\n\n• Service-oriented and team-oriented personality\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklichen Tätigkeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Aimez-vous s'attaquer, sont pratiquement doués et aiment être dans l'air frais ?\n\nTâches :\n• Apprendre à connaître les différentes tâches du service de travail d'une communauté\n\n• Effectuer des travaux d'entretien sur les routes, les sentiers, les rives, les espaces verts et le réseau de canaux\n\n• Entretien et entretien des machines et du matériel\n\nExigences\n• Enseignement primaire terminé\n\n• Profitez de l'artisanat\n\n• Personnalité axée sur le service et axée sur l'équipe\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": true,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.544Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3027",
-      "streetAddress": "Eymattstrasse 13b",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
-        ],
-        "en": [
-          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
-        ],
-        "fr": [
-          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T21:43:20.049Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2232,7 +1781,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-lichtsignalanlagen/2285964f-ceb0-431b-a7db-c174a5bbc561",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.544Z",
+      "crawledAt": "2026-08-18T09:42:35.334Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2252,12 +1801,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-lichtsignalanlagen-stadt-bern-bern",
-        "projektleiter-in-lichtsignalanlagen-stadt-bern"
+        "projektleiter-in-lichtsignalanlagen-stadt-bern",
+        "project-manager-in-sistemi-di-segnale-luminoso-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-lichtsignalanlagen-stadt-bern-bern",
-          "projektleiter-in-lichtsignalanlagen-stadt-bern"
+          "projektleiter-in-lichtsignalanlagen-stadt-bern",
+          "project-manager-in-sistemi-di-segnale-luminoso-stadt-bern-bern"
         ],
         "en": [
           "projektleiter-in-lichtsignalanlagen-stadt-bern-bern"
@@ -2267,6 +1818,88 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:25:17.771Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-cc9284abd74a",
+      "slug": "capo-della-cura-di-giorno-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "capo-della-cura-di-giorno-stadt-bern-bern",
+        "en": "head-of-day-care-stadt-bern-bern",
+        "de": "leiter-in-tagesbetreuung-stadt-bern-bern",
+        "fr": "chef-de-la-garderie-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Leiter*in Tagesbetreuung",
+      "titleByLocale": {
+        "it": "Capo della cura di giorno",
+        "en": "Head of Day Care",
+        "de": "Leiter*in Tagesbetreuung",
+        "fr": "Chef de la garderie"
+      },
+      "description": "Aufgaben:\n• Verantwortlich für die operative Führung einer Tagesbetreuung im personellen, pädagogischen, organisatorischen und administrativen Bereich\n\n• Partnerschaftliche Zusammenarbeit mit den Eltern in der Praxis pflegen und fördern\n\n• Enge Zusammenarbeit mit einer zweiten Leitungsperson eines weiteren Kinderbetreuungsbetriebs am Schulstandort pflegen\n\n• Mitwirkung in Arbeitsgruppen und Konferenzen innerhalb der Stadt Bern, sowie Zusammenarbeit mit der Schule, Fachstellen und weiteren internen Stellen\n\nAnforderungen:\n• Diplomabschluss einer höheren Fachschule für Kindererziehung, Sozialpädagogik oder eine verwandte Ausbildung aus den Bereichen Pädagogik oder Psychologie sowie Zusatzausbildung in Personalführung\n\n• Mehrjährige Berufserfahrung, Erfahrung in der Personalführung sowie betriebswirtschaftliche und administrative Kenntnisse\n\n• Planerische und organisatorische Fähigkeiten, IT-Affinität\n\n• Ressourcen- und Lösungsorientierung\n\n• Differenzierte Kommunikation, Durchsetzungsvermögen, Kritik- und Konfliktfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Responsabile per la gestione operativa dell'assistenza diurna nel settore del personale, pedagogico, organizzativo e amministrativo\n\n• Mantenere e promuovere la partnership con i genitori in pratica\n\n• Mantenere una stretta collaborazione con un secondo manager di un'altra società di assistenza all'interno della scuola\n\n• Partecipazione a gruppi di lavoro e conferenze all'interno della città di Berna, nonché cooperazione con la scuola, gli uffici specializzati e gli altri uffici interni\n\nRequisiti\n• Diploma di laurea da una scuola tecnica superiore per l'educazione dei bambini, pedagogia sociale o una formazione correlata nei settori della pedagogia o della psicologia, nonché formazione aggiuntiva nella gestione del personale\n\n• Diversi anni di esperienza professionale, esperienza nella gestione delle risorse umane e conoscenza commerciale e amministrativa\n\n• Pianificazione e capacità organizzative, affinità IT\n\n• Orientamento risorse e soluzioni\n\n• Comunicazione differenziata, assertività, critica e capacità di conflitto\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Tasks:\n• Responsible for the operational management of day care in the personnel, pedagogical, organizational and administrative area\n\n• Maintain and promote partnership with parents in practice\n\n• Maintain close cooperation with a second manager of another childcare company at the school location\n\n• Participation in working groups and conferences within the city of Bern, as well as cooperation with the school, specialist offices and other internal offices\n\nRequirements\n• Diploma degree from a higher technical school for child education, social pedagogy or a related education in the fields of pedagogy or psychology as well as additional training in personnel management\n\n• Several years of professional experience, experience in human resources management and business and administrative knowledge\n\n• Planning and organizational skills, IT affinity\n\n• Resource and solution orientation\n\n• Differentiated communication, assertiveness, criticism and conflict ability\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Aufgaben:\n• Verantwortlich für die operative Führung einer Tagesbetreuung im personellen, pädagogischen, organisatorischen und administrativen Bereich\n\n• Partnerschaftliche Zusammenarbeit mit den Eltern in der Praxis pflegen und fördern\n\n• Enge Zusammenarbeit mit einer zweiten Leitungsperson eines weiteren Kinderbetreuungsbetriebs am Schulstandort pflegen\n\n• Mitwirkung in Arbeitsgruppen und Konferenzen innerhalb der Stadt Bern, sowie Zusammenarbeit mit der Schule, Fachstellen und weiteren internen Stellen\n\nAnforderungen:\n• Diplomabschluss einer höheren Fachschule für Kindererziehung, Sozialpädagogik oder eine verwandte Ausbildung aus den Bereichen Pädagogik oder Psychologie sowie Zusatzausbildung in Personalführung\n\n• Mehrjährige Berufserfahrung, Erfahrung in der Personalführung sowie betriebswirtschaftliche und administrative Kenntnisse\n\n• Planerische und organisatorische Fähigkeiten, IT-Affinität\n\n• Ressourcen- und Lösungsorientierung\n\n• Differenzierte Kommunikation, Durchsetzungsvermögen, Kritik- und Konfliktfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Tâches :\n• Responsable de la gestion opérationnelle des garderies dans les domaines personnel, pédagogique, organisationnel et administratif\n\n• Maintenir et promouvoir le partenariat avec les parents dans la pratique\n\n• Maintenir une coopération étroite avec un deuxième gestionnaire d'une autre entreprise de garde d'enfants à l'école\n\n• Participation à des groupes de travail et des conférences dans la ville de Berne, ainsi que coopération avec l'école, les bureaux spécialisés et d'autres bureaux internes\n\nExigences\n• Diplôme d ' une école technique supérieure pour l ' éducation des enfants, la pédagogie sociale ou une formation connexe dans les domaines de la pédagogie ou de la psychologie, ainsi que formation supplémentaire en gestion du personnel\n\n• Plusieurs années d'expérience professionnelle, d'expérience en gestion des ressources humaines et de connaissances en affaires et en administration\n\n• Planification et compétences organisationnelles, affinité informatique\n\n• Orientation des ressources et des solutions\n\n• Communication différenciée, affirmation, critique et capacité de conflit\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/leiter-in-tagesbetreuung/dc866cbb-9d99-478a-9934-efb2af6d1d08",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:42:35.334Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3005",
+      "streetAddress": "Sulgeneckstrasse 59",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-09",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/leiter-in-tagesbetreuung/dc866cbb-9d99-478a-9934-efb2af6d1d08",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-tagesbetreuung-stadt-bern-bern",
+        "leiter-in-tagesbetreuung-stadt-bern",
+        "capo-della-cura-di-giorno-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-tagesbetreuung-stadt-bern-bern",
+          "leiter-in-tagesbetreuung-stadt-bern",
+          "capo-della-cura-di-giorno-stadt-bern-bern"
+        ],
+        "en": [
+          "leiter-in-tagesbetreuung-stadt-bern-bern"
+        ],
+        "fr": [
+          "leiter-in-tagesbetreuung-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-10T10:25:17.775Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2312,7 +1945,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachangestellte-r-kundenmanagement-einwohnerdienste-stadt-bern/0f79c409-d3b3-4aea-85e3-32fa0e067167",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.543Z",
+      "crawledAt": "2026-08-18T09:42:35.331Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2331,11 +1964,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachangestellte-r-kundenmanagement-einwohnerdienste-stadt-bern-stadt-bern-bern"
+        "fachangestellte-r-kundenmanagement-einwohnerdienste-stadt-bern-stadt-bern-bern",
+        "gestione-clienti-resident-services-citta-di-berna-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachangestellte-r-kundenmanagement-einwohnerdienste-stadt-bern-stadt-bern-bern"
+          "fachangestellte-r-kundenmanagement-einwohnerdienste-stadt-bern-stadt-bern-bern",
+          "gestione-clienti-resident-services-citta-di-berna-stadt-bern-bern"
         ],
         "en": [
           "fachangestellte-r-kundenmanagement-einwohnerdienste-stadt-bern-stadt-bern-bern"
@@ -2354,6 +1989,86 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-beb5401848b9",
+      "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
+        "en": "apprenticeship-as-an-expert-expert-in-business-maintenance-stadt-bern-bern",
+        "de": "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
+        "fr": "apprentissage-en-tant-qu-expert-expert-en-maintenance-d-entreprise-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
+      "titleByLocale": {
+        "it": "Apprendistato come Fachmann/Fachfrau Betriebsunterhalt",
+        "en": "Apprenticeship as an expert / expert in business maintenance",
+        "de": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
+        "fr": "Apprentissage en tant qu'expert / expert en maintenance d'entreprise"
+      },
+      "description": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklichen Tätigkeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Ti piace affrontare, sono praticamente dotati e piace essere in aria fresca?\n\nCompiti:\n• Conoscere i vari compiti del servizio di lavoro di una comunità\n\n• Eseguire lavori di manutenzione su strade, sentieri, sponde, aree verdi e la rete canale\n\n• Mantenere e mantenere macchinari e attrezzature\n\nRequisiti\n• Formazione elementare completa\n\n• Divertimento dell'artigianato\n\n• Personalità orientata al servizio e orientata al team\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Do you like to tackle, are practically gifted and like to be in the fresh air?\n\nTasks:\n• Getting to know the various tasks of the work service of a community\n\n• Carry out maintenance work on roads, paths, shores, green areas and the canal network\n\n• Maintaining and maintaining machinery and equipment\n\nRequirements\n• Completed elementary education\n\n• Enjoying craftsmanship\n\n• Service-oriented and team-oriented personality\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklichen Tätigkeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Aimez-vous s'attaquer, sont pratiquement doués et aiment être dans l'air frais ?\n\nTâches :\n• Apprendre à connaître les différentes tâches du service de travail d'une communauté\n\n• Effectuer des travaux d'entretien sur les routes, les sentiers, les rives, les espaces verts et le réseau de canaux\n\n• Entretien et entretien des machines et du matériel\n\nExigences\n• Enseignement primaire terminé\n\n• Profitez de l'artisanat\n\n• Personnalité axée sur le service et axée sur l'équipe\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:42:35.331Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3027",
+      "streetAddress": "Eymattstrasse 13b",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
+        "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
+          "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern"
+        ],
+        "en": [
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-08-10T21:43:20.049Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -2390,7 +2105,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachspezialist-in-zweisprachigkeit-deutsch-franzoesisch/64ac1a4c-96d1-4a1f-88a7-71ed5c46a9e7",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.538Z",
+      "crawledAt": "2026-08-18T09:42:35.330Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2409,11 +2124,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-zweisprachigkeit-deutsch-franzosisch-stadt-bern-bern"
+        "fachspezialist-in-zweisprachigkeit-deutsch-franzosisch-stadt-bern-bern",
+        "specialista-in-bilingue-franco-tedesco-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-zweisprachigkeit-deutsch-franzosisch-stadt-bern-bern"
+          "fachspezialist-in-zweisprachigkeit-deutsch-franzosisch-stadt-bern-bern",
+          "specialista-in-bilingue-franco-tedesco-stadt-bern-bern"
         ],
         "en": [
           "fachspezialist-in-zweisprachigkeit-deutsch-franzosisch-stadt-bern-bern"
@@ -2462,12 +2179,13 @@
         "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Begleitung und Betreuung von Kindern und Jugendlichen während der Mittagszeit und während der Freizeit\n\n• Unterstützung bei der Essensausgabe\n\n• Unterstüzung bei haushalterischen Tätgikeiten\n\n• Mitgestaltung einer angenehmen und wertschätzenden Atmosphäre\n\nAnforderungen:\n• Freude an der Arbeit mit Kindern und Jugendlichen in einem lebhaften Umfeld und Interesse an pädagogischen Aufgaben\n\n• Zuverlässige, verantwortungsbewusste und freundliche Persönlichkeit\n\n• Erfahrung in der Betreuung von Kindern und Jugendlichen erwünscht\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et des certificats et diplômes complets.\n\nTâches :\n• Accompagner et prendre soin des enfants et des jeunes pendant le déjeuner et les loisirs\n\n• Aide à la livraison de denrées alimentaires\n\n• Soutien aux activités des ménages\n\n• Co-créer une atmosphère agréable et appréciée\n\nExigences\n• Profitez du travail avec les enfants et les adolescents dans un environnement animé et intéressé par les tâches éducatives\n\n• Personnalité fiable, responsable et amicale\n\n• Expérience de la prise en charge des enfants et des adolescents souhaités\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/7eed4356-abf3-4be4-b750-014fcbc3bad2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.537Z",
+      "crawledAt": "2026-08-18T09:42:35.330Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2488,13 +2206,15 @@
       "previousSlugs": [
         "child-and-youth-care-provider-stadt-bern-bern",
         "fournisseur-de-soins-aux-enfants-et-aux-jeunes-stadt-bern-bern",
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+        "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "child-and-youth-care-provider-stadt-bern-bern",
           "fournisseur-de-soins-aux-enfants-et-aux-jeunes-stadt-bern-bern",
-          "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
+          "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
+          "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern"
         ],
         "en": [
           "kinder-amp-jugendbetreuer-in-stadt-bern-bern"
@@ -2549,7 +2269,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in/dc31cb3e-ea97-45a2-98e8-46258fe1943c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.533Z",
+      "crawledAt": "2026-08-18T09:42:35.326Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2568,11 +2288,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialarbeiter-in-stadt-bern-bern"
+        "sozialarbeiter-in-stadt-bern-bern",
+        "lavoro-sociale-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-stadt-bern-bern"
+          "sozialarbeiter-in-stadt-bern-bern",
+          "lavoro-sociale-stadt-bern-bern"
         ],
         "en": [
           "sozialarbeiter-in-stadt-bern-bern"
@@ -2621,12 +2343,13 @@
         "de": "Für diese Stelle verzichten wir bewusst auf ein Motivationsschreiben. Bitte reiche deinen aktuellen Lebenslauf sowie deine vollständigen Zeugnisse und Diplome ein.\n\nAufgaben:\n• Begleitung und Betreuung von Kindern und Jugendlichen während der Mittagszeit und während der Freizeit\n\n• Unterstützung bei der Essensausgabe\n\n• Mithilfe bei der Durchführung von Freizeitaktivitäten und Projekten mit Kindern\n\n• Mitgestaltung einer angenehmen und wertschätzenden Atmosphäre\n\nAnforderungen:\n• Freude an der Arbeit mit Kindern und Jugendlichen in einem lebhaften Umfeld und Interesse an pädagogischen Aufgaben\n\n• Zuverlässige, verantwortungsbewusste und freundliche Persönlichkeit\n\n• Erfahrung in der Betreuung von Kindern und Jugendlichen erwünscht\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
         "fr": "Pour cette position, nous abandonnons délibérément une lettre de motivation. Veuillez soumettre votre CV actuel et vos certificats et diplômes complets.\n\nTâches :\n• Accompagner et prendre soin des enfants et des jeunes pendant le déjeuner et les loisirs\n\n• Aide à la livraison de denrées alimentaires\n\n• Aide à la mise en œuvre d ' activités et de projets de loisirs avec les enfants\n\n• Co-création d'une atmosphère agréable et appréciée\n\nExigences\n• Profitez du travail avec les enfants et les adolescents dans un environnement animé et intéressé par les tâches éducatives\n\n• Personnalité fiable, responsable et amicale\n\n• Expérience de la prise en charge des enfants et des adolescents souhaités\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/64ee0d81-5e41-4ce6-8395-d16b3e00d7e0",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.530Z",
+      "crawledAt": "2026-08-18T09:42:35.318Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2646,12 +2369,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
-        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2"
+        "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2",
+        "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern-5b565c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kinder-amp-jugendbetreuer-in-stadt-bern-bern",
-          "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2"
+          "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2",
+          "fornitore-di-assistenza-per-bambini-e-giovani-stadt-bern-bern-5b565c"
         ],
         "en": [
           "kinder-amp-jugendbetreuer-in-stadt-bern-bern-2"
@@ -2706,7 +2431,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-gaertner-in-pflanzenproduktion/003940ea-fc84-436e-9fd8-2e49b744e90f",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:28:08.523Z",
+      "crawledAt": "2026-08-18T09:42:35.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2725,11 +2450,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
+        "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern",
+        "apprendistato-gartner-in-pflanzenproduktion-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
+          "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern",
+          "apprendistato-gartner-in-pflanzenproduktion-stadt-bern"
         ],
         "en": [
           "lehrstelle-gartner-in-pflanzenproduktion-stadt-bern-bern"
@@ -2748,6 +2475,182 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-b1f5a6d675e7",
+      "slug": "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern",
+        "en": "apprenticeship-as-childcare-specialist-kita-efz-stadt-bern-bern",
+        "de": "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern",
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-garde-des-enfants-kita-efz-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstelle als Fachperson Betreuung EFZ, Fachrichtung Kind - Kita",
+      "titleByLocale": {
+        "it": "Apprendistato come Fachperson Betreuung CFC, specializzazione Kind - Kita",
+        "en": "Apprenticeship as childcare specialist Kita EFZ",
+        "de": "Lehrstelle als Fachperson Betreuung EFZ, Fachrichtung Kind - Kita",
+        "fr": "Apprentissage en tant que spécialiste de la garde des enfants Kita EFZ"
+      },
+      "description": "Starte deine Zukunft bei uns und sorge jeden Tag für strahlende Kinderaugen.<br/><br/>Bewerbungsfrist: <b>31. August 2026</b>\n\nAufgaben:\n• Du begleitest und betreust Kinder im Alter von 3 Monaten bis zu ihrem Eintritt in den Kindergarten/Schule\n\n• Du gestaltest und leitest Aktivitäten mit den Kindern\n\n• Du unterstützt Kinder in der Entfaltung ihrer Persönlichkeit\n\n• Du arbeitest in einem Team von engagierten Betreuungspersonen\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen\n\n• Du interessierst Dich für die Entwicklung von kleinen Kindern\n\n• Du bist sehr geduldig, belastbar und zuverlässig\n\n• Du hast ein hohes Verantwortungsbewusstsein\n\n• Du bist engagiert, flexibel und arbeitest gerne im Team\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "descriptionByLocale": {
+        "it": "Avviare il vostro futuro con noi e prendersi cura degli occhi dei bambini luminosi ogni giorno. > > Termine per l'applicazione: <b>31. Agosto 2026\n\nCompiti:\n• Accompagnate e curate i bambini di età compresa tra 3 mesi fino all'ingresso all'asilo/scuola\n\n• Progettare e condurre attività con i bambini\n\n• Voi sostenete i bambini nello sviluppo della loro personalità\n\n• Lavori in un team di caregiver dedicati\n\nRequisiti\n• Hai completato la scuola reale o secondaria\n\n• Sei interessato allo sviluppo di bambini piccoli\n\n• Sei molto paziente, resiliente e affidabile\n\n• Hai un alto senso di responsabilità\n\n• Sei impegnato, flessibile e divertiti a lavorare in un team\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "Start your future with us and take care of bright children’s eyes every day. <br/><br/>Application deadline: <b>31. August 2026</b>\n\nTasks:\n• You accompany and care for children aged 3 months until they enter kindergarten/school\n\n• You design and lead activities with the children\n\n• You support children in the development of their personality\n\n• You work in a team of dedicated caregivers\n\nRequirements\n• You have completed Real or Secondary School\n\n• You are interested in the development of young children\n\n• You are very patient, resilient and reliable\n\n• You have a high sense of responsibility\n\n• You are committed, flexible and enjoy working in a team\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "Starte deine Zukunft bei uns und sorge jeden Tag für strahlende Kinderaugen.<br/><br/>Bewerbungsfrist: <b>31. August 2026</b>\n\nAufgaben:\n• Du begleitest und betreust Kinder im Alter von 3 Monaten bis zu ihrem Eintritt in den Kindergarten/Schule\n\n• Du gestaltest und leitest Aktivitäten mit den Kindern\n\n• Du unterstützt Kinder in der Entfaltung ihrer Persönlichkeit\n\n• Du arbeitest in einem Team von engagierten Betreuungspersonen\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen\n\n• Du interessierst Dich für die Entwicklung von kleinen Kindern\n\n• Du bist sehr geduldig, belastbar und zuverlässig\n\n• Du hast ein hohes Verantwortungsbewusstsein\n\n• Du bist engagiert, flexibel und arbeitest gerne im Team\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "Commencez votre avenir avec nous et prenez soin des yeux d'enfants lumineux chaque jour. <br/><br/> Date limite de présentation des demandes : <b>31. août 2026</b>\n\nTâches :\n• Vous accompagnez et prenez soin des enfants âgés de 3 mois jusqu'à ce qu'ils entrent dans la maternelle/école\n\n• Vous concevez et dirigez des activités avec les enfants\n\n• Vous aidez les enfants à développer leur personnalité\n\n• Vous travaillez dans une équipe de soignants dévoués\n\nExigences\n• Vous avez terminé l'école réelle ou secondaire\n\n• Vous êtes intéressé par le développement des jeunes enfants\n\n• Vous êtes très patient, résistant et fiable\n\n• Vous avez un grand sens des responsabilités\n\n• Vous êtes engagé, flexible et aimez travailler en équipe\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachperson-betreuung-efz-fachrichtung-kind-kita/5c03c988-ec6f-4274-9397-c161f426293f",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:42:35.313Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Effingerstrasse 21",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachperson-betreuung-efz-fachrichtung-kind-kita/5c03c988-ec6f-4274-9397-c161f426293f",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "lehrstelle-als-fachperson-betreuung-efz-fachrichtung-kind-kita-stadt-bern-bern",
+          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern"
+        ],
+        "it": [
+          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern",
+          "lehrstelle-als-fachperson-kinderbetreuung-efz-kita-stadt-bern-bern",
+          "lehrstelle-als-fachperson-betreuung-efz-fachrichtung-kind-kita-stadt-bern-bern",
+          "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-fachperson-kinderbetreuung-kita-efz-stadt-bern-bern",
+        "lehrstelle-als-fachperson-kinderbetreuung-efz-kita-stadt-bern-bern",
+        "lehrstelle-als-fachperson-betreuung-efz-fachrichtung-kind-kita-stadt-bern-bern",
+        "apprendistato-come-fachperson-kinderbetreuung-kita-cfc-stadt-bern"
+      ],
+      "firstSeenAt": "2026-07-31T22:06:53.114Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-fd7a56696c6e",
+      "slug": "lehrstellen-come-fachperson-betreuung-cfc-specializzazione-kinder-stadt-bern",
+      "slugByLocale": {
+        "it": "lehrstellen-come-fachperson-betreuung-cfc-specializzazione-kinder-stadt-bern",
+        "en": "apprenticeships-as-a-specialist-care-efz-specialty-children-stadt-bern-bern",
+        "de": "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern",
+        "fr": "apprentissage-comme-specialiste-care-efz-enfants-specialises-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Lehrstellen als Fachmann / Fachfrau Betreuung EFZ, Fachrichtung Kind - Tagesbetreuung",
+      "titleByLocale": {
+        "it": "Lehrstellen come Fachmann / Fachfrau Betreuung CFC, specializzazione Kind - Tagesbetreuung",
+        "en": "Apprenticeships as a specialist Care EFZ, specialty children",
+        "de": "Lehrstellen als Fachmann / Fachfrau Betreuung EFZ, Fachrichtung Kind - Tagesbetreuung",
+        "fr": "Apprentissage comme spécialiste Care EFZ, enfants spécialisés"
+      },
+      "description": "\"Mit Kindern wachsen - starte deine Zukunft jetzt!\" Die Tagesbetreuung bietet Kindern eine sicheren, wertschätzenden und anregenden Lebensraum ausserhalb des Unterrichts. Als Lernende der Tagesbetreuung arbeitest du mehrheitlich mit Kindern im Zyklus 1 (4-8 Jahre) und Zyklus 2 (8-12 Jahre). Die Kinder werden in altersgetrennten Gruppen betreut. Bewirb dich jetzt und werde Teil eines Berufs mit Sinn, Herz und Perspektive.\n\nAufgaben:\n• Du betreust Kinder im Schulalter und förderst sie nach pädagogischen Grundsätzen.\n\n• Du lernst, mit dem ganzen Betreuungsteam zusammenzuarbeiten.\n\n• Du gestaltest Aktivitäten und leitest sie an.\n\n• Du sorgst für vielfältige Lernerfahrungen für die Kinder und Jugendlichen.\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen.\n\n• Du hast Freude am Umgang mit Kindern und Jugendlichen.\n\n• Du arbeitest gerne im Team, bist kommunikativ und kannst mit Konflikten umgehen.\n\n• Du bist ausgeglichen, belastbar und flexibel.\n\n• Du hast ein hohes Verantwortungsbewusstsein, kannst Dich gut in andere hineinfühlen, bist hilfsbereit und geduldig.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "“Fonda con i bambini – inizia subito il tuo futuro!” L'assistenza giornaliera offre ai bambini uno spazio di vita sicuro, apprezzato e stimolante al di fuori della classe. Come apprendista diurno, la maggior parte di voi lavora con i bambini in ciclo 1 (4-8 anni) e ciclo 2 (8-12 anni). I bambini sono curati in gruppi separati di età. Applicare ora e diventare parte di una professione con significato, cuore e prospettiva.\n\nCompiti:\n• Si prende cura dei bambini in età scolare e li promuove secondo i principi pedagogici\n\n• Impara a lavorare con l'intero team di assistenza\n\n• Crea attività e guidali\n\n• Fornisci esperienze di apprendimento diversificate per bambini e giovani\n\nRequisiti\n• Hai completato la scuola reale o secondaria\n\n• Ti piace avere a che fare con i bambini e i giovani\n\n• Ti piace lavorare in una squadra, sono comunicativi e possono affrontare conflitti\n\n• Sei equilibrato, resistente e flessibile\n\n• Hai un alto senso di responsabilità, può sentirsi bene per gli altri, sono utili e pazienti\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "“Grow with children – start your future now!” Day care offers children a safe, appreciative and stimulating living space outside of class. As a day care learner, the majority of you work with children in cycle 1 (4-8 years) and cycle 2 (8-12 years). Children are cared for in age-separated groups. Apply now and become part of a profession with meaning, heart and perspective.\n\nTasks:\n• You look after school-age children and promote them according to pedagogical principles\n\n• You learn to work with the entire care team\n\n• You create activities and guide them\n\n• You provide diverse learning experiences for children and young people\n\nRequirements\n• You have completed Real or Secondary School\n\n• You enjoy dealing with children and young people\n\n• You enjoy working in a team, are communicative and can deal with conflicts\n\n• You are balanced, resilient and flexible\n\n• You have a high sense of responsibility, can feel good about others, are helpful and patient\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "\"Mit Kindern wachsen - starte deine Zukunft jetzt!\" Die Tagesbetreuung bietet Kindern eine sicheren, wertschätzenden und anregenden Lebensraum ausserhalb des Unterrichts. Als Lernende der Tagesbetreuung arbeitest du mehrheitlich mit Kindern im Zyklus 1 (4-8 Jahre) und Zyklus 2 (8-12 Jahre). Die Kinder werden in altersgetrennten Gruppen betreut. Bewirb dich jetzt und werde Teil eines Berufs mit Sinn, Herz und Perspektive.\n\nAufgaben:\n• Du betreust Kinder im Schulalter und förderst sie nach pädagogischen Grundsätzen.\n\n• Du lernst, mit dem ganzen Betreuungsteam zusammenzuarbeiten.\n\n• Du gestaltest Aktivitäten und leitest sie an.\n\n• Du sorgst für vielfältige Lernerfahrungen für die Kinder und Jugendlichen.\n\nAnforderungen:\n• Du hast die Real- oder Sekundarschule abgeschlossen.\n\n• Du hast Freude am Umgang mit Kindern und Jugendlichen.\n\n• Du arbeitest gerne im Team, bist kommunikativ und kannst mit Konflikten umgehen.\n\n• Du bist ausgeglichen, belastbar und flexibel.\n\n• Du hast ein hohes Verantwortungsbewusstsein, kannst Dich gut in andere hineinfühlen, bist hilfsbereit und geduldig.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Grow avec des enfants – commencez votre avenir maintenant! La garderie offre aux enfants un espace de vie sûr, agréable et stimulant en dehors de la classe. En tant qu'apprenant de jour, la majorité d'entre vous travaillent avec des enfants du cycle 1 (4-8 ans) et du cycle 2 (8-12 ans). Les enfants sont pris en charge dans des groupes séparés par l'âge. Appliquer maintenant et devenir partie d'une profession avec sens, coeur et perspective.\n\nTâches :\n• Vous prenez soin des enfants d'âge scolaire et les promeut selon les principes pédagogiques\n\n• Vous apprenez à travailler avec toute l'équipe de soins\n\n• Vous créez des activités et les guidez\n\n• Vous offrez diverses expériences d'apprentissage aux enfants et aux jeunes\n\nExigences\n• Vous avez terminé l'école réelle ou secondaire\n\n• Vous aimez traiter avec les enfants et les jeunes\n\n• Vous aimez travailler en équipe, être communicatif et gérer les conflits\n\n• Vous êtes équilibré, résilient et flexible\n\n• Vous avez un haut sens des responsabilités, vous pouvez vous sentir bien envers les autres, sont utiles et patients\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstellen-als-fachmann-fachfrau-betreuung-efz-fachrichtung-kind-tagesbetreuung/9f889b3c-9da3-481d-b642-cb6e0114928d",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:42:35.307Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Effingerstrasse 21",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstellen-als-fachmann-fachfrau-betreuung-efz-fachrichtung-kind-tagesbetreuung/9f889b3c-9da3-481d-b642-cb6e0114928d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "lehrstellen-als-fachmann-fachfrau-betreuung-efz-fachrichtung-kind-tagesbetreuung-stadt",
+          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern"
+        ],
+        "it": [
+          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern",
+          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-tagesbetreuung-stadt-bern",
+          "lehrstellen-als-fachmann-fachfrau-betreuung-efz-fachrichtung-kind-tagesbetreuung-stadt",
+          "lehrstellen-come-fachperson-betreuung-cfc-specializzazione-kinder-stadt-bern"
+        ],
+        "en": [
+          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern"
+        ],
+        "fr": [
+          "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-stadt-bern-bern",
+        "lehrstellen-als-fachperson-betreuung-efz-fachrichtung-kinder-tagesbetreuung-stadt-bern",
+        "lehrstellen-als-fachmann-fachfrau-betreuung-efz-fachrichtung-kind-tagesbetreuung-stadt",
+        "lehrstellen-come-fachperson-betreuung-cfc-specializzazione-kinder-stadt-bern"
+      ],
+      "firstSeenAt": "2026-07-31T22:06:53.115Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
