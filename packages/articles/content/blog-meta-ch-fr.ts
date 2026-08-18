@@ -3316,6 +3316,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Emploi en Suisse : +0,8 % au deuxième trimestre 2026',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'Au deuxième trimestre 2026, l\'emploi en Suisse augmente de 0,8% tandis que le taux de chômage de l\'OIT augmente à 4,9% selon les données DE l\'OFS.',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Statistiques de l emploi en Suisse au deuxième trimestre 2026',
+    'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Système scolaire canton Bâle-Ville : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'Les cycles scolaires et les âges d\'inscription dans le canton de Bâle-Ville.',
+    'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'Un élève de l\'école secondaire inférieure de Bâle-Ville apprend avec un professeur',
 };
 
 export default blogMetaChFr;

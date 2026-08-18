@@ -3316,6 +3316,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Employment in Switzerland: +0.8% in Q2 2026',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'In the second quarter of 2026, employment in Switzerland grew by 0.8% while the ILO unemployment rate rose to 4.9% according to UST data.',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Employment statistics in Switzerland for the second quarter of 2026',
+    'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Basel City Canton School System: Enrollment and Cycles',
+    'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'School cycles and ages of enrolment in the Canton of Basel-City.',
+    'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'A student of junior high school in Basel City learns with a teacher',
 };
 
 export default blogMetaChEn;

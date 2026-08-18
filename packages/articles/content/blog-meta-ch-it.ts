@@ -3316,6 +3316,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.title': 'Occupazione in Svizzera: +0,8% nel secondo trimestre 2026',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.excerpt': 'Nel secondo trimestre 2026 l occupazione in Svizzera cresce dello 0,8% mentre il tasso di disoccupazione ILO sale al 4,9% secondo i dati dell UST.',
     'blog.article.occupazione-disoccupazione-svizzera-q2-2026.imageAlt': 'Statistiche sull occupazione in Svizzera nel secondo trimestre del 2026',
+    'blog.article.sistema-scolastico-canton-basilea-citta.title': 'Sistema scolastico canton Basilea Città: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-basilea-citta.excerpt': 'I cicli di scuola e le età di iscrizione nel Cantone di Basilea Città.',
+    'blog.article.sistema-scolastico-canton-basilea-citta.imageAlt': 'A studente di scuola media inferiore nella scuola di Basilea Città impara con un professore',
 };
 
 export default blogMetaChIt;
