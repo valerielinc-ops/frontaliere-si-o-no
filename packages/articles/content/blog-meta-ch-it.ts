@@ -3379,6 +3379,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soglie-patrimonio-banche-svizzera.title': 'Se hai questi soldi, le banche ti considerano benestante',
     'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Dalle banche regionali agli istituti privati: scopri le soglie di patrimonio che classificano i clienti e quali vantaggi offre il cambio di categoria.',
     'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Ufficio bancario moderno in Svizzera con documenti finanziari e gestione patrimoniale sulla scrivania',
+    'blog.article.easygov-pmi-svizzere.title': 'EasyGov alleggerisce le PMI svizzere',
+    'blog.article.easygov-pmi-svizzere.excerpt': 'Studio dell\'Università di San Gallo per SECO: EasyGov riduce tempi e costi amministrativi per le PMI svizzere. Analisi condotta ad agosto 2026.',
+    'blog.article.easygov-pmi-svizzere.imageAlt': 'Ufficio amministrativo svizzero con dipendenti che lavorano su computer con dashboard digitali per la gestione della burocrazia',
 };
 
 export default blogMetaChIt;
