@@ -18,6 +18,7 @@
  * Optional env:
  * - SEO_SERP_AUTOPILOT_DAYS (default 28)
  * - SEO_SERP_AUTOPILOT_ROTATE_DAYS (default 7)
+ * - SEO_SERP_AUTOPILOT_REVALIDATE_DAYS (default 60)
  * - SEO_SERP_AUTOPILOT_MIN_PAGE_IMPRESSIONS (default 150)
  * - SEO_SERP_AUTOPILOT_MIN_TOTAL_IMPRESSIONS (default 4000)
  * - SEO_SERP_AUTOPILOT_MIN_TOTAL_CLICKS (default 80)
@@ -41,6 +42,8 @@ const LAST_RUN_PATH = path.resolve(ROOT, 'data', 'seo-serp-autopilot-last-run.js
 
 const DAYS = clampInt(process.env.SEO_SERP_AUTOPILOT_DAYS, 7, 90, 28);
 const ROTATE_DAYS = clampInt(process.env.SEO_SERP_AUTOPILOT_ROTATE_DAYS, 3, 21, 7);
+// How long a winner may hold the slot before the challengers get another turn.
+const REVALIDATE_DAYS = clampInt(process.env.SEO_SERP_AUTOPILOT_REVALIDATE_DAYS, 14, 365, 60);
 const MIN_PAGE_IMPRESSIONS = clampInt(process.env.SEO_SERP_AUTOPILOT_MIN_PAGE_IMPRESSIONS, 50, 5000, 150);
 const MIN_TOTAL_IMPRESSIONS = clampInt(process.env.SEO_SERP_AUTOPILOT_MIN_TOTAL_IMPRESSIONS, 500, 200000, 4000);
 const MIN_TOTAL_CLICKS = clampInt(process.env.SEO_SERP_AUTOPILOT_MIN_TOTAL_CLICKS, 20, 50000, 80);
@@ -167,12 +170,31 @@ function aggregateVariantCtr(history, variant, lookbackDays = 120) {
   };
 }
 
-function chooseNextVariant(currentVariant) {
-  if (!VARIANTS.includes(currentVariant)) return VARIANTS[0];
-  return currentVariant === VARIANTS[0] ? VARIANTS[1] : VARIANTS[0];
+/** Most recent snapshot timestamp for a variant, or null if never sampled. */
+function lastSampledAt(history, variant) {
+  let latest = null;
+  for (const snap of history?.snapshots || []) {
+    if (snap.variant !== variant) continue;
+    const t = new Date(snap.createdAt).getTime();
+    if (!Number.isNaN(t) && (latest === null || t > latest)) latest = t;
+  }
+  return latest;
 }
 
-function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
+/**
+ * Whose turn it is next. With two arms this is the old alternation; with three
+ * or more, picking the least recently sampled one is what stops a newly added
+ * arm from never getting a turn — the old toggle could only ever see two.
+ */
+export function chooseNextVariant(currentVariant, history) {
+  const others = VARIANTS.filter((v) => v !== currentVariant);
+  if (!others.length) return VARIANTS[0];
+  return others
+    .slice()
+    .sort((a, b) => (lastSampledAt(history, a) ?? -Infinity) - (lastSampledAt(history, b) ?? -Infinity))[0];
+}
+
+export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
   const decision = {
     nextVariant: currentVariant,
     reason: 'keep_current',
@@ -191,19 +213,32 @@ function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
   const lastSwitchAt = history.lastSwitchAt || null;
   const sinceSwitchDays = lastSwitchAt ? daysBetween(lastSwitchAt, nowIso) : Infinity;
 
-  const scoreA = aggregateVariantCtr(history, VARIANTS[0]);
-  const scoreB = aggregateVariantCtr(history, VARIANTS[1]);
-  decision.scores = { [VARIANTS[0]]: scoreA, [VARIANTS[1]]: scoreB };
+  // Score every arm, not just the first two: adding a third variant used to
+  // leave it permanently unscored and therefore unpickable.
+  const scores = {};
+  for (const v of VARIANTS) scores[v] = aggregateVariantCtr(history, v);
+  decision.scores = scores;
 
-  const enoughSamples = scoreA.samples >= 2 && scoreB.samples >= 2;
-  const enoughTrafficA = scoreA.impressions >= MIN_TOTAL_IMPRESSIONS;
-  const enoughTrafficB = scoreB.impressions >= MIN_TOTAL_IMPRESSIONS;
+  const comparable = VARIANTS.every(
+    (v) => scores[v].samples >= 2 && scores[v].impressions >= MIN_TOTAL_IMPRESSIONS,
+  );
 
-  if (enoughSamples && enoughTrafficA && enoughTrafficB) {
+  // A winner does not hold the slot forever. Exploit used to `return` before
+  // the rotation branch below could ever be reached, so the only thing that
+  // ever reopened the experiment was the challenger's samples ageing out of
+  // aggregateVariantCtr's 120-day lookback — about four months of silence, by
+  // accident rather than by design, and no way at all to give a newly added
+  // arm a turn. Revalidation makes that cadence deliberate: the challengers
+  // get one rotation slot back every REVALIDATE_DAYS, then the winner resumes
+  // unless the fresh sample actually beat it.
+  const dueForRevalidation = sinceSwitchDays >= REVALIDATE_DAYS;
+
+  if (comparable && !dueForRevalidation) {
     decision.mode = 'exploit';
-    const winner = scoreA.ctr >= scoreB.ctr ? VARIANTS[0] : VARIANTS[1];
-    const loser = winner === VARIANTS[0] ? VARIANTS[1] : VARIANTS[0];
-    const uplift = decision.scores[winner].ctr - decision.scores[loser].ctr;
+    const ranked = VARIANTS.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
+    const winner = ranked[0];
+    const runnerUp = ranked[1];
+    const uplift = scores[winner].ctr - scores[runnerUp].ctr;
     if (winner !== currentVariant && uplift >= MIN_UPLIFT_ABS) {
       decision.nextVariant = winner;
       decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
@@ -218,8 +253,15 @@ function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
     return decision;
   }
 
+  if (comparable && dueForRevalidation) {
+    decision.mode = 'explore';
+    decision.nextVariant = chooseNextVariant(currentVariant, history);
+    decision.reason = `revalidate_after_${REVALIDATE_DAYS}d`;
+    return decision;
+  }
+
   if (sinceSwitchDays >= ROTATE_DAYS) {
-    decision.nextVariant = chooseNextVariant(currentVariant);
+    decision.nextVariant = chooseNextVariant(currentVariant, history);
     decision.reason = `rotation_every_${ROTATE_DAYS}d`;
   } else {
     decision.reason = 'rotation_cooldown';
@@ -382,7 +424,15 @@ async function main() {
   console.log(`🧾 Last run report: ${path.relative(ROOT, LAST_RUN_PATH)}`);
 }
 
-main().catch((err) => {
-  console.error('❌ SEO SERP Autopilot failed:', err?.message || err);
-  process.exit(1);
-});
+// Only run when executed directly. Without this, importing the module to test
+// decideVariant() would run the whole autopilot — hitting GSC and GA4 and
+// publishing Remote Config as a side effect of a unit test. Same guard as
+// scripts/check-unsubscribe-credential-rate.mjs.
+const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('seo-serp-autopilot.mjs');
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('❌ SEO SERP Autopilot failed:', err?.message || err);
+    process.exit(1);
+  });
+}
