@@ -40698,16 +40698,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-neutralita-fronte-no-lancia-allarme': {
-    title: 'Neutralità, il fronte del | Frontaliere Ticino',
+    title: 'Neutralità, il fronte del «No» lancia l\'allarme | Frontaliere Ticino',
     description: 'Un comitato interpartitico chiede di respingere l\'iniziativa sulla neutralità, limiterebbe la politica estera e indebolirebbe la difesa svizzera.',
     keywords: 'frontalieri, ticino, svizzera, italia, neutralità, fronte, comitato, interpartitico',
-    ogTitle: 'Neutralità, il fronte del',
+    ogTitle: 'Neutralità, il fronte del «No» lancia l\'allarme',
     ogDescription: 'Un comitato interpartitico chiede di respingere l\'iniziativa sulla neutralità, limiterebbe la politica estera e indebolirebbe la difesa svizzera.',
     canonicalPath: '/articoli-svizzera/neutralita-fronte-no-lancia-allarme/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Neutralità, il fronte del",
+      "headline": "Neutralità, il fronte del «No» lancia l'allarme",
       "description": "Un comitato interpartitico chiede di respingere l'iniziativa sulla neutralità, limiterebbe la politica estera e indebolirebbe la difesa svizzera.",
       "image": {
         "@type": "ImageObject",
