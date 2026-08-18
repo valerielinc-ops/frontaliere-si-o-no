@@ -182,6 +182,11 @@ import {
 // l'intestazione del modulo per la differenza fra duplicare il CONTENUTO
 // (bloccato) e coprire lo stesso TEMA con due tagli (ammesso).
 import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
+// La chiave di identita' della fonte sta in un modulo a se' perche' e' pura e
+// va testata senza importare questo file. Vedi la sua intestazione per il
+// difetto che toglie (la query identificante buttata via) e per il ponte con
+// le voci gia' scritte.
+import { newsUrlKey } from './lib/news-url-key.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -489,7 +494,11 @@ relevant=<yes|no>; reason=<una frase di massimo 15 parole>`;
  *
  * @param {Array<{headline: string, url?: string, relatedHeadlines?: string[]}>} headlines
  * @param {object} [opts]
- * @param {number} [opts.maxClassifier=12]  - max LLM classifier calls per invocation
+ * @param {number} [opts.maxClassifier=headlines.length]  - max LLM classifier calls per
+ *   invocation. Il default NON e' una costante: e' la lunghezza della lista in
+ *   ingresso, cioe' «nessun tetto oltre i candidati che ci sono». Diceva `12`,
+ *   che era il default di una versione precedente e rendeva il ramo di budget
+ *   esaurito raggiungibile sulla carta e irraggiungibile nei fatti.
  * @returns {Promise<Array>} filtered headlines (preserves order)
  */
 async function applyPreSpendTopicGate(headlines, opts = {}) {
@@ -2125,15 +2134,19 @@ function saveSourceUrls(map) {
   }
 }
 
-/** Normalize a news source URL for dedup: strip query params, hash, trailing slash */
+/**
+ * Chiave del ledger per un URL di fonte.
+ *
+ * Delega a `newsUrlKey` (`lib/news-url-key.mjs`), che tiene i parametri di
+ * query IDENTIFICANTI e butta solo quelli di tracciamento. Questa funzione
+ * buttava via tutta la query, e su una fonte che identifica il documento solo
+ * li' — `ti.ch/…/dettaglio-comunicato/?NEWS_ID=<n>`, `uil.it/newssx.asp?ID_News=<n>`
+ * — ogni item del feed collassava sulla stessa chiave: il primo articolo
+ * veniva registrato e tutti i successivi della stessa fonte risultavano
+ * «gia' usati» e venivano scartati in silenzio.
+ */
 function normalizeNewsUrl(rawUrl) {
-  try {
-    const u = new URL(rawUrl);
-    // Remove tracking params, keep the path
-    return `${u.protocol}//${u.hostname}${u.pathname}`.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return rawUrl.toLowerCase().replace(/\/$/, '');
-  }
+  return newsUrlKey(rawUrl);
 }
 
 function isGoogleNewsRssUrl(rawUrl) {
@@ -2225,6 +2238,29 @@ function isSourceUrlAlreadyUsed(headlineUrl) {
   // Exact match — sezione attiva per prima, poi le sorelle.
   const exact = findCrossSectionSourceDuplicate(normalized, loadAllSectionSourceUrls(), SECTION_NAME);
   if (exact.used) return exact;
+
+  // ── NESSUN PONTE VERSO LE VOCI DI FORMA 1 — e' deliberato ──
+  //
+  // La tentazione e' cercare anche sotto la chiave vecchia (path nudo), per non
+  // «liberare» per un giro le fonti gia' consumate. Misurato: sarebbe una
+  // ricerca che si accende SOLO quando `legacyKey !== normalized`, cioe' solo
+  // sugli URL con parametri identificanti — esattamente i casi che questa fix
+  // esiste per sbloccare. Quando le due chiavi coincidono la ricerca sopra ha
+  // gia' risposto, quindi il ponte non ha un solo ramo utile.
+  //
+  // E su quei casi la voce vecchia e' una chiave COLLASSATA: per
+  // `www3.ti.ch/dfe/dr/ustat/index.php` (presente nel ledger reale) un
+  // documento nuovo `...index.php?idNews=999` la colpirebbe comunque, e ogni
+  // altro documento di quella fonte con lui. Il blocco si auto-alimenta: nessuna
+  // chiave di forma 2 verrebbe mai scritta per quel path, e la voce che avvelena
+  // esce solo col trim FIFO a 500 voci di saveSourceUrls().
+  //
+  // Il prezzo di non avere il ponte e' l'opposto e finisce: il singolo documento
+  // gia' consumato sotto la chiave vecchia puo' essere ripreso UNA volta, dopo di
+  // che viene registrato in forma 2 e il dedup riprende a funzionare. Un
+  // duplicato possibile una volta per fonte, invece di ogni documento nuovo di
+  // quella fonte bloccato per ~500 articoli.
+
   // Fuzzy URL slug vs existing article ID match
   const urlWords = extractUrlSlugWords(headlineUrl);
   if (urlWords.length < 2) return { used: false };
