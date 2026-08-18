@@ -43661,6 +43661,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedale-grigioni-ampliamento-2026': {
+    title: 'Ospedale Grigioni: 518 milioni per nuova ala | Frontaliere Ticino',
+    description: 'Ospedale Grigioni inaugura nuova ala dopo 12 anni. 518 milioni di investimenti, sale operatorie da 10 a 13, trasloco novembre 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, grigioni, milioni, nuova',
+    ogTitle: 'Ospedale Grigioni: 518 milioni per nuova ala',
+    ogDescription: 'Dodici anni di cantiere terminano. L\'ospedale cantonale dei Grigioni a Coira inaugura la nuova ala con 518 milioni di franchi investiti. Sale operatorie aumentate da 10 a 13, pronto soccorso e chirurgia nello stesso piano. Trasloco a fine novembre.',
+    canonicalPath: '/articoli-svizzera/ospedale-grigioni-ampliamento-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedale Grigioni: 518 milioni per nuova ala",
+      "description": "Ospedale Grigioni inaugura nuova ala dopo 12 anni. 518 milioni di investimenti, sale operatorie da 10 a 13, trasloco novembre 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedale-grigioni-ampliamento-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale cantonale dei Grigioni, nuova ala con architettura moderna e accesso al pronto soccorso unico"
+      },
+      "datePublished": "2026-08-18T19:20:17+00:00",
+      "dateModified": "2026-08-18T19:20:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ospedale-grigioni-ampliamento-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

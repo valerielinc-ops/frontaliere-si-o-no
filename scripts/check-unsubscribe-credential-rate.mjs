@@ -5,18 +5,46 @@
  *
  * THE PROBLEM IT CLOSES
  *
- * #5719 added a `credential` field (`'autologin_code' | 'email_token'`) to
- * every `unsubscribe` event written by the `unsubscribe_link` channel
- * (functions/src/newsletterSubscriptionManagement.js). `email_token` is the
- * expected path; `autologin_code` only fires when the primary scoped token
- * FAILED and an authentic `ac` code saved the click. #5724 is rolling out a
- * TTL/revocation window for `ac` itself (see
+ * #5719 added a `credential` field (`'autologin_code' | 'email_token'`) to the
+ * `unsubscribe` events written by the `unsubscribe_link` channel.
+ * `email_token` is the expected path; `autologin_code` only fires when the
+ * primary scoped token FAILED and an authentic `ac` code saved the click.
+ * #5724 is rolling out a TTL/revocation window for `ac` itself (see
  * scripts/check-autologin-refusal-rate.mjs, its Cloud-Logging-reading twin).
  * The day that ships, every unsubscribe currently depending on the
  * `autologin_code` fallback is one policy change away from a real "Link non
  * valido" — the LPD-complaint shape `ac` exists to prevent in the first
  * place (verifyOptOutCredential's docstring). Without this monitor, nobody
  * knows that population's size until the complaint arrives.
+ *
+ * TWO WRITERS ON THIS CHANNEL, AND THE LINE ABOVE USED TO NAME ONE
+ *
+ * This header said the field was on EVERY `unsubscribe_link` event, and
+ * pointed at functions/src/newsletterSubscriptionManagement.js as though it
+ * were the only writer. It was not, and had not been since before #5719
+ * merged: services/newsletterSubscribers.ts
+ * (`unsubscribeNewsletterSubscriber`, the SPA "Disiscriviti" write App.tsx
+ * drives) landed with #5690 at 14:05 on 2026-08-12, four hours and fifty
+ * minutes BEFORE #5719 at 18:54, writing the same `event_type: 'unsubscribe'`
+ * on the same `source_channel` with no `credential` key at all.
+ *
+ * Because `missing` is dropped from the rate as pre-deploy residue, those
+ * events were not merely uncounted — they were uncountable. Measured
+ * read-only against production over the 7 days to 2026-08-18, 209 events:
+ * 110 `email_token`, 1 `autologin_code`, 98 `missing`. Splitting `missing` by
+ * field signature separates them exactly: 46 with the Cloud Function's
+ * `unsubscribe_ip`/`unsubscribe_method` shape, all of them on 08-11 and 08-12
+ * and none after — genuine residue, draining out on its own; and 52 with the
+ * SPA writer's `user_id`/`metadata`/`source_page` shape, on every single day
+ * from 08-13 to 08-18 — a writer, not residue. The monitor was reporting
+ * 1/111 = 0,90% while a third of the post-deploy window sat outside its
+ * denominator, and App.tsx cannot reach that writer without an `ac`: the 52
+ * were the very cohort this file exists to size.
+ *
+ * The write site is fixed (both writers stamp `credential`, pinned by
+ * tests/newsletter-unsubscribe-integrity.test.ts) and the arithmetic now
+ * refuses to shrink its own denominator in silence — see
+ * `uncredentialed_share` in scripts/lib/unsubscribeCredentialMetrics.mjs.
  *
  * SAME FORM AS THE TWIN, DIFFERENT SOURCE
  *
@@ -174,11 +202,13 @@ async function readUnsubscribeLinkEvents(db, sinceDate) {
   const records = [];
   for (const doc of snap.docs) {
     const data = doc.data() || {};
-    // Only the credential-verified path (functions/src/newsletterSubscriptionManagement.js,
-    // action === 'unsubscribe') ever sets `credential`. Other writers of
-    // `event_type: 'unsubscribe'`-ish events under different
-    // `source_channel`s (bulk LPD requests, lost-unsubscribe recovery) are
-    // not this monitor's population — see unsubscribeCredentialMetrics.mjs.
+    // The credential-verified paths — BOTH of them:
+    // functions/src/newsletterSubscriptionManagement.js (`action ===
+    // 'unsubscribe'`) and services/newsletterSubscribers.ts
+    // (`unsubscribeNewsletterSubscriber`). Writers of `event_type:
+    // 'unsubscribe'`-ish events under different `source_channel`s (bulk LPD
+    // requests, lost-unsubscribe recovery) are not this monitor's population
+    // — see unsubscribeCredentialMetrics.mjs.
     if (data.source_channel !== CREDENTIAL_LINK_CHANNEL) continue;
     const occurredAt = data.occurred_at ? new Date(data.occurred_at) : null;
     if (!occurredAt || Number.isNaN(occurredAt.getTime()) || occurredAt < sinceDate) continue;
@@ -213,7 +243,8 @@ function report(agg, verdict, hours, scannedEvents, hadFallbackBefore) {
   lines.push('|---|---:|---|');
   lines.push(`| email_token | ${agg.counts.email_token} | denominatore |`);
   lines.push(`| autologin_code (fallback) | ${agg.counts.autologin_code} | **numeratore** |`);
-  lines.push(`| missing (pre-#5719 o canale diverso) | ${agg.counts.missing} | no |`);
+  lines.push(`| legacy_auth_token (link \`at\`/\`authToken\`) | ${agg.counts.legacy_auth_token} | denominatore |`);
+  lines.push(`| missing (nessun campo \`credential\`) | ${agg.counts.missing} | no — vedi \`uncredentialed_share\` |`);
   lines.push('');
   lines.push(`**quota fallback: ${pct(agg.fallbackRate)}** su ${agg.graded} unsubscribe graduati (${agg.total} eventi \`unsubscribe_link\` totali nella finestra).`);
   lines.push(`Fallback \`autologin_code\` osservato prima d'ora: ${hadFallbackBefore ? 'sì' : 'no (baseline a zero)'}.`);
