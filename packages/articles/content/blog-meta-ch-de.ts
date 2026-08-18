@@ -3352,6 +3352,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.italia-rimpatrio-asilo.title': 'Asylsuchende nehmen die Überstellungen nach Italien wieder auf',
     'blog.article.italia-rimpatrio-asilo.excerpt': 'Die Schweiz wird die Überstellungen von Asylsuchenden nach Italien nach fast vier Jahren Blockade wieder aufnehmen.',
     'blog.article.italia-rimpatrio-asilo.imageAlt': 'Asylsuchende an der Bahnhof von Chiasso, Schweiz',
+    'blog.article.asilo-statistica-luglio-2026.title': 'Asyl: Statistik für Juli 2026',
+    'blog.article.asilo-statistica-luglio-2026.excerpt': 'Das Staatssekretariat für Migration verzeichnete im Juli 2026 1915 Asylanträge, ein Rückgang von 22,8% gegenüber dem Vorjahresmonat.',
+    'blog.article.asilo-statistica-luglio-2026.imageAlt': 'Die Schweiz muss sich den Herausforderungen der Einwanderung und des Asyls stellen',
 };
 
 export default blogMetaChDe;

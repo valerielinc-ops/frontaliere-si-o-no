@@ -3352,6 +3352,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.italia-rimpatrio-asilo.title': 'Richiedenti l\'asilo, riprendono i trasferimenti verso l\'Italia',
     'blog.article.italia-rimpatrio-asilo.excerpt': 'La Svizzera riprenderà i trasferimenti di richiedenti l\'asilo verso l\'Italia, dopo quasi quattro anni di blocco.',
     'blog.article.italia-rimpatrio-asilo.imageAlt': 'Richiedenti l\'asilo alla stazione ferroviaria di Chiasso',
+    'blog.article.asilo-statistica-luglio-2026.title': 'Asilo: statistica del mese di luglio 2026',
+    'blog.article.asilo-statistica-luglio-2026.excerpt': 'La Segreteria di Stato della migrazione ha registrato 1915 domande d\'asilo in luglio 2026, con un calo del 22,8% rispetto allo stesso mese dell\'anno precedente.',
+    'blog.article.asilo-statistica-luglio-2026.imageAlt': 'La Svizzera affronta le sfide legate all\'immigrazione e all\'asilo',
 };
 
 export default blogMetaChIt;

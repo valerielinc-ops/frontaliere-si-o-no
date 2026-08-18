@@ -3352,6 +3352,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.italia-rimpatrio-asilo.title': 'Asylum seekers resume transfers to Italy',
     'blog.article.italia-rimpatrio-asilo.excerpt': 'Switzerland will resume transfers of asylum seekers to Italy, after almost four years of blockade.',
     'blog.article.italia-rimpatrio-asilo.imageAlt': 'Asylum seekers at the train station of Chiasso, Switzerland',
+    'blog.article.asilo-statistica-luglio-2026.title': 'Asylum: July 2026 statistics',
+    'blog.article.asilo-statistica-luglio-2026.excerpt': 'The State Secretariat for Migration registered 1915 asylum applications in July 2026, a decrease of 22.8% compared to the same month of the previous year.',
+    'blog.article.asilo-statistica-luglio-2026.imageAlt': 'Switzerland faces challenges related to immigration and asylum',
 };
 
 export default blogMetaChEn;

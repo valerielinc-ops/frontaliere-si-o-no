@@ -1143,6 +1143,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-di-studio-basilea-citta': { it: 'borse-di-studio-basilea-citta', en: 'scholarships-basel-city', de: 'stipendien-basel-stadt', fr: 'bourses-d-etudes-basel-ville' },
  'svizzera-trasferimento-richiedenti-asilo-italia': { it: 'svizzera-trasferimento-richiedenti-asilo-italia', en: 'switzerland-asylum-seekers-transfer-italy', de: 'schweiz-asylbewerber-rueckfuehrung-italien', fr: 'suisse-transfert-demandeurs-asile-italie' },
  'italia-rimpatrio-asilo': { it: 'italia-rimpatrio-asilo', en: 'italy-restarts-asylum-repatriations', de: 'italien-erneuert-asylabgeschobungen', fr: 'italie-reprend-l-expulsion-des-demandeurs-d-asile' },
+ 'asilo-statistica-luglio-2026': { it: 'asilo-statistica-luglio-2026', en: 'asylum-statistics-july-2026', de: 'asylstatistik-juli-2026', fr: 'statistique-en-matiere-d-asile-juillet-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

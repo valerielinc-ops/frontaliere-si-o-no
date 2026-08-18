@@ -3352,6 +3352,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.italia-rimpatrio-asilo.title': 'Demandeurs d\'asile, reprennent les transferts vers l\'Italie',
     'blog.article.italia-rimpatrio-asilo.excerpt': 'La Suisse va reprendre les transferts de demandeurs d\'asile vers l\'Italie, après près de quatre ans de blocage.',
     'blog.article.italia-rimpatrio-asilo.imageAlt': 'Demandeurs d\'asile à la gare de Chiasso, Suisse',
+    'blog.article.asilo-statistica-luglio-2026.title': 'Asile : statistique du mois de juillet 2026',
+    'blog.article.asilo-statistica-luglio-2026.excerpt': 'Le Secrétariat d\'Etat aux migrations a enregistré 1915 demandes d\'asile en juillet 2026, soit une baisse de 22,8 % par rapport au même mois de l\'année précédente.',
+    'blog.article.asilo-statistica-luglio-2026.imageAlt': 'La Suisse doit relever les défis liés à l\'immigration et à l\'asile',
 };
 
 export default blogMetaChFr;
