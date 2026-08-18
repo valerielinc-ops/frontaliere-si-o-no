@@ -93,6 +93,22 @@ describe('newsUrlKey — la query che identifica il documento non si butta', () 
     }
   });
 
+  it('Google News: il locale non frammenta, perche l identita e tutta nel path', () => {
+    // L ERRORE SPECULARE, che una fix sulla query rischia di introdurre mentre
+    // ne toglie un altro. Gli URL del feed Google News portano
+    // `?oc=5&hl=<locale>&gl=<paese>&ceid=<...>`, ma l articolo e' identificato
+    // per intero dall id base64 nel path. Senza `hl`/`gl`/`ceid`/`oc` fra i
+    // parametri da scartare, lo stesso pezzo ripreso con un locale diverso
+    // darebbe due chiavi e potrebbe essere consumato due volte.
+    const it = 'https://news.google.com/rss/articles/CBMiXYZ?oc=5&hl=it-IT&gl=IT&ceid=IT:it';
+    const de = 'https://news.google.com/rss/articles/CBMiXYZ?oc=5&hl=de-CH&gl=CH&ceid=CH:de';
+    expect(newsUrlKey(it)).toBe(newsUrlKey(de));
+    // E la chiave coincide con quella storica, quindi le 27 voci
+    // `news.google.com` gia' nei ledger continuano a corrispondere senza
+    // passare dal ponte di compatibilita'.
+    expect(newsUrlKey(it)).toBe(legacyNewsUrlKey(it));
+  });
+
   it('la chiave di forma 2 contiene sempre `?`, quella di forma 1 mai', () => {
     // E' la proprieta' su cui si appoggia il ponte di compatibilita' in
     // `isSourceUrlAlreadyUsed`: nel ledger piatto del sito le voci vecchie

@@ -33,6 +33,20 @@ const TRACKING_PARAM_NAMES = new Set([
   'igshid', 'mc_cid', 'mc_eid', 'ref', 'referrer', 'referer', 'source', 'src',
   'cmpid', 'cmp', 'spm', 'xtor', 'ito', 'ncid', 'sref', 'share', 'sharedfrom',
   'feature', 'trk', 'trkcampaign', 'rss', 'from',
+  // ── SELETTORI DI LOCALE/OUTPUT, non identita' del documento ───────────────
+  //
+  // Divergenza DELIBERATA dalla lista del gemello sul corpus, e la ragione e'
+  // misurata su questo lato: i ledger del sito contengono 27 voci
+  // `news.google.com/rss/articles/<id-base64>`, dove l'identita' e' INTERA nel
+  // path. Gli URL che Google News emette nel feed portano pero'
+  // `?oc=5&hl=it-IT&gl=IT&ceid=IT:it`, e senza questa riga lo stesso articolo
+  // ripreso con un locale diverso produrrebbe due chiavi: il dedup si
+  // frammenterebbe e lo stesso pezzo potrebbe essere consumato due volte.
+  //
+  // E' l'errore SPECULARE a quello che questa fix toglie — li' si fondeva cio'
+  // che andava distinto, qui si distinguerebbe cio' che va fuso — e su un
+  // cambio di chiave persistita vanno chiusi tutti e due nello stesso giro.
+  'hl', 'gl', 'ceid', 'oc',
 ]);
 
 /** Prefissi delle famiglie di tracciamento (Google, AT Internet, Matomo, HubSpot). */
