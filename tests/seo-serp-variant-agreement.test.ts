@@ -26,11 +26,18 @@ function autopilotVariants(): string[] {
   return [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]);
 }
 
-function clientAcceptedVariants(): string[][] {
-  // Every `raw === 'a' || raw === 'b'` guard that narrows a variant value.
+/** Every `x === 'a' || x === 'b'` variant guard in the client, keyed by its subject. */
+function clientAcceptedVariants(): Record<string, string[]> {
   const src = read('services/seoService.ts');
-  return [...src.matchAll(/(\w+)\s*===\s*'(year_intent|intent_simulation)'\s*\|\|\s*\1\s*===\s*'(year_intent|intent_simulation)'/g)]
-    .map((m) => [m[2], m[3]].sort());
+  // The subject is a bare identifier on the Remote Config path (`variantRaw`)
+  // and a property access on the cache path (`cached.variant`). `\w+` stops at
+  // the dot, so the backreference could not find the same text again and the
+  // cache guard went silently uncovered — the exact drift this file exists to
+  // catch, hiding in the check meant to catch it.
+  const re = /([\w.]+)\s*===\s*'(year_intent|intent_simulation)'\s*\|\|\s*\1\s*===\s*'(year_intent|intent_simulation)'/g;
+  const out: Record<string, string[]> = {};
+  for (const m of src.matchAll(re)) out[m[1]] = [m[2], m[3]].sort();
+  return out;
 }
 
 function clientFallbackVariant(): string {
@@ -40,12 +47,14 @@ function clientFallbackVariant(): string {
 }
 
 describe('SERP experiment arm list agreement', () => {
-  it('the client accepts exactly the arms the autopilot can promote', () => {
+  it('both client paths accept exactly the arms the autopilot can promote', () => {
     const promotable = autopilotVariants().sort();
     const guards = clientAcceptedVariants();
-    expect(guards.length).toBeGreaterThan(0);
-    for (const accepted of guards) {
-      expect(accepted).toEqual(promotable);
+    // Named, not counted: a guard that disappears has to fail this test rather
+    // than quietly shrink the set the loop then walks.
+    expect(Object.keys(guards).sort()).toEqual(['cached.variant', 'variantRaw']);
+    for (const [subject, accepted] of Object.entries(guards)) {
+      expect(accepted, `guard on ${subject}`).toEqual(promotable);
     }
   });
 

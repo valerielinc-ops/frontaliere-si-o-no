@@ -254,8 +254,11 @@ function warnIfClientFallbackDrifted(promotedVariant) {
         + `but the promoted variant is '${promotedVariant}'. Update REMOTE_CONFIG_DEFAULTS.`,
       );
     }
-  } catch {
-    // Reading the client source is a courtesy check, never a reason to fail.
+  } catch (err) {
+    // Never a reason to fail the run — but never silent either. Swallowing
+    // every read error means a wrong ROOT, a renamed file or a sparse checkout
+    // turns this into a check that can no longer ever fire, and nothing says so.
+    console.warn(`⚠️  Could not read services/firebase.ts to check the client fallback: ${err?.message || err}`);
   }
 }
 
