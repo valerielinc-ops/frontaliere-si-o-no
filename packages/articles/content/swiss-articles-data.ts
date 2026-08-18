@@ -9910,6 +9910,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-domicilio-c-basilea-citta-requisiti-domanda',
+    category: 'pratico',
+    date: '2026-08-18T07:09:44.246Z',
+    image: '/images/blog/permesso-domicilio-c-basilea-citta-requisiti-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

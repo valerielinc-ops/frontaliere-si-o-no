@@ -3304,6 +3304,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.title': 'Residence permit B in Basel City: requirements and procedure',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.excerpt': 'Here are the requirements and documents necessary to obtain the residence permit B in the Canton of Basel-City, as well as the renewal procedure and the competent office.',
     'blog.article.permesso-di-dimora-b-canton-basilea-citta.imageAlt': 'Basel City Migration Office',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Residence permit C in the Canton of Basel-City: requirements and application',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'For those who want to live in Basel City, a residence permit C is mandatory. Here\'s what to do and how to request it.',
+    'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'A Swiss family applying for a permit C',
 };
 
 export default blogMetaChEn;

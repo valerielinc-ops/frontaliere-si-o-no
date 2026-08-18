@@ -1127,6 +1127,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazi-usa-svizzera-2026': { it: 'dazi-usa-svizzera-2026', en: 'dazi-usa-switzerland-2026', de: 'dazi-usa-schweiz-2026', fr: 'dazi-usa-suisse-2026' },
  'imposte-cantonali-basilea-citta-aliquote': { it: 'imposte-cantonali-basilea-citta-aliquote', en: 'cantonal-and-municipal-taxes-in-basel-city-rates-and-deductions', de: 'steuern-kanton-basel-stadt-besteuerung', fr: 'impots-canton-de-basel-ville-imposition' },
  'permesso-di-dimora-b-canton-basilea-citta': { it: 'permesso-di-dimora-b-canton-basilea-citta', en: 'permesso-di-dimora-b-canton-basilea-citta-en', de: 'permesso-di-dimora-b-canton-basilea-citta-de', fr: 'permesso-di-dimora-b-canton-basilea-citta-fr' },
+ 'permesso-domicilio-c-basilea-citta-requisiti-domanda': { it: 'permesso-domicilio-c-basilea-citta-requisiti-domanda', en: 'residence-permit-c-in-the-canton-of-basel-city-requirements-and-application', de: 'aufenthaltstitel-c-basel-stadt-anforderungen-bescheinigung', fr: 'permis-de-sejour-c-basilea-citta-requisitos-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
