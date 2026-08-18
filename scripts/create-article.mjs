@@ -11253,6 +11253,24 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // en/de/fr. Same wiring publish-journalist-article.mjs uses post-translate.
   assertNoFabricatedNormAcronyms({ en: data.content.en, de: data.content.de, fr: data.content.fr });
 
+  // Step 3b.2: Fabricated NORM-ACRONYM check on the EN/DE/FR translations —
+  // BLOCKING, and exactly the same shape of gap as Step 3b.1 above, one
+  // pattern family over. `runFactualityGates()` (Step 3a) runs
+  // checkFabricatedNormAcronyms(), but only on `data.content.it`, and it runs
+  // BEFORE translateArticle() — so en/de/fr were never checked for a
+  // fabricated norm acronym in this path at all. That is not a theoretical
+  // hole: the whole reason this gate exists is that a fabricated acronym
+  // SURVIVES translation unchanged (LFW identical across it/en/de/fr in
+  // `apprendistato-uri-2024-2025`, LCO in `infiltrazioni-criminali-ticino-grigioni`),
+  // which is precisely the case an IT-only pre-translation check cannot see.
+  // The JSDoc of assertNoFabricatedNormAcronyms already prescribed this call
+  // site — "called directly on IT content, and again on en/de/fr after
+  // translateArticle()" — and `publish-journalist-article.mjs` wires it that
+  // way; this path had the IT half via runFactualityGates and was missing the
+  // other one. `tests/article-fabrication-generator-guard.test.ts` now fails
+  // if either producer loses its call.
+  assertNoFabricatedNormAcronyms({ en: data.content.en, de: data.content.de, fr: data.content.fr });
+
   // Step 3c: Sanitize bold + URLs + nav links on translated content
   console.error('✂️  Sanitizzazione grassetto (traduzioni):');
   sanitizeBoldFormatting(data);
