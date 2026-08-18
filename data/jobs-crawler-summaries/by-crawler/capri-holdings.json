@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-08-18T09:43:17.875Z",
+  "generatedAt": "2026-08-18T21:46:27.976Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16404,
-  "avgDurationMs": 16404,
+  "unchangedCount": 1,
+  "durationMs": 20609,
+  "avgDurationMs": 20609,
   "durationHistory": [
-    16404
+    20609
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
         "location": "Graubünden"
       },
       "id": "capri-holdings-a8bb48b29f4a",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
       "crawledAt": "",
       "_qualityScore": 89,
@@ -80,6 +81,7 @@
         "location": "Graubünden"
       },
       "id": "capri-holdings-3a2740ba0b27",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
       "crawledAt": "",
       "_qualityScore": 89,
@@ -118,9 +120,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -163,44 +165,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h-MK_R_785359",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h-MK_R_785359",
-      "title": "Sales Associate Part Time 20h MK",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "addetto-alle-vendite-part-time-20h-mk-capri-holdings-michael-kors-versace-graubunden",
-      "category": "retail",
-      "datePosted": "2026-07-04",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "id": "capri-holdings-ec18af29c10f",
-      "firstSeenAt": "2026-07-04T21:19:55.464Z",
-      "crawledAt": "",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 15
       }
@@ -271,9 +235,9 @@
         "location": "Geneva"
       },
       "id": "capri-holdings-7593aa4af27d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -284,5 +248,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h-MK_R_785359",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h-MK_R_785359",
+      "title": "Sales Associate Part Time 20h MK",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "addetto-alle-vendite-part-time-20h-mk-capri-holdings-michael-kors-versace-graubunden",
+      "category": "retail",
+      "datePosted": "2026-07-04",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "id": "capri-holdings-ec18af29c10f",
+      "firstSeenAt": "2026-07-04T21:19:55.464Z",
+      "crawledAt": "",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ]
 }
