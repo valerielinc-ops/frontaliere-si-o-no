@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-08-18T10:07:03.981Z",
+  "assembledAt": "2026-08-18T21:41:43.695Z",
   "jobs": [
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
@@ -34,7 +34,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:07:01.026Z",
+      "crawledAt": "2026-08-18T21:41:39.749Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/CEY-BO/Network-Engineer---Cloud-Operations_R-25439-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:07:00.219Z",
+      "crawledAt": "2026-08-18T21:41:38.931Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:06:59.427Z",
+      "crawledAt": "2026-08-18T21:41:38.105Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -297,7 +297,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
