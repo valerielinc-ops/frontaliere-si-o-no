@@ -1118,6 +1118,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-e-formazione-canton-soletta': { it: 'apprendistato-e-formazione-canton-soletta', en: 'apprenticeship-and-professional-training-in-soletta', de: 'praktikum-und-fachausbildung-im-kanton-soletta', fr: 'formation-professionnelle-et-apprentissage-au-canton-de-soletta' },
  'affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione': { it: 'affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione', en: 'solothurn-rental-market-average-prices-and-tenant-rights', de: 'mietpreise-im-kanton-soelothurn-und-mieterrechte', fr: 'le-marche-locatif-du-canton-de-soleure-prix-moyens-et-droits-du-locataire' },
  'comprare-casa-canton-soletta-prezzi-mutuo': { it: 'comprare-casa-canton-soletta-prezzi-mutuo', en: 'buying-a-house-in-sothurn', de: 'eine-haus-kauft-in-soletta', fr: 'acheter-une-maison-a-soleure' },
+ 'trasporti-pubblici-canton-soletta-abbonamenti': { it: 'trasporti-pubblici-canton-soletta-abbonamenti', en: 'public-transport-canton-solothurn-tickets', de: 'oeffentliche-verkehrsmittel-kanton-solothurn-fahrkarten', fr: 'transports-publics-canton-de-soleure-abonnements' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

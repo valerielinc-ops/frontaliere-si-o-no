@@ -3277,6 +3277,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Achat logement Soleure : prix, fonds propres et dépenses',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'Le canton de Soleure propose des prix moyens pour l\'achat d\'une maison, mais il y a des fonds propres requis et des frais de notaire à prendre en compte.',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'Une vue de la ville de Soleure, avec un frontalier qui regarde sa maison.',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Abonnements transports publics Canton Soleure zones et tarifs',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Informations sur les tarifs et les zones des transports publics dans le canton de Soleure',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Transports publics dans le canton de Soleure',
 };
 
 export default blogMetaChFr;
