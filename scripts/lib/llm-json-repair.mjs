@@ -26,6 +26,105 @@ export function stripCodeFences(raw) {
  */
 export const JSON_QUOTE_SAFETY_RULE_IT = '⚠️ VIRGOLETTE NEI VALORI JSON: se riporti un termine o una frase citata tra virgolette (es. la cosiddetta "tassa sulla salute"), NON usare mai il carattere " dentro un valore stringa JSON — usa virgolette singole (\'tassa sulla salute\') o guillemet («tassa sulla salute»). Se devi proprio usare virgolette doppie interne, escapale sempre con \\" (es. "la cosiddetta \\"tassa sulla salute\\""). Una virgoletta doppia non escapata dentro una stringa rende l\'intero JSON non valido e scarta l\'intero articolo.';
 
+/**
+ * ── Memo condiviso dalle funzioni mutuamente ricorsive di questo modulo ─────
+ *
+ * IL DIFETTO CHE CHIUDE (run 32130136859, 2026-08-18, fallita dopo 1058s).
+ *
+ * Un watchdog ha campionato il processo ogni 30s. Firma, letterale:
+ *
+ *   elapsed  rss_MB  cpu%(cumulativo)  stato  log_bytes
+ *      402s   198.8   7.2               S      31179   <- ultima riga scritta
+ *      432s   198.8   6.8               R      31179
+ *     1003s   198.8  72.4               R      31179
+ *
+ * Dieci minuti senza una riga di log, stato `R` (gira, non aspetta I/O), e RSS
+ * fermo a 198.8 MB al decimo di MB per 500 secondi: **spin CPU sincrono senza
+ * allocazione**. Il watchdog ha anche aperto l'inspector e il dump dello stack
+ * e' uscito 0 byte — la porta 9229 sta su un thread suo, ma l'isolate non ha
+ * mai ceduto per servire la richiesta: l'event loop era bloccato.
+ *
+ * L'ultima riga viva del run e' la riduzione del prompt, quindi il sospetto e'
+ * caduto li'. Non era li': la riduzione aveva gia' stampato il suo esito, e fra
+ * quella riga e il silenzio c'e' `callLLM` (stato `S`, attesa di rete) e poi
+ * `repairLlmJson` sulla risposta (stato `R`). Lo spin e' QUI dentro.
+ *
+ * PERCHE'. `decideQuoteCloses`, `afterSeparatorLooksValid`,
+ * `looksLikeJsonContinuation`, `scanValueEnd`, `scanStringEnd` e
+ * `findMatchingClose` sono mutuamente ricorsive, e nessuna ricordava una
+ * risposta gia' calcolata. Il commento di `looksLikeJsonContinuation` dice che
+ * la catena «non puo' accumulare profondita' di stack oltre il numero di
+ * chiavi»: e' vero sulla PROFONDITA' e falso sul LAVORO. `scanStringEnd`
+ * riprova su OGNI virgoletta interna, e `afterSeparatorLooksValid` esplora due
+ * alternative (la chiave con i due punti, e la continuazione) — due rami per
+ * posizione, ripetuti a ogni livello, cioe' 2^k.
+ *
+ * Misurato su `{"body1":"` + `"chiave": "valore", ` × n + `fine"}` — la forma
+ * che un modello produce quando inlinea uno pseudo-JSON dentro un campo di
+ * prosa senza escapare le virgolette:
+ *
+ *   n=20  416 char     668 ms
+ *   n=25  516 char  21.270 ms      (×2,4 per ripetizione: esponenziale)
+ *   n=30  616 char  ~11 minuti     ← la finestra osservata nella run
+ *
+ * 516 caratteri per 21 secondi. Su una risposta da 30 KB non finisce mai.
+ *
+ * IL RIMEDIO. `decideQuoteCloses(str, idx, fix)` e `scanStringEnd(str, i, fix)`
+ * sono funzioni PURE dei loro argomenti, e la ricorsione e' strettamente
+ * crescente sull'indice (ogni chiamata annidata parte da una posizione
+ * maggiore), quindi non ci sono cicli e memoizzarle non cambia UNA risposta:
+ * toglie solo il ricalcolo. Il ramo esponenziale collassa perche' ogni
+ * posizione viene decisa una volta sola.
+ *
+ * NON un timeout, e non un cap sulla lunghezza: un timeout nasconde lo spin e
+ * un cap butterebbe via l'articolo. Qui la semantica resta identica — e' il
+ * test `llm-json-repair-blowup.test.mjs` a dimostrarlo, confrontando l'output
+ * riparato su tutte le forme del caso.
+ */
+let _memoSrc = null;
+let _memoFix = null;
+let _memoQuoteCloses = null;
+let _memoStringEnd = null;
+
+/**
+ * Prepara (e riempie) il memo per `str`. Il riempimento e' DAL FONDO VERSO
+ * L'INIZIO, e non e' un'ottimizzazione: e' cio' che tiene la profondita' di
+ * stack costante.
+ *
+ * `_decideQuoteCloses(str, q, fix)` guarda solo posizioni > q — direttamente,
+ * e attraverso `afterSeparatorLooksValid` → `scanValueEnd` → `scanStringEnd`,
+ * che a loro volta ripartono da un indice maggiore. E' la stessa proprieta'
+ * che rende la memoizzazione lecita (nessun ciclo), e qui la si usa una
+ * seconda volta: calcolando le virgolette in ordine di indice DECRESCENTE,
+ * ogni chiamata annidata trova la sua risposta gia' nel memo e torna subito.
+ * Lo stack non annida piu' una volta per chiave — resta a due o tre frame,
+ * qualunque sia la lunghezza della risposta.
+ *
+ * Senza questo passaggio la sola memoizzazione toglieva il tempo esponenziale
+ * ma non la profondita': `RangeError: Maximum call stack size exceeded`
+ * misurato su 30 KB, cioe' sulla taglia normale di una risposta di questa
+ * pipeline. Uno stack overflow qui non e' meno grave dello spin — butta
+ * l'articolo con un errore che non nomina nemmeno questo modulo.
+ *
+ * Le chiamate ricorsive rientrano in `_memoFor`, ma con `str`/`fixAsterisks`
+ * gia' registrati: il controllo di identita' le fa uscire subito, quindi il
+ * riempimento non si ri-annida. Non serve un flag di reentrancy, serve
+ * assegnare `_memoSrc`/`_memoFix` PRIMA del giro (ed e' fatto).
+ */
+function _memoFor(str, fixAsterisks) {
+  if (_memoSrc === str && _memoFix === fixAsterisks) return;
+  _memoSrc = str;
+  _memoFix = fixAsterisks;
+  _memoQuoteCloses = new Map();
+  _memoStringEnd = new Map();
+  for (let q = str.length - 1; q >= 0; q--) {
+    if (str[q] !== '"' || isEscapedAt(str, q)) continue;
+    if (!_memoQuoteCloses.has(q)) {
+      _memoQuoteCloses.set(q, _decideQuoteCloses(str, q, fixAsterisks));
+    }
+  }
+}
+
 /** Index of the bracket/brace matching the opener at openIdx.
  *
  * Skips over string content using scanStringEnd's quote-disambiguation
@@ -158,6 +257,15 @@ function precededByFreshOpen(str, idx, fixAsterisks) {
  * (issue #3618 item 2).
  */
 function decideQuoteCloses(str, quoteIdx, fixAsterisks) {
+  _memoFor(str, fixAsterisks);
+  const cached = _memoQuoteCloses.get(quoteIdx);
+  if (cached !== undefined) return cached;
+  const decided = _decideQuoteCloses(str, quoteIdx, fixAsterisks);
+  _memoQuoteCloses.set(quoteIdx, decided);
+  return decided;
+}
+
+function _decideQuoteCloses(str, quoteIdx, fixAsterisks) {
   let j = quoteIdx + 1;
   while (j < str.length && /\s/.test(str[j])) j++;
   const next = str[j];
@@ -216,6 +324,15 @@ function scanValueEnd(str, i, fixAsterisks) {
  * findMatchingClose so both treat "does this quote really close the
  * string?" identically. */
 function scanStringEnd(str, i, fixAsterisks) {
+  _memoFor(str, fixAsterisks);
+  const cached = _memoStringEnd.get(i);
+  if (cached !== undefined) return cached;
+  const end = _scanStringEnd(str, i, fixAsterisks);
+  _memoStringEnd.set(i, end);
+  return end;
+}
+
+function _scanStringEnd(str, i, fixAsterisks) {
   let j = i + 1;
   while (j < str.length) {
     if (str[j] === '\\') { j += 2; continue; }
@@ -268,48 +385,92 @@ function scanKeyEnd(str, i) {
  * to the string's true end and get mistaken for a valid fresh value.
  */
 function afterSeparatorLooksValid(str, afterSepPos, isColon, fixAsterisks) {
-  let i = afterSepPos;
-  while (i < str.length && /\s/.test(str[i])) i++;
-  if (isColon) {
-    const valueEnd = scanValueEnd(str, i, fixAsterisks);
-    return valueEnd !== -1 && looksLikeJsonContinuation(str, valueEnd, fixAsterisks);
-  }
-  if (str[i] === '"') {
-    const keyEnd = scanKeyEnd(str, i);
-    if (keyEnd === -1) return false;
-    let m = keyEnd;
-    while (m < str.length && /\s/.test(str[m])) m++;
-    if (str[m] === ':') return afterSeparatorLooksValid(str, m + 1, true, fixAsterisks);
-    return looksLikeJsonContinuation(str, keyEnd, fixAsterisks);
-  }
-  const valueEnd = scanValueEnd(str, i, fixAsterisks);
-  return valueEnd !== -1 && looksLikeJsonContinuation(str, valueEnd, fixAsterisks);
+  return resolveLookahead(str, afterSepPos, isColon ? SEP_COLON : SEP_COMMA, fixAsterisks);
 }
 
 /**
  * True if `str` starting at `pos` is either end-of-input / a structural
  * closer, or a `, value` / `: value` / (fixAsterisks) `*...* value`
- * continuation that itself resolves (afterSeparatorLooksValid recurses
- * forward for chained keys, so a long chain still can't build up unbounded
- * stack depth beyond the key count). The `*` run case matters because a
+ * continuation that itself resolves. Il `*` run case matters because a
  * value can end exactly at an asterisk boundary the real main loop would
  * convert to a comma (e.g. `"bold text"***"b"`) — this lookahead has to
  * recognize that same convention or it wrongly rejects a value the main
  * loop would accept.
  */
 function looksLikeJsonContinuation(str, pos, fixAsterisks) {
-  let i = pos;
-  while (i < str.length && /\s/.test(str[i])) i++;
-  if (i >= str.length) return true;
-  const ch = str[i];
-  if (ch === '}' || ch === ']') return true;
-  if (fixAsterisks && ch === '*') {
-    let k = i;
-    while (k < str.length && str[k] === '*') k++;
-    return afterSeparatorLooksValid(str, k, false, fixAsterisks);
+  return resolveLookahead(str, pos, CONTINUATION, fixAsterisks);
+}
+
+const CONTINUATION = 0;
+const SEP_COLON = 1;
+const SEP_COMMA = 2;
+
+/**
+ * `afterSeparatorLooksValid` e `looksLikeJsonContinuation` erano mutuamente
+ * ricorsive, e OGNI chiamata fra le due era in posizione di coda: la coppia e'
+ * quindi una macchina a stati su `(pos, modo)`, e qui e' scritta come tale.
+ * La riscrittura non cambia una risposta — e' la stessa identica sequenza di
+ * decisioni, senza un frame di stack per passo.
+ *
+ * PERCHE' NON BASTAVA MEMOIZZARE. Il memo su `decideQuoteCloses` /
+ * `scanStringEnd` toglie il ricalcolo esponenziale (n=25 da 21.270 ms a 0,6
+ * ms), ma non la PROFONDITA': appena il ramo esponenziale smette di scadere il
+ * tempo, lo stesso input arriva in fondo alla catena e la fa sfondare —
+ * misurato, `RangeError: Maximum call stack size exceeded` a n=1500 su
+ * `{"body1":"` + `"chiave": "valore", ` × n + `fine"}`, cioe' su una risposta
+ * da 30 KB, che e' la taglia normale di questa pipeline. Uno stack overflow
+ * qui non e' meno grave dello spin: butta l'articolo con un errore che non
+ * nomina il modulo.
+ *
+ * TERMINAZIONE, dimostrata e non sperata: `p` cresce STRETTAMENTE a ogni giro.
+ * Da CONTINUATION si passa a un separatore con `p = i + 1 > p`; da un
+ * separatore si passa a CONTINUATION con `p = valueEnd`, e `scanValueEnd`
+ * restituisce sempre un indice maggiore della posizione da cui parte (o -1,
+ * che esce). Quindi il ciclo fa al massimo `str.length` giri.
+ */
+function resolveLookahead(str, pos, mode, fixAsterisks) {
+  let p = pos;
+  let m = mode;
+  for (;;) {
+    let i = p;
+    while (i < str.length && /\s/.test(str[i])) i++;
+
+    if (m === CONTINUATION) {
+      if (i >= str.length) return true;
+      const ch = str[i];
+      if (ch === '}' || ch === ']') return true;
+      if (fixAsterisks && ch === '*') {
+        let k = i;
+        while (k < str.length && str[k] === '*') k++;
+        p = k; m = SEP_COMMA;
+        continue;
+      }
+      if (ch !== ',' && ch !== ':') return false;
+      p = i + 1; m = (ch === ':') ? SEP_COLON : SEP_COMMA;
+      continue;
+    }
+
+    if (m === SEP_COLON) {
+      const valueEnd = scanValueEnd(str, i, fixAsterisks);
+      if (valueEnd === -1) return false;
+      p = valueEnd; m = CONTINUATION;
+      continue;
+    }
+
+    // SEP_COMMA
+    if (str[i] === '"') {
+      const keyEnd = scanKeyEnd(str, i);
+      if (keyEnd === -1) return false;
+      let k = keyEnd;
+      while (k < str.length && /\s/.test(str[k])) k++;
+      if (str[k] === ':') { p = k + 1; m = SEP_COLON; continue; }
+      p = keyEnd; m = CONTINUATION;
+      continue;
+    }
+    const valueEnd = scanValueEnd(str, i, fixAsterisks);
+    if (valueEnd === -1) return false;
+    p = valueEnd; m = CONTINUATION;
   }
-  if (ch !== ',' && ch !== ':') return false;
-  return afterSeparatorLooksValid(str, i + 1, ch === ':', fixAsterisks);
 }
 
 /**
