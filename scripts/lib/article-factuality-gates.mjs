@@ -1705,7 +1705,7 @@ const EVIDENCE_MAX_CHARS = 240;
  * The window is cut AROUND `anchors`, not from the head of the sentence.
  * Cutting from the head produced quotes that no longer contained the fact
  * they were quoted FOR, and did it silently: measured on the pulled corpus
- * (`packages/articles/content`, 17.804 bodies, 65.223 anchors) 1.689 anchors
+ * of published article bodies (17.804 bodies, 65.223 anchors) 1.689 anchors
  * across 930 documents got a 238-char quote whose datum sat past char 237.
  * The instruction then read «reintegra DATEC — la fonte dice: "<237 chars
  * that do not contain DATEC>"», which is precisely the "never a wrong quote"
