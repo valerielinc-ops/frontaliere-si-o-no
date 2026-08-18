@@ -6,8 +6,8 @@
       "id": "msc-cargo-b06079cfe661",
       "slug": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
       "slugByLocale": {
-        "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "en": "jewellery-product-development-senior-manager-msc-geneva",
+        "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
         "fr": "jewellery-product-development-senior-manager-msc-geneva"
       },
@@ -763,7 +763,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "baseSalary": {
@@ -781,7 +780,8 @@
         "it": [
           "redacteur-contrat-de-6-mois-msc-group-geneva",
           "texter-6-monate-vertrag-msc-group-geneva",
-          "copywriter-6-mesi-msc-group-geneva"
+          "copywriter-6-mesi-msc-group-geneva",
+          "copywriter-6-months-contract-msc-geneva"
         ],
         "de": [
           "texter-6-monate-vertrag-msc-group-geneva"
@@ -793,8 +793,10 @@
       "previousSlugs": [
         "redacteur-contrat-de-6-mois-msc-group-geneva",
         "texter-6-monate-vertrag-msc-group-geneva",
-        "copywriter-6-mesi-msc-group-geneva"
-      ]
+        "copywriter-6-mesi-msc-group-geneva",
+        "copywriter-6-months-contract-msc-geneva"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "msc-cargo-5d15f1a38e9c",
@@ -915,14 +917,20 @@
       "jobReqId": "17211",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "product-innovation-manager-neue-builds-msc-group-geneva",
-        "product-innovation-manager-nouvelles-constructions-msc-group-geneva",
-        "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva",
-        "product-innovation-manager-new-builds-analytics-msc-geneva",
-        "product-innovation-manager-new-builds-msc-geneva",
-        "product-innovation-manager-nuove-costruzioni-msc-group-geneva"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 92000,
+      "salaryMax": 163000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:57:41.791Z",
       "previousSlugsByLocale": {
         "it": [
           "product-innovation-manager-neue-builds-msc-group-geneva",
@@ -939,20 +947,14 @@
           "product-innovation-manager-new-builds-msc-geneva"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:57:41.791Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "product-innovation-manager-neue-builds-msc-group-geneva",
+        "product-innovation-manager-nouvelles-constructions-msc-group-geneva",
+        "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva",
+        "product-innovation-manager-new-builds-analytics-msc-geneva",
+        "product-innovation-manager-new-builds-msc-geneva",
+        "product-innovation-manager-nuove-costruzioni-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",

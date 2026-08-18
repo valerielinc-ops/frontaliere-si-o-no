@@ -1518,8 +1518,7 @@
         "dipl-nursing-specialist-general-and-acute-psychiatry-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-allgemein-und-akutpsychiatrie-stgag-ch",
         "dipl-specialiste-des-soins-infirmiers-psychiatrie-generale-et-aigue-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r14d2d",
-        "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r14d2d"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1542,7 +1541,8 @@
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
           "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
-          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
@@ -1566,7 +1566,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1578,7 +1577,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-8b4b50246dbe",
@@ -3012,16 +3012,14 @@
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
         "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
-        "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4"
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
           "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
-          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4"
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2"
@@ -3031,7 +3029,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:12:04.932Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3043,7 +3040,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-dc710d762096",
@@ -14282,9 +14280,9 @@
       "id": "spital-thurgau-e787999301ba",
       "slug": "hebamme-stgag-munsterlingen",
       "slugByLocale": {
+        "de": "hebamme-stgag-ch",
         "it": "hebamme-stgag-munsterlingen",
         "en": "hebamme-stgag-munsterlingen",
-        "de": "hebamme-stgag-ch",
         "fr": "hebamme-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",

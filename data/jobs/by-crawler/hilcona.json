@@ -74,9 +74,9 @@
       "id": "hilcona-b0fd1b54b82d",
       "slug": "apprendistato-come-informatiker-informatikerin-efz-applikationsentwicklung-2027-bell-schweiz-ag-basel",
       "slugByLocale": {
+        "de": "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel",
         "it": "apprendistato-come-informatiker-informatikerin-efz-applikationsentwicklung-2027-bell-schweiz-ag-basel",
         "en": "teaching-as-computer-scientist-efz-application-development-2027-bell-schweiz-ag-basel",
-        "de": "lehre-als-informatiker-informatikerin-efz-applikationsentwicklung-2027-hilcona-basel",
         "fr": "enseignement-comme-informaticien-efz-application-development-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
@@ -10418,7 +10418,6 @@
         "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10431,7 +10430,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "hilcona-6875ac2fb9be",

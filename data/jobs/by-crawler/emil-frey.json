@@ -5049,16 +5049,15 @@
       "hiringOrganizationName": "Emil Frey Betriebs AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-14T21:32:17.406Z",
+      "previousSlugs": [
+        "magazzino-store-di-piccole-parti-emil-frey-safenwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "magazzino-store-di-piccole-parti-emil-frey-safenwil"
         ]
       },
-      "previousSlugs": [
-        "magazzino-store-di-piccole-parti-emil-frey-safenwil"
-      ],
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:32:17.406Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5070,7 +5069,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-2cd1cbefa1cf",
@@ -5228,9 +5228,9 @@
       "id": "emil-frey-d1a4788ea706",
       "slug": "navette-zurigo-emil-frey-opfikon-zurich",
       "slugByLocale": {
+        "de": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
         "it": "navette-zurigo-emil-frey-opfikon-zurich",
         "en": "navette-driver-zurich-emil-frey-opfikon-zurich",
-        "de": "navette-fahrer-in-zurich-emil-frey-opfikon-zurich",
         "fr": "conducteur-navette-zurich-emil-frey-opfikon-zurich"
       },
       "company": "Emil Frey",

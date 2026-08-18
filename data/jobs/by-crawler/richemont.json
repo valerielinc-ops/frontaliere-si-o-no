@@ -305,20 +305,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "fr": [
-          "specialiste-metier-polissage-richemont-les-breuleux",
-          "specialiste-metier-polissage-donze-baume-les-breuleux"
-        ],
         "it": [
           "specialiste-metier-polissage-richemont-les-breuleux",
           "specialiste-metier-polissage-donze-baume-les-breuleux"
+        ],
+        "fr": [
+          "specialiste-metier-polissage-richemont-les-breuleux"
         ]
       },
       "previousSlugs": [
         "specialiste-metier-polissage-richemont-les-breuleux",
         "specialiste-metier-polissage-donze-baume-les-breuleux"
       ],
-      "firstSeenAt": "2026-08-17T10:06:32.645Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -330,7 +328,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T10:06:32.645Z"
     },
     {
       "id": "richemont-d3e41a9214a5",
@@ -11917,10 +11916,10 @@
       "id": "richemont-6171d0fd1333",
       "slug": "miglioramento-continuo-del-servizio-clienti-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
+        "fr": "stagiaire-amelioration-continue-du-service-clients-richemont-le-cret-du-locle",
         "it": "miglioramento-continuo-del-servizio-clienti-cartier-manufacture-le-cret-du-locle",
         "en": "internship-continuous-improvement-of-customer-service-cartier-manufacture-le-cret-du-locle",
-        "de": "praktikum-kontinuierliche-verbesserung-des-kundenservice-cartier-manufacture-le-cret-du-locle",
-        "fr": "stagiaire-amelioration-continue-du-service-clients-richemont-le-cret-du-locle"
+        "de": "praktikum-kontinuierliche-verbesserung-des-kundenservice-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -12164,10 +12163,10 @@
       "id": "richemont-65cbde18c1fc",
       "slug": "controller-di-gestione-cartier-manufacture-le-locle",
       "slugByLocale": {
+        "fr": "controleur-de-gestion-richemont-le-locle",
         "it": "controller-di-gestione-cartier-manufacture-le-locle",
         "en": "management-controller-cartier-manufacture-le-locle",
-        "de": "management-controller-cartier-manufacture-le-locle",
-        "fr": "controleur-de-gestion-richemont-le-locle"
+        "de": "management-controller-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",

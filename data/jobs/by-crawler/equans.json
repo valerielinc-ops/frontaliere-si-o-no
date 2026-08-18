@@ -6972,14 +6972,10 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-equans-st-gallen",
-        "responsabile-di-progetto-gebaudeautomation-equans-switzerland-st-gallen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-equans-st-gallen",
-          "responsabile-di-progetto-gebaudeautomation-equans-switzerland-st-gallen"
+          "projektleiter-in-gebaudeautomation-equans-st-gallen"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-equans-st-gallen"
@@ -6988,8 +6984,9 @@
           "projektleiter-in-gebaudeautomation-equans-st-gallen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:53:16.981Z",
+      "previousSlugs": [
+        "projektleiter-in-gebaudeautomation-equans-st-gallen"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -7001,7 +6998,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T09:53:16.981Z"
     },
     {
       "id": "equans-912426ee36b6",
@@ -7134,14 +7132,10 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-equans-winterthur",
-        "responsabile-di-progetto-gebaudeautomation-equans-switzerland-winterthur"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-equans-winterthur",
-          "responsabile-di-progetto-gebaudeautomation-equans-switzerland-winterthur"
+          "projektleiter-in-gebaudeautomation-equans-winterthur"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-equans-winterthur"
@@ -7150,8 +7144,9 @@
           "projektleiter-in-gebaudeautomation-equans-winterthur"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:53:16.910Z",
+      "previousSlugs": [
+        "projektleiter-in-gebaudeautomation-equans-winterthur"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7163,7 +7158,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T09:53:16.910Z"
     },
     {
       "id": "equans-13bf324d23ef",
@@ -7215,14 +7211,10 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-service-gebaudeautomation-equans-zurich",
-        "responsabile-di-progetto-service-gebaudeautomation-equans-switzerland-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-service-gebaudeautomation-equans-zurich",
-          "responsabile-di-progetto-service-gebaudeautomation-equans-switzerland-zurich"
+          "projektleiter-in-service-gebaudeautomation-equans-zurich"
         ],
         "en": [
           "projektleiter-in-service-gebaudeautomation-equans-zurich"
@@ -7231,8 +7223,9 @@
           "projektleiter-in-service-gebaudeautomation-equans-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:53:16.890Z",
+      "previousSlugs": [
+        "projektleiter-in-service-gebaudeautomation-equans-zurich"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7244,7 +7237,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T09:53:16.890Z"
     },
     {
       "id": "equans-03e571e9849d",
@@ -7417,9 +7411,9 @@
       "id": "equans-36202d9fd096",
       "slug": "direttore-della-costruzione-r-installer-nel-freddo-equans-switzerland-frauenfeld",
       "slugByLocale": {
+        "de": "bauleitende-r-monteur-in-kalte-equans-frauenfeld",
         "it": "direttore-della-costruzione-r-installer-nel-freddo-equans-switzerland-frauenfeld",
         "en": "construction-manager-r-installer-in-the-cold-equans-switzerland-frauenfeld",
-        "de": "bauleitende-r-monteur-in-kalte-equans-frauenfeld",
         "fr": "gestionnaire-de-construction-r-installateur-dans-le-froid-equans-switzerland-frauenfeld"
       },
       "company": "Equans Switzerland",
@@ -7498,9 +7492,9 @@
       "id": "equans-75dc8a72b10c",
       "slug": "tecnico-di-servizio-in-sanitari-equans-switzerland-winterthur",
       "slugByLocale": {
+        "de": "servicetechniker-in-sanitar-equans-winterthur",
         "it": "tecnico-di-servizio-in-sanitari-equans-switzerland-winterthur",
         "en": "service-technician-in-sanitary-equans-switzerland-winterthur",
-        "de": "servicetechniker-in-sanitar-equans-winterthur",
         "fr": "technicien-de-service-en-sanitaire-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
@@ -7581,9 +7575,9 @@
       "id": "equans-076d7a88fa16",
       "slug": "impianto-sanitario-in-equans-switzerland-chur-8cb752",
       "slugByLocale": {
+        "de": "sanitarmonteur-in-equans-switzerland-chur",
         "it": "impianto-sanitario-in-equans-switzerland-chur-8cb752",
         "en": "sanitary-fitter-in-equans-switzerland-chur",
-        "de": "sanitarmonteur-in-equans-switzerland-chur",
         "fr": "installation-sanitaire-en-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
@@ -7665,9 +7659,9 @@
       "id": "equans-118577bf45c7",
       "slug": "tecnico-di-servizio-in-installatore-di-sistema-freddo-refrigerazione-in-equans-switzerland-frauenfeld",
       "slugByLocale": {
+        "de": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld",
         "it": "tecnico-di-servizio-in-installatore-di-sistema-freddo-refrigerazione-in-equans-switzerland-frauenfeld",
         "en": "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-frauenfeld",
-        "de": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-frauenfeld",
         "fr": "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-frauenfeld"
       },
       "company": "Equans Switzerland",
@@ -7833,9 +7827,9 @@
       "id": "equans-4a2e3a588210",
       "slug": "installatore-di-riscaldamento-in-riscaldamento-freddo-equans-switzerland-chur-5dfbde",
       "slugByLocale": {
+        "de": "heizungsinstallateur-in-heizung-kalte-equans-chur",
         "it": "installatore-di-riscaldamento-in-riscaldamento-freddo-equans-switzerland-chur-5dfbde",
         "en": "heating-installer-in-heating-cold-equans-switzerland-chur",
-        "de": "heizungsinstallateur-in-heizung-kalte-equans-chur",
         "fr": "installateur-de-chauffage-en-chauffage-froid-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
@@ -7914,9 +7908,9 @@
       "id": "equans-da712b3e80f8",
       "slug": "tecnico-di-servizio-in-ventilazione-equans-switzerland-winterthur",
       "slugByLocale": {
+        "de": "servicetechniker-in-luftung-equans-winterthur",
         "it": "tecnico-di-servizio-in-ventilazione-equans-switzerland-winterthur",
         "en": "service-technician-in-ventilation-equans-switzerland-winterthur",
-        "de": "servicetechniker-in-luftung-equans-winterthur",
         "fr": "technicien-de-service-dans-la-ventilation-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",

@@ -81,21 +81,16 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch",
-        "bauingenieur-in-fachhochschule-graubunden-chur",
-        "ingegnere-civile-fachhochschule-graubunden-chur"
+        "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -108,15 +103,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "fhgr-e0b13eea1efe",
       "slug": "assistenza-organizzativa-fachhochschule-graubunden-zurich",
       "slugByLocale": {
+        "de": "organisationsassistenz-fachhochschule-graubunden-zurich",
         "it": "assistenza-organizzativa-fachhochschule-graubunden-zurich",
         "en": "organizational-assistance-fachhochschule-graubunden-zurich",
-        "de": "organisationsassistenz-fachhochschule-graubunden-zurich",
         "fr": "aide-organisationnelle-fachhochschule-graubunden-zurich"
       },
       "company": "Fachhochschule Graubünden",

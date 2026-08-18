@@ -214,13 +214,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-kriens-pilatusmarkt-80-100-implenia-ch",
-        "property-manager-m-f-d-kriens-pilatus-market-80-100-implenia-lucerna"
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-kriens-pilatusmarkt-80-100-implenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-kriens-pilatusmarkt-80-100-implenia-ch",
-          "property-manager-m-f-d-kriens-pilatus-market-80-100-implenia-lucerna"
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-kriens-pilatusmarkt-80-100-implenia-ch"
         ],
         "en": [
           "sachbearbeiter-immobilienbewirtschaftung-m-w-d-kriens-pilatusmarkt-80-100-implenia-ch"
@@ -230,7 +228,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:44:02.107Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -242,7 +239,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "implenia-364beda0858e",

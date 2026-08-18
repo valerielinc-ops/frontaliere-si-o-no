@@ -366,7 +366,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164294755",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
@@ -412,7 +411,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-62faf8b3a417",
@@ -960,18 +960,17 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164982155",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
+        ],
+        "it": [
+          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
         ],
         "de": [
           "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
           "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
           "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
-        ],
-        "it": [
-          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
         ]
       },
       "previousSlugs": [
@@ -994,7 +993,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9044b7f240f4",
@@ -2151,7 +2151,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1163582855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-doc-epfl-lausanne",
@@ -2190,7 +2189,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-bee036be0c9b",
@@ -3943,7 +3943,6 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164920855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "agente-di-collegamento-dell-industria-epfl-lausanne"
@@ -3987,7 +3986,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9d5a85ba18cf",
@@ -4638,10 +4638,10 @@
       "id": "epfl-649c7dbeb289",
       "slug": "responsabile-comunicazioni-per-sps-60-epfl-lausanne",
       "slugByLocale": {
+        "fr": "charge-e-de-communication-pour-le-sps-60-epfl-lausanne",
         "it": "responsabile-comunicazioni-per-sps-60-epfl-lausanne",
         "en": "communications-officer-for-sps-60-epfl-lausanne",
-        "de": "kommunikationsbeauftragter-fur-sps-60-epfl-lausanne",
-        "fr": "charge-e-de-communication-pour-le-sps-60-epfl-lausanne"
+        "de": "kommunikationsbeauftragter-fur-sps-60-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",

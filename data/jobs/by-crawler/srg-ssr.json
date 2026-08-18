@@ -1956,18 +1956,15 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "previousSlugs": [
-        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
-        "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
-          "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich"
+          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
         ]
       },
+      "previousSlugs": [
+        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:52:53.248Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1980,15 +1977,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-17T09:52:53.248Z"
     },
     {
       "id": "srg-ssr-7b1017d1f5a7",
       "slug": "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich",
       "slugByLocale": {
+        "de": "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
         "it": "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich",
         "en": "basic-education-as-a-multimedia-electronics-technician-srg-ssr-zurich",
-        "de": "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
         "fr": "formation-de-base-en-tant-que-technicien-en-electronique-multimedia-srg-ssr-zurich"
       },
       "company": "SRG SSR",
@@ -2051,13 +2049,13 @@
         "pensumMax": 100
       },
       "previousSlugsByLocale": {
-        "de": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
-          "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
-        ],
         "it": [
           "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
           "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
+        ],
+        "de": [
+          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
+          "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
         ],
         "en": [
           "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"

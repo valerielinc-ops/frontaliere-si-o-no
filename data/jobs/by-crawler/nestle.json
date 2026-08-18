@@ -4722,20 +4722,17 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-NeStep-Talent-in-Product-Development/1418339733/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "nestep-talent-in-product-development-nestle-ch",
-        "nestep-nello-sviluppo-del-prodotto-nestle-orbe-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "nestep-talent-in-product-development-nestle-ch",
-          "nestep-nello-sviluppo-del-prodotto-nestle-orbe-ch"
+          "nestep-talent-in-product-development-nestle-ch"
         ],
         "en": [
           "nestep-talent-in-product-development-nestle-ch"
         ]
       },
-      "firstSeenAt": "2026-08-17T10:15:38.341Z",
+      "previousSlugs": [
+        "nestep-talent-in-product-development-nestle-ch"
+      ],
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -4748,7 +4745,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-08-17T10:15:38.341Z"
     },
     {
       "id": "nestle-1411701033",
