@@ -3328,6 +3328,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint startet Lastschriftverfahren für wiederkehrende Zahlungen',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Die mehr als sechs Millionen Twint-Benutzer können Lastschriftberechtigungen für wiederkehrende Zahlungen bei Händlern, die eine solche Lösung anbieten, autorisieren, verwalten und anzeigen',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Bild einer Person, die die Twint-App verwendet, um den direkten Abzug zu autorisieren',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprendisti, Anweisungen genau befolgen',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Das Bundesgericht fordert die Ausbilder auf, nach den schweren Verletzungen eines Auszubildenden die Aufsicht zu verstärken und die Lehrlinge kontinuierlich zu unterstützen.',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Ein Praktikant in einer gefährlichen Arbeitsumgebung mit einem Beauftragten',
 };
 
 export default blogMetaChDe;

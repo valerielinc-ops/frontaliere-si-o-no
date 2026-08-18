@@ -3328,6 +3328,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.twint-addebito-diretto-2027.title': 'Twint lancia l\'addebito diretto per i pagamenti ricorrenti',
     'blog.article.twint-addebito-diretto-2027.excerpt': 'Gli oltre sei milioni di utenti di Twint potranno autorizzare, gestire e visualizzare le autorizzazioni di addebito diretto per i pagamenti ricorrenti presso i rivenditori che offrono tale soluzione',
     'blog.article.twint-addebito-diretto-2027.imageAlt': 'Immagine di una persona che utilizza l\'app Twint per autorizzare l\'addebito diretto',
+    'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
+    'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante dopo le gravi lesioni riportate da un apprendista',
+    'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Un apprendista in un ambiente di lavoro pericoloso con un formatore',
 };
 
 export default blogMetaChIt;

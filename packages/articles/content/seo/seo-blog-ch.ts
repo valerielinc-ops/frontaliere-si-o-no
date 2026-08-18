@@ -43154,6 +43154,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendisti-istruzioni-sicurezza': {
+    title: 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
+    description: 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante per gli apprendisti dopo le gravi lesioni riportate',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendisti, istruzioni, bastano, vanno',
+    ogTitle: 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
+    ogDescription: 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante per gli apprendisti dopo le gravi lesioni riportate da un apprendista',
+    canonicalPath: '/articoli-svizzera/apprendisti-istruzioni-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»",
+      "description": "Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante per gli apprendisti dopo le gravi lesioni riportate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendisti-istruzioni-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un apprendista in un ambiente di lavoro pericoloso con un formatore"
+      },
+      "datePublished": "2026-08-18T09:01:49+00:00",
+      "dateModified": "2026-08-18T09:01:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendisti-istruzioni-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
