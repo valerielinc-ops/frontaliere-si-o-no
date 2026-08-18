@@ -37,7 +37,23 @@ permissions:
 jobs:
   detect:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    # 15 min (era 8). Il tetto stava DENTRO il corpo della distribuzione, non
+    # sopra: misurato il 2026-08-18 sugli ultimi 28 job `detect` conclusi, i 26
+    # sani vanno da 149s a **449s** (p50 265s, p90 416s) contro un tetto di 480s
+    # — 31s di margine sul caso peggiore osservato. Gli altri 2 sono morti al
+    # tetto (503s e 504s: 480s di job piu' setup e post-step) e appaiono come
+    # `cancelled`, con `Checkout -> cancelled` e ogni step successivo `skipped`.
+    # Esempio: run 32177560874 su PR #6048, `detect` a 503s senza aver eseguito
+    # una riga del detector. Un `cancelled` non e' un rosso: nessuno strato di
+    # rimedio lo raccoglie, e sulla PR si legge come "sta ancora girando".
+    #
+    # La causa e' comune a tests.yml e pr-review-loop.yml e non e' questo job:
+    # il Checkout contro cui questi tetti erano stati scelti costava 75s, oggi
+    # ne costa 250-475 (`.git` cresciuto a 15 GB, `public/` 4,4 GB + `data/`
+    # 2,3 GB tracciati). Qui il Checkout e' gia' minimo (`fetch-depth: 1`) e non
+    # c'e' altro da togliere lato workflow: la cura vera e' ridurre cio' che il
+    # repo traccia, questo tetto e' il cerotto dichiarato nel frattempo.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v5
