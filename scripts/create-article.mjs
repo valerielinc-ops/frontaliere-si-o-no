@@ -65,7 +65,7 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary, estimateRequestTokens } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScoresBeforeExit, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary, estimateRequestTokens } from './lib/ai-models.mjs';
 // La disposizione di una cascata svuotata: differire o gridare. Il gemello del
 // corpus (`generator/scripts/lib/exhaustion-disposition.mjs`, issue #313/#348)
 // e' byte-identico a questo — vedi l'intestazione del modulo per le due misure
@@ -9677,6 +9677,55 @@ function isDuplicateError(e) {
   return /DUPLICATO/i.test(String(e.message || ''));
 }
 
+/**
+ * Le uscite di `main()` passano di qui: prima si scrive il ledger, poi si esce.
+ *
+ * Il difetto che chiude (misurato il 2026-08-18 sulla run 32134269129 del
+ * corpus, che gira lo stesso engine): questo file importava `flushScores` alla
+ * riga 68 e non lo chiamava MAI, e aveva 11 `process.exit(...)`. Sul gemello
+ * del corpus il difetto e' identico (PR nanakokyobashi-rgb/frontaliere-articles#433).
+ * `process.exit()` non fa scattare `beforeExit`, che e' l'unico gancio che il
+ * ledger dei punteggi aveva per scrivere l'ultima finestra di mutazioni; il
+ * debounce da 30s e' su un timer `unref()`ato, quindi non tiene vivo il
+ * processo. Il risultato era un'asimmetria precisa: dentro `ai-models.mjs`
+ * l'unico `await flushScores()` sta sul ramo «tutti i modelli hanno fallito»,
+ * quindi i FALLIMENTI di quel ramo arrivavano al ledger e i SUCCESSI di una run
+ * riuscita no — un ledger sistematicamente pessimista, ed e' lui a decidere con
+ * `sortChainByScore()` chi viene provato per primo. Sul documento condiviso
+ * `ai_model_scores/_all`, `claude-cli/haiku` risultava `score -3, 0 successi,
+ * 1 fallimento` mentre quella run gli aveva applicato 4 successi e 4
+ * fallimenti (punteggio in memoria -207).
+ *
+ * Su QUESTO lato il percorso non e' piu' schedulato — la cadenza e' passata al
+ * corpus (`publish-journalist-articles.yml` ha perso lo schedule il 2026-08-14,
+ * il cron di `generate-article.yml` e' commentato). Restano
+ * `workflow_dispatch` e il mensile `evergreen-refresh-audit.yml`, che scrivono
+ * nello STESSO documento condiviso `ai_model_scores/_all`: raro non vuol dire
+ * innocuo, perche' e' proprio la scrittura rara a portarsi dietro un totale
+ * stantio. Il gemello e' `mode: adapted`, quindi la forma qui e' diversa da
+ * quella del corpus di proposito, ma la garanzia e' la stessa.
+ *
+ * Copre le cinque uscite dentro `main()`. Le sei del `catch` di primo livello
+ * restano `process.exit()` di proposito e sono coperte da un unico
+ * `await flushScoresBeforeExit()` in testa al catch: quel corpo viene
+ * ritagliato ed ESEGUITO da tests/roster-exhaustion-red.test.ts dentro un
+ * `new Function` sincrono, dove un `await` sarebbe un SyntaxError. Il risultato
+ * e' lo stesso — nessuna uscita di questo file lascia il ledger non scritto.
+ *
+ * Il flush e' limitato nel tempo e non lancia (vedi `flushScoresBeforeExit`):
+ * un ledger non deve poter appendere o far fallire un'uscita.
+ */
+async function exitAfterFlush(code) {
+  try {
+    await flushScoresBeforeExit();
+  } catch {
+    // flushScoresBeforeExit non lancia; il catch e' qui perche' l'uscita non
+    // dipenda mai dal ledger, nemmeno se un domani cambiasse contratto.
+  }
+  process.exit(code);
+}
+
+
 async function main() {
   // Positional <url> = first non-flag argv (so `--section=` can precede it).
   let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
@@ -9696,7 +9745,7 @@ async function main() {
         console.error(`❌ Disk critically low: ${freeMB}MB free with local LLM model "${model}" loaded.`);
         console.error('   Fix: change ARTICLE_LOCAL_MODEL repo variable to qwen2.5:7b');
         console.error('   (GitHub Settings → Secrets and variables → Actions → Variables)');
-        process.exit(1);
+        await exitAfterFlush(1);
       }
     } catch { /* ignore — df unavailable or parse error */ }
   }
@@ -10430,7 +10479,7 @@ async function main() {
       if (!selectedTopic) {
         console.error('\n⚠️  Tutte le keyword evergreen risultano già coperte dal pre-flight. Push prosegue senza nuovo articolo.');
         finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'All evergreen keywords rejected by pre-generation duplicate checks'] });
-        process.exit(0);
+        await exitAfterFlush(0);
       }
 
       // Generate article with retry — rotate to next safe keyword on post-generation duplicate.
@@ -10557,7 +10606,7 @@ async function main() {
           if (!selectedTopic) {
             console.error('\n⚠️  Nessuna keyword evergreen disponibile. Push prosegue senza nuovo articolo.');
             finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'No evergreen keyword available after duplicate checks'] });
-            process.exit(0);
+            await exitAfterFlush(0);
           }
         }
       }
@@ -10565,7 +10614,7 @@ async function main() {
       // All retry attempts exhausted
       console.error('\n⚠️  Tentativi evergreen esauriti. Push prosegue senza nuovo articolo.');
       finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'Evergreen retries exhausted'] });
-      process.exit(0);
+      await exitAfterFlush(0);
     }
     return;
   }
@@ -10574,7 +10623,7 @@ async function main() {
   if (!url || (!url.startsWith('http') && !url.startsWith('evergreen://') && !url.startsWith('stats-bfs://'))) {
     finalizeRunReport('error', { notes: [...RUN_REPORT.notes, 'Invalid URL input'] });
     console.error('❌ URL non valido. Uso: node scripts/create-article.mjs [url]');
-    process.exit(1);
+    await exitAfterFlush(1);
   }
 
   await generateAndValidateArticle(url, null);
@@ -11661,7 +11710,19 @@ if (invokedDirectly) {
   };
   process.stdout.on('error', handleEnospc);
   process.stderr.on('error', handleEnospc);
-  main().catch((e) => {
+  main().catch(async (e) => {
+  // ── Il ledger dei punteggi si scrive QUI, prima di qualunque ramo ─────────
+  //
+  // Ogni uscita di questo catch e' un `process.exit()`, che non fa scattare
+  // `beforeExit`: senza questa riga l'ultima finestra di mutazioni del ledger
+  // (`ai_model_scores/_all`) resta non scritta. Il flush sta in testa e non su
+  // ogni `process.exit` perche' il corpo di questo catch viene RITAGLIATO ED
+  // ESEGUITO da tests/roster-exhaustion-red.test.ts dentro un `new Function`
+  // sincrono — un `await` la' dentro sarebbe un SyntaxError, e quel test e' il
+  // solo che dimostra l'ordine veto→differimento invece di grepparlo.
+  // `flushScoresBeforeExit()` e' limitato nel tempo e non lancia, quindi non
+  // puo' appendere ne' dirottare l'uscita.
+  await flushScoresBeforeExit();
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
   // reset at 00:00 UTC, so the next scheduled run normally succeeds. Treat it as

@@ -14,7 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { callLLM, flushScores } from './lib/ai-models.mjs';
+import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -239,7 +239,11 @@ async function main() {
   await flushScores();
 }
 
-main().catch((err) => {
+main().catch(async (err) => {
+  // Come sul ramo riuscito in fondo a main(): `process.exit()` salta
+  // `beforeExit`, quindi senza questa attesa il ramo di errore perde ogni
+  // esito accumulato. Bounded e non-throwing (vedi flushScoresBeforeExit).
+  await flushScoresBeforeExit();
   console.error('Fatal error:', err);
   process.exit(1);
 });

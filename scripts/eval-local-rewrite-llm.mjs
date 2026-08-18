@@ -24,7 +24,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { callLLM, AI_MODELS } from './lib/ai-models.mjs';
+import { callLLM, AI_MODELS, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { llmFactCheck } from './create-article.mjs';
 
 const SAMPLE_DIR = 'services/locales/blog-body/it';
@@ -252,4 +252,12 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch(async (e) => {
+  // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
+  // errore butta via gli esiti dei modelli accumulati dalla run — per lo
+  // piu' fallimenti, cioe' il segnale che serve al ledger. Bounded e
+  // non-throwing (vedi flushScoresBeforeExit).
+  await flushScoresBeforeExit();
+  console.error(e);
+  process.exit(1);
+});
