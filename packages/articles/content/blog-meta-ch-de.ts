@@ -3334,6 +3334,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Lehre und Berufsausbildung im Kanton Basel-Stadt',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Basel-Stadt',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Bild eines Praktikanten in einer Basler Firma',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint startet Lastschriftverfahren für Rechnungen und Krankenkassen',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'Neu für wiederkehrende Zahlungen in der Schweiz: Twint führt das Lastschriftverfahren für Krankenkasse, Strom und Abos ein.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone mit Twint-Zahlungs-App im Vordergrund in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -3334,6 +3334,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprenticeship and vocational training in the Canton of Basel-City',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'How to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Canton Basel City',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Image of an apprentice in a Basle company',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint launches direct debit for bills and sick pay',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'New for recurring payments in Switzerland: Twint will introduce direct debit for sick cash, electricity and subscriptions.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone with Twint payment app in the foreground in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -3334,6 +3334,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprendistato e formazione professionale nel Canton Basilea Città',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Canton Basilea Città',
     'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Immagine di un apprendista in un\'azienda basilese',
+    'blog.article.twint-addebito-diretto-fatture.title': 'Twint lancia l\'addebito diretto per bollette e cassa malati',
+    'blog.article.twint-addebito-diretto-fatture.excerpt': 'Novità per i pagamenti ricorrenti in Svizzera: Twint introdurrà l\'addebito diretto per cassa malati, elettricità e abbonamenti.',
+    'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone con app di pagamento Twint in primo piano in Svizzera',
 };
 
 export default blogMetaChIt;

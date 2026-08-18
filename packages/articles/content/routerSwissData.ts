@@ -1137,6 +1137,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'twint-addebito-diretto-2027': { it: 'twint-addebito-diretto-2027', en: 'twint-direct-debit', de: 'twint-direkter-abzug', fr: 'twint-virement-direct' },
  'apprendisti-istruzioni-sicurezza': { it: 'apprendisti-istruzioni-sicurezza', en: 'apprentices-safety-instructions', de: 'praktikanten-sicherheitsanweisungen', fr: 'apprentis-instructions-securite' },
  'apprendistato-e-formazione-professionale-basilea-citta': { it: 'apprendistato-e-formazione-professionale-basilea-citta', en: 'apprenticeship-and-professional-training-in-basel-city', de: 'ausbildung-und-fachausbildung-in-basel-stadt', fr: 'formation-professionnelle-et-apprentissage-a-basel-ville' },
+ 'twint-addebito-diretto-fatture': { it: 'twint-addebito-diretto-fatture', en: 'twint-direct-debit-bills', de: 'twint-lastschrift-rechnungen', fr: 'twint-prelevement-automatique-factures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
