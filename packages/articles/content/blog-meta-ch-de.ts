@@ -3223,6 +3223,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Freiburg: Kosten und Optionen',
     'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'Der Kanton Freiburg bietet verschiedene Möglichkeiten der Kindertagesstätte und Kinderbetreuung mit einkommensabhängigen Tarifen und kantonalen Zuschüssen an.',
     'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'Eine Familie von drei Personen wohnt im Kanton Freiburg und sucht nach einem geeigneten Kindergarten für ihre Kinder.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Mieten in Freiburg: Mieten und Mietrecht',
+    'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'Die durchschnittlichen Gebühren pro Zone im Kanton Freiburg betragen CHF 1\'200.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'Bild für Artikel über Mieten und Mietrecht im Kanton Freiburg',
 };
 
 export default blogMetaChDe;

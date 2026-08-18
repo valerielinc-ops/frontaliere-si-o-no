@@ -41789,6 +41789,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-gli-affitti-canton-friburgo': {
+    title: 'Affitti a Friburgo: canoni e diritto di locazione',
+    description: 'I canoni medi per zona nel Cantone di Friburgo sono di CHF 1\'200. Il deposito di garanzia massimo è di 3 mesi di pigione. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, friburgo, canoni, diritto',
+    ogTitle: 'Mercato degli affitti nel Cantone di Friburgo: canoni medi e diritto di locazione',
+    ogDescription: 'I canoni medi per zona nel Cantone di Friburgo sono di CHF 1\'200. Il deposito di garanzia massimo è di 3 mesi di pigione.',
+    canonicalPath: '/articoli-svizzera/mercato-gli-affitti-canton-friburgo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti a Friburgo: canoni e diritto di locazione",
+      "description": "I canoni medi per zona nel Cantone di Friburgo sono di CHF 1'200. Il deposito di garanzia massimo è di 3 mesi di pigione. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-gli-affitti-canton-friburgo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "immagine per articolo su affitti e diritto di locazione nel Cantone di Friburgo"
+      },
+      "datePublished": "2026-08-18T00:30:29+00:00",
+      "dateModified": "2026-08-18T00:30:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-gli-affitti-canton-friburgo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

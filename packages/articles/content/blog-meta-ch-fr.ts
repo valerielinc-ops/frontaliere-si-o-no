@@ -3223,6 +3223,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-friburgo-costi.title': 'Garderie et garde d\'enfants dans le canton de Fribourg : coûts et options',
     'blog.article.asilo-nido-custodia-friburgo-costi.excerpt': 'Le canton de Fribourg offre plusieurs options de crèche et de garde d\'enfants, avec des tarifs calculés sur le revenu et des allocations cantonales disponibles.',
     'blog.article.asilo-nido-custodia-friburgo-costi.imageAlt': 'Une famille de trois personnes réside dans le canton de Fribourg et cherche un jardin d\'enfants adapté à leurs enfants.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Location à Fribourg : loyers et droit de location',
+    'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'Les loyers moyens par zone dans le canton de Fribourg sont de CHF 1\'200.',
+    'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'image pour article sur locations et droit de location dans le canton de Fribourg',
 };
 
 export default blogMetaChFr;
