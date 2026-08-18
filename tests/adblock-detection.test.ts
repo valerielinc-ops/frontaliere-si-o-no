@@ -189,4 +189,52 @@ describe('detectAdBlockDetailed — Funding Choices signal', () => {
     (window as unknown as Record<string, unknown>).__ftAdBlock = { blocked: true, adsAllowed: false, status: null };
     await expect(detectAdBlock()).resolves.toBe(true);
   });
+
+  // The snapshot on __ftAdBlock is written once, when AD_BLOCK_DATA_READY
+  // fires, and nothing ever refreshes it. That is fine for the first read and
+  // wrong for every later one — which is exactly what the gate's recheck
+  // button is.
+  it('does not let a stale Funding Choices verdict veto a live re-read', async () => {
+    (window as unknown as Record<string, unknown>).__ftFcAdBlockBridge = 1;
+    (window as unknown as Record<string, unknown>).__ftAdBlock = {
+      blocked: true, adsAllowed: false, status: 'EXTENSION_LEVEL_AD_BLOCKER',
+    };
+    // Bait clean and network resolving: the visitor has switched the blocker
+    // off since the page loaded. Without `live` the load-time verdict wins for
+    // the whole lifetime of the document and the recheck can never succeed.
+    const pending = detectAdBlockDetailed({ live: true });
+    await vi.advanceTimersByTimeAsync(1000);
+    const result = await pending;
+    expect(result.blocked).toBe(false);
+    expect(result.source).toBe('heuristic');
+    // The status is still worth carrying: it says what was seen at load.
+    expect(result.status).toBe('EXTENSION_LEVEL_AD_BLOCKER');
+  });
+
+  it('still reports a blocker that is live on a live re-read', async () => {
+    // The other half of the same flag: `live` must read the probe, not decide
+    // in advance that the answer is "clean".
+    (window as unknown as Record<string, unknown>).__ftFcAdBlockBridge = 1;
+    (window as unknown as Record<string, unknown>).__ftAdBlock = {
+      blocked: true, adsAllowed: false, status: 'EXTENSION_LEVEL_AD_BLOCKER',
+    };
+    mockBait({ height: 0, display: 'block', visibility: 'visible' });
+    const pending = detectAdBlockDetailed({ live: true });
+    await vi.advanceTimersByTimeAsync(1000);
+    const result = await pending;
+    expect(result.blocked).toBe(true);
+  });
+
+  it('keeps an allowlisting across a live re-read', async () => {
+    // adsAllowed can only ever open the gate, so the live path must not throw
+    // it away: Funding Choices saw the allowlisting itself, which is not a
+    // reading that goes stale the way a blocker verdict does.
+    (window as unknown as Record<string, unknown>).__ftFcAdBlockBridge = 1;
+    (window as unknown as Record<string, unknown>).__ftAdBlock = {
+      blocked: true, adsAllowed: true, status: 'EXTENSION_LEVEL_AD_BLOCKER',
+    };
+    const result = await detectAdBlockDetailed({ live: true });
+    expect(result.adsAllowed).toBe(true);
+    expect(result.source).toBe('funding_choices');
+  });
 });

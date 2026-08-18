@@ -393,7 +393,10 @@ const AdBlockGate: React.FC = () => {
     trackPopupEvent('popup_cta_adblock', 'recheck_cta');
     setRechecking(true);
     try {
-      const { blocked: stillBlocked, adsAllowed } = await detectAdBlockDetailed();
+      // `live`: the Funding Choices snapshot was taken at page load, when the
+      // blocker was still on. Trusting its verdict here would answer the
+      // question the visitor just changed the answer to.
+      const { blocked: stillBlocked, adsAllowed } = await detectAdBlockDetailed({ live: true });
       if (adsAllowed) {
         trackPopupEvent('popup_adblock_disable', 'adblock_allowlisted_confirmed');
         closeGate('disabled');

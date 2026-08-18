@@ -494,8 +494,14 @@
          before React has mounted, so the answer is stashed on window for
          services/adBlockDetection.ts to pick up whenever it asks.
          getAllowAdsStatus() is the half no local probe can ever have: it says
-         the visitor already allowlisted us, so we must not gate them again. -->
-    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;window.__ftAdBlock={status:s,allowAds:a,blocked:s===E.EXTENSION_LEVEL_AD_BLOCKER||s===E.NETWORK_LEVEL_AD_BLOCKER,adsAllowed:a===A.ADS_ALLOWED};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
+         the visitor already allowlisted us, so we must not gate them again.
+         eq() is not paranoia: both reads already guard the FUNCTION being
+         absent, but a bare === also matches undefined against undefined. A
+         status of undefined next to a missing enum member would then read as
+         "blocked" for a visitor who blocks nothing, and as "allowlisted" for
+         one who blocks everything — the two worst answers this bridge can
+         give, both from the same missing check. -->
+    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
 
     <!-- PERF: Funding Choices scripts (loader + anti-adblock fallback below) are
          deferred until after first paint to fix mobile LCP (was 11.3s). The

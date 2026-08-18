@@ -176,7 +176,28 @@ function waitForFcSignal(timeoutMs: number): Promise<AdBlockSignal | null> {
  });
 }
 
-export async function detectAdBlockDetailed(): Promise<AdBlockSignal> {
+/** Options for {@link detectAdBlockDetailed}. */
+export type AdBlockDetectOptions = {
+ /**
+  * Re-reading after the visitor says they acted on the gate.
+  *
+  * The Funding Choices answer is captured ONCE, when AD_BLOCK_DATA_READY
+  * fires, and nothing refreshes it — FC does not re-run its detection inside
+  * a live document, and the bridge in index.html guards itself against
+  * registering twice. So on any second read its `blocked` is load-time truth,
+  * and letting it win makes the recheck button structurally unable to
+  * succeed: it would keep reporting the blocker the visitor just switched
+  * off, for the whole lifetime of the page. With this flag `blocked` comes
+  * from the live probe instead.
+  *
+  * `adsAllowed` is honoured either way, because it can only open the gate and
+  * never close it on someone: a stale `true` costs nothing, and a stale
+  * `false` is precisely what the live probe is here to overrule.
+  */
+ live?: boolean;
+};
+
+export async function detectAdBlockDetailed(opts: AdBlockDetectOptions = {}): Promise<AdBlockSignal> {
  const none: AdBlockSignal = { blocked: false, adsAllowed: false, source: 'heuristic', status: null };
  if (typeof window === 'undefined') return none;
  try {
@@ -191,13 +212,21 @@ export async function detectAdBlockDetailed(): Promise<AdBlockSignal> {
  .catch(() => false);
 
  const fc = await waitForFcSignal(FC_WAIT_MS);
- if (fc) return fc;
+ // An allowlisted visitor is settled whichever read this is: Funding Choices
+ // saw the allowlisting itself, not a side effect of it that goes stale.
+ if (fc && (fc.adsAllowed || !opts.live)) return fc;
 
- // Funding Choices never reported. Silence is weak evidence of a
- // network-level blocker, its own script being a common target, but it is
- // equally consistent with a slow network — so read the probe rather than
- // convict on silence.
- return { ...none, blocked: await heuristic };
+ // Either Funding Choices never reported, or this is a live re-read and its
+ // verdict is too old to decide. Silence is weak evidence of a network-level
+ // blocker, its own script being a common target, but it is equally
+ // consistent with a slow network — so read the probe rather than convict on
+ // silence.
+ return {
+ ...none,
+ adsAllowed: fc?.adsAllowed ?? false,
+ status: fc?.status ?? null,
+ blocked: await heuristic,
+ };
  } catch {
  return none;
  }
