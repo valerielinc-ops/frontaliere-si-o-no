@@ -30099,6 +30099,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'economia-varese-2024-imposte',
+ category: 'fiscale',
+ date: '2026-08-18T10:01:21.892Z',
+ image: '/images/blog/economia-varese-2024-imposte.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

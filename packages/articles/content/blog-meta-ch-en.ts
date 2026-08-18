@@ -3343,6 +3343,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.title': 'Nursery and childcare in the Canton of Basel-City: costs',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.excerpt': 'Kindergartens and day families in the Canton of Basel-City: prices calculated on income and available cantonal subsidies',
     'blog.article.asilo-nido-e-custodia-bambini-canton-basilea-citta.imageAlt': 'Photo of a nursery in a residential area of Basel City',
+    'blog.article.borse-di-studio-basilea-citta.title': 'Scholarships Canton Basel City requirements and amounts',
+    'blog.article.borse-di-studio-basilea-citta.excerpt': 'Requirements and amounts of scholarships offered by the Canton of Basel-City for Swiss and foreign students.',
+    'blog.article.borse-di-studio-basilea-citta.imageAlt': 'Scholarships offered by the Canton Basel City',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.title': 'Asylum in Switzerland: transfer to Italy resumed',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.excerpt': 'After almost four years of blockade, Switzerland is once again transferring Italian asylum seekers to Italy thanks to the new European pact.',
+    'blog.article.svizzera-trasferimento-richiedenti-asilo-italia.imageAlt': 'The Federal Palace in Bern seat of the Swiss government',
+    'blog.article.italia-rimpatrio-asilo.title': 'Asylum seekers resume transfers to Italy',
+    'blog.article.italia-rimpatrio-asilo.excerpt': 'Switzerland will resume transfers of asylum seekers to Italy, after almost four years of blockade.',
+    'blog.article.italia-rimpatrio-asilo.imageAlt': 'Asylum seekers at the train station of Chiasso, Switzerland',
 };
 
 export default blogMetaChEn;

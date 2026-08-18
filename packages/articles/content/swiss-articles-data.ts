@@ -10027,6 +10027,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-di-studio-basilea-citta',
+    category: 'novita',
+    date: '2026-08-18T09:41:09.713Z',
+    image: '/images/blog/borse-di-studio-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svizzera-trasferimento-richiedenti-asilo-italia',
+    category: 'novita',
+    date: '2026-08-18T09:44:15.566Z',
+    image: '/images/blog/svizzera-trasferimento-richiedenti-asilo-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'italia-rimpatrio-asilo',
+    category: 'pratico',
+    date: '2026-08-18T09:52:41.998Z',
+    image: '/images/blog/italia-rimpatrio-asilo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

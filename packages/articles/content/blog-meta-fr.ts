@@ -10049,6 +10049,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieriticone2026-q2.title': 'Frontalieri Ticino : +0,64 % par rapport au trimestre précédent',
     'blog.article.frontalieriticone2026-q2.excerpt': 'Le nombre de frontaliers dans le canton du Tessin augmente de +0,64% par rapport au trimestre précédent, mais diminue de -0,57% par rapport au même trimestre de l\'année précédente.',
     'blog.article.frontalieriticone2026-q2.imageAlt': 'Vue aérienne de Lugano, Ticino, Suisse. Une promenade en bord de lac encombrée avec un lac en arrière-plan.',
+    'blog.article.economia-varese-2024-imposte.title': 'Voici les entreprises qui paient le plus d\'impôts à Varesotto',
+    'blog.article.economia-varese-2024-imposte.excerpt': 'Le classement du Made in Varese 2026 sur les budgets 2024 place Bticino en tête, suivi de Sea Exercices Aéroportuaires et de Novartis Farma.',
+    'blog.article.economia-varese-2024-imposte.imageAlt': 'Entreprises qui paient plus d\'impôts dans la zone de Varese',
 };
 
 export default blogMetaFr;
