@@ -67,6 +67,7 @@ import {
   assertNoFabricatedReferences,
   assertNoFabricatedLaborOfficeCrossLocale,
 } from './create-article.mjs';
+import { assertNoFabricatedNormAcronyms } from './lib/article-factuality-gates.mjs';
 import { generateFaqIT } from './batch-add-faq-to-articles.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 
@@ -296,6 +297,12 @@ async function processDoc(db, FieldValue, docSnap) {
     // the doc so the journalist can fix and resubmit (see the outer catch).
     console.log('  🔍 checking for fabricated references (assertNoFabricatedReferences)...');
     assertNoFabricatedReferences(data.content.it);
+    // Journalist path never calls runFactualityGates() either — the same
+    // wiring gap assertNoFabricatedReferences above closed for
+    // FABRICATED_INSTITUTION_PATTERNS, but for FABRICATED_NORM_ACRONYMS
+    // (LFW/LPS), which only the AI generation path's Step 3a.0b-bis covered.
+    console.log('  🔍 checking for fabricated norm acronyms (assertNoFabricatedNormAcronyms)...');
+    assertNoFabricatedNormAcronyms({ it: data.content.it });
 
     // Journalist submissions carry a real, authenticated identity captured at
     // draft time (JournalistDashboardPage.tsx -> journalistArticleService.ts:
@@ -323,6 +330,7 @@ async function processDoc(db, FieldValue, docSnap) {
     // before these EN/DE/FR translations existed.
     console.log('  🔍 checking for fabricated references in translations (assertNoFabricatedLaborOfficeCrossLocale)...');
     assertNoFabricatedLaborOfficeCrossLocale(data);
+    assertNoFabricatedNormAcronyms({ en: data.content.en, de: data.content.de, fr: data.content.fr });
 
     // #3209: deriveAndSanitizeArticleSlugs() is the single-source slug
     // derivation (also called internally by registerArticleFiles() below,

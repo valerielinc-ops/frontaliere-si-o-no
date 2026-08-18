@@ -633,6 +633,48 @@ describe('checkFabricatedNormAcronyms', () => {
     expect(issues[0].message).toContain('LCO');
   });
 
+  // La guardia `context` di LCL, e i due modi in cui puo' sbagliare.
+  //
+  // `LCL` e' anche la banca francese (ex Credit Lyonnais), e questo corpus ha
+  // gia' 175 file sui frontalieri Francia-Svizzera: senza guardia il gate
+  // rigetterebbe un articolo bancario legittimo. La guardia pero' non puo'
+  // essere «c'e' un anno vicino» — in un articolo bancario un anno accanto
+  // alla sigla e' la norma, non il segno di una citazione di legge. Serve il
+  // segno di una CITAZIONE di norma, ed e' multilingue per costruzione
+  // (NORM_CITATION_CUE), non una parola italiana sola.
+  it('leaves the French bank LCL alone even when a year sits right next to it', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Dal 2024 LCL offre un conto dedicato ai frontalieri, con carta multivaluta e prelievi gratuiti.',
+    )).toEqual([]);
+  });
+
+  // Il falso negativo che NASCE con la guardia: `re.exec` torna solo la prima
+  // occorrenza, quindi una menzione legittima messa in cima nasconde una
+  // fabbricazione piu' in basso. Le due `LCL` qui stanno a 270 caratteri di
+  // distanza, oltre la finestra di 120: la finestra della PRIMA non contiene
+  // alcuna cue, quindi il test cade davvero se lo scan si ferma al primo match.
+  it('still flags a fabricated LCL that follows a legitimate bank mention', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'Dal 2024 LCL propone ai frontalieri conti correnti in euro, carte multivaluta e prelievi '
+      + 'gratuiti agli sportelli di tutto il gruppo bancario francese, senza spese fisse mensili '
+      + 'per chi accredita lo stipendio. Un altro paragrafo sostiene invece che la legge cantonale '
+      + 'sul lavoro (LCL) del 15 dicembre 1995 fissi un minimo di 3500 franchi.',
+    );
+    expect(codes(issues)).toContain('fabricated-norm-acronym');
+  });
+
+  // Lo scan usa un CLONE locale con flag `g`, mai la regex della tabella:
+  // l'invariante `entry.re.global === false` (verificata piu' sotto) resta
+  // vera e nessuna entry diventa stateful fra due chiamate consecutive.
+  it('keeps the table entries non-global even though the scan clones them', () => {
+    const text = 'La legge cantonale sul lavoro (LCL) del 15 dicembre 1995 prevede una retribuzione minima.';
+    expect(codes(checkFabricatedNormAcronyms(text))).toContain('fabricated-norm-acronym');
+    expect(codes(checkFabricatedNormAcronyms(text))).toContain('fabricated-norm-acronym');
+    for (const entry of FABRICATED_NORM_ACRONYMS as any[]) {
+      expect(entry.re.global).toBe(false);
+    }
+  });
+
   // Il confine e' su LETTERE, non `\b`: queste due sono norme VERE e il gate le
   // deve lasciare passare, altrimenti blocca contenuto legittimo.
   it('leaves MLPS and TULPS alone — real norms that contain the letters', () => {
