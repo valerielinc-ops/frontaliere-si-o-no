@@ -8,7 +8,7 @@
  */
 import { describe, expect, it } from 'vitest';
 
-const { decideVariant, chooseNextVariant } = await import('@/scripts/seo-serp-autopilot.mjs');
+const { decideVariant, chooseNextVariant, chooseExploitTarget } = await import('@/scripts/seo-serp-autopilot.mjs');
 
 const DAY = 24 * 60 * 60 * 1000;
 const iso = (daysAgo: number) => new Date(Date.now() - daysAgo * DAY).toISOString();
@@ -125,5 +125,65 @@ describe('chooseNextVariant', () => {
 
   it('survives an empty history without throwing', () => {
     expect(() => chooseNextVariant('intent_simulation', { snapshots: [] })).not.toThrow();
+  });
+});
+
+/**
+ * The three-arm case, which is the whole point of this PR and which
+ * `decideVariant` cannot reach from a test: `VARIANTS` is a module constant
+ * with two entries. `chooseExploitTarget` is the same decision as a pure
+ * function, so the arithmetic can be exercised at the arity the feature is
+ * being built for.
+ */
+describe('chooseExploitTarget with three arms', () => {
+  const score = (ctr: number) => ({ ctr, samples: 3, impressions: 100_000, clicks: Math.round(ctr * 1000) });
+
+  it('measures the uplift against the arm it would replace, not the runner-up', () => {
+    // Two strong arms nearly tied, far above the incumbent. Against the
+    // runner-up the uplift is 0.05 and the switch is refused; against the
+    // incumbent it is 2.0 and obviously worth taking.
+    const scores = { a: score(3.0), b: score(2.95), c: score(1.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b', 'c'], 'c', 0.15);
+    expect(out.winner).toBe('a');
+    expect(out.runnerUp).toBe('b');
+    expect(out.uplift).toBeCloseTo(2.0, 6);
+    expect(out.shouldSwitch).toBe(true);
+  });
+
+  it('still refuses a switch that is genuinely marginal', () => {
+    // Same shape, but this time the incumbent is one of the two leaders: the
+    // gain really is 0.05, and the threshold really should block it.
+    const scores = { a: score(3.0), b: score(2.95), c: score(1.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b', 'c'], 'b', 0.15);
+    expect(out.winner).toBe('a');
+    expect(out.uplift).toBeCloseTo(0.05, 6);
+    expect(out.shouldSwitch).toBe(false);
+  });
+
+  it('never switches away from an arm that is already winning', () => {
+    const scores = { a: score(3.0), b: score(2.0), c: score(1.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b', 'c'], 'a', 0.15);
+    expect(out.shouldSwitch).toBe(false);
+    // With nothing to replace, the reported uplift is the incumbent's margin
+    // over the field — the number `winner_already_active` has always carried.
+    expect(out.uplift).toBeCloseTo(1.0, 6);
+  });
+
+  it('keeps the two-arm behaviour byte for byte', () => {
+    // The guard against a silent change to what runs in production today:
+    // with two arms, replaced-arm and runner-up are the same arm.
+    const scores = { a: score(3.0), b: score(2.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b'], 'b', 0.15);
+    expect(out.uplift).toBeCloseTo(1.0, 6);
+    expect(out.shouldSwitch).toBe(true);
+  });
+
+  it('does not throw when the active variant is not one of the arms', () => {
+    // A stale Remote Config value naming a retired variant must not crash the
+    // autopilot; it falls back to comparing against the runner-up.
+    const scores = { a: score(3.0), b: score(2.0) };
+    const out = chooseExploitTarget(scores, ['a', 'b'], 'retired_variant', 0.15);
+    expect(out.winner).toBe('a');
+    expect(out.shouldSwitch).toBe(true);
   });
 });

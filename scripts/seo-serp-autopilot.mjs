@@ -194,6 +194,38 @@ export function chooseNextVariant(currentVariant, history) {
     .sort((a, b) => (lastSampledAt(history, a) ?? -Infinity) - (lastSampledAt(history, b) ?? -Infinity))[0];
 }
 
+/**
+ * Which arm exploit would move to, and whether the move clears the bar.
+ *
+ * Pulled out as a pure function for one reason: `VARIANTS` is a module
+ * constant, so the three-arm case this whole PR exists to enable cannot be
+ * reached from a test through `decideVariant` alone.
+ *
+ * The uplift is measured against the arm being REPLACED, not against the
+ * second best. With two arms those are the same thing — when the winner is not
+ * current, current IS the runner-up — which is why the distinction is
+ * invisible today. With three it is not: current can rank third, and then
+ * `winner - runnerUp` asks whether the leader is clearly ahead of the second,
+ * a question whose answer says nothing about the gain from switching. Two
+ * close leaders sitting far above a poor incumbent would score an uplift near
+ * zero and pin the site to its worst arm — for REVALIDATE_DAYS at a stretch,
+ * because exploit returns before rotation can be reached.
+ */
+export function chooseExploitTarget(scores, variants, currentVariant, minUplift = MIN_UPLIFT_ABS) {
+  const ranked = variants.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
+  const winner = ranked[0];
+  const runnerUp = ranked[1];
+  // When the winner is already current there is nothing to replace, and the
+  // number worth reporting is the incumbent's margin over the field — that is
+  // what the `winner_already_active` reason has always meant. Only when a
+  // switch is actually on the table does the incumbent become the baseline.
+  const baseline = winner === currentVariant
+    ? (scores[runnerUp] ?? scores[winner])
+    : (scores[currentVariant] ?? scores[runnerUp] ?? scores[winner]);
+  const uplift = scores[winner].ctr - baseline.ctr;
+  return { winner, runnerUp, uplift, shouldSwitch: winner !== currentVariant && uplift >= minUplift };
+}
+
 export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
   const decision = {
     nextVariant: currentVariant,
@@ -235,11 +267,8 @@ export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
 
   if (comparable && !dueForRevalidation) {
     decision.mode = 'exploit';
-    const ranked = VARIANTS.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
-    const winner = ranked[0];
-    const runnerUp = ranked[1];
-    const uplift = scores[winner].ctr - scores[runnerUp].ctr;
-    if (winner !== currentVariant && uplift >= MIN_UPLIFT_ABS) {
+    const { winner, uplift, shouldSwitch } = chooseExploitTarget(scores, VARIANTS, currentVariant);
+    if (shouldSwitch) {
       decision.nextVariant = winner;
       decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
     } else {
