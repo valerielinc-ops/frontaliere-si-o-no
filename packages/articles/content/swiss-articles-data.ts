@@ -9748,6 +9748,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-soletta-validita-e-proroga',
+    category: 'fiscale',
+    date: '2026-08-18T02:26:24.720Z',
+    image: '/images/blog/permesso-l-soletta-validita-e-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

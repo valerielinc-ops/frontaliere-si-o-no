@@ -3250,6 +3250,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-soletta.title': 'Residence permit C canton Solothurn: requirements and application',
     'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analysis of the requirements, integration criteria and procedure for applying for residence permit C in the Canton of Solothurn.',
     'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Administrative building in the Canton of Solothurn',
+    'blog.article.permesso-l-soletta-validita-e-proroga.title': 'L Permit in Slab: duration and conditions',
+    'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'The short-term L permit in the Canton of Solothurn is valid for a maximum of 1 year. The conditions of extension and the transition to a residence permit are described below.',
+    'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Scene of a street in Solothurn with a sign indicating the maximum duration of a short-term L permit.',
 };
 
 export default blogMetaChEn;

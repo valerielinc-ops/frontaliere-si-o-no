@@ -42140,6 +42140,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-soletta-validita-e-proroga': {
+    title: 'Permesso L in Soletta: durata e condizioni | Frontaliere Ticino',
+    description: 'Il permesso L di breve durata nel Cantone di Soletta è valido per un massimo di 1 anno. Le condizioni di proroga e il passaggio al permesso di dimora sono',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, soletta, durata, condizioni',
+    ogTitle: 'Permesso L di breve durata nel Cantone di Soletta: durata massima, condizioni di proroga e passaggio al permesso di dimora.',
+    ogDescription: 'Il permesso L di breve durata nel Cantone di Soletta è valido per un massimo di 1 anno. Le condizioni di proroga e il passaggio al permesso di dimora sono descritte di seguito.',
+    canonicalPath: '/articoli-svizzera/permesso-l-soletta-validita-e-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L in Soletta: durata e condizioni",
+      "description": "Il permesso L di breve durata nel Cantone di Soletta è valido per un massimo di 1 anno. Le condizioni di proroga e il passaggio al permesso di dimora sono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-soletta-validita-e-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di una strada di Soletta con un cartello che indica la durata massima di un permesso L di breve durata."
+      },
+      "datePublished": "2026-08-18T02:26:24+00:00",
+      "dateModified": "2026-08-18T02:26:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-soletta-validita-e-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

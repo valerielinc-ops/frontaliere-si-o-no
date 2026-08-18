@@ -3250,6 +3250,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-soletta.title': 'Permesso di domicilio C canton Soletta: requisiti e domanda',
     'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analisi dei requisiti, dei criteri di integrazione e della procedura per richiedere il permesso di domicilio C nel Cantone di Soletta.',
     'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Edificio amministrativo nel Cantone di Soletta',
+    'blog.article.permesso-l-soletta-validita-e-proroga.title': 'Permesso L in Soletta: durata e condizioni',
+    'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'Il permesso L di breve durata nel Cantone di Soletta è valido per un massimo di 1 anno. Le condizioni di proroga e il passaggio al permesso di dimora sono descritte di seguito.',
+    'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Scena di una strada di Soletta con un cartello che indica la durata massima di un permesso L di breve durata.',
 };
 
 export default blogMetaChIt;
