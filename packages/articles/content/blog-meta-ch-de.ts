@@ -3241,6 +3241,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Löhne und Arbeitsmarkt Kanton Freiburg: Branchen und Niveaus',
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Zahlen und Fakten zur Arbeitssituation im Kanton Freiburg: Löhne, Wachstumsbranchen, Tarifverträge und Mindestlohn.',
     'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Stadtlandschaft Fribourg, Schweiz',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Führerschein in Freiburg: Umstellung und Voraussetzungen',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Umwandlung des ausländischen Führerscheins im Kanton Freiburg, theoretische und praktische Prüfungen, Pflichtkurse und zuständiges Strassenverkehrsamt.',
+    'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Szene mit Auto in der Schweiz, Kanton Freiburg, mit Führerschein',
 };
 
 export default blogMetaChDe;

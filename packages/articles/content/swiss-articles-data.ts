@@ -9721,6 +9721,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-di-guida-friburgo-conversione-ed-esami',
+    category: 'pratico',
+    date: '2026-08-18T01:35:04.695Z',
+    image: '/images/blog/patente-di-guida-friburgo-conversione-ed-esami.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
