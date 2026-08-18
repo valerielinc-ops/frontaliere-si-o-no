@@ -10040,6 +10040,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 18. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Grenzgänger-Bulletin vom 18. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'Die Zahlen vom 18. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Kontrollen im August: 9 irreguläre Arbeitnehmer und Aussetzungen',
+    'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'Die Finanzpolizei führte Ferragosto-Kontrollen in der Provinz Varese durch und identifizierte 9 irreguläre Arbeitnehmer und die Aussetzung von zwei Tätigkeiten.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Bild eines Kontrollbeamten, der die Arbeitsgenehmigungen eines Grenzgängers überprüft.',
 };
 
 export default blogMetaDe;
