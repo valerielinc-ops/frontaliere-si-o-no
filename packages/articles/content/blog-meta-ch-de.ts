@@ -3253,6 +3253,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-soletta-validita-e-proroga.title': 'Erlaubnis L in Solothurn: Dauer und Bedingungen',
     'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'Die Kurzzeitbewilligung L im Kanton Solothurn ist maximal 1 Jahr gültig. Die Bedingungen für die Verlängerung und den Übergang zur Aufenthaltsbewilligung sind nachfolgend beschrieben.',
     'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Szene einer Strasse in Solothurn mit einem Schild, das die Höchstdauer eines kurzfristigen L-Visums anzeigt.',
+    'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Kurzzeitbewilligung L Kanton Solothurn: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'Was muss ein Grenzgänger wissen, um im Kanton Solothurn eine kurzfristige L-Genehmigung zu erhalten?',
+    'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Kantonsamt Soletta',
 };
 
 export default blogMetaChDe;

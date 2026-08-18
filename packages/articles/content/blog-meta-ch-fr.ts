@@ -3253,6 +3253,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-soletta-validita-e-proroga.title': 'Permis L à Soleure : durée et conditions',
     'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'Le permis L de courte durée dans le canton de Soleure est valable pour une durée maximale d\'un an. Les conditions de prolongation et de passage à l\'autorisation de séjour sont décrites ci-dessous.',
     'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Scène d\'une rue de Soleure avec un panneau indiquant la durée maximale d\'un permis L à court terme.',
+    'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Permis L de courte durée Canton de Soleure : validité et prorogation',
+    'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'Que doit savoir un frontalier pour obtenir un permis L de courte durée dans le canton de Soleure ?',
+    'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Mairie de Canton Soletta',
 };
 
 export default blogMetaChFr;
