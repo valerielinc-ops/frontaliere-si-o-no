@@ -49,8 +49,17 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  NEWSLETTER_SECRET: '',
  // SEO SERP experiment: enabled by default as safe fallback when
  // Firebase Remote Config is unavailable.
+ //
+ // The variant must track whatever scripts/seo-serp-autopilot.mjs has
+ // promoted, NOT the arm this file happened to ship with. It is the
+ // fallback for a failed public-config fetch, and a crawler that hits
+ // that path renders titles from the losing arm — so a stale value here
+ // quietly serves the worse variant to exactly the client whose opinion
+ // counts most. The promoted arm is recorded in
+ // data/seo-serp-autopilot-last-run.json (`decision.nextVariant`); the
+ // autopilot warns when this constant drifts away from it.
  SEO_SERP_EXPERIMENT_ENABLED: 'true',
- SEO_SERP_EXPERIMENT_VARIANT: 'year_intent',
+ SEO_SERP_EXPERIMENT_VARIANT: 'intent_simulation',
  SEO_SERP_EXPERIMENT_TARGETS: '*',
  SEO_SERP_EXPERIMENT_YEAR: '2026',
  CLARITY_PROJECT_ID: 'vqi1r9wejc',
