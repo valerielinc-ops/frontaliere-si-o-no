@@ -3259,6 +3259,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'Sistema scolastico del Cantone di Soletta: iscrizione e cicli',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Cicli, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori.',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'Scuola elementare in Svizzera: ciclo obbligatorio e calendario scolastico',
+    'blog.article.assegni-familiari-canton-soletta.title': 'Assegni familiari nel Canton Soletta: importi e domanda',
+    'blog.article.assegni-familiari-canton-soletta.excerpt': 'La procedura per richiedere gli assegni familiari nel Canton Soletta.',
+    'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Immagine di un frontaliere con un bambino',
 };
 
 export default blogMetaChIt;

@@ -42257,6 +42257,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-canton-soletta': {
+    title: 'Assegni familiari nel Canton Soletta: importi e domanda',
+    description: 'La procedura per richiedere gli assegni familiari nel Canton Soletta. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, canton, soletta',
+    ogTitle: 'Assegni familiari nel Canton Soletta: importi e domanda',
+    ogDescription: 'La procedura per richiedere gli assegni familiari nel Canton Soletta.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-canton-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari nel Canton Soletta: importi e domanda",
+      "description": "La procedura per richiedere gli assegni familiari nel Canton Soletta. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-canton-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere con un bambino"
+      },
+      "datePublished": "2026-08-18T02:47:01+00:00",
+      "dateModified": "2026-08-18T02:47:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-canton-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
