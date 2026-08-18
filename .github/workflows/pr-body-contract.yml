@@ -428,9 +428,10 @@ jobs:
         # i due `Forbid ...` e `Wait for background source guards`: il check
         # `contract` e' andato ROSSO e ha bloccato una PR. Il tetto ha quindi
         # fabbricato il guasto che dovrebbe rilevare.
-        # Il contesto: `actions/checkout` e' degradato oggi dalle ~14:00Z. Su
-        # questo step il max pre-14:00Z era 209s, post-14:00Z 420s (+101%), con il
-        # p50 da 160s a 298s. Un tetto tarato sui giorni buoni non sopravvive a
+        # Il contesto: i tempi di Checkout sono raddoppiati oggi dalle ~14:00Z
+        # su tutto il repo, e non per la crescita del working tree (piatto a
+        # -0,1% proprio in quella finestra). Su questo step il max pre-14:00Z
+        # era 209s, post-14:00Z 420s (+101%), con il p50 da 160s a 298s. Un tetto tarato sui giorni buoni non sopravvive a
         # una giornata come questa.
         # Nuovo tetto = 2,5x il massimo osservato (420s). Il job non dichiara
         # `timeout-minutes`, quindi eredita il default di 360min: 18 sta comodo.

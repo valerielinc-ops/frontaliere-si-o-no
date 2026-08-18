@@ -115,18 +115,24 @@ jobs:
     # Misurato sulle ultime 500 run: 248 job `success` arrivano al massimo a
     # 813s, ma il massimo COMPLESSIVO della finestra e' 914s — cioe' 14s oltre
     # il tetto di 900s, ed e' l'unica morte da cap (job 95740926372, Checkout
-    # 885s, `tsc` mai partito). Il caso peggiore osservato, 999s alle 16:39,
-    # sta GIA' sopra il tetto: non e' un margine stretto, e' un tetto sotto la
-    # distribuzione che deve contenere.
+    # 885s, `tsc` mai partito). Il massimo sta quindi GIA' sopra il tetto: non
+    # e' un margine stretto, e' un tetto sotto la distribuzione che deve
+    # contenere. Rimisurato in indipendente da un secondo agente su una
+    # finestra piu' stretta (85 run, 68 `success` / 17 `cancelled`) e su 131
+    # job isolati per nome (105 `success` / 22 `cancelled`): i due massimi
+    # 813s e 914s tornano identici in tutti e tre i campioni.
     #
     # La causa non e' `tsc` (33s in locale, e nei job sani resta la fetta
-    # corta): e' `actions/checkout`, che il 2026-08-18 si e' degradato dalle
-    # 14:00Z in poi su tutti i workflow del repo. Un tetto tarato su un
+    # corta): sta nel Checkout, i cui massimi il 2026-08-18 sono raddoppiati
+    # dalle ~14:00Z su tutti i workflow del repo. NON e' la crescita del repo:
+    # `data/` + `public/` tracciati crescevano del 5,6% e 2,9% nei periodi
+    # SENZA kill (17-08 e mattina del 18-08) e sono piatti a -0,1% fra le
+    # 14:00Z e le 20:00Z, dove i kill si concentrano tutti. Un tetto tarato su un
     # checkout sano diventa una ghigliottina quando il checkout rallenta, e
     # converte una lentezza in un fallimento duro che nessun `if: failure()`
     # vede (un kill da `timeout-minutes` produce `cancelled`, non `failure`).
     #
-    # 30 min = 2,0x il caso peggiore osservato (999s). Ri-misurare se il p99
+    # 30 min = 2,0x il massimo osservato (914s). Ri-misurare se il p99
     # si muove, non ri-derivare a occhio.
     timeout-minutes: 30
     env:
@@ -177,9 +183,12 @@ jobs:
     # job del giorno e il 25,0% nella finestra 14:00-19:00Z.
     #
     # La causa non sono i test: i due step vitest sommati non superano mai
-    # 11m35s, e il wall meno il Checkout ha massimo 15m50s. E' `actions/checkout`
-    # che e' degradato (p50 2m28s -> 3m06s, p90 3m04s -> 5m12s, max 8m14s; p99
-    # 10m15s su tutti i job misurabili). Il commento precedente citava 75s di
+    # 11m35s, e il wall meno il Checkout ha massimo 15m50s. Sta nel Checkout,
+    # i cui tempi sono raddoppiati (p50 2m28s -> 3m06s, p90 3m04s -> 5m12s,
+    # max 8m14s; p99 10m15s su tutti i job misurabili). Non e' il repo che
+    # cresce: i byte tracciati sotto `data/` e `public/` sono piatti (-0,1%)
+    # proprio nella finestra dei kill, e crescevano del 3-6% al giorno nei
+    # giorni che di kill non ne hanno avuto nessuno. Il commento precedente citava 75s di
     # Checkout e 536s di wall per dichiarare "2,2x di margine": quei numeri sono
     # scaduti, il margine reale era 1,36x al p50 e 1,00x al massimo.
     #
