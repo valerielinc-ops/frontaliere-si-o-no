@@ -3358,6 +3358,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cassis-neutralita.title': 'Votazioni popolari, la prima di Cassis',
     'blog.article.cassis-neutralita.excerpt': 'Il consigliere federale Ignazio Cassis assume la responsabilità per l\'iniziativa sulla neutralità',
     'blog.article.cassis-neutralita.imageAlt': 'Ignazio Cassis in prima linea per l\'iniziativa sulla neutralità',
+    'blog.article.affitti-basilea-citta.title': 'Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
+    'blog.article.affitti-basilea-citta.excerpt': 'I canoni medi per zona, deposito di garanzia e diritto di locazione in Basilea Città.',
+    'blog.article.affitti-basilea-citta.imageAlt': 'Immagine editoriale relativa a: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
 };
 
 export default blogMetaChIt;

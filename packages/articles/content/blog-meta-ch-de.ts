@@ -3358,6 +3358,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassis-neutralita.title': 'Volksabstimmungen, die Premiere von Cassis',
     'blog.article.cassis-neutralita.excerpt': 'Bundesrat Ignazio Cassis übernimmt die Verantwortung für die Neutralitätsinitiative',
     'blog.article.cassis-neutralita.imageAlt': 'Ignazio Cassis in erster Linie für die Initiative zur Neutralität',
+    'blog.article.affitti-basilea-citta.title': 'Mietmarkt Basel-Stadt: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-basilea-citta.excerpt': 'Die Durchschnittsmieten pro Zone, Kaution und Mietrecht in Basel-Stadt.',
+    'blog.article.affitti-basilea-citta.imageAlt': 'Redaktionelles Bild zu: Mercato degli affitti in Basilea Città: canoni medi e diritto di locazione',
 };
 
 export default blogMetaChDe;
