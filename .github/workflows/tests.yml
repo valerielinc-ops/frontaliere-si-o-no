@@ -108,21 +108,7 @@ jobs:
   typecheck:
     name: typecheck (tsc --noEmit)
     runs-on: ubuntu-latest
-    # 25 min. QUESTO ALZAMENTO E' PREVENTIVO, a differenza degli altri due della
-    # stessa PR: qui NON e' stato osservato nessun timeout. Lo dichiaro perche'
-    # un reviewer possa rifiutarlo separatamente senza toccare gli altri.
-    #
-    # La misura, 2026-08-18 sulle ultime 45 run: 28 successi fra 282s e 813s,
-    # p50 ~317s. Anche qui la distribuzione e' bimodale — un modo veloce
-    # (282-349s, 22 su 28) e un modo lento (494-813s, 6 su 28) — e il massimo
-    # osservato e' il 90% del cap di 900s. Il modo lento si estende per 319s
-    # (494→813): una singola run lenta in piu' lo porta oltre.
-    #
-    # La ragione e' la stessa dei due cap vicini: questo job condivide lo stesso
-    # Checkout, misurato a 75s quando i tetti furono scelti e oggi a 250-475s.
-    # Alzare qui non costa nulla (e' un tetto, non un'attesa) e toglie un
-    # `cancelled` futuro che, come spiegato sopra, nessuno strato raccoglierebbe.
-    timeout-minutes: 25
+    timeout-minutes: 15
     env:
       # tsc tiene l'intero program in memoria: 4,4 GB di RSS misurati in locale
       # sull'albero completo. Il default di Node su un runner a 16 GB è più
@@ -157,31 +143,13 @@ jobs:
   vitest:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
-    # 30 min. La riga qui sotto diceva «20 min ... the measured job wall is 536s
-    # (run 28099661052), so 1200s is a ~2.2× headroom»: quella premessa NON vale
-    # piu'. Rimisurato il 2026-08-18 sulle ultime 45 run, la job vitest sta fra
-    # 742s e 1200s, con p50 ~1005s e p95 ~1114s. L'headroom non e' 2,2×: e' 1,08×.
-    #
-    # Il risultato e' una moneta lanciata a ogni PR. Due run che hanno eseguito
-    # OGNI step con successo, vitest compresi, sono finite una `success` a 1200s
-    # (32167869565) e una `cancelled` a 1200s (32161485793): stesso lavoro
-    # completato, verdetto opposto. Altre due sono morte a 1222s (32173007804,
-    # 32168478889). E un `cancelled` non e' un rosso — non compare come
-    # fallimento, il redflag-fixer non lo raccoglie, e sulla PR l'assenza di
-    # `tests` si legge come «sta ancora girando». Vedi #6047.
-    #
-    # DA DOVE VIENE LA DERIVA: non dai test, dal Checkout. Il commento dello step
-    # qui sotto lo misura a «75s (run 30355205859)»; nelle due run citate sopra
-    # e' costato 250s e 475s. La varianza del solo Checkout — 225s fra le due —
-    # e' piu' grande del margine che separava il merge dallo stallo. E' la stessa
-    # causa che ha fatto perdere il 28% delle review in pr-review-loop.yml, dove
-    # il tetto dello step Checkout e' alzato nella stessa PR di questo.
-    #
-    # 30 min riportano l'headroom a ~1,8× sul p95 osservato. Resta un cerotto: la
-    # cura e' far costare meno il Checkout, e non e' questo il cambiamento che la
-    # fa. Ma un cerotto che costa zero va messo subito — `timeout-minutes` e' un
-    # tetto, non un'attesa.
-    timeout-minutes: 30
+    # 20 min (was 15 at 4 shards): the single runner now executes all ~847 test
+    # files. The measured job wall is 536s (run 28099661052), so 1200s is a ~2.2×
+    # headroom against a slow-runner spike — wide enough to keep a transient slow
+    # run from going RED on a JOB timeout instead of a real failure. (Per-test
+    # timeouts are unchanged from vitest.config.ts and were not hit in the
+    # measured run.)
+    timeout-minutes: 20
     steps:
       # NIENTE `sparse-checkout` qui, ed è una scelta MISURATA, non un'omissione.
       # Questo checkout è un fetch bulk shallow (`fetch-depth: 1` implicito, no
