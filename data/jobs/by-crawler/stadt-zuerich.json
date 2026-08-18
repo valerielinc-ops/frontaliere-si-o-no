@@ -85,16 +85,16 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Lehrstelle 2027 Kauffrau / Kaufmann EFZ",
       "titleByLocale": {
+        "de": "Lehrstelle 2027 Kauffrau / Kaufmann EFZ",
         "it": "Apprendistato 2027 Kauffrau / Kaufmann CFC",
         "en": "Apprenticeship 2027 Kauffrau / Kaufmann EFZ",
-        "de": "Lehrstelle 2027 Kauffrau / Kaufmann EFZ",
         "fr": "Apprentissage 2027 Kauffrau / Kaufmann EFZ"
       },
       "description": "Lehrstelle 2027 Kauffrau / Kaufmann EFZ bei der Stadtverwaltung Zürich, Hochbaudepartement – Immobilien Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51027. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
+        "de": "Lehrstelle 2027 Kauffrau / Kaufmann EFZ bei der Stadtverwaltung Zürich, Hochbaudepartement – Immobilien Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51027. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "it": "Apprendistato 2027 Kauffrau / Kaufmann EFZ presso l'Amministrazione Comunale di Zurigo, Dipartimento Edilizia – Città Immobiliare di Zurigo. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51027. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
         "en": "Apprenticeship 2027 Kauffrau / Kaufmann EFZ at the City Administration of Zurich, Building Department – Real Estate City of Zurich. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51027. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
-        "de": "Lehrstelle 2027 Kauffrau / Kaufmann EFZ bei der Stadtverwaltung Zürich, Hochbaudepartement – Immobilien Stadt Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51027. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "fr": "Apprentissage 2027 Kauffrau / Kaufmann EFZ à l'administration municipale de Zurich, Département Bâtiment – Ville immobilière de Zurich. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51027. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
@@ -123,18 +123,17 @@
       "department": "Hochbaudepartement",
       "unit": "Immobilien Stadt Zürich",
       "referenceNumber": "51027",
-      "previousSlugs": [
-        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51027",
-        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51027",
           "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51027",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T22:02:56.729Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -146,7 +145,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T22:02:56.729Z"
     },
     {
       "id": "stadt-zuerich-8bda07e645cf",
@@ -33510,16 +33510,16 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachperson Betreuung 82 %",
       "titleByLocale": {
+        "de": "Fachperson Betreuung 82 %",
         "it": "Assistenza specialistica 82%",
         "en": "Specialist care 82%",
-        "de": "Fachperson Betreuung 82 %",
         "fr": "Soins spécialisés 82%"
       },
       "description": "Fachperson Betreuung 82 % bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Sonderpädagogik. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51343. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
+        "de": "Fachperson Betreuung 82 % bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Sonderpädagogik. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51343. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "it": "Assistenza specialistica 82% presso l'Amministrazione Comunale di Zurigo, Scuola e Sport Dipartimento – Educazione Speciale. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51343. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
         "en": "Specialist Assistance 82% at the City Administration of Zurich, School and Sports Department – Special Education. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51343. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
-        "de": "Fachperson Betreuung 82 % bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Sonderpädagogik. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51343. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "fr": "Assistance spécialisée 82 % à l'administration municipale de Zurich, département scolaire et sportif – Éducation spéciale. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51343. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
@@ -33548,6 +33548,19 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Sonderpädagogik",
       "referenceNumber": "51343",
+      "salaryMin": 60300,
+      "salaryMax": 91400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60300,
+          "maxValue": 91400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T22:02:56.713Z",
       "previousSlugs": [
         "fachperson-betreuung-82-stadt-zuerich-zurigo-51343",
         "assistenza-specialistica-82-stadt-zurich-zurich"
@@ -33563,19 +33576,6 @@
         "fr": [
           "fachperson-betreuung-82-stadt-zuerich-zurigo-51343"
         ]
-      },
-      "firstSeenAt": "2026-08-17T22:02:56.713Z",
-      "salaryMin": 60300,
-      "salaryMax": 91400,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60300,
-          "maxValue": 91400,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -34366,16 +34366,16 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachperson Betreuung oder Sozialpädadog*in, Hirslanden Primar",
       "titleByLocale": {
+        "de": "Fachperson Betreuung oder Sozialpädadog*in, Hirslanden Primar",
         "it": "Fachperson Betreuung o Sozialpädadog*in, Hirslanden Primar",
         "en": "Specialist care or social pedagogue, Hirslanden Primary",
-        "de": "Fachperson Betreuung oder Sozialpädadog*in, Hirslanden Primar",
         "fr": "Soins spécialisés ou pédagogie sociale, Hirslanden Primary"
       },
       "description": "Fachperson Betreuung oder Sozialpädadog*in, Hirslanden Primar bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51017. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
+        "de": "Fachperson Betreuung oder Sozialpädadog*in, Hirslanden Primar bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51017. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "it": "Specialist Care o Social Pedagogist, Hirslanden Primary presso l'Amministrazione Comunale di Zurigo, Dipartimento Scuola e Sport – AutoritÃ Scuola distrettuale di Zurigoberg. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51017. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
         "en": "Specialist Care or Social Pedagogist, Hirslanden Primary at the City Administration of Zurich, School and Sports Department – District School Authority Zurichberg. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51017. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
-        "de": "Fachperson Betreuung oder Sozialpädadog*in, Hirslanden Primar bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Zürichberg. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51017. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "fr": "Spécialiste des soins ou pédagogogue social, Hirslanden Primaire à l'administration municipale de Zurich, Département scolaire et sportif – Autorité scolaire de district Zurichberg. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51017. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
@@ -34404,18 +34404,17 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Zürichberg",
       "referenceNumber": "51017",
-      "previousSlugs": [
-        "fachperson-betreuung-oder-sozialpadadog-in-hirslanden-primar-stadt-zuerich-zurigo-51017",
-        "fachperson-betreuung-o-sozialpadadog-in-hirslanden-primar-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-oder-sozialpadadog-in-hirslanden-primar-stadt-zuerich-zurigo-51017",
           "fachperson-betreuung-o-sozialpadadog-in-hirslanden-primar-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "fachperson-betreuung-oder-sozialpadadog-in-hirslanden-primar-stadt-zuerich-zurigo-51017",
+        "fachperson-betreuung-o-sozialpadadog-in-hirslanden-primar-stadt-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T22:02:56.730Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -34427,7 +34426,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T22:02:56.730Z"
     },
     {
       "id": "stadt-zuerich-1d231cc75444",

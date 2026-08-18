@@ -12176,5 +12176,161 @@
         "pending": 196
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-18T12:33:49.868Z",
+    "label": "before",
+    "total": 27224,
+    "needsRetranslation": 10759,
+    "suppressed": 54,
+    "incomplete": 11618,
+    "complete": 15606,
+    "slotsPresent": 15606,
+    "flaggedAmongSlotsPresent": 324,
+    "verifiedTranslated": 15282,
+    "sourceCopyExcused": 701,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 49,
+      "en": 40,
+      "de": 47,
+      "fr": 60
+    },
+    "queueAge": {
+      "count": 10759,
+      "withTimestamp": 10759,
+      "oldestAgeDays": 127.1,
+      "p50AgeDays": 19.1,
+      "p90AgeDays": 69,
+      "buckets": {
+        "0-7d": 1710,
+        "7-30d": 5164,
+        "30-90d": 3412,
+        "90-180d": 473,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2016
+      },
+      {
+        "company": "Roche",
+        "pending": 549
+      },
+      {
+        "company": "Denner AG",
+        "pending": 483
+      },
+      {
+        "company": "Bison",
+        "pending": 275
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 265
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 263
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 237
+      },
+      {
+        "company": "BKW",
+        "pending": 221
+      },
+      {
+        "company": "railCare",
+        "pending": 211
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-18T13:26:22.060Z",
+    "label": "after",
+    "total": 27224,
+    "needsRetranslation": 10488,
+    "suppressed": 54,
+    "incomplete": 11618,
+    "complete": 15606,
+    "slotsPresent": 15606,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15606,
+    "sourceCopyExcused": 701,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 49,
+      "en": 40,
+      "de": 47,
+      "fr": 60
+    },
+    "queueAge": {
+      "count": 10488,
+      "withTimestamp": 10488,
+      "oldestAgeDays": 127.1,
+      "p50AgeDays": 19.1,
+      "p90AgeDays": 69.2,
+      "buckets": {
+        "0-7d": 1663,
+        "7-30d": 5025,
+        "30-90d": 3309,
+        "90-180d": 491,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2016
+      },
+      {
+        "company": "Roche",
+        "pending": 549
+      },
+      {
+        "company": "Denner AG",
+        "pending": 483
+      },
+      {
+        "company": "Bison",
+        "pending": 275
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 265
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 263
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 237
+      },
+      {
+        "company": "BKW",
+        "pending": 221
+      },
+      {
+        "company": "railCare",
+        "pending": 211
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
   }
 ]

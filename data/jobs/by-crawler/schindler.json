@@ -973,7 +973,6 @@
       "jobReqId": "1416880133",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-17T21:34:50.713Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -985,7 +984,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T21:34:50.713Z"
     },
     {
       "id": "schindler-1399c7ecb418",
@@ -1264,8 +1264,6 @@
       "jobReqId": "1427100433",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-17T21:34:54.602Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1277,7 +1275,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T21:34:54.602Z"
     },
     {
       "id": "schindler-c87babeb3468",

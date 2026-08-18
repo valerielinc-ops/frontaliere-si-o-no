@@ -2460,19 +2460,18 @@
         "fitting-models-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "moduli-di-montaggio-tally-weijl-basel",
-          "fitting-models-tally-weijl-basel"
-        ],
         "de": [
           "fitting-modelle-tally-weijl-basel"
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "moduli-di-montaggio-tally-weijl-basel",
+          "fitting-models-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2485,7 +2484,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "tally-weijl-ffef1e3074f3",
