@@ -903,12 +903,16 @@ const CLAUDE_CLI_MAX_TIMEOUT_MS = 600_000;
 // 1/3 e non 1/2: il breaker scatta a CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD (3)
 // timeout consecutivi, quindi il caso peggiore e' una serie geometrica
 //
-//     1/3 + (2/3)(1/3) + (2/3)²(1/3) = 0,578 dell'allowance
+//     1/3 + (2/3)(1/3) + (2/3)²(1/3) = 1 - (2/3)³ = 19/27 ≈ 0,704
 //
-// cioe' una tempesta piena lascia comunque ~42% del budget di sezione alla
-// cascata dei modelli successivi. A 1/2 la stessa serie fa 0,875 e la sezione
-// resterebbe senza tempo per il fallback. Sull'allowance osservata: 1020s →
-// 340s a chiamata (2,8x l'odierno), 630s → 210s.
+// cioe' una tempesta piena lascia comunque ~30% del budget di sezione alla
+// cascata dei modelli successivi. (Questa riga diceva 0,578 e ~42%: numero
+// sbagliato, trovato dalla review di questa PR. Verificato sulla serie
+// osservata, 1020s → 340+227+151 = 718s, cioe' 70,3%. Il test simula la
+// formula vera e misura ~73%, non la serie idealizzata.) A 1/2 la stessa
+// serie fa 1 - (1/2)³ = 0,875 e la sezione resterebbe senza tempo per il
+// fallback. Sull'allowance osservata: 1020s → 340s a chiamata (2,8x
+// l'odierno), 630s → 210s.
 const CLAUDE_CLI_ALLOWANCE_SHARE = 1 / 3;
 let _claudeCliInFlight = 0;
 const _claudeCliWaiters = [];
