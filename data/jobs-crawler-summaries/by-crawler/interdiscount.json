@@ -1,18 +1,19 @@
 {
   "key": "interdiscount",
   "label": "Interdiscount",
-  "generatedAt": "2026-08-17T21:41:24.088Z",
-  "total": 272,
-  "newCount": 1,
-  "updatedCount": 270,
+  "generatedAt": "2026-08-18T10:27:42.823Z",
+  "total": 271,
+  "newCount": 0,
+  "updatedCount": 271,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11834,
-  "avgDurationMs": 11834,
+  "unchangedCount": 0,
+  "durationMs": 8556,
+  "avgDurationMs": 8556,
   "durationHistory": [
-    11834
+    8556
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "interdiscount-1867f61a-5bb",
       "slug": "sachbearbeiter-in-kreditoren-80-100-interdiscount-jegenstorf",
@@ -25,7 +26,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/sachbearbeiter-in-kreditoren/1867f61a-5bbc-431e-aef5-609be6053966",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.267Z",
+      "crawledAt": "2026-08-18T10:27:37.657Z",
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -42,16 +43,16 @@
       "postedDate": "2026-08-16",
       "pensum": "80-100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169219",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:41:15.267Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "interdiscount-62a5d820-7ea",
       "slug": "verkaufsberater-in-interdiscount-meilen",
@@ -64,7 +65,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/62a5d820-7ea2-4c9b-951f-ca8c732db821",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.271Z",
+      "crawledAt": "2026-08-18T10:27:37.664Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,11 +84,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166986",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.033Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -103,7 +104,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/96f60af9-4736-41ba-966b-21188294d0b2",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.274Z",
+      "crawledAt": "2026-08-18T10:27:37.669Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -120,11 +121,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168512",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.036Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -140,7 +141,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/c9c6a823-d275-493f-b3f9-6f82993bc474",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.283Z",
+      "crawledAt": "2026-08-18T10:27:37.685Z",
       "addressLocality": "Genève Eaux-Vives",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -155,13 +156,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168511",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.046Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -177,7 +177,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/c545cd4e-a7ea-4965-9bc9-0dd4ecea952e",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.291Z",
+      "crawledAt": "2026-08-18T10:27:37.696Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -192,13 +192,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168510",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.056Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -214,7 +213,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/5c5bece0-1787-4cf4-baaf-836bca3041bc",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.291Z",
+      "crawledAt": "2026-08-18T10:27:37.696Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -231,11 +230,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168509",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.056Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -251,7 +250,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/570deb7d-6b17-4195-b0bc-be37cf25bbfe",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.292Z",
+      "crawledAt": "2026-08-18T10:27:37.697Z",
       "addressLocality": "St. Gallen Shopping Arena",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -268,11 +267,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168505",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.057Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -288,7 +287,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/fa02faa0-8705-48f6-9a59-7e191c6e2fab",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.292Z",
+      "crawledAt": "2026-08-18T10:27:37.698Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -303,13 +302,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168506",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.057Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -325,7 +323,7 @@
       "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegato-a/3a7435bb-c1f2-48ae-90ca-29e689e04a80",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-17T21:41:15.293Z",
+      "crawledAt": "2026-08-18T10:27:37.699Z",
       "addressLocality": "Canobbio-Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -340,13 +338,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168494",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-17T09:52:40.057Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -362,7 +359,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/a4653826-da73-4f08-beb4-563114e09d52",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.293Z",
+      "crawledAt": "2026-08-18T10:27:37.701Z",
       "addressLocality": "Heimberg XXL",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -379,11 +376,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168492",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.058Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -399,7 +396,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/bfd9bdb5-8619-4b95-b97f-f5e00d040a19",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.294Z",
+      "crawledAt": "2026-08-18T10:27:37.702Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -416,11 +413,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168491",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.059Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -436,7 +433,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/e1c53960-5d92-48b8-8060-321ebfc933df",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.295Z",
+      "crawledAt": "2026-08-18T10:27:37.703Z",
       "addressLocality": "Dietlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -453,11 +450,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168480",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.060Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -473,7 +470,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/ad434b31-51b8-4c2a-b9b8-6c4006ef0ff3",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.295Z",
+      "crawledAt": "2026-08-18T10:27:37.704Z",
       "addressLocality": "Biel Boujean",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -490,11 +487,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168478",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.061Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -510,7 +507,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/31b0a9d8-df24-4e7f-b06d-8f7face02c52",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.296Z",
+      "crawledAt": "2026-08-18T10:27:37.705Z",
       "addressLocality": "Neuchâtel La Maladière",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -525,13 +522,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168476",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.061Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -547,7 +543,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/7224b313-99ef-4aca-930f-778f738f0e02",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.296Z",
+      "crawledAt": "2026-08-18T10:27:37.706Z",
       "addressLocality": "Crissier XXL",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -562,13 +558,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168475",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.062Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -584,7 +579,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/ff8352d0-4888-4787-b9e0-290250ec102a",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.298Z",
+      "crawledAt": "2026-08-18T10:27:37.708Z",
       "addressLocality": "Genève Croix-d'Or",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -599,13 +594,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168474",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.063Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -621,7 +615,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/85011767-b2f2-43da-a2b6-6c7a40c16729",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.299Z",
+      "crawledAt": "2026-08-18T10:27:37.709Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -638,11 +632,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168473",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.063Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -658,7 +652,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/06a28c06-3f0d-4ba9-a12a-efe358b9cc76",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.299Z",
+      "crawledAt": "2026-08-18T10:27:37.709Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -675,11 +669,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168472",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.063Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -695,7 +689,7 @@
       "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegato-a/fc3731e2-4055-4db1-8fea-13f5d14a30cd",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-17T21:41:15.300Z",
+      "crawledAt": "2026-08-18T10:27:37.709Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -710,13 +704,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168471",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-17T09:52:40.063Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -732,7 +725,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/1621cc6c-d659-4355-a55f-e9459959e17c",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.332Z",
+      "crawledAt": "2026-08-18T10:27:37.747Z",
       "addressLocality": "Genève Balexert",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -747,13 +740,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168469",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.091Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -769,7 +761,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/15763bf9-3f16-4d9f-a6bb-a248d7803684",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.334Z",
+      "crawledAt": "2026-08-18T10:27:37.748Z",
       "addressLocality": "Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -784,13 +776,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168467",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.092Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -806,7 +797,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/bc5d5c30-0906-42e2-bda0-14f88278136f",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.335Z",
+      "crawledAt": "2026-08-18T10:27:37.750Z",
       "addressLocality": "Bulle Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -821,13 +812,12 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168465",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.092Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -843,7 +833,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/98d01475-98b6-4057-b33a-38d6827e7fb1",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.335Z",
+      "crawledAt": "2026-08-18T10:27:37.750Z",
       "addressLocality": "Langnau i.E.",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -860,11 +850,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168463",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.092Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -880,7 +870,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/4979c5eb-b4f0-45fc-9cb6-66b4b317ee23",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.336Z",
+      "crawledAt": "2026-08-18T10:27:37.750Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -897,11 +887,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168461",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.093Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -917,7 +907,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/7122664a-489b-44b3-ab1c-b4f4be24e32e",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.336Z",
+      "crawledAt": "2026-08-18T10:27:37.750Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -934,11 +924,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168456",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.093Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -954,7 +944,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/8e3dcac5-1d2e-43ee-86ab-13ffbaf550d9",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.337Z",
+      "crawledAt": "2026-08-18T10:27:37.751Z",
       "addressLocality": "Zürich Airport Shopping",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -971,11 +961,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168455",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.093Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -991,7 +981,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/87128ae0-5574-4f6e-9f44-18d31c37fb18",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.337Z",
+      "crawledAt": "2026-08-18T10:27:37.751Z",
       "addressLocality": "Visp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1008,11 +998,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168454",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.094Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -1028,7 +1018,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/211bf17d-6e81-4947-8f2f-607250d1494b",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.337Z",
+      "crawledAt": "2026-08-18T10:27:37.751Z",
       "addressLocality": "Kaiseraugst",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1045,11 +1035,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168453",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.094Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -1065,7 +1055,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/65550090-8fd1-47c9-bc48-50b8833da0fb",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.338Z",
+      "crawledAt": "2026-08-18T10:27:37.751Z",
       "addressLocality": "Basel Webergasse",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1082,11 +1072,11 @@
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168449",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.094Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -1102,7 +1092,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/gestionnaire-du-commerce-de-detail/2e9d57cf-5387-47dc-968f-c9b461073dea",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:41:15.338Z",
+      "crawledAt": "2026-08-18T10:27:37.751Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1117,97 +1107,16 @@
       "postedDate": "2026-08-16",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168450",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T09:52:40.094Z",
-      "_qualityScore": 80,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "interdiscount-7cc8ef2f-797",
-      "slug": "detailhandelsfachfrau-mann-interdiscount-spreitenbach-shoppi",
-      "company": "Interdiscount",
-      "companyKey": "interdiscount",
-      "companyDomain": "jobs.interdiscount.ch",
-      "title": "Detailhandelsfachfrau:mann",
-      "location": "Spreitenbach Shoppi",
-      "canton": "AG",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/7cc8ef2f-7970-4c57-8229-3d2b9fa1eb92",
-      "source": "Interdiscount Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:41:15.338Z",
-      "addressLocality": "Spreitenbach Shoppi",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "fixed-term",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "intern",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-16",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168448",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:52:40.095Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "interdiscount-6347c514-71c",
-      "slug": "consulente-commerciale-in-interdiscount-dietlikon-zurich",
-      "company": "Interdiscount",
-      "companyKey": "interdiscount",
-      "companyDomain": "jobs.interdiscount.ch",
-      "title": "Verkaufsberater:in",
-      "location": "Dietlikon",
-      "canton": "ZH",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/6347c514-71c0-4cab-9007-f6929c849d26",
-      "source": "Interdiscount Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:52:40.218Z",
-      "addressLocality": "Dietlikon",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8305",
-      "streetAddress": "Industriestrasse 28",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=168787",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-27T12:33:20.187Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
