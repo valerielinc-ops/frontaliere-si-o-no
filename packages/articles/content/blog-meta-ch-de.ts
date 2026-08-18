@@ -3232,6 +3232,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-friburgo.title': 'AHV und Ergänzungsleistungen im Kanton Freiburg',
     'blog.article.avs-prestazioni-friburgo.excerpt': 'Analyse der ersten Säule im Kanton Freiburg: Kantonale Ausgleichskasse, Rentenberechnung, Lücken und Ergänzungsleistungen.',
     'blog.article.avs-prestazioni-friburgo.imageAlt': 'Panoramablick auf die Stadt Fribourg und ihre Kathedrale in der Schweiz',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Öffentliche Verkehrsmittel im Kanton Freiburg: Zonen und Tarife',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Hier finden Sie die Details zu den ÖV-Abos im Kanton Freiburg.',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
 };
 
 export default blogMetaChDe;

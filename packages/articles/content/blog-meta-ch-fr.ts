@@ -3232,6 +3232,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-friburgo.title': 'AVS et prestations complémentaires dans le canton de Fribourg',
     'blog.article.avs-prestazioni-friburgo.excerpt': 'Analyse du premier pilier dans le canton de Fribourg : caisse de compensation cantonale, calcul des rentes, lacunes et prestations complémentaires.',
     'blog.article.avs-prestazioni-friburgo.imageAlt': 'Vue panoramique de la ville de Fribourg et de sa cathedrale en Suisse',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.title': 'Abonnements transports publics dans le canton de Fribourg : zones et tarifs',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.excerpt': 'Voici les détails des abonnements aux transports publics dans le canton de Fribourg.',
+    'blog.article.trasporti-pubblici-canton-friburgo-abbonamenti.imageAlt': 'Abbonamenti trasporti pubblici nel Cantone di Friburgo',
 };
 
 export default blogMetaChFr;
