@@ -3256,6 +3256,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Permesso L di breve durata Canton Soletta: validità e proroga',
     'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'Cosa deve sapere un frontaliere per ottenere un permesso L di breve durata nel Canton Soletta?',
     'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Ufficio comunale di Canton Soletta',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'Sistema scolastico del Cantone di Soletta: iscrizione e cicli',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Cicli, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori.',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'Scuola elementare in Svizzera: ciclo obbligatorio e calendario scolastico',
 };
 
 export default blogMetaChIt;

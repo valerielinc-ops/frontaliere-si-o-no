@@ -3256,6 +3256,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Permis L de courte durée Canton de Soleure : validité et prorogation',
     'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'Que doit savoir un frontalier pour obtenir un permis L de courte durée dans le canton de Soleure ?',
     'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Mairie de Canton Soletta',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'Système scolaire du canton de Soleure : inscription et cycles',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Cycles, âge d\'inscription, calendrier scolaire, langues d\'enseignement et passage au lycée.',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'École élémentaire en Suisse: cycle obligatoire et calendrier scolaire',
 };
 
 export default blogMetaChFr;

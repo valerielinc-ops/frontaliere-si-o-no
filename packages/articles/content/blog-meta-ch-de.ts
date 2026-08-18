@@ -3256,6 +3256,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Kurzzeitbewilligung L Kanton Solothurn: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'Was muss ein Grenzgänger wissen, um im Kanton Solothurn eine kurzfristige L-Genehmigung zu erhalten?',
     'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Kantonsamt Soletta',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'Schulsystem des Kantons Solothurn: Einschreibung und Zyklen',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Zyklen, Einschreibungsalter, Schulkalender, Unterrichtssprachen und Übergang in die Sekundarstufe.',
+    'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'Schulweg in der Schweiz: Pflichtschulzeit und Schuljahreskalender',
 };
 
 export default blogMetaChDe;

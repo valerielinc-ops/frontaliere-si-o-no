@@ -42218,6 +42218,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-scolastico-canton-soletta-iscrizione-e-cicli': {
+    title: 'Sistema scolastico del Cantone di Soletta: iscrizione e cicli',
+    description: 'Cicli, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, cantone, soletta',
+    ogTitle: 'Sistema scolastico del Cantone di Soletta: iscrizione e cicli',
+    ogDescription: 'Il sistema scolastico del Cantone di Soletta è composto da 8 anni di scuola elementare e 4 anni di scuola media. L\'età di iscrizione è di 6 anni e il calendario scolastico si divide in due periodi: settembre-aprile e maggio-agosto.',
+    canonicalPath: '/articoli-svizzera/sistema-scolastico-canton-soletta-iscrizione-e-cicli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico del Cantone di Soletta: iscrizione e cicli",
+      "description": "Cicli, età di iscrizione, calendario scolastico, lingue di insegnamento e passaggio alle scuole medie superiori. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-scolastico-canton-soletta-iscrizione-e-cicli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola elementare in Svizzera: ciclo obbligatorio e calendario scolastico"
+      },
+      "datePublished": "2026-08-18T02:39:49+00:00",
+      "dateModified": "2026-08-18T02:39:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-scolastico-canton-soletta-iscrizione-e-cicli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

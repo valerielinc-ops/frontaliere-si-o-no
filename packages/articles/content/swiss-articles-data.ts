@@ -9766,6 +9766,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sistema-scolastico-canton-soletta-iscrizione-e-cicli',
+    category: 'fiscale',
+    date: '2026-08-18T02:39:49.282Z',
+    image: '/images/blog/sistema-scolastico-canton-soletta-iscrizione-e-cicli.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
