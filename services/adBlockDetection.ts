@@ -75,12 +75,16 @@ function detectViaBaitElement(): Promise<boolean> {
  } catch {
  blocked = false;
  }
- if (blocked || Date.now() - startedAt >= BAIT_DEADLINE_MS) {
+ const remaining = BAIT_DEADLINE_MS - (Date.now() - startedAt);
+ if (blocked || remaining <= 0) {
  try { bait.remove(); } catch { /* noop */ }
  resolve(blocked);
  return;
  }
- window.setTimeout(check, SETTLE_DELAY_MS);
+ // Schedule the remainder, not another full tick: chaining a fixed cadence
+ // overshoots the deadline by up to one tick, and the constant is named as a
+ // cutoff.
+ window.setTimeout(check, Math.min(SETTLE_DELAY_MS, remaining));
  };
  window.setTimeout(check, SETTLE_DELAY_MS);
  });
