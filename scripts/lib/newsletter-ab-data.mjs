@@ -24,7 +24,7 @@ import { toMillis } from './firestoreTimestamp.mjs';
 import { MissingIndexError } from './missing-index-error.mjs';
 
 // Re-exported so existing importers keep a single entry point for this module.
-export { MissingIndexError } from './missing-index-error.mjs';
+export { MissingIndexError };
 
 /**
  * Load per-(provider × variant) totals for one campaign.
