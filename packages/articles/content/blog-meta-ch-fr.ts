@@ -3337,6 +3337,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.twint-addebito-diretto-fatture.title': 'Twint lance le prélèvement automatique pour les factures et la caisse-maladie',
     'blog.article.twint-addebito-diretto-fatture.excerpt': 'Nouveauté pour les paiements récurrents en Suisse : Twint introduira le prélèvement automatique pour les caisses-maladie, l\'électricité et les abonnements.',
     'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone avec l\'application de paiement Twint en premier plan en Suisse',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'La fondation Centro Studi Villa Negroni s\'associe à SUPSI',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'Le Conseil d\'État a approuvé le 8 juillet dernier l\'association de la Fondation Centro Studi Villa Negroni (CSVN) à la SUPSI.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'La Fondazione Centro Studi Villa Negroni se joint à SUPSI',
 };
 
 export default blogMetaChFr;

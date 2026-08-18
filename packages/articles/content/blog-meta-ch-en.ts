@@ -3337,6 +3337,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.twint-addebito-diretto-fatture.title': 'Twint launches direct debit for bills and sick pay',
     'blog.article.twint-addebito-diretto-fatture.excerpt': 'New for recurring payments in Switzerland: Twint will introduce direct debit for sick cash, electricity and subscriptions.',
     'blog.article.twint-addebito-diretto-fatture.imageAlt': 'Smartphone with Twint payment app in the foreground in Switzerland',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.title': 'The Villa Negroni Study Centre Foundation is associated with SUPSI',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.excerpt': 'On 8 July, the Council of State approved the association of the Villa Negroni Study Centre Foundation (CSVN) with SUPSI.',
+    'blog.article.la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.imageAlt': 'The Fondazione Centro Studi Villa Negroni joins SUPSI',
 };
 
 export default blogMetaChEn;

@@ -43271,6 +43271,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi': {
+    title: 'La fondazione centro studi villa negroni si associa alla SUPSI',
+    description: 'Il Consiglio di Stato ha approvato lo scorso 8 luglio l\'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI, segnando un passo',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, centro, studi, villa',
+    ogTitle: 'La Fondazione Centro Studi Villa Negroni si associa alla SUPSI',
+    ogDescription: 'Il Consiglio di Stato ha approvato lo scorso 8 luglio l\'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI, segnando un passo significativo per la formazione continua nei settori assicurativo, bancario, finanziario',
+    canonicalPath: '/articoli-svizzera/la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La fondazione centro studi villa negroni si associa alla SUPSI",
+      "description": "Il Consiglio di Stato ha approvato lo scorso 8 luglio l'associazione della Fondazione Centro Studi Villa Negroni (CSVN) alla SUPSI, segnando un passo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Fondazione Centro Studi Villa Negroni si associa alla SUPSI"
+      },
+      "datePublished": "2026-08-18T09:23:49+00:00",
+      "dateModified": "2026-08-18T09:23:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/la-fondazione-centro-studi-villa-negroni-si-associa-alla-supsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
