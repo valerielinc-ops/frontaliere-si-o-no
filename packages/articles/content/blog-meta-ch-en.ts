@@ -3268,6 +3268,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-canton-soletta-costi.title': 'Nursery and childcare Insole: costs and subsidies',
     'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Complete guide to childcare in the Canton of Solothurn: income-based rates, nurseries, day families and after-school.',
     'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Daycare and childcare in the Canton of Solothurn',
+    'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Apprenticeship and vocational training in the Canton of Solothurn',
+    'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'How to find an internship, internship contract, apprentice salary and professional maturity in the Canton of Solothurn.',
+    'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Image of a trainee in a Swiss company',
 };
 
 export default blogMetaChEn;

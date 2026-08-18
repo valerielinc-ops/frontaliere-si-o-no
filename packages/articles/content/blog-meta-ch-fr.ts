@@ -3268,6 +3268,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-canton-soletta-costi.title': 'Garderie et garde d\'enfants Soleure : coûts et subventions',
     'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Guide complet de garde d\'enfants dans le canton de Soleure : tarifs basés sur le revenu, crèches, familles de jour et après l\'école.',
     'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Creche et garde d\'enfants dans le Canton de Soleure',
+    'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Apprentissage et formation professionnelle dans le canton de Soleure',
+    'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, la rémunération de l\'apprenti et la maturité professionnelle dans le canton de Soleure.',
+    'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Image de la scène d\'un apprenti dans une entreprise suisse',
 };
 
 export default blogMetaChFr;
