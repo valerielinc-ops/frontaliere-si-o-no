@@ -3238,6 +3238,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Permesso di dimora B in Soletta: requisiti e procedura',
     'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'I requisiti per ottenere un permesso di dimora B nel Canton Soletta sono specificati nella legge cantonale.',
     'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'Una vista di Soletta con la sua arcata gotica, simbolo del Canton Soletta',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Salari e mercato del lavoro canton Friburgo: settori e livelli',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Fatti e cifre sulla situazione lavorativa nel canton Friburgo: salari, settori in crescita, contratti collettivi e salario minimo.',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Panorama urbano di Friburgo, Svizzera',
 };
 
 export default blogMetaChIt;

@@ -3238,6 +3238,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Permis de séjour B à Soleure : exigences et procédure',
     'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'Les conditions d\'obtention d\'un permis de séjour B dans le canton de Soleure sont précisées dans la loi cantonale.',
     'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'Vue de Soleure avec sa arcade gothique, symbole du canton de Soleure',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Salaires et marché du travail canton de Fribourg : secteurs et niveaux',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Faits et chiffres sur la situation de l\'emploi dans le canton de Fribourg : salaires, secteurs en croissance, conventions collectives et salaire minimum.',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Paysage urbain de Fribourg, Suisse',
 };
 
 export default blogMetaChFr;

@@ -3238,6 +3238,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-di-dimora-b-canton-soletta.title': 'Residence permit B in Soleta: requirements and procedure',
     'blog.article.permesso-di-dimora-b-canton-soletta.excerpt': 'The requirements for obtaining a B residence permit in the Canton of Solothurn are specified in the cantonal law.',
     'blog.article.permesso-di-dimora-b-canton-soletta.imageAlt': 'A view of Solothurn with its Gothic arch, symbol of the Canton Solothurn',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.title': 'Wages and labour market canton Freiburg: sectors and levels',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.excerpt': 'Facts and figures on the employment situation in the canton of Fribourg: wages, growing sectors, collective agreements and minimum wage.',
+    'blog.article.salari-mercato-lavoro-friburgo-settori-livelli.imageAlt': 'Fribourg, Switzerland, urban landscape',
 };
 
 export default blogMetaChEn;
