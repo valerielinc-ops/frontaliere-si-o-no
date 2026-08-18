@@ -3289,6 +3289,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-conciliazione-ticino.title': 'Diritto di locazione in Svizzera: come evitare i tribunali',
     'blog.article.diritto-locazione-conciliazione-ticino.excerpt': 'Dagli aumenti di pigione alle controversie tra inquilini e proprietari: ecco come gestire i conflitti locativi ed evitare la Pretura secondo gli esperti.',
     'blog.article.diritto-locazione-conciliazione-ticino.imageAlt': 'Manuale sul diritto di locazione e chiavi di casa in Svizzera',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Imposte di successione e donazione nel Cantone di Soletta',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'Il Cantone di Soletta applica aliquote diverse per la successione e la donazione, con esenzioni per il coniuge e i discendenti.',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'Una scena di Lugano, in Svizzera, che rappresenta la fiscalità cantonale.',
 };
 
 export default blogMetaChIt;

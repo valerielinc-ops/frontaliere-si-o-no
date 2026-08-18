@@ -9865,6 +9865,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-succesione-donazione-canton-soletta-aliquote',
+    category: 'fiscale',
+    date: '2026-08-18T04:41:57.730Z',
+    image: '/images/blog/imposta-succesione-donazione-canton-soletta-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -10034,6 +10034,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-mobilita-del-futuro.title': 'Ticino Lugano, primo passo verso la mobilità del futuro',
     'blog.article.lugano-mobilita-del-futuro.excerpt': 'Inizia il primo passo per la nuova mobilità pubblica a Lugano',
     'blog.article.lugano-mobilita-del-futuro.imageAlt': 'Lavori in corso a Lugano per la nuova mobilità pubblica',
+    'blog.article.infortuni-lavoro-varese-uil-2026.title': 'Infortuni sul lavoro a Varese: dati Uil e 7 morti',
+    'blog.article.infortuni-lavoro-varese-uil-2026.excerpt': 'I dati Inail del primo semestre 2026 elaborati dalla Uil Lombardia segnalano un aumento degli infortuni del 6% a Varese e sette casi mortali.',
+    'blog.article.infortuni-lavoro-varese-uil-2026.imageAlt': 'Panorama industriale e cantieri nella provincia di Varese',
 };
 
 export default blogMetaIt;
