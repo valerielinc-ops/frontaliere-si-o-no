@@ -97,10 +97,19 @@ const SRC = path.join(ROOT, 'data', 'municipalities.ts');
 const OUT = path.join(ROOT, 'data', 'fiscal-municipalities.json');
 
 // ── Floor / scope constants (documented above) ──────────────────
-// All 11 provinces present in data/municipalities.ts (issue #4893 —
+// All 12 provinces present in data/municipalities.ts (issue #4893 —
 // widened from the original ['CO', 'VA', 'VB']; see CORRIDOR CRITERION doc
 // above for the numeric equivalence-to-distance-threshold argument).
-export const CORRIDOR_PROVINCES = ['CO', 'VA', 'VB', 'SO', 'AO', 'VC', 'BS', 'BZ', 'MB', 'BG', 'TN'];
+//
+// 'LC' added 2026-08-18 together with the #211 province fix in
+// data/municipalities.ts, which relabels 25 Lake Como Lecco-shore rows from
+// their mislabelled 'SO' to their real 'LC'. This Set's contract is "every
+// province present in the file", so it has to follow: without 'LC' those 25
+// rows would silently leave the corridor, taking 2 above-floor fiscal pages
+// with them. Membership is therefore unchanged by that fix — same 518 rows,
+// same slugs (no name collisions exist, so no province suffix is in play) —
+// only the `province` string on those 25 moves.
+export const CORRIDOR_PROVINCES = ['CO', 'VA', 'VB', 'SO', 'LC', 'AO', 'VC', 'BS', 'BZ', 'MB', 'BG', 'TN'];
 export const MIN_POPULATION = 5000;
 export const MAX_DISTANCE_KM = 20;
 // 2000 was data/municipalities.ts's unreplaced default population (issue
