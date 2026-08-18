@@ -71,7 +71,6 @@ const {
   computeAdaptiveTimeoutMs,
   getCallLatencyStats,
   resetState,
-  // @ts-expect-error — modulo JS senza tipi, importato di proposito com'e'
 } = await import('../../scripts/lib/ai-models.mjs');
 
 const MODEL = 'groq/llama-3.1-8b-instant';
@@ -116,7 +115,9 @@ const call = () =>
     timeout: CALLER_TIMEOUT_MS,
     maxRetriesPerModel: 1,
     maxTokens: 16,
-    cache: false,
+    // niente `cache`: la cache in-process e' opt-in con `=== true`, quindi
+    // l'assenza dell'opzione la tiene gia' spenta (e il tipo dichiarato del
+    // modulo non la espone).
   });
 
 /**
