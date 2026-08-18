@@ -3253,6 +3253,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-soletta-validita-e-proroga.title': 'Permesso L in Soletta: durata e condizioni',
     'blog.article.permesso-l-soletta-validita-e-proroga.excerpt': 'Il permesso L di breve durata nel Cantone di Soletta è valido per un massimo di 1 anno. Le condizioni di proroga e il passaggio al permesso di dimora sono descritte di seguito.',
     'blog.article.permesso-l-soletta-validita-e-proroga.imageAlt': 'Scena di una strada di Soletta con un cartello che indica la durata massima di un permesso L di breve durata.',
+    'blog.article.permesso-l-breve-durata-canton-soletta.title': 'Permesso L di breve durata Canton Soletta: validità e proroga',
+    'blog.article.permesso-l-breve-durata-canton-soletta.excerpt': 'Cosa deve sapere un frontaliere per ottenere un permesso L di breve durata nel Canton Soletta?',
+    'blog.article.permesso-l-breve-durata-canton-soletta.imageAlt': 'Ufficio comunale di Canton Soletta',
 };
 
 export default blogMetaChIt;

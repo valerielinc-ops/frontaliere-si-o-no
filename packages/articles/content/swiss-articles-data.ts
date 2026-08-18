@@ -9757,6 +9757,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-l-breve-durata-canton-soletta',
+    category: 'fiscale',
+    date: '2026-08-18T02:33:05.919Z',
+    image: '/images/blog/permesso-l-breve-durata-canton-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

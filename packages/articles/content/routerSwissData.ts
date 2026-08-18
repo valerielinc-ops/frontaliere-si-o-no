@@ -1110,6 +1110,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-canton-soletta-riduzione': { it: 'premi-cassa-malati-canton-soletta-riduzione', en: 'canton-health-insurance-premiums-slab-and-premium-reduction', de: 'krankenkassenpramien-kanton-solothurn-und-pramienverbilligung', fr: 'primes-d-assurance-maladie-dans-le-canton-de-soleure-et-reductions-de-primes' },
  'permesso-domicilio-c-soletta': { it: 'permesso-domicilio-c-soletta', en: 'c-permit-solothurn-requirements-application', de: 'niederlassungsbewilligung-c-kanton-solothurn-voraussetzungen', fr: 'permis-etablissement-c-canton-soleure-conditions' },
  'permesso-l-soletta-validita-e-proroga': { it: 'permesso-l-soletta-validita-e-proroga', en: 'l-permit-in-slab-duration-and-conditions', de: 'erlaubnis-l-in-solothurn-dauer-und-bedingungen', fr: 'permis-l-a-soleure-duree-et-conditions' },
+ 'permesso-l-breve-durata-canton-soletta': { it: 'permesso-l-breve-durata-canton-soletta', en: 'short-term-permit-l-canton-solothurn-validity-and-extension', de: 'permesso-l-breve-durata-kanton-soletta', fr: 'permis-l-de-courte-duree-canton-de-soleure-validite-et-prorogation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
