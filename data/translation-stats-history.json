@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-28T06:42:44.662Z",
-    "label": "before",
-    "total": 24858,
-    "needsRetranslation": 10278,
-    "suppressed": 39,
-    "incomplete": 300,
-    "complete": 24558,
-    "missingByLocale": {
-      "it": 205,
-      "en": 118,
-      "de": 143,
-      "fr": 169
-    },
-    "topPending": [
-      {
-        "company": "Jaeger-LeCoultre",
-        "pending": 55
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 36
-      },
-      {
-        "company": "Roche",
-        "pending": 33
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 23
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "Sulzer",
-        "pending": 9
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-28T06:52:01.416Z",
-    "label": "after",
-    "total": 24858,
-    "needsRetranslation": 918,
-    "suppressed": 37,
-    "incomplete": 300,
-    "complete": 24558,
-    "missingByLocale": {
-      "it": 205,
-      "en": 118,
-      "de": 143,
-      "fr": 169
-    },
-    "topPending": [
-      {
-        "company": "Jaeger-LeCoultre",
-        "pending": 55
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 36
-      },
-      {
-        "company": "Roche",
-        "pending": 33
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 23
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 13
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 10
-      },
-      {
-        "company": "Sulzer",
-        "pending": 9
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 8
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-28T11:23:47.687Z",
     "label": "before",
     "total": 24737,
@@ -12090,6 +11976,162 @@
       {
         "company": "JUMBO",
         "pending": 185
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-18T00:32:20.606Z",
+    "label": "before",
+    "total": 27326,
+    "needsRetranslation": 15920,
+    "suppressed": 55,
+    "incomplete": 12438,
+    "complete": 14888,
+    "slotsPresent": 14888,
+    "flaggedAmongSlotsPresent": 4733,
+    "verifiedTranslated": 10155,
+    "sourceCopyExcused": 661,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 250,
+      "en": 194,
+      "de": 125,
+      "fr": 233
+    },
+    "queueAge": {
+      "count": 15920,
+      "withTimestamp": 15920,
+      "oldestAgeDays": 126.6,
+      "p50AgeDays": 25.5,
+      "p90AgeDays": 88.5,
+      "buckets": {
+        "0-7d": 2282,
+        "7-30d": 6439,
+        "30-90d": 5773,
+        "90-180d": 1426,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "railCare",
+        "pending": 2053
+      },
+      {
+        "company": "Roche",
+        "pending": 636
+      },
+      {
+        "company": "Denner AG",
+        "pending": 483
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 282
+      },
+      {
+        "company": "LANDI",
+        "pending": 277
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 251
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 233
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "railCare",
+        "pending": 217
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-18T01:23:54.951Z",
+    "label": "after",
+    "total": 27326,
+    "needsRetranslation": 11257,
+    "suppressed": 55,
+    "incomplete": 12438,
+    "complete": 14888,
+    "slotsPresent": 14888,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 14888,
+    "sourceCopyExcused": 661,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 250,
+      "en": 194,
+      "de": 125,
+      "fr": 233
+    },
+    "queueAge": {
+      "count": 11257,
+      "withTimestamp": 11257,
+      "oldestAgeDays": 126.6,
+      "p50AgeDays": 19.6,
+      "p90AgeDays": 68.7,
+      "buckets": {
+        "0-7d": 1773,
+        "7-30d": 5241,
+        "30-90d": 3677,
+        "90-180d": 566,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "railCare",
+        "pending": 2053
+      },
+      {
+        "company": "Roche",
+        "pending": 636
+      },
+      {
+        "company": "Denner AG",
+        "pending": 483
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 282
+      },
+      {
+        "company": "LANDI",
+        "pending": 277
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 251
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 233
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "railCare",
+        "pending": 217
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
       }
     ]
   }
