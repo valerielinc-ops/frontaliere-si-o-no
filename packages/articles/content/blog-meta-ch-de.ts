@@ -3268,6 +3268,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-canton-soletta-costi.title': 'Kindertagesstätte und Kinderbetreuung Solothurn: Kosten und Leistungen',
     'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Umfassender Leitfaden zur Kinderbetreuung im Kanton Solothurn: einkommensabhängige Tarife, Kindergärten, Tages- und Nachschulfamilien.',
     'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Kinderkrippe und Kinderbetreuung im Kanton Solothurn',
+    'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Lehre und Berufsausbildung im Kanton Solothurn',
+    'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Solothurn.',
+    'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Bild der Szene eines Praktikanten in einem Schweizer Unternehmen',
 };
 
 export default blogMetaChDe;

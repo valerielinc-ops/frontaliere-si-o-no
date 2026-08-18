@@ -3268,6 +3268,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-canton-soletta-costi.title': 'Asilo nido e custodia bambini Soletta: costi e sussidi',
     'blog.article.asilo-nido-canton-soletta-costi.excerpt': 'Guida completa alla custodia dei bambini nel Cantone di Soletta: tariffe basate sul reddito, asili nido, famiglie diurne e doposcuola.',
     'blog.article.asilo-nido-canton-soletta-costi.imageAlt': 'Asilo nido e custodia bambini nel Cantone di Soletta',
+    'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Apprendistato e formazione professionale nel Cantone di Soletta',
+    'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Cantone di Soletta.',
+    'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Immagine della scena di un apprendista in un\'azienda svizzera',
 };
 
 export default blogMetaChIt;
