@@ -3310,6 +3310,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Short-term permit L canton Basel City: validity and extension',
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'The maximum duration of the L permit is one year. It can be extended if certain conditions are met.',
     'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'A frontaliere living in Basilea Città and working in a Ticino company.',
+    'blog.article.assegni-familiari-canton-basilea-citt.title': 'Family allowances in the canton of Basel-City: amounts and application',
+    'blog.article.assegni-familiari-canton-basilea-citt.excerpt': 'Monthly amounts per child and application procedures',
+    'blog.article.assegni-familiari-canton-basilea-citt.imageAlt': 'Basel City, Switzerland',
 };
 
 export default blogMetaChEn;
