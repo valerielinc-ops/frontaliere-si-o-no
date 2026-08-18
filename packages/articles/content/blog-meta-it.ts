@@ -10042,6 +10042,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'I numeri del giorno per i frontalieri – 18 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Bollettino frontalieri del 18 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'I numeri del 18 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Controlli di Ferragosto: 9 lavoratori irregolari e sospensioni',
+    'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'La Guardia di Finanza ha effettuato controlli di Ferragosto nella provincia di Varese, identificando 9 lavoratori irregolari e sospensioni di due attività.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Immagine di un controllore che verifica i permessi di lavoro di un frontaliere.',
 };
 
 export default blogMetaIt;

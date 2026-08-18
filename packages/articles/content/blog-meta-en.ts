@@ -10041,6 +10041,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'The day\'s numbers for cross-border commuters – August 18, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Cross-border brief, August 18, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'The numbers for August 18, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Ferragosto checks: 9 irregular workers and suspensions',
+    'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'The Guardia di Finanza carried out checks in August in the province of Varese, identifying 9 irregular workers and suspensions of two activities.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Image of a controller checking the work permits of a cross-border worker.',
 };
 
 export default blogMetaEn;

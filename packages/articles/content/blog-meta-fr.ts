@@ -10043,6 +10043,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-18.imageAlt': 'Les chiffres du jour pour les frontaliers – 18 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-18.seoDescription': 'Bulletin du frontalier du 18 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-18.ogDescription': 'Les chiffres du 18 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Contrôles d\'août : 9 travailleurs irréguliers et suspensions',
+    'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'La Guardia di Finanza a effectué des contrôles en août dans la province de Varèse, en identifiant 9 travailleurs irréguliers et en suspendant deux activités.',
+    'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Image d\'un contrôleur vérifiant les permis de travail d\'un travailleur frontalier.',
 };
 
 export default blogMetaFr;

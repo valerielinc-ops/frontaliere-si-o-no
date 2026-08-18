@@ -30081,6 +30081,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'controlli-lavoratori-irregolari-ticino',
+ category: 'pratico',
+ date: '2026-08-18T06:36:07.419Z',
+ image: '/images/blog/controlli-lavoratori-irregolari-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

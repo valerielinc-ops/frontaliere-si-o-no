@@ -69023,6 +69023,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-lavoratori-irregolari-ticino': {
+    title: 'Controlli di Ferragosto: 9 lavoratori irregolari e sospensioni',
+    description: 'La Guardia di Finanza ha effettuato controlli di Ferragosto nella provincia di Varese, identificando 9 lavoratori irregolari e sospensioni di due attività.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, ferragosto, lavoratori, irregolari',
+    ogTitle: 'Controlli di Ferragosto: 9 lavoratori irregolari e sospensioni',
+    ogDescription: 'La Guardia di Finanza ha effettuato controlli di Ferragosto nella provincia di Varese, identificando 9 lavoratori irregolari e sospensioni di due attività.',
+    canonicalPath: '/articoli-frontaliere/controlli-lavoratori-irregolari-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli di Ferragosto: 9 lavoratori irregolari e sospensioni",
+      "description": "La Guardia di Finanza ha effettuato controlli di Ferragosto nella provincia di Varese, identificando 9 lavoratori irregolari e sospensioni di due attività.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/controlli-lavoratori-irregolari-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un controllore che verifica i permessi di lavoro di un frontaliere."
+      },
+      "datePublished": "2026-08-18T06:36:07+00:00",
+      "dateModified": "2026-08-18T06:36:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-lavoratori-irregolari-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
