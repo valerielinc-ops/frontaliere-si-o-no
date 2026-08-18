@@ -155,9 +155,17 @@ function resolveSpecifier(spec, fromFile) {
 /**
  * Import locali risolti di `file`, entro il repo. Cached: il grafo viene
  * percorso più volte dal fixed-point sotto.
+ *
+ * ESPORTATA per `scripts/ci/corpus-wide-tests.mjs`, che deve sapere quali file
+ * sorgente un test corpus-wide raggiunge per decidere se il diff di una PR lo
+ * rende ancora bloccante. Riscrivere lì la stessa risoluzione (RESOLVE_EXTS +
+ * alias `@/` + IMPORT_RE) creerebbe due copie della stessa regola destinate a
+ * divergere (AGENTS.md #6), e la divergenza si presenterebbe nel modo peggiore
+ * possibile: un gate che smette di scattare senza che niente diventi rosso.
+ * Nessun cambio di comportamento per i chiamanti esistenti — solo `export`.
  */
 const importsCache = new Map();
-function localImports(file) {
+export function localImports(file) {
   const cached = importsCache.get(file);
   if (cached) return cached;
   const out = [];

@@ -258,6 +258,15 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // `if: failure()` su un job che fallisce davvero, ed è proprio il caso
       // in cui la jobs API ha lo step rotto da mettere nel body.
       'deploy.yml': 'sibling-resolve-step',
+      // quarta adozione: i gate corpus-wide usciti dal cammino bloccante delle
+      // PR. Qui l'adozione NON è un miglioramento del body di un opener che
+      // esisteva già — è la CONDIZIONE per cui lo spostamento non è una
+      // rimozione. Sette gate che girano solo post-merge senza nessuno che
+      // guardi il rosso sono sette gate cancellati con un nome gentile.
+      // Titolo canonico `Workflow Failure: <name:>`, quindi lo chiude il
+      // reconciler orario centrale invece di uno step gemello: il gate riparte
+      // da solo a ogni cron e il primo verde chiude la issue.
+      'corpus-wide-gates.yml': 'close-recovered-failure-issues',
     };
     expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
     for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);
