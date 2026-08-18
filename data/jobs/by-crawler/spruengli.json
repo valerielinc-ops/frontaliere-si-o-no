@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-08-18T09:49:46.427Z",
+  "assembledAt": "2026-08-18T21:48:35.949Z",
   "jobs": [
     {
       "id": "spruengli-bbb814c51181",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "temporare-collaboratore-trice-innen-produktion-100-confiserie-sprungli-ag-dietikon",
         "en": "temporary-employees-production-100-confiserie-sprungli-ag-dietikon",
-        "de": "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon",
+        "de": "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon",
         "fr": "production-d-employes-temporaires-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1234/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.080Z",
+      "crawledAt": "2026-08-18T21:48:30.449Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -68,6 +68,9 @@
         ],
         "fr": [
           "temporare-mitarbeiter-innen-produktion-100-confiserie-sprungli-ag-dietikon"
+        ],
+        "de": [
+          "temporare-mitarbeiter-innen-produktion-100-spruengli-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -116,7 +119,7 @@
       "url": "https://apply.refline.ch/116352/1253/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.079Z",
+      "crawledAt": "2026-08-18T21:48:30.448Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -149,8 +152,8 @@
           "demand-planner-process-automation-specialist-100-spruengli-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:21:56.386Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:21:56.386Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -170,7 +173,7 @@
       "slugByLocale": {
         "it": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909",
         "en": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-        "de": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+        "de": "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
         "fr": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -195,7 +198,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.077Z",
+      "crawledAt": "2026-08-18T21:48:30.446Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -223,6 +226,9 @@
         "it": [
           "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
           "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909"
+        ],
+        "de": [
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -271,7 +277,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.076Z",
+      "crawledAt": "2026-08-18T21:48:30.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -312,7 +318,7 @@
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-cfc-zurich-basel-e-wallisellen-per-2027-confiserie-sprungli-ag-zurich",
         "en": "apprenticeship-retail-specialist-efz-zurich-basel-and-wallisellen-for-2027-confiserie-sprungli-ag-zurich",
-        "de": "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli",
+        "de": "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich",
         "fr": "apprentissage-specialiste-du-commerce-de-detail-efz-zurich-bale-et-wallisellen-pour-2027-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -337,7 +343,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/68/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.076Z",
+      "crawledAt": "2026-08-18T21:48:30.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -372,6 +378,9 @@
         ],
         "fr": [
           "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "lehrstelle-detailhandelsfachfrau-mann-efz-zurich-basel-und-wallisellen-fur-2027-spruengli"
         ]
       },
       "firstSeenAt": "2026-08-12T22:16:16.792Z",
@@ -419,7 +428,7 @@
       "url": "https://apply.refline.ch/116352/1252/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.074Z",
+      "crawledAt": "2026-08-18T21:48:30.443Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -470,90 +479,6 @@
       }
     },
     {
-      "id": "spruengli-86ef3d502e38",
-      "slug": "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-      "slugByLocale": {
-        "it": "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-        "en": "sales-consultant-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-        "de": "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
-        "fr": "consultant-en-ventes-60-100-zermatt-confiserie-sprungli-ag-zermatt"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Verkaufsberater*in (60-100%) Zermatt",
-      "titleByLocale": {
-        "it": "Consulente commerciale (60-100%) Zermatt",
-        "en": "Sales consultant (60-100%) Zermatt",
-        "de": "Verkaufsberater*in (60-100%) Zermatt",
-        "fr": "Consultant en ventes (60-100%) Zermatt"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (60-100%) Zermatt\n\n60% - 80%,\n\nArbeiten bei Sprüngli\n\nFür unsere neu eröffnete Filiale in Zermatt suchen wir engagierte und motivierte Persönlichkeiten als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 8.30 und 19.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zeitzulagen und Einkaufsvergünstigungen\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Zentral gelegener Arbeitsort im Herzen von Zermatt, mit direktem Zugang zu einer einzigartigen Bergwelt\n\n• Möglichkeit, aktiv an der neu eröffneten Filiale mitzuwirken und deine Ideen und Erfahrungen in ein neues, dynamisches Team einzubringen\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nConsulente commerciale (60-100%) Zermatt\n\n60% - 80%,\n\nLavorare a Sprüngli\n\nPer il nostro ramo appena aperto a Zermatt, stiamo cercando personalità impegnate e motivate come\n\nCosa fai con noi\n\n• Consultare i nostri clienti nazionali e internazionali con una qualità di servizio eccellente\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con tocco decorativo\n\nCosa vogliamo\n\n• Formazione completa nel commercio al dettaglio e/o nell'esperienza di vendita al dettaglio (preferibilmente confiserie o industria alimentare)\n\n• Flusso tedesco e buone abilità inglesi\n\n• Flessibilità per quanto riguarda le ore di lavoro (cambiamenti tra le 8.30 e le 19.30 e le assegnazioni di fine settimana da 2 a 3 al mese)\n\nNon vedo l'ora.\n\n• Aree individuali di responsabilità e opportunità di sviluppo e formazione\n\n• Indennità generali di tempo e concessioni commerciali\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Posto centrale di lavoro nel cuore di Zermatt, con accesso diretto a un mondo di montagna unico\n\n• Opportunità di partecipare attivamente al nuovo negozio aperto e portare le vostre idee ed esperienze a un nuovo team dinamico\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nSales consultant (60-100%) Zermatt\n\n60% - 80%,\n\nWorking at Sprüngli\n\nFor our newly opened branch in Zermatt, we are looking for committed and motivated personalities as\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with decorative flair\n\nWhat we want\n\n• Completed training in the retail trade and/or sales experience in the retail trade (preferably confiserie or food industry)\n\n• Flowing German and good English skills\n\n• Flexibility regarding working hours (shifts between 8.30 and 19.30 and 2 to 3 weekend assignments per month)\n\nYou can look forward to that.\n\n• Individual areas of responsibility as well as development and training opportunities\n\n• Generous time allowances and shopping concessions\n\n• Additional free day as a birthday appreciation\n\n• Centrally located place of work in the heart of Zermatt, with direct access to a unique mountain world\n\n• Opportunity to actively participate in the newly opened store and bring your ideas and experiences to a new, dynamic team\n\n• A lively and modern environment with a collegial du culture\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (60-100%) Zermatt\n\n60% - 80%,\n\nArbeiten bei Sprüngli\n\nFür unsere neu eröffnete Filiale in Zermatt suchen wir engagierte und motivierte Persönlichkeiten als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 8.30 und 19.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zeitzulagen und Einkaufsvergünstigungen\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Zentral gelegener Arbeitsort im Herzen von Zermatt, mit direktem Zugang zu einer einzigartigen Bergwelt\n\n• Möglichkeit, aktiv an der neu eröffneten Filiale mitzuwirken und deine Ideen und Erfahrungen in ein neues, dynamisches Team einzubringen\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nConsultant en ventes (60-100%) Zermatt\n\n60% - 80%,\n\nTravailler chez Sprüngli\n\nPour notre nouvelle succursale à Zermatt, nous recherchons des personnalités engagées et motivées comme\n\nCe que tu fais de nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif\n\nCe que nous voulons\n\n• Formation complète dans le commerce de détail et/ou l'expérience commerciale dans le commerce de détail (de préférence confiscation ou industrie alimentaire)\n\n• L'allemand et de bonnes compétences en anglais\n\n• Flexibilité en matière d'horaires de travail (postes compris entre 8 h 30 et 19 h 30 et entre 2 et 3 week-ends par mois)\n\nVous pouvez attendre avec impatience.\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation\n\n• Indemnités de temps et concessions commerciales généreuses\n\n• Journée gratuite supplémentaire comme une appréciation d'anniversaire\n\n• Lieu de travail central au cœur de Zermatt, avec accès direct à un monde montagneux unique\n\n• Possibilité de participer activement au magasin nouvellement ouvert et d'apporter vos idées et expériences à une nouvelle équipe dynamique\n\n• Un environnement animé et moderne avec une collégiale du culture\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
-      },
-      "location": "Zermatt",
-      "canton": "VS",
-      "url": "https://apply.refline.ch/116352/1064/pub/76/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.073Z",
-      "addressLocality": "Zermatt",
-      "addressRegion": "VS",
-      "streetAddress": "Bahnhofstrasse 9",
-      "postalCode": "3920",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-11-26",
-      "applyUrl": "https://apply.refline.ch/116352/1064/pub/76/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1064",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
-        "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-        "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
-          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-          "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt"
-        ],
-        "en": [
-          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
-        ],
-        "fr": [
-          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:28:54.320Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-b0579ff9c0bb",
       "slug": "collaboratore-trice-in-reinigung-30-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
@@ -584,7 +509,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/34/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.072Z",
+      "crawledAt": "2026-08-18T21:48:30.442Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -643,6 +568,90 @@
       }
     },
     {
+      "id": "spruengli-86ef3d502e38",
+      "slug": "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+      "slugByLocale": {
+        "it": "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+        "en": "sales-consultant-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+        "de": "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
+        "fr": "consultant-en-ventes-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Verkaufsberater*in (60-100%) Zermatt",
+      "titleByLocale": {
+        "it": "Consulente commerciale (60-100%) Zermatt",
+        "en": "Sales consultant (60-100%) Zermatt",
+        "de": "Verkaufsberater*in (60-100%) Zermatt",
+        "fr": "Consultant en ventes (60-100%) Zermatt"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (60-100%) Zermatt\n\n60% - 80%,\n\nArbeiten bei Sprüngli\n\nFür unsere neu eröffnete Filiale in Zermatt suchen wir engagierte und motivierte Persönlichkeiten als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 8.30 und 19.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zeitzulagen und Einkaufsvergünstigungen\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Zentral gelegener Arbeitsort im Herzen von Zermatt, mit direktem Zugang zu einer einzigartigen Bergwelt\n\n• Möglichkeit, aktiv an der neu eröffneten Filiale mitzuwirken und deine Ideen und Erfahrungen in ein neues, dynamisches Team einzubringen\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nConsulente commerciale (60-100%) Zermatt\n\n60% - 80%,\n\nLavorare a Sprüngli\n\nPer il nostro ramo appena aperto a Zermatt, stiamo cercando personalità impegnate e motivate come\n\nCosa fai con noi\n\n• Consultare i nostri clienti nazionali e internazionali con una qualità di servizio eccellente\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con tocco decorativo\n\nCosa vogliamo\n\n• Formazione completa nel commercio al dettaglio e/o nell'esperienza di vendita al dettaglio (preferibilmente confiserie o industria alimentare)\n\n• Flusso tedesco e buone abilità inglesi\n\n• Flessibilità per quanto riguarda le ore di lavoro (cambiamenti tra le 8.30 e le 19.30 e le assegnazioni di fine settimana da 2 a 3 al mese)\n\nNon vedo l'ora.\n\n• Aree individuali di responsabilità e opportunità di sviluppo e formazione\n\n• Indennità generali di tempo e concessioni commerciali\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Posto centrale di lavoro nel cuore di Zermatt, con accesso diretto a un mondo di montagna unico\n\n• Opportunità di partecipare attivamente al nuovo negozio aperto e portare le vostre idee ed esperienze a un nuovo team dinamico\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nSales consultant (60-100%) Zermatt\n\n60% - 80%,\n\nWorking at Sprüngli\n\nFor our newly opened branch in Zermatt, we are looking for committed and motivated personalities as\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with decorative flair\n\nWhat we want\n\n• Completed training in the retail trade and/or sales experience in the retail trade (preferably confiserie or food industry)\n\n• Flowing German and good English skills\n\n• Flexibility regarding working hours (shifts between 8.30 and 19.30 and 2 to 3 weekend assignments per month)\n\nYou can look forward to that.\n\n• Individual areas of responsibility as well as development and training opportunities\n\n• Generous time allowances and shopping concessions\n\n• Additional free day as a birthday appreciation\n\n• Centrally located place of work in the heart of Zermatt, with direct access to a unique mountain world\n\n• Opportunity to actively participate in the newly opened store and bring your ideas and experiences to a new, dynamic team\n\n• A lively and modern environment with a collegial du culture\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (60-100%) Zermatt\n\n60% - 80%,\n\nArbeiten bei Sprüngli\n\nFür unsere neu eröffnete Filiale in Zermatt suchen wir engagierte und motivierte Persönlichkeiten als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 8.30 und 19.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zeitzulagen und Einkaufsvergünstigungen\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Zentral gelegener Arbeitsort im Herzen von Zermatt, mit direktem Zugang zu einer einzigartigen Bergwelt\n\n• Möglichkeit, aktiv an der neu eröffneten Filiale mitzuwirken und deine Ideen und Erfahrungen in ein neues, dynamisches Team einzubringen\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nConsultant en ventes (60-100%) Zermatt\n\n60% - 80%,\n\nTravailler chez Sprüngli\n\nPour notre nouvelle succursale à Zermatt, nous recherchons des personnalités engagées et motivées comme\n\nCe que tu fais de nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif\n\nCe que nous voulons\n\n• Formation complète dans le commerce de détail et/ou l'expérience commerciale dans le commerce de détail (de préférence confiscation ou industrie alimentaire)\n\n• L'allemand et de bonnes compétences en anglais\n\n• Flexibilité en matière d'horaires de travail (postes compris entre 8 h 30 et 19 h 30 et entre 2 et 3 week-ends par mois)\n\nVous pouvez attendre avec impatience.\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation\n\n• Indemnités de temps et concessions commerciales généreuses\n\n• Journée gratuite supplémentaire comme une appréciation d'anniversaire\n\n• Lieu de travail central au cœur de Zermatt, avec accès direct à un monde montagneux unique\n\n• Possibilité de participer activement au magasin nouvellement ouvert et d'apporter vos idées et expériences à une nouvelle équipe dynamique\n\n• Un environnement animé et moderne avec une collégiale du culture\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
+      },
+      "location": "Zermatt",
+      "canton": "VS",
+      "url": "https://apply.refline.ch/116352/1064/pub/76/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T21:48:30.442Z",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "streetAddress": "Bahnhofstrasse 9",
+      "postalCode": "3920",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-11-26",
+      "applyUrl": "https://apply.refline.ch/116352/1064/pub/76/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1064",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
+        "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+        "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
+          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+          "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+        ],
+        "en": [
+          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+        ],
+        "fr": [
+          "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:28:54.320Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-f6bdb802675d",
       "slug": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
       "slugByLocale": {
@@ -673,7 +682,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.071Z",
+      "crawledAt": "2026-08-18T21:48:30.441Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -719,8 +728,8 @@
           "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:18:24.558Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:18:24.558Z",
       "salaryMin": 49600,
       "salaryMax": 75200,
       "baseSalary": {
@@ -730,94 +739,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49600,
           "maxValue": 75200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spruengli-d5c32ab1c40e",
-      "slug": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
-      "slugByLocale": {
-        "it": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "en": "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "de": "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
-        "fr": "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
-      "titleByLocale": {
-        "it": "Temporärer Collaboratore/trice*innen Produktion bis 24. Dezember 2026 (40-50%)",
-        "en": "Temporary employee production until 24. December 2026 (40-50%)",
-        "de": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
-        "fr": "Production temporaire jusqu'au 24 décembre 2026 (40-50%)"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\n Auch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nProduzione temporanea dei dipendenti fino al 24 dicembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nLavorare a Sprüngli\n\nNella nostra fabbrica di Dietikon stiamo cercando la prossima stagione da Sofort temporanea fino a 24. Dicembre 2026 motivato e impegnato\n\nCosa fai con noi\n\nStai lavorando nel reparto di riempimento Confiserie nella nostra fabbrica a Dietikon e sostenere la squadra in uno fino al 24 °. dicembre 2026 lavoro temporaneo. Le tue ore di lavoro abituali di solito si estendono dal lunedì al venerdì.\n\n• 06.30 - 11.20\n\n• 12.45 - 15.45\nLe missioni di sabato sono anche possibili\n\nI vostri compiti:\n\n• Imballaggio e imballaggio dei nostri popolari prodotti Confiserie nel lavoro a nastro\n\n• Rispetto e controllo dei requisiti di sicurezza, igiene e qualità\n\n• Lavori di pulizia\n\nCosa vogliamo\n\n• Un metodo di lavoro preciso e di qualità consapevole così come la resilienza anche in situazioni frenetiche\n\n• Buona costituzione fisica (attività lavorativa di base) e buona destrezza\n\n• Rispetto costante delle nostre normative igieniche\n\n• Flessibilità\n\n• Buona conoscenza del tedesco\n\nNon vedo l'ora.\n\nUna zona di responsabilità versatile e impegnativa vi aspetta in un ambiente vivace e moderno con un team motivato e una du-cultura collegiale. Per gli abiti da lavoro e la loro pulizia, così come per varie possibilità di ristorazione, tra le altre cose nel nostro ristorante personale, siamo felici di fornire. Vi offriamo un parcheggio gratuito e generosi sconti per lo shopping nella posizione Dietikon.\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nTemporary employee production until 24. December 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nWorking at Sprüngli\n\nIn our factory in Dietikon we are looking for the upcoming season from Sofort temporary until 24. December 2026 motivated and committed\n\nWhat you do with us\n\nYou are working in the filling department Confiserie in our factory in Dietikon and support the team in one until the 24th. December 2026 temporary employment. Your regular working hours usually extend from Monday to Friday.\n\n• 06.30 to 11.20\n\n• 12.45 to 15.45\nSaturday missions are also possible\n\nYour tasks:\n\n• Packing and packaging of our popular Confiserie products in tape work\n\n• Compliance with and control of safety, hygiene and quality requirements\n\n• Cleaning work\n\nWhat we want\n\n• An exact and quality-conscious working method as well as resilience even in hectic situations\n\n• Good physical constitution (standing work activity) and good dexterity\n\n• Consistent compliance with our hygiene regulations\n\n• Flexibility\n\n• Good knowledge of German\n\nYou can look forward to it.\n\nA versatile and challenging area of responsibility awaits you in a lively and modern environment with a motivated team and a collegial du-culture. For the work clothes and their cleaning as well as for varied catering possibilities, among other things in our staff restaurant, we are happy to provide. We offer you a free parking space and generous shopping discounts at the Dietikon location.\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\nAuch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nProduction temporaire jusqu'au 24 décembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nTravailler chez Sprüngli\n\nDans notre usine à Dietikon, nous cherchons la prochaine saison de Sofort temporaire jusqu'à 24. Décembre 2026 motivé et engagé\n\nCe que tu fais avec nous\n\nVous travaillez dans le service de remplissage Confiserie dans notre usine à Dietikon et soutenir l'équipe dans un jusqu'au 24ème. Décembre 2026 emploi temporaire. Vos heures normales de travail s'étendent généralement du lundi au vendredi.\n\n• 06.30 à 11.20\n\n• 12 h 45 à 15 h 45\nLes missions du samedi sont également possibles\n\nVos tâches :\n\n• Emballage et emballage de nos produits Confiserie populaires en ruban adhésif\n\n• Respect et contrôle des exigences de sécurité, d'hygiène et de qualité\n\n• Travaux de nettoyage\n\nCe que nous voulons\n\n• Une méthode de travail exacte et soucieuse de la qualité ainsi que la résilience même dans les situations mouvementées\n\n• Bonne constitution physique (activité professionnelle permanente) et bonne dextérité\n\n• Respect constant de nos règles d'hygiène\n\n• Flexibilité\n\n• Bonne connaissance de l'allemand\n\nVous pouvez attendre avec impatience.\n\nUn espace de responsabilité polyvalent et stimulant vous attend dans un environnement animé et moderne avec une équipe motivée et une collégiale du-culture. Pour les vêtements de travail et leur nettoyage ainsi que pour diverses possibilités de restauration, entre autres dans notre restaurant du personnel, nous sommes heureux de fournir. Nous vous offrons un parking gratuit et de généreuses réductions d'achat à l'emplacement Dietikon.\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.070Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Bernstrasse 89",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://apply.refline.ch/116352/1232/pub/5/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1232",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
-        "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
-        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
-          "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
-          "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
-          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
-        ],
-        "en": [
-          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
-        ],
-        "fr": [
-          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-31T22:18:24.557Z",
-      "salaryMin": 36800,
-      "salaryMax": 55800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36800,
-          "maxValue": 55800,
           "unitText": "YEAR"
         }
       }
@@ -853,7 +774,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.069Z",
+      "crawledAt": "2026-08-18T21:48:30.440Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -958,6 +879,94 @@
       }
     },
     {
+      "id": "spruengli-d5c32ab1c40e",
+      "slug": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
+      "slugByLocale": {
+        "it": "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "en": "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "de": "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
+        "fr": "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
+      "titleByLocale": {
+        "it": "Temporärer Collaboratore/trice*innen Produktion bis 24. Dezember 2026 (40-50%)",
+        "en": "Temporary employee production until 24. December 2026 (40-50%)",
+        "de": "Temporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)",
+        "fr": "Production temporaire jusqu'au 24 décembre 2026 (40-50%)"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\n Auch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nProduzione temporanea dei dipendenti fino al 24 dicembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nLavorare a Sprüngli\n\nNella nostra fabbrica di Dietikon stiamo cercando la prossima stagione da Sofort temporanea fino a 24. Dicembre 2026 motivato e impegnato\n\nCosa fai con noi\n\nStai lavorando nel reparto di riempimento Confiserie nella nostra fabbrica a Dietikon e sostenere la squadra in uno fino al 24 °. dicembre 2026 lavoro temporaneo. Le tue ore di lavoro abituali di solito si estendono dal lunedì al venerdì.\n\n• 06.30 - 11.20\n\n• 12.45 - 15.45\nLe missioni di sabato sono anche possibili\n\nI vostri compiti:\n\n• Imballaggio e imballaggio dei nostri popolari prodotti Confiserie nel lavoro a nastro\n\n• Rispetto e controllo dei requisiti di sicurezza, igiene e qualità\n\n• Lavori di pulizia\n\nCosa vogliamo\n\n• Un metodo di lavoro preciso e di qualità consapevole così come la resilienza anche in situazioni frenetiche\n\n• Buona costituzione fisica (attività lavorativa di base) e buona destrezza\n\n• Rispetto costante delle nostre normative igieniche\n\n• Flessibilità\n\n• Buona conoscenza del tedesco\n\nNon vedo l'ora.\n\nUna zona di responsabilità versatile e impegnativa vi aspetta in un ambiente vivace e moderno con un team motivato e una du-cultura collegiale. Per gli abiti da lavoro e la loro pulizia, così come per varie possibilità di ristorazione, tra le altre cose nel nostro ristorante personale, siamo felici di fornire. Vi offriamo un parcheggio gratuito e generosi sconti per lo shopping nella posizione Dietikon.\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nTemporary employee production until 24. December 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nWorking at Sprüngli\n\nIn our factory in Dietikon we are looking for the upcoming season from Sofort temporary until 24. December 2026 motivated and committed\n\nWhat you do with us\n\nYou are working in the filling department Confiserie in our factory in Dietikon and support the team in one until the 24th. December 2026 temporary employment. Your regular working hours usually extend from Monday to Friday.\n\n• 06.30 to 11.20\n\n• 12.45 to 15.45\nSaturday missions are also possible\n\nYour tasks:\n\n• Packing and packaging of our popular Confiserie products in tape work\n\n• Compliance with and control of safety, hygiene and quality requirements\n\n• Cleaning work\n\nWhat we want\n\n• An exact and quality-conscious working method as well as resilience even in hectic situations\n\n• Good physical constitution (standing work activity) and good dexterity\n\n• Consistent compliance with our hygiene regulations\n\n• Flexibility\n\n• Good knowledge of German\n\nYou can look forward to it.\n\nA versatile and challenging area of responsibility awaits you in a lively and modern environment with a motivated team and a collegial du-culture. For the work clothes and their cleaning as well as for varied catering possibilities, among other things in our staff restaurant, we are happy to provide. We offer you a free parking space and generous shopping discounts at the Dietikon location.\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTemporärer Mitarbeiter*innen Produktion bis 24. Dezember 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die bevorstehende Saisonzeit ab Sofort befristet bis 24. Dezember 2026 motivierte und engagierte\n\nWas du bei uns bewegst\n\nDu bist in der Füllabteilung Confiserie in unserer Manufaktur in Dietikon tätig und unterstützt das Team in einer bis zum 24. Dezember 2026 befristeten Anstellung. Deine regulären Arbeitszeiten erstrecken sich in der Regel von Montag bis Freitag von\n\n• 06.30 bis 11.20 Uhr\n\n• 12.45 bis 15.45 Uhr\nAuch Samstagseinsätze sind möglich\n\nDeine Aufgaben:\n\n• Ein- und Abpacken unserer beliebten Confiserie-Produkte in Bandarbeit\n\n• Einhaltung und Kontrolle der Sicherheits-, Hygiene- und Qualitätsvorgaben\n\n• Reinigungsarbeiten\n\nWas wir uns wünschen\n\n• Eine exakte und qualitätsbewusste Arbeitsweise sowie Belastbarkeit auch in hektischen Situationen\n\n• Gute körperliche Konstitution (stehende Arbeitstätigkeit) und gute Fingerfertigkeit\n\n• Konsequentes Einhalten unserer Hygienevorschriften\n\n• Flexibilität\n\n• Gute Deutschkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem leb-haften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen am Standort Dietikon.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nProduction temporaire jusqu'au 24 décembre 2026 (40-50%)\n\n40% - 50%, Dietikon\n\nTravailler chez Sprüngli\n\nDans notre usine à Dietikon, nous cherchons la prochaine saison de Sofort temporaire jusqu'à 24. Décembre 2026 motivé et engagé\n\nCe que tu fais avec nous\n\nVous travaillez dans le service de remplissage Confiserie dans notre usine à Dietikon et soutenir l'équipe dans un jusqu'au 24ème. Décembre 2026 emploi temporaire. Vos heures normales de travail s'étendent généralement du lundi au vendredi.\n\n• 06.30 à 11.20\n\n• 12 h 45 à 15 h 45\nLes missions du samedi sont également possibles\n\nVos tâches :\n\n• Emballage et emballage de nos produits Confiserie populaires en ruban adhésif\n\n• Respect et contrôle des exigences de sécurité, d'hygiène et de qualité\n\n• Travaux de nettoyage\n\nCe que nous voulons\n\n• Une méthode de travail exacte et soucieuse de la qualité ainsi que la résilience même dans les situations mouvementées\n\n• Bonne constitution physique (activité professionnelle permanente) et bonne dextérité\n\n• Respect constant de nos règles d'hygiène\n\n• Flexibilité\n\n• Bonne connaissance de l'allemand\n\nVous pouvez attendre avec impatience.\n\nUn espace de responsabilité polyvalent et stimulant vous attend dans un environnement animé et moderne avec une équipe motivée et une collégiale du-culture. Pour les vêtements de travail et leur nettoyage ainsi que pour diverses possibilités de restauration, entre autres dans notre restaurant du personnel, nous sommes heureux de fournir. Nous vous offrons un parking gratuit et de généreuses réductions d'achat à l'emplacement Dietikon.\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
+      },
+      "location": "Dietikon",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T21:48:30.440Z",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernstrasse 89",
+      "postalCode": "8953",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "applyUrl": "https://apply.refline.ch/116352/1232/pub/5/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1232",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
+        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
+        "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
+        "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon",
+          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiser-zhegpi",
+          "temporary-employee-production-until-24-december-2026-40-50-confiserie-sprungli-ag-dietikon",
+          "production-temporaire-jusqu-au-24-decembre-2026-40-50-confiserie-sprungli-ag-dietikon",
+          "temporarer-collaboratore-trice-innen-produktion-bis-24-dezember-2026-40-50-confiserie-sprungli-ag-dietikon"
+        ],
+        "en": [
+          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
+        ],
+        "fr": [
+          "temporarer-mitarbeiter-innen-produktion-bis-24-dezember-2026-40-50-spruengli-dietikon"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:18:24.557Z",
+      "salaryMin": 36800,
+      "salaryMax": 55800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36800,
+          "maxValue": 55800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-7bf74d7a97c5",
       "slug": "stv-filiale-manager-100-zona-di-zurigo-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
@@ -988,7 +997,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/52/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.068Z",
+      "crawledAt": "2026-08-18T21:48:30.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1086,7 +1095,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.066Z",
+      "crawledAt": "2026-08-18T21:48:30.438Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1174,7 +1183,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.065Z",
+      "crawledAt": "2026-08-18T21:48:30.437Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1266,7 +1275,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/36/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.063Z",
+      "crawledAt": "2026-08-18T21:48:30.436Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1335,8 +1344,8 @@
           "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:18:24.553Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:18:24.553Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1381,7 +1390,7 @@
       "url": "https://apply.refline.ch/116352/1239/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.060Z",
+      "crawledAt": "2026-08-18T21:48:30.435Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1463,7 +1472,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.059Z",
+      "crawledAt": "2026-08-18T21:48:30.434Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1543,7 +1552,7 @@
       "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.058Z",
+      "crawledAt": "2026-08-18T21:48:30.433Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1619,7 +1628,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.056Z",
+      "crawledAt": "2026-08-18T21:48:30.431Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1720,7 +1729,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/37/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.055Z",
+      "crawledAt": "2026-08-18T21:48:30.430Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1806,7 +1815,7 @@
       "url": "https://apply.refline.ch/116352/1193/pub/31/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.054Z",
+      "crawledAt": "2026-08-18T21:48:30.429Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Bahnhofplatz",
@@ -1847,8 +1856,8 @@
           "verkaufsberater-in-100-bahnhof-zug-confiserie-sprungli-ag-zug"
         ]
       },
-      "firstSeenAt": "2026-07-04T12:00:50.640Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:00:50.640Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1893,7 +1902,7 @@
       "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.050Z",
+      "crawledAt": "2026-08-18T21:48:30.427Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1979,7 +1988,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.049Z",
+      "crawledAt": "2026-08-18T21:48:30.425Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -2019,8 +2028,8 @@
           "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ]
       },
-      "firstSeenAt": "2026-07-04T12:00:50.638Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:00:50.638Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2065,7 +2074,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/25/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T09:49:43.048Z",
+      "crawledAt": "2026-08-18T21:48:30.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",

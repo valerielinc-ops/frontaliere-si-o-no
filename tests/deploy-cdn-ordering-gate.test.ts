@@ -24,8 +24,8 @@
 // catch: the near-miss test has a comfortable-margin counterpart, the
 // timeout test has a matched counterpart, and the "early CDN push only runs
 // section 2" test has an unflagged counterpart that must reach further.
-import { describe, it, expect } from 'vitest';
-import { execFileSync } from 'node:child_process';
+import { describe, it, expect, beforeAll } from 'vitest';
+import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -181,19 +181,45 @@ interface GateRun {
   summary: string;
 }
 
-function runGate(args: string[], env: Record<string, string> = {}): GateRun {
+// Every invocation gets its OWN tmpdir for GITHUB_OUTPUT/GITHUB_STEP_SUMMARY and
+// its OWN env object — nothing is shared between two runs, and the script itself
+// only ever writes inside that dir. That is what makes the parallel batches
+// below safe: `runGateAsync` is the same call, just not blocking the event loop.
+function gateFiles() {
   const dir = mkdtempSync(join(tmpdir(), 'cdn-gate-'));
   const outFile = join(dir, 'output');
   const sumFile = join(dir, 'summary');
   writeFileSync(outFile, '');
   writeFileSync(sumFile, '');
+  return { outFile, sumFile };
+}
+
+// `stdio` is deliberately NOT here: `execFileSync` takes it, `execFile` does
+// not. Everything the two runners genuinely share lives in this one place.
+function gateOpts(env: Record<string, string>, outFile: string, sumFile: string) {
+  return {
+    env: { PATH: process.env.PATH ?? '', GITHUB_OUTPUT: outFile, GITHUB_STEP_SUMMARY: sumFile, ...env },
+    encoding: 'utf8' as const,
+    timeout: 20000,
+  };
+}
+
+function collectGate(outFile: string, sumFile: string, code: number, stdout: string): GateRun {
+  const outputs: Record<string, string> = {};
+  for (const line of readFileSync(outFile, 'utf8').split('\n')) {
+    const eq = line.indexOf('=');
+    if (eq > 0) outputs[line.slice(0, eq)] = line.slice(eq + 1);
+  }
+  return { code, stdout, outputs, summary: readFileSync(sumFile, 'utf8') };
+}
+
+function runGate(args: string[], env: Record<string, string> = {}): GateRun {
+  const { outFile, sumFile } = gateFiles();
   let code = 0;
   let stdout = '';
   try {
     stdout = execFileSync('bash', [GATE_SH, ...args], {
-      env: { PATH: process.env.PATH ?? '', GITHUB_OUTPUT: outFile, GITHUB_STEP_SUMMARY: sumFile, ...env },
-      encoding: 'utf8',
-      timeout: 20000,
+      ...gateOpts(env, outFile, sumFile),
       stdio: ['ignore', 'pipe', 'pipe'],
     });
   } catch (e: unknown) {
@@ -201,12 +227,28 @@ function runGate(args: string[], env: Record<string, string> = {}): GateRun {
     code = err.status ?? 1;
     stdout = err.stdout?.toString() ?? '';
   }
-  const outputs: Record<string, string> = {};
-  for (const line of readFileSync(outFile, 'utf8').split('\n')) {
-    const eq = line.indexOf('=');
-    if (eq > 0) outputs[line.slice(0, eq)] = line.slice(eq + 1);
-  }
-  return { code, stdout, outputs, summary: readFileSync(sumFile, 'utf8') };
+  return collectGate(outFile, sumFile, code, stdout);
+}
+
+/**
+ * Same contract as `runGate`, without blocking the event loop — so a set of
+ * independent invocations can be spawned with `Promise.all` instead of one
+ * after the other. The gate spends its time in `sleep`, not on the CPU: the
+ * budget-burning cases below cost the same wall time each whether they run
+ * alone or nine at a time.
+ *
+ * The assertions that pin the budget (`cdn_waited_s`) stay deterministic under
+ * load because the script counts polls (`elapsed=$((elapsed + interval_s))`),
+ * it does not read a clock.
+ */
+function runGateAsync(args: string[], env: Record<string, string> = {}): Promise<GateRun> {
+  const { outFile, sumFile } = gateFiles();
+  return new Promise((resolvePromise) => {
+    execFile('bash', [GATE_SH, ...args], gateOpts(env, outFile, sumFile), (err, stdout) => {
+      const status = (err as { code?: number } | null)?.code;
+      resolvePromise(collectGate(outFile, sumFile, err ? (status ?? 1) : 0, stdout ?? ''));
+    });
+  });
 }
 
 function markerUrl(contents: string): string {
@@ -394,19 +436,13 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
     expect(r.summary, 'the shard is still unpublished and the locale still stale').toMatch(/STALE/);
   });
 
-  it('cancelled and timed_out count as dead too (same "ran and died" shape)', () => {
-    for (const conclusion of ['cancelled', 'timed_out']) {
-      const { _expected, ...env } = abortEnv(jobsPayload('completed', conclusion), 'old', 'new');
-      const r = runGate([_expected], env);
-      expect(r.code, `${conclusion} must not publish`).toBe(1);
-      expect(r.outputs.cdn_wait_result, `${conclusion} must abort early`).toBe('it_leg_failed');
-      expect(r.outputs.cdn_it_conclusion).toBe(conclusion);
-    }
-  });
-
-  // ── The four "not yet seen" shapes. Any one of these aborting would publish
+  // ── The "not yet seen" shapes. Any one of these aborting would publish
   //    a shard ahead of the CDN — the exact defect #2569 exists to prevent.
-  it.each([
+  //
+  // Each of these deliberately runs the 6s budget out (that IS the assertion:
+  // `cdn_waited_s === '6'`), so nine of them cost ~60s when spawned one after
+  // the other — 6% of the whole vitest suite for one file.
+  const NEGATIVE_CASES: [string, unknown][] = [
     ['still in_progress', jobsPayload('in_progress', null)],
     ['queued', jobsPayload('queued', null)],
     ['completed but successful', jobsPayload('completed', 'success')],
@@ -416,32 +452,91 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
     ['an empty job list', { jobs: [] }],
     ['a body with no jobs key at all', { message: 'Not Found' }],
     ['a failing API call', null],
-  ])('NEGATIVE CASE — %s → keeps waiting and ends as a plain timeout, never an abort', (_label, payload) => {
-    const { _expected, ...env } = abortEnv(payload, 'an-older-build-id', 'the-new-build-id');
-    const r = runGate([_expected], env);
-    expect(r.code, 'still must not publish — but for the OLD reason').toBe(1);
-    expect(r.outputs.cdn_wait_result, 'must NOT claim the IT leg is dead').toBe('timeout');
-    expect(r.outputs.cdn_it_conclusion).toBeUndefined();
-    // Spent the whole budget: proof it really kept polling rather than
-    // short-circuiting on an ambiguous answer.
-    expect(r.outputs.cdn_waited_s).toBe('6');
-    expect(r.stdout).not.toMatch(/ABORTED/);
+  ];
+
+  /**
+   * Every gate invocation in this describe whose test does NOT measure wall
+   * time, spawned in one batch instead of one after the other.
+   *
+   * Safe because the invocations share nothing: `abortEnv` mints a fresh fake
+   * `gh` dir and a fresh marker file per call, `runGateAsync` mints a fresh
+   * GITHUB_OUTPUT/GITHUB_STEP_SUMMARY pair, the env object is built per call
+   * and never mutated, and the script writes nowhere else — no cwd change, no
+   * module state, no fixed path. The one test that DOES time itself (the
+   * first-poll abort below) is deliberately left out of the batch: its
+   * `Date.now()` assertion is only meaningful on an unloaded spawn.
+   */
+  const gateRuns = new Map<string, GateRun>();
+  const DEAD_CONCLUSIONS = ['cancelled', 'timed_out'];
+  const RACE_KEY = 'race:marker-matches-anyway';
+
+  beforeAll(async () => {
+    const jobs: [string, Promise<GateRun>][] = [
+      ...NEGATIVE_CASES.map(([label, payload]): [string, Promise<GateRun>] => {
+        const { _expected, ...env } = abortEnv(payload, 'an-older-build-id', 'the-new-build-id');
+        return [label, runGateAsync([_expected], env)];
+      }),
+      ...DEAD_CONCLUSIONS.map((conclusion): [string, Promise<GateRun>] => {
+        const { _expected, ...env } = abortEnv(jobsPayload('completed', conclusion), 'old', 'new');
+        return [conclusion, runGateAsync([_expected], env)];
+      }),
+      // The IT leg pushes the CDN payload early (deploy-it-pages-prep.sh's
+      // DEPLOY_CDN_PUSH_ONLY phase) and can still fail in a LATER step: marker
+      // and job state disagree on purpose here.
+      (() => {
+        const { _expected, ...env } = abortEnv(
+          jobsPayload('completed', 'failure'),
+          'the-new-build-id',
+          'the-new-build-id',
+        );
+        return [RACE_KEY, runGateAsync([_expected], env)] as [string, Promise<GateRun>];
+      })(),
+    ];
+    const settled = await Promise.all(jobs.map(([, p]) => p));
+    jobs.forEach(([key], i) => gateRuns.set(key, settled[i]));
+  }, 120_000);
+
+  /** The recorded run for `key`, with a loud failure if the batch missed it. */
+  function recorded(key: string): GateRun {
+    const r = gateRuns.get(key);
+    expect(r, `no recorded gate run for "${key}"`).toBeDefined();
+    return r as GateRun;
+  }
+
+  it('cancelled and timed_out count as dead too (same "ran and died" shape)', () => {
+    for (const conclusion of DEAD_CONCLUSIONS) {
+      const r = recorded(conclusion);
+      expect(r.code, `${conclusion} must not publish`).toBe(1);
+      expect(r.outputs.cdn_wait_result, `${conclusion} must abort early`).toBe('it_leg_failed');
+      expect(r.outputs.cdn_it_conclusion).toBe(conclusion);
+    }
   });
 
+  it.each(NEGATIVE_CASES)(
+    'NEGATIVE CASE — %s → keeps waiting and ends as a plain timeout, never an abort',
+    (label) => {
+      const r = recorded(label);
+      expect(r.code, 'still must not publish — but for the OLD reason').toBe(1);
+      expect(r.outputs.cdn_wait_result, 'must NOT claim the IT leg is dead').toBe('timeout');
+      expect(r.outputs.cdn_it_conclusion).toBeUndefined();
+      // Spent the whole budget: proof it really kept polling rather than
+      // short-circuiting on an ambiguous answer.
+      expect(r.outputs.cdn_waited_s).toBe('6');
+      expect(r.stdout).not.toMatch(/ABORTED/);
+    },
+  );
+
   it('RACE — a marker that matches wins even when the IT leg is already dead', () => {
-    // The IT leg pushes the CDN payload early (deploy-it-pages-prep.sh's
-    // DEPLOY_CDN_PUSH_ONLY phase) and can still fail in a LATER step. The
-    // payload IS live, so the shard is safe to publish and the abort must not
-    // steal that. This is why the jobs API is consulted BEFORE the marker poll:
-    // the marker read is the last word.
-    const { _expected, ...env } = abortEnv(jobsPayload('completed', 'failure'), 'the-new-build-id', 'the-new-build-id');
-    const r = runGate([_expected], env);
+    // The payload IS live, so the shard is safe to publish and the abort must
+    // not steal that. This is why the jobs API is consulted BEFORE the marker
+    // poll: the marker read is the last word.
+    const r = recorded(RACE_KEY);
     expect(r.code, 'the CDN holds this build — publishing is correct').toBe(0);
     expect(r.outputs.cdn_wait_result).toBe('matched');
     expect(r.stdout).not.toMatch(/ABORTED/);
   });
 
-  it('the abort is OFF unless every precondition is met, and says which one is missing', () => {
+  it('the abort is OFF unless every precondition is met, and says which one is missing', async () => {
     // 1s budget, not the 6s used above: this test asserts WHICH precondition is
     // reported, and each of the four cases has to run the budget out.
     const base = { ...abortEnv(jobsPayload('completed', 'failure'), 'old', 'new'), CDN_WAIT_TIMEOUT_S: '1' };
@@ -453,14 +548,21 @@ describe('wait-cdn-build-id.sh — abort the moment the IT leg can no longer pub
       // This PATH has those and ONLY those, so `gh` is genuinely absent.
       ['gh missing', { PATH: pathWithoutGh() }, /gh CLI not on PATH/],
     ];
-    for (const [label, override, why] of cases) {
-      const { _expected, ...env } = { ...base, ...override };
-      const r = runGate([_expected], env);
+    // The four differ only in which env key is blanked; each still burns its own
+    // budget, so they are spawned together rather than in series.
+    const runs = await Promise.all(
+      cases.map(([, override]) => {
+        const { _expected, ...env } = { ...base, ...override };
+        return runGateAsync([_expected], env);
+      }),
+    );
+    cases.forEach(([label, , why], i) => {
+      const r = runs[i];
       // Degrades to the pre-#5331 behaviour — never to an early publish.
       expect(r.code, `${label}: must still refuse to publish`).toBe(1);
       expect(r.outputs.cdn_wait_result, `${label}: must fall back to the plain timeout`).toBe('timeout');
       expect(r.stdout, `${label}: must name the missing precondition`).toMatch(why);
-    }
+    });
   });
 });
 
@@ -521,9 +623,28 @@ function runPrep(env: Record<string, string>): { code: number; stdout: string } 
   }
 }
 
+/**
+ * `runPrep` is a pure function of its env: a fresh temp cwd, no network (no
+ * CDN_DEPLOY_KEY), no shared state. Two of the cases below assert *different*
+ * things about the *same* invocation — "goes on past the CDN push" and "still
+ * performs the push itself" are both properties of the unflagged run — so the
+ * script is executed once and both read that one stdout, instead of paying for
+ * an identical second spawn.
+ */
+const prepRuns = new Map<string, { code: number; stdout: string }>();
+function runPrepOnce(env: Record<string, string>): { code: number; stdout: string } {
+  const key = JSON.stringify(Object.entries(env).sort());
+  let r = prepRuns.get(key);
+  if (!r) {
+    r = runPrep(env);
+    prepRuns.set(key, r);
+  }
+  return r;
+}
+
 describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and nothing else', () => {
   it('with the flag: the early phase returns after the CDN push, without touching the rest of the prep', () => {
-    const r = runPrep({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
+    const r = runPrepOnce({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
     expect(r.code, 'the early phase must never fail the leg').toBe(0);
     expect(r.stdout, 'must run the CDN push section').toMatch(/no offloadable assets present|skipping CDN push|CDN payload/);
     // The full prep's terminal marker must NOT appear: the tar pack, the byte
@@ -536,7 +657,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     // Proves the flag is what stops the script, not an unrelated early return:
     // unflagged, execution reaches the fatal drop-assets/tar section (and, in
     // this bare temp dir with no CDN push, fails there).
-    const r = runPrep({ CDN_TARGET: 'pages' });
+    const r = runPrepOnce({ CDN_TARGET: 'pages' });
     expect(r.stdout, 'unflagged run must not stop at the early phase').not.toMatch(/early CDN push/);
     expect(
       r.stdout + String(r.code),
@@ -546,14 +667,14 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
 
   it('a CDN_BASE already exported by the early phase makes the full prep SKIP its own push', () => {
     // This is the handshake that keeps the payload published exactly once.
-    const r = runPrep({ CDN_BASE: 'https://cdn.frontaliereticino.ch', CDN_TARGET: 'pages' });
+    const r = runPrepOnce({ CDN_BASE: 'https://cdn.frontaliereticino.ch', CDN_TARGET: 'pages' });
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
   });
 
   it('NEGATIVE CASE — without CDN_BASE the full prep still performs the push itself', () => {
     // The pre-hoist behaviour must survive verbatim, so a failed early push
     // degrades to "pushed at the original position", never to "never pushed".
-    const r = runPrep({ CDN_TARGET: 'pages' });
+    const r = runPrepOnce({ CDN_TARGET: 'pages' });
     expect(r.stdout).not.toMatch(/skipping the CDN push/);
     expect(r.stdout).toMatch(/no offloadable assets present|skipping CDN push, assets stay in dist|CDN payload/);
   });

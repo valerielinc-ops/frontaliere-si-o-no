@@ -3370,6 +3370,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Ospedale Grigioni: 518 milioni per nuova ala',
     'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Dodici anni di cantiere terminano. L\'ospedale cantonale dei Grigioni a Coira inaugura la nuova struttura con 518 milioni di franchi investiti. Sale operatorie aumentate, trasloco fine novembre.',
     'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Ospedale cantonale dei Grigioni, nuova ala con architettura moderna e accesso al pronto soccorso unico',
+    'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Ospedale Grigioni: 518 milioni per 12 anni',
+    'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'La nuova ala dell\'Ospedale cantonale dei Grigioni entra in servizio a fine novembre 2026 dopo 518 milioni investiti. Sale operatorie aumentano da 10 a 13.',
+    'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Nuova ala dell\'Ospedale cantonale dei Grigioni a Coira: edificio moderno a 5 piani con ampliamento della capacità operatoria',
+    'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologo: 90mila franchi per 1,5 giorni di lavoro',
+    'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Dati trapelati rivelano stipendi tra 90mila e 475mila franchi annui. Baume-Schneider attacca i bonus legati al fatturato nel sistema sanitario svizzero.',
+    'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Ambulatorio radiologico con apparecchiatura per risonanza magnetica in una clinica svizzera',
+    'blog.article.soglie-patrimonio-banche-svizzera.title': 'Se hai questi soldi, le banche ti considerano benestante',
+    'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Dalle banche regionali agli istituti privati: scopri le soglie di patrimonio che classificano i clienti e quali vantaggi offre il cambio di categoria.',
+    'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Ufficio bancario moderno in Svizzera con documenti finanziari e gestione patrimoniale sulla scrivania',
 };
 
 export default blogMetaChIt;

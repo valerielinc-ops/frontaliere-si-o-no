@@ -3370,6 +3370,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ospedale-grigioni-ampliamento-2026.title': 'Spital Graubünden: 518 Millionen für neuen Flügel',
     'blog.article.ospedale-grigioni-ampliamento-2026.excerpt': 'Zwölf Baujahre gehen zu Ende. Das Kantonsspital Graubünden in Chur weiht die neue Struktur mit 518 Millionen Franken ein. Erhöhte Operationssäle, Umzug Ende November.',
     'blog.article.ospedale-grigioni-ampliamento-2026.imageAlt': 'Kantonalspital Graubünden, moderner Flügel mit fünf Etagen und einheitlichem Notfalleingang',
+    'blog.article.ospedale-grigioni-ampliamento-500m.title': 'Spital Graubünden: 518 Millionen für 12 Jahre',
+    'blog.article.ospedale-grigioni-ampliamento-500m.excerpt': 'Der neue Flügel des Kantonsspitals Graubünden wird Ende November 2026 nach Investitionen von 518 Millionen in Betrieb genommen. Operationssäle werden von 10 auf 13 erhöht.',
+    'blog.article.ospedale-grigioni-ampliamento-500m.imageAlt': 'Neuer Flügel des Kantonsspitals Graubünden in Chur: modernes 5-stöckiges Gebäude mit erweiterten Operationssälen',
+    'blog.article.stipendi-radiologi-bonus-svizzera.title': 'Radiologe: 90.000 Franken für 1,5 Arbeitstage',
+    'blog.article.stipendi-radiologi-bonus-svizzera.excerpt': 'Durchgesickerte Daten zeigen Gehälter zwischen 90.000 und 475.000 Franken pro Jahr. Baume-Schneider greift Umsatzprämien im Schweizer Gesundheitssystem an.',
+    'blog.article.stipendi-radiologi-bonus-svizzera.imageAlt': 'Radiologische Abteilung mit MRT-Gerät in einer Schweizer Klinik',
+    'blog.article.soglie-patrimonio-banche-svizzera.title': 'Wenn Sie dieses Geld haben, betrachten die Banken Sie als wohlhabend',
+    'blog.article.soglie-patrimonio-banche-svizzera.excerpt': 'Von Regionalbanken bis hin zu Privatinstituten: Erfahren Sie, welche Eigenkapitalschwellen Kunden kategorisieren und welche Vorteile ein Wechsel der Kategorie mit sich bringt.',
+    'blog.article.soglie-patrimonio-banche-svizzera.imageAlt': 'Modernes Schweizer Bankbüro mit Finanzdokumenten und Vermögensmanagement-Schreibtisch',
 };
 
 export default blogMetaChDe;

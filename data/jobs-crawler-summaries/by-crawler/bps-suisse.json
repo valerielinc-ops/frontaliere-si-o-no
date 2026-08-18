@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-08-18T09:49:19.099Z",
+  "generatedAt": "2026-08-18T22:16:09.545Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6274,
-  "avgDurationMs": 6274,
+  "unchangedCount": 4,
+  "durationMs": 6709,
+  "avgDurationMs": 6709,
   "durationHistory": [
-    6274
+    6709
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-18",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-18T09:49:14.282Z",
+      "crawledAt": "2026-08-18T22:16:04.704Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,7 +79,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-18",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-18T09:49:15.206Z",
+      "crawledAt": "2026-08-18T22:16:05.980Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -86,6 +88,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -117,7 +120,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-18",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-18T09:49:15.651Z",
+      "crawledAt": "2026-08-18T22:16:06.582Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -157,7 +160,7 @@
       "currency": "CHF",
       "postedDate": "2026-08-18",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-08-18T09:49:16.074Z",
+      "crawledAt": "2026-08-18T22:16:07.133Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -166,6 +169,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "firstSeenAt": "2026-07-07T11:59:13.173Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -174,7 +178,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

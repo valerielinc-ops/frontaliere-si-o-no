@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // _callClaudeCli spawna `node:child_process` direttamente (non fetch, a
@@ -7,6 +8,29 @@ const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
 import { AI_MODELS, callLLM, resetState } from '../../scripts/lib/ai-models.mjs';
+
+/**
+ * Il minimo per-chiamata del CLI, LETTO DAL SORGENTE e non ricopiato.
+ *
+ * Questi test avanzano timer finti, quindi hanno bisogno di un numero — ma
+ * fissarlo come letterale li lega a una taratura. E' gia' costato: erano
+ * inchiodati a `120_000` e sono diventati rossi appena il minimo si e' mosso,
+ * senza che la proprieta' sotto test fosse cambiata di una virgola. Derivarlo
+ * qui li rende asserzioni sull'ORDINE (la chiamata scade quando scade il
+ * minimo) invece che sul valore.
+ *
+ * Nota: `chiama()` non passa `deadlineMs`, quindi il ramo che fa crescere il
+ * timeout dentro l'allowance residua non si attiva e il tempo concesso e'
+ * esattamente questo minimo.
+ */
+const AI_MODELS_SRC = readFileSync(
+  new URL('../../scripts/lib/ai-models.mjs', import.meta.url),
+  'utf-8',
+);
+const FLOOR_MS = Number(
+  /const CLAUDE_CLI_MIN_TIMEOUT_MS = ([\d_]+);/.exec(AI_MODELS_SRC)![1].replace(/_/g, ''),
+);
+
 
 /**
  * ── «0 BYTE A 120s» NON ERA UNA DIAGNOSI ────────────────────────────────────
@@ -191,14 +215,21 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
     beforeEach(() => { vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'] }); });
 
     it('«nessun evento»: la CLI non e\' mai partita', async () => {
-      // La firma esatta della produzione: 120000ms, zero byte, stderr vuoto.
-      // Prima diceva solo «0 bytes», che una chiamata sana produce comunque
-      // fino a 8442ms su 8995ms — cioe' non diceva niente.
+      // Zero byte e stderr vuoto. Prima diceva solo «0 bytes», che una
+      // chiamata sana produce comunque fino a 8442ms su 8995ms — cioe' non
+      // diceva niente.
+      //
+      // E infatti non diceva niente: col floor a 120s la produzione riportava
+      // «0 bytes» su OGNI timeout, e la diagnostica di questo file ha poi
+      // mostrato che erano chiamate a 71-84 KB ferme dopo `assistant` (run
+      // 32161215947). Il caso qui sotto — CLI davvero mai partita — resta reale
+      // ma non e' piu' la firma comune: e' quello che «0 bytes» confondeva con
+      // gli altri due.
       spawnMock.mockImplementation(cliAppesoDopo([]));
 
       const promise = chiama();
       const assertion = expect(promise).rejects.toThrow(/nessun evento \(il CLI non ne ha scritto uno solo/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
@@ -207,7 +238,7 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
       const promise = chiama();
       const assertion = expect(promise).rejects.toThrow(/fermo dopo system\/init a \d+ms/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
@@ -220,7 +251,7 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
       const promise = chiama();
       const assertion = expect(promise).rejects.toThrow(/fermo dopo assistant a \d+ms/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
@@ -236,7 +267,7 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
       const promise = chiama();
       const assertion = expect(promise).rejects.toThrow(/rate_limit_event a \d+ms \(status=rejected, tipo=five_hour\)/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
@@ -249,7 +280,7 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
       const promise = chiama();
       const assertion = expect(promise).rejects.toThrow(/nessun rate_limit_event/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
@@ -258,7 +289,7 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
       const promise = chiama();
       const assertion = expect(promise).rejects.toThrow(/stdout: 0 bytes \(nessun byte scritto dal processo\)/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
@@ -266,8 +297,8 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
       spawnMock.mockImplementation(cliAppesoDopo([]));
 
       const promise = chiama();
-      const assertion = expect(promise).rejects.toThrow(/claude CLI timed out after 120000ms/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      const assertion = expect(promise).rejects.toThrow(/claude CLI timed out after \d+ms/);
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
   });

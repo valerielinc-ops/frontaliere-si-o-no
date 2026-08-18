@@ -1,16 +1,16 @@
 {
   "key": "tl-lausanne",
   "label": "tl (Transports publics de la région lausannoise)",
-  "generatedAt": "2026-08-18T09:47:26.986Z",
+  "generatedAt": "2026-08-18T21:32:29.253Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6977,
-  "avgDurationMs": 6977,
+  "durationMs": 6407,
+  "avgDurationMs": 6407,
   "durationHistory": [
-    6977
+    6407
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-ferroviaire-Installations-de-S%C3%A9curit%C3%A9/1425742733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T09:47:21.816Z",
+      "crawledAt": "2026-08-18T21:32:24.824Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Approvisionnement-Supply-Chain-Ferroviaire/1424618233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T09:47:22.424Z",
+      "crawledAt": "2026-08-18T21:32:25.464Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Environnement/1422101133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T09:47:23.033Z",
+      "crawledAt": "2026-08-18T21:32:26.094Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T09:47:23.647Z",
+      "crawledAt": "2026-08-18T21:32:26.729Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,49 +167,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "tl-lausanne-a5136e497189",
-      "slug": "infrastrutture-e-progetti-di-costruzione-tl-transports-publics-de-la-region-lausannoise-lausanne",
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Spécialiste planification des projets d'infrastructures et bâtiments",
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Sp%C3%A9cialiste-planification-des-projets-d'infrastructures-et-b%C3%A2timents/1409785733/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-16T21:22:36.405Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "category": "Trasporto pubblico urbano (TPL)",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-30",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1409785733/?locale=fr_FR",
-      "streetAddress": "Chemin du Closel 15-17",
-      "firstSeenAt": "2026-07-04T12:29:32.758Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "tl-lausanne-0050186a1d33",
@@ -242,7 +200,8 @@
       "firstSeenAt": "2026-07-23T22:06:27.045Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
