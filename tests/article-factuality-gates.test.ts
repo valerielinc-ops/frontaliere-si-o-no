@@ -612,6 +612,27 @@ describe('checkFabricatedNormAcronyms', () => {
     ))).toContain('fabricated-norm-acronym');
   });
 
+  // #6017 item 2/3: LCL e LCO, misurate sul corpus tirato con la stessa
+  // firma di fabbricazione — LCL fabbrica due leggi diverse e incompatibili
+  // (naturalizzazione cantonale 2020 vs legge cantonale sul lavoro 1995),
+  // LCO e' consistente ma inesistente e sopravvive identica a it/en/de/fr.
+  it('flags LCL, whose two spelled-out forms are two different, incompatible laws', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'La legge cantonale sulla naturalizzazione del Cantone di Lucerna e\' stata modificata nel 2020 (LCL 2020, art. 15).',
+    ))).toContain('fabricated-norm-acronym');
+    expect(codes(checkFabricatedNormAcronyms(
+      'La legge cantonale sul lavoro (LCL) del 15 dicembre 1995 prevede una retribuzione minima.',
+    ))).toContain('fabricated-norm-acronym');
+  });
+
+  it('flags LCO, an invented federal act that survives translation unchanged', () => {
+    const issues = checkFabricatedNormAcronyms(
+      'The key legislation is the Federal Act on Combating Organized Crime (LCO), adopted in 2013.',
+    );
+    expect(codes(issues)).toContain('fabricated-norm-acronym');
+    expect(issues[0].message).toContain('LCO');
+  });
+
   // Il confine e' su LETTERE, non `\b`: queste due sono norme VERE e il gate le
   // deve lasciare passare, altrimenti blocca contenuto legittimo.
   it('leaves MLPS and TULPS alone — real norms that contain the letters', () => {
