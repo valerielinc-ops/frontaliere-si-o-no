@@ -55,7 +55,7 @@ import { Analytics } from '@/services/analytics';
 import { registerSuperProperty } from '@/services/posthog';
 import { isLikelyBot } from '@/services/botPatterns';
 import { resolveAdBlockAbBucket, type AdBlockAbBucket } from '@/services/adBlockAbTest';
-import { detectAdBlock } from '@/services/adBlockDetection';
+import { detectAdBlockDetailed } from '@/services/adBlockDetection';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
@@ -261,8 +261,19 @@ const AdBlockGate: React.FC = () => {
     // reloaded itself from the gate, and this is where that path's outcome
     // becomes observable at all.
     const cameBackFromGateReload = consumeReloadMarker();
-    detectAdBlock().then((blocked) => {
+    detectAdBlockDetailed().then(({ blocked, adsAllowed }) => {
       if (cancelled) return;
+      // Funding Choices says this visitor already allowlisted the site. They
+      // did exactly what the gate asks for, possibly through Google's own
+      // recovery message rather than ours — gating them again would punish
+      // the one action we wanted. Their ads may still be blocked elsewhere on
+      // the page, so `blocked` alone is not enough to tell the two apart.
+      if (adsAllowed) {
+        if (cameBackFromGateReload) {
+          try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'outcome', 'disabled', 'allowlisted'); } catch { /* no-op */ }
+        }
+        return;
+      }
       if (cameBackFromGateReload) {
         // A reload is the only way a paused blocker stops reporting itself:
         // cosmetic filter rules already injected into the previous document
@@ -306,8 +317,8 @@ const AdBlockGate: React.FC = () => {
     if (isLikelyBot() || isEngagedVisitor()) return;
 
     let cancelled = false;
-    detectAdBlock().then((blocked) => {
-      if (cancelled || !blocked) return;
+    detectAdBlockDetailed().then(({ blocked, adsAllowed }) => {
+      if (cancelled || !blocked || adsAllowed) return;
       outcomeLoggedRef.current = false;
       tabHiddenLoggedRef.current = false;
       setRecheckFailed(false);
@@ -371,16 +382,26 @@ const AdBlockGate: React.FC = () => {
   // Most ad blockers apply cosmetic CSS hiding rules via a content script
   // that only runs on page load — pausing/disabling the extension mid-session
   // does not retroactively strip the already-injected rules, so the bait
-  // element in detectAdBlock() keeps reporting "blocked" until the page is
-  // reloaded (the network-level signal alone updates live, but detectAdBlock
-  // ORs it with the stale cosmetic signal). A second failed check offers an
+  // element in the heuristic fallback keeps reporting "blocked" until the page
+  // is reloaded (the network-level signal alone updates live, but the probe ORs
+  // it with the stale cosmetic one). Funding Choices' getAllowAdsStatus() is
+  // exempt from this — it reports the allowlisting itself, not a side effect of
+  // it, which is why the recheck consults it first. A second failed check offers an
   // explicit reload instead of leaving the visitor re-clicking a button that
   // can never succeed without one.
   const handleRecheck = async () => {
     trackPopupEvent('popup_cta_adblock', 'recheck_cta');
     setRechecking(true);
     try {
-      const stillBlocked = await detectAdBlock();
+      // `live`: the Funding Choices snapshot was taken at page load, when the
+      // blocker was still on. Trusting its verdict here would answer the
+      // question the visitor just changed the answer to.
+      const { blocked: stillBlocked, adsAllowed } = await detectAdBlockDetailed({ live: true });
+      if (adsAllowed) {
+        trackPopupEvent('popup_adblock_disable', 'adblock_allowlisted_confirmed');
+        closeGate('disabled');
+        return;
+      }
       if (!stillBlocked) {
         trackPopupEvent('popup_adblock_disable', 'adblock_disabled_confirmed');
         closeGate('disabled');
