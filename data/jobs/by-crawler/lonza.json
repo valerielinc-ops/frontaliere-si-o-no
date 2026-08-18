@@ -3059,16 +3059,14 @@
         "biotechnologist-m-f-d-lonza-ch",
         "biotechnologist-m-f-d-lonza-ch-2",
         "biotechnologist-m-w-d-lonza-ch-j4go5d",
-        "biotechnologist-m-f-d-lonza-ch-j4go5d",
-        "biotecnologo-m-f-d-lonza-ch-88e8b4"
+        "biotechnologist-m-f-d-lonza-ch-j4go5d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biotechnologist-m-f-d-lonza-ch",
           "biotechnologist-m-f-d-lonza-ch-2",
           "biotechnologist-m-w-d-lonza-ch-j4go5d",
-          "biotechnologist-m-f-d-lonza-ch-j4go5d",
-          "biotecnologo-m-f-d-lonza-ch-88e8b4"
+          "biotechnologist-m-f-d-lonza-ch-j4go5d"
         ],
         "fr": [
           "biotechnologist-m-f-d-lonza-ch-2"
@@ -14714,14 +14712,12 @@
       "jobReqId": "R78404",
       "previousSlugs": [
         "laborant-wissenschaftler-analytische-entwicklung-small-molecules-80-100-m-w-d-lonza-ch",
-        "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-visp",
-        "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-ch-8e5b10"
+        "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-wissenschaftler-analytische-entwicklung-small-molecules-80-100-m-w-d-lonza-ch",
-          "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-visp",
-          "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-ch-8e5b10"
+          "laboratorio-scienziato-sviluppo-analitico-piccoli-molecole-80-100-m-f-d-lonza-visp"
         ],
         "en": [
           "laborant-wissenschaftler-analytische-entwicklung-small-molecules-80-100-m-w-d-lonza-ch"
@@ -15019,23 +15015,21 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-18T09:46:13.163Z",
       "jobReqId": "R76795",
+      "previousSlugsByLocale": {
+        "de": [
+          "praktikant-mintworld-50-m-w-d-lonza-ch"
+        ],
+        "it": [
+          "praktikant-mintworld-50-m-w-d-lonza-ch",
+          "praktikant-mintworld-80-100-m-w-d-lonza-ch"
+        ]
+      },
       "previousSlugs": [
         "praktikant-mintworld-50-m-w-d-lonza-ch",
         "praktikant-mintworld-80-100-m-w-d-lonza-ch",
         "intern-mintworld-80-100-m-f-d-lonza-ch"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-mintworld-50-m-w-d-lonza-ch",
-          "praktikant-mintworld-80-100-m-w-d-lonza-ch",
-          "intern-mintworld-80-100-m-f-d-lonza-ch"
-        ],
-        "de": [
-          "praktikant-mintworld-50-m-w-d-lonza-ch"
-        ]
-      },
       "firstSeenAt": "2026-07-27T12:40:55.027Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -15048,14 +15042,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "lonza-24b8abfd24a2",
       "slug": "operatore-pharmaceutical-manufacturing-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "operatore-pharmaceutical-manufacturing-80-100-lonza-ch",
         "en": "operator-pharmaceutical-manufacturing-80-100-lonza-ch",
+        "it": "operatore-pharmaceutical-manufacturing-80-100-lonza-ch",
         "de": "betreiber-pharmazeutische-herstellung-80-100-lonza-ch",
         "fr": "operateur-pharmaceutical-manufacturing-80-100-lonza-ch"
       },

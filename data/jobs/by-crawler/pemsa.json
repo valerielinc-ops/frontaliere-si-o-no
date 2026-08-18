@@ -269,7 +269,7 @@
       },
       "slugByLocale": {
         "it": "imbianchino-pemsa-riddes",
-        "en": "imbianchino-pemsa-riddes",
+        "en": "whitening-pemsa-riddes",
         "de": "aufhellung-pemsa-riddes",
         "fr": "blanchiment-pemsa-riddes"
       },
@@ -2244,8 +2244,8 @@
         }
       },
       "firstSeenAt": "2026-08-13T10:23:26.209Z",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Muratore e carpentiere",
@@ -2789,7 +2789,6 @@
           "idraulico-impianti-riscaldamento-pemsa-mendrisio",
           "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
           "hydraulische-heilpflanzen-pemsa-lugano",
-          "hydraulische-anlagen-heizung-pemsa-lugano",
           "heizanlagen-mechaniker-pemsa-lugano"
         ]
       },
@@ -4034,11 +4033,9 @@
       "firstSeenAt": "2026-08-07T21:49:32.782Z",
       "previousSlugsByLocale": {
         "en": [
-          "gardens-pemsa-bellinzona",
           "gardener-pemsa-bellinzona"
         ],
         "fr": [
-          "jardins-pemsa-bellinzona",
           "jardinier-pemsa-bellinzona"
         ],
         "de": [
@@ -4856,12 +4853,10 @@
         ],
         "en": [
           "mason-carpenter-pemsa-bellinzona",
-          "carpenters-pemsa-bellinzona",
           "carpenter-pemsa-bellinzona"
         ],
         "fr": [
           "macon-charpentier-pemsa-bellinzona",
-          "charpentiers-pemsa-bellinzona",
           "charpentier-pemsa-bellinzona"
         ],
         "de": [

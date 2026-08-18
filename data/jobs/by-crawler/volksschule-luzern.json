@@ -707,14 +707,9 @@
       "applyUrl": "https://job.stadtluzern.ch/stellen/musik-volksschule/offene-stellen/stellvertretung-fuer-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf/61b7e402-92ec-4180-8079-848db3b5fed3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretung-fur-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf-volksschule-luzern",
-        "stellvertretung-per-la-3-4-klasse-e-5-6-klasse-schulhaus-mariahilf-volksschule-stadt-luzern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-fur-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf-volksschule-luzern",
-          "stellvertretung-per-la-3-4-klasse-e-5-6-klasse-schulhaus-mariahilf-volksschule-stadt-luzern"
+          "stellvertretung-fur-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf-volksschule-luzern"
         ],
         "en": [
           "stellvertretung-fur-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf-volksschule-luzern"
@@ -723,7 +718,9 @@
           "stellvertretung-fur-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf-volksschule-luzern"
         ]
       },
-      "firstSeenAt": "2026-08-17T09:53:31.682Z",
+      "previousSlugs": [
+        "stellvertretung-fur-die-3-4-klasse-und-5-6-klasse-schulhaus-mariahilf-volksschule-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -735,15 +732,16 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T09:53:31.682Z"
     },
     {
       "id": "volksschule-luzern-bcda98f8750e",
       "slug": "fach-e-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen-volksschule-stadt-luzern",
       "slugByLocale": {
+        "de": "fach-und-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen",
         "it": "fach-e-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen-volksschule-stadt-luzern",
         "en": "specialist-and-support-teacher-at-a-5th-grade-school-house-hubelmatt-20-to-26-lessons-volksschule-stadt-luzern-luzern",
-        "de": "fach-und-forderlehrperson-an-einer-5-klasse-schulhaus-hubelmatt-20-bis-26-lektionen",
         "fr": "specialiste-et-enseignant-de-soutien-en-5e-annee-maison-scolaire-hubelmatt-20-a-26-lecons-volksschule-stadt-luzern"
       },
       "company": "Volksschule Stadt Luzern",
@@ -817,11 +815,11 @@
     },
     {
       "id": "volksschule-luzern-6b564071cf66",
-      "slug": "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-stadt-luzern-luzern",
+      "slug": "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-stadt-luzern-luzern",
-        "en": "specialist-instructor-5th-grade-school-house-hubelmatt-6-lessons-volksschule-stadt-luzern-luzern",
         "de": "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-luzern-luzern",
+        "it": "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern",
+        "en": "specialist-instructor-5th-grade-school-house-hubelmatt-6-lessons-volksschule-stadt-luzern-luzern",
         "fr": "instructeur-specialise-5eme-annee-maison-scolaire-hubelmatt-6-lecons-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
@@ -879,12 +877,14 @@
       "firstSeenAt": "2026-08-17T21:28:39.058Z",
       "previousSlugs": [
         "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-luzern-luzern",
-        "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern"
+        "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern",
+        "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-luzern-luzern",
-          "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern"
+          "istruttore-specializzato-5-grado-casa-di-scuola-hubelmatt-6-lezioni-volksschule-stadt-luzern-luzern",
+          "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-stadt-luzern-luzern"
         ],
         "en": [
           "fachlehrperson-5-klasse-schulhaus-hubelmatt-6-lektionen-volksschule-luzern-luzern"
@@ -898,9 +898,9 @@
       "id": "volksschule-luzern-67b0c69a8908",
       "slug": "insegnante-di-sviluppo-5-grado-casa-di-scuola-hubelmatt-14-a-20-lezioni-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
+        "de": "forderlehrperson-5-klasse-schulhaus-hubelmatt-14-bis-20-lektionen-volksschule-luzern",
         "it": "insegnante-di-sviluppo-5-grado-casa-di-scuola-hubelmatt-14-a-20-lezioni-volksschule-stadt-luzern-luzern",
         "en": "development-teacher-5th-grade-school-house-hubelmatt-14-to-20-lessons-volksschule-stadt-luzern-luzern",
-        "de": "forderlehrperson-5-klasse-schulhaus-hubelmatt-14-bis-20-lektionen-volksschule-luzern",
         "fr": "professeur-de-developpement-5eme-annee-maison-scolaire-hubelmatt-14-a-20-lecons-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",

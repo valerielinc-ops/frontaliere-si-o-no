@@ -833,9 +833,9 @@
       "id": "ksml-2d70f13f92f6",
       "slug": "da-fiducia-attiva-lo-sviluppo-impara-l-accompagnamento-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40052",
       "slugByLocale": {
+        "de": "vertrauen-schenken-entwicklung-ermoglichen-lernen-begleiten-primarschule-pestalozzi-thun-40052",
         "it": "da-fiducia-attiva-lo-sviluppo-impara-l-accompagnamento-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40052",
         "en": "give-confidence-enable-development-accompany-learning-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40052",
-        "de": "vertrauen-schenken-entwicklung-ermoglichen-lernen-begleiten-primarschule-pestalozzi-thun-40052",
         "fr": "donnez-confiance-activer-le-developpement-accompagner-l-apprentissage-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40052"
       },
       "slugDisambiguator": "40052",
@@ -1114,15 +1114,10 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39992",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-logopadie-10-lektionen-besondere-volksschulklassen-der-stadt-bern-wankdorf-bern-39992",
-        "stv-logopadie-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39992",
-        "stv-logopala-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-logopadie-10-lektionen-besondere-volksschulklassen-der-stadt-bern-wankdorf-bern-39992",
-          "stv-logopala-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+          "stv-logopadie-10-lektionen-besondere-volksschulklassen-der-stadt-bern-wankdorf-bern-39992"
         ],
         "en": [
           "stv-logopadie-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39992"
@@ -1131,8 +1126,11 @@
           "stv-logopadie-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39992"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:20:07.753Z",
+      "previousSlugs": [
+        "stv-logopadie-10-lektionen-besondere-volksschulklassen-der-stadt-bern-wankdorf-bern-39992",
+        "stv-logopadie-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39992",
+        "stv-logopala-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1144,7 +1142,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T10:20:07.753Z"
     },
     {
       "id": "ksml-84c2c4c2db01",
@@ -1756,14 +1755,10 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40043",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043",
-        "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-e-integration-bpi-thun-mutterschaftsurlaub-20-lektionen-e-co-klassenlehramt-befristet-bis-31-07"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043",
-          "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-e-integration-bpi-thun-mutterschaftsurlaub-20-lektionen-e-co-klassenlehramt-befristet-bis-31-07"
+          "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
         ],
         "en": [
           "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
@@ -1772,8 +1767,9 @@
           "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:20:07.752Z",
+      "previousSlugs": [
+        "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1785,15 +1781,16 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T10:20:07.752Z"
     },
     {
       "id": "ksml-1edaccd223c3",
       "slug": "stv-scuola-materna-15-12-2026-09-04-2027-15-25-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40047",
       "slugByLocale": {
+        "de": "stv-klassenlehrperson-kindergarten-15-12-2026-09-04-2027-15-25-lektionen-schule-wimmis-40047",
         "it": "stv-scuola-materna-15-12-2026-09-04-2027-15-25-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40047",
         "en": "stv-class-teacher-kindergarten-15-12-2026-09-04-2027-15-25-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40047",
-        "de": "stv-klassenlehrperson-kindergarten-15-12-2026-09-04-2027-15-25-lektionen-schule-wimmis-40047",
         "fr": "ecole-maternelle-stv-15-12-2026-09-04-2027-15-25-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40047"
       },
       "slugDisambiguator": "40047",
@@ -2775,15 +2772,10 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39267",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-schule-kleefeld-madergutstrasse-52-39267",
-        "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-39267",
-        "stellvertretung-heilpadagogik-if-e-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-schule-kleefeld-madergutstrasse-52-39267",
-          "stellvertretung-heilpadagogik-if-e-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+          "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-schule-kleefeld-madergutstrasse-52-39267"
         ],
         "en": [
           "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-39267"
@@ -2792,8 +2784,11 @@
           "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-39267"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:20:07.750Z",
+      "previousSlugs": [
+        "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-schule-kleefeld-madergutstrasse-52-39267",
+        "stellvertretung-heilpadagogik-if-und-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-39267",
+        "stellvertretung-heilpadagogik-if-e-bvsa-22-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2805,7 +2800,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T10:20:07.750Z"
     },
     {
       "id": "ksml-c9084ce577a4",
@@ -4181,9 +4177,9 @@
       "id": "ksml-f765cc9b77b1",
       "slug": "gestione-scolastica-65-70-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sutz-lattrigen-40048",
       "slugByLocale": {
+        "de": "schulleitung-65-70-primarschule-sutz-lattrigen-morigen-sutz-lattrigen-morigen-40048",
         "it": "gestione-scolastica-65-70-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sutz-lattrigen-40048",
         "en": "school-management-65-70-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sutz-lattrigen-morigen-40048",
-        "de": "schulleitung-65-70-primarschule-sutz-lattrigen-morigen-sutz-lattrigen-morigen-40048",
         "fr": "gestion-scolaire-65-70-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sutz-lattrigen-morigen-40048"
       },
       "slugDisambiguator": "40048",
@@ -4678,9 +4674,9 @@
       "id": "ksml-a6413af33e18",
       "slug": "carrozzeria-pedagogia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wattenwil-40051",
       "slugByLocale": {
+        "de": "padagogische-betreuungsperson-tagesschule-wattenwil-wattenwil-40051",
         "it": "carrozzeria-pedagogia-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wattenwil-40051",
         "en": "pedagogical-carer-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wattenwil-40051",
-        "de": "padagogische-betreuungsperson-tagesschule-wattenwil-wattenwil-40051",
         "fr": "soins-pedagogiques-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wattenwil-40051"
       },
       "slugDisambiguator": "40051",
@@ -6220,14 +6216,12 @@
       "previousSlugs": [
         "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-schule-sumiswald-wasen-30960",
         "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-l-30960",
-        "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald",
-        "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald-und-wasen"
+        "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-schule-sumiswald-wasen-30960",
-          "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald",
-          "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald-und-wasen"
+          "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
         ],
         "en": [
           "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-schule-sumiswald-wasen-30960"
@@ -6439,9 +6433,9 @@
       "id": "ksml-327467aa5f88",
       "slug": "capo-della-scuola-primaria-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-neuengasse-5-40050",
       "slugByLocale": {
+        "de": "leiter-leiterin-volksschule-100-burgdorf-bildungsdirektion-neuengasse-5-40050",
         "it": "capo-della-scuola-primaria-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-neuengasse-5-40050",
         "en": "head-of-primary-school-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-neuengasse-5-40050",
-        "de": "leiter-leiterin-volksschule-100-burgdorf-bildungsdirektion-neuengasse-5-40050",
         "fr": "chef-de-l-ecole-primaire-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-neuengasse-5-40050"
       },
       "slugDisambiguator": "40050",
@@ -6692,9 +6686,9 @@
       "id": "ksml-47053ceb5853",
       "slug": "lehrperson-per-if-e-bvsa-lektionen-im-zyklus-1-18-lektionen-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-pieterlen",
       "slugByLocale": {
+        "de": "lehrperson-fur-if-und-bvsa-lektionen-im-zyklus-1-18-lektionen-stellvertretung-schule-40053",
         "it": "lehrperson-per-if-e-bvsa-lektionen-im-zyklus-1-18-lektionen-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-pieterlen",
         "en": "teacher-for-if-and-bvsa-lessons-in-cycle-1-18-lessons-deputy-representative-ksml-kantonaler-stellenmarkt-fur-40053",
-        "de": "lehrperson-fur-if-und-bvsa-lektionen-im-zyklus-1-18-lektionen-stellvertretung-schule-40053",
         "fr": "enseignant-pour-les-cours-de-if-et-de-bvsa-du-cycle-1-18-lecons-representant-adjoint-ksml-kantonaler-stellenmarkt-40053"
       },
       "slugDisambiguator": "40053",
@@ -10832,9 +10826,9 @@
       "id": "ksml-157fa3fd541b",
       "slug": "6-lektionen-2-klasse-im-okt-e-nov-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port",
       "slugByLocale": {
+        "de": "6-lektionen-2-klasse-im-okt-und-nov-primarschule-port-port-39813",
         "it": "6-lektionen-2-klasse-im-okt-e-nov-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port",
         "en": "6-lessons-2nd-grade-in-oct-and-nov-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port-39813",
-        "de": "6-lektionen-2-klasse-im-okt-und-nov-primarschule-port-port-39813",
         "fr": "6-lecons-2e-annee-en-octobre-et-novembre-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port-39813"
       },
       "slugDisambiguator": "39813",
