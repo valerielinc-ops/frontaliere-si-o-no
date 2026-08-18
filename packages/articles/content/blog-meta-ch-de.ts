@@ -3247,6 +3247,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Krankenkassenprämien Kanton Solothurn und Prämienverbilligung',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Wichtige Fakten zur Reduzierung der Krankenversicherungsprämien im Kanton Solothurn',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Bild eines Krankenhauses in der Schweiz',
+    'blog.article.permesso-domicilio-c-soletta.title': 'Niederlassungsbewilligung C Kanton Solothurn: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analyse der Voraussetzungen, der Integrationskriterien und des Verfahrens zur Beantragung der Niederlassungsbewilligung C im Kanton Solothurn.',
+    'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Verwaltungsgebäude im Kanton Solothurn',
 };
 
 export default blogMetaChDe;

@@ -3247,6 +3247,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Premi cassa malati canton Soletta e riduzione premi',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Fatti chiave sulla riduzione dei premi cassa malati nel Cantone di Soletta',
     'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Immagine di un edificio ospedaliero in Svizzera',
+    'blog.article.permesso-domicilio-c-soletta.title': 'Permesso di domicilio C canton Soletta: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-soletta.excerpt': 'Analisi dei requisiti, dei criteri di integrazione e della procedura per richiedere il permesso di domicilio C nel Cantone di Soletta.',
+    'blog.article.permesso-domicilio-c-soletta.imageAlt': 'Edificio amministrativo nel Cantone di Soletta',
 };
 
 export default blogMetaChIt;
