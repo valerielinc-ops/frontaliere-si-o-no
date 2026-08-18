@@ -308,3 +308,71 @@ describe('MissingIndexError', () => {
     expect(err.original).toBeInstanceOf(Error);
   });
 });
+
+// Two ways this report told the reader the opposite of the truth, both found
+// by reading production on 2026-08-18.
+describe('loadCampaignSegmentReport — window and channel', () => {
+  const CAMPAIGN = 'weekly_2026-06-15';
+  const EMAIL = 'a@b.com';
+  const SENT_AT = new Date('2026-06-15T08:00:00Z');
+
+  function stubDb(unsubEvents: any[], sentAt: Date = SENT_AT) {
+    const chain = (group: string) => {
+      const q: any = {
+        where: () => q,
+        orderBy: () => q,
+        limit: () => q,
+        get: async () => ({
+          docs: group === 'campaign_deliveries'
+            ? [{
+                id: buildDeliveryDocId(CAMPAIGN, EMAIL),
+                data: () => ({ email: EMAIL, sent_at: sentAt, provider: 'resend', segment: 'hot_jobs' }),
+                ref: { parent: { parent: { id: EMAIL } } },
+              }]
+            : unsubEvents.map((ev) => ({ data: () => ev, ref: { parent: { parent: { id: ev.email } } } })),
+        }),
+      };
+      return q;
+    };
+    return { collectionGroup: (g: string) => chain(g) };
+  }
+
+  const unsub = (channel: string | null) => ({
+    event_type: 'unsubscribe', email: EMAIL, source_channel: channel,
+    timestamp: new Date('2026-06-16T08:00:00Z'), occurred_at: '2026-06-16T08:00:00.000Z',
+  });
+
+  it('counts an unsubscribe the visitor actually made', async () => {
+    const r = await loadCampaignSegmentReport(stubDb([unsub('unsubscribe_link')]), CAMPAIGN);
+    expect(r.totalUnsubscribes).toBe(1);
+  });
+
+  it('ignores a backfill written into the window by a repair job', async () => {
+    // `ripristino_disiscrizione_persa` carries a historical occurred_at and a
+    // write-time timestamp, so a repair run landing inside a campaign's window
+    // used to read as that campaign driving people away. Measured on
+    // production: 18 of 176 unsubscribes counted for weekly_2026-08-03.
+    const r = await loadCampaignSegmentReport(stubDb([unsub('ripristino_disiscrizione_persa')]), CAMPAIGN);
+    expect(r.totalUnsubscribes).toBe(0);
+  });
+
+  it('ignores an operator-driven LPD removal too', async () => {
+    const r = await loadCampaignSegmentReport(stubDb([unsub('richiesta_diretta_lpd')]), CAMPAIGN);
+    expect(r.totalUnsubscribes).toBe(0);
+  });
+
+  it('reports a long-past campaign as closed', async () => {
+    const r = await loadCampaignSegmentReport(stubDb([], new Date('2026-01-01T08:00:00Z')), CAMPAIGN);
+    expect(r.windowClosed).toBe(true);
+    expect(r.windowDaysRemaining).toBe(0);
+  });
+
+  it('reports a campaign sent today as still open, with days left', async () => {
+    // The newest campaign is the one an operator is most likely to read, and
+    // the one whose numbers mean least.
+    const r = await loadCampaignSegmentReport(stubDb([], new Date()), CAMPAIGN);
+    expect(r.windowClosed).toBe(false);
+    expect(r.windowDaysRemaining).toBeGreaterThan(5);
+  });
+});
+
