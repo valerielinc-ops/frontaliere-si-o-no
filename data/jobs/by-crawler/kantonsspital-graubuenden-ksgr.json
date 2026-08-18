@@ -77,10 +77,16 @@
         "de": "pharmazeutisch-technische-r-assistent-in-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Pharmazeutisch-technische:r Assistent:in"
+        "de": "Pharmazeutisch-technische:r Assistent:in",
+        "it": "Prodotti farmaceutici e tecnici:",
+        "en": "Pharmaceutical and technical:r Assistant:in",
+        "fr": "Pharmaceutique et technique:"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. Dezember 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du stellst patientenadaptierte Zytostatikalösungen sowie sterile und nicht sterile Produkte im Klein- und Grossansatz her\n\n• Du bedienst, reinigst und pflegst die Produktionsanlagen und bereitest den Arbeitsplatz fachgerecht vor\n\n• Du stellst eine konstant hohe Produktqualität unter Einhaltung der geltenden GMP-Standards sicher, erstellst und pflegst Herstellvorschriften und QS-Dokumente\n\nAnforderungen:\n• Eine Ausbildung als Pharmazeutisch-technische:r Assistent:in (PTA) oder eine gleichwertige Ausbildung im Labor oder Gesundheitsbereich – z.B. Fachfrau / Fachmann Apotheke mit entsprechender Zusatzausbildung Arzneimittelherstellung oder Drogist:in\n\n• Idealerweise Erfahrung in der Arzneimittelherstellung nach GMP‑Richtlinien\n\n• Eine exakte, selbstständige Arbeitsweise und Freude an der Zusammenarbeit im Team\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. Dezember 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du stellst patientenadaptierte Zytostatikalösungen sowie sterile und nicht sterile Produkte im Klein- und Grossansatz her\n\n• Du bedienst, reinigst und pflegst die Produktionsanlagen und bereitest den Arbeitsplatz fachgerecht vor\n\n• Du stellst eine konstant hohe Produktqualität unter Einhaltung der geltenden GMP-Standards sicher, erstellst und pflegst Herstellvorschriften und QS-Dokumente\n\nAnforderungen:\n• Eine Ausbildung als Pharmazeutisch-technische:r Assistent:in (PTA) oder eine gleichwertige Ausbildung im Labor oder Gesundheitsbereich – z.B. Fachfrau / Fachmann Apotheke mit entsprechender Zusatzausbildung Arzneimittelherstellung oder Drogist:in\n\n• Idealerweise Erfahrung in der Arzneimittelherstellung nach GMP‑Richtlinien\n\n• Eine exakte, selbstständige Arbeitsweise und Freude an der Zusammenarbeit im Team\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare su 1. Dicembre 2026 o d'accordo\n\nCompiti:\n• Produci soluzioni citostatiche adattate ai pazienti e prodotti sterili e non sterili in piccoli e grandi lotti\n\n• Servire, pulire e mantenere le strutture di produzione e preparare il posto di lavoro professionalmente\n\n• L'utente garantisce un'elevata qualità dei prodotti in conformità agli standard GMP applicabili, crea e mantiene le normative di produzione e i documenti QS\n\nRequisiti\n• Un apprendistato come assistente farmaceutico-tecnico: in (PTA) o un apprendistato equivalente nel settore del laboratorio o della salute – ad esempio farmacia specialistica/specialistica con corrispondente apprendistato supplementare Produzione farmaceutica o specialista di droga:\n\n• Idealmente, l'esperienza nella produzione farmaceutica secondo le linee guida GMP\n\n• Un metodo di lavoro preciso e indipendente e il piacere di lavorare insieme in un team\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on 1. December 2026 or by agreement as\n\nTasks:\n• You produce patient-adapted cytostatic solutions as well as sterile and non-sterile products in small and large batches\n\n• You serve, clean and maintain the production facilities and prepare the workplace professionally\n\n• You ensure consistently high product quality in compliance with applicable GMP standards, create and maintain manufacturing regulations and QS documents\n\nRequirements\n• An apprenticeship as a pharmaceutical-technical:r assistant:in (PTA) or an equivalent apprenticeship in the laboratory or health sector – e.g. specialist / specialist pharmacy with corresponding additional apprenticeship Pharmaceutical manufacturing or drug specialist:in\n\n• Ideally, experience in pharmaceutical production according to GMP guidelines\n\n• An exact, independent working method and enjoyment of working together in a team\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencez par 1. décembre 2026 ou par accord\n\nTâches :\n• Vous produisez des solutions cytostatiques adaptées au patient ainsi que des produits stériles et non stériles en petits et grands lots\n\n• Vous servez, nettoyez et maintenez les installations de production et préparez professionnellement le lieu de travail\n\n• Vous assurez une qualité de produit élevée et constante conformément aux normes BPF applicables, créez et maintenez les règlements de fabrication et les documents QS\n\nExigences\n• Un apprentissage en tant qu'assistant pharmaceutique-technique: en (PTA) ou un apprentissage équivalent dans le secteur du laboratoire ou de la santé – p.ex. une pharmacie spécialisée / spécialisée avec apprentissage complémentaire correspondant.\n\n• Idéalement, l'expérience dans la production pharmaceutique selon les lignes directrices des BPF\n\n• Une méthode de travail exacte et indépendante et la jouissance de travailler ensemble dans une équipe\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3705,12 +3711,13 @@
           "praktikant-in-kauffrau-kaufmann-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 63000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-04T11:09:50.180Z"
+      "firstSeenAt": "2026-05-04T11:09:50.180Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "10020399",
@@ -4072,12 +4079,13 @@
           "teamleiter-in-pflege-ambulante-pneumologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-15T10:14:05.105Z"
+      "firstSeenAt": "2026-04-15T10:14:05.105Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "9995848",
@@ -4210,12 +4218,13 @@
           "physiotherapeut-in-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "9995709",
