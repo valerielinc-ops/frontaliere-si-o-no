@@ -68,4 +68,101 @@ describe('ledger dei punteggi: i due modi silenziosi di riaprire il buco', () =>
     expect(tierFn).toMatch(/\$\{t\.served\} served`, `\$\{t\.failed\} failed/);
     expect(src).toMatch(/lines\.push\(_formatRunOutcomesLine\(s\)\);/);
   });
+
+  it('anche il percorso di FALLIMENTO flusha, non solo quello riuscito', () => {
+    // Il gate «chi importa il flush lo chiama» qui sopra passa in modo VACUO
+    // per un file che flusha in fondo a main() e poi esce da un catch con
+    // `process.exit(1)`: la chiamata c'e', ma sul ramo sbagliato. E' esattamente
+    // la forma in cui il difetto e' sopravvissuto in
+    // `scripts/lib/shared-jobs-crawler.mjs` e `scripts/generate-company-parser.mjs`
+    // mentre veniva rimosso da `create-article.mjs`.
+    //
+    // `process.exit()` salta `beforeExit`, quindi un handler di uscita che
+    // chiama `process.exit` senza aver prima atteso un flush perde ogni delta
+    // non ancora persistito — e sul ramo di errore quei delta sono per lo piu'
+    // fallimenti, cioe' proprio il segnale che al ledger serve.
+    const offenders: string[] = [];
+    for (const name of ledgerScripts()) {
+      const src = readFileSync(join(SCRIPTS_DIR, name), 'utf8');
+      for (const handler of catchHandlers(src)) {
+        if (!/\bprocess\.exit\s*\(/.test(handler)) continue;
+        if (/\bflushScores(BeforeExit)?\s*\(/.test(handler)) continue;
+        offenders.push(name);
+        break;
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('lo snapshot del ledger e il suo clear sono un blocco sincrono', () => {
+    // Perche' due invocazioni concorrenti di `_persistScoresToFirestore()` — il
+    // debounce di `_schedulePersist` e il flush di `flushScoresBeforeExit`
+    // lanciato da `beforeExit`/SIGINT/SIGTERM — non possano contare due volte
+    // lo stesso delta.
+    //
+    // La garanzia non e' un lock: e' che fra la guardia `_dirtyModels.size === 0`
+    // e lo svuotamento di `_dirtyModels` + `_pendingCounterDeltas` non c'e'
+    // nessun punto di sospensione. JS esegue quel tratto run-to-completion,
+    // quindi la seconda invocazione o vede l'insieme gia' vuoto e ritorna
+    // subito, o raccoglie soltanto i delta arrivati DOPO — disgiunti dai primi.
+    // Un `await` infilato li' dentro aprirebbe la finestra e renderebbe
+    // possibile il doppio `FieldValue.increment`, cioe' punteggi gonfiati: il
+    // difetto opposto a quello che questa PR chiude. Il guard e' su quel tratto,
+    // non sul comportamento, perche' e' l'unica cosa che puo' regredire.
+    const src = readFileSync(AI_MODELS, 'utf8');
+    const start = src.indexOf('async function _persistScoresToFirestore');
+    expect(start).toBeGreaterThan(-1);
+    const criticalEnd = src.indexOf('const modelsDelta', start);
+    expect(criticalEnd).toBeGreaterThan(start);
+    const critical = src.slice(start, criticalEnd);
+    // Il tratto critico deve davvero contenere sia il clear sia lo svuotamento
+    // dei delta, altrimenti il guard misurerebbe una regione sbagliata.
+    expect(critical).toMatch(/_dirtyModels\.clear\(\)/);
+    expect(critical).toMatch(/_pendingCounterDeltas\.delete\(modelId\)/);
+    const withoutComments = critical
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
+    expect(withoutComments).not.toMatch(/\bawait\b/);
+  });
 });
+
+/** I file sotto `scripts/` che importano davvero il ledger dei punteggi. */
+function ledgerScripts(): string[] {
+  const candidates = [
+    ...readdirSync(SCRIPTS_DIR).filter((f) => f.endsWith('.mjs')),
+    ...readdirSync(join(SCRIPTS_DIR, 'lib')).filter((f) => f.endsWith('.mjs')).map((f) => join('lib', f)),
+  ];
+  return candidates.filter((name) => {
+    const src = readFileSync(join(SCRIPTS_DIR, name), 'utf8');
+    return /import\s*\{[^}]*\bflush(Scores|ScoresBeforeExit)\b[^}]*\}\s*from\s*['"][^'"]*ai-models\.mjs['"]/.test(src);
+  });
+}
+
+/**
+ * I corpi di ogni `.catch(` del sorgente, estratti bilanciando le parentesi.
+ * Una regex non basta: il corpo di questi handler contiene a sua volta
+ * parentesi e `try/catch` annidati.
+ */
+function catchHandlers(src: string): string[] {
+  const bodies: string[] = [];
+  const marker = '.catch(';
+  let from = 0;
+  for (;;) {
+    const at = src.indexOf(marker, from);
+    if (at === -1) break;
+    let depth = 0;
+    let end = -1;
+    for (let i = at + marker.length - 1; i < src.length; i++) {
+      const ch = src[i];
+      if (ch === '(') depth++;
+      else if (ch === ')') {
+        depth--;
+        if (depth === 0) { end = i; break; }
+      }
+    }
+    if (end === -1) break;
+    bodies.push(src.slice(at, end + 1));
+    from = end + 1;
+  }
+  return bodies;
+}

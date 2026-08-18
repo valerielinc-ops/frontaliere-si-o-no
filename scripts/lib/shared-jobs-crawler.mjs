@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, printRunSummary } from './ai-models.mjs';
+import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
@@ -6061,12 +6061,23 @@ const isDirectExecution = typeof process !== 'undefined' &&
   import.meta.url.endsWith(process.argv[1].replace(/\\/g, '/'));
 
 if (isDirectExecution) {
-  main().catch((err) => {
+  main().catch(async (err) => {
     try {
       persistAiCacheToDisk({ force: true });
     } catch {
       // ignore cache persist failures on fatal exit
     }
+    // The ledger has to be flushed HERE and not left to `beforeExit`:
+    // `process.exit()` below skips that hook entirely, and every model
+    // outcome recorded during this run — including the failures that led
+    // to the crash, which are the most informative ones the ledger can
+    // hold — would leave with the process. This is the same defect the
+    // PR removes from create-article.mjs, and this file is the engine
+    // imported by dedicated-crawler-common.mjs and by the ~hundreds of
+    // scripts/update-*-jobs.mjs, so it carries far more of the traffic.
+    // Bounded and non-throwing by construction (see flushScoresBeforeExit),
+    // so a hung Firestore client cannot hold the runner open.
+    await flushScoresBeforeExit();
     console.error('❌ Jobs crawler failed:', err?.message || err);
     process.exit(1);
   });
