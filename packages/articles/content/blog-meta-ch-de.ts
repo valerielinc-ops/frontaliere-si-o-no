@@ -3298,6 +3298,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-2026.title': 'Zölle USA-Schweiz: Der Steuersatz sinkt auf 12,5%, aber das Risiko bleibt',
     'blog.article.dazi-usa-svizzera-2026.excerpt': 'Der Zollsatz, den die USA auf Schweizer Waren anwenden, hat sich bei 12,5% stabilisiert, aber das Risiko einer neuen Abgabe bleibt bestehen',
     'blog.article.dazi-usa-svizzera-2026.imageAlt': 'Lugano mit belebten Geschäften und Straßen',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Kantons- und Gemeindesteuern in Basel-Stadt: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Die Kantons- und Gemeindesteuern in Basel-Stadt gehören zu den höchsten der Schweiz.',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'Die Stadt Basel, Hauptstadt des Kantons Basel-Stadt.',
 };
 
 export default blogMetaChDe;

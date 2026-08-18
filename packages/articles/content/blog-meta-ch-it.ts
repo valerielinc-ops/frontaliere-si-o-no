@@ -3298,6 +3298,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-2026.title': 'Dazi USA-Svizzera: aliquota giù al 12,5%, ma il rischio resta',
     'blog.article.dazi-usa-svizzera-2026.excerpt': 'L\'aliquota doganale che gli Stati Uniti applicano alle merci svizzere si è stabilizzata al 12,5%, ma il rischio di una nuova tassa rimane',
     'blog.article.dazi-usa-svizzera-2026.imageAlt': 'Vista di Lugano con negozi e strade affollate',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Imposte cantonali e comunali in Basilea Città: aliquote e deduzioni',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Le imposte cantonali e comunali in Basilea Città sono tra le più alte della Svizzera.',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'La città di Basilea, capitale del Cantone di Basilea Città.',
 };
 
 export default blogMetaChIt;

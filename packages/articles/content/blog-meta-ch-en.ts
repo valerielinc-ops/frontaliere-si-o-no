@@ -3298,6 +3298,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-2026.title': 'US-Switzerland duties: rate down to 12.5%, but the risk remains',
     'blog.article.dazi-usa-svizzera-2026.excerpt': 'The US customs rate on Swiss goods has stabilised at 12.5%, but the risk of a new tax remains',
     'blog.article.dazi-usa-svizzera-2026.imageAlt': 'View of Lugano with busy shops and streets',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Cantonal and municipal taxes in Basel City: rates and deductions',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Cantonal and municipal taxes in Basel City are among the highest in Switzerland.',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'The city of Basel, capital of the Canton of Basel-City.',
 };
 
 export default blogMetaChEn;

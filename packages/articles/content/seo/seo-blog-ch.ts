@@ -42764,6 +42764,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-basilea-citta-aliquote': {
+    title: 'Imposte cantonali e comunali in Basilea Città: aliquote e deduzioni',
+    description: 'Le imposte cantonali e comunali in Basilea Città sono tra le più alte della Svizzera. Le aliquote variano a seconda dello scaglione di reddito, ma non è',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, comunali, basilea',
+    ogTitle: 'Imposte cantonali e comunali in Basilea Città: aliquote e deduzioni',
+    ogDescription: 'Le imposte cantonali e comunali in Basilea Città sono tra le più alte della Svizzera. Le aliquote variano a seconda dello scaglione di reddito, ma non è specificato se Basilea Città sia tra le regioni con le aliquote più alte.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-basilea-citta-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali e comunali in Basilea Città: aliquote e deduzioni",
+      "description": "Le imposte cantonali e comunali in Basilea Città sono tra le più alte della Svizzera. Le aliquote variano a seconda dello scaglione di reddito, ma non è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-basilea-citta-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La città di Basilea, capitale del Cantone di Basilea Città."
+      },
+      "datePublished": "2026-08-18T06:47:30+00:00",
+      "dateModified": "2026-08-18T06:47:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-basilea-citta-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

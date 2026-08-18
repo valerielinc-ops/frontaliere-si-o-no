@@ -3298,6 +3298,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-usa-svizzera-2026.title': 'Droits USA-Suisse : taux en baisse à 12,5%, mais le risque reste',
     'blog.article.dazi-usa-svizzera-2026.excerpt': 'Le taux de douane que les États-Unis appliquent aux marchandises suisses s\'est stabilisé à 12,5%, mais le risque d\'une nouvelle taxe reste',
     'blog.article.dazi-usa-svizzera-2026.imageAlt': 'Vue de Lugano avec des magasins et des rues animées',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.title': 'Impôts cantonaux et communaux à Bâle-Ville : taux et déductions',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.excerpt': 'Les impôts cantonaux et communaux à Bâle-Ville sont parmi les plus élevés de Suisse.',
+    'blog.article.imposte-cantonali-basilea-citta-aliquote.imageAlt': 'La ville de Bâle, capitale du Canton de Bâle-Ville.',
 };
 
 export default blogMetaChFr;
