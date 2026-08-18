@@ -613,11 +613,12 @@ describe('the two unsubscribe paths leave the same observable state', () => {
     getDocMock.mockReset();
   });
 
-  async function runSpaPath() {
+  async function runSpaPath(credential: string | null = 'autologin_code') {
     const { fields } = await unsubscribeNewsletterSubscriber({} as any, {
       email: EMAIL,
       sourceChannel: 'unsubscribe_link',
       sourcePage: '/',
+      credential,
     });
     const event = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
     return { fields, event };
@@ -668,6 +669,51 @@ describe('the two unsubscribe paths leave the same observable state', () => {
     expect(oneClick.event.event_type).toBe('unsubscribe');
     expect(classify([spa.event]).sawUnsubscribe).toBe(true);
     expect(classify([oneClick.event]).sawUnsubscribe).toBe(true);
+  });
+
+  it('both STAMP `credential` on the event, so the monitor grades both writers', async () => {
+    // THE OBSERVER THAT WAS MISSING.
+    //
+    // #5719 gave the Cloud Function writer a `credential` field and its
+    // docstring claimed it had given it to every `unsubscribe_link` event.
+    // The SPA writer above had shipped four hours and fifty minutes earlier
+    // (#5690) and never got it, and nothing anywhere compared the two events
+    // — the test right above this one compares `event_type` and stops.
+    //
+    // scripts/lib/unsubscribeCredentialMetrics.mjs drops events with no
+    // `credential` from its denominator as pre-deploy residue, so the SPA
+    // half did not read as broken: it read as OLD. Measured read-only in
+    // production over the 7 days to 2026-08-18, 209 `unsubscribe_link`
+    // events: 52 of them from this writer, every day, uncounted — and by
+    // construction (App.tsx cannot reach it without an `ac`) they were the
+    // `autologin_code` cohort the monitor exists to size, the one #5724's TTL
+    // is about to put a clock on. The reported fallback quota was 0,90%.
+    const spa = await runSpaPath('autologin_code');
+    const oneClick = await runOneClickPath();
+
+    for (const [name, event] of [['SPA', spa.event], ['one-click', oneClick.event]] as const) {
+      expect(event, `${name} path writes no \`credential\` key at all — it will be graded \`missing\` and dropped from the monitor's denominator`).toHaveProperty('credential');
+      expect(
+        ['autologin_code', 'email_token', 'legacy_auth_token'],
+        `${name} path wrote an unrecognised credential (${String(event.credential)}); classifyCredential() folds it into \`missing\``,
+      ).toContain(event.credential);
+    }
+  });
+
+  it('App.tsx tells the SPA writer WHICH credential got the visitor out', async () => {
+    // The behavioural test above can only prove the writer forwards what it
+    // is handed. Its one caller is App.tsx, and a caller that omits the
+    // argument reproduces the defect exactly — a `null` credential is graded
+    // `missing` and vanishes from the denominator just like a missing key.
+    // Both roads into that call require the `ac` (the authenticated branch
+    // needs the exchange to have succeeded; the session-less fall-through
+    // returns early unless `autologinCode` is present and unforged), so the
+    // value is never the email HMAC.
+    const appSrc = readFileSync(path.resolve(__dirname, '..', 'App.tsx'), 'utf8');
+    const call = appSrc.match(/await unsubscribeNewsletterSubscriber\(db, \{[\s\S]*?\n\s*\}\);/);
+    expect(call, 'the App.tsx call to unsubscribeNewsletterSubscriber moved or changed shape').toBeTruthy();
+    expect(call![0], 'App.tsx must pass `credential` — see #5719 and the 52 uncounted events').toMatch(/\bcredential:/);
+    expect(call![0]).toMatch(/autologin_code/);
   });
 
   it('leaves both unrestorable by restore-mailtrap-suspension-suppressions.mjs', async () => {

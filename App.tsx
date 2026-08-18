@@ -1083,6 +1083,18 @@ const App: React.FC = () => {
  email: normalizedEmail,
  sourceChannel: 'unsubscribe_link',
  sourcePage: window.location.pathname,
+ // WHAT GOT THIS PERSON OUT, in the Cloud Function's own vocabulary
+ // (#5719). Both roads into this write require the `ac`: the authenticated
+ // one only reaches it after `exchangeNewsletterAuthCode` succeeded, and
+ // the session-less fall-through above returns unless `autologinCode` is
+ // present and unforged. So this is never the email HMAC — it is the
+ // autologin fallback, i.e. precisely the cohort that loses its exit the
+ // day #5724 puts a TTL on `ac`. Omitting it made every one of these
+ // events score `missing` in
+ // scripts/check-unsubscribe-credential-rate.mjs, which drops `missing`
+ // from its denominator: 52 of 209 events in the 7 days to 2026-08-18,
+ // the population the monitor exists to size, invisible to the monitor.
+ credential: autologinCode ? 'autologin_code' : 'legacy_auth_token',
  });
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
