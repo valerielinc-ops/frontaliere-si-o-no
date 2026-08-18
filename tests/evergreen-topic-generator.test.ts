@@ -140,9 +140,75 @@ describe('buildComuneEvergreenTopics', () => {
     }
   });
 
-  it('caps candidates per canton bucket instead of exploding to all 518 comuni', () => {
-    // 40 Ticino + 25 Grigioni + 20 Vallese, one candidate each = 85 max
-    expect(topics.length).toBeLessThanOrEqual(85);
+  // Was: "caps candidates per canton bucket instead of exploding to all 518
+  // comuni", asserting `topics.length <= 85` (40 Ticino + 25 Grigioni + 20
+  // Vallese). That cap is gone, and the assertion went with it — it pinned the
+  // exact number that starved the `frontaliere` section: the pool saturated at
+  // `checked=382 pool=382`, 32 dispatch out of 32, and publication fell from 22
+  // articles a day to 4. What the test was really defending is still defended
+  // below, and more precisely: not "at most 85", but "only comuni within
+  // commuting distance", which is the reason a bound exists at all.
+  it('selects only comuni within commuting distance, never all 518', () => {
+    const MAX_KM = 30; // COMUNE_MAX_DISTANCE_KM in evergreen-topic-generator.mjs
+    const computed = buildComuneEvergreenTopics(MUNICIPALITIES as never);
+
+    // Still a real bound: the dataset resolves 517 rows to a canton here, and
+    // the radius must leave a meaningful tail out rather than take everything.
+    expect(computed.length).toBeLessThan(MUNICIPALITIES.length);
+
+    const selected = new Set(computed.map((t) => t.keyword));
+    const withinRadius = MUNICIPALITIES.filter(
+      (m) => m?.name && resolveComuneCanton(m) && m.distanceKm <= MAX_KM,
+    );
+    const beyondRadius = MUNICIPALITIES.filter(
+      (m) => m?.name && resolveComuneCanton(m) && m.distanceKm > MAX_KM,
+    );
+
+    expect(withinRadius.length).toBeGreaterThan(0);
+    expect(beyondRadius.length).toBeGreaterThan(0);
+    expect(selected.size).toBe(withinRadius.length);
+
+    for (const m of beyondRadius) {
+      const canton = resolveComuneCanton(m);
+      expect(selected.has(`vivere a ${m.name} e lavorare in ${canton} da frontaliere`)).toBe(false);
+    }
+  });
+
+  it('applies the same distance bar in every canton, not a per-canton quota', () => {
+    // The defect in the old count cap: at 40/25/20 the real bar sat around 5km
+    // in Ticino but around 20km in Vallese, so identical keywords were kept or
+    // dropped at four times the distance depending only on how many comuni
+    // happened to share their canton. Every canton must now keep everything
+    // inside the radius — a shortfall in any one of them means a quota is back.
+    const MAX_KM = 30;
+    const computed = buildComuneEvergreenTopics(MUNICIPALITIES as never);
+
+    const expectedPerCanton = new Map<string, number>();
+    for (const m of MUNICIPALITIES) {
+      const canton = resolveComuneCanton(m);
+      if (!canton || !m?.name || m.distanceKm > MAX_KM) continue;
+      expectedPerCanton.set(canton, (expectedPerCanton.get(canton) ?? 0) + 1);
+    }
+
+    const actualPerCanton = new Map<string, number>();
+    for (const t of computed) {
+      const canton = /lavorare in (\w+) da frontaliere$/.exec(t.keyword)?.[1];
+      if (canton) actualPerCanton.set(canton, (actualPerCanton.get(canton) ?? 0) + 1);
+    }
+
+    expect(expectedPerCanton.size).toBeGreaterThan(1);
+    for (const [canton, expected] of expectedPerCanton) {
+      expect(actualPerCanton.get(canton) ?? 0).toBe(expected);
+    }
+  });
+
+  it('keeps the structural pool far above the level that saturated the section', () => {
+    // 7045b166 halved the structural pool (310 -> 155) with CI green, because
+    // nothing asserted its size; the runtime pool went 537 -> 382 and
+    // `frontaliere` saturated outright. This is the missing observer: the floor
+    // sits above BOTH rejected values and below the 516 measured here, so a
+    // return to any per-canton quota trips it. Lower it only with a measurement.
+    expect(buildStructuralEvergreenTopics().length).toBeGreaterThanOrEqual(400);
   });
 });
 

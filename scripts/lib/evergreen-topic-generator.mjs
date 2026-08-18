@@ -156,13 +156,72 @@ export function resolveComuneCanton(m) {
   return PROVINCE_CANTON[m?.province] ?? resolveCantonByBorderProximity(m);
 }
 
-// NB: the 9 MB comuni now resolve into the Ticino bucket above, but their
-// distanceKm (19-22km) is farther than the closest ~40 CO/VA/VB comuni
-// (which run 0-4km), so under today's cap they don't currently place in the
-// output — same distance-based prioritization every other comune goes
-// through, not a regression specific to MB. They'll surface automatically
-// if the cap ever grows or the closer comuni get exhausted upstream.
-const COMUNE_CAP_PER_CANTON = { Ticino: 40, Grigioni: 25, Vallese: 20 };
+// The selection bar is a COMMUTE RADIUS, not a per-canton head count.
+//
+// It used to be `{ Ticino: 40, Grigioni: 25, Vallese: 20 }` = 85 comuni, while
+// the dataset resolves 506 of its 518 rows to a canton (Ticino 343, Grigioni
+// 99, Vallese 64). That left 421 comuni unused, and the resulting pool was too
+// small to keep the `frontaliere` section fed: with the profession half also
+// halved by #5563, `buildStructuralEvergreenTopics()` fell 310 → 155 in
+// 7045b166 (2026-08-14), the runtime pool went 537 → 382, and the section
+// saturated outright — `EVERGREEN_POOL_OUTCOME saturated=1 pool=382
+// checked=382 status=skipped`, 32 dispatch out of 32, zero free keywords,
+// against `svizzera`'s `saturated=0 pool=610 status=generated` 8 out of 8.
+//
+// A head count was the wrong instrument for what the sort below is actually
+// doing. The list is ordered by distance because distance is the proxy for
+// search intent, so a count cap IS a distance cap — just an implicit one whose
+// threshold is different in every canton and drifts whenever the dataset
+// changes. At 40/25/20 the bar sat at ~5km in Ticino but ~20km in Vallese:
+// the same keyword quality was being accepted and rejected at four times the
+// distance depending only on how many comuni happened to share its canton.
+// Stating the radius directly makes the bar uniform and dataset-stable.
+//
+// 30km is not a new number: it is GEO_RESOLVE_MAX_KM above, this file's
+// already-committed definition of "close enough to be a plausible commute".
+// The two are measured slightly differently — that one is haversine to the
+// nearest tagged crossing, this one is the dataset's own `distanceKm` — but
+// they agree closely where both exist (the MB comuni: 17.7-21.1km haversine vs
+// 19-22km `distanceKm`), so carrying one commute radius rather than two is
+// the honest reading, not a coincidence being exploited.
+//
+// Measured 2026-08-18 on the CORPUS copy of the dataset — comuni selected per
+// canton, and the resulting structural pool including the 70 professions:
+//
+//     radius   Ticino  Grigioni  Vallese   comuni   structural pool
+//      20km     251       50       27       328          398
+//      25km     309       65       31       405          475
+//   →  30km     326       75       36       437          507
+//      35km     342       83       41       466          536
+//      40km     343       95       46       484          554
+//     no cap    343       99       64       506          576
+//
+// So this moves the structural pool 155 → 507 and the runtime pool 382 → 734,
+// well past the 537 the section had before the collapse.
+//
+// This file is `mode: identical` and ships to both repos, but the two copies
+// of municipalities.ts and borderCrossings.ts are NOT manifest-governed and
+// have drifted in both directions: the corpus carries the #211 SO→LC province
+// fix the site lacks, the site carries Graubunden border crossings the corpus
+// lacks. So the same radius selects 437 comuni on the corpus and 446 on the
+// site (Ticino 312, Grigioni 98, Vallese 36). Both are healthy; the gap is the
+// datasets, not this rule. Don't read the two counts as a discrepancy to fix.
+//
+// Why 30km and not "take all 506": the last 69 comuni are the ones with the
+// least plausible search intent, and they are overwhelmingly Vallese —
+// Gaby (59km, 405 residents), Rassa (54km, 68 residents), Piode (53km, 188),
+// Campertogno (50km, 231). A keyword like "vivere a Rassa e lavorare in
+// Vallese da frontaliere" addresses a 68-person alpine comune an hour and a
+// half from the border; publishing it costs a generation slot and returns
+// nothing. Spending the whole dataset at once would also leave no graduated
+// next step: keeping the tail in reserve means the table above is the
+// widening plan when this pool saturates again, one measured number at a time.
+const COMUNE_MAX_DISTANCE_KM = 30;
+
+// NB: the 9 MB comuni (distanceKm 19-22km) now DO place in the output — under
+// the old count cap they were crowded out by the closest ~40 CO/VA/VB comuni
+// (which run 0-4km), and the note here used to say they would surface "if the
+// cap ever grows". This is that growth.
 
 export function buildComuneEvergreenTopics(municipalities) {
   // Published file first, and only when the caller did not pass its own data —
@@ -183,10 +242,14 @@ export function buildComuneEvergreenTopics(municipalities) {
 
   const out = [];
   for (const [canton, list] of byCanton) {
-    const cap = COMUNE_CAP_PER_CANTON[canton] ?? 20;
-    // Closest comuni first — nearest to the border correlates with the
-    // largest frontaliere population and therefore real search intent.
-    const picked = [...list].sort((a, b) => a.distanceKm - b.distanceKm).slice(0, cap);
+    // Within commuting range only — nearest to the border correlates with the
+    // largest frontaliere population and therefore real search intent. Still
+    // sorted closest-first so the pool's rotation order stays stable and the
+    // strongest keywords are reached first; a comune with no usable
+    // distanceKm is dropped rather than sorted as if it were at the border.
+    const picked = [...list]
+      .filter((m) => typeof m.distanceKm === 'number' && m.distanceKm <= COMUNE_MAX_DISTANCE_KM)
+      .sort((a, b) => a.distanceKm - b.distanceKm);
     for (const m of picked) {
       // One candidate per comune, not two: "vivere a / lavorare in" and
       // "trasferirsi ... pro e contro" used to ship as separate near-duplicate
