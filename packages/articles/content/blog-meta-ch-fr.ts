@@ -3355,6 +3355,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-statistica-luglio-2026.title': 'Asile : statistique du mois de juillet 2026',
     'blog.article.asilo-statistica-luglio-2026.excerpt': 'Le Secrétariat d\'Etat aux migrations a enregistré 1915 demandes d\'asile en juillet 2026, soit une baisse de 22,8 % par rapport au même mois de l\'année précédente.',
     'blog.article.asilo-statistica-luglio-2026.imageAlt': 'La Suisse doit relever les défis liés à l\'immigration et à l\'asile',
+    'blog.article.cassis-neutralita.title': 'Votations populaires, la première de Cassis',
+    'blog.article.cassis-neutralita.excerpt': 'Le conseiller fédéral Ignazio Cassis prend la responsabilité de l\'initiative sur la neutralité',
+    'blog.article.cassis-neutralita.imageAlt': 'Ignazio Cassis en première ligne pour l\'initiative sur la neutralité',
 };
 
 export default blogMetaChFr;
