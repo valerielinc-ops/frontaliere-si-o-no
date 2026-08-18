@@ -127,3 +127,86 @@ describe('chooseNextVariant', () => {
     expect(() => chooseNextVariant('intent_simulation', { snapshots: [] })).not.toThrow();
   });
 });
+
+// Three arms was the whole point of making the mechanism n-ary, and it is the
+// case that could not be written at all until `variants` became injectable —
+// VARIANTS is a module constant with two entries, so the n-ary behaviour
+// shipped untested and, as it turned out, wrong.
+describe('decideVariant with three arms', () => {
+  const ARMS = ['year_intent', 'intent_simulation', 'third_arm'];
+
+  /** A leads, B is a hair behind, C is clearly worst. */
+  function threeArmHistory(lastSwitchDaysAgo: number) {
+    return {
+      lastSwitchAt: iso(lastSwitchDaysAgo),
+      snapshots: [
+        snap('intent_simulation', 7, 100_000, 7_600), // 7.60%
+        snap('intent_simulation', 14, 100_000, 7_600),
+        snap('year_intent', 21, 100_000, 7_550),      // 7.55%
+        snap('year_intent', 28, 100_000, 7_550),
+        snap('third_arm', 35, 100_000, 6_000),        // 6.00%
+        snap('third_arm', 42, 100_000, 6_000),
+      ],
+    };
+  }
+
+  it('switches off the worst arm even when the two leaders are close together', () => {
+    // The margin that decides this is winner-minus-ACTIVE (1.60), not
+    // winner-minus-runner-up (0.05, below the 0.15 threshold). Measuring it
+    // the second way left the autopilot sitting on the worst arm forever.
+    const d = decideVariant({
+      currentVariant: 'third_arm',
+      history: threeArmHistory(10),
+      currentKpi: HEALTHY_KPI,
+      nowIso: new Date().toISOString(),
+      variants: ARMS,
+    });
+    expect(d.mode).toBe('exploit');
+    expect(d.nextVariant).toBe('intent_simulation');
+    expect(d.reason).toMatch(/^switch_to_winner_uplift_1\.6/);
+  });
+
+  it('still refuses a switch whose real margin over the active arm is too small', () => {
+    const d = decideVariant({
+      currentVariant: 'year_intent', // 7.55 vs the winner's 7.60
+      history: threeArmHistory(10),
+      currentKpi: HEALTHY_KPI,
+      nowIso: new Date().toISOString(),
+      variants: ARMS,
+    });
+    expect(d.nextVariant).toBe('year_intent');
+    expect(d.reason).toBe('uplift_below_threshold');
+  });
+
+  it('reads the lead against the closest challenger once the winner is live', () => {
+    const d = decideVariant({
+      currentVariant: 'intent_simulation',
+      history: threeArmHistory(10),
+      currentKpi: HEALTHY_KPI,
+      nowIso: new Date().toISOString(),
+      variants: ARMS,
+    });
+    // 7.60 vs 7.55 is a thin lead, so this is honestly reported as thin
+    // rather than as a settled win.
+    expect(d.nextVariant).toBe('intent_simulation');
+    expect(d.reason).toBe('uplift_below_threshold');
+  });
+
+  it('scores all three arms, not just the first two', () => {
+    const d = decideVariant({
+      currentVariant: 'intent_simulation',
+      history: threeArmHistory(10),
+      currentKpi: HEALTHY_KPI,
+      nowIso: new Date().toISOString(),
+      variants: ARMS,
+    });
+    expect(Object.keys(d.scores).sort()).toEqual([...ARMS].sort());
+  });
+
+  it('rotates to the arm nobody has sampled for longest', () => {
+    // third_arm was last seen 35 days ago, year_intent 21 — the overdue one
+    // wins, which is what stops a third arm from starving.
+    expect(chooseNextVariant('intent_simulation', threeArmHistory(10), ARMS)).toBe('third_arm');
+  });
+});
+
