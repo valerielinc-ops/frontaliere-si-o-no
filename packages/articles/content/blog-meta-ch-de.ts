@@ -3292,6 +3292,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Solothurn',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'Der Kanton Solothurn wendet unterschiedliche Erb- und Schenkungssätze an, wobei für den Ehegatten und die Nachkommen Befreiungen gelten.',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'Eine Szene aus Lugano, Schweiz, die die kantonalen Steuern darstellt.',
+    'blog.article.twint-addebito-diretto.title': 'Twint startet Lastschriftverfahren im Jahr 2027',
+    'blog.article.twint-addebito-diretto.excerpt': 'Das Lastschriftverfahren ermöglicht es den Nutzern, wiederkehrende Zahlungen über die Twint-App abzuwickeln.',
+    'blog.article.twint-addebito-diretto.imageAlt': 'Bild eines Nutzers, der die Twint-App verwendet',
 };
 
 export default blogMetaChDe;

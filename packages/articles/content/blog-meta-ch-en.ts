@@ -3292,6 +3292,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Inheritance and gift taxes in the Canton of Solothurn',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'The Canton of Solothurn applies different rates for succession and donation, with exemptions for spouse and descendants.',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'A scene of Lugano, Switzerland, that represents cantonal taxation.',
+    'blog.article.twint-addebito-diretto.title': 'Twint launches direct debit in 2027',
+    'blog.article.twint-addebito-diretto.excerpt': 'Direct debit will allow users to manage recurring payments through the Twint app.',
+    'blog.article.twint-addebito-diretto.imageAlt': 'Image of a user using the Twint app',
 };
 
 export default blogMetaChEn;

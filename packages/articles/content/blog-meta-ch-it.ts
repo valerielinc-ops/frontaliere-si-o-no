@@ -3292,6 +3292,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Imposte di successione e donazione nel Cantone di Soletta',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'Il Cantone di Soletta applica aliquote diverse per la successione e la donazione, con esenzioni per il coniuge e i discendenti.',
     'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'Una scena di Lugano, in Svizzera, che rappresenta la fiscalità cantonale.',
+    'blog.article.twint-addebito-diretto.title': 'Twint lancia addebito diretto nel 2027',
+    'blog.article.twint-addebito-diretto.excerpt': 'L\'addebito diretto consentirà agli utenti di gestire pagamenti ricorrenti tramite l\'app Twint.',
+    'blog.article.twint-addebito-diretto.imageAlt': 'Immagine di un utente che utilizza l\'app Twint',
 };
 
 export default blogMetaChIt;

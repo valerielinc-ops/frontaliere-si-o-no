@@ -1123,6 +1123,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-basilea-citt-riduzione': { it: 'premi-cassa-malati-basilea-citt-riduzione', en: 'health-insurance-premium-reduced-basel-city', de: 'krankenversicherungsbeitrag-reduziert-basel-stadt', fr: 'forfait-maladie-reduit-bale-ville' },
  'diritto-locazione-conciliazione-ticino': { it: 'diritto-locazione-conciliazione-ticino', en: 'tenancy-law-conciliation-ticino', de: 'mietrecht-schlichtung-tessin', fr: 'droit-bail-conciliation-tessin' },
  'imposta-succesione-donazione-canton-soletta-aliquote': { it: 'imposta-succesione-donazione-canton-soletta-aliquote', en: 'inheritance-and-gift-taxes-in-the-canton-of-solothurn', de: 'erbschafts-und-schenkungssteuern-im-kanton-solothurn', fr: 'impots-de-succession-et-donation-dans-le-canton-de-soleure' },
+ 'twint-addebito-diretto': { it: 'twint-addebito-diretto', en: 'twint-direct-debit-2027', de: 'twint-direct-debit-2027', fr: 'twint-debit-direct-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
