@@ -3226,6 +3226,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Affitti a Friburgo: canoni e diritto di locazione',
     'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'I canoni medi per zona nel Cantone di Friburgo sono di CHF 1\'200.',
     'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'immagine per articolo su affitti e diritto di locazione nel Cantone di Friburgo',
+    'blog.article.dolce-far-niente-benessere-svizzera.title': 'Dolce far niente e benessere: perche fermarsi fa bene alla salute',
+    'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'L\'assenza di stimoli riduce lo stress, rallenta il battito cardiaco e stimola la creativita secondo la scienza. Un\'analisi sul valore del riposo.',
+    'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Momento di relax e inattivita in un contesto naturale svizzero',
 };
 
 export default blogMetaChIt;

@@ -3226,6 +3226,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-gli-affitti-canton-friburgo.title': 'Location à Fribourg : loyers et droit de location',
     'blog.article.mercato-gli-affitti-canton-friburgo.excerpt': 'Les loyers moyens par zone dans le canton de Fribourg sont de CHF 1\'200.',
     'blog.article.mercato-gli-affitti-canton-friburgo.imageAlt': 'image pour article sur locations et droit de location dans le canton de Fribourg',
+    'blog.article.dolce-far-niente-benessere-svizzera.title': 'Douceur de ne rien faire et bien-être : pourquoi s\'arrêter est bon pour la santé',
+    'blog.article.dolce-far-niente-benessere-svizzera.excerpt': 'L\'absence de stimuli réduit le stress, ralentit le rythme cardiaque et stimule la créativité selon la science. Une analyse de la valeur du repos.',
+    'blog.article.dolce-far-niente-benessere-svizzera.imageAlt': 'Moment de relaxation et d\'inactivité dans un cadre naturel suisse',
 };
 
 export default blogMetaChFr;
