@@ -10018,6 +10018,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asilo-nido-e-custodia-bambini-canton-basilea-citta',
+    category: 'pratico',
+    date: '2026-08-18T09:33:30.841Z',
+    image: '/images/blog/asilo-nido-e-custodia-bambini-canton-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
