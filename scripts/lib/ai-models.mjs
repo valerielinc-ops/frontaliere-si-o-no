@@ -1695,7 +1695,37 @@ const _modelDetails = new Map();
 /** @type {Set<string>} models whose score changed since last persist */
 const _dirtyModels = new Set();
 
+/**
+ * Per-model successes/failures accumulated since the LAST SUCCESSFUL persist —
+ * the delta, not the total. This is what goes to Firestore, as an atomic
+ * `FieldValue.increment`, and it exists because the aggregate doc is shared by
+ * every workflow of both repos while `_modelDetails` is a per-process total.
+ *
+ * The failure mode it removes (measured 2026-08-18 on `claude-cli/haiku`, run
+ * 32134269129): two runs overlap, both load `successes: N`, one adds 4 and
+ * writes N+4, the other adds a failure and writes N — a textbook lost update.
+ * `{merge: true}` does not help here: it merges different FIELDS, so a second
+ * writer naming the same field still wins outright with a stale absolute value.
+ * An increment carries no baseline, so there is nothing stale to write back.
+ *
+ * Cleared only when the write lands; restored on failure, exactly like
+ * `_dirtyModels` (see _persistScoresToFirestore).
+ * @type {Map<string, {successes: number, failures: number}>}
+ */
+const _pendingCounterDeltas = new Map();
+
+/**
+ * Per-model outcomes of THIS run — never cleared by a persist, which is the
+ * whole point: `_modelScores` is preloaded from Firestore at startup, so a
+ * scoreboard built from it lists ~270 models most of which this run never
+ * touched. printRunSummary() reads this map so "which models actually worked"
+ * is answerable from the run log instead of from the ledger.
+ * @type {Map<string, {successes: number, failures: number}>}
+ */
+const _runOutcomes = new Map();
+
 let _firestoreDb = null;     // Firestore instance (null until initScoreStore)
+let _firestoreFieldValue = null; // admin.firestore.FieldValue (atomic increments)
 let _storeInitialized = false;
 let _persistTimer = null;    // Debounce timer
 let _mutationCount = 0;      // Mutations since last persist
@@ -2274,6 +2304,13 @@ export async function initScoreStore() {
       admin.initializeApp({ credential: admin.credential.applicationDefault() });
     }
     _firestoreDb = admin.firestore();
+    // Atomic counter increments (see _pendingCounterDeltas). Captured here and
+    // not re-imported at write time because this is the only place that already
+    // holds the admin module. There is no REST fallback to worry about: unlike
+    // load-rc-env.mjs, this store has NO REST path — when `import('firebase-admin')`
+    // fails the catch below sets `_firestoreDb = null` and the run is memory-only,
+    // so `FieldValue` is available on exactly the paths that persist at all.
+    _firestoreFieldValue = admin.firestore?.FieldValue || null;
 
     // Load all persisted scores from the single aggregate doc (1 read).
     // If the aggregate doesn't exist yet, fall back to the legacy per-model
@@ -2389,6 +2426,31 @@ export async function initScoreStore() {
   }
 }
 
+/**
+ * Test seam: install a stand-in Firestore client without going through
+ * `initScoreStore()`.
+ *
+ * It exists because the store has exactly one door and it is nailed shut for a
+ * test: `initScoreStore()` imports firebase-admin and, when that import or the
+ * credential is missing, sets `_firestoreDb = null` and returns — so a test
+ * process silently exercises the memory-only path and every assertion about
+ * persistence passes vacuously. That is the shape of bug this module just had
+ * (a write that never happened, with nothing red), so the coverage has to reach
+ * the real write path, not a mock of it.
+ *
+ * Deliberately does NOT call `_registerExitHooks()`: a test must not leave
+ * signal handlers behind. Pair it with `resetState()`.
+ *
+ * @param {any} db          object with .collection(name).doc(id).set(data, opts)
+ * @param {any} [fieldValue] object with .increment(n); null exercises the
+ *                           absolute-write degraded path on purpose
+ */
+export function __installScoreStoreForTests(db, fieldValue = null) {
+  _firestoreDb = db;
+  _firestoreFieldValue = fieldValue;
+  _storeInitialized = true;
+}
+
 // ── Firestore persist (debounced) ────────────────────────────
 
 /**
@@ -2405,6 +2467,16 @@ async function _persistScoresToFirestore() {
   const toPersist = [..._dirtyModels];
   _dirtyModels.clear();
   _mutationCount = 0;
+  // Snapshot the counter deltas alongside the dirty set: both are cleared here
+  // and both are restored together if the write fails, so a retry cannot double
+  // count and a failed write cannot silently swallow a success.
+  /** @type {Map<string, {successes: number, failures: number}>} */
+  const deltaSnapshot = new Map();
+  for (const modelId of toPersist) {
+    const d = _pendingCounterDeltas.get(modelId);
+    if (d && (d.successes || d.failures)) deltaSnapshot.set(modelId, { ...d });
+    _pendingCounterDeltas.delete(modelId);
+  }
 
   /** @type {Record<string, any>} */
   const modelsDelta = {};
@@ -2415,11 +2487,31 @@ async function _persistScoresToFirestore() {
     const entry = {
       modelId,                 // Original model ID (with slashes)
       score,
-      successes: details.successes,
-      failures: details.failures,
       lastUsed: now,
       updatedAt: now,
     };
+
+    // successes/failures go out as an ATOMIC INCREMENT of this process's delta,
+    // never as the absolute total (see _pendingCounterDeltas for the measured
+    // lost update this replaces). A model can be dirty for a reason that is not
+    // an outcome — a learned token limit, a schema incompatibility — and then it
+    // has no delta: the counter fields are OMITTED rather than written as 0,
+    // because restating a stale absolute is exactly the defect being removed.
+    const counterDelta = deltaSnapshot.get(modelId);
+    if (counterDelta) {
+      if (_firestoreFieldValue && typeof _firestoreFieldValue.increment === 'function') {
+        if (counterDelta.successes) entry.successes = _firestoreFieldValue.increment(counterDelta.successes);
+        if (counterDelta.failures) entry.failures = _firestoreFieldValue.increment(counterDelta.failures);
+      } else {
+        // Unreachable on the firebase-admin path (initScoreStore captures
+        // FieldValue from the same module that produced the client, and there is
+        // no REST path for this store). Kept so a future client without the
+        // sentinel degrades to the old absolute write instead of dropping the
+        // outcome on the floor.
+        entry.successes = details.successes;
+        entry.failures = details.failures;
+      }
+    }
 
     // If model is exhausted, persist the reset time (next midnight UTC) —
     // but ONLY for 'quota' exhaustion, which is the one reason that
@@ -2471,8 +2563,17 @@ async function _persistScoresToFirestore() {
     await ref.set({ models: modelsDelta, updatedAt: now }, { merge: true });
   } catch (err) {
     console.warn(`⚠️  [ScoreStore] Persist failed: ${err?.message || err}`);
-    // Re-add dirty models so next flush retries them
+    // Re-add dirty models so next flush retries them — and give them back their
+    // counter deltas, merged onto whatever accumulated while this write was in
+    // flight. Without this half the retry would rewrite score and lastUsed while
+    // the outcomes it was carrying vanished with the rejected promise.
     for (const m of toPersist) _dirtyModels.add(m);
+    for (const [m, d] of deltaSnapshot) {
+      const cur = _pendingCounterDeltas.get(m) || { successes: 0, failures: 0 };
+      cur.successes += d.successes;
+      cur.failures += d.failures;
+      _pendingCounterDeltas.set(m, cur);
+    }
   }
 }
 
@@ -2503,22 +2604,64 @@ export async function flushScores() {
   await _persistScoresToFirestore();
 }
 
+/** How long an exit is allowed to wait for the final ledger write. */
+const EXIT_FLUSH_TIMEOUT_MS = 8_000;
+
+/**
+ * Flush before leaving the process — the ONE call every exit path goes through.
+ *
+ * `flushScores()` on its own is the right primitive but the wrong contract for
+ * an exit: it can reject (network), and it can hang as long as the Firestore
+ * client wants to retry. Either would turn "persist my scores" into "fail or
+ * stall the run", which is why the previous exit handlers fired the persist and
+ * did NOT await it. Firing without awaiting is not a compromise, though — it is
+ * a guaranteed loss, because `_persistScoresToFirestore()` clears `_dirtyModels`
+ * before it awaits `ref.set()`: the process leaves with the mutations already
+ * marked clean and never written.
+ *
+ * So: await it, bounded and non-throwing. A timeout logs and gives up rather
+ * than holding the runner. Returns true when the write landed, so a caller (and
+ * a test) can tell "flushed" from "gave up".
+ */
+export async function flushScoresBeforeExit(timeoutMs = EXIT_FLUSH_TIMEOUT_MS) {
+  if (!_firestoreDb || (_dirtyModels.size === 0 && !_persistTimer)) return true;
+  let timer = null;
+  const pending = _dirtyModels.size;
+  try {
+    const timeout = new Promise((resolve) => {
+      timer = setTimeout(() => resolve('timeout'), timeoutMs);
+      // NOT unref'd: this promise races a write we are deliberately waiting for.
+    });
+    const outcome = await Promise.race([flushScores().then(() => 'flushed'), timeout]);
+    if (outcome === 'timeout') {
+      console.warn(`⚠️  [ScoreStore] Final flush timed out after ${timeoutMs}ms — ${pending} model(s) not persisted`);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.warn(`⚠️  [ScoreStore] Final flush failed: ${err?.message || err}`);
+    return false;
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
+
 /** Register process exit hooks for final flush */
 function _registerExitHooks() {
   if (_exitHooked) return;
   _exitHooked = true;
 
-  const flush = () => {
-    // Synchronous-ish: we can't truly await in exit handlers,
-    // but we fire the persist and give it a moment
-    if (_dirtyModels.size > 0 && _firestoreDb) {
-      _persistScoresToFirestore().catch(() => {});
-    }
-  };
-
-  process.on('beforeExit', async () => { await flushScores(); });
-  process.on('SIGINT', () => { flush(); process.exit(130); });
-  process.on('SIGTERM', () => { flush(); process.exit(143); });
+  process.on('beforeExit', async () => { await flushScoresBeforeExit(); });
+  // Signal handlers await the same bounded flush before exiting. The old pair
+  // called the persist and then `process.exit()` on the very next statement,
+  // which cannot ever complete a write — the comment claimed it gave the persist
+  // "a moment" and there was no moment. Note this is the LATENT half of the
+  // loss, not the dominant one: on the corpus the hard kill of
+  // generate-article.yml is SIGKILL, measured 42 times out of 42 with zero
+  // SIGTERM, and SIGKILL runs no handler at all. What this fixes is the
+  // cooperative stop (a cancelled workflow, a local Ctrl-C).
+  process.on('SIGINT', async () => { await flushScoresBeforeExit(); process.exit(130); });
+  process.on('SIGTERM', async () => { await flushScoresBeforeExit(); process.exit(143); });
 }
 
 // ── Score mutation (with Firestore persistence) ──────────────
@@ -2529,8 +2672,24 @@ export function recordModelSuccess(modelId) {
   const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
   d.successes++;
   _modelDetails.set(modelId, d);
+  _bumpOutcome(modelId, 'successes');
   _dirtyModels.add(modelId);
   _schedulePersist();
+}
+
+/**
+ * Record one outcome in both the not-yet-persisted delta and the run tally.
+ * Two maps and not one because they are cleared by different events: the delta
+ * empties on every successful write, the run tally never does (printRunSummary
+ * reads it at the very end).
+ */
+function _bumpOutcome(modelId, field) {
+  const pending = _pendingCounterDeltas.get(modelId) || { successes: 0, failures: 0 };
+  pending[field]++;
+  _pendingCounterDeltas.set(modelId, pending);
+  const run = _runOutcomes.get(modelId) || { successes: 0, failures: 0 };
+  run[field]++;
+  _runOutcomes.set(modelId, run);
 }
 
 /**
@@ -2588,6 +2747,7 @@ export function recordModelFailure(modelId, { nonRetryable = false, exhausted = 
   const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
   d.failures++;
   _modelDetails.set(modelId, d);
+  _bumpOutcome(modelId, 'failures');
   _dirtyModels.add(modelId);
   _schedulePersist();
 }
@@ -3080,9 +3240,26 @@ export function getStats() {
     consecutive429s: Object.fromEntries(_consecutive429),  // FRO-325
     activeCooldowns: Object.fromEntries([..._providerCooldown].map(([p, t]) => [p, Math.max(0, Math.ceil((t - Date.now()) / 1000))])),
     scoreBoard: getScoreBoard(),
+    runOutcomes: getRunOutcomes(),
     storeBackend: _firestoreDb ? 'firestore' : 'memory',
     dirtyModels: _dirtyModels.size,
   };
+}
+
+/**
+ * Models this run actually called, with the outcome of each — busiest first.
+ *
+ * Deliberately NOT `getScoreBoard()`: that one is built from `_modelScores`,
+ * which initScoreStore preloads from Firestore (270 entries on 2026-08-18), so
+ * it describes the ledger and not the run. This describes the run, which is the
+ * question "sta funzionando questo modello?" actually asks.
+ */
+export function getRunOutcomes() {
+  return [..._runOutcomes.entries()]
+    .map(([model, o]) => ({ model, successes: o.successes, failures: o.failures }))
+    .sort((a, b) => (b.successes + b.failures) - (a.successes + a.failures)
+      || b.successes - a.successes
+      || a.model.localeCompare(b.model));
 }
 
 // Formats one last-resort tier's bucket for printRunSummary()'s compact
@@ -3103,6 +3280,37 @@ function _formatLastResortTier(name, t, isCompeting) {
     parts.push(`${t.skipped} skipped(${reasons})`);
   }
   return `${name} ${parts.join('/')}${isCompeting ? ' [competing]' : ''}`;
+}
+
+// Max models named on the `models:` line. A run touches a handful (the run
+// 32134269129 touched 2); the cap exists so a pathological cascade can't emit a
+// 270-entry line into logs that are already large.
+const RUN_OUTCOME_LINE_MAX = 24;
+
+/**
+ * One compact, grep-able line naming the models this run actually called.
+ *
+ * Why it exists: until 2026-08-18 a model that succeeded at position 0 of the
+ * chain logged NOTHING — `✅ Fallback to X succeeded` only prints when `i > 0` —
+ * so "quale modello ha scritto l'articolo" was unanswerable from the run log,
+ * and the ledger that should have answered it was wrong (see
+ * _pendingCounterDeltas). This line answers it from the log alone.
+ *
+ * `ok`/`ko` and not ✓/✗ so the line survives `grep` in a terminal that mangles
+ * the check marks; the `models:` prefix so it can be pulled out of a 5000-line
+ * run with one pattern. The `ledger=` tail is the observer for the loss itself:
+ * `pending>0` at summary time means mutations are still unwritten at the moment
+ * the run is about to end.
+ */
+function _formatRunOutcomesLine(s) {
+  const outcomes = s.runOutcomes || [];
+  const tail = ` [ledger=${s.storeBackend} pending=${s.dirtyModels}]`;
+  if (outcomes.length === 0) return `   models: none called this run${tail}`;
+  const shown = outcomes.slice(0, RUN_OUTCOME_LINE_MAX)
+    .map((o) => `${o.model} ${o.successes}ok/${o.failures}ko`)
+    .join(' · ');
+  const hidden = outcomes.length - Math.min(outcomes.length, RUN_OUTCOME_LINE_MAX);
+  return `   models: ${shown}${hidden > 0 ? ` · +${hidden} more` : ''}${tail}`;
 }
 
 /**
@@ -3135,6 +3343,7 @@ export function printRunSummary() {
   lines.push(lrReached
     ? `   last-resort: ${lrTiers.map((t) => _formatLastResortTier(t, lr[t], competing.includes(t))).join(' · ')}`
     : `   last-resort: ${lrTiers.join('/')} not reached this run`);
+  lines.push(_formatRunOutcomesLine(s));
   if (s.errors.length > 0) {
     lines.push(`   Errors: ${s.errors.length}`);
   }
@@ -3153,6 +3362,8 @@ export function resetState() {
   _modelScores.clear();
   _modelDetails.clear();
   _dirtyModels.clear();
+  _pendingCounterDeltas.clear();
+  _runOutcomes.clear();
   _consecutive429.clear();
   _callLatency.clear();
   _clampedTimeouts.clear();
