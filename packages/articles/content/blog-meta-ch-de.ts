@@ -3277,6 +3277,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Wohnungskauf Solothurn: Preise, Eigenmittel und Aufwendungen',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'Der Kanton Solothurn bietet Durchschnittspreise für den Kauf eines Hauses an, es sind jedoch Eigenmittel und Notarkosten zu berücksichtigen.',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'Ein Blick auf die Stadt Solothurn, mit einem Ausländer, der auf sein Haus schaut.',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Abonnements für öffentliche Verkehrsmittel Kanton Solothurn Zonen und Tarife',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Informationen zu Tarifen und Zonen des öffentlichen Verkehrs im Kanton Solothurn',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Öffentliche Verkehrsmittel im Kanton Solothurn',
 };
 
 export default blogMetaChDe;

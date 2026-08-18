@@ -3277,6 +3277,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Home purchase Soleta: prices, own funds and expenses',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'The Canton of Solothurn offers average prices for the purchase of a home, but there are own funds required and notary fees to consider.',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'A view of the city of Solothurn, with a foreigner looking at his house.',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Public transport subscriptions Canton Solothurn zones and fares',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Information on fares and public transport zones in the canton of Solothurn',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Public transport in the Canton of Solothurn',
 };
 
 export default blogMetaChEn;

@@ -3277,6 +3277,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Acquisto abitazione Soletta: prezzi, fondi propri e spese',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'Il Cantone di Soletta offre prezzi medi per l\'acquisto di una casa, ma ci sono fondi propri richiesti e spese notarili da considerare.',
     'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'Una vista della città di Soletta, con un frontaliere che guarda la sua casa.',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.title': 'Abbonamenti trasporti pubblici Canton Soletta zone e tariffe',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.excerpt': 'Informazioni sui tarifferi e le zone dei trasporti pubblici nel Canton Soletta',
+    'blog.article.trasporti-pubblici-canton-soletta-abbonamenti.imageAlt': 'Trasporti pubblici nel Canton Soletta',
 };
 
 export default blogMetaChIt;
