@@ -648,6 +648,80 @@ describe('checkFabricatedNormAcronyms', () => {
     )).toEqual([]);
   });
 
+  // `legg[ei]` e `lois?` in `NORM_CITATION_CUE` matchavano come PREFISSO di
+  // parole comuni prive di ogni legame con una citazione di norma — `leggero`,
+  // `leggenda`, `loisir` — perché l'alternanza non chiudeva con `\b`. Una di
+  // queste basta, nel raggio di 120 caratteri da una menzione reale della
+  // banca LCL, a far scattare `context.test()` e bloccare come `critical` un
+  // articolo legittimo: esattamente il difetto che questa PR dichiara di
+  // risolvere, riaperto da un lato diverso della stessa regex.
+  it('leaves the bank LCL alone even when a nearby word merely starts with legg-/lois-', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Dal 2024 LCL offre un servizio leggero e veloce per i frontalieri, pensato per chi cerca leggerezza '
+      + 'nella gestione dei conti correnti in Svizzera.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'Dal 2024 LCL, secondo una leggenda metropolitana leggendaria fra i frontalieri, avrebbe conti gratuiti.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'Depuis 2024, LCL propose aux frontaliers un service de loisirs bancaires pour la Suisse.',
+    )).toEqual([]);
+  });
+
+  // Stesso difetto di `legg[ei]`/`lois?`, riaperto da un terzo lato della
+  // stessa alternanza: `federal\s+act`, `act\s+on` e `law\s+on` non
+  // chiudevano con `\b` e matchavano come PREFISSO di frasi ordinarie senza
+  // alcun legame con una citazione di norma — «federal action plan», «will
+  // act only if requested», «this law only concerns residents».
+  it('leaves the bank LCL alone even when a nearby word merely starts with act-/law-', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Since 2024, LCL offers a federal action plan discount for cross-border commuters banking in Switzerland.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'Since 2024, LCL support staff will act only if requested by the cross-border commuter opening an account.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'Since 2024, LCL notes that this law only concerns residents opening a new account in Switzerland.',
+    )).toEqual([]);
+  });
+
+  // Il test sopra nomina tre parole; la classe ne ha altre cinque, e la coda
+  // del prefisso `legg-` e' fitta di parole ordinarie. Enumerarle qui evita che
+  // un domani si «semplifichi» il cue guardando solo i tre esempi citati.
+  it('leaves the bank LCL alone for the rest of the legg-/lois- family too', () => {
+    const frasiSenzaCitazione = [
+      'Il tariffario LCL resta leggibile online e non prevede spese fisse mensili.',
+      'Un logo leggiadro accompagna la nuova app LCL dedicata ai frontalieri.',
+      'Le commissioni LCL sono leggermente inferiori a quelle della concorrenza.',
+      'Conviene leggere le condizioni del conto LCL prima di aprirlo.',
+      'La carta LCL offre sconti su viaggi e loisir per i frontalieri.',
+    ];
+    for (const frase of frasiSenzaCitazione) {
+      expect(checkFabricatedNormAcronyms(frase), frase).toEqual([]);
+    }
+  });
+
+  // Contro-prova, ed e' la meta' che mancava del tutto: restringere il cue per
+  // chiudere il falso positivo puo' spegnere il gate, e nessun test se ne
+  // accorgerebbe. Le forme vere devono restare cue in italiano e in francese,
+  // al singolare E al plurale — `legislazioni` non lo era: l'alternanza diceva
+  // `legislazione`, che come prefisso non copre il plurale, quindi una sigla
+  // fabbricata citata al plurale passava senza contesto riconosciuto.
+  it('still recognises real citation cues, singular and plural', () => {
+    const frasiConCitazione = [
+      'La legge cantonale sul lavoro (LCL) del 15 dicembre 1995 fissa un minimo.',
+      'Le leggi cantonali richiamate dalla LCL fissano un minimo salariale.',
+      'La legislazione richiamata dalla LCL fissa un minimo salariale.',
+      'Le legislazioni cantonali richiamate dalla LCL fissano un minimo salariale.',
+      'La loi cantonale sur le travail (LCL) fixe un salaire minimum.',
+      'Les lois cantonales citees par la LCL fixent un salaire minimum.',
+    ];
+    for (const frase of frasiConCitazione) {
+      expect(codes(checkFabricatedNormAcronyms(frase)), frase).toContain('fabricated-norm-acronym');
+    }
+  });
+
+
   // Il falso negativo che NASCE con la guardia: `re.exec` torna solo la prima
   // occorrenza, quindi una menzione legittima messa in cima nasconde una
   // fabbricazione piu' in basso. Le due `LCL` qui stanno a 270 caratteri di

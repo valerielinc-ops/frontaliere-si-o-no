@@ -1338,7 +1338,7 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
 // L'obiezione «una parola come "legge" non regge su de/fr/en» e' corretta per
 // una singola parola italiana, e infatti qui non ce n'e' una sola.
 const NORM_CITATION_CUE =
-  /\b(?:legg[ei]|legislazione|lois?|Gesetz(?:es|e)?|Bundesgesetz|federal\s+act|act\s+on|law\s+on|articol[oi]|articles?|Artikel|art\.|cpv\.|Abs\.|RS\s*\d)/i;
+  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]|articles?|Artikel|art\.|cpv\.|Abs\.|RS\s*\d)/i;
 
 export const FABRICATED_NORM_ACRONYMS = [
   {
