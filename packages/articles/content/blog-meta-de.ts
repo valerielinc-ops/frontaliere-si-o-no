@@ -10052,6 +10052,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.migros-delica-nuovo-direttore-2027.title': 'Migros Delica: Moritz Werner ist seit 2027 neuer Geschäftsführer',
     'blog.article.migros-delica-nuovo-direttore-2027.excerpt': 'Ab dem 1. Januar 2027 wird Moritz Werner als Nachfolger von Thomas Gubler den Produzenten Migros Delica leiten.',
     'blog.article.migros-delica-nuovo-direttore-2027.imageAlt': 'Neuer Direktor von Migros Delica Moritz Werner',
+    'blog.article.besnate-ponte-ferrovia-incidente.title': '68-jährige Frau fällt von der Eisenbahnbrücke in Besnate',
+    'blog.article.besnate-ponte-ferrovia-incidente.excerpt': 'Eine 68-jährige Frau stürzt von einer Eisenbahnbrücke in Besnate, in ernstem Zustand. Der Unfall ereignet sich kurz nach 10 Uhr in der Via Monte Rosa in der Nähe des Bahnhofs.',
+    'blog.article.besnate-ponte-ferrovia-incidente.imageAlt': 'Eine 68-jährige Frau stürzt von einem Eisenbahnbrücke in Besnate ab und leidet an schweren Verletzungen.',
 };
 
 export default blogMetaDe;
