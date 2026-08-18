@@ -682,11 +682,20 @@ export const FC_CONSENT_BRIDGE_JS = `(function(){if(window.__ftFcConsentBridge)r
  * generated SEO and job pages never clone index.html, and AdBlockGate mounts on
  * every route. Without it here the gate falls back to the weak local probe on
  * exactly the pages where it fires and where the ad revenue is.
+ *
+ * `eq()` is load-bearing, not defensive noise. Both getters are already guarded
+ * against being absent, but a bare `===` also matches `undefined` against
+ * `undefined`: a status the getter returns as undefined, compared to an enum
+ * member Funding Choices has not populated, reads as BOTH
+ * `blocked: true` (a visitor who blocks nothing) and `adsAllowed: true` (a
+ * visitor who blocks everything) — the two worst answers this bridge can give,
+ * from one missing check. tests/adblock-bridge-parity.test.ts executes both
+ * copies against that state; a substring parity check does not see it.
  */
 /** Event name the client listens on; shared contract with services/adBlockDetection.ts. */
 export const FC_ADBLOCK_SIGNAL_EVENT = 'frontaliere:adblock-data';
 
-export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;window.__ftAdBlock={status:s,allowAds:a,blocked:s===E.EXTENSION_LEVEL_AD_BLOCKER||s===E.NETWORK_LEVEL_AD_BLOCKER,adsAllowed:a===A.ADS_ALLOWED};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
+export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('${FC_ADBLOCK_SIGNAL_EVENT}'));}catch(e){}}catch(e){}}});})();`;
 
 /**
  * Inline lazy-loader injected at the bottom of every static page (and also
