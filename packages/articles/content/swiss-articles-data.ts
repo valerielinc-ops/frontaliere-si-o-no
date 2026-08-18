@@ -9847,6 +9847,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-basilea-citt-riduzione',
+    category: 'novita',
+    date: '2026-08-18T04:30:52.311Z',
+    image: '/images/blog/premi-cassa-malati-basilea-citt-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'diritto-locazione-conciliazione-ticino',
+    category: 'pratico',
+    date: '2026-08-18T04:35:02.798Z',
+    image: '/images/blog/diritto-locazione-conciliazione-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -42569,6 +42569,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-basilea-citt-riduzione': {
+    title: 'Premi cassa malati nel Cantone di Basilea Città: riduzione annunciata',
+    description: 'Il Cantone di Basilea Città ha annunciato la riduzione dei premi per la cassa malati. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, cantone',
+    ogTitle: 'Riduzione dei premi per la cassa malati nel Cantone di Basilea Città',
+    ogDescription: 'Il Cantone di Basilea Città ha annunciato la riduzione dei premi per la cassa malati. Sappiamo che cosa significa e come potrebbe influire sul tuo piano di risparmio.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-basilea-citt-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati nel Cantone di Basilea Città: riduzione annunciata",
+      "description": "Il Cantone di Basilea Città ha annunciato la riduzione dei premi per la cassa malati. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-basilea-citt-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di Basilea Città, Svizzera, con premio cassa malati ridotto"
+      },
+      "datePublished": "2026-08-18T04:30:52+00:00",
+      "dateModified": "2026-08-18T04:30:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-basilea-citt-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-diritto-locazione-conciliazione-ticino': {
+    title: 'Diritto di locazione in Svizzera: come evitare i tribunali',
+    description: 'Scopri come gestire i conflitti di locazione, gli aumenti di pigione e le controversie abitative in Svizzera senza finire in tribunale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, evitare, tribunali',
+    ogTitle: 'Diritto di locazione in Svizzera: guida alla conciliazione e prevenzione liti',
+    ogDescription: 'Approfondimento sulle controversie di locazione in Svizzera, tra aumenti di pigione e procedure di conciliazione per evitare la Pretura.',
+    canonicalPath: '/articoli-svizzera/diritto-locazione-conciliazione-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto di locazione in Svizzera: come evitare i tribunali",
+      "description": "Scopri come gestire i conflitti di locazione, gli aumenti di pigione e le controversie abitative in Svizzera senza finire in tribunale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diritto-locazione-conciliazione-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manuale sul diritto di locazione e chiavi di casa in Svizzera"
+      },
+      "datePublished": "2026-08-18T04:35:02+00:00",
+      "dateModified": "2026-08-18T04:35:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritto-locazione-conciliazione-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

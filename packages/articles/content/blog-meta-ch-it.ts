@@ -3283,6 +3283,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.title': 'Patente Soletta: cosa fare e come procedere',
     'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.excerpt': 'Conversione della patente di guida estera nel Cantone di Soletta: come richiedere la conversione e cosa fare durante gli esami.',
     'blog.article.patente-di-guida-canton-soletta-conversione-ed-esami.imageAlt': 'Un guidatore in un\'auto sulla strada svizzera vicino a Lugano.',
+    'blog.article.premi-cassa-malati-basilea-citt-riduzione.title': 'Premi cassa malati nel Cantone di Basilea Città: riduzione annunciata',
+    'blog.article.premi-cassa-malati-basilea-citt-riduzione.excerpt': 'Il Cantone di Basilea Città ha annunciato la riduzione dei premi per la cassa malati.',
+    'blog.article.premi-cassa-malati-basilea-citt-riduzione.imageAlt': 'Immagine di Basilea Città, Svizzera, con premio cassa malati ridotto',
+    'blog.article.diritto-locazione-conciliazione-ticino.title': 'Diritto di locazione in Svizzera: come evitare i tribunali',
+    'blog.article.diritto-locazione-conciliazione-ticino.excerpt': 'Dagli aumenti di pigione alle controversie tra inquilini e proprietari: ecco come gestire i conflitti locativi ed evitare la Pretura secondo gli esperti.',
+    'blog.article.diritto-locazione-conciliazione-ticino.imageAlt': 'Manuale sul diritto di locazione e chiavi di casa in Svizzera',
 };
 
 export default blogMetaChIt;
