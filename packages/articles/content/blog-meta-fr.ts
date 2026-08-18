@@ -10046,6 +10046,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Contrôles d\'août : 9 travailleurs irréguliers et suspensions',
     'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'La Guardia di Finanza a effectué des contrôles en août dans la province de Varèse, en identifiant 9 travailleurs irréguliers et en suspendant deux activités.',
     'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Image d\'un contrôleur vérifiant les permis de travail d\'un travailleur frontalier.',
+    'blog.article.frontalieriticone2026-q2.title': 'Frontalieri Ticino : +0,64 % par rapport au trimestre précédent',
+    'blog.article.frontalieriticone2026-q2.excerpt': 'Le nombre de frontaliers dans le canton du Tessin augmente de +0,64% par rapport au trimestre précédent, mais diminue de -0,57% par rapport au même trimestre de l\'année précédente.',
+    'blog.article.frontalieriticone2026-q2.imageAlt': 'Vue aérienne de Lugano, Ticino, Suisse. Une promenade en bord de lac encombrée avec un lac en arrière-plan.',
 };
 
 export default blogMetaFr;

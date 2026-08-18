@@ -10045,6 +10045,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-lavoratori-irregolari-ticino.title': 'Controlli di Ferragosto: 9 lavoratori irregolari e sospensioni',
     'blog.article.controlli-lavoratori-irregolari-ticino.excerpt': 'La Guardia di Finanza ha effettuato controlli di Ferragosto nella provincia di Varese, identificando 9 lavoratori irregolari e sospensioni di due attività.',
     'blog.article.controlli-lavoratori-irregolari-ticino.imageAlt': 'Immagine di un controllore che verifica i permessi di lavoro di un frontaliere.',
+    'blog.article.frontalieriticone2026-q2.title': 'Frontalieri Ticino: +0,64% rispetto al trimestre precedente',
+    'blog.article.frontalieriticone2026-q2.excerpt': 'Il numero di frontalieri nel Canton Ticino aumenta di +0,64% rispetto al trimestre precedente, ma diminuisce di -0,57% rispetto allo stesso trimestre dell\'anno precedente.',
+    'blog.article.frontalieriticone2026-q2.imageAlt': 'Vista aerea di Lugano, Ticino, Svizzera. Un\'area affollata di promenade con un lago in background.',
 };
 
 export default blogMetaIt;

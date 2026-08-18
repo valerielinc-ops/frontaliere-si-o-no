@@ -30090,6 +30090,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieriticone2026-q2',
+ category: 'pratico',
+ date: '2026-08-18T08:01:07.857Z',
+ image: '/images/blog/frontalieriticone2026-q2.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
