@@ -493,9 +493,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-arosa",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-arosa",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-arosa",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-arosa"
       },
       "sourceLang": "de",
       "department": "",
@@ -534,6 +534,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -563,12 +569,12 @@
         "en": "Business Partner: in Finance Logistics Services",
         "fr": "Partenaire d'affaires: en Finance Logistics Services"
       },
-      "slug": "business-partner-in-finanzen-logistik-services-post",
+      "slug": "business-partner-in-finanza-logistica-servizi-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "business-partner-in-finanzen-logistik-services-post",
-        "en": "business-partner-in-finanzen-logistik-services-post",
+        "it": "business-partner-in-finanza-logistica-servizi-die-schweizerische-post-bern",
+        "en": "business-partner-in-finance-logistics-services-die-schweizerische-post-bern",
         "de": "business-partner-in-finanzen-logistik-services-post",
-        "fr": "business-partner-in-finanzen-logistik-services-post"
+        "fr": "partenaire-d-affaires-en-finance-logistics-services-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -602,7 +608,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-08-17T09:59:08.422Z"
+      "firstSeenAt": "2026-08-17T09:59:08.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-partner-in-finanzen-logistik-services-post"
+        ],
+        "en": [
+          "business-partner-in-finanzen-logistik-services-post"
+        ],
+        "fr": [
+          "business-partner-in-finanzen-logistik-services-post"
+        ]
+      },
+      "previousSlugs": [
+        "business-partner-in-finanzen-logistik-services-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73703-de_DE",
@@ -708,9 +728,9 @@
       "slug": "ticketkontrolleur-in-und-kundenberatung-post",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-und-kundenberatung-post",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
+        "en": "ticket-controller-in-and-customer-advice-postauto-brugg-ag",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-brugg-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -744,7 +764,18 @@
       },
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-08-17T09:59:08.422Z"
+      "firstSeenAt": "2026-08-17T09:59:08.422Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+        ]
+      },
+      "previousSlugs": [
+        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Innendienst-Abendzustellung-Pakete/74434-de_DE",
@@ -1702,7 +1733,7 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
         "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
         "fr": "pilote-postbus-in-postauto-ag-reichenburg"
@@ -1743,8 +1774,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg",
-          "postbus-driver-in-postauto-ag-reichenburg"
+          "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
           "postauto-fahrer-in-post",
@@ -1757,8 +1787,7 @@
       "previousSlugs": [
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-ag-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg"
       ],
       "retranslationAttempts": 2
     },
@@ -5121,7 +5150,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -5145,7 +5174,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

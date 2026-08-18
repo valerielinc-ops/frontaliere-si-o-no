@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "otis-865325ad569f",
-      "slug": "field-operations-assistant-fod-otis-fribourg",
+      "slug": "assistente-di-operazioni-sul-campo-fod-otis-sa-fribourg",
       "slugByLocale": {
-        "it": "field-operations-assistant-fod-otis-fribourg",
         "en": "field-operations-assistant-fod-otis-fribourg",
+        "it": "assistente-di-operazioni-sul-campo-fod-otis-sa-fribourg",
         "de": "field-operations-assistant-fod-otis-fribourg",
-        "fr": "field-operations-assistant-fod-otis-fribourg"
+        "fr": "assistant-aux-operations-hors-siege-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -57,7 +57,18 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-08-17T09:54:20.330Z"
+      "firstSeenAt": "2026-08-17T09:54:20.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-operations-assistant-fod-otis-fribourg"
+        ],
+        "fr": [
+          "field-operations-assistant-fod-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "field-operations-assistant-fod-otis-fribourg"
+      ]
     },
     {
       "id": "otis-0c830d29685d",
@@ -176,13 +187,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:13.099Z",
       "previousSlugs": [
-        "repairman-mod-bex-otis-belp",
-        "riparatore-mod-bex-otis-sa-belp"
+        "repairman-mod-bex-otis-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repairman-mod-bex-otis-belp",
-          "riparatore-mod-bex-otis-sa-belp"
+          "repairman-mod-bex-otis-belp"
         ],
         "de": [
           "repairman-mod-bex-otis-belp"
@@ -249,13 +258,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:12.819Z",
       "previousSlugs": [
-        "group-leader-svc-otis-belp",
-        "leader-di-gruppo-otis-sa-belp"
+        "group-leader-svc-otis-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-leader-svc-otis-belp",
-          "leader-di-gruppo-otis-sa-belp"
+          "group-leader-svc-otis-belp"
         ],
         "fr": [
           "group-leader-svc-otis-belp"
@@ -319,13 +326,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:12.531Z",
       "previousSlugs": [
-        "receptionniste-assistant-e-administrative-otis-fribourg",
-        "receptionniste-assistant-e-amministrativo-otis-sa-fribourg"
+        "receptionniste-assistant-e-administrative-otis-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "receptionniste-assistant-e-administrative-otis-fribourg",
-          "receptionniste-assistant-e-amministrativo-otis-sa-fribourg"
+          "receptionniste-assistant-e-administrative-otis-fribourg"
         ],
         "de": [
           "receptionniste-assistant-e-administrative-otis-fribourg"
@@ -389,13 +394,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:12.264Z",
       "previousSlugs": [
-        "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp"
+        "aufzugsreparateur-in-service-m-w-d-otis-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufzugsreparateur-in-service-m-w-d-otis-belp",
-          "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp"
+          "aufzugsreparateur-in-service-m-w-d-otis-belp"
         ]
       },
       "needsRetranslation": true,
@@ -599,13 +602,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:11.410Z",
       "previousSlugs": [
-        "montageleiter-neuanlagen-m-w-d-otis-kriens",
-        "direttore-di-assemblaggio-nuovi-impianti-m-f-d-otis-sa-kriens"
+        "montageleiter-neuanlagen-m-w-d-otis-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montageleiter-neuanlagen-m-w-d-otis-kriens",
-          "direttore-di-assemblaggio-nuovi-impianti-m-f-d-otis-sa-kriens"
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
         ],
         "en": [
           "montageleiter-neuanlagen-m-w-d-otis-kriens"
@@ -802,13 +803,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:10.554Z",
       "previousSlugs": [
-        "gruppenleiter-reparatur-svc-m-w-d-otis-belp",
-        "gruppo-leader-riparazione-svc-m-f-d-otis-sa-belp"
+        "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-reparatur-svc-m-w-d-otis-belp",
-          "gruppo-leader-riparazione-svc-m-f-d-otis-sa-belp"
+          "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
         ],
         "en": [
           "gruppenleiter-reparatur-svc-m-w-d-otis-belp"
@@ -1178,8 +1177,7 @@
         "tecnico-di-servizio-m-f-d-otis-sa-reinach",
         "servicetechniker-m-w-d-otis-nenzlingerweg-2",
         "service-technician-m-f-d-otis-sa-reinach",
-        "technicien-des-services-m-f-d-otis-sa-reinach",
-        "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0"
+        "technicien-des-services-m-f-d-otis-sa-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1188,8 +1186,7 @@
           "tecnico-di-servizio-m-f-d-otis-sa-reinach",
           "servicetechniker-m-w-d-otis-nenzlingerweg-2",
           "service-technician-m-f-d-otis-sa-reinach",
-          "technicien-des-services-m-f-d-otis-sa-reinach",
-          "tecnico-di-servizio-m-f-d-otis-sa-reinach-289ae0"
+          "technicien-des-services-m-f-d-otis-sa-reinach"
         ],
         "en": [
           "servicetechniker-m-w-d-otis-reinach",
@@ -1263,14 +1260,12 @@
       "crawledAt": "2026-08-17T21:32:08.582Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
-        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
-        "talent-community-st-gallen-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-oberburen"
+        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
-          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
-          "talent-community-st-gallen-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-oberburen"
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
         ],
         "en": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen"
@@ -1338,14 +1333,12 @@
       "crawledAt": "2026-08-17T21:32:08.306Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
-        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
-        "talent-community-bern-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-belp"
+        "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
-          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
-          "talent-community-bern-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-belp"
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
         ],
         "en": [
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp"
@@ -1413,14 +1406,12 @@
       "crawledAt": "2026-08-17T21:32:08.018Z",
       "previousSlugs": [
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
-        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
-        "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon"
+        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon",
-          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
-          "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon"
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon"
         ],
         "en": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-dietlikon"
@@ -1488,14 +1479,12 @@
       "crawledAt": "2026-08-17T21:32:07.723Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
-        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
-        "talent-community-chur-installatore-di-ascensore-repairer-ingegnere-di-servizio-m-f-d-otis-sa-chur"
+        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
-          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
-          "talent-community-chur-installatore-di-ascensore-repairer-ingegnere-di-servizio-m-f-d-otis-sa-chur"
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur"
         ],
         "en": [
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur"
@@ -1567,8 +1556,7 @@
         "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kriens",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
         "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
-        "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens",
-        "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens"
+        "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1577,8 +1565,7 @@
           "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kriens",
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
           "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
-          "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens",
-          "talent-community-lucerne-installatore-repairer-servizio-tecnico-m-f-d-otis-sa-kriens"
+          "talent-community-lucerne-installateur-d-ascenseur-reparateur-technicien-de-service-m-f-d-otis-sa-kriens"
         ],
         "en": [
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
@@ -1651,14 +1638,12 @@
       "crawledAt": "2026-08-17T21:32:07.126Z",
       "previousSlugs": [
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
-        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
-        "talent-community-basel-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-reinach"
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
-          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
-          "talent-community-basel-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-reinach"
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
         ],
         "en": [
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach"
@@ -1725,13 +1710,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-08-17T21:32:06.852Z",
       "previousSlugs": [
-        "manager-ehs-switzerland-otis-fribourg",
-        "manager-ehs-svizzera-otis-sa-fribourg"
+        "manager-ehs-switzerland-otis-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-ehs-switzerland-otis-fribourg",
-          "manager-ehs-svizzera-otis-sa-fribourg"
+          "manager-ehs-switzerland-otis-fribourg"
         ],
         "de": [
           "manager-ehs-switzerland-otis-fribourg"
