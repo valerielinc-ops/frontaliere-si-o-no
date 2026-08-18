@@ -186,15 +186,15 @@ function lastSampledAt(history, variant) {
  * or more, picking the least recently sampled one is what stops a newly added
  * arm from never getting a turn — the old toggle could only ever see two.
  */
-export function chooseNextVariant(currentVariant, history) {
-  const others = VARIANTS.filter((v) => v !== currentVariant);
-  if (!others.length) return VARIANTS[0];
+export function chooseNextVariant(currentVariant, history, variants = VARIANTS) {
+  const others = variants.filter((v) => v !== currentVariant);
+  if (!others.length) return variants[0];
   return others
     .slice()
     .sort((a, b) => (lastSampledAt(history, a) ?? -Infinity) - (lastSampledAt(history, b) ?? -Infinity))[0];
 }
 
-export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
+export function decideVariant({ currentVariant, history, currentKpi, nowIso, variants = VARIANTS }) {
   const decision = {
     nextVariant: currentVariant,
     reason: 'keep_current',
@@ -202,8 +202,8 @@ export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
     scores: {},
   };
 
-  if (!VARIANTS.includes(currentVariant)) {
-    decision.nextVariant = VARIANTS[0];
+  if (!variants.includes(currentVariant)) {
+    decision.nextVariant = variants[0];
     decision.reason = 'bootstrap_from_control';
     decision.mode = 'explore';
     return decision;
@@ -216,10 +216,10 @@ export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
   // Score every arm, not just the first two: adding a third variant used to
   // leave it permanently unscored and therefore unpickable.
   const scores = {};
-  for (const v of VARIANTS) scores[v] = aggregateVariantCtr(history, v);
+  for (const v of variants) scores[v] = aggregateVariantCtr(history, v);
   decision.scores = scores;
 
-  const comparable = VARIANTS.every(
+  const comparable = variants.every(
     (v) => scores[v].samples >= 2 && scores[v].impressions >= MIN_TOTAL_IMPRESSIONS,
   );
 
@@ -235,16 +235,30 @@ export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
 
   if (comparable && !dueForRevalidation) {
     decision.mode = 'exploit';
-    const ranked = VARIANTS.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
+    const ranked = variants.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
     const winner = ranked[0];
     const runnerUp = ranked[1];
-    const uplift = scores[winner].ctr - scores[runnerUp].ctr;
-    if (winner !== currentVariant && uplift >= MIN_UPLIFT_ABS) {
-      decision.nextVariant = winner;
-      decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
-    } else {
-      decision.reason = uplift >= MIN_UPLIFT_ABS ? 'winner_already_active' : 'uplift_below_threshold';
+    if (winner !== currentVariant) {
+      // The margin that decides a switch is against the arm being REPLACED,
+      // not against the runner-up. With two arms those are the same thing, so
+      // this was invisible; with three it is the difference between working
+      // and not. Arms at 7.60 / 7.55 / 6.00 with the worst one live would see
+      // winner-minus-runner-up = 0.05, below the threshold, and the autopilot
+      // would sit on the worst arm forever while the best beat it by 1.6.
+      const uplift = scores[winner].ctr - scores[currentVariant].ctr;
+      if (uplift >= MIN_UPLIFT_ABS) {
+        decision.nextVariant = winner;
+        decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
+      } else {
+        decision.reason = 'uplift_below_threshold';
+      }
+      return decision;
     }
+    // The winner is already live, so the question is no longer "should we
+    // switch" but "how safe is the lead" — and that is measured against the
+    // closest challenger.
+    const lead = scores[winner].ctr - scores[runnerUp].ctr;
+    decision.reason = lead >= MIN_UPLIFT_ABS ? 'winner_already_active' : 'uplift_below_threshold';
     return decision;
   }
 
@@ -255,13 +269,13 @@ export function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
 
   if (comparable && dueForRevalidation) {
     decision.mode = 'explore';
-    decision.nextVariant = chooseNextVariant(currentVariant, history);
+    decision.nextVariant = chooseNextVariant(currentVariant, history, variants);
     decision.reason = `revalidate_after_${REVALIDATE_DAYS}d`;
     return decision;
   }
 
   if (sinceSwitchDays >= ROTATE_DAYS) {
-    decision.nextVariant = chooseNextVariant(currentVariant, history);
+    decision.nextVariant = chooseNextVariant(currentVariant, history, variants);
     decision.reason = `rotation_every_${ROTATE_DAYS}d`;
   } else {
     decision.reason = 'rotation_cooldown';
