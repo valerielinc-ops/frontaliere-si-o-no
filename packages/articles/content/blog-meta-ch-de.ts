@@ -3259,6 +3259,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'Schulsystem des Kantons Solothurn: Einschreibung und Zyklen',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Zyklen, Einschreibungsalter, Schulkalender, Unterrichtssprachen und Übergang in die Sekundarstufe.',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'Schulweg in der Schweiz: Pflichtschulzeit und Schuljahreskalender',
+    'blog.article.assegni-familiari-canton-soletta.title': 'Familienzulagen im Kanton Solothurn: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-soletta.excerpt': 'Das Verfahren zur Beantragung von Familienzulagen im Kanton Solothurn.',
+    'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Bild eines Ausländers mit einem Kind',
 };
 
 export default blogMetaChDe;

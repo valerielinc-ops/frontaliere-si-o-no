@@ -3259,6 +3259,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'School system of the Canton of Solothurn: enrolment and cycles',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Cycles, age of enrollment, school calendar, languages of instruction and transition to high school.',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'Swiss elementary school: compulsory cycle and school calendar',
+    'blog.article.assegni-familiari-canton-soletta.title': 'Family allowances in the canton of Solothurn: amounts and application',
+    'blog.article.assegni-familiari-canton-soletta.excerpt': 'The procedure for claiming family allowances in the Canton of Solothurn.',
+    'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Image of a foreigner with a child',
 };
 
 export default blogMetaChEn;

@@ -3259,6 +3259,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.title': 'Système scolaire du canton de Soleure : inscription et cycles',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.excerpt': 'Cycles, âge d\'inscription, calendrier scolaire, langues d\'enseignement et passage au lycée.',
     'blog.article.sistema-scolastico-canton-soletta-iscrizione-e-cicli.imageAlt': 'École élémentaire en Suisse: cycle obligatoire et calendrier scolaire',
+    'blog.article.assegni-familiari-canton-soletta.title': 'Allocations familiales dans le canton de Soleure : montants et demande',
+    'blog.article.assegni-familiari-canton-soletta.excerpt': 'La procédure de demande d\'allocations familiales dans le canton de Soleure.',
+    'blog.article.assegni-familiari-canton-soletta.imageAlt': 'Image d\'un étranger avec un enfant',
 };
 
 export default blogMetaChFr;
