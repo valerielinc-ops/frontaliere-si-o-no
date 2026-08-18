@@ -42647,6 +42647,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-succesione-donazione-canton-soletta-aliquote': {
+    title: 'Imposte di successione e donazione nel Cantone di Soletta',
+    description: 'Il Cantone di Soletta applica aliquote diverse per la successione e la donazione, con esenzioni per il coniuge e i discendenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Soletta: aliquote per grado di parentela, esenzioni per coniuge e discendenti',
+    ogDescription: 'Il Cantone di Soletta applica aliquote diverse per la successione e la donazione, con esenzioni per il coniuge e i discendenti.',
+    canonicalPath: '/articoli-svizzera/imposta-succesione-donazione-canton-soletta-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte di successione e donazione nel Cantone di Soletta",
+      "description": "Il Cantone di Soletta applica aliquote diverse per la successione e la donazione, con esenzioni per il coniuge e i discendenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-succesione-donazione-canton-soletta-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano, in Svizzera, che rappresenta la fiscalità cantonale."
+      },
+      "datePublished": "2026-08-18T04:41:57+00:00",
+      "dateModified": "2026-08-18T04:41:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-succesione-donazione-canton-soletta-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

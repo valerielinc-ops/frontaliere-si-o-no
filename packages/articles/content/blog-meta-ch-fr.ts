@@ -3289,6 +3289,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-conciliazione-ticino.title': 'Droit de la location en Suisse : comment éviter les tribunaux',
     'blog.article.diritto-locazione-conciliazione-ticino.excerpt': 'Des augmentations de loyer aux litiges entre locataires et propriétaires : voici comment gérer les conflits locatifs et éviter la Pretura selon les experts.',
     'blog.article.diritto-locazione-conciliazione-ticino.imageAlt': 'Manuel du droit du bail et clés en Suisse',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Impôts de succession et donation dans le canton de Soleure',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'Le canton de Soleure applique des taux différents pour la succession et la donation, avec des exemptions pour le conjoint et les descendants.',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'Une scène de Lugano, en Suisse, qui représente la taxation cantonale.',
 };
 
 export default blogMetaChFr;

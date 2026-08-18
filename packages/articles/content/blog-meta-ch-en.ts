@@ -3289,6 +3289,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-conciliazione-ticino.title': 'Lease law in Switzerland: how to avoid the courts',
     'blog.article.diritto-locazione-conciliazione-ticino.excerpt': 'From rent increases to disputes between tenants and landlords: here\'s how to manage tenancy disputes and avoid the Magistrate\'s Court according to experts.',
     'blog.article.diritto-locazione-conciliazione-ticino.imageAlt': 'Tenancy law handbook and keys in Switzerland',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Inheritance and gift taxes in the Canton of Solothurn',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'The Canton of Solothurn applies different rates for succession and donation, with exemptions for spouse and descendants.',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'A scene of Lugano, Switzerland, that represents cantonal taxation.',
 };
 
 export default blogMetaChEn;

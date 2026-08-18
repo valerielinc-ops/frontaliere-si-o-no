@@ -1122,6 +1122,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-di-guida-canton-soletta-conversione-ed-esami': { it: 'patente-di-guida-canton-soletta-conversione-ed-esami', en: 'soletta-switzerland-driving-license-conversion-exams', de: 'fahrerschein-kanton-soletta-umstellung-und-pruefungen', fr: 'permis-de-conduire-canton-soletta-conversion-et-examens' },
  'premi-cassa-malati-basilea-citt-riduzione': { it: 'premi-cassa-malati-basilea-citt-riduzione', en: 'health-insurance-premium-reduced-basel-city', de: 'krankenversicherungsbeitrag-reduziert-basel-stadt', fr: 'forfait-maladie-reduit-bale-ville' },
  'diritto-locazione-conciliazione-ticino': { it: 'diritto-locazione-conciliazione-ticino', en: 'tenancy-law-conciliation-ticino', de: 'mietrecht-schlichtung-tessin', fr: 'droit-bail-conciliation-tessin' },
+ 'imposta-succesione-donazione-canton-soletta-aliquote': { it: 'imposta-succesione-donazione-canton-soletta-aliquote', en: 'inheritance-and-gift-taxes-in-the-canton-of-solothurn', de: 'erbschafts-und-schenkungssteuern-im-kanton-solothurn', fr: 'impots-de-succession-et-donation-dans-le-canton-de-soleure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

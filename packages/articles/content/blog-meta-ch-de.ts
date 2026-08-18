@@ -3289,6 +3289,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-conciliazione-ticino.title': 'Mietrecht in der Schweiz: So vermeiden Sie Gerichte',
     'blog.article.diritto-locazione-conciliazione-ticino.excerpt': 'Von Mieterhöhungen bis hin zu Streitigkeiten zwischen Mietern und Eigentümern: So gehen Sie mit Mietkonflikten um und vermeiden nach Ansicht von Experten das Amtsgericht.',
     'blog.article.diritto-locazione-conciliazione-ticino.imageAlt': 'Mietrechts-Handbuch und Schlüssel in der Schweiz',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.title': 'Erbschafts- und Schenkungssteuern im Kanton Solothurn',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.excerpt': 'Der Kanton Solothurn wendet unterschiedliche Erb- und Schenkungssätze an, wobei für den Ehegatten und die Nachkommen Befreiungen gelten.',
+    'blog.article.imposta-succesione-donazione-canton-soletta-aliquote.imageAlt': 'Eine Szene aus Lugano, Schweiz, die die kantonalen Steuern darstellt.',
 };
 
 export default blogMetaChDe;

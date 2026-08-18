@@ -10033,6 +10033,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-mobilita-del-futuro.title': 'Ticino Lugano, the first step towards the mobility of the future',
     'blog.article.lugano-mobilita-del-futuro.excerpt': 'The first step for the new public mobility in Lugano begins',
     'blog.article.lugano-mobilita-del-futuro.imageAlt': 'Works in progress for the new public transportation in Lugano',
+    'blog.article.infortuni-lavoro-varese-uil-2026.title': 'Accidents at work in Varese: UIL data and 7 deaths',
+    'blog.article.infortuni-lavoro-varese-uil-2026.excerpt': 'The Inail data for the first half of 2026 processed by Uil Lombardia report an increase in accidents of 6% in Varese and seven fatal cases.',
+    'blog.article.infortuni-lavoro-varese-uil-2026.imageAlt': 'Industrial landscape and construction sites in Varese province',
 };
 
 export default blogMetaEn;
