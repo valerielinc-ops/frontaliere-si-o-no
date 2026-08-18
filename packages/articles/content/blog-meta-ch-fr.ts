@@ -3331,6 +3331,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprentis, les instructions ne suffisent pas : « Il faut les suivre de près »',
     'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Le Tribunal fédéral appelle les formateurs à une surveillance accrue et à un accompagnement constant après les blessures graves rapportées par un apprenti',
     'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Un apprenti dans un environnement de travail dangereux avec un superviseur',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprentissage et formation professionnelle dans le canton de Bâle-Ville',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'Comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, une rémunération d\'apprenti et une maturité professionnelle dans le canton de Bâle-Ville',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Image d\'un apprenti dans une entreprise de Bâle',
 };
 
 export default blogMetaChFr;

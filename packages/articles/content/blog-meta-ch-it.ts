@@ -3331,6 +3331,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendisti-istruzioni-sicurezza.title': 'Apprendisti, le istruzioni non bastano: «Vanno seguiti da vicino»',
     'blog.article.apprendisti-istruzioni-sicurezza.excerpt': 'Il Tribunale federale richiama i formatori a una maggiore sorveglianza e a un accompagnamento costante dopo le gravi lesioni riportate da un apprendista',
     'blog.article.apprendisti-istruzioni-sicurezza.imageAlt': 'Un apprendista in un ambiente di lavoro pericoloso con un formatore',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.title': 'Apprendistato e formazione professionale nel Canton Basilea Città',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.excerpt': 'Come si trova un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Canton Basilea Città',
+    'blog.article.apprendistato-e-formazione-professionale-basilea-citta.imageAlt': 'Immagine di un apprendista in un\'azienda basilese',
 };
 
 export default blogMetaChIt;
