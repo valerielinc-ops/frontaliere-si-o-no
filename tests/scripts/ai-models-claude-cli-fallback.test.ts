@@ -191,7 +191,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       vi.useRealTimers();
     });
 
-    it('disables claude-cli after repeated consecutive timeouts instead of waiting out the full 60s on every remaining call', async () => {
+    it('disables claude-cli after repeated consecutive timeouts instead of waiting out the full 120s on every remaining call', async () => {
       // Regression test for run 29824354962 (send-newsletter, 2026-07-21):
       // claude-cli/haiku is deliberately exempt from markModelExhausted's
       // normal timeout circuit breaker (see _isLastResortProvider) because for
@@ -213,7 +213,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
 
       const msgs = [{ role: 'user', content: 'Write a briefing' }];
       const chain = [AI_MODELS.CLAUDE_CLI_HAIKU];
-      const THRESHOLD = 8; // keep in sync with CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD in ai-models.mjs
+      const THRESHOLD = 3; // keep in sync with CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD in ai-models.mjs
 
       for (let i = 0; i < THRESHOLD; i++) {
         // deadlineMs shrinks _callClaudeCli's 120s floor down to its 15s
