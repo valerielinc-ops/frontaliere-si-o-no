@@ -3271,6 +3271,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Apprenticeship and vocational training in the Canton of Solothurn',
     'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'How to find an internship, internship contract, apprentice salary and professional maturity in the Canton of Solothurn.',
     'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Image of a trainee in a Swiss company',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Rental market in the Canton of Solothurn: average fees and rental rights',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'The average rents by area, security deposit, dispute of the initial rent, cancellation and conciliation authority on lease in the Canton of Soletta.',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'View of the Canton of Solothurn, Switzerland, with focus on the housing market',
 };
 
 export default blogMetaChEn;

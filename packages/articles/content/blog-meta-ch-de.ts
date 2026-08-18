@@ -3271,6 +3271,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-e-formazione-canton-soletta.title': 'Lehre und Berufsausbildung im Kanton Solothurn',
     'blog.article.apprendistato-e-formazione-canton-soletta.excerpt': 'So finden Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Solothurn.',
     'blog.article.apprendistato-e-formazione-canton-soletta.imageAlt': 'Bild der Szene eines Praktikanten in einem Schweizer Unternehmen',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Mietmarkt im Kanton Solothurn: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'Die Durchschnittsmieten pro Zone, Kaution, Anfechtung der Anfangsmiete, Kündigung und Schlichtungsstelle in Mietsachen im Kanton Solothurn.',
+    'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'Ansicht des Kantons Solothurn, Schweiz, mit Schwerpunkt auf dem Immobilienmarkt',
 };
 
 export default blogMetaChDe;

@@ -1116,6 +1116,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-di-studio-canton-soletta': { it: 'borse-di-studio-canton-soletta', en: 'scholarships-canton-soletta', de: 'stipendien-kanton-soletta', fr: 'bourses-d-etudes-canton-soletta' },
  'asilo-nido-canton-soletta-costi': { it: 'asilo-nido-canton-soletta-costi', en: 'solothurn-daycare-costs', de: 'krippe-solothurn-kosten', fr: 'creche-soleure-couts' },
  'apprendistato-e-formazione-canton-soletta': { it: 'apprendistato-e-formazione-canton-soletta', en: 'apprenticeship-and-professional-training-in-soletta', de: 'praktikum-und-fachausbildung-im-kanton-soletta', fr: 'formation-professionnelle-et-apprentissage-au-canton-de-soletta' },
+ 'affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione': { it: 'affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione', en: 'solothurn-rental-market-average-prices-and-tenant-rights', de: 'mietpreise-im-kanton-soelothurn-und-mieterrechte', fr: 'le-marche-locatif-du-canton-de-soleure-prix-moyens-et-droits-du-locataire' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
