@@ -135,49 +135,33 @@ describe('unsubscribeCredentialMetrics — pct', () => {
   });
 });
 
-// ── Synthetic Firestore fake — mirrors the .collection().where().limit().get()
-// then per-doc .ref.collection().where().get() chain that
-// readUnsubscribeLinkEvents() actually calls. No network, no credentials,
-// no production access — exactly the "input sintetico" the task calls for. ──
+// ── Synthetic Firestore fake — mirrors the single
+// .collectionGroup().where().where().orderBy().limit().get() chain that
+// readUnsubscribeLinkEvents() now calls. No network, no credentials, no
+// production access. The input stays grouped per subscriber so the cases below
+// read the same as before; the fake flattens it, because the real query no
+// longer knows or cares which subscriber an event hangs under — which is
+// precisely the blind spot the collectionGroup read removed. ──
 
 type FakeEvent = Record<string, unknown>;
 
 function createFakeDb(subscriberEvents: FakeEvent[][]) {
+  const flat = subscriberEvents.flat();
+  const chain = {
+    where: () => chain,
+    orderBy: () => chain,
+    limit: () => chain,
+    async get() {
+      return { size: flat.length, docs: flat.map((ev) => ({ data: () => ev })) };
+    },
+  };
   return {
+    collectionGroup(name: string) {
+      if (name !== 'events') throw new Error(`unexpected collection group: ${name}`);
+      return chain;
+    },
     collection(name: string) {
-      if (name !== 'newsletter_subscribers') throw new Error(`unexpected top-level collection: ${name}`);
-      return {
-        where() {
-          return {
-            limit() {
-              return {
-                async get() {
-                  return {
-                    size: subscriberEvents.length,
-                    docs: subscriberEvents.map((events, i) => ({
-                      id: `sub-${i}`,
-                      ref: {
-                        collection(subName: string) {
-                          if (subName !== 'events') throw new Error(`unexpected subcollection: ${subName}`);
-                          return {
-                            where() {
-                              return {
-                                async get() {
-                                  return { docs: events.map((ev) => ({ data: () => ev })) };
-                                },
-                              };
-                            },
-                          };
-                        },
-                      },
-                    })),
-                  };
-                },
-              };
-            },
-          };
-        },
-      };
+      throw new Error(`the monitor must not read top-level collections any more (got: ${name})`);
     },
   };
 }
@@ -188,6 +172,9 @@ function unsubEvent(credential: string | null, occurredAt: string, overrides: Fa
     source_channel: 'unsubscribe_link',
     credential,
     occurred_at: occurredAt,
+    // The real docs carry both; the query windows on `timestamp`, the filter
+    // on `occurred_at`.
+    timestamp: new Date(occurredAt),
     ...overrides,
   };
 }
@@ -238,7 +225,7 @@ describe('check-unsubscribe-credential-rate — runCheck (synthetic Firestore, n
   }));
 
   it('zero unsubscribe_link events in the window → no_signal alert, not a silent "0% fallback" pass', async () => withTmpOutDir(async (outDir) => {
-    const db = createFakeDb([[]]); // one candidate doc, but its events subcollection is empty
+    const db = createFakeDb([[]]); // a subscriber with no events at all
     const result = await runCheck({ db, hours: 168, outDir, now: NOW });
     expect(result.verdict.alert).toBe(true);
     expect(result.verdict.findings.map((f: { code: string }) => f.code)).toContain('no_signal');
