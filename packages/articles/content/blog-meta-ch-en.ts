@@ -3355,6 +3355,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-statistica-luglio-2026.title': 'Asylum: July 2026 statistics',
     'blog.article.asilo-statistica-luglio-2026.excerpt': 'The State Secretariat for Migration registered 1915 asylum applications in July 2026, a decrease of 22.8% compared to the same month of the previous year.',
     'blog.article.asilo-statistica-luglio-2026.imageAlt': 'Switzerland faces challenges related to immigration and asylum',
+    'blog.article.cassis-neutralita.title': 'Popular votes, Cassis\' first',
+    'blog.article.cassis-neutralita.excerpt': 'Federal Councillor Ignazio Cassis takes responsibility for the neutrality initiative',
+    'blog.article.cassis-neutralita.imageAlt': 'Ignazio Cassis in first line for the initiative on neutrality',
 };
 
 export default blogMetaChEn;
