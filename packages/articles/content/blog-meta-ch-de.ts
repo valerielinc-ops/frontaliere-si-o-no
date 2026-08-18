@@ -3274,6 +3274,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Mietmarkt im Kanton Solothurn: Durchschnittsmieten und Mietrecht',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'Die Durchschnittsmieten pro Zone, Kaution, Anfechtung der Anfangsmiete, Kündigung und Schlichtungsstelle in Mietsachen im Kanton Solothurn.',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'Ansicht des Kantons Solothurn, Schweiz, mit Schwerpunkt auf dem Immobilienmarkt',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Wohnungskauf Solothurn: Preise, Eigenmittel und Aufwendungen',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'Der Kanton Solothurn bietet Durchschnittspreise für den Kauf eines Hauses an, es sind jedoch Eigenmittel und Notarkosten zu berücksichtigen.',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'Ein Blick auf die Stadt Solothurn, mit einem Ausländer, der auf sein Haus schaut.',
 };
 
 export default blogMetaChDe;

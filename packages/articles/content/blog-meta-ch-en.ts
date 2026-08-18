@@ -3274,6 +3274,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.title': 'Rental market in the Canton of Solothurn: average fees and rental rights',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.excerpt': 'The average rents by area, security deposit, dispute of the initial rent, cancellation and conciliation authority on lease in the Canton of Soletta.',
     'blog.article.affitti-cantone-soletta-canoni-medi-e-diritto-di-locazione.imageAlt': 'View of the Canton of Solothurn, Switzerland, with focus on the housing market',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.title': 'Home purchase Soleta: prices, own funds and expenses',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.excerpt': 'The Canton of Solothurn offers average prices for the purchase of a home, but there are own funds required and notary fees to consider.',
+    'blog.article.comprare-casa-canton-soletta-prezzi-mutuo.imageAlt': 'A view of the city of Solothurn, with a foreigner looking at his house.',
 };
 
 export default blogMetaChEn;

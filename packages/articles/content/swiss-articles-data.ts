@@ -9820,6 +9820,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-canton-soletta-prezzi-mutuo',
+    category: 'pratico',
+    date: '2026-08-18T03:35:08.248Z',
+    image: '/images/blog/comprare-casa-canton-soletta-prezzi-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
