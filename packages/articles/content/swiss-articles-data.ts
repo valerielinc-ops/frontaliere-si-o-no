@@ -9883,6 +9883,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dazi-usa-svizzera-2026',
+    category: 'fiscale',
+    date: '2026-08-18T06:29:29.508Z',
+    image: '/images/blog/dazi-usa-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

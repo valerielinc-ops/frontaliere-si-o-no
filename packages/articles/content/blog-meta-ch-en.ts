@@ -3295,6 +3295,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.twint-addebito-diretto.title': 'Twint launches direct debit in 2027',
     'blog.article.twint-addebito-diretto.excerpt': 'Direct debit will allow users to manage recurring payments through the Twint app.',
     'blog.article.twint-addebito-diretto.imageAlt': 'Image of a user using the Twint app',
+    'blog.article.dazi-usa-svizzera-2026.title': 'US-Switzerland duties: rate down to 12.5%, but the risk remains',
+    'blog.article.dazi-usa-svizzera-2026.excerpt': 'The US customs rate on Swiss goods has stabilised at 12.5%, but the risk of a new tax remains',
+    'blog.article.dazi-usa-svizzera-2026.imageAlt': 'View of Lugano with busy shops and streets',
 };
 
 export default blogMetaChEn;

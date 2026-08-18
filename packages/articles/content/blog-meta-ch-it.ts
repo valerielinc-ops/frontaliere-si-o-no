@@ -3295,6 +3295,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.twint-addebito-diretto.title': 'Twint lancia addebito diretto nel 2027',
     'blog.article.twint-addebito-diretto.excerpt': 'L\'addebito diretto consentirà agli utenti di gestire pagamenti ricorrenti tramite l\'app Twint.',
     'blog.article.twint-addebito-diretto.imageAlt': 'Immagine di un utente che utilizza l\'app Twint',
+    'blog.article.dazi-usa-svizzera-2026.title': 'Dazi USA-Svizzera: aliquota giù al 12,5%, ma il rischio resta',
+    'blog.article.dazi-usa-svizzera-2026.excerpt': 'L\'aliquota doganale che gli Stati Uniti applicano alle merci svizzere si è stabilizzata al 12,5%, ma il rischio di una nuova tassa rimane',
+    'blog.article.dazi-usa-svizzera-2026.imageAlt': 'Vista di Lugano con negozi e strade affollate',
 };
 
 export default blogMetaChIt;

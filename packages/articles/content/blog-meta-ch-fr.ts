@@ -3295,6 +3295,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.twint-addebito-diretto.title': 'Twint lance le prélèvement automatique en 2027',
     'blog.article.twint-addebito-diretto.excerpt': 'Le prélèvement automatique permettra aux utilisateurs de gérer les paiements récurrents via l\'application Twint.',
     'blog.article.twint-addebito-diretto.imageAlt': 'Image d\'un utilisateur qui utilise l\'application Twint',
+    'blog.article.dazi-usa-svizzera-2026.title': 'Droits USA-Suisse : taux en baisse à 12,5%, mais le risque reste',
+    'blog.article.dazi-usa-svizzera-2026.excerpt': 'Le taux de douane que les États-Unis appliquent aux marchandises suisses s\'est stabilisé à 12,5%, mais le risque d\'une nouvelle taxe reste',
+    'blog.article.dazi-usa-svizzera-2026.imageAlt': 'Vue de Lugano avec des magasins et des rues animées',
 };
 
 export default blogMetaChFr;
