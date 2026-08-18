@@ -3307,6 +3307,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Residence permit C in the Canton of Basel-City: requirements and application',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'For those who want to live in Basel City, a residence permit C is mandatory. Here\'s what to do and how to request it.',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'A Swiss family applying for a permit C',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Short-term permit L canton Basel City: validity and extension',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'The maximum duration of the L permit is one year. It can be extended if certain conditions are met.',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'A frontaliere living in Basilea Città and working in a Ticino company.',
 };
 
 export default blogMetaChEn;

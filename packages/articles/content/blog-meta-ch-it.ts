@@ -3307,6 +3307,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Permesso di domicilio C nel Cantone di Basilea Città: requisiti e domanda',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'Per chi vuole vivere a Basilea Città, un permesso di domicilio C è obbligatorio. Ecco cosa bisogna fare e come richiederlo.',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'Una famiglia in Svizzera che richiede un permesso di domicilio C',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Permesso L di breve durata canton Basilea Città: validità e proroga',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'La durata massima del permesso L è di un anno. Può essere prorogato se si soddisfano determinate condizioni.',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'Una persona frontaliere risiede a Basilea Città e lavora in una ditta del canton Ticino.',
 };
 
 export default blogMetaChIt;

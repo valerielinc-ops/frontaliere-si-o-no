@@ -3307,6 +3307,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.title': 'Permis de séjour C dans le canton de Bâle-Ville : exigences et demande',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.excerpt': 'Pour ceux qui veulent vivre à Bâle-Ville, un permis de séjour C est obligatoire. Voici ce qu\'il faut faire et comment le demander.',
     'blog.article.permesso-domicilio-c-basilea-citta-requisiti-domanda.imageAlt': 'Une famille suisse qui demande un permis de séjour C',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.title': 'Permis L de courte durée canton Bâle-Ville : validité et prorogation',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.excerpt': 'La durée maximale du permis L est d\'un an. Il peut être prolongé si certaines conditions sont remplies.',
+    'blog.article.permesso-l-breve-durata-canton-basilea-citta.imageAlt': 'Un frontalier réside à Bâle-Ville et travaille dans une entreprise du canton du Tessin.',
 };
 
 export default blogMetaChFr;
