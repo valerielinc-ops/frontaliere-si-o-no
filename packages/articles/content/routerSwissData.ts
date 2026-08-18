@@ -1107,6 +1107,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-di-dimora-b-canton-soletta': { it: 'permesso-di-dimora-b-canton-soletta', en: 'residence-permit-b-in-soleta-requirements-and-procedure', de: 'permesso-di-dimora-b-kanton-soletta', fr: 'permesso-di-dimora-b-canton-de-soleure' },
  'salari-mercato-lavoro-friburgo-settori-livelli': { it: 'salari-mercato-lavoro-friburgo-settori-livelli', en: 'salaries-labor-market-fribourg-sectors-levels', de: 'lohne-arbeitsmarkt-freiburg-sektoren-niveaus', fr: 'salaire-marche-du-travail-fribourg-secteurs-niveaux' },
  'patente-di-guida-friburgo-conversione-ed-esami': { it: 'patente-di-guida-friburgo-conversione-ed-esami', en: 'driving-license-fribourg-conversion-and-exams', de: 'fuehrerschein-freiburg-umstellung-und-pruefungen', fr: 'permis-de-conduire-fribourg-conversion-et-examen' },
+ 'premi-cassa-malati-canton-soletta-riduzione': { it: 'premi-cassa-malati-canton-soletta-riduzione', en: 'canton-health-insurance-premiums-slab-and-premium-reduction', de: 'krankenkassenpramien-kanton-solothurn-und-pramienverbilligung', fr: 'primes-d-assurance-maladie-dans-le-canton-de-soleure-et-reductions-de-primes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

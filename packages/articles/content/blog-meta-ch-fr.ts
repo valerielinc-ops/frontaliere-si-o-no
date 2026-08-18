@@ -3244,6 +3244,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Permis de conduire à Fribourg : conversion et exigences',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Conversion du permis de conduire étranger dans le canton de Fribourg, examens théoriques et pratiques, cours obligatoires et bureau de la circulation compétent.',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Scène avec voiture en Suisse, canton de Fribourg, avec permis de conduire',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Primes d\'assurance maladie dans le canton de Soleure et réductions de primes',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Faits clés sur la réduction des primes de caisse-maladie dans le canton de Soleure',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Image d\'un bâtiment hospitalier en Suisse',
 };
 
 export default blogMetaChFr;

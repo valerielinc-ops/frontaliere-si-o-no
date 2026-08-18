@@ -3244,6 +3244,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Patente di guida a Friburgo: conversione e requisiti',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Conversione della patente di guida estera nel Cantone di Friburgo, esami teorici e pratici, corsi obbligatori e ufficio della circolazione competente.',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Scena con automobile in Svizzera, nel Cantone di Friburgo, con licenza di guida',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Premi cassa malati canton Soletta e riduzione premi',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Fatti chiave sulla riduzione dei premi cassa malati nel Cantone di Soletta',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Immagine di un edificio ospedaliero in Svizzera',
 };
 
 export default blogMetaChIt;

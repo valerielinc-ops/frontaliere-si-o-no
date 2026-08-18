@@ -3244,6 +3244,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.title': 'Driving licence in Freiburg: conversion and requirements',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.excerpt': 'Conversion of the foreign driver\'s license in the Canton of Freiburg, theoretical and practical exams, compulsory courses and competent traffic office.',
     'blog.article.patente-di-guida-friburgo-conversione-ed-esami.imageAlt': 'Scene with car in Switzerland, Fribourg Canton, with driving license',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.title': 'Canton health insurance premiums Slab and premium reduction',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.excerpt': 'Key facts about the reduction of sick pay premiums in the Canton of Solothurn',
+    'blog.article.premi-cassa-malati-canton-soletta-riduzione.imageAlt': 'Image of a hospital building in Switzerland',
 };
 
 export default blogMetaChEn;
