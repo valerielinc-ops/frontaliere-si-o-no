@@ -3415,6 +3415,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.burckhardt-compression-tagli-posti.title': 'Burckhardt Compression : 220 emplois à risque',
     'blog.article.burckhardt-compression-tagli-posti.excerpt': 'Le fabricant suisse Burckhardt Compression annonce des coupes pour 220 emplois au total, dont 150 à Winterthour et 70 sur les sites internationaux.',
     'blog.article.burckhardt-compression-tagli-posti.imageAlt': 'Siege de l\'entreprise Burckhardt Compression a Winterthur',
+    'blog.article.sunrise-147-tagli-posti-lavoro.title': 'Sunrise taille 147 places, frais de personnel -5%',
+    'blog.article.sunrise-147-tagli-posti-lavoro.excerpt': 'Sunrise complète la réduction de 147 emplois, avec des coûts de personnel en baisse de 5 %. Augmentations de prix à partir du mois d\'août 2026 sur tous les services.',
+    'blog.article.sunrise-147-tagli-posti-lavoro.imageAlt': 'Siège de Sunrise à Zurich, opérateur télécom suisse qui a réduit 147 postes',
 };
 
 export default blogMetaChFr;

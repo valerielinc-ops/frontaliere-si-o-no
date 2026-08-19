@@ -3415,6 +3415,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.burckhardt-compression-tagli-posti.title': 'Burckhardt Compression: 220 jobs at risk',
     'blog.article.burckhardt-compression-tagli-posti.excerpt': 'The Swiss manufacturer Burckhardt Compression announces cuts for 220 total jobs, of which 150 in Winterthur and 70 in international locations.',
     'blog.article.burckhardt-compression-tagli-posti.imageAlt': 'Burckhardt Compression company headquarters in Winterthur',
+    'blog.article.sunrise-147-tagli-posti-lavoro.title': 'Sunrise cuts 147 seats, staff costs -5%',
+    'blog.article.sunrise-147-tagli-posti-lavoro.excerpt': 'Sunrise completes the reduction of 147 jobs, with staff costs down 5%. Price increases from August 2026 on all services.',
+    'blog.article.sunrise-147-tagli-posti-lavoro.imageAlt': 'Sunrise headquarters in Zurich, Swiss telecom operator that cut 147 jobs',
 };
 
 export default blogMetaChEn;
