@@ -1351,6 +1351,19 @@ const DEFAULT_OPTS = {
    * Vedi il blocco di commento su applyPreferOverride.
    */
   prefer: undefined,
+  /**
+   * Se `false`, l'esito di questa chiamata NON tocca `ai_model_scores/_all` —
+   * niente recordModelSuccess/recordModelFailure, quindi niente scrittura sul
+   * ledger di produzione. Serve ai chiamanti puramente diagnostici (es.
+   * smoke-test-ai-models.mjs, che pinga ogni modello di DEFAULT_CHAIN una volta
+   * al giorno solo per verificare disponibilita'): callLLM() auto-inizializza lo
+   * score store al primo uso, quindi senza questo flag un ping diagnostico
+   * fallito abbassa il punteggio di un modello sano nello stesso documento che
+   * ordina la cascata di produzione, inquinando l'ordinamento reale con dati che
+   * non descrivono un uso di produzione. Default `true`: ogni altro chiamante
+   * (crawler, generazione articoli, ecc.) continua a scrivere come prima.
+   */
+  recordScore: true,
 };
 
 /**
@@ -4396,7 +4409,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // (daily-limit-looking response, stale local/OmniRoute auth 401) must
         // never hard-ban a last-resort provider. See _isLastResortProvider.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking)) {
+          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
             markModelExhausted(modelForTracking);
             _stats.exhausted++;
           }
@@ -4408,16 +4421,20 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // Learn the real size cap from `raw` while it's still untruncated —
           // the Error message below slices it to 300 chars (and callers slice
           // further to 200 for logging), which is why this can't be recovered
-          // after the fact from logs.
-          _learnRequestTokenLimit(modelForTracking, raw);
-          // Same reasoning: a 400 with this exact shape only happens when we
-          // requested schema mode (responseFormat.type === 'json_schema') and
-          // the model rejected it — remember it so future cascade passes stop
-          // paying the round-trip for a request shape this model never accepts.
-          if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
-            _learnSchemaIncompatible(modelForTracking);
+          // after the fact from logs. Gated like markModelExhausted below —
+          // diagnostic-only callers (see DEFAULT_OPTS.recordScore) must not
+          // teach the shared cascade a runtime-learned cap either.
+          if (opts.recordScore !== false) {
+            _learnRequestTokenLimit(modelForTracking, raw);
+            // Same reasoning: a 400 with this exact shape only happens when we
+            // requested schema mode (responseFormat.type === 'json_schema') and
+            // the model rejected it — remember it so future cascade passes stop
+            // paying the round-trip for a request shape this model never accepts.
+            if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
+              _learnSchemaIncompatible(modelForTracking);
+            }
           }
-          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking)) {
+          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
             markModelExhausted(modelForTracking, 'nonretryable', `HTTP ${res.status}`);
             _stats.exhausted++;
           }
@@ -5436,20 +5453,27 @@ async function _callGeminiRaw(model, messages, opts) {
       if (!res.ok) {
         // Quota / rate-limit — mark exhausted if it looks permanent
         if (isDailyLimitError(res.status, raw)) {
-          markModelExhausted(model);
-          _stats.exhausted++;
+          if (opts.recordScore !== false) {
+            markModelExhausted(model);
+            _stats.exhausted++;
+          }
           throw new Error(`[${model}] Daily quota reached`);
         }
         // Non-retryable client errors (unknown model, context too small)
         const nrc = classifyNonRetryableError(res.status, raw);
         if (nrc.nonRetryable) {
           // Learn the real size cap from `raw` while it's still untruncated —
-          // see the matching call in _callOpenAICompatible for why.
-          _learnRequestTokenLimit(model, raw);
-          if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
-            _learnSchemaIncompatible(model);
+          // see the matching call in _callOpenAICompatible for why. Gated like
+          // markModelExhausted below — diagnostic-only callers (see
+          // DEFAULT_OPTS.recordScore) must not teach the shared cascade a
+          // runtime-learned cap either.
+          if (opts.recordScore !== false) {
+            _learnRequestTokenLimit(model, raw);
+            if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
+              _learnSchemaIncompatible(model);
+            }
           }
-          if (nrc.markExhausted) {
+          if (nrc.markExhausted && opts.recordScore !== false) {
             // 'nonretryable', NOT the default 'quota': this is the Gemini twin
             // of the _callOpenAICompatible non-retryable branch, which already
             // labels correctly. Left at the default, a 404/unknown-model here
@@ -6001,7 +6025,8 @@ export async function callLLM(messages, opts = {}) {
       const result = await _callModel(model, messages, o);
 
       // ✅ Success — boost this model's score so it stays near the top
-      recordModelSuccess(model);
+      // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
+      if (o.recordScore !== false) recordModelSuccess(model);
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
       _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
       _recordLastResortOutcome(model, 'served');
@@ -6069,7 +6094,7 @@ export async function callLLM(messages, opts = {}) {
         // PROVIDER.LOCAL carve-out on recordModelContentFailure above: no
         // external quota, so exhausting it mid-run just guarantees zero
         // output for the rest of the wall-clock budget.
-        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model)) {
+        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model) && o.recordScore !== false) {
           markModelExhausted(model);
           _stats.exhausted++;
           console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
@@ -6103,7 +6128,7 @@ export async function callLLM(messages, opts = {}) {
           console.warn(`⏱️  [${model}] Timed out at the adaptive ${Math.round((e.adaptiveTimeoutMs || 0) / 1000)}s ceiling (caller asked ${Math.round((o.timeout || 0) / 1000)}s) — not exhausting on our own guess (${n}/${ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES})`);
         }
       }
-      if (isTimeoutFailure && !spared && !_isLastResortProvider(model)) {
+      if (isTimeoutFailure && !spared && !_isLastResortProvider(model) && o.recordScore !== false) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
         markedExhausted = true;
@@ -6150,11 +6175,14 @@ export async function callLLM(messages, opts = {}) {
       // NON e' toccato — quello conta i guasti del canale, ed e' il posto
       // giusto dove contarli.
       const transportOnly = !!e.transportFault && provider === PROVIDER.CLAUDE_CLI;
-      recordModelFailure(model, {
-        nonRetryable: !!e.nonRetryable,
-        exhausted: isExhausted || isTimeoutFailure,
-        transportOnly,
-      });
+      // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
+      if (o.recordScore !== false) {
+        recordModelFailure(model, {
+          nonRetryable: !!e.nonRetryable,
+          exhausted: isExhausted || isTimeoutFailure,
+          transportOnly,
+        });
+      }
 
       const scoreNote = transportOnly
         ? `guasto di trasporto, score invariato → ${_modelScores.get(model) || 0}`
