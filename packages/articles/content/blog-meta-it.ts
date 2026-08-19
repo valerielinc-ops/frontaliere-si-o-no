@@ -10125,6 +10125,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.title': 'Lavorare in Ticino da frontaliere: cosa cambia?',
     'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Il nuovo accordo frontalieri: quali sono le novità e le conseguenze per i frontalieri che vivono a Oltrona di San Mamette e lavorano in Ticino?',
     'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Immagine di Oltrona di San Mamette con un frontaliere in primo piano',
+    'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.title': 'Vivere a Brinzio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.excerpt': 'Guida pratica per chi vive a Brinzio e lavora nel Canton Ticino: collegamenti, costi, regime fiscale e aspetti da considerare per il trasferimento.',
+    'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.imageAlt': 'Panorama di Brinzio vicino al confine con il Ticino per frontalieri',
 };
 
 export default blogMetaIt;

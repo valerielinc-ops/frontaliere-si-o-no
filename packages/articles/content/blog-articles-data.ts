@@ -30324,6 +30324,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-a-brinzio-e-lavorare-in-ticino',
+ category: 'pratico',
+ date: '2026-08-19T13:05:35.694Z',
+ image: '/images/blog/vivere-a-brinzio-e-lavorare-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
