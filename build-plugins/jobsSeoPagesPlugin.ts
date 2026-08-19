@@ -190,6 +190,7 @@ import {
 import { COMPANY_HQ_ADDRESSES, CANTON_CAPITAL_ADDRESSES, localityMatchesHq } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
+import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
@@ -3056,7 +3057,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // bodies live in the shared per-job `<style>` block (see lines ~2350+).
  // Style applied via `.rja > img` in seo-static.css (no inline style attr).
  const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40);
- const li = `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ const li = `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)}${formatJobLocation(r.location, r.canton) ? ` · ${esc(formatJobLocation(r.location, r.canton))}` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  // One in-feed ad `<li>` after every Nth related card (shared `shouldPlaceInfeedAd`
  // cadence), never after the last — same logic as `jobCardListBody`. `.rul` is a
  // plain block list (not a grid), so no `spanFull` is needed.
@@ -3367,7 +3368,7 @@ ${staticAnalyticsHtml}
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
  ${renderHeroBadges({ job, locale, salaryMin, salaryText, esc })}
- <div class="hero-sub">${esc(job.company)} · ${esc(job.location)} (${esc(job.canton || DEFAULT_CANTON)})</div>
+ <div class="hero-sub">${esc(job.company)} · ${esc(formatJobLocation(job.location, job.canton || DEFAULT_CANTON))}</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
  <span>${esc(`Contratto: ${String(job.contract || 'other')}`)}</span>
@@ -12441,8 +12442,15 @@ ${staticAnalyticsHtml}
  // canton otherwise) so the SERP snippet fallback carries the local-intent
  // tokens, then the related-positions CTA.
  const __descConnector = JOB_TITLE_CITY_CONNECTOR[locale] || JOB_TITLE_CITY_CONNECTOR.it;
- const __descPlace = jobLocation
-  ? ` ${__descConnector} ${jobLocation}${displayCanton && displayCanton !== jobLocation ? ` (${displayCanton})` : ''}`
+ // Same redundancy as the hero line, one layer up: `jobLocation` may already
+ // name its canton ("Möhlin, Aargau"), and this branch appends the LOCALISED
+ // canton label rather than the code — so it is `splitJobLocation`'s city half
+ // that must be interpolated, not the raw string. `conflict` suppresses the
+ // suffix for the same reason the hero does: never two cantons on one line.
+ const __descSplit = splitJobLocation(jobLocation, jobCanton);
+ const __descCity = __descSplit.city;
+ const __descPlace = __descCity
+  ? ` ${__descConnector} ${__descCity}${displayCanton && !__descSplit.conflict && displayCanton !== __descCity ? ` (${displayCanton})` : ''}`
   : '';
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${esc(__descPlace)}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 

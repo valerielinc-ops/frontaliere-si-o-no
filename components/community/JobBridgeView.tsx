@@ -27,6 +27,7 @@ import { cdnImageUrl } from '@/services/cdnImageBase';
 import { Analytics } from '@/services/analytics';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
+import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 
 interface RelatedJob {
  slug: string;
@@ -515,7 +516,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  <div className="min-w-0 flex-1">
  <h3 className="text-sm sm:text-base font-bold text-heading leading-tight">{rjTitle}</h3>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
- {rj.company}{rj.location ? ` · ${rj.location}${rj.canton ? ` (${rj.canton})` : ''}` : ''}
+ {rj.company}{formatJobLocation(rj.location, rj.canton) ? ` · ${formatJobLocation(rj.location, rj.canton)}` : ''}
  </p>
  {rjSalary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
