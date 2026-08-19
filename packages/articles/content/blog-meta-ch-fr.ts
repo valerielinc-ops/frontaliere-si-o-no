@@ -3463,6 +3463,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR : nouveaux formulaires pour les transferts vers l\'Iran',
     'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Le 19 août, le Département fédéral de l\'économie a adapté les formulaires de déclaration. À partir du 26 août, seuls les modèles mis à jour seront obligatoires.',
     'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Siège de l\'administration fédérale suisse à Berne, où se trouve le Département fédéral de l\'économie.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Permis de conduire Bâle-Ville : conversion et examens',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Comment convertir un permis étranger dans le canton de Bâle-Ville, examens théoriques et pratiques, cours obligatoires et procédures au bureau de la circulation.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Permis de conduire suisse et office du trafic du canton Bâle-Ville',
 };
 
 export default blogMetaChFr;

@@ -3463,6 +3463,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR: new forms for transfers to Iran',
     'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'On 19 August, the Federal Department of Economic Affairs adapted the declaration forms. From 26 August, only updated models will be mandatory.',
     'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Swiss Federal Administration headquarters in Bern, location of the Federal Department of Economy.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Driving license Basel City: conversion and exams',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'How to convert a foreign license in the Canton of Basel-City, theoretical and practical exams, compulsory courses and procedures at the traffic office.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Swiss driving license and circulation office in Canton Basel-Stadt',
 };
 
 export default blogMetaChEn;

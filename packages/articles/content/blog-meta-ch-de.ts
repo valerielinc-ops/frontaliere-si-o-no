@@ -3463,6 +3463,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ordinanza-iran-formulari-agosto.title': 'WBF: Neue Formulare für Überweisungen in den Iran',
     'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Das Eidgenössische Volkswirtschaftsdepartement hat am 19. August die Deklarationsformulare angepasst. Ab dem 26. August sind nur die aktualisierten Modelle obligatorisch.',
     'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Gebäude der Schweizer Bundesverwaltung in Bern, Sitz des Eidgenössischen Departements für Wirtschaft.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Führerschein Basel-Stadt: Umbau und Prüfungen',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Wie man einen ausländischen Führerschein im Kanton Basel-Stadt umwandelt, theoretische und praktische Prüfungen, Pflichtkurse und Verfahren beim Strassenverkehrsamt.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Schweizer Führerschein und Verkehrsamt Kanton Basel-Stadt',
 };
 
 export default blogMetaChDe;

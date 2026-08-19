@@ -3463,6 +3463,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR: nuovi formulari per trasferimenti verso Iran',
     'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Il 19 agosto il Dipartimento federale dell\'economia ha adattato i formulari di dichiarazione. Dal 26 agosto saranno obbligatori solo i modelli aggiornati.',
     'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Palazzo dell\'Amministrazione federale svizzera a Berna, sede del DEFR e della Confederazione.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Patente guida Basilea Città: conversione ed esami',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Come convertire una patente estera nel Canton Basilea Città, esami teorico e pratico, corsi obbligatori e procedure presso l\'ufficio della circolazione.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Patente di guida svizzera e ufficio della circolazione nel Canton Basilea Città',
 };
 
 export default blogMetaChIt;
