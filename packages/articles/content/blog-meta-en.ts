@@ -10082,6 +10082,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-fermo-lavorare-ticino-frontaliere.title': 'Living in San Fermo and working in Ticino: border guide',
     'blog.article.san-fermo-lavorare-ticino-frontaliere.excerpt': 'As a border crossing from San Fermo della Battaglia to Ticino: permits, taxation, roads and convenience of transfer to the province of Como.',
     'blog.article.san-fermo-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Mendrisio in southern Ticino, with Como valley and Italian border in the background.',
+    'blog.article.san-fermo-battaglia-frontaliere.title': 'Living in San Fermo della Battaglia and working in Ticino',
+    'blog.article.san-fermo-battaglia-frontaliere.excerpt': 'Practical guide for G border workers: how to move from San Fermo della Battaglia, tax regime 2024, G Permit, commuting costs, procedure checklist.',
+    'blog.article.san-fermo-battaglia-frontaliere.imageAlt': 'Scenic view of Lugano at sunset with Swiss Alps in the background — typical destination for San Fermo della Battaglia commuters',
 };
 
 export default blogMetaEn;

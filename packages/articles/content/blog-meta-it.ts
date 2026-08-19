@@ -10083,6 +10083,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-fermo-lavorare-ticino-frontaliere.title': 'Vivere a San Fermo e lavorare in Ticino: guida frontaliere',
     'blog.article.san-fermo-lavorare-ticino-frontaliere.excerpt': 'Come frontaliere da San Fermo della Battaglia verso Ticino: permessi, fiscalità, viabilità e convenienza del trasferimento in provincia di Como.',
     'blog.article.san-fermo-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Mendrisio nel Ticino meridionale, con la valle di Como e il confine italiano sullo sfondo.',
+    'blog.article.san-fermo-battaglia-frontaliere.title': 'Vivere a San Fermo della Battaglia e lavorare in Ticino',
+    'blog.article.san-fermo-battaglia-frontaliere.excerpt': 'Guida pratica per frontalieri G: come trasferirsi da San Fermo della Battaglia, regime fiscale 2024, Permesso G, costi pendolarismo, checklist procedura.',
+    'blog.article.san-fermo-battaglia-frontaliere.imageAlt': 'Vista di Lugano al tramonto con le Alpi svizzere sullo sfondo — destinazione tipica di frontalieri da San Fermo della Battaglia',
 };
 
 export default blogMetaIt;
