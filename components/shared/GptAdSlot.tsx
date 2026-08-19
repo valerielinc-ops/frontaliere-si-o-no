@@ -24,6 +24,7 @@ import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
 
 // Master flag for the GPT stack (PoC activated in #2289). Flip to `false`
 // (one-line, then deploy) to disable every GPT slot if GPT serving regresses
@@ -152,6 +153,13 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   const slotRef = useRef<any>(null);
   const slotHandlerRef = useRef<((event: any) => void) | null>(null);
   const viewableHandlerRef = useRef<((event: any) => void) | null>(null);
+  // `slotRenderEnded` is the ONLY thing that collapses this wrapper, so a slot
+  // that never gets an answer keeps its reserve forever — and on the side rails
+  // that reserve is 600px per panel. GPT blocked by an ad blocker / Privacy
+  // Sandbox does not fire the event at all: it is not "empty", it is silent.
+  // Same failure mode AdSenseBanner has a fill timeout for, and the same one
+  // services/autoAdCollapse.ts handles for the containers Auto Ads inject.
+  const fillTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Stable, unique DOM id for this slot instance (GPT needs a real element id).
   const divIdRef = useRef<string>(`gpt-slot-${++slotSeq}`);
   const [rendered, setRendered] = useState(false);
@@ -210,6 +218,12 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           // a global pubads listener that re-fires for every other slot.
           const handler = (event: any) => {
             if (event?.slot !== slot) return;
+            // GPT answered — the budget below no longer applies, in either
+            // direction: a late render that fills also restores the space.
+            if (fillTimeoutRef.current) {
+              clearTimeout(fillTimeoutRef.current);
+              fillTimeoutRef.current = null;
+            }
             const isEmpty = !!event.isEmpty;
             setEmpty(isEmpty);
             onEmptyChangeRef.current?.(isEmpty);
@@ -226,6 +240,22 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           };
           slotHandlerRef.current = handler;
           gt.pubads().addEventListener('slotRenderEnded', handler);
+          // No answer within the shared fill budget → treat as unfilled, so the
+          // reserve is not held by a slot that will never render. Not a
+          // suppression: the slot stays defined and displayed, and the handler
+          // above restores it if GPT answers late. `collapseOnEmpty={false}`
+          // (the top banner) keeps its footprint either way, by design.
+          fillTimeoutRef.current = setTimeout(() => {
+            fillTimeoutRef.current = null;
+            setEmpty(true);
+            onEmptyChangeRef.current?.(true);
+            trackAdEvent('ad_collapsed', {
+              slot: adUnitPath,
+              format: 'gpt',
+              network: 'gpt',
+              reason: 'gpt_fill_timeout',
+            });
+          }, AD_FILL_TIMEOUT_MS);
           // Viewability is the real RPM driver (AdSense ACTIVE_VIEW_VIEWABILITY
           // fell ~0.46→0.33 while fill stayed stable). Emit ad_viewable per slot
           // so the SPA can track per-page viewability of the rail units.
@@ -276,6 +306,10 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     io.observe(wrapper);
     return () => {
       io.disconnect();
+      if (fillTimeoutRef.current) {
+        clearTimeout(fillTimeoutRef.current);
+        fillTimeoutRef.current = null;
+      }
       // Tear down the slot + its listener so SPA navigations don't accumulate
       // global pubads listeners (each would re-fire for every other slot).
       try {

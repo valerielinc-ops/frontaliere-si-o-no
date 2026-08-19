@@ -139,11 +139,30 @@ describe('the CSS half and the JS half cannot drift', () => {
     expect(rule.slice(0, rule.indexOf('}'))).toMatch(/overflow:\s*hidden\s*!important/);
   });
 
-  it('both consumers spend the SAME fill budget', () => {
-    const banner = readFileSync(resolve(ROOT, 'components', 'shared', 'AdSenseBanner.tsx'), 'utf8');
-    expect(banner).toMatch(/AD_FILL_TIMEOUT_MS/);
-    // A re-hardcoded literal would let the two halves of one page collapse at
-    // two different moments.
-    expect(banner).not.toMatch(/\b12_000\b|\b12000\b/);
+  it('all three ad stacks spend the SAME fill budget', () => {
+    // The silent no-answer case is not an AdSense quirk — it is what any ad
+    // stack does when it is blocked. All three reserve space, so all three
+    // need the same budget; a re-hardcoded literal would let two halves of one
+    // page collapse at two different moments.
+    for (const file of [
+      ['components', 'shared', 'AdSenseBanner.tsx'], // slots we declare
+      ['components', 'shared', 'GptAdSlot.tsx'], // GAM / GPT slots
+      ['services', 'autoAdCollapse.ts'], // containers Auto Ads inject
+    ]) {
+      const src = readFileSync(resolve(ROOT, ...file), 'utf8');
+      expect(src, `${file.join('/')} must use the shared budget`).toMatch(/AD_FILL_TIMEOUT_MS/);
+      expect(src, `${file.join('/')} must not re-hardcode it`).not.toMatch(/\b12_000\b|\b12000\b/);
+    }
+  });
+
+  it('GptAdSlot arms the budget and drops it the moment GPT answers', () => {
+    // GPT collapses the wrapper only on `slotRenderEnded`. Blocked, that event
+    // never fires — so the timeout is the only thing standing between a
+    // blocked rail and 600px of blank per panel. And it MUST be cleared when
+    // the event does arrive, or a late fill would be collapsed on top of.
+    const gpt = readFileSync(resolve(ROOT, 'components', 'shared', 'GptAdSlot.tsx'), 'utf8');
+    expect(gpt).toMatch(/setTimeout\([\s\S]{0,400}?AD_FILL_TIMEOUT_MS\)/);
+    const handler = gpt.slice(gpt.indexOf('const handler = (event: any)'));
+    expect(handler.slice(0, handler.indexOf('setEmpty'))).toMatch(/clearTimeout\(fillTimeoutRef\.current\)/);
   });
 });
