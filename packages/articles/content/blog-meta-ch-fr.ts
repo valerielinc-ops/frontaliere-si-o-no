@@ -3433,6 +3433,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finanze-federali-bilancio-2026.title': 'Budget fédéral 2026 : excédent de 0,8 milliard',
     'blog.article.finanze-federali-bilancio-2026.excerpt': 'Le Conseil fédéral projette un excédent de CHF 0,8 milliard en 2026 grâce aux recettes exceptionnelles de l\'impôt sur le bénéfice. Implications pour les contribuables et les finances publiques.',
     'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral et du Parlement suisse',
+    'blog.article.due-no-iniziative-settembre.title': 'Vote 27 septembre : deux non aux initiatives',
+    'blog.article.due-no-iniziative-settembre.excerpt': 'Sondage Leewas : 36 % oui à l\'initiative neutralité (62 % non), 31 % oui alimentation (65 % non). Analyse pour les partis et les cantons sur deux ballottages.',
+    'blog.article.due-no-iniziative-settembre.imageAlt': 'Électeurs suisses au bureau de vote lors d\'un scrutin fédéral',
 };
 
 export default blogMetaChFr;

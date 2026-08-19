@@ -3433,6 +3433,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.finanze-federali-bilancio-2026.title': 'Bundeshaushalt 2026: Überschuss von 0,8 Milliarden',
     'blog.article.finanze-federali-bilancio-2026.excerpt': 'Der Bundesrat prognostiziert für 2026 einen Überschuss von 0.8 Milliarden CHF durch ausserordentliche Ertragsteuereinnahmen. Auswirkungen auf die Steuerzahler und die öffentlichen Finanzen.',
     'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Bundespalast in Bern, Sitz des Schweizer Bundesrats und Parlaments',
+    'blog.article.due-no-iniziative-settembre.title': 'Bewertung 27. September: zwei Nein zu Initiativen',
+    'blog.article.due-no-iniziative-settembre.excerpt': 'Leewas-Umfrage: 36% Ja zur Neutralitätsinitiative (62% Nein), 31% Ja zur Ernährung (65% Nein). Analyse für Parteien und Kantone bei zwei Stichwahlen.',
+    'blog.article.due-no-iniziative-settembre.imageAlt': 'Schweizer Wähler an der Wahlurne während einer Bundesabstimmung',
 };
 
 export default blogMetaChDe;
