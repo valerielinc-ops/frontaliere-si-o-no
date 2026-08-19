@@ -21315,10 +21315,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "deputy-branch-management-m-f-d-new-yorker-interlaken",
+        "de": "stellvertretende-filialleitung-m-w-d-new-yorker-interlaken",
+        "it": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-interlaken",
         "en": "deputy-branch-management-m-f-d-new-yorker-interlaken",
-        "de": "deputy-branch-management-m-f-d-new-yorker-interlaken",
-        "fr": "deputy-branch-management-m-f-d-new-yorker-interlaken"
+        "fr": "direction-generale-adjointe-h-f-d-new-yorker-interlaken"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/deputy-branch-management-m-f-d-new-yorker-interlaken",
@@ -21326,12 +21326,13 @@
         "de": "/de/jobs-in-bern/deputy-branch-management-m-f-d-new-yorker-interlaken",
         "fr": "/fr/trouver-emploi-berne/deputy-branch-management-m-f-d-new-yorker-interlaken"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.newyorker.de/karriere-schweiz/stellvertretende-filialleitung-mwd-de-j27706.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -32126,10 +32127,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "hebamme-stgag-ch",
-        "en": "hebamme-stgag-ch",
-        "de": "hebamme-stgag-ch",
-        "fr": "hebamme-stgag-ch"
+        "it": "hebamme-stgag-munsterlingen",
+        "en": "hebamme-stgag-munsterlingen",
+        "fr": "hebamme-stgag-munsterlingen",
+        "de": "hebamme-stgag-ch"
       },
       "localePaths": {
         "it": "/cerca-lavoro-turgovia/hebamme-stgag-ch",
@@ -32143,6 +32144,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

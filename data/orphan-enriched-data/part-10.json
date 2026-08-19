@@ -57578,10 +57578,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "sales-consultant-in-coop-genossenschaft-winterthur",
+        "de": "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-6kow82",
+        "it": "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "en": "sales-consultant-in-coop-genossenschaft-winterthur",
-        "de": "sales-consultant-in-coop-genossenschaft-winterthur",
-        "fr": "sales-consultant-in-coop-genossenschaft-winterthur"
+        "fr": "consultant-en-ventes-coop-genossenschaft-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/sales-consultant-in-coop-genossenschaft-winterthur",
@@ -57595,6 +57595,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
