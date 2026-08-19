@@ -1167,6 +1167,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sunrise-147-tagli-posti-lavoro': { it: 'sunrise-147-tagli-posti-lavoro', en: 'sunrise-147-job-cuts', de: 'sunrise-147-stellenabbau', fr: 'sunrise-147-suppressions-emplois' },
  'ricovero-assistenza-revisione-2026': { it: 'ricovero-assistenza-revisione-2026', en: 'assistance-admission-revision-2026', de: 'unterbringung-assistenz-revision-2026', fr: 'placement-assistance-revision-2026' },
  'geberit-utili-semestre-2026': { it: 'geberit-utili-semestre-2026', en: 'geberit-earnings-half-year-2026', de: 'geberit-gewinn-halbjahr-2026', fr: 'geberit-benefices-semestre-2026' },
+ 'trasporti-eccezionali-standard-federali': { it: 'trasporti-eccezionali-standard-federali', en: 'exceptional-transport-federal-standards', de: 'aussergewoehliche-transport-standards-bundes', fr: 'transports-exceptionnels-standards-federaux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

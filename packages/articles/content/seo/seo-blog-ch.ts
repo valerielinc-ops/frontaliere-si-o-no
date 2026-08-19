@@ -44402,6 +44402,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasporti-eccezionali-standard-federali': {
+    title: 'Trasporti eccezionali: i nuovi standard federali',
+    description: 'DATEC disciplina uniformemente le scorte private ai trasporti eccezionali a livello federale. Consultazione aperta sino al 20 novembre 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, eccezionali, nuovi, standard',
+    ogTitle: 'Trasporti eccezionali: i nuovi standard federali',
+    ogDescription: 'Il DATEC disciplina uniformemente le scorte private ai trasporti eccezionali mediante consultazione federale sino al 20 novembre 2026. Scopri come cambia la regolazione dei servizi di scorta e cosa devi fare se operi nel settore trasporti.',
+    canonicalPath: '/articoli-svizzera/trasporti-eccezionali-standard-federali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti eccezionali: i nuovi standard federali",
+      "description": "DATEC disciplina uniformemente le scorte private ai trasporti eccezionali a livello federale. Consultazione aperta sino al 20 novembre 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasporti-eccezionali-standard-federali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un camion con carico eccezionale in transito su autostrada svizzera con veicolo di scorta"
+      },
+      "datePublished": "2026-08-19T13:11:24+00:00",
+      "dateModified": "2026-08-19T13:11:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasporti-eccezionali-standard-federali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

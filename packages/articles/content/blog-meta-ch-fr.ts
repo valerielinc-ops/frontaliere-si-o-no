@@ -3424,6 +3424,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.geberit-utili-semestre-2026.title': 'Geberit : ventes +2,8 %, bénéfices +7,4 % sur le semestre',
     'blog.article.geberit-utili-semestre-2026.excerpt': 'Au premier semestre 2026, le groupe basé à Saint-Gall a enregistré un chiffre d’affaires de 1,71 milliard de francs suisses et une croissance de son résultat net de 7,4 %. Les marges d’EBITDA sont restées stables et les prévisions de croissance pour l’année se situent entre 5 et 6 %.',
     'blog.article.geberit-utili-semestre-2026.imageAlt': 'Usine de production suisse avec équipements industriels pour installations sanitaires et contrôle qualité',
+    'blog.article.trasporti-eccezionali-standard-federali.title': 'Transports exceptionnels : les nouvelles normes fédérales',
+    'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'DETEC règle uniformément les stocks privés aux transports exceptionnels. Consultation fédérale jusqu\'au 20 novembre 2026.',
+    'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Autoroute suisse avec camion surdimensionné sous escorte de véhicule de convoi',
 };
 
 export default blogMetaChFr;

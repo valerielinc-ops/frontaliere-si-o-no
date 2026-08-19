@@ -3424,6 +3424,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.geberit-utili-semestre-2026.title': 'Geberit: vendite +2,8%, utili +7,4% nel semestre',
     'blog.article.geberit-utili-semestre-2026.excerpt': 'Nel primo semestre 2026, il gruppo sangallese ha registrato fatturato di 1,71 miliardi CHF e utile netto in crescita del 7,4%. Margini EBITDA stabili e previsioni di crescita 5-6% per l\'anno.',
     'blog.article.geberit-utili-semestre-2026.imageAlt': 'Stabilimento di produzione svizzero con macchinari industriali per impianti sanitari e controllo qualità',
+    'blog.article.trasporti-eccezionali-standard-federali.title': 'Trasporti eccezionali: i nuovi standard federali',
+    'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'DATEC disciplina uniformemente le scorte private ai trasporti eccezionali. Consultazione federale sino al 20 novembre 2026.',
+    'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Un camion con carico eccezionale in transito su autostrada svizzera con veicolo di scorta',
 };
 
 export default blogMetaChIt;
