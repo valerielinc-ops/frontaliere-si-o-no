@@ -9582,10 +9582,26 @@ const GOOGLE_NEWS_INJECT_MAX = Number(process.env.GOOGLE_NEWS_INJECT_MAX) || 60;
 // self-trigger chain simply advances to the next run. It is deliberately generous
 // (default 30min) so it never truncates a healthy ~15-20min run — it only fires on
 // the pathological tail. Env-overridable for tuning without a code change.
-const RUN_WALL_BUDGET_MS = Math.max(
+const DECLARED_RUN_WALL_BUDGET_MS = Math.max(
   5 * 60_000,
   Number.parseInt(process.env.CREATE_ARTICLE_MAX_WALL_MS || String(30 * 60_000), 10) || (30 * 60_000),
 );
+// The workflow's shell `timeout` wrapper (generate-article.yml) kills the WHOLE
+// process at CREATE_ARTICLE_HARD_KILL_S seconds, computed there as
+// `CREATE_ARTICLE_MAX_WALL_MS/1000 + 300` (5min grace so this in-process budget
+// always gets to finish gracefully first). Before #6052 this budget was
+// declared independently by re-parsing CREATE_ARTICLE_MAX_WALL_MS with its OWN
+// unset-fallback (30min) — a fallback that does not match the shell side's
+// arithmetic on an unset var (which yields a 300s cap, not 30min), so the two
+// could silently diverge and let deadlineMs promise more than the shell cap
+// actually leaves. Reading the shell's own hard_kill_s back and subtracting the
+// same grace it added closes that gap: whichever of the two is smaller wins.
+const SHELL_HARD_KILL_GRACE_MS = 300_000;
+const shellHardKillS = Number.parseInt(process.env.CREATE_ARTICLE_HARD_KILL_S || '', 10);
+const SHELL_DERIVED_RUN_WALL_BUDGET_MS = Number.isFinite(shellHardKillS) && shellHardKillS > 0
+  ? Math.max(0, shellHardKillS * 1000 - SHELL_HARD_KILL_GRACE_MS)
+  : Infinity;
+const RUN_WALL_BUDGET_MS = Math.min(DECLARED_RUN_WALL_BUDGET_MS, SHELL_DERIVED_RUN_WALL_BUDGET_MS);
 const RUN_START_MS = Date.now();
 /** True once the global wall-clock budget is spent (used to stop new topic attempts). */
 function wallBudgetExceeded() {
