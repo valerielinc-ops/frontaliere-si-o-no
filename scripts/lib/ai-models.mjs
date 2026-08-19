@@ -2036,7 +2036,23 @@ const SCORE_EXHAUSTED        = -50;
 
 // ── Time-decay for persisted scores ──────────────────────────
 
-/** Apply time-based decay to a persisted score */
+/**
+ * Apply time-based decay to a persisted score.
+ *
+ * `lastUsedISO` is the decay ANCHOR, not a "last touched" stamp — it only
+ * advances on a genuine SUCCESS (see `_persistScoresToFirestore`). A model
+ * that fails on every run but is still attempted every run would otherwise
+ * get `lastUsed` reset to "now" on each of those failures too, so this
+ * function would always see a small `ageH` (roughly the inter-run cadence)
+ * regardless of how long the model has actually been broken — decay by
+ * "since last run" instead of by real elapsed time. With the anchor gated to
+ * successes, a permanently-broken model's `lastUsed` stops advancing after
+ * its last success (or is never set), so `ageH` grows without bound across
+ * runs and the >24h bucket (0.10×) takes over — instead of the model
+ * settling on the `s = 0.75·s − 3 → s ≈ −12` fixed point that the 1-6h
+ * bucket produces when reapplied every run, which can outrank a model
+ * genuinely succeeding ~70% of the time.
+ */
 function _decayScore(score, lastUsedISO) {
   if (!lastUsedISO || !score) return 0;
   const ageMs = Date.now() - new Date(lastUsedISO).getTime();
@@ -2778,13 +2794,21 @@ async function _persistScoresToFirestore() {
   for (const modelId of toPersist) {
     const details = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
     const score = _modelScores.get(modelId) || 0;
+    const counterDelta = deltaSnapshot.get(modelId);
 
     const entry = {
       modelId,                 // Original model ID (with slashes)
       score,
-      lastUsed: now,
       updatedAt: now,
     };
+
+    // `lastUsed` anchors `_decayScore` (see its doc comment) — only advance it
+    // when this cycle actually contains a SUCCESS. Omitting the field on a
+    // failure-only (or delta-less) cycle leaves whatever `lastUsed` is already
+    // in Firestore untouched (`{merge: true}`), so decay keeps measuring real
+    // elapsed time since the model last demonstrably worked instead of resetting
+    // to "now" on every run that merely attempted and failed it.
+    if (counterDelta?.successes) entry.lastUsed = now;
 
     // successes/failures go out as an ATOMIC INCREMENT of this process's delta,
     // never as the absolute total (see _pendingCounterDeltas for the measured
@@ -2792,7 +2816,6 @@ async function _persistScoresToFirestore() {
     // an outcome — a learned token limit, a schema incompatibility — and then it
     // has no delta: the counter fields are OMITTED rather than written as 0,
     // because restating a stale absolute is exactly the defect being removed.
-    const counterDelta = deltaSnapshot.get(modelId);
     if (counterDelta) {
       if (_firestoreFieldValue && typeof _firestoreFieldValue.increment === 'function') {
         if (counterDelta.successes) entry.successes = _firestoreFieldValue.increment(counterDelta.successes);
