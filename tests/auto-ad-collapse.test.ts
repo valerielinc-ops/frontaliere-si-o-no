@@ -165,4 +165,19 @@ describe('the CSS half and the JS half cannot drift', () => {
     const handler = gpt.slice(gpt.indexOf('const handler = (event: any)'));
     expect(handler.slice(0, handler.indexOf('setEmpty'))).toMatch(/clearTimeout\(fillTimeoutRef\.current\)/);
   });
+
+  it('GptAdSlot arms the budget OUTSIDE the GPT command queue', () => {
+    // The case the timeout exists for is GPT blocked — and then its script
+    // never loads, so nothing ever drains `gt.cmd` and anything queued in it
+    // simply never runs. Arming the budget inside `gt.cmd.push` would hold the
+    // reserve forever in exactly that case: the guard would look like a guard
+    // without being one.
+    const gpt = readFileSync(resolve(ROOT, 'components', 'shared', 'GptAdSlot.tsx'), 'utf8');
+    const body = gpt.slice(gpt.indexOf('const defineAndDisplay'));
+    const armedAt = body.indexOf('AD_FILL_TIMEOUT_MS');
+    const queuedAt = body.indexOf('gt.cmd.push(');
+    expect(armedAt).toBeGreaterThan(-1);
+    expect(queuedAt).toBeGreaterThan(-1);
+    expect(armedAt, 'the fill budget must be armed before anything is queued on gt.cmd').toBeLessThan(queuedAt);
+  });
 });

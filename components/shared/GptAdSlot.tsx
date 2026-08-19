@@ -195,6 +195,26 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     const defineAndDisplay = () => {
       if (defined) return;
       defined = true;
+      // Arm the fill budget HERE, outside `gt.cmd`, and this is the whole
+      // point: when GPT is blocked its script never loads, so nothing ever
+      // drains `gt.cmd` — the callback below simply does not run. Arming
+      // inside it would leave the reserve held forever in exactly the case
+      // this timeout exists for. Out here it fires regardless, and the
+      // `slotRenderEnded` handler disarms it the moment GPT answers.
+      // Not a suppression: the slot stays defined and displayed, a late render
+      // that fills restores the space, and `collapseOnEmpty={false}` (the top
+      // banner) keeps its footprint either way, by design.
+      fillTimeoutRef.current = setTimeout(() => {
+        fillTimeoutRef.current = null;
+        setEmpty(true);
+        onEmptyChangeRef.current?.(true);
+        trackAdEvent('ad_collapsed', {
+          slot: adUnitPath,
+          format: 'gpt',
+          network: 'gpt',
+          reason: 'gpt_fill_timeout',
+        });
+      }, AD_FILL_TIMEOUT_MS);
       // Queue the GPT framework (enableServices) BEFORE this slot's display().
       // An above-the-fold slot (e.g. the article side-rails on ≥1400px) has its
       // IntersectionObserver fire on mount — before the idle-deferred
@@ -240,22 +260,6 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           };
           slotHandlerRef.current = handler;
           gt.pubads().addEventListener('slotRenderEnded', handler);
-          // No answer within the shared fill budget → treat as unfilled, so the
-          // reserve is not held by a slot that will never render. Not a
-          // suppression: the slot stays defined and displayed, and the handler
-          // above restores it if GPT answers late. `collapseOnEmpty={false}`
-          // (the top banner) keeps its footprint either way, by design.
-          fillTimeoutRef.current = setTimeout(() => {
-            fillTimeoutRef.current = null;
-            setEmpty(true);
-            onEmptyChangeRef.current?.(true);
-            trackAdEvent('ad_collapsed', {
-              slot: adUnitPath,
-              format: 'gpt',
-              network: 'gpt',
-              reason: 'gpt_fill_timeout',
-            });
-          }, AD_FILL_TIMEOUT_MS);
           // Viewability is the real RPM driver (AdSense ACTIVE_VIEW_VIEWABILITY
           // fell ~0.46→0.33 while fill stayed stable). Emit ad_viewable per slot
           // so the SPA can track per-page viewability of the rail units.
