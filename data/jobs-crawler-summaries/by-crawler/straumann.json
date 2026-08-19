@@ -1,16 +1,16 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-08-19T09:45:43.209Z",
+  "generatedAt": "2026-08-19T21:33:26.663Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6004,
-  "avgDurationMs": 6004,
+  "durationMs": 5282,
+  "avgDurationMs": 5282,
   "durationHistory": [
-    6004
+    5282
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://careers.straumann.com/global/en/job/21464/facility-management-and-workplace-project-manager-straumann-campus-basel",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:45:40.732Z",
+      "crawledAt": "2026-08-19T21:33:23.923Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -63,7 +63,7 @@
       "url": "https://careers.straumann.com/global/en/job/21609/global-launch-education-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:45:40.322Z",
+      "crawledAt": "2026-08-19T21:33:23.557Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -99,7 +99,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:39.707Z",
+      "crawledAt": "2026-08-19T21:33:23.262Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -114,6 +114,7 @@
       "featured": false,
       "postedDate": "2026-07-07",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -135,7 +136,7 @@
       "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:45:39.255Z",
+      "crawledAt": "2026-08-19T21:33:22.937Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -151,11 +152,11 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
       "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.720Z",
-      "_qualityScore": 74,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 23,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -171,7 +172,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:45:38.632Z",
+      "crawledAt": "2026-08-19T21:33:22.605Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
