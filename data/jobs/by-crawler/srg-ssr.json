@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-19T09:45:23.255Z",
+  "assembledAt": "2026-08-19T21:33:21.234Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:45:20.772Z",
+      "crawledAt": "2026-08-19T21:33:01.359Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:19.880Z",
+      "crawledAt": "2026-08-19T21:33:00.604Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,16 +140,16 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "pratique-pratique-srg-ssr-cuira"
         ]
       },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -194,7 +194,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:19.144Z",
+      "crawledAt": "2026-08-19T21:32:59.642Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -257,16 +257,16 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "operatore-di-servizio-srg-ssr-bern"
         ]
       },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T11:35:27.904Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -312,7 +312,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:18.331Z",
+      "crawledAt": "2026-08-19T21:32:58.641Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -411,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:17.604Z",
+      "crawledAt": "2026-08-19T21:32:57.869Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -450,8 +450,8 @@
         "pensumMin": 60,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-06-30T23:26:53.483Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-30T23:26:53.483Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -497,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:16.722Z",
+      "crawledAt": "2026-08-19T21:32:56.986Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -600,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:16.032Z",
+      "crawledAt": "2026-08-19T21:32:56.194Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -696,7 +696,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/mediendokumentalist-in-musik/2219975b-2326-406c-b1d9-89c2d03e456d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:15.219Z",
+      "crawledAt": "2026-08-19T21:32:55.050Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -788,7 +788,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-in-regia-videomaker-monocamera/ea400b57-4196-457a-a9eb-22b349dc9919",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:14.494Z",
+      "crawledAt": "2026-08-19T21:32:54.272Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,8 +830,8 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-07-15T10:58:07.877Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-15T10:58:07.877Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -877,7 +877,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-stato-maggiore/312922c1-41bd-4b74-a89e-54b77905f23d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:13.733Z",
+      "crawledAt": "2026-08-19T21:32:53.439Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -916,8 +916,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-07-21T22:06:20.958Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T22:06:20.958Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -963,7 +963,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistant-e-etat-major/4049e873-37dd-4fbf-b77a-1ab7f5ae0654",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:45:12.914Z",
+      "crawledAt": "2026-08-19T21:32:52.621Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1015,8 +1015,8 @@
           "assistant-e-etat-major-srg-ssr-geneve-8"
         ]
       },
-      "firstSeenAt": "2026-07-20T22:02:36.450Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T22:02:36.450Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1062,7 +1062,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-stab/49ebb65c-5a8e-4eb1-a9af-4be275b513b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:12.243Z",
+      "crawledAt": "2026-08-19T21:32:51.834Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1117,8 +1117,8 @@
           "assistent-in-stab-srg-ssr-geneve-8"
         ]
       },
-      "firstSeenAt": "2026-07-20T22:02:30.387Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T22:02:30.387Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1164,7 +1164,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/organisationsentwickler-in/04541eea-808a-4631-8796-d5085e1cc384",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:11.516Z",
+      "crawledAt": "2026-08-19T21:32:51.041Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1265,7 +1265,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/developpeur-d-organisation-f-h-d/cb912a2d-4362-4131-a5ae-ca75e2eb505e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:45:10.727Z",
+      "crawledAt": "2026-08-19T21:32:50.071Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1305,8 +1305,8 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-07-20T11:51:24.572Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T11:51:24.572Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1352,7 +1352,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/sviluppatore-trice-organizzativo-a/62516d8b-57dc-4038-a3ef-e7a0c98fd9d2",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:09.869Z",
+      "crawledAt": "2026-08-19T21:32:49.119Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1390,8 +1390,8 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-07-20T11:51:23.727Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T11:51:23.727Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1437,7 +1437,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/prozessanalyst-in/ba2e34a8-f6d3-4190-9557-30f463c1420d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:08.888Z",
+      "crawledAt": "2026-08-19T21:32:48.221Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1492,8 +1492,8 @@
           "prozessanalyst-in-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-07-20T22:02:26.556Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T22:02:26.556Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1539,7 +1539,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analyste-processus-f-h-d/c995c8d0-ced2-41f8-b350-9f3cf248296f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:45:08.200Z",
+      "crawledAt": "2026-08-19T21:32:47.415Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1578,8 +1578,8 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-07-20T22:02:25.739Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T22:02:25.739Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1625,7 +1625,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/analista-di-processo/e0464443-452e-4079-be1f-94ae62f7e1d7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:07.488Z",
+      "crawledAt": "2026-08-19T21:32:46.604Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1663,8 +1663,8 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-07-20T22:02:24.891Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-20T22:02:24.891Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1710,7 +1710,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:06.767Z",
+      "crawledAt": "2026-08-19T21:32:45.762Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1775,8 +1775,8 @@
           "phase-de-communication-rsi-srg-ssr-comano"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:40:13.924Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:40:13.924Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1822,7 +1822,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-efz-applikationsentwicklung/a5855233-f2ce-492c-8d91-f8ba68bf1913",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:06.027Z",
+      "crawledAt": "2026-08-19T21:32:44.846Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1885,111 +1885,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "srg-ssr-7b1017d1f5a7",
-      "slug": "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich",
-        "en": "basic-education-as-a-multimedia-electronics-technician-srg-ssr-zurich",
-        "de": "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
-        "fr": "formation-de-base-en-tant-que-technicien-en-electronique-multimedia-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Grundausbildung als Multimediaelektroniker:in EFZ",
-      "titleByLocale": {
-        "it": "Grundausbildung come Multimediaelektroniker:in CFC",
-        "en": "Basic training as a multimedia electronics technician: in EFZ",
-        "de": "Grundausbildung als Multimediaelektroniker:in EFZ",
-        "fr": "Formation de base en tant que technicien en électronique multimédia: en EFZ"
-      },
-      "description": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Planung, Installation und Inbetriebnahme von Anlagen zur Verteilung von Audio-, Video-Signalen und Daten-Netzwerken\n• Planung, Installation und Wartung von Sitzungsräumen und Satelliten-Empfangsanlagen\n• Reparaturen und Konfigurationen an CE-Geräten\n• IT-Plattformen entwickeln und programmieren\n• Kundensupport Wie kannst du dich bewerben?\n• Bewerbungsschreiben inklusive lückenloser Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Diplome oder andere Auszeichnungen (falls vorhanden)\n• Schnupperlehrfeedbacks (falls vorhanden)\n• Stellwerk- und/ oder Multicheck\n• Selektionstage finden am 27./28. August statt. Die Einladungen an ausgewählte Bewerber:innen erfolgen bis 21. August Was bringst du mit?\n• Abgeschlossene obligatorische Schulzeit (Sekundarschule A, mit guten Leistungen)\n• Gute schulische Leistungen in Mathematik und Englisch (im höchsten/mittleren Niveau)\n• Interesse an Informatik, Technologien sowie gute Konzentrationsfähigkeit und analytisches Denken\n• Freude an technischen Herausforderungen und selbstständige Arbeitsweise\n• Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit wie auch hilfsbereite sowie kommunikationsfreudige Persönlichkeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen bei SRG-Operationen\n• Lockere Ausbildner:Innen, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende und Teamevents\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-      "descriptionByLocale": {
-        "it": "Quali sono i tuoi compiti? Con l'inizio dell'insegnamento nell'agosto 2027, vi impegnate nei seguenti argomenti:\n• Pianificazione, installazione e messa in servizio di apparecchiature per la distribuzione di audio, segnali video e reti di dati\n• Pianificazione, installazione e manutenzione di sale riunioni e di ricezione satellitare\n• Riparazioni e configurazioni di apparecchiature CE\n• Sviluppo e programmazione di piattaforme IT\n• Supporto clienti Come si può applicare?\n• Lettera di richiesta con CV completo con foto\n• copie di tutti i certificati di livello superiore e/o 10. Anno scolastico\n• Diplomi o altri premi (se presenti)\n• feedback della guida di prova (se presenti)\n• Interlocking e/o multicheck\n• Le giornate di selezione si terranno il 27/28. August. Gli inviti a candidati selezionati: le femmine avranno luogo fino a 21. Agosto Cosa porti?\n• Scuola obbligatoria completa (Scuola secondaria A, con buone prestazioni)\n• Buoni risultati accademici in matematica e inglese (livello più alto / medio)\n• Interessi in informatica, tecnologie e buona concentrazione e pensiero analitico\n• Godere di sfide tecniche e lavorare in modo indipendente\n• Affidabilità, indipendenza e godimento del lavoro di squadra così come una personalità utile e comunicativa Cosa puoi aspettare?\n• Indagini e cooperazione in vari settori di lavoro e dipartimenti nelle operazioni SRG\n• Allenatori sciolti: coloro che ti sostengono in tutte le questioni\n• Impostare gli studenti e gli eventi di squadra\n• 6 settimane di vacanza Ancora domande? Claudia Hirt Specialista Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme.",
-        "en": "What are your tasks? With the start of teaching in August 2027, you are committed to the following topics:\n• Planning, installation and commissioning of equipment for the distribution of audio, video signals and data networks\n• Planning, installation and maintenance of meeting rooms and satellite reception facilities\n• Repairs and configurations of CE equipment\n• Developing and programming IT platforms\n• Customer Support How can you apply?\n• Application letter including complete CV with photo\n• copies of all upper-level certificates and/or 10. School year\n• Diplomas or other awards (if any)\n• Test guide feedbacks (if any)\n• Interlocking and/or multicheck\n• Selection days will take place on 27/28. August. The invitations to selected applicants: females will take place until 21. August What do you bring?\n• Completed compulsory schooling (Secondary School A, with good performance)\n• Good academic achievements in mathematics and English (highest/medium level)\n• Interest in computer science, technologies and good concentration and analytical thinking\n• Enjoying technical challenges and working independently\n• Reliability, independence and enjoyment of teamwork as well as a helpful and communicative personality What can you look forward to?\n• Insights and cooperation in various work areas and departments in SRG operations\n• Loose trainers: those who support you in all matters\n• Set up learners and team events\n• 6 weeks of vacation Still questions? Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day.",
-        "de": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Planung, Installation und Inbetriebnahme von Anlagen zur Verteilung von Audio-, Video-Signalen und Daten-Netzwerken\n• Planung, Installation und Wartung von Sitzungsräumen und Satelliten-Empfangsanlagen\n• Reparaturen und Konfigurationen an CE-Geräten\n• IT-Plattformen entwickeln und programmieren\n• Kundensupport Wie kannst du dich bewerben?\n• Bewerbungsschreiben inklusive lückenloser Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Diplome oder andere Auszeichnungen (falls vorhanden)\n• Schnupperlehrfeedbacks (falls vorhanden)\n• Stellwerk- und/ oder Multicheck\n• Selektionstage finden am 27./28. August statt. Die Einladungen an ausgewählte Bewerber:innen erfolgen bis 21. August Was bringst du mit?\n• Abgeschlossene obligatorische Schulzeit (Sekundarschule A, mit guten Leistungen)\n• Gute schulische Leistungen in Mathematik und Englisch (im höchsten/mittleren Niveau)\n• Interesse an Informatik, Technologien sowie gute Konzentrationsfähigkeit und analytisches Denken\n• Freude an technischen Herausforderungen und selbstständige Arbeitsweise\n• Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit wie auch hilfsbereite sowie kommunikationsfreudige Persönlichkeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen bei SRG-Operationen\n• Lockere Ausbildner:Innen, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende und Teamevents\n• 6 Wochen Ferien Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-        "fr": "Quelles sont vos tâches ? Avec le début de l'enseignement en août 2027, vous êtes engagés dans les sujets suivants:\n• Planification, installation et mise en service du matériel de distribution de signaux audio, vidéo et de réseaux de données\n• Planification, installation et entretien des salles de réunion et des installations de réception par satellite\n• Réparations et configurations des équipements CE\n• Développement et programmation de plateformes informatiques\n• Service à la clientèle Comment pouvez-vous postuler?\n• Lettre de candidature comprenant CV complet avec photo\n• des copies de tous les certificats de niveau supérieur et/ou 10. Année scolaire\n• Diplômes ou autres bourses (le cas échéant)\n• Commentaires du guide d'essai (le cas échéant)\n• Interverrouillage et/ou multivérification\n• Les jours de sélection auront lieu le 27/28. Août. Les invitations aux candidats sélectionnés: les femmes auront lieu jusqu'à 21. Août Qu'est-ce que tu apportes ?\n• Achevé la scolarité obligatoire (école secondaire A, avec de bons résultats)\n• Bonnes réalisations scolaires en mathématiques et en anglais (niveau le plus élevé/niveau moyen)\n• Intérêt pour l'informatique, les technologies et la bonne concentration et la pensée analytique\n• Profiter des défis techniques et travailler de manière indépendante\n• Fiabilité, indépendance et jouissance du travail d'équipe ainsi qu'une personnalité utile et communicative Que pouvez-vous attendre avec impatience?\n• Perspectives et coopération dans divers domaines d'activité et départements dans les opérations du GRS\n• Des formateurs mobiles : ceux qui vous soutiennent dans tous les domaines\n• Mettre en place des apprenants et des événements en équipe\n• 6 semaines de vacances Toujours des questions ? Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-multimediaelektroniker-in-efz/4d9c0d6d-3dd5-4080-87c2-aeff2808f4db",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:05.160Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1-4",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-multimediaelektroniker-in-efz/4d9c0d6d-3dd5-4080-87c2-aeff2808f4db",
-      "requirements": [
-        "Abgeschlossene obligatorische Schulzeit (Sekundarschule A, mit guten Leistungen)",
-        "Gute schulische Leistungen in Mathematik und Englisch (im höchsten/mittleren Niveau)",
-        "Interesse an Informatik, Technologien sowie gute Konzentrationsfähigkeit und analytisches Denken",
-        "Freude an technischen Herausforderungen und selbstständige Arbeitsweise",
-        "Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit wie auch hilfsbereite sowie kommunikationsfreudige Persönlichkeit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossene obligatorische Schulzeit (Sekundarschule A, mit guten Leistungen)",
-          "Gute schulische Leistungen in Mathematik und Englisch (im höchsten/mittleren Niveau)",
-          "Interesse an Informatik, Technologien sowie gute Konzentrationsfähigkeit und analytisches Denken",
-          "Freude an technischen Herausforderungen und selbstständige Arbeitsweise"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "4d9c0d6d-3dd5-4080-87c2-aeff2808f4db",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
-          "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich"
-        ],
-        "it": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
-          "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
-        ],
-        "en": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
-        ],
-        "fr": [
-          "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "grundausbildung-als-multimediaelektroniker-in-efz-srg-ssr-zurich",
-        "grundbildung-als-multimediaelektroniker-in-srg-ssr-zurich",
-        "grundbildung-come-multimediaelektroniker-in-srg-ssr-zurich"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:37:05.163Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "srg-ssr-a8ae3325568d",
       "slug": "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich",
       "slugByLocale": {
@@ -2020,7 +1915,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:04.309Z",
+      "crawledAt": "2026-08-19T21:32:43.945Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2116,7 +2011,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:45:03.351Z",
+      "crawledAt": "2026-08-19T21:32:43.067Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2210,7 +2105,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:45:02.314Z",
+      "crawledAt": "2026-08-19T21:32:32.737Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2252,8 +2147,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-08-04T22:16:04.757Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T22:16:04.757Z",
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2299,7 +2194,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:57.691Z",
+      "crawledAt": "2026-08-19T21:32:30.238Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2396,7 +2291,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:50.122Z",
+      "crawledAt": "2026-08-19T21:32:29.287Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2494,7 +2389,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:44:49.366Z",
+      "crawledAt": "2026-08-19T21:32:28.404Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2546,8 +2441,8 @@
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2593,7 +2488,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:44:48.608Z",
+      "crawledAt": "2026-08-19T21:32:27.513Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2633,8 +2528,8 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-08-14T10:12:26.743Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:26.743Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2680,7 +2575,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:47.661Z",
+      "crawledAt": "2026-08-19T21:32:26.584Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -2781,7 +2676,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:46.846Z",
+      "crawledAt": "2026-08-19T21:32:25.673Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -2882,7 +2777,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:45.947Z",
+      "crawledAt": "2026-08-19T21:32:24.768Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
