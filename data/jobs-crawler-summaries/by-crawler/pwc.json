@@ -1,18 +1,139 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-19T09:50:28.355Z",
-  "total": 126,
-  "newCount": 0,
+  "generatedAt": "2026-08-19T21:43:48.127Z",
+  "total": 131,
+  "newCount": 4,
   "updatedCount": 79,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 3967,
-  "avgDurationMs": 3967,
+  "durationMs": 3515,
+  "avgDurationMs": 3515,
   "durationHistory": [
-    3967
+    3515
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Manager – Fund Tax Reporting",
+      "slug": "manager-fund-tax-reporting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-fund-tax-reporting/0c36729e-7ccb-4a76-9c93-cea8ba7776c0",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Manager---Fund-Tax-Reporting_753047WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-19",
+      "validThrough": "2036-08-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Associate - Fund Tax Reporting",
+      "slug": "associate-fund-tax-reporting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-fund-tax-reporting/32082a7b-b28e-4140-8092-43142f0010d9",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Associate---Fund-Tax-Reporting_753048WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-19",
+      "validThrough": "2026-09-17",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Senior Manager - Capability Leader Data Security",
+      "slug": "senior-manager-capability-leader-data-security-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-manager-capability-leader-data-security/b86f437c-dd66-48aa-a65c-e4a3f689f896",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Data-Protection-Capability-Leader_668942WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-18",
+      "validThrough": "2036-08-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Manager/Senior Manager - Senior Cyber Security Architect",
+      "slug": "manager-senior-manager-senior-cyber-security-architect-pwc-geneve",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-senior-cyber-security-architect/509d9b3b-13d3-4111-9dad-f42c2716d917",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager-Senior-Manager-Security-Architect_617497WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-18",
+      "validThrough": "2036-08-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Junior Legal Counsel (Fokus Datenschutz und Compliance)",
@@ -40,8 +161,8 @@
       "salaryMin": 64500,
       "salaryMax": 102500,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T10:09:36.422Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -327,6 +448,7 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -397,6 +519,7 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -850,6 +973,7 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-07-02T12:03:02.989Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1058,44 +1182,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "(Senior) Manager - Transfer Pricing 80-100%",
-      "slug": "senior-manager-prezzo-di-trasferimento-80-100-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-manager-transfer-pricing/dcaccb5e-2f39-4182-940d-8ae87bf432d2",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Transfer-Pricing-Manager_538857WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2024-06-12",
-      "validThrough": "2034-06-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-057be0b90054",
-      "salaryMin": 75500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-04-26T21:57:56.602Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "(Senior) Associate - Sustainable Finance (Financial Services)",
@@ -1448,7 +1535,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-17T22:05:45.953Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1486,7 +1572,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-08T22:21:17.082Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
