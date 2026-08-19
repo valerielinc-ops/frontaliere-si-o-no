@@ -3397,6 +3397,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.difesa-aerea-svizzera-investimenti.title': 'Défense aérienne : le Conseil fédéral accélère les investissements',
     'blog.article.difesa-aerea-svizzera-investimenti.excerpt': '970 millions pour la défense aérienne et 100 millions pour la sécurité des sites militaires d\'ici 2029 pour répondre aux défis mondiaux.',
     'blog.article.difesa-aerea-svizzera-investimenti.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Indemnité maladie : le système fonctionne bien',
+    'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Conseil fédéral confirme : le système de protection des travailleurs en cas de maladie est adéquat. Couverture à 85-90 % dans les entreprises, seulement 0,13 % des travailleurs exclus.',
+    'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Bâtiment fédéral suisse à Berne avec drapeaux officiels le jour. Travailleurs traversant la zone administrative fédérale.',
 };
 
 export default blogMetaChFr;
