@@ -832,6 +832,62 @@ const OMNIROUTE_FAILURE_STORM_THRESHOLD = 5;
 // a `finally`, including on throw/reject.
 const CLAUDE_CLI_MAX_CONCURRENCY = 2;
 
+// Soglia oltre la quale una chiamata claude-cli RIUSCITA racconta comunque
+// quanto e' costata e dove.
+//
+// ── PERCHE' SERVE PROPRIO SUL RAMO DI SUCCESSO ─────────────────────────────
+//
+// `createClaudeCliStreamTrace` raccoglie gia' tutto — primo evento,
+// `rate_limit_event`, giri di StructuredOutput — ma `trace.describe()` viene
+// chiamato SOLO dai due rami d'errore di `_callClaudeCli`. Finche' il difetto
+// era «timeout a 120s» quello bastava, perche' il difetto ERA un errore.
+// Non lo e' piu': misurato sulla run 32230961988 (2026-08-19, job `generate`
+// 17m00s), `claude-cli/haiku` ha chiuso 3 chiamate su 3 con successo
+// impiegando 197s, 206s e 253s — 656s, cioe' il 64% dell'intero job — mentre
+// nessun altro modello del roster ha mai superato i 60s. Una diagnostica
+// appesa al fallimento e' muta davanti a un difetto che si manifesta come
+// lentezza CON successo: il riepilogo del roster dice `claude-cli 3 served/0
+// failed` e non una parola su quei 656 secondi.
+//
+// Il commento di `createClaudeCliStreamTrace` nomina gia' il candidato causale
+// piu' forte — lo stesso `CLAUDE_CODE_OAUTH_TOKEN` di piano Max e' condiviso
+// con `pr-review-loop`, `issue-fix` e il redflag-fixer, quindi un limite di
+// sessione spiegherebbe la forma del difetto — e lo dichiara «oggi
+// invisibile». Lo e' ancora, ed e' invisibile per questa ragione qui.
+//
+// LA DISTINZIONE CHE QUESTA RIGA COMPRA, e perche' vale una PR da sola: i
+// rimedi sono opposti e mutuamente esclusivi.
+//
+//   - tempo prima del primo token (`ttft_ms` alto, o un `rate_limit_event`)
+//     → e' CODA, non generazione: il rimedio e' di pianificazione (non far
+//       girare la generazione mentre i workflow agentici consumano la stessa
+//       quota), e ogni intervento su prompt, schema o timeout e' sprecato;
+//   - tempo dopo il primo token (`duration_api_ms` alto con `ttft_ms` basso,
+//     molti `output_tokens`/`thinking_tokens`)
+//     → e' GENERAZIONE: il rimedio e' la dimensione della risposta, e la
+//       pianificazione non c'entra;
+//   - `structuredAttempts > 1`
+//     → e' l'anello di StructuredOutput che rigenera l'articolo intero, cioe'
+//       il cap dichiarato `blocked:` in #487/#6080 «in attesa di una finestra
+//       di run post-merge»: questa e' quella finestra.
+//
+// Questo file ha gia' pagato TRE tentativi alla cieca sullo stesso sintomo
+// (floor 60s→120s, il semaforo qui sopra, la soglia del breaker a 3), tutti
+// senza un dato su cui puntare — sta scritto nel commento di
+// `createClaudeCliStreamTrace`. Questa non e' la quarta: non tocca nessuna
+// delle tre leve, e non cambia il comportamento di una sola chiamata.
+//
+// La soglia e' 60s per allinearsi all'heartbeat `⏳ in-flight Ns` di
+// `_callModel`, che e' la definizione di «lenta» gia' in uso in questo file:
+// sotto quella soglia la riga non compare e il volume di log resta identico a
+// oggi. `0` la spegne del tutto.
+const CLAUDE_CLI_SLOW_CALL_LOG_MS = (() => {
+  const raw = (process.env.CLAUDE_CLI_SLOW_CALL_LOG_MS || '').trim();
+  if (!raw) return 60_000;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? n : 60_000;
+})();
+
 // Per-call timeout FLOOR for the claude CLI subprocess (raised 60s → 120s by
 // the T2 diagnosis, see _callClaudeCli). Shared so _hardCallCapMs sizes its
 // backstop off the same floor instead of a second copy of the literal.
@@ -4920,6 +4976,10 @@ function _callOmniRoute(model, messages, opts) {
  * on calls that could never finish in time.
  */
 async function _callClaudeCli(model, messages, opts) {
+  // Preso PRIMA di comporre gli argomenti, non allo spawn: il tempo speso in
+  // coda su `_withClaudeCliSlot` e' tempo che il chiamante paga davvero, ed e'
+  // esattamente una delle cause che la riga di riepilogo deve saper mostrare.
+  const startedAt = Date.now();
   const apiModel = getApiModelId(model); // e.g. 'haiku' — CLI resolves the alias to its current model
   const systemPrompt = messages.filter((m) => m.role === 'system').map((m) => m.content).join('\n\n');
   const userPrompt = messages.filter((m) => m.role !== 'system').map((m) => m.content).join('\n\n');
@@ -5037,6 +5097,22 @@ async function _callClaudeCli(model, messages, opts) {
     const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `is_error (exit ${code})`);
     if (recovered !== null) return recovered;
     throw new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
+  }
+  // ── LA CHIAMATA E' RIUSCITA, E PROPRIO PER QUESTO VA RACCONTATA ──────────
+  //
+  // Sopra, i due rami d'errore chiamano `trace.describe()`; qui fino a oggi non
+  // lo chiamava nessuno. Era la ragione per cui 656s di haiku su un job da
+  // 1020s (run 32230961988) non lasciavano una riga di log: tre chiamate
+  // riuscite non sono un errore, e la diagnostica stava tutta di la'.
+  //
+  // Sopra la soglia e non sempre: cosi' una chiamata sana non aggiunge nulla al
+  // log, e la riga compare esattamente nei casi in cui qualcuno la leggerebbe.
+  // `console.warn` e non `console.error` perche' non e' un fallimento — ma
+  // resta su stderr come tutta la diagnostica di questo file, quindi finisce
+  // nel log della run senza toccare stdout, che qui e' il canale del payload.
+  const elapsedMs = Date.now() - startedAt;
+  if (CLAUDE_CLI_SLOW_CALL_LOG_MS > 0 && elapsedMs >= CLAUDE_CLI_SLOW_CALL_LOG_MS) {
+    console.warn(`🐢 [${model}] riuscita in ${Math.round(elapsedMs / 1000)}s${trace.describe()}${trace.describeCost()}`);
   }
   return parsed.result;
 }
@@ -5304,6 +5380,47 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
         ? `rate_limit_event a ${state.rateLimit.atMs}ms (status=${state.rateLimit.status}, tipo=${state.rateLimit.kind})`
         : 'nessun rate_limit_event');
       return ` — stream: ${parti.join(', ')}`;
+    },
+
+    /**
+     * Cosa e' costata la chiamata, e DOVE — la meta' che `describe()` non
+     * copre perche' non vive negli eventi ma nell'involucro `result`.
+     *
+     * Il CLI dichiara da solo la scomposizione che serve (campi verificati
+     * eseguendolo, CLI 2.1.235): `ttft_ms` separa l'attesa dalla generazione,
+     * `duration_api_ms` misura la chiamata al netto dell'avvio del processo,
+     * `num_turns` dice se e' stato un giro solo, e `usage.output_tokens` con
+     * `output_tokens_details.thinking_tokens` dice quanto di cio' che e' stato
+     * generato era ragionamento e non articolo.
+     *
+     * Ogni campo e' opzionale per costruzione: i mock dei test emettono un
+     * `{type:'result'}` minimo, e una riga che esplode sul campo assente
+     * varrebbe meno di nessuna riga. Cio' che manca semplicemente non compare,
+     * tranne `giri-schema`, che segue la stessa regola del `rate_limit_event`
+     * in `describe()` — c'e' SEMPRE, perche' «uno solo» e «non lo guardavamo»
+     * sono due letture diverse dello stesso silenzio.
+     */
+    describeCost() {
+      const r = state.result;
+      const u = (r && typeof r.usage === 'object' && r.usage) || {};
+      const d = (typeof u.output_tokens_details === 'object' && u.output_tokens_details) || {};
+      const num = (v) => (typeof v === 'number' && Number.isFinite(v) ? v : null);
+      const parti = [];
+      const ttft = num(r?.ttft_ms);
+      if (ttft !== null) parti.push(`primo token a ${ttft}ms`);
+      const api = num(r?.duration_api_ms);
+      if (api !== null) parti.push(`api ${api}ms`);
+      const turns = num(r?.num_turns);
+      if (turns !== null) parti.push(`${turns} ${turns === 1 ? 'giro' : 'giri'}`);
+      const out = num(u.output_tokens);
+      if (out !== null) {
+        const think = num(d.thinking_tokens);
+        parti.push(`${out} token di output${think !== null ? ` (${think} di thinking)` : ''}`);
+      }
+      const inp = num(u.input_tokens);
+      if (inp !== null) parti.push(`${inp} token di input`);
+      parti.push(`${state.structuredAttempts} giri-schema`);
+      return ` — costo: ${parti.join(', ')}`;
     },
   };
 }
