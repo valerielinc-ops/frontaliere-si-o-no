@@ -10072,6 +10072,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.title': 'Vivere a Malnate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e le zone consigliate per i frontalieri che vivono a Malnate e lavorano in Ticino.',
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e risiede a Malnate.',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Vivere a Dongo, lavorare in Ticino da frontaliere',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Guida pratica: costo della vita, fiscalità frontaliere, permesso G, contributi AVS e LAMal, tempi di percorrenza Dongo-Lugano, vantaggi e svantaggi del trasferimento transfrontaliero.',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Vista del lungolago di Dongo sul Lago di Como con monti sullo sfondo e architettura lacustre storica',
 };
 
 export default blogMetaIt;

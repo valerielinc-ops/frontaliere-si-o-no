@@ -10073,6 +10073,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.title': 'Vivre à Malnate et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les zones recommandées pour les frontaliers qui vivent à Malnate et travaillent au Tessin.',
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.imageAlt': 'Un travailleur frontalier résidant à Malnate et travaillant en Tessin.',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Vivre à Dongo, travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Guide pratique : coût de la vie, fiscalité frontalière, permis G, cotisations AVS et LAMal, temps de trajet Dongo-Lugano, avantages et inconvénients du transfert transfrontalier.',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Vue du rivage du lac de Côme à Dongo avec montagnes et architecture historique du bord du lac',
 };
 
 export default blogMetaFr;
