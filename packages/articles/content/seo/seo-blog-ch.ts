@@ -44363,6 +44363,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-geberit-utili-semestre-2026': {
+    title: 'Geberit: vendite +2,8%, utili +7,4% nel semestre',
+    description: 'Nel primo semestre 2026, Geberit registra fatturato di 1,71 miliardi CHF e utile netto di 364 milioni CHF (+7,4%). Margine EBITDA stabile al 30,9% e previsioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, geberit, vendite, utili, semestre',
+    ogTitle: 'Geberit: crescita accelerata nel primo semestre 2026',
+    ogDescription: 'I risultati semestrali di Geberit: fatturato 1,71 miliardi CHF (+2,8%), utile netto +7,4%, margine EBITDA stabile al 30,9%. Accelerazione nel Q2 (+6,6%) e previsioni per l\'anno in corso. Cosa significano per l\'economia svizzera.',
+    canonicalPath: '/articoli-svizzera/geberit-utili-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Geberit: vendite +2,8%, utili +7,4% nel semestre",
+      "description": "Nel primo semestre 2026, Geberit registra fatturato di 1,71 miliardi CHF e utile netto di 364 milioni CHF (+7,4%). Margine EBITDA stabile al 30,9% e previsioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/geberit-utili-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento di produzione svizzero con macchinari industriali per impianti sanitari e controllo qualità"
+      },
+      "datePublished": "2026-08-19T12:40:41+00:00",
+      "dateModified": "2026-08-19T12:40:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/geberit-utili-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

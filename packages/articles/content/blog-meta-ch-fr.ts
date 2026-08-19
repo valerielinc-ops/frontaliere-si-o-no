@@ -3421,6 +3421,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricovero-assistenza-revisione-2026.title': 'Conseil fédéral révise le droit à l\'hospitalisation assistance',
     'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'Le 12 août 2026, le Conseil fédéral charge le DFJP de réviser les règles sur l\'hospitalisation involontaire : statistiques nationales, clarifications sur les mesures médicales et protections spécifiques pour les mineurs. Avant-projet d\'ici l\'été 2028.',
     'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Palais fédéral à Berne, où le Conseil fédéral a décidé le 12 août 2026 de réviser le droit d\'accueil à des fins d\'assistance',
+    'blog.article.geberit-utili-semestre-2026.title': 'Geberit : ventes +2,8 %, bénéfices +7,4 % sur le semestre',
+    'blog.article.geberit-utili-semestre-2026.excerpt': 'Au premier semestre 2026, le groupe basé à Saint-Gall a enregistré un chiffre d’affaires de 1,71 milliard de francs suisses et une croissance de son résultat net de 7,4 %. Les marges d’EBITDA sont restées stables et les prévisions de croissance pour l’année se situent entre 5 et 6 %.',
+    'blog.article.geberit-utili-semestre-2026.imageAlt': 'Usine de production suisse avec équipements industriels pour installations sanitaires et contrôle qualité',
 };
 
 export default blogMetaChFr;

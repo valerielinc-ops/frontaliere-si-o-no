@@ -3421,6 +3421,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ricovero-assistenza-revisione-2026.title': 'Consiglio federale rivede il diritto su ricovero assistenza',
     'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'Il 12 agosto 2026 il Consiglio federale incarica il DFGP di revisionare le norme sul ricovero involontario: statistica nazionale, chiarimenti su provvedimenti medici e protezioni specifiche per minori. Avamprogetto entro estate 2028.',
     'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Sede del Consiglio federale svizzero a Berna, dove il 12 agosto 2026 è stata decisa la revisione del diritto di ricovero a scopo di assistenza',
+    'blog.article.geberit-utili-semestre-2026.title': 'Geberit: vendite +2,8%, utili +7,4% nel semestre',
+    'blog.article.geberit-utili-semestre-2026.excerpt': 'Nel primo semestre 2026, il gruppo sangallese ha registrato fatturato di 1,71 miliardi CHF e utile netto in crescita del 7,4%. Margini EBITDA stabili e previsioni di crescita 5-6% per l\'anno.',
+    'blog.article.geberit-utili-semestre-2026.imageAlt': 'Stabilimento di produzione svizzero con macchinari industriali per impianti sanitari e controllo qualità',
 };
 
 export default blogMetaChIt;
