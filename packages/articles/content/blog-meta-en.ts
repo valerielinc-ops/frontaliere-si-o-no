@@ -10145,6 +10145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-colonno-lavorare-ticino.title': 'Living in Column, working in Ticino: border guide',
     'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Distances, travel times, cost of living and tax procedures: everything you need to know to live in Colonno and work as a border worker in Ticino.',
     'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'View of Lake Como from Colonno towards the Brogeda border crossing and Canton Ticino in the background',
+    'blog.article.nesso-frontaliere-ticino-guida.title': 'Living in Nesso and working in Ticino as a border worker',
+    'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Complete guide: G permit, bilateral taxation, source tax, exemptions €7,500-€10,000, AVS, LAMal, rebates. Procedures and checklists to start as an Italy-Ticino border worker.',
+    'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'View of Lake Como from Nesso with Swiss Alps visible across the border to Ticino',
 };
 
 export default blogMetaEn;

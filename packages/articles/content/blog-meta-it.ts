@@ -10146,6 +10146,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-colonno-lavorare-ticino.title': 'Vivere a Colonno, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Distanze, tempi di viaggio, costo della vita e procedure fiscali: tutto ciò che devi sapere per vivere a Colonno e lavorare come frontaliere in Ticino.',
     'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'Veduta della sponda nord del Lago di Como da Colonno verso il valico di Brogeda e il Canton Ticino sullo sfondo',
+    'blog.article.nesso-frontaliere-ticino-guida.title': 'Vivere a Nesso e lavorare in Ticino da frontaliere',
+    'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Guida completa: permesso G, fiscalità bilaterale, imposta alla fonte, esenzioni €7.500–€10.000, AVS, LAMal, ristorni. Procedure e checklist per iniziare come frontaliere Italia-Ticino.',
+    'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Veduta del Lago di Como da Nesso con lo sfondo delle Alpi ticinesi al confine svizzero',
 };
 
 export default blogMetaIt;

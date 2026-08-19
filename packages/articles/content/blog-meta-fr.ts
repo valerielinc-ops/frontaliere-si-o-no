@@ -10147,6 +10147,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-colonno-lavorare-ticino.title': 'Vivre à Colonno, travailler au Tessin : guide frontalier',
     'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Distances, temps de déplacement, coût de la vie et procédures fiscales : tout ce que vous devez savoir pour vivre à Colonno et travailler comme frontalier au Tessin.',
     'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'Vue du lac de Côme depuis Colonno vers le passage frontalier de Brogeda et le Tessin en arrière-plan',
+    'blog.article.nesso-frontaliere-ticino-guida.title': 'Vivre à Nesso et travailler au Tessin en tant que frontalier',
+    'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Guide complet : permis G, fiscalité bilatérale, impôt à la source, exonérations € 7.500–€ 10.000, AVS, LAMal, restaurations. Procédures et checklists pour commencer en tant que frontalier Italie-Tessin.',
+    'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Vue du lac de Côme depuis Nesso avec les Alpes suisses visibles à la frontière tessinoise',
 };
 
 export default blogMetaFr;
