@@ -23,6 +23,7 @@
  */
 
 import { buildPdfBackedDescription } from './pdf-job-content.mjs';
+import { escapeRegExpLiteral } from './escape-regexp.mjs';
 
 export const BERIT_KLINIK_KEY = 'berit-klinik';
 export const BERIT_KLINIK_COMPANY_NAME = 'Berit Klinik';
@@ -106,9 +107,7 @@ function humanizeFilenameTitle(filename) {
     .trim();
 }
 
-function escapeRegex(value) {
-  return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+const escapeRegex = escapeRegExpLiteral;
 
 /**
  * Parse the careers HTML and return distinct PDF listings.

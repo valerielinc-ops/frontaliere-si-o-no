@@ -1,4 +1,5 @@
 import { detectLanguageWithConfidence } from './detect-language.mjs';
+import { escapeRegExpLiteral } from './escape-regexp.mjs';
 
 export const DEFAULT_JOB_LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -221,7 +222,7 @@ export const DEFAULT_TITLE_OVERLAP_THRESHOLD = 0.85;
  */
 export const MIN_OVERLAP_TOKENS = 4;
 
-const escapeRe = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeRe = escapeRegExpLiteral;
 
 const foldText = (value) =>
   String(value || '')
