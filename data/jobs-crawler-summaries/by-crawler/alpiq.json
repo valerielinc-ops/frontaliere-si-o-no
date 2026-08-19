@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-08-19T10:09:07.187Z",
+  "generatedAt": "2026-08-19T22:14:50.682Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5200,
-  "avgDurationMs": 5200,
+  "unchangedCount": 1,
+  "durationMs": 4248,
+  "avgDurationMs": 4248,
   "durationHistory": [
-    5200
+    4248
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:09:03.881Z",
+      "crawledAt": "2026-08-19T22:14:48.073Z",
       "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -72,46 +72,12 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:09:03.884Z",
+      "crawledAt": "2026-08-19T22:14:48.074Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "alpiq-dbe206690861",
-      "slug": "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Projektleiter:in strategische Projektportfolioplanung Nukleare Assets(all) 100%",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9302",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:09:03.884Z",
-      "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
         "translation": 25,
         "completeness": 17
       }
@@ -143,7 +109,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:09:03.881Z",
+      "crawledAt": "2026-08-19T22:14:48.073Z",
       "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -177,7 +143,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:09:03.884Z",
+      "crawledAt": "2026-08-19T22:14:48.074Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -213,12 +179,15 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-19T10:09:03.884Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
-      "_qualityScore": 77,
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ]
