@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-08-19T10:21:20.814Z",
-  "total": 3,
+  "generatedAt": "2026-08-19T22:10:51.589Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 1213,
-  "avgDurationMs": 1213,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 1060,
+  "avgDurationMs": 1060,
   "durationHistory": [
-    1213
+    1060
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,8 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Senior Software Engineer",
       "slug": "senior-software-engineer-board-international-chiasso-switzerland",
@@ -88,7 +87,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "UX Designer",
       "slug": "ux-designer-board-international-chiasso-switzerland",
