@@ -165,6 +165,18 @@ job che nessuno aveva modificato.
 | 1,5-3,5 GB | 2,76x | **1,49x** | **perdita** |
 | 3,5-6,8 GB | 3,91x | **2,12x** | **perdita** |
 
+Conferma diretta, che elimina ogni deriva perche' confronta due run dello stesso
+branch a 25 minuti di distanza, diverse solo per questo commit:
+
+| | `vitest` — passo Checkout |
+|---|---|
+| sparse, 2'885 MB residui | **363s** |
+| fetch unico (sopra la soglia) | **218s** |
+
+Lo sparse costava **+145s (1,67x)** sul job piu' frequente del repo. Nello stesso
+confronto `typecheck`, che a 475 MB sta sotto la soglia, tiene il suo guadagno:
+25-33s contro i 211s di prima.
+
 Da qui `CROSSOVER_MB = 1500` in `checkout-profile-analyzer.mjs`: se anche
 escludendo tutto il possibile resterebbero piu' di 1,5 GB, il job **non** prende
 lo sparse e resta a fetch unico. Ha riportato a checkout pieno 65 job su 177 —
