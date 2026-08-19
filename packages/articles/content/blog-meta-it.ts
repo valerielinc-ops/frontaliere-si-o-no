@@ -10158,6 +10158,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Frontalieri tra Italia e Ticino: il nuovo accordo dal 2024 cambia tassazione, contributi e franchigie. Quali sono le implicazioni pratiche per chi risiede a Venegono Superiore?',
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago di Lugano all\'alba con le Alpi in sfondo, illustra il contesto geografico del Ticino per i frontalieri che lavorano nella regione.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Vivere a san bartolomeo val cavargna, lavorare in Ticino',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Guida pratica per frontalieri: valichi, tassazione, LAMal, permesso G, costi fissi, procedura primo incarico e scenari convenienza economica tra Italia e Svizzera.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Strada di collegamento da San Bartolomeo Val Cavargna verso il confine ticinese al tramonto',
 };
 
 export default blogMetaIt;

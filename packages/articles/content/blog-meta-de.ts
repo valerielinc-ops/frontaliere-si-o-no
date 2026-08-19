@@ -10156,6 +10156,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Leben in Venegono und Arbeiten im Tessin: Steuerleitfaden 2024',
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger zwischen Italien und Tessin: Das neue Abkommen ab 2024 ändert Steuern, Beiträge und Selbstbehalte. Was sind die praktischen Auswirkungen für diejenigen, die in Venegono Superiore wohnen?',
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee bei Sonnenaufgang mit Alpengipfeln, typische Tessiner Landschaft für Grenzgänger.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Leben in San Bartolomeo Val Cavargna, Arbeiten im Tessin',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Grenzübergänge, Besteuerung, KVG, Bewilligung G, Fixkosten, Erstauftragsverfahren und Szenarien wirtschaftlicher Nutzen zwischen Italien und der Schweiz.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Verbindungsstraße von San Bartolomeo Val Cavargna zur Tessiner Grenze bei Sonnenuntergang',
 };
 
 export default blogMetaDe;
