@@ -10108,6 +10108,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Frontière à Masciago Primo : travail et vie au Tessin',
     'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Vivre à Masciago Primo et travailler au Tessin : Nouvel accord 2024, fiscalité, AVS, LAMal, restaurants et tout ce que vous devez savoir pour déménager en tant que frontalier.',
     'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'Vue du lac de Côme à la frontière suisse avec le rivage italien en avant-plan et les Alpes suisses en arrière-plan.',
+    'blog.article.posta-riduce-tagli-informatica.title': 'Courrier, réduit les réductions de personnel dans l\'informatique',
+    'blog.article.posta-riduce-tagli-informatica.excerpt': 'La réorganisation Tech Acceleration de la Poste entraîne jusqu\'à 40 licenciements et une vingtaine de modifications contractuelles à compter du 1er janvier 2027.',
+    'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Immeuble de bureaux de la Poste en Suisse',
 };
 
 export default blogMetaFr;

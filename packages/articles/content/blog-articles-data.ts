@@ -30270,6 +30270,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'posta-riduce-tagli-informatica',
+ category: 'novita',
+ date: '2026-08-19T10:37:20.376Z',
+ image: '/images/blog/posta-riduce-tagli-informatica.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

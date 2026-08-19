@@ -10107,6 +10107,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Frontaliere a Masciago Primo: lavoro e vita in Ticino',
     'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Vivere a Masciago Primo e lavorare in Ticino: Nuovo Accordo 2024, tassazione, AVS, LAMal, ristorni e tutto ciò che serve sapere per trasferirsi da frontaliere.',
     'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'Vista del Lago di Como al confine con il Ticino, con le sponde italiane in primo piano e le montagne svizzere sullo sfondo.',
+    'blog.article.posta-riduce-tagli-informatica.title': 'Posta, ridotti i tagli di personale nell’informatica',
+    'blog.article.posta-riduce-tagli-informatica.excerpt': 'La riorganizzazione Tech Acceleration della Posta porta fino a 40 licenziamenti e una ventina di modifiche contrattuali a partire dal 1 gennaio 2027.',
+    'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Sede aziendale della Posta in Svizzera',
 };
 
 export default blogMetaIt;
