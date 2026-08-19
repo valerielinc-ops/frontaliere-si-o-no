@@ -1,18 +1,19 @@
 {
   "key": "michel-gruppe-ag",
   "label": "Michel Gruppe AG",
-  "generatedAt": "2026-08-19T09:55:24.802Z",
+  "generatedAt": "2026-08-19T21:50:00.697Z",
   "total": 8,
-  "newCount": 3,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8808,
-  "avgDurationMs": 8808,
+  "durationMs": 8486,
+  "avgDurationMs": 8486,
   "durationHistory": [
-    8808
+    8486
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "michel-gruppe-ag-936ce2f68630",
       "slug": "mitarbeiter-in-wascherei-haslital-60-michel-gruppe-ag-meiringen",
@@ -26,7 +27,7 @@
       "url": "https://my.jobalino.ch/job/7695f305d793a1a2d1fcb4add05bbbb2/mitarbeiter-in-waescherei-haslital_2118",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:17.266Z",
+      "crawledAt": "2026-08-19T21:49:53.089Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -44,11 +45,12 @@
       "externalId": "7695f305d793a1a2d1fcb4add05bbbb2",
       "contractDuration": "permanent",
       "department": "Wäscherei",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-19T09:55:17.266Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -65,7 +67,7 @@
       "url": "https://my.jobalino.ch/job/0d4624e88fa73af4e35b88b0086f28e1/elektroinstallateur-in-efz_9614",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:19.388Z",
+      "crawledAt": "2026-08-19T21:49:54.514Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -83,11 +85,12 @@
       "externalId": "0d4624e88fa73af4e35b88b0086f28e1",
       "contractDuration": "permanent",
       "department": "Bau und Technik",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-19T09:55:19.388Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
@@ -104,7 +107,7 @@
       "url": "https://my.jobalino.ch/job/a3e800c4b889aa753df4eb03b9bb3625/fachfrau-fachmann-betreuung-efz-kind_9709",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:17.982Z",
+      "crawledAt": "2026-08-19T21:49:53.571Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -122,16 +125,15 @@
       "externalId": "a3e800c4b889aa753df4eb03b9bb3625",
       "contractDuration": "permanent",
       "department": "Kita",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-19T09:55:17.982Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "michel-gruppe-ag-3333ea4422f3",
       "slug": "stv-leiter-in-bau-und-technik-100-michel-gruppe-ag-meiringen",
@@ -145,7 +147,7 @@
       "url": "https://my.jobalino.ch/job/ebe7f6c4dac84f997e31421a186d8033/stv-leiter-in-bau-und-technik",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:21.184Z",
+      "crawledAt": "2026-08-19T21:49:55.935Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -185,7 +187,7 @@
       "url": "https://my.jobalino.ch/job/ff1cfba56e2f96aed2f7bc306168c35c/cio-mitglied-der-geschaeftsleitung",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:21.599Z",
+      "crawledAt": "2026-08-19T21:49:56.413Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -225,7 +227,7 @@
       "url": "https://my.jobalino.ch/job/39e7ce71b9c6861ff653f74e0636078b/sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:18.686Z",
+      "crawledAt": "2026-08-19T21:49:54.041Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -264,7 +266,7 @@
       "url": "https://my.jobalino.ch/job/45ddcf588ecf0d82816937a173bed819/sommer-2027-lehrstelle-fachperson-betriebsunterhalt-efz-fachrichtung-hausdienst",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:20.638Z",
+      "crawledAt": "2026-08-19T21:49:55.467Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -303,7 +305,7 @@
       "url": "https://my.jobalino.ch/job/4da43dc0116f1c31265b4d1d07b4d31e/sommer-2027-lehrstelle-koechin-efz-koch-efz",
       "source": "Michel Gruppe AG Dedicated Parser (Jobalino umbrella)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:55:20.098Z",
+      "crawledAt": "2026-08-19T21:49:54.996Z",
       "addressLocality": "Meiringen",
       "addressRegion": "BE",
       "addressCountry": "CH",
