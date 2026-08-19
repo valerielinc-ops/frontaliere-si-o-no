@@ -79,9 +79,9 @@
     },
     {
       "id": "dormakaba-11900",
-      "slug": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+      "slug": "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
       "slugByLocale": {
-        "it": "configurable-materials-master-data-domain-lead-dormakaba-ch",
+        "it": "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
         "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang"
@@ -91,7 +91,7 @@
       "companyDomain": "dormakaba.com",
       "title": "Configurable Materials Master Data Domain Lead",
       "titleByLocale": {
-        "it": "Configurable Materials Master Data Domain Lead",
+        "it": "Lead dominio dati master materiali configurabili",
         "en": "Configurable Materials Master Data Domain Lead",
         "de": "Konfigurierbare Materialien Master Data Domain Lead",
         "fr": "Matériaux configurables Chef de domaine de données principal"
@@ -129,11 +129,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
-        "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "configurable-materials-master-data-domain-lead-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang"
+          "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
@@ -1554,10 +1556,10 @@
       "id": "dormakaba-12020",
       "slug": "media-relations-manager-corporate-80-100-m-w-d-dormakaba-ch",
       "slugByLocale": {
+        "de": "media-relations-manager-corporate-80-100-m-w-d-dormakaba-ch",
         "it": "media-relations-manager-corporate-80-100-m-w-d-dormakaba-ch",
         "en": "media-relations-manager-corporate-80-100-m-w-d-dormakaba-ch",
-        "de": "media-relations-manager-corporate-80-100-m-w-d-dormakaba-ch",
-        "fr": "gestionnaire-des-relations-avec-les-medias-entreprise-80-100-h-f-d-dormakaba-rumlang"
+        "fr": "gestionnaire-des-relations-avec-les-medias-corporate-80-100-h-f-d-dormakaba-rumlang"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1613,16 +1615,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:49:52.005Z"
+      "firstSeenAt": "2026-08-18T21:49:52.005Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-des-relations-avec-les-medias-entreprise-80-100-h-f-d-dormakaba-rumlang"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-des-relations-avec-les-medias-entreprise-80-100-h-f-d-dormakaba-rumlang"
+      ]
     },
     {
       "id": "dormakaba-11585",
-      "slug": "global-program-pmo-lead-dormakaba-ch",
+      "slug": "programma-globale-pmo-lead-dormakaba-rumlang",
       "slugByLocale": {
         "en": "global-program-pmo-lead-dormakaba-ch",
-        "it": "global-program-pmo-lead-dormakaba-ch",
-        "de": "global-program-pmo-lead-dormakaba-ch",
-        "fr": "global-program-pmo-lead-dormakaba-ch"
+        "it": "programma-globale-pmo-lead-dormakaba-rumlang",
+        "de": "globales-programm-pmo-lead-dormakaba-rumlang",
+        "fr": "responsable-du-programme-mondial-dormakaba-rumlang"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",

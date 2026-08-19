@@ -6,9 +6,9 @@
       "id": "air-zermatt-dfbbe85d1afb",
       "slug": "borsa-di-studio-atc-swiss-sherpa-foundation-air-zermatt-ag-raron",
       "slugByLocale": {
+        "de": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "it": "borsa-di-studio-atc-swiss-sherpa-foundation-air-zermatt-ag-raron",
         "en": "scholarship-atc-swiss-sherpa-foundation-air-zermatt-ag-raron",
-        "de": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "fr": "bourse-atc-fondation-suisse-sherpa-air-zermatt-ag-raron-53e924"
       },
       "company": "Air Zermatt AG",
@@ -77,10 +77,10 @@
       "id": "air-zermatt-ae02cc6aafc5",
       "slug": "transport-o-rettungssanitater-in-con-anteil-flugbetrieb-100-air-zermatt-ag-raron",
       "slugByLocale": {
+        "de": "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
         "it": "transport-o-rettungssanitater-in-con-anteil-flugbetrieb-100-air-zermatt-ag-raron",
         "en": "transport-or-rescue-panitatives-with-a-proportion-air-operation-100-air-zermatt-ag-raron",
-        "de": "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
-        "fr": "panitatives-de-transport-ou-de-resultat-un-fonctionnement-aerien-de-proportion-100-air-zermatt-ag-raron"
+        "fr": "panitatives-de-transport-ou-de-resultat-une-proportion-operation-aerienne-100-air-zermatt-ag-raron"
       },
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
@@ -127,11 +127,13 @@
           "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
         ],
         "fr": [
-          "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
+          "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
+          "panitatives-de-transport-ou-de-resultat-un-fonctionnement-aerien-de-proportion-100-air-zermatt-ag-raron"
         ]
       },
       "previousSlugs": [
-        "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
+        "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
+        "panitatives-de-transport-ou-de-resultat-un-fonctionnement-aerien-de-proportion-100-air-zermatt-ag-raron"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

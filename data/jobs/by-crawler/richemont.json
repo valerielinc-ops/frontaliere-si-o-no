@@ -306,19 +306,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "specialiste-metier-polissage-richemont-les-breuleux",
-          "specialiste-metier-polissage-donze-baume-les-breuleux"
+          "specialiste-metier-polissage-richemont-les-breuleux"
         ],
         "it": [
           "specialiste-metier-polissage-richemont-les-breuleux",
-          "specialiste-metier-polissage-donze-baume-les-breuleux",
-          "specialista-di-lucidatura-professionale-donze-baume-les-breuleux"
+          "specialiste-metier-polissage-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
         "specialiste-metier-polissage-richemont-les-breuleux",
-        "specialiste-metier-polissage-donze-baume-les-breuleux",
-        "specialista-di-lucidatura-professionale-donze-baume-les-breuleux"
+        "specialiste-metier-polissage-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-08-17T10:06:32.645Z",
       "salaryMin": 60500,
@@ -1486,12 +1483,12 @@
     },
     {
       "id": "richemont-a0abb77b5083",
-      "slug": "payroll-and-social-insurance-administrator-richemont-schaffhausen",
+      "slug": "payroll-e-amministratore-di-previdenza-sociale-richemont-schaffhausen",
       "slugByLocale": {
-        "it": "payroll-and-social-insurance-administrator-richemont-schaffhausen",
+        "it": "payroll-e-amministratore-di-previdenza-sociale-richemont-schaffhausen",
         "en": "payroll-and-social-insurance-administrator-richemont-schaffhausen",
-        "de": "payroll-and-social-insurance-administrator-richemont-schaffhausen",
-        "fr": "payroll-and-social-insurance-administrator-richemont-schaffhausen"
+        "de": "gehaltsabrechnung-und-sozialversicherungsverwalter-richemont-schaffhausen",
+        "fr": "administrateur-de-la-paie-et-de-l-assurance-sociale-richemont-schaffhausen"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -11302,13 +11299,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intern-crm-activation-website-content-100-richemont-schaffhausen",
-        "tirocinante-crm-activation-website-content-100-iwc-schaffhausen"
+        "intern-crm-activation-website-content-100-richemont-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-crm-activation-website-content-100-richemont-schaffhausen",
-          "tirocinante-crm-activation-website-content-100-iwc-schaffhausen"
+          "intern-crm-activation-website-content-100-richemont-schaffhausen"
         ],
         "de": [
           "intern-crm-activation-website-content-100-richemont-schaffhausen"
@@ -12854,9 +12849,9 @@
     },
     {
       "id": "richemont-0caccdc4329f",
-      "slug": "client-services-intern-richemont-geneva",
+      "slug": "client-services-tirocinante-van-cleef-arpels-geneva",
       "slugByLocale": {
-        "it": "client-services-intern-richemont-geneva",
+        "it": "client-services-tirocinante-van-cleef-arpels-geneva",
         "en": "client-services-intern-van-cleef-arpels-geneva",
         "de": "client-services-praktikant-van-cleef-arpels-geneva",
         "fr": "client-services-intern-richemont-geneva"
@@ -12931,8 +12926,8 @@
       "id": "richemont-2dba56bdf204",
       "slug": "tirocinante-events-100-iwc-schaffhausen",
       "slugByLocale": {
-        "it": "tirocinante-events-100-iwc-schaffhausen",
         "en": "intern-events-100-richemont-schaffhausen",
+        "it": "tirocinante-events-100-iwc-schaffhausen",
         "de": "praktikant-events-100-iwc-schaffhausen",
         "fr": "stagiaire-events-100-iwc-schaffhausen"
       },

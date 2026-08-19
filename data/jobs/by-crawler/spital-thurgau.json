@@ -728,16 +728,14 @@
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
         "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
-        "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4"
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
           "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho",
-          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-91eff4"
+          "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r13rho"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2"
@@ -747,7 +745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:12:04.932Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -759,7 +756,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-dc710d762096",
@@ -2983,8 +2981,7 @@
         "dipl-nursing-specialist-general-and-acute-psychiatry-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-allgemein-und-akutpsychiatrie-stgag-ch",
         "dipl-specialiste-des-soins-infirmiers-psychiatrie-generale-et-aigue-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r14d2d",
-        "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen-r14d2d"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3007,7 +3004,8 @@
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-2",
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interesse-an-psychosomatik-spital-thurgau-stgag-munsterlingen",
-          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-infermieristica-professionale-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und"
         ],
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
@@ -3031,7 +3029,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3043,7 +3040,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-thurgau-8b4b50246dbe",
@@ -13676,13 +13674,11 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "hebamme-stgag-ch",
-        "hebamme-stgag-munsterlingen"
+        "hebamme-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-stgag-ch",
-          "hebamme-stgag-munsterlingen"
+          "hebamme-stgag-ch"
         ]
       },
       "firstSeenAt": "2026-08-17T21:36:28.401Z",
@@ -14255,9 +14251,9 @@
       "id": "spital-thurgau-602a0d3b2ea0",
       "slug": "arztsekretar-in-orthopadie-stgag-munsterlingen",
       "slugByLocale": {
+        "de": "arztsekretar-in-orthopadie-stgag-ch",
         "it": "arztsekretar-in-orthopadie-stgag-munsterlingen",
         "en": "arztsekretar-in-orthopadie-stgag-munsterlingen",
-        "de": "arztsekretar-in-orthopadie-stgag-ch",
         "fr": "arztsekretar-in-orthopadie-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",

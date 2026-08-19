@@ -6413,10 +6413,10 @@
     },
     {
       "id": "swiss-re-bf1745c47c67",
-      "slug": "principale-senior-it-auditor-swiss-re-bangalore-in",
+      "slug": "auditore-principale-dell-it-swiss-re-bangalore-in",
       "slugByLocale": {
-        "it": "principale-senior-it-auditor-swiss-re-bangalore-in",
         "en": "principal-senior-it-auditor-swiss-re-ch",
+        "it": "auditore-principale-dell-it-swiss-re-bangalore-in",
         "de": "principal-senior-it-auditor-swiss-re-ch",
         "fr": "verificateur-principal-principal-des-ti-swiss-re-bangalore-in"
       },
@@ -6474,11 +6474,16 @@
       "firstSeenAt": "2026-08-18T21:41:15.378Z",
       "previousSlugsByLocale": {
         "it": [
+          "principal-senior-it-auditor-swiss-re-ch",
+          "principale-senior-it-auditor-swiss-re-bangalore-in"
+        ],
+        "fr": [
           "principal-senior-it-auditor-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "principal-senior-it-auditor-swiss-re-ch"
+        "principal-senior-it-auditor-swiss-re-ch",
+        "principale-senior-it-auditor-swiss-re-bangalore-in"
       ]
     },
     {
@@ -7121,17 +7126,14 @@
       "applyUrl": "https://www.swissre.com/careers/job/PMO-Specialist-80-100-fixed-contract-until-31st-December-2027/1419753033",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "pmo-specialist-80-100-fixed-contract-until-31st-december-2027-swiss-re-ch",
-        "pmo-specialista-80-100-fixed-contract-until-31st-december-2027-swiss-re-bratislava-sk"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "pmo-specialist-80-100-fixed-contract-until-31st-december-2027-swiss-re-ch",
-          "pmo-specialista-80-100-fixed-contract-until-31st-december-2027-swiss-re-bratislava-sk"
+          "pmo-specialist-80-100-fixed-contract-until-31st-december-2027-swiss-re-ch"
         ]
       },
-      "firstSeenAt": "2026-08-18T10:12:38.420Z",
+      "previousSlugs": [
+        "pmo-specialist-80-100-fixed-contract-until-31st-december-2027-swiss-re-ch"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7145,6 +7147,7 @@
         }
       },
       "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-18T10:12:38.420Z",
       "needsRetranslation": true
     },
     {
@@ -17322,14 +17325,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "requirement-engineer-swiss-re-ch",
-        "sr-requirement-engineer-swiss-re-ch",
-        "requirement-ingegnere-swiss-re-mexico-city-mx"
+        "sr-requirement-engineer-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "requirement-engineer-swiss-re-ch",
-          "sr-requirement-engineer-swiss-re-ch",
-          "requirement-ingegnere-swiss-re-mexico-city-mx"
+          "sr-requirement-engineer-swiss-re-ch"
         ],
         "de": [
           "requirement-engineer-swiss-re-ch"
@@ -21557,10 +21558,10 @@
       "id": "swiss-re-bacc6a309382",
       "slug": "catering-events-associate-swiss-re-ch",
       "slugByLocale": {
-        "it": "catering-events-associate-swiss-re-ch",
         "en": "catering-events-associate-swiss-re-ch",
-        "de": "catering-events-associate-swiss-re-ch",
-        "fr": "associer-restauration-evenements-swiss-re-bangalore-in"
+        "fr": "associer-restauration-evenements-swiss-re-bangalore-in",
+        "it": "catering-events-associate-swiss-re-ch",
+        "de": "catering-events-associate-swiss-re-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22844,15 +22845,13 @@
       "previousSlugs": [
         "engineering-underwriter-swiss-re-ch",
         "engineering-underwriter-swiss-re-ch-2",
-        "engineering-underwriter-swiss-re-ch-3",
-        "ingegneria-underwriter-swiss-re-mumbai-in"
+        "engineering-underwriter-swiss-re-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-underwriter-swiss-re-ch",
           "engineering-underwriter-swiss-re-ch-2",
-          "engineering-underwriter-swiss-re-ch-3",
-          "ingegneria-underwriter-swiss-re-mumbai-in"
+          "engineering-underwriter-swiss-re-ch-3"
         ],
         "fr": [
           "engineering-underwriter-swiss-re-ch-2"
@@ -22921,13 +22920,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-services-team-lead-swiss-re-ch",
-        "business-services-capo-team-swiss-re-mexico-city-mx"
+        "business-services-team-lead-swiss-re-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-services-team-lead-swiss-re-ch",
-          "business-services-capo-team-swiss-re-mexico-city-mx"
+          "business-services-team-lead-swiss-re-ch"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:00.577Z",
@@ -23324,8 +23321,8 @@
       "id": "swiss-re-64e7839700ba",
       "slug": "capo-l-h-uw-claims-office-apac-ex-cina-swiss-re-singapore-sg",
       "slugByLocale": {
-        "it": "capo-l-h-uw-claims-office-apac-ex-cina-swiss-re-singapore-sg",
         "en": "head-l-h-uw-claims-office-apac-ex-china-swiss-re-ch",
+        "it": "capo-l-h-uw-claims-office-apac-ex-cina-swiss-re-singapore-sg",
         "de": "head-l-h-uw-claims-office-apac-ex-china-swiss-re-ch-2",
         "fr": "chef-l-h-uw-revendications-office-apac-ex-chine-swiss-re-singapore-sg"
       },

@@ -11627,8 +11627,7 @@
       "previousSlugsByLocale": {
         "de": [
           "bewegungs-und-sporttherapeutin-bewerbungs-und-sporttherapeut-w-m-d-soh-solothurner",
-          "bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-w-m-d-soh-solothurner",
-          "bewegungs-und-sporttherapeutin-bewerbungs-und-sporttherapeut-w-m-d-soh-ch"
+          "bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-w-m-d-soh-solothurner"
         ],
         "it": [
           "bewegungs-und-sporttherapeutin-bewerbungs-und-sporttherapeut-w-m-d-soh-solothurner",
@@ -11648,8 +11647,7 @@
         "bewegungs-e-sporttherapeutin-bewerbungs-e-sporttherapeut-m-w-d-solothurner-spitaler-ag-soh-solothurn",
         "movement-and-sports-therapist-application-and-sports-therapist-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "mouvement-et-therapeute-sportif-application-et-therapeute-sportif-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-w-m-d-soh-solothurner",
-        "bewegungs-und-sporttherapeutin-bewerbungs-und-sporttherapeut-w-m-d-soh-ch"
+        "bewegungs-und-sporttherapeutin-bewegungs-und-sporttherapeut-w-m-d-soh-solothurner"
       ],
       "firstSeenAt": "2026-07-14T10:55:10.266Z",
       "salaryMin": 68500,
@@ -14448,14 +14446,12 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-solothurner-spitaeler",
         "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-solothurner-spitaler-ag-soh-dornach",
-        "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach",
-        "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-soh-dornach"
+        "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-soh-solothurner-spitaeler",
-          "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach",
-          "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-soh-dornach"
+          "assistenzarztin-assistenzarzt-innere-medizin-e-chirurgie-m-w-d-solothurner-spitaler-ag-soh-dornach"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-innere-medizin-und-chirurgie-w-m-d-solothurner-spitaler-ag-soh-dornach"
@@ -14485,9 +14481,9 @@
       "id": "soh-solothurner-spitaeler-517fc2192152",
       "slug": "dipl-infermieristica-professionale-infermieristica-stazione-d0-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "dipl-infermieristica-professionale-infermieristica-stazione-d0-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "dipl-nursing-professional-nursing-specialist-station-d0-m-f-d-solothurner-spitaler-ag-soh-solothurn",
-        "de": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-solothurner-spitaeler-solothurn",
         "fr": "dipl-specialiste-des-soins-infirmiers-et-infirmiers-station-d0-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
@@ -14563,10 +14559,10 @@
       "id": "soh-solothurner-spitaeler-14ba95c0a85e",
       "slug": "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-ag-soh-olten",
-        "en": "neuropsychologist-neuropsychologist-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "neuropsychologin-neuropsychologe-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "neuropsychologin-neuropsychologe-m-w-d-solothurner-spitaler-ag-soh-olten"
+        "it": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten",
+        "fr": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -14623,7 +14619,9 @@
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-w-m-d-soh-solothurner-spitaeler-olten",
         "neuropsychologue-neuropsychologue-h-f-d-solothurner-spitaler-ag-soh-olten",
-        "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-ag-soh-olten"
+        "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "neuropsychologist-neuropsychologist-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "neuropsychologin-neuropsychologe-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14631,11 +14629,13 @@
           "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-ag-soh-olten"
         ],
         "en": [
-          "neuropsychologin-neuropsychologe-w-m-d-soh-solothurner-spitaeler-olten"
+          "neuropsychologin-neuropsychologe-w-m-d-soh-solothurner-spitaeler-olten",
+          "neuropsychologist-neuropsychologist-m-f-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
           "neuropsychologin-neuropsychologe-w-m-d-soh-solothurner-spitaeler-olten",
-          "neuropsychologue-neuropsychologue-h-f-d-solothurner-spitaler-ag-soh-olten"
+          "neuropsychologue-neuropsychologue-h-f-d-solothurner-spitaler-ag-soh-olten",
+          "neuropsychologin-neuropsychologe-m-w-d-solothurner-spitaler-ag-soh-olten"
         ]
       }
     },
@@ -14643,9 +14643,9 @@
       "id": "soh-solothurner-spitaeler-b57172290b6e",
       "slug": "medico-senior-endocrinologia-senior-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
+        "de": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "medico-senior-endocrinologia-senior-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "senior-physician-senior-physician-endocrinology-m-f-d-solothurner-spitaler-ag-soh-solothurn",
-        "de": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "fr": "medecin-principal-medecin-principal-endocrinologie-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",

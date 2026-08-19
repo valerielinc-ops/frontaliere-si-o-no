@@ -50,6 +50,19 @@
       "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27706.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:38:19.651Z",
       "previousSlugs": [
         "stellvertretende-filialleitung-m-w-d-new-yorker-interlaken",
         "direction-generale-adjointe-m-f-d-new-yorker-interlaken",
@@ -67,19 +80,6 @@
         "fr": [
           "stellvertretende-filialleitung-m-w-d-new-yorker-interlaken"
         ]
-      },
-      "firstSeenAt": "2026-08-17T21:38:19.651Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -142,8 +142,7 @@
         "deputy-branch-management-m-f-d-new-yorker-bern",
         "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
         "direction-generale-adjointe-m-f-d-new-yorker-bern",
-        "vice-direttore-di-filiale-m-f-d-new-yorker-bern",
-        "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel"
+        "vice-direttore-di-filiale-m-f-d-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -158,8 +157,7 @@
           "deputy-branch-management-m-f-d-new-yorker-bern",
           "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
           "direction-generale-adjointe-m-f-d-new-yorker-bern",
-          "vice-direttore-di-filiale-m-f-d-new-yorker-bern",
-          "gestione-del-ramo-aggiunto-m-f-d-new-yorker-basel"
+          "vice-direttore-di-filiale-m-f-d-new-yorker-bern"
         ],
         "en": [
           "stellvertretende-filialleitung-m-w-d-new-yorker-basel",
@@ -239,13 +237,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "reinigungskraft-m-w-d-new-yorker-basel",
-        "purpose-force-m-w-d-new-yorker-basel"
+        "reinigungskraft-m-w-d-new-yorker-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reinigungskraft-m-w-d-new-yorker-basel",
-          "purpose-force-m-w-d-new-yorker-basel"
+          "reinigungskraft-m-w-d-new-yorker-basel"
         ],
         "en": [
           "reinigungskraft-m-w-d-new-yorker-basel"
@@ -255,7 +251,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:12:38.626Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -267,7 +262,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "new-yorker-27418",
@@ -318,13 +314,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "reinigungskraft-m-w-d-new-yorker-lyssach",
-        "potenza-cleaning-m-w-d-new-yorker-lyssach"
+        "reinigungskraft-m-w-d-new-yorker-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reinigungskraft-m-w-d-new-yorker-lyssach",
-          "potenza-cleaning-m-w-d-new-yorker-lyssach"
+          "reinigungskraft-m-w-d-new-yorker-lyssach"
         ],
         "en": [
           "reinigungskraft-m-w-d-new-yorker-lyssach"
@@ -399,15 +393,13 @@
         "purpose-force-m-w-d-new-yorker-spreitenbach",
         "pulitore-li-f-d-new-yorker-spreitenbach",
         "force-a-but-m-w-d-new-yorker-spreitenbach",
-        "reinigungskraft-m-w-d-new-yorker-spreitenbach",
-        "potenza-cleaning-m-w-d-new-yorker-spreitenbach"
+        "reinigungskraft-m-w-d-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "purpose-force-m-w-d-new-yorker-spreitenbach",
           "pulitore-li-f-d-new-yorker-spreitenbach",
-          "reinigungskraft-m-w-d-new-yorker-spreitenbach",
-          "potenza-cleaning-m-w-d-new-yorker-spreitenbach"
+          "reinigungskraft-m-w-d-new-yorker-spreitenbach"
         ],
         "en": [
           "reinigungskraft-m-w-d-new-yorker-spreitenbach"
@@ -480,13 +472,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-rapperswil"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-rapperswil"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil"
@@ -559,13 +549,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-biel"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-biel"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel"
@@ -638,13 +626,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon"
@@ -717,13 +703,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-volketswil"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil"
@@ -796,13 +780,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-spreitenbach"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-spreitenbach"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach"
@@ -879,8 +861,7 @@
         "aushilfe-m-w-d-im-verkauf-new-yorker-urtenen-schonbuhl",
         "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-urtenen-schonbuhl",
         "mitarbeiter-m-w-d-im-sales-70-new-yorker-urtenen-schonbuhl",
-        "mitarbeiter-m-w-d-im-vente-70-new-yorker-urtenen-schonbuhl",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-urtenen-schonbuhl"
+        "mitarbeiter-m-w-d-im-vente-70-new-yorker-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -888,8 +869,7 @@
           "aushilfe-m-w-d-im-verkauf-new-yorker-urtenen-schonbuhl",
           "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-urtenen-schonbuhl",
           "mitarbeiter-m-w-d-im-sales-70-new-yorker-urtenen-schonbuhl",
-          "mitarbeiter-m-w-d-im-vente-70-new-yorker-urtenen-schonbuhl",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-urtenen-schonbuhl"
+          "mitarbeiter-m-w-d-im-vente-70-new-yorker-urtenen-schonbuhl"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-urtenen-schonbuhl"
@@ -966,13 +946,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach",
-        "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-spreitenbach"
+        "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach",
-          "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-spreitenbach"
+          "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach"
@@ -1045,13 +1023,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
-        "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-volketswil"
+        "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
-          "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil"
@@ -1079,9 +1055,9 @@
       "id": "new-yorker-27716",
       "slug": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-ebikon",
       "slugByLocale": {
+        "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-ebikon",
         "it": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-ebikon",
         "en": "mitarbeiter-m-w-d-im-sales-60-new-yorker-ebikon",
-        "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-ebikon",
         "fr": "mitarbeiter-m-w-d-im-vente-60-new-yorker-ebikon"
       },
       "company": "New Yorker",
@@ -1203,13 +1179,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-langenthal",
-        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-langenthal"
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-langenthal",
-          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-langenthal"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-langenthal"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-langenthal"
@@ -1283,14 +1257,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-urtenen-schonbuhl",
-        "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-urtenen-schonbuhl",
-        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-urtenen-schonbuhl"
+        "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-urtenen-schonbuhl",
-          "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-urtenen-schonbuhl",
-          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-urtenen-schonbuhl"
+          "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-urtenen-schonbuhl"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-urtenen-schonbuhl"
@@ -1378,8 +1350,7 @@
         "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-basel",
         "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-basel",
         "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-basel",
-        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
-        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-aarau"
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1395,8 +1366,7 @@
           "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-basel",
           "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-basel",
           "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-basel",
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel",
-          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-aarau"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-basel"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-aarau",
@@ -1479,13 +1449,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern",
-        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-bern"
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern",
-          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-bern"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern"
@@ -1563,8 +1531,7 @@
         "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
         "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
         "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1573,8 +1540,7 @@
           "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
           "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
           "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-interlaken"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-interlaken"
@@ -1652,13 +1618,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
-        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-bern"
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
-          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-bern"
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
@@ -1731,13 +1695,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel",
-        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-biel"
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel",
-          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-biel"
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel"
@@ -1810,13 +1772,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl",
-        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-urtenen-schonbuhl"
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl",
-          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-urtenen-schonbuhl"
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl"
@@ -1889,13 +1849,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-lyssach",
-        "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach"
+        "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-lyssach",
-          "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach"
+          "mitarbeiter-m-w-d-im-verkauf-100-new-yorker-lyssach"
         ]
       },
       "needsRetranslation": true,
@@ -1962,13 +1920,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleitung-m-w-d-new-yorker-bern",
-        "gestione-branch-m-f-d-new-yorker-bern"
+        "filialleitung-m-w-d-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleitung-m-w-d-new-yorker-bern",
-          "gestione-branch-m-f-d-new-yorker-bern"
+          "filialleitung-m-w-d-new-yorker-bern"
         ],
         "en": [
           "filialleitung-m-w-d-new-yorker-bern"
@@ -2040,13 +1996,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-aarau",
-        "aushilfe-m-w-d-im-vendita-new-yorker-aarau"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-aarau",
-          "aushilfe-m-w-d-im-vendita-new-yorker-aarau"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-aarau"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-aarau"
@@ -2119,13 +2073,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-basel-st-jakob",
-        "aushilfe-m-w-d-im-vendita-new-yorker-basel-st-jakob"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-basel-st-jakob"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-basel-st-jakob",
-          "aushilfe-m-w-d-im-vendita-new-yorker-basel-st-jakob"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-basel-st-jakob"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-basel-st-jakob"
@@ -2198,13 +2150,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-winterthur",
-        "aushilfe-m-w-d-im-vendita-new-yorker-winterthur"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-winterthur",
-          "aushilfe-m-w-d-im-vendita-new-yorker-winterthur"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-winterthur"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-winterthur"
@@ -2277,13 +2227,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-st-gallen",
-        "aushilfe-m-w-d-im-vendita-new-yorker-st-gallen"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-st-gallen",
-          "aushilfe-m-w-d-im-vendita-new-yorker-st-gallen"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-st-gallen"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-st-gallen"
@@ -2356,13 +2304,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-spreitenbach",
-        "aushilfe-m-w-d-im-vendita-new-yorker-spreitenbach"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-spreitenbach",
-          "aushilfe-m-w-d-im-vendita-new-yorker-spreitenbach"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-spreitenbach"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-spreitenbach"
@@ -2435,13 +2381,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-schaffhausen",
-        "aushilfe-m-w-d-im-vendita-new-yorker-schaffhausen"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-schaffhausen",
-          "aushilfe-m-w-d-im-vendita-new-yorker-schaffhausen"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-schaffhausen"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-schaffhausen"
@@ -2514,13 +2458,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-bern",
-        "aushilfe-m-w-d-im-vendita-new-yorker-bern"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-bern",
-          "aushilfe-m-w-d-im-vendita-new-yorker-bern"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-bern"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-bern"
@@ -2593,13 +2535,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-thun",
-        "aushilfe-m-w-d-im-vendita-new-yorker-thun"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-thun",
-          "aushilfe-m-w-d-im-vendita-new-yorker-thun"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-thun"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-thun"
@@ -2672,13 +2612,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-volketswil",
-        "aushilfe-m-w-d-im-vendita-new-yorker-volketswil"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-volketswil",
-          "aushilfe-m-w-d-im-vendita-new-yorker-volketswil"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-volketswil"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-volketswil"
@@ -2751,13 +2689,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-interlaken",
-        "aushilfe-m-w-d-im-vendita-new-yorker-interlaken"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-interlaken",
-          "aushilfe-m-w-d-im-vendita-new-yorker-interlaken"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-interlaken"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-interlaken"
@@ -2830,13 +2766,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-chur",
-        "aushilfe-m-w-d-im-vendita-new-yorker-chur"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-chur",
-          "aushilfe-m-w-d-im-vendita-new-yorker-chur"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-chur"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-chur"
@@ -2909,13 +2843,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-lyssach",
-        "aushilfe-m-w-d-im-vendita-new-yorker-lyssach"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-lyssach",
-          "aushilfe-m-w-d-im-vendita-new-yorker-lyssach"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-lyssach"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-lyssach"
@@ -2988,13 +2920,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-biel",
-        "aushilfe-m-w-d-im-vendita-new-yorker-biel"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-m-w-d-im-verkauf-new-yorker-biel",
-          "aushilfe-m-w-d-im-vendita-new-yorker-biel"
+          "aushilfe-m-w-d-im-verkauf-new-yorker-biel"
         ],
         "en": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-biel"

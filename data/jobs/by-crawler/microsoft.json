@@ -870,7 +870,7 @@
         "en": "partner-sales-executive-microsoft-advertising-microsoft-switzerland",
         "it": "partner-sales-executive-microsoft-advertising-microsoft-switzerland",
         "de": "partner-sales-executive-microsoft-advertising-microsoft-switzerland",
-        "fr": "responsable-des-ventes-partenaires-publicite-microsoft-microsoft-switzerland"
+        "fr": "directeur-des-ventes-partenaires-publicite-microsoft-microsoft-switzerland"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -925,7 +925,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:20:34.897Z"
+      "firstSeenAt": "2026-08-18T22:20:34.897Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "responsable-des-ventes-partenaires-publicite-microsoft-microsoft-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-des-ventes-partenaires-publicite-microsoft-microsoft-switzerland"
+      ]
     },
     {
       "id": "microsoft-200043483",

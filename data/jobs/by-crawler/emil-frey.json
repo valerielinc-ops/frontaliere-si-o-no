@@ -399,7 +399,7 @@
       "title": "Carrosseriespengler/-in",
       "titleByLocale": {
         "it": "Carrosserie Pengler",
-        "en": "Carrosseriespengler/-in",
+        "en": "Body scraper",
         "de": "Carrosseriespengler/-in",
         "fr": "Carrosserie Pengler"
       },
@@ -1852,7 +1852,7 @@
       "title": "Specialist Customer Experience",
       "titleByLocale": {
         "it": "Specialista Customer Experience",
-        "en": "Specialist Customer Experience",
+        "en": "Customer Experience Specialist",
         "de": "Spezialist Customer Experience",
         "fr": "Spécialiste Customer Experience"
       },
@@ -1887,7 +1887,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-20T12:06:44.928Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1899,7 +1898,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-dbe2ad4a5527",
@@ -3023,7 +3023,7 @@
       "title": "Carrosseriespengler/-in",
       "titleByLocale": {
         "it": "Carrozzeriepengler/in",
-        "en": "Carrosseriespengler/-in",
+        "en": "Body scraper",
         "de": "Carrosseriespengler/-in",
         "fr": "Plombier carrosserie"
       },
@@ -4986,16 +4986,15 @@
       "hiringOrganizationName": "Emil Frey Betriebs AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-14T21:32:17.406Z",
+      "previousSlugs": [
+        "magazzino-store-di-piccole-parti-emil-frey-safenwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "magazzino-store-di-piccole-parti-emil-frey-safenwil"
         ]
       },
-      "previousSlugs": [
-        "magazzino-store-di-piccole-parti-emil-frey-safenwil"
-      ],
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:32:17.406Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5007,7 +5006,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "emil-frey-2cd1cbefa1cf",
@@ -5244,10 +5244,10 @@
       "id": "emil-frey-225e522523d4",
       "slug": "consulente-commerciale-stellantis-emil-frey-crissier",
       "slugByLocale": {
+        "fr": "conseiller-de-vente-stellantis-emil-frey-crissier",
         "it": "consulente-commerciale-stellantis-emil-frey-crissier",
         "en": "sales-advisor-stellantis-emil-frey-crissier",
-        "de": "verkaufsberater-stellantis-emil-frey-crissier",
-        "fr": "conseiller-de-vente-stellantis-emil-frey-crissier"
+        "de": "verkaufsberater-stellantis-emil-frey-crissier"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",

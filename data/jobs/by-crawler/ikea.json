@@ -1404,7 +1404,6 @@
           "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland"
         ],
         "de": [
-          "koch-kellnerin-ikea-40-ikea-aubonne",
           "ikea-kuchenmitarbeiter-40-ikea-aubonne"
         ],
         "fr": [
@@ -1412,7 +1411,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:45:00.670Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -1424,7 +1422,8 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ikea-4f802ec90931",
@@ -2698,10 +2697,10 @@
       "id": "ikea-97f3ac4cc7a5",
       "slug": "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland",
       "slugByLocale": {
-        "it": "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland",
         "en": "unit-facility-management-manager-ikea-ch",
+        "it": "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland",
         "de": "unit-facility-management-manager-ikea-ch",
-        "fr": "directeur-de-la-gestion-des-installations-ikea-st-gallen-sankt-gallen-switzerland"
+        "fr": "chef-de-la-gestion-des-installations-ikea-st-gallen-sankt-gallen-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2758,7 +2757,8 @@
       "firstSeenAt": "2026-08-18T22:20:54.665Z",
       "previousSlugs": [
         "unit-facility-management-manager-ikea-ch",
-        "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland"
+        "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland",
+        "directeur-de-la-gestion-des-installations-ikea-st-gallen-sankt-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2766,7 +2766,8 @@
           "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland"
         ],
         "fr": [
-          "unit-facility-management-manager-ikea-ch"
+          "unit-facility-management-manager-ikea-ch",
+          "directeur-de-la-gestion-des-installations-ikea-st-gallen-sankt-gallen-switzerland"
         ]
       }
     },
@@ -2774,10 +2775,10 @@
       "id": "ikea-c46c634d2609",
       "slug": "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland",
       "slugByLocale": {
-        "it": "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland",
         "en": "construction-project-manager-ikea-ch",
+        "it": "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland",
         "de": "bauprojektmanager-ikea-spreitenbach-aargau-switzerland",
-        "fr": "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
+        "fr": "directeur-du-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2833,7 +2834,8 @@
       "firstSeenAt": "2026-08-18T22:20:54.660Z",
       "previousSlugs": [
         "construction-project-manager-ikea-ch",
-        "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland"
+        "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland",
+        "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2844,7 +2846,8 @@
           "construction-project-manager-ikea-ch"
         ],
         "fr": [
-          "construction-project-manager-ikea-ch"
+          "construction-project-manager-ikea-ch",
+          "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
         ]
       }
     },
@@ -2977,27 +2980,25 @@
       "applyUrl": "https://jobs.ikea.com/en/job/lucerne/mitarbeiter-in-ikea-bistro-and-schwedenshop-freitag-and-samstag-40/24107/99237146736",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch",
-        "mitarbeiter-in-ikea-bistro-schwedenshop-freitag-samstag-40-ikea-ch",
-        "collaboratore-trice-ikea-restaurant-kuche-freitag-samstag-40-ikea-rothenburg"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch",
-          "mitarbeiter-in-ikea-bistro-schwedenshop-freitag-samstag-40-ikea-ch",
-          "collaboratore-trice-ikea-restaurant-kuche-freitag-samstag-40-ikea-rothenburg"
-        ],
-        "en": [
+        "de": [
           "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch"
         ],
-        "de": [
+        "it": [
+          "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch",
+          "mitarbeiter-in-ikea-bistro-schwedenshop-freitag-samstag-40-ikea-ch"
+        ],
+        "en": [
           "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch"
         ],
         "fr": [
           "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-in-ikea-restaurant-kuche-freitag-samstag-40-ikea-ch",
+        "mitarbeiter-in-ikea-bistro-schwedenshop-freitag-samstag-40-ikea-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-15T09:36:47.744Z",
       "salaryMin": 27800,

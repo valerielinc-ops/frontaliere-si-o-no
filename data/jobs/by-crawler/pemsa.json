@@ -392,7 +392,7 @@
         "it": "elettromeccanico-per-impianti-di-betonaggio-pemsa-locarno",
         "en": "electromecanic-for-betonagging-pemsa-locarno",
         "de": "elektromekanische-fur-betonagging-pemsa-locarno",
-        "fr": "electromecanique-pour-l-etablissement-pemsa-locarno"
+        "fr": "electromecanique-pour-la-betonagage-pemsa-locarno"
       },
       "id": "pemsa-e1038c0117fd",
       "salaryMin": 49500,
@@ -408,7 +408,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:39:20.728Z"
+      "firstSeenAt": "2026-08-18T21:39:20.728Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "electromecanique-pour-l-etablissement-pemsa-locarno"
+        ]
+      },
+      "previousSlugs": [
+        "electromecanique-pour-l-etablissement-pemsa-locarno"
+      ]
     },
     {
       "title": "CARPENTIERE TETTI",
@@ -3378,7 +3386,8 @@
         "hydraulische-heilpflanzen-pemsa-lugano",
         "installations-sanitaires-hydrauliques-pemsa-lugano",
         "hydraulische-anlagen-heizung-pemsa-lugano",
-        "installations-hydrauliques-chauffage-pemsa-lugano"
+        "installations-hydrauliques-chauffage-pemsa-lugano",
+        "heizanlagen-mechaniker-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -4601,12 +4610,6 @@
         }
       },
       "firstSeenAt": "2026-08-07T21:49:32.782Z",
-      "previousSlugs": [
-        "gardens-pemsa-bellinzona",
-        "garten-pemsa-bellinzona",
-        "jardins-pemsa-bellinzona"
-      ],
-      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "en": [
           "gardens-pemsa-bellinzona"
@@ -4617,7 +4620,15 @@
         "fr": [
           "jardins-pemsa-bellinzona"
         ]
-      }
+      },
+      "previousSlugs": [
+        "gardens-pemsa-bellinzona",
+        "garten-pemsa-bellinzona",
+        "jardins-pemsa-bellinzona",
+        "gardener-pemsa-bellinzona",
+        "jardinier-pemsa-bellinzona"
+      ],
+      "retranslationAttempts": 0
     },
     {
       "title": "Montatore di ponteggi",
@@ -5252,7 +5263,9 @@
         "macon-charpentier-pemsa-bellinzona",
         "carpenters-pemsa-bellinzona",
         "schreiner-pemsa-bellinzona",
-        "charpentiers-pemsa-bellinzona"
+        "charpentiers-pemsa-bellinzona",
+        "carpenter-pemsa-bellinzona",
+        "charpentier-pemsa-bellinzona"
       ],
       "needsRetranslation": true
     },

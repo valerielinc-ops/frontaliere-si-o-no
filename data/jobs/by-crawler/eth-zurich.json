@@ -10107,7 +10107,7 @@
       "slugByLocale": {
         "de": "controller-in-mit-schwerpunkt-digitalisierung-m-w-d-eth-zurich-ch",
         "it": "controller-in-mit-schwerpunkt-digitalisierung-m-w-d-eth-zurich-ch",
-        "en": "controller-in-with-focus-on-digitalization-m-f-d-eth-zurich-zurich",
+        "en": "controller-in-with-a-focus-on-digitalization-m-f-d-eth-zurich-zurich",
         "fr": "controleur-en-mettant-l-accent-sur-la-numerisation-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -10163,7 +10163,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-18T21:32:43.452Z"
+      "firstSeenAt": "2026-08-18T21:32:43.452Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "controller-in-with-focus-on-digitalization-m-f-d-eth-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "controller-in-with-focus-on-digitalization-m-f-d-eth-zurich-zurich"
+      ]
     },
     {
       "id": "eth-zurich-beebe0f21564",

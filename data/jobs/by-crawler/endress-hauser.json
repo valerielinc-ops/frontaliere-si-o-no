@@ -672,9 +672,9 @@
       "id": "endress-hauser-ed5fe7947e7f",
       "slug": "hr-service-partner-in-time-management-w-m-d-endress-hauser-reinach",
       "slugByLocale": {
+        "de": "hr-service-partner-in-time-management-w-m-d-endress-hauser-reinach",
         "it": "hr-service-partner-in-time-management-w-m-d-endress-hauser-reinach",
         "en": "hr-service-partner-in-time-management-w-m-d-endress-hauser-reinach",
-        "de": "hr-service-partner-in-time-management-w-m-d-endress-hauser-reinach",
         "fr": "partenaire-de-service-rh-dans-la-gestion-du-temps-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
@@ -2675,13 +2675,6 @@
       "applyUrl": "https://careers.endress.com/talentcommunity/apply/1415399933/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach",
-        "componenti-elettronici-strategici-f-m-d-80-100-endress-hauser-reinach",
-        "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach-2",
-        "acheteur-strategique-composants-electroniques-f-m-j-80-100-endress-hauser-reinach",
-        "componenti-elettronici-dell-acquirente-strategico-f-m-d-80-100-endress-hauser-reinach"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach",
@@ -2691,7 +2684,13 @@
           "componenti-elettronici-dell-acquirente-strategico-f-m-d-80-100-endress-hauser-reinach"
         ]
       },
-      "firstSeenAt": "2026-08-18T09:51:39.171Z",
+      "previousSlugs": [
+        "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach",
+        "componenti-elettronici-strategici-f-m-d-80-100-endress-hauser-reinach",
+        "strategic-buyer-electronics-components-f-m-d-80-100-endress-hauser-reinach-2",
+        "acheteur-strategique-composants-electroniques-f-m-j-80-100-endress-hauser-reinach",
+        "componenti-elettronici-dell-acquirente-strategico-f-m-d-80-100-endress-hauser-reinach"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2703,7 +2702,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:51:39.171Z"
     },
     {
       "id": "endress-hauser-4e3636ee4583",

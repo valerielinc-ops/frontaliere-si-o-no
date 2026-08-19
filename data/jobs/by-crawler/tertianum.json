@@ -1382,14 +1382,12 @@
       "previousSlugsByLocale": {
         "de": [
           "start-2026-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz",
-          "start-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz",
-          "start-2026-2027-studierende-r-bereich-pflege-hf-tertianum-richterswil"
+          "start-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz"
         ],
         "it": [
           "start-2026-2027-studierende-r-bereich-pflege-hf-tertianum-richterswil",
           "start-2026-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz",
-          "start-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz",
-          "inizio-2026-2027-studenti-area-care-hf-tertianum-richterswil"
+          "start-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz"
         ],
         "en": [
           "start-2026-2027-studierende-r-bereich-pflege-hf-tertianum-richterswil"
@@ -1401,8 +1399,7 @@
       "previousSlugs": [
         "start-2026-2027-studierende-r-bereich-pflege-hf-tertianum-richterswil",
         "start-2026-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz",
-        "start-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz",
-        "inizio-2026-2027-studenti-area-care-hf-tertianum-richterswil"
+        "start-2027-ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz"
       ],
       "firstSeenAt": "2026-08-07T01:20:34.568Z",
       "salaryMin": 73500,
@@ -3927,10 +3924,10 @@
       "id": "tertianum-b12fe24007ab",
       "slug": "cuocere-cucinare-50-70-tertianum-bern",
       "slugByLocale": {
-        "it": "cuocere-cucinare-50-70-tertianum-bern",
-        "en": "kochin-koch-50-70-tertianum-bern",
         "de": "kochin-koch-50-70-tertianum-bern",
-        "fr": "cuisiniere-cuisiniere-50-70-tertianum-bern"
+        "it": "cuocere-cucinare-50-70-tertianum-bern",
+        "en": "cook-cook-50-70-tertianum-bern",
+        "fr": "cuisson-cuisson-50-70-tertianum-bern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -3987,7 +3984,8 @@
       "previousSlugs": [
         "kochin-koch-50-70-tertianum-bern",
         "cook-cook-50-70-tertianum-bern",
-        "cuocere-cucinare-50-70-tertianum-bern"
+        "cuocere-cucinare-50-70-tertianum-bern",
+        "cuisiniere-cuisiniere-50-70-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3999,7 +3997,8 @@
           "kochin-koch-50-70-tertianum-bern"
         ],
         "fr": [
-          "kochin-koch-50-70-tertianum-bern"
+          "kochin-koch-50-70-tertianum-bern",
+          "cuisiniere-cuisiniere-50-70-tertianum-bern"
         ]
       }
     },
