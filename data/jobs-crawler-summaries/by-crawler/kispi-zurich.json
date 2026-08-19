@@ -1,18 +1,19 @@
 {
   "key": "kispi-zurich",
   "label": "Universitäts-Kinderspital Zürich (Kispi)",
-  "generatedAt": "2026-08-18T21:41:58.894Z",
-  "total": 13,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 12431,
-  "avgDurationMs": 12431,
+  "generatedAt": "2026-08-19T10:04:23.973Z",
+  "total": 11,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 14537,
+  "avgDurationMs": 14537,
   "durationHistory": [
-    12431
+    14537
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kispi-zurich-0d890ffd27a3",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich",
@@ -20,13 +21,13 @@
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 40-50% (Kinderpermanence Circle)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3437/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:48.751Z",
+      "crawledAt": "2026-08-19T10:04:12.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-08-18",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3437/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-18T21:41:48.751Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kispi-zurich-d534c7fd61e3",
       "slug": "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3508/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:50.352Z",
+      "crawledAt": "2026-08-19T10:04:14.546Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3728/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:49.545Z",
+      "crawledAt": "2026-08-19T10:04:13.610Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -132,13 +132,13 @@
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:51.207Z",
+      "crawledAt": "2026-08-19T10:04:15.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:52.009Z",
+      "crawledAt": "2026-08-19T10:04:16.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3452/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:52.819Z",
+      "crawledAt": "2026-08-19T10:04:17.354Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,13 +243,13 @@
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Praktikantin Sporttherapie (w/m) 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3716/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:53.613Z",
+      "crawledAt": "2026-08-19T10:04:18.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3721/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:56.012Z",
+      "crawledAt": "2026-08-19T10:04:21.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3725/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:54.416Z",
+      "crawledAt": "2026-08-19T10:04:19.280Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3726/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T21:41:55.211Z",
+      "crawledAt": "2026-08-19T10:04:20.393Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -385,8 +385,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kispi-zurich-059392ecf484",
       "slug": "apprendista-fachfrau-gesundheit-apprendista-fachmann-gesundheit-cfc-universitats-kinderspital-zurich-kispi-zurich",
@@ -466,7 +465,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "kispi-zurich-d0e4f1fd48a4",
       "slug": "dipl-infermieristica-professionale-dipl-specialista-hf-fh-perioperative-care-60-100-universitats-kinderspital-zurich",
@@ -474,7 +475,6 @@
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH Perioperative Care 60-100%",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3715/Description/1",
@@ -498,7 +498,7 @@
       "firstSeenAt": "2026-08-10T10:31:16.054Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
