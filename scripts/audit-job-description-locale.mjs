@@ -30,6 +30,36 @@
  * script must not import a vitest file); tests/audit-job-description-locale.test.ts
  * asserts the two constants stay equal so the duplication cannot drift.
  *
+ * IT ALSO COUNTS WHAT THE RATCHET CANNOT SEE AT ALL — the queue. Both this
+ * audit and the gate skip `needsRetranslation` jobs in the NUMERATOR, on the
+ * stated ground that "queued slots are expected to hold source-language
+ * fallbacks UNTIL translate-pending processes them"
+ * (scripts/lib/job-locale-population.mjs). That is the right call for a
+ * QUALITY rate — merge order must not move it — but it makes one population
+ * invisible: a job that is queued and stays queued. The site serves its German
+ * text on the Italian page every day it sits there, and no number anywhere
+ * counts it.
+ *
+ * Measured on the committed slices @ origin/main 2026-08-19: 11,637 of 27,590
+ * jobs (42%) are queued, and 371 of those have been queued for more than 7 days
+ * while still serving a description BYTE-IDENTICAL to their source-language
+ * slot — 367 of them for more than 30 days. Concentrated: roche 167,
+ * sulzer 106, tether 27. Every one is invisible to the rate above.
+ *
+ * THE EXISTING ANTI-STARVATION MACHINERY IS NOT THE GAP, and this does not
+ * duplicate it. `scripts/lib/job-traffic-priority.mjs` already draws
+ * `RESERVE_FOR_OLDEST` (20%) of every batch oldest-first precisely so the tail
+ * cannot starve, and `QUEUE_AGE_ALERT_DAYS` (150) ratchets on the age of the
+ * single OLDEST job — measured at 127 days, correctly not firing. What neither
+ * does is count the POPULATION currently being served in the wrong language,
+ * or name the crawlers it concentrates in. A max is not a count.
+ *
+ * BYTE-IDENTITY, NOT THE DETECTOR, for this section. `detectLanguageWithConfidence`
+ * answers "does this read as another language", which needs a confidence floor
+ * and can be argued with. "The it slot is character-for-character the de slot"
+ * cannot: no translation was attempted. Zero false positives is what makes the
+ * number safe to put in an issue that opens work.
+ *
  * Report-only: always exits 0 on a successful measurement. The repair path is
  * mark-locale-mismatched-jobs.mjs inside translate-pending.yml; the regression
  * gate is the vitest ratchet.
@@ -66,10 +96,161 @@ export const MAX_RATE = 0.003;
 export const DEFAULT_MIN_HEADROOM_PP = 0.05;
 
 /**
+ * Days a job may sit in the retranslation queue still serving its source text
+ * before the queue is, for that job, not draining.
+ *
+ * 7 is the drain's own cadence rounded up, not a taste: translate-pending runs
+ * five times a day, so a job still holding source text a full week later has
+ * been passed over ~35 times. Below 7 the number would mostly count normal
+ * churn (1,401 jobs entered the queue in the last day alone).
+ */
+export const QUEUE_STALE_DAYS = 7;
+
+/**
+ * Age (ms) at which a queued job counts as stale. `firstSeenAt` is the age
+ * signal with full coverage on the queue and is the SAME field
+ * `jobQueuedAtMs()` sorts the oldest-first reserve by, so this number and the
+ * reserve cannot disagree about which jobs are old. `postedDate` is present on
+ * ~2% of the queue and carries values as absurd as 4,915 days, so it is used
+ * only as a fallback and never alone.
+ */
+function queuedForMs(job, now) {
+  const raw = job?.firstSeenAt || job?.crawledAt || null;
+  if (!raw) return null;
+  const t = Date.parse(String(raw));
+  return Number.isFinite(t) ? now - t : null;
+}
+
+/** Whitespace-insensitive key — a re-wrapped copy is still a copy. */
+const textKey = (t) => String(t || '').trim().split(/\s+/).join(' ');
+
+/**
+ * Count the jobs the site is serving in the wrong language RIGHT NOW because
+ * their translation never happened, grouped by how long they have waited and
+ * by which crawler produced them.
+ *
+ * Pure and now-injected so tests/job-translation-queue.test.ts can drive every
+ * bucket from synthetic fixtures with no dataset and no clock.
+ *
+ * @param {Array<object>} jobs
+ * @param {{ now?: number, staleDays?: number }} [opts]
+ */
+export function measureTranslationQueue(
+  jobs,
+  { now = Date.now(), staleDays = QUEUE_STALE_DAYS, isSwissLocation = null } = {},
+) {
+  const list = Array.isArray(jobs) ? jobs : [];
+  const staleMs = staleDays * 24 * 60 * 60 * 1000;
+  const buckets = { '0-7d': 0, '8-30d': 0, '31-90d': 0, '>90d': 0, unknown: 0 };
+  const byCompany = new Map();
+  const byLocation = new Map();
+  const samples = [];
+  let queuedJobs = 0;
+  let sourceCopyJobs = 0;
+  let staleSourceCopyJobs = 0;
+  let staleNonSwiss = 0;
+  let oldestStaleDays = 0;
+
+  for (const job of list) {
+    if (!job?.needsRetranslation) continue;
+    queuedJobs += 1;
+
+    // NO DEFAULT SOURCE LANGUAGE. "Copied from the source" is meaningless
+    // without knowing which slot the source is, and guessing turns a wrong
+    // guess into a confident defect count. Measured 2026-08-19: 0 of the 11,637
+    // queued jobs lack `sourceLang` (de 8,999 · en 1,818 · fr 589 · it 231), so
+    // this skip costs nothing today and cannot start lying tomorrow. The rest
+    // of this file defaults to 'it' and this section deliberately does not
+    // adopt that — a display fallback and a measurement are different things.
+    const sourceLang = String(job?.sourceLang || '').toLowerCase();
+    if (!sourceLang) continue;
+    const source = String(job?.descriptionByLocale?.[sourceLang] || '').trim();
+    if (source.length < MIN_DESCRIPTION_CHARS) continue;
+    // Normalised once, not once per locale: these are multi-KB strings and the
+    // loop runs across the whole corpus.
+    const sourceKey = textKey(source);
+    const copied = LOCALES.filter(
+      (locale) => locale !== sourceLang && textKey(job?.descriptionByLocale?.[locale]) === sourceKey,
+    );
+    if (!copied.length) continue;
+    sourceCopyJobs += 1;
+
+    const waitedMs = queuedForMs(job, now);
+    const waitedDays = waitedMs === null ? null : Math.floor(waitedMs / 86_400_000);
+    const bucket = waitedDays === null ? 'unknown'
+      : waitedDays <= 7 ? '0-7d'
+      : waitedDays <= 30 ? '8-30d'
+      : waitedDays <= 90 ? '31-90d'
+      : '>90d';
+    buckets[bucket] += 1;
+
+    if (waitedMs !== null && waitedMs >= staleMs) {
+      staleSourceCopyJobs += 1;
+      if (waitedDays > oldestStaleDays) oldestStaleDays = waitedDays;
+      const company = String(job?.company || '?');
+      byCompany.set(company, (byCompany.get(company) || 0) + 1);
+
+      // WHERE the stuck jobs are is the diagnosis, not decoration. Measured
+      // 2026-08-19: 357 of 376 (94.9%) are not in a Swiss municipality —
+      // Shanghai 35, Madrid 32, Petaling Jaya 14, Jundiai 14, Singapore 13.
+      // That reframes the whole finding: these are not translations the
+      // cascade failed to do, they are postings with no cross-border audience,
+      // so they earn no traffic, so the traffic-first ordering never reaches
+      // them and the 20% oldest-first reserve is all that ever could. The
+      // repair question is "why is a Roche Shanghai posting in this corpus",
+      // not "raise the translation cap".
+      //
+      // Injected, never imported: the real predicate lives in
+      // scripts/lib/target-swiss-locations.mjs, which reads
+      // data/canton-municipalities.json at module scope. Importing it here
+      // would make this function unusable from a sparse worktree and take the
+      // test's synthetic fixtures down with it.
+      const location = String(job?.location || '').trim();
+      if (typeof isSwissLocation === 'function' && !isSwissLocation(location)) {
+        staleNonSwiss += 1;
+        byLocation.set(location || '(vuota)', (byLocation.get(location || '(vuota)') || 0) + 1);
+      }
+
+      if (samples.length < 20) {
+        samples.push({
+          company,
+          companyKey: String(job?.companyKey || ''),
+          slug: String(job?.slug || '?'),
+          location,
+          sourceLang,
+          copiedLocales: copied,
+          waitedDays,
+        });
+      }
+    }
+  }
+
+  return {
+    queuedJobs,
+    sourceCopyJobs,
+    staleSourceCopyJobs,
+    staleDays,
+    oldestStaleDays,
+    staleNonSwiss,
+    staleNonSwissMeasured: typeof isSwissLocation === 'function',
+    byAge: buckets,
+    topLocations: [...byLocation.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 12)
+      .map(([key, count]) => ({ key, count })),
+    topCompanies: [...byCompany.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([key, count]) => ({ key, count })),
+    samples,
+  };
+}
+
+/**
  * Measure the descriptions ratchet. Pure: takes jobs, returns the report.
  * Exported so the test can exercise it without a dataset on disk.
  */
-export function auditDescriptionLocales(jobs) {
+export function auditDescriptionLocales(jobs, { now = Date.now(), isSwissLocation = null } = {}) {
   const list = Array.isArray(jobs) ? jobs : [];
 
   // THE RATE COMES FROM THE GATE'S OWN MEASUREMENT, not a copy of it.
@@ -153,6 +334,10 @@ export function auditDescriptionLocales(jobs) {
     topCompanies: top(byCompany),
     topPairs: top(byPair),
     offenders: offenders.slice(0, 200),
+    // The population the rate above cannot see, by construction. Reported
+    // alongside it, never folded into it: mixing a queue count into a quality
+    // rate is the denominator mistake this whole file exists to prevent.
+    queue: measureTranslationQueue(list, { now, isSwissLocation }),
   };
 }
 
@@ -168,7 +353,7 @@ function parseArgs(argv) {
   };
 }
 
-function main() {
+async function main() {
   const opts = parseArgs(process.argv.slice(2));
   let jobs = null;
   try {
@@ -188,7 +373,24 @@ function main() {
     return;
   }
 
-  const report = { ...auditDescriptionLocales(jobs), minHeadroomPp: opts.minHeadroomPp };
+  // The Swiss-municipality predicate is loaded HERE, not at module scope, and
+  // its absence degrades the extra dimension to "not measured" instead of
+  // crashing the audit: scripts/lib/target-swiss-locations.mjs reads
+  // data/canton-municipalities.json at import time, and the whole point of
+  // keeping measureTranslationQueue pure is that the audit still runs without it.
+  let isSwissLocation = null;
+  try {
+    const { isKnownSwissMunicipality } = await import('./lib/target-swiss-locations.mjs');
+    isSwissLocation = (location) => {
+      if (!location) return false;
+      const city = location.replace(/\s*\([^)]*\)\s*$/, '').split(',')[0].trim();
+      return Boolean(city) && Boolean(isKnownSwissMunicipality(city));
+    };
+  } catch {
+    isSwissLocation = null;
+  }
+
+  const report = { ...auditDescriptionLocales(jobs, { isSwissLocation }), minHeadroomPp: opts.minHeadroomPp };
   report.thinMargin = !report.breached && report.headroomPp < opts.minHeadroomPp;
   fs.writeFileSync(opts.out, JSON.stringify(report, null, 2));
 
@@ -207,7 +409,31 @@ function main() {
   else if (report.thinMargin) console.log(`⚠️  THIN MARGIN — under ${opts.minHeadroomPp}pp of headroom.`);
   else console.log('✅ healthy');
   for (const c of report.topCompanies.slice(0, 5)) console.log(`   ${c.count}\t${c.key}`);
+
+  const q = report.queue;
+  console.log(
+    `[queue] ${q.queuedJobs} jobs queued · ${q.sourceCopyJobs} still serving their source text · `
+      + `${q.staleSourceCopyJobs} of those for more than ${q.staleDays}d (oldest ${q.oldestStaleDays}d) `
+      + `— none of them counted in the rate above`
+  );
+  if (q.staleSourceCopyJobs > 0) {
+    console.log(`   by age: ${Object.entries(q.byAge).map(([k, v]) => `${k}=${v}`).join(' ')}`);
+    if (q.staleNonSwissMeasured) {
+      const share = q.staleSourceCopyJobs > 0 ? (q.staleNonSwiss / q.staleSourceCopyJobs) * 100 : 0;
+      console.log(`   non-Swiss location: ${q.staleNonSwiss}/${q.staleSourceCopyJobs} = ${share.toFixed(1)}%`);
+      for (const l of q.topLocations.slice(0, 5)) console.log(`   ${l.count}\t${l.key}`);
+    }
+    for (const c of q.topCompanies.slice(0, 5)) console.log(`   ${c.count}\t${c.key}`);
+  }
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-if (isMain) main();
+if (isMain) {
+  // main() is async only because it lazily imports the BFS predicate; an
+  // unhandled rejection here would exit 0 with no report, which reads as a
+  // clean run to the workflow.
+  main().catch((err) => {
+    console.error(err);
+    process.exitCode = 1;
+  });
+}
