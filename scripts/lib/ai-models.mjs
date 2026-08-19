@@ -881,6 +881,65 @@ const CLAUDE_CLI_MAX_CONCURRENCY = 2;
 // `_callModel`, che e' la definizione di «lenta» gia' in uso in questo file:
 // sotto quella soglia la riga non compare e il volume di log resta identico a
 // oggi. `0` la spegne del tutto.
+// Budget di THINKING concesso al processo `claude`, in token.
+//
+// ── IL TERMINE DOMINANTE, MISURATO ────────────────────────────────────────
+//
+// La riga 🐢 introdotta dal giro precedente ha risposto alla domanda che tre
+// tentativi alla cieca non avevano potuto porre. Tre chiamate reali di
+// `claude-cli/haiku`, 2026-08-19, dai log di produzione:
+//
+//   run 32261707656   wall 230s   ttft 111s   3 giri   21.166 token out,  9.955 di thinking
+//   run 32260372210   wall 181s   ttft 103s   2 giri   17.017 token out,  9.430 di thinking
+//   run 32260372210   wall  90s   ttft  85s   1 giro    8.147 token out,  7.601 di thinking
+//
+// Due letture, ed entrambe puntano qui:
+//
+//  1. NON e' coda. Il `rate_limit_event` c'e' in tutte e tre, ma dice
+//     `status=allowed`: la quota condivisa con pr-review-loop/issue-fix era
+//     il candidato causale piu' forte, ed e' SCARTATO dal dato.
+//  2. E' generazione, e piu' precisamente e' THINKING. Il rapporto
+//     thinking/ttft e' 89,7 · 91,6 · 89,4 token al secondo — la stessa
+//     costante a tre cifre su tre chiamate indipendenti. Cioe' `ttft_ms` NON
+//     e' attesa: e' il tempo speso a pensare prima di emettere il primo token
+//     di risposta. E vale il 48%, 57% e 94% dell'intera chiamata.
+//
+// Il primo evento dello stream arriva a 637-1213ms in tutte e tre: l'avvio del
+// processo non c'entra niente, come gia' diceva `time_to_request_ms` a 57ms.
+//
+// ── PERCHE' UN BUDGET E NON ZERO ──────────────────────────────────────────
+//
+// `MAX_THINKING_TOKENS=0` spegne il thinking del tutto (misurato: 56 → 0), ma
+// la generazione di un articolo non e' un compito banale e toglierle ogni
+// ragionamento e' un cambiamento di qualita' che nessuna misura qui giustifica.
+// Un tetto invece taglia la coda lunga lasciando intatta la pianificazione:
+// a ~90 token/s, passare da ~9.700 a 2.048 vale circa 85 secondi per chiamata.
+//
+// ── COSA NON SO, E COME SI VEDRA' ─────────────────────────────────────────
+//
+// Non ho potuto dimostrare in locale che un valore NON nullo leghi: i prompt
+// di prova non superano ~1.000 token di thinking, quindi il tetto non morde
+// mai, e a 256 la CLI ne ha comunque prodotti 1.058 (sembra esserci un minimo
+// interno intorno a 1.024). In produzione il thinking sta fra 7.601 e 9.955,
+// quindi 2.048 e' ampiamente sotto e deve mordere — ma resta una previsione.
+//
+// E' cio' che rende questo cambiamento diverso dalle tre leve gia' bruciate
+// (floor, semaforo, breaker): non e' cieco, ha un criterio di successo
+// OSSERVABILE al primo giro. La riga 🐢 riporta `N di thinking` su ogni
+// chiamata lenta riuscita. Se il numero scende sotto il tetto, ha legato; se
+// resta a 9.000, non ha legato e va tolto invece di essere ritarato a occhio.
+//
+// `off` (o una stringa vuota) non imposta affatto la variabile: e'
+// l'interruttore per tornare al comportamento di prima senza un deploy di
+// codice.
+const CLAUDE_CLI_MAX_THINKING_TOKENS = (() => {
+  const raw = (process.env.CLAUDE_CLI_MAX_THINKING_TOKENS || '').trim();
+  if (!raw) return 2048;
+  if (/^(off|none|no)$/i.test(raw)) return null;
+  const n = Number(raw);
+  return Number.isInteger(n) && n >= 0 ? n : 2048;
+})();
+
 const CLAUDE_CLI_SLOW_CALL_LOG_MS = (() => {
   const raw = (process.env.CLAUDE_CLI_SLOW_CALL_LOG_MS || '').trim();
   if (!raw) return 60_000;
@@ -5456,12 +5515,29 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
  * rejection message (truncated) so the next incident isn't diagnostically
  * blind (T2, 2026-07-28).
  */
+/**
+ * L'ambiente del processo `claude`: quello del padre piu' il tetto al thinking.
+ *
+ * NON sovrascrive un valore gia' presente. E' la stessa regola che il ponte
+ * Remote Config applica alle proprie variabili, e per la stessa ragione: chi
+ * imposta `MAX_THINKING_TOKENS` in un workflow lo sta facendo apposta, e una
+ * costante di libreria che glielo cancella e' un override invisibile.
+ *
+ * Esportata per il test: quale ambiente riceva il figlio non e' osservabile
+ * dall'esterno senza spawnare un `claude` vero.
+ */
+export function claudeCliChildEnv(base = process.env) {
+  if (CLAUDE_CLI_MAX_THINKING_TOKENS === null) return base;
+  if (base.MAX_THINKING_TOKENS !== undefined && String(base.MAX_THINKING_TOKENS).trim() !== '') return base;
+  return { ...base, MAX_THINKING_TOKENS: String(CLAUDE_CLI_MAX_THINKING_TOKENS) };
+}
+
 async function _runClaudeCliProcess(args, timeoutMs) {
   const { spawn } = await _getChildProcessModule();
   return new Promise((resolve, reject) => {
     let child;
     try {
-      child = spawn(CLAUDE_CLI_BIN, args, { stdio: ['ignore', 'pipe', 'pipe'], env: process.env });
+      child = spawn(CLAUDE_CLI_BIN, args, { stdio: ['ignore', 'pipe', 'pipe'], env: claudeCliChildEnv() });
     } catch (err) {
       reject(err);
       return;
