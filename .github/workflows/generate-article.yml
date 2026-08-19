@@ -435,10 +435,19 @@ jobs:
           hard_kill_s=$(( CREATE_ARTICLE_MAX_WALL_MS / 1000 + 300 ))
           echo "⏱️  hard kill after ${hard_kill_s}s (in-process budget $(( CREATE_ARTICLE_MAX_WALL_MS / 1000 ))s + 300s grace)"
           set +e
+          # CREATE_ARTICLE_HARD_KILL_S carries this SAME hard_kill_s into the node
+          # process (#6052): the in-process RUN_WALL_BUDGET_MS used to be declared
+          # independently from CREATE_ARTICLE_MAX_WALL_MS alone, with its own unset
+          # fallback (30min) that can diverge from what `timeout` above actually
+          # enforces (e.g. bash arithmetic on an unset/empty var here yields
+          # hard_kill_s=300s while node's independent fallback yields 1800000ms) —
+          # a gap deadlineMs then has no way to see. Passing the exact value the
+          # shell wrapper computes lets create-article.mjs clamp its own budget to
+          # it instead of re-deriving a number that can drift from the real cap.
           if [ -n "$ARTICLE_URL" ]; then
-            timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION" "$ARTICLE_URL"
+            CREATE_ARTICLE_HARD_KILL_S="$hard_kill_s" timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION" "$ARTICLE_URL"
           else
-            timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION"
+            CREATE_ARTICLE_HARD_KILL_S="$hard_kill_s" timeout --signal=TERM --kill-after=60s "${hard_kill_s}s" node scripts/create-article.mjs --section="$TARGET_SECTION"
           fi
           rc=$?
           set -e
