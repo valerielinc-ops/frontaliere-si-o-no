@@ -236,8 +236,7 @@
       "previousSlugs": [
         "controleur-principal-associe-financier-m-f-d-trumpf-schweiz-ag-grusch",
         "senior-controller-finance-business-partner-m-w-d-trumpf-r00040662"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Logistiker Warenausgang befristet (m/w/d)",
@@ -830,7 +829,8 @@
       "streetAddress": "",
       "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:39:57.797Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle 2027 Produktionsmechaniker/in EFZ",
@@ -1053,7 +1053,8 @@
           "lehrstelle-2027-logistiker-in-efz-trumpf-r00039707"
         ]
       },
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     }
   ]
 }

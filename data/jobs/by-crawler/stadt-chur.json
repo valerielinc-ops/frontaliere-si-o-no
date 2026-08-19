@@ -457,7 +457,7 @@
       "description": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
       "titleByLocale": {
         "it": "Ufficiale di stato civile",
-        "en": "Zivilstandsbeamtin / Zivilstandsbeamter",
+        "en": "Civil status officer",
         "de": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "fr": "Spécialiste de l ' état civil"
       },
@@ -504,8 +504,7 @@
       "previousSlugs": [
         "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Badmeister/in Saison (100%)",
@@ -600,16 +599,16 @@
       "contractType": "stage",
       "description": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
       "titleByLocale": {
-        "it": "Polizeiaspirantinnen e Polizeiaspiranten",
-        "en": "Polizeiaspirantinnen und Polizeiaspiranten",
         "de": "Polizeiaspirantinnen und Polizeiaspiranten",
-        "fr": "Polizeiaspirantinnen und Polizeiaspiranten"
+        "it": "Polizeiaspirantinnen e Polizeiaspiranten",
+        "en": "Police aspirants and police aspirants",
+        "fr": "Aspirants policiers et aspirants policiers"
       },
       "descriptionByLocale": {
-        "it": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
-        "en": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
         "de": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
-        "fr": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L..."
+        "it": "Chur è con circa 41'000 abitanti il centro urbano di Grigioni. Come una città attraente e versatile, con i suoi 1.400 dipendenti, fornisce servizi orientati al cliente e moderni. La sicurezza è uno dei prerequisiti più importanti per una buona posizione.",
+        "en": "Chur is with about 41'000 inhabitants the urban center of Graubünden. As an attractive and versatile city, with its 1,400 employees, it provides customer-oriented and modern services.Security is one of the most important prerequisites for a good location.",
+        "fr": "Chur est avec environ 41'000 habitants le centre urbain de Graubünden. En tant que ville attrayante et polyvalente, avec ses 1 400 employés, elle offre des services axés sur le client et modernes. La sécurité est l'une des conditions préalables les plus importantes pour un bon emplacement."
       },
       "slugByLocale": {
         "it": "polizeiaspirantinnen-e-polizeiaspiranten-stadt-chur",
@@ -619,6 +618,14 @@
       },
       "crawledAt": "2026-08-18T22:19:04.322Z",
       "id": "stadt-chur-b4ceea7ca5ef",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
+        ]
+      },
+      "previousSlugs": [
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -632,16 +639,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T10:00:37.301Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
-        ]
-      },
-      "previousSlugs": [
-        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-18T10:00:37.301Z"
     }
   ]
 }
