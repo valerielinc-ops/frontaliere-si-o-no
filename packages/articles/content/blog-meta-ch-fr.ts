@@ -3439,6 +3439,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.annuncio-discriminatorio-zurigo-lpar.title': 'Annonce discriminatoire Zurich : ce que prévoit la LPar',
     'blog.article.annuncio-discriminatorio-zurigo-lpar.excerpt': 'Une menuiserie de Zurich a publié une annonce avec des critères de sexe et d\'âge. Un avocat explique ce que prévoit la loi suisse sur la discrimination.',
     'blog.article.annuncio-discriminatorio-zurigo-lpar.imageAlt': 'Environnement de travail professionnel en Suisse mettant l\'accent sur l\'embauche et le droit du travail',
+    'blog.article.onu-sanzioni-sesam-2026.title': 'Sanctions ONU : application automatique en Suisse',
+    'blog.article.onu-sanzioni-sesam-2026.excerpt': 'Depuis 2016, le Conseil fédéral intègre automatiquement les listes de sanctions de l\'ONU dans le droit suisse. Mise à jour SESAM du 19 août 2026.',
+    'blog.article.onu-sanzioni-sesam-2026.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaChFr;
