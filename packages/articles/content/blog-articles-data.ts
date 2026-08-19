@@ -30234,6 +30234,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ferrera-varese-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-19T08:37:13.246Z',
+ image: '/images/blog/ferrera-varese-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
