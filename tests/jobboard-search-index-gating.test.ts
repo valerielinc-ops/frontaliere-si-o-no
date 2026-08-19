@@ -43,14 +43,27 @@ function effectBodyAfter(anchor: string): string {
 }
 
 describe('search-index gating of the lazy corpus-fetch tiers', () => {
-  it('derives one shared pending flag from an active query + an incomplete index', () => {
-    const decl = SRC.match(/const searchIndexPending = [^;]+;/);
+  it('derives one shared pending flag from an active query + a stale index', () => {
+    const decl = SRC.match(/const searchIndexPending = [\s\S]{0,200}?;/);
     expect(decl, 'searchIndexPending must be declared').not.toBeNull();
     const text = decl![0];
     expect(text).toContain('deferredSearchQuery.trim()');
-    expect(text).toContain('searchIndex.size < sortedJobs.length');
+    // Identity of the (jobs, locale) pair the committed index was built from —
+    // NOT a size comparison. The map is keyed by job object, so an array
+    // replaced by one of the same length (job-detail enrichment re-creates one
+    // job) or a locale switch leaves every key stale while `size` still
+    // matches: a size check calls that "complete" and lets the tiers fire.
+    expect(text).toContain('searchIndex.jobs !== sortedJobs');
+    expect(text).toContain('searchIndex.locale !== locale');
+    expect(text).not.toContain('searchIndex.size');
     // Exactly one definition: the skeleton and the fetch tiers must not drift.
     expect(SRC.match(/const searchIndexPending =/g)).toHaveLength(1);
+  });
+
+  it('commits the index together with the (jobs, locale) pair it describes', () => {
+    // One state value, so the map and the pair it describes cannot diverge.
+    expect(SRC).toContain('setSearchIndex({ map, jobs: sortedJobs, locale })');
+    expect(SRC.match(/setSearchIndex\(/g)).toHaveLength(1);
   });
 
   it('gates the cross-locale tier (DE/FR/EN slim indexes) on it', () => {
@@ -62,7 +75,11 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
   it('gates the same-locale cross-canton broaden on it', () => {
     const body = effectBodyAfter('if (searchBroadenFetchAttempted.current) return;');
     expect(body).toContain('if (searchIndexPending) return;');
-    expect(body).toContain('searchIndexPending');
+    // Anchored to the neighbouring dep: a bare `searchIndexPending` substring
+    // is already satisfied by the early return above, so it would pass with the
+    // dependency deleted — and without the dep a genuinely thin search never
+    // re-runs the effect once the index lands, so the broaden never fires.
+    expect(body).toContain('loadUnscopedPool, searchIndexPending');
   });
 
   it('keeps the loading skeleton on the same flag', () => {
@@ -79,6 +96,12 @@ describe('search-index builder', () => {
     // The frame-bound shape that made 14.700 jobs cost ~4,9 s regardless of
     // per-job cost. Its return would silently undo the fix.
     expect(BUILDER).not.toMatch(/CHUNK_SIZE\s*=\s*\d+/);
+    // The clock is only sampled every (MASK+1) jobs, so MASK+1 is the per-frame
+    // FLOOR. It has to stay under the fixed 50 it replaced, or a slow device
+    // blocks a frame for longer than before the "time-sliced" change.
+    const mask = /CLOCK_CHECK_MASK = (\d+)/.exec(BUILDER);
+    expect(mask, 'CLOCK_CHECK_MASK must be declared').not.toBeNull();
+    expect(Number(mask![1]) + 1).toBeLessThan(50);
   });
 
   it('drops a partial index on cancel instead of publishing it', () => {

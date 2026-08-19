@@ -262,19 +262,6 @@ export const SEARCH_STOP_WORDS = new Set([
 ]);
 
 /**
- * Match a free-text string (search term or job title) against the taxonomy.
- * Returns the matched profession id or null. Longest alias wins.
- *
- * Tie-break (equal-length candidate aliases, e.g. "zimmermann"/"carpenter"
- * legitimately listed under both `falegname` and `carpentiere`): the FIRST
- * entry encountered in `PROFESSION_TAXONOMY` declaration order wins. This is
- * intentional, not incidental — `>` (strict) below keeps the first `best`
- * instead of overwriting it on a same-length match. Depended on by
- * tests/profession-taxonomy.test.ts's "every alias resolves back to its own
- * entry" collision guard. Don't change to `>=`/reorder resolution without
- * updating that test's KNOWN_AMBIGUOUS_ALIASES expectations.
- */
-/**
  * Inverted alias index, built once at module load.
  *
  * The scan this replaces walked all 940 aliases of all 70 professions on
@@ -337,6 +324,23 @@ function lowerBoundStem(target) {
   return lo;
 }
 
+/**
+ * Match a free-text string (search term or job title) against the taxonomy.
+ * Returns the matched profession id or null. Longest alias wins.
+ *
+ * Tie-break (equal-length candidate aliases, e.g. "zimmermann"/"carpenter"
+ * legitimately listed under both `falegname` and `carpentiere`): the FIRST
+ * entry encountered in `PROFESSION_TAXONOMY` declaration order wins. This is
+ * intentional, not incidental — `consider()` below breaks an equal-length tie
+ * on `record.order`, the alias's position in declaration order, which is why
+ * the index can visit candidates in any order without changing the outcome.
+ * (Before the index this was the strict `>` of a declaration-order scan; same
+ * rule, made explicit because the traversal order is no longer the carrier.)
+ * Depended on by tests/profession-taxonomy.test.ts's "every alias resolves
+ * back to its own entry" collision guard, and by the same file's oracle test
+ * that replays the pre-index scan. Don't relax the tie-break without updating
+ * that test's KNOWN_AMBIGUOUS_ALIASES expectations.
+ */
 export function matchProfession(text) {
   const norm = normalizeText(text);
   if (!norm) return null;
