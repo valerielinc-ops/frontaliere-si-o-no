@@ -2,19 +2,26 @@
  * usePopupSlot — the React half of `services/popupQueue.ts`.
  *
  * The queue has existed for a while and eight surfaces route through it
- * (CookieBanner, NewsletterPopup, AiChatbot, FeatureSurvey, GamificationWidget,
- * the two JobBoard auth gates, the guide banners). Every one of them hand-rolls
- * the same four lines:
+ * (the cookie banner, the newsletter popup, the chatbot, the feature survey,
+ * the achievement toast, the two job-board auth gates, the guide banners).
+ * Every one of them hand-rolls the same four lines:
  *
  *   requestSlot(id, priority)
  *   setActive(isActive(id))
  *   const unsub = subscribe(() => setActive(isActive(id)))
  *   return () => { unsub(); releaseSlot(id) }
  *
- * Copied eight times, it drifted: two call sites never release on unmount, one
- * subscribes before requesting. More to the point, copying it is enough work
- * that the five bottom-anchored job/alert prompts simply did not — which is the
- * defect `components/shared/BottomPromptShell.tsx` exists to close.
+ * Eight copies of a four-line protocol whose steps have to happen in that
+ * order, each one free to get the order wrong. The concrete cost is not
+ * hypothetical drift though: it is that copying it is enough work that the
+ * bottom-anchored job/alert prompts never did — which is the defect
+ * `components/shared/BottomPromptShell.tsx` exists to close.
+ *
+ * The eight existing call sites are deliberately NOT converted here. They
+ * arbitrate correctly today, several wrap the protocol in conditions of their
+ * own, and rewriting eight popup behaviours to save duplication no visitor can
+ * see is the drive-by refactor AGENTS.md #6 forbids. The hook is for new call
+ * sites, and the shell is the one that matters.
  *
  * `active` is the ONLY thing a caller needs: render when it is true, render
  * nothing when it is false. The slot is requested on mount and released on
@@ -30,8 +37,8 @@ export function usePopupSlot(slotId: string, priority: number): boolean {
   // first render must not cost the prompt a paint, and the queue is a plain
   // module singleton so reading it during render is safe.
   const [active, setActive] = useState<boolean>(() => {
-    // Do NOT request here — a render can be discarded (StrictMode, Suspense
-    // replay) and a request made outside an effect would never be released.
+    // Do NOT request here — a render can be discarded (React strict mode, a
+    // Suspense replay), and a request made outside an effect is never released.
     return isActive(slotId);
   });
 

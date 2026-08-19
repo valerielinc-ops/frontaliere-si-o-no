@@ -47,6 +47,15 @@
  * and counting the first would report impressions for a toast nobody saw —
  * inflating the denominator of exactly the conversion rate this work is meant
  * to improve. `onShown` fires once, when the prompt is actually on screen.
+ *
+ * This is the same defect `hooks/useImpressionTracker.ts` was written for
+ * (#5039: two CTAs contributed 56% of the `job_alert_cta_shown` denominator
+ * with zero clicks between them, because they counted renders). It is NOT
+ * built on that hook, though: the observer answers "is this element in the
+ * viewport", and a `fixed` toast anchored to the bottom of the viewport is in
+ * it by construction the moment it renders. The open question here was never
+ * visibility, it was whether the prompt rendered AT ALL — so the answer is the
+ * slot, not an IntersectionObserver.
  */
 import React, { useEffect, useRef } from 'react';
 

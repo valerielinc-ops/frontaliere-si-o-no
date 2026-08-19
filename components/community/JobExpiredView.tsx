@@ -395,6 +395,28 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
   * BOTH layouts — including the logged-out auth gate, where it is the only
   * useful destination a visitor can reach without signing in.
   */
+ /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
+  *
+  * The highest-intent placement the feature has: the reader arrived for a job
+  * that no longer exists, so "tell me when this employer posts again" is the
+  * only action left that still does something for them. Rendered next to the
+  * company banner in both layouts below, gated and not, because the component
+  * handles the anonymous case itself (email capture + double opt-in).
+  */
+ const companyFollowCta = job.company ? (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={job.company}
+       companyKey={job.companyKey ?? null}
+       locale={locale as Locale}
+       surface="company_follow_expired"
+       sourceJobSlug={job.slug ?? null}
+       sourceJobTitle={job.title ?? null}
+     />
+   </Suspense>
+ ) : null;
+
  const employerHubCta = (
  <EmployerHubCta company={job.company} companyKey={job.companyKey} locale={locale as Locale} />
  );
@@ -448,30 +470,16 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  {employerHubCta}
+ {/* And the follow CTA right under it: same employer, same question, and the
+     one ask on this page that needs no account. It used to hang off the
+     company banner further down — which, as the banner's own comment notes,
+     renders BELOW the auth gate and the end-of-page ad in the gated layout,
+     i.e. out of reach of exactly the logged-out visitor it was written for.
+     Same move as the active ad in JobBoard, same reason. */}
+ {companyFollowCta}
  </>
  );
 
- /**
-  * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
-  *
-  * The highest-intent placement the feature has: the reader arrived for a job
-  * that no longer exists, so "tell me when this employer posts again" is the
-  * only action left that still does something for them. Rendered next to the
-  * company banner in both layouts below, gated and not, because the component
-  * handles the anonymous case itself (email capture + double opt-in).
-  */
- const companyFollowCta = job.company ? (
-   <Suspense fallback={null}>
-     <CompanyFollowCta
-       company={job.company}
-       companyKey={job.companyKey ?? null}
-       locale={locale as Locale}
-       surface="company_follow_expired"
-       sourceJobSlug={job.slug ?? null}
-       sourceJobTitle={job.title ?? null}
-     />
-   </Suspense>
- ) : null;
 
  // The banner deliberately keeps pointing at the in-app company FILTER, not at
  // the hub: it is a different destination (the live board, scoped to this
@@ -503,7 +511,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  </button>
- {companyFollowCta}
  </>
  );
 

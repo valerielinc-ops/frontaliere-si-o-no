@@ -407,6 +407,28 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
   * unless that slug is present, above the floor, in the map the emitter
   * publishes for pages it actually wrote.
   */
+ /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on an ORPHAN slug.
+  *
+  * The ad is not in the current dataset, so there is nothing left to apply to;
+  * "tell me when this employer posts again" is the only offer that still helps.
+  * Only rendered when the slug actually MATCHED a known employer
+  * (`slugParts.company` is null otherwise) — a guessed name would be persisted
+  * as the alert's company key and silently never match anything.
+  */
+ const companyFollowCta = slugParts.company ? (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={slugParts.company}
+       companyKey={derivedCompanyKey || null}
+       locale={locale as Locale}
+       surface="company_follow_orphan"
+       sourceJobSlug={slug}
+       sourceJobTitle={slugParts.title || null}
+     />
+   </Suspense>
+ ) : null;
+
  const employerHubCta = (
  <EmployerHubCta company={slugParts.company} companyKey={derivedCompanyKey} locale={locale as Locale} />
  );
@@ -453,31 +475,15 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </div>
  )}
  {employerHubCta}
+ {/* Same move as JobExpiredView and the active ad: the follow CTA belongs
+     next to the employer it follows, above the auth gate rather than below
+     the company banner further down the page. On an orphan slug it is the
+     only subscription still on offer. */}
+ {companyFollowCta}
  </div>
  </div>
  );
 
- /**
-  * CompanyAlert (#5012) — «Segui questa azienda» on an ORPHAN slug.
-  *
-  * The ad is not in the current dataset, so there is nothing left to apply to;
-  * "tell me when this employer posts again" is the only offer that still helps.
-  * Only rendered when the slug actually MATCHED a known employer
-  * (`slugParts.company` is null otherwise) — a guessed name would be persisted
-  * as the alert's company key and silently never match anything.
-  */
- const companyFollowCta = slugParts.company ? (
-   <Suspense fallback={null}>
-     <CompanyFollowCta
-       company={slugParts.company}
-       companyKey={derivedCompanyKey || null}
-       locale={locale as Locale}
-       surface="company_follow_orphan"
-       sourceJobSlug={slug}
-       sourceJobTitle={slugParts.title || null}
-     />
-   </Suspense>
- ) : null;
 
  const companyBanner = slugParts.company && companyHref && (
  <>
@@ -511,7 +517,6 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </div>
  </div>
  </button>
- {companyFollowCta}
  </>
  );
 

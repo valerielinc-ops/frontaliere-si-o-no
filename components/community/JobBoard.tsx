@@ -8688,7 +8688,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
          resolves it with its own `findCompanyAlert` call. A second instance
          on the same page would not just re-query: after one click the two
          would disagree, and clicking the stale one writes a SECOND alert
-         document for the same employer, burning a MAX_ALERTS_PER_USER slot.
+         document for the same employer, burning one of the visitor's few
+         alert slots.
          One control, moved. */}
  {companyFollowCta(selectedJob, 'company_follow_button')}
 

@@ -825,7 +825,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
      `var(--_heading)`, so `bg-heading text-heading` painted the confirmation in
      its own background colour — an invisible toast, in both themes, on the one
      surface that tells somebody their alert was created. The sibling that got
-     it right is FeedbackSection's `bg-heading text-surface`.
+     it right is the feedback CTA, which pairs the same background with a
+     foreground token that is not the same one.
      Left OUT of the popupQueue on purpose (unlike the four prompts that now
      share BottomPromptShell): this is a 2s status message confirming an action
      the visitor just took, not an offer competing for their attention, and a
