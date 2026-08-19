@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-siloah",
-  "assembledAt": "2026-08-19T10:08:39.596Z",
+  "assembledAt": "2026-08-19T21:31:26.590Z",
   "jobs": [
     {
       "id": "klinik-siloah-9a277285176e",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139054259-case-manager-in-dipl-pflegefachperson-hf-fh",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:08:32.940Z",
+      "crawledAt": "2026-08-19T21:31:19.961Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142787529-lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:08:32.933Z",
+      "crawledAt": "2026-08-19T21:31:19.952Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -130,11 +130,12 @@
       "datePosted": "2026-08-11",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
+        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
-        ],
         "it": [
           "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
           "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern"
@@ -142,15 +143,14 @@
         "en": [
           "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
         ],
+        "de": [
+          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
+          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
+        ],
         "fr": [
           "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah",
-        "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "apprendistato-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-muri-bei-bern"
-      ],
       "firstSeenAt": "2026-08-11T10:21:48.023Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
