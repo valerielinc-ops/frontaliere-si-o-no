@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-08-19T09:45:33.451Z",
+  "generatedAt": "2026-08-19T21:30:13.167Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6147,
-  "avgDurationMs": 6147,
+  "durationMs": 5776,
+  "avgDurationMs": 5776,
   "durationHistory": [
-    6147
+    5776
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5311536008?gh_jid=5311536008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:45:28.117Z",
+      "crawledAt": "2026-08-19T21:30:08.103Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:45:28.110Z",
+      "crawledAt": "2026-08-19T21:30:08.090Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:45:28.140Z",
+      "crawledAt": "2026-08-19T21:30:08.137Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -130,6 +130,7 @@
         "canton": "VS",
         "location": "Visp"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -151,7 +152,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:45:28.113Z",
+      "crawledAt": "2026-08-19T21:30:08.096Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
