@@ -10076,6 +10076,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Vivre à Dongo, travailler au Tessin en tant que frontalier',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Guide pratique : coût de la vie, fiscalité frontalière, permis G, cotisations AVS et LAMal, temps de trajet Dongo-Lugano, avantages et inconvénients du transfert transfrontalier.',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Vue du rivage du lac de Côme à Dongo avec montagnes et architecture historique du bord du lac',
+    'blog.article.bollettino-frontaliere-2026-08-19.title': 'Bulletin du frontalier – 19 août 2026 : 935 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-19.excerpt': 'Les chiffres du jour, 19 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'Les chiffres du jour pour les frontaliers – 19 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Bulletin du frontalier du 19 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'Les chiffres du 19 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
