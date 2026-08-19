@@ -62,7 +62,7 @@ describe('CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE — punteggiatura non-latina', () 
   });
 
   it('continua a salvare le terminazioni latine gia coperte prima del fix', () => {
-    for (const text of ['Frase completa.', 'Domanda?', 'Esclamazione!', 'sospensione…', 'citazione chiusa”', 'parentesi chiusa).']) {
+    for (const text of ['Frase completa.', 'Domanda?', 'Esclamazione!', 'sospensione…', 'citazione chiusa.”', 'parentesi chiusa).']) {
       const trace = traceWithText(text);
       expect(trace.salvage()?.text).toBe(text);
     }
