@@ -1,16 +1,16 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-08-19T10:24:35.666Z",
+  "generatedAt": "2026-08-19T21:39:53.599Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 14466,
-  "avgDurationMs": 14466,
+  "durationMs": 13975,
+  "avgDurationMs": 13975,
   "durationHistory": [
-    14466
+    13975
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:30.508Z",
+      "crawledAt": "2026-08-19T21:39:48.927Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-07-26",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-26T10:53:20.130Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -61,7 +62,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T10:24:31.254Z",
+      "crawledAt": "2026-08-19T21:39:49.790Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -97,7 +98,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:31.902Z",
+      "crawledAt": "2026-08-19T21:39:50.408Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,7 +134,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:32.560Z",
+      "crawledAt": "2026-08-19T21:39:51.017Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -147,6 +148,7 @@
       "featured": false,
       "postedDate": "2026-04-26",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-11T07:53:06.117Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -157,47 +159,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "hermes-833caf19b0b2",
-      "slug": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - In-Store Visual Merchandiser (F/H)",
-      "location": "Geneve, Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/22674/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:32:26.438Z",
-      "addressLocality": "Geneve, Geneva, Switzerland",
-      "postalCode": "1204",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22674/",
-      "firstSeenAt": "2026-08-03T22:12:44.509Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "hermes-b0c6f7aac2bc",
@@ -228,7 +190,8 @@
       "firstSeenAt": "2026-07-26T10:53:20.742Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -267,7 +230,8 @@
       "firstSeenAt": "2026-06-10T09:03:21.737Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-08-19T10:24:35.661Z",
+  "assembledAt": "2026-08-19T21:39:53.592Z",
   "jobs": [
     {
       "id": "hermes-c29e4ff59493",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:32.560Z",
+      "crawledAt": "2026-08-19T21:39:51.017Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -59,8 +59,8 @@
           "cx-manager-zurigo-f-m-hermes-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-06-11T07:53:06.117Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-11T07:53:06.117Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -105,7 +105,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:31.902Z",
+      "crawledAt": "2026-08-19T21:39:50.408Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T10:24:31.254Z",
+      "crawledAt": "2026-08-19T21:39:49.790Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -269,7 +269,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:30.508Z",
+      "crawledAt": "2026-08-19T21:39:48.927Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -299,8 +299,8 @@
           "cdi-hote-de-bienvenue-w-m-hermes-zurich-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-26T10:53:20.130Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-26T10:53:20.130Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -402,7 +402,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -478,7 +478,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
