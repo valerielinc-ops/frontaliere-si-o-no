@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fondation-domus-a4da05256506",
-      "slug": "cuisinier-100-fondation-domus-ch",
+      "slug": "fornello-100-fondation-domus-ardon",
       "slugByLocale": {
-        "it": "cuisinier-100-fondation-domus-ch",
-        "en": "cuisinier-100-fondation-domus-ch",
-        "de": "cuisinier-100-fondation-domus-ch",
-        "fr": "cuisinier-100-fondation-domus-ch"
+        "fr": "cuisinier-100-fondation-domus-ch",
+        "it": "fornello-100-fondation-domus-ardon",
+        "en": "cooker-100-fondation-domus-ardon",
+        "de": "kocher-100-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -62,16 +62,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-18T09:51:18.449Z"
+      "firstSeenAt": "2026-08-18T09:51:18.449Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-100-fondation-domus-ch"
+        ],
+        "en": [
+          "cuisinier-100-fondation-domus-ch"
+        ],
+        "de": [
+          "cuisinier-100-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-100-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-b22f9013dfc2",
-      "slug": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
+      "slug": "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon",
       "slugByLocale": {
-        "it": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-        "en": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-        "de": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
-        "fr": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
+        "fr": "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch",
+        "it": "infermiera-in-psichiatria-60-a-80-fondation-domus-ardon",
+        "en": "nurse-in-psychiatry-60-to-80-fondation-domus-ardon",
+        "de": "krankenschwester-in-der-psychiatrie-60-bis-80-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -124,7 +138,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-18T09:51:18.113Z"
+      "firstSeenAt": "2026-08-18T09:51:18.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
+        ],
+        "en": [
+          "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
+        ],
+        "de": [
+          "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-en-psychiatrie-60-a-80-fondation-domus-ch"
+      ]
     }
   ]
 }

@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon",
-        "assistente-tecnico-in-sterilizzazione-livello-2-clinique-cic-saxon-saxon"
+        "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon",
-          "assistente-tecnico-in-sterilizzazione-livello-2-clinique-cic-saxon-saxon"
+          "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
         ],
         "en": [
           "assistant-e-technique-en-sterilisation-niveau-2-clinique-cic-saxon"
@@ -79,12 +77,12 @@
     },
     {
       "id": "clinique-cic-001de28d90a4",
-      "slug": "infirmier-ere-clinique-cic-clarens",
+      "slug": "infermiera-clinique-cic-clarens-clarens",
       "slugByLocale": {
-        "it": "infirmier-ere-clinique-cic-clarens",
-        "en": "infirmier-ere-clinique-cic-clarens",
-        "de": "infirmier-ere-clinique-cic-clarens",
-        "fr": "infirmier-ere-clinique-cic-clarens"
+        "fr": "infirmier-ere-clinique-cic-clarens",
+        "it": "infermiera-clinique-cic-clarens-clarens",
+        "en": "nurse-clinique-cic-clarens-clarens",
+        "de": "krankenschwester-clinique-cic-clarens-clarens"
       },
       "company": "Clinique CIC Clarens",
       "companyKey": "clinique-cic",
@@ -137,7 +135,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T10:27:23.677Z"
+      "firstSeenAt": "2026-08-18T10:27:23.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinique-cic-clarens"
+        ],
+        "en": [
+          "infirmier-ere-clinique-cic-clarens"
+        ],
+        "de": [
+          "infirmier-ere-clinique-cic-clarens"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-clinique-cic-clarens"
+      ]
     }
   ]
 }
