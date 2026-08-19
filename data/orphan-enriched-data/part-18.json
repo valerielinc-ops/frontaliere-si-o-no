@@ -80617,6 +80617,64 @@
         "gsc",
         "all-known-slugs"
       ]
+    },
+    {
+      "slug": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern/"
+      },
+      "queries": [
+        {
+          "query": "decathlon jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "decathlon jobs",
+      "title": "Servizio clienti consulente fr de eng fixed term contract decathlon",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+        "en": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+        "de": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+        "fr": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+        "en": "/en/find-jobs-bern/servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+        "de": "/de/jobs-im-bern/servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern",
+        "fr": "/fr/trouver-emploi-berne/servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
     }
   ]
 }

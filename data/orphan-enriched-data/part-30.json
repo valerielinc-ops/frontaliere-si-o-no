@@ -79579,6 +79579,63 @@
         "all-known-slugs",
         "slug-parsing"
       ]
+    },
+    {
+      "slug": "apprendista-informatico-m-f-d-swisslog-argovia",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/apprendista-informatico-m-f-d-swisslog-argovia/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/apprendista-informatico-m-f-d-swisslog-argovia/"
+      },
+      "queries": [
+        {
+          "query": "informatico lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "informatico lavoro",
+      "title": "Apprendista informatico swisslog argovia",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "apprendista-informatico-m-f-d-swisslog-argovia",
+        "en": "apprendista-informatico-m-f-d-swisslog-argovia",
+        "de": "apprendista-informatico-m-f-d-swisslog-argovia",
+        "fr": "apprendista-informatico-m-f-d-swisslog-argovia"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/apprendista-informatico-m-f-d-swisslog-argovia",
+        "en": "/en/find-jobs-aargau/apprendista-informatico-m-f-d-swisslog-argovia",
+        "de": "/de/jobs-im-aargau/apprendista-informatico-m-f-d-swisslog-argovia",
+        "fr": "/fr/trouver-emploi-argovie/apprendista-informatico-m-f-d-swisslog-argovia"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
     }
   ]
 }

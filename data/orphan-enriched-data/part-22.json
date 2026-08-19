@@ -46064,6 +46064,16 @@
           "impressions": 5
         },
         {
+          "query": "offerte di lavoro casa di riposo svizzera",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "cerco lavoro come oss in svizzera",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "oss svizzera",
           "clicks": 0,
           "impressions": 4
@@ -46079,7 +46089,22 @@
           "impressions": 3
         },
         {
+          "query": "cerco lavoro come oss in svizzera",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte di lavoro centri diurni ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "oss svizzera offerte lavoro",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte lavoro svizzera per italiani",
           "clicks": 0,
           "impressions": 3
         },
@@ -46092,34 +46117,9 @@
           "query": "offerte di lavoro in svizzera per italiani",
           "clicks": 0,
           "impressions": 3
-        },
-        {
-          "query": "offerte di lavoro svizzera",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "offerte lavoro svizzera per italiani tempo pieno",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "lavoro oss svizzera vitto e alloggio",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "oss in svizzera",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "oss lavoro",
-          "clicks": 0,
-          "impressions": 3
         }
       ],
-      "totalImpressions": 281,
+      "totalImpressions": 309,
       "totalClicks": 4,
       "topQuery": "offerte lavoro svizzera per italiani",
       "title": "Operatori socio sanitari",
@@ -81478,6 +81478,84 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern/"
+      },
+      "queries": [
+        {
+          "query": "case manager emploi",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "emploi case manager",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "job case manager",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "siloah gümligen jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "siloah gümligen offene stellen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "topQuery": "case manager emploi",
+      "title": "Case manager in dipl pflegefachperson hf fh privatklinik siloah",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+        "en": "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+        "de": "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+        "fr": "case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+        "en": "/en/find-jobs-bern/case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+        "de": "/de/jobs-im-bern/case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern",
+        "fr": "/fr/trouver-emploi-berne/case-manager-in-dipl-pflegefachperson-hf-fh-privatklinik-siloah-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     }
   ]

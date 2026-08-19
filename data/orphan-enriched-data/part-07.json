@@ -76307,6 +76307,74 @@
         "gsc",
         "all-known-slugs"
       ]
+    },
+    {
+      "slug": "mitarbeiter-in-sales-30-manor-ag-basel",
+      "locale": "en",
+      "path": "/en/find-jobs-basel/mitarbeiter-in-sales-30-manor-ag-basel/",
+      "observedPaths": {
+        "en": "/en/find-jobs-basel/mitarbeiter-in-sales-30-manor-ag-basel/"
+      },
+      "queries": [
+        {
+          "query": "manor basel jobs",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "manor jobs",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "jobs manor",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "manor basel jobs",
+      "title": "Mitarbeiter in sales 30",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "mitarbeiter-in-sales-30-manor-ag-basel",
+        "en": "mitarbeiter-in-sales-30-manor-ag-basel",
+        "de": "mitarbeiter-in-sales-30-manor-ag-basel",
+        "fr": "mitarbeiter-in-sales-30-manor-ag-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/mitarbeiter-in-sales-30-manor-ag-basel",
+        "en": "/en/find-jobs-basel/mitarbeiter-in-sales-30-manor-ag-basel",
+        "de": "/de/jobs-im-basel/mitarbeiter-in-sales-30-manor-ag-basel",
+        "fr": "/fr/trouver-emploi-bale/mitarbeiter-in-sales-30-manor-ag-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
     }
   ]
 }
