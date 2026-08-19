@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T05:56:38.013Z",
+  "updatedAt": "2026-08-19T06:29:44.614Z",
   "perCrossing": {
     "anieres": {
       "waitTimeMinutes": 0,
@@ -207,7 +207,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-19T05:56:38.013Z"
+      "lastUpdate": "2026-08-19T06:29:44.614Z"
     },
     "campocologno-tirano": {
       "waitTimeMinutes": 0,
@@ -234,12 +234,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "chiasso-brogeda": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 0,
+      "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-19T05:56:38.013Z"
+      "lastUpdate": "2026-08-19T06:29:44.614Z"
     },
     "chiasso-centro": {
       "waitTimeMinutes": 0,
@@ -247,7 +247,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-19T05:56:38.013Z"
+      "lastUpdate": "2026-08-19T06:29:44.614Z"
     },
     "chiasso-strada": {
       "waitTimeMinutes": 0,
@@ -255,7 +255,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "webcam",
-      "lastUpdate": "2026-08-19T05:56:38.013Z"
+      "lastUpdate": "2026-08-19T06:29:44.614Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 1,
@@ -394,12 +394,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "gaggiolo": {
-      "waitTimeMinutes": 22,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 22,
-      "status": "red",
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-08-19T05:56:38.013Z"
+      "lastUpdate": "2026-08-19T06:29:44.614Z"
     },
     "gailingen-am-hochrhein-dorflingen": {
       "waitTimeMinutes": 0,
@@ -978,12 +978,12 @@
       "lastUpdate": "2026-08-09T14:26:56.091Z"
     },
     "san-pietro": {
-      "waitTimeMinutes": 22,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 22,
-      "status": "red",
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
       "source": "webcam",
-      "lastUpdate": "2026-08-19T05:56:38.013Z"
+      "lastUpdate": "2026-08-19T06:29:44.614Z"
     },
     "sauverny": {
       "waitTimeMinutes": 0,
