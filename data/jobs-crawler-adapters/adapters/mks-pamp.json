@@ -12,8 +12,14 @@
     "https://careers.mkspamp.com/jobs"
   ],
   "notes": "Dedicated MKS PAMP crawler. RSS feed for job list, detail pages for location filtering (JSON-LD). Filters Castel San Pietro (TI) positions.",
-  "updatedAt": "2026-08-19T10:05:30.942Z",
+  "updatedAt": "2026-08-19T21:38:27.640Z",
   "seedMetaByUrl": {
+    "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager": {
+      "location": "Castel San Pietro",
+      "canton": "TI",
+      "company": "MKS PAMP",
+      "postedDate": "2026-08-19"
+    },
     "https://careers.mkspamp.com/jobs/8207408-technical-drawer-tooling-warehouse-specialist": {
       "location": "Castel San Pietro",
       "canton": "TI",
