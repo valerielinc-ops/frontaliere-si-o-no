@@ -10067,6 +10067,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-brezzo-bedero-lavorare-ticino.title': 'Leben in Brezzo di Bedero und Arbeiten im Tessin',
     'blog.article.vivere-brezzo-bedero-lavorare-ticino.excerpt': 'Praktischer Leitfaden für grenzüberschreitende Pendler: G-Genehmigung, Quellensteuer, AHV, BVG, KVG, Rabatte. Alles über Steuern und soziale Sicherheit für diejenigen, die in Brezzo leben und im Tessin arbeiten.',
     'blog.article.vivere-brezzo-bedero-lavorare-ticino.imageAlt': 'Lago Maggiore bei Locarno mit Alpengipfeln im Hintergrund und Hafengebiet in frühem Licht',
+    'blog.article.vivere-malnate-lavorare-ticino-frontaliere.title': 'Leben in Malnate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-malnate-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die empfohlenen Gebiete für Grenzgänger, die in Malnate leben und im Tessin arbeiten.',
+    'blog.article.vivere-malnate-lavorare-ticino-frontaliere.imageAlt': 'Ein in Ticino arbeitender Frontalier, der in Malnate wohnt.',
 };
 
 export default blogMetaDe;

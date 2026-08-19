@@ -10068,6 +10068,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brezzo-bedero-lavorare-ticino.title': 'Living in Brezzo di Bedero and working in Ticino',
     'blog.article.vivere-brezzo-bedero-lavorare-ticino.excerpt': 'Practical guide for border workers: G permit, tax at source, AVS, LPP, LAMal, refreshments. All about taxes and social security for those who live in Brezzo and work in Ticino.',
     'blog.article.vivere-brezzo-bedero-lavorare-ticino.imageAlt': 'Lake Maggiore shoreline near Locarno with Alpine mountains in distance and morning light over harbor',
+    'blog.article.vivere-malnate-lavorare-ticino-frontaliere.title': 'Living in Malnate and working in Ticino as a border worker',
+    'blog.article.vivere-malnate-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and recommended areas for border workers living in Malnate and working in Ticino.',
+    'blog.article.vivere-malnate-lavorare-ticino-frontaliere.imageAlt': 'A Ticino-based worker residing in Malnate.',
 };
 
 export default blogMetaEn;
