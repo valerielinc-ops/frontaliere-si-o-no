@@ -72,6 +72,13 @@
  * non esistono, e mancano ~160 moduli importati → il gate va rosso per motivi
  * d'ambiente, non di codice. Vedi CLAUDE.md, «Stato macchina». In CI il
  * checkout è pieno e il confronto è valido.
+ *
+ * Questo vale anche se il pattern sparse aggiunge a mano la sola
+ * `data/typecheck-baseline.json` (issue #6061 item 2): il file esiste, ma
+ * `data/blog-articles-data.ts` & co. restano non risolti, quindi `tsc`
+ * produce ~126 falsi `TS2307` che finiscono nella baseline appena riscritta.
+ * `isWorktreeIncomplete()` sotto intercetta anche questo caso, prima di
+ * lanciare `tsc` in QUALUNQUE modalità (gate, --list, --json, --write-baseline).
  */
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -91,6 +98,18 @@ const isAdvisory = (file) => ADVISORY_PREFIXES.some((p) => file.startsWith(p));
 const ERROR_RE = /^(?<file>[^(]+)\((?<line>\d+),(?<col>\d+)\): error (?<code>TS\d+): (?<msg>.*)$/;
 /** Errore senza file (es. TS18003 «No inputs were found»): sempre bloccante. */
 const GLOBAL_ERROR_RE = /^error (?<code>TS\d+): (?<msg>.*)$/;
+
+/**
+ * Distingue un worktree sparse (o parzialmente materializzato) da uno pieno
+ * senza fidarsi della sola presenza della baseline JSON — un pattern sparse
+ * può aggiungerla a mano senza portare con sé i moduli TS che `data/`
+ * importa (es. `data/blog-articles-data.ts`, symlink a
+ * `packages/articles/content/`). `fs.existsSync` su un symlink segue il
+ * target: se il target manca (worktree sparse), torna `false`.
+ */
+function isWorktreeIncomplete() {
+  return !fs.existsSync(path.join(ROOT, 'data', 'blog-articles-data.ts'));
+}
 
 function runTsc() {
   if (!fs.existsSync(TSC_BIN)) {
@@ -210,6 +229,13 @@ const args = process.argv.slice(2);
 const unknown = args.filter((a) => !['--list', '--write-baseline', '--json'].includes(a));
 if (unknown.length) {
   console.error(`uso: check-typecheck-baseline.mjs [--list|--write-baseline|--json]  (ignoto: ${unknown.join(' ')})`);
+  process.exit(2);
+}
+
+if (isWorktreeIncomplete()) {
+  console.error('✗ worktree incompleto: data/blog-articles-data.ts non risolve (worktree sparse, `data/` e `packages/articles/content/` non materializzati).');
+  console.error('  È un problema di ambiente, non di codice: `tsc` produrrebbe decine di falsi TS2307 su moduli mancanti.');
+  console.error('  Riproduci con un checkout PIENO (non un worktree sparse): npm run typecheck / typecheck:gate');
   process.exit(2);
 }
 
