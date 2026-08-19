@@ -1,18 +1,19 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-08-18T22:11:36.453Z",
+  "generatedAt": "2026-08-19T09:44:48.676Z",
   "total": 3,
-  "newCount": 2,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5855,
-  "avgDurationMs": 5855,
+  "durationMs": 5019,
+  "avgDurationMs": 5019,
   "durationHistory": [
-    5855
+    5019
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "privatklinik-hohenegg-63d8db42b814",
       "slug": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
@@ -20,13 +21,13 @@
       "companyKey": "privatklinik-hohenegg",
       "companyDomain": "hohenegg.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF (in Ausbildung)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:11:31.842Z",
+      "crawledAt": "2026-08-19T09:44:44.941Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,11 +45,12 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-18T22:11:31.842Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -65,7 +67,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:11:32.287Z",
+      "crawledAt": "2026-08-19T09:44:45.374Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,16 +85,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-18T22:11:32.287Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "privatklinik-hohenegg-ce6d6d862ab0",
       "slug": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
@@ -106,7 +107,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:11:31.375Z",
+      "crawledAt": "2026-08-19T09:44:44.498Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
