@@ -10086,6 +10086,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-fermo-battaglia-frontaliere.title': 'Vivere a San Fermo della Battaglia e lavorare in Ticino',
     'blog.article.san-fermo-battaglia-frontaliere.excerpt': 'Guida pratica per frontalieri G: come trasferirsi da San Fermo della Battaglia, regime fiscale 2024, Permesso G, costi pendolarismo, checklist procedura.',
     'blog.article.san-fermo-battaglia-frontaliere.imageAlt': 'Vista di Lugano al tramonto con le Alpi svizzere sullo sfondo — destinazione tipica di frontalieri da San Fermo della Battaglia',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.title': 'Vivere a Castello Cabiaglio e lavorare in Ticino da frontaliere',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.excerpt': 'Guida pratica al trasferimento: location, tasse nuovi accordi 2024, contributi AVS/LPP, LAMal, procedura permesso G, costi e vantaggi.',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.imageAlt': 'Veduta aerea del confine Ticino-Varese: paesaggio frontaliero alpino con colline e valichi, foto DSLR realistica',
 };
 
 export default blogMetaIt;

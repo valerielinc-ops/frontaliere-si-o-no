@@ -10085,6 +10085,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-fermo-battaglia-frontaliere.title': 'Living in San Fermo della Battaglia and working in Ticino',
     'blog.article.san-fermo-battaglia-frontaliere.excerpt': 'Practical guide for G border workers: how to move from San Fermo della Battaglia, tax regime 2024, G Permit, commuting costs, procedure checklist.',
     'blog.article.san-fermo-battaglia-frontaliere.imageAlt': 'Scenic view of Lugano at sunset with Swiss Alps in the background — typical destination for San Fermo della Battaglia commuters',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.title': 'Living in Castello Cabiaglio and working in Ticino as a border worker',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.excerpt': 'Practical guide to the transfer: location, new 2024 agreements taxes, AVS/LPP contributions, LAMal, G permit procedure, costs and advantages.',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.imageAlt': 'Aerial view of Ticino-Varese border crossing with Alpine hills and frontier landscape, realistic DSLR photography',
 };
 
 export default blogMetaEn;

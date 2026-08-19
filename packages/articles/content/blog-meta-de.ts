@@ -10084,6 +10084,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.san-fermo-battaglia-frontaliere.title': 'Leben in San Fermo della Battaglia und Arbeiten im Tessin',
     'blog.article.san-fermo-battaglia-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger G: Umzug aus San Fermo della Battaglia, Steuerregelung 2024, Genehmigung G, Pendelkosten, Checkliste Verfahren.',
     'blog.article.san-fermo-battaglia-frontaliere.imageAlt': 'Blick auf Lugano bei Sonnenuntergang mit Schweizer Alpen im Hintergrund — typisches Ziel für Grenzgänger aus San Fermo della Battaglia',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.title': 'Wohnen in Castello Cabiaglio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.excerpt': 'Praxisleitfaden für die Verlegung: Standorte, Steuern neue Vereinbarungen 2024, AHV/BVG-BEITRÄGE, KVG, Bewilligungsverfahren G, Kosten und Nutzen.',
+    'blog.article.castello-cabiaglio-frontaliere-ticino.imageAlt': 'Luftaufnahme des Grenzübergangs Tessin-Varese mit Alpenlandschaft und Grenzgebiet, realistische DSLR-Fotografie',
 };
 
 export default blogMetaDe;
