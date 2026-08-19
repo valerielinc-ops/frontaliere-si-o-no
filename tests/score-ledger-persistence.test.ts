@@ -117,6 +117,29 @@ describe('ledger dei punteggi: i due modi silenziosi di riaprire il buco', () =>
     expect(offenders).toEqual([]);
   });
 
+  it('lastUsed avanza solo su un vero successo, non su ogni run che fallisce', () => {
+    // #6065 item 2: se `lastUsed` (l'ancora del decadimento in `_decayScore`)
+    // viene ristampato a "now" su OGNI persist — successo o fallimento — allora
+    // un modello permanentemente rotto ma ancora tentato ogni run vede sempre
+    // un `ageH` piccolo (la cadenza fra i run), non il tempo reale trascorso da
+    // quando ha funzionato l'ultima volta. Il punto fisso che ne risulta,
+    // `s = 0.75*s - 3 -> s ~ -12`, puo' scavalcare un modello che funziona al
+    // 70%. La entry deve costruire `lastUsed` SOLO quando questo ciclo contiene
+    // almeno un successo (`counterDelta?.successes`), cosi' un fallimento non
+    // resetta l'ancora e il decadimento riflette il vero tempo trascorso.
+    const src = readFileSync(AI_MODELS, 'utf8');
+    const start = src.indexOf('async function _persistScoresToFirestore');
+    expect(start).toBeGreaterThan(-1);
+    const end = src.indexOf('modelsDelta[_encodeModelId(modelId)] = entry;', start);
+    expect(end).toBeGreaterThan(start);
+    const body = src.slice(start, end);
+    // La entry iniziale non deve piu' contenere `lastUsed: now` incondizionato.
+    const entryLiteral = body.slice(body.indexOf('const entry = {'), body.indexOf('const entry = {') + 300);
+    expect(entryLiteral).not.toMatch(/lastUsed:\s*now/);
+    // Deve invece essere assegnato condizionalmente, gated sui successi del delta.
+    expect(body).toMatch(/if\s*\(\s*counterDelta\?\.successes\s*\)\s*entry\.lastUsed\s*=\s*now;/);
+  });
+
   it('lo snapshot del ledger e il suo clear sono un blocco sincrono', () => {
     // Perche' due invocazioni concorrenti di `_persistScoresToFirestore()` — il
     // debounce di `_schedulePersist` e il flush di `flushScoresBeforeExit`
