@@ -3394,6 +3394,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.industria-costruzione-crescita-q2.title': 'Industrie et construction croissent : +5,1% au Q2',
     'blog.article.industria-costruzione-crescita-q2.excerpt': 'Au deuxième trimestre, la production du secteur secondaire suisse augmente à nouveau. Selon l\'Office fédéral de la statistique, industrie +5,5%, construction +2,1%.',
     'blog.article.industria-costruzione-crescita-q2.imageAlt': 'Usine manufacturière suisse avec des travailleurs vérifiant la qualité à la chaîne d\'assemblage',
+    'blog.article.difesa-aerea-svizzera-investimenti.title': 'Défense aérienne : le Conseil fédéral accélère les investissements',
+    'blog.article.difesa-aerea-svizzera-investimenti.excerpt': '970 millions pour la défense aérienne et 100 millions pour la sécurité des sites militaires d\'ici 2029 pour répondre aux défis mondiaux.',
+    'blog.article.difesa-aerea-svizzera-investimenti.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Indemnité maladie : le système fonctionne bien',
+    'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Conseil fédéral confirme : le système de protection des travailleurs en cas de maladie est adéquat. Couverture à 85-90 % dans les entreprises, seulement 0,13 % des travailleurs exclus.',
+    'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Bâtiment fédéral suisse à Berne avec drapeaux officiels le jour. Travailleurs traversant la zone administrative fédérale.',
 };
 
 export default blogMetaChFr;

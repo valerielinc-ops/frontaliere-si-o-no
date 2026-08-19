@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { splitJobLocation } from './job-location-display.mjs';
 import {
   fetchSuccessFactorsJobs,
   SuccessFactorsAuthError,
@@ -210,8 +211,17 @@ export async function fetchAllNestleJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Vevey';
-    const canton = inferSwissTargetCanton(location) || 'VD';
+    const rawLocation = listing.location || 'Vevey';
+    const canton = inferSwissTargetCanton(rawLocation) || 'VD';
+    // Nestlé's feed appends the country to every city ("Konolfingen, CH"), and
+    // that string was stored verbatim as `location`/`addressLocality`. Every
+    // consumer then added the canton on top of it: the `• Location:` line below
+    // shipped "Konolfingen, CH, Kanton BE" on 35 postings (measured on
+    // origin/main 2026-08-19, the only crawler where the duplication actually
+    // reached a published description), and the job page hero printed
+    // "Konolfingen, CH (BE)". Strip the marker ONCE, here, so the stored field
+    // is the city and nothing downstream has to know the feed's shape.
+    const location = splitJobLocation(rawLocation, canton).city || rawLocation;
     const publicUrl = listing.url || CAREER_URL;
 
     const detailDescription = await fetchJobDescriptionText(publicUrl);

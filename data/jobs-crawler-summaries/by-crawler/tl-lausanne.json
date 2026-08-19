@@ -1,16 +1,16 @@
 {
   "key": "tl-lausanne",
   "label": "tl (Transports publics de la région lausannoise)",
-  "generatedAt": "2026-08-18T21:32:29.253Z",
-  "total": 5,
+  "generatedAt": "2026-08-19T09:48:29.055Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6407,
-  "avgDurationMs": 6407,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5788,
+  "avgDurationMs": 5788,
   "durationHistory": [
-    6407
+    5788
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-ferroviaire-Installations-de-S%C3%A9curit%C3%A9/1425742733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T21:32:24.824Z",
+      "crawledAt": "2026-08-19T09:48:24.730Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Approvisionnement-Supply-Chain-Ferroviaire/1424618233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T21:32:25.464Z",
+      "crawledAt": "2026-08-19T09:48:25.341Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Environnement/1422101133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T21:32:26.094Z",
+      "crawledAt": "2026-08-19T09:48:25.958Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T21:32:26.729Z",
+      "crawledAt": "2026-08-19T09:48:26.582Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "tl-lausanne-0050186a1d33",
       "slug": "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne",
@@ -201,7 +200,6 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,5 +208,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

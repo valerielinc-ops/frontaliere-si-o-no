@@ -10099,6 +10099,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ferrera-varese-frontaliere-ticino.title': 'Vivre à Ferrera di Varese et travailler au Tessin en tant que frontalier',
     'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'Nouvel accord 2024, impôt à la source suisse, franchises 7 500 à 10 000 € et déclaration de revenus italienne pour ceux qui travaillent dans le canton du Tessin.',
     'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Travailleurs frontaliers se rendant au travail dans le canton du Tessin depuis la région italienne frontalière',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.title': 'Vivre à Centro Valle Intelvi et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.excerpt': 'Réglage fiscal, autorisations et avantages du transfert',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier qui se transfère à Centro Valle Intelvi et travaille en Suisse',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Vivre à Laglio et travailler dans le Tessin en tant que frontalier',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Paramètres fiscaux, permis et double imposition : ce que vous devez savoir si vous êtes frontalier et que vous vivez à Laglio, mais que vous travaillez au Tessin.',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaFr;

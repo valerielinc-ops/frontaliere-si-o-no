@@ -3394,6 +3394,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.industria-costruzione-crescita-q2.title': 'Industrie und Baugewerbe wachsen: +5,1% im Q2',
     'blog.article.industria-costruzione-crescita-q2.excerpt': 'Im zweiten Quartal wächst die Produktion des Schweizer Sekundärsektors wieder. Laut Bundesamt für Statistik, Industrie +5,5%, Bau +2,1%.',
     'blog.article.industria-costruzione-crescita-q2.imageAlt': 'Schweizer Fertigungsstätte mit Arbeitern, die die Produktqualität am Fließband überprüfen',
+    'blog.article.difesa-aerea-svizzera-investimenti.title': 'Luftverteidigung: Bundesrat beschleunigt Investitionen',
+    'blog.article.difesa-aerea-svizzera-investimenti.excerpt': 'Bis 2029 werden 970 Millionen für die Luftverteidigung und 100 Millionen für die Sicherheit militärischer Stützpunkte bereitgestellt, um auf globale Herausforderungen zu reagieren.',
+    'blog.article.difesa-aerea-svizzera-investimenti.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
+    'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Krankengeld: Das System funktioniert gut',
+    'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Bundesrat bestätigt: Das Schutzsystem für Arbeitnehmer im Krankheitsfall ist angemessen. 85-90% Deckung in den Betrieben, nur 0,13% der Arbeitnehmer ausgeschlossen.',
+    'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Schweizer Bundesgebäude in Bern mit offiziellen Fahnen tagsüber. Arbeitnehmer gehen durch das Bundesverwaltungsgebiet.',
 };
 
 export default blogMetaChDe;
