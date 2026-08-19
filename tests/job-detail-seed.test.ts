@@ -328,7 +328,14 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       // is the above-the-fold content. Keyed on the route, the pathname guard in
       // readSeededJob can actually fire.
       expect(src).not.toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
-      expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[initialJobSlug\]\)/);
+      // Keyed on the PATHNAME since the cluster-seed follow-up: readSeededJob's
+      // guard compares pathnames, and `initialJobSlug` can stay equal across two
+      // different pathnames (the two `ricerca-` families share slugs), which
+      // left the guard unreachable and pinned a stale seed. Keying on what the
+      // guard tests makes the two impossible to drift apart. The invariant PR
+      // #5328 established — the memo must re-run on a soft navigation — is
+      // unchanged and still asserted by the `[]` rejection above.
+      expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[seedPathname\]\)/);
     });
 
     it('seeds the initial jobs state with the build-injected record', () => {

@@ -2137,13 +2137,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [initialFilterCanton, locale],
  );
 
+ /**
+  * The pathname the build-injected inline scripts belong to, read during render
+  * so it is the post-navigation value on the render a navigation triggers.
+  *
+  * Both seeds below key their memo on it, because both their guards compare
+  * PATHNAMES. A coarser key (the route slug) can stay equal across two
+  * different pathnames — `/cerca-lavoro-ticino/ricerca-X/` and
+  * `/cerca-lavoro-svizzera/ricerca-X/` are different pages with the same slug,
+  * and some slugs really do exist in both families — which leaves the guard
+  * unreachable and pins the previous page's seed on screen.
+  */
+ const seedPathname = typeof window === 'undefined' ? '' : window.location.pathname;
+
  // Build-injected slim record for THIS active job-detail page (window.__JOB_SEED__),
  // or null on board pages / SPA navigation. Read once per mount.
- // Dep on `initialJobSlug`, NOT `[]`: the guard inside readSeededJob is inert
- // unless the memo actually re-runs after a soft-navigation (same reason as
- // bridgeTargetSlug below). At mount the pathname matches, so the seeded
- // first paint is unchanged; only later routes now correctly see null.
- const seededJob = useMemo(() => readSeededJob(), [initialJobSlug]);
+ // The dep is NOT `[]`: the guard inside readSeededJob is inert unless the memo
+ // actually re-runs after a soft-navigation (same reason as bridgeTargetSlug
+ // below). At mount the pathname matches, so the seeded first paint is
+ // unchanged; only later routes correctly see null.
+ //
+ // It is the PATHNAME rather than `initialJobSlug` (PR #5328's original key) for
+ // the same reason the cluster seed below uses it: the guard compares pathnames,
+ // so a key that can stay equal across two different pathnames leaves the guard
+ // unreachable and pins a stale seed. Keying on what the guard actually tests
+ // makes the two impossible to drift apart.
+ const seededJob = useMemo(() => readSeededJob(), [seedPathname]);
  // Seed the jobs array so `selectedJob` resolves on the first frame — no orphan
  // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
  // replaces this array; `finalize` re-applies any detail fetched meanwhile and
@@ -2158,16 +2177,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
   * script belongs to ONE document and must go stale on a soft navigation —
   * `readClusterSearchSeed` re-checks the pathname it was emitted for.
   */
- // Keyed on the PATHNAME, not on `initialJobSlug` like `seededJob` is. The two
- // are not interchangeable here: `/cerca-lavoro-ticino/ricerca-X/` (keyword
- // page) and `/cerca-lavoro-svizzera/ricerca-X/` (search cluster) are different
- // pages that yield the SAME `initialJobSlug`, and some slugs really do exist
- // in both families. Keyed on the slug, a navigation between them would not
- // re-run this memo, and the previous page's results would stay on screen —
- // the exact stale-seed class the pathname check inside readClusterSearchSeed
- // exists to prevent, reintroduced one level up. Read during render, so it is
- // the post-navigation value on the render that navigation triggers.
- const seedPathname = typeof window === 'undefined' ? '' : window.location.pathname;
  const clusterSeed = useMemo(
    () => (seedPathname ? readClusterSearchSeed(seedPathname) : null),
    [seedPathname],
