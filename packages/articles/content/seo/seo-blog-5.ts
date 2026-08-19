@@ -70427,6 +70427,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vedano-olona-frontaliere-ticino': {
+    title: 'Vivere a Vedano Olona e lavorare in Ticino: guida completa',
+    description: 'Frontaliere da Vedano Olona a Ticino: Permesso G, tassazione, imposta alla fonte, contributi INPS, convenzione Italia-Svizzera 1976 e Nuovo Accordo 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, vedano, olona, lavorare',
+    ogTitle: 'Vivere a Vedano Olona e lavorare in Ticino: guida completa',
+    ogDescription: 'Residenza in Lombardia, lavoro in Svizzera. Scopri tassazione frontalieri, Permesso G, imposta alla fonte, contributi INPS e convenzione bilaterale Italia-Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vedano-olona-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Vedano Olona e lavorare in Ticino: guida completa",
+      "description": "Frontaliere da Vedano Olona a Ticino: Permesso G, tassazione, imposta alla fonte, contributi INPS, convenzione Italia-Svizzera 1976 e Nuovo Accordo 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vedano-olona-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Ticino dal confine di Vedano Olona, colline lombarde e paesaggio transfrontaliero."
+      },
+      "datePublished": "2026-08-19T18:42:43+00:00",
+      "dateModified": "2026-08-19T18:42:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vedano-olona-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

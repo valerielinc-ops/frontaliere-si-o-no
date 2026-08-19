@@ -10153,6 +10153,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Vivre à Orsenigo : le quotidien d\'un frontalier au Tessin',
     'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord fiscal pour les frontaliers : comment cela fonctionne et ce que cela signifie pour les résidents d\'Orsenigo.',
     'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Image d\'un frontalier du Tessin',
+    'blog.article.vedano-olona-frontaliere-ticino.title': 'Vivre à Vedano Olona et travailler au Tessin : guide complet',
+    'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Résidence en Lombardie, travail en Suisse : fiscalité frontalière, permis, conventions bilatérales et échéances fiscales 2024-2025.',
+    'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'Vue du Tessin depuis la frontière de Vedano Olona, collines lombardes et paysage transfrontalier.',
 };
 
 export default blogMetaFr;

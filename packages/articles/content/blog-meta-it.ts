@@ -10152,6 +10152,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Vivere a Orsenigo e lavorare in Ticino da frontaliere: cosa cambia?',
     'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Il nuovo accordo fiscale per i frontalieri: come funziona e cosa significa per i residenti di Orsenigo.',
     'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Immagine di un frontaliere in Ticino',
+    'blog.article.vedano-olona-frontaliere-ticino.title': 'Vivere a Vedano Olona e lavorare in Ticino: guida completa',
+    'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Residenza in Lombardia, lavoro in Svizzera: tassazione frontalieri, permessi, convenzioni bilaterali e scadenze fiscali 2024-2025.',
+    'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'Vista del Ticino dal confine di Vedano Olona, colline lombarde e paesaggio transfrontaliero.',
 };
 
 export default blogMetaIt;
