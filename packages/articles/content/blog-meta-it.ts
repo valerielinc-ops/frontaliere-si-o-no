@@ -10119,6 +10119,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d\'Intelvi: vivere e lavorare in Ticino',
     'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Permesso G, aliquote fiscali, valichi e ristorni per chi risiede nella Valle d\'Intelvi e lavora nel Canton Ticino: guida pratica del frontaliere 2024-2026',
     'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'Paesaggio della Valle d\'Intelvi con vista verso il Ticino e le Alpi Svizzere, meta quotidiana di frontalieri che lavorano nel Canton Ticino',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio: vivere e lavorare da frontaliere in Ticino',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Vivere in Italia di confine e lavorare in Svizzera: guida fiscale, previdenziale e pratica per frontalieri con Permesso G. Imposta alla fonte, AVS/LPP, LAMal e procedure.',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Paesaggio di confine Ticino-Como all\'alba: un frontaliere attraversa il valico svizzero-italiano durante la pendolarità quotidiana verso il lavoro.',
 };
 
 export default blogMetaIt;

@@ -10118,6 +10118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d \'Intelvi: living and working in Ticino',
     'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Permit G, tax rates, crossings and refunds for those residing in the Valle d \'Intelvi and working in the Canton of Ticino: practical guide for border workers 2024-2026',
     'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'View of Intelvi Valley toward Ticino and Swiss Alps, daily destination for thousands of commuters working in Canton Ticino',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio: living and working as a border worker in Ticino',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Living in border Italy and working in Switzerland: tax, social security and practical guide for border workers with Permit G. Tax at source, AVS/LPP, LAMal and procedures.',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Dawn border landscape Ticino-Como region: a cross-border commuter crossing the Swiss-Italian border during daily commute to work in Switzerland.',
 };
 
 export default blogMetaEn;

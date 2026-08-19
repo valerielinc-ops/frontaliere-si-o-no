@@ -69998,6 +69998,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-lurate-caccivio-lavorare-ticino': {
+    title: 'Lurate Caccivio: vivere e lavorare da frontaliere in Ticino',
+    description: 'Vivere a Lurate Caccivio e lavorare in Svizzera: guida a permessi G/B, imposta alla fonte, AVS/LPP, LAMal, costo vita e procedura per frontalieri italiani.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lurate, caccivio, vivere, lavorare',
+    ogTitle: 'Lurate Caccivio: vivere e lavorare da frontaliere in Ticino',
+    ogDescription: 'Trasferissi a Lurate Caccivio per lavorare in Ticino? Guida completa su permesso G, imposta alla fonte (solo Svizzera), AVS/LPP, LAMal, cambio CHF-EUR, ristorni fiscali. Checklist e scadenze per frontalieri italiani.',
+    canonicalPath: '/articoli-frontaliere/vivere-lurate-caccivio-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lurate Caccivio: vivere e lavorare da frontaliere in Ticino",
+      "description": "Vivere a Lurate Caccivio e lavorare in Svizzera: guida a permessi G/B, imposta alla fonte, AVS/LPP, LAMal, costo vita e procedura per frontalieri italiani.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-lurate-caccivio-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di confine Ticino-Como all'alba: un frontaliere attraversa il valico svizzero-italiano durante la pendolarità quotidiana verso il lavoro."
+      },
+      "datePublished": "2026-08-19T12:11:42+00:00",
+      "dateModified": "2026-08-19T12:11:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-lurate-caccivio-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

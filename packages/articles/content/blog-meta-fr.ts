@@ -10120,6 +10120,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d\'Intelvi : vivre et travailler au Tessin',
     'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Permis G, taux d\'imposition, cols et rafraîchissements pour ceux qui résident dans la Vallée d\'Intelvi et travaillent dans le canton du Tessin : guide pratique du frontalier 2024-2026',
     'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'Vue de la Vallée d\'Intelvi vers le Tessin et les Alpes suisses, destination quotidienne de milliers de frontaliers',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio : vivre et travailler comme frontalier au Tessin',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Vivre en Italie frontalière et travailler en Suisse : guide fiscal, de prévoyance et de pratique pour les frontaliers avec permis G. Impôt à la source, AVS/LPP, LAMal et procédures.',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Paysage frontalier Tessin-Côme à l\'aube: un travailleur frontalier franchissant la frontière Suisse-Italie lors de son trajet quotidien vers le travail.',
 };
 
 export default blogMetaFr;
