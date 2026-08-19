@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Building2, Check, Loader2, Mail } from 'lucide-react';
+import { BellRing, Check, Loader2, Mail } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -14,6 +14,7 @@ import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
+import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 import { getFirestore } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -260,8 +261,12 @@ export default function CompanyFollowButton({
     }
   }, [alertId, email, onErrored, onUnsubscribed, unfollow]);
 
+  // No employer key means no alert to write: nothing to reserve either.
   if (!slug) return null;
-  if (status === 'loading') return null;
+  // `loading` is the `findCompanyAlert` round trip for a signed-in visitor. It
+  // used to render nothing, which was free while this CTA lived below the fold
+  // and is a layout shift now that the job detail renders it in the header.
+  if (status === 'loading') return <CompanyFollowPlaceholder />;
 
   if (status === 'pendingOptIn') {
     return (
@@ -303,7 +308,7 @@ export default function CompanyFollowButton({
             aria-busy={busy}
             className="inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold rounded-lg border border-accent-border bg-accent text-on-accent hover:bg-accent-hover disabled:opacity-60"
           >
-            {busy ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : <Building2 className="w-4 h-4" aria-hidden="true" />}
+            {busy ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : <BellRing className="w-4 h-4" aria-hidden="true" />}
             {t('jobAlert.companyFollow.cta')}
           </button>
         </div>
@@ -332,7 +337,15 @@ export default function CompanyFollowButton({
         ) : following ? (
           <Check className="w-4 h-4" aria-hidden="true" />
         ) : (
-          <Building2 className="w-4 h-4" aria-hidden="true" />
+          // A bell, not a building. Two reasons: on the job detail this control
+          // now sits directly under EmployerHubCta, which already carries a
+          // Building2 — two identical glyphs one above the other read as one
+          // repeated link, not as two different actions. And the convention for
+          // "follow an employer" on job boards is a notification bell (Indeed,
+          // LinkedIn's job-alert control), never the star/bookmark that means
+          // "save this item" — which on THIS page is a different control with a
+          // different verb, the Bookmark "Salva" in the header corner.
+          <BellRing className="w-4 h-4" aria-hidden="true" />
         )}
         {following
           ? t('jobAlert.companyFollow.following', 'Stai seguendo questa azienda')

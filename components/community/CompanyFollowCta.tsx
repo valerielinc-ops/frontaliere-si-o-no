@@ -41,6 +41,7 @@ import { Analytics } from '@/services/analytics';
 import type { findCompanyAlert } from '@/services/jobAlertService';
 import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import CompanyFollowButton from './CompanyFollowButton';
+import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 
 /**
  * Analytics name per surface. They report apart because the questions differ:
@@ -117,7 +118,17 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
   const mail = email !== undefined ? email : user?.email ?? null;
 
   return (
-    <Suspense fallback={null}>
+    // A reserving fallback, not `null`. Nothing under this boundary suspends
+    // today — `CompanyFollowButton` is a plain import — so this is the
+    // defensive half: the reservation that actually fires is the button's own
+    // `loading` return (the findCompanyAlert round trip) plus the Suspense
+    // JobBoard puts around the `lazyRetry` import of THIS component. Kept
+    // consistent so the three boundaries cannot disagree about what an
+    // unresolved follow CTA looks like — which matters now that it renders in
+    // the job-detail header, above the fold, where an unreserved insertion
+    // shoves the whole article down.
+    // See components/community/CompanyFollowPlaceholder.tsx.
+    <Suspense fallback={<CompanyFollowPlaceholder />}>
       <CompanyFollowButton
         company={String(company)}
         companyKey={companyKey}
