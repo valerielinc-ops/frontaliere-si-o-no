@@ -3424,6 +3424,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.geberit-utili-semestre-2026.title': 'Geberit: Umsatz +2,8%, Gewinn +7,4% im Halbjahr',
     'blog.article.geberit-utili-semestre-2026.excerpt': 'Im ersten Halbjahr 2026 erwirtschaftete der St. Galler Konzern einen Umsatz von CHF 1,71 Milliarden und einen Nettogewinn von 7,4%. Stabile EBITDA-Margen und Wachstumsprognosen von 5-6% für das Jahr.',
     'blog.article.geberit-utili-semestre-2026.imageAlt': 'Schweizer Produktionsstätte mit Industriemaschinen für Sanitärinstallationen und Qualitätskontrolle',
+    'blog.article.trasporti-eccezionali-standard-federali.title': 'Sondertransporte: die neuen Bundesstandards',
+    'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'UVEK regelt die privaten Vorräte für Sondertransporte einheitlich. Bundesabfrage bis 20. November 2026.',
+    'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Schweizer Autobahn mit übergroßem Lastwagen unter Eskortenfahrzeugbegleitung',
 };
 
 export default blogMetaChDe;

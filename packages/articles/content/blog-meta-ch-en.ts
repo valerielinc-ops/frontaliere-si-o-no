@@ -3424,6 +3424,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.geberit-utili-semestre-2026.title': 'Geberit: sales +2.8%, profits +7.4% in the semester',
     'blog.article.geberit-utili-semestre-2026.excerpt': 'In the first half of 2026, the Sangallen group recorded turnover of CHF 1.71 billion and net profit up 7.4%. Stable EBITDA margins and 5-6% growth forecast for the year.',
     'blog.article.geberit-utili-semestre-2026.imageAlt': 'Swiss manufacturing plant with industrial machinery for sanitary installations and quality control',
+    'blog.article.trasporti-eccezionali-standard-federali.title': 'Exceptional transport: the new federal standards',
+    'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'DETEC uniformly regulates private escorts for exceptional transports. Federal consultation until November 20, 2026.',
+    'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Swiss highway with oversized cargo truck under escort service vehicle in transit',
 };
 
 export default blogMetaChEn;
