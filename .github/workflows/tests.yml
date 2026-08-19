@@ -282,7 +282,16 @@ jobs:
         # of just the base branch is enough to resolve a merge base for a normal
         # PR, and costs a couple of seconds. `|| true`: if it fails the gate
         # degrades to a loud no-op rather than failing the job.
-        run: git fetch --no-tags --depth=50 origin "${{ github.base_ref || 'main' }}" || true
+        #
+        # Explicit destination refspec (issue #6058): a bare `git fetch origin
+        # <branch>` only updates FETCH_HEAD, it does NOT create the
+        # remote-tracking ref `refs/remotes/origin/<branch>` — this checkout
+        # never ran a plain `git fetch` before, so that ref never existed here.
+        # The gate below reads `origin/${{ github.base_ref || 'main' }}` by
+        # name, which needs that ref to exist. Writing straight to
+        # `refs/remotes/origin/<branch>` (the same fix already validated for
+        # the corpus-wide split step in PR #6054) makes it resolve.
+        run: git fetch --no-tags --depth=50 origin "+refs/heads/${{ github.base_ref || 'main' }}:refs/remotes/origin/${{ github.base_ref || 'main' }}" || true
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
