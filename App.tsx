@@ -9,7 +9,6 @@ import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
 
 import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
-import TopAutoAdReserve from '@/components/shared/TopAutoAdReserve';
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
@@ -2674,17 +2673,6 @@ const App: React.FC = () => {
  />
  )}
  </>)}
-
- {/* CLS: reserve space for the top in-page Google Auto Ad.
-  * On the homepage Google injects a `.google-auto-placed` ad as a flow sibling
-  * directly above <main>, pushing content down ~250-298px after hydration
-  * (measured live CLS 0.19 desktop / 0.25 mobile — the dominant shift). It is a
-  * column child, so the placeholder below reserves the space at first paint and
-  * the CSS rule `.app-shell-col:has(> .google-auto-placed) > .autoad-top-reserve`
-  * collapses it the instant the ad lands → the gap height stays constant and
-  * <main> never moves. Rendered only where auto-ads actually inject (homepage,
-  * prod host, non-bot) so no-ad users never see an empty gap. */}
- {!staticOverlay && activeTab === 'calculator' && <TopAutoAdReserve />}
 
  {/* Main Content
   *
