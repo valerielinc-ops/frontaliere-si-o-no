@@ -3418,6 +3418,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sunrise-147-tagli-posti-lavoro.title': 'Sunrise taglia 147 posti, costi del personale -5%',
     'blog.article.sunrise-147-tagli-posti-lavoro.excerpt': 'Sunrise completa la riduzione di 147 posti di lavoro, con costi del personale giù del 5%. Aumenti di prezzo dal mese di agosto 2026 su tutti i servizi.',
     'blog.article.sunrise-147-tagli-posti-lavoro.imageAlt': 'Sede centrale di Sunrise a Zurigo, operatore telecomunicazioni svizzero che ha ridotto il personale',
+    'blog.article.ricovero-assistenza-revisione-2026.title': 'Consiglio federale rivede il diritto su ricovero assistenza',
+    'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'Il 12 agosto 2026 il Consiglio federale incarica il DFGP di revisionare le norme sul ricovero involontario: statistica nazionale, chiarimenti su provvedimenti medici e protezioni specifiche per minori. Avamprogetto entro estate 2028.',
+    'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Sede del Consiglio federale svizzero a Berna, dove il 12 agosto 2026 è stata decisa la revisione del diritto di ricovero a scopo di assistenza',
 };
 
 export default blogMetaChIt;

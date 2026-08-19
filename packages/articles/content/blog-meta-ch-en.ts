@@ -3418,6 +3418,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sunrise-147-tagli-posti-lavoro.title': 'Sunrise cuts 147 seats, staff costs -5%',
     'blog.article.sunrise-147-tagli-posti-lavoro.excerpt': 'Sunrise completes the reduction of 147 jobs, with staff costs down 5%. Price increases from August 2026 on all services.',
     'blog.article.sunrise-147-tagli-posti-lavoro.imageAlt': 'Sunrise headquarters in Zurich, Swiss telecom operator that cut 147 jobs',
+    'blog.article.ricovero-assistenza-revisione-2026.title': 'Federal Council revises entitlement to hospitalization assistance',
+    'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'On 12 August 2026, the Federal Council instructed the DFGP to review the rules on involuntary admission: national statistics, clarifications on medical measures and specific protections for minors. Avamprogetto by summer 2028.',
+    'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Swiss Federal Palace in Bern, where the Federal Council decided to revise admission law for vulnerable adults and minors',
 };
 
 export default blogMetaChEn;

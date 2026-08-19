@@ -3418,6 +3418,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sunrise-147-tagli-posti-lavoro.title': 'Sunrise taille 147 places, frais de personnel -5%',
     'blog.article.sunrise-147-tagli-posti-lavoro.excerpt': 'Sunrise complète la réduction de 147 emplois, avec des coûts de personnel en baisse de 5 %. Augmentations de prix à partir du mois d\'août 2026 sur tous les services.',
     'blog.article.sunrise-147-tagli-posti-lavoro.imageAlt': 'Siège de Sunrise à Zurich, opérateur télécom suisse qui a réduit 147 postes',
+    'blog.article.ricovero-assistenza-revisione-2026.title': 'Conseil fédéral révise le droit à l\'hospitalisation assistance',
+    'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'Le 12 août 2026, le Conseil fédéral charge le DFJP de réviser les règles sur l\'hospitalisation involontaire : statistiques nationales, clarifications sur les mesures médicales et protections spécifiques pour les mineurs. Avant-projet d\'ici l\'été 2028.',
+    'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Palais fédéral à Berne, où le Conseil fédéral a décidé le 12 août 2026 de réviser le droit d\'accueil à des fins d\'assistance',
 };
 
 export default blogMetaChFr;

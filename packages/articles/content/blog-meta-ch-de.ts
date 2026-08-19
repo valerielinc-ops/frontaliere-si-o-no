@@ -3418,6 +3418,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sunrise-147-tagli-posti-lavoro.title': 'Sunrise schneidet 147 Stellen ab, Personalkosten -5%',
     'blog.article.sunrise-147-tagli-posti-lavoro.excerpt': 'Sunrise vervollständigt den Stellenabbau um 147 Stellen, die Personalkosten sinken um 5%. Preiserhöhungen ab August 2026 auf allen Dienstleistungen.',
     'blog.article.sunrise-147-tagli-posti-lavoro.imageAlt': 'Sunrise-Zentrale in Zürich, Schweizer Telekommunikationsbetreiber mit Personalabbau',
+    'blog.article.ricovero-assistenza-revisione-2026.title': 'Bundesrat überarbeitet das Gesetz über Hospitalisierung und Versorgung',
+    'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'Am 12. August 2026 beauftragt der Bundesrat das EJPD mit der Revision der Bestimmungen über die unfreiwillige Aufnahme: Nationale Statistik, Abklärungen zu medizinischen Massnahmen und spezifische Schutzmassnahmen für Minderjährige. Vorentwurf bis Sommer 2028.',
+    'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Bundeshaus Bern, Sitz des Bundesrates, der am 12. August 2026 die Revision des Unterbringungsrechts beschloss',
 };
 
 export default blogMetaChDe;
