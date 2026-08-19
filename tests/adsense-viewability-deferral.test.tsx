@@ -316,3 +316,88 @@ describe('SPA <AdSenseBanner> — per-slot request deferral', () => {
     expect(bannerIo().options?.rootMargin).toBe(AD_SLOT_VIEWPORT_ROOT_MARGIN);
   });
 });
+
+// ════════════════════════════════════════════════════════════════════════
+// Follow-up #6122 — the two open questions from the #6120 review, pinned
+// ════════════════════════════════════════════════════════════════════════
+
+describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
+  beforeEach(() => { installIntersectionObserver(); });
+
+  it('arms nothing and injects one script when touch and pointer events coalesce', async () => {
+    // Review ❓2: `onFirstInteraction` no longer sets `triggered = true`, so the
+    // only things stopping a second run are `{once: true}` and the synchronous
+    // `removeInteractionListeners()` at the top of the handler. On a real phone
+    // a tap dispatches `touchstart` AND `pointerdown` back to back.
+    //
+    // The guard mattered BEFORE this change, when the handler also called
+    // `setState('waiting_width')` — running twice could arm a slot the visitor
+    // had not reached. It now calls `loadAdSenseScript()` only, which is
+    // idempotent (it checks the DOM for an existing tag). Both properties are
+    // asserted here so a future edit that puts arming back into this handler —
+    // the exact regression #6120 fixed — fails instead of silently returning.
+    await renderBanner();
+    await act(async () => {
+      document.dispatchEvent(new Event('touchstart'));
+      document.dispatchEvent(new Event('pointerdown'));
+      document.dispatchEvent(new Event('scroll'));
+      document.dispatchEvent(new Event('mousemove'));
+    });
+    expect(document.querySelectorAll(ADSENSE_SELECTOR)).toHaveLength(1);
+    expect(document.querySelector('ins.adsbygoogle')).toBeNull();
+    expect(pushCount()).toBe(0);
+  });
+});
+
+describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => {
+  it('keeps the static loader\'s one-shot slot snapshot correct by construction', async () => {
+    // Review ❓1: the static loader snapshots `ins.adsbygoogle` once, when the
+    // script loads. An `<ins>` appearing later would never be observed, so that
+    // unit would stop being requested — a silent revenue regression.
+    //
+    // (The snapshot is not new: the loader has always done exactly one
+    // `querySelectorAll` at that same moment. This pins the assumption that
+    // makes it safe rather than the change.)
+    //
+    // The assumption is "only AdSenseBanner creates ad markup after load, and it
+    // owns its own IntersectionObserver". Rather than re-reading every SSG
+    // template — which is what would rot — pin the narrow property that any
+    // future template would have to break: no source file builds an
+    // `adsbygoogle` element through a DOM-insertion API. Build-time emitters are
+    // fine (their markup is in the initial HTML, which is what the loader reads);
+    // what must not appear is a CLIENT-side insertion.
+    const { readdirSync, readFileSync, statSync } = await import('node:fs');
+    const { join, resolve } = await import('node:path');
+    const root = resolve(__dirname, '..');
+    const roots = ['build-plugins', 'services', 'components', 'hooks'];
+    const offenders: string[] = [];
+
+    const walk = (dir: string) => {
+      for (const entry of readdirSync(dir)) {
+        const full = join(dir, entry);
+        if (statSync(full).isDirectory()) { walk(full); continue; }
+        if (!/\.(ts|tsx)$/.test(entry)) continue;
+        // AdSenseBanner is the one legitimate client-side creator: it renders its
+        // own <ins> when armed and pushes for it through its own observer.
+        if (full.endsWith('components/shared/AdSenseBanner.tsx')) continue;
+        const src = readFileSync(full, 'utf8');
+        if (!src.includes('adsbygoogle')) continue;
+        // `<ins>` built and inserted at runtime, in any of the ways it can
+        // reach the DOM from JS: imperative DOM APIs, dangerouslySetInnerHTML
+        // (its own alternative — a case-sensitive `innerHTML` check does NOT
+        // match it, the "I" is capitalized), or declarative JSX with a
+        // literal adsbygoogle class. JSX requires `className` (not `class`),
+        // which also keeps this from tripping on prose in doc comments that
+        // describe the rendered HTML with `class="adsbygoogle"`.
+        if (/createElement\(\s*['"]ins['"]\s*\)/.test(src) ||
+            /(innerHTML|insertAdjacentHTML|outerHTML|dangerouslySetInnerHTML)\s*[=(][\s\S]{0,200}adsbygoogle/.test(src) ||
+            /<ins\b[^>]{0,200}\bclassName\s*=\s*["'][^"']*\badsbygoogle\b/.test(src)) {
+          offenders.push(full.slice(root.length + 1));
+        }
+      }
+    };
+    for (const r of roots) walk(join(root, r));
+
+    expect(offenders, `client-side <ins class="adsbygoogle"> insertion found — the static loader snapshots its slot list once at script load and would never request these units. Either emit the markup at build time, or route it through <AdSenseBanner>, which arms itself.`).toEqual([]);
+  });
+});
