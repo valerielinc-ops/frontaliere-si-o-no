@@ -2158,9 +2158,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   * script belongs to ONE document and must go stale on a soft navigation —
   * `readClusterSearchSeed` re-checks the pathname it was emitted for.
   */
+ // Keyed on the PATHNAME, not on `initialJobSlug` like `seededJob` is. The two
+ // are not interchangeable here: `/cerca-lavoro-ticino/ricerca-X/` (keyword
+ // page) and `/cerca-lavoro-svizzera/ricerca-X/` (search cluster) are different
+ // pages that yield the SAME `initialJobSlug`, and some slugs really do exist
+ // in both families. Keyed on the slug, a navigation between them would not
+ // re-run this memo, and the previous page's results would stay on screen —
+ // the exact stale-seed class the pathname check inside readClusterSearchSeed
+ // exists to prevent, reintroduced one level up. Read during render, so it is
+ // the post-navigation value on the render that navigation triggers.
+ const seedPathname = typeof window === 'undefined' ? '' : window.location.pathname;
  const clusterSeed = useMemo(
-   () => (typeof window === 'undefined' ? null : readClusterSearchSeed(window.location.pathname)),
-   [initialJobSlug],
+   () => (seedPathname ? readClusterSearchSeed(seedPathname) : null),
+   [seedPathname],
  );
  const clusterSeedJobs = useMemo<JobListing[]>(
    () => (clusterSeed ? dedupeJobsForListing(clusterSeed.j.map((raw) => normalizeIncomingJob(raw))) : []),
@@ -4149,11 +4159,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  // Exclude jobs already matched by the strict AND tier — this tier supplies
  // only the OR-fill tail; `filteredJobs` lists the strict matches first.
@@ -4212,11 +4218,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const cityTokens = queryTokens.filter((t) => searchLocationTokens.has(t));
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  const scopedIds = new Set<string>();
  for (const j of sortedJobs) scopedIds.add(j.id);
@@ -4421,11 +4423,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (queryTokens.length === 0) return [];
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  const scored: { job: JobListing; score: number }[] = [];
  for (const job of crossLocaleJobs) {
@@ -4468,11 +4466,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (unscopedJobs.length === 0) return [];
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  const scopedIds = new Set<string>();
  for (const j of sortedJobs) scopedIds.add(j.id);
