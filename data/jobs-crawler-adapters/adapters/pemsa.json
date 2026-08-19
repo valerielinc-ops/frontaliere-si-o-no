@@ -11,8 +11,44 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-19T09:52:04.950Z",
+  "updatedAt": "2026-08-19T21:40:50.805Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/addetto-alla-sicurezza-m-f-2688196/": {
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-19"
+    },
+    "https://www.pemsa.ch/it/job/montatore-di-gru-2688194/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "PEMSA",
+      "postedDate": "2026-08-19"
+    },
+    "https://www.pemsa.ch/it/job/montatore-di-ponteggi-m-f-2688190/": {
+      "location": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-19"
+    },
+    "https://www.pemsa.ch/it/job/muratore-edile-2688181/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-19"
+    },
+    "https://www.pemsa.ch/it/job/muratore-specializzato-in-massetti-nelle-citta-di-ginevra-2688178/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-19"
+    },
+    "https://www.pemsa.ch/it/job/tecnico-dellassistenza-tecnica-hotline-sistemi-di-sicurezza-m-f-d-2688168/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-19"
+    },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-vd-2688077/": {
       "location": "Renens VD",
       "canton": "VD",
