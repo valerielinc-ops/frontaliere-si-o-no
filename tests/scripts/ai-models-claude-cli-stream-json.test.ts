@@ -418,6 +418,22 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
         await expect(promise).resolves.toBe('Prima meta\'. Seconda meta\'.');
       });
 
+      it('un testo senza punteggiatura terminale (troncato a meta\' parola) NON viene spacciato per risultato', async () => {
+        // Senza schema il testo arriva a delta come il JSON: un frammento
+        // tagliato dal SIGKILL a meta' di una parola/frase non ha modo di
+        // essere distinto da uno completo se non guardando la punteggiatura
+        // finale.
+        spawnMock.mockImplementation(cliAppesoDopo([
+          { dopoMs: 942, riga: INIT },
+          { dopoMs: 4123, riga: `${JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: 'Il candidato ideale ha esperien' }] } })}\n` },
+        ]));
+
+        const promise = chiama();
+        const assertion = expect(promise).rejects.toThrow(/timed out after/);
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+        await assertion;
+      });
+
       it('un JSON troncato a meta\' NON viene spacciato per risultato', async () => {
         // La differenza fra recuperare e indovinare. I blocchi `tool_use`
         // arrivano solo interi, quindi il ramo strutturato e\' sicuro per
