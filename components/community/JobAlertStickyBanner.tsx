@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { BellRing, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import BottomPromptShell from '@/components/shared/BottomPromptShell';
+import { POPUP_PRIORITY } from '@/services/popupQueue';
 
 const DISMISS_KEY = 'jobAlertStickyBanner:dismissedUntil';
 const DISMISS_DAYS = 7;
@@ -36,12 +37,16 @@ export default function JobAlertStickyBanner() {
  return () => window.removeEventListener('scroll', onScroll);
  }, []);
 
- useEffect(() => {
- if (visible && !shownTrackedRef.current) {
+ // The impression is fired by the shell's `onShown`, not by `visible`:
+ // scroll depth is only half the condition now — the banner also has to win a
+ // popupQueue slot. Counting the decision would have re-created, on the very
+ // surface whose funnel this ref exists to measure, the "shown but unmeasured"
+ // gap the comment above describes.
+ const trackShown = () => {
+ if (shownTrackedRef.current) return;
  shownTrackedRef.current = true;
  Analytics.trackJobAlertCtaShown('sticky_banner');
- }
- }, [visible]);
+ };
 
  const handleOpen = () => {
  Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
@@ -58,10 +63,14 @@ export default function JobAlertStickyBanner() {
  if (!visible) return null;
 
  return (
- <div
+ <BottomPromptShell
+ slotId="job-alert-sticky-banner"
+ priority={POPUP_PRIORITY.JOB_ALERT_STICKY}
+ align="center"
+ width="md"
  role="region"
- aria-label={t('jobAlert.stickyBannerAria') || 'Invito a iscriversi alle alert lavoro'}
- className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-md animate-slide-up`}
+ ariaLabel={t('jobAlert.stickyBannerAria') || 'Invito a iscriversi alle alert lavoro'}
+ onShown={trackShown}
  >
  <div className="flex items-center gap-3 p-3 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
  <span className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent-subtle text-accent">
@@ -86,6 +95,6 @@ export default function JobAlertStickyBanner() {
  <X className="w-4 h-4" aria-hidden="true" />
  </button>
  </div>
- </div>
+ </BottomPromptShell>
  );
 }

@@ -828,7 +828,7 @@ const enCore: Record<string, string> = {
  'jobAlert.postAuthPromptPersonalizeLink': 'Personalise',
  'jobAlert.postAuthPromptRetryCta': 'Retry',
  'jobAlert.jobDetailPrompt.title': 'Get alerts for {category}?',
- 'jobAlert.jobDetailPrompt.body': 'We\'ll email you when new "{category}" jobs are posted.',
+ 'jobAlert.jobDetailPrompt.body': 'One email for every new posting.',
  'jobAlert.jobDetailPrompt.acceptCta': 'Yes, enable',
  'jobAlert.jobDetailPrompt.dismissCta': 'Not now',
  'jobAlert.jobDetailPrompt.successTitle': 'Alert active ✓',

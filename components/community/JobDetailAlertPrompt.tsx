@@ -4,7 +4,8 @@ import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
 import ConsentNotice from '@/components/shared/ConsentNotice';
-import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import BottomPromptShell from '@/components/shared/BottomPromptShell';
+import { POPUP_PRIORITY } from '@/services/popupQueue';
 
 export type JobDetailAlertPromptStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -37,6 +38,16 @@ export interface JobDetailAlertPromptProps {
   onErrored?: (error: unknown) => void;
   /** Called when the user clicks the "Gestisci alert" link in the success state. */
   onManage: () => void;
+  /**
+   * Fired once, when the toast is actually on screen.
+   *
+   * The impression used to be counted by JobBoard at the moment it decided to
+   * show the prompt. Since the prompt now waits for a `popupQueue` slot
+   * (components/shared/BottomPromptShell.tsx), deciding and appearing are two
+   * different events, and counting the first would inflate the denominator of
+   * the very conversion rate this surface is judged on.
+   */
+  onShown?: () => void;
   /** Optional override for the subscribe call (used by tests). */
   subscribe?: typeof subscribeJobAlertOneTap;
   /** Optional override for the consent-proof upgrade (used by tests). */
@@ -60,6 +71,7 @@ export default function JobDetailAlertPrompt({
   onDismissed,
   onErrored,
   onManage,
+  onShown,
   subscribe = subscribeJobAlertOneTap,
   upgradeConsent = upgradeBackfilledAlertConsent,
 }: JobDetailAlertPromptProps) {
@@ -152,14 +164,20 @@ export default function JobDetailAlertPrompt({
   const closeAriaLabel = t('common.close', 'Chiudi');
 
   return (
-    // ABOVE_MOBILE_NAV_BOTTOM keeps the CTA buttons clear of the mobile bottom nav.
-    <div
-      role="dialog"
-      aria-modal="false"
-      aria-labelledby={TITLE_ID}
-      className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 z-40 w-[calc(100%-2rem)] max-w-sm animate-slide-up`}
+    // Position + one-at-a-time arbitration both come from the shell: this toast
+    // used to carry the same `fixed above-mobile-nav right-4 z-40` coordinates
+    // as three siblings and no coordination with any of them.
+    <BottomPromptShell
+      slotId="job-detail-alert-prompt"
+      priority={POPUP_PRIORITY.JOB_DETAIL_PROMPT}
+      // `md` at sm+ so the consent formula — whose wording is pinned by
+      // services/consentTexts.ts and cannot be trimmed here — wraps into fewer
+      // lines instead of pushing the CTA row further down the toast.
+      width="md"
+      ariaLabelledBy={TITLE_ID}
+      onShown={onShown}
     >
-      <div className="relative p-4 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
+      <div className="relative p-3.5 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
         <button
           type="button"
           onClick={status === 'success' ? onClose : handleDismiss}
@@ -177,15 +195,8 @@ export default function JobDetailAlertPrompt({
             <h3 id={TITLE_ID} className="text-sm font-bold text-heading">
               {title}
             </h3>
-            <p className="mt-1 text-xs text-subtle">{body}</p>
-            {status === 'idle' && (
-              <ConsentNotice
-                consentKey="communicationsOptIn"
-                locale={locale}
-                className="mt-2 text-[11px] text-muted leading-relaxed block"
-              />
-            )}
-            <div className="mt-3 flex items-center gap-2">
+            <p className="mt-0.5 text-xs text-subtle">{body}</p>
+            <div className="mt-2 flex items-center gap-2">
               {status === 'idle' && (
                 <>
                   <button
@@ -246,9 +257,23 @@ export default function JobDetailAlertPrompt({
                 </>
               )}
             </div>
+            {status === 'idle' && (
+              // Under the buttons, not above them: the formula is small print
+              // that has to be on screen when the act happens (#5902), and
+              // three lines of it between the promise and "Sì, attiva" pushed
+              // the CTA down the toast for no legal gain. The sentence itself
+              // is untouched — it is stored verbatim as the consent proof, so
+              // shortening it here would make the register describe something
+              // nobody read.
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[10px] text-muted leading-snug block"
+              />
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </BottomPromptShell>
   );
 }

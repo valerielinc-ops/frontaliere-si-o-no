@@ -13,7 +13,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Sparkles, X, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import BottomPromptShell from '@/components/shared/BottomPromptShell';
+import { POPUP_PRIORITY } from '@/services/popupQueue';
 import type { EnrichmentFieldKey } from '@/services/profileEnrichmentGating';
 import { savePartialProfile } from '@/services/profileFirestore';
 import { MUNICIPALITIES, findMunicipality } from '@/data/municipalities';
@@ -278,11 +279,13 @@ export default function ProfileEnrichmentPrompt({
   })();
 
   return (
-    <div
-      role="dialog"
-      aria-modal="false"
-      aria-labelledby={TITLE_ID}
-      className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 z-40 w-[calc(100%-2rem)] max-w-sm animate-slide-up`}
+    // Rendered from JobAlertForm, a different subtree from the JobBoard toasts
+    // it shared coordinates with — which is precisely why a parent-level
+    // suppression boolean could never have covered it.
+    <BottomPromptShell
+      slotId="profile-enrichment-prompt"
+      priority={POPUP_PRIORITY.PROFILE_ENRICHMENT}
+      ariaLabelledBy={TITLE_ID}
     >
       <div className="relative p-4 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
         <button
@@ -310,7 +313,7 @@ export default function ProfileEnrichmentPrompt({
           </div>
         </div>
       </div>
-    </div>
+    </BottomPromptShell>
   );
 }
 

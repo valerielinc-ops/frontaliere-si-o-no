@@ -831,7 +831,7 @@ const deCore: Record<string, string> = {
  'jobAlert.postAuthPromptPersonalizeLink': 'Anpassen',
  'jobAlert.postAuthPromptRetryCta': 'Erneut versuchen',
  'jobAlert.jobDetailPrompt.title': 'Alerts für {category}?',
- 'jobAlert.jobDetailPrompt.body': 'Wir benachrichtigen dich bei neuen Stellen in „{category}".',
+ 'jobAlert.jobDetailPrompt.body': 'Eine E-Mail bei jeder neuen Stelle.',
  'jobAlert.jobDetailPrompt.acceptCta': 'Ja, aktivieren',
  'jobAlert.jobDetailPrompt.dismissCta': 'Nicht jetzt',
  'jobAlert.jobDetailPrompt.successTitle': 'Alert aktiviert ✓',

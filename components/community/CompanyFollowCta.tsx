@@ -41,6 +41,7 @@ import { Analytics } from '@/services/analytics';
 import type { findCompanyAlert } from '@/services/jobAlertService';
 import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import CompanyFollowButton from './CompanyFollowButton';
+import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 
 /**
  * Analytics name per surface. They report apart because the questions differ:
@@ -117,7 +118,11 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
   const mail = email !== undefined ? email : user?.email ?? null;
 
   return (
-    <Suspense fallback={null}>
+    // A reserving fallback, not `null`. On the job detail this CTA now renders
+    // in the header, above the fold: a null fallback means the whole block
+    // appears out of nowhere when the chunk lands and shoves the article down.
+    // See components/community/CompanyFollowPlaceholder.tsx.
+    <Suspense fallback={<CompanyFollowPlaceholder />}>
       <CompanyFollowButton
         company={String(company)}
         companyKey={companyKey}
