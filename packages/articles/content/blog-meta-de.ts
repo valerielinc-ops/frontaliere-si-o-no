@@ -10102,6 +10102,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Leben in Laglio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Doppelbesteuerung: Was Sie wissen müssen, wenn Sie Grenzgänger sind und in Laglio leben, aber im Tessin arbeiten.',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Grenzgänger in Masciago Primo: Arbeit und Leben im Tessin',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Leben in Masciago Primo und Arbeiten im Tessin: Neues Abkommen 2024, Besteuerung, AHV, KVG, Rückerstattungen und alles, was Sie wissen müssen, um als Grenzgänger umzuziehen.',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'Blick auf den Comersee an der Schweizer Grenze mit italienischem Ufer im Vordergrund und Schweizer Alpen im Hintergrund.',
 };
 
 export default blogMetaDe;

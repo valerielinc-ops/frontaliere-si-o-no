@@ -10103,6 +10103,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Living in Laglio and working in Ticino as a border worker',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Tax settings, permits and double taxation: what you need to know if you are a border worker and live in Laglio, but work in Ticino.',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Border crossing in Masciago Primo: work and life in Ticino',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Living in Masciago Primo and working in Ticino: New 2024 Agreement, taxation, AVS, LAMal, restaurants and everything you need to know to move from border crossings.',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'View of Lake Como at the Switzerland-Italy border, with Italian shoreline in foreground and Swiss mountains in the background.',
 };
 
 export default blogMetaEn;

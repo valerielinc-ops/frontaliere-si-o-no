@@ -3403,6 +3403,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bilancio-federale-2026-surplus.title': 'Budget 2026 : du déficit à l\'excédent de 800 millions',
     'blog.article.bilancio-federale-2026-surplus.excerpt': 'Les recettes fiscales plus élevées des entreprises amènent le budget fédéral au-delà des attentes, avec un excédent de 800 millions au lieu du déficit prévu.',
     'blog.article.bilancio-federale-2026-surplus.imageAlt': 'Vue de Berne, capitale fédérale suisse et siège du gouvernement fédéral',
+    'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Fourgons électriques: du neuf dès le 1er octobre 2026',
+    'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'Le Conseil fédéral assimile les véhicules utilitaires électriques jusqu\'à 4,25 tonnes aux camionnettes traditionnelles à partir du 1er octobre 2026. Circulation à 120 km/h sur autoroute, exemption tachygraphe national : tout ce que vous devez savoir.',
+    'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'Un fourgon commercial électrique bleu moderne circule sur l\'autoroute suisse avec les Alpes en arrière-plan.',
 };
 
 export default blogMetaChFr;

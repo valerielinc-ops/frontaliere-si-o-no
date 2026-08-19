@@ -3403,6 +3403,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bilancio-federale-2026-surplus.title': 'Budget 2026: from deficit to surplus of 800 million',
     'blog.article.bilancio-federale-2026-surplus.excerpt': 'Higher tax revenues from businesses push the federal budget beyond expectations, with an $800 million surplus instead of the expected deficit.',
     'blog.article.bilancio-federale-2026-surplus.imageAlt': 'View of Bern, Switzerland\'s federal capital and seat of federal government',
+    'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Electric vans compared to traditional vans: new from 1 October 2026',
+    'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'The Federal Council will equate electric commercial vehicles up to 4.25 tonnes with traditional vans from 1 October 2026. Driving at 120 km/h on the motorway, national tachograph exemption: everything you need to know.',
+    'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'A modern electric commercial van in blue drives on a Swiss highway with Alpine mountains visible in the background.',
 };
 
 export default blogMetaChEn;

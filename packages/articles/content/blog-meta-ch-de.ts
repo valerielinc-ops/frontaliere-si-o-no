@@ -3403,6 +3403,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bilancio-federale-2026-surplus.title': 'Bilanz 2026: von Defizit zu Überschuss von 800 Millionen',
     'blog.article.bilancio-federale-2026-surplus.excerpt': 'Die höheren Steuereinnahmen der Unternehmen bringen den Bundeshaushalt über die Erwartungen hinaus, mit einem Überschuss von 800 Millionen statt des prognostizierten Defizits.',
     'blog.article.bilancio-federale-2026-surplus.imageAlt': 'Blick auf Bern, Schweizer Bundeshauptstadt und Sitz der Bundesregierung',
+    'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Elektrotransporter ab 1. Okt. 2026 gleichgestellt',
+    'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'Der Bundesrat stellt ab dem 1. Oktober 2026 Elektro-Nutzfahrzeuge bis 4,25 Tonnen traditionellen Lieferwagen gleich. Fahrt mit 120 km/h auf der Autobahn, nationale Fahrtenschreiberbefreiung: Alles, was Sie wissen müssen.',
+    'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'Ein moderner blauer elektrischer Lieferwagen fährt auf einer Schweizer Autobahn mit Alpen im Hintergrund.',
 };
 
 export default blogMetaChDe;
