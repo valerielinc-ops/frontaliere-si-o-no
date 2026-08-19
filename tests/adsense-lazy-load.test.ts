@@ -18,6 +18,7 @@ import {
   ADSENSE_SNIPPET,
 } from '@/build-plugins/constants';
 import { buildSimplePage } from '@/build-plugins/htmlTemplate';
+import { AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/adsenseSlots';
 
 const repoRoot = resolve(__dirname, '..');
 const indexHtml = readFileSync(resolve(repoRoot, 'index.html'), 'utf8');
@@ -182,7 +183,15 @@ describe('AdSense lazy loading — static SEO shell', () => {
 describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
   it('uses IntersectionObserver to defer script load', () => {
     expect(adSenseBanner).toContain('IntersectionObserver');
-    expect(adSenseBanner).toMatch(/rootMargin:\s*['"]200px 0px['"]/);
+    // The margin is no longer a literal here. It governs the SPA banner AND the
+    // static-shell loader — two implementations of one policy — so it lives in
+    // services/adsenseSlots.ts where neither can drift from the other (AGENTS.md
+    // Non-Negotiable #6). Pin both ends: the component must read the shared
+    // constant, and the constant must still be the 200px this test was written
+    // for. What the observer now gates is asserted behaviourally in
+    // tests/adsense-viewability-deferral.test.tsx.
+    expect(adSenseBanner).toMatch(/rootMargin:\s*AD_SLOT_VIEWPORT_ROOT_MARGIN/);
+    expect(AD_SLOT_VIEWPORT_ROOT_MARGIN).toBe('200px 0px');
   });
 
   it('still contains the singleton loadAdSenseScript helper', () => {
