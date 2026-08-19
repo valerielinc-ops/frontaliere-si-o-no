@@ -3388,6 +3388,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.revisione-lex-koller-immobiliare.title': 'Lex Koller: Engstirnigkeit bei ausländischen Immobilienkäufen',
     'blog.article.revisione-lex-koller-immobiliare.excerpt': 'Die WAK-N schlägt vor, die Änderungen der letzten 40 Jahre am Immobiliengesetz rückgängig zu machen, um die Spekulation einzudämmen und den Mittelstand zu schützen.',
     'blog.article.revisione-lex-koller-immobiliare.imageAlt': 'Baustelle eines Wohnkomplexes in einer Schweizer Stadt vor einer Bergkulisse.',
+    'blog.article.migros-tre-partenze-vertici.title': 'Migros, drei Gipfelabfahrten am selben Tag angekündigt',
+    'blog.article.migros-tre-partenze-vertici.excerpt': 'Drei Migros-Führungskräfte verlassen Online, Delica und Migros Bank am selben Tag. Katrin Tschannen Ende März 2027, Thomas Gubler im Ruhestand, Markus Schawalder neue Herausforderung.',
+    'blog.article.migros-tre-partenze-vertici.imageAlt': 'Schweizer Geschäftsviertel mit Bürogebäuden, die Grossunternehmen der Wirtschaft darstellen',
 };
 
 export default blogMetaChDe;

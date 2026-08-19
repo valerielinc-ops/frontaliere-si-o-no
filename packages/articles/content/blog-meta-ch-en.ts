@@ -3388,6 +3388,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.revisione-lex-koller-immobiliare.title': 'Lex Koller: tightening foreign real estate purchases',
     'blog.article.revisione-lex-koller-immobiliare.excerpt': 'The CET-N proposes to annul the changes of the last 40 years to the law on real estate to curb speculation and protect the middle class.',
     'blog.article.revisione-lex-koller-immobiliare.imageAlt': 'Construction site of a residential complex in a Swiss city with mountains in the background.',
+    'blog.article.migros-tre-partenze-vertici.title': 'Migros, three departures to the summits announced on the same day',
+    'blog.article.migros-tre-partenze-vertici.excerpt': 'Three Migros executives leave Online, Delica and Migros Bank on the same day. Katrin Tschannen end of March 2027, Thomas Gubler retired, Markus Schawalder new challenge.',
+    'blog.article.migros-tre-partenze-vertici.imageAlt': 'Swiss corporate district with office buildings representing major companies in national economy',
 };
 
 export default blogMetaChEn;
