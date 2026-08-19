@@ -10163,6 +10163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Ticino frontier workers growing in Q2 2026: 79,121 units',
     'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79,121 frontier workers in Ticino Q2 2026: growth of 0.64% QoQ, decrease of 0.57% YoY. SBB data with demographic analysis and implications for those working on the Italy-Switzerland border.',
     'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Aerial view of Lugano Lake with Swiss-Italian border mountains at sunset.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Pregnancy and border control: LAMal guide and controls',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Permit G: right of option between LAMal and CMI during pregnancy, CHF 300–2\'500 deductibles, hospital choice and notification procedures. Everything you need to know.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Pregnant woman having prenatal ultrasound at a Ticino hospital with gynecologist',
 };
 
 export default blogMetaEn;
