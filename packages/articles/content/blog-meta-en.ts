@@ -10112,6 +10112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.title': 'Living in Porto Valtravaglia and working in Ticino as a border worker',
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.excerpt': 'Practical guide for those who live in Porto Valtravaglia and work in Ticino: connections, tax at source, social security and aspects of commuting.',
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.imageAlt': 'View of Porto Valtravaglia on Lake Maggiore near the Swiss border',
+    'blog.article.vivere-ponna-lavorare-ticino.title': 'Living in Ponna and working in Ticino: border guide',
+    'blog.article.vivere-ponna-lavorare-ticino.excerpt': 'Living in Ponna and working in Ticino: analysis of border commuting between cost of living, taxation, AVS, LPP and practical considerations for transfer.',
+    'blog.article.vivere-ponna-lavorare-ticino.imageAlt': 'Ticino landscape view from the border, symbolizing commuting between Ponna, Italy and Ticino, Switzerland',
 };
 
 export default blogMetaEn;

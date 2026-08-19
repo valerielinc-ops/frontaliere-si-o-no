@@ -30288,6 +30288,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-ponna-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-19T11:29:48.194Z',
+ image: '/images/blog/vivere-ponna-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

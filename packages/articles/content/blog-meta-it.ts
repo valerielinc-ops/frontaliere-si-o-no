@@ -10113,6 +10113,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.title': 'Vivere a Porto Valtravaglia e lavorare in Ticino da frontaliere',
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per chi vive a Porto Valtravaglia e lavora in Ticino: collegamenti, imposta alla fonte, previdenza e aspetti del pendolarismo.',
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Porto Valtravaglia sul Lago Maggiore vicino al confine svizzero',
+    'blog.article.vivere-ponna-lavorare-ticino.title': 'Vivere a Ponna e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-ponna-lavorare-ticino.excerpt': 'Vivere a Ponna e lavorare in Ticino: analisi del pendolarismo frontaliero tra costo della vita, tassazione, AVS, LPP e considerazioni pratiche per il trasferimento.',
+    'blog.article.vivere-ponna-lavorare-ticino.imageAlt': 'Vista del paesaggio ticinese dal confine, simbolo del pendolarismo tra Ponna in Italia e il Ticino in Svizzera',
 };
 
 export default blogMetaIt;

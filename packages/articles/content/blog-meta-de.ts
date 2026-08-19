@@ -10111,6 +10111,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.title': 'Leben in Porto Valtravaglia und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die in Porto Valtravaglia leben und im Tessin arbeiten: Verbindungen, Quellensteuer, Vorsorge und Aspekte des Pendelns.',
     'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.imageAlt': 'Ansicht von Porto Valtravaglia am Langensee nahe der Schweizer Grenze',
+    'blog.article.vivere-ponna-lavorare-ticino.title': 'Leben in Ponna und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-ponna-lavorare-ticino.excerpt': 'Leben in Ponna und Arbeiten im Tessin: Analyse des Grenzpendelns zwischen Lebenshaltungskosten, Besteuerung, AHV, BVG und praktischen Überlegungen für den Umzug.',
+    'blog.article.vivere-ponna-lavorare-ticino.imageAlt': 'Tessiner Landschaftsansicht von der Grenze, das Pendeln zwischen Ponna, Italien und dem Tessin symbolisierend',
 };
 
 export default blogMetaDe;
