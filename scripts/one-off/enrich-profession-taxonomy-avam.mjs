@@ -173,7 +173,8 @@ function main() {
     }
 
     // Single-word aliases match via substring/stem-containment (any token
-    // of the query, anywhere in a title, matches — see tokenMatchesAlias),
+    // of the query, anywhere in a title, matches — see matchProfession's
+    // single-word branch),
     // so a short generic alias an entry already has (e.g. "docente",
     // "ingegnere", "meccanico") already catches every compound title that
     // contains that word — "docente di educazione fisica e sport" adds
@@ -238,7 +239,7 @@ function main() {
         'immobilienentwickler', 'immobilienentwicklerin', 'sviluppatrice business digitale',
         // "storenmonteur(in)" (Swiss-German "awning/blind fitter", under
         // montatore) fuzzy-collides with the pre-existing "store manager"
-        // alias on responsabile-negozio: tokenMatchesAlias's typing-prefix
+        // alias on responsabile-negozio: matchProfession's typing-prefix
         // rule lets the English token "store" (stem "stor") prefix-match
         // "storenmonteur" (stem unchanged, no trailing-vowel strip since it
         // ends in a consonant), and on the resulting length tie montatore
