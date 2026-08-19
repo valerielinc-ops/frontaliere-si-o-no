@@ -3451,6 +3451,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Wages and work in Switzerland: training levels',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'How Swiss wages work by level of training, compulsory social contributions, collective agreements and cantonal minimum wage.',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Swiss workplace with salary documents and employment contracts on desk',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Wages and the labour market in Basel City',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'System of contributions, hours and workers\' rights in the canton of Basel-City: federal rules, compulsory social security and cantonal rules for those working in Switzerland.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Basel-Stadt historic city centre with Rhine River and modern office skyline',
 };
 
 export default blogMetaChEn;

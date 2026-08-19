@@ -3451,6 +3451,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Löhne und Arbeit in der Schweiz: Bildungsstand',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Wie funktionieren die Schweizer Löhne nach Bildungsgrad, obligatorischen Sozialbeiträgen, Tarifverträgen und kantonalen Mindestlöhnen?',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Schweizer Arbeitsplatz mit Gehaltsdokumenten und Kollektivverträgen',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Löhne und Arbeitsmarkt in Basel-Stadt',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'System der Beiträge, Arbeitszeiten und Arbeitnehmerrechte im Kanton Basel-Stadt: Bundesvorschriften, obligatorische Vorsorge und kantonale Regelungen für Erwerbstätige in der Schweiz.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Basler Altstadt mit Rhein und modernen Bürogebäuden im Hintergrund',
 };
 
 export default blogMetaChDe;

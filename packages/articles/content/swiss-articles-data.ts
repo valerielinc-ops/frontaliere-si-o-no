@@ -10351,6 +10351,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salari-mercato-lavoro-basilea-citta',
+    category: 'pratico',
+    date: '2026-08-19T17:56:04.922Z',
+    image: '/images/blog/salari-mercato-lavoro-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
