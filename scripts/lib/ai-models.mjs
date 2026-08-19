@@ -947,6 +947,13 @@ const CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL = 'StructuredOutput';
 // "troncato" e forzava un fallback DeepL non necessario sui locale non-IT.
 const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…:;—][)\]'"’”»“‘]*$/;
 
+// Cap sul buffer di `feed()` in createClaudeCliStreamTrace fra due `\n`.
+// Ogni evento `stream-json` legittimo (compreso un `tool_use` con l'intero
+// articolo strutturato) resta ben sotto: oltre questa soglia una riga senza
+// terminatore non e' un evento grande, e' anomala — senza cap crescerebbe
+// senza limite fino al timeout (follow-up #6034 item 3).
+const CLAUDE_CLI_STREAM_LINE_CAP = 1_000_000;
+
 // Tetto per una singola chiamata al CLI, per quanto grande sia l'allowance
 // residua. Serve a impedire che una sezione lunga (allowance 2400s) regali
 // 800s a UNA chiamata: oltre i 600s una chiamata che non ha finito non e' piu'
@@ -5210,6 +5217,13 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
         absorbLine(buffer.slice(0, nl));
         buffer = buffer.slice(nl + 1);
         nl = buffer.indexOf('\n');
+      }
+      // Nessun `\n` trovato e il residuo ha superato il cap: si scarta come
+      // riga illeggibile invece di continuare ad accumulare — vedi
+      // CLAUDE_CLI_STREAM_LINE_CAP.
+      if (buffer.length > CLAUDE_CLI_STREAM_LINE_CAP) {
+        state.malformed += 1;
+        buffer = '';
       }
     },
     /**
