@@ -10065,6 +10065,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-moltrasio-lavorare-ticino.title': 'Living in Moltrasio and working in Ticino as a border worker',
     'blog.article.vivere-moltrasio-lavorare-ticino.excerpt': 'Practical guide for border workers: taxation, new agreement and daily life between Moltrasio and the Canton of Ticino.',
     'blog.article.vivere-moltrasio-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano near the Italian-Swiss border',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.title': 'Living in Brezzo di Bedero and working in Ticino',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.excerpt': 'Practical guide for border workers: G permit, tax at source, AVS, LPP, LAMal, refreshments. All about taxes and social security for those who live in Brezzo and work in Ticino.',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.imageAlt': 'Lake Maggiore shoreline near Locarno with Alpine mountains in distance and morning light over harbor',
 };
 
 export default blogMetaEn;
