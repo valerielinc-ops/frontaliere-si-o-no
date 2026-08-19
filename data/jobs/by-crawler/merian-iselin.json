@@ -1,6 +1,6 @@
 {
   "crawlerKey": "merian-iselin",
-  "assembledAt": "2026-08-19T09:44:53.874Z",
+  "assembledAt": "2026-08-19T21:32:35.548Z",
   "jobs": [
     {
       "id": "merian-iselin-52d03a167b2e",
@@ -34,7 +34,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/401228e0-5ee3-4c16-876c-f18973bd50d9",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:51.337Z",
+      "crawledAt": "2026-08-19T21:32:31.562Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/1fb69e6f-9fd3-4c61-aff7-2631130fa56e",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:50.989Z",
+      "crawledAt": "2026-08-19T21:32:31.170Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/bb76da43-bb2a-49ad-98d3-d1892c5010eb",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:50.636Z",
+      "crawledAt": "2026-08-19T21:32:30.772Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -280,7 +280,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:50.281Z",
+      "crawledAt": "2026-08-19T21:32:30.376Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -359,7 +359,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/076626d0-c516-4f18-8715-03d928335df6",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:49.842Z",
+      "crawledAt": "2026-08-19T21:32:29.828Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -445,7 +445,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/2a482669-3b08-4b20-8650-50d0a0064b2e",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:49.497Z",
+      "crawledAt": "2026-08-19T21:32:29.416Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -478,11 +478,11 @@
     },
     {
       "id": "merian-iselin-e5b4d3924211",
-      "slug": "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-2",
+      "slug": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
       "slugByLocale": {
-        "it": "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-2",
-        "en": "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-2",
-        "de": "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-l2c4yq",
+        "it": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "en": "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel",
+        "de": "med-praxisassistentin-praxisassistent-mpa-merian-iselin-klinik-basel",
         "fr": "med-praxisassistin-praxisassistin-mpa-merian-iselin-klinik-basel-9a87b2"
       },
       "company": "Merian Iselin Klinik",
@@ -508,7 +508,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/2c3359f5-1f99-4e11-b982-f05d5ff3e22a",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:49.058Z",
+      "crawledAt": "2026-08-19T21:32:28.875Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -527,15 +527,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel",
+        "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-2",
+        "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-l2c4yq",
         "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel",
+          "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-2",
           "med-praxisassistentin-praxisassistentin-mpa-merian-iselin-klinik-basel"
         ],
         "de": [
-          "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel"
+          "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel",
+          "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-l2c4yq"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-mpa-merian-iselin-basel-2"
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:38.323Z",
@@ -584,7 +591,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/9503fd02-2bbf-4807-83e1-427d5f7836e2",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:48.616Z",
+      "crawledAt": "2026-08-19T21:32:28.323Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -663,7 +670,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/05cb6015-8108-4d2b-8780-c96e8485c638",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:48.161Z",
+      "crawledAt": "2026-08-19T21:32:27.783Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -742,7 +749,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/9470e4cc-9515-4bf0-b554-a4a99e888a7c",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:47.806Z",
+      "crawledAt": "2026-08-19T21:32:27.375Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -821,7 +828,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/55a849fd-d747-4a03-affd-cbb0ab30b391",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:47.359Z",
+      "crawledAt": "2026-08-19T21:32:26.823Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -900,7 +907,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/4ab4126d-aebe-49b4-8032-a8f989c58e62",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:47.010Z",
+      "crawledAt": "2026-08-19T21:32:26.399Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -983,7 +990,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/f15a8b86-a39f-4b17-b779-33de34c85a4b",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:46.635Z",
+      "crawledAt": "2026-08-19T21:32:25.979Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1076,7 +1083,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/1d212d57-8aa4-4ade-9772-1c955a86cf66",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:44:46.268Z",
+      "crawledAt": "2026-08-19T21:32:25.558Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
