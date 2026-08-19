@@ -70193,6 +70193,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-faggeto-lario-ticino-frontaliere': {
+    title: 'Vivere a Faggeto Lario e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Guida pratica per frontalieri: Permesso G, imposta alla fonte, AVS/LAMal e Nuovo Accordo 2024. Scopri come vivere a Faggeto Lario e lavorare nel Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, faggeto, lario, lavorare',
+    ogTitle: 'Vivere a Faggeto Lario e lavorare in Ticino',
+    ogDescription: 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri cambia la tassazione per chi vive a Faggeto Lario e lavora nel Ticino. Scopri Permesso G, esenzione €7\'500/€10\'000, AVS 5.3%, LAMal e come calcolare il netto con credito d\'imposta italiano.',
+    canonicalPath: '/articoli-frontaliere/faggeto-lario-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Faggeto Lario e lavorare in Ticino",
+      "description": "Guida pratica per frontalieri: Permesso G, imposta alla fonte, AVS/LAMal e Nuovo Accordo 2024. Scopri come vivere a Faggeto Lario e lavorare nel Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/faggeto-lario-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Mendrisio, Ticino, al confine con Como: location ideale per frontalieri che lavorano nel cantone"
+      },
+      "datePublished": "2026-08-19T14:15:41+00:00",
+      "dateModified": "2026-08-19T14:15:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/faggeto-lario-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

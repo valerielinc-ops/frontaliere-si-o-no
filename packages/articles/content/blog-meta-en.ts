@@ -10133,6 +10133,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.capiago-intimiano-vivere-ticino.title': 'Living in Capiago Intimiano, working in Ticino',
     'blog.article.capiago-intimiano-vivere-ticino.excerpt': 'Practical guide for border workers: location, commuting times, taxation, living costs and checklist before transfer.',
     'blog.article.capiago-intimiano-vivere-ticino.imageAlt': 'Aerial view of Brogeda border crossing between Italy and Ticino with Swiss road signs and mountains in the background',
+    'blog.article.faggeto-lario-ticino-frontaliere.title': 'Living in Faggeto Lario and working in Ticino',
+    'blog.article.faggeto-lario-ticino-frontaliere.excerpt': 'From 1 January 2024, the New Frontier Agreement changes the taxation. Discover Permit G, tax at source, AVS and LAMal for those who reside in Faggeto Lario and work in Ticino.',
+    'blog.article.faggeto-lario-ticino-frontaliere.imageAlt': 'View of Mendrisio, Ticino, at the border with Como: ideal location for cross-border workers in the canton',
 };
 
 export default blogMetaEn;

@@ -10135,6 +10135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.capiago-intimiano-vivere-ticino.title': 'Vivre à Capiago Intimiano, travailler au Tessin',
     'blog.article.capiago-intimiano-vivere-ticino.excerpt': 'Guide pratique pour les frontaliers : localisation, temps de trajet, fiscalité, coût de la vie et checklist avant le transfert.',
     'blog.article.capiago-intimiano-vivere-ticino.imageAlt': 'Vue aérienne du passage frontalier de Brogeda entre l\'Italie et le Tessin avec la signalisation routière suisse et les montagnes en arrière-plan',
+    'blog.article.faggeto-lario-ticino-frontaliere.title': 'Vivre à Faggeto Lario et travailler au Tessin',
+    'blog.article.faggeto-lario-ticino-frontaliere.excerpt': 'À partir du 1er janvier 2024, le nouvel accord frontalier modifie la fiscalité. Découvrez le permis G, la taxe à la source, l\'AVS et la LAMal pour ceux qui résident à Faggeto Lario et travaillent dans le Tessin.',
+    'blog.article.faggeto-lario-ticino-frontaliere.imageAlt': 'Vue de Mendrisio, Tessin, à la frontière avec Côme: lieu idéal pour les travailleurs frontaliers du canton',
 };
 
 export default blogMetaFr;
