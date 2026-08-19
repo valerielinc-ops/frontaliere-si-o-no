@@ -3457,6 +3457,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.settori-salari-basilea-livelli-formazione.title': 'Arbeitsmarkt Basel-Stadt: Löhne, Branchen und Verträge',
     'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Leitfaden zu den Lohnniveaus nach Bildungsabschluss, eingestellten Branchen, Tarifverträgen und Arbeitsmarktmechanismen im Kanton Basel-Stadt.',
     'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Basler Innenstadt mit modernen Gebäuden und Rhein, Schweizer Arbeitsmarkt',
+    'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana beschleunigt mit Photovoltaikanlage am Parkplatz',
+    'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Einkaufszentrum Morbio Inferiore realisiert eine Photovoltaik-Abdeckung von 1.736 kWp: 1.900 MWh pro Jahr an erneuerbarer Energie bis zum Frühjahr 2027.',
+    'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Moderne Photovoltaik-Parkplatzüberdachung mit innovativen Solarmodulen in sonniger Tessiner Landschaft.',
 };
 
 export default blogMetaChDe;
