@@ -10079,6 +10079,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'The day\'s numbers for cross-border commuters – August 19, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Cross-border brief, August 19, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'The numbers for August 19, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.title': 'Living in San Fermo and working in Ticino: border guide',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.excerpt': 'As a border crossing from San Fermo della Battaglia to Ticino: permits, taxation, roads and convenience of transfer to the province of Como.',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Mendrisio in southern Ticino, with Como valley and Italian border in the background.',
 };
 
 export default blogMetaEn;

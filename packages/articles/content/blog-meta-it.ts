@@ -10080,6 +10080,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'I numeri del giorno per i frontalieri – 19 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Bollettino frontalieri del 19 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'I numeri del 19 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.title': 'Vivere a San Fermo e lavorare in Ticino: guida frontaliere',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.excerpt': 'Come frontaliere da San Fermo della Battaglia verso Ticino: permessi, fiscalità, viabilità e convenienza del trasferimento in provincia di Como.',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Mendrisio nel Ticino meridionale, con la valle di Como e il confine italiano sullo sfondo.',
 };
 
 export default blogMetaIt;
