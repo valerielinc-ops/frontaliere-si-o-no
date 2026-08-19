@@ -10141,6 +10141,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bene-lario-frontaliere-ticino.title': 'Leben in Bene Lario, Arbeiten im Tessin als Grenzgänger',
     'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario ist eine der beliebtesten Gegenden Italiens für diejenigen, die täglich im Tessin pendeln. Steuerberatung, Zeiten, Lebenshaltungskosten und das Verfahren für die Arbeit als Grenzgänger.',
     'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'Blick auf die Uferpromenade von Bene Lario am Comer See mit den Alpen im Hintergrund',
+    'blog.article.vivere-colonno-lavorare-ticino.title': 'Wohnen in Colonno, arbeiten im Tessin: Grenzführer',
+    'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Entfernungen, Reisezeiten, Lebenshaltungskosten und Steuerverfahren: Alles, was Sie wissen müssen, um in Colonno zu leben und als Grenzgänger im Tessin zu arbeiten.',
+    'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'Blick auf die Nordküste des Comer Sees von Colonno in Richtung Brogeda-Grenzübergang und Kanton Tessin',
 };
 
 export default blogMetaDe;

@@ -10143,6 +10143,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bene-lario-frontaliere-ticino.title': 'Vivere a Bene Lario, lavorare in Ticino da frontaliere',
     'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario è una delle zone italiane più scelte da chi commuta quotidianamente in Ticino. Guida fiscale, tempi, costo della vita e la procedura per lavorare come frontaliere.',
     'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'Veduta del waterfront di Bene Lario sul Lago di Como con le Alpi sullo sfondo',
+    'blog.article.vivere-colonno-lavorare-ticino.title': 'Vivere a Colonno, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Distanze, tempi di viaggio, costo della vita e procedure fiscali: tutto ciò che devi sapere per vivere a Colonno e lavorare come frontaliere in Ticino.',
+    'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'Veduta della sponda nord del Lago di Como da Colonno verso il valico di Brogeda e il Canton Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

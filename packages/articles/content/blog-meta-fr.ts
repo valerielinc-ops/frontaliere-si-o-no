@@ -10144,6 +10144,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bene-lario-frontaliere-ticino.title': 'Vivre à Bene Lario, travailler au Tessin en tant que frontalier',
     'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario est l\'une des zones italiennes les plus choisies par ceux qui commutent quotidiennement au Tessin. Guide fiscal, temps, coût de la vie et procédure pour travailler en tant que frontalier.',
     'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'Vue du front de mer de Bene Lario sur le lac de Côme avec les Alpes en arrière-plan',
+    'blog.article.vivere-colonno-lavorare-ticino.title': 'Vivre à Colonno, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Distances, temps de déplacement, coût de la vie et procédures fiscales : tout ce que vous devez savoir pour vivre à Colonno et travailler comme frontalier au Tessin.',
+    'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'Vue du lac de Côme depuis Colonno vers le passage frontalier de Brogeda et le Tessin en arrière-plan',
 };
 
 export default blogMetaFr;
