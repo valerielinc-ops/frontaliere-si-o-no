@@ -1,56 +1,18 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-08-19T09:48:25.223Z",
-  "total": 1,
+  "generatedAt": "2026-08-19T21:44:13.073Z",
+  "total": 0,
+  "discovered": null,
+  "written": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4233,
-  "avgDurationMs": 4233,
-  "durationHistory": [
-    4233
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "kudelski-nagra-213b373baaf3",
-      "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
-      "company": "Kudelski NAGRA",
-      "companyKey": "kudelski-nagra",
-      "companyDomain": "nagra.com",
-      "title": "Apprenti(e) Employ&eacute;(e) de Commerce - Voie 2",
-      "location": "Switzerland",
-      "canton": "TI",
-      "url": "https://careers.nagra.com/?page=advertisement_display&id=15596",
-      "source": "Kudelski NAGRA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-19T09:48:22.697Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sicurezza digitale / Media technology",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15596",
-      "firstSeenAt": "2026-07-22T22:19:26.636Z",
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
