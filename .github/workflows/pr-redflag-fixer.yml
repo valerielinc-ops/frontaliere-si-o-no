@@ -148,7 +148,7 @@ jobs:
           set -uo pipefail
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git fetch origin main -q || true
+          git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
           if git merge --no-edit origin/main; then
             echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
           else
