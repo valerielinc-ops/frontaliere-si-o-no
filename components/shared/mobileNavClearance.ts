@@ -17,6 +17,13 @@
  * referencing it by name here is scan-proof. The actual offsets (4.5rem mobile,
  * 1rem at md+) live in index.css.
  *
- * Used by JobDetailAlertPrompt, JobAlertStickyBanner and the JobAlertForm toast.
+ * ONE CALLER, DELIBERATELY. Four prompts used to import this directly and
+ * assemble the rest of the position themselves, which is how four of them ended
+ * up on byte-identical coordinates with no coordination. The offset now belongs
+ * to `components/shared/BottomPromptShell.tsx`, which owns the whole class list
+ * AND the popupQueue claim that keeps two prompts off the same pixels. The only
+ * other importer is the JobAlertForm success toast, a transient z-50 status
+ * message that deliberately does not queue — see the exemption list in
+ * `tests/bottom-prompt-slot.test.tsx`, which fails if a third one appears.
  */
 export const ABOVE_MOBILE_NAV_BOTTOM = 'above-mobile-nav';

@@ -130,7 +130,26 @@ export function subscribe(listener: Listener): () => void {
  return () => { listeners.delete(listener); };
 }
 
-/** Priority constants */
+/**
+ * Priority constants.
+ *
+ * The four `*_PROMPT`/`*_NUDGE`/`*_BANNER` values below are the bottom-anchored
+ * job/alert family (components/shared/BottomPromptShell.tsx). They sit between
+ * the guide banner and the newsletter popup, and they are ordered by how much
+ * the visitor's CURRENT action justifies the interruption:
+ *
+ *  · JOB_DETAIL_PROMPT — they are reading one ad in a category. Most specific
+ *    offer we can make, and the only one tied to what is on screen right now.
+ *  · SAVED_JOBS_NUDGE — they just saved a fourth job. Strong signal, but it is
+ *    about a list rather than the thing they are looking at.
+ *  · PROFILE_ENRICHMENT — they already have an alert; this improves it. Real
+ *    value, no new subscription, so it yields to both asks above.
+ *  · JOB_ALERT_STICKY — scroll-depth only. It knows nothing about intent and is
+ *    the one that should wait.
+ *
+ * All four are below `COOKIE_CONSENT` and `AUTH_GATE` on purpose: a consent
+ * banner or a sign-in gate is not an offer that can be postponed.
+ */
 export const POPUP_PRIORITY = {
  CHATBOT_PANEL: 120,
  INLINE_AUTH_GATE: 110,
@@ -139,5 +158,9 @@ export const POPUP_PRIORITY = {
  COOKIE_CONSENT: 85,
  AUTH_GATE: 80,
  GUIDE_BANNER: 60,
+ JOB_DETAIL_PROMPT: 55,
+ SAVED_JOBS_NUDGE: 50,
+ PROFILE_ENRICHMENT: 45,
+ JOB_ALERT_STICKY: 40,
  NEWSLETTER: 20,
 } as const;

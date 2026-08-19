@@ -18,6 +18,8 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
+// Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
+import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
@@ -2295,7 +2297,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // action here and opens SaveSignInPromptModal; the effect below replays it
  // once authUser.uid becomes truthy.
  const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
- const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null } | null>(null);
+ const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
  const [filtersExpanded, setFiltersExpanded] = useState(false);
@@ -3378,13 +3380,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  timerId = window.setTimeout(() => {
  if (cancelled) return;
  savedNudgeArmedRef.current = true;
- setSavedNudge({ categoryLabel: label, cantonCode });
- Analytics.trackEvent('nudge_shown', {
- nudge: 'saved_jobs_alert',
- saved_count: savedJobs.length,
- nudge_category: category,
- nudge_canton: cantonCode || '(none)',
- });
+ setSavedNudge({ categoryLabel: label, cantonCode, savedCount: savedJobs.length, category });
+ // `nudge_shown` fires from the nudge's own `onShown` (below), not here:
+ // the toast queues for a popupQueue slot, so this is the moment it was
+ // ARMED, not the moment it was seen.
  }, SAVED_NUDGE_SHOW_DELAY_MS);
  })();
  return () => {
@@ -3583,7 +3582,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try { console.log('[AlertDebug] FIRE — prompt visible'); } catch { /* noop */ }
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
- Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
+ // The impression is NOT fired here any more. The toast waits for a
+ // popupQueue slot (components/shared/BottomPromptShell.tsx), so "we
+ // decided to show it" and "it is on screen" are different events, and
+ // counting the first would inflate the denominator of the one
+ // job-alert surface that actually converts. It fires from the
+ // prompt's `onShown` instead — see jobDetailPromptJsx below.
  }, showImmediately ? 0 : 1500);
  })();
 
@@ -6370,6 +6374,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
  cantonCode={selectedJob?.canton ?? null}
+ onShown={() => Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory)}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -6420,14 +6425,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- // Saved-jobs alert nudge toast (#4467). Suppressed while the job-detail
- // alert prompt is on screen — never two toasts in the same corner.
- const savedJobsNudgeJsx = (savedNudge && !jobDetailPromptVisible) ? (
+ // Saved-jobs alert nudge toast (#4467).
+ //
+ // The `&& !jobDetailPromptVisible` that used to be here was the ONLY overlap
+ // guard in the tree: one hardcoded pair out of the ten a family of five
+ // bottom-anchored prompts produces, and it deleted the nudge rather than
+ // deferring it. Both prompts now claim a popupQueue slot through
+ // BottomPromptShell, which covers every pair — including the two rendered
+ // from other subtrees, which no boolean here could have reached — and
+ // PROMOTES the loser once the winner is dismissed instead of dropping it.
+ const savedJobsNudgeJsx = savedNudge ? (
  <Suspense fallback={null}>
  <SavedJobsAlertNudge
  categoryLabel={savedNudge.categoryLabel}
  cantonCode={savedNudge.cantonCode}
  cantonLabel={savedNudge.cantonCode ? getCantonLabel(savedNudge.cantonCode, locale) : null}
+ onShown={() => Analytics.trackEvent('nudge_shown', {
+ nudge: 'saved_jobs_alert',
+ saved_count: savedNudge.savedCount,
+ nudge_category: savedNudge.category,
+ nudge_canton: savedNudge.cantonCode || '(none)',
+ })}
  userId={userId}
  email={userEmail}
  locale={locale}
@@ -7649,7 +7667,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    job: JobListing,
    surface: 'company_follow_button' | 'company_follow_gate',
  ) => (
-   <Suspense fallback={null}>
+   // Reserving fallback: this CTA renders in the job-detail header now, so the
+   // lazy chunk landing must swap a same-sized block rather than insert one.
+   <Suspense fallback={<CompanyFollowPlaceholder />}>
      <CompanyFollowCta
        company={String(job.company || '')}
        companyKey={job.companyKey ?? null}
@@ -7853,6 +7873,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
      the title block) as JobExpiredView and JobOrphanView; it renders null
      unless the build proved a hub exists for this employer. */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
+ {/* CompanyAlert (#5012) — the follow CTA, directly under the hub link it
+     belongs with. It used to sit far below the auth gate, past the teaser and
+     the sign-in block; on the surface where the reader is MOST likely to
+     leave without an account, the one ask that does not need an account was
+     the last thing on the page. Same component, same anonymous
+     email-capture + double opt-in, moved to where the employer is named. */}
+ {companyFollowCta(selectedJob, 'company_follow_gate')}
  {/* Readable description teaser — shows first ~200 chars to create information
  scent and an "open loop" that motivates signup. Fades out at the bottom.
  On very short viewports (landscape phones) we hide it entirely so the gate CTAs
@@ -8085,15 +8112,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </a>
 
- {/* CompanyAlert (#5012) — the follow CTA on the GATED detail.
-     Deliberately below the auth gate and directly under the company banner
-     it acts on, mirroring the unlocked layout: the sign-in stays the primary
-     ask, and this is the lower-commitment fallback for the visitor who will
-     not create an account but will leave an address to hear about this
-     employer. Without it the whole anonymous-capture path of phase 2 was
-     unreachable from the job pages, which are the site's entry point from
-     search. */}
- {companyFollowCta(selectedJob, 'company_follow_gate')}
 
  {/* Similar jobs — gate view (listing-style cards) */}
  {relatedJobs.length > 0 && (
@@ -8658,7 +8676,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Building2 className="w-9 h-9 text-muted" />
  )}
  </a>
- <div className="min-w-0">
+ <div className="min-w-0 flex-1">
  <h1 className="text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight">
  <a
  href={isInHouseApply ? '#candidatura' : applyUrl}
@@ -8702,6 +8720,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </p>
  </div>
+ {/* Save toggle (#4466). Moved out of the badge row and into the header
+     corner, on the title's own row: in the chip strip it read as a seventh
+     metadata pill among six non-interactive ones (category, contract,
+     freshness, salary…), which is the worst place to put the only control
+     in that strip. Still in flow and still rendered from first paint, so
+     the zero-CLS property the chip was built for is unchanged — it is the
+     same node in a different flex parent, not a `fixed`/`absolute` overlay
+     that would have to be reserved for. */}
+ <button
+ type="button"
+ onClick={() => handleToggleSave(selectedJob, 'detail')}
+ aria-pressed={savedJobIds.has(selectedJob.id)}
+ className={`shrink-0 px-3 py-2 min-h-[44px] rounded-full inline-flex items-center gap-1.5 text-xs font-semibold border transition-colors ${
+ savedJobIds.has(selectedJob.id)
+ ? 'bg-accent-subtle text-accent border-accent-border'
+ : 'bg-surface/90 text-subtle border-edge hover:text-accent hover:border-accent-border'
+ }`}
+ >
+ <Bookmark className={`w-3.5 h-3.5 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
+ {savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
+ </button>
  </div>
 
  {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
@@ -8710,6 +8749,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
      half of the same link, and it is the surface where reader intent is
      highest (the expired and orphan views have carried it for longer). */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
+
+ {/* CompanyAlert (#5012): "Segui questa azienda", now in the employer block
+     of the header instead of ~200 lines down the page, under the apply/share
+     row. Two reasons it moved rather than being duplicated up here:
+       · it is the same subscription the hub link's employer is about, so the
+         two controls answer one question — "this company" — and reading them
+         together is what makes the second one obvious;
+       · CompanyFollowButton holds its follow/unfollow state locally and
+         resolves it with its own `findCompanyAlert` call. A second instance
+         on the same page would not just re-query: after one click the two
+         would disagree, and clicking the stale one writes a SECOND alert
+         document for the same employer, burning one of the visitor's few
+         alert slots.
+         One control, moved. */}
+ {companyFollowCta(selectedJob, 'company_follow_button')}
 
  <div className="mt-4 flex flex-wrap gap-2 text-xs">
  <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
@@ -8733,20 +8787,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {salary}
  </span>
  )}
- {/* Save toggle (#4466): in-flow chip, present from first paint → zero CLS. */}
- <button
- type="button"
- onClick={() => handleToggleSave(selectedJob, 'detail')}
- aria-pressed={savedJobIds.has(selectedJob.id)}
- className={`px-2.5 py-1 min-h-[28px] rounded-full inline-flex items-center gap-1 font-semibold border transition-colors ${
- savedJobIds.has(selectedJob.id)
- ? 'bg-accent-subtle text-accent border-accent-border'
- : 'bg-surface text-subtle border-edge hover:text-accent hover:border-accent-border'
- }`}
- >
- <Bookmark className={`w-3 h-3 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
- {savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
- </button>
  </div>
  </header>
 
@@ -8929,13 +8969,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  height={28}
  loading="lazy"
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
- {/* CompanyAlert (#5012): "Segui questa azienda". Unlike the per-ad button
-     below this is NOT restricted to publisher ads — following an employer is
-     the recurring reason to come back, and every job detail names one.
-     Nor is it gated on a session (#5012 phase 2): an ANONYMOUS visitor gets
-     the email-capture + double-opt-in path inside the component — which is
-     why the same CTA also renders in the `!hasAccess` branch above. */}
- {companyFollowCta(selectedJob, 'company_follow_button')}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton

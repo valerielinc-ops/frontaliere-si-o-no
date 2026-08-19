@@ -868,7 +868,7 @@ const translations: Record<string, string> = {
  'jobAlert.postAuthPromptPersonalizeLink': 'Personalizza',
  'jobAlert.postAuthPromptRetryCta': 'Riprova',
  'jobAlert.jobDetailPrompt.title': 'Vuoi alert per {category}?',
- 'jobAlert.jobDetailPrompt.body': 'Ti scriviamo quando escono nuovi lavori in «{category}».',
+ 'jobAlert.jobDetailPrompt.body': 'Una email a ogni nuovo annuncio.',
  'jobAlert.jobDetailPrompt.acceptCta': 'Sì, attiva',
  'jobAlert.jobDetailPrompt.dismissCta': 'Non ora',
  'jobAlert.jobDetailPrompt.successTitle': 'Alert attivato ✓',

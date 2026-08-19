@@ -821,9 +821,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </div>
  )}
 
- {/* Toast */}
+ {/* Toast. `text-surface`, not `text-heading`: both tokens resolve to
+     `var(--_heading)`, so `bg-heading text-heading` painted the confirmation in
+     its own background colour — an invisible toast, in both themes, on the one
+     surface that tells somebody their alert was created. The sibling that got
+     it right is the feedback CTA, which pairs the same background with a
+     foreground token that is not the same one.
+     Left OUT of the popupQueue on purpose (unlike the four prompts that now
+     share BottomPromptShell): this is a 2s status message confirming an action
+     the visitor just took, not an offer competing for their attention, and a
+     confirmation that waits in a queue is a confirmation that never arrives.
+     Its z-50 keeps it above any prompt still on screen. */}
  {toast && (
- <div className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-heading text-heading text-sm shadow-lg animate-fade-in`}>
+ <div className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-heading text-surface text-sm shadow-lg animate-fade-in`}>
  {toast}
  </div>
  )}
