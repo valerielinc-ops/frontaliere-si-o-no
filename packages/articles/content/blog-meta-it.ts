@@ -10089,6 +10089,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castello-cabiaglio-frontaliere-ticino.title': 'Vivere a Castello Cabiaglio e lavorare in Ticino da frontaliere',
     'blog.article.castello-cabiaglio-frontaliere-ticino.excerpt': 'Guida pratica al trasferimento: location, tasse nuovi accordi 2024, contributi AVS/LPP, LAMal, procedura permesso G, costi e vantaggi.',
     'blog.article.castello-cabiaglio-frontaliere-ticino.imageAlt': 'Veduta aerea del confine Ticino-Varese: paesaggio frontaliero alpino con colline e valichi, foto DSLR realistica',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.title': 'Villa Guardia: vivere e lavorare come frontaliere',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.excerpt': 'Guida completa per frontalieri da Villa Guardia verso il Ticino: permesso G, tasse, AVS, LAMal, vantaggi e procedure per il trasferimento.',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.imageAlt': 'Paesaggio mattutino della regione di Mendrisio nel Canton Ticino con valle nebbiosa, abitazioni residenziali e pendii alpini',
 };
 
 export default blogMetaIt;

@@ -10087,6 +10087,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castello-cabiaglio-frontaliere-ticino.title': 'Wohnen in Castello Cabiaglio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.castello-cabiaglio-frontaliere-ticino.excerpt': 'Praxisleitfaden für die Verlegung: Standorte, Steuern neue Vereinbarungen 2024, AHV/BVG-BEITRÄGE, KVG, Bewilligungsverfahren G, Kosten und Nutzen.',
     'blog.article.castello-cabiaglio-frontaliere-ticino.imageAlt': 'Luftaufnahme des Grenzübergangs Tessin-Varese mit Alpenlandschaft und Grenzgebiet, realistische DSLR-Fotografie',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.title': 'Villa Guardia: Leben und Arbeiten als Grenzgänger',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Grenzgänger von Villa Guardia ins Tessin: G-Bewilligung, Steuern, AHV, KVG, Vorteile und Verfahren für den Umzug.',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.imageAlt': 'Morgenlandschaft der Region Mendrisio im Kanton Tessin mit nebligem Tal, Wohngebäuden und Alpenhängen',
 };
 
 export default blogMetaDe;
