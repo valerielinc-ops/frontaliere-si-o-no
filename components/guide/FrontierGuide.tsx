@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useDeferredValue, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef, useDeferredValue, Suspense } from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
@@ -636,6 +636,117 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  </div>
 );
 
+// Memoized card to avoid re-rendering all 518 municipality cards on select
+// (INP): `selectedMunicipality` (unlike search/sort/filter, see the
+// useDeferredValue block below) drives the ▲/▼ hint + detail-panel insert and
+// must update on the SAME click for correct UX, so it isn't deferred — but
+// without memoization every card in the list re-renders synchronously on each
+// click just to recompute `isSelected`. `m`/`t` stay referentially stable
+// across a selection change (filteredMunicipalities is memoized on the
+// deferred filter/sort/search values, not on selectedMunicipality; `t` is a
+// module-level function), so React.memo here means only the previously- and
+// newly-selected card actually re-render. Same pattern as JobCard in
+// components/community/JobBoard.tsx.
+interface MunicipalityCardProps {
+ m: Municipality;
+ isSelected: boolean;
+ t: (key: string, paramsOrFallback?: string | Record<string, string | number>) => string;
+ onClick: (m: Municipality) => void;
+}
+const MunicipalityCard: React.FC<MunicipalityCardProps> = React.memo(({ m, isSelected, t, onClick }) => (
+ <div
+ onClick={() => onClick(m)}
+ onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(m); } }}
+ role="button"
+ tabIndex={0}
+ aria-expanded={isSelected}
+ className={`bg-gradient-to-br ${m.type === 'new' ? 'from-accent-subtle to-accent-subtle border-accent-border' : 'from-warning-subtle to-danger-subtle border-warning-border'} rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer select-none ${isSelected ? 'ring-2 ring-accent ring-offset-2 shadow-lg' : ''}`}
+ >
+ <div className="flex items-start justify-between gap-4">
+ <div className="flex-1">
+ <div className="flex items-center gap-3 mb-2 flex-wrap">
+ <h3 className="text-xl font-bold font-display text-strong">{m.name}</h3>
+ {m.type === 'both' ? (
+ <>
+ <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-accent-strong text-on-accent">
+ {t('guide.new')}
+ </span>
+ <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-warning-strong text-on-accent">
+ {t('guide.old')}
+ </span>
+ </>
+ ) : (
+ <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-accent-strong text-on-accent' : 'bg-warning-strong text-on-accent'}`}>
+ {m.type === 'new' ? t('guide.new') : t('guide.old')}
+ </span>
+ )}
+ <span className="ml-auto text-xs text-accent font-medium">
+ {isSelected ? '▲' : '▼'} {t('guide.municipalities.detail.clickHint')}
+ </span>
+ </div>
+ <div className="grid sm:grid-cols-2 gap-3 text-sm">
+ <div className="flex items-center gap-2 text-body">
+ <MapPin size={16} className="text-accent" />
+ <span><strong>{t('guide.province')}:</strong> {m.province}</span>
+ </div>
+ <div className="flex items-center gap-2 text-body">
+ <Navigation size={16} className="text-success" />
+ <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
+ </div>
+ <div className="flex items-center gap-2 text-body">
+ <Car size={16} className="text-warning" />
+ <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
+ </div>
+ <div className="flex items-center gap-2 text-body">
+ <Users size={16} className="text-accent" />
+ <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
+ </div>
+ </div>
+ <div className="mt-4 rounded-xl border border-edge bg-surface/70 p-3">
+ <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+ <div className="min-w-0">
+ <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t('guide.municipalities.detail.nearestCustoms')}</p>
+ <p className="truncate text-sm font-bold text-strong">{m.borderCrossing}</p>
+ </div>
+ <span className={`shrink-0 rounded-lg border px-2.5 py-1 text-xs font-bold ${trafficToneClasses(m.borderCrossingTraffic)}`}>
+ {t('guide.municipalities.detail.currentWait')}: {m.borderCrossingWaitNow}
+ </span>
+ </div>
+ <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-subtle">
+ <span>{t('guide.municipalities.detail.avgMorning')}: <strong className="text-body">{m.borderCrossingMorning}</strong></span>
+ <span>{t('guide.municipalities.detail.avgEvening')}: <strong className="text-body">{m.borderCrossingEvening}</strong></span>
+ </div>
+ <div className="mt-3 flex flex-wrap gap-2">
+ <a
+ href={`/traffico-dogane/${m.borderCrossingSlug}/oggi/`}
+ onClick={(event) => {
+ event.stopPropagation();
+ Analytics.trackUIInteraction('guida', 'municipalities', 'card_border_wait', 'click', m.name);
+ }}
+ className="inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-info-subtle px-3 py-1.5 text-xs font-bold text-info hover:bg-info-subtle/70"
+ >
+ <Timer size={13} />
+ {t('guide.municipalities.detail.borderWaitCta')}
+ </a>
+ <a
+ href={municipalityProfilePath(m.name)}
+ onClick={(event) => {
+ event.stopPropagation();
+ Analytics.trackUIInteraction('guida', 'municipalities', 'card_profile', 'click', m.name);
+ }}
+ className="inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent hover:bg-accent-subtle/70"
+ >
+ <ArrowRight size={13} />
+ {t('guide.municipalities.detail.profileCta')}
+ </a>
+ </div>
+ </div>
+ </div>
+ <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-accent' : m.type === 'new' ? 'text-accent' : 'text-warning'}`} />
+ </div>
+ </div>
+));
+
 const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSection }) => {
  const { t } = useTranslation();
  const [internalSection, setInternalSection] = useState<GuideSection>((externalSection as GuideSection) || 'municipalities');
@@ -727,15 +838,20 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
 
- // Track municipality view + open/close detail panel
- const handleMunicipalityClick = (municipality: Municipality) => {
- const opening = selectedMunicipality?.name !== municipality.name;
+ // Track municipality view + open/close detail panel.
+ // Stable ([] deps) so MunicipalityCard's React.memo isn't defeated by a new
+ // `onClick` reference on every render — reads the current selection via a
+ // ref instead of closing over `selectedMunicipality` state.
+ const selectedMunicipalityRef = useRef<Municipality | null>(null);
+ useEffect(() => { selectedMunicipalityRef.current = selectedMunicipality; }, [selectedMunicipality]);
+ const handleMunicipalityClick = useCallback((municipality: Municipality) => {
+ const opening = selectedMunicipalityRef.current?.name !== municipality.name;
  setSelectedMunicipality(opening ? municipality : null);
  Analytics.trackMunicipalityView(municipality.name, municipality.type);
  if (opening) {
  Analytics.trackUIInteraction('guida', 'municipalities', 'card', 'detail_opened', municipality.name);
  }
- };
+ }, []);
 
  // Track map marker click
  const handleMapMarkerClick = (location: string, type: string) => {
@@ -1003,97 +1119,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  // stable key (name is unique) so re-sorting/filtering doesn't churn the
  // whole 518-card subtree — idx kept below only for the detail-insert slot
  <React.Fragment key={m.name}>
- <div
- onClick={() => handleMunicipalityClick(m)}
- onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleMunicipalityClick(m); } }}
- role="button"
- tabIndex={0}
- aria-expanded={isSelected}
- className={`bg-gradient-to-br ${m.type === 'new' ? 'from-accent-subtle to-accent-subtle border-accent-border' : 'from-warning-subtle to-danger-subtle border-warning-border'} rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer select-none ${isSelected ? 'ring-2 ring-accent ring-offset-2 shadow-lg' : ''}`}
- >
- <div className="flex items-start justify-between gap-4">
- <div className="flex-1">
- <div className="flex items-center gap-3 mb-2 flex-wrap">
- <h3 className="text-xl font-bold font-display text-strong">{m.name}</h3>
- {m.type === 'both' ? (
- <>
- <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-accent-strong text-on-accent">
- {t('guide.new')}
- </span>
- <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-warning-strong text-on-accent">
- {t('guide.old')}
- </span>
- </>
- ) : (
- <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-accent-strong text-on-accent' : 'bg-warning-strong text-on-accent'}`}>
- {m.type === 'new' ? t('guide.new') : t('guide.old')}
- </span>
- )}
- <span className="ml-auto text-xs text-accent font-medium">
- {isSelected ? '▲' : '▼'} {t('guide.municipalities.detail.clickHint')}
- </span>
- </div>
- <div className="grid sm:grid-cols-2 gap-3 text-sm">
- <div className="flex items-center gap-2 text-body">
- <MapPin size={16} className="text-accent" />
- <span><strong>{t('guide.province')}:</strong> {m.province}</span>
- </div>
- <div className="flex items-center gap-2 text-body">
- <Navigation size={16} className="text-success" />
- <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
- </div>
- <div className="flex items-center gap-2 text-body">
- <Car size={16} className="text-warning" />
- <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
- </div>
- <div className="flex items-center gap-2 text-body">
- <Users size={16} className="text-accent" />
- <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
- </div>
- </div>
- <div className="mt-4 rounded-xl border border-edge bg-surface/70 p-3">
- <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
- <div className="min-w-0">
- <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t('guide.municipalities.detail.nearestCustoms')}</p>
- <p className="truncate text-sm font-bold text-strong">{m.borderCrossing}</p>
- </div>
- <span className={`shrink-0 rounded-lg border px-2.5 py-1 text-xs font-bold ${trafficToneClasses(m.borderCrossingTraffic)}`}>
- {t('guide.municipalities.detail.currentWait')}: {m.borderCrossingWaitNow}
- </span>
- </div>
- <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-subtle">
- <span>{t('guide.municipalities.detail.avgMorning')}: <strong className="text-body">{m.borderCrossingMorning}</strong></span>
- <span>{t('guide.municipalities.detail.avgEvening')}: <strong className="text-body">{m.borderCrossingEvening}</strong></span>
- </div>
- <div className="mt-3 flex flex-wrap gap-2">
- <a
- href={`/traffico-dogane/${m.borderCrossingSlug}/oggi/`}
- onClick={(event) => {
- event.stopPropagation();
- Analytics.trackUIInteraction('guida', 'municipalities', 'card_border_wait', 'click', m.name);
- }}
- className="inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-info-subtle px-3 py-1.5 text-xs font-bold text-info hover:bg-info-subtle/70"
- >
- <Timer size={13} />
- {t('guide.municipalities.detail.borderWaitCta')}
- </a>
- <a
- href={municipalityProfilePath(m.name)}
- onClick={(event) => {
- event.stopPropagation();
- Analytics.trackUIInteraction('guida', 'municipalities', 'card_profile', 'click', m.name);
- }}
- className="inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent hover:bg-accent-subtle/70"
- >
- <ArrowRight size={13} />
- {t('guide.municipalities.detail.profileCta')}
- </a>
- </div>
- </div>
- </div>
- <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-accent' : m.type === 'new' ? 'text-accent' : 'text-warning'}`} />
- </div>
- </div>
+ <MunicipalityCard m={m} isSelected={isSelected} t={t} onClick={handleMunicipalityClick} />
  {isSelected && (
  <div className="md:hidden">
  <MunicipalityDetailPanel municipality={m} t={t} onClose={() => setSelectedMunicipality(null)} />
