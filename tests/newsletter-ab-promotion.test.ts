@@ -13,6 +13,7 @@ const {
   MissingIndexError,
 } = await import('@/scripts/lib/newsletter-ab-data.mjs');
 const { buildDeliveryDocId } = await import('@/functions/src/lib/deliveryDocId.js');
+const { toMillis } = await import('@/scripts/lib/firestoreTimestamp.mjs');
 
 describe('buildDeliveryDocId', () => {
   it('builds the canonical double-underscore send-doc id (email lowercased)', () => {
@@ -394,6 +395,74 @@ describe('loadCampaignSegmentReport — window and channel', () => {
     };
     expect((await loadCampaignSegmentReport(stubDb([senzaCampo]), CAMPAIGN)).totalUnsubscribes).toBe(1);
     expect((await loadCampaignSegmentReport(stubDb([unsub(null)]), CAMPAIGN)).totalUnsubscribes).toBe(1);
+  });
+});
+
+// follow-up(#6062) item 1: toMillis(d.sent_at) was unverified on malformed/legacy
+// timestamps — a null return could in principle contribute as 0/NaN and drag
+// maxSentAt (hence windowClosed) below the real value.
+describe('toMillis (scripts/lib/firestoreTimestamp.mjs) — malformed/legacy shapes', () => {
+  it('returns null, never NaN, for a value it cannot parse', () => {
+    expect(toMillis('not-a-real-timestamp')).toBeNull();
+    expect(toMillis({})).toBeNull();
+    expect(toMillis(NaN)).toBeNull();
+  });
+
+  it('returns null for falsy input instead of epoch 0', () => {
+    expect(toMillis(null)).toBeNull();
+    expect(toMillis(undefined)).toBeNull();
+    expect(toMillis('')).toBeNull();
+    expect(toMillis(0)).toBeNull();
+  });
+
+  it('still parses every legitimate Firestore/legacy shape', () => {
+    expect(toMillis({ toMillis: () => 123 })).toBe(123);
+    expect(toMillis({ toDate: () => new Date(456) })).toBe(456);
+    expect(toMillis({ _seconds: 1_700_000_000 })).toBe(1_700_000_000_000);
+    expect(toMillis(new Date('2026-06-15T08:00:00Z'))).toBe(Date.parse('2026-06-15T08:00:00Z'));
+    expect(toMillis('2026-06-15T08:00:00Z')).toBe(Date.parse('2026-06-15T08:00:00Z'));
+  });
+});
+
+describe('loadCampaignSegmentReport — a malformed sent_at cannot drag the window down', () => {
+  const CAMPAIGN = 'weekly_2026-06-15';
+
+  function stubDb(deliveryDocs: any[]) {
+    const chain = (group: string) => {
+      const q: any = {
+        where: () => q,
+        orderBy: () => q,
+        limit: () => q,
+        get: async () => ({
+          docs: group === 'campaign_deliveries'
+            ? deliveryDocs.map((d) => ({
+                id: buildDeliveryDocId(CAMPAIGN, d.email),
+                data: () => d,
+                ref: { parent: { parent: { id: d.email } } },
+              }))
+            : [],
+        }),
+      };
+      return q;
+    };
+    return { collectionGroup: (g: string) => chain(g) };
+  }
+
+  it('excludes an unparseable sent_at from min/max instead of letting it contribute 0/NaN, while still counting the send', async () => {
+    const validSentAt = new Date('2026-06-15T08:00:00Z');
+    const malformed = { email: 'malformed@x.com', sent_at: 'not-a-real-timestamp', provider: 'resend', segment: 'hot_jobs' };
+    const valid = { email: 'valid@x.com', sent_at: validSentAt, provider: 'resend', segment: 'hot_jobs' };
+
+    // Order matters for the regression this guards: if a null/NaN contribution
+    // could win Math.min, it must lose to the malformed doc here (pushed first).
+    const r = await loadCampaignSegmentReport(stubDb([malformed, valid]), CAMPAIGN);
+
+    expect(r.totalSends).toBe(2); // the malformed doc is still a real send
+    // The window is anchored on the one parseable timestamp (6-day default),
+    // not on epoch 0 — which would have closed the window far too early.
+    const expectedWindowEnd = validSentAt.getTime() + 6 * 24 * 60 * 60 * 1000;
+    expect(r.windowClosed).toBe(Date.now() >= expectedWindowEnd);
+    expect(r.windowClosed).toBe(true); // 2026-06-15 is long past, given today's date
   });
 });
 
