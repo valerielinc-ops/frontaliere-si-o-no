@@ -10180,6 +10180,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'difesa-aerea-svizzera-investimenti',
+    category: 'novita',
+    date: '2026-08-19T09:19:00.685Z',
+    image: '/images/blog/difesa-aerea-svizzera-investimenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
