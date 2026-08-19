@@ -3385,6 +3385,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-neutralita-sondaggio-2026.title': 'Swiss neutrality: Ticino contradicts the country',
     'blog.article.ticino-neutralita-sondaggio-2026.excerpt': '20-minute survey/Tamedia: 62% of Swiss against the neutrality initiative. But Ticino votes yes with 52%. Vote on 27 September 2026.',
     'blog.article.ticino-neutralita-sondaggio-2026.imageAlt': 'Swiss federal parliament chamber during a debate session with Swiss flag in the background',
+    'blog.article.revisione-lex-koller-immobiliare.title': 'Lex Koller: tightening foreign real estate purchases',
+    'blog.article.revisione-lex-koller-immobiliare.excerpt': 'The CET-N proposes to annul the changes of the last 40 years to the law on real estate to curb speculation and protect the middle class.',
+    'blog.article.revisione-lex-koller-immobiliare.imageAlt': 'Construction site of a residential complex in a Swiss city with mountains in the background.',
 };
 
 export default blogMetaChEn;
