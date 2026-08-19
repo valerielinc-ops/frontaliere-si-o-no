@@ -907,37 +907,49 @@ const CLAUDE_CLI_MAX_CONCURRENCY = 2;
 // Il primo evento dello stream arriva a 637-1213ms in tutte e tre: l'avvio del
 // processo non c'entra niente, come gia' diceva `time_to_request_ms` a 57ms.
 //
-// ── PERCHE' UN BUDGET E NON ZERO ──────────────────────────────────────────
+// ── IL TETTO NON LEGA: MISURATO, E IL DEFAULT E' TORNATO A ZERO EFFETTO ───
 //
-// `MAX_THINKING_TOKENS=0` spegne il thinking del tutto (misurato: 56 → 0), ma
-// la generazione di un articolo non e' un compito banale e toglierle ogni
-// ragionamento e' un cambiamento di qualita' che nessuna misura qui giustifica.
-// Un tetto invece taglia la coda lunga lasciando intatta la pianificazione:
-// a ~90 token/s, passare da ~9.700 a 2.048 vale circa 85 secondi per chiamata.
+// Il giro precedente aveva messo il default a 2048, dichiarando nel corpo
+// della PR che restava una PREVISIONE finche' una run post-merge non l'avesse
+// confermata, e che «se resta a 9.000 non ha legato e va TOLTO, non ritarato a
+// occhio». Dodici campioni dopo, su run verificate `ahead` del merge:
 //
-// ── COSA NON SO, E COME SI VEDRA' ─────────────────────────────────────────
+//    1.444 · 12.602 · 7.728 · 1.517 · 10.474 · 7.766
+//    2.492 ·  2.007 · 3.020 · 5.320 ·  2.504 · 4.767
 //
-// Non ho potuto dimostrare in locale che un valore NON nullo leghi: i prompt
-// di prova non superano ~1.000 token di thinking, quindi il tetto non morde
-// mai, e a 256 la CLI ne ha comunque prodotti 1.058 (sembra esserci un minimo
-// interno intorno a 1.024). In produzione il thinking sta fra 7.601 e 9.955,
-// quindi 2.048 e' ampiamente sotto e deve mordere — ma resta una previsione.
+// NOVE su dodici superano 2.048, e il massimo (12.602) e' piu' alto di
+// qualunque campione pre-fix. Non lega nemmeno per-giro: 12.602 su 2 giri fa
+// 6.301 a giro. La prima misura, che sembrava confermare, era n=1 su una
+// chiamata gia' povera di thinking.
 //
-// E' cio' che rende questo cambiamento diverso dalle tre leve gia' bruciate
-// (floor, semaforo, breaker): non e' cieco, ha un criterio di successo
-// OSSERVABILE al primo giro. La riga 🐢 riporta `N di thinking` su ogni
-// chiamata lenta riuscita. Se il numero scende sotto il tetto, ha legato; se
-// resta a 9.000, non ha legato e va tolto invece di essere ritarato a occhio.
+// Messo insieme alle prove locali — `MAX_THINKING_TOKENS=0` porta il thinking
+// a ZERO esatti, `=256` ne produce comunque 1.058, `=2048` non morde mai — la
+// lettura coerente e' che la variabile si comporti da INTERRUTTORE e non da
+// budget: `0` spegne il ragionamento, qualunque valore non nullo lascia in
+// piedi il budget di default del modello.
 //
-// `off` (o una stringa vuota) non imposta affatto la variabile: e'
-// l'interruttore per tornare al comportamento di prima senza un deploy di
-// codice.
+// Quindi il default qui e' `null`: la variabile NON viene impostata, e il
+// comportamento e' identico a prima che il knob esistesse. Il knob resta come
+// opt-in perche' il valore che AGISCE esiste ed e' `0` — ma spegnere del tutto
+// il ragionamento nella scrittura di un articolo e' una scelta di QUALITA', e
+// va decisa, non dedotta da una misura di latenza.
+//
+// ── COSA RESTA VERO, ED E' LA PARTE CHE CONTA ─────────────────────────────
+//
+// La diagnosi regge. Il thinking e' 5.000-12.600 token per chiamata, e il
+// `ttft` gli sta dietro con lo stesso rapporto di sempre — 12.602/146s = 86,
+// 10.474/111s = 94, 7.766/87s = 89 token al secondo. E' ancora il termine
+// dominante del costo di `claude-cli/haiku`, e NON e' coda: il
+// `rate_limit_event` dice `status=allowed` in tutti e dodici i campioni.
+//
+// Cambia solo la conclusione su COME ridurlo. `CLAUDE_CLI_MAX_THINKING_TOKENS=0`
+// e' l'unico valore che agisce, e la riga 🐢 misura l'effetto al primo giro.
 const CLAUDE_CLI_MAX_THINKING_TOKENS = (() => {
   const raw = (process.env.CLAUDE_CLI_MAX_THINKING_TOKENS || '').trim();
-  if (!raw) return 2048;
+  if (!raw) return null;
   if (/^(off|none|no)$/i.test(raw)) return null;
   const n = Number(raw);
-  return Number.isInteger(n) && n >= 0 ? n : 2048;
+  return Number.isInteger(n) && n >= 0 ? n : null;
 })();
 
 const CLAUDE_CLI_SLOW_CALL_LOG_MS = (() => {
