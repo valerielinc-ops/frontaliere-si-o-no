@@ -127,10 +127,17 @@ jobs:
           const redundant = s.redundantLocationMarker || 0;
           const conflict = s.locationCantonConflict || 0;
           const descDup = s.descriptionCantonDuplicated || 0;
+          // Layer 6. A bug, not a formatting nit: the field holds page furniture
+          // ("0200 Deutsch Suche Suche Masterdata Specialist"), a street address
+          // or a marketing sentence, so the page names a place that does not
+          // exist. Separated from `customLocation` on purpose — that bucket
+          // conflates a hamlet BFS does not list with text that was never a
+          // place, which is why it could never name an offender.
+          const implausible = s.implausibleLocation || 0;
           const byCrawler = r.locationFormatByCrawler || [];
 
           const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0 || rewritten > 0
-            || conflict > 0 || descDup > 0;
+            || conflict > 0 || descDup > 0 || implausible > 0;
 
           let md = `## Location data quality snapshot\n\n`;
           md += `Audited ${r.audited} / ${r.totalJobs} jobs (geocoding ${r.geocodingEnabled ? 'ON' : 'OFF'}).\n\n`;
@@ -146,7 +153,8 @@ jobs:
           md += `| ℹ️ Crawler canton stamp differs (same place — context, not a bug) | ${stampDiffers} | ${pct(stampDiffers)}% |\n`;
           md += `| 🔁 Location already names its canton/country (render fix hides it) | ${redundant} | ${pct(redundant)}% |\n`;
           md += `| ❗ Location names a DIFFERENT canton than the field | ${conflict} | ${pct(conflict)}% |\n`;
-          md += `| 📝 Description text repeats the canton (frozen at crawl time) | ${descDup} | ${pct(descDup)}% |\n\n`;
+          md += `| 📝 Description text repeats the canton (frozen at crawl time) | ${descDup} | ${pct(descDup)}% |\n`;
+          md += `| 🧩 Location cannot be a place name (scraper leak) | ${implausible} | ${pct(implausible)}% |\n\n`;
           md += hasRealBugs
             ? `🚨 **Canton mismatch, foreign-tagged-as-Swiss and/or published-locality-rewritten are non-zero** — these are the three categories the dataset must never produce (location must always resolve to a real Swiss canton, and the published locality must never contradict the crawler's own record). Check the full report artifact for offending companies/cities.\n\n`
             : `No canton-mismatch / foreign-tagged-as-Swiss / locality-rewritten bugs this run.\n\n`;
@@ -157,9 +165,16 @@ jobs:
             // filename. A company leaderboard would name Coop a thousand times
             // and still never say which file to open.
             md += `### Location format, by crawler\n\n`;
-            md += `| crawler | file to edit | ❗ conflict | 📝 description | 🔁 redundant |\n|---|---|---:|---:|---:|\n`;
+            md += `| crawler | file to edit | ❗ conflict | 📝 description | 🧩 not a place | 🔁 redundant |\n|---|---|---:|---:|---:|---:|\n`;
             for (const row of byCrawler.slice(0, 15)) {
-              md += `| \`${row.crawler}\` | \`scripts/lib/${row.crawler}-job-parser.mjs\` | ${row.conflict} | ${row.descriptionDuplicated} | ${row.redundant} |\n`;
+              // `parserFile` is RESOLVED by the audit, by searching the sources
+              // for the crawler key — it is not derived from the key. The naming
+              // convention holds for a minority: `rado` is crawled by
+              // `scripts/update-swatchgroup-jobs.mjs`, `convit-holding` by
+              // `update-convit-jobs.mjs`. A guessed path that does not exist is
+              // worse than none, because it reads as an answer.
+              const file = row.parserFile ? `\`${row.parserFile}\`` : '_non risolto — grep del companyKey_';
+              md += `| \`${row.crawler}\` | ${file} | ${row.conflict} | ${row.descriptionDuplicated} | ${row.implausible} | ${row.redundant} |\n`;
             }
             if (byCrawler.length > 15) {
               md += `\n_${byCrawler.length - 15} further crawlers omitted — the full list is in the artifact._\n`;
@@ -167,6 +182,7 @@ jobs:
             md += `\n### How to repair each column\n\n`;
             md += `- **❗ conflict** — the location names one canton and \`job.canton\` another (e.g. \`"Reinach (AG)"\` stamped \`BL\`; both Reinachs exist). One half is wrong. Decide from the employer's own posting, then fix whichever the crawler derives incorrectly. The page currently prints the location verbatim and appends NO canton, so a reader sees one place, not a contradiction.\n`;
             md += `- **📝 description** — the crawler wrote the canton into description prose right after a location that already carried it (\`"Konolfingen, CH, Kanton BE"\`). Strip the marker from the location ONCE where the crawler assigns it — see the \`splitJobLocation()\` call in \`scripts/lib/nestle-job-parser.mjs\`, which fixes the stored field, the description and the page together.\n`;
+            md += `- **🧩 not a place** — the crawler stored something that cannot be a municipality name: page furniture (\`"0200 Deutsch Suche Suche Masterdata Specialist"\`), a street address, a marketing sentence (\`"2050 and has the highest-possible ESG rating from MSCI"\`). The page then names a place that does not exist. Fix the selector that reads the location in the file named above. Checked against the 2,294 municipalities in \`data/canton-municipalities.json\`, none of which reaches five words.\n`;
             md += `- **🔁 redundant** — informational. \`formatJobLocation()\` already removes it on every surface; listed so a crawler that starts emitting a NEW marker shape is visible before it turns into one of the two rows above.\n\n`;
             md += `Offenders with the literal values are under \`redundantLocationMarker\`, \`locationCantonConflict\` and \`descriptionCantonDuplicated\` in the artifact.\n\n`;
             md += `### Reproduce\n\n\`\`\`bash\nnode scripts/assemble-jobs-dataset.mjs\nnpm run audit:job-locations\n\`\`\`\n\n`;
