@@ -3454,6 +3454,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Löhne und Arbeitsmarkt in Basel-Stadt',
     'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'System der Beiträge, Arbeitszeiten und Arbeitnehmerrechte im Kanton Basel-Stadt: Bundesvorschriften, obligatorische Vorsorge und kantonale Regelungen für Erwerbstätige in der Schweiz.',
     'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Basler Altstadt mit Rhein und modernen Bürogebäuden im Hintergrund',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Arbeitsmarkt Basel-Stadt: Löhne, Branchen und Verträge',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Leitfaden zu den Lohnniveaus nach Bildungsabschluss, eingestellten Branchen, Tarifverträgen und Arbeitsmarktmechanismen im Kanton Basel-Stadt.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Basler Innenstadt mit modernen Gebäuden und Rhein, Schweizer Arbeitsmarkt',
 };
 
 export default blogMetaChDe;
