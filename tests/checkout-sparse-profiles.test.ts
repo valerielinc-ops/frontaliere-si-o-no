@@ -114,7 +114,6 @@ describe('profili di sparse-checkout', () => {
     const bad: string[] = [];
     for (const wf of analyzeAll()) {
       for (const job of wf.jobs) {
-        // Un job opaco puo' escludere SOLO cio' che una deroga dichiarata copre.
         if (job.opaqueBy.length && job.exclude.length) bad.push(`${wf.file}:${job.jobId}`);
       }
     }

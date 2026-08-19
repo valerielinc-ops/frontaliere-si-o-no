@@ -42,12 +42,6 @@ import YAML from 'yaml';
 export const ROOT = process.env.CHECKOUT_ANALYZER_ROOT || process.cwd();
 const WF_DIR = path.join(ROOT, '.github/workflows');
 const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ci/checkout-buckets.json'), 'utf8'));
-/**
- * Deroghe esplicite per i casi che l'analisi non puo' decidere da sola —
- * tipicamente un job «opaco» (builda o testa) dove pero' UNA cartella pesante
- * e' dimostrabilmente non letta. Ogni voce porta la sua prova; il guard rifiuta
- * una deroga senza `why`, e i controlli sui percorsi letterali restano attivi.
- */
 export const BUCKETS = TABLE.buckets;
 export const BASELINE_MB = TABLE.baselineMb;
 
@@ -245,7 +239,7 @@ export function bucketsReferencedBy(text) {
 }
 
 /** Analizza un singolo job. */
-function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFile) {
+function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts) {
   const exec = textOfSteps(job?.steps) + '\n' + workflowEnvText + '\n' +
     (job?.env && typeof job.env === 'object' ? Object.values(job.env).filter((v) => typeof v === 'string').join('\n') : '');
   const opaqueBy = [...new Set(OPAQUE_RULES.filter(([, r]) => r.test(exec)).map(([k]) => k))];
@@ -255,19 +249,14 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
   const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
   if (needs.has('public/images/')) needs.add('public/data/');
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
-  // Se il bucket che li contiene e' gia' escluso, i pattern della deroga sono
-  // ridondanti: si tolgono, altrimenti il file si riempie di righe inutili.
-  const already = exclude.map((b) => b.id);
-  const extra = [];
-  const extraMb = 0;
   // Se anche escludendo tutto il possibile resta piu' di CROSSOVER_MB, lo sparse
   // e' controproducente: meglio un fetch unico. Il job resta a checkout pieno.
-  const residual = TREE_MB - exclude.reduce((a, b) => a + b.mb, 0) - extraMb;
+  const residual = TREE_MB - exclude.reduce((a, b) => a + b.mb, 0);
   if (residual > CROSSOVER_MB) {
     return {
       jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
       opaqueBy, entries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
-      needs: [...needs].sort(), exclude: [], overridden: [], aboveCrossover: true,
+      needs: [...needs].sort(), exclude: [], aboveCrossover: true,
       savedMb: 0, savedFiles: 0, checkoutMb: TREE_MB,
     };
   }
@@ -276,11 +265,11 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
     jobId, hasCheckout, opaqueBy, entries, filesFollowed: resolved.length,
     closure: resolved.map((r) => r.rel),
     needs: [...needs].sort(),
-    exclude: exclude.map((b) => b.id).concat(extra),
-    overridden: extra, aboveCrossover: false,
-    savedMb: exclude.reduce((a, b) => a + b.mb, 0) + extraMb,
+    exclude: exclude.map((b) => b.id),
+    aboveCrossover: false,
+    savedMb: exclude.reduce((a, b) => a + b.mb, 0),
     savedFiles: exclude.reduce((a, b) => a + b.files, 0),
-    checkoutMb: TREE_MB - exclude.reduce((a, b) => a + b.mb, 0) - extraMb,
+    checkoutMb: TREE_MB - exclude.reduce((a, b) => a + b.mb, 0),
   };
 }
 
@@ -306,7 +295,7 @@ function analyzeWorkflowUncached(file, npmScripts) {
   const envText = doc?.env && typeof doc.env === 'object'
     ? Object.values(doc.env).filter((v) => typeof v === 'string').join('\n') : '';
   const jobs = doc?.jobs && typeof doc.jobs === 'object'
-    ? Object.entries(doc.jobs).map(([id, j]) => analyzeJobCheckout(id, j, envText, npmScripts, path.basename(file))) : [];
+    ? Object.entries(doc.jobs).map(([id, j]) => analyzeJobCheckout(id, j, envText, npmScripts)) : [];
   return { file: path.basename(file), parsed: doc !== null, jobs };
 }
 

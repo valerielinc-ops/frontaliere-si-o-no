@@ -13,7 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { analyzeWorkflow, BUCKETS, TREE_MB, ROOT } from './checkout-profile-analyzer.mjs';
+import { analyzeWorkflow, TREE_MB, ROOT } from './checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 const DRY = process.argv.includes('--dry-run');
