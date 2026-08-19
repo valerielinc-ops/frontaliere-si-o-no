@@ -10144,6 +10144,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-colonno-lavorare-ticino.title': 'Wohnen in Colonno, arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Entfernungen, Reisezeiten, Lebenshaltungskosten und Steuerverfahren: Alles, was Sie wissen müssen, um in Colonno zu leben und als Grenzgänger im Tessin zu arbeiten.',
     'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'Blick auf die Nordküste des Comer Sees von Colonno in Richtung Brogeda-Grenzübergang und Kanton Tessin',
+    'blog.article.nesso-frontaliere-ticino-guida.title': 'Leben in Nesso und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Komplette Anleitung: G-Bewilligung, bilaterale Besteuerung, Quellensteuer, Befreiungen € 7.500- € 10.000, AHV, KVG, Rückerstattungen. Verfahren und Checklisten für den Einstieg als Grenzgänger Italien-Tessin.',
+    'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Blick auf den Comer See von Nesso mit Schweizer Alpen an der Tessiner Grenze',
 };
 
 export default blogMetaDe;
