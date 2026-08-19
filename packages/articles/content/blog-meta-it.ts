@@ -10131,6 +10131,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-albese-cassano-lavorare-ticino.title': 'Vivere ad Albese con Cassano e lavorare in Ticino',
     'blog.article.vivere-albese-cassano-lavorare-ticino.excerpt': 'Albese con Cassano è una scelta conveniente per frontalieri ticinesi: costo della vita, permesso G, tasse 2024 e valichi di confine illustrati nel dettaglio.',
     'blog.article.vivere-albese-cassano-lavorare-ticino.imageAlt': 'Veduta aerea del lago di Como e della valle d\'Intelvi, confine Ticino-Italia al tramonto',
+    'blog.article.capiago-intimiano-vivere-ticino.title': 'Vivere a Capiago Intimiano, lavorare in Ticino',
+    'blog.article.capiago-intimiano-vivere-ticino.excerpt': 'Guida pratica per frontalieri: localizzazione, tempi di pendolarismo, fiscalità, costi di vita e checklist prima del trasferimento.',
+    'blog.article.capiago-intimiano-vivere-ticino.imageAlt': 'Veduta del valico di Brogeda al confine tra Italia e Ticino, con segnaletica svizzera e paesaggio di montagna sullo sfondo',
 };
 
 export default blogMetaIt;

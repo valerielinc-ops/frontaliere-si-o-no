@@ -10132,6 +10132,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-albese-cassano-lavorare-ticino.title': 'Vivre à Albese avec Cassano et travailler au Tessin',
     'blog.article.vivere-albese-cassano-lavorare-ticino.excerpt': 'Albese con Cassano est un choix pratique pour les frontaliers tessinois : coût de la vie, permis G, taxes 2024 et points de passage frontaliers illustrés en détail.',
     'blog.article.vivere-albese-cassano-lavorare-ticino.imageAlt': 'Vue aérienne du lac de Côme et de la vallée d\'Intelvi, frontière Tessin-Italie',
+    'blog.article.capiago-intimiano-vivere-ticino.title': 'Vivre à Capiago Intimiano, travailler au Tessin',
+    'blog.article.capiago-intimiano-vivere-ticino.excerpt': 'Guide pratique pour les frontaliers : localisation, temps de trajet, fiscalité, coût de la vie et checklist avant le transfert.',
+    'blog.article.capiago-intimiano-vivere-ticino.imageAlt': 'Vue aérienne du passage frontalier de Brogeda entre l\'Italie et le Tessin avec la signalisation routière suisse et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
