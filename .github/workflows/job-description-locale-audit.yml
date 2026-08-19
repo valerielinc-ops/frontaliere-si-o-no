@@ -174,14 +174,24 @@ jobs:
               md += `| eta' in coda | job che servono il sorgente |\n|---|---:|\n`;
               for (const [bucket, n] of Object.entries(q.byAge || {})) md += `| ${bucket} | ${n} |\n`;
               if (q.staleNonSwissMeasured && q.staleSourceCopyJobs > 0) {
-                const share = ((q.staleNonSwiss / q.staleSourceCopyJobs) * 100).toFixed(1);
-                md += `\n**Dove sono questi job: ${q.staleNonSwiss} su ${q.staleSourceCopyJobs} (${share}%) non sono in un comune svizzero.**\n\n`;
+                const share = (q.staleNonSwiss / q.staleSourceCopyJobs) * 100;
+                md += `\n**Dove sono questi job: ${q.staleNonSwiss} su ${q.staleSourceCopyJobs} (${share.toFixed(1)}%) non sono in un comune svizzero.**\n\n`;
                 if ((q.topLocations || []).length) {
                   md += `| job fermi | sede |\n|---:|---|\n`;
                   for (const l of q.topLocations) md += `| ${l.count} | ${String(l.key).replace(/\|/g, '\\|')} |\n`;
                   md += `\n`;
                 }
-                md += `Questo cambia la diagnosi, e va letto prima di trattare il numero come un arretrato di traduzione. Un annuncio a Shanghai o a Madrid non ha pubblico frontaliero, quindi non raccoglie traffico; l'ordinamento della coda e' traffic-first, quindi non lo pesca mai; e l'unico meccanismo che potrebbe pescarlo e' la riserva oldest-first del 20%. Non e' la cascata che fallisce su questi job: e' che non arrivano mai al suo turno. **La domanda da porsi e' perche' siano nel corpus**, non come alzare il cap di traduzione — \`scripts/audit-job-locations.mjs\` (layer 2, \`foreignInSwiss\`) misura la stessa popolazione dal lato località.\n\n`;
+                // THE PARAGRAPH IS DERIVED, NOT ASSERTED. Its first version stated the
+                // foreign-postings diagnosis unconditionally, because that is what the
+                // committed SLICES showed (357 of 376 = 94.9%). The first live run on the
+                // ASSEMBLED artefact read 2 of 180 = 1.1% — assemble drops most of those
+                // postings before publication — so the prose contradicted the table
+                // printed directly above it. Both numbers were right about different
+                // populations; only one of them is the published corpus. Say which
+                // diagnosis the measurement supports, never a stored conclusion.
+                md += share >= 50
+                  ? `Questo cambia la diagnosi, e va letto prima di trattare il numero come un arretrato di traduzione. Un annuncio fuori dalla Svizzera non ha pubblico frontaliero, quindi non raccoglie traffico; l'ordinamento della coda in \`scripts/lib/job-traffic-priority.mjs\` e' traffic-first, quindi non lo pesca mai; e l'unico meccanismo che potrebbe pescarlo e' la riserva oldest-first del 20%. Non e' la cascata che fallisce su questi job: e' che non arrivano mai al suo turno. **La domanda da porsi e' perche' siano nel corpus**, non come alzare il cap di traduzione — \`scripts/audit-job-locations.mjs\` (layer 2, \`foreignInSwiss\`) misura la stessa popolazione dal lato localita'.\n\n`
+                  : `La maggioranza di questi job **e'** in un comune svizzero, quindi la spiegazione «annunci esteri senza pubblico frontaliero, che il ranking a traffico non pesca mai» **non regge qui** e non va usata: sono job che il sito serve ai suoi lettori veri e che la cascata non ha comunque tradotto. Guarda la distribuzione per eta' qui sopra prima del cap: se \`8-30d\` e' quasi vuoto e le fasce oltre i 30 giorni sono piene, non e' un arretrato lento ma un insieme che la cascata non raggiunge, e il punto di partenza e' l'ordinamento in \`scripts/lib/job-traffic-priority.mjs\` (\`RESERVE_FOR_OLDEST\`), non la quota AI — il mop-up gratuito \`local-mt-mopup.mjs\` ripara proprio le copie byte-identiche senza consumarla.\n\n`;
               }
 
               md += `\n_Lo scalino fra le fasce e' il segnale: se \`8-30d\` e' quasi vuoto e \`31-90d\` e' pieno, non e' un arretrato che si smaltisce piano — e' un insieme di job che la cascata non prende mai._\n\n`;

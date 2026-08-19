@@ -31,6 +31,13 @@ import { escapeRegExpLiteral } from './escape-regexp.mjs';
  * street address or a multi-site note — never a city — and the 70-char rule
  * keeps 43 characters of margin over the real maximum.
  *
+ * WHICH POPULATION, ALWAYS. 191 of 27,508 non-empty locations (0.69%) on the
+ * committed slices, but only 4 of 23,061 on the ASSEMBLED `data/jobs.json` the
+ * audit actually reads: assemble drops most of these postings before
+ * publication. Quote the assembled figure for what readers see and the slice
+ * figure for what crawlers emit — they answer different questions, and
+ * conflating them is how a report ends up arguing with its own table.
+ *
  * @param {string} city @returns {string[]}
  */
 export function implausibilityReasons(city) {
@@ -65,7 +72,9 @@ const REGION_QUALIFIER_LABEL = '(?:Kanton|canton|Canton|Cantone|Kt\\.?)?';
  * `Standort: Aarau (Kanton AG)` — perfectly good German and Italian. Requiring
  * the COUNTRY marker BETWEEN the city and the canton isolates the real thing:
  * 60 jobs, in exactly two crawlers (nestle 35, convit-holding 25), with no
- * false positive in the sample.
+ * false positive in the sample. Sixty on the committed slices AND sixty on the
+ * ASSEMBLED artefact the audit reads — this class survives assemble, unlike the
+ * layer-6 one below, so the two figures happen to agree here.
  *
  * WHY IT NO LONGER DEPENDS ON THE LOCATION STILL BEING MALFORMED. This check
  * used to run only for jobs whose `location` still carried a redundant marker.

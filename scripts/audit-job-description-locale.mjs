@@ -40,11 +40,28 @@
  * text on the Italian page every day it sits there, and no number anywhere
  * counts it.
  *
- * Measured on the committed slices @ origin/main 2026-08-19: 11,637 of 27,590
- * jobs (42%) are queued, and 371 of those have been queued for more than 7 days
- * while still serving a description BYTE-IDENTICAL to their source-language
- * slot — 367 of them for more than 30 days. Concentrated: roche 167,
- * sulzer 106, tether 27. Every one is invisible to the rate above.
+ * SAY WHICH POPULATION EVERY NUMBER CAME FROM. This audit reads the ASSEMBLED
+ * `data/jobs.json`, and the committed `data/jobs/by-crawler/*.json` slices are a
+ * different, larger set — assemble drops postings before publication. The two
+ * disagree by more than a rounding error and the first version of this header
+ * quoted only the slices, which made its own diagnosis paragraph contradict the
+ * table printed under it in the very first live issue. Both, measured
+ * 2026-08-19:
+ *
+ *                                    slices        ASSEMBLED (what this reads)
+ *   jobs                             27,590        23,061
+ *   queued (needsRetranslation)      11,637        15,042
+ *   still serving the source text       793           665
+ *   ...for more than 7 days             376           180  (oldest 101 days)
+ *   ...of those, NOT in a Swiss comune  357 (94.9%)     2 (1.1%)
+ *
+ * So the stuck tail is real on both, but the EXPLANATION is not transferable:
+ * on the slices it is dominated by postings in Shanghai, Madrid and Singapore
+ * that no cross-border reader would ever search for; on the published corpus
+ * those are almost all gone, and what remains is jobs in real Swiss
+ * municipalities that the cascade simply never reached. The issue body derives
+ * which of the two it is on every run instead of storing the conclusion.
+ * Either way, every one of them is invisible to the rate above.
  *
  * THE EXISTING ANTI-STARVATION MACHINERY IS NOT THE GAP, and this does not
  * duplicate it. `scripts/lib/job-traffic-priority.mjs` already draws
