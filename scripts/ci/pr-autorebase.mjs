@@ -579,7 +579,7 @@ function collisionGateBlocks(num, head, behind) {
   if (behind <= 0) return false;
   const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
     '--jq', '[.[].body] | join("\\n")'], { json: false, allowFail: true });
-  if (comments === null) return true;
+  if (!comments) return true;
   const peers = parseCollisionPeers(comments);
   const mergedPeers = [];
   for (const peer of peers) {
@@ -602,12 +602,19 @@ function collisionGateBlocks(num, head, behind) {
  * da auto-merge-eval). Best-effort: serve PAT con scope actions:write. */
 function dispatchTests(num, branch) {
   if (DRY) { console.log(`[dry] dispatch tests.yml --ref ${branch} (#${num})`); return true; }
-  const d = gh(['workflow', 'run', 'tests.yml', '--ref', branch], { json: false, allowFail: true });
-  if (d === null) {
+  // `gh workflow run` stampa l'URL del run SOLO "if available" (spesso vuoto
+  // anche a successo, per propagazione API) → lo stesso sentinel ambiguo di
+  // gh(json:false) qui non basta a distinguere successo da errore (vedi fix
+  // di collisionGateBlocks sopra). Rileva il fallimento reale via eccezione
+  // (exit code), non via contenuto di stdout.
+  try {
+    execFileSync('gh', ['workflow', 'run', 'tests.yml', '--ref', branch],
+      { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    return true;
+  } catch {
     console.log(`::warning::PR #${num}: 'gh workflow run tests.yml --ref ${branch}' fallito — vitest potrebbe non ripartire sull'head; verifica scope actions:write del PAT.`);
     return false;
   }
-  return true;
 }
 
 /** mergeable con un poll su UNKNOWN. */
