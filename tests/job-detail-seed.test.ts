@@ -332,7 +332,16 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
     });
 
     it('seeds the initial jobs state with the build-injected record', () => {
-      expect(src).toMatch(/useState<JobListing\[\]>\(\(\) => \(seededJob \? \[seededJob\] : \[\]\)\)/);
+      // The job-detail seed keeps PRECEDENCE in the initializer: this is what
+      // makes `selectedJob` resolve on the first frame of a detail page.
+      expect(src).toMatch(/useState<JobListing\[\]>\(\(\) => \(seededJob \? \[seededJob\] : /);
+      // The else-branch is no longer `[]`: a related-search cluster landing
+      // carries its own build seed (window.__SEARCH_SEED__, see
+      // services/clusterSearchSeed.ts) and seeds the array with the result set
+      // the page was emitted with. The two never collide — a document carries
+      // one or the other — and the order above states which wins if one ever
+      // did. Pinned so replacing it is a decision, not a diff nobody read.
+      expect(src).toMatch(/useState<JobListing\[\]>\(\(\) => \(seededJob \? \[seededJob\] : clusterSeedJobs\)\)/);
     });
 
     it('re-applies fetched detail in finalize so the full-index load does not clobber it', () => {
