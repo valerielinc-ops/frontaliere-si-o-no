@@ -939,9 +939,13 @@ const CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL = 'StructuredOutput';
 // Il canale `text` di `trace.salvage()` arriva a delta (a differenza del
 // `tool_use`, sempre a blocco intero): senza punteggiatura terminale
 // riconoscibile non c'e' modo di distinguere una frase completa da un
-// frammento tagliato a meta' parola dal SIGKILL. `.`/`!`/`?`/`…`, seguiti da
-// eventuale chiusura di virgolette/parentesi, sono l'unico segnale disponibile.
-const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…][)\]'"’”»]*$/;
+// frammento tagliato a meta' parola dal SIGKILL. `.`/`!`/`?`/`…`/`:`/`;`/em-dash,
+// seguiti da eventuale chiusura di virgolette/parentesi (incluse le virgolette
+// basse tedesche „…" e ‚…', che chiudono con U+201C/U+2018, non U+201D/U+2019),
+// sono l'unico segnale disponibile. `:`/`;`/em-dash sono terminazioni legittime
+// in liste/markdown, non solo `.!?…`: escluderli scartava testo completo come
+// "troncato" e forzava un fallback DeepL non necessario sui locale non-IT.
+const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…:;—][)\]'"’”»“‘]*$/;
 
 // Tetto per una singola chiamata al CLI, per quanto grande sia l'allowance
 // residua. Serve a impedire che una sezione lunga (allowance 2400s) regali
