@@ -227,6 +227,53 @@ describe('the shell renders one prompt at a time', () => {
     expect(onShownA).toHaveBeenCalledTimes(1);
   });
 
+  it('Escape reaches only the visible prompt, never the one waiting', () => {
+    // The mirror image of the impression bug. Two prompts bound `keydown` on
+    // `window` from their own effects, which was harmless while a prompt was
+    // either mounted-and-visible or not mounted at all. Now that a prompt can
+    // be mounted and WAITING, that listener would run its dismiss path — and
+    // record the dismissal, burning the gating cooldown — for a toast nobody
+    // ever saw.
+    const escA = vi.fn();
+    const escB = vi.fn();
+    render(
+      <>
+        <BottomPromptShell slotId="a" priority={POPUP_PRIORITY.JOB_DETAIL_PROMPT} onEscape={escA}>
+          <span>prompt A</span>
+        </BottomPromptShell>
+        <BottomPromptShell slotId="b" priority={POPUP_PRIORITY.JOB_ALERT_STICKY} onEscape={escB}>
+          <span>prompt B</span>
+        </BottomPromptShell>
+      </>,
+    );
+
+    act(() => {
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    });
+
+    expect(escA).toHaveBeenCalledTimes(1);
+    expect(escB, 'the queued prompt must not see the key').not.toHaveBeenCalled();
+  });
+
+  it('an undefined onEscape unbinds the listener (submit in flight)', () => {
+    const esc = vi.fn();
+    const { rerender } = render(
+      <BottomPromptShell slotId="a" priority={POPUP_PRIORITY.JOB_DETAIL_PROMPT} onEscape={esc}>
+        <span>prompt</span>
+      </BottomPromptShell>,
+    );
+    act(() => { window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); });
+    expect(esc).toHaveBeenCalledTimes(1);
+
+    rerender(
+      <BottomPromptShell slotId="a" priority={POPUP_PRIORITY.JOB_DETAIL_PROMPT} onEscape={undefined}>
+        <span>prompt</span>
+      </BottomPromptShell>,
+    );
+    act(() => { window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); });
+    expect(esc, 'a submit in flight must not be cancellable by Escape').toHaveBeenCalledTimes(1);
+  });
+
   it('a reused instance handed a different slot still counts its impression', () => {
     // React keeps one component instance when the same element type reappears
     // in the same position. A "have we fired once" boolean would ride along and

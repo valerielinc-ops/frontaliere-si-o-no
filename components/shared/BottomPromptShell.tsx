@@ -87,6 +87,22 @@ export interface BottomPromptShellProps {
   ariaLabelledBy?: string;
   /** Fired once, the first time this prompt is actually on screen. */
   onShown?: () => void;
+  /**
+   * Escape-to-dismiss, attached ONLY while this prompt is the visible one.
+   *
+   * It belongs here and not in the prompt for the same reason the position
+   * does. Two prompts used to bind `keydown` on `window` from their own
+   * effects, which ran whether or not they were rendered — harmless when a
+   * prompt was either mounted-and-visible or not mounted at all, and wrong the
+   * moment a prompt can be mounted and WAITING: Escape pressed for any other
+   * reason would run the queued prompt's dismiss path, recording a dismissal
+   * (and burning its gating cooldown) for a toast nobody ever saw. That is the
+   * mirror image of the impression bug `onShown` fixes, and it deserved the
+   * same answer rather than a second one.
+   *
+   * Pass `undefined` to disable — e.g. while a submit is in flight.
+   */
+  onEscape?: () => void;
   children: React.ReactNode;
 }
 
@@ -115,6 +131,7 @@ const BottomPromptShell: React.FC<BottomPromptShellProps> = ({
   ariaLabel,
   ariaLabelledBy,
   onShown,
+  onEscape,
   children,
 }) => {
   const active = usePopupSlot(slotId, priority);
@@ -133,6 +150,21 @@ const BottomPromptShell: React.FC<BottomPromptShellProps> = ({
     // again on each parent update. The ref is what makes it once-only.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, slotId]);
+
+  // Read through a ref so an inline arrow at the call site does not re-bind the
+  // listener on every parent render.
+  const escapeRef = useRef<(() => void) | undefined>(onEscape);
+  escapeRef.current = onEscape;
+  const escapeEnabled = Boolean(onEscape);
+
+  useEffect(() => {
+    if (!active || !escapeEnabled) return undefined;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') escapeRef.current?.();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [active, escapeEnabled]);
 
   if (!active) return null;
 

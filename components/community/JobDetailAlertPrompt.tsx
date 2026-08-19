@@ -112,21 +112,12 @@ export default function JobDetailAlertPrompt({
     onClose();
   }, [onClose, onDismissed]);
 
-  // Escape key closes the toast in any non-submitting state.
-  useEffect(() => {
-    if (status === 'submitting') return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        if (status === 'success') {
-          onClose();
-        } else {
-          handleDismiss();
-        }
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [handleDismiss, onClose, status]);
+  // Escape closes the toast in any non-submitting state. Handed to the shell
+  // rather than bound here: this component is now mounted while it WAITS for a
+  // popupQueue slot, and a `window` listener bound from its own effect would
+  // dismiss — and record the dismissal of — a toast that is not on screen.
+  const handleEscape =
+    status === 'submitting' ? undefined : status === 'success' ? onClose : handleDismiss;
 
   // Auto-dismiss after success.
   useEffect(() => {
@@ -176,6 +167,7 @@ export default function JobDetailAlertPrompt({
       width="md"
       ariaLabelledBy={TITLE_ID}
       onShown={onShown}
+      onEscape={handleEscape}
     >
       <div className="relative p-3.5 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
         <button
