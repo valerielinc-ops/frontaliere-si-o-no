@@ -70,6 +70,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { applyProfilesToFile } from './ci/apply-checkout-profiles.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -404,6 +405,16 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   return merged;
 }
 
+/** Gli script di package.json servono all'analizzatore per risolvere `npm run <x>`. */
+let PKG_SCRIPTS = null;
+function npmScriptsForAnalyzer() {
+  if (!PKG_SCRIPTS) {
+    const root = path.resolve(fileURLToPath(import.meta.url), '../..');
+    PKG_SCRIPTS = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).scripts ?? {};
+  }
+  return PKG_SCRIPTS;
+}
+
 /** Build the YAML object (as a JS object, serialized via `yaml` lib) for one group workflow. */
 function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts) {
   const groupName = `crawler-group-${String(groupIndex).padStart(2, '0')}`;
@@ -615,8 +626,15 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
     const fileName = `crawler-group-${String(groupIndex).padStart(2, '0')}.yml`;
     const filePath = path.join(outDir, fileName);
 
+    let finalContent = fileContent;
     if (write) {
       fs.writeFileSync(filePath, fileContent, 'utf8');
+      // Lo sparse-checkout va riapplicato QUI, non lasciato al passaggio manuale:
+      // senza, il primo `--write` cancellerebbe in silenzio i profili dei 23
+      // crawler e ognuno tornerebbe a scaricare 6,7 GB. I gruppi non hanno tutti
+      // lo stesso profilo (leggono file diversi), quindi la lista non puo' essere
+      // fissa qui: la calcola l'analizzatore sul file appena scritto.
+      finalContent = applyProfilesToFile(filePath, npmScriptsForAnalyzer());
     }
 
     results.push({
@@ -626,7 +644,10 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
       memberCount: group.members.length,
       wallClockMs: group.wallClockMs,
       members: group.members.map((m) => m.slug),
-      content: fileContent,
+      // In modalita' dry-run (`write=false`) il profilo non e' calcolabile:
+      // l'analizzatore legge dal disco. Il contenuto resta quello pre-profilo,
+      // che e' cio' che i test strutturali guardano.
+      content: finalContent,
     });
   });
 

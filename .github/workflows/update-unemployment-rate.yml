@@ -32,6 +32,23 @@ jobs:
           # legge solo il working tree di HEAD e committa — nessuna lettura di
           # blob storici (che sotto `blob:none` sarebbe un lazy-fetch per oggetto).
           filter: blob:none
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
         # Tetto sullo step: senza, un fetch degenere si prende l'intero budget e
         # il job muore `cancelled` — stato invisibile agli `if: failure()`, il
         # buco che scan-job-timeouts.mjs tappa solo a posteriori. Con il tetto è

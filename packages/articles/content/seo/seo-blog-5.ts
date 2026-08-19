@@ -70466,6 +70466,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-venegono-superiore-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
+    description: 'Guida completa per frontalieri tra Italia e Ticino: nuovo accordo 2024, tassazione, contributi AVS/LPP, LAMal, permesso G e dichiarazioni fiscali. Consulta',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, venegono, lavorare, fiscale',
+    ogTitle: 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
+    ogDescription: 'Frontalieri tra Italia e Ticino: scopri come cambia la tassazione dal 2024, contributi previdenziali, LAMal e diritto d\'opzione. Guida step-by-step con scadenze e documenti essenziali.',
+    canonicalPath: '/articoli-frontaliere/vivere-venegono-superiore-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Venegono e lavorare in Ticino: guida fiscale 2024",
+      "description": "Guida completa per frontalieri tra Italia e Ticino: nuovo accordo 2024, tassazione, contributi AVS/LPP, LAMal, permesso G e dichiarazioni fiscali. Consulta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-venegono-superiore-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano all'alba con le Alpi in sfondo, illustra il contesto geografico del Ticino per i frontalieri che lavorano nella regione."
+      },
+      "datePublished": "2026-08-19T18:59:29+00:00",
+      "dateModified": "2026-08-19T18:59:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-venegono-superiore-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-san-bartolomeo-val-cavargna-frontaliere-ticino': {
+    title: 'Vivere a san bartolomeo val cavargna, lavorare in Ticino',
+    description: 'Vivere a San Bartolomeo Val Cavargna e lavorare in Ticino: guida tassazione frontalieri, Permesso G, AVS, LAMal, convenienza economica, procedure primo incarico',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, bartolomeo, cavargna, lavorare',
+    ogTitle: 'Vivere a San Bartolomeo Val Cavargna, lavorare in Ticino',
+    ogDescription: 'Guida pratica e fiscale per frontalieri: come vivere in Val Cavargna e lavorare in Canton Ticino, tassazione svizzera-italiana, documenti, AVS e LAMal. Nuove regole 2024.',
+    canonicalPath: '/articoli-frontaliere/san-bartolomeo-val-cavargna-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a san bartolomeo val cavargna, lavorare in Ticino",
+      "description": "Vivere a San Bartolomeo Val Cavargna e lavorare in Ticino: guida tassazione frontalieri, Permesso G, AVS, LAMal, convenienza economica, procedure primo incarico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/san-bartolomeo-val-cavargna-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di collegamento da San Bartolomeo Val Cavargna verso il confine ticinese al tramonto"
+      },
+      "datePublished": "2026-08-19T19:24:40+00:00",
+      "dateModified": "2026-08-19T19:24:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-bartolomeo-val-cavargna-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

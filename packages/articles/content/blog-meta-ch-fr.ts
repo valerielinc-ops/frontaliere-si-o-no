@@ -3457,6 +3457,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settori-salari-basilea-livelli-formazione.title': 'Marché du travail Bâle-Ville : salaires, secteurs et contrats',
     'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guide des niveaux de salaire par niveau de formation, secteurs qu\'ils embauchent, conventions collectives et mécanismes du marché du travail dans le canton de Bâle-Ville.',
     'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Centre-ville de Bâle avec bâtiments modernes et fleuve Rhin, marché du travail suisse',
+    'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accélère avec système photovoltaïque au parking',
+    'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Le centre commercial de Morbio Inferiore réalise une couverture photovoltaïque de 1 736 kWp : 1 900 MWh d\'énergie renouvelable par an d\'ici le printemps 2027.',
+    'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Auvent photovoltaïque de parking moderne avec modules solaires innovants dans un paysage tessinois ensoleillé.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR : nouveaux formulaires pour les transferts vers l\'Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Le 19 août, le Département fédéral de l\'économie a adapté les formulaires de déclaration. À partir du 26 août, seuls les modèles mis à jour seront obligatoires.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Siège de l\'administration fédérale suisse à Berne, où se trouve le Département fédéral de l\'économie.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Permis de conduire Bâle-Ville : conversion et examens',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Comment convertir un permis étranger dans le canton de Bâle-Ville, examens théoriques et pratiques, cours obligatoires et procédures au bureau de la circulation.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Permis de conduire suisse et office du trafic du canton Bâle-Ville',
 };
 
 export default blogMetaChFr;

@@ -10369,6 +10369,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'serfontana-fotovoltaico-parcheggio',
+    category: 'novita',
+    date: '2026-08-19T18:48:37.608Z',
+    image: '/images/blog/serfontana-fotovoltaico-parcheggio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ordinanza-iran-formulari-agosto',
+    category: 'novita',
+    date: '2026-08-19T19:07:52.517Z',
+    image: '/images/blog/ordinanza-iran-formulari-agosto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'patente-guida-basilea-citta-conversione',
+    category: 'pratico',
+    date: '2026-08-19T19:33:14.665Z',
+    image: '/images/blog/patente-guida-basilea-citta-conversione.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
