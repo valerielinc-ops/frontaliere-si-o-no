@@ -1,3 +1,5 @@
+import { escapeRegExpLiteral } from './escape-regexp.mjs';
+
 /**
  * job-location-plausibility — the two pure detectors behind layers 5 and 6 of
  * `scripts/audit-job-locations.mjs`.
@@ -50,7 +52,7 @@ export function implausibilityReasons(city) {
 
 const REGION_QUALIFIER_COUNTRY = 'CH|CHE|Switzerland|Schweiz|Suisse|Svizzera';
 const REGION_QUALIFIER_LABEL = '(?:Kanton|canton|Canton|Cantone|Kt\\.?)?';
-const escapeRe = (value) => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 
 /**
  * The evidence string when a job's DESCRIPTION names the place, then the
@@ -84,7 +86,7 @@ export function descriptionRepeatsRegion(job, location, canton) {
     .map(String);
   if (!texts.length) return null;
   const re = new RegExp(
-    `${escapeRe(location)}\\s*[,(/-]\\s*(?:${REGION_QUALIFIER_COUNTRY})\\s*[,(/-]\\s*${REGION_QUALIFIER_LABEL}\\s*${escapeRe(canton)}\\b`,
+    `${escapeRegExpLiteral(location)}\\s*[,(/-]\\s*(?:${REGION_QUALIFIER_COUNTRY})\\s*[,(/-]\\s*${REGION_QUALIFIER_LABEL}\\s*${escapeRegExpLiteral(canton)}\\b`,
     'i',
   );
   for (const text of texts) {
