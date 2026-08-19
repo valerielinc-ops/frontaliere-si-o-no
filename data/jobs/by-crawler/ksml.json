@@ -1265,8 +1265,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-logopadie-10-lektionen-besondere-volksschulklassen-der-stadt-bern-wankdorf-bern-39992",
-          "stv-logopala-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+          "stv-logopadie-10-lektionen-besondere-volksschulklassen-der-stadt-bern-wankdorf-bern-39992"
         ],
         "en": [
           "stv-logopadie-10-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-39992"
@@ -1677,8 +1676,8 @@
       "slugByLocale": {
         "de": "stellvertretung-logopadie-7-9-lektionen-januar-bis-juli-2027-ev-mit-option-auf-40061",
         "it": "stellvertretung-logopadie-7-9-lektionen-januar-bis-juli-2027-ev-mit-option-auf-40061",
-        "en": "stellvertretung-logopadie-7-9-lektionen-januar-bis-juli-2027-ev-mit-option-auf-40061",
-        "fr": "stellvertretung-logopadie-7-9-lektionen-januar-bis-juli-2027-ev-mit-option-auf-40061"
+        "en": "deputy-speech-pedagogy-7-9-lessons-january-to-july-2027-possibly-with-permanent-employment-option-from-august-2027-40061",
+        "fr": "discours-adjoint-pedagogie-7-9-lecons-janvier-a-juillet-2027-eventuellement-avec-option-d-emploi-permanent-a-40061"
       },
       "slugDisambiguator": "40061",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1870,13 +1869,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043",
-        "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-e-integration-bpi-thun-mutterschaftsurlaub-20-lektionen-e-co-klassenlehramt-befristet-bis-31-07"
+        "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043",
-          "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-e-integration-bpi-thun-mutterschaftsurlaub-20-lektionen-e-co-klassenlehramt-befristet-bis-31-07"
+          "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
         ],
         "en": [
           "stellvertretung-lehrperson-berufsvorbereitendes-schuljahr-berufsvorbereitung-praxis-und-40043"
@@ -5206,12 +5203,12 @@
     },
     {
       "id": "ksml-40b3edac3216",
-      "slug": "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059",
+      "slug": "rappresentazione-della-maternita-dal-15-febbraio-2027-scuola-elementare-speciale-koniz-livello-base-17-4-lezioni-40059",
       "slugByLocale": {
         "de": "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059",
-        "it": "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059",
-        "en": "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059",
-        "fr": "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059"
+        "it": "rappresentazione-della-maternita-dal-15-febbraio-2027-scuola-elementare-speciale-koniz-livello-base-17-4-lezioni-40059",
+        "en": "maternity-representation-from-15-february-2027-special-elementary-school-koniz-basic-level-17-4-lessons-ksml-40059",
+        "fr": "representation-de-la-maternite-a-partir-du-15-fevrier-2027-ecole-primaire-speciale-koniz-niveau-de-base-ksml-40059"
       },
       "slugDisambiguator": "40059",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -5269,7 +5266,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:21:46.854Z"
+      "firstSeenAt": "2026-08-18T22:21:46.854Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059"
+        ],
+        "en": [
+          "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059"
+        ],
+        "fr": [
+          "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059"
+        ]
+      },
+      "previousSlugs": [
+        "mutterschaftsvertretung-ab-15-februar-2027-besondere-volksschule-koniz-basisstufe-17-4-40059"
+      ]
     },
     {
       "id": "ksml-e80c31975332",
@@ -5645,13 +5656,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mutterschaftsvertretung-ab-26-oktober-2026-besondere-volksschule-koniz-basisstufe-19-5-39890",
-        "rappresentazione-della-maternita-dal-26-ottobre-2026-scuola-elementare-speciale-koniz-livello-base-19-5-lezioni-39890"
+        "mutterschaftsvertretung-ab-26-oktober-2026-besondere-volksschule-koniz-basisstufe-19-5-39890"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mutterschaftsvertretung-ab-26-oktober-2026-besondere-volksschule-koniz-basisstufe-19-5-39890",
-          "rappresentazione-della-maternita-dal-26-ottobre-2026-scuola-elementare-speciale-koniz-livello-base-19-5-lezioni-39890"
+          "mutterschaftsvertretung-ab-26-oktober-2026-besondere-volksschule-koniz-basisstufe-19-5-39890"
         ],
         "en": [
           "mutterschaftsvertretung-ab-26-oktober-2026-besondere-volksschule-koniz-basisstufe-19-5-39890"
@@ -5677,12 +5686,12 @@
     },
     {
       "id": "ksml-e36483718f31",
-      "slug": "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-niederwangen",
+      "slug": "speech-pedagogue-speech-pedagogue-15-l-vice-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40062",
       "slugByLocale": {
         "de": "logopadin-logopade-15-l-stellvertretung-koordinationsstelle-fur-besondere-forderung-40062",
-        "it": "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-niederwangen",
-        "en": "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nieder-40062",
-        "fr": "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nieder-40062"
+        "it": "speech-pedagogue-speech-pedagogue-15-l-vice-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40062",
+        "en": "speech-pedagogue-speech-pedagogue-15-l-deputy-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40062",
+        "fr": "pedagogue-du-discours-pedagogue-du-discours-15-l-adjoint-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40062"
       },
       "slugDisambiguator": "40062",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -5729,11 +5738,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logopadin-logopade-15-l-stellvertretung-koordinationsstelle-fur-besondere-forderung-40062"
+          "logopadin-logopade-15-l-stellvertretung-koordinationsstelle-fur-besondere-forderung-40062",
+          "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-niederwangen"
+        ],
+        "en": [
+          "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nieder-40062"
+        ],
+        "fr": [
+          "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nieder-40062"
         ]
       },
       "previousSlugs": [
-        "logopadin-logopade-15-l-stellvertretung-koordinationsstelle-fur-besondere-forderung-40062"
+        "logopadin-logopade-15-l-stellvertretung-koordinationsstelle-fur-besondere-forderung-40062",
+        "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-niederwangen",
+        "logopadin-logopade-15-l-stellvertretung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-nieder-40062"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6121,14 +6139,12 @@
       "previousSlugs": [
         "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-schule-sumiswald-wasen-30960",
         "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-l-30960",
-        "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald",
-        "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald-und-wasen"
+        "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-schule-sumiswald-wasen-30960",
-          "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald",
-          "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald-und-wasen"
+          "logopala-bis-zu-20-lektionen-inkl-3l-bvsa-e-2l-eu-aufteilbar-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
         ],
         "en": [
           "logopadie-bis-zu-20-lektionen-inkl-3l-bvsa-und-2l-eu-aufteilbar-schule-sumiswald-wasen-30960"
@@ -7503,12 +7519,12 @@
     },
     {
       "id": "ksml-d1687f2ecac9",
-      "slug": "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057",
+      "slug": "insegnante-di-classe-25-lezioni-1-2-classe-mista-dal-previsto-09-11-2026-da-12-10-2026-gia-circa-14-lezioni-fino-40057",
       "slugByLocale": {
         "de": "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057",
-        "it": "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057",
-        "en": "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057",
-        "fr": "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057"
+        "it": "insegnante-di-classe-25-lezioni-1-2-classe-mista-dal-previsto-09-11-2026-da-12-10-2026-gia-circa-14-lezioni-fino-40057",
+        "en": "class-teacher-25-lessons-1-2-mixed-class-from-expected-09-11-2026-from-12-10-2026-already-about-14-lessons-until-40057",
+        "fr": "professeur-25-lecons-1-2-cours-mixte-du-09-11-2026-attendu-a-partir-du-12-10-2026-deja-environ-14-lecons-jusqu-au-40057"
       },
       "slugDisambiguator": "40057",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -7565,7 +7581,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:21:46.848Z"
+      "firstSeenAt": "2026-08-18T22:21:46.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057"
+        ],
+        "en": [
+          "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057"
+        ],
+        "fr": [
+          "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057"
+        ]
+      },
+      "previousSlugs": [
+        "klassenlehrperson-25-lektionen-1-2-mischklasse-ab-voraussichtlich-09-11-2026-ab-12-10-2026-40057"
+      ]
     },
     {
       "id": "ksml-e66db397ac32",
@@ -8744,8 +8774,8 @@
       "slugByLocale": {
         "de": "franzosisch-unterrichten-ware-das-etwas-fur-dich-primar-und-realschule-ruschegg-ruschegg-40060",
         "it": "franzosisch-unterrichten-ware-das-etwas-per-dich-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-ruschegg-heubach",
-        "en": "franzosisch-unterrichten-ware-das-etwas-fur-dich-primar-und-realschule-ruschegg-ruschegg-40060",
-        "fr": "franzosisch-unterrichten-ware-das-etwas-fur-dich-primar-und-realschule-ruschegg-ruschegg-40060"
+        "en": "teaching-french-would-that-be-something-for-you-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40060",
+        "fr": "enseigner-le-francais-serait-quelque-chose-pour-vous-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40060"
       },
       "slugDisambiguator": "40060",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -8793,6 +8823,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "franzosisch-unterrichten-ware-das-etwas-fur-dich-primar-und-realschule-ruschegg-ruschegg-40060"
+        ],
+        "en": [
+          "franzosisch-unterrichten-ware-das-etwas-fur-dich-primar-und-realschule-ruschegg-ruschegg-40060"
+        ],
+        "fr": [
           "franzosisch-unterrichten-ware-das-etwas-fur-dich-primar-und-realschule-ruschegg-ruschegg-40060"
         ]
       },
@@ -10800,8 +10836,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "4-lektionen-stellvertretung-logopadie-dienstag-und-donnerstagnachmittag-schulstandort-40054",
-          "4-lektionen-stellvertretung-logopala-dienstag-e-donnerstagnachmittag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+          "4-lektionen-stellvertretung-logopadie-dienstag-und-donnerstagnachmittag-schulstandort-40054"
         ],
         "en": [
           "4-lektionen-stellvertretung-logopadie-dienstag-und-donnerstagnachmittag-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40054"
@@ -10812,7 +10847,6 @@
       },
       "previousSlugs": [
         "4-lektionen-stellvertretung-logopadie-dienstag-und-donnerstagnachmittag-schulstandort-40054",
-        "4-lektionen-stellvertretung-logopala-dienstag-e-donnerstagnachmittag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
         "4-lektionen-stellvertretung-logopadie-dienstag-und-donnerstagnachmittag-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40054"
       ],
       "salaryMin": 68500,
@@ -10831,12 +10865,12 @@
     },
     {
       "id": "ksml-afbbcefbc6cc",
-      "slug": "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055",
+      "slug": "5-lezioni-math-9-class-sec-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-gumligen-40055",
       "slugByLocale": {
         "de": "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055",
-        "it": "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055",
-        "en": "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055",
-        "fr": "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055"
+        "it": "5-lezioni-math-9-class-sec-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-gumligen-40055",
+        "en": "5-lessons-math-9-class-sec-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-gumligen-40055",
+        "fr": "5-lecons-mathematiques-9-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-gumligen-40055"
       },
       "slugDisambiguator": "40055",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -10893,7 +10927,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:21:46.841Z"
+      "firstSeenAt": "2026-08-18T22:21:46.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055"
+        ],
+        "en": [
+          "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055"
+        ],
+        "fr": [
+          "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055"
+        ]
+      },
+      "previousSlugs": [
+        "5-lektionen-math-9-klasse-sek-osz-seidenberg-gumligen-40055"
+      ]
     },
     {
       "id": "ksml-e5044ec926c3",
@@ -10901,8 +10949,8 @@
       "slugByLocale": {
         "de": "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-und-do-40056",
         "it": "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-e-do-nachmittag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-        "en": "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-und-do-40056",
-        "fr": "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-und-do-40056"
+        "en": "8-weeks-deputy-at-a-5th-6th-class-from-12-10-to-6-12-5-l-week-on-di-and-do-afternoon-ksml-kantonaler-stellenmarkt-40056",
+        "fr": "8-semaines-d-adjoint-a-une-5eme-6eme-classe-du-12-10-au-6-12-5-l-semaine-le-di-et-faire-l-apres-midi-ksml-40056"
       },
       "slugDisambiguator": "40056",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -10950,6 +10998,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-und-do-40056"
+        ],
+        "en": [
+          "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-und-do-40056"
+        ],
+        "fr": [
           "8-wochen-stellvertretung-an-einer-5-6-klasse-vom-12-10-bis-am-6-12-5-l-woche-am-di-und-do-40056"
         ]
       },

@@ -56,8 +56,7 @@
         "sales-representative-ii-medtronic-ch",
         "rappresentante-delle-vendite-ii-medtronic-tolochenaz-bbd4e7",
         "representant-des-ventes-ii-medtronic-tolochenaz-bbd4e7",
-        "sales-representative-ii-medtronic-ch-3",
-        "rappresentante-delle-vendite-ii-medtronic-tolochenaz-999404"
+        "sales-representative-ii-medtronic-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,8 +64,7 @@
           "sales-representative-ii-medtronic-ch",
           "rappresentante-delle-vendite-ii-medtronic-tolochenaz-bbd4e7",
           "representant-des-ventes-ii-medtronic-tolochenaz-bbd4e7",
-          "sales-representative-ii-medtronic-ch-3",
-          "rappresentante-delle-vendite-ii-medtronic-tolochenaz-999404"
+          "sales-representative-ii-medtronic-ch-3"
         ],
         "fr": [
           "sales-representative-ii-medtronic-ch-2"
@@ -136,13 +134,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R69334",
       "previousSlugs": [
-        "market-developer-specialist-m-w-d-medtronic-ch",
-        "market-sviluppatore-specialista-m-w-d-medtronic-bern"
+        "market-developer-specialist-m-w-d-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "market-developer-specialist-m-w-d-medtronic-ch",
-          "market-sviluppatore-specialista-m-w-d-medtronic-bern"
+          "market-developer-specialist-m-w-d-medtronic-ch"
         ],
         "de": [
           "market-developer-specialist-m-w-d-medtronic-ch"
@@ -214,13 +210,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R70585",
       "previousSlugs": [
-        "senior-technical-consultant-manager-m-f-d-medtronic-ch",
-        "senior-technical-consulente-manager-m-f-d-medtronic-bern"
+        "senior-technical-consultant-manager-m-f-d-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technical-consultant-manager-m-f-d-medtronic-ch",
-          "senior-technical-consulente-manager-m-f-d-medtronic-bern"
+          "senior-technical-consultant-manager-m-f-d-medtronic-ch"
         ],
         "de": [
           "senior-technical-consultant-manager-m-f-d-medtronic-ch"
@@ -290,14 +284,12 @@
       "jobReqId": "R70636",
       "previousSlugs": [
         "technical-consultant-cardiac-rhythm-management-m-f-d-medtronic-ch",
-        "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-tolochenaz",
-        "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-lugano"
+        "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-consultant-cardiac-rhythm-management-m-f-d-medtronic-ch",
-          "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-tolochenaz",
-          "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-lugano"
+          "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-tolochenaz"
         ],
         "de": [
           "technical-consultant-cardiac-rhythm-management-m-f-d-medtronic-ch"
@@ -436,13 +428,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R70257",
       "previousSlugs": [
-        "sales-representative-endoscopy-m-w-d-medtronic-ch",
-        "rappresentante-di-vendita-endoscopia-m-f-d-medtronic-tolochenaz"
+        "sales-representative-endoscopy-m-w-d-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-representative-endoscopy-m-w-d-medtronic-ch",
-          "rappresentante-di-vendita-endoscopia-m-f-d-medtronic-tolochenaz"
+          "sales-representative-endoscopy-m-w-d-medtronic-ch"
         ],
         "fr": [
           "sales-representative-endoscopy-m-w-d-medtronic-ch"
@@ -511,13 +501,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R74374",
       "previousSlugs": [
-        "senior-supplier-quality-engineering-supervisor-medtronic-ch",
-        "senior-supplier-quality-engineering-supervisore-medtronic-lausanne"
+        "senior-supplier-quality-engineering-supervisor-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-supplier-quality-engineering-supervisor-medtronic-ch",
-          "senior-supplier-quality-engineering-supervisore-medtronic-lausanne"
+          "senior-supplier-quality-engineering-supervisor-medtronic-ch"
         ],
         "de": [
           "senior-supplier-quality-engineering-supervisor-medtronic-ch"
@@ -542,12 +530,12 @@
     },
     {
       "id": "medtronic-00141411f325",
-      "slug": "superviseur-maintenance-f-h-medtronic-ch",
+      "slug": "supervisore-di-manutenzione-m-f-medtronic-lausanne",
       "slugByLocale": {
         "fr": "superviseur-maintenance-f-h-medtronic-ch",
-        "it": "superviseur-maintenance-f-h-medtronic-ch",
-        "en": "superviseur-maintenance-f-h-medtronic-ch",
-        "de": "superviseur-maintenance-f-h-medtronic-ch"
+        "it": "supervisore-di-manutenzione-m-f-medtronic-lausanne",
+        "en": "maintenance-supervisor-m-f-medtronic-lausanne",
+        "de": "instandhaltungsbeauftragter-m-w-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -602,7 +590,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:38:11.323Z"
+      "firstSeenAt": "2026-08-18T21:38:11.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "superviseur-maintenance-f-h-medtronic-ch"
+        ],
+        "en": [
+          "superviseur-maintenance-f-h-medtronic-ch"
+        ],
+        "de": [
+          "superviseur-maintenance-f-h-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "superviseur-maintenance-f-h-medtronic-ch"
+      ]
     }
   ]
 }

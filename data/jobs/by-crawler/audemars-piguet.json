@@ -1760,12 +1760,12 @@
     },
     {
       "id": "audemars-piguet-eac355949820",
-      "slug": "pmo-lead-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "piombo-pmo-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "pmo-lead-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "pmo-lead-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "piombo-pmo-audemars-piguet-le-brassus-vd-switzerland",
         "en": "pmo-lead-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "pmo-lead-audemars-piguet-le-brassus-vd-switzerland"
+        "de": "pmo-leiter-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -1822,7 +1822,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:24:42.561Z"
+      "firstSeenAt": "2026-08-18T22:24:42.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pmo-lead-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "pmo-lead-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "pmo-lead-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-10b18ce8f2d0",

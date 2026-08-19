@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "order-management-specialist-boutique-msc-geneva",
-        "order-management-specialista-boutique-msc-group-geneva"
+        "order-management-specialist-boutique-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "order-management-specialist-boutique-msc-geneva",
-          "order-management-specialista-boutique-msc-group-geneva"
+          "order-management-specialist-boutique-msc-geneva"
         ],
         "de": [
           "order-management-specialist-boutique-msc-geneva"
@@ -82,10 +80,10 @@
     },
     {
       "id": "msc-cargo-a95b474e5904",
-      "slug": "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva",
+      "slug": "temporary-senior-accountant-progetti-infrastrutturali-strategici-msc-group-geneva",
       "slugByLocale": {
         "en": "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva",
-        "it": "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva",
+        "it": "temporary-senior-accountant-progetti-infrastrutturali-strategici-msc-group-geneva",
         "de": "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva",
         "fr": "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva"
       },
@@ -142,7 +140,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:56:46.407Z"
+      "firstSeenAt": "2026-08-18T21:56:46.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "temporary-senior-accountant-strategic-infrastructure-projects-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-b06079cfe661",
@@ -225,7 +231,7 @@
         "en": "visual-merchandising-manager-msc-geneva",
         "it": "visual-merchandising-manager-msc-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
-        "fr": "visual-merchandising-manager-msc-geneva"
+        "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -285,9 +291,6 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
-        ],
-        "fr": [
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
         ]
       },
       "previousSlugs": [
@@ -296,12 +299,12 @@
     },
     {
       "id": "msc-cargo-eea3761c3310",
-      "slug": "retail-learning-development-manager-msc-geneva",
+      "slug": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-learning-development-manager-msc-geneva",
-        "it": "retail-learning-development-manager-msc-geneva",
+        "it": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
         "de": "retail-learning-development-manager-msc-geneva",
-        "fr": "retail-learning-development-manager-msc-geneva"
+        "fr": "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -361,15 +364,15 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva"
+          "retail-learning-development-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
+          "retail-learning-development-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
         "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva"
+        "retail-learning-development-manager-msc-geneva"
       ]
     },
     {
@@ -379,7 +382,7 @@
         "en": "cyber-security-architecture-senior-manager-msc-geneva",
         "it": "cyber-security-architecture-senior-manager-msc-geneva",
         "de": "cyber-security-architecture-senior-manager-msc-geneva",
-        "fr": "cyber-security-architecture-senior-manager-msc-geneva"
+        "fr": "cyber-security-architecture-gestionnaire-principal-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -443,9 +446,6 @@
         ],
         "de": [
           "cyber-security-architektur-senior-manager-msc-group-geneva"
-        ],
-        "fr": [
-          "cyber-security-architecture-gestionnaire-principal-msc-group-geneva"
         ]
       },
       "previousSlugs": [

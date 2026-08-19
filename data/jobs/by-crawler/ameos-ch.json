@@ -1022,12 +1022,12 @@
     },
     {
       "id": "ameos-ch-e7574768d958",
-      "slug": "leitung-psychologie-m-w-d-ameos-brunnen",
+      "slug": "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
       "slugByLocale": {
         "de": "leitung-psychologie-m-w-d-ameos-brunnen",
-        "it": "leitung-psychologie-m-w-d-ameos-brunnen",
-        "en": "leitung-psychologie-m-w-d-ameos-brunnen",
-        "fr": "leitung-psychologie-m-w-d-ameos-brunnen"
+        "it": "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
+        "en": "head-of-psychology-m-f-d-ameos-schweiz-brunnen",
+        "fr": "responsable-de-la-psychologie-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1082,16 +1082,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:03:36.010Z"
+      "firstSeenAt": "2026-08-18T22:03:36.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-psychologie-m-w-d-ameos-brunnen"
+        ],
+        "en": [
+          "leitung-psychologie-m-w-d-ameos-brunnen"
+        ],
+        "fr": [
+          "leitung-psychologie-m-w-d-ameos-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-psychologie-m-w-d-ameos-brunnen"
+      ]
     },
     {
       "id": "ameos-ch-7e60a18938eb",
-      "slug": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
+      "slug": "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-brunnen",
       "slugByLocale": {
         "de": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-        "it": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-        "en": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-        "fr": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
+        "it": "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-brunnen",
+        "en": "federally-recognized-psychotherapist-m-f-d-ameos-schweiz-brunnen",
+        "fr": "psychotherapie-reconnue-par-le-gouvernement-federal-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1146,16 +1160,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:03:35.126Z"
+      "firstSeenAt": "2026-08-18T22:03:35.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
+        ],
+        "en": [
+          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
+        ],
+        "fr": [
+          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
+      ]
     },
     {
       "id": "ameos-ch-f78cffcc0e42",
-      "slug": "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
+      "slug": "assistente-psicologo-m-f-d-ameos-schweiz-brunnen",
       "slugByLocale": {
         "de": "assistenzpsychologe-m-w-d-ameos-brunnen",
-        "it": "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
-        "en": "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
-        "fr": "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
+        "it": "assistente-psicologo-m-f-d-ameos-schweiz-brunnen",
+        "en": "assistant-psychologist-m-f-d-ameos-schweiz-brunnen",
+        "fr": "assistant-psychologue-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1200,11 +1228,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologe-m-w-d-ameos-brunnen"
+          "assistenzpsychologe-m-w-d-ameos-brunnen",
+          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
+        ],
+        "en": [
+          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
+        ],
+        "fr": [
+          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologe-m-w-d-ameos-brunnen"
+        "assistenzpsychologe-m-w-d-ameos-brunnen",
+        "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

@@ -12549,16 +12549,14 @@
         "enterprise-architekt-w-m-d-raiffeisen-st-gallen",
         "enterprise-architect-f-m-d-raiffeisen-st-gallen",
         "architecte-d-entreprise-f-m-d-raiffeisen-st-gallen",
-        "enterprise-architekt-w-m-d-raiffeisen-st-gallen-z3y944",
-        "enterprise-architekt-m-w-d-raiffeisen-st-gallen"
+        "enterprise-architekt-w-m-d-raiffeisen-st-gallen-z3y944"
       ],
       "previousSlugsByLocale": {
         "it": [
           "enterprise-architekt-w-m-d-raiffeisen-st-gallen",
           "enterprise-architect-f-m-d-raiffeisen-st-gallen",
           "architecte-d-entreprise-f-m-d-raiffeisen-st-gallen",
-          "enterprise-architekt-w-m-d-raiffeisen-st-gallen-z3y944",
-          "enterprise-architekt-m-w-d-raiffeisen-st-gallen"
+          "enterprise-architekt-w-m-d-raiffeisen-st-gallen-z3y944"
         ],
         "en": [
           "enterprise-architekt-w-m-d-raiffeisen-st-gallen"
@@ -13687,12 +13685,12 @@
     },
     {
       "id": "raiffeisen-30c06279b591",
-      "slug": "membre-du-conseil-d-39-administration-raiffeisen-echallens",
+      "slug": "membro-del-consiglio-di-amministrazione-raiffeisen-echallens",
       "slugByLocale": {
         "fr": "membre-du-conseil-d-39-administration-raiffeisen-echallens",
-        "it": "membre-du-conseil-d-39-administration-raiffeisen-echallens",
-        "en": "membre-du-conseil-d-39-administration-raiffeisen-echallens",
-        "de": "membre-du-conseil-d-39-administration-raiffeisen-echallens"
+        "it": "membro-del-consiglio-di-amministrazione-raiffeisen-echallens",
+        "en": "member-of-the-management-board-raiffeisen-echallens",
+        "de": "mitglied-des-verwaltungsrats-raiffeisen-echallens"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -13748,7 +13746,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:55:28.147Z"
+      "firstSeenAt": "2026-08-18T21:55:28.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "membre-du-conseil-d-39-administration-raiffeisen-echallens"
+        ],
+        "en": [
+          "membre-du-conseil-d-39-administration-raiffeisen-echallens"
+        ],
+        "de": [
+          "membre-du-conseil-d-39-administration-raiffeisen-echallens"
+        ]
+      },
+      "previousSlugs": [
+        "membre-du-conseil-d-39-administration-raiffeisen-echallens"
+      ]
     },
     {
       "id": "raiffeisen-70d6348cf588",
@@ -13802,8 +13814,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kreditverarbeitung-raiffeisen-belp",
-          "collaboratore-trice-kreditverarbeitung-raiffeisen-belp"
+          "mitarbeiter-in-kreditverarbeitung-raiffeisen-belp"
         ],
         "en": [
           "mitarbeiter-in-kreditverarbeitung-raiffeisen-belp"
@@ -13813,8 +13824,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kreditverarbeitung-raiffeisen-belp",
-        "collaboratore-trice-kreditverarbeitung-raiffeisen-belp"
+        "mitarbeiter-in-kreditverarbeitung-raiffeisen-belp"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -13836,8 +13846,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach",
         "it": "collaboratore-trice-kreditsupport-raiffeisen-lutzelfluh-goldbach",
-        "en": "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach",
-        "fr": "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach"
+        "en": "employee-credit-support-raiffeisen-lutzelfluh-goldbach",
+        "fr": "appui-aux-employes-credits-raiffeisen-lutzelfluh-goldbach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -13884,6 +13894,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach"
+        ],
+        "en": [
+          "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach"
+        ],
+        "fr": [
+          "mitarbeiter-in-kreditsupport-raiffeisen-lutzelfluh-goldbach"
         ]
       },
       "previousSlugs": [
@@ -13905,12 +13921,12 @@
     },
     {
       "id": "raiffeisen-235a9ff047cc",
-      "slug": "privatkundenberatung-raiffeisen-langnau-im-emmental",
+      "slug": "servizi-client-privati-raiffeisen-langnau-im-emmental-0683b1",
       "slugByLocale": {
         "de": "privatkundenberatung-raiffeisen-langnau-im-emmental",
-        "it": "privatkundenberatung-raiffeisen-langnau-im-emmental",
-        "en": "privatkundenberatung-raiffeisen-langnau-im-emmental",
-        "fr": "privatkundenberatung-raiffeisen-langnau-im-emmental"
+        "it": "servizi-client-privati-raiffeisen-langnau-im-emmental-0683b1",
+        "en": "private-client-services-raiffeisen-langnau-im-emmental-0683b1",
+        "fr": "services-a-la-clientele-privee-raiffeisen-langnau-im-emmental-0683b1"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -13966,16 +13982,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:55:28.116Z"
+      "firstSeenAt": "2026-08-18T21:55:28.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberatung-raiffeisen-langnau-im-emmental"
+        ],
+        "en": [
+          "privatkundenberatung-raiffeisen-langnau-im-emmental"
+        ],
+        "fr": [
+          "privatkundenberatung-raiffeisen-langnau-im-emmental"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberatung-raiffeisen-langnau-im-emmental"
+      ]
     },
     {
       "id": "raiffeisen-940f8f80be4f",
-      "slug": "teamleiter-credit-office-w-m-d-raiffeisen-baden",
+      "slug": "team-leader-credit-office-m-f-d-raiffeisen-baden",
       "slugByLocale": {
         "de": "teamleiter-credit-office-w-m-d-raiffeisen-baden",
-        "it": "teamleiter-credit-office-w-m-d-raiffeisen-baden",
+        "it": "team-leader-credit-office-m-f-d-raiffeisen-baden",
         "en": "teamleiter-credit-office-w-m-d-raiffeisen-baden",
-        "fr": "teamleiter-credit-office-w-m-d-raiffeisen-baden"
+        "fr": "chef-d-equipe-bureau-de-credit-h-f-d-raiffeisen-baden"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -14031,7 +14061,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:55:28.104Z"
+      "firstSeenAt": "2026-08-18T21:55:28.104Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-credit-office-w-m-d-raiffeisen-baden"
+        ],
+        "fr": [
+          "teamleiter-credit-office-w-m-d-raiffeisen-baden"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-credit-office-w-m-d-raiffeisen-baden"
+      ]
     },
     {
       "id": "raiffeisen-395338cefe51",

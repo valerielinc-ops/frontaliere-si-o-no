@@ -695,12 +695,12 @@
     },
     {
       "id": "holcim-8e2e3d363a3c",
-      "slug": "lastwagenfuhrer-in-holcim-group-mulligen",
+      "slug": "camion-driver-in-holcim-group-mulligen",
       "slugByLocale": {
         "de": "lastwagenfuhrer-in-holcim-ch",
-        "it": "lastwagenfuhrer-in-holcim-group-mulligen",
-        "en": "lastwagenfuhrer-in-holcim-group-mulligen",
-        "fr": "lastwagenfuhrer-in-holcim-group-mulligen"
+        "it": "camion-driver-in-holcim-group-mulligen",
+        "en": "truck-driver-in-holcim-group-mulligen",
+        "fr": "conducteur-de-camion-en-holcim-group-mulligen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -746,12 +746,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch-2",
-          "lastwagenfuhrer-in-holcim-ch"
+          "lastwagenfuhrer-in-holcim-ch",
+          "lastwagenfuhrer-in-holcim-group-mulligen"
+        ],
+        "en": [
+          "lastwagenfuhrer-in-holcim-group-mulligen"
+        ],
+        "fr": [
+          "lastwagenfuhrer-in-holcim-group-mulligen"
         ]
       },
       "previousSlugs": [
         "lastwagenfuhrer-in-holcim-ch-2",
-        "lastwagenfuhrer-in-holcim-ch"
+        "lastwagenfuhrer-in-holcim-ch",
+        "lastwagenfuhrer-in-holcim-group-mulligen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

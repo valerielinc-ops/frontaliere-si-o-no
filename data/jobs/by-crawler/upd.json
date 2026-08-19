@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-ee8bfb28ee0d",
-      "slug": "oberpsychologin-oberpsychologe-forensik-upd-bern",
+      "slug": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberpsychologin-oberpsychologe-forensik-upd-bern",
-        "it": "oberpsychologin-oberpsychologe-forensik-upd-bern",
-        "en": "oberpsychologin-oberpsychologe-forensik-upd-bern",
-        "fr": "oberpsychologin-oberpsychologe-forensik-upd-bern"
+        "it": "psicologo-senior-psicologo-senior-forense-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-psychologist-senior-psychologist-forensics-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "psychologue-principal-psychologue-principal-medico-legal-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:56:43.123Z"
+      "firstSeenAt": "2026-08-18T21:56:43.123Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberpsychologin-oberpsychologe-forensik-upd-bern"
+        ],
+        "en": [
+          "oberpsychologin-oberpsychologe-forensik-upd-bern"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologe-forensik-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberpsychologin-oberpsychologe-forensik-upd-bern"
+      ]
     },
     {
       "id": "upd-102acd2a4b35",
-      "slug": "leiterin-leiter-servicedesk-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "responsabile-del-servizio-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "leiterin-leiter-servicedesk-upd-bern",
-        "it": "leiterin-leiter-servicedesk-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "leiterin-leiter-servicedesk-upd-bern",
-        "fr": "leiterin-leiter-servicedesk-upd-bern"
+        "it": "responsabile-del-servizio-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "head-of-service-desk-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "chef-du-bureau-de-service-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -118,11 +132,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-servicedesk-upd-bern",
+          "leiterin-leiter-servicedesk-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "leiterin-leiter-servicedesk-upd-bern"
+        ],
+        "fr": [
           "leiterin-leiter-servicedesk-upd-bern"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-servicedesk-upd-bern"
+        "leiterin-leiter-servicedesk-upd-bern",
+        "leiterin-leiter-servicedesk-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,

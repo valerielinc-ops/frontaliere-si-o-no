@@ -1310,13 +1310,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august",
-        "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
         "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-a-kauffrau-kaufmann-efz-in-kranken-und-sozialversicherungen-finanzen-per-august",
-          "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2026-1-helsana-dubendorf-stettbach-homeoff",
           "apprendista-a-kauffrau-kaufmann-cfc-in-kranken-e-sozialversicherungen-finanzen-per-august-2027-helsana-dubendorf"
         ],
         "en": [
@@ -2688,8 +2686,7 @@
         "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
         "medecin-d-assurance-d-f-a-40-60-helsana-ticino",
         "assicurazione-medico-d-f-a-40-60-helsana-ticino",
-        "assicurazione-medico-d-i-a-40-60-helsana-ticino",
-        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2698,8 +2695,7 @@
           "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
           "medecin-d-assurance-d-f-a-40-60-helsana-ticino",
           "assicurazione-medico-d-f-a-40-60-helsana-ticino",
-          "assicurazione-medico-d-i-a-40-60-helsana-ticino",
-          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+          "assicurazione-medico-d-i-a-40-60-helsana-ticino"
         ],
         "en": [
           "insurance-physician-d-f-a-40-60-helsana-ticino"
@@ -4671,12 +4667,12 @@
     },
     {
       "id": "helsana-5732fc97fe00",
-      "slug": "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "slug": "auditore-senior-internal-audit-a-80-100-helsana-dubendorf-stettbach-homeoff",
       "slugByLocale": {
         "de": "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "it": "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "it": "auditore-senior-internal-audit-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "senior-auditor-internal-audit-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "fr": "auditeur-principal-verification-interne-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4731,7 +4727,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:07:21.078Z"
+      "firstSeenAt": "2026-08-18T22:07:21.078Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "en": [
+          "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ],
+        "fr": [
+          "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        ]
+      },
+      "previousSlugs": [
+        "senior-auditor-interne-revision-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      ]
     },
     {
       "id": "helsana-c0fe05d375e9",

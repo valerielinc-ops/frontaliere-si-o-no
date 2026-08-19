@@ -3560,15 +3560,13 @@
       "previousSlugs": [
         "wms-praktikum-im-financial-consulting-start-august-2027-vz-vermoegenszentrum-ch",
         "stage-wms-in-financial-consulting-inizio-agosto-2027-vz-vermogenszentrum-basel",
-        "wms-praktikum-im-financial-consulting-vz-vermoegenszentrum-ch",
-        "wms-praktikum-im-financial-consulting-start-august-2027-vz-vermogenszentrum-basel"
+        "wms-praktikum-im-financial-consulting-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wms-praktikum-im-financial-consulting-start-august-2027-vz-vermoegenszentrum-ch",
           "stage-wms-in-financial-consulting-inizio-agosto-2027-vz-vermogenszentrum-basel",
-          "wms-praktikum-im-financial-consulting-vz-vermoegenszentrum-ch",
-          "wms-praktikum-im-financial-consulting-start-august-2027-vz-vermogenszentrum-basel"
+          "wms-praktikum-im-financial-consulting-vz-vermoegenszentrum-ch"
         ]
       },
       "needsRetranslation": true,
@@ -4935,8 +4933,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch",
         "it": "collaboratore-trice-in-kundenempfang-vz-vermogenszentrum-horgen",
-        "en": "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-horgen",
-        "fr": "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-horgen"
+        "en": "reception-of-employees-customers-vz-vermogenszentrum-horgen-zurich",
+        "fr": "reception-des-employes-clients-vz-vermogenszentrum-horgen-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4995,10 +4993,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-horgen"
+        ],
+        "fr": [
+          "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-horgen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch"
+        "mitarbeiter-in-kundenempfang-vz-vermoegenszentrum-ch",
+        "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-horgen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

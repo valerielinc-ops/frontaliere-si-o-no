@@ -69,8 +69,7 @@
         "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
         "controller-80-100-michel-gruppe-ag-meiringen",
         "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-        "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+        "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -82,8 +81,7 @@
           "leiter-in-controlling-80-100-michel-gruppe-ag-meiringen",
           "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
           "responsabile-controlling-80-100-michel-gruppe-ag-meiringen",
-          "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+          "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
         ],
         "en": [
           "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
@@ -98,8 +96,7 @@
           "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
           "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
           "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
+          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:54:15.071Z",
@@ -169,18 +166,14 @@
       "hiringOrganizationName": "Kuhn Rikon",
       "previousSlugsByLocale": {
         "fr": [
-          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
-          "stage-d-ete-2026-apprenti-e-cuisinier-e-efz-100-michel-gruppe-ag-meiringen"
+          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
         ],
         "it": [
-          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
-          "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen"
+          "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
         ]
       },
       "previousSlugs": [
-        "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve",
-        "stage-d-ete-2026-apprenti-e-cuisinier-e-efz-100-michel-gruppe-ag-meiringen",
-        "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen"
+        "consultante-vente-globus-geneve-100-h-f-100-kuhn-rikon-geneve"
       ],
       "firstSeenAt": "2026-07-21T12:43:15.095Z",
       "salaryMin": 60500,
@@ -198,12 +191,12 @@
     },
     {
       "id": "kuhn-rikon-119347dd0f71",
-      "slug": "produktionsmitarbeiter-in-100-kuhn-rikon-rikon",
+      "slug": "personale-di-produzione-100-kuhn-rikon-rikon",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-in-100-kuhn-rikon-rikon",
-        "it": "produktionsmitarbeiter-in-100-kuhn-rikon-rikon",
-        "en": "produktionsmitarbeiter-in-100-kuhn-rikon-rikon",
-        "fr": "produktionsmitarbeiter-in-100-kuhn-rikon-rikon"
+        "it": "personale-di-produzione-100-kuhn-rikon-rikon",
+        "en": "production-staff-100-kuhn-rikon-rikon",
+        "fr": "personnel-de-production-100-kuhn-rikon-rikon"
       },
       "company": "Kuhn Rikon",
       "companyKey": "kuhn-rikon",
@@ -261,7 +254,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:07:50.326Z"
+      "firstSeenAt": "2026-08-18T22:07:50.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-100-kuhn-rikon-rikon"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-100-kuhn-rikon-rikon"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-100-kuhn-rikon-rikon"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-100-kuhn-rikon-rikon"
+      ]
     }
   ]
 }

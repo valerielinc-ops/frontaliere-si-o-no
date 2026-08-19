@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-086961d4cfe2",
-      "slug": "it-business-analyst-m-w-d-hilcona-radolfzell",
+      "slug": "it-business-analista-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "de": "it-business-analyst-m-w-d-hilcona-radolfzell",
-        "it": "it-business-analyst-m-w-d-hilcona-radolfzell",
+        "it": "it-business-analista-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "it-business-analyst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "fr": "it-business-analyst-m-w-d-hilcona-radolfzell"
+        "fr": "it-business-analyste-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -60,7 +60,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-18T21:55:11.099Z"
+      "firstSeenAt": "2026-08-18T21:55:11.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-analyst-m-w-d-hilcona-radolfzell"
+        ],
+        "fr": [
+          "it-business-analyst-m-w-d-hilcona-radolfzell"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-analyst-m-w-d-hilcona-radolfzell"
+      ]
     },
     {
       "id": "hilcona-cae09e23e811",
@@ -105,13 +116,11 @@
       "crawledAt": "2026-08-18T21:55:10.719Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell",
-        "bi-specialista-financial-reporting-data-analytics-hugli-nahrungsmittel-gmbh-radolfzell"
+        "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell",
-          "bi-specialista-financial-reporting-data-analytics-hugli-nahrungsmittel-gmbh-radolfzell"
+          "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell"
         ],
         "fr": [
           "bi-specialist-financial-reporting-data-analytics-hilcona-radolfzell"
@@ -925,12 +934,12 @@
     },
     {
       "id": "hilcona-3f66e49e494f",
-      "slug": "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
+      "slug": "responsabile-impianti-efz-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
-        "it": "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
-        "en": "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
-        "fr": "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
+        "it": "responsabile-impianti-efz-2027-bell-schweiz-ag-oensingen",
+        "en": "plant-manager-efz-2027-bell-schweiz-ag-oensingen",
+        "fr": "directeur-de-l-usine-efz-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -969,11 +978,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen"
+          "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
+          "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen"
+        "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
+        "anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -992,12 +1009,12 @@
     },
     {
       "id": "hilcona-be3af0763315",
-      "slug": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
+      "slug": "praticante-alimentare-praticante-alimentare-eba-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
-        "it": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
-        "en": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
-        "fr": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
+        "it": "praticante-alimentare-praticante-alimentare-eba-2027-bell-schweiz-ag-oensingen",
+        "en": "food-practitioner-food-practitioner-eba-2027-bell-schweiz-ag-oensingen",
+        "fr": "pratique-alimentaire-pratique-alimentaire-eba-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1036,11 +1053,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen"
+          "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
+          "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen"
+        "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
+        "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -10184,10 +10209,7 @@
       "previousSlugs": [
         "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "industrial-electrician-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "betriebselektriker-m-w-d-hilcona-ampfing",
-        "betriebselektriker-m-w-d-hilcona-undefined",
-        "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "betriebselektriker-m-w-d-hilcona-ampfing"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
       "salaryMin": 64500,

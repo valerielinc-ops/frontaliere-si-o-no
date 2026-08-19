@@ -12765,12 +12765,12 @@
     },
     {
       "id": "rolex-6ba52daa72ea",
-      "slug": "acheteur-h-f-rolex-ch",
+      "slug": "compratore-m-f-rolex-geneve",
       "slugByLocale": {
         "fr": "acheteur-h-f-rolex-ch",
-        "it": "acheteur-h-f-rolex-ch",
-        "en": "acheteur-h-f-rolex-ch",
-        "de": "acheteur-h-f-rolex-ch"
+        "it": "compratore-m-f-rolex-geneve",
+        "en": "buyer-m-f-rolex-geneve",
+        "de": "kaufer-m-w-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -12824,7 +12824,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:11:44.464Z"
+      "firstSeenAt": "2026-08-18T22:11:44.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "acheteur-h-f-rolex-ch"
+        ],
+        "en": [
+          "acheteur-h-f-rolex-ch"
+        ],
+        "de": [
+          "acheteur-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "acheteur-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-9181b77c2930",

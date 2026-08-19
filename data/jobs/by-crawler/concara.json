@@ -3554,8 +3554,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-entwicklungsperspektiven-50-100-concara-bern",
         "it": "dipl-pflegefachperson-mit-entwicklungsperspektiven-50-100-concara-bern",
-        "en": "dipl-pflegefachperson-mit-entwicklungsperspektiven-50-100-concara-bern",
-        "fr": "dipl-pflegefachperson-mit-entwicklungsperspektiven-50-100-concara-bern"
+        "en": "dipl-nurse-with-development-prospects-50-100-concara-domicil-spitex-bern-bern",
+        "fr": "dipl-infirmiere-avec-des-perspectives-de-developpement-50-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3688,12 +3688,12 @@
     },
     {
       "id": "concara-90de09f62e9f",
-      "slug": "fachperson-gesundheit-50-100-concara-bern",
+      "slug": "professionista-della-salute-50-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "fachperson-gesundheit-50-100-concara-bern",
-        "it": "fachperson-gesundheit-50-100-concara-bern",
-        "en": "fachperson-gesundheit-50-100-concara-bern",
-        "fr": "fachperson-gesundheit-50-100-concara-bern"
+        "it": "professionista-della-salute-50-100-concara-domicil-spitex-bern-bern",
+        "en": "health-professional-50-100-concara-domicil-spitex-bern-bern",
+        "fr": "professionnels-de-la-sante-50-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3749,7 +3749,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:00:04.132Z"
+      "firstSeenAt": "2026-08-18T22:00:04.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-concara-bern"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-concara-bern"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-50-100-concara-bern"
+      ]
     },
     {
       "id": "concara-cbd4ef511daf",

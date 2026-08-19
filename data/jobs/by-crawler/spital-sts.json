@@ -730,8 +730,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-distributionslogistik-spital-sts-thun",
         "it": "collaboratore-trice-distributionslogistik-spital-sts-thun",
-        "en": "mitarbeiter-in-distributionslogistik-spital-sts-thun",
-        "fr": "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+        "en": "associate-distributionslogistik-spital-sts-thun",
+        "fr": "collaborateur-trice-distributionslogistik-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -776,6 +776,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+        ],
+        "en": [
+          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
+        ],
+        "fr": [
           "mitarbeiter-in-distributionslogistik-spital-sts-thun"
         ]
       },

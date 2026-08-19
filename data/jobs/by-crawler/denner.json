@@ -818,8 +818,6 @@
         "it": [
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-biel-bienne",
-          "vice-direttore-di-filiale-denner-ag-biel-bienne-6408b4",
-          "assistente-nella-gestione-delle-branche-denner-biel-bienne",
           "assistente-nella-gestione-delle-branche-denner-biel-bienne-8efffc"
         ],
         "fr": [
@@ -829,9 +827,6 @@
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-biel-bienne",
-        "vice-direttore-di-filiale-denner-ag-biel-bienne-6408b4",
-        "directeur-adjoint-de-succursale-denner-ag-biel-bienne",
-        "assistente-nella-gestione-delle-branche-denner-biel-bienne",
         "assistente-nella-gestione-delle-branche-denner-biel-bienne-8efffc",
         "assistant-dans-la-gestion-des-succursales-denner-biel-bienne"
       ],
@@ -926,7 +921,6 @@
           "assistent-in-filialleitung-denner-ag-baar",
           "assistent-in-filialleitung-denner-ag-bellach-7edga6",
           "assistent-in-filialleitung-denner-bellach",
-          "assistente-nella-gestione-delle-branche-denner-ag-bellach",
           "assistant-in-branch-management-denner-bremgarten-ag",
           "assistente-nella-gestione-delle-branche-denner-bellach"
         ],
@@ -951,7 +945,6 @@
         "assistent-in-filialleitung-denner-ag-baar",
         "assistent-in-filialleitung-denner-ag-bellach-7edga6",
         "assistent-in-filialleitung-denner-bellach",
-        "assistente-nella-gestione-delle-branche-denner-ag-bellach",
         "assistant-in-branch-management-denner-bremgarten-ag",
         "assistente-nella-gestione-delle-branche-denner-bellach"
       ],
@@ -1037,7 +1030,6 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-ag-winterthur-ylequg",
           "verkaufer-in-denner-ag-winterthur",
-          "venditore-denner-ag-winterthur-bf71e1",
           "seller-denner-winterthur",
           "venditore-denner-winterthur"
         ],
@@ -1057,7 +1049,6 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-ag-winterthur-ylequg",
         "verkaufer-in-denner-ag-winterthur",
-        "venditore-denner-ag-winterthur-bf71e1",
         "seller-denner-winterthur",
         "venditore-denner-winterthur"
       ],
@@ -1139,13 +1130,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-18T21:35:38.715Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-oensingen"
+        "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-oensingen"
+          "stv-filialleiter-in-denner"
         ]
       },
       "needsRetranslation": true,
@@ -1303,8 +1292,7 @@
         "venditore-nel-salario-orario-denner-basel",
         "venditore-nel-salario-orario-denner-binningen",
         "venditore-nel-salario-orario-denner-birsfelden",
-        "verkaufer-in-im-stundenlohn-denner-frauenfeld",
-        "venditore-denner-ag-frauenfeld"
+        "verkaufer-in-im-stundenlohn-denner-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1326,8 +1314,7 @@
           "venditore-nel-salario-orario-denner-birsfelden",
           "verkaufer-in-im-stundenlohn-denner-frauenfeld",
           "verkaufer-in-im-stundenlohn-denner",
-          "vendeur-dans-le-salaire-horaire-denner-zollikofen",
-          "venditore-denner-ag-frauenfeld"
+          "vendeur-dans-le-salaire-horaire-denner-zollikofen"
         ]
       },
       "needsRetranslation": true,
@@ -1411,7 +1398,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-matzingen",
           "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
           "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
           "venditore-nel-salario-orario-denner-ag-breitenbach"
@@ -1426,7 +1412,6 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-matzingen",
-        "venditore-nel-salario-orario-denner-ag-matzingen",
         "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
         "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
         "venditore-nel-salario-orario-denner-ag-breitenbach"
@@ -1511,15 +1496,11 @@
       "crawledAt": "2026-08-18T21:35:38.256Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-flims-dorf"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-flims-dorf-7eff23",
-        "vendeur-denner-ag-flims-dorf-7eff23",
-        "verkaufer-in-denner-flims-dorf"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1604,15 +1585,13 @@
         "verkaufer-in-im-stundenlohn-denner-oberwil-bl",
         "seller-in-the-hourly-wage-denner-oberwil-bl",
         "vendeur-dans-le-salaire-horaire-denner-oberwil-bl",
-        "venditore-nel-salario-orario-denner-oberwil-bl",
-        "venditore-nel-salario-orario-denner-ag-oberwil-bl"
+        "venditore-nel-salario-orario-denner-oberwil-bl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-2",
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-oberwil-bl",
-          "venditore-nel-salario-orario-denner-ag-oberwil-bl"
+          "venditore-nel-salario-orario-denner-oberwil-bl"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-oberwil-bl",
@@ -1707,15 +1686,11 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-sissach",
           "verkaufer-in-im-stundenlohn-denner-sissach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-sissach",
-        "vendeur-denner-ag-sissach",
-        "verkaufer-in-denner-sissach",
         "verkaufer-in-im-stundenlohn-denner-sissach"
       ],
       "salaryMin": 74000,
@@ -1799,7 +1774,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-basel",
           "verkaufer-in-denner-ag-basel-3",
           "verkaufer-in-denner-ag-basel-6",
           "verkaufer-in-im-stundenlohn-denner-7",
@@ -1813,9 +1787,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "seller-in-the-hourly-wage-denner-ag-basel-6d762b",
-        "vendeur-dans-le-salaire-horaire-denner-ag-basel-6d762b",
-        "verkaufer-in-im-stundenlohn-denner-basel",
         "verkaufer-in-denner-ag-basel-3",
         "verkaufer-in-denner-ag-basel-6",
         "verkaufer-in-im-stundenlohn-denner-7",
@@ -1940,7 +1911,7 @@
       "slug": "stv-branch-manager-in-denner-ag-rorschach",
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-rorschach",
-        "en": "stv-branch-manager-in-denner-rorschach",
+        "en": "stv-branch-manager-in-denner-ag-rorschach",
         "de": "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
         "fr": "directeur-de-succursale-stv-in-denner-ag-rorschach"
       },
@@ -2003,18 +1974,17 @@
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-rorschach",
         "directeur-de-succursale-stv-in-denner-rorschach",
-        "stv-branch-manager-in-denner-rorschach",
-        "stv-branch-manager-in-denner-ag-rorschach"
+        "stv-branch-manager-in-denner-rorschach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-2",
           "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-rorschach",
-          "stv-branch-manager-in-denner-ag-rorschach"
+          "stv-branch-manager-in-denner-rorschach"
         ],
         "en": [
-          "stv-filialleiter-in-denner-rorschach"
+          "stv-filialleiter-in-denner-rorschach",
+          "stv-branch-manager-in-denner-rorschach"
         ],
         "de": [
           "stv-filialleiter-in-denner-rorschach"
@@ -2116,8 +2086,7 @@
       "previousSlugsByLocale": {
         "it": [
           "gerant-e-denner",
-          "gestione-denner-lausanne",
-          "gestione-denner-sa-lausanne"
+          "gestione-denner-lausanne"
         ],
         "en": [
           "gerant-e-denner"
@@ -2132,8 +2101,7 @@
       "previousSlugs": [
         "gerant-e-denner",
         "gestione-denner-lausanne",
-        "gerant-e-denner-lausanne",
-        "gestione-denner-sa-lausanne"
+        "gerant-e-denner-lausanne"
       ]
     },
     {
@@ -2215,7 +2183,6 @@
         "stellvertretender-geschaftsfuhrer-denner-renens-vd",
         "adjoint-e-gerant-e-denner",
         "adjoint-e-gerant-e-denner-renens-vd",
-        "adjoint-e-gerant-e-denner-sa-renens-vd",
         "deputy-managing-officer-denner-lonay",
         "deputy-managing-officer-denner-morges",
         "deputy-managing-officer-denner-sion"
@@ -2229,7 +2196,6 @@
         ],
         "it": [
           "adjoint-e-gerant-e-denner",
-          "adjoint-e-gerant-e-denner-sa-renens-vd",
           "deputy-managing-officer-denner-lonay",
           "deputy-managing-officer-denner-morges",
           "deputy-managing-officer-denner-sion"
@@ -2304,13 +2270,11 @@
       "crawledAt": "2026-08-18T21:35:36.916Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-migros-ticino-kleinandelfingen"
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-migros-ticino-kleinandelfingen"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "salaryMin": 83000,
@@ -2391,7 +2355,6 @@
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-gerant-e-denner",
-          "adjoint-e-gerant-e-denner-sa-le-mont-sur-lausanne",
           "gerant-e-denner-le-mont-sur-lausanne"
         ],
         "en": [
@@ -2403,9 +2366,6 @@
       },
       "previousSlugs": [
         "adjoint-e-gerant-e-denner",
-        "deputy-managing-officer-denner-sa-le-mont-sur-lausanne",
-        "stellvertretender-geschaftsfuhrer-denner-sa-le-mont-sur-lausanne",
-        "adjoint-e-gerant-e-denner-sa-le-mont-sur-lausanne",
         "gerant-e-denner-le-mont-sur-lausanne",
         "adjoint-e-gerant-e-denner-le-mont-sur-lausanne"
       ],
@@ -2488,13 +2448,11 @@
       "crawledAt": "2026-08-18T21:35:36.895Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-migros-ticino-jegenstorf"
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-migros-ticino-jegenstorf"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "needsRetranslation": true,
       "salaryMin": 77500,
@@ -2576,13 +2534,11 @@
       "crawledAt": "2026-08-18T21:35:36.450Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "venditore-migros-ticino-jegenstorf"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "venditore-migros-ticino-jegenstorf"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2663,13 +2619,11 @@
       "crawledAt": "2026-08-18T21:35:36.447Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-zofingen"
+          "stv-filialleiter-in-denner"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-zofingen"
+        "stv-filialleiter-in-denner"
       ],
       "needsRetranslation": true,
       "salaryMin": 74000,
@@ -2752,16 +2706,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-interlaken",
           "salesperson-denner-ag-interlaken",
           "verkaufer-in-denner-ag-interlaken-vz3gdz"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-interlaken-a375b5",
-        "vendeur-denner-ag-interlaken",
-        "verkaufer-in-denner-interlaken",
         "salesperson-denner-ag-interlaken",
         "verkaufer-in-denner-ag-interlaken-vz3gdz"
       ],
@@ -2844,15 +2794,11 @@
       "crawledAt": "2026-08-18T21:35:35.900Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-herzogenbuchsee"
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "seller-denner-ag-herzogenbuchsee-e869da",
-        "vendeur-denner-ag-herzogenbuchsee-e869da",
-        "verkaufer-in-denner-herzogenbuchsee"
+        "verkaufer-in-denner"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2872,9 +2818,9 @@
       "id": "denner-61d78d0ddeb9",
       "slug": "vendeur-vendeuse-denner",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "vendeur-vendeuse-denner-sa-preverenges",
+        "en": "seller-seller-denner-preverenges",
+        "de": "verkaufer-verkaufer-denner-preverenges",
         "fr": "vendeur-vendeuse-denner-preverenges"
       },
       "company": "Denner",

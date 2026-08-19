@@ -17257,8 +17257,8 @@
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-mit-fachverantwortung-untere-extremitat-80-100-luks",
         "it": "physiotherapeutin-physiotherapeut-mit-fachverantwortung-untere-extremitat-80-100-luks",
-        "en": "physiotherapeutin-physiotherapeut-mit-fachverantwortung-untere-extremitat-80-100-luks",
-        "fr": "physiotherapeutin-physiotherapeut-mit-fachverantwortung-untere-extremitat-80-100-luks"
+        "en": "physical-therapist-physical-therapist-with-professional-responsibility-lower-extremity-80-100-luzerner-kantonsspital",
+        "fr": "physiotherapeute-physiotherapeute-a-responsabilite-professionnelle-extremite-inferieure-80-100-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17323,8 +17323,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-mit-schwerpunkt-geriatrie-60-100-luks-luzern",
         "it": "oberarztin-oberarzt-mit-schwerpunkt-geriatrie-60-100-luks-luzern",
-        "en": "oberarztin-oberarzt-mit-schwerpunkt-geriatrie-60-100-luks-luzern",
-        "fr": "oberarztin-oberarzt-mit-schwerpunkt-geriatrie-60-100-luks-luzern"
+        "en": "senior-physician-senior-physician-with-a-focus-on-geriatrics-60-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "medecin-principal-medecin-principal-avec-un-accent-sur-la-geriatrie-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17494,12 +17494,12 @@
     },
     {
       "id": "luks-b792e292ff9a",
-      "slug": "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen",
+      "slug": "team-leader-team-leader-riabilitazione-80-100-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen",
-        "it": "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen",
-        "en": "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen",
-        "fr": "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen"
+        "it": "team-leader-team-leader-riabilitazione-80-100-luzerner-kantonsspital-luks-wolhusen",
+        "en": "team-leader-team-leader-rehabilitation-80-100-luzerner-kantonsspital-luks-wolhusen",
+        "fr": "readaptation-du-chef-d-equipe-80-100-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17555,16 +17555,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:36:43.773Z"
+      "firstSeenAt": "2026-08-18T21:36:43.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-rehabilitation-80-100-luks-wolhusen"
+      ]
     },
     {
       "id": "luks-785d17a10096",
-      "slug": "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern",
+      "slug": "team-leader-care-ambulatorium-hematologie-med-oncologia-70-90-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern",
-        "it": "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern",
-        "en": "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern",
-        "fr": "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern"
+        "it": "team-leader-care-ambulatorium-hematologie-med-oncologia-70-90-luzerner-kantonsspital-luks-luzern",
+        "en": "team-leader-care-ambulatorium-hematologie-med-oncology-70-90-luzerner-kantonsspital-luks-luzern",
+        "fr": "chef-d-equipe-soins-ambulatoire-hematologie-med-oncologie-70-90-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17620,7 +17634,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:36:43.692Z"
+      "firstSeenAt": "2026-08-18T21:36:43.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-pflege-ambulatorium-hamatologie-med-onkologie-70-90-luks-luzern"
+      ]
     },
     {
       "id": "luks-f7636194d68e",

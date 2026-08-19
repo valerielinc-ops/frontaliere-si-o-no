@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "hofweissbad-0412706f191f",
-      "slug": "speculative-application-100-hof-weissbad-weissbad",
+      "slug": "applicazione-speculativa-100-hof-weissbad-ag-weissbad",
       "slugByLocale": {
         "en": "speculative-application-100-hof-weissbad-weissbad",
-        "it": "speculative-application-100-hof-weissbad-weissbad",
-        "de": "speculative-application-100-hof-weissbad-weissbad",
+        "it": "applicazione-speculativa-100-hof-weissbad-ag-weissbad",
+        "de": "spekulative-anwendung-100-hof-weissbad-ag-weissbad",
         "fr": "speculative-application-100-hof-weissbad-weissbad"
       },
       "company": "Hof Weissbad AG",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:23:21.554Z"
+      "firstSeenAt": "2026-08-18T22:23:21.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "speculative-application-100-hof-weissbad-weissbad"
+        ],
+        "de": [
+          "speculative-application-100-hof-weissbad-weissbad"
+        ]
+      },
+      "previousSlugs": [
+        "speculative-application-100-hof-weissbad-weissbad"
+      ]
     },
     {
       "id": "hofweissbad-d673c3a1fd24",
@@ -443,13 +454,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "employee-lingerie-and-night-cleaning-70-m-f-d-hof-weissbad-weissbad",
-        "lingerie-e-pulizia-notturna-dei-dipendenti-70-m-f-d-hof-weissbad-ag-weissbad"
+        "employee-lingerie-and-night-cleaning-70-m-f-d-hof-weissbad-weissbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employee-lingerie-and-night-cleaning-70-m-f-d-hof-weissbad-weissbad",
-          "lingerie-e-pulizia-notturna-dei-dipendenti-70-m-f-d-hof-weissbad-ag-weissbad"
+          "employee-lingerie-and-night-cleaning-70-m-f-d-hof-weissbad-weissbad"
         ],
         "de": [
           "employee-lingerie-and-night-cleaning-70-m-f-d-hof-weissbad-weissbad"
@@ -474,9 +483,9 @@
     },
     {
       "id": "hofweissbad-00c5ad715fe2",
-      "slug": "floor-staff-80-100-m-f-d-hof-weissbad-ag-weissbad",
+      "slug": "personale-del-pavimento-80-100-m-f-d-hof-weissbad-ag-weissbad",
       "slugByLocale": {
-        "it": "floor-staff-80-100-m-f-d-hof-weissbad-ag-weissbad",
+        "it": "personale-del-pavimento-80-100-m-f-d-hof-weissbad-ag-weissbad",
         "en": "floor-staff-80-100-m-f-d-hof-weissbad-weissbad",
         "de": "bodenpersonal-80-100-m-w-d-hof-weissbad-ag-weissbad",
         "fr": "etage-80-100-m-f-j-hof-weissbad-ag-weissbad"
@@ -526,7 +535,6 @@
         "receptionist-60-100-m-f-d-hof-weissbad-weissbad",
         "rezeptionist-60-100-m-f-d-hof-weissbad-ag-weissbad",
         "receptionniste-60-100-de-m-f-j-hof-weissbad-ag-weissbad",
-        "personale-del-pavimento-80-100-m-f-d-hof-weissbad-ag-weissbad",
         "floor-staff-80-100-m-f-d-hof-weissbad-ag-weissbad"
       ],
       "previousSlugsByLocale": {
@@ -536,7 +544,6 @@
           "receptionist-60-100-m-f-d-hof-weissbad-weissbad",
           "rezeptionist-60-100-m-f-d-hof-weissbad-ag-weissbad",
           "receptionniste-60-100-de-m-f-j-hof-weissbad-ag-weissbad",
-          "personale-del-pavimento-80-100-m-f-d-hof-weissbad-ag-weissbad",
           "floor-staff-80-100-m-f-d-hof-weissbad-ag-weissbad"
         ],
         "en": [
@@ -615,13 +622,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "floor-staff-temporary-position-with-flexible-hours-m-f-d-10-20-hof-weissbad-weissbad",
-        "personale-del-pavimento-posizione-temporale-con-ore-flessibili-m-f-d-10-20-hof-weissbad-ag-weissbad"
+        "floor-staff-temporary-position-with-flexible-hours-m-f-d-10-20-hof-weissbad-weissbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "floor-staff-temporary-position-with-flexible-hours-m-f-d-10-20-hof-weissbad-weissbad",
-          "personale-del-pavimento-posizione-temporale-con-ore-flessibili-m-f-d-10-20-hof-weissbad-ag-weissbad"
+          "floor-staff-temporary-position-with-flexible-hours-m-f-d-10-20-hof-weissbad-weissbad"
         ],
         "de": [
           "floor-staff-temporary-position-with-flexible-hours-m-f-d-10-20-hof-weissbad-weissbad"
@@ -765,8 +770,7 @@
         "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad",
         "physiotherapie-praktikum-80-100-m-w-d-hof-weissbad-ag-weissbad",
         "stage-de-physiotherapie-80-100-de-m-f-j-hof-weissbad-ag-weissbad",
-        "physiotherapy-internship-module-c-100-m-f-d-hof-weissbad-weissbad",
-        "modulo-di-fisioterapia-di-tirocinio-c-100-m-f-d-hof-weissbad-ag-weissbad"
+        "physiotherapy-internship-module-c-100-m-f-d-hof-weissbad-weissbad"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -779,8 +783,7 @@
           "physiotherapy-internship-80-100-m-f-d-hof-weissbad-weissbad",
           "physiotherapie-praktikum-80-100-m-w-d-hof-weissbad-ag-weissbad",
           "stage-de-physiotherapie-80-100-de-m-f-j-hof-weissbad-ag-weissbad",
-          "physiotherapy-internship-module-c-100-m-f-d-hof-weissbad-weissbad",
-          "modulo-di-fisioterapia-di-tirocinio-c-100-m-f-d-hof-weissbad-ag-weissbad"
+          "physiotherapy-internship-module-c-100-m-f-d-hof-weissbad-weissbad"
         ],
         "en": [
           "praktikum-physiotherapie-modul-c-100-m-w-d-hof-weissbad-weissbad",
@@ -855,16 +858,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gourmet-chef-chef-de-partie-100-m-f-d-hof-weissbad-weissbad",
-        "gourmetkoch-chef-de-partie-100-w-m-d-hof-weissbad-weissbad"
+        "gourmet-chef-chef-de-partie-100-m-f-d-hof-weissbad-weissbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gourmet-chef-chef-de-partie-100-m-f-d-hof-weissbad-weissbad",
-          "gourmetkoch-chef-de-partie-100-w-m-d-hof-weissbad-weissbad"
-        ],
-        "en": [
-          "gourmetkoch-chef-de-partie-100-w-m-d-hof-weissbad-weissbad"
+          "gourmet-chef-chef-de-partie-100-m-f-d-hof-weissbad-weissbad"
         ]
       },
       "firstSeenAt": "2026-08-14T21:42:27.293Z",

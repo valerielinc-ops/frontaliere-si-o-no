@@ -2333,7 +2333,7 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens",
         "it": "mitarbeiterin-addetto-a-alle-vendite-check-out-transgourmet-kriens",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens",
+        "en": "mitarbeiterin-sales-associate-check-out-transgourmet-kriens",
         "fr": "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens"
       },
       "company": "Transgourmet",
@@ -2393,6 +2393,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens"
         ]
       },
       "previousSlugs": [
@@ -2418,7 +2421,7 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
         "it": "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
+        "en": "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
         "fr": "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil"
       },
       "company": "Transgourmet",
@@ -2482,6 +2485,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil"
         ]
       },
       "previousSlugs": [
@@ -2503,12 +2509,12 @@
     },
     {
       "id": "transgourmet-8d635a8d-331",
-      "slug": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
+      "slug": "junior-project-manager-strategia-di-project-manager-transgourmet-moosseedorf",
       "slugByLocale": {
         "de": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
-        "it": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
-        "en": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf",
-        "fr": "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        "it": "junior-project-manager-strategia-di-project-manager-transgourmet-moosseedorf",
+        "en": "junior-project-manager-project-manager-strategy-transgourmet-moosseedorf",
+        "fr": "gestionnaire-de-projet-junior-strategie-de-gestionnaire-de-projet-transgourmet-moosseedorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2575,7 +2581,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:11:32.012Z"
+      "firstSeenAt": "2026-08-18T22:11:32.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        ],
+        "en": [
+          "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+        ]
+      },
+      "previousSlugs": [
+        "junior-projektleiterin-projektleiter-strategie-transgourmet-moosseedorf"
+      ]
     },
     {
       "id": "transgourmet-8c51a980-a7a",
@@ -2583,7 +2603,7 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
         "it": "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
+        "en": "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
         "fr": "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur"
       },
       "company": "Transgourmet",
@@ -2646,6 +2666,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur"
+        ],
+        "en": [
           "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur"
         ]
       },

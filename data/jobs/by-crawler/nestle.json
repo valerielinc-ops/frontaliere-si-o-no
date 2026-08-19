@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nestle-1410122633",
-      "slug": "team-leader-maintenance-h-f-d-nestle-ch",
+      "slug": "capo-squadra-maintenance-f-m-d-nestle-avenches-ch",
       "slugByLocale": {
         "fr": "team-leader-maintenance-h-f-d-nestle-ch",
-        "it": "team-leader-maintenance-h-f-d-nestle-ch",
+        "it": "capo-squadra-maintenance-f-m-d-nestle-avenches-ch",
         "en": "team-leader-maintenance-h-f-d-nestle-ch",
-        "de": "team-leader-maintenance-h-f-d-nestle-ch"
+        "de": "teamleiter-wartung-m-w-d-nestle-avenches-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -63,16 +63,27 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-18T21:51:07.292Z"
+      "firstSeenAt": "2026-08-18T21:51:07.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-maintenance-h-f-d-nestle-ch"
+        ],
+        "de": [
+          "team-leader-maintenance-h-f-d-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-maintenance-h-f-d-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1427542333",
-      "slug": "planificateur-trice-maintenance-superuser-amm-nestle-ch",
+      "slug": "pianificatore-di-manutenzione-e-superuser-amm-nestle-orbe-ch",
       "slugByLocale": {
         "fr": "planificateur-trice-maintenance-superuser-amm-nestle-ch",
-        "it": "planificateur-trice-maintenance-superuser-amm-nestle-ch",
+        "it": "pianificatore-di-manutenzione-e-superuser-amm-nestle-orbe-ch",
         "en": "planificateur-trice-maintenance-superuser-amm-nestle-ch",
-        "de": "planificateur-trice-maintenance-superuser-amm-nestle-ch"
+        "de": "wartungsplaner-und-superuser-amm-nestle-orbe-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -126,7 +137,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-18T21:51:06.496Z"
+      "firstSeenAt": "2026-08-18T21:51:06.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-trice-maintenance-superuser-amm-nestle-ch"
+        ],
+        "de": [
+          "planificateur-trice-maintenance-superuser-amm-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "planificateur-trice-maintenance-superuser-amm-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1409459833",
@@ -175,13 +197,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch",
-        "responsabile-ai-digital-nestle-r-d-deep-tech-center-nestle-orbe-ch"
+        "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch",
-          "responsabile-ai-digital-nestle-r-d-deep-tech-center-nestle-orbe-ch"
+          "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch"
         ],
         "de": [
           "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch"
@@ -252,13 +272,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-e-refrigeration-nestle-ch",
-        "ingegnere-di-refrigerazione-nestle-orbe-ch"
+        "ingenieur-e-refrigeration-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-refrigeration-nestle-ch",
-          "ingegnere-di-refrigerazione-nestle-orbe-ch"
+          "ingenieur-e-refrigeration-nestle-ch"
         ],
         "en": [
           "ingenieur-e-refrigeration-nestle-ch"
@@ -331,14 +349,12 @@
       "previousSlugs": [
         "operateur-de-production-4-8-h-f-d-nestle-ch",
         "operateur-de-production-4-8-h-f-d-nestle-avenches-ch",
-        "operateur-trice-de-production-4-8-h-f-d-nestle-ch",
-        "operateur-de-production-4-8-f-m-d-nestle-avenches-ch"
+        "operateur-trice-de-production-4-8-h-f-d-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-production-4-8-h-f-d-nestle-ch",
-          "operateur-trice-de-production-4-8-h-f-d-nestle-ch",
-          "operateur-de-production-4-8-f-m-d-nestle-avenches-ch"
+          "operateur-trice-de-production-4-8-h-f-d-nestle-ch"
         ],
         "en": [
           "operateur-de-production-4-8-h-f-d-nestle-ch"
@@ -413,13 +429,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vivier-de-talent-operateur-trice-de-production-5x8-nestle-ch",
-        "vivier-de-talent-operatore-di-produzione-5x8-nestle-orbe-ch"
+        "vivier-de-talent-operateur-trice-de-production-5x8-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vivier-de-talent-operateur-trice-de-production-5x8-nestle-ch",
-          "vivier-de-talent-operatore-di-produzione-5x8-nestle-orbe-ch"
+          "vivier-de-talent-operateur-trice-de-production-5x8-nestle-ch"
         ],
         "en": [
           "vivier-de-talent-operateur-trice-de-production-5x8-nestle-ch"
@@ -491,13 +505,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenfuhrer-in-special-products-nestle-ch",
-        "anlagenfuhrer-in-special-products-nestle-konolfingen-ch",
-        "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch"
+        "anlagenfuhrer-in-special-products-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-special-products-nestle-ch",
-          "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch"
+          "anlagenfuhrer-in-special-products-nestle-ch"
         ],
         "de": [
           "anlagenfuhrer-in-special-products-nestle-ch",
@@ -571,14 +583,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsmechaniker-in-nestle-ch",
-        "instandhaltungsmechaniker-in-nestle-basel-ch",
-        "manutenzione-nestle-basel-ch"
+        "instandhaltungsmechaniker-in-nestle-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhaltungsmechaniker-in-nestle-ch",
-          "instandhaltungsmechaniker-in-nestle-basel-ch",
-          "manutenzione-nestle-basel-ch"
+          "instandhaltungsmechaniker-in-nestle-basel-ch"
         ],
         "en": [
           "instandhaltungsmechaniker-in-nestle-basel-ch"
@@ -777,13 +787,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "quality-specialist-nestle-ch",
-        "quality-specialist-nestle-konolfingen-ch",
-        "quality-specialista-nestle-konolfingen-ch"
+        "quality-specialist-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-specialist-nestle-ch",
-          "quality-specialista-nestle-konolfingen-ch"
+          "quality-specialist-nestle-ch"
         ],
         "en": [
           "quality-specialist-nestle-konolfingen-ch"
@@ -858,13 +866,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stagiaire-pre-hes-food-technology-youth-nestle-ch",
-        "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch",
-        "stagiaire-pre-hes-tecnologia-alimentare-gioventu-nestle-la-tour-de-peilz-ch"
+        "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-pre-hes-food-technology-youth-nestle-ch",
-          "stagiaire-pre-hes-tecnologia-alimentare-gioventu-nestle-la-tour-de-peilz-ch"
+          "stagiaire-pre-hes-food-technology-youth-nestle-ch"
         ],
         "de": [
           "stagiaire-pre-hes-food-technology-youth-nestle-ch"
@@ -937,13 +943,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "b2b-business-analytics-intern-nestle-ch",
-        "b2b-business-analytics-tirocinante-nestle-vevey-ch"
+        "b2b-business-analytics-intern-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "b2b-business-analytics-intern-nestle-ch",
-          "b2b-business-analytics-tirocinante-nestle-vevey-ch"
+          "b2b-business-analytics-intern-nestle-ch"
         ],
         "de": [
           "b2b-business-analytics-intern-nestle-ch"
@@ -1014,13 +1018,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "instandhaltungsplaner-in-amm-planner-100-nestle-ch",
-        "pianificazione-operativa-in-amm-planner-100-nestle-konolfingen-ch"
+        "instandhaltungsplaner-in-amm-planner-100-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsplaner-in-amm-planner-100-nestle-ch",
-          "pianificazione-operativa-in-amm-planner-100-nestle-konolfingen-ch"
+          "instandhaltungsplaner-in-amm-planner-100-nestle-ch"
         ],
         "fr": [
           "instandhaltungsplaner-in-amm-planner-100-nestle-ch"
@@ -1089,13 +1091,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-r-d-specialist-packaging-material-characterization-nestle-ch",
-        "associate-r-d-specialista-packaging-material-characterization-nestle-orbe-ch"
+        "associate-r-d-specialist-packaging-material-characterization-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-r-d-specialist-packaging-material-characterization-nestle-ch",
-          "associate-r-d-specialista-packaging-material-characterization-nestle-orbe-ch"
+          "associate-r-d-specialist-packaging-material-characterization-nestle-ch"
         ],
         "de": [
           "associate-r-d-specialist-packaging-material-characterization-nestle-ch"
@@ -1239,13 +1239,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-in-abfullung-nestle-ch",
-        "operatore-dell-impianto-di-riempimento-nestle-basel-ch"
+        "anlagenfuhrer-in-abfullung-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-abfullung-nestle-ch",
-          "operatore-dell-impianto-di-riempimento-nestle-basel-ch"
+          "anlagenfuhrer-in-abfullung-nestle-ch"
         ],
         "fr": [
           "anlagenfuhrer-in-abfullung-nestle-ch"
@@ -1313,13 +1311,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch",
-        "vivier-de-talent-tecnico-di-manutenzione-5x8-nestle-orbe-ch"
+        "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch",
-          "vivier-de-talent-tecnico-di-manutenzione-5x8-nestle-orbe-ch"
+          "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
         ],
         "en": [
           "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
@@ -1390,13 +1386,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-technician-in-lipids-analytics-nestle-ch",
-        "tecnico-senior-in-lipids-analytics-nestle-lausanne-ch"
+        "senior-technician-in-lipids-analytics-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technician-in-lipids-analytics-nestle-ch",
-          "tecnico-senior-in-lipids-analytics-nestle-lausanne-ch"
+          "senior-technician-in-lipids-analytics-nestle-ch"
         ],
         "de": [
           "senior-technician-in-lipids-analytics-nestle-ch"
@@ -1467,13 +1461,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-material-science-specialist-recycled-pet-nestle-ch",
-        "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch"
+        "packaging-material-science-specialist-recycled-pet-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-material-science-specialist-recycled-pet-nestle-ch",
-          "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch"
+          "packaging-material-science-specialist-recycled-pet-nestle-ch"
         ],
         "de": [
           "packaging-material-science-specialist-recycled-pet-nestle-ch"
@@ -1544,13 +1536,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch",
-        "apprendista-operatore-di-macchine-automatizzate-nestle-henniez-ch"
+        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch",
-          "apprendista-operatore-di-macchine-automatizzate-nestle-henniez-ch"
+          "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
         ],
         "en": [
           "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
@@ -1621,13 +1611,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch"
+        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-          "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch"
+          "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ],
         "en": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
@@ -1699,13 +1687,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-macronutrient-physiology-nestle-ch",
-        "specialista-macronutrient-physiology-nestle-lausanne-ch"
+        "specialist-macronutrient-physiology-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-macronutrient-physiology-nestle-ch",
-          "specialista-macronutrient-physiology-nestle-lausanne-ch"
+          "specialist-macronutrient-physiology-nestle-ch"
         ],
         "de": [
           "specialist-macronutrient-physiology-nestle-ch"
@@ -1776,13 +1762,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "account-manager-office-nespresso-nestle-ch",
-        "responsabile-ufficio-clienti-nespresso-nestle-la-tour-de-peilz-ch-1-more"
+        "account-manager-office-nespresso-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-manager-office-nespresso-nestle-ch",
-          "responsabile-ufficio-clienti-nespresso-nestle-la-tour-de-peilz-ch-1-more"
+          "account-manager-office-nespresso-nestle-ch"
         ],
         "de": [
           "account-manager-office-nespresso-nestle-ch"
@@ -1855,8 +1839,7 @@
         "key-account-manager-horeca-premium-vending-nestle-ch",
         "gestionnaire-de-comptes-cles-horeca-premium-vending-nestle-la-tour-de-peilz-ch",
         "senior-key-account-manager-nestle-ch",
-        "gestionnaire-principal-de-comptes-cles-nestle-la-tour-de-peilz-ch",
-        "gestione-account-chiave-nestle-la-tour-de-peilz-ch"
+        "gestionnaire-principal-de-comptes-cles-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1864,8 +1847,7 @@
           "key-account-manager-horeca-premium-vending-nestle-ch",
           "gestionnaire-de-comptes-cles-horeca-premium-vending-nestle-la-tour-de-peilz-ch",
           "senior-key-account-manager-nestle-ch",
-          "gestionnaire-principal-de-comptes-cles-nestle-la-tour-de-peilz-ch",
-          "gestione-account-chiave-nestle-la-tour-de-peilz-ch"
+          "gestionnaire-principal-de-comptes-cles-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
           "key-account-manager-horeca-premium-vending-nestle-ch"
@@ -2001,13 +1983,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "category-development-manager-nestle-ch",
-        "responsabile-dello-sviluppo-della-categoria-nestle-la-tour-de-peilz-ch"
+        "category-development-manager-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "category-development-manager-nestle-ch",
-          "responsabile-dello-sviluppo-della-categoria-nestle-la-tour-de-peilz-ch"
+          "category-development-manager-nestle-ch"
         ],
         "fr": [
           "category-development-manager-nestle-ch"
@@ -2076,13 +2056,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analytics-and-data-science-manager-nestle-ch",
-        "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch"
+        "analytics-and-data-science-manager-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytics-and-data-science-manager-nestle-ch",
-          "gestione-di-analisi-e-dati-nestle-la-tour-de-peilz-ch"
+          "analytics-and-data-science-manager-nestle-ch"
         ],
         "fr": [
           "analytics-and-data-science-manager-nestle-ch"
@@ -2151,13 +2129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-coordinator-nespresso-nestle-ch",
-        "technical-coordinatore-nespresso-nestle-la-tour-de-peilz-ch"
+        "technical-coordinator-nespresso-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-coordinator-nespresso-nestle-ch",
-          "technical-coordinatore-nespresso-nestle-la-tour-de-peilz-ch"
+          "technical-coordinator-nespresso-nestle-ch"
         ],
         "de": [
           "technical-coordinator-nespresso-nestle-ch"
@@ -2290,13 +2266,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tierarztberater-in-vet-advisor-nestle-ch",
-        "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch"
+        "tierarztberater-in-vet-advisor-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tierarztberater-in-vet-advisor-nestle-ch",
-          "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch"
+          "tierarztberater-in-vet-advisor-nestle-ch"
         ],
         "fr": [
           "tierarztberater-in-vet-advisor-nestle-ch"
@@ -2365,13 +2339,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regional-key-account-manager-nestle-ch",
-        "responsabile-del-conto-chiave-regionale-nestle-la-tour-de-peilz-ch"
+        "regional-key-account-manager-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regional-key-account-manager-nestle-ch",
-          "responsabile-del-conto-chiave-regionale-nestle-la-tour-de-peilz-ch"
+          "regional-key-account-manager-nestle-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2498,13 +2470,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-alliances-science-insourcing-lead-nestle-research-nestle-ch",
-        "ricerca-alliances-science-insourcing-lead-nestle-ricerca-nestle-lausanne-ch"
+        "research-alliances-science-insourcing-lead-nestle-research-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-alliances-science-insourcing-lead-nestle-research-nestle-ch",
-          "ricerca-alliances-science-insourcing-lead-nestle-ricerca-nestle-lausanne-ch"
+          "research-alliances-science-insourcing-lead-nestle-research-nestle-ch"
         ],
         "de": [
           "research-alliances-science-insourcing-lead-nestle-research-nestle-ch"
@@ -2576,14 +2546,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "talent-acquisition-partner-nestle-ch",
-        "talent-acquisition-partner-randstad-contract-for-nestle-nestle-ch",
-        "talent-acquisizione-partner-nestle-vevey-ch"
+        "talent-acquisition-partner-randstad-contract-for-nestle-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-acquisition-partner-nestle-ch",
-          "talent-acquisition-partner-randstad-contract-for-nestle-nestle-ch",
-          "talent-acquisizione-partner-nestle-vevey-ch"
+          "talent-acquisition-partner-randstad-contract-for-nestle-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-08-17T21:51:54.812Z",
@@ -2649,14 +2617,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "coffee-specialist-nestle-ch",
-        "coffee-specialist-nespresso-nestle-ch",
-        "coffee-specialista-nestle-zurich-ch"
+        "coffee-specialist-nespresso-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coffee-specialist-nestle-ch",
-          "coffee-specialist-nespresso-nestle-ch",
-          "coffee-specialista-nestle-zurich-ch"
+          "coffee-specialist-nespresso-nestle-ch"
         ],
         "de": [
           "coffee-specialist-nestle-ch"
@@ -2727,13 +2693,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nestep-talent-in-product-development-nestle-ch",
-        "nestep-nello-sviluppo-del-prodotto-nestle-orbe-ch"
+        "nestep-talent-in-product-development-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nestep-talent-in-product-development-nestle-ch",
-          "nestep-nello-sviluppo-del-prodotto-nestle-orbe-ch"
+          "nestep-talent-in-product-development-nestle-ch"
         ],
         "en": [
           "nestep-talent-in-product-development-nestle-ch"
@@ -2864,13 +2828,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-engineer-senior-r-d-specialist-systems-innovation-nestle-ch",
-        "senior-ingegnere-senior-r-d-specialista-systems-innovation-nestle-orbe-ch"
+        "senior-engineer-senior-r-d-specialist-systems-innovation-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-engineer-senior-r-d-specialist-systems-innovation-nestle-ch",
-          "senior-ingegnere-senior-r-d-specialista-systems-innovation-nestle-orbe-ch"
+          "senior-engineer-senior-r-d-specialist-systems-innovation-nestle-ch"
         ],
         "de": [
           "senior-engineer-senior-r-d-specialist-systems-innovation-nestle-ch"
@@ -2941,13 +2903,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "category-development-specialist-nestle-waters-nestle-ch",
-        "category-development-specialista-nestle-waters-nestle-henniez-ch"
+        "category-development-specialist-nestle-waters-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "category-development-specialist-nestle-waters-nestle-ch",
-          "category-development-specialista-nestle-waters-nestle-henniez-ch"
+          "category-development-specialist-nestle-waters-nestle-ch"
         ],
         "de": [
           "category-development-specialist-nestle-waters-nestle-ch"
@@ -3018,13 +2978,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "site-quality-assurance-manager-nestle-ch",
-        "responsabile-dell-assicurazione-della-qualita-del-sito-nestle-konolfingen-ch"
+        "site-quality-assurance-manager-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "site-quality-assurance-manager-nestle-ch",
-          "responsabile-dell-assicurazione-della-qualita-del-sito-nestle-konolfingen-ch"
+          "site-quality-assurance-manager-nestle-ch"
         ],
         "de": [
           "site-quality-assurance-manager-nestle-ch"
@@ -3095,13 +3053,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regionaler-verkaufsleiter-ostschweiz-nestle-waters-nestle-ch",
-        "regional-sales-manager-svizzera-orientale-nestle-waters-nestle-henniez-ch"
+        "regionaler-verkaufsleiter-ostschweiz-nestle-waters-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regionaler-verkaufsleiter-ostschweiz-nestle-waters-nestle-ch",
-          "regional-sales-manager-svizzera-orientale-nestle-waters-nestle-henniez-ch"
+          "regionaler-verkaufsleiter-ostschweiz-nestle-waters-nestle-ch"
         ],
         "en": [
           "regionaler-verkaufsleiter-ostschweiz-nestle-waters-nestle-ch"
@@ -3172,13 +3128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "performance-acceleration-senior-analyst-nestle-operations-nestle-ch",
-        "performance-acceleration-senior-analista-nestle-operations-nestle-vevey-ch"
+        "performance-acceleration-senior-analyst-nestle-operations-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "performance-acceleration-senior-analyst-nestle-operations-nestle-ch",
-          "performance-acceleration-senior-analista-nestle-operations-nestle-vevey-ch"
+          "performance-acceleration-senior-analyst-nestle-operations-nestle-ch"
         ],
         "fr": [
           "performance-acceleration-senior-analyst-nestle-operations-nestle-ch"
@@ -3251,8 +3205,7 @@
         "associate-packaging-materials-specialista-nestle-lausanne-ch",
         "associate-packaging-materials-specialist-nestle-ch",
         "associate-packaging-materials-spezialist-nestle-lausanne-ch",
-        "associate-packaging-materials-specialiste-nestle-lausanne-ch",
-        "packaging-materials-tirocinante-nestle-lausanne-ch"
+        "associate-packaging-materials-specialiste-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3260,8 +3213,7 @@
           "associate-packaging-materials-specialista-nestle-lausanne-ch",
           "associate-packaging-materials-specialist-nestle-ch",
           "associate-packaging-materials-spezialist-nestle-lausanne-ch",
-          "associate-packaging-materials-specialiste-nestle-lausanne-ch",
-          "packaging-materials-tirocinante-nestle-lausanne-ch"
+          "associate-packaging-materials-specialiste-nestle-lausanne-ch"
         ],
         "en": [
           "associate-packaging-materials-specialist-nestle-ch"
@@ -3338,13 +3290,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sous-chef-nestle-ch",
-        "sous-chef-nestle-lausanne-ch",
-        "chef-nestle-lausanne-ch"
+        "sous-chef-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-nestle-ch",
-          "chef-nestle-lausanne-ch"
+          "sous-chef-nestle-ch"
         ],
         "en": [
           "sous-chef-nestle-lausanne-ch"
@@ -3413,13 +3363,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-partie-cook-nestle-research-nestle-ch",
-        "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
+        "chef-de-partie-cook-nestle-research-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-cook-nestle-research-nestle-ch",
-          "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
+          "chef-de-partie-cook-nestle-research-nestle-ch"
         ],
         "de": [
           "chef-de-partie-cook-nestle-research-nestle-ch"
@@ -3488,13 +3436,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-administrative-assistant-nestle-ch",
-        "assistente-amministrativo-di-vendita-nestle-vevey-ch"
+        "sales-administrative-assistant-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-administrative-assistant-nestle-ch",
-          "assistente-amministrativo-di-vendita-nestle-vevey-ch"
+          "sales-administrative-assistant-nestle-ch"
         ],
         "de": [
           "sales-administrative-assistant-nestle-ch"
@@ -3698,8 +3644,7 @@
         "operateur-logistique-h-f-d-nestle-romont-ch",
         "technicien-de-maintenance-en-journee-h-f-d-nestle-ch",
         "day-maintenance-technician-h-f-d-nestle-romont-ch",
-        "tagwartungstechniker-h-f-d-nestle-romont-ch",
-        "operateur-de-production-f-m-d-nestle-romont-ch"
+        "tagwartungstechniker-h-f-d-nestle-romont-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3711,8 +3656,7 @@
           "operateur-logistique-h-f-d-nestle-romont-ch",
           "technicien-de-maintenance-en-journee-h-f-d-nestle-ch",
           "day-maintenance-technician-h-f-d-nestle-romont-ch",
-          "tagwartungstechniker-h-f-d-nestle-romont-ch",
-          "operateur-de-production-f-m-d-nestle-romont-ch"
+          "tagwartungstechniker-h-f-d-nestle-romont-ch"
         ],
         "en": [
           "operateur-de-production-h-f-d-nestle-ch",
@@ -3792,13 +3736,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nestep-talent-in-clinical-research-nestle-ch",
-        "nestep-talent-in-clinical-ricerca-nestle-konolfingen-ch"
+        "nestep-talent-in-clinical-research-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nestep-talent-in-clinical-research-nestle-ch",
-          "nestep-talent-in-clinical-ricerca-nestle-konolfingen-ch"
+          "nestep-talent-in-clinical-research-nestle-ch"
         ],
         "de": [
           "nestep-talent-in-clinical-research-nestle-ch"
@@ -3931,13 +3873,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch",
-        "fieldworker-in-horeca-nestle-waters-nestle-henniez-ch"
+        "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch",
-          "fieldworker-in-horeca-nestle-waters-nestle-henniez-ch"
+          "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch"
         ],
         "en": [
           "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch"
@@ -4006,13 +3946,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-medical-communication-lead-nestle-ch",
-        "piombo-di-comunicazione-medica-globale-nestle-vevey-ch"
+        "global-medical-communication-lead-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-communication-lead-nestle-ch",
-          "piombo-di-comunicazione-medica-globale-nestle-vevey-ch"
+          "global-medical-communication-lead-nestle-ch"
         ],
         "fr": [
           "global-medical-communication-lead-nestle-ch"
@@ -4081,13 +4019,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-regenerative-agriculture-nestle-ch",
-        "senior-specialista-regenerative-agriculture-nestle-lausanne-ch"
+        "senior-specialist-regenerative-agriculture-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-regenerative-agriculture-nestle-ch",
-          "senior-specialista-regenerative-agriculture-nestle-lausanne-ch"
+          "senior-specialist-regenerative-agriculture-nestle-ch"
         ],
         "de": [
           "senior-specialist-regenerative-agriculture-nestle-ch"
@@ -4158,13 +4094,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-manager-packaging-liquid-nestle-ch",
-        "gestione-di-gruppo-packaging-liquido-nestle-konolfingen-ch"
+        "group-manager-packaging-liquid-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-manager-packaging-liquid-nestle-ch",
-          "gestione-di-gruppo-packaging-liquido-nestle-konolfingen-ch"
+          "group-manager-packaging-liquid-nestle-ch"
         ],
         "de": [
           "group-manager-packaging-liquid-nestle-ch"
@@ -4235,13 +4169,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene",
-        "packaging-senior-specialista-global-ricerca-and-development-expert-for-pet-polyethylene-terephtha-nestle-orbe-ch"
+        "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene",
-          "packaging-senior-specialista-global-ricerca-and-development-expert-for-pet-polyethylene-terephtha-nestle-orbe-ch"
+          "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene"
         ],
         "de": [
           "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene"
@@ -4375,13 +4307,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-applied-mathematics-digital-biology-nestle-ch",
-        "senior-specialista-applied-mathematics-digital-biology-nestle-lausanne-ch"
+        "senior-specialist-applied-mathematics-digital-biology-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-applied-mathematics-digital-biology-nestle-ch",
-          "senior-specialista-applied-mathematics-digital-biology-nestle-lausanne-ch"
+          "senior-specialist-applied-mathematics-digital-biology-nestle-ch"
         ],
         "de": [
           "senior-specialist-applied-mathematics-digital-biology-nestle-ch"
@@ -4514,13 +4444,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-quality-specialist-nestle-ch",
-        "senior-quality-specialista-nestle-orbe-ch"
+        "senior-quality-specialist-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-quality-specialist-nestle-ch",
-          "senior-quality-specialista-nestle-orbe-ch"
+          "senior-quality-specialist-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-08-12T10:38:20.315Z",
@@ -4585,13 +4513,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-r-d-specialist-system-performance-nestle-ch",
-        "associate-r-d-specialista-system-performance-nestle-orbe-ch"
+        "associate-r-d-specialist-system-performance-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-r-d-specialist-system-performance-nestle-ch",
-          "associate-r-d-specialista-system-performance-nestle-orbe-ch"
+          "associate-r-d-specialist-system-performance-nestle-ch"
         ],
         "de": [
           "associate-r-d-specialist-system-performance-nestle-ch"
@@ -4662,13 +4588,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "edge-ai-connectivity-specialist-nestle-ch",
-        "edge-ai-connectivity-specialista-nestle-orbe-ch"
+        "edge-ai-connectivity-specialist-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "edge-ai-connectivity-specialist-nestle-ch",
-          "edge-ai-connectivity-specialista-nestle-orbe-ch"
+          "edge-ai-connectivity-specialist-nestle-ch"
         ],
         "de": [
           "edge-ai-connectivity-specialist-nestle-ch"
@@ -4740,13 +4664,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-litigation-lead-nestle-ch",
-        "global-litigation-lead-nestle-vevey-ch",
-        "responsabile-globale-del-contenzioso-nestle-vevey-ch"
+        "global-litigation-lead-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-litigation-lead-nestle-ch",
-          "responsabile-globale-del-contenzioso-nestle-vevey-ch"
+          "global-litigation-lead-nestle-ch"
         ],
         "fr": [
           "global-litigation-lead-nestle-vevey-ch"
@@ -4815,13 +4737,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bioprocess-engineer-pilot-plant-fermentation-dsp-nestle-research-nestle-ch",
-        "bioprocess-ingegnere-pilot-plant-fermentation-dsp-nestle-ricerca-nestle-lausanne-ch"
+        "bioprocess-engineer-pilot-plant-fermentation-dsp-nestle-research-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bioprocess-engineer-pilot-plant-fermentation-dsp-nestle-research-nestle-ch",
-          "bioprocess-ingegnere-pilot-plant-fermentation-dsp-nestle-ricerca-nestle-lausanne-ch"
+          "bioprocess-engineer-pilot-plant-fermentation-dsp-nestle-research-nestle-ch"
         ],
         "de": [
           "bioprocess-engineer-pilot-plant-fermentation-dsp-nestle-research-nestle-ch"
@@ -4893,14 +4813,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialist-neurodevelopment-nestle-ch",
-        "specialist-neurodevelopment-nestle-lausanne-ch",
-        "specialista-neurodevelopment-nestle-lausanne-ch"
+        "specialist-neurodevelopment-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-neurodevelopment-nestle-ch",
-          "specialist-neurodevelopment-nestle-lausanne-ch",
-          "specialista-neurodevelopment-nestle-lausanne-ch"
+          "specialist-neurodevelopment-nestle-lausanne-ch"
         ],
         "de": [
           "specialist-neurodevelopment-nestle-ch"
@@ -4971,13 +4889,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrative-support-call-center-agent-nestle-ch",
-        "supporto-amministrativo-call-center-agent-nestle-vevey-ch"
+        "administrative-support-call-center-agent-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrative-support-call-center-agent-nestle-ch",
-          "supporto-amministrativo-call-center-agent-nestle-vevey-ch"
+          "administrative-support-call-center-agent-nestle-ch"
         ],
         "de": [
           "administrative-support-call-center-agent-nestle-ch"
@@ -5048,13 +4964,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "digital-food-safety-early-warning-specialist-nestle-ch",
-        "digital-food-safety-early-warning-specialista-nestle-lausanne-ch"
+        "digital-food-safety-early-warning-specialist-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-food-safety-early-warning-specialist-nestle-ch",
-          "digital-food-safety-early-warning-specialista-nestle-lausanne-ch"
+          "digital-food-safety-early-warning-specialist-nestle-ch"
         ],
         "de": [
           "digital-food-safety-early-warning-specialist-nestle-ch"
@@ -5126,14 +5040,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhalterin-mechanik-nestle-ch",
-        "instandhalterin-mechanik-nestle-konolfingen-ch",
-        "instandhalter-in-mechanik-nestle-konolfingen-ch"
+        "instandhalterin-mechanik-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalterin-mechanik-nestle-ch",
-          "instandhalterin-mechanik-nestle-konolfingen-ch",
-          "instandhalter-in-mechanik-nestle-konolfingen-ch"
+          "instandhalterin-mechanik-nestle-konolfingen-ch"
         ],
         "en": [
           "instandhalterin-mechanik-nestle-konolfingen-ch"
@@ -5272,13 +5184,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-in-produktion-100-nestle-ch",
-        "operatore-trice-di-linea-di-produzione-100-nestle-konolfingen-ch"
+        "anlagenfuhrer-in-produktion-100-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-produktion-100-nestle-ch",
-          "operatore-trice-di-linea-di-produzione-100-nestle-konolfingen-ch"
+          "anlagenfuhrer-in-produktion-100-nestle-ch"
         ],
         "fr": [
           "anlagenfuhrer-in-produktion-100-nestle-ch"
@@ -5350,16 +5260,14 @@
         "laborant-in-efz-chemie-m-w-d-nestle-ch",
         "laborant-in-cfc-chemie-nestle-konolfingen-ch",
         "laborant-in-efz-chemie-nestle-ch",
-        "travailleur-dans-efz-chemie-nestle-konolfingen-ch",
-        "laborant-in-cfc-chemie-m-w-d-nestle-konolfingen-ch"
+        "travailleur-dans-efz-chemie-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-m-w-d-nestle-ch",
           "laborant-in-cfc-chemie-nestle-konolfingen-ch",
           "laborant-in-efz-chemie-nestle-ch",
-          "travailleur-dans-efz-chemie-nestle-konolfingen-ch",
-          "laborant-in-cfc-chemie-m-w-d-nestle-konolfingen-ch"
+          "travailleur-dans-efz-chemie-nestle-konolfingen-ch"
         ],
         "de": [
           "laborant-in-efz-chemie-nestle-ch"
@@ -5433,13 +5341,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "scientific-data-product-manager-nestle-research-nestle-ch",
-          "sr-specialist-scientific-data-engineering-nestle-ch"
+          "scientific-data-product-manager-nestle-research-nestle-ch"
         ],
         "it": [
           "sr-specialist-scientific-data-engineering-nestle-ch",
-          "scientific-data-product-manager-nestle-research-nestle-ch",
-          "sr-specialista-scientific-data-engineering-nestle-lausanne-ch"
+          "scientific-data-product-manager-nestle-research-nestle-ch"
         ],
         "de": [
           "sr-specialist-scientific-data-engineering-nestle-ch"
@@ -5450,8 +5356,7 @@
       },
       "previousSlugs": [
         "sr-specialist-scientific-data-engineering-nestle-ch",
-        "scientific-data-product-manager-nestle-research-nestle-ch",
-        "sr-specialista-scientific-data-engineering-nestle-lausanne-ch"
+        "scientific-data-product-manager-nestle-research-nestle-ch"
       ],
       "firstSeenAt": "2026-05-25T13:33:23.236Z",
       "salaryMin": 83500,
@@ -5515,13 +5420,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-metabolic-health-hormone-regulation-nestle-ch",
-        "senior-specialista-metabolic-health-hormone-regulation-nestle-lausanne-ch"
+        "senior-specialist-metabolic-health-hormone-regulation-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-metabolic-health-hormone-regulation-nestle-ch",
-          "senior-specialista-metabolic-health-hormone-regulation-nestle-lausanne-ch"
+          "senior-specialist-metabolic-health-hormone-regulation-nestle-ch"
         ],
         "de": [
           "senior-specialist-metabolic-health-hormone-regulation-nestle-ch"
@@ -5592,13 +5495,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operations-strategy-consultant-nestle-ch",
-        "operations-strategy-consulente-nestle-vevey-ch"
+        "operations-strategy-consultant-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operations-strategy-consultant-nestle-ch",
-          "operations-strategy-consulente-nestle-vevey-ch"
+          "operations-strategy-consultant-nestle-ch"
         ],
         "de": [
           "operations-strategy-consultant-nestle-ch"
@@ -5666,13 +5567,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-specialist-protein-nestle-ch",
-        "associate-specialista-protein-nestle-lausanne-ch"
+        "associate-specialist-protein-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-specialist-protein-nestle-ch",
-          "associate-specialista-protein-nestle-lausanne-ch"
+          "associate-specialist-protein-nestle-ch"
         ],
         "de": [
           "associate-specialist-protein-nestle-ch"
@@ -5744,14 +5643,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nestep-in-design-excellence-nestle-ch",
-        "nestep-talent-in-design-excellence-nestle-ch",
-        "nestep-nell-eccellenza-del-design-nestle-vevey-ch"
+        "nestep-talent-in-design-excellence-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nestep-in-design-excellence-nestle-ch",
-          "nestep-talent-in-design-excellence-nestle-ch",
-          "nestep-nell-eccellenza-del-design-nestle-vevey-ch"
+          "nestep-talent-in-design-excellence-nestle-ch"
         ]
       },
       "needsRetranslation": true,
@@ -5817,13 +5714,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "engineering-specialist-nestle-ch",
-        "engineering-specialista-nestle-konolfingen-ch"
+        "engineering-specialist-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "engineering-specialist-nestle-ch",
-          "engineering-specialista-nestle-konolfingen-ch"
+          "engineering-specialist-nestle-ch"
         ],
         "de": [
           "engineering-specialist-nestle-ch"
@@ -5895,14 +5790,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-e-digital-performance-nestle-ch",
-        "automaticien-ne-specialiste-digital-nestle-ch",
-        "ingenieur-e-digitale-e-performance-nestle-henniez-ch"
+        "automaticien-ne-specialiste-digital-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-e-digital-performance-nestle-ch",
-          "automaticien-ne-specialiste-digital-nestle-ch",
-          "ingenieur-e-digitale-e-performance-nestle-henniez-ch"
+          "automaticien-ne-specialiste-digital-nestle-ch"
         ],
         "en": [
           "ingenieur-e-digital-performance-nestle-ch"
@@ -5971,13 +5864,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "creative-food-lab-intern-nestle-ch",
-        "creative-food-lab-tirocinante-nestle-lausanne-ch"
+        "creative-food-lab-intern-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "creative-food-lab-intern-nestle-ch",
-          "creative-food-lab-tirocinante-nestle-lausanne-ch"
+          "creative-food-lab-intern-nestle-ch"
         ],
         "de": [
           "creative-food-lab-intern-nestle-ch"
@@ -6048,13 +5939,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "recipe-formulation-specialist-if-toddler-nestle-ch",
-        "recipe-formulation-specialista-if-toddler-nestle-konolfingen-ch"
+        "recipe-formulation-specialist-if-toddler-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "recipe-formulation-specialist-if-toddler-nestle-ch",
-          "recipe-formulation-specialista-if-toddler-nestle-konolfingen-ch"
+          "recipe-formulation-specialist-if-toddler-nestle-ch"
         ],
         "de": [
           "recipe-formulation-specialist-if-toddler-nestle-ch"
@@ -6125,13 +6014,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-assistant-in-fermentation-nestle-ch",
-        "ricerca-assistant-in-fermentation-nestle-lausanne-ch"
+        "research-assistant-in-fermentation-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-assistant-in-fermentation-nestle-ch",
-          "ricerca-assistant-in-fermentation-nestle-lausanne-ch"
+          "research-assistant-in-fermentation-nestle-ch"
         ],
         "fr": [
           "research-assistant-in-fermentation-nestle-ch"
@@ -6199,13 +6086,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lab-data-technology-specialist-nestle-research-nestle-ch",
-        "lab-data-technology-specialista-nestle-ricerca-nestle-lausanne-ch"
+        "lab-data-technology-specialist-nestle-research-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-data-technology-specialist-nestle-research-nestle-ch",
-          "lab-data-technology-specialista-nestle-ricerca-nestle-lausanne-ch"
+          "lab-data-technology-specialist-nestle-research-nestle-ch"
         ],
         "de": [
           "lab-data-technology-specialist-nestle-research-nestle-ch"
@@ -6276,13 +6161,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "smart-sensors-specialist-nestle-ch",
-        "smart-sensors-specialista-nestle-orbe-ch"
+        "smart-sensors-specialist-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "smart-sensors-specialist-nestle-ch",
-          "smart-sensors-specialista-nestle-orbe-ch"
+          "smart-sensors-specialist-nestle-ch"
         ],
         "de": [
           "smart-sensors-specialist-nestle-ch"
@@ -6353,13 +6236,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-r-d-specialist-flavors-nestle-ch",
-        "associate-r-d-specialista-flavors-nestle-lausanne-ch"
+        "associate-r-d-specialist-flavors-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-r-d-specialist-flavors-nestle-ch",
-          "associate-r-d-specialista-flavors-nestle-lausanne-ch"
+          "associate-r-d-specialist-flavors-nestle-ch"
         ],
         "de": [
           "associate-r-d-specialist-flavors-nestle-ch"
