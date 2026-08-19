@@ -10123,6 +10123,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio : vivre et travailler comme frontalier au Tessin',
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Vivre en Italie frontalière et travailler en Suisse : guide fiscal, de prévoyance et de pratique pour les frontaliers avec permis G. Impôt à la source, AVS/LPP, LAMal et procédures.',
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Paysage frontalier Tessin-Côme à l\'aube: un travailleur frontalier franchissant la frontière Suisse-Italie lors de son trajet quotidien vers le travail.',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.title': 'Travailler au Tessin en tant que frontalier : qu\'est-ce qui change ?',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Le nouvel accord frontalier : quelles sont les nouveautés et les conséquences pour les frontaliers qui vivent à Oltrona di San Mamette et travaillent au Tessin ?',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Image d\'Oltrona di San Mamette avec un frontalier en avant-plan',
 };
 
 export default blogMetaFr;

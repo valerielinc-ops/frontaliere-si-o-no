@@ -10122,6 +10122,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio: vivere e lavorare da frontaliere in Ticino',
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Vivere in Italia di confine e lavorare in Svizzera: guida fiscale, previdenziale e pratica per frontalieri con Permesso G. Imposta alla fonte, AVS/LPP, LAMal e procedure.',
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Paesaggio di confine Ticino-Como all\'alba: un frontaliere attraversa il valico svizzero-italiano durante la pendolarità quotidiana verso il lavoro.',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.title': 'Lavorare in Ticino da frontaliere: cosa cambia?',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Il nuovo accordo frontalieri: quali sono le novità e le conseguenze per i frontalieri che vivono a Oltrona di San Mamette e lavorano in Ticino?',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Immagine di Oltrona di San Mamette con un frontaliere in primo piano',
 };
 
 export default blogMetaIt;
