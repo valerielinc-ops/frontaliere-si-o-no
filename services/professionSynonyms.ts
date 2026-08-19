@@ -24,17 +24,33 @@ const ALIAS_TEXT_BY_PROFESSION_ID: ReadonlyMap<string, string> = new Map(
 );
 
 /**
- * matchProfession() rescans the whole taxonomy (~70 professions × aliases)
- * per call. Job titles repeat across re-sorts/rebuilds (JobBoard's search
- * index rebuilds on every `sortedJobs` change) and keywords repeat across
- * a single query's expansion, so cache the resolved id by input string —
- * same idiom as HEADING_PREFIX_REGEXP_CACHE in services/jobs/canonicalFallback.ts.
+ * Cache the resolved id by input string: job titles repeat across re-sorts and
+ * rebuilds (JobBoard's search index rebuilds on every `sortedJobs` change) and
+ * keywords repeat across a single query's expansion — same idiom as
+ * HEADING_PREFIX_REGEXP_CACHE in services/jobs/canonicalFallback.ts.
+ *
+ * This memo used to be the only thing standing between JobBoard and a full
+ * taxonomy rescan per call, and it is a poor one for the job: titles are nearly
+ * unique (18.228 distinct in the 21.442-job IT corpus), so it missed ~85% of
+ * the time. matchProfession now resolves through its own alias index and costs
+ * ~11 µs cold, so this is an ordinary memo again — keep it for the genuinely
+ * repeated inputs, but it is no longer load-bearing for the index build.
  */
 const PROFESSION_ID_CACHE = new Map<string, string | null>();
+/**
+ * Bounded: the miss rate above means the map would otherwise retain one entry
+ * per distinct job title for the whole session (~18k full title strings on the
+ * IT corpus) to serve a ~15% hit rate — real memory on the mobile path, for
+ * almost no work saved now that a miss costs ~11 µs. The cap keeps the win on
+ * the genuinely repeated inputs (a query's keyword expansion re-asks the same
+ * few terms) and drops the long tail instead of accumulating it.
+ */
+const PROFESSION_ID_CACHE_MAX = 2048;
 function cachedMatchProfession(text: string): string | null {
   let id = PROFESSION_ID_CACHE.get(text);
   if (id === undefined) {
     id = matchProfession(text);
+    if (PROFESSION_ID_CACHE.size >= PROFESSION_ID_CACHE_MAX) PROFESSION_ID_CACHE.clear();
     PROFESSION_ID_CACHE.set(text, id);
   }
   return id;
