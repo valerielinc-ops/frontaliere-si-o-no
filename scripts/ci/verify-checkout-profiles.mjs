@@ -22,10 +22,53 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import { analyzeWorkflow, ROOT, BUCKETS } from './checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
+
+/**
+ * Percorsi tracciati, letti UNA volta dall'albero di HEAD.
+ *
+ * Serve a distinguere un percorso vero da una URL o da un esempio in un
+ * commento: `${CDN}/data/blog-index.json` somiglia a un file locale e non lo e'.
+ * Si legge da HEAD e non da `origin/main` perche' in CI il remote-tracking ref
+ * puo' non esserci (checkout a profondita' 1).
+ */
+let TRACKED = null;
+function trackedPaths() {
+  if (TRACKED) return TRACKED;
+  try {
+    const out = execFileSync('git', ['ls-tree', '-r', '--name-only', 'HEAD'], { cwd: ROOT, maxBuffer: 1 << 28 }).toString();
+    TRACKED = new Set(out.split('\n').filter(Boolean));
+  } catch { TRACKED = new Set(); }
+  return TRACKED;
+}
+
+/**
+ * Controllo INDIPENDENTE dall'analizzatore: estrae i percorsi letterali dal
+ * codice che il job carica e verifica che nessuno di quelli realmente tracciati
+ * finisca fra gli esclusi.
+ *
+ * Vale la duplicazione proprio perche' il metodo e' diverso. Ha trovato due
+ * casi che l'analisi aveva mancato — `guard-data-integrity.mjs` e
+ * `validate-third-party-secrets.mjs`, entrambi con i percorsi dentro un array
+ * letterale — dovuti a un difetto nella normalizzazione delle forme spezzate.
+ * Un secondo controllo che riusasse la stessa logica non li avrebbe visti.
+ */
+const LITERAL_PATH = /['"`]((?:\.\.\/|\.\/)*(?:data|public|docs|packages)\/[A-Za-z0-9._/-]+)['"`]/g;
+
+export function literalPathsIn(source) {
+  const out = new Set();
+  for (const m of source.matchAll(LITERAL_PATH)) out.add(m[1].replace(/^(\.\.\/|\.\/)+/, ''));
+  return out;
+}
+
+/** Un percorso e' fuori dal checkout, dati i pattern di negazione? */
+export function isExcludedBy(excluded, p) {
+  return excluded.some((e) => (e.endsWith('/') ? p.startsWith(e) : p === e));
+}
 
 export function verifyCheckoutProfiles() {
   const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
@@ -60,11 +103,25 @@ export function verifyCheckoutProfiles() {
       }
 
       const excluded = lines.slice(1).map((l) => l.slice(2));
-      const isPathOutsideCheckout = (p) => excluded.some((e) => (e.endsWith('/') ? p.startsWith(e) : p === e));
+      const isPathOutsideCheckout = (p) => isExcludedBy(excluded, p);
 
       // 1. il codice che il job carica deve sopravvivere
       for (const rel of (job.closure ?? [])) {
         if (isPathOutsideCheckout(rel)) problems.push(`${where}: escluderebbe il codice ${rel}`);
+      }
+
+      // 2. nessun percorso letterale letto da quel codice deve finire fuori
+      const tracked = trackedPaths();
+      for (const rel of (job.closure ?? [])) {
+        let src;
+        try { src = fs.readFileSync(path.join(ROOT, rel), 'utf8'); } catch { continue; }
+        for (const lit of literalPathsIn(src)) {
+          if (!tracked.has(lit)) continue;              // URL o esempio, non un file
+          if (isPathOutsideCheckout(lit)) {
+            problems.push(`${where}: ${rel} legge «${lit}», che i pattern escludono. ` +
+              `Rigenera con: node scripts/ci/apply-checkout-profiles.mjs`);
+          }
+        }
       }
 
       // 3. non escludere piu' di quanto l'analisi consenta oggi

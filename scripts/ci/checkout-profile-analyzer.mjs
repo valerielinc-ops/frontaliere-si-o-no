@@ -184,21 +184,30 @@ export function transitiveClosure(entries) {
 /** Un testo nomina questo bucket? Forma piena/spezzata, indizio debole, o enumerazione del padre. */
 export function bucketsReferencedBy(text) {
   const norm = normalizeJoins(text);
-  const enumArgs = normalizeJoins(enumerationTargets(text).join('\n'));
-  const refersTo = (p, hay) => new RegExp(`['"\`(\\s=,\\[:!]${esc(p)}(?:['"\`/\\s),\\]*]|$)`, 'm').test(hay);
+  const rawEnum = enumerationTargets(text).join('\n');
+  const enumArgs = normalizeJoins(rawEnum);
+  const matches = (p, hay) => new RegExp(`['"\`(\\s=,\\[:!]${esc(p)}(?:['"\`/\\s),\\]*]|$)`, 'm').test(hay);
+  // Si cerca sul testo GREZZO e su quello normalizzato, e si prende l'unione.
+  // La normalizzazione serve a scoprire `path.join(ROOT, 'public', 'images')`,
+  // ma applicata da sola ne perde altri: un array di percorsi come
+  // `['data/', 'public/data/']` diventa `'data//public/data/'`, e il carattere
+  // che precede `public/data` non e' piu' una virgoletta. Cosi' l'ha mancato
+  // per `guard-data-integrity.mjs` e `validate-third-party-secrets.mjs`.
+  // Regola: la normalizzazione puo' solo AGGIUNGERE match, mai toglierne.
+  const refersTo = (p, hay, rawHay) => matches(p, hay) || (rawHay !== undefined && matches(p, rawHay));
   const hit = new Set();
   for (const b of BUCKETS) {
     const clean = b.id.replace(/\/$/, '');
-    if (refersTo(clean, norm)) { hit.add(b.id); continue; }
+    if (refersTo(clean, norm, text)) { hit.add(b.id); continue; }
     const par = parentOf(b.id);
-    if (!par || !refersTo(par, norm)) continue;
+    if (!par || !refersTo(par, norm, text)) continue;
     // Indizio debole: il padre e' nominato e il segmento finale compare come token
     // quotato — tipico di `una costante di cartella piu' il segmento finale`, dove la variabile nasconde
     // il prefisso.
     const last = clean.split('/').pop();
     if (new RegExp(`['"]${esc(last)}['"]`).test(text)) { hit.add(b.id); continue; }
     // Oppure: qualcuno enumera il padre, quindi non nomina i figli.
-    if (refersTo(par, enumArgs) || new RegExp(`(?:^|[\\s'"\`(=,\\[])${esc(par)}[/*]`, 'm').test(enumArgs)) hit.add(b.id);
+    if (refersTo(par, enumArgs, rawEnum) || new RegExp(`(?:^|[\\s'"\`(=,\\[])${esc(par)}[/*]`, 'm').test(enumArgs)) hit.add(b.id);
   }
   return hit;
 }

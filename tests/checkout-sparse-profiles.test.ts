@@ -19,7 +19,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
-import { verifyCheckoutProfiles } from '../scripts/ci/verify-checkout-profiles.mjs';
+import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy } from '../scripts/ci/verify-checkout-profiles.mjs';
 import { BUCKETS, BASELINE_MB, TREE_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(process.cwd(), '.github/workflows');
@@ -72,6 +72,27 @@ describe('profili di sparse-checkout', () => {
     for (const b of BUCKETS) expect(b.mb).toBeGreaterThanOrEqual(table.minMb);
     expect(BASELINE_MB).toBeGreaterThan(0);
     expect(BASELINE_MB).toBeLessThan(TREE_MB * 0.1);
+  });
+
+  it('riconosce un percorso escluso — la prova che il guard puo davvero fallire', () => {
+    // Il caso reale che ha fatto scattare questo controllo: `public/data/` escluso
+    // mentre `scripts/ci/guard-data-integrity.mjs` lo legge.
+    const excluded = ['public/images/', 'public/data/', 'data/jobs-stats-history.json'];
+    expect(isExcludedBy(excluded, 'public/data/jobs.json')).toBe(true);
+    expect(isExcludedBy(excluded, 'data/jobs-stats-history.json')).toBe(true);
+    // e non deve sbagliare per prefisso: `data/jobs-ai-cache.json` NON sta in `data/jobs/`
+    expect(isExcludedBy(['data/jobs/'], 'data/jobs-ai-cache.json')).toBe(false);
+    expect(isExcludedBy(excluded, 'scripts/lib/x.mjs')).toBe(false);
+  });
+
+  it('estrae i percorsi letterali anche dentro un array', () => {
+    // La forma che l'analizzatore aveva mancato: due percorsi in un array
+    // letterale, dove la normalizzazione delle forme spezzate li fondeva.
+    const found = literalPathsIn("const DATA_PREFIXES = ['data/x.json', 'public/data/y.json'];");
+    expect([...found].sort()).toEqual(['data/x.json', 'public/data/y.json']);
+    expect([...literalPathsIn("readFileSync('../data/z.json')")]).toEqual(['data/z.json']);
+    // una URL non e' un percorso locale: il chiamante la scarta col set dei file tracciati
+    expect([...literalPathsIn('`${CDN}/data/blog-index.json`')]).toEqual([]);
   });
 
   it('un job opaco (build/test) non esclude nulla', () => {
