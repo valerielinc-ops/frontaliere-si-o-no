@@ -44831,6 +44831,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-serfontana-fotovoltaico-parcheggio': {
+    title: 'Serfontana accelera con impianto fotovoltaico al parcheggio',
+    description: 'Centro commerciale di Morbio Inferiore realizza copertura fotovoltaica da 1.736 kWp sul parcheggio Sud. Produzione annuale di 1.900 MWh di energia rinnovabile',
+    keywords: 'frontalieri, ticino, svizzera, italia, serfontana, accelera, impianto, fotovoltaico',
+    ogTitle: 'Serfontana: impianto fotovoltaico per il parcheggio',
+    ogDescription: 'Il Centro Shopping Serfontana investe in sostenibilità con copertura fotovoltaica da 1.736 kWp. Produrrà 1.900 MWh annui di energia rinnovabile con tecnologia innovativa a moduli ripiegabili. Riapertura prevista primavera 2027.',
+    canonicalPath: '/articoli-svizzera/serfontana-fotovoltaico-parcheggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Serfontana accelera con impianto fotovoltaico al parcheggio",
+      "description": "Centro commerciale di Morbio Inferiore realizza copertura fotovoltaica da 1.736 kWp sul parcheggio Sud. Produzione annuale di 1.900 MWh di energia rinnovabile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/serfontana-fotovoltaico-parcheggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Copertura fotovoltaica su parcheggio con moduli solari innovativi in paesaggio ticinese soleggiato."
+      },
+      "datePublished": "2026-08-19T18:48:37+00:00",
+      "dateModified": "2026-08-19T18:48:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/serfontana-fotovoltaico-parcheggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

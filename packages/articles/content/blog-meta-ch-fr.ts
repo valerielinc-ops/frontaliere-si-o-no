@@ -3457,6 +3457,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settori-salari-basilea-livelli-formazione.title': 'Marché du travail Bâle-Ville : salaires, secteurs et contrats',
     'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guide des niveaux de salaire par niveau de formation, secteurs qu\'ils embauchent, conventions collectives et mécanismes du marché du travail dans le canton de Bâle-Ville.',
     'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Centre-ville de Bâle avec bâtiments modernes et fleuve Rhin, marché du travail suisse',
+    'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accélère avec système photovoltaïque au parking',
+    'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Le centre commercial de Morbio Inferiore réalise une couverture photovoltaïque de 1 736 kWp : 1 900 MWh d\'énergie renouvelable par an d\'ici le printemps 2027.',
+    'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Auvent photovoltaïque de parking moderne avec modules solaires innovants dans un paysage tessinois ensoleillé.',
 };
 
 export default blogMetaChFr;

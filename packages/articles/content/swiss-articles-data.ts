@@ -10369,6 +10369,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'serfontana-fotovoltaico-parcheggio',
+    category: 'novita',
+    date: '2026-08-19T18:48:37.608Z',
+    image: '/images/blog/serfontana-fotovoltaico-parcheggio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
