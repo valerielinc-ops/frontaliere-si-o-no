@@ -10117,6 +10117,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d \'Intelvi: Leben und Arbeiten im Tessin',
     'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Bewilligung G, Steuersätze, Passagen und Rückerstattungen für Personen, die im Valle d \'Intelvi wohnen und im Kanton Tessin arbeiten: Praktischer Leitfaden für Grenzgänger 2024-2026',
     'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'Blick auf das Intelvi-Tal in Richtung Tessin und Schweizer Alpen, tägliches Ziel für tausende Grenzgänger',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio: Leben und Arbeiten als Grenzgänger im Tessin',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Leben im grenznahen Italien und Arbeiten in der Schweiz: Steuer-, Vorsorge- und Praxisleitfaden für Grenzgänger mit Bewilligung G. Quellensteuer, AHV/BVG, KVG und Verfahren.',
+    'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Grenzlandschaft Tessin-Como in der Morgenröte: Ein Grenzgänger überquert die Schweizer-italienische Grenze während seiner täglichen Fahrt zur Arbeit.',
 };
 
 export default blogMetaDe;
