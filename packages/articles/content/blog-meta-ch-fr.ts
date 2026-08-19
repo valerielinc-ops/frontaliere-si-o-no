@@ -3430,6 +3430,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cop31-novembre-antalya-2026.title': 'COP31 : mandat délégation Suisse approuvé',
     'blog.article.cop31-novembre-antalya-2026.excerpt': 'Le Conseil fédéral approuve le mandat de la délégation pour la COP31 à Antalya (novembre 2026). La Suisse s\'engage pour le climat et les énergies renouvelables.',
     'blog.article.cop31-novembre-antalya-2026.imageAlt': 'Paysage alpin suisse avec lac de montagne symbolisant la transition énergétique et l\'énergie renouvelable',
+    'blog.article.finanze-federali-bilancio-2026.title': 'Budget fédéral 2026 : excédent de 0,8 milliard',
+    'blog.article.finanze-federali-bilancio-2026.excerpt': 'Le Conseil fédéral projette un excédent de CHF 0,8 milliard en 2026 grâce aux recettes exceptionnelles de l\'impôt sur le bénéfice. Implications pour les contribuables et les finances publiques.',
+    'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral et du Parlement suisse',
 };
 
 export default blogMetaChFr;

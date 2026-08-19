@@ -1169,6 +1169,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'geberit-utili-semestre-2026': { it: 'geberit-utili-semestre-2026', en: 'geberit-earnings-half-year-2026', de: 'geberit-gewinn-halbjahr-2026', fr: 'geberit-benefices-semestre-2026' },
  'trasporti-eccezionali-standard-federali': { it: 'trasporti-eccezionali-standard-federali', en: 'exceptional-transport-federal-standards', de: 'aussergewoehliche-transport-standards-bundes', fr: 'transports-exceptionnels-standards-federaux' },
  'cop31-novembre-antalya-2026': { it: 'cop31-novembre-antalya-2026', en: 'cop31-november-antalya-2026', de: 'cop31-november-antalya-2026', fr: 'cop31-mandat-delegation-suisse-approuve' },
+ 'finanze-federali-bilancio-2026': { it: 'finanze-federali-bilancio-2026', en: 'federal-finances-budget-2026', de: 'bundesfinanzen-budgetprognose-2026', fr: 'finances-federales-budget-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

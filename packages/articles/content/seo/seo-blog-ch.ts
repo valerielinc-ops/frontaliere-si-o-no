@@ -44480,6 +44480,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanze-federali-bilancio-2026': {
+    title: 'Bilancio federale 2026: eccedenza da 0.8 miliardi',
+    description: 'Il Consiglio federale proietta un\'eccedenza di 0.8 miliardi CHF nel 2026 grazie a entrate straordinarie da imposta sull\'utile. Implicazioni per i contribuenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilancio, federale, eccedenza, miliardi',
+    ogTitle: 'Bilancio federale 2026: eccedenza da 0.8 miliardi',
+    ogDescription: 'Il Consiglio federale proietta un\'eccedenza di 0.8 miliardi CHF nel 2026 grazie a entrate straordinarie da imposta sull\'utile. Implicazioni per i contribuenti e le finanze pubbliche.',
+    canonicalPath: '/articoli-svizzera/finanze-federali-bilancio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilancio federale 2026: eccedenza da 0.8 miliardi",
+      "description": "Il Consiglio federale proietta un'eccedenza di 0.8 miliardi CHF nel 2026 grazie a entrate straordinarie da imposta sull'utile. Implicazioni per i contribuenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanze-federali-bilancio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale di Berna, sede del Consiglio federale e del Parlamento svizzero"
+      },
+      "datePublished": "2026-08-19T14:02:54+00:00",
+      "dateModified": "2026-08-19T14:02:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanze-federali-bilancio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

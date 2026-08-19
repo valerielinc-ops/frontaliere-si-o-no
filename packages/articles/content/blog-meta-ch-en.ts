@@ -3430,6 +3430,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cop31-novembre-antalya-2026.title': 'COP31: Swiss delegation mandate approved',
     'blog.article.cop31-novembre-antalya-2026.excerpt': 'The Federal Council approves the mandate of the delegation for COP31 in Antalya (November 2026). Switzerland is committed to climate and renewables.',
     'blog.article.cop31-novembre-antalya-2026.imageAlt': 'Swiss Alpine mountain lake landscape symbolizing renewable energy transition and sustainable power generation',
+    'blog.article.finanze-federali-bilancio-2026.title': 'Federal budget 2026: surplus of 0.8 billion',
+    'blog.article.finanze-federali-bilancio-2026.excerpt': 'The Federal Council projects a surplus of CHF 0.8 billion in 2026 thanks to windfall income tax revenues. Implications for taxpayers and public finances.',
+    'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Federal Palace in Bern, seat of Swiss Federal Council and Parliament',
 };
 
 export default blogMetaChEn;
