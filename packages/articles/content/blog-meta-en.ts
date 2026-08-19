@@ -10097,6 +10097,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ferrera-varese-frontaliere-ticino.title': 'Living in Ferrera di Varese and working in Ticino as a border worker',
     'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'New 2024 agreement, Swiss source tax, deductibles €7,500-€10,000 and Italian tax return for those working in the Canton of Ticino.',
     'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Cross-border commuters heading to work in Ticino canton from Italian border region at dawn',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.title': 'Living in Centro Valle Intelvi and working in Ticino as a border worker',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.excerpt': 'Tax Setup, Permits and Transfer Benefits',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere who is moving to Centro Valle Intelvi and working in Ticino',
 };
 
 export default blogMetaEn;

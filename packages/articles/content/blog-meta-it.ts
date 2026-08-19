@@ -10098,6 +10098,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ferrera-varese-frontaliere-ticino.title': 'Vivere a Ferrera di Varese e lavorare in Ticino da frontaliere',
     'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'Nuovo accordo 2024, imposta alla fonte svizzera, franchigie €7.500–€10.000 e dichiarazione redditi italiana per chi lavora nel Canton Ticino.',
     'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Pendolari che si recano al lavoro nel Canton Ticino al mattino dalla regione di confine italiana',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.title': 'Vivere a Centro Valle Intelvi e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.excerpt': 'Impostazione fiscale, permessi e vantaggi del trasferimento',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Centro Valle Intelvi e lavora in Ticino',
 };
 
 export default blogMetaIt;
