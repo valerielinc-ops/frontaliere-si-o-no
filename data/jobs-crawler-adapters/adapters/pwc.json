@@ -11,8 +11,32 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-19T09:50:26.647Z",
+  "updatedAt": "2026-08-19T21:43:46.428Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/manager-fund-tax-reporting/0c36729e-7ccb-4a76-9c93-cea8ba7776c0": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-19"
+    },
+    "https://jobs.pwc.ch/job-vacancies/associate-fund-tax-reporting/32082a7b-b28e-4140-8092-43142f0010d9": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-19"
+    },
+    "https://jobs.pwc.ch/job-vacancies/senior-manager-capability-leader-data-security/b86f437c-dd66-48aa-a65c-e4a3f689f896": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-18"
+    },
+    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-senior-cyber-security-architect/509d9b3b-13d3-4111-9dad-f42c2716d917": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-18"
+    },
     "https://jobs.pwc.ch/job-vacancies/junior-legal-counsel-fokus-datenschutz-und-compliance/8a05c6cb-995b-4f1b-b63c-df67f8ee43f1": {
       "location": "Zürich",
       "canton": "ZH",
