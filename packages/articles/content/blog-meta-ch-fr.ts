@@ -3400,6 +3400,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Indemnité maladie : le système fonctionne bien',
     'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Conseil fédéral confirme : le système de protection des travailleurs en cas de maladie est adéquat. Couverture à 85-90 % dans les entreprises, seulement 0,13 % des travailleurs exclus.',
     'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Bâtiment fédéral suisse à Berne avec drapeaux officiels le jour. Travailleurs traversant la zone administrative fédérale.',
+    'blog.article.bilancio-federale-2026-surplus.title': 'Budget 2026 : du déficit à l\'excédent de 800 millions',
+    'blog.article.bilancio-federale-2026-surplus.excerpt': 'Les recettes fiscales plus élevées des entreprises amènent le budget fédéral au-delà des attentes, avec un excédent de 800 millions au lieu du déficit prévu.',
+    'blog.article.bilancio-federale-2026-surplus.imageAlt': 'Vue de Berne, capitale fédérale suisse et siège du gouvernement fédéral',
 };
 
 export default blogMetaChFr;

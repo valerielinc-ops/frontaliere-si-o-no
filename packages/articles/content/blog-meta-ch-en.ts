@@ -3400,6 +3400,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Sick pay: the system works well',
     'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Federal Council confirms: the system of protection for workers in the event of illness is adequate. Coverage at 85-90% in companies, only 0.13% of workers excluded.',
     'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Swiss Federal Building in Bern with official flags during daytime. Workers walking through the federal administrative area.',
+    'blog.article.bilancio-federale-2026-surplus.title': 'Budget 2026: from deficit to surplus of 800 million',
+    'blog.article.bilancio-federale-2026-surplus.excerpt': 'Higher tax revenues from businesses push the federal budget beyond expectations, with an $800 million surplus instead of the expected deficit.',
+    'blog.article.bilancio-federale-2026-surplus.imageAlt': 'View of Bern, Switzerland\'s federal capital and seat of federal government',
 };
 
 export default blogMetaChEn;
