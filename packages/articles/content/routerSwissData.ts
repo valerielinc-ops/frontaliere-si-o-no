@@ -1181,6 +1181,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'serfontana-fotovoltaico-parcheggio': { it: 'serfontana-fotovoltaico-parcheggio', en: 'serfontana-photovoltaic-parking', de: 'serfontana-photovoltaik-parkplatz', fr: 'serfontana-photovoltaique-parking' },
  'ordinanza-iran-formulari-agosto': { it: 'ordinanza-iran-formulari-agosto', en: 'ordinance-iran-forms-august', de: 'ordinanz-iran-formulare-august', fr: 'ordonnance-iran-formulaires-aout' },
  'patente-guida-basilea-citta-conversione': { it: 'patente-guida-basilea-citta-conversione', en: 'driving-license-basel-stadt-conversion', de: 'fuehrerschein-basel-stadt-umwandlung', fr: 'permis-conduire-bale-ville-conversion' },
+ 'assegni-familiari-basilea-campagna': { it: 'assegni-familiari-basilea-campagna', en: 'family-allowances-basel-landschaft', de: 'familienverguetung-basel-landschaft', fr: 'allocations-familiales-bale-campagne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

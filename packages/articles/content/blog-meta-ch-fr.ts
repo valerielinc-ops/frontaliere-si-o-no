@@ -3466,6 +3466,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-basilea-citta-conversione.title': 'Permis de conduire Bâle-Ville : conversion et examens',
     'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Comment convertir un permis étranger dans le canton de Bâle-Ville, examens théoriques et pratiques, cours obligatoires et procédures au bureau de la circulation.',
     'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Permis de conduire suisse et office du trafic du canton Bâle-Ville',
+    'blog.article.assegni-familiari-basilea-campagna.title': 'Allocations familiales Canton de Bâle-Campagne : montants et demande',
+    'blog.article.assegni-familiari-basilea-campagna.excerpt': 'Comment les demander, montants mensuels par enfant, conditions et caisse de compensation : guide pratique des allocations familiales dans le canton de Bâle-Campagne.',
+    'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Bureau cantonal avec documents pour les demandes de prestations familiales',
 };
 
 export default blogMetaChFr;

@@ -3466,6 +3466,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-basilea-citta-conversione.title': 'Patente guida Basilea Città: conversione ed esami',
     'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Come convertire una patente estera nel Canton Basilea Città, esami teorico e pratico, corsi obbligatori e procedure presso l\'ufficio della circolazione.',
     'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Patente di guida svizzera e ufficio della circolazione nel Canton Basilea Città',
+    'blog.article.assegni-familiari-basilea-campagna.title': 'Assegni familiari Canton Basilea Campagna: importi e domanda',
+    'blog.article.assegni-familiari-basilea-campagna.excerpt': 'Come richiederli, importi mensili per figlio, condizioni e cassa di compensazione: guida pratica agli assegni familiari nel Canton Basilea Campagna.',
+    'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Ufficio cantonale con documenti e modulistica per le domande di assegni familiari',
 };
 
 export default blogMetaChIt;

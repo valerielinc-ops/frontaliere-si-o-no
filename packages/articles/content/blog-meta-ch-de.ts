@@ -3466,6 +3466,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-basilea-citta-conversione.title': 'Führerschein Basel-Stadt: Umbau und Prüfungen',
     'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Wie man einen ausländischen Führerschein im Kanton Basel-Stadt umwandelt, theoretische und praktische Prüfungen, Pflichtkurse und Verfahren beim Strassenverkehrsamt.',
     'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Schweizer Führerschein und Verkehrsamt Kanton Basel-Stadt',
+    'blog.article.assegni-familiari-basilea-campagna.title': 'Familienzulagen Kanton Basel-Landschaft: Beträge und Antrag',
+    'blog.article.assegni-familiari-basilea-campagna.excerpt': 'Wie man sie anfordert, monatliche Beträge pro Kind, Konditionen und Ausgleichskasse: Praktischer Leitfaden zur Familienzulage im Kanton Basel-Landschaft.',
+    'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Kantonal Büro mit Unterlagen für Familienbeihilfeanträge',
 };
 
 export default blogMetaChDe;
