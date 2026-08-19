@@ -3391,6 +3391,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-tre-partenze-vertici.title': 'Migros, trois départs aux sommets annoncés le même jour',
     'blog.article.migros-tre-partenze-vertici.excerpt': 'Trois cadres Migros quittent Online, Delica et Migros Bank le même jour. Katrin Tschannen fin mars 2027, Thomas Gubler à la retraite, Markus Schawalder nouveau challenge.',
     'blog.article.migros-tre-partenze-vertici.imageAlt': 'District commercial suisse avec immeubles de bureaux représentant les grandes entreprises de l\'économie nationale',
+    'blog.article.industria-costruzione-crescita-q2.title': 'Industrie et construction croissent : +5,1% au Q2',
+    'blog.article.industria-costruzione-crescita-q2.excerpt': 'Au deuxième trimestre, la production du secteur secondaire suisse augmente à nouveau. Selon l\'Office fédéral de la statistique, industrie +5,5%, construction +2,1%.',
+    'blog.article.industria-costruzione-crescita-q2.imageAlt': 'Usine manufacturière suisse avec des travailleurs vérifiant la qualité à la chaîne d\'assemblage',
 };
 
 export default blogMetaChFr;
