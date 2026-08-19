@@ -42,8 +42,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny",
-        "en": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny-7qn8x6",
-        "de": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny-7qn8x6",
+        "en": "multi-purpose-seller-multi-purpose-seller-m-f-d-20-40-lidl-svizzera-martigny",
+        "de": "mehrzweckverkaufer-mehrzweckverkaufer-m-w-d-20-40-lidl-svizzera-martigny",
         "fr": "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny-7qn8x6"
       },
       "requirementsByLocale": {},
@@ -51,6 +51,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny-7qn8x6"
+        ],
+        "en": [
+          "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny-7qn8x6"
+        ],
+        "de": [
           "vendeur-polyvalent-vendeuse-polyvalente-m-w-d-20-40-lidl-svizzera-martigny-7qn8x6"
         ]
       },
@@ -114,9 +120,9 @@
       },
       "slugByLocale": {
         "it": "292-venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-xsgjvg",
-        "en": "292-venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-xsgjvg",
-        "de": "292-venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-xsgjvg",
-        "fr": "292-venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano-xsgjvg"
+        "en": "292-salesman-salesman-m-f-d-20-40-lidl-svizzera-lugano",
+        "de": "292-verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-lugano",
+        "fr": "292-vendeur-vendeur-h-f-d-20-40-lidl-svizzera-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -193,9 +199,9 @@
       },
       "slugByLocale": {
         "it": "373-venditore-venditrice-m-w-d-20-40-lidl-svizzera-sorengo-xsgkkg",
-        "en": "373-venditore-venditrice-m-w-d-20-40-lidl-svizzera-sorengo-xsgkkg",
-        "de": "373-venditore-venditrice-m-w-d-20-40-lidl-svizzera-sorengo-xsgkkg",
-        "fr": "373-venditore-venditrice-m-w-d-20-40-lidl-svizzera-sorengo-xsgkkg"
+        "en": "373-salesman-salesman-m-f-d-20-40-lidl-svizzera-sorengo",
+        "de": "373-verkaufer-verkaufer-m-w-d-20-40-lidl-svizzera-sorengo",
+        "fr": "373-vendeur-vendeur-h-f-d-20-40-lidl-svizzera-sorengo"
       },
       "requirementsByLocale": {
         "it": [
@@ -2044,6 +2050,8 @@
         "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione",
         "salesman-salesman-m-f-d-20-80-lidl-svizzera-arbedo-castione"
       ],
+      "salaryMin": 47200,
+      "salaryMax": 72400,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2057,9 +2065,7 @@
       "addressLocality": "Arbedo-Castione",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 47200,
-      "salaryMax": 72400
+      "needsRetranslation": true
     },
     {
       "id": "company-4wuiy2",
@@ -2100,7 +2106,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-neuchatel",
-        "en": "sales-associate-m-w-d-20-40-lidl-svizzera-neuchatel",
+        "en": "seller-m-f-d-20-40-lidl-svizzera-neuchatel",
         "de": "verkaufer-m-w-d-20-40-lidl-svizzera-neuchatel",
         "fr": "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-neuchatel-4wuiy2"
       },
@@ -2116,7 +2122,6 @@
         "en": [
           "seller-h-f-d-20-40-lidl-svizzera-neuchatel",
           "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-neuchatel-4wuiy2",
-          "seller-m-f-d-20-40-lidl-svizzera-neuchatel",
           "sales-associate-m-w-d-20-40-lidl-svizzera-neuchatel"
         ],
         "de": [
@@ -2128,7 +2133,6 @@
         "vendeur-vendeuse-m-w-d-20-40-lidl-svizzera-neuchatel-4wuiy2",
         "seller-h-f-d-20-40-lidl-svizzera-neuchatel",
         "verkaufer-h-w-d-20-40-lidl-svizzera-neuchatel",
-        "seller-m-f-d-20-40-lidl-svizzera-neuchatel",
         "sales-associate-m-w-d-20-40-lidl-svizzera-neuchatel"
       ],
       "baseSalary": {
@@ -2186,7 +2190,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne",
-        "en": "sales-associate-m-w-d-20-lidl-svizzera-payerne",
+        "en": "seller-m-f-d-20-lidl-svizzera-payerne",
         "de": "verkaufer-m-w-d-20-lidl-svizzera-payerne",
         "fr": "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t"
       },
@@ -2199,7 +2203,6 @@
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t",
-          "seller-m-f-d-20-lidl-svizzera-payerne",
           "sales-associate-m-w-d-20-lidl-svizzera-payerne"
         ],
         "de": [
@@ -2208,7 +2211,6 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-20-lidl-svizzera-payerne-qvr24t",
-        "seller-m-f-d-20-lidl-svizzera-payerne",
         "sales-associate-m-w-d-20-lidl-svizzera-payerne"
       ],
       "baseSalary": {
@@ -2638,14 +2640,12 @@
           "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino"
         ],
         "en": [
-          "salesman-salesman-m-f-d-20-40-lidl-svizzera-lugano",
           "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano"
         ]
       },
       "previousSlugs": [
         "venditore-venditrice-m-w-d-20-40-lidl-svizzera-lugano",
-        "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino",
-        "salesman-salesman-m-f-d-20-40-lidl-svizzera-lugano"
+        "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3242,8 +3242,8 @@
         "en": [
           "seller-h-f-d-60-etoy-lidl-svizzera-etoy",
           "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7vvepx",
-          "seller-h-f-d-40-etoy-lidl-svizzera-etoy",
-          "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy"
+          "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy",
+          "seller-h-f-d-40-etoy-lidl-svizzera-etoy"
         ],
         "de": [
           "verkaufer-h-w-d-60-etoy-lidl-svizzera-etoy",
@@ -3262,8 +3262,8 @@
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy-8vp5j0",
         "verkaufer-m-w-d-60-etoy-lidl-svizzera-etoy",
         "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
-        "seller-h-f-d-40-etoy-lidl-svizzera-etoy",
-        "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy"
+        "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy",
+        "seller-h-f-d-40-etoy-lidl-svizzera-etoy"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7925,6 +7925,8 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -7957,8 +7959,7 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-50rrnq",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
           "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-          "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf"
         ],
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-51vyzo",
@@ -7994,11 +7995,8 @@
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-40ddbb",
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-        "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil"
-      ],
-      "salaryMin": 58800,
-      "salaryMax": 89200
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf"
+      ]
     },
     {
       "id": "company-aq9sns",
@@ -8384,14 +8382,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
-          "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
           "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-ebikon-8zv1qx",
-        "all-rounder-sale-m-f-d-20-40-ebikon-lidl-svizzera-ebikon",
         "allrounder-verkauf-m-w-d-20-40-ebikon-lidl-svizzera-ebikon"
       ],
       "baseSalary": {
@@ -9123,14 +9119,12 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-          "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
           "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-horgen-4e97nd",
-        "all-rounder-sale-m-f-d-20-40-horgen-lidl-svizzera-horgen",
         "allrounder-verkauf-m-w-d-20-40-horgen-lidl-svizzera-horgen"
       ],
       "baseSalary": {
@@ -9789,7 +9783,7 @@
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
         "en": "customer-care-provider-self-checkout-20-30-lidl-svizzera-ostermundigen",
         "de": "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-        "fr": "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
+        "fr": "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen"
       },
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout 20-30 — Ostermundigen",
@@ -9834,7 +9828,6 @@
         ],
         "fr": [
           "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
-          "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
           "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
         ]
       },
@@ -9845,7 +9838,6 @@
         "kundenbetreuer-kundenbetreuerin-self-checkout-40-60-lidl-svizzera-bern",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen-0928ok",
         "kundenbetreuer-kundenbetreuerin-self-checkout-20-30-lidl-svizzera-ostermundigen",
-        "fournisseur-de-soins-a-la-clientele-auto-controle-20-30-lidl-svizzera-ostermundigen",
         "gestionnaire-de-clients-autocontrole-20-30-ostermundingen-ostermundigen-lidl-svizzera-ostermundigen"
       ],
       "salaryMin": 68500,
@@ -10305,7 +10297,7 @@
         "it": "cassiera-cassiera-lun-f-due-40-60-lidl-svizzera-bern",
         "en": "cashier-m-f-d-40-60-lidl-svizzera-bern",
         "de": "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "fr": "caissier-m-w-d-40-60-lidl-svizzera-bern"
+        "fr": "caisse-m-f-j-40-60-lidl-svizzera-bern"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -10320,14 +10312,12 @@
         ],
         "fr": [
           "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-          "caisse-m-f-j-40-60-lidl-svizzera-bern",
           "caissier-m-w-d-40-60-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern",
         "kassierer-kassiererin-m-w-d-40-60-lidl-svizzera-bern-fvg78y",
-        "caisse-m-f-j-40-60-lidl-svizzera-bern",
         "caissier-m-w-d-40-60-lidl-svizzera-bern"
       ],
       "baseSalary": {
@@ -21697,7 +21687,7 @@
         "it": "ch-customer-manager-gestione-clienti-self-checkout-lidl-svizzera-stans",
         "en": "ch-customer-manager-gestione-clienti-self-checkout-lidl-svizzera-stans",
         "de": "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
-        "fr": "ch-customer-manager-self-check-out-lidl-svizzera-stans"
+        "fr": "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans"
       },
       "titleByLocale": {
         "it": "CH Customer Manager / Gestione clienti Self-Checkout",
@@ -21724,7 +21714,6 @@
         ],
         "fr": [
           "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
-          "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans",
           "ch-customer-manager-self-check-out-lidl-svizzera-stans"
         ]
       },
@@ -21732,7 +21721,6 @@
         "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans-zc9hcc",
         "ch-kundenbetreuer-kundenbetreuerin-self-checkout-lidl-svizzera-stans",
         "ch-kundenbetreuer-customer-service-representative-self-checkout-lidl-svizzera-stans-zc9hcc",
-        "ch-kundenbetreuer-representant-du-service-client-caisse-libre-service-lidl-svizzera-stans",
         "ch-customer-manager-self-check-out-lidl-svizzera-stans"
       ],
       "country": "CH",

@@ -167,12 +167,12 @@
     },
     {
       "id": "diakoniewerk-neumuenster-890528f89984",
-      "slug": "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "senior-medico-senior-medico-cardiologia-dipartimento-medico-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg",
-        "en": "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg",
         "de": "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg",
-        "fr": "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
+        "it": "senior-medico-senior-medico-cardiologia-dipartimento-medico-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "en": "senior-physician-senior-physician-cardiology-medical-department-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
+        "fr": "medecin-principal-medecin-principal-departement-de-cardiologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -228,24 +228,30 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-physician-senior-physician-cardiology-medical-department-spital-zollikerberg-zollikerberg"
+          "senior-physician-senior-physician-cardiology-medical-department-spital-zollikerberg-zollikerberg",
+          "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
         ],
         "en": [
-          "senior-physician-senior-physician-cardiology-medical-department-spital-zollikerberg-zollikerberg"
+          "senior-physician-senior-physician-cardiology-medical-department-spital-zollikerberg-zollikerberg",
+          "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
         ]
       },
       "previousSlugs": [
-        "senior-physician-senior-physician-cardiology-medical-department-spital-zollikerberg-zollikerberg"
+        "senior-physician-senior-physician-cardiology-medical-department-spital-zollikerberg-zollikerberg",
+        "oberarztin-oberarzt-kardiologie-arztbereich-diakoniewerk-neumuenster-zollikerberg"
       ]
     },
     {
       "id": "diakoniewerk-neumuenster-6ccef40a4103",
-      "slug": "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+      "slug": "assistente-medico-assistente-medico-medicina-interna-dipartimento-medico-diakoniewerk-neumunster-gesundheitswelt",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
-        "en": "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
         "de": "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumuenster",
-        "fr": "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+        "it": "assistente-medico-assistente-medico-medicina-interna-dipartimento-medico-diakoniewerk-neumunster-gesundheitswelt",
+        "en": "assistant-doctor-assistant-doctor-internal-medicine-medical-department-diakoniewerk-neumunster-gesundheitswelt",
+        "fr": "assistant-medecin-assistant-medecin-medecine-interne-departement-medical-diakoniewerk-neumunster-gesundheitswelt"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -289,6 +295,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumuenster",
+          "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-innere-medizin-arztbereich-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
         ]
       },

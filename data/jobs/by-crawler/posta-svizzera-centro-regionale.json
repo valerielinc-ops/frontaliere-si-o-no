@@ -281,9 +281,9 @@
       "slug": "produktionsmitarbeiter-in-spatdienst-post",
       "slugByLocale": {
         "it": "produktionsmitarbeiter-in-spatdienst-post",
-        "en": "produktionsmitarbeiter-in-spatdienst-die-schweizerische-post-wadenswil",
+        "en": "production-staff-in-late-service-die-schweizerische-post-wadenswil",
         "de": "produktionsmitarbeiter-in-spatdienst-die-schweizerische-post-wadenswil",
-        "fr": "produktionsmitarbeiter-in-spatdienst-die-schweizerische-post-wadenswil"
+        "fr": "personnel-de-production-en-service-tardif-die-schweizerische-post-wadenswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -317,7 +317,18 @@
       },
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-18T09:53:33.507Z"
+      "firstSeenAt": "2026-08-18T09:53:33.507Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "produktionsmitarbeiter-in-spatdienst-die-schweizerische-post-wadenswil"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-spatdienst-die-schweizerische-post-wadenswil"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-spatdienst-die-schweizerische-post-wadenswil"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74527-de_DE",
@@ -344,9 +355,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-einsiedeln",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-einsiedeln"
       },
       "sourceLang": "de",
       "department": "",
@@ -384,6 +395,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -2116,7 +2133,7 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
         "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
         "fr": "pilote-postbus-in-postauto-ag-reichenburg"
@@ -2157,8 +2174,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg",
-          "postbus-driver-in-postauto-ag-reichenburg"
+          "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
           "postauto-fahrer-in-post",
@@ -2171,8 +2187,7 @@
       "previousSlugs": [
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-ag-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg"
       ],
       "retranslationAttempts": 2
     },
@@ -3056,9 +3071,9 @@
         "de": "Mitarbeiter:in Reinigung PostAuto und Infrastruktur",
         "fr": "Collaborateur/trice Reinigung PostAuto und Infrastruktur"
       },
-      "slug": "mitarbeiter-in-reinigung-postauto-und-infrastruktur-post",
+      "slug": "collaboratore-trice-reinigung-postauto-e-infrastruktur-postauto-laupen-be",
       "slugByLocale": {
-        "it": "mitarbeiter-in-reinigung-postauto-und-infrastruktur-post",
+        "it": "collaboratore-trice-reinigung-postauto-e-infrastruktur-postauto-laupen-be",
         "en": "associate-reinigung-postauto-und-infrastruktur-postauto-laupen-be",
         "de": "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be",
         "fr": "collaborateur-trice-reinigung-postauto-und-infrastruktur-postauto-laupen-be"
@@ -3102,10 +3117,14 @@
         ],
         "fr": [
           "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be"
+        ],
+        "it": [
+          "mitarbeiter-in-reinigung-postauto-und-infrastruktur-post"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be"
+        "mitarbeiter-in-reinigung-postauto-und-infrastruktur-postauto-laupen-be",
+        "mitarbeiter-in-reinigung-postauto-und-infrastruktur-post"
       ]
     },
     {
@@ -3130,12 +3149,12 @@
         "en": "Customer Advisor:in",
         "fr": "Conseiller client:in"
       },
-      "slug": "kundenberater-in-post",
+      "slug": "consulente-clienti-in-die-schweizerische-post-effretikon",
       "slugByLocale": {
-        "it": "kundenberater-in-post",
-        "en": "kundenberater-in-die-schweizerische-post-effretikon",
+        "it": "consulente-clienti-in-die-schweizerische-post-effretikon",
+        "en": "customer-advisor-in-die-schweizerische-post-effretikon",
         "de": "kundenberater-in-die-schweizerische-post-effretikon",
-        "fr": "kundenberater-in-die-schweizerische-post-effretikon"
+        "fr": "conseiller-client-in-die-schweizerische-post-effretikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -3169,7 +3188,22 @@
       },
       "addressLocality": "Effretikon",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-18T09:53:33.507Z"
+      "firstSeenAt": "2026-08-18T09:53:33.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-effretikon"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-effretikon"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-effretikon"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74440-de_DE",
@@ -3415,9 +3449,9 @@
       "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
       "slugByLocale": {
         "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
-        "en": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+        "en": "security-specialist-in-public-transport-postauto-winterthur",
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "fr": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+        "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur"
       },
       "sourceLang": "de",
       "department": "",
@@ -3439,16 +3473,15 @@
           "sicherheitsspezialist-in-offentlicher-verkehr-post"
         ],
         "en": [
-          "security-specialist-in-public-transport-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
         ],
         "fr": [
-          "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
         ]
       },
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-post",
-        "security-specialist-in-public-transport-postauto-winterthur",
-        "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-ae32ed6b82d9",
@@ -3494,9 +3527,9 @@
       "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
       "slugByLocale": {
         "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
-        "en": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "en": "security-specialist-in-public-transport-postauto-wallisellen",
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "fr": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-wallisellen"
       },
       "sourceLang": "de",
       "department": "",
@@ -3518,16 +3551,15 @@
           "sicherheitsspezialist-in-offentlicher-verkehr-post"
         ],
         "en": [
-          "security-specialist-in-public-transport-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "fr": [
-          "specialiste-de-la-securite-dans-les-transports-publics-postauto-wallisellen"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ]
       },
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-post",
-        "security-specialist-in-public-transport-postauto-wallisellen",
-        "specialiste-de-la-securite-dans-les-transports-publics-postauto-wallisellen"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-124b2cdbddf7",
@@ -3646,9 +3678,9 @@
       "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
+        "en": "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken"
       },
       "sourceLang": "de",
       "department": "",
@@ -3670,16 +3702,15 @@
           "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
-          "ticket-controller-in-and-customer-advice-postauto-ag-interlaken"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
         ],
         "fr": [
-          "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
         ]
       },
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-post",
-        "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-32e0b7370d6e",
@@ -3725,9 +3756,9 @@
       "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "slugByLocale": {
         "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
+        "en": "ticket-controller-in-and-customer-advice-postauto-ag-bern",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
+        "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -3749,16 +3780,15 @@
           "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
-          "ticket-controller-in-and-customer-advice-postauto-ag-bern"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
         ],
         "fr": [
-          "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
+          "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
         ]
       },
       "previousSlugs": [
         "ticketkontrolleur-in-und-kundenberatung-post",
-        "ticket-controller-in-and-customer-advice-postauto-ag-bern",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-5845e37ed171",
@@ -3897,8 +3927,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-post",
-          "specialista-del-responsabile-della-sicurezza-e-della-sicurezza-carpostal-brig",
-          "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
+          "specialista-del-responsabile-della-sicurezza-e-della-sicurezza-carpostal-brig"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
@@ -3910,8 +3939,7 @@
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-post",
         "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
-        "specialista-del-responsabile-della-sicurezza-e-della-sicurezza-carpostal-brig",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
+        "specialista-del-responsabile-della-sicurezza-e-della-sicurezza-carpostal-brig"
       ],
       "id": "posta-svizzera-centro-regionale-7ad4d659f586",
       "salaryMin": 60500,
@@ -4874,12 +4902,12 @@
         "en": "Teaching as a logistician: in EFZ Distribution sorting center",
         "fr": "Enseignement en tant que logisticien: dans EFZ Centre de tri de distribution"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich-mulligen",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich-mulligen",
-        "en": "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich",
+        "en": "teaching-as-a-logistician-in-efz-distribution-sorting-center-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
+        "fr": "enseignement-en-tant-que-logisticien-dans-efz-centre-de-tri-de-distribution-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -4916,11 +4944,19 @@
       "firstSeenAt": "2026-08-18T09:53:33.507Z",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich-mulligen"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
+        "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich-mulligen"
       ]
     },
     {
@@ -5160,9 +5196,9 @@
       "slug": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen",
       "slugByLocale": {
         "it": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen",
-        "en": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
+        "en": "teaching-as-a-merchant-efz-service-and-administration-die-schweizerische-post-niederurnen",
         "de": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
-        "fr": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        "fr": "enseignement-en-tant-que-marchand-efz-service-et-administration-die-schweizerische-post-niederurnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -5199,6 +5235,12 @@
       "firstSeenAt": "2026-08-18T09:53:33.507Z",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ],
+        "en": [
+          "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
+        ],
+        "fr": [
           "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
         ]
       },
@@ -5443,12 +5485,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-084e5c",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-084e5c",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-dattwil-ag",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-084e5c"
       },
       "sourceLang": "de",
       "department": "",
@@ -5484,11 +5526,19 @@
       "firstSeenAt": "2026-08-18T09:53:33.507Z",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-dattwil-ag"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-dattwil-ag"
       ]
     },
     {
@@ -8480,9 +8530,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-st-gallen",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-st-gallen",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-st-gallen",
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-post-st"
       },
       "sourceLang": "de",
       "department": "",
@@ -8502,6 +8552,12 @@
       "id": "posta-svizzera-centro-regionale-2c38ac73ff45",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
@@ -11034,9 +11090,9 @@
       "slug": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-heerbrugg",
       "slugByLocale": {
         "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-heerbrugg",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post",
+        "en": "apprenticeship-as-a-retail-trade-expert-efz-die-schweizerische-post-heerbrugg",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post"
+        "fr": "apprentissage-en-tant-qu-expert-en-commerce-de-detail-efz-die-schweizerische-post-heerbrugg"
       },
       "sourceLang": "de",
       "department": "",
@@ -11056,6 +11112,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-detailhandelsfachmann-frau-efz-post-2",
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post"
+        ],
+        "fr": [
           "lehre-als-detailhandelsfachmann-frau-efz-post"
         ]
       },
@@ -11540,12 +11602,12 @@
         "en": "Co-team leader: in driving personnel",
         "fr": "Co-chef d'équipe: dans le personnel de conduite"
       },
-      "slug": "co-teamleiter-in-fahrpersonal-post",
+      "slug": "co-team-leader-nel-personale-di-guida-postauto-ilanz",
       "slugByLocale": {
-        "it": "co-teamleiter-in-fahrpersonal-post",
-        "en": "co-teamleiter-in-fahrpersonal-post",
+        "it": "co-team-leader-nel-personale-di-guida-postauto-ilanz",
+        "en": "co-team-leader-in-driving-personnel-postauto-ilanz",
         "de": "co-teamleiter-in-fahrpersonal-postauto-ilanz",
-        "fr": "co-teamleiter-in-fahrpersonal-post"
+        "fr": "co-chef-d-equipe-dans-le-personnel-de-conduite-postauto-ilanz"
       },
       "sourceLang": "de",
       "department": "",
@@ -11579,7 +11641,21 @@
       },
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-18T09:53:33.507Z"
+      "firstSeenAt": "2026-08-18T09:53:33.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleiter-in-fahrpersonal-post"
+        ],
+        "en": [
+          "co-teamleiter-in-fahrpersonal-post"
+        ],
+        "fr": [
+          "co-teamleiter-in-fahrpersonal-post"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleiter-in-fahrpersonal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74383-de_DE",
@@ -11684,9 +11760,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "kundenberater-in-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "kundenberater-in-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -11708,16 +11784,15 @@
           "kundenberater-in-post"
         ],
         "en": [
-          "customer-advisor-in-die-schweizerische-post-emmenbrucke"
+          "kundenberater-in-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
-          "conseiller-client-in-die-schweizerische-post-emmenbrucke"
+          "kundenberater-in-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
-        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
-        "conseiller-client-in-die-schweizerische-post-emmenbrucke"
+        "kundenberater-in-die-schweizerische-post-emmenbrucke"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-52523c18c719",
@@ -12070,7 +12145,7 @@
         "it": "team-leader-nel-personale-di-guida-postauto-weinfelden",
         "en": "team-leader-in-driving-personnel-postauto-weinfelden",
         "de": "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "fr": "teamleiter-in-fahrpersonal-postauto-weinfelden"
+        "fr": "chef-d-equipe-dans-le-personnel-de-conduite-postauto-weinfelden"
       },
       "sourceLang": "de",
       "department": "",
@@ -12092,12 +12167,12 @@
           "teamleiter-in-fahrpersonal-post"
         ],
         "fr": [
-          "chef-d-equipe-dans-le-personnel-de-conduite-postauto-weinfelden"
+          "teamleiter-in-fahrpersonal-postauto-weinfelden"
         ]
       },
       "previousSlugs": [
         "teamleiter-in-fahrpersonal-post",
-        "chef-d-equipe-dans-le-personnel-de-conduite-postauto-weinfelden"
+        "teamleiter-in-fahrpersonal-postauto-weinfelden"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-db0b7fe4d307",
@@ -12143,9 +12218,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-emmenbrucke",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-emmenbrucke",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-emmenbrucke",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-emmenbrucke"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -12167,16 +12242,15 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-emmenbrucke"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-emmenbrucke"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-emmenbrucke",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-emmenbrucke"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-emmenbrucke"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-d8ed83b58ea1",
@@ -14717,7 +14791,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14741,7 +14815,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

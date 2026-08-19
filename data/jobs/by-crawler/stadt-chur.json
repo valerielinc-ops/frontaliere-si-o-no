@@ -189,14 +189,13 @@
         "it": "coffin-portatore-stadt-chur-chur",
         "en": "coffin-bearer-stadt-chur-chur",
         "de": "sargtrager-in-stadt-chur-chur",
-        "fr": "transporteur-de-wagons-stadt-chur"
+        "fr": "porte-cercueil-stadt-chur-chur"
       },
       "crawledAt": "2026-08-18T22:12:23.798Z",
       "id": "stadt-chur-4309d92c4ac7",
       "previousSlugsByLocale": {
         "fr": [
           "sargtrager-in-stadt-chur",
-          "porte-cercueil-stadt-chur-chur",
           "transporteur-de-wagons-stadt-chur"
         ],
         "it": [
@@ -612,19 +611,26 @@
       },
       "slugByLocale": {
         "it": "polizeiaspirantinnen-e-polizeiaspiranten-stadt-chur",
-        "en": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur",
+        "en": "police-aspirants-and-police-aspirants-stadt-chur-chur",
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
-        "fr": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
       "crawledAt": "2026-08-18T22:19:04.322Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
+        ],
+        "en": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        ],
+        "fr": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
         ]
       },
       "previousSlugs": [
-        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
