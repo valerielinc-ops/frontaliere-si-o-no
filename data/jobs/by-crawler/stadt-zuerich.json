@@ -555,7 +555,6 @@
           "sap-consultant-is-h-stadt-zuerich-zurigo-49933"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T15:22:23.917Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -817,7 +816,6 @@
           "chef-de-groupe-stadt-zurich-zurich-e7f2eb"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1838,7 +1836,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Content Creator*in",
       "titleByLocale": {
-        "it": "Content Creator*in",
+        "it": "Creatore di contenuti*",
         "en": "Content Creator*",
         "de": "Content Creator*in",
         "fr": "Créateur de contenu*"
@@ -1893,7 +1891,6 @@
           "content-creator-in-stadt-zuerich-zurigo-51026"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T22:11:01.092Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2352,7 +2349,6 @@
           "schulleitungsassistenz-regelschule-ahorn-friedrich-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T22:12:23.244Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2591,7 +2587,6 @@
           "fachperson-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-50514"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:37:25.566Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2784,7 +2779,6 @@
           "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:40:57.071Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5102,7 +5096,6 @@
           "diensthundefuhrer-in-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:25:28.332Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6138,8 +6131,8 @@
       "id": "stadt-zuerich-228e26b28fbc",
       "slug": "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich",
-        "en": "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich",
+        "it": "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
+        "en": "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
         "de": "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
         "fr": "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
       },
@@ -6151,7 +6144,7 @@
         "it": "Formazione specialistica dell'amministrazione e delle operazioni di deposito",
         "en": "Specialist Office Administration & Disposition Operation Training",
         "de": "Fachstelle Administration & Disposition Betrieb Ausbildung",
-        "fr": "Fachstelle Administration & Disposition Betrieb Ausbildung"
+        "fr": "Spécialiste de l'administration et de l'élimination des opérations"
       },
       "description": "Fachstelle Administration & Disposition Betrieb Ausbildung bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50955. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -6188,18 +6181,19 @@
       "referenceNumber": "50955",
       "previousSlugs": [
         "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
-        "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
+        "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
+        "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich",
+        "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
-          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
+          "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich"
         ],
         "en": [
-          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
+          "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T22:46:52.410Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6896,7 +6890,7 @@
       "slug": "elettricista-aziendale-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "elettricista-aziendale-stadt-zurich-zurich",
-        "en": "betriebselektriker-in-stadt-zurich",
+        "en": "business-electrician-stadt-zurich-zurich",
         "de": "betriebselektriker-in-stadt-zuerich-zurigo-50593",
         "fr": "electricien-d-affaires-stadt-zurich-zurich"
       },
@@ -6906,7 +6900,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Betriebselektriker*in",
+        "en": "Business electrician*",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -6965,7 +6959,6 @@
           "betriebselektriker-in-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.743Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6997,7 +6990,7 @@
         "it": "Protezione consolare",
         "en": "Consular protection",
         "de": "KonsulatsschützerIn",
-        "fr": "KonsulatsschützerIn"
+        "fr": "Protection consulaire"
       },
       "description": "KonsulatsschützerIn bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 23632. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -7054,7 +7047,6 @@
           "konsulatsschutzerin-stadt-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.743Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7405,16 +7397,16 @@
       "slug": "gesamtplaner-in-zentralwerkstatt-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "gesamtplaner-in-zentralwerkstatt-stadt-zurich-zurich",
-        "en": "overall-planner-in-zentralwerkstatt-stadt-zurich-zurich",
+        "en": "gesamtplaner-in-zentralwerkstatt-stadt-zurich-zurich",
         "de": "gesamtplaner-in-zentralwerkstatt-stadt-zuerich-zurigo-51339",
-        "fr": "planificateur-general-a-zentralwerkstatt-stadt-zurich-zurich"
+        "fr": "gesamtplaner-in-zentralwerkstatt-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
       "companyDomain": "stadt-zuerich.ch",
       "title": "Gesamtplaner*in Zentralwerkstatt",
       "titleByLocale": {
-        "it": "Gesamtplaner*in Zentralwerkstatt",
+        "it": "Pianificatore globale* in Zentralwerkstatt",
         "en": "Overall planner* in Zentralwerkstatt",
         "de": "Gesamtplaner*in Zentralwerkstatt",
         "fr": "Planificateur général* à Zentralwerkstatt"
@@ -7454,14 +7446,12 @@
       "referenceNumber": "51339",
       "previousSlugs": [
         "gesamtplaner-in-zentralwerkstatt-stadt-zuerich-zurigo-51339",
-        "gesamtplaner-in-zentralwerkstatt-stadt-zurich-zurich",
         "overall-planner-in-zentralwerkstatt-stadt-zurich-zurich",
         "planificateur-general-a-zentralwerkstatt-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gesamtplaner-in-zentralwerkstatt-stadt-zuerich-zurigo-51339",
-          "gesamtplaner-in-zentralwerkstatt-stadt-zurich-zurich"
+          "gesamtplaner-in-zentralwerkstatt-stadt-zuerich-zurigo-51339"
         ],
         "en": [
           "overall-planner-in-zentralwerkstatt-stadt-zurich-zurich"
@@ -7988,7 +7978,7 @@
       "title": "Direktor*in Support Sozialdepartement",
       "titleByLocale": {
         "it": "Dipartimento Sociale",
-        "en": "Direktor*in Support Sozialdepartement",
+        "en": "Director Support Social Department",
         "de": "Direktor*in Support Sozialdepartement",
         "fr": "Directeur du Département de l ' appui social"
       },
@@ -8043,7 +8033,6 @@
           "direktor-in-support-sozialdepartement-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-26T22:25:39.083Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8721,7 +8710,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Reifenfachmann*frau",
       "titleByLocale": {
-        "it": "Reifenfachmann*frau",
+        "it": "Tiro professionale*donna",
         "en": "Tyre professional*woman",
         "de": "Reifenfachmann*frau",
         "fr": "Femmes"
@@ -8775,7 +8764,6 @@
           "reifenfachmann-frau-stadt-zuerich-zurigo-50990"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:50:53.098Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9020,7 +9008,6 @@
           "gartner-in-stadt-zuerich-zurigo-50017"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.740Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9640,7 +9627,7 @@
       "title": "Gastro-Allrounder*in",
       "titleByLocale": {
         "it": "Gastro Allrounder*",
-        "en": "Gastro-Allrounder*in",
+        "en": "Gastro Allrounder*in",
         "de": "Gastro-Allrounder*in",
         "fr": "Gastro Allrounder*in"
       },
@@ -9858,7 +9845,6 @@
           "kindergartenlehrperson-schule-mattenhof-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.741Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10925,17 +10911,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Juristische*r Praktikant*in",
       "titleByLocale": {
-        "it": "Juristische*r Praktikant*in",
-        "en": "Juristische*r Praktikant*in",
         "de": "Juristische*r Praktikant*in",
-        "fr": "Juristische*r Praktikant*in"
+        "it": "Formazione legale",
+        "en": "Legal trainee",
+        "fr": "Stagiaire juridique"
       },
       "description": "Juristische*r Praktikant*in bei der Stadtverwaltung Zürich, Hochbaudepartement – Departementssekretariat HBD. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51350. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "Juristische*r Praktikant*in bei der Stadtverwaltung Zürich, Hochbaudepartement – Departementssekretariat HBD. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51350. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Juristische*r Praktikant*in bei der Stadtverwaltung Zürich, Hochbaudepartement – Departementssekretariat HBD. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51350. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "Juristische*r Praktikant*in bei der Stadtverwaltung Zürich, Hochbaudepartement – Departementssekretariat HBD. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51350. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Juristische*r Praktikant*in bei der Stadtverwaltung Zürich, Hochbaudepartement – Departementssekretariat HBD. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51350. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Stage legale presso l'Amministrazione Comunale di Zurigo, Dipartimento Edilizia – Segreteria Dipartimento HBD. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51350. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Legal intern at the City Administration of Zurich, Building Department – Departmental Secretariat HBD. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51350. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Stagiaire juridique à l'administration municipale de Zurich, Département du bâtiment – Secrétariat départemental HBD. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51350. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -10963,8 +10949,6 @@
       "department": "Hochbaudepartement",
       "unit": "Departementssekretariat HBD",
       "referenceNumber": "51350",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:20:57.320Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -10976,7 +10960,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T10:20:57.320Z"
     },
     {
       "id": "stadt-zuerich-af994a3a9315",
@@ -11420,7 +11405,7 @@
         "it": "Aspiratore di polizia*",
         "en": "Police aspirant*",
         "de": "Polizeiaspirant*in",
-        "fr": "Polizeiaspirant*in"
+        "fr": "Aspirant policier*"
       },
       "description": "Polizeiaspirant*in bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 27881. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -11477,7 +11462,6 @@
           "polizeiaspirant-in-stadt-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:20:07.739Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -11507,16 +11491,16 @@
       "title": "Fachperson Betreuung",
       "titleByLocale": {
         "de": "Fachperson Betreuung",
-        "it": "Fachperson Betreuung",
-        "en": "Fachperson Betreuung",
-        "fr": "Fachperson Betreuung"
+        "it": "Assistenza specialistica",
+        "en": "Specialist care",
+        "fr": "Soins spécialisés"
       },
       "description": "Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50699. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50699. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50699. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50699. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Fachperson Betreuung bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Limmattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50699. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Supervisione specialistica presso l'amministrazione comunale di Zurigo, la scuola e il dipartimento sportivo – l'autorità della scuola di distretto Limmattal. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 50699. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Specialist supervision at the city administration of Zurich, school and sports department – district school authority Limmattal. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 50699. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Supervision spécialisée à l'administration municipale de Zurich, département scolaire et sportif – autorité scolaire de district Limmattal. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 50699. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -11546,7 +11530,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "50699",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -11625,7 +11608,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:57.061Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12124,7 +12106,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.002Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -12154,7 +12135,7 @@
       "title": "Teamleiter*in Software Engineering C# / .NET",
       "titleByLocale": {
         "it": "Leader di squadra in ingegneria del software C# / .NET",
-        "en": "Teamleiter*in Software Engineering C# / .NET",
+        "en": "Team Leader in Software Engineering C# / .NET",
         "de": "Teamleiter*in Software Engineering C# / .NET",
         "fr": "Chef d'équipe en génie logiciel C# / .NET"
       },
@@ -12212,7 +12193,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:31:02.740Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12479,7 +12459,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.739Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12573,7 +12552,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.738Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12836,7 +12814,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T12:15:23.578Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -13037,7 +13014,7 @@
         "it": "Assemblaggio automatico*",
         "en": "Automatic assembler*",
         "de": "Automatikmonteur*in",
-        "fr": "Automatikmonteur*in"
+        "fr": "Monteur automatique*"
       },
       "description": "Automatikmonteur*in bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 5465. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -13095,7 +13072,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.738Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13515,7 +13491,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.738Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -13545,7 +13520,7 @@
       "title": "Analyst*in oder Spezialist*in Digitale Forensik",
       "titleByLocale": {
         "it": "Analista*in o Spezialist*in Digitale Forensik",
-        "en": "Analyst*in oder Spezialist*in Digitale Forensik",
+        "en": "Analyst or specialist in digital forensics",
         "de": "Analyst*in oder Spezialist*in Digitale Forensik",
         "fr": "Analyste*in oder Spezialist*in Digitale Forensik"
       },
@@ -15026,7 +15001,7 @@
         "it": "Aspiratore di polizia*",
         "en": "Police aspirant*",
         "de": "Polizeiaspirant*in",
-        "fr": "Polizeiaspirant*in"
+        "fr": "Aspirant policier*"
       },
       "description": "Polizeiaspirant*in bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50365. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -15080,7 +15055,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T12:59:08.267Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -15498,7 +15472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.735Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16976,7 +16949,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.734Z",
-      "needsRetranslation": true,
       "salaryMin": 66200,
       "salaryMax": 100400,
       "baseSalary": {
@@ -17144,7 +17116,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.996Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -17394,7 +17365,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.996Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -18682,7 +18652,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "crawlerMissStreak": 1
     },
     {
@@ -19101,7 +19070,7 @@
         "it": "Aspirante di polizia",
         "en": "Police aspirant",
         "de": "PolizeiaspirantIn",
-        "fr": "PolizeiaspirantIn"
+        "fr": "Aspirant policier"
       },
       "description": "PolizeiaspirantIn bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 8865. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -19159,7 +19128,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.733Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19405,7 +19373,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:37:25.581Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19688,7 +19655,7 @@
         "it": "Aspirante di polizia",
         "en": "Police aspirant",
         "de": "PolizeiaspirantIn",
-        "fr": "PolizeiaspirantIn"
+        "fr": "Aspirant policier"
       },
       "description": "PolizeiaspirantIn bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 16913. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -19742,7 +19709,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T12:59:08.265Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -19771,7 +19737,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Pool Stelle Personenmeldeamt",
       "titleByLocale": {
-        "it": "Pool Stelle Personenmeldeamt",
+        "it": "Ufficio di registrazione dell'ufficio piscina",
         "en": "Pool Office Person Registration Office",
         "de": "Pool Stelle Personenmeldeamt",
         "fr": "Bureau d'enregistrement des personnes de bureau commun"
@@ -19829,7 +19795,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20369,7 +20334,7 @@
       "title": "DaZ-Lehrperson, Schule Auhof",
       "titleByLocale": {
         "it": "DaZ insegnante, Scuola Auhof",
-        "en": "DaZ-Lehrperson, Schule Auhof",
+        "en": "DaZ teacher, School Auhof",
         "de": "DaZ-Lehrperson, Schule Auhof",
         "fr": "Professeur DaZ, École Auhof"
       },
@@ -20424,7 +20389,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.732Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20592,7 +20556,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.993Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -21465,15 +21428,15 @@
       "titleByLocale": {
         "de": "Fachperson Betreuung Kinder EFZ",
         "it": "Fachperson Betreuung Kinder CFC",
-        "en": "Fachperson Betreuung Kinder EFZ",
-        "fr": "Fachperson Betreuung Kinder EFZ"
+        "en": "Specialist child care EFZ",
+        "fr": "Soins spécialisés pour enfants EFZ"
       },
       "description": "Fachperson Betreuung Kinder EFZ bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51137. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
         "de": "Fachperson Betreuung Kinder EFZ bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51137. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "it": "Fachperson Betreuung Kinder EFZ bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51137. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Fachperson Betreuung Kinder EFZ bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51137. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Fachperson Betreuung Kinder EFZ bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51137. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "EFZ presso l'Amministrazione Comunale di Zurigo, Dipartimento Sociale – Istituzioni e imprese sociali. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51137. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Specialist child care EFZ at the City Administration of Zurich, Social Department – Social institutions and enterprises. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51137. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Spécialiste des soins aux enfants EFZ à l'administration municipale de Zurich, Département social – Institutions sociales et entreprises. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51137. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -21779,7 +21742,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -22064,7 +22026,7 @@
       "title": "Data Engineer*in",
       "titleByLocale": {
         "it": "Data Ingegnere*in",
-        "en": "Data Engineer*in",
+        "en": "Data Engineer*",
         "de": "Data Ingenieur*in",
         "fr": "Data Ingénieur*in"
       },
@@ -22281,7 +22243,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.730Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -22527,7 +22488,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -22612,7 +22572,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -23248,7 +23207,7 @@
       "title": "Betriebselektriker*in Heizkraftwerk Aubrugg",
       "titleByLocale": {
         "it": "Elettricista di affari* nell'impianto di riscaldamento di Aubrugg",
-        "en": "Betriebselektriker*in Heizkraftwerk Aubrugg",
+        "en": "Business electrician* in Aubrugg heating power plant",
         "de": "Betriebselektriker*in Heizkraftwerk Aubrugg",
         "fr": "Electricien d'affaires* en Aubrugg chauffage centrale"
       },
@@ -23728,7 +23687,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.026Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -24173,7 +24131,7 @@
       "title": "HMS-Praxisjahr 2027, Personal",
       "titleByLocale": {
         "it": "HMS anno di pratica 2027, personale",
-        "en": "HMS-Praxisjahr 2027, Personal",
+        "en": "HMS year of practice 2027, staff",
         "de": "HMS-Praxisjahr 2027, Personal",
         "fr": "HMS année de pratique 2027, personnel"
       },
@@ -24228,7 +24186,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.026Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -24313,7 +24270,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.026Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -24596,7 +24552,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Jurist*in (1 Jahr befristet) | 60 - 80%",
       "titleByLocale": {
-        "it": "Jurist*in (1 Jahr befristet) | 60 - 80%",
+        "it": "Avvocato (1 anno limitato) | 60 - 80 %",
         "en": "Lawyer (1 year limited) | 60 - 80 %",
         "de": "Jurist*in (1 Jahr befristet) | 60 - 80%",
         "fr": "Avocat (1 an limité)"
@@ -24652,7 +24608,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:36:41.188Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "baseSalary": {
@@ -24684,7 +24639,7 @@
         "it": "Controller*",
         "en": "Controller*",
         "de": "Controller*in",
-        "fr": "Controller*in"
+        "fr": "Contrôleur*"
       },
       "description": "Controller*in bei der Stadtverwaltung Zürich, Tiefbau- und Entsorgungsdepartement – Entsorgung + Recycling Zürich. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50452. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -24741,7 +24696,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.727Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -26230,7 +26184,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.726Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -28367,7 +28320,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:55:31.699Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -28778,7 +28730,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.747Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -29848,7 +29799,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.747Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -31262,7 +31212,7 @@
       "title": "Pflegeexpert*in, Standorte Witikon und Riesbach",
       "titleByLocale": {
         "it": "Pflegeexpert*in, Standorte Witikon e Riesbach",
-        "en": "Pflegeexpert*in, Standorte Witikon und Riesbach",
+        "en": "Care expert, locations Witikon and Riesbach",
         "de": "Pflegeexpert*in, Standorte Witikon und Riesbach",
         "fr": "Expert en soins, localisations Witikon et Riesbach"
       },
@@ -31857,7 +31807,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:32:08.786Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -32296,7 +32245,7 @@
       "title": "Ergotherapeut*in, Standort Witikon",
       "titleByLocale": {
         "it": "Terapista occupazionale, Vitikon posizione",
-        "en": "Ergotherapeut*in, Standort Witikon",
+        "en": "Occupational therapist, Vitikon location",
         "de": "Ergotherapeut*in, Standort Witikon",
         "fr": "ergothérapeute, emplacement Vitikon"
       },
@@ -32351,7 +32300,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:38:12.849Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -32855,7 +32803,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.745Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -33147,7 +33094,7 @@
       "slug": "fisioterapista-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "fisioterapista-stadt-zurich-zurich",
-        "en": "physiotherapeut-in-stadt-zurich",
+        "en": "physiotherapist-stadt-zurich-zurich",
         "de": "physiotherapeut-in-stadt-zuerich-zurigo-50876",
         "fr": "physiotherapeute-stadt-zurich-zurich"
       },
@@ -33157,7 +33104,7 @@
       "title": "Physiotherapeut*in",
       "titleByLocale": {
         "it": "Fisioterapista*",
-        "en": "Physiotherapeut*in",
+        "en": "Physiotherapist*",
         "de": "Physiotherapeut*in",
         "fr": "Physiothérapeute*"
       },
@@ -33214,7 +33161,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:38:33.519Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -33469,7 +33415,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:44:12.731Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -33753,7 +33698,7 @@
         "it": "Trampilota*",
         "en": "Trampilot*",
         "de": "Trampilot*in",
-        "fr": "Trampilot*in"
+        "fr": "Pilote-tram*"
       },
       "description": "Trampilot*in bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 48193. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -33807,7 +33752,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.744Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -34612,7 +34556,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T23:07:57.399Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -35012,7 +34955,7 @@
         "it": "Responsabile Amministrazione",
         "en": "Head of Administration",
         "de": "Ressortleiter*in Administration",
-        "fr": "Ressortleiter*in Administration"
+        "fr": "Chef de l'administration"
       },
       "description": "Ressortleiter*in Administration bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Stadtpolizei. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 50934. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -35082,7 +35025,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:59:52.423Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -35112,7 +35054,7 @@
       "title": "Leitung Hausdienst und Technik (LHT Spezialanlage/ Facility Manager, Schule Kappeli Primar",
       "titleByLocale": {
         "it": "Leitung Hausdienst e Technik (LHT Spezialanlage/ Facility Manager, Schule Kappeli Primar",
-        "en": "Leitung Hausdienst und Technik (LHT Spezialanlage/ Facility Manager, Schule Kappeli Primar",
+        "en": "Head of Home Service and Technology (LHT Specialist Facility Manager, Kappeli Primary School)",
         "de": "Leitung Hausdienst und Technik (LHT Spezialanlage/ Facility Manager, Schule Kappeli Primar",
         "fr": "Chef du service à domicile et de la technologie (gestionnaire de l'installation spécialisée LHT, École primaire de Kappeli)"
       },
