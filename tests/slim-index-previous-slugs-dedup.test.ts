@@ -324,11 +324,20 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
   it('bridgeTargetSlug re-reads per route instead of pinning at mount', () => {
     // A `[]` dep list would defeat the pathname guard above: the memo would
     // never re-run, so the stale value would survive every soft-navigation.
-    expect(src).toMatch(
-      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[initialJobSlug\]\)/,
-    );
     expect(src).not.toMatch(
       /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[\]\)/,
+    );
+    // Keyed on the PATHNAME, not `initialJobSlug` (cluster-seed follow-up):
+    // readBridgeTargetSlug's own guard (onSeededDocument) compares pathnames,
+    // and `initialJobSlug` can stay equal across two different pathnames (the
+    // `ricerca-`/search-cluster families overlap — same leak class as
+    // `seededJob` above, one level up). A slug-keyed memo left the guard
+    // unreachable on that navigation and pinned the previous bridge slug.
+    expect(src).toMatch(
+      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[seedPathname\]\)/,
+    );
+    expect(src).not.toMatch(
+      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[initialJobSlug\]\)/,
     );
   });
 

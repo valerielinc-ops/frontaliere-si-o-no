@@ -2727,11 +2727,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.
  // Hoisted above the slug-filter memos below: its presence is the authoritative
  // "this URL is a JOB page, not a filter landing" signal, and they need it.
- // Deps on `initialJobSlug`, NOT `[]`: on SPA soft-navigation this component is
- // not remounted, so a `[]` memo would pin the bridge slug of the page we
- // arrived on and keep reporting "job bridge" for every later route. Re-reading
- // per route lets the pathname guard inside readBridgeTargetSlug do its job.
- const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), [initialJobSlug]);
+ // Deps on `seedPathname`, NOT `[initialJobSlug]` and NOT `[]`: its guard
+ // (readBridgeTargetSlug -> onSeededDocument) compares PATHNAMES, and
+ // `initialJobSlug` can stay equal across two different pathnames (a bridge
+ // page and a search-cluster page can share a slug — see the previousSlugs
+ // alias comment below). A slug-keyed memo would then pin the bridge slug of
+ // the page we arrived on across a soft-navigation the guard is meant to
+ // catch. Same fix, same reason as `seededJob`/`clusterSeed` above.
+ const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), [seedPathname]);
 
  // A bridge page IS a job page. Its URL is a job's OLD slug, and a handful of
  // those old slugs happen to start with a filter-landing prefix — measured on

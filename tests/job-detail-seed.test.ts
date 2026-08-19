@@ -338,6 +338,17 @@ describe('Per-job detail seed (window.__JOB_SEED__)', () => {
       expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[seedPathname\]\)/);
     });
 
+    it('reads window.__BRIDGE_TARGET_SLUG__ via readBridgeTargetSlug, keyed on the PATHNAME like seededJob/clusterSeed', () => {
+      // readBridgeTargetSlug's own guard (onSeededDocument) compares pathnames,
+      // same as readSeededJob/readClusterSearchSeed above. A slug-keyed memo
+      // (`[initialJobSlug]`) can stay pinned across a soft navigation between a
+      // bridge page and a search-cluster page that share a slug — the same
+      // class of stale-seed bug closed for seededJob/clusterSeed, reintroduced
+      // one level up. Keying on seedPathname makes it impossible to drift.
+      expect(src).toMatch(/const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[seedPathname\]\)/);
+      expect(src).not.toMatch(/const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[initialJobSlug\]\)/);
+    });
+
     it('seeds the initial jobs state with the build-injected record', () => {
       // The job-detail seed keeps PRECEDENCE in the initializer: this is what
       // makes `selectedJob` resolve on the first frame of a detail page.
