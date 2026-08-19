@@ -46,6 +46,20 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/packages/articles/content/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/evidence-index.json
+            !/data/health-premiums/
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - name: Install dependencies

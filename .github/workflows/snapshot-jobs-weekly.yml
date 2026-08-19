@@ -35,6 +35,12 @@ jobs:
           # il filtro è l'unica variabile). Sicuro qui: gli step leggono il
           # working tree di HEAD e committano, non blob storici.
           filter: blob:none
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/packages/articles/content/
+          sparse-checkout-cone-mode: false
         # Tetto sullo step: 20min danno oltre il doppio del massimo atteso dopo
         # il filtro (~9-10min) e trasformano il `cancelled` invisibile in un
         # `failure` diagnosticabile.

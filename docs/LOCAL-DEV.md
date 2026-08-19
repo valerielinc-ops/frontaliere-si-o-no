@@ -192,39 +192,84 @@ Why this happens and how it was found: `docs/AGENTS-HISTORY.md#shallow-clone-thi
 
 ## Sparse worktrees for agent / multiagent sessions
 
-A plain `git worktree add` materializes **all 40'745 tracked files, 6.4GB**
-— because `public/images` (13'497 files, 4.0GB) and `packages/articles`
-(17'647 files) are tracked. Run four agents in parallel and that is 25GB of
-duplicated checkout for work that usually touches `scripts/` and
-`build-plugins/`. Note this is a **checkout** cost, not a history cost:
+A plain `git worktree add` materializes **all 41'707 tracked files, 6.7GB**
+— because `public/images` (14'017 files, 4.4GB) and
+`packages/articles/content` (18'012 files) are tracked. Run four agents in
+parallel and that is ~27GB of duplicated checkout for work that usually
+touches `scripts/` and `build-plugins/`. Note this is a **checkout** cost, not a history cost:
 every worktree already shares the one `.git` object store.
 
-Cone-mode sparse checkout removes it. Same branch, same index, same commits
-and pushes — only the working-tree files you asked for land on disk:
+Sparse checkout removes it. Same branch, same index, same commits and pushes —
+only the working-tree files you asked for land on disk. One command:
 
 ```bash
-git fetch origin main
+scripts/dev/fast-worktree.sh <name> [--base origin/main] [--add <path>]...
+```
+
+Measured 2026-08-19: **214MB / 6'978 files in 2 seconds**, against
+6.7GB / 41'707 files for the full worktree — 31× less disk.
+
+The excluded paths come from `scripts/ci/checkout-buckets.json` — the *same*
+table the CI workflows exclude (`docs/REPO-WEIGHT-STRATEGY.md#sparse-checkout-in-ci-2026-08-19`).
+One source of truth: regenerate that table and both sides follow.
+
+The script **verifies** the result instead of trusting it. A `--no-checkout`
+that materialized the whole tree anyway has happened here (2026-08-15, twice),
+and without the check you find out from a full disk. It exits non-zero if
+`public/images`, `data/jobs` or `packages/articles/content` landed on disk.
+
+By hand, if you need something the script does not cover:
+
+```bash
 git worktree add --no-checkout -b <branch> <path> origin/main
 cd <path>
-git sparse-checkout init --cone
-git sparse-checkout set scripts build-plugins services components tests .github docs
+printf '/*\n!/public/\n!/data/\n' | git sparse-checkout set --no-cone --stdin
 git checkout
 ```
 
-Measured 2026-08-17: **695MB / 6'585 files in 7 seconds**, against
-6.4GB / 40'745 files for the full worktree — 9× less disk.
+Use `--no-cone` when you need negations or a single re-included file
+(`/data/article-redirects.json` on its own line); cone mode only takes
+directory allow-lists.
 
 - `git ls-files` still reports all 40'745 paths: the **index** stays
   complete, so `git commit`/`git push`/`git diff origin/main` behave
   exactly as in a full worktree, and nothing you left out can be
   accidentally deleted in a commit.
 - Need a path you skipped? `git sparse-checkout add data/jobs` — additive,
-  seconds, no re-clone. Tests that read `data/` fixtures need their
+  seconds, no re-clone; never recreate the worktree for this. Tests that read `data/` fixtures need their
   fixture dirs added; when in doubt add the dir rather than debug a
   missing-file error.
 - Do **not** reach for `--depth`/`--filter` instead: shallow clones break
   push on this repo (see the section above), and a blobless clone re-fetches
   blobs lazily during `pack-objects`, reintroducing the same stall.
+
+## `git maintenance` can be registered against a path that no longer exists
+
+Symptom: packs pile up, `count-objects -vH` grows a `garbage:` line, and every
+`git fetch` is a multi-GB catch-up again — while `~/.gitconfig` still lists a
+`maintenance.repo` entry and `launchctl list` shows the three
+`org.git-scm.git.*` agents. It looks registered. It is not running *here*.
+
+`git maintenance register` writes an **absolute path**. Move or re-clone the
+repo — as in the 2026-08-15 laptop migration, which moved the clone from
+`~/Projects/frontaliere-si-o-no` to `~/Projects/frontaliere/frontaliere-si-o-no`
+— and the entry keeps pointing at the old location. The hourly agent still
+fires, fails with `fatal: not a git repository`, and the real clone gets no
+prefetch, no commit-graph, no incremental repack. Measured 2026-08-19 on this
+machine: 24 packs, 96.5MB of abandoned `tmp_pack_*`, 406 prune-packable.
+
+The launchd agent's exit status is the tell — the middle column of
+`launchctl list | grep git-scm` is `1`, not `0`:
+
+```bash
+git config --global --get-all maintenance.repo   # does each path still exist?
+launchctl list | grep git-scm                    # middle column: last exit status
+git config --global --unset-all maintenance.repo
+git -C <the real clone> maintenance register
+```
+
+Check this after any move, re-clone, or machine migration. Nothing else
+reports it.
 
 ## Do not let session hooks fetch concurrently
 

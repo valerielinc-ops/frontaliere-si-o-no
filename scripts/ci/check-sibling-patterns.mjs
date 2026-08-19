@@ -132,6 +132,10 @@ const STOP = new Set([
   'GITHUB_TOKEN', 'GITHUB_PAT', 'GH_TOKEN', 'GITHUB_REPOSITORY', 'NODE_ENV',
   'CLAUDE_CODE_OAUTH_TOKEN', 'ANTHROPIC_API_KEY', 'GITHUB_OUTPUT', 'GITHUB_ENV',
   'GITHUB_SHA', 'GITHUB_REF', 'GITHUB_ACTOR', 'GITHUB_EVENT_NAME',
+  // Builtin di bash: stessa classe di `process`/`console` per il JS. Ogni
+  // script .sh che vuole risalire alla propria cartella scrive `BASH_SOURCE`,
+  // quindi il token accomunava 14 file senza indicare nessun antipattern.
+  'BASH_SOURCE', 'FUNCNAME', 'IFS', 'PIPESTATUS', 'BASH_REMATCH',
 ]);
 
 // Un token che compare in più di MAX_FILES file tracked è troppo generico per
