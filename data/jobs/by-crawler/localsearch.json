@@ -1,6 +1,6 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-08-19T09:48:29.060Z",
+  "assembledAt": "2026-08-19T21:34:32.771Z",
   "jobs": [
     {
       "id": "localsearch-4fe13b918f05",
@@ -33,7 +33,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:26.028Z",
+      "crawledAt": "2026-08-19T21:34:29.715Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,7 +118,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:25.169Z",
+      "crawledAt": "2026-08-19T21:34:28.813Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -207,7 +207,7 @@
       "url": "https://emp.jobylon.com/jobs/371446-localsearch-senior-manager-sales-performance-incentive-strategy-80-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:24.482Z",
+      "crawledAt": "2026-08-19T21:34:27.840Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -282,7 +282,7 @@
       "url": "https://emp.jobylon.com/jobs/376664-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:23.741Z",
+      "crawledAt": "2026-08-19T21:34:26.967Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,7 +362,7 @@
       "url": "https://emp.jobylon.com/jobs/376665-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:22.812Z",
+      "crawledAt": "2026-08-19T21:34:26.055Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -444,7 +444,7 @@
       "url": "https://emp.jobylon.com/jobs/376668-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:21.830Z",
+      "crawledAt": "2026-08-19T21:34:25.075Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -526,7 +526,7 @@
       "url": "https://emp.jobylon.com/jobs/376669-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:20.832Z",
+      "crawledAt": "2026-08-19T21:34:24.111Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -608,7 +608,7 @@
       "url": "https://emp.jobylon.com/jobs/376670-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:19.968Z",
+      "crawledAt": "2026-08-19T21:34:23.180Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -623,7 +623,13 @@
       "applyUrl": "https://emp.jobylon.com/jobs/376670-localsearch-verkauferin-im-aussendienst/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch-5",
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-zurich",
+        "vendeuse-vendeur-sur-le-terrain-localsearch-zurich",
+        "venditore-nel-settore-localsearch-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-aussendienst-localsearch-ch-5",
@@ -639,13 +645,8 @@
           "verkaufer-in-im-aussendienst-localsearch-zurich"
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-5",
-        "verkaufer-in-im-aussendienst-localsearch-ch",
-        "verkaufer-in-im-aussendienst-localsearch-zurich",
-        "vendeuse-vendeur-sur-le-terrain-localsearch-zurich",
-        "venditore-nel-settore-localsearch-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T09:51:40.660Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -658,8 +659,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-18T09:51:40.660Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-73befd4577ca",
@@ -692,7 +692,7 @@
       "url": "https://emp.jobylon.com/jobs/376671-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:19.101Z",
+      "crawledAt": "2026-08-19T21:34:22.444Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -774,7 +774,7 @@
       "url": "https://emp.jobylon.com/jobs/376672-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:18.254Z",
+      "crawledAt": "2026-08-19T21:34:21.610Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -856,7 +856,7 @@
       "url": "https://emp.jobylon.com/jobs/376674-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:17.486Z",
+      "crawledAt": "2026-08-19T21:34:20.668Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -938,7 +938,7 @@
       "url": "https://emp.jobylon.com/jobs/376675-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:16.585Z",
+      "crawledAt": "2026-08-19T21:34:19.699Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1020,7 +1020,7 @@
       "url": "https://emp.jobylon.com/jobs/376676-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:15.793Z",
+      "crawledAt": "2026-08-19T21:34:18.913Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1102,7 +1102,7 @@
       "url": "https://emp.jobylon.com/jobs/376679-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:14.596Z",
+      "crawledAt": "2026-08-19T21:34:17.405Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1184,7 +1184,7 @@
       "url": "https://emp.jobylon.com/jobs/376681-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:13.711Z",
+      "crawledAt": "2026-08-19T21:34:16.348Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1199,7 +1199,13 @@
       "applyUrl": "https://emp.jobylon.com/jobs/376681-localsearch-verkauferin-im-aussendienst/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch-12",
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-urdorf",
+        "vendeuse-vendeur-sur-le-terrain-localsearch-urdorf",
+        "venditore-nel-settore-localsearch-urdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-aussendienst-localsearch-ch-12",
@@ -1215,13 +1221,8 @@
           "verkaufer-in-im-aussendienst-localsearch-urdorf"
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-12",
-        "verkaufer-in-im-aussendienst-localsearch-ch",
-        "verkaufer-in-im-aussendienst-localsearch-urdorf",
-        "vendeuse-vendeur-sur-le-terrain-localsearch-urdorf",
-        "venditore-nel-settore-localsearch-urdorf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T09:51:32.075Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1234,8 +1235,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-18T09:51:32.075Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-e7115f7c71c6",
@@ -1268,7 +1268,7 @@
       "url": "https://emp.jobylon.com/jobs/376682-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:12.208Z",
+      "crawledAt": "2026-08-19T21:34:15.554Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1350,7 +1350,7 @@
       "url": "https://emp.jobylon.com/jobs/376683-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:11.361Z",
+      "crawledAt": "2026-08-19T21:34:14.643Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1432,7 +1432,7 @@
       "url": "https://emp.jobylon.com/jobs/376689-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:10.577Z",
+      "crawledAt": "2026-08-19T21:34:13.741Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1514,7 +1514,7 @@
       "url": "https://emp.jobylon.com/jobs/376693-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:09.409Z",
+      "crawledAt": "2026-08-19T21:34:12.818Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1596,7 +1596,7 @@
       "url": "https://emp.jobylon.com/jobs/376694-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:08.501Z",
+      "crawledAt": "2026-08-19T21:34:12.015Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1678,7 +1678,7 @@
       "url": "https://emp.jobylon.com/jobs/376697-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:07.144Z",
+      "crawledAt": "2026-08-19T21:34:11.200Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1733,9 +1733,9 @@
       "id": "localsearch-ce223110d4b5",
       "slug": "verkaufer-in-im-aussendienst-localsearch-lyssach",
       "slugByLocale": {
-        "de": "verkaufer-in-im-aussendienst-localsearch-ch",
         "it": "verkaufer-in-im-aussendienst-localsearch-lyssach",
         "en": "verkaufer-in-im-aussendienst-localsearch-lyssach",
+        "de": "verkaufer-in-im-aussendienst-localsearch-ch",
         "fr": "verkaufer-in-im-aussendienst-localsearch-lyssach"
       },
       "company": "localsearch",
@@ -1743,24 +1743,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkäufer/in im Aussendienst",
       "titleByLocale": {
-        "de": "Verkäufer/in im Aussendienst",
         "it": "Verkäufer/in im Aussendienst",
         "en": "Verkäufer/in im Aussendienst",
+        "de": "Verkäufer/in im Aussendienst",
         "fr": "Verkäufer/in im Aussendienst"
       },
       "description": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "en": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier ."
+        "it": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "en": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "de": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Region: Agglomeration Bern / Biel / Solothurn\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier ."
       },
       "location": "Lyssach",
       "canton": "BE",
       "url": "https://emp.jobylon.com/jobs/376738-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:05.126Z",
+      "crawledAt": "2026-08-19T21:34:10.400Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1774,20 +1774,21 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://emp.jobylon.com/jobs/376738-localsearch-verkauferin-im-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch-19",
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-lyssach"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-aussendienst-localsearch-ch-19",
-          "verkaufer-in-im-aussendienst-localsearch-ch"
+          "verkaufer-in-im-aussendienst-localsearch-ch",
+          "verkaufer-in-im-aussendienst-localsearch-lyssach"
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-19",
-        "verkaufer-in-im-aussendienst-localsearch-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T09:48:05.126Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1800,16 +1801,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-08-19T09:48:05.126Z"
+      "addressRegion": "BE"
     },
     {
       "id": "localsearch-605f85bb3b98",
       "slug": "verkaufer-in-im-aussendienst-localsearch-zurich",
       "slugByLocale": {
-        "de": "verkaufer-in-im-aussendienst-localsearch-ch",
         "it": "verkaufer-in-im-aussendienst-localsearch-zurich",
         "en": "verkaufer-in-im-aussendienst-localsearch-zurich",
+        "de": "verkaufer-in-im-aussendienst-localsearch-ch",
         "fr": "verkaufer-in-im-aussendienst-localsearch-zurich"
       },
       "company": "localsearch",
@@ -1817,24 +1817,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkäufer/in im Aussendienst",
       "titleByLocale": {
-        "de": "Verkäufer/in im Aussendienst",
         "it": "Verkäufer/in im Aussendienst",
         "en": "Verkäufer/in im Aussendienst",
+        "de": "Verkäufer/in im Aussendienst",
         "fr": "Verkäufer/in im Aussendienst"
       },
       "description": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "en": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier ."
+        "it": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "en": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "de": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Region: Zürich\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier ."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://emp.jobylon.com/jobs/376753-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:48:04.229Z",
+      "crawledAt": "2026-08-19T21:34:08.567Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1848,20 +1848,21 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://emp.jobylon.com/jobs/376753-localsearch-verkauferin-im-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch-20",
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-aussendienst-localsearch-ch-20",
-          "verkaufer-in-im-aussendienst-localsearch-ch"
+          "verkaufer-in-im-aussendienst-localsearch-ch",
+          "verkaufer-in-im-aussendienst-localsearch-zurich"
         ]
       },
-      "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-20",
-        "verkaufer-in-im-aussendienst-localsearch-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T09:48:04.229Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1874,8 +1875,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-19T09:48:04.229Z"
+      "addressRegion": "ZH"
     }
   ]
 }
