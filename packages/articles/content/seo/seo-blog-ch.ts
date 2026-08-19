@@ -44012,6 +44012,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-difesa-aerea-svizzera-investimenti': {
+    title: 'Difesa aerea: il Consiglio federale accelera gli investimenti',
+    description: 'Il Consiglio federale stanzia 970 milioni per la difesa aerea e 100 milioni per la sicurezza delle basi militari entro il 2029. Scopri i dettagli del piano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, difesa, aerea, consiglio, federale',
+    ogTitle: 'Difesa aerea: il Consiglio federale accelera gli investimenti',
+    ogDescription: 'Il Consiglio federale ha approvato un piano di investimenti straordinario per la difesa aerea e la sicurezza delle basi militari. Stanziati oltre un miliardo di franchi per far fronte alle minacce internazionali.',
+    canonicalPath: '/articoli-svizzera/difesa-aerea-svizzera-investimenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Difesa aerea: il Consiglio federale accelera gli investimenti",
+      "description": "Il Consiglio federale stanzia 970 milioni per la difesa aerea e 100 milioni per la sicurezza delle basi militari entro il 2029. Scopri i dettagli del piano.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/difesa-aerea-svizzera-investimenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del governo svizzero"
+      },
+      "datePublished": "2026-08-19T09:19:00+00:00",
+      "dateModified": "2026-08-19T09:19:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/difesa-aerea-svizzera-investimenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
