@@ -66,6 +66,7 @@ import {
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
+import { parseCollisionPeers, collisionGateDecision } from './auto-merge-eval.mjs';
 import {
   REOPEN_BUDGET_MARKER,
   BREAKER_LABEL,
@@ -540,20 +541,60 @@ function testsRunsForBranch(branch) {
 /**
  * Decisione rebase per una PR near-merge che è behind>0 (valutata DOPO il check
  * CONFLITTO). Pura → testabile; il razionale del livelock è al call-site.
- * @param {{lgtm: boolean, collisionRisk: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
+ * @param {{lgtm: boolean, collisionBlocked: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
  * @returns {'rebase'|'skip'|'heal'}
- *   'rebase' = la PR va rebasata (collision-risk esige 0-behind, OPPURE
- *              vitest=failure va rebasato per ereditare i fix di main, OPPURE
- *              non-LGTM → non near-merge-as-is).
+ *   'rebase' = la PR va rebasata (collisionBlocked: il gate collisione preciso
+ *              di auto-merge-eval bloccherebbe il merge, #6039 — non più la
+ *              sola presenza della label, vedi collisionGateBlocks al call-site,
+ *              OPPURE vitest=failure va rebasato per ereditare i fix di main,
+ *              OPPURE non-LGTM → non near-merge-as-is).
  *   'skip'   = LGTM, non-collision, vitest non-failure, check vitest PRESENTE →
  *              non rebasare (main è non-strict, auto-merge la mergia behind);
  *              rebasare orfanizzerebbe l'head (LIVELOCK).
  *   'heal'   = come 'skip' MA head orfana (nessun check vitest) → dispatch tests
  *              invece di rebasare, così il vitest atterra su head stabile.
  */
-export function rebaseActionForLgtmPr({ lgtm, collisionRisk, vitestConclusion, hasVitestCheck }) {
-  if (!lgtm || collisionRisk || vitestConclusion === 'failure') return 'rebase';
+export function rebaseActionForLgtmPr({ lgtm, collisionBlocked, vitestConclusion, hasVitestCheck }) {
+  if (!lgtm || collisionBlocked || vitestConclusion === 'failure') return 'rebase';
   return hasVitestCheck ? 'skip' : 'heal';
+}
+
+/**
+ * `collision-risk` da sola NON forza più il rebase (#6039): auto-merge-eval è
+ * stato indurito da #2424 a un gate PRECISO (collisionGateDecision) che blocca
+ * il merge SOLO se un peer collidente già MERGIATO non è ancora incluso in
+ * head — non per il semplice fatto che la PR sia dietro main. Prima di questo
+ * fix le due funzioni applicavano regole diverse alla stessa label: qui si
+ * forzava sempre 'rebase', il gate di merge no → una PR verde restava behind
+ * indefinitamente, e il rebase inutile (push PAT) ri-triggerava `tests.yml`
+ * cancellando la review vera nello stesso slot di concurrency (#6023: run
+ * 32157777892 cancellato da run gemelli, PR verde 40min senza review).
+ * Replica ESATTAMENTE la stessa query (peer dai marker `<!-- COLLISION:N -->`,
+ * ancestry via compare API) e riusa `collisionGateDecision` — stessa funzione
+ * pura importata da auto-merge-eval.mjs, zero drift possibile fra le due.
+ * Conservativo su errore API (comments/peer/compare irraggiungibili): blocca
+ * (rebase), mai un salto silenzioso su dati incompleti.
+ */
+function collisionGateBlocks(num, head, behind) {
+  if (behind <= 0) return false;
+  const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
+    '--jq', '[.[].body] | join("\\n")'], { json: false, allowFail: true });
+  if (comments === null) return true;
+  const peers = parseCollisionPeers(comments);
+  const mergedPeers = [];
+  for (const peer of peers) {
+    const pv = gh(['pr', 'view', String(peer), '--repo', REPO, '--json', 'state,mergeCommit'], { allowFail: true });
+    if (pv === null) {
+      mergedPeers.push({ number: peer, includedInHead: false });
+      continue;
+    }
+    if (pv.state !== 'MERGED' || !pv.mergeCommit?.oid) continue;
+    const status = gh(['api', `repos/${REPO}/compare/${pv.mergeCommit.oid}...${head}`, '--jq', '.status'],
+      { json: false, allowFail: true });
+    const included = status !== null && (status.trim() === 'ahead' || status.trim() === 'identical');
+    mergedPeers.push({ number: peer, includedInHead: included });
+  }
+  return !collisionGateDecision({ behind, mergedPeers }).allow;
 }
 
 /** Dispatcha tests.yml sul branch → il check-run vitest atterra sull'head e il
@@ -869,9 +910,14 @@ async function processPR(pr) {
   // auto-merge-eval (gate vitest==success) si blocca per sempre (circolo vizioso
   // osservato 00:30Z: #2026/#2028/#855 LGTM'd rebasati → action_required → stuck;
   // più la PR aspetta, più l'autorebase la rompe). Tocchiamo solo le PR che il
-  // rebase serve DAVVERO: collision-risk (il gate collisione esige il rebase
-  // oltre l'altra PR) e stale-review (drift/conflitto). Una LGTM'd+verde senza
-  // collisione → lasciala ad auto-merge.
+  // rebase serve DAVVERO: collision-risk SOLO quando collisionGateBlocks rileva
+  // un peer collidente già mergiato non ancora incluso in head (#6039: prima
+  // la label da sola forzava sempre 'rebase', mentre auto-merge-eval dal #2424
+  // blocca il merge solo su quell'hazard preciso — il disallineamento faceva
+  // ri-rebasare a ogni movimento di main una PR che il gate di merge avrebbe
+  // già lasciato passare, e il push del rebase cancellava la review in corso)
+  // e stale-review (drift/conflitto). Una LGTM'd+verde senza collisione REALE →
+  // lasciala ad auto-merge.
   // NB: vitest deve essere non-`failure`. Su failure va rebasata per ereditare
   // eventuali fix lato main (una PR behind+LGTM con vitest=failure NON è
   // mergeable-as-is: auto-merge-eval esige conclusion==success).
@@ -885,9 +931,10 @@ async function processPR(pr) {
   // la lascerebbe stuck (gate 3 mai success) → la SANIAMO dispatchando tests
   // (orphan-heal esteso a behind>0, prima solo behind===0), senza rebasare: il
   // check vitest atterra su una head STABILE e auto-merge la mergia behind.
+  const collisionRisk = labels.includes('collision-risk');
   const action = rebaseActionForLgtmPr({
     lgtm,
-    collisionRisk: labels.includes('collision-risk'),
+    collisionBlocked: collisionRisk && collisionGateBlocks(num, head, behind),
     vitestConclusion: vitestConclusion(head),
     hasVitestCheck: headHasVitestCheck(head),
   });
