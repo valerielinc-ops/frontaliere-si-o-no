@@ -132,8 +132,9 @@ chiusura transitiva degli import.
    cancellazioni, e l'index resta completo a 41'703 path. E' cio' che rende
    sicuri i workflow che committano.
 
-**Risultato.** 176 job su 212, checkout medio da 6'829 MB a ~1'900 MB (-71%);
-58 job scendono al minimo di 198 MB. Misurato in un worktree reale col profilo
+**Risultato.** 112 job su 213 prendono lo sparse (gli altri restano pieni: o
+sono opachi, o stanno sopra la soglia di convenienza qui sotto); su quei 112 il
+checkout scende in media a ~430 MB, e 56 arrivano al minimo di 198 MB. Misurato in un worktree reale col profilo
 generato per `pr-collision-detector.yml`: **214 MB / 6'970 file**. Pesato sulle
 frequenze di run reali, il tempo di checkout del campione cala del ~46%, con i
 job del ciclo agentico che crollano (`pr-collision-detector` 98s → ~11s stimati).
@@ -141,6 +142,51 @@ job del ciclo agentico che crollano (`pr-collision-detector` 98s → ~11s stimat
 Gli 8 profili scritti a mano non sono stati toccati: alcuni sono **piu'** snelli
 di quanto l'analisi sappia produrre (`measure-deploy-delta.yml` si porta giu' un
 solo file `.py`), e sovrascriverli sarebbe stata una regressione.
+
+**La soglia oltre la quale lo sparse checkout PEGGIORA le cose.** E' la cosa
+meno intuitiva di tutto il meccanismo, e va conosciuta prima di allargare i
+profili. `sparse-checkout` implica `filter: blob:none`: il fetch iniziale porta
+giu' solo commit e tree, e i blob che servono arrivano con una **seconda**
+richiesta pigra. Quando ne servono pochi si vince molto; quando ne serve gran
+parte, quella seconda richiesta costa piu' del pack unico che si sarebbe
+scaricato in un colpo solo.
+
+Misurato sulle run di `main` dopo il primo giro, confrontando ogni job con se
+stesso. Il gruppo di **controllo** — i job rimasti a checkout pieno, mai toccati
+— e' indispensabile: nella stessa finestra la CI e' diventata **1,84x piu' lenta
+da sola**, quindi i confronti grezzi prima/dopo dicevano «peggiorato» anche per
+job che nessuno aveva modificato.
+
+| checkout residuo | grezzo | corretto per la deriva | |
+|---|---|---|---|
+| < 300 MB | 0,20x | **0,11x** | 9x piu' veloce |
+| 300-800 MB | 0,40x | **0,22x** | |
+| 0,8-1,5 GB | 1,45x | **0,79x** | |
+| 1,5-3,5 GB | 2,76x | **1,49x** | **perdita** |
+| 3,5-6,8 GB | 3,91x | **2,12x** | **perdita** |
+
+Conferma diretta, che elimina ogni deriva perche' confronta due run dello stesso
+branch a 25 minuti di distanza, diverse solo per questo commit:
+
+| | `vitest` — passo Checkout |
+|---|---|
+| sparse, 2'885 MB residui | **363s** |
+| fetch unico (sopra la soglia) | **218s** |
+
+Lo sparse costava **+145s (1,67x)** sul job piu' frequente del repo. Nello stesso
+confronto `typecheck`, che a 475 MB sta sotto la soglia, tiene il suo guadagno:
+25-33s contro i 211s di prima.
+
+Da qui `CROSSOVER_MB = 1500` in `checkout-profile-analyzer.mjs`: se anche
+escludendo tutto il possibile resterebbero piu' di 1,5 GB, il job **non** prende
+lo sparse e resta a fetch unico. Ha riportato a checkout pieno 65 job su 177 —
+compreso `tests.yml:vitest`, che a 2'885 MB sarebbe stato il caso peggiore
+proprio perche' e' il job piu' frequente del repo. Il guard lo verifica: un
+profilo sopra la soglia e' un difetto, non un'ottimizzazione.
+
+Lezione generale, valida oltre questo repo: **un before/after su CI condivisa
+non significa niente senza un gruppo di controllo.** Qui la deriva era piu'
+grande dell'effetto cercato, e avrebbe fatto concludere l'opposto del vero.
 
 **Manutenzione.** Il rischio non e' il giorno in cui scrivi i pattern: e' il
 mese dopo, quando qualcuno fa leggere `data/jobs/` a uno script che prima non lo
