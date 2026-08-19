@@ -1,16 +1,16 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-08-19T10:11:00.019Z",
+  "generatedAt": "2026-08-19T21:47:11.954Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6468,
-  "avgDurationMs": 6468,
+  "durationMs": 6805,
+  "avgDurationMs": 6805,
   "durationHistory": [
-    6468
+    6805
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:10:55.462Z",
+      "crawledAt": "2026-08-19T21:47:06.875Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/CEY-BO/Network-Engineer---Cloud-Operations_R-25439-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:10:56.252Z",
+      "crawledAt": "2026-08-19T21:47:07.808Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:10:57.064Z",
+      "crawledAt": "2026-08-19T21:47:08.574Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,47 +126,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "siemens-healthineers-d8ef7d5dea6d",
-      "slug": "sr-system-quality-ingegnere-siemens-healthineers-dwl-t",
-      "company": "Siemens Healthineers",
-      "companyKey": "siemens-healthineers",
-      "companyDomain": "siemens-healthineers.com",
-      "title": "Sr System Quality Engineer",
-      "needsRetranslation": false,
-      "location": "DWL T",
-      "canton": "ZH",
-      "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-System-Quality-Engineer_R-27475-1",
-      "source": "Siemens Healthineers Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:37:22.911Z",
-      "addressLocality": "DWL T",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità / Compliance",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Medicale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-System-Quality-Engineer_R-27475-1",
-      "jobReqId": "R-27475",
-      "firstSeenAt": "2026-07-08T22:12:18.321Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
