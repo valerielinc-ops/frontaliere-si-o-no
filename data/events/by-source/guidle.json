@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-18T06:21:03.708Z",
+  "assembledAt": "2026-08-19T06:19:28.316Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -1200,48 +1200,6 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AKQMGWB.jpg"
-    },
-    {
-      "id": "guidle:AZVmURc",
-      "title": "Info Point Baden im Kafi Royal",
-      "titleByLocale": {
-        "it": "Info Point Baden im Kafi Royal",
-        "en": "Info Point Baden im Kafi Royal",
-        "de": "Info Point Baden im Kafi Royal",
-        "fr": "Info Point Baden im Kafi Royal"
-      },
-      "description": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
-      "descriptionByLocale": {
-        "it": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
-        "en": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
-        "de": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration",
-        "fr": "Beim Info Point erhalten Sie kostenlose Beratung bei Fragen zur Integration"
-      },
-      "startDate": "2026-08-18",
-      "endDate": "2026-08-18",
-      "startTime": "17:30",
-      "category": "Assistanza nella vita quotidiana",
-      "venue": "Royal",
-      "comune": "Baden",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/baden/info-point-baden_AZVmURc",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Bahnhofstrasse 39",
-        "postalCode": "5400"
-      },
-      "geo": {
-        "lat": 47.4781559,
-        "lng": 8.3086597
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AZVmURc.jpg"
     },
     {
       "id": "guidle:AmDEyrf",
@@ -13794,6 +13752,1951 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-A3y7dFQ.jpg"
+    },
+    {
+      "id": "guidle:A6YPjM4",
+      "title": "La cultura si sostituisce alla scienza",
+      "titleByLocale": {
+        "it": "La cultura si sostituisce alla scienza",
+        "en": "Culture replaces science",
+        "de": "Kultur ersetzt Wissenschaft",
+        "fr": "La culture se substitue à la science"
+      },
+      "description": "Scoprite le emozionanti conferenze e i concerti di Villa Cassel",
+      "descriptionByLocale": {
+        "it": "Scoprite le emozionanti conferenze e i concerti di Villa Cassel",
+        "en": "Experience exciting lectures and concerts at Villa Cassel",
+        "de": "Erlebe spannende Vorträge und Konzerte in der Villa Cassel",
+        "fr": "Assiste à des conférences et des concerts passionnants à la Villa Cassel"
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-10-10",
+      "startTime": "18:00",
+      "category": "Favola / Storie",
+      "venue": "Pro Natura Zentrum Aletsch‎",
+      "comune": "Riederalp",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/riederalp/kultur-trifft-wissenschaft_A6YPjM4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Riederfurka",
+        "postalCode": "3987"
+      },
+      "geo": {
+        "lat": 46.3766166,
+        "lng": 8.0161427
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A6YPjM4.jpg"
+    },
+    {
+      "id": "guidle:A9U876g",
+      "title": "Murten Classics 2025 festival estivo",
+      "titleByLocale": {
+        "it": "Murten Classics 2025 festival estivo",
+        "en": "Murten Classics 2025 Summer Festival",
+        "de": "Sommerfestival Murten Classics 2026",
+        "fr": "Festival d’été Murten Classics 2025"
+      },
+      "description": "Il festival estivo Murten Classics è un festival all'aperto dedicato alla musica classica.",
+      "descriptionByLocale": {
+        "it": "Il festival estivo Murten Classics è un festival all'aperto dedicato alla musica classica.",
+        "en": "The Murten Classics summer festival is an open-air festival dedicated to classical music.",
+        "de": "Die Sommerfestspiele Murten Classics ist ein der klassischen Musik gewidmetes Open-Air-Festival.",
+        "fr": "Le festival d'été Murten Classics est un festival en plein air consacré à la musique classique."
+      },
+      "startDate": "2026-08-19",
+      "endDate": "2026-08-30",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Murten Classics",
+      "comune": "Murten",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/veranstaltungen/murten/sommerfestival-murten-classics-2024_A9U876g",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Case postale",
+        "postalCode": "3280"
+      },
+      "geo": {
+        "lat": 46.9259187,
+        "lng": 7.1139541
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A9U876g.jpg"
+    },
+    {
+      "id": "guidle:ALHdSiL",
+      "title": "Herbstmarkt der Landfrauen Bezirk Dielsdorf in Regensberg",
+      "titleByLocale": {
+        "it": "Herbstmarkt der Landfrauen Bezirk Dielsdorf in Regensberg",
+        "en": "Herbstmarkt der Landfrauen Bezirk Dielsdorf in Regensberg",
+        "de": "Herbstmarkt des Landfrauenbezirks Dielsdorf in Regensberg",
+        "fr": "Herbstmarkt der Landfrauen Bezirk Dielsdorf à Regensberg"
+      },
+      "description": "Der Landfrauen Bezirk Dielsdorf",
+      "descriptionByLocale": {
+        "it": "Der Landfrauen Bezirk Dielsdorf",
+        "en": "Der Landfrauen Bezirk Dielsdorf",
+        "de": "Der Landfrauenbezirk Dielsdorf",
+        "fr": "Le Château de Dielsdorf"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "10:00",
+      "category": "Danza popolare",
+      "venue": "Vor der Burg",
+      "comune": "Regensberg",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/regensberg/herbstmarkt-der-landfrauen-bezirk-dielsdorf-in-regensberg_ALHdSiL",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "8158"
+      },
+      "geo": {
+        "lat": 47.482145,
+        "lng": 8.436362
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ALHdSiL.jpg"
+    },
+    {
+      "id": "guidle:Axtrian",
+      "title": "Galakonzert des Internationalen Opernstudios",
+      "titleByLocale": {
+        "it": "Galakonzert des Internationalen Opernstudios",
+        "en": "Galakonzert des Internationalen Operastudios",
+        "de": "Galakonzert des Internationalen Operastudios",
+        "fr": "Galakonzert des Internationalen Operastudios"
+      },
+      "description": "Galakonzert des Internationalen Opernstudios",
+      "descriptionByLocale": {
+        "it": "Galakonzert des Internationalen Opernstudios",
+        "en": "Galakonzert des Internationalen Operastudios",
+        "de": "Galakonzert des Internationalen Operastudios",
+        "fr": "Galakonzert des Internationalen Operastudios"
+      },
+      "startDate": "2027-07-05",
+      "endDate": "2027-07-05",
+      "startTime": "19:00",
+      "category": "Opera",
+      "venue": "Opernhaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/galakonzert-des-internationalen-opernstudios_Axtrian",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Sechseläutenplatz 1",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3654459,
+        "lng": 8.5472918
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Axtrian.jpg"
+    },
+    {
+      "id": "guidle:AfjJdrE",
+      "title": "Ballettschule für das Opernhaus Zürich",
+      "titleByLocale": {
+        "it": "Ballettschule für das Opernhaus Zürich",
+        "en": "Ballettschule das Opernhaus Zrich",
+        "de": "Ballettschule F. V. das Opernhaus Z. V. V.",
+        "fr": "École de Danse de l'Opéra Zurich"
+      },
+      "description": "Ballettschule für das Opernhaus Zürich",
+      "descriptionByLocale": {
+        "it": "Ballettschule für das Opernhaus Zürich",
+        "en": "Ballettschule das Opernhaus Zrich",
+        "de": "Ballettschule F. V. das Opernhaus Z. V. V.",
+        "fr": "École de Danse de l'Opéra Zurich"
+      },
+      "startDate": "2027-06-19",
+      "endDate": "2027-06-19",
+      "startTime": "11:00",
+      "category": "Balleto",
+      "venue": "Opernhaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/ballettschule-fuer-das-opernhaus-zuerich_AfjJdrE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Sechseläutenplatz 1",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3654459,
+        "lng": 8.5472918
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AfjJdrE.jpg"
+    },
+    {
+      "id": "guidle:AGTNJLs",
+      "title": "\"Storie d'amore nel vuoto\" di Naira Ramos e Laura Jana Luterbach",
+      "titleByLocale": {
+        "it": "\"Storie d'amore nel vuoto\" di Naira Ramos e Laura Jana Luterbach",
+        "en": "\"Love stories in a vacuum\" performance by Naira Ramos and Laura Jana Luterbach",
+        "de": "«Liebesgeschichten im Vakuum» Performance Naira Ramos und Laura Jana Luterbach",
+        "fr": "\"Histoires d'amour dans le vide\" Performance Naira Ramos et Laura Jana Luterbach"
+      },
+      "description": "Racchiuse nel vuoto, le artiste Naira Ramos e Laura Jana Luterbach raccontano storie d'amore in cerchio per accompagnare la mostra \"Love\" alla Kunsthalle Luzern.",
+      "descriptionByLocale": {
+        "it": "Racchiuse nel vuoto, le artiste Naira Ramos e Laura Jana Luterbach raccontano storie d'amore in cerchio per accompagnare la mostra \"Love\" alla Kunsthalle Luzern.",
+        "en": "Enclosed in a vacuum, the artists Naira Ramos and Laura Jana Luterbach tell circling love stories to accompany the \"Love\" exhibition at the Kunsthalle Luzern.",
+        "de": "Eingeschlossen im Vakuum erzählen die Künstlerinnen Naira Ramos und Laura Jana Luterbach passend zur Ausstellung «Love» in der Kunsthalle Luzern circludierende Liebesgeschichten.",
+        "fr": "Enfermées dans le vide, les artistes Naira Ramos et Laura Jana Luterbach racontent des histoires d'amour circassiennes en accord avec l'exposition \"Love\" à la Kunsthalle de Lucerne."
+      },
+      "startDate": "2026-08-30",
+      "endDate": "2026-08-30",
+      "startTime": "16:00",
+      "category": "L'arte in generale",
+      "venue": "Kunsthalle Luzern",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/evenementen/klassiek/luzern/liefdesverhalen-in-het-luchtledige-voorstelling-door-naira-ramos-en-laura-jana-luterbach_AGTNJLs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Löwenplatz 11",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0569262,
+        "lng": 8.3112529
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AGTNJLs.jpg"
+    },
+    {
+      "id": "guidle:AickMNc",
+      "title": "Aquarell Doodles 2026",
+      "titleByLocale": {
+        "it": "Scarabocchi Aquarell",
+        "en": "Aquarell Doodles",
+        "de": "Aquarell-Doodles",
+        "fr": "Gribouillis Aquarell"
+      },
+      "description": "In diesem Kreativ Workshop lassen wir die Farben fliessen und gestalten Aquarell Doodles mit Aquarellfarben und Fineliner.",
+      "descriptionByLocale": {
+        "it": "In questo laboratorio creativo lasciamo fluire i colori e creiamo scarabocchi ad acquerello con acquerelli e fineliner.",
+        "en": "In this creative workshop we let the colors flow and create watercolor doodles with watercolors and fineliner.",
+        "de": "In diesem Kreativ-Workshop lassen wir die Farben fließen und kreieren Aquarell-Doodles mit Aquarellen und Fineliner.",
+        "fr": "Dans cet atelier créatif, nous laissons les couleurs s'écouler et créons des griffonnages à l'aquarelle avec des aquarelles et du fineliner."
+      },
+      "startDate": "2026-09-08",
+      "endDate": "2026-09-08",
+      "startTime": "18:00",
+      "category": "L'arte in generale",
+      "venue": "Atelier Geringer",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/events/this-that/ringgenberg-be/aquarell-doodles_AickMNc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "3852"
+      },
+      "geo": {
+        "lat": 46.707435,
+        "lng": 7.910291
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AickMNc.jpg"
+    },
+    {
+      "id": "guidle:ADeNj7d",
+      "title": "FIDELIO",
+      "titleByLocale": {
+        "it": "FIDELIO",
+        "en": "FIDELIO",
+        "de": "FIDELIO",
+        "fr": "FIDELIO"
+      },
+      "description": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+      "descriptionByLocale": {
+        "it": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "en": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "de": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "fr": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten."
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "startTime": "19:30",
+      "category": "Opera",
+      "venue": "Passionsspielhaus Selzach",
+      "comune": "Selzach",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/selzach/beethovens-fidelio_ADeNj7d",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfstrasse 11",
+        "postalCode": "2545"
+      },
+      "geo": {
+        "lat": 47.2043639,
+        "lng": 7.4554694
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ADeNj7d.jpg"
+    },
+    {
+      "id": "guidle:A4MtT6C",
+      "title": "FIDELIO",
+      "titleByLocale": {
+        "it": "FIDELIO",
+        "en": "FIDELIO",
+        "de": "FIDELIO",
+        "fr": "FIDELIO"
+      },
+      "description": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+      "descriptionByLocale": {
+        "it": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "en": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "de": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "fr": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten."
+      },
+      "startDate": "2026-08-19",
+      "endDate": "2026-08-19",
+      "startTime": "19:30",
+      "category": "Opera",
+      "venue": "Passionsspielhaus Selzach",
+      "comune": "Selzach",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/selzach/beethovens-fidelio_A4MtT6C",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfstrasse 11",
+        "postalCode": "2545"
+      },
+      "geo": {
+        "lat": 47.2043639,
+        "lng": 7.4554694
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4MtT6C.jpg"
+    },
+    {
+      "id": "guidle:AL9njX3",
+      "title": "FIDELIO",
+      "titleByLocale": {
+        "it": "FIDELIO",
+        "en": "FIDELIO",
+        "de": "FIDELIO",
+        "fr": "FIDELIO"
+      },
+      "description": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+      "descriptionByLocale": {
+        "it": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "en": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "de": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten.",
+        "fr": "Beethovens einzige Oper – eine packende Geschichte von Liebe, Mut und Freiheit: Leonore riskiert alles, um ihren geliebten Florestan aus dem Kerker zu retten."
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "19:30",
+      "category": "Opera",
+      "venue": "Passionsspielhaus Selzach",
+      "comune": "Selzach",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/selzach/beethovens-fidelio_AL9njX3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfstrasse 11",
+        "postalCode": "2545"
+      },
+      "geo": {
+        "lat": 47.2043639,
+        "lng": 7.4554694
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AL9njX3.jpg"
+    },
+    {
+      "id": "guidle:ACwiHUL",
+      "title": "Swiss Chamber Music Festival 2026",
+      "titleByLocale": {
+        "it": "Swiss Chamber Music Festival 2026",
+        "en": "Swiss Chamber Music Festival 2026",
+        "de": "Swiss Chamber Music Festival 2026",
+        "fr": "Swiss Chamber Music Festival 2026"
+      },
+      "description": "Das Swiss Chamber Music Festival ist ein zehntägiges Festival für den kammermusikalischen Spitzennachwuchs.",
+      "descriptionByLocale": {
+        "it": "Das Swiss Chamber Music Festival ist ein zehntägiges Festival für den kammermusikalischen Spitzennachwuchs.",
+        "en": "The Swiss Chamber Music Festival is a ten-day festival for the top young talent in chamber music.",
+        "de": "Das Swiss Chamber Music Festival ist ein zehntägiges Festival für den kammermusikalischen Spitzennachwuchs.",
+        "fr": "Le Festival de Musique de Chambre Suisse est un festival de dix jours pour les jeunes talents de la musique de chambre."
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-20",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Adelboden/Frutigen",
+      "comune": "Adelboden",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/adelboden/swiss-chamber-music-festival-2026_ACwiHUL",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "3715"
+      },
+      "geo": {
+        "lat": 46.4793126,
+        "lng": 7.552189
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ACwiHUL.jpg"
+    },
+    {
+      "id": "guidle:AM7JyMU",
+      "title": "OJF – 8ème concert du dimanche",
+      "titleByLocale": {
+        "it": "OJF – 8ème concert du dimanche",
+        "en": "OJF – 8ème concert du dimanche",
+        "de": "OJF – 8ème concert du dimanche",
+        "fr": "OJF – 8ème concert du dimanche"
+      },
+      "description": "Orchestre des Jeunes de Fribourg",
+      "descriptionByLocale": {
+        "it": "Orchestre des Jeunes de Fribourg",
+        "en": "Orchestre des Jeunes de Fribourg",
+        "de": "Orchestre des Jeunes de Fribourg",
+        "fr": "Orchestre des Jeunes de Fribourg"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "00:00",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Eglise paroissiale cath.-rom. de Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/suche/villars-sur-glane/ojf-8eme-concert-du-dimanche_AM7JyMU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Route de l'Eglise 6",
+        "postalCode": "1752"
+      },
+      "geo": {
+        "lat": 46.7909661,
+        "lng": 7.1157655
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AM7JyMU.jpg"
+    },
+    {
+      "id": "guidle:A3hy1nn",
+      "title": "ArtLändler - Lukas Gernet, Pirmin Huber, Ayane Kondo",
+      "titleByLocale": {
+        "it": "ArtLändler - Lukas Gernet, Pirmin Huber, Ayane Kondo",
+        "en": "ArtLändler - Albin Brun & Kristina Brunner",
+        "de": "ArtLändler - Lukas Gernet, Pirmin Huber, Ayane Kondo",
+        "fr": "ArtLändler - Lukas Gernet, Pirmin Huber, Ayane Kondo"
+      },
+      "description": "Tradition und Moderne vereint - ein Abend voller Spielfreude, feiner Improvisationen und musikalischer Geschichten.",
+      "descriptionByLocale": {
+        "it": "Tradition und Moderne vereint - ein Abend voller Spielfreude, feiner Improvisationen und musikalischer Geschichten.",
+        "en": "The concert series that unites Swiss folk music with modern art in a unique way.",
+        "de": "Tradition und Moderne vereint - ein Abend voller Spielfreude, feiner Improvisationen und musikalischer Geschichten.",
+        "fr": "Tradition und Moderne vereint - ein Abend voller Spielfreude, feiner Improvisationen und musikalischer Geschichten."
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "20:00",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Restaurant Weisser Wind",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/alternative/zuerich/artlaendler-albin-brun-und-kristina-brunner_A3hy1nn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Oberdorfstrasse 20",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3688424,
+        "lng": 8.5455573
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A3hy1nn.jpg"
+    },
+    {
+      "id": "guidle:ABKY6nY",
+      "title": "Schubertiade Schwarzenberg - David Fray",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - David Fray",
+        "en": "Schubertiade Schwarzenberg - David Fray",
+        "de": "Schubertiade Schwarzenberg - David Fray",
+        "fr": "Schubertiade Schwarzenberg - David Fray"
+      },
+      "description": "Klavierabend",
+      "descriptionByLocale": {
+        "it": "Klavierabend",
+        "en": "Klavierabend",
+        "de": "Klavierabend",
+        "fr": "Klavierabend"
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-david-fray_ABKY6nY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ABKY6nY.jpg"
+    },
+    {
+      "id": "guidle:AGtv1TX",
+      "title": "Schubertiade Schwarzenberg - Quatuor Danel, Elisabeth Leonskaja",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Quatuor Danel, Elisabeth Leonskaja",
+        "en": "Schubertiade Schwarzenberg - Quatuor Danel, Elisabeth Leonskaja",
+        "de": "Schubertiade Schwarzenberg - Quatuor Danel, Elisabeth Leonskaja",
+        "fr": "Schubertiade Schwarzenberg - Quatuor Danel, Elisabeth Leonskaja"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-quatuor-danel-elisabeth-leonskaja_AGtv1TX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AGtv1TX.jpg"
+    },
+    {
+      "id": "guidle:AH42VXr",
+      "title": "Schubertiade Schwarzenberg - Konstantin Krimmel & Ammiel Bushakevitz",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Konstantin Krimmel & Ammiel Bushakevitz",
+        "en": "Schubertiade Schwarzenberg - Konstantin Krimmel & Ammiel Bushakevitz",
+        "de": "Schubertiade Schwarzenberg - Konstantin Krimmel & Ammiel Bushakevitz",
+        "fr": "Schubertiade Schwarzenberg - Konstantin Krimmel & Ammiel Bushakevitz"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-konstantin-krimmel-und-ammiel-bushakevitz_AH42VXr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AH42VXr.jpg"
+    },
+    {
+      "id": "guidle:AETs6m4",
+      "title": "Schubertiade Schwarzenberg - Pavel Haas Quartett, Pavel Nikl, Ivan Vokac",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Pavel Haas Quartett, Pavel Nikl, Ivan Vokac",
+        "en": "Schubertiade Schwarzenberg - Pavel Haas Quartett, Pavel Nikl, Ivan Vokac",
+        "de": "Schubertiade Schwarzenberg - Pavel Haas Quartett, Pavel Nikl, Ivan Vokac",
+        "fr": "Schubertiade Schwarzenberg - Pavel Haas Quartett, Pavel Nikl, Ivan Vokac"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "11:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-pavel-haas-quartett-pavel-nikl-ivan-vokac_AETs6m4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AETs6m4.jpg"
+    },
+    {
+      "id": "guidle:AdiygPT",
+      "title": "Schubertiade Schwarzenberg - Christiane Karg, David Fray",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Christiane Karg, David Fray",
+        "en": "Schubertiade Schwarzenberg - Christiane Karg, David Fray",
+        "de": "Schubertiade Schwarzenberg - Christiane Karg, David Fray",
+        "fr": "Schubertiade Schwarzenberg - Christiane Karg, David Fray"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-christiane-karg-david-fray_AdiygPT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AdiygPT.jpg"
+    },
+    {
+      "id": "guidle:AffteGA",
+      "title": "Schubertiade Schwarzenberg - Elisabeth Leonskaja",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Elisabeth Leonskaja",
+        "en": "Schubertiade Schwarzenberg - Elisabeth Leonskaja",
+        "de": "Schubertiade Schwarzenberg - Elisabeth Leonskaja",
+        "fr": "Schubertiade Schwarzenberg - Elisabeth Leonskaja"
+      },
+      "description": "Klavierabend",
+      "descriptionByLocale": {
+        "it": "Klavierabend",
+        "en": "Klavierabend",
+        "de": "Klavierabend",
+        "fr": "Klavierabend"
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-elisabeth-leonskaja_AffteGA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AffteGA.jpg"
+    },
+    {
+      "id": "guidle:AxHLcB7",
+      "title": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
+        "en": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
+        "de": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
+        "fr": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-24",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-andre-schuen-daniel-heide_AxHLcB7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AxHLcB7.jpg"
+    },
+    {
+      "id": "guidle:AYgS4jY",
+      "title": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
+        "en": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
+        "de": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
+        "fr": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-24",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-veronika-eberle-julia-hagen-lukas-sternath_AYgS4jY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AYgS4jY.jpg"
+    },
+    {
+      "id": "guidle:AVxXbDv",
+      "title": "Schubertiade Schwarzenberg- Marc-André Hamelin",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg- Marc-André Hamelin",
+        "en": "Schubertiade Schwarzenberg- Marc-André Hamelin",
+        "de": "Schubertiade Schwarzenberg- Marc-André Hamelin",
+        "fr": "Schubertiade Schwarzenberg- Marc-André Hamelin"
+      },
+      "description": "Klavierabend",
+      "descriptionByLocale": {
+        "it": "Klavierabend",
+        "en": "Klavierabend",
+        "de": "Klavierabend",
+        "fr": "Klavierabend"
+      },
+      "startDate": "2026-08-25",
+      "endDate": "2026-08-25",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-marc-andre-hamelin_AVxXbDv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AVxXbDv.jpg"
+    },
+    {
+      "id": "guidle:A3f447M",
+      "title": "Schubertiade Schwarzenberg - Sophie Rennert, Joseph Middlteon",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Sophie Rennert, Joseph Middlteon",
+        "en": "Schubertiade Schwarzenberg - Sophie Rennert, Joseph Middlteon",
+        "de": "Schubertiade Schwarzenberg - Sophie Rennert, Joseph Middlteon",
+        "fr": "Schubertiade Schwarzenberg - Sophie Rennert, Joseph Middlteon"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-08-25",
+      "endDate": "2026-08-25",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-sophie-rennert-joseph-middlteon_A3f447M",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A3f447M.jpg"
+    },
+    {
+      "id": "guidle:AVbejir",
+      "title": "Schubertiade Schwarzenberg - Minetti Quartett, Wagner, Schorn, Huber, Seidel",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Minetti Quartett, Wagner, Schorn, Huber, Seidel",
+        "en": "Schubertiade Schwarzenberg - Minetti Quartett, Wagner, Schorn, Huber, Seidel",
+        "de": "Schubertiade Schwarzenberg - Minetti Quartett, Wagner, Schorn, Huber, Seidel",
+        "fr": "Schubertiade Schwarzenberg - Minetti Quartett, Wagner, Schorn, Huber, Seidel"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-08-26",
+      "endDate": "2026-08-26",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-minetti-quartett-wagner-schorn-huber-seidel_AVbejir",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AVbejir.jpg"
+    },
+    {
+      "id": "guidle:AbnWZtR",
+      "title": "Schubertiade Schwarzenberg - Hillebrand, Nolz, Peter, Steffens, Martineau",
+      "titleByLocale": {
+        "it": "Schubertiade Schwarzenberg - Hillebrand, Nolz, Peter, Steffens, Martineau",
+        "en": "Schubertiade Schwarzenberg - Hillebrand, Nolz, Peter, Steffens, Martineau",
+        "de": "Schubertiade Schwarzenberg - Hillebrand, Nolz, Peter, Steffens, Martineau",
+        "fr": "Schubertiade Schwarzenberg - Hillebrand, Nolz, Peter, Steffens, Martineau"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-08-26",
+      "endDate": "2026-08-26",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Angelika-Kauffmann-Saal",
+      "comune": "Schwarzenberg",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-hillebrand-nolz-peter-steffens-martineau_AbnWZtR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hof 454",
+        "postalCode": "6867"
+      },
+      "geo": {
+        "lat": 47.4139925,
+        "lng": 9.8548089
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AbnWZtR.jpg"
+    },
+    {
+      "id": "guidle:AQHe7aj",
+      "title": "Schubertiade Hohenems - Paul Lewis",
+      "titleByLocale": {
+        "it": "Schubertiade Hohenems - Paul Lewis",
+        "en": "Schubertiade Hohenems - Paul Lewis",
+        "de": "Schubertiade Hohenems - Paul Lewis",
+        "fr": "Schubertiade Hohenems - Paul Lewis"
+      },
+      "description": "Klavierabend",
+      "descriptionByLocale": {
+        "it": "Klavierabend",
+        "en": "Klavierabend",
+        "de": "Klavierabend",
+        "fr": "Klavierabend"
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Markus-Sittikus-Saal",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/hohenems/schubertiade-hohenems-paul-lewis_AQHe7aj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6845"
+      },
+      "geo": {
+        "lat": 47.3630457,
+        "lng": 9.6874326
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AQHe7aj.jpg"
+    },
+    {
+      "id": "guidle:ALrP5qv",
+      "title": "Schubertiade Hohenems - Andrè Schuen, Daniel Heide",
+      "titleByLocale": {
+        "it": "Schubertiade Hohenems - Andrè Schuen, Daniel Heide",
+        "en": "Schubertiade Hohenems - Andrè Schuen, Daniel Heide",
+        "de": "Schubertiade Hohenems - Andrè Schuen, Daniel Heide",
+        "fr": "Schubertiade Hohenems - Andrè Schuen, Daniel Heide"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-02",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Markus-Sittikus-Saal",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/hohenems/schubertiade-hohenems-andre-schuen-daniel-heide_ALrP5qv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6845"
+      },
+      "geo": {
+        "lat": 47.3630457,
+        "lng": 9.6874326
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ALrP5qv.jpg"
+    },
+    {
+      "id": "guidle:AYytEjA",
+      "title": "Schubertiade Hohenems - Kuss Quartett",
+      "titleByLocale": {
+        "it": "Schubertiade Hohenems - Kuss Quartett",
+        "en": "Schubertiade Hohenems - Kuss Quartett",
+        "de": "Schubertiade Hohenems - Kuss Quartett",
+        "fr": "Schubertiade Hohenems - Kuss Quartett"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-02",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Markus-Sittikus-Saal",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/hohenems/schubertiade-hohenems-kuss-quartett_AYytEjA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6845"
+      },
+      "geo": {
+        "lat": 47.3630457,
+        "lng": 9.6874326
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AYytEjA.jpg"
+    },
+    {
+      "id": "guidle:AUTb8Xi",
+      "title": "Schubertiade Hohenems - Armida Quartett, Harriet Krijgh",
+      "titleByLocale": {
+        "it": "Schubertiade Hohenems - Armida Quartett, Harriet Krijgh",
+        "en": "Schubertiade Hohenems - Armida Quartett, Harriet Krijgh",
+        "de": "Schubertiade Hohenems - Armida Quartett, Harriet Krijgh",
+        "fr": "Schubertiade Hohenems - Armida Quartett, Harriet Krijgh"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "16:00",
+      "category": "Festival / Incontro",
+      "venue": "Markus-Sittikus-Saal",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/hohenems/schubertiade-hohenems-armida-quartett-harriet-krijgh_AUTb8Xi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6845"
+      },
+      "geo": {
+        "lat": 47.3630457,
+        "lng": 9.6874326
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AUTb8Xi.jpg"
+    },
+    {
+      "id": "guidle:Ap2tvmc",
+      "title": "Schubertiade Hohenems - Alexander Grassauer & Ammiel Bushakevitz",
+      "titleByLocale": {
+        "it": "Schubertiade Hohenems - Alexander Grassauer & Ammiel Bushakevitz",
+        "en": "Schubertiade Hohenems - Alexander Grassauer & Ammiel Bushakevitz",
+        "de": "Schubertiade Hohenems - Alexander Grassauer & Ammiel Bushakevitz",
+        "fr": "Schubertiade Hohenems - Alexander Grassauer & Ammiel Bushakevitz"
+      },
+      "description": "Liederabend",
+      "descriptionByLocale": {
+        "it": "Liederabend",
+        "en": "Liederabend",
+        "de": "Liederabend",
+        "fr": "Liederabend"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Markus-Sittikus-Saal",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/hohenems/schubertiade-hohenems-alexander-grassauer-und-ammiel-bushakevitz_Ap2tvmc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6845"
+      },
+      "geo": {
+        "lat": 47.3630457,
+        "lng": 9.6874326
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ap2tvmc.jpg"
+    },
+    {
+      "id": "guidle:AAMgHP3",
+      "title": "Schubertiade Hohenems - Hagner, Brendel, Fellner",
+      "titleByLocale": {
+        "it": "Schubertiade Hohenems - Hagner, Brendel, Fellner",
+        "en": "Schubertiade Hohenems - Hagner, Brendel, Fellner",
+        "de": "Schubertiade Hohenems - Hagner, Brendel, Fellner",
+        "fr": "Schubertiade Hohenems - Hagner, Brendel, Fellner"
+      },
+      "description": "Kammerkonzert",
+      "descriptionByLocale": {
+        "it": "Kammerkonzert",
+        "en": "Kammerkonzert",
+        "de": "Kammerkonzert",
+        "fr": "Kammerkonzert"
+      },
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
+      "startTime": "11:00",
+      "category": "Festival / Incontro",
+      "venue": "Markus-Sittikus-Saal",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/hohenems/schubertiade-hohenems-hagner-brendel-fellner_AAMgHP3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6845"
+      },
+      "geo": {
+        "lat": 47.3630457,
+        "lng": 9.6874326
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AAMgHP3.jpg"
+    },
+    {
+      "id": "guidle:Afkhw1u",
+      "title": "ReRenaissance-Basel: Quodlibet",
+      "titleByLocale": {
+        "it": "ReRenaissance-Basel: Quodlibet",
+        "en": "ReRenaissance-Basel: Quodlibet",
+        "de": "ReRenaissance-Basel: Quodlibet",
+        "fr": "ReRenaissance-Basel: Quodlibet"
+      },
+      "description": "Rätsel, Spiel und Spass",
+      "descriptionByLocale": {
+        "it": "Rätsel, Spiel und Spass",
+        "en": "Rätsel, Spiel und Spass",
+        "de": "Rätsel, Spiel und Spass",
+        "fr": "Rätsel, Spiel und Spass"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "18:15",
+      "category": "Pre-barocco",
+      "venue": "Historisches Museum Basel: Barfüsserkirche",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/rerenaissance-basel-quodlibet_Afkhw1u",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Barfüsserplatz 7",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.554611,
+        "lng": 7.5901538
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Afkhw1u.jpg"
+    },
+    {
+      "id": "guidle:A2MdYxR",
+      "title": "Zuger Sinfonietta - Fyrabigkonzert",
+      "titleByLocale": {
+        "it": "Zuger Sinfonietta - Fyrabigkonzert",
+        "en": "Zuger Sinfonietta - Fyrabigkonzert",
+        "de": "Zuger Sinfonietta - Fyrabigkonzert",
+        "fr": "Zuger Sinfonietta - Fyrabigkonzert"
+      },
+      "description": "Fyrabigkonzert",
+      "descriptionByLocale": {
+        "it": "Fyrabigkonzert",
+        "en": "Fyrabigkonzert",
+        "de": "Fyrabigkonzert",
+        "fr": "Fyrabigkonzert"
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "startTime": "18:00",
+      "category": "Musica classica",
+      "venue": "Zentrum Dorfmatt",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rotkreuz/zuger-sinfonietta-fyrabigkonzert_A2MdYxR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfmatt 1",
+        "postalCode": "6343"
+      },
+      "geo": {
+        "lat": 47.1414991,
+        "lng": 8.4317236
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:A63RXiN",
+      "title": "J. S. Bach: BWV 177 \"Ti chiamo, Signore Gesù Cristo\".",
+      "titleByLocale": {
+        "it": "J. S. Bach: BWV 177 \"Ti chiamo, Signore Gesù Cristo\".",
+        "en": "J. S. Bach: BWV 177 \"I call to you, Lord Jesus Christ\"",
+        "de": "J. S. Bach: BWV 177 «Ich ruf zu dir, Herr Jesu Christ»",
+        "fr": "J. S. Bach : BWV 177 \"Je t'appelle, Seigneur Jésus Christ"
+      },
+      "description": "Cantata per la IV domenica dopo la Trinità, per soprano, contralto e tenore, ensemble vocale, oboe I+II anche oboe da caccia, fagotto, archi e basso continuo.",
+      "descriptionByLocale": {
+        "it": "Cantata per la IV domenica dopo la Trinità, per soprano, contralto e tenore, ensemble vocale, oboe I+II anche oboe da caccia, fagotto, archi e basso continuo.",
+        "en": "Cantata for the 4th Sunday after Trinity, for soprano, alto and tenor, vocal ensemble, oboe I+II also oboe da caccia, bassoon, strings and basso continuo.",
+        "de": "Kantate zum 4. Sonntag nach Trinitatis, für Sopran, Alt und Tenor, Vokalensemble, Oboe I+II auch Oboe da caccia, Fagott, Streicher und Basso continuo.",
+        "fr": "Cantate pour le 4e dimanche après la Trinité, pour soprano, alto et ténor, ensemble vocal, hautbois I+II également hautbois da caccia, basson, cordes et basse continue."
+      },
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "startTime": "19:00",
+      "category": "Barocco",
+      "venue": "Evang.-ref. Kirche Teufen",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/evenementen/klassiek/teufen-ar/j-s-bach-bwv-177-ik-roep-tot-u-heer-jezus-christus_A63RXiN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Dorf",
+        "postalCode": "9053"
+      },
+      "geo": {
+        "lat": 47.3902445,
+        "lng": 9.3877498
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A63RXiN.jpg"
+    },
+    {
+      "id": "guidle:AUg2CWC",
+      "title": "J. S. Bach: BWV 179 \"Fate in modo che il vostro timore di Dio non sia ipocrisia\".",
+      "titleByLocale": {
+        "it": "J. S. Bach: BWV 179 \"Fate in modo che il vostro timore di Dio non sia ipocrisia\".",
+        "en": "J. S. Bach: BWV 179 \"See to it that your fear of God is not hypocrisy\"",
+        "de": "J. S. Bach: BWV 179 «Siehe zu, daß deine Gottesfurcht nicht Heuchelei sei»",
+        "fr": "J. S. Bach : BWV 179 \"Veille à ce que ta crainte de Dieu ne soit pas hypocrisie\"."
+      },
+      "description": "Cantata per l'undicesima domenica dopo la Trinità, per soprano, tenore e basso, ensemble vocale, oboe I+II e oboe da caccia I+II, archi e basso continuo.",
+      "descriptionByLocale": {
+        "it": "Cantata per l'undicesima domenica dopo la Trinità, per soprano, tenore e basso, ensemble vocale, oboe I+II e oboe da caccia I+II, archi e basso continuo.",
+        "en": "Cantata for the 11th Sunday after Trinity, for soprano, tenor and bass, vocal ensemble, oboe I+II also oboe da caccia I+II, strings and basso continuo.",
+        "de": "Kantate zum 11. Sonntag nach Trinitatis, für Sopran, Tenor und Bass, Vokalensemble, Oboe I+II auch Oboe da caccia I+II, Streicher und Basso continuo.",
+        "fr": "Cantate pour le 11e dimanche après la Trinité, pour soprano, ténor et basse, ensemble vocal, hautbois I+II également hautbois da caccia I+II, cordes et basse continue."
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "19:00",
+      "category": "Barocco",
+      "venue": "Evang.-ref. Kirche Trogen",
+      "comune": "Trogen",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/eventos/classica/trogen/j-s-bach-bwv-179-vede-que-o-vosso-temor-de-deus-no-seja-hipocrisia_AUg2CWC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Landsgemeindeplatz 1",
+        "postalCode": "9043"
+      },
+      "geo": {
+        "lat": 47.4076511,
+        "lng": 9.4650541
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AUg2CWC.jpg"
+    },
+    {
+      "id": "guidle:ApYVQRZ",
+      "title": "Zu Gast bei Rudolf Lutz",
+      "titleByLocale": {
+        "it": "Zu Gast bei Rudolf Lutz",
+        "en": "Zu Gast bei Rudolf Lutz",
+        "de": "Zu Gast bei Rudolf Lutz",
+        "fr": "Zu Gast bei Rudolf Lutz"
+      },
+      "description": "Daniel Rosin (Barockcello) ist zu Gast bei Rudolf Lutz. Ein Artist Talk mit Musik und mehr.",
+      "descriptionByLocale": {
+        "it": "Daniel Rosin (Barockcello) ist zu Gast bei Rudolf Lutz. Ein Artist Talk mit Musik und mehr.",
+        "en": "Daniel Rosin (Barockcello) ist zu Gast bei Rudolf Lutz. Ein Artist Talk mit Musik und mehr.",
+        "de": "Daniel Rosin (Barockcello) ist zu Gast bei Rudolf Lutz. Ein Artist Talk mit Musik und mehr.",
+        "fr": "Daniel Rosin (Barockcello) ist zu Gast bei Rudolf Lutz. Ein Artist Talk mit Musik und mehr."
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "10:30",
+      "category": "Barocco",
+      "venue": "Stadthaus St. Gallen",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/st-gallen/zu-gast-bei-rudolf-lutz_ApYVQRZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Gallusstrasse 14",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4236518,
+        "lng": 9.3760881
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ApYVQRZ.jpg"
+    },
+    {
+      "id": "guidle:AjQASP7",
+      "title": "SALVE - Suoni mariani attraverso i secoli",
+      "titleByLocale": {
+        "it": "SALVE - Suoni mariani attraverso i secoli",
+        "en": "SALVE - Marian sounds through the ages",
+        "de": "SALVE – Marienklänge durch die Zeiten",
+        "fr": "SALVE - Les sons de la Vierge à travers les âges"
+      },
+      "description": "Un programma vocale di grande impatto: i Madrigalisti di Basilea combinano canti mariani sacri e popolari da Bruckner a Poulenc - toccanti, variegati e sorprendenti.",
+      "descriptionByLocale": {
+        "it": "Un programma vocale di grande impatto: i Madrigalisti di Basilea combinano canti mariani sacri e popolari da Bruckner a Poulenc - toccanti, variegati e sorprendenti.",
+        "en": "A vocally powerful program: the Basel Madrigalists combine sacred and popular Marian songs from Bruckner to Poulenc - touching, diverse and surprising.",
+        "de": "Ein stimmgewaltiges Programm: Die Basler Madrigalisten vereinen geistliche und volkstümliche Mariengesänge von Bruckner bis Poulenc – berührend, vielfältig und überraschend.",
+        "fr": "Un programme riche en voix : les Basler Madrigalisten réunissent des chants mariaux sacrés et populaires de Bruckner à Poulenc - touchant, varié et surprenant."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "16:00",
+      "category": "Musica chorale",
+      "venue": "Klosterkirche Mariastein",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/events/classical/mariastein/salve-marian-sounds-through-the-ages_AjQASP7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Klosterplatz 2",
+        "postalCode": "4115"
+      },
+      "geo": {
+        "lat": 47.4764541,
+        "lng": 7.4919621
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AjQASP7.jpg"
+    },
+    {
+      "id": "guidle:A5799XN",
+      "title": "Petersburger Nächte - Rubinstein & Korsakow",
+      "titleByLocale": {
+        "it": "Petersburger Nächte - Rubinstein & Korsakow",
+        "en": "Petersburger Nächte - Rubinstein & Korsakow",
+        "de": "Petersburger Nächte - Rubinstein & Korsakow",
+        "fr": "Petersburger Nächte - Rubinstein & Korsakow"
+      },
+      "description": "Zunftkonzerte Zürich - Geniessen Sie Kammermusik auf höchstem Niveau in den schönsten Sälen der Stadt Zürich.",
+      "descriptionByLocale": {
+        "it": "Zunftkonzerte Zürich - Geniessen Sie Kammermusik auf höchstem Niveau in den schönsten Sälen der Stadt Zürich.",
+        "en": "Zunftkonzerte Zürich - Geniessen Sie Kammermusik auf höchstem Niveau in den schönsten Sälen der Stadt Zürich.",
+        "de": "Zunftkonzerte Zürich - Geniessen Sie Kammermusik auf höchstem Niveau in den schönsten Sälen der Stadt Zürich.",
+        "fr": "Zunftkonzerte Zürich - Geniessen Sie Kammermusik auf höchstem Niveau in den schönsten Sälen der Stadt Zürich."
+      },
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
+      "startTime": "16:00",
+      "category": "Musica classica",
+      "venue": "Zunfthaus zur Saffran",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/petersburger-naechte-rubinstein-und-korsakow_A5799XN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Limmatquai 54",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3715391,
+        "lng": 8.5431988
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:A8jS4Li",
+      "title": "Septembre Musical",
+      "titleByLocale": {
+        "it": "Septembre Musical",
+        "en": "Septembre Musical",
+        "de": "Septembre Musical",
+        "fr": "Septembre Musical"
+      },
+      "description": "Das Festival de Musique Classique Montreux-Vevey, das weltweit unter dem Namen Septembre Musical bekannt ist, vereint eine Auswahl der besten Sinfonieund Kammermusikorchester sowie hervorragende",
+      "descriptionByLocale": {
+        "it": "Das Festival de Musique Classique Montreux-Vevey, das weltweit unter dem Namen Septembre Musical bekannt ist, vereint eine Auswahl der besten Sinfonieund Kammermusikorchester sowie hervorragende",
+        "en": "The Montreux-Vevey Classical Music Festival – known throughout the world as the Septembre Musical – is back again this year with a selection of the best symphony and chamber music ensembles as well",
+        "de": "Das Festival de Musique Classique Montreux-Vevey, das weltweit unter dem Namen Septembre Musical bekannt ist, vereint eine Auswahl der besten Sinfonieund Kammermusikorchester sowie hervorragende",
+        "fr": "Le Festival de Musique Classique Montreux-Vevey, mondialement connu sous l’appellation Septembre Musical, réunit en son sein une sélection des meilleurs ensembles symphoniques et de musique de"
+      },
+      "startDate": "2026-09-09",
+      "endDate": "2026-09-18",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Septembre Musical",
+      "comune": "Montreux",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/montreux/septembre-musical_A8jS4Li",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Chemin des Terrasses 10",
+        "postalCode": "1820"
+      },
+      "geo": {
+        "lat": 46.424557,
+        "lng": 6.9253482
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A8jS4Li.jpg"
+    },
+    {
+      "id": "guidle:Aqc7wqQ",
+      "title": "classicAscona (Nr. 81 by Fondazione Settimane Musicali Ascona)",
+      "titleByLocale": {
+        "en": "classicAscona (Nr. 81 by Fondazione Settimane Musicali Ascona)",
+        "fr": "classicAscona (81ème festival de la Fondazione Settimane Musicali Ascona)"
+      },
+      "description": "<strong>classicAscona</strong>(81st edition – Settimane Musicali Ascona Foundation)<strong>18 September – 10 October 2026 | Ascona, Locarno and surroundings</strong>",
+      "descriptionByLocale": {
+        "en": "<strong>classicAscona</strong>(81st edition – Settimane Musicali Ascona Foundation)<strong>18 September – 10 October 2026 | Ascona, Locarno and surroundings</strong>",
+        "fr": "<strong>classicAscona</strong>(81e édition – Fondation Settimane Musicali Ascona)<strong>18 septembre – 10 octobre 2026 | Ascona, Locarno et environs</strong>"
+      },
+      "startDate": "2026-09-18",
+      "endDate": "2026-10-10",
+      "startTime": "00:00",
+      "category": "Festival / Meeting",
+      "venue": "Chiesa di Santa Maria della Misericordia",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/en/musei/bambini/eventi/ascona/classicascona_Aqc7wqQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Aqc7wqQ.jpg"
+    },
+    {
+      "id": "guidle:ADh32B6",
+      "title": "Internationales Orgelfestival Freiburg",
+      "titleByLocale": {
+        "it": "Internationales Orgelfestival Freiburg",
+        "en": "International festival of organ music Fribourg",
+        "de": "Internationales Orgelfestival Freiburg",
+        "fr": "Festival international d’orgue de Fribourg"
+      },
+      "description": "Die 29. Ausgabe des Internationalen Orgelfestivals in Freiburg",
+      "descriptionByLocale": {
+        "it": "Die 29. Ausgabe des Internationalen Orgelfestivals in Freiburg",
+        "en": "The 29th edition of the International festival of organ music Fribourg",
+        "de": "Die 29. Ausgabe des Internationalen Orgelfestivals in Freiburg",
+        "fr": "La 29ème édition du Festival international d'orgue de Fribourg."
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-09-27",
+      "startTime": "00:00",
+      "category": "Festival / Incontro",
+      "venue": "Fondation Académie d’Orgue de Fribourg",
+      "comune": "Fribourg",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/museums/children/events/fribourg/international-festival-of-organ-music-fribourg_ADh32B6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Case postale",
+        "postalCode": "1700"
+      },
+      "geo": {
+        "lat": 46.8177815,
+        "lng": 7.1729901
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ADh32B6.jpg"
+    },
+    {
+      "id": "guidle:AmHeFAd",
+      "title": "Fermata Musica September 26",
+      "titleByLocale": {
+        "it": "Fermata Musica September 26",
+        "en": "Fermata Musica September 26",
+        "de": "Fermata Musica September 26",
+        "fr": "Fermata Musica September 26"
+      },
+      "description": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
+      "descriptionByLocale": {
+        "it": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
+        "en": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
+        "de": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
+        "fr": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)"
+      },
+      "startDate": "2026-09-02",
+      "endDate": "2026-09-02",
+      "startTime": "17:30",
+      "category": "Musica di chiesa",
+      "venue": "Röm.-kath. Jesuitenkirche",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/solothurn/fermata-musica-september-26_AmHeFAd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hauptgasse 60",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.2076967,
+        "lng": 7.5379929
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AmHeFAd.jpg"
+    },
+    {
+      "id": "guidle:AWpn1md",
+      "title": "Jubiläumskonzert - 90 Jahre Solothurner Kammerorchester",
+      "titleByLocale": {
+        "it": "Jubiläumskonzert - 90 Jahre Solothurner Kammerorchester",
+        "en": "Jubiläumskonzert - 90 Jahre Solothurner Kammerorchester",
+        "de": "Jubiläumskonzert - 90 Jahre Solothurner Kammerorchester",
+        "fr": "Jubiläumskonzert - 90 Jahre Solothurner Kammerorchester"
+      },
+      "description": "Ludwig van BeethovenSinfonie Nr. 8 F-Dur op. 93 (1770 – 1827) Camille Saint-Saëns Le Carnaval des Animaux (1835 – 1921) ********* W.A. MozartKonzert in Es-Dur KV...",
+      "descriptionByLocale": {
+        "it": "Ludwig van BeethovenSinfonie Nr. 8 F-Dur op. 93 (1770 – 1827) Camille Saint-Saëns Le Carnaval des Animaux (1835 – 1921) ********* W.A. MozartKonzert in Es-Dur KV...",
+        "en": "Ludwig van BeethovenSinfonie Nr. 8 F-Dur op. 93 (1770 – 1827) Camille Saint-Saëns Le Carnaval des Animaux (1835 – 1921) ********* W.A. MozartKonzert in Es-Dur KV...",
+        "de": "Ludwig van BeethovenSinfonie Nr. 8 F-Dur op. 93 (1770 – 1827) Camille Saint-Saëns Le Carnaval des Animaux (1835 – 1921) ********* W.A. MozartKonzert in Es-Dur KV...",
+        "fr": "Ludwig van BeethovenSinfonie Nr. 8 F-Dur op. 93 (1770 – 1827) Camille Saint-Saëns Le Carnaval des Animaux (1835 – 1921) ********* W.A. MozartKonzert in Es-Dur KV..."
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
+      "startTime": "20:00",
+      "category": "Musica da Camera",
+      "venue": "Konzertsaal Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/solothurn/jubilaeumskonzert-90-jahre-solothurner-kammerorchester_AWpn1md",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Untere Steingrubenstrasse 1",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.2098293,
+        "lng": 7.5362402
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AWpn1md.jpg"
+    },
+    {
+      "id": "guidle:A4RGR7n",
+      "title": "Klassik Sommerkonzert Sarnen - „Der Wiener Operettentraum„&#160;&#160;Freitag, 28.Aug.2026",
+      "titleByLocale": {
+        "it": "Klassik Sommerkonzert Sarnen - „Der Wiener Operettentraum„&#160;&#160;Freitag, 28.Aug.2026",
+        "en": "Klassik Sommerkonzert Sarnen - „Der Wiener Operettentraum„&#160;&#160;Freitag, 28.Aug.2026",
+        "de": "Klassik Sommerkonzert Sarnen - „Der Wiener Operettentraum„&#160;&#160;Freitag, 28.Aug.2026",
+        "fr": "Klassik Sommerkonzert Sarnen - „Der Wiener Operettentraum„&#160;&#160;Freitag, 28.Aug.2026"
+      },
+      "description": "Ein bunter Querschnitt durch die weltberühmten Operetten-Highlights. Der Frühlingsstimmenwalzer, Die Fledermaus, Der Vogelhändler, Die lustige Witwe, Der Zigeunerbaron, das «Vilja-Lied»&#160;&#160;u.v.m.",
+      "descriptionByLocale": {
+        "it": "Ein bunter Querschnitt durch die weltberühmten Operetten-Highlights. Der Frühlingsstimmenwalzer, Die Fledermaus, Der Vogelhändler, Die lustige Witwe, Der Zigeunerbaron, das «Vilja-Lied»&#160;&#160;u.v.m.",
+        "en": "Ein bunter Querschnitt durch die weltberühmten Operetten-Highlights. Der Frühlingsstimmenwalzer, Die Fledermaus, Der Vogelhändler, Die lustige Witwe, Der Zigeunerbaron, das «Vilja-Lied»&#160;&#160;u.v.m.",
+        "de": "Ein bunter Querschnitt durch die weltberühmten Operetten-Highlights. Der Frühlingsstimmenwalzer, Die Fledermaus, Der Vogelhändler, Die lustige Witwe, Der Zigeunerbaron, das «Vilja-Lied»&#160;&#160;u.v.m.",
+        "fr": "Ein bunter Querschnitt durch die weltberühmten Operetten-Highlights. Der Frühlingsstimmenwalzer, Die Fledermaus, Der Vogelhändler, Die lustige Witwe, Der Zigeunerbaron, das «Vilja-Lied»&#160;&#160;u.v.m."
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "startTime": "20:30",
+      "category": "Opera",
+      "venue": "Schulhaus Cher",
+      "comune": "Sarnen",
+      "canton": "OW",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/sarnen/klassik-sommerkonzert-sarnen-der-wiener-operettentraum_A4RGR7n",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 12,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Brünigstrasse 162",
+        "postalCode": "6060"
+      },
+      "geo": {
+        "lat": 46.8940464,
+        "lng": 8.243704
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4RGR7n.jpg"
+    },
+    {
+      "id": "guidle:AJ64MJj",
+      "title": "Sicilia - Musiche dall'Isola - mit Tango Disiu",
+      "titleByLocale": {
+        "it": "Sicilia - Musiche dall'Isola - mit Tango Disiu",
+        "en": "Sicilia - Musiche dall'Isola - mit Tango Disiu",
+        "de": "Sicilia - Musiche dall'Isola - mit Tango Disiu",
+        "fr": "Sicilia - Musiche dall'Isola - mit Tango Disiu"
+      },
+      "description": "Die Stimmen und Instrumente, die Rhythmen, die Kadenzen werden Sie fesseln. In allem finden Sie die unvergängliche Poesie dieses Landes und seiner Menschen.",
+      "descriptionByLocale": {
+        "it": "Die Stimmen und Instrumente, die Rhythmen, die Kadenzen werden Sie fesseln. In allem finden Sie die unvergängliche Poesie dieses Landes und seiner Menschen.",
+        "en": "Die Stimmen und Instrumente, die Rhythmen, die Kadenzen werden Sie fesseln. In allem finden Sie die unvergängliche Poesie dieses Landes und seiner Menschen.",
+        "de": "Die Stimmen und Instrumente, die Rhythmen, die Kadenzen werden Sie fesseln. In allem finden Sie die unvergängliche Poesie dieses Landes und seiner Menschen.",
+        "fr": "Die Stimmen und Instrumente, die Rhythmen, die Kadenzen werden Sie fesseln. In allem finden Sie die unvergängliche Poesie dieses Landes und seiner Menschen."
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "startTime": "19:30",
+      "category": "Musica moderna / seria",
+      "venue": "Gasthof zur Waag",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bad-zurzach/tango-disiu_AJ64MJj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 55,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hauptstrasse 25",
+        "postalCode": "5330"
+      },
+      "geo": {
+        "lat": 47.5857578,
+        "lng": 8.2922442
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AJ64MJj.jpg"
+    },
+    {
+      "id": "guidle:AFMGae2",
+      "title": "K. & K. Connection",
+      "titleByLocale": {
+        "it": "K. & K. Connection",
+        "en": "K. & K. Connection",
+        "de": "K. & K. Connection",
+        "fr": "K. & K. Connection"
+      },
+      "description": "Ein Abend zwischen Zentrum und Peripherie der alten Donaumonarchie: Schubert, Wolf und Mahler treffen auf die neue Suite für Klavierquintett von Massimiliano Matesic.",
+      "descriptionByLocale": {
+        "it": "Ein Abend zwischen Zentrum und Peripherie der alten Donaumonarchie: Schubert, Wolf und Mahler treffen auf die neue Suite für Klavierquintett von Massimiliano Matesic.",
+        "en": "Ein Abend zwischen Zentrum und Peripherie der alten Donaumonarchie: Schubert, Wolf und Mahler treffen auf die neue Suite für Klavierquintett von Massimiliano Matesic.",
+        "de": "Ein Abend zwischen Zentrum und Peripherie der alten Donaumonarchie: Schubert, Wolf und Mahler treffen auf die neue Suite für Klavierquintett von Massimiliano Matesic.",
+        "fr": "Ein Abend zwischen Zentrum und Peripherie der alten Donaumonarchie: Schubert, Wolf und Mahler treffen auf die neue Suite für Klavierquintett von Massimiliano Matesic."
+      },
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-23",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Propstei Wislikofen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/wislikofen/k-und-k-connection_AFMGae2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Propsteiweg",
+        "postalCode": "5463"
+      },
+      "geo": {
+        "lat": 47.5571851,
+        "lng": 8.3605721
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AFMGae2.jpg"
+    },
+    {
+      "id": "guidle:AQkqTXq",
+      "title": "Musik & Yoga mit Lisa Stepf",
+      "titleByLocale": {
+        "it": "Musik & Yoga mit Lisa Stepf",
+        "en": "Musik & Yoga mit Lisa Stepf",
+        "de": "Musik & Yoga mit Lisa Stepf",
+        "fr": "Musik & Yoga mit Lisa Stepf"
+      },
+      "description": "Yoga & Musik öffnet einen Raum für Konzentration und körperliche Entspannung, für Stille und Klang.",
+      "descriptionByLocale": {
+        "it": "Yoga & Musik öffnet einen Raum für Konzentration und körperliche Entspannung, für Stille und Klang.",
+        "en": "Yoga & Musik öffnet einen Raum für Konzentration und körperliche Entspannung, für Stille und Klang.",
+        "de": "Yoga & Musik öffnet einen Raum für Konzentration und körperliche Entspannung, für Stille und Klang.",
+        "fr": "Yoga & Musik öffnet einen Raum für Konzentration und körperliche Entspannung, für Stille und Klang."
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-27",
+      "startTime": "19:00",
+      "category": "Musica classica",
+      "venue": "Mehrzweckhalle Blöleboden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/sport/kaiserstuhl-ag/musik-und-yoga_AQkqTXq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "5466"
+      },
+      "geo": {
+        "lat": 47.5695041,
+        "lng": 8.4198541
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AQkqTXq.jpg"
+    },
+    {
+      "id": "guidle:ANiQqcL",
+      "title": "Schubert en famille mit Oliver Schnyder",
+      "titleByLocale": {
+        "it": "Schubert en famille mit Oliver Schnyder",
+        "en": "Schubert en famille mit Oliver Schnyder",
+        "de": "Schubert en famille mit Oliver Schnyder",
+        "fr": "Schubert en famille mit Oliver Schnyder"
+      },
+      "description": "Ein reiner Schubert-Abend mit Oliver Schnyder, Daria Zappa und Massimiliano Matesic in der Kirche St. Katharina.",
+      "descriptionByLocale": {
+        "it": "Ein reiner Schubert-Abend mit Oliver Schnyder, Daria Zappa und Massimiliano Matesic in der Kirche St. Katharina.",
+        "en": "Ein reiner Schubert-Abend mit Oliver Schnyder, Daria Zappa und Massimiliano Matesic in der Kirche St. Katharina.",
+        "de": "Ein reiner Schubert-Abend mit Oliver Schnyder, Daria Zappa und Massimiliano Matesic in der Kirche St. Katharina.",
+        "fr": "Ein reiner Schubert-Abend mit Oliver Schnyder, Daria Zappa und Massimiliano Matesic in der Kirche St. Katharina."
+      },
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "startTime": "19:30",
+      "category": "Musica per piano / organo",
+      "venue": "Röm.-kath. Stadtkirche Sankt Katharina",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/kaiserstuhl-ag/schubert-en-famille-mit-oliver-schnyder_ANiQqcL",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchenplatz",
+        "postalCode": "5466"
+      },
+      "geo": {
+        "lat": 47.56865,
+        "lng": 8.41905
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ANiQqcL.jpg"
+    },
+    {
+      "id": "guidle:AUrUDtT",
+      "title": "Kerzenkonzert mit i Baroccoli Les Éléments et les Contrastes",
+      "titleByLocale": {
+        "it": "Kerzenkonzert mit i Baroccoli Les Éléments et les Contrastes",
+        "en": "Kerzenkonzert mit i Baroccoli Les Éléments et les Contrastes",
+        "de": "Kerzenkonzert mit i Baroccoli Les Éléments et les Contrastes",
+        "fr": "Kerzenkonzert mit i Baroccoli Les Éléments et les Contrastes"
+      },
+      "description": "Von leiser Morgenpoesie über dramatische Ausbrüche bis hin zu eruptiven Naturgewalten – mit Werken u. a. von Purcell, Vivaldi, Delalande, Rameau, Marcello, Rebel und Brescianello.",
+      "descriptionByLocale": {
+        "it": "Von leiser Morgenpoesie über dramatische Ausbrüche bis hin zu eruptiven Naturgewalten – mit Werken u. a. von Purcell, Vivaldi, Delalande, Rameau, Marcello, Rebel und Brescianello.",
+        "en": "Von leiser Morgenpoesie über dramatische Ausbrüche bis hin zu eruptiven Naturgewalten – mit Werken u. a. von Purcell, Vivaldi, Delalande, Rameau, Marcello, Rebel und Brescianello.",
+        "de": "Von leiser Morgenpoesie über dramatische Ausbrüche bis hin zu eruptiven Naturgewalten – mit Werken u. a. von Purcell, Vivaldi, Delalande, Rameau, Marcello, Rebel und Brescianello.",
+        "fr": "Von leiser Morgenpoesie über dramatische Ausbrüche bis hin zu eruptiven Naturgewalten – mit Werken u. a. von Purcell, Vivaldi, Delalande, Rameau, Marcello, Rebel und Brescianello."
+      },
+      "startDate": "2026-08-29",
+      "endDate": "2026-08-29",
+      "startTime": "21:00",
+      "category": "Musica classica",
+      "venue": "Röm.-kath. Stadtkirche Sankt Katharina",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/kaiserstuhl-ag/kerzenkonzert-mit-ibaroccoli-les-elements-et-les-contrastes_AUrUDtT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchenplatz",
+        "postalCode": "5466"
+      },
+      "geo": {
+        "lat": 47.56865,
+        "lng": 8.41905
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AUrUDtT.jpg"
     }
   ]
 }
