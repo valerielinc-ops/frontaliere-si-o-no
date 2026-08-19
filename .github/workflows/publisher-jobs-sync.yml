@@ -24,7 +24,16 @@ permissions:
 jobs:
   publisher-jobs-sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 15 was too tight: Checkout + the assemble-validate step alone routinely
+    # take ~7-8min (measured), leaving the push step (git-push-with-retry.sh,
+    # calibrated to survive up to 40 rebase-retry attempts against a busy
+    # `main`) less runway than its own design budget — and this is the only
+    # assemble+push workflow on a 30-min schedule, i.e. the highest exposure
+    # to main-write contention of any caller. Run 32240349433 (issue #5620):
+    # Checkout 3m07s + Validate 4m29s + push retry still unconverged at
+    # 7m10s when the 15-min cap cancelled it. 25min matches the same-shape
+    # sibling refresh-employer-profiles.yml.
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
