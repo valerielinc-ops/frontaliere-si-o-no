@@ -337,6 +337,31 @@ export function shouldPlaceInfeedAd(position1Based: number): boolean {
  * by `tests/adsense-placeholder-registry.test.ts`.
  */
 
+/** How close to the viewport an ad slot must come before it is allowed to spend
+ *  an ad request — the single viewability lever shared by the two render paths.
+ *
+ *  An impression served for a unit the visitor never scrolls to is counted by
+ *  Active View as a non-viewable impression: it earns ~nothing and drags the
+ *  unit's measured viewability (hence its CPM) down for every OTHER placement
+ *  of the same ad unit. Ad-unit 3205029282 is the worked example — 22.1%
+ *  viewability across 92.7k mobile impressions/30d, against 62.0% on desktop
+ *  where its only placement renders above the fold. Same unit, same creatives:
+ *  the difference is entirely whether the request was spent on something the
+ *  visitor could see.
+ *
+ *  ONE constant for both twins on purpose (AGENTS.md Non-Negotiable #6): the
+ *  SPA (`components/shared/AdSenseBanner.tsx`) and the static-shell loader
+ *  (`build-plugins/constants.ts` → `ADSENSE_LOADER_CONTENT`) implement the same
+ *  policy in two languages, and a literal copied into both would drift.
+ *
+ *  Tuning note: this margin trades viewability against fill. Too small and a
+ *  fast scroller passes the slot before AdSense returns a creative (the unit
+ *  collapses, no impression at all); too large and it degenerates back into
+ *  requesting units nobody reaches. 200px is the value both paths already used
+ *  to gate the SCRIPT load, so adopting it for the per-slot request keeps the
+ *  change to one variable — WHAT is deferred, not by how much. */
+export const AD_SLOT_VIEWPORT_ROOT_MARGIN = '200px 0px';
+
 /** Widest viewport (px) still treated as the registry's mobile/SSR floor for
  *  the multiplex desktop uplift below. Mirrors the `xl:` Tailwind breakpoint
  *  used by the `xl:min-h-[600px]` Suspense fallbacks. */

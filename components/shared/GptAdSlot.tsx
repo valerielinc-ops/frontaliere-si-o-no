@@ -24,7 +24,7 @@ import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
-import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
+import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/adsenseSlots';
 
 // Master flag for the GPT stack (PoC activated in #2289). Flip to `false`
 // (one-line, then deploy) to disable every GPT slot if GPT serving regresses
@@ -305,7 +305,15 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           }
         }
       },
-      { rootMargin: '200px 0px' },
+      // Third and last copy of this margin in the codebase — now the shared
+      // constant, like the AdSense banner and the static-shell loader. GPT and
+      // AdSense are different ad systems but this is one policy ("how close to
+      // the viewport before an ad may be requested"), and the value had been
+      // duplicated as a literal in all three (AGENTS.md Non-Negotiable #6).
+      // This path was already correct: it has always deferred defineAndDisplay()
+      // to the observer, which is why the GAM rails never had the viewability
+      // problem the AdSense in-feed units had.
+      { rootMargin: AD_SLOT_VIEWPORT_ROOT_MARGIN },
     );
     io.observe(wrapper);
     return () => {
