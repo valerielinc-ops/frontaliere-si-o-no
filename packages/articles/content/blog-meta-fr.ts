@@ -10150,6 +10150,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Vivre à Nesso et travailler au Tessin en tant que frontalier',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Guide complet : permis G, fiscalité bilatérale, impôt à la source, exonérations € 7.500–€ 10.000, AVS, LAMal, restaurations. Procédures et checklists pour commencer en tant que frontalier Italie-Tessin.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Vue du lac de Côme depuis Nesso avec les Alpes suisses visibles à la frontière tessinoise',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Vivre à Orsenigo : le quotidien d\'un frontalier au Tessin',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord fiscal pour les frontaliers : comment cela fonctionne et ce que cela signifie pour les résidents d\'Orsenigo.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Image d\'un frontalier du Tessin',
 };
 
 export default blogMetaFr;

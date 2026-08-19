@@ -10148,6 +10148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Living in Nesso and working in Ticino as a border worker',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Complete guide: G permit, bilateral taxation, source tax, exemptions €7,500-€10,000, AVS, LAMal, rebates. Procedures and checklists to start as an Italy-Ticino border worker.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'View of Lake Como from Nesso with Swiss Alps visible across the border to Ticino',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Living in Orsenigo and working in Ticino as a border worker: what changes?',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'The new tax agreement for border workers: how it works and what it means for Orsenigo residents.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Image of a Ticino frontaliere',
 };
 
 export default blogMetaEn;
