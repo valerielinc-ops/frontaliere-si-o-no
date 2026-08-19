@@ -3460,6 +3460,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accelera con impianto fotovoltaico al parcheggio',
     'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Centro commerciale di Morbio Inferiore realizza copertura fotovoltaica da 1.736 kWp: 1.900 MWh annui di energia rinnovabile entro primavera 2027.',
     'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Copertura fotovoltaica su parcheggio con moduli solari innovativi in paesaggio ticinese soleggiato.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR: nuovi formulari per trasferimenti verso Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Il 19 agosto il Dipartimento federale dell\'economia ha adattato i formulari di dichiarazione. Dal 26 agosto saranno obbligatori solo i modelli aggiornati.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Palazzo dell\'Amministrazione federale svizzera a Berna, sede del DEFR e della Confederazione.',
 };
 
 export default blogMetaChIt;

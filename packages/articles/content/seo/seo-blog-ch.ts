@@ -44870,6 +44870,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ordinanza-iran-formulari-agosto': {
+    title: 'DEFR: nuovi formulari per trasferimenti verso Iran',
+    description: 'Il 26 agosto entrano in vigore i formulari adattati dal DEFR per i trasferimenti di averi verso l\'Iran secondo art. 21 dell\'ordinanza. Scopri le scadenze',
+    keywords: 'frontalieri, ticino, svizzera, italia, defr, nuovi, formulari, trasferimenti',
+    ogTitle: 'DEFR: nuovi formulari per trasferimenti verso Iran',
+    ogDescription: 'Il 19 agosto 2026 il Dipartimento federale dell\'economia ha adattato i formulari di dichiarazione e autorizzazione per i trasferimenti verso l\'Iran. Dal 26 agosto saranno obbligatori solo i nuovi modelli. Scopri la procedura e le implicazioni',
+    canonicalPath: '/articoli-svizzera/ordinanza-iran-formulari-agosto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "DEFR: nuovi formulari per trasferimenti verso Iran",
+      "description": "Il 26 agosto entrano in vigore i formulari adattati dal DEFR per i trasferimenti di averi verso l'Iran secondo art. 21 dell'ordinanza. Scopri le scadenze",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ordinanza-iran-formulari-agosto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo dell'Amministrazione federale svizzera a Berna, sede del DEFR e della Confederazione."
+      },
+      "datePublished": "2026-08-19T19:07:52+00:00",
+      "dateModified": "2026-08-19T19:07:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-iran-formulari-agosto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

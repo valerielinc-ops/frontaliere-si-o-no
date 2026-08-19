@@ -10153,6 +10153,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vedano-olona-frontaliere-ticino.title': 'Leben in Vedano Olona und Arbeiten im Tessin: Kompletter Leitfaden',
     'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Wohnsitz in der Lombardei, Arbeit in der Schweiz: Grenzbesteuerung, Genehmigungen, bilaterale Abkommen und Steuertermine 2024-2025.',
     'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'Blick auf das Tessin von der Vedano Olona-Grenze, lombardische Hügel und Grenzlandschaft.',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Leben in Venegono und Arbeiten im Tessin: Steuerleitfaden 2024',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger zwischen Italien und Tessin: Das neue Abkommen ab 2024 ändert Steuern, Beiträge und Selbstbehalte. Was sind die praktischen Auswirkungen für diejenigen, die in Venegono Superiore wohnen?',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee bei Sonnenaufgang mit Alpengipfeln, typische Tessiner Landschaft für Grenzgänger.',
 };
 
 export default blogMetaDe;

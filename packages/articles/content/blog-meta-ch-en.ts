@@ -3460,6 +3460,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accelerates with photovoltaic system at the parking lot',
     'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Centro comercial di Morbio Inferiore realizes photovoltaic coverage of 1,736 kWp: 1,900 MWh per year of renewable energy by spring 2027.',
     'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Modern photovoltaic parking canopy with innovative solar modules in sunny Ticino landscape.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR: new forms for transfers to Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'On 19 August, the Federal Department of Economic Affairs adapted the declaration forms. From 26 August, only updated models will be mandatory.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Swiss Federal Administration headquarters in Bern, location of the Federal Department of Economy.',
 };
 
 export default blogMetaChEn;

@@ -3460,6 +3460,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana beschleunigt mit Photovoltaikanlage am Parkplatz',
     'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Einkaufszentrum Morbio Inferiore realisiert eine Photovoltaik-Abdeckung von 1.736 kWp: 1.900 MWh pro Jahr an erneuerbarer Energie bis zum Frühjahr 2027.',
     'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Moderne Photovoltaik-Parkplatzüberdachung mit innovativen Solarmodulen in sonniger Tessiner Landschaft.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'WBF: Neue Formulare für Überweisungen in den Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Das Eidgenössische Volkswirtschaftsdepartement hat am 19. August die Deklarationsformulare angepasst. Ab dem 26. August sind nur die aktualisierten Modelle obligatorisch.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Gebäude der Schweizer Bundesverwaltung in Bern, Sitz des Eidgenössischen Departements für Wirtschaft.',
 };
 
 export default blogMetaChDe;
