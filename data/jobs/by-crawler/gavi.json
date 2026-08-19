@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-08-19T09:49:57.032Z",
+  "assembledAt": "2026-08-19T21:37:43.612Z",
   "jobs": [
     {
       "id": "gavi-c05f6ddca435",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:49:53.133Z",
+      "crawledAt": "2026-08-19T21:37:40.156Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -68,8 +68,8 @@
           "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:37:03.167Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:37:03.167Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
