@@ -1176,6 +1176,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-canton-basilea-citta': { it: 'comprare-casa-canton-basilea-citta', en: 'comprare-casa-canton-basilea-citta-en', de: 'comprare-casa-canton-basilea-citta-de', fr: 'comprare-casa-canton-basilea-citta-fr' },
  'avs-prestazioni-complementari-basilea': { it: 'avs-prestazioni-complementari-basilea', en: 'avs-complementary-benefits-basel', de: 'ahv-ergaenzungsleistungen-basel', fr: 'avs-prestations-complementaires-bale' },
  'salari-mercato-lavoro-basilea': { it: 'salari-mercato-lavoro-basilea', en: 'salaries-labour-market-basel', de: 'loehne-arbeitsmarkt-basel', fr: 'salaires-marche-travail-bale' },
+ 'salari-mercato-lavoro-basilea-citta': { it: 'salari-mercato-lavoro-basilea-citta', en: 'wages-labor-market-basel-stadt', de: 'loehne-arbeitsmarkt-basel-stadt', fr: 'salaires-marche-travail-bale-ville' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

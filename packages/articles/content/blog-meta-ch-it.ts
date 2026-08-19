@@ -3451,6 +3451,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Salari e lavoro in Svizzera: livelli di formazione',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Come funzionano i salari svizzeri per grado di formazione, contributi sociali obbligatori, contratti collettivi e salario minimo cantonale.',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Ambiente di lavoro svizzero con documenti di stipendio e contratti collettivi in primo piano',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Salari e mercato del lavoro a Basilea Città',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'Sistema di contributi, orari e diritti dei lavoratori nel cantone di Basilea Città: norme federali, previdenza obbligatoria e regole cantonali per chi lavora in Svizzera.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Centro storico di Basilea Città con il Reno e grattacieli moderni sullo sfondo',
 };
 
 export default blogMetaChIt;

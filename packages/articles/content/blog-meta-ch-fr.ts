@@ -3451,6 +3451,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Salaires et emploi en Suisse : niveaux de formation',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Comment fonctionnent les salaires suisses par niveau de formation, cotisations sociales obligatoires, conventions collectives et salaire minimum cantonal.',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Environnement de travail suisse avec fiches de paie et contrats collectifs',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Salaires et marché du travail à Bâle-Ville',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'Système de cotisations, horaires et droits des travailleurs dans le canton de Bâle-Ville : règles fédérales, prévoyance obligatoire et règles cantonales pour ceux qui travaillent en Suisse.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Centre historique de Bâle avec le Rhin et bâtiments d\'affaires modernes',
 };
 
 export default blogMetaChFr;
