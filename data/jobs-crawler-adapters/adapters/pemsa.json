@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-18T21:39:19.674Z",
+  "updatedAt": "2026-08-19T09:52:04.950Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-vd-2688077/": {
       "location": "Renens VD",
@@ -76,12 +76,6 @@
     "https://www.pemsa.ch/it/job/manovale-edile-2688038/": {
       "location": "Locarno",
       "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-18"
-    },
-    "https://www.pemsa.ch/it/job/assistente-di-agenzia-50-60-all-fr-2687729/": {
-      "location": "Bienne",
-      "canton": "BE",
       "company": "PEMSA",
       "postedDate": "2026-08-18"
     },
@@ -559,18 +553,6 @@
       "company": "PEMSA",
       "postedDate": "2026-08-04"
     },
-    "https://www.pemsa.ch/it/job/muratore-edile-2685619/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-03"
-    },
-    "https://www.pemsa.ch/it/job/dispositivo-di-regolazione-del-rastrello-per-asfalto-2685614/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-03"
-    },
     "https://www.pemsa.ch/it/job/meccanico-di-macchine-agricole-efz-m-f-d-2685587/": {
       "location": "Basel",
       "canton": "BS",
@@ -883,33 +865,9 @@
       "company": "PEMSA",
       "postedDate": "2026-07-24"
     },
-    "https://www.pemsa.ch/it/job/lattoniere-copritetto-2684728/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/guarnizione-2684725/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
     "https://www.pemsa.ch/it/job/saldatore-tubista-2684708/": {
       "location": "Taverne",
       "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/installatore-di-impianti-sanitari-afc-2684720/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/progettista-di-impianti-elettrici-2684710/": {
-      "location": "Bulle",
-      "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-07-24"
     },
@@ -922,12 +880,6 @@
     "https://www.pemsa.ch/it/job/installatore-idraulico-2684699/": {
       "location": "Mendrisio",
       "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-24"
-    },
-    "https://www.pemsa.ch/it/job/elettricista-con-attestato-professionale-cfc-specializzato-in-quadri-elettrici-2684701/": {
-      "location": "Fribourg",
-      "canton": "FR",
       "company": "PEMSA",
       "postedDate": "2026-07-24"
     },
