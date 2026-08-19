@@ -10084,6 +10084,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-fermo-lavorare-ticino-frontaliere.title': 'Vivre à San Fermo et travailler au Tessin : guide frontalier',
     'blog.article.san-fermo-lavorare-ticino-frontaliere.excerpt': 'En tant que frontalier de San Fermo della Battaglia vers le Tessin : permis, fiscalité, viabilité et commodité du transfert dans la province de Côme.',
     'blog.article.san-fermo-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Mendrisio dans le Tessin méridional, avec la vallée de Côme et la frontière italienne en arrière-plan.',
+    'blog.article.san-fermo-battaglia-frontaliere.title': 'Vivre à San Fermo della Battaglia et travailler au Tessin',
+    'blog.article.san-fermo-battaglia-frontaliere.excerpt': 'Guide pratique pour les frontaliers G : comment se déplacer de San Fermo della Battaglia, régime fiscal 2024, permis G, frais de déplacement, checklist procédure.',
+    'blog.article.san-fermo-battaglia-frontaliere.imageAlt': 'Vue de Lugano au coucher du soleil avec les Alpes suisses en arrière-plan — destination typique pour les frontaliers de San Fermo della Battaglia',
 };
 
 export default blogMetaFr;
