@@ -1,16 +1,16 @@
 {
   "key": "klinik-schuetzen",
   "label": "Klinik Schützen Rheinfelden",
-  "generatedAt": "2026-08-18T21:37:07.351Z",
+  "generatedAt": "2026-08-19T09:45:33.205Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4963,
-  "avgDurationMs": 4963,
+  "durationMs": 6096,
+  "avgDurationMs": 6096,
   "durationHistory": [
-    4963
+    6096
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -23,7 +23,6 @@
       "companyKey": "klinik-schuetzen",
       "companyDomain": "klinikschuetzen.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF (70%)",
-      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://www.klinikschuetzen.ch/ueber-uns/arbeiten-in-der-klinik#job-RHS09192",
@@ -47,7 +46,7 @@
       "firstSeenAt": "2026-05-19T12:20:46.884Z",
       "salaryMin": 43400,
       "salaryMax": 65800,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
