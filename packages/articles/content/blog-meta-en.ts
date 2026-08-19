@@ -10071,6 +10071,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.title': 'Living in Malnate and working in Ticino as a border worker',
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and recommended areas for border workers living in Malnate and working in Ticino.',
     'blog.article.vivere-malnate-lavorare-ticino-frontaliere.imageAlt': 'A Ticino-based worker residing in Malnate.',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Living in Dongo, working in Ticino as a border worker',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Practical guide: cost of living, border taxation, G permit, AVS and LAMal contributions, Dongo-Lugano travel times, advantages and disadvantages of cross-border transfer.',
+    'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Waterfront view of Dongo on Lake Como with mountains and historic lakeside architecture',
 };
 
 export default blogMetaEn;
