@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { analyzeWorkflow, ROOT, BUCKETS, OVERRIDES } from './checkout-profile-analyzer.mjs';
+import { analyzeWorkflow, ROOT, BUCKETS, CROSSOVER_MB, TREE_MB } from './checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 
@@ -75,23 +75,6 @@ export function verifyCheckoutProfiles() {
   const problems = [];
   let jobs = 0, withSparse = 0;
 
-  // Le deroghe sono l'unico punto in cui una persona scavalca l'analisi. Devono
-  // costare qualcosa: senza una motivazione che riporti la prova, diventano la
-  // scorciatoia con cui si spegne il guard invece di capire il caso.
-  const tracked = trackedPaths();
-  for (const [key, ov] of Object.entries(OVERRIDES)) {
-    if (!/^[\w.-]+\.ya?ml:[\w-]+$/.test(key)) problems.push(`deroga «${key}»: la chiave deve essere «<workflow>.yml:<job>»`);
-    if (!Array.isArray(ov?.alsoExclude) || ov.alsoExclude.length === 0) problems.push(`deroga «${key}»: manca alsoExclude`);
-    if (typeof ov?.why !== 'string' || ov.why.trim().length < 80) {
-      problems.push(`deroga «${key}»: serve un campo «why» che riporti la prova, non una riga generica`);
-    }
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(ov?.verified ?? '')) problems.push(`deroga «${key}»: serve «verified» con la data del controllo`);
-    for (const p of ov?.alsoExclude ?? []) {
-      const probe = p.replace(/\/$/, '');
-      const exists = tracked.has(probe) || [...tracked].some((t) => t.startsWith(probe + '/'));
-      if (!exists) problems.push(`deroga «${key}»: «${p}» non esiste nell'albero`);
-    }
-  }
 
   for (const f of fs.readdirSync(WF_DIR).filter((x) => /\.ya?ml$/.test(x)).sort()) {
     const full = path.join(WF_DIR, f);
@@ -108,6 +91,14 @@ export function verifyCheckoutProfiles() {
       if (sparse === undefined) continue;
       withSparse++;
       const where = `${f}:${job.jobId}`;
+
+      // Sopra la soglia di convenienza lo sparse rallenta invece di aiutare:
+      // un profilo li' sopra e' un difetto, non un'ottimizzazione.
+      if (job.aboveCrossover) {
+        problems.push(`${where}: ha uno sparse-checkout ma resterebbe a ${TREE_MB} MB, ` +
+          `sopra la soglia di ${CROSSOVER_MB} MB oltre la quale lo sparse e' piu' lento. ` +
+          `Rigenera con: node scripts/ci/apply-checkout-profiles.mjs`);
+      }
 
       const lines = String(sparse).split('\n').map((l) => l.trim()).filter(Boolean);
       // Gli sparse scritti a mano possono usare una allow-list (un solo file):

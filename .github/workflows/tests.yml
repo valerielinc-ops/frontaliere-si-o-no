@@ -237,12 +237,6 @@ jobs:
       # `filter: blob:none`, escludere public/images/{events,blog} ha portato il
       # Checkout da ~200s (280/141/177s su tre run) a 77s. Qui no.
       - uses: actions/checkout@v5
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/events/
-          sparse-checkout-cone-mode: false
 
       - uses: actions/setup-node@v5
         with:

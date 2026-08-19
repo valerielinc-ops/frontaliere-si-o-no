@@ -48,12 +48,34 @@ const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ci/checkout-bu
  * e' dimostrabilmente non letta. Ogni voce porta la sua prova; il guard rifiuta
  * una deroga senza `why`, e i controlli sui percorsi letterali restano attivi.
  */
-export const OVERRIDES = (() => {
-  try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ci/checkout-profile-overrides.json'), 'utf8')).overrides ?? {}; }
-  catch { return {}; }
-})();
 export const BUCKETS = TABLE.buckets;
 export const BASELINE_MB = TABLE.baselineMb;
+
+/**
+ * Sopra questa soglia lo sparse checkout NON conviene, e va lasciato perdere.
+ *
+ * Non e' una stima: e' misurato sulle run di main dopo il primo giro (#6121),
+ * confrontando ogni job con se stesso e usando come CONTROLLO i job rimasti a
+ * checkout pieno. Serve il controllo perche' nella stessa finestra la CI e'
+ * diventata 1,84x piu' lenta da sola: i confronti grezzi prima/dopo dicevano
+ * «peggiorato» anche per job che non avevo toccato.
+ *
+ * Corretto per quella deriva:
+ *
+ *     checkout risultante   effetto reale
+ *     < 300 MB              0,11x   (9x piu' veloce)
+ *     300-800 MB            0,22x
+ *     0,8-1,5 GB            0,79x
+ *     1,5-3,5 GB            1,49x   ← PERDITA
+ *     3,5-6,8 GB            2,12x   ← PERDITA
+ *
+ * La causa e' il meccanismo stesso: `sparse-checkout` implica `filter:blob:none`,
+ * quindi il fetch iniziale scarica solo commit e tree, e i blob che servono
+ * arrivano con una SECONDA richiesta pigra. Quando ne servono pochi si vince
+ * molto; quando ne serve gran parte, quella seconda richiesta costa piu' del
+ * pack unico che si sarebbe scaricato in un colpo solo.
+ */
+export const CROSSOVER_MB = 1500;
 export const TREE_MB = TABLE.treeMb;
 
 /**
@@ -232,24 +254,30 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
   const corpus = exec + '\n' + resolved.map((r) => r.src).join('\n');
   const needs = opaqueBy.length ? new Set(BUCKETS.map((b) => b.id)) : bucketsReferencedBy(corpus);
   if (needs.has('public/images/')) needs.add('public/data/');
-  // La deroga aggiunge PATTERN, non toglie bucket: cosi' puo' nominare un
-  // percorso piu' fine di qualunque bucket (`public/images/events/` sta dentro
-  // il bucket `public/images/`) senza dover spezzare la tabella.
-  const ov = OVERRIDES[`${workflowFile}:${jobId}`];
-  const extraExclude = (ov?.alsoExclude ?? []).filter((p) => !needs.has(p));
   const exclude = BUCKETS.filter((b) => !needs.has(b.id));
   // Se il bucket che li contiene e' gia' escluso, i pattern della deroga sono
   // ridondanti: si tolgono, altrimenti il file si riempie di righe inutili.
   const already = exclude.map((b) => b.id);
-  const extra = extraExclude.filter((p) => !already.some((a) => a.endsWith('/') && p.startsWith(a)));
-  const extraMb = extra.reduce((a, p) => a + (ov?.mb?.[p] ?? 0), 0);
+  const extra = [];
+  const extraMb = 0;
+  // Se anche escludendo tutto il possibile resta piu' di CROSSOVER_MB, lo sparse
+  // e' controproducente: meglio un fetch unico. Il job resta a checkout pieno.
+  const residual = TREE_MB - exclude.reduce((a, b) => a + b.mb, 0) - extraMb;
+  if (residual > CROSSOVER_MB) {
+    return {
+      jobId, hasCheckout: (job?.steps ?? []).some((st) => typeof st?.uses === 'string' && st.uses.startsWith('actions/checkout@')),
+      opaqueBy, entries, filesFollowed: resolved.length, closure: resolved.map((r) => r.rel),
+      needs: [...needs].sort(), exclude: [], overridden: [], aboveCrossover: true,
+      savedMb: 0, savedFiles: 0, checkoutMb: TREE_MB,
+    };
+  }
   const hasCheckout = (job?.steps ?? []).some((s) => typeof s?.uses === 'string' && s.uses.startsWith('actions/checkout@'));
   return {
     jobId, hasCheckout, opaqueBy, entries, filesFollowed: resolved.length,
     closure: resolved.map((r) => r.rel),
     needs: [...needs].sort(),
     exclude: exclude.map((b) => b.id).concat(extra),
-    overridden: extra,
+    overridden: extra, aboveCrossover: false,
     savedMb: exclude.reduce((a, b) => a + b.mb, 0) + extraMb,
     savedFiles: exclude.reduce((a, b) => a + b.files, 0),
     checkoutMb: TREE_MB - exclude.reduce((a, b) => a + b.mb, 0) - extraMb,

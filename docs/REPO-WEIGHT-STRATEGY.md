@@ -132,8 +132,9 @@ chiusura transitiva degli import.
    cancellazioni, e l'index resta completo a 41'703 path. E' cio' che rende
    sicuri i workflow che committano.
 
-**Risultato.** 176 job su 212, checkout medio da 6'829 MB a ~1'900 MB (-71%);
-58 job scendono al minimo di 198 MB. Misurato in un worktree reale col profilo
+**Risultato.** 112 job su 213 prendono lo sparse (gli altri restano pieni: o
+sono opachi, o stanno sopra la soglia di convenienza qui sotto); su quei 112 il
+checkout scende in media a ~430 MB, e 56 arrivano al minimo di 198 MB. Misurato in un worktree reale col profilo
 generato per `pr-collision-detector.yml`: **214 MB / 6'970 file**. Pesato sulle
 frequenze di run reali, il tempo di checkout del campione cala del ~46%, con i
 job del ciclo agentico che crollano (`pr-collision-detector` 98s → ~11s stimati).
@@ -142,41 +143,38 @@ Gli 8 profili scritti a mano non sono stati toccati: alcuni sono **piu'** snelli
 di quanto l'analisi sappia produrre (`measure-deploy-delta.yml` si porta giu' un
 solo file `.py`), e sovrascriverli sarebbe stata una regressione.
 
-**Deroghe per i job opachi.** Un job che builda o testa resta pieno per regola,
-ma a volte UNA cartella pesante e' dimostrabilmente non letta. Per quei casi c'e'
-`scripts/ci/checkout-profile-overrides.json`, una voce per job, che aggiunge
-pattern di esclusione oltre a quelli calcolati. Non e' una scorciatoia: il guard
-rifiuta una deroga senza un `why` che riporti la prova e senza la data del
-controllo, e tutti gli altri controlli restano attivi.
+**La soglia oltre la quale lo sparse checkout PEGGIORA le cose.** E' la cosa
+meno intuitiva di tutto il meccanismo, e va conosciuta prima di allargare i
+profili. `sparse-checkout` implica `filter: blob:none`: il fetch iniziale porta
+giu' solo commit e tree, e i blob che servono arrivano con una **seconda**
+richiesta pigra. Quando ne servono pochi si vince molto; quando ne serve gran
+parte, quella seconda richiesta costa piu' del pack unico che si sarebbe
+scaricato in un colpo solo.
 
-Oggi ce n'e' una sola. `tests.yml:vitest` era il passo di checkout piu' costoso
-del repo (215s a ogni PR) e `public/images/events/` da solo pesa 3'944 MB —
-il **58% dell'intero albero**. La suite non lo legge da disco: l'unico accesso e'
-`mirrorEventImage` (`scripts/lib/events-utils.mjs`), che fa
-`mkdirSync(..., { recursive: true })` prima di scrivere, quindi funziona con la
-cartella assente. Il job scende da 6'829 MB a 2'885 MB.
+Misurato sulle run di `main` dopo il primo giro, confrontando ogni job con se
+stesso. Il gruppo di **controllo** — i job rimasti a checkout pieno, mai toccati
+— e' indispensabile: nella stessa finestra la CI e' diventata **1,84x piu' lenta
+da sola**, quindi i confronti grezzi prima/dopo dicevano «peggiorato» anche per
+job che nessuno aveva modificato.
 
-Attenzione a cosa NON e' stato escluso: `public/images/brands/` pesa 1,2 MB ma
-`seoContentTokens.ts:resolveBrandLogoUrl` ci fa `existsSync` **costruendo il path
-da variabile**. Nessuna ricerca di percorsi letterali lo vede — e' il limite
-strutturale dell'analisi statica, e la ragione per cui una deroga vuole occhi
-umani e una prova scritta.
+| checkout residuo | grezzo | corretto per la deriva | |
+|---|---|---|---|
+| < 300 MB | 0,20x | **0,11x** | 9x piu' veloce |
+| 300-800 MB | 0,40x | **0,22x** | |
+| 0,8-1,5 GB | 1,45x | **0,79x** | |
+| 1,5-3,5 GB | 2,76x | **1,49x** | **perdita** |
+| 3,5-6,8 GB | 3,91x | **2,12x** | **perdita** |
 
-**L'unico modo di fallire silenzioso, e come riconoscerlo.** Quasi tutti i
-guasti possibili qui sono rumorosi: un file che manca da' ENOENT. L'eccezione e'
-un job che **modifica un file gia' tracciato** dentro un percorso escluso.
-Misurato su questo repo:
+Da qui `CROSSOVER_MB = 1500` in `checkout-profile-analyzer.mjs`: se anche
+escludendo tutto il possibile resterebbero piu' di 1,5 GB, il job **non** prende
+lo sparse e resta a fetch unico. Ha riportato a checkout pieno 65 job su 177 —
+compreso `tests.yml:vitest`, che a 2'885 MB sarebbe stato il caso peggiore
+proprio perche' e' il job piu' frequente del repo. Il guard lo verifica: un
+profilo sopra la soglia e' un difetto, non un'ottimizzazione.
 
-| azione | esito |
-|---|---|
-| `git status` | mostra ` M <file>` — la modifica si vede |
-| `git add -A` | **non** la mette in staging, senza dire niente |
-| `git add <path>` | rifiuta, ma con un warning e **exit 0** |
-
-Quindi un workflow che riscrive un file escluso e poi committa **non fallisce**:
-committa senza quella modifica. I percorsi letterali sono coperti dal guard, ma
-se aggiungi un job che scrive dentro `data/` o `public/` costruendo il path da
-una variabile, verifica a mano che il suo bucket sia incluso.
+Lezione generale, valida oltre questo repo: **un before/after su CI condivisa
+non significa niente senza un gruppo di controllo.** Qui la deriva era piu'
+grande dell'effetto cercato, e avrebbe fatto concludere l'opposto del vero.
 
 **Manutenzione.** Il rischio non e' il giorno in cui scrivi i pattern: e' il
 mese dopo, quando qualcuno fa leggere `data/jobs/` a uno script che prima non lo
