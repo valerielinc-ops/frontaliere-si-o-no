@@ -3752,7 +3752,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3764,7 +3763,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-860cd5cd29b0",
@@ -8247,17 +8247,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "projektleiter-in-system-engineering-it-ksa-ch",
-        "responsabile-di-progetto-system-engineering-it-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-system-engineering-it-ksa-ch",
-          "responsabile-di-progetto-system-engineering-it-kantonsspital-aarau-ksa-aarau"
+          "projektleiter-in-system-engineering-it-ksa-ch"
         ]
       },
-      "firstSeenAt": "2026-08-18T09:54:05.163Z",
+      "previousSlugs": [
+        "projektleiter-in-system-engineering-it-ksa-ch"
+      ],
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -8269,7 +8266,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:54:05.163Z"
     },
     {
       "id": "ksa-0296fa155ab6",

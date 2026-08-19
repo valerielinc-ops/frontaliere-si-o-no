@@ -23277,8 +23277,7 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-30",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23286,8 +23285,7 @@
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-30",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-31",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-an-der-aare"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-iwga4m"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-33"
@@ -23686,15 +23684,13 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "apprenticeship-electrical-installer-in-efz-all-bkw-beatenberg",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-beatenberg",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-beatenberg"
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-32",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-beatenberg"
+          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-steffisburg-hbcymd"
         ],
         "en": [
           "apprenticeship-electrical-installer-in-efz-all-bkw-beatenberg"
@@ -25476,7 +25472,7 @@
       "title": "Finance Systems Analyst FP&A",
       "titleByLocale": {
         "it": "Finanza Systems Analista FP&A",
-        "en": "Finance Systems Analyst FP&A",
+        "en": "Financial Systems Analyst FP&A",
         "de": "Finanzen Systems Analyst FP&A",
         "fr": "Finance Systems Analyste FP&A"
       },
@@ -25521,7 +25517,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:33:38.723Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -25533,7 +25528,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-3b921ff9b513",
@@ -26621,7 +26617,7 @@
       "title": "SAP Vendor Manager",
       "titleByLocale": {
         "it": "Responsabile Fornitori SAP",
-        "en": "SAP Vendor Manager",
+        "en": "Vendor manager",
         "de": "SAP Vendor Manager",
         "fr": "Gestionnaire de fournisseurs SAP"
       },
@@ -27528,18 +27524,15 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/projektleiter-in-elektroplanung-alle/0e2d52d0-2b50-403d-8ce8-7799d4d6163f",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-in-elektroplanung-alle-bkw-ch",
-        "responsabile-di-progetto-elektroplanung-alle-bkw-visp"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-elektroplanung-alle-bkw-ch",
-          "responsabile-di-progetto-elektroplanung-alle-bkw-visp"
+          "projektleiter-in-elektroplanung-alle-bkw-ch"
         ]
       },
+      "previousSlugs": [
+        "projektleiter-in-elektroplanung-alle-bkw-ch"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:28:54.057Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -27551,7 +27544,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T10:28:54.057Z"
     },
     {
       "id": "bkw-08e19e2134ce",
@@ -27676,18 +27670,15 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/heizungsinstallateur-in-alle/a45ab1dd-9e37-4b3f-a911-ad4353c7bedf",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "heizungsinstallateur-in-alle-bkw-ch",
-        "heizungsinstallateur-in-alle-bkw-rafz"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "heizungsinstallateur-in-alle-bkw-ch",
-          "heizungsinstallateur-in-alle-bkw-rafz"
+          "heizungsinstallateur-in-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:28:54.041Z",
+      "previousSlugs": [
+        "heizungsinstallateur-in-alle-bkw-ch"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -27699,7 +27690,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T10:28:54.041Z"
     },
     {
       "id": "bkw-e127373cebcc",
@@ -28095,21 +28087,18 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/leiter-in-hr-business-partner-recruiting-alle/f8ce1b42-ef85-4e15-ad4a-6653f8fd7700",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-hr-business-partner-recruiting-alle-bkw-ch",
-        "responsabile-risorse-umane-business-partner-recruiting-alle-bkw-urdorf"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-hr-business-partner-recruiting-alle-bkw-ch",
-          "responsabile-risorse-umane-business-partner-recruiting-alle-bkw-urdorf"
+          "leiter-in-hr-business-partner-recruiting-alle-bkw-ch"
         ],
         "en": [
           "leiter-in-hr-business-partner-recruiting-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:28:54.050Z",
+      "previousSlugs": [
+        "leiter-in-hr-business-partner-recruiting-alle-bkw-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -28121,7 +28110,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T10:28:54.050Z"
     },
     {
       "id": "bkw-1f46085feb83",
@@ -28272,11 +28262,7 @@
           "brandschutzfachmann-frau-alle-bkw-ch"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1352,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -28288,7 +28274,11 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1352,
+      "needsRetranslation": true
     },
     {
       "id": "bkw-6194e508000f",
@@ -28561,13 +28551,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cyber-security-manager-all-bkw-ch",
-        "cyber-security-manager-tutti-bkw-bern"
+        "cyber-security-manager-all-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cyber-security-manager-all-bkw-ch",
-          "cyber-security-manager-tutti-bkw-bern"
+          "cyber-security-manager-all-bkw-ch"
         ],
         "de": [
           "cyber-security-manager-all-bkw-ch"
@@ -28667,10 +28655,10 @@
       "id": "bkw-58091f71ae44",
       "slug": "cambio-carriera-zweitlehre-come-netzelektriker-in-cfc-bkw-dittingen",
       "slugByLocale": {
+        "de": "quereinstieg-zweitlehre-als-netzelektriker-in-efz-bkw-ch",
         "it": "cambio-carriera-zweitlehre-come-netzelektriker-in-cfc-bkw-dittingen",
         "en": "cross-entry-second-apprenticeship-as-grid-electrician-in-efz-bkw-dittingen",
-        "de": "quereinstieg-zweitlehre-als-netzelektriker-in-efz-bkw-ch",
-        "fr": "entree-croisee-deuxieme-apprentissage-comme-electricien-en-reseau-en-efz-bkw-dittingen"
+        "fr": "entrees-croisees-deuxieme-apprentissage-comme-electricien-de-reseau-en-efz-bkw-dittingen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -28722,12 +28710,14 @@
           "quereinstieg-zweitlehre-als-netzelektriker-in-efz-bkw-ch"
         ],
         "fr": [
-          "quereinstieg-zweitlehre-als-netzelektriker-in-efz-bkw-ch"
+          "quereinstieg-zweitlehre-als-netzelektriker-in-efz-bkw-ch",
+          "entree-croisee-deuxieme-apprentissage-comme-electricien-en-reseau-en-efz-bkw-dittingen"
         ]
       },
       "previousSlugs": [
         "quereinstieg-zweitlehre-als-netzelektriker-in-efz-bkw-ch",
-        "cambio-carriera-zweitlehre-come-netzelektriker-in-cfc-bkw-dittingen"
+        "cambio-carriera-zweitlehre-come-netzelektriker-in-cfc-bkw-dittingen",
+        "entree-croisee-deuxieme-apprentissage-comme-electricien-en-reseau-en-efz-bkw-dittingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -28821,11 +28811,11 @@
     },
     {
       "id": "bkw-0bfedbe9b421",
-      "slug": "personale-in-fatturazione-tutti-bkw-nidau",
+      "slug": "personale-in-billing-tutti-bkw-nidau",
       "slugByLocale": {
-        "it": "personale-in-fatturazione-tutti-bkw-nidau",
-        "en": "personnel-in-billing-all-bkw-nidau",
         "de": "sachbearbeiter-in-billing-alle-bkw-ch",
+        "it": "personale-in-billing-tutti-bkw-nidau",
+        "en": "personnel-in-billing-all-bkw-nidau",
         "fr": "personnel-en-facturation-tous-bkw-nidau"
       },
       "company": "BKW",

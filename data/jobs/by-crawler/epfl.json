@@ -132,7 +132,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164294755",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
@@ -178,7 +177,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-62faf8b3a417",
@@ -726,18 +726,17 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164982155",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
+        ],
+        "it": [
+          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
         ],
         "de": [
           "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
           "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
           "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
-        ],
-        "it": [
-          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
         ]
       },
       "previousSlugs": [
@@ -760,7 +759,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9044b7f240f4",
@@ -1839,7 +1839,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1163582855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-doc-epfl-lausanne",
@@ -1878,7 +1877,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-bee036be0c9b",
@@ -3630,7 +3630,6 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164920855",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "agente-di-collegamento-dell-industria-epfl-lausanne"
@@ -3674,7 +3673,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9d5a85ba18cf",
@@ -4340,10 +4340,10 @@
       "id": "epfl-dead15a21a44",
       "slug": "posizione-del-dottorato-cross-modal-ai-per-gli-sforzi-umanitari-epfl-sion-4de9b7",
       "slugByLocale": {
-        "it": "posizione-del-dottorato-cross-modal-ai-per-gli-sforzi-umanitari-epfl-sion-4de9b7",
         "en": "phd-position-cross-modal-ai-for-humanitarian-relief-efforts-epfl-sion",
+        "it": "posizione-del-dottorato-cross-modal-ai-per-gli-sforzi-umanitari-epfl-sion-4de9b7",
         "de": "phd-position-cross-modal-ai-fur-humanitare-hilfsma-nahmen-epfl-sion-4de9b7",
-        "fr": "poste-de-doctorat-ai-transmodal-pour-les-secours-humanitaires-epfl-sion-4de9b7"
+        "fr": "poste-de-doctorat-ai-modal-pour-les-secours-humanitaires-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4401,7 +4401,8 @@
       "firstSeenAt": "2026-08-18T21:53:46.958Z",
       "previousSlugs": [
         "phd-position-cross-modal-ai-for-humanitarian-relief-efforts-epfl-sion",
-        "posizione-del-dottorato-cross-modal-ai-per-gli-sforzi-umanitari-epfl-sion-4de9b7"
+        "posizione-del-dottorato-cross-modal-ai-per-gli-sforzi-umanitari-epfl-sion-4de9b7",
+        "poste-de-doctorat-ai-transmodal-pour-les-secours-humanitaires-epfl-sion-4de9b7"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4412,7 +4413,8 @@
           "phd-position-cross-modal-ai-for-humanitarian-relief-efforts-epfl-sion"
         ],
         "fr": [
-          "phd-position-cross-modal-ai-for-humanitarian-relief-efforts-epfl-sion"
+          "phd-position-cross-modal-ai-for-humanitarian-relief-efforts-epfl-sion",
+          "poste-de-doctorat-ai-transmodal-pour-les-secours-humanitaires-epfl-sion-4de9b7"
         ]
       }
     },

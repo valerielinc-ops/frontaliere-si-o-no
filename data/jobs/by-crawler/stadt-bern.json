@@ -2006,12 +2006,12 @@
     },
     {
       "id": "stadt-bern-d0ad9499efbd",
-      "slug": "cura-professionale-stadt-bern-bern",
+      "slug": "professionista-stadt-bern-bern",
       "slugByLocale": {
-        "it": "cura-professionale-stadt-bern-bern",
-        "en": "care-professional-stadt-bern-bern",
         "de": "betreuungsfachperson-stadt-bern-bern",
-        "fr": "professionnel-de-soins-stadt-bern-bern"
+        "it": "professionista-stadt-bern-bern",
+        "en": "care-professional-stadt-bern-bern",
+        "fr": "specialiste-des-soins-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2068,7 +2068,8 @@
       "firstSeenAt": "2026-08-18T21:45:06.173Z",
       "previousSlugs": [
         "betreuungsfachperson-stadt-bern-bern",
-        "cura-professionale-stadt-bern-bern"
+        "cura-professionale-stadt-bern-bern",
+        "professionnel-de-soins-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2079,7 +2080,8 @@
           "betreuungsfachperson-stadt-bern-bern"
         ],
         "fr": [
-          "betreuungsfachperson-stadt-bern-bern"
+          "betreuungsfachperson-stadt-bern-bern",
+          "professionnel-de-soins-stadt-bern-bern"
         ]
       }
     },
@@ -2263,10 +2265,10 @@
       "id": "stadt-bern-6289d81dac03",
       "slug": "leitung-o-co-leitung-bereich-tagesbetreuung-stadt-bern",
       "slugByLocale": {
-        "it": "leitung-o-co-leitung-bereich-tagesbetreuung-stadt-bern",
-        "en": "management-or-co-management-area-of-day-care-stadt-bern-bern",
         "de": "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern",
-        "fr": "domaine-de-gestion-ou-de-cogestion-des-garderies-stadt-bern-bern"
+        "it": "leitung-o-co-leitung-bereich-tagesbetreuung-stadt-bern",
+        "en": "management-or-co-management-of-day-care-stadt-bern-bern",
+        "fr": "gestion-ou-cogestion-des-garderies-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2314,14 +2316,18 @@
           "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern"
         ],
         "en": [
-          "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern"
+          "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern",
+          "management-or-co-management-area-of-day-care-stadt-bern-bern"
         ],
         "fr": [
-          "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern"
+          "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern",
+          "domaine-de-gestion-ou-de-cogestion-des-garderies-stadt-bern-bern"
         ]
       },
       "previousSlugs": [
-        "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern"
+        "leitung-oder-co-leitung-bereich-tagesbetreuung-stadt-bern-bern",
+        "management-or-co-management-area-of-day-care-stadt-bern-bern",
+        "domaine-de-gestion-ou-de-cogestion-des-garderies-stadt-bern-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2341,9 +2347,9 @@
       "id": "stadt-bern-eb2f189cc1e6",
       "slug": "scuola-di-testa-ku-tiefenau-stadt-bern-bern",
       "slugByLocale": {
+        "de": "schulleitung-schule-ku-tiefenau-stadt-bern-bern",
         "it": "scuola-di-testa-ku-tiefenau-stadt-bern-bern",
         "en": "school-head-school-ku-tiefenau-stadt-bern-bern",
-        "de": "schulleitung-schule-ku-tiefenau-stadt-bern-bern",
         "fr": "ecole-secondaire-ku-tiefenau-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2420,9 +2426,9 @@
       "id": "stadt-bern-4a30e63f9771",
       "slug": "lavoratore-sociale-della-scuola-stadt-bern-bern",
       "slugByLocale": {
+        "de": "schulsozialarbeiter-in-stadt-bern-bern",
         "it": "lavoratore-sociale-della-scuola-stadt-bern-bern",
         "en": "school-social-worker-stadt-bern-bern",
-        "de": "schulsozialarbeiter-in-stadt-bern-bern",
         "fr": "travailleur-social-scolaire-stadt-bern-bern"
       },
       "company": "Stadt Bern",
@@ -2719,9 +2725,9 @@
       "id": "stadt-bern-5fcb5ea91160",
       "slug": "fuhrungsunterstutzung-e-fachverantwortliche-r-risorse-umane-stadt-bern",
       "slugByLocale": {
+        "de": "fuhrungsunterstutzung-und-fachverantwortliche-r-hr-stadt-bern-bern",
         "it": "fuhrungsunterstutzung-e-fachverantwortliche-r-risorse-umane-stadt-bern",
         "en": "leadership-support-and-responsible-hr-stadt-bern-bern",
-        "de": "fuhrungsunterstutzung-und-fachverantwortliche-r-hr-stadt-bern-bern",
         "fr": "fuhrungsunterstutzung-und-fachverantwortliche-r-hr-stadt-bern-bern"
       },
       "company": "Stadt Bern",

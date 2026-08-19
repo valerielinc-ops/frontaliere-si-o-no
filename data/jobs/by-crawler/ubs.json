@@ -10711,13 +10711,11 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs-mittelland",
-        "bank-now-consulente-cliente-in-loan-privato-berna-80-100-ubs"
+        "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs-mittelland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs-mittelland",
-          "bank-now-consulente-cliente-in-loan-privato-berna-80-100-ubs"
+          "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs-mittelland"
         ],
         "de": [
           "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs-mittelland"
@@ -11045,11 +11043,11 @@
     },
     {
       "id": "ubs-5f499d71fa76",
-      "slug": "consulente-clienti-privato-ad-affluent-bern-80-100-ubs-mittelland",
+      "slug": "consulente-cliente-privato-a-affluent-bern-80-100-ubs-mittelland",
       "slugByLocale": {
-        "it": "consulente-clienti-privato-ad-affluent-bern-80-100-ubs-mittelland",
-        "en": "private-customer-consultant-in-affluent-bern-80-100-ubs-mittelland",
         "de": "privatkundenberater-in-affluent-bern-80-100-ubs-mittelland",
+        "it": "consulente-cliente-privato-a-affluent-bern-80-100-ubs-mittelland",
+        "en": "private-client-consultant-in-affluent-bern-80-100-ubs-mittelland",
         "fr": "consultant-client-prive-en-affluent-bern-80-100-ubs-mittelland"
       },
       "company": "UBS",
@@ -11113,7 +11111,8 @@
       "firstSeenAt": "2026-08-18T22:15:18.280Z",
       "previousSlugs": [
         "privatkundenberater-in-affluent-bern-80-100-ubs-mittelland",
-        "consulente-clienti-privato-ad-affluent-bern-80-100-ubs-mittelland"
+        "consulente-clienti-privato-ad-affluent-bern-80-100-ubs-mittelland",
+        "private-customer-consultant-in-affluent-bern-80-100-ubs-mittelland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11121,7 +11120,8 @@
           "consulente-clienti-privato-ad-affluent-bern-80-100-ubs-mittelland"
         ],
         "en": [
-          "privatkundenberater-in-affluent-bern-80-100-ubs-mittelland"
+          "privatkundenberater-in-affluent-bern-80-100-ubs-mittelland",
+          "private-customer-consultant-in-affluent-bern-80-100-ubs-mittelland"
         ],
         "fr": [
           "privatkundenberater-in-affluent-bern-80-100-ubs-mittelland"
@@ -11132,9 +11132,9 @@
       "id": "ubs-fe9a8dc45338",
       "slug": "consulente-clienti-privato-in-affluent-bahnhofstrasse-45-80-100-ubs-zurich",
       "slugByLocale": {
+        "de": "privatkundenberater-in-affluent-bahnhofstrasse-45-80-100-ubs-zurich",
         "it": "consulente-clienti-privato-in-affluent-bahnhofstrasse-45-80-100-ubs-zurich",
         "en": "private-customer-consultant-in-affluent-bahnhofstrasse-45-80-100-ubs-zurich",
-        "de": "privatkundenberater-in-affluent-bahnhofstrasse-45-80-100-ubs-zurich",
         "fr": "consultant-client-prive-en-affluent-bahnhofstrasse-45-80-100-ubs-zurich"
       },
       "company": "UBS",
@@ -11429,10 +11429,10 @@
       "id": "ubs-5bda176c3ed0",
       "slug": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
       "slugByLocale": {
+        "fr": "conseiller-ere-clientele-privee-affluent-sierre-80-100-ubs-valais",
         "it": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
         "en": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
-        "de": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais",
-        "fr": "conseiller-ere-clientele-privee-affluent-sierre-80-100-ubs-valais"
+        "de": "advisor-ere-private-clientele-affifluent-sierre-80-100-ubs-valais"
       },
       "company": "UBS",
       "companyKey": "ubs",

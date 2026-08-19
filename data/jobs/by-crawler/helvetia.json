@@ -11882,14 +11882,9 @@
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19398",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lead-expert-finanzplanung-vorsorge-amp-vermogen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "lead-expert-finanzplanung-previdenza-patrimonio-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-st-gallen"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-expert-finanzplanung-vorsorge-amp-vermogen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-          "lead-expert-finanzplanung-previdenza-patrimonio-m-w-d-teilzeit-vollzeit-helvetia-versicherungen-st-gallen"
+          "lead-expert-finanzplanung-vorsorge-amp-vermogen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
         ],
         "en": [
           "lead-expert-finanzplanung-vorsorge-amp-vermogen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
@@ -11898,7 +11893,9 @@
           "lead-expert-finanzplanung-vorsorge-amp-vermogen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-18T09:42:22.486Z",
+      "previousSlugs": [
+        "lead-expert-finanzplanung-vorsorge-amp-vermogen-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -11910,15 +11907,16 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:42:22.486Z"
     },
     {
       "id": "helvetia-c24a1add8790",
       "slug": "consulente-clienti-m-f-d-regione-di-assicurazione-rapperswil-jona-see-gaster-part-time-full-time-helvetia-versicherungen",
       "slugByLocale": {
+        "de": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit",
         "it": "consulente-clienti-m-f-d-regione-di-assicurazione-rapperswil-jona-see-gaster-part-time-full-time-helvetia-versicherungen",
         "en": "customer-advisor-m-f-d-insurance-region-rapperswil-jona-see-gaster-part-time-full-time-helvetia-versicherungen",
-        "de": "kundenberater-w-m-d-versicherung-region-rapperswil-jona-see-gaster-teilzeit-vollzeit",
         "fr": "conseiller-client-h-f-d-assurance-region-rapperswil-jona-see-gaster-temps-partiel-temps-plein-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
@@ -12122,8 +12120,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenberaterin-w-m-d-versicherungen-oberwallis-teilzeit-vollzeit-helvetia-brig",
-          "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig"
+          "kundenberaterin-w-m-d-versicherungen-oberwallis-teilzeit-vollzeit-helvetia-brig"
         ],
         "it": [
           "consulente-assicurativo-m-f-d-brig-part-time-full-time-helvetia-versicherungen-brig",
@@ -12132,8 +12129,7 @@
           "kundenberater-m-w-d-versicherungen-brig-teilzeit-vollzeit-helvetia-versicherungen-brig",
           "consulente-del-cliente-f-m-d-helvetia-versicherungen-brig",
           "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig",
-          "kundenberaterin-w-m-d-versicherungen-oberwallis-teilzeit-vollzeit-helvetia-brig",
-          "consulente-clienti-f-m-d-assicurazione-brig-part-time-full-time-helvetia-versicherungen-brig"
+          "kundenberaterin-w-m-d-versicherungen-oberwallis-teilzeit-vollzeit-helvetia-brig"
         ],
         "en": [
           "customer-consultant-f-m-d-insurance-brig-part-time-full-time-helvetia-versicherungen-brig",
@@ -12151,8 +12147,7 @@
         "kundenberater-m-w-d-versicherungen-brig-teilzeit-vollzeit-helvetia-versicherungen-brig",
         "consulente-del-cliente-f-m-d-helvetia-versicherungen-brig",
         "kundenberater-w-m-d-versicherungen-brig-teilzeit-vollzeit-helvetia-brig",
-        "kundenberaterin-w-m-d-versicherungen-oberwallis-teilzeit-vollzeit-helvetia-brig",
-        "consulente-clienti-f-m-d-assicurazione-brig-part-time-full-time-helvetia-versicherungen-brig"
+        "kundenberaterin-w-m-d-versicherungen-oberwallis-teilzeit-vollzeit-helvetia-brig"
       ],
       "firstSeenAt": "2026-08-04T22:15:01.475Z",
       "salaryMin": 60500,
@@ -12172,9 +12167,9 @@
       "id": "helvetia-31abde2b3477",
       "slug": "project-manager-partner-steering-systems-m-f-d-part-time-helvetia-versicherungen-basel-hauptsitz",
       "slugByLocale": {
+        "de": "projektmanager-partner-steering-amp-systems-w-m-d-teilzeit-helvetia-basel-hauptsitz",
         "it": "project-manager-partner-steering-systems-m-f-d-part-time-helvetia-versicherungen-basel-hauptsitz",
         "en": "projektmanager-partner-steering-amp-systems-w-m-d-teilzeit-helvetia-basel-hauptsitz",
-        "de": "projektmanager-partner-steering-amp-systems-w-m-d-teilzeit-helvetia-basel-hauptsitz",
         "fr": "gestionnaire-de-projet-partner-steering-systems-h-f-d-helvetia-versicherungen-basel-hauptsitz"
       },
       "company": "Helvetia Versicherungen",
@@ -12294,28 +12289,25 @@
       "applyUrl": "https://atsconnector.prospective.ch/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19161",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-luzern",
+        "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-schwyz"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-schwyz",
-          "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-luzern"
-        ],
         "it": [
           "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-luzern",
-          "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-schwyz",
-          "esperto-di-veicoli-regione-svizzera-interna-f-m-d-part-time-fulltime-helvetia-versicherungen-luzern"
+          "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-schwyz"
         ],
         "en": [
           "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-luzern"
         ],
         "fr": [
           "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-luzern"
+        ],
+        "de": [
+          "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-schwyz"
         ]
       },
-      "previousSlugs": [
-        "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-luzern",
-        "fahrzeugexperte-region-innerschweiz-w-m-d-teilzeit-vollzeit-helvetia-schwyz",
-        "esperto-di-veicoli-regione-svizzera-interna-f-m-d-part-time-fulltime-helvetia-versicherungen-luzern"
-      ],
       "firstSeenAt": "2026-08-04T22:15:01.469Z",
       "salaryMin": 69500,
       "salaryMax": 106000,

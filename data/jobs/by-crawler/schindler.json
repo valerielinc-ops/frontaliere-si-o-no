@@ -3033,11 +3033,11 @@
     },
     {
       "id": "schindler-f6d677724ff9",
-      "slug": "coordinatore-dell-assemblaggio-in-m-f-d-100-schindler-winterthur",
+      "slug": "coordinatore-dell-assemblea-in-m-f-d-100-schindler-winterthur",
       "slugByLocale": {
-        "it": "coordinatore-dell-assemblaggio-in-m-f-d-100-schindler-winterthur",
-        "en": "assembly-coordinator-in-m-f-d-100-schindler-winterthur",
         "de": "montagekoordinator-in-m-w-d-100-schindler-winterthur",
+        "it": "coordinatore-dell-assemblea-in-m-f-d-100-schindler-winterthur",
+        "en": "assembly-coordinator-in-m-f-d-100-schindler-winterthur",
         "fr": "coordinateur-de-l-assemblee-en-h-f-d-100-schindler-winterthur"
       },
       "company": "Schindler",
@@ -3964,10 +3964,6 @@
       "jobReqId": "1410232733",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-bern",
@@ -3977,8 +3973,11 @@
           "manager-fur-cookie-einwilligungen-schindler-bern"
         ]
       },
+      "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:46:48.344Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3990,7 +3989,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:46:48.344Z"
     },
     {
       "id": "schindler-e36964dc26d2",
@@ -5949,7 +5949,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:43:42.016Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -5961,7 +5960,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",

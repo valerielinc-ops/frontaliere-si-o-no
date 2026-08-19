@@ -888,15 +888,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Fashion 50%",
-        "en": "Mitarbeiter*in Sales Fashion 50%",
         "de": "Mitarbeiter*in Verkauf Fashion 50%",
+        "en": "Mitarbeiter*in Sales Fashion 50%",
         "fr": "Mitarbeiter*in Vente Fashion 50%"
       },
       "sourceLang": "it",
-      "id": "manor-b780f303f553",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:03:33.834Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-b780f303f553",
       "salaryMin": 34300,
       "salaryMax": 52500,
       "currency": "CHF",
@@ -912,7 +911,8 @@
       },
       "addressLocality": "Rickenbach b",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T22:03:33.834Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf 20%",
@@ -1364,7 +1364,7 @@
         "it": "manor-praktikant-in-logistik-80-st-gallen-praktikantin-logistik",
         "en": "manor-praktikant-in-logistik-80-st-gallen-praktikantin-logistik",
         "de": "manor-praktikant-in-logistik-80-st-gallen-praktikantin-logistik",
-        "fr": "manor-praktikant-in-logistik-80-st-gallen-praktikantin-logistik"
+        "fr": "praktikan-in-logistik-80-manor-ag-st-gallen-praktikantin-logistik"
       },
       "titleByLocale": {
         "it": "Praktikant*in Logistik 80%",
@@ -2584,11 +2584,10 @@
         "fr": "Mitarbeiter*in Logistik Kommetteerung 100%"
       },
       "sourceLang": "it",
-      "id": "manor-55540c4b7526",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
-          "collaboratore-trice-in-logistik-kommissionierung-100-manor-ag-hochdorf-mitarbeiterin-logistik-kommissionierung"
+          "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung"
         ],
         "en": [
           "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung-0oxkkg"
@@ -2603,8 +2602,7 @@
         "collaboratore-trice-in-logistik-kommissionierung-100-manor-ag-hochdorf-mitarbeiterin-logistik-kommissionierung"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
-      "crawledAt": "",
+      "id": "manor-55540c4b7526",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -2620,7 +2618,8 @@
       },
       "addressLocality": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Papeterie/Multimedia 70%",
@@ -2766,13 +2765,11 @@
       "id": "manor-4b19e1e828f1",
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-          "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
-        "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
@@ -9468,16 +9465,14 @@
         "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60-2",
         "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60",
         "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60-os1oal",
-        "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60-os1oal",
-        "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60-05c252"
+        "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60-os1oal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60-2",
           "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60",
           "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60-os1oal",
-          "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60-os1oal",
-          "collaboratore-trice-in-service-60-manor-ag-emmen-mitarbeiterin-service-60-05c252"
+          "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60-os1oal"
         ],
         "en": [
           "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"

@@ -1199,9 +1199,9 @@
       },
       "slugByLocale": {
         "it": "werkstatt-techniker-in-per-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl",
-        "en": "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen-sankt-gallen",
+        "en": "workshop-technician-in-for-small-electrical-equipment-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "de": "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl",
-        "fr": "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen-sankt-gallen"
+        "fr": "technicien-d-atelier-pour-les-petits-equipements-electriques-fust-swiss-household-services-ag-oberburen-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -1212,21 +1212,25 @@
         ],
         "en": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-4hr8zl",
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl",
+          "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen-sankt-gallen"
         ],
         "de": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-4hr8zl"
         ],
         "fr": [
           "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-4hr8zl",
-          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl"
+          "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl",
+          "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen-sankt-gallen"
         ]
       },
       "previousSlugs": [
         "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen",
         "werkstatt-techniker-in-per-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-4hr8zl",
         "werkstatt-techniker-in-fur-elektrokleingerate-fust-swiss-household-services-ag-oberburen-sankt-gallen-4hr8zl",
-        "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl"
+        "werkstatt-techniker-in-fur-elektrokleingerate-fust-oberburen-sankt-gallen-4hr8zl",
+        "workshop-technician-in-for-small-electrical-appliances-fust-swiss-household-services-ag-oberburen-sankt-gallen",
+        "technicien-d-atelier-pour-les-petits-appareils-electriques-fust-swiss-household-services-ag-oberburen-sankt-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1517,9 +1521,6 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
-        "it": [
-          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau"
-        ],
         "en": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d"
@@ -1527,12 +1528,17 @@
         "fr": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d"
+        ],
+        "it": [
+          "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau"
         ]
       },
       "previousSlugs": [
         "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau",
         "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d"
       ],
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1545,9 +1551,7 @@
       },
       "addressLocality": "Lenzburg, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-ebrmy3",
@@ -7140,9 +7144,9 @@
       },
       "slugByLocale": {
         "it": "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
-        "en": "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-284197",
+        "en": "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-feuerthalen",
         "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
-        "fr": "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-284197"
+        "fr": "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -7153,11 +7157,13 @@
         ],
         "en": [
           "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
-          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich"
+          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich",
+          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-284197"
         ],
         "fr": [
           "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
-          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich"
+          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich",
+          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-284197"
         ]
       },
       "previousSlugs": [
@@ -7165,7 +7171,9 @@
         "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
         "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich",
         "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich",
-        "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen-zurich"
+        "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen-zurich",
+        "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-284197",
+        "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-284197"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8225,10 +8233,10 @@
         "fr": "## Consultant en ventes: à Do-it\n\n**Jumbo, Division de la coopérative Coop** — Hinwil, Zurich, Svizzera\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n- Vous connaissez Do-it ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Hinwil"
       },
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
-        "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
+        "it": "consulente-di-vendita-in-do-it-jumbo-hinwil",
+        "en": "sales-consultant-in-do-it-jumbo-hinwil",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich-qrc75h",
-        "fr": "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil"
+        "fr": "consultant-en-ventes-a-do-it-jumbo-hinwil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8252,11 +8260,13 @@
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich-qrc75h",
-          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich"
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich",
+          "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil"
         ],
         "fr": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich-qrc75h",
-          "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich"
+          "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich",
+          "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil"
         ]
       },
       "previousSlugs": [
@@ -8269,7 +8279,9 @@
         "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich",
         "consultant-en-vente-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
         "sales-advisor-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
-        "verkaufsberater-in-do-it-jumbo-hinwil-zurich"
+        "verkaufsberater-in-do-it-jumbo-hinwil-zurich",
+        "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
+        "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12680,7 +12692,6 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consultant-en-ventes-interdiscount-wettingen-aargau",
           "consultant-en-ventes-interdiscount-wettingen",
-          "consultant-en-ventes-interdiscount-wettingen-ffb287",
           "conseiller-e-de-vente-interdiscount-wettingen-aargau"
         ]
       },
@@ -12874,7 +12885,6 @@
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
           "consultant-en-ventes-coop-genossenschaft-winterthur",
-          "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
           "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
         ]
       },

@@ -647,7 +647,7 @@
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-vernier-lidl-svizzera-vernier",
         "en": "seller-m-f-d-40-vernier-lidl-svizzera-vernier",
-        "de": "vendeur-vendeuse-m-w-d-40-vernier-lidl-svizzera-vernier",
+        "de": "verkaufer-m-w-d-40-vernier-lidl-svizzera-vernier",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-vernier-xjb6tr"
       },
       "requirementsByLocale": {},
@@ -742,7 +742,6 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-chur-g1z8b2",
-          "all-rounder-sale-m-f-d-20-40-chur-lidl-svizzera-chur",
           "allrounder-verkauf-m-w-d-20-40-chur-lidl-svizzera-chur"
         ]
       },
@@ -767,9 +766,9 @@
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 23000,
-      "salaryMax": 34800
+      "salaryMax": 34800,
+      "needsRetranslation": true
     },
     {
       "id": "company-nm8lh8",
@@ -2079,8 +2078,7 @@
         ]
       },
       "previousSlugs": [
-        "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione",
-        "salesman-salesman-m-f-d-20-80-lidl-svizzera-arbedo-castione"
+        "venditore-venditrice-m-w-d-20-80-lidl-svizzera-arbedo-castione"
       ],
       "salaryMin": 47200,
       "salaryMax": 72400,
@@ -3263,7 +3261,7 @@
       },
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-etoy-lidl-svizzera-etoy",
-        "en": "sales-assistant-m-w-d-40-etoy-lidl-svizzera-etoy",
+        "en": "seller-h-f-d-40-etoy-lidl-svizzera-etoy",
         "de": "verkaufer-h-w-d-40-etoy-lidl-svizzera-etoy",
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-etoy-7vvepx"
       },

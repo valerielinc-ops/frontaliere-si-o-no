@@ -1810,10 +1810,10 @@
       "id": "on-running-42d62a231c98",
       "slug": "senior-lead-global-process-owner-ibp-on-running-ch",
       "slugByLocale": {
-        "it": "senior-lead-global-process-owner-ibp-on-running-ch",
         "en": "senior-lead-global-process-owner-ibp-on-running-ch",
+        "it": "senior-lead-global-process-owner-ibp-on-running-ch",
         "de": "senior-lead-global-process-owner-ibp-on-running-ch",
-        "fr": "responsable-principal-proprietaire-de-processus-mondial-on-running-zurich"
+        "fr": "dirigeant-principal-proprietaire-de-processus-mondial-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -1873,7 +1873,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:55:12.676Z"
+      "firstSeenAt": "2026-08-18T21:55:12.676Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "responsable-principal-proprietaire-de-processus-mondial-on-running-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-principal-proprietaire-de-processus-mondial-on-running-zurich"
+      ]
     },
     {
       "id": "on-running-6691abfcf8aa",
@@ -3268,14 +3276,12 @@
       "previousSlugsByLocale": {
         "en": [
           "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-          "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
+          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
         ],
         "it": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
           "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-          "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
+          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
         ],
         "de": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
@@ -3287,8 +3293,7 @@
       "previousSlugs": [
         "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
         "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-        "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-        "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
+        "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
       ],
       "firstSeenAt": "2026-07-22T22:50:30.308Z",
       "salaryMin": 101500,

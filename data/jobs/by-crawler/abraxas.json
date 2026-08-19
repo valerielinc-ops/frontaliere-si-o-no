@@ -101,7 +101,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer – Data Migration 80 - 100%",
+        "en": "Software Engineer - Data Migration 80 - 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -118,7 +118,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T09:46:47.917Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,7 +151,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-5d8d6c85cc23",
@@ -168,9 +168,9 @@
       "companyDomain": "abraxas.ch",
       "title": "ServiceNow KI Solutions Engineer 80-100 %",
       "titleByLocale": {
-        "it": "ServiceNow KI Solutions Ingegnere 80-100 %",
-        "en": "ServiceNow KI Solutions Engineer 80-100 %",
         "de": "ServiceNow KI Solutions Ingenieur 80-100 %",
+        "en": "ServiceNow AI Solutions Engineer 80-100%",
+        "it": "ServiceNow KI Solutions Ingegnere 80-100 %",
         "fr": "ServiceNow KI Solutions Ingénieur 80-100 %"
       },
       "description": "Künstliche Intelligenz, Generative AI und intelligente Automatisierung verändern die Art, wie Services erbracht und Prozesse unterstützt werden. Bei Abraxas wollen wir diese Möglichkeiten gezielt nutzen und unsere ServiceNow-Plattform kontinuierlich weiterentwickeln.\nDafür suchen wir eine engagierte Persönlichkeit, die ServiceNow-Erfahrung mitbringt, neue Technologien spannend findet und gemeinsam mit unserem Team innovative KI- und Automatisierungslösungen aufbauen möchte.\nOb du bereits erste Erfahrungen mit Now Assist gesammelt hast oder dich künftig stärker in Richtung AI spezialisieren möchtest: Bei uns erhältst du die Möglichkeit, dieses Zukunftsthema aktiv mitzugestalten.\nDu unterstützt unser ServiceNow-Team bei der Weiterentwicklung der Plattform und arbeitest an neuen Lösungen rund um KI, Automatisierung und digitale Services. Gemeinsam mit Fachbereichen, Kunden und Engineering-Teams identifizierst du Potenziale, entwickelst neue Ansätze und hilfst mit, innovative ServiceNow-Funktionalitäten erfolgreich einzusetzen.\nDeine Rolle\n• Weiterentwicklung unserer ServiceNow-Plattform\n• Mitarbeit bei der Umsetzung von KI- und Automatisierungsinitiativen\n• Analyse von Anforderungen und Entwicklung praxisnaher Lösungen\n• Evaluation neuer ServiceNow-Funktionalitäten und KI-Features\n• Mitarbeit bei Proof of Concepts und Pilotprojekten\n• Unterstützung beim Einsatz von Now Assist, Virtual Agent und weiteren intelligenten ServiceNow-Funktionen\n• Automatisierung von Abläufen mit Flow Designer und IntegrationHub\n• Mitarbeit bei der Definition von Standards und Best Practices\n• Wissensaustausch innerhalb des Teams\nDein Profil\n• Erfahrung als ServiceNow Engineer, Developer oder Consultant\n• Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Workflows, Flow Designer oder Integrationen\n• Interesse an den Möglichkeiten von KI, GenAI und Automatisierung\n• Freude daran, neue Technologien auszuprobieren und in Lösungen zu überführen\n• Analytische und lösungsorientierte Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse\nVon Vorteil\n• Erfahrungen mit ServiceNow KI-Funktionen wie Now Assist, Predictive Intelligence, Virtual Agent oder KI Search\n• ServiceNow-Zertifizierungen\n• Kenntnisse in JavaScript oder Integrationen\n• Erfahrungen mit Generative KI, LLMs oder KI-Assistenten\nDeine Benefits\n• Mitarbeit an einem der spannendsten Zukunftsthemen im ServiceNow-Umfeld\n• Möglichkeit, dich im Bereich KI und Automation gezielt weiterzuentwickeln\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Moderne Arbeitsformen mit Homeoffice und flexiblen Arbeitszeiten\n• Anspruchsvolle Kunden und abwechslungsreiche Projekte\n• Kollegiales Team mit hoher ServiceNow-Expertise\n• Attraktive Weiterbildungsmöglichkeiten rund um ServiceNow und AI\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
@@ -186,7 +186,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T09:46:47.422Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,20 +207,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
-        ],
-        "fr": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T09:46:24.423Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -233,7 +218,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:46:24.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "fr": [
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -346,9 +346,9 @@
       "companyDomain": "abraxas.ch",
       "title": "Senior ServiceNow KI Engineer 80-100 %",
       "titleByLocale": {
-        "it": "Senior ServiceNow KI Ingegnere 80-100 %",
-        "en": "Senior ServiceNow KI Engineer 80-100 %",
         "de": "Senior ServiceNow KI Ingenieur 80-100 %",
+        "en": "Senior ServiceNow AI Engineer 80-100%",
+        "it": "Senior ServiceNow KI Ingegnere 80-100 %",
         "fr": "Senior ServiceNow KI Ingénieur 80-100 %"
       },
       "description": "Künstliche Intelligenz verändert die Art, wie Services erbracht, Wissen genutzt und Prozesse automatisiert werden. ServiceNow gehört dabei zu den führenden Plattformen weltweit. Bei Abraxas haben wir das klare Ziel, KI, GenAI und intelligente Automatisierung konsequent in unsere ServiceNow-Plattform zu integrieren und daraus echten Mehrwert für Kunden, Mitarbeitende und Prozesse zu schaffen. Für diese strategisch wichtige Rolle suchen wir eine erfahrene Persönlichkeit, die ServiceNow und KI zusammenführt, neue Möglichkeiten erkennt und daraus produktive Lösungen entwickelt. Du arbeitest nicht an theoretischen Konzepten, sondern gestaltest aktiv die nächste Generation unserer ServiceNow-Plattform mit.\nDu verstärkst unser ServiceNow-Team und treibst die nächste Evolutionsstufe unserer Plattform voran: den gezielten Einsatz von KI-Assisted Features, Automatisierung und datengetriebenen Services. Im Rahmen einer strategischen Initiative identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst diese gemeinsam mit dem Team in skalierbare Lösungen für unsere Kunden und internen Prozesse.\nDeine Rolle\n• Entwicklung und Umsetzung der ServiceNow KI- und Automatisierungs-Roadmap\n• Identifikation, Bewertung und Priorisierung von KI Use Cases\n• Konzeption und Implementierung von Lösungen auf Basis von Now Assist und weiteren KI-Features\n• Aufbau von intelligenten Assistenten, KI Agents und automatisierten Service-Prozessen\n• Durchführung von Proof of Concepts und Pilotprojekten\n• Überführung erfolgreicher Lösungen in den produktiven Betrieb\n• Beratung von Kunden und internen Stakeholdern bezüglich des sinnvollen Einsatzes von KI\n• Weiterentwicklung von Architektur, Standards und Governance für den Einsatz von KI innerhalb von ServiceNow\n• Förderung einer hohen Datenqualität als Grundlage erfolgreicher KI-Lösungen\n• Aktiver Wissenstransfer innerhalb des ServiceNow-Teams\nDein Profil\n• Mehrjährige praktische Erfahrung als ServiceNow Engineer, Developer, Architect oder Senior Consultant\n• Fundierte Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Flow Designer, IntegrationHub und Automatisierungslösungen\n• Nachweisbare praktische Erfahrung mit Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Erfahrung in der Konzeption und Umsetzung produktiver AI-Lösungen\n• ServiceNow-Zertifizierungen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\nNice-to-have\n• Erfahrung mit GenAI-, LLM- oder KI-Agent-Ansätzen\n• Architektur-Erfahrung im Enterprise-Umfeld\n• Erfahrung in öffentlichen Verwaltungen oder regulierten Umfeldern\n• Kenntnisse in Data Governance und KI Governance\nDeine Benefits\n• Du erhältst die Möglichkeit, den KI-Einsatz innerhalb unserer ServiceNow-Plattform aktiv mitzugestalten und strategisch zu prägen.\n• Neue Ideen, Pilotierungen und innovative Lösungsansätze sind ausdrücklich erwünscht. Du kannst Themen von der ersten Idee bis zur produktiven Umsetzung begleiten.\n• Now Assist, AI Agents, Generative AI und intelligente Automatisierung sind für uns keine Zukunftsthemen, sondern konkrete Handlungsfelder.\n• Die von dir entwickelten Lösungen unterstützen zahlreiche Kunden, Mitarbeitende und Prozesse und schaffen messbaren Mehrwert.\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
@@ -364,7 +364,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T09:46:46.440Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -386,20 +385,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
-        ],
-        "fr": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T09:46:23.561Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -411,7 +396,22 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:46:23.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "fr": [
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-f3e387a7f60a",
@@ -849,7 +849,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 - 100%",
+        "en": "Lead Software Engineer - Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -866,7 +866,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T09:46:43.470Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -900,7 +899,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-09133f677de5",
@@ -1264,7 +1264,7 @@
       "title": "ICT System Engineer DevOps 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere DevOps 80–100 %",
-        "en": "ICT System Engineer DevOps 80–100 %",
+        "en": "ICT System Engineer DevOps 80-100%",
         "de": "ICT System Ingenieur DevOps 80–100 %",
         "fr": "ICT System Ingénieur DevOps 80–100 %"
       },
@@ -1281,7 +1281,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-08-19T09:46:41.000Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1315,7 +1314,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-0b494c346556",
@@ -2085,10 +2085,10 @@
     },
     {
       "id": "abraxas-bb2b96bd4142",
-      "slug": "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen",
+      "slug": "responsabile-del-servizio-it-focus-change-gestione-incidenti-e-pratiche-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
         "de": "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen",
-        "it": "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen",
+        "it": "responsabile-del-servizio-it-focus-change-gestione-incidenti-e-pratiche-100-abraxas-informatik-ag-st-gallen",
         "en": "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen",
         "fr": "gestionnaire-des-services-de-ti-changement-de-cap-gestion-des-incidents-et-des-pratiques-100-abraxas-informatik-ag-st"
       },
@@ -2099,7 +2099,7 @@
       "titleByLocale": {
         "de": "IT Service Manager - Focus Change, Incident & Practice Management (100%)",
         "en": "IT Service Manager - Focus Change, Incident & Practice Management (100%)",
-        "it": "IT Service Manager - Focus Change, Incident & Practice Management (100%)",
+        "it": "Responsabile del Servizio IT - Focus Change, Gestione Incidenti e Pratiche (100%)",
         "fr": "Gestionnaire des services de TI - Changement de cap, gestion des incidents et des pratiques (100 %)"
       },
       "description": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
@@ -2150,7 +2150,15 @@
         }
       },
       "firstSeenAt": "2026-08-18T09:46:20.512Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen"
+      ]
     },
     {
       "id": "abraxas-0d9b177264ff",
