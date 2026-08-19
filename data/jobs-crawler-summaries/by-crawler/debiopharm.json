@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-08-19T09:46:32.603Z",
+  "generatedAt": "2026-08-19T21:33:47.403Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 4091,
-  "avgDurationMs": 4091,
+  "durationMs": 2954,
+  "avgDurationMs": 2954,
   "durationHistory": [
-    4091
+    2954
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -93,6 +93,7 @@
       "salaryMax": 162500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -135,6 +136,7 @@
       "salaryMax": 77500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -177,6 +179,7 @@
       "salaryMax": 306000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -220,6 +223,7 @@
       "salaryMax": 126500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -256,6 +260,7 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -293,6 +298,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -374,6 +380,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
