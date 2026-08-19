@@ -3943,6 +3943,19 @@
           "Refer a Friend"
         ]
       },
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T22:06:05.062Z",
       "previousSlugs": [
         "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
         "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
@@ -3958,20 +3971,6 @@
         "fr": [
           "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau"
         ]
-      },
-      "firstSeenAt": "2026-08-17T22:06:05.062Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -4037,7 +4036,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T22:05:59.138Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4112,16 +4110,6 @@
           "Sales, Business development"
         ]
       },
-      "previousSlugs": [
-        "head-of-industry-real-estate-development-m-w-d-coopers-group-ag-basel-stadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-industry-real-estate-development-m-w-d-coopers-group-ag-basel-stadt"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T22:05:58.120Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -4133,7 +4121,16 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T22:05:58.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-industry-real-estate-development-m-w-d-coopers-group-ag-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-industry-real-estate-development-m-w-d-coopers-group-ag-basel-stadt"
+      ]
     },
     {
       "id": "coopers-0a1bce8b9bdd",

@@ -297,22 +297,36 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
-        "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden"
+        "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden",
+        "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon",
+        "stv-branch-management-80-orell-fussli-thalia-ebikon",
+        "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
+        "gestion-des-succursales-stv-80-orell-fussli-thalia-ebikon",
+        "stv-filialleitung-80-a-orell-fuessli-thalia-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
-          "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden"
+          "vice-direttore-di-filiale-80-100-a-orell-fussli-thalia-weinfelden",
+          "gestione-del-ramo-stv-80-orell-fussli-thalia-ebikon",
+          "stv-branch-management-80-orell-fussli-thalia-ebikon",
+          "stv-filialleitung-80-orell-fuessli-thalia-ebikon",
+          "gestion-des-succursales-stv-80-orell-fussli-thalia-ebikon",
+          "stv-filialleitung-80-a-orell-fuessli-thalia-ebikon"
         ],
         "en": [
-          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
+          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
+          "stv-branch-management-80-orell-fussli-thalia-ebikon"
         ],
         "fr": [
-          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden"
+          "stv-filialleitung-80-100-a-orell-fuessli-thalia-weinfelden",
+          "gestion-des-succursales-stv-80-orell-fussli-thalia-ebikon"
+        ],
+        "de": [
+          "stv-filialleitung-80-orell-fuessli-thalia-ebikon"
         ]
       },
       "firstSeenAt": "2026-07-04T11:26:42.542Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -324,7 +338,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-78d3c20abc58",
@@ -1713,7 +1728,7 @@
       "title": "Buchhändler*in 20 - 40% (a)",
       "titleByLocale": {
         "it": "Libreria* in 20 - 40% (a)",
-        "en": "Buchhändler*in 20 - 40% (a)",
+        "en": "Bookseller*in 20 - 40% (a)",
         "de": "Buchhändler*in 20 - 40% (a)",
         "fr": "Buchhändler* en 20 - 40% (a)"
       },
@@ -1748,14 +1763,7 @@
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur",
-        "bookseller-in-20-40-a-orell-fussli-thalia-winterthur",
-        "buchhandler-in-20-40-a-orell-fussli-thalia-winterthur",
-        "librairie-en-20-40-a-orell-fussli-thalia-winterthur",
-        "libreria-in-20-40-a-orell-fussli-thalia-winterthur",
-        "buchhandler-en-20-40-a-orell-fussli-thalia-winterthur"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur",
@@ -1772,7 +1780,14 @@
           "buchhandler-en-20-40-a-orell-fussli-thalia-winterthur"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "buchhandler-in-20-40-a-orell-fuessli-thalia-winterthur",
+        "bookseller-in-20-40-a-orell-fussli-thalia-winterthur",
+        "buchhandler-in-20-40-a-orell-fussli-thalia-winterthur",
+        "librairie-en-20-40-a-orell-fussli-thalia-winterthur",
+        "libreria-in-20-40-a-orell-fussli-thalia-winterthur",
+        "buchhandler-en-20-40-a-orell-fussli-thalia-winterthur"
+      ],
       "firstSeenAt": "2026-08-07T22:03:08.033Z",
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -1837,10 +1852,6 @@
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
-        "libreria-100-a-orell-fussli-thalia-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
@@ -1853,8 +1864,11 @@
           "buchhandler-in-100-a-orell-fuessli-thalia-zurich"
         ]
       },
+      "previousSlugs": [
+        "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
+        "libreria-100-a-orell-fussli-thalia-zurich"
+      ],
       "firstSeenAt": "2026-08-13T22:19:24.068Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

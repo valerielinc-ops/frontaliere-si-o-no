@@ -867,7 +867,6 @@
         "de": "Aufgaben:\n• Sie begleiten die Bewohnerinnen und Bewohner aktiv in ihrer Lebens-, Alltags- und Freizeitgestaltung\n\n• Sie unterstützen eine individuelle, zielgerichtete und ressourcenorientierte Pflege und Betreuung und wirken bei deren Umsetzung mit\n\n• Sie arbeiten bei der Planung, Durchführung und Evaluation des agogischen Entwicklungsprozesses mit und bringen sich aktiv ein\n\n• Sie pflegen den Kontakt zu Angehörigen sowie externen Bezugspersonen\n\n• Sie tauschen sich interdisziplinär mit dem Team sowie internen Fach- und Schnittstellen aus\n\nAnforderungen:\n• Sie verfügen über einen anerkannten Berufsabschluss EFZ (mindestens dreijährig) oder einen Mittelschulabschluss\n\n• Sie bringen ein Vorpraktikum oder Berufserfahrung im sozialpädagogischen Bereich mit\n\n• Idealerweise haben Sie das Aufnahmeverfahren bereits bestanden\n\n• Sie sind eine teamorientierte Persönlichkeit mit hoher Sozialkompetenz\n\n• Sie reflektieren Ihr Handeln und gestalten gemeinsam mit Menschen mit Beeinträchtigungen und Behinderungen deren Lebenswelt engagiert mit\n\nWir bieten:\n• Löhnen nach kantonalen Richtlinien\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigener Pensionskasse mit einem überdurchschnittlichen Arbeitgeberanteil\n\n• Sehr guten internen Weiterbildungsangeboten\n\n• Vergünstigungen in unserer Apotheke\n\n• Mitarbeiterermässigung in unserem öffentlichen Restaurant\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
         "fr": "Tâches :\n• Ils accompagnent activement les résidents dans leurs activités de vie, de quotidien et de loisirs\n\n• Ils appuient les soins individuels, ciblés et axés sur les ressources et participent à leur mise en œuvre.\n\n• Vous participez à la planification, à la mise en oeuvre et à l'évaluation du processus de développement agogique et vous participez activement\n\n• Ils entretiennent des contacts avec des parents et des personnes de référence externes\n\n• Ils échangent des idées interdisciplinaires avec l'équipe ainsi qu'un spécialiste interne et des interfaces\n\nExigences\n• Vous avez une qualification professionnelle reconnue EFZ (au moins trois ans) ou une qualification d'études secondaires\n\n• Vous avez un stage ou une expérience professionnelle dans le domaine socio-éducatif\n\n• Idéalement, vous avez déjà passé la procédure d'admission\n\n• Vous êtes une personnalité axée sur l'équipe avec de hautes compétences sociales\n\n• Vous réfléchissez à vos actions et, avec les personnes handicapées, façonnez leur milieu de vie avec engagement\n\nNous offrons:\n• Salaires selon les directives cantonales\n\n• 5 semaines de vacances, à partir du 50ème. Âge 6 semaines\n\n• Fonds de pension propre avec une part de l'employeur supérieure à la moyenne\n\n• Très bonnes offres de formation interne\n\n• Réductions dans notre pharmacie\n\n• Réduction des employés dans notre restaurant public\n\nParfois assez difficile, mais jamais ennuyeux: Chez EPI WohnWerk, aucun jour n'est comme l'autre. Parce que les gens que nous accompagnons chacun et chacun ont leur histoire de vie unique. Grâce à la coopération au sein de l'équipe interprofessionnelle, nous sommes bien placés pour notre journée de travail. Voulez-vous aussi faire partie de cette équipe ?"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.swissepi.ch/offene-stellen/studierende-sozialpaedagogik-hf-fh/b1d0c4c3-936c-41d5-b078-89930dd2ebb0",
@@ -891,6 +890,19 @@
       "applyUrl": "https://job.swissepi.ch/offene-stellen/studierende-sozialpaedagogik-hf-fh/b1d0c4c3-936c-41d5-b078-89930dd2ebb0",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:31:08.649Z",
       "previousSlugs": [
         "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
         "etudiants-en-pedagogie-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
@@ -908,19 +920,6 @@
         "fr": [
           "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
         ]
-      },
-      "firstSeenAt": "2026-08-17T21:31:08.649Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
       }
     },
     {

@@ -304,7 +304,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Netstal",
-        "en": "Store Manager Trainee (a) 80-100% für die Region Netstal",
+        "en": "Store Manager Trainee (a) 80-100% for the Netstal region",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Netstal",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Netstal"
       },
@@ -316,6 +316,8 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "salaryMin": 55000,
+      "salaryMax": 83000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -329,6 +331,7 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Glarus",
       "addressRegion": "GL",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "store-manager-apprendista-a-80-100-per-la-region-netstal-jysk-glarus",
@@ -340,10 +343,7 @@
         "store-manager-apprendista-a-80-100-per-la-region-netstal-jysk-glarus",
         "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus",
         "store-manager-trainee-a-80-100-per-la-regione-netstal-jysk-glarus"
-      ],
-      "salaryMin": 55000,
-      "salaryMax": 83000,
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-bfibyw",

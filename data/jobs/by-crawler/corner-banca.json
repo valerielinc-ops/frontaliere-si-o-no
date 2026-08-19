@@ -281,7 +281,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.238Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -501,7 +500,7 @@
       "title": "Customer Analytics Officer  - ref-  1072",
       "titleByLocale": {
         "it": "Customer Analytics Officer - ref- 1072",
-        "en": "Customer Analytics Officer  - ref-  1072",
+        "en": "Customer Analytics Officer - ref- 1072",
         "de": "Customer Analytics Officer - ref- 1072",
         "fr": "Customer Analytics Officer - ref- 1072"
       },
@@ -828,16 +827,7 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
       "crawledAt": "2026-08-19T09:48:31.176Z",
-      "previousSlugs": [
-        "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
-        ]
-      },
       "firstSeenAt": "2026-08-14T10:12:28.211Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -851,7 +841,15 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-701736bd33cc",
@@ -1012,16 +1010,7 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
       "crawledAt": "2026-08-19T09:48:31.174Z",
-      "previousSlugs": [
-        "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
-        ]
-      },
       "firstSeenAt": "2026-08-14T10:12:28.201Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1037,7 +1026,15 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-9edf9a711b5c",
@@ -1283,8 +1280,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
       "crawledAt": "2026-08-19T09:48:31.169Z",
-      "firstSeenAt": "2026-08-18T21:32:39.030Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1300,7 +1295,8 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T21:32:39.030Z"
     }
   ]
 }

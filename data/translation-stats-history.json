@@ -12302,5 +12302,161 @@
         "pending": 196
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-19T12:22:25.798Z",
+    "label": "before",
+    "total": 27425,
+    "needsRetranslation": 11117,
+    "suppressed": 54,
+    "incomplete": 11809,
+    "complete": 15616,
+    "slotsPresent": 15616,
+    "flaggedAmongSlotsPresent": 484,
+    "verifiedTranslated": 15132,
+    "sourceCopyExcused": 684,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 49,
+      "en": 40,
+      "de": 59,
+      "fr": 59
+    },
+    "queueAge": {
+      "count": 11117,
+      "withTimestamp": 11117,
+      "oldestAgeDays": 128.1,
+      "p50AgeDays": 19.5,
+      "p90AgeDays": 70,
+      "buckets": {
+        "0-7d": 1887,
+        "7-30d": 5274,
+        "30-90d": 3464,
+        "90-180d": 492,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2093
+      },
+      {
+        "company": "Roche",
+        "pending": 558
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 481
+      },
+      {
+        "company": "VOLG",
+        "pending": 278
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 268
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 257
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 244
+      },
+      {
+        "company": "BKW",
+        "pending": 227
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-19T12:59:50.572Z",
+    "label": "after",
+    "total": 27425,
+    "needsRetranslation": 10684,
+    "suppressed": 55,
+    "incomplete": 11809,
+    "complete": 15616,
+    "slotsPresent": 15616,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15616,
+    "sourceCopyExcused": 684,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 49,
+      "en": 40,
+      "de": 59,
+      "fr": 59
+    },
+    "queueAge": {
+      "count": 10684,
+      "withTimestamp": 10684,
+      "oldestAgeDays": 128.1,
+      "p50AgeDays": 19,
+      "p90AgeDays": 70.1,
+      "buckets": {
+        "0-7d": 1818,
+        "7-30d": 5106,
+        "30-90d": 3252,
+        "90-180d": 508,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2093
+      },
+      {
+        "company": "Roche",
+        "pending": 558
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 481
+      },
+      {
+        "company": "VOLG",
+        "pending": 278
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 268
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 257
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 244
+      },
+      {
+        "company": "BKW",
+        "pending": 227
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
   }
 ]
