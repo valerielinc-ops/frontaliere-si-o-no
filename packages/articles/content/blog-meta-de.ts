@@ -10078,6 +10078,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 19. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Grenzgänger-Bulletin vom 19. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'Die Zahlen vom 19. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.title': 'Leben in San Fermo und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.excerpt': 'Als Grenzgänger von San Fermo della Battaglia nach Tessin: Genehmigungen, Steuern, Durchführbarkeit und Bequemlichkeit des Transfers in die Provinz Como.',
+    'blog.article.san-fermo-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Mendrisio im südlichen Tessin, mit Comotal und italienischer Grenze im Hintergrund.',
 };
 
 export default blogMetaDe;

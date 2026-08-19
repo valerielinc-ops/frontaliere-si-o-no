@@ -30189,6 +30189,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'san-fermo-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-19T05:48:11.674Z',
+ image: '/images/blog/san-fermo-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
