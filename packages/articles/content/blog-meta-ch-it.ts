@@ -3445,6 +3445,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-canton-basilea-citta.title': 'Comprare casa in Cantone di Basilea Città: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'I prezzi medi delle case nel Cantone di Basilea Città possono variare a seconda della zona e del tipo di proprietà.',
     'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Immagine di un edificio nella zona di Basilea Città.',
+    'blog.article.avs-prestazioni-complementari-basilea.title': 'AVS e prestazioni complementari: guida Canton Basilea Città',
+    'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'Primo pilastro e cassa di compensazione cantonale: come funziona il calcolo della rendita AVS, colmare le lacune contributive e accedere alle prestazioni complementari per il minimo vitale a Basilea Città.',
+    'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'Documenti AVS e prestazioni complementari nella sede della cassa di compensazione cantonale',
 };
 
 export default blogMetaChIt;
