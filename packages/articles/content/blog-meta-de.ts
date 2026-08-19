@@ -10090,6 +10090,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-villa-guardia-lavorare-ticino.title': 'Villa Guardia: Leben und Arbeiten als Grenzgänger',
     'blog.article.vivere-villa-guardia-lavorare-ticino.excerpt': 'Vollständiger Leitfaden für Grenzgänger von Villa Guardia ins Tessin: G-Bewilligung, Steuern, AHV, KVG, Vorteile und Verfahren für den Umzug.',
     'blog.article.vivere-villa-guardia-lavorare-ticino.imageAlt': 'Morgenlandschaft der Region Mendrisio im Kanton Tessin mit nebligem Tal, Wohngebäuden und Alpenhängen',
+    'blog.article.vivere-brissago-valtravaglia-ticino.title': 'Arbeiten im Tessin, wohnen in Brissago-Valtravaglia: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-brissago-valtravaglia-ticino.excerpt': 'Bewilligung G, Besteuerung, AHV, KVG: Alles, was Sie wissen müssen, um 2026 nach Brissago-Valtravaglia zu ziehen und als Grenzgänger im Tessin zu arbeiten.',
+    'blog.article.vivere-brissago-valtravaglia-ticino.imageAlt': 'Panoramablick auf den Lago Maggiore von Brissago mit Tessiner Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

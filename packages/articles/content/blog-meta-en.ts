@@ -10091,6 +10091,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-villa-guardia-lavorare-ticino.title': 'Villa Guardia: living and working as a border worker',
     'blog.article.vivere-villa-guardia-lavorare-ticino.excerpt': 'Complete guide for border workers from Villa Guardia to Ticino: G permit, taxes, AVS, LAMal, advantages and transfer procedures.',
     'blog.article.vivere-villa-guardia-lavorare-ticino.imageAlt': 'Morning landscape of Mendrisio region in Canton Ticino with misty valley, residential buildings and Alpine slopes',
+    'blog.article.vivere-brissago-valtravaglia-ticino.title': 'Living in Brissago-Valtravaglia, working in Ticino: border guide',
+    'blog.article.vivere-brissago-valtravaglia-ticino.excerpt': 'Permit G, taxation, AVS, LAMal: everything you need to know to move to Brissago-Valtravaglia and work as a border worker in Ticino in 2026.',
+    'blog.article.vivere-brissago-valtravaglia-ticino.imageAlt': 'Panoramic view of Lake Maggiore from Brissago with Ticino mountains in background',
 };
 
 export default blogMetaEn;

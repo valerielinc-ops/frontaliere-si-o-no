@@ -10093,6 +10093,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-villa-guardia-lavorare-ticino.title': 'Villa Guardia : vivre et travailler comme frontalière',
     'blog.article.vivere-villa-guardia-lavorare-ticino.excerpt': 'Guide complet pour les frontaliers de Villa Guardia vers le Tessin : permis G, taxes, AVS, LAMal, avantages et procédures de transfert.',
     'blog.article.vivere-villa-guardia-lavorare-ticino.imageAlt': 'Paysage matinal de la région de Mendrisio au Tessin avec vallée brumeuse, bâtiments résidentiels et pentes alpines',
+    'blog.article.vivere-brissago-valtravaglia-ticino.title': 'Vivre à Brissago-Valtravaglia, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-brissago-valtravaglia-ticino.excerpt': 'Permis G, fiscalité, AVS, LAMal : tout ce que vous devez savoir pour déménager à Brissago-Valtravaglia et travailler comme frontalier au Tessin en 2026.',
+    'blog.article.vivere-brissago-valtravaglia-ticino.imageAlt': 'Vue panoramique du Lac Majeur depuis Brissago avec les montagnes du Tessin en arriere-plan',
 };
 
 export default blogMetaFr;
