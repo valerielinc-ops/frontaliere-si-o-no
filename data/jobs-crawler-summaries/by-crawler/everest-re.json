@@ -1,16 +1,16 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-08-19T09:57:01.626Z",
+  "generatedAt": "2026-08-19T22:06:53.036Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6941,
-  "avgDurationMs": 6941,
+  "unchangedCount": 1,
+  "durationMs": 7032,
+  "avgDurationMs": 7032,
   "durationHistory": [
-    6941
+    7032
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriter-I--Reinsurance_R7228",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:56:58.028Z",
+      "crawledAt": "2026-08-19T22:06:49.263Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T09:56:58.615Z",
+      "crawledAt": "2026-08-19T22:06:49.838Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,15 +87,18 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "everest-re-9dabf53a2d5a",
-      "slug": "senior-actuarial-analyst-everest-re-ch",
+      "slug": "senior-actuarial-analista-everest-re-zurich-switzerland",
       "company": "Everest Re",
       "companyKey": "everest-re",
       "companyDomain": "everestre.com",
       "title": "Senior Actuarial Analyst",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Zurich-Switzerland",
       "canton": "ZH",
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Actuarial-Analyst_R7238",
@@ -117,15 +120,16 @@
       "applyUrl": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Actuarial-Analyst_R7238",
       "jobReqId": "R7238",
       "firstSeenAt": "2026-07-04T10:50:43.313Z",
-      "_qualityScore": 77,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
