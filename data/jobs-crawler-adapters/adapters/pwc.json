@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-18T21:55:13.715Z",
+  "updatedAt": "2026-08-19T09:50:26.647Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/junior-legal-counsel-fokus-datenschutz-und-compliance/8a05c6cb-995b-4f1b-b63c-df67f8ee43f1": {
       "location": "Zürich",
@@ -558,12 +558,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2024-10-16"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-manager-transfer-pricing/dcaccb5e-2f39-4182-940d-8ae87bf432d2": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2024-06-12"
     }
   }
 }
