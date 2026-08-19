@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-19T09:53:59.132Z",
+  "savedAt": "2026-08-19T10:20:46.836Z",
   "entries": [
     {
       "key": "57f539cab36639e933bf32fac2ec31aae280414d5393dfe261a0efd7fe539d77",
@@ -57380,7 +57380,7 @@
     },
     {
       "key": "dd3f6a86ed9e94a5571f73b065c4dedd5bfe98800bb963c3724a14ed561a4a46",
-      "touchedAt": 1784634580913,
+      "touchedAt": 1787134335315,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -57389,11 +57389,11 @@
     },
     {
       "key": "2b86cad342e878ee33b9a6f3dfaa6049a65efae1d38149ce9d58dcdcf52015b5",
-      "touchedAt": 1784634581334,
+      "touchedAt": 1787134337664,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, detailed responsibilities and requirements, and an application context, indicating a real single job detail page."
       }
     },
     {
@@ -57407,7 +57407,7 @@
     },
     {
       "key": "1557f2806ee891f3d55aac37ab9d27210a8be4fcb8837ff7e4f7dc0c21d45f39",
-      "touchedAt": 1784634582664,
+      "touchedAt": 1787134319486,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -57448,7 +57448,7 @@
     },
     {
       "key": "c867a9bb6abf532f7035babcad2a0a7e22773d245fff89836d62ee375d2a2605",
-      "touchedAt": 1784634584599,
+      "touchedAt": 1787134317186,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -57457,43 +57457,43 @@
     },
     {
       "key": "5f05dc5b81f6ef8a9a3960feaaf46e6069aa5d0ba99a669b296879396e3be224",
-      "touchedAt": 1784634585636,
+      "touchedAt": 1787134290858,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
       }
     },
     {
       "key": "50d9079b240ca55b2cb6768738221510ae447ee34a900fad314478a3feeee3cd",
-      "touchedAt": 1784634586134,
+      "touchedAt": 1787134304211,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title, detailed responsibilities, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
       "key": "bf19dce69d77495b08d7f0a1349ac034bf879ffebb971adafb1a0be9de6b2eed",
-      "touchedAt": 1784634586645,
+      "touchedAt": 1787134293594,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+        "reason": "The page contains a concrete role title (Senior Pricing Analyst), detailed responsibilities and requirements, and application context, indicating a real single job detail page."
       }
     },
     {
       "key": "fe291829c3b1dc9157b5312ec152a41315b90628621a57aac8c8bcfe67e66cb8",
-      "touchedAt": 1784634587154,
+      "touchedAt": 1787134301190,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a call to action to apply for the job. The page also provides information about the company culture, benefits, and the opportunity to work in a global environment. However, the page also contains some generic information about the company and its career opportunities, which slightly reduces the confidence level."
       }
     },
     {
       "key": "80abd5ad4e814b5c6e41bb8497654d4fb7f1f9fa9a4fe765d5ed07967fab6b2e",
-      "touchedAt": 1784634587596,
+      "touchedAt": 1787134313562,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -57502,11 +57502,11 @@
     },
     {
       "key": "eb489034ed9cdd5e0ee359e5a503bc7299db07e288e5a788ae735d6e1f3461f4",
-      "touchedAt": 1784634588046,
+      "touchedAt": 1787134328716,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
       }
     },
     {
@@ -62115,11 +62115,11 @@
     },
     {
       "key": "070e50e036a9699706b7a1dd84e9795ecc90321744bac18edc29b8508a875fbf",
-      "touchedAt": 1784673896896,
+      "touchedAt": 1787134322766,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title ('Claims Performance Analyst'), detailed job responsibilities and requirements, and an application context, indicating that it is a real single job detail page."
+        "reason": "The page contains a concrete role title ('Claims Performance Analyst'), detailed responsibilities and requirements, and an application context, indicating that it is a real single job detail page."
       }
     },
     {
@@ -239435,11 +239435,11 @@
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1787089495933,
+      "touchedAt": 1787134286390,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, which suggests that it is a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
       }
     },
     {
@@ -240565,6 +240565,258 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title (Sales Associate), responsibilities/requirements, and application context, which meets the rules for a real single job detail page."
+      }
+    },
+    {
+      "key": "f1e3f4a8051e5f003da4b2b9aa00ef497ce08774b9486f12257e90434d4e8c23",
+      "touchedAt": 1787134288920,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "2d0ab2370ba09a91787c8b4661ddae3dd568598787a875e769616a9466f7cf0f",
+      "touchedAt": 1787134306535,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "11325ec268e5434f26d6d5981b2b87a77ca1a5f15c39fe501287a9710567b36a",
+      "touchedAt": 1787134309686,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "aaf5b28698e7ecee349e1dddf5b74db6f8634648b53f953dccda2cf8aa9028c6",
+      "touchedAt": 1787134311099,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "bc82aa3d75f220d4233b66d127bb9eb891784cb1dab4dbac4ca9750fe4176b91",
+      "touchedAt": 1787134326181,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (AVP, Claims Analytics), detailed job responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "53e6f0f8ce9f1a4f06c5e21751d8fde00de2ed12ea128e42d6aac978448af016",
+      "touchedAt": 1787134332859,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title 'Risikoingenieur Feuer/Brandschutz (m/w/d)', responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "a5b3a79268ace581d225a5b40a2cf4f347b02acaab93b837ae5bc7b7d78aa6a7",
+      "touchedAt": 1787134368555,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Accounting Specialist - Zurich Topas Life), detailed job qualifications, accountabilities, and an application mechanism."
+      }
+    },
+    {
+      "key": "024e619464d38fb247be97fd54c8c244718dc8e64ea6cbffb842c0bff010ed3e",
+      "touchedAt": 1787134399902,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Senior Executive, Claims LFM), a unique job ID, location, and clear 'Apply now' functionality, confirming it is a single job detail page."
+      }
+    },
+    {
+      "key": "39f15e43cb17958d5207377a5c0e390dc8e48da43069da6b97d6f3c7bcc42bc2",
+      "touchedAt": 1787134401993,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Manager, Non-Motor Claim PE), a job ID, location, and clear 'Apply now' functionality, confirming it is a single job detail page."
+      }
+    },
+    {
+      "key": "728faa15012bd8621f63595fbe9e3e799c419d89ebd688a789c065cf296d8c72",
+      "touchedAt": 1787134403268,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Senior System Analyst), detailed responsibilities (What you’ll do), requirements (What we’re looking for), and an application mechanism (Apply Now button)."
+      }
+    },
+    {
+      "key": "3629952d869b7eb9f42c891403c399aabddf7b323e2e05cfdd6b6882617cbae6",
+      "touchedAt": 1787134404500,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Accounting Officer), a unique job ID, detailed job accountabilities, and job qualifications, along with an application button."
+      }
+    },
+    {
+      "key": "45709d1948f53531f27d4ef1a0c68902e4a3a9602cebc72f645960f46327e187",
+      "touchedAt": 1787134405705,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Teamleitung Property Underwriting Mid-Market), detailed responsibilities, requirements, benefits, and an application button."
+      }
+    },
+    {
+      "key": "c93cc47048a0c7f7f581cc8dbee1b0af197c078e3fbe7989cd38ca9ff4a56461",
+      "touchedAt": 1787134406883,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Head of Legal IT and Operations), detailed responsibilities, required qualifications, and an 'Apply Now' function, which are the hallmarks of a single job detail page."
+      }
+    },
+    {
+      "key": "6f2c31c5df85705600d894d925546d7b9993d50823cd58d44b397b9bbc70a79b",
+      "touchedAt": 1787134409945,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Data Science & AI Internship), detailed job scope, responsibilities, learning objectives, and an 'Apply now' call to action."
+      }
+    },
+    {
+      "key": "6e4d010fb12be1f88fdd4fd253998a26371acc9800e78b3636065bc4eeacd0c7",
+      "touchedAt": 1787134410984,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Senior Auditor Finanzen und Investments), detailed job responsibilities, and an application call-to-action (Jetzt bewerben)."
+      }
+    },
+    {
+      "key": "853f25d8d84c0cd9b9155579444502b837f9318a49f0cf6298dbf263e08bb18c",
+      "touchedAt": 1787134412075,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Responsable d'équipe sinistres complexes), detailed responsibilities, requirements, location, and an application button for a specific role at Zurich Insurance."
+      }
+    },
+    {
+      "key": "2558855cf92ee0e5612092eb6c322243a8e21bfc291a099f057d97b65899c93b",
+      "touchedAt": 1787134416224,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Senior Claims Specialist), a unique job ID, detailed job qualifications, accountabilities, and an 'Apply now' function."
+      }
+    },
+    {
+      "key": "0efe84029dda1af09ad489b2ef5516ba4afe2884bbda065d3e061be35654326e",
+      "touchedAt": 1787134417639,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Senior Pricing Analyst), a unique job ID (116451), detailed responsibilities, core competencies, and an 'Apply now' call to action."
+      }
+    },
+    {
+      "key": "24ba734088bbd4f838592f696f759048f9ef0a6bbef1867782dc7ef16561d0e2",
+      "touchedAt": 1787134419314,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Initiativstelle Werkstudent im Bereich Steuern), detailed responsibilities, qualifications, application requirements, and a 'Apply' button, confirming it is a single job detail page."
+      }
+    },
+    {
+      "key": "b7c09600e519758a6eb33359bcec76c563f65ab044708e367647a5d8c2aa0912",
+      "touchedAt": 1787134420580,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Non-Motor Pricing Lead), a unique job ID, detailed responsibilities, key accountabilities, and an 'Apply now' call to action."
+      }
+    },
+    {
+      "key": "41e807e53719e5859d776e6f964f54968125a91853a8f9efe06c81b7f2cd3b3a",
+      "touchedAt": 1787134421745,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title (Surety Senior Claims Professional), detailed job responsibilities, qualifications, salary range, and an 'Apply Now' function."
+      }
+    },
+    {
+      "key": "c4e572fed2858ce0d4bbb83373db3cb72d78fdb4287801b2780b3e58adc192c3",
+      "touchedAt": 1787134423499,
+      "value": {
+        "isJob": true,
+        "confidence": 1,
+        "reason": "The page contains a specific job title, detailed responsibilities, required qualifications for two levels of the role, salary ranges, and an 'Apply now' call to action."
+      }
+    },
+    {
+      "key": "1335f9dbdd4b26534a56e79a3f0273164bba8279bfa4871cdc07342ca135d5d0",
+      "touchedAt": 1787134820447,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single job posting with specific role title (Head of Zurich Treasury Services, 80%-100%), detailed responsibilities (lead 30-person function, set strategy, oversee treasury services), specific requirements (10+ years treasury experience, finance degree/CFA, leadership track record), location (Dublin), and application interface. Not a generic career page or listing."
+      }
+    },
+    {
+      "key": "9f400f8c198ff7b4ff8e3ab3c0c132c359d88f2629cd5590e27eb6d42e9a5412",
+      "touchedAt": 1787134820953,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete role title (Casualty & Professional Indemnity Underwriter), specific location (Warsaw), detailed job purpose, comprehensive responsibilities (risk analysis, quotations, contract management), explicit candidate requirements (5+ years experience, specific qualifications, language proficiency), benefits package, company background, and application mechanism. All indicators of a genuine single job posting, not a generic careers page or listing."
+      }
+    },
+    {
+      "key": "b3c352c697e78279d3997632d224e8c0f105fe4afb1d1abbf275b621c58d0e91",
+      "touchedAt": 1787134821385,
+      "value": {
+        "isJob": true,
+        "confidence": 0.96,
+        "reason": "Contains concrete role title (Property & Engineering Lines Underwriter), specific location (Warsaw), unique job ID (129384), detailed job purpose, comprehensive responsibilities (underwriting management, risk analysis, quotations, monitoring trends), specific candidate requirements (5+ years Property/Engineering experience, Polish/English fluency), education expectations, and full benefits package. Clear application mechanism present."
+      }
+    },
+    {
+      "key": "fa323d5bbce83ff906d9b0f3b627226161324efad39ae5844c7e81a570f2515a",
+      "touchedAt": 1787134821744,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Page contains concrete role title (Underwriter or Underwriting Specialist, Construction Casualty), detailed key accountabilities, specific basic and preferred qualifications, salary range ($57,000-$117,900), specific location (Tennessee/Alabama), and application CTA. This is unambiguously a single job detail page, not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "7bb88105c540d615d65d4bdd32f6a0a8dffff26e3463d6f76ae19dfac8e00861",
+      "touchedAt": 1787134822124,
+      "value": {
+        "isJob": true,
+        "confidence": 0.96,
+        "reason": "Concrete role title (Claims Performance Analyst), specific location (Paris), extensive detailed responsibilities across 6+ distinct mission areas (data performance analysis, team support, financial piloting, data governance, analytics tools, data culture), clear application mechanism (Postuler button, LinkedIn integration), and company context. This is a single job detail page, not a generic careers listing."
+      }
+    },
+    {
+      "key": "ca9e30a545e564b1b272d8855f7d4906beb5981dbe3fcb43c7e963f499e63b7a",
+      "touchedAt": 1787134822554,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete role title (AVP, Claims Analytics), specific responsibilities (lead analytics strategy, build teams, drive fraud detection initiatives, etc.), detailed qualification requirements (8+ years analytics/BI/data science, 5+ years leadership, insurance/claims experience, technical skills), location (Toronto), and application mechanism present. This is a genuine job posting with substantive role-specific details, not a generic careers landing page."
       }
     }
   ]
