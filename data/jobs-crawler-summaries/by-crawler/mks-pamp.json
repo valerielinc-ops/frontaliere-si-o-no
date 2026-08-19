@@ -1,18 +1,49 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-08-19T10:05:31.196Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-08-19T21:38:27.864Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 10996,
-  "avgDurationMs": 10996,
+  "durationMs": 16395,
+  "avgDurationMs": 16395,
   "durationHistory": [
-    10996
+    16395
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Precious Metal Control Manager",
+      "slug": "precious-metal-control-manager-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+      "applyUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-19",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Technical Drawer &amp; Tooling Warehouse Specialist",
@@ -41,6 +72,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:24.592Z",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
