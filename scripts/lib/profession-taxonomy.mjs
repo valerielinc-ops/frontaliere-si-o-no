@@ -126,16 +126,6 @@ export function stemToken(token) {
   return token;
 }
 
-function tokenMatchesAlias(token, alias) {
-  const ts = stemToken(token);
-  const as = stemToken(alias);
-  if (ts === as) return true;
-  // Typing-prefix tolerance: on-site search logs partial terms while the
-  // user types. Require ≥5 chars so "inf"/"infe" stay noise.
-  if (token.length >= 5 && as.startsWith(ts)) return true;
-  return false;
-}
-
 /**
  * Curated taxonomy. `id` is the IT canonical kebab slug, `label` the IT
  * display name, `aliases` the normalized match surface (it/de/fr/en +
@@ -368,10 +358,12 @@ export function matchProfession(text) {
     }
   }
 
-  // Single-word aliases. Mirrors tokenMatchesAlias: stem equality always, plus
-  // the >=5-char typing-prefix tolerance. `aliasStem.startsWith(tokenStem)` is
-  // true when the two are equal, so for a >=5-char token the prefix range
-  // already subsumes the equality case.
+  // Single-word aliases match on stem equality, plus a typing-prefix tolerance
+  // for tokens of >=5 chars (on-site search logs partial terms while the user
+  // types; "inf"/"infe" stay noise). `aliasStem.startsWith(tokenStem)` is true
+  // when the two are equal, so for a >=5-char token the prefix range below
+  // already subsumes the equality case and only shorter tokens need the
+  // exact-stem lookup.
   for (let i = 0; i < tokens.length; i++) {
     const tokenStem = stems[i];
     if (tokens[i].length >= 5) {
