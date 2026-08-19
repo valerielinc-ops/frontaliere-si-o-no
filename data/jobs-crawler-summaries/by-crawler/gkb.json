@@ -1,16 +1,16 @@
 {
   "key": "gkb",
   "label": "Graubündner Kantonalbank",
-  "generatedAt": "2026-08-19T10:25:02.581Z",
-  "total": 11,
+  "generatedAt": "2026-08-19T21:39:59.793Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 15073,
-  "avgDurationMs": 15073,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10966,
+  "avgDurationMs": 10966,
   "durationHistory": [
-    15073
+    10966
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:49.814Z",
+      "crawledAt": "2026-08-19T21:39:50.269Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:50.741Z",
+      "crawledAt": "2026-08-19T21:39:51.029Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:51.662Z",
+      "crawledAt": "2026-08-19T21:39:51.685Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:52.590Z",
+      "crawledAt": "2026-08-19T21:39:52.342Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:53.524Z",
+      "crawledAt": "2026-08-19T21:39:52.983Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -204,6 +204,7 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -225,7 +226,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1952/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:54.443Z",
+      "crawledAt": "2026-08-19T21:39:53.657Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -264,7 +265,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:55.362Z",
+      "crawledAt": "2026-08-19T21:39:54.312Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -303,7 +304,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:58.021Z",
+      "crawledAt": "2026-08-19T21:39:54.966Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -321,6 +322,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T11:12:16.682Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -342,7 +344,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:24:59.021Z",
+      "crawledAt": "2026-08-19T21:39:55.549Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -360,6 +362,7 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -381,7 +384,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T10:25:00.035Z",
+      "crawledAt": "2026-08-19T21:39:56.204Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -410,8 +413,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gkb-b97c3c483871",
       "slug": "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur",
@@ -456,5 +458,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
