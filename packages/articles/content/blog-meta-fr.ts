@@ -10165,6 +10165,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Frontaliers du Tessin en croissance au 2e trimestre 2026: 79 121 unités',
     'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79 121 frontaliers au Tessin Q2 2026 : croissance de 0,64 % QoQ, baisse de 0,57 % Yoy. Données BFS avec analyse démographique et implications pour ceux qui travaillent à la frontière italo-suisse.',
     'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les chaînes de montagnes à la frontière suisse-italienne au coucher du soleil.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Grossesse et frontalière : guide LAMal et contrôles',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Permis G : droit d\'option entre LAMal et CMI pendant la grossesse, franchises CHF 300–2\'500, choix de l\'hôpital et procédures de notification. Tout ce que vous devez savoir.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Femme enceinte lors d\'une échographie prénatale à l\'hôpital du Tessin avec gynécologue',
 };
 
 export default blogMetaFr;

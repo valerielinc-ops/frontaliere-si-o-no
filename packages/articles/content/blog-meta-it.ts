@@ -10164,6 +10164,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Frontalieri Ticino in crescita nel Q2 2026: 79.121 unità',
     'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79.121 frontalieri nel Ticino Q2 2026: crescita dello 0,64% QoQ, calo dello 0,57% YoY. Dati BFS con analisi demografica e implicazioni per chi lavora al confine Italia-Svizzera.',
     'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne al confine italo-svizzero al tramonto.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Gravidanza e frontaliera: guida LAMal e controlli',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Permesso G: diritto d\'opzione tra LAMal e CMI durante la gravidanza, franchigie CHF 300–2\'500, scelta dell\'ospedale e procedure di notifica. Tutto quello che serve sapere.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Donna in gravidanza durante ecografia prenatale in ospedale ticinese con ginecologa',
 };
 
 export default blogMetaIt;

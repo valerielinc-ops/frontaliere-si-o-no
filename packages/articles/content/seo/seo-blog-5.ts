@@ -70583,6 +70583,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gravidanza-controlli-frontaliera-lamal': {
+    title: 'Gravidanza e frontaliera: guida LAMal e controlli',
+    description: 'Frontaliera con Permesso G: diritto di scegliere tra LAMal svizzera e CMI italiana, franchigie CHF 300–2\'500, scelta ospedaliera e procedure di notifica',
+    keywords: 'frontalieri, ticino, svizzera, italia, gravidanza, frontaliera, lamal, controlli',
+    ogTitle: 'Gravidanza e frontaliera: guida LAMal e controlli',
+    ogDescription: 'Permesso G e gravidanza: scopri il diritto d\'opzione tra LAMal e CMI, le franchigie svizzere (CHF 300–2\'500), come scegliere l\'ospedale e notificare la gravidanza all\'assicuratore.',
+    canonicalPath: '/articoli-frontaliere/gravidanza-controlli-frontaliera-lamal',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gravidanza e frontaliera: guida LAMal e controlli",
+      "description": "Frontaliera con Permesso G: diritto di scegliere tra LAMal svizzera e CMI italiana, franchigie CHF 300–2'500, scelta ospedaliera e procedure di notifica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gravidanza-controlli-frontaliera-lamal.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Donna in gravidanza durante ecografia prenatale in ospedale ticinese con ginecologa"
+      },
+      "datePublished": "2026-08-19T23:40:28+00:00",
+      "dateModified": "2026-08-19T23:40:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gravidanza-controlli-frontaliera-lamal/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

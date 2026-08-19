@@ -10162,6 +10162,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Grenzgänger Tessin wächst im Q2 2026: 79.121 Einheiten',
     'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79.121 Grenzgänger im Tessin Q2 2026: Wachstum von 0,64% QoQ, Rückgang von 0,57% YoY. BfS-Daten mit demografischer Analyse und Implikationen für diejenigen, die an der italienisch-schweizerischen Grenze arbeiten.',
     'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Luftaufnahme des Lugano-Sees mit Bergen an der Schweizer-italienischen Grenze bei Sonnenuntergang.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.title': 'Schwangerschaft und Grenzübertritt: KVG-Leitfaden und Kontrollen',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.excerpt': 'Bewilligung G: Wahlrecht zwischen KVG und MHK während der Schwangerschaft, Franchisen CHF 300–2\'500, Spitalwahl und Meldeverfahren. Alles, was Sie wissen müssen.',
+    'blog.article.gravidanza-controlli-frontaliera-lamal.imageAlt': 'Schwangere Frau während Schwangerschaftsuntersuchung im Tessin Spital mit Gynäkologin',
 };
 
 export default blogMetaDe;
