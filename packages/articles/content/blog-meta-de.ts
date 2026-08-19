@@ -10061,6 +10061,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.title': 'Wohnen in Faloppio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.excerpt': 'Steuereinstellungen, Genehmigungen, Vorteile und Nachteile der Übertragung',
     'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier, der in Ticino arbeitet und in Faloppio wohnt',
+    'blog.article.vivere-moltrasio-lavorare-ticino.title': 'Leben in Moltrasio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-moltrasio-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Besteuerung, neues Abkommen und Alltag zwischen Moltrasio und dem Kanton Tessin.',
+    'blog.article.vivere-moltrasio-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;
