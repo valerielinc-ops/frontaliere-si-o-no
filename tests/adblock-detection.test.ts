@@ -178,7 +178,9 @@ describe('detectAdBlockDetailed — Funding Choices signal', () => {
     (window as unknown as Record<string, unknown>).__ftFcAdBlockBridge = 1;
     mockBait({ height: 0, display: 'block', visibility: 'visible' });
     const pending = detectAdBlockDetailed();
-    await vi.advanceTimersByTimeAsync(3100);
+    // Past FC_WAIT_MS (6000ms, issue #6064) — set to outlast the worst-case
+    // 4000ms requestIdleCallback scheduling floor for FC itself.
+    await vi.advanceTimersByTimeAsync(6100);
     const result = await pending;
     expect(result.source).toBe('heuristic');
     expect(result.blocked).toBe(true);

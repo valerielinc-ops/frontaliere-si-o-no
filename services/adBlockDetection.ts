@@ -141,7 +141,19 @@ export type AdBlockSignal = {
 type FcBridgePayload = { blocked?: boolean; adsAllowed?: boolean; status?: string | number | null };
 
 const FC_SIGNAL_EVENT = 'frontaliere:adblock-data';
-const FC_WAIT_MS = 3000;
+// Must outlast the worst case of the idle-callback scheduling that the
+// static shell and the SPA entry both use to start loading Funding Choices
+// on a visitor without stored consent (a 4-second ceiling before that load
+// even begins, see the loader construct in build-plugins/constants.ts and
+// the matching inline script in index.html), plus headroom for that script's
+// own fetch+exec before it can report a verdict. 3000ms used to sit under
+// that 4-second floor, so Funding Choices could still not have started when
+// this gave up and fell back to the weaker local probe (issue #6064).
+// Deliberately NOT touching that 4-second ceiling itself: it gates a script
+// fetch inline in the initial HTML and is LCP-sensitive, whereas this wait
+// only delays when the (lazy-loaded, client-only) ad-block gate resolves its
+// verdict — off the LCP path.
+const FC_WAIT_MS = 6000;
 
 function readFcSignal(): AdBlockSignal | null {
  const raw = (window as unknown as { __ftAdBlock?: FcBridgePayload }).__ftAdBlock;
