@@ -347,16 +347,26 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     expect(document.querySelectorAll(ADSENSE_SELECTOR)).toHaveLength(1);
     expect(document.querySelector('ins.adsbygoogle')).toBeNull();
 
-    // The falsifying half, replacing an assertion that could not fail: with no
-    // observer intersecting in this test, `pushCount()` was 0 whatever the code
-    // under test did.
+    // Covers the stricter regression: a handler that pushes DIRECTLY, bypassing
+    // the observer entirely. Nothing has intersected yet, so any push here is
+    // one this slot did not earn.
+    expect(pushCount()).toBe(0);
+
+    // The old handler called `io.disconnect()` before arming, so after any
+    // interaction the observer was gone and the slot could only ever be armed
+    // by that same handler. Reintroduce that and the slot stays dead forever —
+    // an ad unit never requested at all, which is worse than the bug this file
+    // was opened for.
     //
-    // What CAN fail: the old handler called `io.disconnect()` before arming, so
-    // after any interaction the observer was gone and the slot could only ever
-    // be armed by that same handler. Reintroduce the disconnect and this slot
-    // stays dead forever — an ad unit never requested at all, which is worse
-    // than the bug this file was opened for. Assert the observer SURVIVED the
-    // interactions and still arms the slot when it is actually reached.
+    // This has to be asserted on the observer's OWN state, not inferred from a
+    // later `intersect()`: the stub's `disconnect()` records a flag, it does not
+    // stop the test from invoking the callback the way a real browser would. An
+    // "it still arms afterwards" check therefore stays green through the exact
+    // regression it claims to pin — the same class of blind guard this file
+    // exists to prevent.
+    expect(io.disconnected).toBe(false);
+
+    // …and, with the observer intact, the slot does arm when it is reached.
     await act(async () => { intersect(io, io.targets); });
     expect(document.querySelector('ins.adsbygoogle')).not.toBeNull();
   });
@@ -401,6 +411,9 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
         // what lets the check look for the markup itself instead of having to
         // require `className`, which is the narrower proxy.
         const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+        // Directory boundary, not a substring: `full.includes('/build-plugins/')`
+        // would also exempt a future `components/build-plugins-preview/…`.
+        const isBuildPlugin = full.slice(root.length + 1).split(/[/\\]/)[0] === 'build-plugins';
         // `<ins>` built and inserted at runtime, in any of the ways it can
         // reach the DOM from JS: imperative DOM APIs, dangerouslySetInnerHTML
         // (its own alternative — a case-sensitive `innerHTML` check does NOT
@@ -423,7 +436,7 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
             // LEGITIMATE product (`lib/adSlotHtml.ts`): its markup lands in the
             // initial HTML, which is exactly what the static loader snapshots,
             // so it is never the gap.
-            (!full.includes('/build-plugins/') && /<ins\b[^>]*adsbygoogle/i.test(code))) {
+            (!isBuildPlugin && /<ins\b[^>]*adsbygoogle/i.test(code))) {
           offenders.push(full.slice(root.length + 1));
         }
       }
