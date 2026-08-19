@@ -3409,6 +3409,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.eccedenza-federale-2026-800-milioni.title': 'Bundesüberschuss 2026: +800 Mio.',
     'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'Der Bund rechnet für das Jahr 2026 mit einem Überschuss von knapp 800 Mio. CHF, gegenüber dem veranschlagten Defizit von 700 Mio. CHF. Die Verbesserung ist auf die Erhöhung der Gewinnsteuer um 1,4 Milliarden zurückzuführen.',
     'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Bundesrat-Gebäude in Bern, Sitz des Schweizer Bundesrats',
+    'blog.article.difesa-970-milioni-consiglio-federale.title': 'Luftverteidigung: 970 Mio. vom Bundesrat',
+    'blog.article.difesa-970-milioni-consiglio-federale.excerpt': 'Der Bundesrat beantragt 970 Millionen für die Luftverteidigung: 250 Millionen für Kurzstreckenraketen, 650 Millionen für Mittelstreckenraketen, 60 Millionen für Radar und 10 Millionen für Drohnen. Für die Selbstverteidigung sind bis 2029 100 Millionen vorgesehen.',
+    'blog.article.difesa-970-milioni-consiglio-federale.imageAlt': 'Kampfflugzeuge im Formationsflug über Schweizer Alpengipfel, Symbol der nationalen Luftverteidigung.',
 };
 
 export default blogMetaChDe;
