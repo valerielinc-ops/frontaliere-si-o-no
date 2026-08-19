@@ -891,6 +891,58 @@ const CLAUDE_CLI_MAX_CONCURRENCY = 2;
 // _callClaudeCli lo tiene comunque dentro l'allowance per costruzione.
 const CLAUDE_CLI_MIN_TIMEOUT_MS = 180_000;
 
+// ── COSA C'E' DAVVERO DENTRO UN «TIMEOUT» DI claude-cli (2026-08-19) ────────
+//
+// Il nome del tool sintetico che il CLI espone quando gli si passa
+// `--json-schema`. NON e' un tool del progetto: lo crea il CLI, e lo dichiara
+// in `system/init` come `tools: ["StructuredOutput"]` anche quando gli argomenti
+// contengono `--tools ''`.
+//
+// Perche' questa costante esiste. La diagnostica di #441 diceva «fermo dopo
+// assistant a 223671ms» e sembrava uno STALLO dello stream. Non lo e'.
+// Riproduzione locale con i flag esatti di produzione (CLI 2.1.235, haiku,
+// 2026-08-18, prompt-articolo + `--json-schema`), ucciso a 400s:
+//
+//     system/init (tools: ["StructuredOutput"])
+//     assistant  23:46:58  blocks=['thinking']   textlen=0
+//     assistant  23:50:31  blocks=['tool_use']   textlen=0   ← 21.886 byte
+//     user       23:50:31  tool_result is_error:true
+//                          «Output does not match required schema:
+//                           root: must have required property 'reason'»
+//     user       23:52:50  [Request interrupted by user]
+//     result/error_during_execution   num_turns=3  output_tokens=6773
+//
+// Cioe': il modello CHIAMA `StructuredOutput` con l'articolo completo dentro
+// `input`; il CLI valida contro lo schema in locale, e se manca un campo
+// required RIFIUTA con un `tool_result` d'errore e il modello RIGENERA da capo.
+// Ogni giro costa ~3m30s e ~6.800 token di output. 224-288 eventi e 110-160 KB
+// di stdout non sono uno stream che si e' fermato: sono N giri di questo anello.
+//
+// Da cui le tre conseguenze che questo file deve gestire, e che spiegano perche'
+// le ipotesi «evento terminale mancante», «backpressure» e «rate limit» erano
+// tutte da scartare:
+//
+//   - i 17-29s di silenzio prima del SIGKILL non sono uno stallo: fra due
+//     eventi di UN SOLO giro sano ne passano 3m32s (23:46:58 → 23:50:31),
+//     perche' un blocco `tool_use` viene emesso solo a blocco chiuso;
+//   - `rate_limit_event` riporta `status=allowed`: non e' throttling;
+//   - lo stdout e' letto in flowing mode (`child.stdout.on('data')`), quindi
+//     non esiste backpressure che possa bloccare il figlio.
+//
+// L'anello non e' limitabile da qui: questa CLI non ha `--max-turns`
+// (verificato su 2.1.235). Cio' che si puo' fare, e che questo modulo ora fa,
+// e' non BUTTARE il primo giro: l'articolo del tentativo rifiutato e' completo
+// e pubblicabile — nella riproduzione sopra mancava solo `reason`, che lo
+// schema ammette null. Vedi trace.salvage() e _salvageClaudeCliPayload.
+const CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL = 'StructuredOutput';
+
+// Il canale `text` di `trace.salvage()` arriva a delta (a differenza del
+// `tool_use`, sempre a blocco intero): senza punteggiatura terminale
+// riconoscibile non c'e' modo di distinguere una frase completa da un
+// frammento tagliato a meta' parola dal SIGKILL. `.`/`!`/`?`/`…`, seguiti da
+// eventuale chiusura di virgolette/parentesi, sono l'unico segnale disponibile.
+const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…][)\]'"’”»]*$/;
+
 // Tetto per una singola chiamata al CLI, per quanto grande sia l'allowance
 // residua. Serve a impedire che una sezione lunga (allowance 2400s) regali
 // 800s a UNA chiamata: oltre i 600s una chiamata che non ha finito non e' piu'
@@ -2847,11 +2899,23 @@ export function recordModelContentFailure(modelId) {
 }
 
 /** Record a model failure — lowers its rank and persists to Firestore */
-export function recordModelFailure(modelId, { nonRetryable = false, exhausted = false } = {}) {
-  const penalty = exhausted ? SCORE_EXHAUSTED
+/**
+ * `transportOnly`: il fallimento SI CONTA ma NON si paga. Serve al caso in cui
+ * a interrompere la chiamata siamo stati noi (SIGKILL a scadenza di budget),
+ * dove l'esito non dice niente sulla qualita' del modello — stessa logica della
+ * carve-out `topic-gate-abort`. Contarlo comunque e' deliberato: azzerare anche
+ * il CONTEGGIO farebbe apparire nel ledger un modello che non fallisce mai
+ * (`Nok/0ko`) proprio mentre sta fallendo, che e' il modo piu' rapido per
+ * rendere invisibile il prossimo incidente.
+ */
+export function recordModelFailure(modelId, { nonRetryable = false, exhausted = false, transportOnly = false } = {}) {
+  const penalty = transportOnly ? 0
+                : exhausted ? SCORE_EXHAUSTED
                 : nonRetryable ? SCORE_NON_RETRYABLE
                 : SCORE_RETRYABLE_FAIL;
-  _modelScores.set(modelId, (_modelScores.get(modelId) || 0) + penalty);
+  // Solo se c'e' davvero una penale: un `+ 0` creerebbe una voce a punteggio 0
+  // per un modello mai visto, spostandolo nell'ordinamento della cascata.
+  if (penalty !== 0) _modelScores.set(modelId, (_modelScores.get(modelId) || 0) + penalty);
   const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
   d.failures++;
   _modelDetails.set(modelId, d);
@@ -4728,7 +4792,7 @@ async function _callClaudeCli(model, messages, opts) {
   // counts against the caller's wall-clock budget (correct) while the actual
   // per-process timeout still reflects the true remaining budget at the
   // moment it starts (not at the moment it was queued).
-  const { code, stdout, stderr, trace } = await _withClaudeCliSlot(async () => {
+  const spawnCall = () => _withClaudeCliSlot(async () => {
     // Same deadline-capping rationale as _callLocal above — cap to the
     // caller's remaining wall-clock budget so a last-resort call can't
     // outlive the run.
@@ -4755,6 +4819,19 @@ async function _callClaudeCli(model, messages, opts) {
     return _runClaudeCliProcess(args, timeoutMs);
   });
 
+  let code, stdout, stderr, trace;
+  try {
+    ({ code, stdout, stderr, trace } = await spawnCall());
+  } catch (err) {
+    // Il timeout ha ucciso il processo, ma il contenuto puo' essere gia'
+    // arrivato: un `tool_use` di StructuredOutput e' emesso a blocco chiuso,
+    // quindi o non c'e' o e' intero. Preferirlo all'errore e' cio' che
+    // trasforma 240s di generazione pagata in un articolo invece che in zero.
+    const recovered = _salvageClaudeCliPayload(model, err?.claudeCliSalvage, `timeout: ${err?.message || ''}`);
+    if (recovered !== null) return recovered;
+    throw err;
+  }
+
   // La riga `type:"result"` del JSONL, non piu' l'intero stdout: sotto
   // `stream-json` lo stdout e' una sequenza di eventi e `JSON.parse(stdout)`
   // fallirebbe su ogni chiamata, anche perfettamente riuscita. La riga ha la
@@ -4767,12 +4844,46 @@ async function _callClaudeCli(model, messages, opts) {
     // Nessun evento `result`: qui la diagnosi del flusso serve quanto sul
     // timeout — un processo uscito 0 senza result non e' la stessa cosa di uno
     // che ha scritto spazzatura.
+    const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `nessun evento result (exit ${code})`);
+    if (recovered !== null) return recovered;
     throw new Error(`[${model}] claude CLI senza evento result (exit ${code})${trace.describe()}: ${(stdout || stderr).slice(0, 300)}`);
   }
   if (code !== 0 || parsed.is_error) {
+    // `result/error_during_execution` e' l'esito OSSERVATO quando l'anello di
+    // StructuredOutput non converge (riproduzione del 2026-08-18: num_turns=3,
+    // 6.773 token di output, `result` vuoto). Anche qui il primo tentativo
+    // rifiutato e' un articolo completo, e buttarlo costa quanto il timeout.
+    const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `is_error (exit ${code})`);
+    if (recovered !== null) return recovered;
     throw new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
   }
   return parsed.result;
+}
+
+/**
+ * Decide se un payload parziale vale una risposta, e lo dice ad alta voce.
+ *
+ * Restituisce la stringa da consegnare al chiamante, oppure `null` se non c'e'
+ * niente di salvabile — `null` e non un throw perche' ogni ramo che lo chiama
+ * ha gia' il proprio errore, piu' preciso di quello che potrebbe alzare qui.
+ *
+ * PERCHE' NON E' UNA SCOMMESSA. Il candidato arriva da un blocco `tool_use`,
+ * che il CLI emette solo completo, quindi non e' un JSON troncato a meta'; e a
+ * valle il validatore di forma (`famiglia=forma-sbagliata(chiavi)`) rifiuta
+ * comunque un oggetto incompleto esattamente come rifiuta oggi le risposte
+ * riuscite ma malformate. Il caso peggiore del salvataggio e' quindi il caso
+ * NORMALE di oggi; il caso migliore — e nella riproduzione locale era questo —
+ * e' un articolo pubblicabile a cui mancava solo un campo che lo schema
+ * ammette null.
+ */
+function _salvageClaudeCliPayload(model, salvage, why) {
+  if (!salvage || typeof salvage.text !== 'string' || !salvage.text) return null;
+  console.warn(
+    `♻️  [${model}] payload recuperato dallo stream invece di perdere la chiamata `
+    + `(${salvage.text.length} char da ${salvage.source}`
+    + `${salvage.attempts > 1 ? `, ${salvage.attempts} tentativi di schema` : ''}) — ${String(why).slice(0, 160)}`,
+  );
+  return salvage.text;
 }
 
 // Memoize the dynamic import itself (the in-flight promise, not just its
@@ -4857,6 +4968,16 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
     lastEventLabel: null,
     rateLimit: null,
     result: null,
+    // ── IL PAYLOAD RECUPERABILE ────────────────────────────────────────────
+    // Sotto `--json-schema` il CLI non fa uscire l'articolo come testo: espone
+    // un tool sintetico `StructuredOutput` (misurato: `system/init` dichiara
+    // `tools: ["StructuredOutput"]`) e il modello lo CHIAMA, quindi il corpo
+    // vive nell'`input` di un blocco `tool_use`, dove `textlen` e' 0. Un
+    // salvataggio che concatenasse i blocchi `text` recupererebbe la stringa
+    // vuota su ogni chiamata di produzione. Vedi _salvageClaudeCliPayload.
+    structured: null,
+    structuredAttempts: 0,
+    text: '',
   };
   let buffer = '';
 
@@ -4889,6 +5010,37 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
       };
     }
     if (type === 'result') state.result = evt;
+    if (type === 'assistant') absorbAssistantBlocks(evt);
+  }
+
+  /**
+   * Raccoglie da un evento `assistant` cio' che, se la chiamata venisse uccisa
+   * ora, sarebbe comunque contenuto utile gia' pagato.
+   *
+   * DUE CANALI, non uno. Con `--json-schema` il contenuto sta nell'`input` del
+   * `tool_use` di `StructuredOutput`; senza schema sta nei blocchi `text`.
+   * L'ultimo `tool_use` completo vince sui precedenti: il CLI rifiuta i
+   * tentativi non conformi con un `tool_result` d'errore e il modello ritenta,
+   * quindi il piu' recente e' anche il piu' vicino allo schema.
+   *
+   * Un blocco `tool_use` arriva sempre INTERO (il CLI lo emette a blocco
+   * chiuso, non a delta), quindi `input` e' un oggetto gia' valido: e' questo
+   * che rende il salvataggio sicuro invece che una scommessa su un JSON
+   * troncato a meta'.
+   */
+  function absorbAssistantBlocks(evt) {
+    const blocks = evt?.message?.content;
+    if (!Array.isArray(blocks)) return;
+    for (const b of blocks) {
+      if (!b || typeof b !== 'object') continue;
+      if (b.type === 'text' && typeof b.text === 'string') state.text += b.text;
+      if (b.type === 'tool_use' && b.name === CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL && b.input && typeof b.input === 'object') {
+        try {
+          state.structured = JSON.stringify(b.input);
+          state.structuredAttempts += 1;
+        } catch { /* input ciclico: non salvabile, si tiene il precedente */ }
+      }
+    }
   }
 
   return {
@@ -4917,6 +5069,32 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
     get pendingBytes() { return buffer.length; },
     /** L'evento `type:"result"`, o null se non e' mai arrivato. */
     get result() { return state.result; },
+    /**
+     * Il contenuto gia' arrivato, nella forma che il chiamante si aspetta da
+     * `result.result` — o null se non c'e' niente da salvare.
+     *
+     * Serve al ramo di timeout: senza, una chiamata uccisa butta via TUTTO
+     * l'output gia' generato (misurato in produzione: 110.868, 122.026,
+     * 133.111 e 160.208 byte di stdout scartati in quattro timeout diversi).
+     */
+    salvage() {
+      if (state.structured) {
+        return { text: state.structured, source: `tool_use/${CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL}`, attempts: state.structuredAttempts };
+      }
+      const t = state.text.trim();
+      // Senza schema il canale e' il testo, che PUO' essere troncato a meta'
+      // (i blocchi `text` arrivano a delta). Si salva solo se e' JSON intero,
+      // oppure se ha una terminazione di frase riconoscibile: senza schema non
+      // c'e' un "intero" da attendere, ma un frammento tagliato a meta' parola
+      // dal SIGKILL non finisce quasi mai su punteggiatura terminale.
+      if (!t) return null;
+      if (/^[{[]/.test(t)) {
+        try { JSON.parse(t); } catch { return null; }
+      } else if (!CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE.test(t)) {
+        return null;
+      }
+      return { text: t, source: 'assistant/text', attempts: 0 };
+    },
     /**
      * La frase che va nel messaggio d'errore. Sempre non vuota: anche «non e'
      * arrivato niente» e' un'informazione, ed e' quella che serviva.
@@ -5004,6 +5182,13 @@ async function _runClaudeCliProcess(args, timeoutMs) {
       const streamExcerpt = trace.describe();
       const err = new Error(`claude CLI timed out after ${timeoutMs}ms${streamExcerpt}${stderrExcerpt}${stdoutExcerpt}`);
       err.name = 'TimeoutError';
+      // Cio' che era gia' arrivato quando abbiamo ucciso il processo. Va
+      // sull'errore e non in un resolve() perche' la decisione se un payload
+      // parziale valga una risposta e' del chiamante, non del trasporto.
+      err.claudeCliSalvage = trace.salvage();
+      // Un SIGKILL nostro a scadenza di budget e' un guasto del CANALE, non un
+      // giudizio sul modello: vedi il ramo che legge questo flag in callLLM.
+      err.transportFault = true;
       reject(err);
     }, timeoutMs);
     child.stdout.on('data', (d) => { stdout += d; trace.feed(d); });
@@ -5775,12 +5960,35 @@ export async function callLLM(messages, opts = {}) {
           console.warn(`🚫 [${model}] ${_omniRouteConsecutiveFailures} consecutive failures — disabling OmniRoute for the rest of this run`);
         }
       }
+      // ── TRASPORTO ≠ CONTENUTO ────────────────────────────────────────────
+      // Un SIGKILL che NOI abbiamo mandato a scadenza di budget non e' un
+      // giudizio sul modello: e' un giudizio sul nostro cap. Misurato il
+      // 2026-08-18, quattro run del corpus: `claude-cli/haiku` ha incassato
+      // -50 per ognuno dei 9 timeout (score -256 → -306 → -356 nella sola run
+      // 32187412494) mentre NELLE STESSE RUN serviva 48 risposte riuscite. Due
+      // di quei timeout hanno ucciso uno stream vivo: cap a 15.000ms con
+      // l'ultimo evento a 14.598ms, e cap a 37.869ms con l'ultimo a 37.457ms —
+      // 402 e 412 ms di margine, cioe' il processo stava ancora scrivendo.
+      // Penalizzare il modello per quello lo spinge in fondo alla cascata
+      // proprio quando e' l'unico rimasto, che e' l'esito che #441 descrive.
+      //
+      // Stessa forma della carve-out `topic-gate-abort`, che deliberatamente
+      // non chiama ne' recordModelContentFailure ne' recordModelContentSuccess:
+      // un esito che non parla della qualita' del modello non tocca il suo
+      // punteggio. Il breaker di trasporto sopra (_claudeCliConsecutiveTimeouts)
+      // NON e' toccato — quello conta i guasti del canale, ed e' il posto
+      // giusto dove contarli.
+      const transportOnly = !!e.transportFault && provider === PROVIDER.CLAUDE_CLI;
       recordModelFailure(model, {
         nonRetryable: !!e.nonRetryable,
         exhausted: isExhausted || isTimeoutFailure,
+        transportOnly,
       });
 
-      console.warn(`❌ [${model}] Failed${markedExhausted ? ' (timeout → exhausted)' : ''} (score → ${_modelScores.get(model) || 0}): ${msg.slice(0, 200)}`);
+      const scoreNote = transportOnly
+        ? `guasto di trasporto, score invariato → ${_modelScores.get(model) || 0}`
+        : `score → ${_modelScores.get(model) || 0}`;
+      console.warn(`❌ [${model}] Failed${markedExhausted ? ' (timeout → exhausted)' : ''} (${scoreNote}): ${msg.slice(0, 200)}`);
       // Continue to next model in chain
     }
   }
