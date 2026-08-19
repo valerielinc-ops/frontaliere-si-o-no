@@ -97,19 +97,6 @@ jobs:
           # attivando `--filter=blob:none`. Il fix sotto usa `--shallow-since`
           # (limite di PROFONDITÀ, non di contenuto): ogni commit che porta
           # dentro mantiene i suoi blob completi in locale — nessun lazy-fetch.
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/packages/articles/content/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/dist-size-history.jsonl
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/evidence-index.json
-            !/data/health-premiums/
-          sparse-checkout-cone-mode: false
         timeout-minutes: 5
 
       - name: Deepen checkout to scan window

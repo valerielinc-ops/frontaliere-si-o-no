@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { analyzeWorkflow, ROOT, BUCKETS } from './checkout-profile-analyzer.mjs';
+import { analyzeWorkflow, ROOT, BUCKETS, CROSSOVER_MB, TREE_MB } from './checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 
@@ -75,6 +75,7 @@ export function verifyCheckoutProfiles() {
   const problems = [];
   let jobs = 0, withSparse = 0;
 
+
   for (const f of fs.readdirSync(WF_DIR).filter((x) => /\.ya?ml$/.test(x)).sort()) {
     const full = path.join(WF_DIR, f);
     const raw = fs.readFileSync(full, 'utf8');
@@ -90,6 +91,14 @@ export function verifyCheckoutProfiles() {
       if (sparse === undefined) continue;
       withSparse++;
       const where = `${f}:${job.jobId}`;
+
+      // Sopra la soglia di convenienza lo sparse rallenta invece di aiutare:
+      // un profilo li' sopra e' un difetto, non un'ottimizzazione.
+      if (job.aboveCrossover) {
+        problems.push(`${where}: ha uno sparse-checkout ma resterebbe a ${TREE_MB} MB, ` +
+          `sopra la soglia di ${CROSSOVER_MB} MB oltre la quale lo sparse e' piu' lento. ` +
+          `Rigenera con: node scripts/ci/apply-checkout-profiles.mjs`);
+      }
 
       const lines = String(sparse).split('\n').map((l) => l.trim()).filter(Boolean);
       // Gli sparse scritti a mano possono usare una allow-list (un solo file):

@@ -20,7 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 import { verifyCheckoutProfiles, literalPathsIn, isExcludedBy } from '../scripts/ci/verify-checkout-profiles.mjs';
-import { BUCKETS, BASELINE_MB, TREE_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
+import { BUCKETS, BASELINE_MB, TREE_MB, CROSSOVER_MB, analyzeAll } from '../scripts/ci/checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(process.cwd(), '.github/workflows');
 const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
@@ -95,12 +95,26 @@ describe('profili di sparse-checkout', () => {
     expect([...literalPathsIn('`${CDN}/data/blog-index.json`')]).toEqual([]);
   });
 
+  it('nessun job resta sparse sopra la soglia di convenienza', () => {
+    // Misurato: sopra ~1,5 GB di checkout residuo lo sparse e' piu' LENTO del
+    // fetch unico, perche' `filter:blob:none` sposta i blob su una seconda
+    // richiesta pigra. Un profilo li' sopra e' un difetto, non un'ottimizzazione.
+    const bad: string[] = [];
+    for (const wf of analyzeAll()) {
+      for (const job of wf.jobs) {
+        if (job.exclude.length && job.checkoutMb > CROSSOVER_MB) bad.push(`${wf.file}:${job.jobId}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  }, TIMEOUT);
+
   it('un job opaco (build/test) non esclude nulla', () => {
     // Un job che builda o testa il sito raggiunge l'albero per vie che nessuna
     // analisi di import vede (glob dei plugin Vite, fixture). Deve restare pieno.
     const bad: string[] = [];
     for (const wf of analyzeAll()) {
       for (const job of wf.jobs) {
+        // Un job opaco puo' escludere SOLO cio' che una deroga dichiarata copre.
         if (job.opaqueBy.length && job.exclude.length) bad.push(`${wf.file}:${job.jobId}`);
       }
     }

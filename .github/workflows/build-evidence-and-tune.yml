@@ -12,14 +12,6 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v5
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/packages/articles/content/
-            !/docs/
-          sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v5
         with:
           node-version: '20'

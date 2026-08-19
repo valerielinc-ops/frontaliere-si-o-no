@@ -75,7 +75,15 @@ export function patchJobCheckout(text, jobId, patterns) {
   const generated = hasSparse && stepText.includes(MARK);
   if (hasSparse && !generated) return { text, status: 'manual' };
 
-  const block = [
+  // `patterns` vuoto significa RIMUOVI: il job e' finito sopra la soglia di
+  // convenienza (CROSSOVER_MB) e deve tornare a checkout pieno. Serve davvero —
+  // la misura controllata ha spostato 65 job da «sparse» a «pieno», e senza
+  // rimozione sarebbero rimasti con un profilo che li rallenta.
+  if (patterns.length === 0) {
+    if (!withPair || !generated) return { text, status: 'nostep' };
+  }
+
+  const block = patterns.length === 0 ? [] : [
     `${childIndent}${MARK}`,
     `${childIndent}sparse-checkout: |`,
     ...patterns.map((p) => `${childIndent}  ${p}`),
@@ -113,6 +121,11 @@ export function patchJobCheckout(text, jobId, patterns) {
     }
     if (/^\s*sparse-checkout-cone-mode:/.test(l)) continue;
     kept.push(l);
+  }
+  if (block.length === 0 && kept.length === 0) {
+    // Il `with:` esisteva solo per ospitare il blocco generato: va via anche lui.
+    lines.splice(withLine, lastContent - withLine + 1);
+    return { text: lines.join('\n'), status: 'patched' };
   }
   lines.splice(withLine + 1, lastContent - withLine, ...kept, ...block);
   return { text: lines.join('\n'), status: 'patched' };
@@ -161,8 +174,8 @@ export function computeProfiledText(workflowPath, npmScripts) {
   const multi = [];
   let text = before, jobsPatched = 0, savedMb = 0;
   for (const job of analysis.jobs) {
-    if (!job.hasCheckout || job.exclude.length === 0) continue;
-    const r = patchJobCheckout(text, job.jobId, sparsePatterns(job.exclude));
+    if (!job.hasCheckout) continue;
+    const r = patchJobCheckout(text, job.jobId, job.exclude.length ? sparsePatterns(job.exclude) : []);
     if (r.status === 'manual') { manual.push(job.jobId); continue; }
     if (r.status === 'multi') { multi.push(job.jobId); continue; }
     if (r.status !== 'patched') continue;
