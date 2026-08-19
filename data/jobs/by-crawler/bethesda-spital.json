@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bethesda-spital",
-  "assembledAt": "2026-08-19T09:53:58.403Z",
+  "assembledAt": "2026-08-19T21:48:22.527Z",
   "jobs": [
     {
       "id": "bethesda-spital-3c5bfaadb012",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/328/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:55.920Z",
+      "crawledAt": "2026-08-19T21:48:19.924Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -85,11 +85,11 @@
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
       "companyDomain": "bethesda-spital.ch",
-      "title": "Dipl. Radiologiefachfrau/-fachmann 60%",
+      "title": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
       "titleByLocale": {
         "it": "Tecnico di Radiologia Dipl. 60%",
         "en": "Dipl. Radiology Specialist 60%",
-        "de": "Dipl. Radiologiefachfrau/-fachmann 60%",
+        "de": "Dipl. Radiologiefachfrau/-fachmann im Wunschpensum 70 bis 100%",
         "fr": "Spécialiste en radiologie dipl. 60%"
       },
       "description": "Bethesda Spital AG | online seit : 15.09.2025 Als erfolgreiche Basler Klinik mit privat Charakter kombiniert das Bethesda Spital Spitzenmedizin mit erstklassigem Service und einem einzigartigen Wohlfühlambiente. Mit den fünf Fokusthemen Frauenmedizin, Schwangerschaft & Geburt, Bewegungsapparat und Rehabilitation sowie Palliative Care profitieren unsere jährlich 6000 stationären Patientinnen und Patienten von modernsten Behandlungszentren unter einem Dach – und das mitten in einem der schönsten Spitalparks der Nordwestschweiz. Für unsere Abteilung Radiologie suchen wir per 01. Dezember 2025 oder nach Vereinbarung eine/n Dipl. Radiologiefachfrau/-fachmann 60%\n• Ihre Aufgaben\n\n• Sie arbeiten im gesamten Spektrum der Radiologie: MRI, konventionelle Radiologie, Mammographie, CT und MRT\n\nSie bringen mit\n\n• Abgeschlossene Ausbildung als dipl. Radiologiefachperson\n\nWir bieten\n\nHier kommen Sie zu den Anstellungsbedingungen bei Bethesda\n\n• Bereich: Med. technisches Personal\n• Befristung: Unbefristet",
@@ -105,7 +105,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/390/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:55.093Z",
+      "crawledAt": "2026-08-19T21:48:19.105Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "postalCode": "4052",
       "category": "Sanità / Ospedali",
       "contract": "temporary",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -134,24 +134,26 @@
       },
       "previousSlugs": [
         "dipl-radiologiefachfrau-fachmann-60-bethesda-spital-basel",
+        "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-bethesda-spital-basel",
         "tecnico-di-radiologia-dipl-60-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-fachmann-60-bethesda-spital-basel",
+          "dipl-radiologiefachfrau-fachmann-im-wunschpensum-70-bis-100-bethesda-spital-basel",
           "tecnico-di-radiologia-dipl-60-bethesda-spital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:25.752Z",
-      "salaryMin": 37200,
-      "salaryMax": 56400,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 37200,
-          "maxValue": 56400,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -188,7 +190,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/415/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:54.258Z",
+      "crawledAt": "2026-08-19T21:48:18.275Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -271,7 +273,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/393/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:53.440Z",
+      "crawledAt": "2026-08-19T21:48:17.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -371,7 +373,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/426/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:52.568Z",
+      "crawledAt": "2026-08-19T21:48:16.659Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -444,7 +446,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/450/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:51.706Z",
+      "crawledAt": "2026-08-19T21:48:15.851Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -525,7 +527,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/377/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:50.866Z",
+      "crawledAt": "2026-08-19T21:48:15.059Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -604,7 +606,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/367/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:50.050Z",
+      "crawledAt": "2026-08-19T21:48:14.274Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -683,7 +685,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/453/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:49.218Z",
+      "crawledAt": "2026-08-19T21:48:13.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -762,7 +764,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/329/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T09:53:48.393Z",
+      "crawledAt": "2026-08-19T21:48:12.628Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
