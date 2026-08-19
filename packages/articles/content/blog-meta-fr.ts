@@ -10129,6 +10129,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.title': 'Vivre à Brinzio et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.excerpt': 'Guide pratique pour ceux qui vivent à Brinzio et travaillent dans le canton du Tessin : liens, coûts, régime fiscal et aspects à prendre en compte pour le transfert.',
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.imageAlt': 'Vue de Brinzio près de la frontière suisse',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.title': 'Vivre à Albese avec Cassano et travailler au Tessin',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.excerpt': 'Albese con Cassano est un choix pratique pour les frontaliers tessinois : coût de la vie, permis G, taxes 2024 et points de passage frontaliers illustrés en détail.',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.imageAlt': 'Vue aérienne du lac de Côme et de la vallée d\'Intelvi, frontière Tessin-Italie',
 };
 
 export default blogMetaFr;

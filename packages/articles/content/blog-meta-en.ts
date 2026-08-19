@@ -10127,6 +10127,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.title': 'Living in Brinzio and working in Ticino as a border worker',
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.excerpt': 'Practical guide for those who live in Brinzio and work in the Canton of Ticino: connections, costs, tax regime and aspects to consider for the transfer.',
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.imageAlt': 'View of Brinzio near the Swiss border for cross-border workers',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.title': 'Living in Albese with Cassano and working in Ticino',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.excerpt': 'Albese with Cassano is a convenient choice for Ticino border crossers: cost of living, G permit, 2024 taxes and border crossings illustrated in detail.',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.imageAlt': 'Aerial view of Como Lake and Ticino border at sunset, Alpine landscape',
 };
 
 export default blogMetaEn;
