@@ -274,32 +274,114 @@ export const SEARCH_STOP_WORDS = new Set([
  * entry" collision guard. Don't change to `>=`/reorder resolution without
  * updating that test's KNOWN_AMBIGUOUS_ALIASES expectations.
  */
+/**
+ * Inverted alias index, built once at module load.
+ *
+ * The scan this replaces walked all 940 aliases of all 70 professions on
+ * EVERY call, re-running `stemToken` on each alias word as it went — ~8.000
+ * stemToken calls and 263 `alias.split(' ')` allocations per lookup, for a
+ * measured ~340 us. JobBoard's search index calls this once per distinct job
+ * title (18.228 distinct in the 21.442-job IT corpus, so the memo in
+ * services/professionSynonyms.ts almost never hits), which put ~2,7 s of pure
+ * CPU into building the index for a 9.000-job board — the dominant term in
+ * the ~5 s a cluster landing spent before it could show a single result.
+ *
+ * The index flips the loop: instead of asking every alias whether the input
+ * matches it, ask the input's own tokens which aliases they could reach.
+ * Alias stems are precomputed, so a lookup is O(tokens), not O(aliases).
+ *
+ * `order` is the alias's position in declaration order and preserves the
+ * documented tie-break below (longest alias wins; equal length keeps the
+ * first-declared) independently of the order candidates are now visited in.
+ */
+const SINGLE_ALIAS_BY_STEM = new Map();
+const MULTI_ALIASES_BY_FIRST_STEM = new Map();
+/** Distinct single-word alias stems, sorted, for the prefix-tolerance branch. */
+const SINGLE_ALIAS_STEMS_SORTED = [];
+
+{
+  let order = 0;
+  for (const entry of PROFESSION_TAXONOMY) {
+    for (const alias of entry.aliases) {
+      const record = { id: entry.id, aliasLength: alias.length, order: order++ };
+      if (alias.includes(' ')) {
+        // A multi-word alias matches only when EVERY one of its word stems is
+        // present, so bucketing it under the first word's stem can never lose
+        // a match — it just skips the aliases that cannot possibly apply.
+        record.wordStems = alias.split(' ').map(stemToken);
+        const key = record.wordStems[0];
+        const bucket = MULTI_ALIASES_BY_FIRST_STEM.get(key);
+        if (bucket) bucket.push(record);
+        else MULTI_ALIASES_BY_FIRST_STEM.set(key, [record]);
+      } else {
+        const stem = stemToken(alias);
+        const bucket = SINGLE_ALIAS_BY_STEM.get(stem);
+        if (bucket) bucket.push(record);
+        else SINGLE_ALIAS_BY_STEM.set(stem, [record]);
+      }
+    }
+  }
+  SINGLE_ALIAS_STEMS_SORTED.push(...SINGLE_ALIAS_BY_STEM.keys());
+  SINGLE_ALIAS_STEMS_SORTED.sort();
+}
+
+/** First index in the sorted stem array whose value is >= `target`. */
+function lowerBoundStem(target) {
+  let lo = 0;
+  let hi = SINGLE_ALIAS_STEMS_SORTED.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (SINGLE_ALIAS_STEMS_SORTED[mid] < target) lo = mid + 1;
+    else hi = mid;
+  }
+  return lo;
+}
+
 export function matchProfession(text) {
   const norm = normalizeText(text);
   if (!norm) return null;
   const tokens = norm.split(' ').filter((t) => t.length >= 2);
   if (tokens.length === 0) return null;
   const stems = tokens.map(stemToken);
+  const stemSet = new Set(stems);
+
   let best = null;
-  for (const entry of PROFESSION_TAXONOMY) {
-    for (const alias of entry.aliases) {
-      let matched = false;
-      if (alias.includes(' ')) {
-        const words = alias.split(' ');
-        matched = words.every((w) => {
-          const ws = stemToken(w);
-          return stems.some((s) => s === ws);
-        });
-      } else {
-        matched = tokens.some((t) => tokenMatchesAlias(t, alias));
-      }
-      // Strict `>`: on an equal-length tie, keep the already-set `best`
-      // (first-declared-wins — see function doc comment above).
-      if (matched && (!best || alias.length > best.aliasLength)) {
-        best = { id: entry.id, aliasLength: alias.length };
-      }
+  /** Longest alias wins; equal length keeps the first-declared (see doc above). */
+  const consider = (record) => {
+    if (!best
+      || record.aliasLength > best.aliasLength
+      || (record.aliasLength === best.aliasLength && record.order < best.order)) {
+      best = record;
+    }
+  };
+
+  // Multi-word aliases: only those whose first word stem the input carries.
+  for (const stem of stemSet) {
+    const bucket = MULTI_ALIASES_BY_FIRST_STEM.get(stem);
+    if (!bucket) continue;
+    for (const record of bucket) {
+      if (record.wordStems.every((ws) => stemSet.has(ws))) consider(record);
     }
   }
+
+  // Single-word aliases. Mirrors tokenMatchesAlias: stem equality always, plus
+  // the >=5-char typing-prefix tolerance. `aliasStem.startsWith(tokenStem)` is
+  // true when the two are equal, so for a >=5-char token the prefix range
+  // already subsumes the equality case.
+  for (let i = 0; i < tokens.length; i++) {
+    const tokenStem = stems[i];
+    if (tokens[i].length >= 5) {
+      for (let j = lowerBoundStem(tokenStem); j < SINGLE_ALIAS_STEMS_SORTED.length; j++) {
+        const aliasStem = SINGLE_ALIAS_STEMS_SORTED[j];
+        if (!aliasStem.startsWith(tokenStem)) break;
+        for (const record of SINGLE_ALIAS_BY_STEM.get(aliasStem)) consider(record);
+      }
+    } else {
+      const bucket = SINGLE_ALIAS_BY_STEM.get(tokenStem);
+      if (bucket) for (const record of bucket) consider(record);
+    }
+  }
+
   return best ? best.id : null;
 }
 

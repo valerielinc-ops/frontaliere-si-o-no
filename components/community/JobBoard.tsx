@@ -3827,14 +3827,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
  const [searchIndex, setSearchIndex] = useState<Map<JobListing, string>>(() => new Map());
 
+ // Time-sliced, not fixed-count. A 50-job chunk per rAF frame makes the wall
+ // clock a function of the FRAME COUNT, not of the work: 14.700 jobs (the
+ // aggregate board) is 294 frames ≈ 4,9 s no matter how cheap each job gets —
+ // measured as the 2,9 s → 8,1 s gap before
+ // /cerca-lavoro-svizzera/ricerca-… could show its first result. Filling a
+ // budget instead keeps the same "never block a frame" contract while letting
+ // a fast device finish in a few frames (~264 ms of work for 14.700 jobs once
+ // matchProfession got its alias index). The clock is read every 64 jobs so
+ // the check itself stays off the hot path; at ~18 µs/job that bounds the
+ // overshoot to ~1,2 ms.
  useEffect(() => {
  const map = new Map<JobListing, string>();
  let i = 0;
- const CHUNK_SIZE = 50;
+ let raf = 0;
+ let cancelled = false;
+ const FRAME_BUDGET_MS = 8;
+ const CLOCK_CHECK_MASK = 63;
 
  function processChunk() {
- const end = Math.min(i + CHUNK_SIZE, sortedJobs.length);
- for (; i < end; i++) {
+ const deadline = performance.now() + FRAME_BUDGET_MS;
+ while (i < sortedJobs.length) {
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
@@ -3845,19 +3858,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
  const synonyms = professionSynonymText(localizedTitle);
  map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
+ i++;
+ if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
+ // Unmount/dep-change between frames: drop the partial map on the floor
+ // instead of committing it. The old cleanup set `i = sortedJobs.length`,
+ // which made the already-queued frame take the `else` branch and publish a
+ // HALF-BUILT index — every query then read zero hits against it.
+ if (cancelled) return;
  if (i < sortedJobs.length) {
- requestAnimationFrame(processChunk);
+ raf = requestAnimationFrame(processChunk);
  } else {
  setSearchIndex(map);
  }
  }
 
  if (sortedJobs.length > 0) {
- requestAnimationFrame(processChunk);
+ raf = requestAnimationFrame(processChunk);
  }
 
- return () => { i = sortedJobs.length; };
+ return () => {
+ cancelled = true;
+ if (raf) cancelAnimationFrame(raf);
+ };
  }, [sortedJobs, locale]);
 
  // Fast query match using pre-built index — avoids re-normalising haystacks.
@@ -3875,6 +3898,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  },
  [searchIndex],
  );
+
+ /**
+  * True while a query is active but the incremental search index does not yet
+  * cover every loaded job. In that window `indexedQueryMatch` reads an empty
+  * haystack for the uncovered jobs, so EVERY tier reports zero matches — the
+  * zero is an artefact of the build, not an answer about the corpus.
+  *
+  * The loading skeleton already held for exactly this reason. The lazy
+  * broaden tiers did not, and they read the same provisional zero as "this
+  * search found nothing, go fetch more corpus": on
+  * /cerca-lavoro-svizzera/ricerca-offerte-lavoro-assistente-psicologo/ the
+  * cross-locale tier fired in 4 runs out of 4 and pulled the DE/FR/EN slim
+  * indexes — 7,16 MB over the wire, ~50 MB of JSON to parse — which were then
+  * discarded, because once the index completed the strict tier had 8 results
+  * all along. One flag for all four consumers so they cannot drift apart.
+  */
+ const searchIndexPending = Boolean(deferredSearchQuery.trim()) && searchIndex.size < sortedJobs.length;
 
  // Post-auth prompt removed 2026-05-19: PostHog 30-day data showed 88%
  // dismiss rate · 3 open · 0 accepts · 3 silent errors on
@@ -4165,6 +4205,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (crossLocaleFetchAttempted.current) return;
  if (jobsLoading) return;
+ // The zero below is only an answer once the index covers the corpus.
+ if (searchIndexPending) return;
  const q = deferredSearchQuery.trim();
  if (!q) return;
  if (strictFilteredJobs.length > 0) return;
@@ -4215,6 +4257,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  deferredSearchQuery, jobsLoading, locale,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
  unscopedJobs, sortedJobs,
+ // Load-bearing: on a search that is genuinely empty, the tier counts above
+ // never change when the index completes, so without this dep the effect
+ // would not re-run and the fallback would never fire at all.
+ searchIndexPending,
  ]);
 
  // Shared locale-wide pool loader (slim index). Used by BOTH the company-hub
@@ -4277,6 +4323,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (searchBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
+ // The in-canton counts below are provisional until the index is complete.
+ if (searchIndexPending) return;
  if (companySlugFilter) return; // company path owns its loader
  if (!deferredSearchQuery.trim()) return;
  if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
@@ -4299,7 +4347,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  })();
  return () => { cancelled = true; };
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool]);
+ // `searchIndexPending` is load-bearing, same reason as the cross-locale tier:
+ // a genuinely thin search leaves every other dep unchanged when the index
+ // completes, so the broaden would never fire without it.
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
@@ -4470,7 +4521,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // reads 0 even when matches exist — the dominant "0" window on large
  // (aggregate) sets (~6s for ~12k jobs). Hold the skeleton until the index
  // covers the corpus; a still-0 result then is a genuine empty-state.
- || (Boolean(deferredSearchQuery.trim()) && searchIndex.size < sortedJobs.length)
+ || searchIndexPending
  ))
  );
 
