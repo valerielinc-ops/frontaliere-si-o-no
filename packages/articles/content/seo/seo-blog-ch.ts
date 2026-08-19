@@ -44246,6 +44246,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-burckhardt-compression-tagli-posti': {
+    title: 'Burckhardt Compression: 220 posti di lavoro a rischio',
+    description: 'Burckhardt Compression annuncia tagli per 220 posti di lavoro, con 150 esuberi a Winterthur e 70 all\'estero. Oneri per 3 milioni di franchi nel 2026/27.',
+    keywords: 'frontalieri, ticino, svizzera, italia, burckhardt, compression, posti, lavoro',
+    ogTitle: 'Burckhardt Compression: 220 posti di lavoro a rischio',
+    ogDescription: 'Il produttore svizzero Burckhardt Compression ha annunciato un taglio di 220 impieghi complessivi tra Winterthur e le sedi estere. Scopri i dettagli finanziari, la riorganizzazione e le tempistiche.',
+    canonicalPath: '/articoli-svizzera/burckhardt-compression-tagli-posti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Burckhardt Compression: 220 posti di lavoro a rischio",
+      "description": "Burckhardt Compression annuncia tagli per 220 posti di lavoro, con 150 esuberi a Winterthur e 70 all'estero. Oneri per 3 milioni di franchi nel 2026/27.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/burckhardt-compression-tagli-posti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede dell'azienda Burckhardt Compression a Winterthur"
+      },
+      "datePublished": "2026-08-19T11:44:57+00:00",
+      "dateModified": "2026-08-19T11:44:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/burckhardt-compression-tagli-posti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
