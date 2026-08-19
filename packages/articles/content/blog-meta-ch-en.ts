@@ -3427,6 +3427,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-eccezionali-standard-federali.title': 'Exceptional transport: the new federal standards',
     'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'DETEC uniformly regulates private escorts for exceptional transports. Federal consultation until November 20, 2026.',
     'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Swiss highway with oversized cargo truck under escort service vehicle in transit',
+    'blog.article.cop31-novembre-antalya-2026.title': 'COP31: Swiss delegation mandate approved',
+    'blog.article.cop31-novembre-antalya-2026.excerpt': 'The Federal Council approves the mandate of the delegation for COP31 in Antalya (November 2026). Switzerland is committed to climate and renewables.',
+    'blog.article.cop31-novembre-antalya-2026.imageAlt': 'Swiss Alpine mountain lake landscape symbolizing renewable energy transition and sustainable power generation',
 };
 
 export default blogMetaChEn;

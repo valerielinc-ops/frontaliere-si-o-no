@@ -3427,6 +3427,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-eccezionali-standard-federali.title': 'Transports exceptionnels : les nouvelles normes fédérales',
     'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'DETEC règle uniformément les stocks privés aux transports exceptionnels. Consultation fédérale jusqu\'au 20 novembre 2026.',
     'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Autoroute suisse avec camion surdimensionné sous escorte de véhicule de convoi',
+    'blog.article.cop31-novembre-antalya-2026.title': 'COP31 : mandat délégation Suisse approuvé',
+    'blog.article.cop31-novembre-antalya-2026.excerpt': 'Le Conseil fédéral approuve le mandat de la délégation pour la COP31 à Antalya (novembre 2026). La Suisse s\'engage pour le climat et les énergies renouvelables.',
+    'blog.article.cop31-novembre-antalya-2026.imageAlt': 'Paysage alpin suisse avec lac de montagne symbolisant la transition énergétique et l\'énergie renouvelable',
 };
 
 export default blogMetaChFr;
