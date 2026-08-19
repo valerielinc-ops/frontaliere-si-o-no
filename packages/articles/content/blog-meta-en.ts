@@ -10160,6 +10160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Living in San Bartolomeo Val Cavargna, working in Ticino',
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Practical guide for border workers: crossings, taxation, LAMal, G permit, fixed costs, first assignment procedure and economic convenience scenarios between Italy and Switzerland.',
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Road connection from San Bartolomeo Val Cavargna to Ticino border at sunset',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Ticino frontier workers growing in Q2 2026: 79,121 units',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79,121 frontier workers in Ticino Q2 2026: growth of 0.64% QoQ, decrease of 0.57% YoY. SBB data with demographic analysis and implications for those working on the Italy-Switzerland border.',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Aerial view of Lugano Lake with Swiss-Italian border mountains at sunset.',
 };
 
 export default blogMetaEn;

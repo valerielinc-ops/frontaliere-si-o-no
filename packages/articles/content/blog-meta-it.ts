@@ -10161,6 +10161,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Vivere a san bartolomeo val cavargna, lavorare in Ticino',
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Guida pratica per frontalieri: valichi, tassazione, LAMal, permesso G, costi fissi, procedura primo incarico e scenari convenienza economica tra Italia e Svizzera.',
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Strada di collegamento da San Bartolomeo Val Cavargna verso il confine ticinese al tramonto',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Frontalieri Ticino in crescita nel Q2 2026: 79.121 unità',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79.121 frontalieri nel Ticino Q2 2026: crescita dello 0,64% QoQ, calo dello 0,57% YoY. Dati BFS con analisi demografica e implicazioni per chi lavora al confine Italia-Svizzera.',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne al confine italo-svizzero al tramonto.',
 };
 
 export default blogMetaIt;

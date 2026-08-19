@@ -2137,13 +2137,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [initialFilterCanton, locale],
  );
 
+ /**
+  * The pathname the build-injected inline scripts belong to, read during render
+  * so it is the post-navigation value on the render a navigation triggers.
+  *
+  * Both seeds below key their memo on it, because both their guards compare
+  * PATHNAMES. A coarser key (the route slug) can stay equal across two
+  * different pathnames — `/cerca-lavoro-ticino/ricerca-X/` and
+  * `/cerca-lavoro-svizzera/ricerca-X/` are different pages with the same slug,
+  * and some slugs really do exist in both families — which leaves the guard
+  * unreachable and pins the previous page's seed on screen.
+  */
+ const seedPathname = typeof window === 'undefined' ? '' : window.location.pathname;
+
  // Build-injected slim record for THIS active job-detail page (window.__JOB_SEED__),
  // or null on board pages / SPA navigation. Read once per mount.
- // Dep on `initialJobSlug`, NOT `[]`: the guard inside readSeededJob is inert
- // unless the memo actually re-runs after a soft-navigation (same reason as
- // bridgeTargetSlug below). At mount the pathname matches, so the seeded
- // first paint is unchanged; only later routes now correctly see null.
- const seededJob = useMemo(() => readSeededJob(), [initialJobSlug]);
+ // The dep is NOT `[]`: the guard inside readSeededJob is inert unless the memo
+ // actually re-runs after a soft-navigation (same reason as bridgeTargetSlug
+ // below). At mount the pathname matches, so the seeded first paint is
+ // unchanged; only later routes correctly see null.
+ //
+ // It is the PATHNAME rather than `initialJobSlug` (PR #5328's original key) for
+ // the same reason the cluster seed below uses it: the guard compares pathnames,
+ // so a key that can stay equal across two different pathnames leaves the guard
+ // unreachable and pins a stale seed. Keying on what the guard actually tests
+ // makes the two impossible to drift apart.
+ const seededJob = useMemo(() => readSeededJob(), [seedPathname]);
  // Seed the jobs array so `selectedJob` resolves on the first frame — no orphan
  // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
  // replaces this array; `finalize` re-applies any detail fetched meanwhile and
@@ -2159,8 +2178,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   * `readClusterSearchSeed` re-checks the pathname it was emitted for.
   */
  const clusterSeed = useMemo(
-   () => (typeof window === 'undefined' ? null : readClusterSearchSeed(window.location.pathname)),
-   [initialJobSlug],
+   () => (seedPathname ? readClusterSearchSeed(seedPathname) : null),
+   [seedPathname],
  );
  const clusterSeedJobs = useMemo<JobListing[]>(
    () => (clusterSeed ? dedupeJobsForListing(clusterSeed.j.map((raw) => normalizeIncomingJob(raw))) : []),
@@ -2708,11 +2727,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.
  // Hoisted above the slug-filter memos below: its presence is the authoritative
  // "this URL is a JOB page, not a filter landing" signal, and they need it.
- // Deps on `initialJobSlug`, NOT `[]`: on SPA soft-navigation this component is
- // not remounted, so a `[]` memo would pin the bridge slug of the page we
- // arrived on and keep reporting "job bridge" for every later route. Re-reading
- // per route lets the pathname guard inside readBridgeTargetSlug do its job.
- const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), [initialJobSlug]);
+ // Deps on `seedPathname`, NOT `[initialJobSlug]` and NOT `[]`: its guard
+ // (readBridgeTargetSlug -> onSeededDocument) compares PATHNAMES, and
+ // `initialJobSlug` can stay equal across two different pathnames (a bridge
+ // page and a search-cluster page can share a slug — see the previousSlugs
+ // alias comment below). A slug-keyed memo would then pin the bridge slug of
+ // the page we arrived on across a soft-navigation the guard is meant to
+ // catch. Same fix, same reason as `seededJob`/`clusterSeed` above.
+ const bridgeTargetSlug = useMemo(() => readBridgeTargetSlug(), [seedPathname]);
 
  // A bridge page IS a job page. Its URL is a job's OLD slug, and a handful of
  // those old slugs happen to start with a filter-landing prefix — measured on
@@ -4149,11 +4171,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  // Exclude jobs already matched by the strict AND tier — this tier supplies
  // only the OR-fill tail; `filteredJobs` lists the strict matches first.
@@ -4212,11 +4230,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const cityTokens = queryTokens.filter((t) => searchLocationTokens.has(t));
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  const scopedIds = new Set<string>();
  for (const j of sortedJobs) scopedIds.add(j.id);
@@ -4421,11 +4435,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (queryTokens.length === 0) return [];
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  const scored: { job: JobListing; score: number }[] = [];
  for (const job of crossLocaleJobs) {
@@ -4468,11 +4478,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (unscopedJobs.length === 0) return [];
 
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
 
  const scopedIds = new Set<string>();
  for (const j of sortedJobs) scopedIds.add(j.id);
