@@ -4409,7 +4409,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // (daily-limit-looking response, stale local/OmniRoute auth 401) must
         // never hard-ban a last-resort provider. See _isLastResortProvider.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking)) {
+          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
             markModelExhausted(modelForTracking);
             _stats.exhausted++;
           }
@@ -4421,16 +4421,20 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // Learn the real size cap from `raw` while it's still untruncated —
           // the Error message below slices it to 300 chars (and callers slice
           // further to 200 for logging), which is why this can't be recovered
-          // after the fact from logs.
-          _learnRequestTokenLimit(modelForTracking, raw);
-          // Same reasoning: a 400 with this exact shape only happens when we
-          // requested schema mode (responseFormat.type === 'json_schema') and
-          // the model rejected it — remember it so future cascade passes stop
-          // paying the round-trip for a request shape this model never accepts.
-          if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
-            _learnSchemaIncompatible(modelForTracking);
+          // after the fact from logs. Gated like markModelExhausted below —
+          // diagnostic-only callers (see DEFAULT_OPTS.recordScore) must not
+          // teach the shared cascade a runtime-learned cap either.
+          if (opts.recordScore !== false) {
+            _learnRequestTokenLimit(modelForTracking, raw);
+            // Same reasoning: a 400 with this exact shape only happens when we
+            // requested schema mode (responseFormat.type === 'json_schema') and
+            // the model rejected it — remember it so future cascade passes stop
+            // paying the round-trip for a request shape this model never accepts.
+            if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
+              _learnSchemaIncompatible(modelForTracking);
+            }
           }
-          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking)) {
+          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
             markModelExhausted(modelForTracking, 'nonretryable', `HTTP ${res.status}`);
             _stats.exhausted++;
           }
@@ -5449,20 +5453,27 @@ async function _callGeminiRaw(model, messages, opts) {
       if (!res.ok) {
         // Quota / rate-limit — mark exhausted if it looks permanent
         if (isDailyLimitError(res.status, raw)) {
-          markModelExhausted(model);
-          _stats.exhausted++;
+          if (opts.recordScore !== false) {
+            markModelExhausted(model);
+            _stats.exhausted++;
+          }
           throw new Error(`[${model}] Daily quota reached`);
         }
         // Non-retryable client errors (unknown model, context too small)
         const nrc = classifyNonRetryableError(res.status, raw);
         if (nrc.nonRetryable) {
           // Learn the real size cap from `raw` while it's still untruncated —
-          // see the matching call in _callOpenAICompatible for why.
-          _learnRequestTokenLimit(model, raw);
-          if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
-            _learnSchemaIncompatible(model);
+          // see the matching call in _callOpenAICompatible for why. Gated like
+          // markModelExhausted below — diagnostic-only callers (see
+          // DEFAULT_OPTS.recordScore) must not teach the shared cascade a
+          // runtime-learned cap either.
+          if (opts.recordScore !== false) {
+            _learnRequestTokenLimit(model, raw);
+            if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
+              _learnSchemaIncompatible(model);
+            }
           }
-          if (nrc.markExhausted) {
+          if (nrc.markExhausted && opts.recordScore !== false) {
             // 'nonretryable', NOT the default 'quota': this is the Gemini twin
             // of the _callOpenAICompatible non-retryable branch, which already
             // labels correctly. Left at the default, a 404/unknown-model here
