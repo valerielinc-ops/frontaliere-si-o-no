@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-19T09:51:11.537Z",
+  "savedAt": "2026-08-19T09:53:59.132Z",
   "entries": [
     {
       "key": "57f539cab36639e933bf32fac2ec31aae280414d5393dfe261a0efd7fe539d77",
@@ -239408,11 +239408,11 @@
     },
     {
       "key": "431c20d77882fab48dcfd392e5eafddf60ed3f3eb3dabbec68f71bd621138e08",
-      "touchedAt": 1787089048227,
+      "touchedAt": 1787133090023,
       "value": {
         "isJob": false,
-        "confidence": 0.6,
-        "reason": "The page appears to be a generic careers listing for the company Fust, with a focus on their 'Quereinstieg' program. While it does contain specific job titles and responsibilities, it lacks a concrete role title and application context, suggesting that it is not a real single job detail page."
+        "confidence": 0.5,
+        "reason": "The page appears to be a generic career page with a focus on a specific program (Quereinstieg) rather than a detailed job description. While it does list specific job openings and requirements, the content is more promotional and educational in nature, rather than a traditional job posting."
       }
     },
     {
