@@ -10111,6 +10111,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.posta-riduce-tagli-informatica.title': 'Courrier, réduit les réductions de personnel dans l\'informatique',
     'blog.article.posta-riduce-tagli-informatica.excerpt': 'La réorganisation Tech Acceleration de la Poste entraîne jusqu\'à 40 licenciements et une vingtaine de modifications contractuelles à compter du 1er janvier 2027.',
     'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Immeuble de bureaux de la Poste en Suisse',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.title': 'Vivre à Porto Valtravaglia et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour ceux qui vivent à Porto Valtravaglia et travaillent au Tessin : liens, impôt à la source, prévoyance et aspects des déplacements.',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.imageAlt': 'Vue de Porto Valtravaglia sur le lac Majeur près de la frontière suisse',
 };
 
 export default blogMetaFr;

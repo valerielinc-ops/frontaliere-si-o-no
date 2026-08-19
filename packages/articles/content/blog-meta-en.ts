@@ -10109,6 +10109,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.posta-riduce-tagli-informatica.title': 'Mail, reduce staff cuts in IT',
     'blog.article.posta-riduce-tagli-informatica.excerpt': 'The Tech Acceleration reorganisation of the Post Office brings up to 40 redundancies and around twenty contract changes as of 1 January 2027.',
     'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Posta corporate office building in Switzerland',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.title': 'Living in Porto Valtravaglia and working in Ticino as a border worker',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.excerpt': 'Practical guide for those who live in Porto Valtravaglia and work in Ticino: connections, tax at source, social security and aspects of commuting.',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.imageAlt': 'View of Porto Valtravaglia on Lake Maggiore near the Swiss border',
 };
 
 export default blogMetaEn;
