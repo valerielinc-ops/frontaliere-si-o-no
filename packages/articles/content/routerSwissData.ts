@@ -1180,6 +1180,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'settori-salari-basilea-livelli-formazione': { it: 'settori-salari-basilea-livelli-formazione', en: 'basel-city-labor-market-sectors-salaries-qualification', de: 'basel-stadt-arbeitsmarkt-sektoren-loehne-ausbildung', fr: 'bale-ville-marche-travail-secteurs-salaires-formation' },
  'serfontana-fotovoltaico-parcheggio': { it: 'serfontana-fotovoltaico-parcheggio', en: 'serfontana-photovoltaic-parking', de: 'serfontana-photovoltaik-parkplatz', fr: 'serfontana-photovoltaique-parking' },
  'ordinanza-iran-formulari-agosto': { it: 'ordinanza-iran-formulari-agosto', en: 'ordinance-iran-forms-august', de: 'ordinanz-iran-formulare-august', fr: 'ordonnance-iran-formulaires-aout' },
+ 'patente-guida-basilea-citta-conversione': { it: 'patente-guida-basilea-citta-conversione', en: 'driving-license-basel-stadt-conversion', de: 'fuehrerschein-basel-stadt-umwandlung', fr: 'permis-conduire-bale-ville-conversion' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
