@@ -11,8 +11,14 @@
     "https://relewant.zohorecruit.com/jobs/Careers"
   ],
   "notes": "Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps Ticino IT consulting vacancies.",
-  "updatedAt": "2026-08-19T10:26:26.842Z",
+  "updatedAt": "2026-08-19T21:51:21.889Z",
   "seedMetaByUrl": {
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019159045/Senior-NET-Developer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-08-19"
+    },
     "https://relewant.zohorecruit.com/jobs/Careers/467189000020211001/Network-Security-Engineer": {
       "location": "Chiasso",
       "canton": "TI",
@@ -44,12 +50,6 @@
       "postedDate": "2026-08-19"
     },
     "https://relewant.zohorecruit.com/jobs/Careers/467189000019111019/Consulente-Expert-Senior-Program-Project-Manager": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "company": "ReleWant",
-      "postedDate": "2026-08-19"
-    },
-    "https://relewant.zohorecruit.com/jobs/Careers/467189000019159045/Senior-NET-Developer": {
       "location": "Chiasso",
       "canton": "TI",
       "company": "ReleWant",
