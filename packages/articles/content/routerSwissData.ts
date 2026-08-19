@@ -1158,6 +1158,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'migros-tre-partenze-vertici': { it: 'migros-tre-partenze-vertici', en: 'migros-three-departures-executives', de: 'migros-drei-abgaenge-spitze', fr: 'migros-trois-departs-direction' },
  'industria-costruzione-crescita-q2': { it: 'industria-costruzione-crescita-q2', en: 'industry-construction-growth-q2', de: 'industrie-bau-wachstum-q2', fr: 'industrie-construction-croissance-q2' },
  'difesa-aerea-svizzera-investimenti': { it: 'difesa-aerea-svizzera-investimenti', en: 'swiss-air-defense-investments', de: 'schweizer-luftverteidigung-investitionen', fr: 'investissements-defense-aerienne-suisse' },
+ 'indennita-malattia-sistema-funziona-bene': { it: 'indennita-malattia-sistema-funziona-bene', en: 'illness-daily-allowance-system-sufficient', de: 'krankengeld-system-ausreichend', fr: 'indemnite-maladie-systeme-suffisant' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

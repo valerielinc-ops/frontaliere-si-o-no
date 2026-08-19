@@ -3397,6 +3397,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.difesa-aerea-svizzera-investimenti.title': 'Air Defense: Federal Council Accelerates Investments',
     'blog.article.difesa-aerea-svizzera-investimenti.excerpt': 'Allocated €970 million for air defence and €100 million for military headquarters security by 2029 to respond to global challenges.',
     'blog.article.difesa-aerea-svizzera-investimenti.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Sick pay: the system works well',
+    'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Federal Council confirms: the system of protection for workers in the event of illness is adequate. Coverage at 85-90% in companies, only 0.13% of workers excluded.',
+    'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Swiss Federal Building in Bern with official flags during daytime. Workers walking through the federal administrative area.',
 };
 
 export default blogMetaChEn;

@@ -10189,6 +10189,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'indennita-malattia-sistema-funziona-bene',
+    category: 'novita',
+    date: '2026-08-19T09:38:20.944Z',
+    image: '/images/blog/indennita-malattia-sistema-funziona-bene.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
