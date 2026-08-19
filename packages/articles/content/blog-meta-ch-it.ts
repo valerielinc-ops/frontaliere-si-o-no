@@ -3451,6 +3451,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Salari e lavoro in Svizzera: livelli di formazione',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Come funzionano i salari svizzeri per grado di formazione, contributi sociali obbligatori, contratti collettivi e salario minimo cantonale.',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Ambiente di lavoro svizzero con documenti di stipendio e contratti collettivi in primo piano',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Salari e mercato del lavoro a Basilea Città',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'Sistema di contributi, orari e diritti dei lavoratori nel cantone di Basilea Città: norme federali, previdenza obbligatoria e regole cantonali per chi lavora in Svizzera.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Centro storico di Basilea Città con il Reno e grattacieli moderni sullo sfondo',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Mercato lavoro Basilea Città: salari, settori e contratti',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guida ai livelli salariali per grado di formazione, settori che assumono, contratti collettivi e meccanismi del mercato del lavoro nel Cantone di Basilea Città.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Centro di Basilea Città con edifici moderni e fiume Reno, simbolo del mercato del lavoro svizzero',
+    'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accelera con impianto fotovoltaico al parcheggio',
+    'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Centro commerciale di Morbio Inferiore realizza copertura fotovoltaica da 1.736 kWp: 1.900 MWh annui di energia rinnovabile entro primavera 2027.',
+    'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Copertura fotovoltaica su parcheggio con moduli solari innovativi in paesaggio ticinese soleggiato.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR: nuovi formulari per trasferimenti verso Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Il 19 agosto il Dipartimento federale dell\'economia ha adattato i formulari di dichiarazione. Dal 26 agosto saranno obbligatori solo i modelli aggiornati.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Palazzo dell\'Amministrazione federale svizzera a Berna, sede del DEFR e della Confederazione.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Patente guida Basilea Città: conversione ed esami',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Come convertire una patente estera nel Canton Basilea Città, esami teorico e pratico, corsi obbligatori e procedure presso l\'ufficio della circolazione.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Patente di guida svizzera e ufficio della circolazione nel Canton Basilea Città',
 };
 
 export default blogMetaChIt;

@@ -10149,6 +10149,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Vivere a Nesso e lavorare in Ticino da frontaliere',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Guida completa: permesso G, fiscalità bilaterale, imposta alla fonte, esenzioni €7.500–€10.000, AVS, LAMal, ristorni. Procedure e checklist per iniziare come frontaliere Italia-Ticino.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Veduta del Lago di Como da Nesso con lo sfondo delle Alpi ticinesi al confine svizzero',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Vivere a Orsenigo e lavorare in Ticino da frontaliere: cosa cambia?',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Il nuovo accordo fiscale per i frontalieri: come funziona e cosa significa per i residenti di Orsenigo.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Immagine di un frontaliere in Ticino',
+    'blog.article.vedano-olona-frontaliere-ticino.title': 'Vivere a Vedano Olona e lavorare in Ticino: guida completa',
+    'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Residenza in Lombardia, lavoro in Svizzera: tassazione frontalieri, permessi, convenzioni bilaterali e scadenze fiscali 2024-2025.',
+    'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'Vista del Ticino dal confine di Vedano Olona, colline lombarde e paesaggio transfrontaliero.',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Frontalieri tra Italia e Ticino: il nuovo accordo dal 2024 cambia tassazione, contributi e franchigie. Quali sono le implicazioni pratiche per chi risiede a Venegono Superiore?',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago di Lugano all\'alba con le Alpi in sfondo, illustra il contesto geografico del Ticino per i frontalieri che lavorano nella regione.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Vivere a san bartolomeo val cavargna, lavorare in Ticino',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Guida pratica per frontalieri: valichi, tassazione, LAMal, permesso G, costi fissi, procedura primo incarico e scenari convenienza economica tra Italia e Svizzera.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Strada di collegamento da San Bartolomeo Val Cavargna verso il confine ticinese al tramonto',
 };
 
 export default blogMetaIt;

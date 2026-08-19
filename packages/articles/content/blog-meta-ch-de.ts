@@ -3451,6 +3451,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Löhne und Arbeit in der Schweiz: Bildungsstand',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Wie funktionieren die Schweizer Löhne nach Bildungsgrad, obligatorischen Sozialbeiträgen, Tarifverträgen und kantonalen Mindestlöhnen?',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Schweizer Arbeitsplatz mit Gehaltsdokumenten und Kollektivverträgen',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Löhne und Arbeitsmarkt in Basel-Stadt',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'System der Beiträge, Arbeitszeiten und Arbeitnehmerrechte im Kanton Basel-Stadt: Bundesvorschriften, obligatorische Vorsorge und kantonale Regelungen für Erwerbstätige in der Schweiz.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Basler Altstadt mit Rhein und modernen Bürogebäuden im Hintergrund',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Arbeitsmarkt Basel-Stadt: Löhne, Branchen und Verträge',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Leitfaden zu den Lohnniveaus nach Bildungsabschluss, eingestellten Branchen, Tarifverträgen und Arbeitsmarktmechanismen im Kanton Basel-Stadt.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Basler Innenstadt mit modernen Gebäuden und Rhein, Schweizer Arbeitsmarkt',
+    'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana beschleunigt mit Photovoltaikanlage am Parkplatz',
+    'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Einkaufszentrum Morbio Inferiore realisiert eine Photovoltaik-Abdeckung von 1.736 kWp: 1.900 MWh pro Jahr an erneuerbarer Energie bis zum Frühjahr 2027.',
+    'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Moderne Photovoltaik-Parkplatzüberdachung mit innovativen Solarmodulen in sonniger Tessiner Landschaft.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'WBF: Neue Formulare für Überweisungen in den Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Das Eidgenössische Volkswirtschaftsdepartement hat am 19. August die Deklarationsformulare angepasst. Ab dem 26. August sind nur die aktualisierten Modelle obligatorisch.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Gebäude der Schweizer Bundesverwaltung in Bern, Sitz des Eidgenössischen Departements für Wirtschaft.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Führerschein Basel-Stadt: Umbau und Prüfungen',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'Wie man einen ausländischen Führerschein im Kanton Basel-Stadt umwandelt, theoretische und praktische Prüfungen, Pflichtkurse und Verfahren beim Strassenverkehrsamt.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Schweizer Führerschein und Verkehrsamt Kanton Basel-Stadt',
 };
 
 export default blogMetaChDe;

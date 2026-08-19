@@ -10148,6 +10148,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Living in Nesso and working in Ticino as a border worker',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Complete guide: G permit, bilateral taxation, source tax, exemptions €7,500-€10,000, AVS, LAMal, rebates. Procedures and checklists to start as an Italy-Ticino border worker.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'View of Lake Como from Nesso with Swiss Alps visible across the border to Ticino',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Living in Orsenigo and working in Ticino as a border worker: what changes?',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'The new tax agreement for border workers: how it works and what it means for Orsenigo residents.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Image of a Ticino frontaliere',
+    'blog.article.vedano-olona-frontaliere-ticino.title': 'Living in Vedano Olona and working in Ticino: a complete guide',
+    'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Residence in Lombardy, work in Switzerland: border taxation, permits, bilateral agreements and tax deadlines 2024-2025.',
+    'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'View of Ticino from Vedano Olona border, Lombard hills and cross-border landscape.',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Living in Venegono and working in Ticino: tax guide 2024',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Borders between Italy and Ticino: the new agreement from 2024 changes taxation, contributions and deductibles. What are the practical implications for those living in Venegono Superiore?',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano lake at sunrise with Alpine mountains, representing the Ticino landscape for cross-border workers.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Living in San Bartolomeo Val Cavargna, working in Ticino',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Practical guide for border workers: crossings, taxation, LAMal, G permit, fixed costs, first assignment procedure and economic convenience scenarios between Italy and Switzerland.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Road connection from San Bartolomeo Val Cavargna to Ticino border at sunset',
 };
 
 export default blogMetaEn;

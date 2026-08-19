@@ -3451,6 +3451,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea.title': 'Wages and work in Switzerland: training levels',
     'blog.article.salari-mercato-lavoro-basilea.excerpt': 'How Swiss wages work by level of training, compulsory social contributions, collective agreements and cantonal minimum wage.',
     'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Swiss workplace with salary documents and employment contracts on desk',
+    'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Wages and the labour market in Basel City',
+    'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'System of contributions, hours and workers\' rights in the canton of Basel-City: federal rules, compulsory social security and cantonal rules for those working in Switzerland.',
+    'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Basel-Stadt historic city centre with Rhine River and modern office skyline',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Labour market Basel City: wages, sectors and contracts',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guide to wage levels by education level, hiring sectors, collective agreements and labour market mechanisms in the Canton of Basel-City.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Basel city center with modern buildings and Rhine river, Swiss labor market business district',
+    'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accelerates with photovoltaic system at the parking lot',
+    'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Centro comercial di Morbio Inferiore realizes photovoltaic coverage of 1,736 kWp: 1,900 MWh per year of renewable energy by spring 2027.',
+    'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Modern photovoltaic parking canopy with innovative solar modules in sunny Ticino landscape.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR: new forms for transfers to Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'On 19 August, the Federal Department of Economic Affairs adapted the declaration forms. From 26 August, only updated models will be mandatory.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Swiss Federal Administration headquarters in Bern, location of the Federal Department of Economy.',
+    'blog.article.patente-guida-basilea-citta-conversione.title': 'Driving license Basel City: conversion and exams',
+    'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'How to convert a foreign license in the Canton of Basel-City, theoretical and practical exams, compulsory courses and procedures at the traffic office.',
+    'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Swiss driving license and circulation office in Canton Basel-Stadt',
 };
 
 export default blogMetaChEn;

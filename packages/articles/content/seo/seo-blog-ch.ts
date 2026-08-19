@@ -44753,6 +44753,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-basilea-citta': {
+    title: 'Salari e mercato del lavoro a Basilea Città | Frontaliere Ticino',
+    description: 'Sistema di contributi, orari e diritti dei lavoratori nel cantone di Basilea Città: norme federali, previdenza obbligatoria e regole cantonali per chi lavora',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, basilea',
+    ogTitle: 'Salari e mercato del lavoro a Basilea Città',
+    ogDescription: 'Sistema di contributi, orari e diritti dei lavoratori nel cantone di Basilea Città: norme federali, previdenza obbligatoria e regole cantonali per chi lavora in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro a Basilea Città",
+      "description": "Sistema di contributi, orari e diritti dei lavoratori nel cantone di Basilea Città: norme federali, previdenza obbligatoria e regole cantonali per chi lavora",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro storico di Basilea Città con il Reno e grattacieli moderni sullo sfondo"
+      },
+      "datePublished": "2026-08-19T17:56:04+00:00",
+      "dateModified": "2026-08-19T17:56:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-settori-salari-basilea-livelli-formazione': {
+    title: 'Mercato lavoro Basilea Città: salari, settori e contratti',
+    description: 'Guida ai livelli salariali per formazione, settori che assumono, contratti collettivi e protezione salariale nel Cantone di Basilea Città secondo il sistema',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, basilea, città',
+    ogTitle: 'Salari e mercato del lavoro Basilea Città: settori e livelli',
+    ogDescription: 'Scopri come funzionano salari, contratti collettivi e protezione salariale nel Cantone di Basilea Città. Settori che assumono, livelli per grado di formazione, contributi sociali e orari di lavoro secondo le regole svizzere.',
+    canonicalPath: '/articoli-svizzera/settori-salari-basilea-livelli-formazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato lavoro Basilea Città: salari, settori e contratti",
+      "description": "Guida ai livelli salariali per formazione, settori che assumono, contratti collettivi e protezione salariale nel Cantone di Basilea Città secondo il sistema",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/settori-salari-basilea-livelli-formazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di Basilea Città con edifici moderni e fiume Reno, simbolo del mercato del lavoro svizzero"
+      },
+      "datePublished": "2026-08-19T18:28:30+00:00",
+      "dateModified": "2026-08-19T18:28:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/settori-salari-basilea-livelli-formazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-serfontana-fotovoltaico-parcheggio': {
+    title: 'Serfontana accelera con impianto fotovoltaico al parcheggio',
+    description: 'Centro commerciale di Morbio Inferiore realizza copertura fotovoltaica da 1.736 kWp sul parcheggio Sud. Produzione annuale di 1.900 MWh di energia rinnovabile',
+    keywords: 'frontalieri, ticino, svizzera, italia, serfontana, accelera, impianto, fotovoltaico',
+    ogTitle: 'Serfontana: impianto fotovoltaico per il parcheggio',
+    ogDescription: 'Il Centro Shopping Serfontana investe in sostenibilità con copertura fotovoltaica da 1.736 kWp. Produrrà 1.900 MWh annui di energia rinnovabile con tecnologia innovativa a moduli ripiegabili. Riapertura prevista primavera 2027.',
+    canonicalPath: '/articoli-svizzera/serfontana-fotovoltaico-parcheggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Serfontana accelera con impianto fotovoltaico al parcheggio",
+      "description": "Centro commerciale di Morbio Inferiore realizza copertura fotovoltaica da 1.736 kWp sul parcheggio Sud. Produzione annuale di 1.900 MWh di energia rinnovabile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/serfontana-fotovoltaico-parcheggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Copertura fotovoltaica su parcheggio con moduli solari innovativi in paesaggio ticinese soleggiato."
+      },
+      "datePublished": "2026-08-19T18:48:37+00:00",
+      "dateModified": "2026-08-19T18:48:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/serfontana-fotovoltaico-parcheggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ordinanza-iran-formulari-agosto': {
+    title: 'DEFR: nuovi formulari per trasferimenti verso Iran',
+    description: 'Il 26 agosto entrano in vigore i formulari adattati dal DEFR per i trasferimenti di averi verso l\'Iran secondo art. 21 dell\'ordinanza. Scopri le scadenze',
+    keywords: 'frontalieri, ticino, svizzera, italia, defr, nuovi, formulari, trasferimenti',
+    ogTitle: 'DEFR: nuovi formulari per trasferimenti verso Iran',
+    ogDescription: 'Il 19 agosto 2026 il Dipartimento federale dell\'economia ha adattato i formulari di dichiarazione e autorizzazione per i trasferimenti verso l\'Iran. Dal 26 agosto saranno obbligatori solo i nuovi modelli. Scopri la procedura e le implicazioni',
+    canonicalPath: '/articoli-svizzera/ordinanza-iran-formulari-agosto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "DEFR: nuovi formulari per trasferimenti verso Iran",
+      "description": "Il 26 agosto entrano in vigore i formulari adattati dal DEFR per i trasferimenti di averi verso l'Iran secondo art. 21 dell'ordinanza. Scopri le scadenze",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ordinanza-iran-formulari-agosto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo dell'Amministrazione federale svizzera a Berna, sede del DEFR e della Confederazione."
+      },
+      "datePublished": "2026-08-19T19:07:52+00:00",
+      "dateModified": "2026-08-19T19:07:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-iran-formulari-agosto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-guida-basilea-citta-conversione': {
+    title: 'Patente guida Basilea Città: conversione ed esami',
+    description: 'Conversione patente estera nel Canton Basilea Città: esame teorico, pratico, corsi obbligatori, costi, scadenze e procedura completa presso Amt für Verkehr.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, basilea, città, conversione',
+    ogTitle: 'Patente guida Basilea Città: conversione ed esami',
+    ogDescription: 'Guida completa alla conversione della patente di guida estera nel Canton Basilea Città: procedure, esami, corsi, costi e tempi. Tutto ciò che devi sapere per convertire la licenza di guida in Svizzera.',
+    canonicalPath: '/articoli-svizzera/patente-guida-basilea-citta-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente guida Basilea Città: conversione ed esami",
+      "description": "Conversione patente estera nel Canton Basilea Città: esame teorico, pratico, corsi obbligatori, costi, scadenze e procedura completa presso Amt für Verkehr.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-basilea-citta-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Patente di guida svizzera e ufficio della circolazione nel Canton Basilea Città"
+      },
+      "datePublished": "2026-08-19T19:33:14+00:00",
+      "dateModified": "2026-08-19T19:33:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-basilea-citta-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

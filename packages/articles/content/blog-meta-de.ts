@@ -10147,6 +10147,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Leben in Nesso und Arbeiten im Tessin als Grenzgänger',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Komplette Anleitung: G-Bewilligung, bilaterale Besteuerung, Quellensteuer, Befreiungen € 7.500- € 10.000, AHV, KVG, Rückerstattungen. Verfahren und Checklisten für den Einstieg als Grenzgänger Italien-Tessin.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Blick auf den Comer See von Nesso mit Schweizer Alpen an der Tessiner Grenze',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Wohnen in Orsenigo und Arbeiten im Tessin als Grenzgänger: Was ändert sich?',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Das neue Steuerabkommen für Grenzgänger: Wie es funktioniert und was es für die Bewohner von Orsenigo bedeutet.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Bild eines Ticino Frontalierers',
+    'blog.article.vedano-olona-frontaliere-ticino.title': 'Leben in Vedano Olona und Arbeiten im Tessin: Kompletter Leitfaden',
+    'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Wohnsitz in der Lombardei, Arbeit in der Schweiz: Grenzbesteuerung, Genehmigungen, bilaterale Abkommen und Steuertermine 2024-2025.',
+    'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'Blick auf das Tessin von der Vedano Olona-Grenze, lombardische Hügel und Grenzlandschaft.',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Leben in Venegono und Arbeiten im Tessin: Steuerleitfaden 2024',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger zwischen Italien und Tessin: Das neue Abkommen ab 2024 ändert Steuern, Beiträge und Selbstbehalte. Was sind die praktischen Auswirkungen für diejenigen, die in Venegono Superiore wohnen?',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee bei Sonnenaufgang mit Alpengipfeln, typische Tessiner Landschaft für Grenzgänger.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Leben in San Bartolomeo Val Cavargna, Arbeiten im Tessin',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Grenzübergänge, Besteuerung, KVG, Bewilligung G, Fixkosten, Erstauftragsverfahren und Szenarien wirtschaftlicher Nutzen zwischen Italien und der Schweiz.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Verbindungsstraße von San Bartolomeo Val Cavargna zur Tessiner Grenze bei Sonnenuntergang',
 };
 
 export default blogMetaDe;
