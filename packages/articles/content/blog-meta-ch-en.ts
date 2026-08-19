@@ -3421,6 +3421,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ricovero-assistenza-revisione-2026.title': 'Federal Council revises entitlement to hospitalization assistance',
     'blog.article.ricovero-assistenza-revisione-2026.excerpt': 'On 12 August 2026, the Federal Council instructed the DFGP to review the rules on involuntary admission: national statistics, clarifications on medical measures and specific protections for minors. Avamprogetto by summer 2028.',
     'blog.article.ricovero-assistenza-revisione-2026.imageAlt': 'Swiss Federal Palace in Bern, where the Federal Council decided to revise admission law for vulnerable adults and minors',
+    'blog.article.geberit-utili-semestre-2026.title': 'Geberit: sales +2.8%, profits +7.4% in the semester',
+    'blog.article.geberit-utili-semestre-2026.excerpt': 'In the first half of 2026, the Sangallen group recorded turnover of CHF 1.71 billion and net profit up 7.4%. Stable EBITDA margins and 5-6% growth forecast for the year.',
+    'blog.article.geberit-utili-semestre-2026.imageAlt': 'Swiss manufacturing plant with industrial machinery for sanitary installations and quality control',
 };
 
 export default blogMetaChEn;
