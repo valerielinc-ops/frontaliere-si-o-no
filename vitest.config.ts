@@ -9,6 +9,10 @@ import {
   listDatasetDependentTests,
   listDatasetIndependentTests,
 } from './scripts/ci/dataset-dependent-tests.mjs';
+import {
+  listNonCorpusWideTests,
+  parseCorpusSkipList,
+} from './scripts/ci/corpus-wide-tests.mjs';
 
 // Partizione dataset (usata SOLO da tests.yml, via VITEST_DATASET_GROUP): il
 // job CI lancia `scripts/assemble-jobs-dataset.mjs` come step `background:` e
@@ -34,6 +38,44 @@ const DATASET_SPLIT_EXCLUDE: string[] =
     : DATASET_GROUP === 'dependent'
       ? listDatasetIndependentTests()
       : [];
+
+// Partizione corpus-wide (usata da tests.yml e da corpus-wide-gates.yml, via
+// VITEST_CORPUS_GROUP). Asse ORTOGONALE a quello sopra: si compone per
+// concatenazione di `exclude`, quindi i due non interferiscono.
+//
+// Il registro sta in scripts/ci/corpus-wide-tests.mjs, con la misura e il
+// razionale completi. In breve: 7 file di test costano 201,4s misurati (20,1%
+// del tempo-file della suite) perché iterano sull'intero corpus articoli o
+// rendono una sezione intera — un costo O(corpus) che cresce da solo a ogni
+// articolo pubblicato. Restano gate a pieno titolo, con le stesse soglie:
+// cambia solo DOVE girano.
+//
+//   VITEST_CORPUS_GROUP=only → gira SOLO quel gruppo. È la run post-merge di
+//        `.github/workflows/corpus-wide-gates.yml`, che a rosso apre una issue.
+//   VITEST_CORPUS_SKIP="<file> <file>" → il job bloccante della PR esclude
+//        esattamente quei file. tests.yml ci mette l'esito di
+//        `corpus-wide-tests.mjs --gha-output`, che è una decisione PER-TEST sul
+//        diff: un diff su `data/jobs/by-crawler/**` tiene bloccante il solo
+//        `job-locale-consistency` e ricolloca gli altri sei.
+//
+// La lista di skip è filtrata contro il registro da `parseCorpusSkipList`:
+// quella env NON può spegnere un test che non sia uno dei sette dichiarati.
+// Senza quel filtro sarebbe una leva generica per disattivare qualunque gate da
+// un `env:` di workflow, cioè il modo esatto in cui un gate scomodo sparisce.
+//
+// `only` agisce ancora sul solo `exclude` — esclude il COMPLEMENTO — per la
+// stessa ragione scritta sopra per il dataset: gli `include` dei due project
+// sono ciò che assegna ogni file all'environment giusto (node vs jsdom), e
+// sovrascriverli manderebbe file .ts nel project sbagliato.
+//
+// Senza nessuna delle due env il valore è [] e la configurazione resta
+// byte-identica a prima: ogni run locale e ogni altro workflow eseguono la
+// suite intera, corpus-wide inclusi.
+const CORPUS_GROUP = process.env.VITEST_CORPUS_GROUP ?? '';
+const CORPUS_WIDE_EXCLUDE: string[] =
+  CORPUS_GROUP === 'only'
+    ? listNonCorpusWideTests()
+    : parseCorpusSkipList(process.env.VITEST_CORPUS_SKIP);
 
 // Custom shard distribution: balance `--shard=i/N` by estimated per-file
 // duration (tests/shard-weights.json) via LPT bin-packing instead of vitest's
@@ -96,6 +138,7 @@ const JSDOM_TS_FILES = [
   'tests/analytics-seo.test.ts',
   'tests/artisa-job-parser.test.ts',
   'tests/authGateExperiment.test.ts',
+  'tests/auto-ad-collapse.test.ts',
   'tests/behavior-tracker.test.ts',
   'tests/bot-gate-parity.test.ts',
   'tests/build-plugins/earlyBootSelfHeal.test.ts',
@@ -270,7 +313,7 @@ export default defineConfig({
  name: 'dom',
  environment: 'jsdom',
  include: ['tests/**/*.test.tsx', ...JSDOM_TS_FILES],
- exclude: [...COMMON_EXCLUDE, ...DATASET_SPLIT_EXCLUDE],
+ exclude: [...COMMON_EXCLUDE, ...DATASET_SPLIT_EXCLUDE, ...CORPUS_WIDE_EXCLUDE],
  },
  },
  {
@@ -283,7 +326,7 @@ export default defineConfig({
  // matcher jest-dom (~48ms per file × ~1240 file). Vedi tests/setup.tsx.
  setupFiles: ['./tests/setup-node.ts'],
  include: ['tests/**/*.test.ts'],
- exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES, ...DATASET_SPLIT_EXCLUDE],
+ exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES, ...DATASET_SPLIT_EXCLUDE, ...CORPUS_WIDE_EXCLUDE],
  },
  },
  ],

@@ -24,15 +24,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00036947EXTERNALENGLOBAL/R-D--Senior--Scientist---Medium-Voltage-High-Power-Magnetics",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038436EXTERNALENGLOBAL/Technical-Service-Specialist---Gearless-Mill-Drive--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038648EXTERNALENGLOBAL/Applied-Physicist--80--100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00039379EXTERNALENGLOBAL/End-Sales-Manager---Global-Strategic-Projects--Mining",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040701EXTERNALENGLOBAL/Product-Manager-Mobile-e-Power-Systems--m-w-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040838EXTERNALENGLOBAL/Assistant",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041010EXTERNALENGLOBAL/Commissioning-Engineer--Medium-Voltage-Systems---m-w-d--80---100-_JR00041010-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041413EXTERNALENGLOBAL/Power-Generation-Automation---Digitalization-Sales-Switzerland",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041646EXTERNALENGLOBAL/Software-Senior-Engineer---Desktop",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041998EXTERNALENGLOBAL/Software-Senior-Engineer---Mobile-APPs",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042202EXTERNALENGLOBAL/Technical-Sales-Support-Engineer--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042238EXTERNALENGLOBAL/HR-Ops-specialist--m-f-d---80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042511EXTERNALENGLOBAL/Shift-Leader-Test-IPU-B-S--m-f-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042923EXTERNALENGLOBAL/Production-Engineering-Technician--f-m-d--80-100",
@@ -40,44 +39,19 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042999EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043018EXTERNALENGLOBAL/XMLNAME--80---100---Software-Developer--NET-Desktop-Applications",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043136EXTERNALENGLOBAL/R-D-Engineer-Firmware--80--100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043281EXTERNALENGLOBAL/Procurement-Specialist-Electronics--80-100----f-m-d",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043385EXTERNALENGLOBAL/Category-Specialist-for-Corporate-Procurement_JR00043385-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043393EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Trainer---Power-Electronics",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043394EXTERNALENGLOBAL/Procurement-Specialist-Electro-mechanical-components---Electronics--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043417EXTERNALENGLOBAL/Research-Department-Manager---Industrial-Solutions--80---100----f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043461EXTERNALENGLOBAL/XMLNAME--80--100---Production-Engineering-Specialist",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043919EXTERNALENGLOBAL/Service-Test-Engineer"
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043919EXTERNALENGLOBAL/Service-Test-Engineer",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00044324EXTERNALENGLOBAL/R-D-Senior-Motor-Designer--w-m-d"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-08-17T21:32:40.036Z",
+  "updatedAt": "2026-08-19T09:50:39.803Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041646EXTERNALENGLOBAL/Software-Senior-Engineer---Desktop": {
       "location": "Bergamo, Bergamo, Italy",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00039379EXTERNALENGLOBAL/End-Sales-Manager---Global-Strategic-Projects--Mining": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043393EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Trainer---Power-Electronics": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042238EXTERNALENGLOBAL/HR-Ops-specialist--m-f-d---80--100": {
-      "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -92,6 +66,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00042238EXTERNALENGLOBAL/HR-Ops-specialist--m-f-d---80--100": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042991EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Senior-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -100,7 +82,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042999EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043393EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Trainer---Power-Electronics": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
@@ -116,6 +98,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00042999EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038436EXTERNALENGLOBAL/Technical-Service-Specialist---Gearless-Mill-Drive--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
@@ -124,7 +114,15 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00044324EXTERNALENGLOBAL/R-D-Senior-Motor-Designer--w-m-d": {
+      "location": "Frauenfeld, Thurgau, Switzerland",
+      "canton": "TG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -132,7 +130,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00039638EXTERNALENGLOBAL/R-D-Finance-Analyst_JR00039638-1": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -172,14 +170,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043417EXTERNALENGLOBAL/Research-Department-Manager---Industrial-Solutions--80---100----f-m-d": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043919EXTERNALENGLOBAL/Service-Test-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -188,7 +178,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00023648EXTERNALENGLOBAL/XMLNAME--Senior--Scientist-in-Converter-Based-Distribution-Systems--80---100": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043417EXTERNALENGLOBAL/Research-Department-Manager---Industrial-Solutions--80---100----f-m-d": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -197,6 +187,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00015262EXTERNALENGLOBAL/XMLNAME--Senior--Research-Scientist-in-Software-Systems-Engineering--80-100--_JR00015262-1": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00023648EXTERNALENGLOBAL/XMLNAME--Senior--Scientist-in-Converter-Based-Distribution-Systems--80---100": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -244,8 +242,24 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100": {
+      "location": "Morges, Vaud, Switzerland",
+      "canton": "VD",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033647EXTERNALENGLOBAL/Technical-Service-Specialist": {
       "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00025145EXTERNALENGLOBAL/SAP-Autorization---User-Access-Manager-f-m-d--80-100": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -260,33 +274,9 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100": {
-      "location": "Morges, Vaud, Switzerland",
-      "canton": "VD",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00025145EXTERNALENGLOBAL/SAP-Autorization---User-Access-Manager-f-m-d--80-100": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042511EXTERNALENGLOBAL/Shift-Leader-Test-IPU-B-S--m-f-d--80-100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042202EXTERNALENGLOBAL/Technical-Sales-Support-Engineer--80-100": {
-      "location": "Frauenfeld, Thurgau, Switzerland",
-      "canton": "TG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -303,14 +293,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043018EXTERNALENGLOBAL/XMLNAME--80---100---Software-Developer--NET-Desktop-Applications": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043385EXTERNALENGLOBAL/Category-Specialist-for-Corporate-Procurement_JR00043385-1": {
-      "location": "Zurich, Zurich, Switzerland",
-      "canton": "ZH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",

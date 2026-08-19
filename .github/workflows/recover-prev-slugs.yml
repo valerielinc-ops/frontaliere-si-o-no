@@ -65,25 +65,38 @@ env:
 jobs:
   recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # 5 (Checkout) + 5 (Deepen shallow-since attempt) + 21 (unshallow
+    # fallback, worst-case historical full-fetch cost — see "Fallback:
+    # unshallow checkout" below) + 8 (Setup Node/npm ci/reconcile/scan/
+    # backfill/commit/re-scan/tripwire/upload, the same historical remainder
+    # the old fetch-depth:0 Checkout left after eating 17-21min) = 39min
+    # worst case; 40 leaves a minute of margin.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          # The scan walks per-slice git history. Use full clone so commits
-          # in the window are reachable (default fetch-depth=1 makes git log
-          # return empty).
-          fetch-depth: 0
+          # Minimal fetch here — deepened to just the scan window by "Deepen
+          # checkout to scan window" below (#5996). Full-history fetch-depth:0
+          # was the actual cost: scan-prev-slug-losses.mjs's buildFileCommitsIndex()
+          # only ever walks `git log --since="$SCAN_SINCE"` (default "24 hours
+          # ago" on the scheduled run) and never diffs across the boundary INTO
+          # the window — the first commit it visits has no `prev`, so it never
+          # needs a commit older than SINCE either. A full clone of this repo's
+          # ~94k commits was buying history the scanner structurally cannot use.
+          fetch-depth: 1
           # NIENTE `filter: blob:none` qui, ed è il caso in cui la cura generale
           # sarebbe VELENO. `scan-prev-slug-losses.mjs` non si limita a camminare
           # i commit: legge il CONTENUTO di ogni versione storica via
           # `createCatFileBatch` (`git cat-file --batch`, riga ~241) per ogni
-          # coppia (commit, slice) su una finestra di 60 giorni e 569 file slice.
-          # Sotto blobless quei blob non esistono in locale e ognuno diventa un
-          # lazy-fetch a sé: è esattamente la classe di stallo da partial clone
-          # documentata in pr-review-loop.yml (11 minuti su un solo Checkout).
-          # Stesso motivo per cui non si può usare sparse-checkout: actions/checkout
-          # lo implementa attivando `--filter=blob:none`.
+          # coppia (commit, slice) dentro la finestra di scan. Sotto blobless
+          # quei blob non esistono in locale e ognuno diventa un lazy-fetch a sé:
+          # è esattamente la classe di stallo da partial clone documentata in
+          # pr-review-loop.yml (11 minuti su un solo Checkout). Stesso motivo per
+          # cui non si può usare sparse-checkout: actions/checkout lo implementa
+          # attivando `--filter=blob:none`. Il fix sotto usa `--shallow-since`
+          # (limite di PROFONDITÀ, non di contenuto): ogni commit che porta
+          # dentro mantiene i suoi blob completi in locale — nessun lazy-fetch.
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -97,13 +110,58 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
           sparse-checkout-cone-mode: false
-        # Il tetto resta comunque utile: Checkout misurato 744-1115s su 10 run
-        # (fino al 74% di un cap da 25min) e un fetch degenere qui ucciderebbe il
-        # job `cancelled`, invisibile agli `if: failure()`. 21min stanno sopra il
-        # massimo osservato. NB: il tetto NON è la soluzione di questo workflow —
-        # vedi `## Non implementato` della PR: 3 run su 12 sono già `cancelled` e
-        # in run 30733696350 a morire è stato lo step di backfill, non il Checkout.
+        timeout-minutes: 5
+
+      - name: Deepen checkout to scan window
+        # Same idiom as crawler-data-quality-audit.yml's "Deepen history for
+        # lookback window" step, adapted for this workflow's free-form `since`
+        # (an approxidate like "24 hours ago", not a day count). Replaces the
+        # old fetch-depth:0 (17-21min of the 25min budget, issue #5996):
+        # shallow-since gets exactly the commits scan-prev-slug-losses.mjs's
+        # `git log --since="$SINCE"` will walk, still with full blobs (not
+        # blobless — see the Checkout comment above), instead of this repo's
+        # entire ~94k-commit history.
+        #
+        # 1-day margin: this step and "Scan for lost previousSlugs" both
+        # resolve the same relative `since` expression independently, a few
+        # minutes apart (after Setup Node + npm ci + reconcile) — without
+        # margin, clock drift between the two evaluations could shift the
+        # shallow boundary to land inside the window the scan actually asks
+        # for.
+        #
+        # Split into its own step (review round 2, #6006): a single
+        # timeout-minutes wrapping `shallow-since || unshallow` cannot size
+        # correctly for both branches at once — shallow-since should finish
+        # in seconds (narrow window), while the unshallow fallback replicates
+        # the old fetch-depth:0's full ~94k-commit cost (17-21min measured).
+        # A cap sized for the fast path kills the fallback mid-fetch before
+        # it can complete; a cap sized for the fallback makes the fast path's
+        # own hang-detection meaningless. `continue-on-error` + `id: deepen`
+        # let "Fallback: unshallow checkout" below run only when this attempt
+        # fails, each with a timeout matched to what it actually costs.
+        id: deepen
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
+        run: |
+          set -euo pipefail
+          SHALLOW_SINCE=$(date -u -d "$SINCE - 1 day" +%Y-%m-%d)
+          git fetch --shallow-since="$SHALLOW_SINCE" origin main
+
+      - name: 'Fallback: unshallow checkout'
+        # Only runs when the shallow-since attempt above failed (network
+        # hiccup, git version quirk, unparseable `since`, or it hanging past
+        # its own 5min cap) — rather than silently under-covering the scan
+        # window. Gets its own timeout sized for what this branch actually
+        # costs: a full unshallow replicates the old fetch-depth:0 Checkout's
+        # measured 17-21min (issue #5996), not the fast shallow-since path's
+        # budget. 21min covers the observed worst case; the job-level
+        # timeout-minutes above was widened to fit it plus the rest of the
+        # pipeline.
+        if: steps.deepen.outcome == 'failure'
         timeout-minutes: 21
+        run: git fetch --unshallow origin main
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

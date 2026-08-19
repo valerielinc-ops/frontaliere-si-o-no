@@ -18,6 +18,8 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
+// Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
+import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
@@ -149,6 +151,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
 import { SkeletonJobDetail, SkeletonJobBoard, SkeletonLine } from '@/components/shared/Skeletons';
 import { useExpiredJob, hasSeededExpiredData, seededJobMatchesSlug } from '@/hooks/useExpiredJob';
+import { readClusterSearchSeed } from '@/services/clusterSearchSeed';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
@@ -208,6 +211,7 @@ import type { Article } from '@/data/blog-articles-data';
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
+import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -1942,6 +1946,18 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  return queryTokens.every((token) => haystack.includes(token));
 }
 
+/** Date-range facet → lookback window. Module-level because both the strict
+ * tier and the build-seed tier derive their cutoff from it; inline copies would
+ * be the same literal in two places. */
+const DATE_RANGE_MS: Record<DateRange, number> = {
+  all: 0,
+  '24h': 24 * 60 * 60 * 1000,
+  '3d': 3 * 24 * 60 * 60 * 1000,
+  '7d': 7 * 24 * 60 * 60 * 1000,
+  '30d': 30 * 24 * 60 * 60 * 1000,
+  '90d': 90 * 24 * 60 * 60 * 1000,
+};
+
 // --- Memoized JobCard to avoid re-renders on filter/sort ---
 interface JobCardProps {
  job: JobListing;
@@ -2011,7 +2027,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  )}
  </h2>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
- {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
+ {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
  </p>
  {salary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
@@ -2132,7 +2148,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
  // replaces this array; `finalize` re-applies any detail fetched meanwhile and
  // keeps the seed if the loaded shard doesn't contain it (clobber-proof).
- const [jobs, setJobs] = useState<JobListing[]>(() => (seededJob ? [seededJob] : []));
+ /**
+  * Build-computed result set for a related-search cluster landing. The page's
+  * static HTML lists jobs this SPA cannot re-find: the emitter matches against
+  * the job DESCRIPTION, the slim index this board loads carries none (measured:
+  * 30 jobs printed, 6 surviving the client matcher, and the losses are
+  * on-intent). Rather than recompute a worse answer, take the one the build
+  * already published. Same `[initialJobSlug]` dep as `seededJob`: the inline
+  * script belongs to ONE document and must go stale on a soft navigation —
+  * `readClusterSearchSeed` re-checks the pathname it was emitted for.
+  */
+ const clusterSeed = useMemo(
+   () => (typeof window === 'undefined' ? null : readClusterSearchSeed(window.location.pathname)),
+   [initialJobSlug],
+ );
+ const clusterSeedJobs = useMemo<JobListing[]>(
+   () => (clusterSeed ? dedupeJobsForListing(clusterSeed.j.map((raw) => normalizeIncomingJob(raw))) : []),
+   [clusterSeed],
+ );
+ // Seeded into `jobs` too (not just into the result list) so the first frame
+ // can resolve a card the user clicks before any shard has landed.
+ const [jobs, setJobs] = useState<JobListing[]>(() => (seededJob ? [seededJob] : clusterSeedJobs));
  // Cross-canton fallback pool: the locale-wide unscoped corpus loaded by
  // `loadLegacyLocaleJobs` BEFORE `scopeJobsToCanton` narrows it. When a
  // canton-scoped search yields zero strict+OR matches we re-run the OR-match
@@ -2294,7 +2330,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // action here and opens SaveSignInPromptModal; the effect below replays it
  // once authUser.uid becomes truthy.
  const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
- const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null } | null>(null);
+ const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
  const [filtersExpanded, setFiltersExpanded] = useState(false);
@@ -3377,13 +3413,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  timerId = window.setTimeout(() => {
  if (cancelled) return;
  savedNudgeArmedRef.current = true;
- setSavedNudge({ categoryLabel: label, cantonCode });
- Analytics.trackEvent('nudge_shown', {
- nudge: 'saved_jobs_alert',
- saved_count: savedJobs.length,
- nudge_category: category,
- nudge_canton: cantonCode || '(none)',
- });
+ setSavedNudge({ categoryLabel: label, cantonCode, savedCount: savedJobs.length, category });
+ // `nudge_shown` fires from the nudge's own `onShown` (below), not here:
+ // the toast queues for a popupQueue slot, so this is the moment it was
+ // ARMED, not the moment it was seen.
  }, SAVED_NUDGE_SHOW_DELAY_MS);
  })();
  return () => {
@@ -3582,7 +3615,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try { console.log('[AlertDebug] FIRE — prompt visible'); } catch { /* noop */ }
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
- Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
+ // The impression is NOT fired here any more. The toast waits for a
+ // popupQueue slot (components/shared/BottomPromptShell.tsx), so "we
+ // decided to show it" and "it is on screen" are different events, and
+ // counting the first would inflate the denominator of the one
+ // job-alert surface that actually converts. It fires from the
+ // prompt's `onShown` instead — see jobDetailPromptJsx below.
  }, showImmediately ? 0 : 1500);
  })();
 
@@ -3825,16 +3863,46 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
- const [searchIndex, setSearchIndex] = useState<Map<JobListing, string>>(() => new Map());
+ // The map is stored WITH the (sortedJobs, locale) pair it was built from —
+ // the same pair the build effect depends on. Keeping them in one state value
+ // makes "which corpus does this index describe?" answerable, which a bare Map
+ // cannot be: it is keyed by job OBJECT IDENTITY, so a `jobs` array replaced by
+ // one of the SAME LENGTH holding different objects (the detail-enrichment
+ // effect below re-creates exactly one job on every job-detail open) leaves a
+ // map whose every key is stale while its size still matches. A size
+ // comparison reads that as "complete" and hands the fallback tiers a corpus
+ // that matches nothing — the 7,16 MB stampede this component is trying to
+ // avoid. A locale switch has the same shape from the other side: same array
+ // identity, haystacks built for the previous language.
+ const [searchIndex, setSearchIndex] = useState<{
+ readonly map: Map<JobListing, string>;
+ readonly jobs: ReadonlyArray<JobListing> | null;
+ readonly locale: Locale | null;
+ }>(() => ({ map: new Map(), jobs: null, locale: null }));
 
+ // Time-sliced, not fixed-count. A 50-job chunk per rAF frame makes the wall
+ // clock a function of the FRAME COUNT, not of the work: 14.700 jobs (the
+ // aggregate board) is 294 frames ≈ 4,9 s no matter how cheap each job gets —
+ // measured as the 2,9 s → 8,1 s gap before
+ // /cerca-lavoro-svizzera/ricerca-… could show its first result. Filling a
+ // budget instead keeps the same "never block a frame" contract while letting
+ // a fast device finish in a few frames (~264 ms of work for 14.700 jobs once
+ // matchProfession got its alias index). The clock is read every 16 jobs so
+ // the check itself stays off the hot path while keeping the per-frame FLOOR
+ // (16) below the fixed 50 it replaces — a device slow enough to make a job
+ // cost 10x the measured ~18 µs must still be able to yield sooner than
+ // before, not later.
  useEffect(() => {
  const map = new Map<JobListing, string>();
  let i = 0;
- const CHUNK_SIZE = 50;
+ let raf = 0;
+ let cancelled = false;
+ const FRAME_BUDGET_MS = 8;
+ const CLOCK_CHECK_MASK = 15;
 
  function processChunk() {
- const end = Math.min(i + CHUNK_SIZE, sortedJobs.length);
- for (; i < end; i++) {
+ const deadline = performance.now() + FRAME_BUDGET_MS;
+ while (i < sortedJobs.length) {
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
@@ -3845,19 +3913,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
  const synonyms = professionSynonymText(localizedTitle);
  map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
+ i++;
+ if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
+ // Unmount/dep-change between frames: drop the partial map on the floor
+ // instead of committing it. The old cleanup set `i = sortedJobs.length`,
+ // which made the already-queued frame take the `else` branch and publish a
+ // HALF-BUILT index — every query then read zero hits against it.
+ if (cancelled) return;
  if (i < sortedJobs.length) {
- requestAnimationFrame(processChunk);
+ raf = requestAnimationFrame(processChunk);
  } else {
- setSearchIndex(map);
+ setSearchIndex({ map, jobs: sortedJobs, locale });
  }
  }
 
- if (sortedJobs.length > 0) {
- requestAnimationFrame(processChunk);
- }
+ // Scheduled even for an empty corpus: the commit is what publishes the
+ // (jobs, locale) pair, and without it `searchIndexPending` would stay true
+ // forever on a board that legitimately loaded zero jobs, permanently
+ // disabling the very fallbacks that case needs.
+ raf = requestAnimationFrame(processChunk);
 
- return () => { i = sortedJobs.length; };
+ return () => {
+ cancelled = true;
+ if (raf) cancelAnimationFrame(raf);
+ };
  }, [sortedJobs, locale]);
 
  // Fast query match using pre-built index — avoids re-normalising haystacks.
@@ -3865,7 +3945,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  (job: JobListing, query: string): boolean => {
  const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return true;
- const haystack = searchIndex.get(job) ?? '';
+ const haystack = searchIndex.map.get(job) ?? '';
  // Stemmed query tokens prefix-match haystack words.
  // Why: 'infermie' (stem 'infermi') must match haystack word 'infermier'
  // — partial typing common in incremental search. Leading-space anchor
@@ -3875,6 +3955,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  },
  [searchIndex],
  );
+
+ /**
+  * True while a query is active but the incremental search index does not yet
+  * cover every loaded job. In that window `indexedQueryMatch` reads an empty
+  * haystack for the uncovered jobs, so EVERY tier reports zero matches — the
+  * zero is an artefact of the build, not an answer about the corpus.
+  *
+  * The loading skeleton already held for exactly this reason. The lazy
+  * broaden tiers did not, and they read the same provisional zero as "this
+  * search found nothing, go fetch more corpus": on
+  * /cerca-lavoro-svizzera/ricerca-offerte-lavoro-assistente-psicologo/ the
+  * cross-locale tier fired in 4 runs out of 4 and pulled the DE/FR/EN slim
+  * indexes — 7,16 MB over the wire, ~50 MB of JSON to parse — which were then
+  * discarded, because once the index completed the strict tier had 8 results
+  * all along. One flag for all four consumers so they cannot drift apart.
+  */
+ const searchIndexPending = Boolean(deferredSearchQuery.trim())
+ && (searchIndex.jobs !== sortedJobs || searchIndex.locale !== locale);
 
  // Post-auth prompt removed 2026-05-19: PostHog 30-day data showed 88%
  // dismiss rate · 3 open · 0 accepts · 3 silent errors on
@@ -3937,15 +4035,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // and "davos" but many have one of the two.
  const strictFilteredJobs = useMemo(() => {
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0,
- '24h': 24 * 60 * 60 * 1000,
- '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000,
- '30d': 30 * 24 * 60 * 60 * 1000,
- '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
  const query = deferredSearchQuery.trim();
  return sortedJobs.filter((job) => {
  if (!passingNonSearchFilters(job, now, cutoff)) return false;
@@ -4074,7 +4164,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const job of sortedJobs) {
  if (strictIds.has(job.id)) continue;
  if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = searchIndex.get(job) ?? '';
+ const haystack = searchIndex.map.get(job) ?? '';
  let score = 0;
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
@@ -4165,6 +4255,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (crossLocaleFetchAttempted.current) return;
  if (jobsLoading) return;
+ // The zero below is only an answer once the index covers the corpus.
+ if (searchIndexPending) return;
  const q = deferredSearchQuery.trim();
  if (!q) return;
  if (strictFilteredJobs.length > 0) return;
@@ -4215,6 +4307,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  deferredSearchQuery, jobsLoading, locale,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
  unscopedJobs, sortedJobs,
+ // Load-bearing: on a search that is genuinely empty, the tier counts above
+ // never change when the index completes, so without this dep the effect
+ // would not re-run and the fallback would never fire at all.
+ searchIndexPending,
  ]);
 
  // Shared locale-wide pool loader (slim index). Used by BOTH the company-hub
@@ -4277,6 +4373,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (searchBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
+ // The in-canton counts below are provisional until the index is complete.
+ if (searchIndexPending) return;
  if (companySlugFilter) return; // company path owns its loader
  if (!deferredSearchQuery.trim()) return;
  if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
@@ -4299,7 +4397,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  })();
  return () => { cancelled = true; };
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool]);
+ // `searchIndexPending` is load-bearing, same reason as the cross-locale tier:
+ // a genuinely thin search leaves every other dep unchanged when the index
+ // completes, so the broaden would never fire without it.
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
@@ -4397,6 +4498,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // replacing it: in-canton matches first, then the city-aware broadened tail,
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
+ /**
+  * True while the build's seeded result set is still the right answer for what
+  * is on screen: the visitor has not changed the query away from the one this
+  * page is about, and is not in a company/location view (those have their own
+  * loaders and their own corpora). Facet filters are deliberately NOT part of
+  * this test — they narrow the seeded set inside the tier rather than throwing
+  * it away, which is what a visitor ticking "ultime 24h" expects.
+  */
+ const clusterSeedApplies = clusterSeedJobs.length > 0
+   && !!clusterSeed
+   && deferredSearchQuery.trim() === clusterSeed.q.trim()
+   && !companySlugFilter
+   && !locationSlugFilter;
+
  const filteredJobs = useMemo<JobListing[]>(() => {
  // Sponsored ads matching the query surface above organic results, even when
  // they arrive via a fallback tier (e.g. a sponsored ad from another canton
@@ -4406,6 +4521,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!list.some((j) => j.featured)) return list;
  return [...list.filter((j) => j.featured), ...list.filter((j) => !j.featured)];
  };
+ // Tier 0 — the answer the BUILD computed for this exact page. It is not a
+ // faster route to the same set: it is a set this board cannot reach, because
+ // the emitter matched against job descriptions and the slim index carries
+ // none. Recomputing here would silently drop on-intent results the crawler
+ // and the first paint both already showed.
+ //
+ // Scope is deliberately narrow. It holds only while the query is still the
+ // page's own (`clusterSeed.q`, derived by the same parseSearchSlugFilter the
+ // search box is prefilled with) and no company/location view is active — the
+ // moment the visitor types, the normal tiers take over and this never fires
+ // again for that keystroke. Facet filters still apply, so picking a canton or
+ // a contract narrows the seeded set instead of discarding it.
+ if (clusterSeedApplies) {
+ const now = Date.now();
+ const cutoff = deferredSelectedDateRange === 'all'
+ ? 0
+ : now - DATE_RANGE_MS[deferredSelectedDateRange];
+ return featuredFirst(clusterSeedJobs.filter((job) => passingNonSearchFilters(job, now, cutoff)));
+ }
  // Merge the strict AND matches (first) with the in-canton OR-fill tail
  // (already excludes strict ids) so a thin strict tier is topped up to the
  // static cluster page's job set instead of collapsing to a single result.
@@ -4424,7 +4558,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (crossCantonFallbackJobs.length > 0) return featuredFirst(crossCantonFallbackJobs);
  if (companyBroadeningFallbackJobs.length > 0) return featuredFirst(companyBroadeningFallbackJobs);
  return featuredFirst(crossLocaleFallbackJobs);
- }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
+ }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
+ strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being
@@ -4442,6 +4577,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || crossLocaleFetchAttempted.current;
  const resultsResolving =
  (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
+ // ...unless the build already handed us the answer. With the cluster seed
+ // applied `filteredJobs` is not provisional — it is the exact set this page
+ // was emitted with, complete on the first frame — so holding the skeleton
+ // until the shards land would spend the whole win on an animation. Every
+ // window below is about waiting for a corpus we no longer need to wait for.
+ && !clusterSeedApplies
  && (
  fullLoadPending
  || (filteredJobs.length === 0 && (
@@ -4466,11 +4607,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || (Boolean(companySlugFilter) && !deferredSearchQuery.trim() && !companyBroadenSettled)
  // The query-match search index (`searchIndex`) is built incrementally over
  // the loaded jobs via rAF chunks and only committed when complete. Until it
- // covers every loaded job, `indexedQueryMatch` returns no hits, so a search
- // reads 0 even when matches exist — the dominant "0" window on large
- // (aggregate) sets (~6s for ~12k jobs). Hold the skeleton until the index
- // covers the corpus; a still-0 result then is a genuine empty-state.
- || (Boolean(deferredSearchQuery.trim()) && searchIndex.size < sortedJobs.length)
+ // describes the CURRENT (jobs, locale) pair, `indexedQueryMatch` returns no
+ // hits, so a search reads 0 even when matches exist. Hold the skeleton until
+ // then; a still-0 result after that is a genuine empty-state. Same flag now
+ // gates the lazy corpus-fetch tiers — see searchIndexPending.
+ || searchIndexPending
  ))
  );
 
@@ -6298,6 +6439,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
  cantonCode={selectedJob?.canton ?? null}
+ onShown={() => Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory)}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -6348,14 +6490,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
- // Saved-jobs alert nudge toast (#4467). Suppressed while the job-detail
- // alert prompt is on screen — never two toasts in the same corner.
- const savedJobsNudgeJsx = (savedNudge && !jobDetailPromptVisible) ? (
+ // Saved-jobs alert nudge toast (#4467).
+ //
+ // The `&& !jobDetailPromptVisible` that used to be here was the ONLY overlap
+ // guard in the tree: one hardcoded pair out of the ten a family of five
+ // bottom-anchored prompts produces, and it deleted the nudge rather than
+ // deferring it. Both prompts now claim a popupQueue slot through
+ // BottomPromptShell, which covers every pair — including the two rendered
+ // from other subtrees, which no boolean here could have reached — and
+ // PROMOTES the loser once the winner is dismissed instead of dropping it.
+ const savedJobsNudgeJsx = savedNudge ? (
  <Suspense fallback={null}>
  <SavedJobsAlertNudge
  categoryLabel={savedNudge.categoryLabel}
  cantonCode={savedNudge.cantonCode}
  cantonLabel={savedNudge.cantonCode ? getCantonLabel(savedNudge.cantonCode, locale) : null}
+ onShown={() => Analytics.trackEvent('nudge_shown', {
+ nudge: 'saved_jobs_alert',
+ saved_count: savedNudge.savedCount,
+ nudge_category: savedNudge.category,
+ nudge_canton: savedNudge.cantonCode || '(none)',
+ })}
  userId={userId}
  email={userEmail}
  locale={locale}
@@ -7577,7 +7732,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    job: JobListing,
    surface: 'company_follow_button' | 'company_follow_gate',
  ) => (
-   <Suspense fallback={null}>
+   // Reserving fallback: this CTA renders in the job-detail header now, so the
+   // lazy chunk landing must swap a same-sized block rather than insert one.
+   <Suspense fallback={<CompanyFollowPlaceholder />}>
      <CompanyFollowCta
        company={String(job.company || '')}
        companyKey={job.companyKey ?? null}
@@ -7781,6 +7938,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
      the title block) as JobExpiredView and JobOrphanView; it renders null
      unless the build proved a hub exists for this employer. */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
+ {/* CompanyAlert (#5012) — the follow CTA, directly under the hub link it
+     belongs with. It used to sit far below the auth gate, past the teaser and
+     the sign-in block; on the surface where the reader is MOST likely to
+     leave without an account, the one ask that does not need an account was
+     the last thing on the page. Same component, same anonymous
+     email-capture + double opt-in, moved to where the employer is named. */}
+ {companyFollowCta(selectedJob, 'company_follow_gate')}
  {/* Readable description teaser — shows first ~200 chars to create information
  scent and an "open loop" that motivates signup. Fades out at the bottom.
  On very short viewports (landscape phones) we hide it entirely so the gate CTAs
@@ -8013,15 +8177,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </a>
 
- {/* CompanyAlert (#5012) — the follow CTA on the GATED detail.
-     Deliberately below the auth gate and directly under the company banner
-     it acts on, mirroring the unlocked layout: the sign-in stays the primary
-     ask, and this is the lower-commitment fallback for the visitor who will
-     not create an account but will leave an address to hear about this
-     employer. Without it the whole anonymous-capture path of phase 2 was
-     unreachable from the job pages, which are the site's entry point from
-     search. */}
- {companyFollowCta(selectedJob, 'company_follow_gate')}
 
  {/* Similar jobs — gate view (listing-style cards) */}
  {relatedJobs.length > 0 && (
@@ -8070,7 +8225,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
  </h3>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
- {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
+ {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
  </p>
  {jobSalary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
@@ -8586,7 +8741,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Building2 className="w-9 h-9 text-muted" />
  )}
  </a>
- <div className="min-w-0">
+ <div className="min-w-0 flex-1">
  <h1 className="text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight">
  <a
  href={isInHouseApply ? '#candidatura' : applyUrl}
@@ -8630,6 +8785,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </p>
  </div>
+ {/* Save toggle (#4466). Moved out of the badge row and into the header
+     corner, on the title's own row: in the chip strip it read as a seventh
+     metadata pill among six non-interactive ones (category, contract,
+     freshness, salary…), which is the worst place to put the only control
+     in that strip. Still in flow and still rendered from first paint, so
+     the zero-CLS property the chip was built for is unchanged — it is the
+     same node in a different flex parent, not a `fixed`/`absolute` overlay
+     that would have to be reserved for. */}
+ <button
+ type="button"
+ onClick={() => handleToggleSave(selectedJob, 'detail')}
+ aria-pressed={savedJobIds.has(selectedJob.id)}
+ className={`shrink-0 px-3 py-2 min-h-[44px] rounded-full inline-flex items-center gap-1.5 text-xs font-semibold border transition-colors ${
+ savedJobIds.has(selectedJob.id)
+ ? 'bg-accent-subtle text-accent border-accent-border'
+ : 'bg-surface/90 text-subtle border-edge hover:text-accent hover:border-accent-border'
+ }`}
+ >
+ <Bookmark className={`w-3.5 h-3.5 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
+ {savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
+ </button>
  </div>
 
  {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
@@ -8638,6 +8814,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
      half of the same link, and it is the surface where reader intent is
      highest (the expired and orphan views have carried it for longer). */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
+
+ {/* CompanyAlert (#5012): "Segui questa azienda", now in the employer block
+     of the header instead of ~200 lines down the page, under the apply/share
+     row. Two reasons it moved rather than being duplicated up here:
+       · it is the same subscription the hub link's employer is about, so the
+         two controls answer one question — "this company" — and reading them
+         together is what makes the second one obvious;
+       · CompanyFollowButton holds its follow/unfollow state locally and
+         resolves it with its own `findCompanyAlert` call. A second instance
+         on the same page would not just re-query: after one click the two
+         would disagree, and clicking the stale one writes a SECOND alert
+         document for the same employer, burning one of the visitor's few
+         alert slots.
+         One control, moved. */}
+ {companyFollowCta(selectedJob, 'company_follow_button')}
 
  <div className="mt-4 flex flex-wrap gap-2 text-xs">
  <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
@@ -8661,20 +8852,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {salary}
  </span>
  )}
- {/* Save toggle (#4466): in-flow chip, present from first paint → zero CLS. */}
- <button
- type="button"
- onClick={() => handleToggleSave(selectedJob, 'detail')}
- aria-pressed={savedJobIds.has(selectedJob.id)}
- className={`px-2.5 py-1 min-h-[28px] rounded-full inline-flex items-center gap-1 font-semibold border transition-colors ${
- savedJobIds.has(selectedJob.id)
- ? 'bg-accent-subtle text-accent border-accent-border'
- : 'bg-surface text-subtle border-edge hover:text-accent hover:border-accent-border'
- }`}
- >
- <Bookmark className={`w-3 h-3 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
- {savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
- </button>
  </div>
  </header>
 
@@ -8857,13 +9034,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  height={28}
  loading="lazy"
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
- {/* CompanyAlert (#5012): "Segui questa azienda". Unlike the per-ad button
-     below this is NOT restricted to publisher ads — following an employer is
-     the recurring reason to come back, and every job detail names one.
-     Nor is it gated on a session (#5012 phase 2): an ANONYMOUS visitor gets
-     the email-capture + double-opt-in path inside the component — which is
-     why the same CTA also renders in the `!hasAccess` branch above. */}
- {companyFollowCta(selectedJob, 'company_follow_button')}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton

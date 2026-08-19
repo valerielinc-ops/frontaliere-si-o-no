@@ -86,6 +86,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
+import { MissingIndexError } from './lib/missing-index-error.mjs';
 
 // #3798 Fix MEDIO #4: a fixed n<100 threshold flags plenty of large-but-close
 // comparisons as "significant" and plenty of small-but-decisive ones as noise.
@@ -264,17 +265,6 @@ export function effectiveDeliveryDate(data) {
   const scheduledFor = toDateSafe(data.scheduled_for);
   if (Number.isNaN(scheduledFor.getTime())) return sentAt;
   return scheduledFor > sentAt ? scheduledFor : sentAt;
-}
-
-/** Thrown when a collectionGroup query needs a Firestore index that doesn't exist. */
-class MissingIndexError extends Error {
-  constructor(group, field, original) {
-    super(`Missing Firestore collectionGroup index for "${group}.${field}"`);
-    this.name = 'MissingIndexError';
-    this.group = group;
-    this.field = field;
-    this.original = original;
-  }
 }
 
 async function initFirebase() {

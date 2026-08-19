@@ -1,16 +1,16 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-17T21:31:08.869Z",
+  "generatedAt": "2026-08-19T09:49:57.033Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4728,
-  "avgDurationMs": 4728,
+  "durationMs": 5864,
+  "avgDurationMs": 5864,
   "durationHistory": [
-    4728
+    5864
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:31:05.878Z",
+      "crawledAt": "2026-08-19T09:49:53.133Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -43,7 +43,6 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2520&portal=Global",
       "jobReqId": "VN2520",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:37:03.167Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {

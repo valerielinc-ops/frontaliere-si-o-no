@@ -1,18 +1,19 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-08-17T21:29:30.700Z",
+  "generatedAt": "2026-08-19T09:45:48.137Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 55334,
-  "avgDurationMs": 55334,
+  "durationMs": 58002,
+  "avgDurationMs": 58002,
   "durationHistory": [
-    55334
+    58002
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "galderma-aae51e47b56b",
       "slug": "hr-operations-team-manager-switzerland-germany-and-poland-galderma-ch",
@@ -20,13 +21,13 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "HR Operations Team Manager – Switzerland, Germany and Poland",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/HR-Operations-Team-Manager---Switzerland--Germany-and-Poland_JR020362-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:29:23.979Z",
+      "crawledAt": "2026-08-19T09:45:42.049Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "postedDate": "2026-08-17",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/HR-Operations-Team-Manager---Switzerland--Germany-and-Poland_JR020362-1",
       "jobReqId": "JR020362",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-08-17T21:29:23.979Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "galderma-021a2c7b2f00",
       "slug": "medical-scientific-liaison-romandie-ticino-galderma-ch",
@@ -64,7 +64,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Lausanne/Medical-Scientific-Liaison-Romandie---Ticino_JR020215-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:29:24.839Z",
+      "crawledAt": "2026-08-19T09:45:42.962Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Medical-Scientific-Liaison---Northern---Eastern-Switzerland_JR019888-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:29:25.849Z",
+      "crawledAt": "2026-08-19T09:45:44.131Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Human-Resources---EMEAC-Region_JR020103",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:29:23.251Z",
+      "crawledAt": "2026-08-19T09:45:39.982Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Medical-Experts--Therapeutic-Dermatology_JR019828-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:29:27.419Z",
+      "crawledAt": "2026-08-19T09:45:45.209Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Global-Head-of-Dermatological-Skincare_JR018459-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:29:26.667Z",
+      "crawledAt": "2026-08-19T09:45:40.938Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",

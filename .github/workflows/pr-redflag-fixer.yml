@@ -148,12 +148,25 @@ jobs:
           set -uo pipefail
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git fetch origin main -q || true
+          git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
           if git merge --no-edit origin/main; then
             echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
           else
             echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
             git merge --abort || true
+            # Prima del fix del refspec (#6074) `origin/main` non si risolveva mai
+            # ("unknown revision"), quindi questo `--abort` era sempre un no-op su un
+            # merge mai iniziato: il path di un conflitto GENUINO (MERGE_HEAD reale,
+            # marker di conflitto nel worktree) non è mai stato esercitato in
+            # produzione (#6089). `git merge --abort` è affidabile, ma qui non ci
+            # affidiamo alla sua riuscita silenziosa: verifichiamo esplicitamente che
+            # il worktree sia tornato pulito prima che gli step successivi (npm ci,
+            # l'agent Claude) lo usino, e forziamo il reset se non lo è.
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "::warning::worktree non pulito dopo merge --abort, forzo reset a HEAD."
+              git reset --hard HEAD
+              git clean -fd
+            fi
           fi
 
       - name: Setup Node.js

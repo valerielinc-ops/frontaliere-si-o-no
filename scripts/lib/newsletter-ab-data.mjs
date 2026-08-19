@@ -21,16 +21,13 @@ import { assignSubjectVariant } from '../../services/newsletter-subject-assign.m
 import { EXPERIMENT_EXCLUDED_PROVIDERS } from '../../functions/src/lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId } from '../../functions/src/lib/deliveryDocId.js';
 import { toMillis } from './firestoreTimestamp.mjs';
+// One definition, in the module that already owned it — the same drift this
+// file's MissingIndexError extraction was about.
+import { CREDENTIAL_LINK_CHANNEL } from './unsubscribeCredentialMetrics.mjs';
+import { MissingIndexError } from './missing-index-error.mjs';
 
-/** Thrown when the single-field collectionGroup index is missing. */
-export class MissingIndexError extends Error {
-  constructor(group, original) {
-    super(`Missing Firestore collectionGroup index for "${group}.campaign_id"`);
-    this.name = 'MissingIndexError';
-    this.group = group;
-    this.original = original;
-  }
-}
+// Re-exported so existing importers keep a single entry point for this module.
+export { MissingIndexError };
 
 /**
  * Load per-(provider × variant) totals for one campaign.
@@ -43,7 +40,7 @@ export async function loadCampaignVariantTotals(db, campaignId) {
     try {
       return await db.collectionGroup(group).where('campaign_id', '==', campaignId).get();
     } catch (e) {
-      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, e);
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, 'campaign_id', e);
       throw e;
     }
   };
@@ -128,6 +125,7 @@ export function previousCampaignIds(campaignId, count) {
 }
 
 const DAY_MS = 24 * 60 * 60 * 1000;
+
 
 /**
  * Any single segment's unsubscribe rate for a send never exceeds this — #4299
@@ -246,7 +244,7 @@ export async function loadCampaignSegmentReport(db, campaignId, opts = {}) {
     try {
       return await db.collectionGroup(group).where('campaign_id', '==', campaignId).get();
     } catch (e) {
-      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, e);
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError(group, 'campaign_id', e);
       throw e;
     }
   };
@@ -306,22 +304,48 @@ export async function loadCampaignSegmentReport(db, campaignId, opts = {}) {
     const windowEnd = maxSentAt + attributionWindowDays * DAY_MS;
     let unsubSnap;
     try {
+      // The explicit descending order is load-bearing, not cosmetic: a range
+      // filter with no orderBy makes Firestore ask for (event_type ASC,
+      // timestamp ASC), which nothing declares, while firestore.indexes.json
+      // already ships (event_type ASC, timestamp DESC). Ordering the other way
+      // serves the same rows off the index we already have — and the rows only
+      // feed a Set below, so their order is irrelevant to the result.
       unsubSnap = await db.collectionGroup('events')
         .where('event_type', '==', 'unsubscribe')
         .where('timestamp', '>=', new Date(minSentAt))
         .where('timestamp', '<', new Date(windowEnd))
+        .orderBy('timestamp', 'desc')
         .get();
     } catch (e) {
-      if (String(e?.message || '').includes('index')) throw new MissingIndexError('events', e);
+      if (String(e?.message || '').includes('index')) throw new MissingIndexError('events', 'event_type + timestamp', e);
       throw e;
     }
     for (const doc of unsubSnap.docs) {
       const d = doc.data();
       const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
+      // Only the visitor's own act counts. The recovery channels
+      // (`ripristino_*`, `richiesta_diretta_lpd`) are BACKFILLS: their
+      // `occurred_at` is historical while their `timestamp` is the moment the
+      // repair job wrote them, so a backfill run landing inside a campaign's
+      // window was being read as that campaign driving people away. Measured
+      // against production on 2026-08-18: 18 of the 176 unsubscribes counted
+      // for weekly_2026-08-03 (10%) came from a backfill, none of them a
+      // reaction to that send.
+      if (d.source_channel && d.source_channel !== CREDENTIAL_LINK_CHANNEL) continue;
       if (email && sentEmails.has(email)) unsubscribedEmails.add(email);
     }
   }
 
   const report = aggregateSegmentReport(deliveries, { openedEmails, openedMsgIds, clickedEmails, clickedMsgIds, unsubscribedEmails });
-  return { ...report, campaignId };
+  // A campaign whose attribution window has not closed yet is NOT comparable
+  // with one whose has: its unsubscribes simply have not happened. Reading the
+  // two side by side makes the most recent campaign look like an improvement
+  // every single time. Sends are spread over days by the per-subscriber send
+  // hour, so the window can still be open a week after the campaign date.
+  const windowEndsAt = maxSentAt == null ? null : maxSentAt + attributionWindowDays * DAY_MS;
+  const windowClosed = windowEndsAt != null && windowEndsAt <= Date.now();
+  const windowDaysRemaining = windowEndsAt == null || windowClosed
+    ? 0
+    : Number(((windowEndsAt - Date.now()) / DAY_MS).toFixed(1));
+  return { ...report, campaignId, windowClosed, windowDaysRemaining };
 }

@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-17T21:41:34.663Z",
+  "generatedAt": "2026-08-19T10:05:14.077Z",
   "total": 8,
-  "newCount": 2,
-  "updatedCount": 6,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19781,
-  "avgDurationMs": 19781,
+  "durationMs": 23302,
+  "avgDurationMs": 23302,
   "durationHistory": [
-    19781
+    23302
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Head of the Regional Governance Unit for Information Security and Data Protection - Bosch Switzerland 100% (f/m/div.) REF290730T",
       "slug": "head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t-bosch-solothurn-zuchwil",
@@ -35,12 +36,18 @@
       "sourceLang": "de",
       "postedDate": "2026-08-17",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "bosch-thermotechnik-ag-90e383618e35",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-17T21:41:34.659Z",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -65,16 +72,20 @@
       "sourceLang": "de",
       "postedDate": "2026-08-17",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-dcf96acbde29",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-17T21:41:34.659Z",
+      "needsRetranslation": true,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Servicetechniker – Bereich Hydraulik 100% (w/m/div.) REF289394Q",
       "slug": "servicetechniker-bereich-hydraulik-100-w-m-div-ref289394q-bosch-buttikon",
@@ -98,16 +109,15 @@
       "postedDate": "2026-08-17",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-ff0eb29cb1fd",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T09:52:57.273Z",
-      "_qualityScore": 84,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -138,7 +148,6 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T10:20:16.772Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -174,7 +183,6 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-11T10:10:53.064Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -289,77 +297,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Sachbearbeiter Disposition (w/m/div.) REF292710R",
-      "slug": "disposizione-del-trattamento-delle-persone-f-m-div-ref-292710-bosch-thermotechnik-ag-steinhausen",
-      "url": "https://jobs.bosch.com/en/job/REF292710R-sachbearbeiter-disposition-w-m-div-ref292710r",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000139995449-sachbearbeiter-disposition-w-m-div-ref292710r?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Steinhausen",
-      "addressLocality": "Steinhausen",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-27",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-878ee5acb17e",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-27T22:09:17.075Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Logistiker (w/m/div.) REF292485N",
-      "slug": "logisticista-f-m-div-ref292485n-bosch-thermotechnik-ag-spreitenbach",
-      "url": "https://jobs.bosch.com/en/job/REF292485N-logistiker-w-m-div-ref292485n",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000139301510-logistiker-w-m-div-ref292485n?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Spreitenbach",
-      "addressLocality": "Spreitenbach",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-23",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-a8800a2c4e54",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-23T22:11:34.118Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

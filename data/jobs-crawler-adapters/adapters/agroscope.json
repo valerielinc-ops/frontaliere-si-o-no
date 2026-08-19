@@ -11,8 +11,20 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text \"Agroscope\" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
-  "updatedAt": "2026-08-17T21:31:27.262Z",
+  "updatedAt": "2026-08-19T09:50:14.628Z",
   "seedMetaByUrl": {
+    "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/38426321-f9ac-4fc2-af2f-037568382ad5": {
+      "location": "Posieux",
+      "canton": "FR",
+      "company": "Agroscope",
+      "postedDate": "2026-08-18"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftlich-technische-r-mitarbeiter-in-versuchsstation-gemuesebau-ins/3ba85943-de5e-4cc5-8155-6ffcbb5f1815": {
+      "location": "Ins",
+      "canton": "BE",
+      "company": "Agroscope",
+      "postedDate": "2026-08-18"
+    },
     "https://jobs.admin.ch/posti-vacanti/laborant-in-saatgutqualitaet/68e3dc63-99c4-401a-aa18-4c45076f1629": {
       "location": "Reckenholz, Schweiz",
       "canton": "ZH",
@@ -72,18 +84,6 @@
       "canton": "ZH",
       "company": "Agroscope",
       "postedDate": "2025-12-17"
-    },
-    "https://jobs.admin.ch/posti-vacanti/leiter-in-versuchsstation-gemuesebau-wissenschaftlich-technische-r-mitarbeiter-in/16ee205f-c342-41e3-9a74-a3dd2eeb6b3b": {
-      "location": "Ins, Schweiz",
-      "canton": "BE",
-      "company": "Agroscope",
-      "postedDate": "2026-07-01"
-    },
-    "https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/31f941f6-bc14-4a00-a762-6efca0c1f85f": {
-      "location": "8046 Zürich",
-      "canton": "ZH",
-      "company": "Agroscope",
-      "postedDate": "2026-07-14"
     }
   }
 }

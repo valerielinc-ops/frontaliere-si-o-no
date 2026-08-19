@@ -133,7 +133,16 @@ export function changedArticleIds(base) {
       out = execFileSync('git', ['diff', '--name-only', base, 'HEAD'], GIT_OPTS);
     }
   } catch {
-    console.error(`⚠️  git diff contro "${base}" non riuscito (clone shallow o ref assente).`);
+    // `::error::` (not a plain console.error): issue #6058 — a base ref that
+    // fails to resolve used to degrade this gate to a silent no-op (exit 0,
+    // scanned=0, indistinguishable from "diff computed, nothing touched a
+    // body"). The only caller (audit-article-factuality.mjs, --changed mode)
+    // still exits 0 here by design — recovering by falling back to a full
+    // corpus scan would turn a resolution glitch into an unrelated PR being
+    // blocked by pre-existing corpus defects — but the annotation makes the
+    // "I verified nothing" case visibly red in the Actions UI instead of
+    // reading exactly like a clean run.
+    console.error(`::error::git diff contro "${base}" non riuscito (clone shallow o ref assente).`);
     console.error('   Scope NON calcolabile su questo diff — nessun articolo verificato.');
     return 'unavailable';
   }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-08-17T21:30:08.284Z",
+  "assembledAt": "2026-08-19T10:03:11.915Z",
   "jobs": [
     {
       "id": "swisslog-5a6e970a5f45",
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.519Z",
+      "crawledAt": "2026-08-19T10:03:08.992Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -84,6 +84,94 @@
       }
     },
     {
+      "id": "swisslog-d719156fe6e5",
+      "slug": "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs",
+      "slugByLocale": {
+        "it": "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs",
+        "en": "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
+        "de": "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
+        "fr": "controls-software-service-ingenieur-siemens-m-w-d-swisslog-buchs"
+      },
+      "company": "Swisslog",
+      "companyKey": "swisslog",
+      "companyDomain": "swisslog.com",
+      "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
+      "titleByLocale": {
+        "it": "Controls Software Service Ingegnere (Siemens) (m/w/d)",
+        "en": "Controls Software Service Engineer (Siemens) (m/w/d)",
+        "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
+        "fr": "Controls Software Service Ingénieur (Siemens) (m/w/d)"
+      },
+      "description": "Controls Software Service Engineer (Siemens) (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\n Bei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Ansprechperson für unsere Kunden sowie Leisten von 2nd- und 3rd-Level-Support (remote oder vor Ort)\n\n• Optimieren von Kundenanlagen sowie Realisieren von Anlagensteuerungen in der Intralogistik\n\n• Selbständiges Arbeiten in Projektteams, Erstellen von Kundenspezifikationen sowie Anlagendokumentationen\n\n• Weiterentwickeln von Standardlösungen\n\n• Durchführen von Inbetriebnahmen und Anlagentests im In- und Ausland\n\nBewerberprofil Das bringst du mit\n\n• Abgeschlossene technische Grundausbildung mit Weiterbildung zum Techniker (HF), Ingenieur (FH) oder mehrjährige Erfahrung in der Automatisierungstechnik\n\n• Fundierte Kenntnisse in der SPS-Programmierung in folgenden Programmiersprachen: SCL, AWL und FUP (Safety)\n\n• Wünschenswert ist die Erfahrung mit WinCC, Siemens TIA Portal und Siemens Step 7 Classic\n\n• Bereitschaft für Pikett-Dienst (alle 5-6 Wochen)\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift; Französischkenntnisse von Vorteil\n\n• Reisebereitschaft (20%) für Einsätze vor Ort vorwiegend im Raum CH/DE\n\n• Flair für objektorientierte Programmierung\n\n• Team-orientierte Persönlichkeit\n\nUnser Versprechen an dich\n Swisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\n Begleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\n Über Swisslog\n Swisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\n Gehe mit uns auf die Reise!\n Wenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
+      "descriptionByLocale": {
+        "it": "Controlli Software Service Engineer (Siemens) (m/f/d) Dove le persone amano quello che fanno e sono grandi ad esso?\nA Swisslog, ovviamente! I nostri team sono al centro di una società leader mondiale di dati e robot-driven che sfrutta il potere della tecnologia per modellare il futuro dell'intralogistica. Il risultato? Offriamo prestazioni ed efficienza ai nostri clienti in tutto il mondo, dando loro il vantaggio decisivo nei loro mercati. Descrizione del lavoro Qui fai qualcosa\n\n• Persona di contatto per i nostri clienti e supporto di secondo e terzo livello (rimozione o sul sito)\n\n• Ottimizzazione dei sistemi dei clienti e realizzazione dei controlli degli impianti in intralogistica\n\n• Lavoro indipendente in team di progetto, creazione di specifiche del cliente e documentazione dell'impianto\n\n• Ulteriore sviluppo di soluzioni standard\n\n• Effettuare prove di messa in servizio e impianti in patria e all'estero\n\nProfilo applicabile Questo è ciò che porti con te\n\n• Formazione tecnica di base completata con ulteriore formazione come tecnico (HF), ingegnere (FH) o diversi anni di esperienza nella tecnologia di automazione\n\n• Conoscenza approfondita della programmazione PLC nei seguenti linguaggi di programmazione: SCL, AWL e FUP (Safety)\n\n• L'esperienza con WinCC, Siemens TIA Portal e Siemens Step 7 Classic è auspicabile\n\n• Prontezza per il servizio Pikett (ogni 5-6 settimane)\n\n• Buona conoscenza del tedesco e dell'inglese nelle parole e nella scrittura; La conoscenza del francese è benefica\n\n• Volontà di viaggiare (20%) per le missioni in loco principalmente nella zona CH/DE\n\n• Flair per la programmazione orientata agli oggetti\n\n• Personalità orientata al team\n\nLa nostra promessa a te\nSwisslog è un mondo pieno di possibilità. Con noi, si modella il futuro dell'intralogistica con soluzioni di automazione controllate da dati e robot. Questo crea un valore aggiunto eccezionale per i nostri clienti.\nUnisciti a noi in questo viaggio e diventare parte di una società globale orgogliosa delle sue radici svizzere. In qualità di azienda globale, non vediamo l'ora delle opportunità offerte a tutti nella famiglia Swisslog. Scatena il tuo potenziale in una squadra unita dalla passione e guidata dallo spirito di squadra OneSwisslog.\nInformazioni su Swisslog\nSwisslog plasma il futuro dell'intralogistica. Nell'ambito del Gruppo KUKA, stiamo lavorando sulle ultime tecnologie che reinventano il mondo della logistica. Siamo un team di 3.000 esperti di 50 paesi che servono alcuni dei marchi più grandi e più eccitanti del mondo. Insieme, implementiamo approcci intelligenti e innovativi, tra cui soluzioni di dati flessibili e automazione robotica che trasformano la supply chain. Completa il nostro team e condividi la tua prospettiva unica.\nAndate con noi durante il viaggio!\nSe pensate che una carriera a Swisslog potrebbe essere giusta per voi, ci piacerebbe sentire da voi. Attendiamo con ansia la vostra applicazione!",
+        "en": "Controls Software Service Engineer (Siemens) (m/f/d) Where do people love what they do and are great at it?\nAt Swisslog, of course! Our teams are at the heart of a world-leading data- and robot-driven company that harnesses the power of technology to shape the future of intralogistics. The result? We deliver performance and efficiency to our customers around the world, giving them the decisive advantage in their markets. Job description Here you do something\n\n• Contact person for our customers as well as 2nd and 3rd level support (remote or on site)\n\n• Optimization of customer systems and realization of plant controls in intralogistics\n\n• Independent work in project teams, creation of customer specifications and plant documentation\n\n• Further development of standard solutions\n\n• Carrying out commissioning and plant tests at home and abroad\n\nApplicant profile This is what you bring with you\n\n• Completed basic technical training with further training as a technician (HF), engineer (FH) or several years of experience in automation technology\n\n• In-depth knowledge of PLC programming in the following programming languages: SCL, AWL and FUP (Safety)\n\n• The experience with WinCC, Siemens TIA Portal and Siemens Step 7 Classic is desirable\n\n• Readiness for Pikett service (every 5-6 weeks)\n\n• Good knowledge of German and English in words and writing; Knowledge of French is beneficial\n\n• Willingness to travel (20%) for missions on site mainly in the CH/DE area\n\n• Flair for object-oriented programming\n\n• Team-oriented personality\n\nOur Promise to You\nSwisslog is a world full of possibilities. With us, you shape the future of intralogistics with data- and robot-controlled automation solutions. This creates exceptional added value for our customers.\nJoin us on this journey and become part of a global company proud of its Swiss roots. As a global company, we look forward to the opportunities offered to everyone in the Swisslog family. Unleash your potential in a team united by passion and driven by the OneSwisslog team spirit.\nAbout Swisslog\nSwisslog shapes the future of intralogistics. As part of the KUKA Group, we are working on the latest technologies that reinvent the world of logistics. We are a team of 3,000+ experts from 50 countries serving some of the biggest and most exciting brands in the world. Together, we implement smart and innovative approaches, including flexible data and robotic automation solutions that transform the supply chain. Complement our team and share your unique perspective.\nGo with us on the journey!\nIf you think a career at Swisslog could be right for you, we would love to hear from you. We look forward to your application!",
+        "de": "Controls Software Service Engineer (Siemens) (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\nBei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Ansprechperson für unsere Kunden sowie Leisten von 2nd- und 3rd-Level-Support (remote oder vor Ort)\n\n• Optimieren von Kundenanlagen sowie Realisieren von Anlagensteuerungen in der Intralogistik\n\n• Selbständiges Arbeiten in Projektteams, Erstellen von Kundenspezifikationen sowie Anlagendokumentationen\n\n• Weiterentwickeln von Standardlösungen\n\n• Durchführen von Inbetriebnahmen und Anlagentests im In- und Ausland\n\nBewerberprofil Das bringst du mit\n\n• Abgeschlossene technische Grundausbildung mit Weiterbildung zum Techniker (HF), Ingenieur (FH) oder mehrjährige Erfahrung in der Automatisierungstechnik\n\n• Fundierte Kenntnisse in der SPS-Programmierung in folgenden Programmiersprachen: SCL, AWL und FUP (Safety)\n\n• Wünschenswert ist die Erfahrung mit WinCC, Siemens TIA Portal und Siemens Step 7 Classic\n\n• Bereitschaft für Pikett-Dienst (alle 5-6 Wochen)\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift; Französischkenntnisse von Vorteil\n\n• Reisebereitschaft (20%) für Einsätze vor Ort vorwiegend im Raum CH/DE\n\n• Flair für objektorientierte Programmierung\n\n• Team-orientierte Persönlichkeit\n\nUnser Versprechen an dich\nSwisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\nBegleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\nÜber Swisslog\nSwisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\nGehe mit uns auf die Reise!\nWenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
+        "fr": "Ingénieur de services logiciels de contrôle (Siemens) (m/f/d) Où les gens aiment-ils ce qu'ils font et y sont grands ?\nAu Swisslog, bien sûr ! Nos équipes sont au cœur d'une entreprise mondiale de pointe axée sur les données et les robots qui exploite la puissance de la technologie pour façonner l'avenir de l'intralogistique. Le résultat? Nous offrons performances et efficacité à nos clients dans le monde entier, leur donnant l'avantage décisif sur leurs marchés. Description du poste Ici tu fais quelque chose\n\n• Personne de contact pour nos clients ainsi que support de 2ème et 3ème niveaux (à distance ou sur place)\n\n• Optimisation des systèmes clients et réalisation des contrôles des installations en intralogistique\n\n• Travail indépendant en équipe de projet, création de spécifications client et documentation de l'usine\n\n• Poursuite du développement de solutions standard\n\n• Effectuer des essais de mise en service et d'usine au pays et à l'étranger\n\nProfil du demandeur C'est ce que vous apportez avec vous\n\n• Achevé une formation technique de base avec une formation continue en tant que technicien (HF), ingénieur (FH) ou plusieurs années d'expérience en technologie d'automatisation\n\n• Connaissance approfondie de la programmation de PLC dans les langages de programmation suivants: SCL, AWL et FUP (Safety)\n\n• L'expérience avec WinCC, Siemens TIA Portal et Siemens Step 7 Classic est souhaitable\n\n• Préparation au service Pikett (toutes les 5-6 semaines)\n\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture; La connaissance du français est bénéfique\n\n• Volonté de voyager (20 %) pour des missions sur place principalement dans la zone CH/DE\n\n• Flair pour la programmation orientée objet\n\n• Personnalité axée sur l'équipe\n\nNotre promesse à vous\nSwisslog est un monde plein de possibilités. Avec nous, vous façonnez l'avenir de l'intralogistique avec des solutions d'automatisation contrôlées par les données et les robots. Cela crée une valeur ajoutée exceptionnelle pour nos clients.\nRejoignez-nous dans ce voyage et devenez membre d'une entreprise mondiale fière de ses racines suisses. En tant qu'entreprise mondiale, nous nous réjouissons des opportunités offertes à tous dans la famille Swisslog. Libérez votre potentiel dans une équipe unie par la passion et animée par l'esprit d'équipe OneSwisslog.\nÀ propos de Swisslog\nSwisslog façonne l'avenir de l'intralogistique. Dans le cadre du groupe KUKA, nous travaillons sur les dernières technologies qui réinventent le monde de la logistique. Nous sommes une équipe de plus de 3000 experts de 50 pays servant certaines des marques les plus grandes et les plus excitantes du monde. Ensemble, nous mettons en œuvre des approches intelligentes et innovantes, y compris des solutions d'automatisation des données et robotiques flexibles qui transforment la chaîne d'approvisionnement. Compléter notre équipe et partager votre perspective unique.\nAllez avec nous au voyage !\nSi vous pensez qu'une carrière chez Swisslog pourrait vous convenir, nous aimerions avoir de vos nouvelles. Nous nous réjouissons de votre candidature!"
+      },
+      "location": "Buchs, Switzerland",
+      "canton": "AG",
+      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
+      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-19T10:03:08.991Z",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "streetAddress": "Webereiweg 3",
+      "postalCode": "5033",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Logistica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
+      "jobReqId": "3751",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
+        "controls-software-service-ingegnere-swisslog-buchs",
+        "controls-software-service-engineer-swisslog-buchs-switzerland",
+        "controls-software-service-ingenieur-swisslog-buchs",
+        "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
+          "controls-software-service-ingegnere-swisslog-buchs",
+          "controls-software-service-engineer-swisslog-buchs-switzerland",
+          "controls-software-service-ingenieur-swisslog-buchs",
+          "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs"
+        ],
+        "en": [
+          "controls-software-service-engineer-swisslog-buchs-switzerland"
+        ],
+        "fr": [
+          "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
+          "controls-software-service-ingenieur-swisslog-buchs"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T22:07:43.774Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "swisslog-34572dec2de5",
       "slug": "automatiker-in-cfc-swisslog-buchs-switzerland",
       "slugByLocale": {
@@ -114,7 +202,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.518Z",
+      "crawledAt": "2026-08-19T10:03:08.991Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -197,7 +285,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/working-student-quality-60-mwd-4396",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.517Z",
+      "crawledAt": "2026-08-19T10:03:08.990Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -234,6 +322,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:12.590Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -243,94 +332,6 @@
           "@type": "QuantitativeValue",
           "minValue": 37200,
           "maxValue": 56400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "swisslog-d719156fe6e5",
-      "slug": "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs",
-      "slugByLocale": {
-        "it": "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs",
-        "en": "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
-        "de": "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
-        "fr": "controls-software-service-ingenieur-siemens-m-w-d-swisslog-buchs"
-      },
-      "company": "Swisslog",
-      "companyKey": "swisslog",
-      "companyDomain": "swisslog.com",
-      "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
-      "titleByLocale": {
-        "it": "Controls Software Service Ingegnere (Siemens) (m/w/d)",
-        "en": "Controls Software Service Engineer (Siemens) (m/f/d)",
-        "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
-        "fr": "Controls Software Service Ingénieur (Siemens) (m/w/d)"
-      },
-      "description": "Controls Software Service Engineer (Siemens) (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\n Bei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Ansprechperson für unsere Kunden sowie Leisten von 2nd- und 3rd-Level-Support (remote oder vor Ort)\n\n• Optimieren von Kundenanlagen sowie Realisieren von Anlagensteuerungen in der Intralogistik\n\n• Selbständiges Arbeiten in Projektteams, Erstellen von Kundenspezifikationen sowie Anlagendokumentationen\n\n• Weiterentwickeln von Standardlösungen\n\n• Durchführen von Inbetriebnahmen und Anlagentests im In- und Ausland\n\nBewerberprofil Das bringst du mit\n\n• Abgeschlossene technische Grundausbildung mit Weiterbildung zum Techniker (HF), Ingenieur (FH) oder mehrjährige Erfahrung in der Automatisierungstechnik\n\n• Fundierte Kenntnisse in der SPS-Programmierung in folgenden Programmiersprachen: SCL, AWL und FUP (Safety)\n\n• Wünschenswert ist die Erfahrung mit WinCC, Siemens TIA Portal und Siemens Step 7 Classic\n\n• Bereitschaft für Pikett-Dienst (alle 5-6 Wochen)\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift; Französischkenntnisse von Vorteil\n\n• Reisebereitschaft (20%) für Einsätze vor Ort vorwiegend im Raum CH/DE\n\n• Flair für objektorientierte Programmierung\n\n• Team-orientierte Persönlichkeit\n\nUnser Versprechen an dich\n Swisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\n Begleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\n Über Swisslog\n Swisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\n Gehe mit uns auf die Reise!\n Wenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
-      "descriptionByLocale": {
-        "it": "Controlli Software Service Engineer (Siemens) (m/f/d) Dove le persone amano quello che fanno e sono grandi ad esso?\nA Swisslog, ovviamente! I nostri team sono al centro di una società leader mondiale di dati e robot-driven che sfrutta il potere della tecnologia per modellare il futuro dell'intralogistica. Il risultato? Offriamo prestazioni ed efficienza ai nostri clienti in tutto il mondo, dando loro il vantaggio decisivo nei loro mercati. Descrizione del lavoro Qui fai qualcosa\n\n• Persona di contatto per i nostri clienti e supporto di secondo e terzo livello (rimozione o sul sito)\n\n• Ottimizzazione dei sistemi dei clienti e realizzazione dei controlli degli impianti in intralogistica\n\n• Lavoro indipendente in team di progetto, creazione di specifiche del cliente e documentazione dell'impianto\n\n• Ulteriore sviluppo di soluzioni standard\n\n• Effettuare prove di messa in servizio e impianti in patria e all'estero\n\nProfilo applicabile Questo è ciò che porti con te\n\n• Formazione tecnica di base completata con ulteriore formazione come tecnico (HF), ingegnere (FH) o diversi anni di esperienza nella tecnologia di automazione\n\n• Conoscenza approfondita della programmazione PLC nei seguenti linguaggi di programmazione: SCL, AWL e FUP (Safety)\n\n• L'esperienza con WinCC, Siemens TIA Portal e Siemens Step 7 Classic è auspicabile\n\n• Prontezza per il servizio Pikett (ogni 5-6 settimane)\n\n• Buona conoscenza del tedesco e dell'inglese nelle parole e nella scrittura; La conoscenza del francese è benefica\n\n• Volontà di viaggiare (20%) per le missioni in loco principalmente nella zona CH/DE\n\n• Flair per la programmazione orientata agli oggetti\n\n• Personalità orientata al team\n\nLa nostra promessa a te\nSwisslog è un mondo pieno di possibilità. Con noi, si modella il futuro dell'intralogistica con soluzioni di automazione controllate da dati e robot. Questo crea un valore aggiunto eccezionale per i nostri clienti.\nUnisciti a noi in questo viaggio e diventare parte di una società globale orgogliosa delle sue radici svizzere. In qualità di azienda globale, non vediamo l'ora delle opportunità offerte a tutti nella famiglia Swisslog. Scatena il tuo potenziale in una squadra unita dalla passione e guidata dallo spirito di squadra OneSwisslog.\nInformazioni su Swisslog\nSwisslog plasma il futuro dell'intralogistica. Nell'ambito del Gruppo KUKA, stiamo lavorando sulle ultime tecnologie che reinventano il mondo della logistica. Siamo un team di 3.000 esperti di 50 paesi che servono alcuni dei marchi più grandi e più eccitanti del mondo. Insieme, implementiamo approcci intelligenti e innovativi, tra cui soluzioni di dati flessibili e automazione robotica che trasformano la supply chain. Completa il nostro team e condividi la tua prospettiva unica.\nAndate con noi durante il viaggio!\nSe pensate che una carriera a Swisslog potrebbe essere giusta per voi, ci piacerebbe sentire da voi. Attendiamo con ansia la vostra applicazione!",
-        "en": "Controls Software Service Engineer (Siemens) (m/f/d) Where do people love what they do and are great at it?\nAt Swisslog, of course! Our teams are at the heart of a world-leading data- and robot-driven company that harnesses the power of technology to shape the future of intralogistics. The result? We deliver performance and efficiency to our customers around the world, giving them the decisive advantage in their markets. Job description Here you do something\n\n• Contact person for our customers as well as 2nd and 3rd level support (remote or on site)\n\n• Optimization of customer systems and realization of plant controls in intralogistics\n\n• Independent work in project teams, creation of customer specifications and plant documentation\n\n• Further development of standard solutions\n\n• Carrying out commissioning and plant tests at home and abroad\n\nApplicant profile This is what you bring with you\n\n• Completed basic technical training with further training as a technician (HF), engineer (FH) or several years of experience in automation technology\n\n• In-depth knowledge of PLC programming in the following programming languages: SCL, AWL and FUP (Safety)\n\n• The experience with WinCC, Siemens TIA Portal and Siemens Step 7 Classic is desirable\n\n• Readiness for Pikett service (every 5-6 weeks)\n\n• Good knowledge of German and English in words and writing; Knowledge of French is beneficial\n\n• Willingness to travel (20%) for missions on site mainly in the CH/DE area\n\n• Flair for object-oriented programming\n\n• Team-oriented personality\n\nOur Promise to You\nSwisslog is a world full of possibilities. With us, you shape the future of intralogistics with data- and robot-controlled automation solutions. This creates exceptional added value for our customers.\nJoin us on this journey and become part of a global company proud of its Swiss roots. As a global company, we look forward to the opportunities offered to everyone in the Swisslog family. Unleash your potential in a team united by passion and driven by the OneSwisslog team spirit.\nAbout Swisslog\nSwisslog shapes the future of intralogistics. As part of the KUKA Group, we are working on the latest technologies that reinvent the world of logistics. We are a team of 3,000+ experts from 50 countries serving some of the biggest and most exciting brands in the world. Together, we implement smart and innovative approaches, including flexible data and robotic automation solutions that transform the supply chain. Complement our team and share your unique perspective.\nGo with us on the journey!\nIf you think a career at Swisslog could be right for you, we would love to hear from you. We look forward to your application!",
-        "de": "Controls Software Service Engineer (Siemens) (m/w/d) Wo lieben Menschen, was sie tun, und sind darin großartig?\nBei Swisslog natürlich! Unsere Teams sind das Herzstück eines weltweit führenden daten- und robotergesteuerten Unternehmens, welches die Kraft der Technologie nutzt, um die Zukunft der Intralogistik zu gestalten. Das Ergebnis? Wir erbringen Leistung und Effizienz für unsere Kunden auf der ganzen Welt und verschaffen ihnen damit den entscheidenden Vorteil in ihren Märkten. Tätigkeitsbeschreibung Hier bewirkst du etwas\n\n• Ansprechperson für unsere Kunden sowie Leisten von 2nd- und 3rd-Level-Support (remote oder vor Ort)\n\n• Optimieren von Kundenanlagen sowie Realisieren von Anlagensteuerungen in der Intralogistik\n\n• Selbständiges Arbeiten in Projektteams, Erstellen von Kundenspezifikationen sowie Anlagendokumentationen\n\n• Weiterentwickeln von Standardlösungen\n\n• Durchführen von Inbetriebnahmen und Anlagentests im In- und Ausland\n\nBewerberprofil Das bringst du mit\n\n• Abgeschlossene technische Grundausbildung mit Weiterbildung zum Techniker (HF), Ingenieur (FH) oder mehrjährige Erfahrung in der Automatisierungstechnik\n\n• Fundierte Kenntnisse in der SPS-Programmierung in folgenden Programmiersprachen: SCL, AWL und FUP (Safety)\n\n• Wünschenswert ist die Erfahrung mit WinCC, Siemens TIA Portal und Siemens Step 7 Classic\n\n• Bereitschaft für Pikett-Dienst (alle 5-6 Wochen)\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift; Französischkenntnisse von Vorteil\n\n• Reisebereitschaft (20%) für Einsätze vor Ort vorwiegend im Raum CH/DE\n\n• Flair für objektorientierte Programmierung\n\n• Team-orientierte Persönlichkeit\n\nUnser Versprechen an dich\nSwisslog ist eine Welt voller Möglichkeiten. Mit uns gestaltest du die Zukunft der Intralogistik mit daten- und robotergesteuerten Automatisierungslösungen. Damit schaffen wir einen außergewöhnlichen Mehrwert für unsere Kunden.\nBegleite uns auf dieser Reise und werde Teil eines globalen Unternehmens, das auf seine Schweizer Wurzeln stolz ist. Als globales Unternehmen freuen wir uns, auf die Chancen, die sich für jeden in der Swisslog Familie bieten. Entfache dein Potenzial in einem Team, das durch Leidenschaft vereint und vom OneSwisslog Teamgeist angetrieben wird.\nÜber Swisslog\nSwisslog gestaltet die Zukunft der Intralogistik. Als Teil der KUKA Group arbeiten wir an den neuesten Technologien, die die Welt der Logistik neu erfinden. Wir sind ein Team von 3.000+ Experten aus 50 Ländern und bedienen einige der größten und aufregendsten Marken der Welt. Gemeinsam setzen wir smarte und innovative Ansätze um, einschließlich flexibler daten- und robotergesteuerten Automatisierungslösungen, die die Lieferkette transformieren. Ergänze unser Team und teile deine einzigartige Perspektive.\nGehe mit uns auf die Reise!\nWenn du glaubst, dass eine Karriere bei Swisslog das Richtige für dich sein könnte, würden wir gerne von dir hören. Wir freuen uns auf deine Bewerbung!",
-        "fr": "Ingénieur de services logiciels de contrôle (Siemens) (m/f/d) Où les gens aiment-ils ce qu'ils font et y sont grands ?\nAu Swisslog, bien sûr ! Nos équipes sont au cœur d'une entreprise mondiale de pointe axée sur les données et les robots qui exploite la puissance de la technologie pour façonner l'avenir de l'intralogistique. Le résultat? Nous offrons performances et efficacité à nos clients dans le monde entier, leur donnant l'avantage décisif sur leurs marchés. Description du poste Ici tu fais quelque chose\n\n• Personne de contact pour nos clients ainsi que support de 2ème et 3ème niveaux (à distance ou sur place)\n\n• Optimisation des systèmes clients et réalisation des contrôles des installations en intralogistique\n\n• Travail indépendant en équipe de projet, création de spécifications client et documentation de l'usine\n\n• Poursuite du développement de solutions standard\n\n• Effectuer des essais de mise en service et d'usine au pays et à l'étranger\n\nProfil du demandeur C'est ce que vous apportez avec vous\n\n• Achevé une formation technique de base avec une formation continue en tant que technicien (HF), ingénieur (FH) ou plusieurs années d'expérience en technologie d'automatisation\n\n• Connaissance approfondie de la programmation de PLC dans les langages de programmation suivants: SCL, AWL et FUP (Safety)\n\n• L'expérience avec WinCC, Siemens TIA Portal et Siemens Step 7 Classic est souhaitable\n\n• Préparation au service Pikett (toutes les 5-6 semaines)\n\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture; La connaissance du français est bénéfique\n\n• Volonté de voyager (20 %) pour des missions sur place principalement dans la zone CH/DE\n\n• Flair pour la programmation orientée objet\n\n• Personnalité axée sur l'équipe\n\nNotre promesse à vous\nSwisslog est un monde plein de possibilités. Avec nous, vous façonnez l'avenir de l'intralogistique avec des solutions d'automatisation contrôlées par les données et les robots. Cela crée une valeur ajoutée exceptionnelle pour nos clients.\nRejoignez-nous dans ce voyage et devenez membre d'une entreprise mondiale fière de ses racines suisses. En tant qu'entreprise mondiale, nous nous réjouissons des opportunités offertes à tous dans la famille Swisslog. Libérez votre potentiel dans une équipe unie par la passion et animée par l'esprit d'équipe OneSwisslog.\nÀ propos de Swisslog\nSwisslog façonne l'avenir de l'intralogistique. Dans le cadre du groupe KUKA, nous travaillons sur les dernières technologies qui réinventent le monde de la logistique. Nous sommes une équipe de plus de 3000 experts de 50 pays servant certaines des marques les plus grandes et les plus excitantes du monde. Ensemble, nous mettons en œuvre des approches intelligentes et innovantes, y compris des solutions d'automatisation des données et robotiques flexibles qui transforment la chaîne d'approvisionnement. Compléter notre équipe et partager votre perspective unique.\nAllez avec nous au voyage !\nSi vous pensez qu'une carrière chez Swisslog pourrait vous convenir, nous aimerions avoir de vos nouvelles. Nous nous réjouissons de votre candidature!"
-      },
-      "location": "Buchs, Switzerland",
-      "canton": "AG",
-      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
-      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.517Z",
-      "addressLocality": "Argovia",
-      "addressRegion": "AG",
-      "streetAddress": "Webereiweg 3",
-      "postalCode": "5033",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
-      "jobReqId": "3751",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
-        "controls-software-service-ingegnere-swisslog-buchs",
-        "controls-software-service-engineer-swisslog-buchs-switzerland",
-        "controls-software-service-ingenieur-swisslog-buchs",
-        "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
-          "controls-software-service-ingegnere-swisslog-buchs",
-          "controls-software-service-engineer-swisslog-buchs-switzerland",
-          "controls-software-service-ingenieur-swisslog-buchs",
-          "controls-software-service-ingegnere-siemens-m-w-d-swisslog-buchs"
-        ],
-        "en": [
-          "controls-software-service-engineer-swisslog-buchs-switzerland"
-        ],
-        "fr": [
-          "controls-software-service-engineer-siemens-m-w-d-swisslog-buchs-switzerland",
-          "controls-software-service-ingenieur-swisslog-buchs"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-28T22:07:43.774Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -366,7 +367,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.516Z",
+      "crawledAt": "2026-08-19T10:03:08.989Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -430,7 +431,7 @@
       "title": "Apprentice Computer Scientist (m/w/d)",
       "titleByLocale": {
         "it": "Apprendista informatico (m/f/d)",
-        "en": "Apprentice Computer Scientist (m/f/d)",
+        "en": "Apprentice Computer Scientist (m/w/d)",
         "de": "Apprentice Computer Scientist (m/w/d)",
         "fr": "Apprentis en informatique (m/f/d)"
       },
@@ -446,7 +447,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.515Z",
+      "crawledAt": "2026-08-19T10:03:08.988Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -479,6 +480,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:21.809Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -507,7 +509,7 @@
       "title": "Software Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Software Project Manager (m/f/d)",
-        "en": "Software Project Manager (m/f/d)",
+        "en": "Software Project Manager (m/w/d)",
         "de": "Software Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet logiciel (m/f/d)"
       },
@@ -523,7 +525,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:30:05.513Z",
+      "crawledAt": "2026-08-19T10:03:08.987Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -561,6 +563,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {

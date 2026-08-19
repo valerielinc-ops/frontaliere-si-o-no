@@ -158,13 +158,32 @@ async function main() {
   // on every campaign_deliveries doc by send-newsletter.mjs. Breaks
   // open/click/unsubscribe down per segment and flags any segment whose
   // unsubscribe rate for THIS send breached the +5% guard.
-  const segmentReport = await loadCampaignSegmentReport(db, campaignId);
-  const breaches = unsubscribeGuardBreaches(segmentReport);
-  report.segments = segmentReport.bySegment;
-  report.unsubscribeGuard = { capPct: UNSUB_RATE_CAP_PCT, overallRate: segmentReport.overallUnsubscribeRate, breaches };
+  // A failure here used to abort the whole run, so an unrelated gap in the
+  // segment queries took the A/B table — the report's actual subject — down
+  // with it. The A/B numbers above are already computed and are worth printing
+  // on their own, so the segment half degrades instead of aborting.
+  let segmentReport = null;
+  let breaches = [];
+  let segmentError = null;
+  try {
+    segmentReport = await loadCampaignSegmentReport(db, campaignId);
+    breaches = unsubscribeGuardBreaches(segmentReport);
+    report.segments = segmentReport.bySegment;
+    report.unsubscribeGuard = { capPct: UNSUB_RATE_CAP_PCT, overallRate: segmentReport.overallUnsubscribeRate, breaches };
+    // A consumer reading rates without knowing the window is still open will
+    // conclude the newest campaign is the healthiest, every time.
+    report.window = { closed: segmentReport.windowClosed, daysRemaining: segmentReport.windowDaysRemaining };
+  } catch (e) {
+    segmentError = e;
+    report.segments = null;
+    report.unsubscribeGuard = { capPct: UNSUB_RATE_CAP_PCT, overallRate: null, breaches: null, error: e?.message || String(e) };
+  }
 
   if (JSON_OUT) {
     console.log(JSON.stringify(report, null, 2));
+    // Unknown ≠ clean: with the guard unevaluated there is nothing to certify,
+    // so --fail-on-breach must not exit 0 just because `breaches` is empty.
+    if (segmentError && FAIL_ON_BREACH) process.exit(4);
     if (breaches.length && FAIL_ON_BREACH) process.exit(3);
     return;
   }
@@ -198,8 +217,29 @@ async function main() {
   console.log('');
 
   // ── Per-segment section ──
+  if (segmentError) {
+    console.log('⚠️  Per-segment breakdown and unsubscribe guard unavailable:');
+    console.log(`    ${segmentError.message}`);
+    if (segmentError instanceof MissingIndexError && segmentError.original?.message) {
+      console.log(`    ${segmentError.original.message}`);
+    }
+    console.log('    The A/B table above is complete and unaffected.\n');
+    if (FAIL_ON_BREACH) process.exit(4);
+    return;
+  }
+
   const segments = Object.keys(segmentReport.bySegment).sort();
   console.log(`Per-segment (open/click/unsubscribe) — campaign ${campaignId}:`);
+  if (!segmentReport.windowClosed) {
+    // Without this line the newest campaign always reads as an improvement:
+    // its unsubscribes have not happened yet. Sends are spread over days by
+    // the per-subscriber send hour, so the window can still be open a week
+    // after the campaign date.
+    console.log(
+      `    ⚠️  Attribution window still OPEN (${segmentReport.windowDaysRemaining} more day(s)):`
+      + ' unsubscribe rates below are partial and can only go up. Not comparable with a closed campaign.',
+    );
+  }
   if (segments.length === 0) {
     console.log('    (no segment-tagged sends for this campaign)');
   }
@@ -213,7 +253,8 @@ async function main() {
   }
   console.log(`    ${'TOTAL'.padEnd(16)} sends=${String(segmentReport.totalSends).padStart(5)}  unsubscribe-rate=${segmentReport.overallUnsubscribeRate.toFixed(2)}% (guard cap ${UNSUB_RATE_CAP_PCT}%)`);
   if (breaches.length) {
-    console.log(`\n🚨 UNSUBSCRIBE GUARD BREACH (cap ${UNSUB_RATE_CAP_PCT}%):`);
+    console.log(`\n🚨 UNSUBSCRIBE GUARD BREACH (cap ${UNSUB_RATE_CAP_PCT}%)`
+      + (segmentReport.windowClosed ? ':' : ' — and the window is still open, so this is a floor:'));
     for (const b of breaches) {
       console.log(`    ${b.scope}: ${b.rate.toFixed(2)}% (${b.unsubscribes}/${b.sends} sends)`);
     }

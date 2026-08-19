@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-08-17T21:30:48.120Z",
+  "generatedAt": "2026-08-19T09:49:35.367Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1939,
-  "avgDurationMs": 1939,
+  "unchangedCount": 0,
+  "durationMs": 2542,
+  "avgDurationMs": 2542,
   "durationHistory": [
-    1939
+    2542
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -182,10 +182,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Test Engineer (MicroFocus QC)",
       "slug": "test-engineer-microfocus-qc-fincons-group-lugano-ticino-switzerland",
@@ -220,13 +217,15 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T10:15:30.690Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

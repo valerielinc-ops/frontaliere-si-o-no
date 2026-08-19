@@ -178,8 +178,36 @@ describe('il budget arriva fino al prompt', () => {
     // Il difetto era invisibile nei log: ogni riga di skip nomina un modello,
     // nessuna nominava il prompt. Il marker e' parte del rimedio, e i suoi campi
     // sono un contratto verso chi ci costruisce sopra un watchdog.
-    const riga = SRC.slice(SRC.indexOf('[prompt-budget]'), SRC.indexOf('[prompt-budget]') + 400);
-    assert.notEqual(SRC.indexOf('[prompt-budget]'), -1, 'il marker non esiste piu\'');
+    //
+    // L'ancora e' il SITO DI EMISSIONE — `[prompt-budget] branch=`, forma che
+    // esiste solo dentro il template literal — e non la prima menzione del
+    // marker. `SRC.indexOf('[prompt-budget]')` seguito da una finestra fissa di
+    // 400 char misurava «il primo posto del file dove quelle parole compaiono»,
+    // che e' una proprieta' della PROSA, non del codice: alla PR #6028 e'
+    // bastato un commento che nominava il marker 689 righe sopra per far
+    // atterrare l'indice li' dentro e rendere rosso questo test senza che
+    // l'emissione cambiasse di un byte. Sul gemello del corpus lo stesso
+    // ancoraggio sarebbe gia' rotto da due commenti che precedono l'emissione.
+    // Un'ancora che qualunque prosa puo' spostare non e' un'ancora.
+    const EMISSIONE = '[prompt-budget] branch=';
+    const inizio = SRC.indexOf(EMISSIONE);
+    assert.notEqual(inizio, -1, `il marker non esiste piu' nella forma \`${EMISSIONE}\``);
+    assert.equal(
+      SRC.indexOf(EMISSIONE, inizio + EMISSIONE.length),
+      -1,
+      "il sito di emissione del marker non e' piu' unico: due punti che stampano "
+      + "`[prompt-budget] branch=` vogliono due asserzioni, non una che ne misura uno a caso",
+    );
+    // La finestra segue lo STATEMENT (fino alla chiusura della console.error),
+    // non un numero di caratteri: se il marker cresce di una riga, il test
+    // continua a leggerlo tutto invece di troncarlo a meta'.
+    const fine = SRC.indexOf('\n  );', inizio);
+    assert.notEqual(fine, -1, "chiusura della console.error del marker non trovata — aggiornare questo test");
+    const riga = SRC.slice(inizio, fine);
+    assert.ok(
+      riga.length > 100 && riga.length < 1000,
+      `finestra del marker implausibile (${riga.length} char): l'ancora di chiusura e' scivolata`,
+    );
     for (const campo of ['branch=', 'section=', 'attempt=', 'est=', 'budget=', 'over=', 'shrink=']) {
       assert.ok(riga.includes(campo), `il marker non pubblica piu' ${campo}`);
     }

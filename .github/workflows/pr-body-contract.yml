@@ -417,7 +417,25 @@ jobs:
             !/public/images/events
             !/public/images/blog
           sparse-checkout-cone-mode: false
-        timeout-minutes: 8
+        # RIMISURATO il 2026-08-18 (era 8min): su 153 Checkout `success` delle
+        # ultime 300 run — min 69s, p50 158s, p95 358s, p99 393s, **max 420s** — il
+        # tetto di 480s stava 60 secondi sopra il massimo sano, cioe' tagliava la
+        # coda della propria distribuzione invece di discriminare un guasto.
+        # Una morte reale oggi alle 18:00:15Z (run 32168588033), durata esatta
+        # 480,000s, annotazione letterale "The action 'Checkout (for source
+        # guards)' has timed out after 8 minutes". La morte ha propagato a cascata
+        # su `Surface sibling candidates`, `Surface below-floor-bridge candidates`,
+        # i due `Forbid ...` e `Wait for background source guards`: il check
+        # `contract` e' andato ROSSO e ha bloccato una PR. Il tetto ha quindi
+        # fabbricato il guasto che dovrebbe rilevare.
+        # Il contesto: i tempi di Checkout sono raddoppiati oggi dalle ~14:00Z
+        # su tutto il repo, e non per la crescita del working tree (piatto a
+        # -0,1% proprio in quella finestra). Su questo step il max pre-14:00Z
+        # era 209s, post-14:00Z 420s (+101%), con il p50 da 160s a 298s. Un tetto tarato sui giorni buoni non sopravvive a
+        # una giornata come questa.
+        # Nuovo tetto = 2,5x il massimo osservato (420s). Il job non dichiara
+        # `timeout-minutes`, quindi eredita il default di 360min: 18 sta comodo.
+        timeout-minutes: 18
 
       # Sibling-class surfacer (zero-Claude, ADVISORY — never fails). Il finding
       # reviewer più ricorrente dopo il body-contract è il 🔴 "stesso antipattern
@@ -431,7 +449,15 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: |
           set -euo pipefail
-          git fetch origin "$BASE_REF" --quiet || true
+          # Explicit destination refspec (sibling of issue #6058, tests.yml): a
+          # bare `git fetch origin "$BASE_REF"` only updates FETCH_HEAD, never
+          # `refs/remotes/origin/$BASE_REF` — this checkout is of the PR head
+          # SHA (`ref: ${{ github.event.pull_request.head.sha }}` above), so
+          # that ref was never created either. `--base "origin/$BASE_REF"`
+          # below therefore never resolved, and resolve-merge-base.mjs's
+          # blocking-skip (issue #5195) fired on every run instead of the
+          # sibling analysis actually running.
+          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
           node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
@@ -541,7 +567,15 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: |
           set -euo pipefail
-          git fetch origin "$BASE_REF" --quiet || true
+          # Explicit destination refspec (sibling of issue #6058, tests.yml): a
+          # bare `git fetch origin "$BASE_REF"` only updates FETCH_HEAD, never
+          # `refs/remotes/origin/$BASE_REF` — this checkout is of the PR head
+          # SHA (`ref: ${{ github.event.pull_request.head.sha }}` above), so
+          # that ref was never created either. `--base "origin/$BASE_REF"`
+          # below therefore never resolved, and resolve-merge-base.mjs's
+          # blocking-skip (issue #5195) fired on every run instead of the
+          # sibling analysis actually running.
+          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
           node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));

@@ -21514,9 +21514,8 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "data-center-technicien-microsoft-zurich",
-        "en": "data-center-technicien-microsoft-zurich",
-        "de": "data-center-technicien-microsoft-zurich",
+        "en": "data-center-technician-microsoft-zurich",
+        "de": "data-center-techniker-microsoft-zurich",
         "fr": "data-center-technicien-microsoft-zurich"
       },
       "localePaths": {
@@ -21531,6 +21530,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -39292,10 +39292,10 @@
         "fr": "lehrstelle-als-kochin-koch-efz-tertianum-lenzburg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg",
-        "en": "/en/find-jobs-ticino/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg",
-        "de": "/de/jobs-im-tessin/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg",
-        "fr": "/fr/trouver-emploi-tessin/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg"
+        "it": "/cerca-lavoro-argovia/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg",
+        "en": "/en/find-jobs-aargau/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg",
+        "de": "/de/jobs-im-aargau/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg",
+        "fr": "/fr/trouver-emploi-argovie/lehrstelle-als-kochin-koch-efz-tertianum-lenzburg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -44818,6 +44818,69 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/mitarbeiter-in-kasse-alimentation-35-manor-ag-bern/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/mitarbeiter-in-kasse-alimentation-35-manor-ag-bern/"
+      },
+      "queries": [
+        {
+          "query": "emploi manor",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "manor recrutement suisse",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "emploi manor",
+      "title": "Mitarbeiter in kasse alimentation 35",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+        "en": "mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+        "de": "mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+        "fr": "mitarbeiter-in-kasse-alimentation-35-manor-ag-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+        "en": "/en/find-jobs-bern/mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+        "de": "/de/jobs-im-bern/mitarbeiter-in-kasse-alimentation-35-manor-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/mitarbeiter-in-kasse-alimentation-35-manor-ag-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -75607,10 +75670,10 @@
         "fr": "venditore-nel-salario-orario-denner-frick"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-nel-salario-orario-denner-frick",
-        "en": "/en/find-jobs-zurich/venditore-nel-salario-orario-denner-frick",
-        "de": "/de/jobs-in-zurich/venditore-nel-salario-orario-denner-frick",
-        "fr": "/fr/trouver-emploi-zurich/venditore-nel-salario-orario-denner-frick"
+        "it": "/cerca-lavoro-turgovia/venditore-nel-salario-orario-denner-frick",
+        "en": "/en/find-jobs-thurgau/venditore-nel-salario-orario-denner-frick",
+        "de": "/de/jobs-im-thurgau/venditore-nel-salario-orario-denner-frick",
+        "fr": "/fr/trouver-emploi-thurgovie/venditore-nel-salario-orario-denner-frick"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75662,10 +75725,10 @@
         "fr": "venditore-nel-salario-orario-denner-spiez"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-nel-salario-orario-denner-spiez",
-        "en": "/en/find-jobs-zurich/venditore-nel-salario-orario-denner-spiez",
+        "it": "/cerca-lavoro-turgovia/venditore-nel-salario-orario-denner-spiez",
+        "en": "/en/find-jobs-thurgau/venditore-nel-salario-orario-denner-spiez",
         "de": "/de/jobs-im-bern/venditore-nel-salario-orario-denner-spiez",
-        "fr": "/fr/trouver-emploi-zurich/venditore-nel-salario-orario-denner-spiez"
+        "fr": "/fr/trouver-emploi-thurgovie/venditore-nel-salario-orario-denner-spiez"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79483,10 +79546,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-25"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/zusteller-in-briefe-und-pakete-post-25",
-        "en": "/en/find-jobs-ticino/zusteller-in-briefe-und-pakete-post-25",
-        "de": "/de/jobs-im-tessin/zusteller-in-briefe-und-pakete-post-25",
-        "fr": "/fr/trouver-emploi-tessin/zusteller-in-briefe-und-pakete-post-25"
+        "it": "/cerca-lavoro-argovia/zusteller-in-briefe-und-pakete-post-25",
+        "en": "/en/find-jobs-aargau/zusteller-in-briefe-und-pakete-post-25",
+        "de": "/de/jobs-im-aargau/zusteller-in-briefe-und-pakete-post-25",
+        "fr": "/fr/trouver-emploi-argovie/zusteller-in-briefe-und-pakete-post-25"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

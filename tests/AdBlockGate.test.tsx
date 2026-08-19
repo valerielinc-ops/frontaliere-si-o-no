@@ -21,7 +21,7 @@ import { Analytics } from '@/services/analytics';
 import { registerSuperProperty } from '@/services/posthog';
 import { isLikelyBot } from '@/services/botPatterns';
 import { resolveAdBlockAbBucket } from '@/services/adBlockAbTest';
-import { detectAdBlock } from '@/services/adBlockDetection';
+import { detectAdBlockDetailed } from '@/services/adBlockDetection';
 
 vi.mock('@/services/i18n', () => ({
   useTranslation: () => ({ t: (key: string) => key, locale: 'it' as const }),
@@ -45,8 +45,15 @@ vi.mock('@/services/adBlockAbTest', () => ({
   resolveAdBlockAbBucket: vi.fn(() => 'test'),
 }));
 
+// The gate reads the rich signal now: Funding Choices reports not just whether
+// ads are blocked but whether the visitor already allowlisted the site, and an
+// allowlisted visitor must never be gated again — they did the thing we asked.
+const CLEAN = { blocked: false, adsAllowed: false, source: 'funding_choices' as const, status: null };
+const BLOCKED = { blocked: true, adsAllowed: false, source: 'funding_choices' as const, status: null };
+const ALLOWLISTED = { blocked: true, adsAllowed: true, source: 'funding_choices' as const, status: null };
+
 vi.mock('@/services/adBlockDetection', () => ({
-  detectAdBlock: vi.fn(() => Promise.resolve(false)),
+  detectAdBlockDetailed: vi.fn(() => Promise.resolve({ blocked: false, adsAllowed: false, source: 'funding_choices', status: null })),
 }));
 
 const navigateToMock = vi.fn();
@@ -61,7 +68,7 @@ vi.mock('@/services/NavigationContext', () => ({
 
 const isLikelyBotMock = vi.mocked(isLikelyBot);
 const resolveBucketMock = vi.mocked(resolveAdBlockAbBucket);
-const detectAdBlockMock = vi.mocked(detectAdBlock);
+const detectAdBlockMock = vi.mocked(detectAdBlockDetailed);
 const trackUIInteractionMock = vi.mocked(Analytics.trackUIInteraction);
 const registerSuperPropertyMock = vi.mocked(registerSuperProperty);
 
@@ -74,10 +81,11 @@ describe('AdBlockGate', () => {
   beforeEach(() => {
     isLikelyBotMock.mockReturnValue(false);
     resolveBucketMock.mockReturnValue('test');
-    detectAdBlockMock.mockResolvedValue(false);
+    detectAdBlockMock.mockResolvedValue(CLEAN);
     mockActiveTab = 'calculator';
     navigateToMock.mockClear();
     localStorage.clear();
+    sessionStorage.clear();
     reloadSpy = vi.fn();
     Object.defineProperty(window, 'location', {
       configurable: true,
@@ -89,6 +97,7 @@ describe('AdBlockGate', () => {
   afterEach(() => {
     vi.clearAllMocks();
     localStorage.clear();
+    sessionStorage.clear();
     Object.defineProperty(window, 'location', {
       configurable: true,
       value: originalLocation,
@@ -117,7 +126,7 @@ describe('AdBlockGate', () => {
 
   it('shows the gate for the test bucket when a blocker is detected, with no dismiss button', async () => {
     resolveBucketMock.mockReturnValue('test');
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
 
     const dialog = await screen.findByRole('dialog');
@@ -134,18 +143,18 @@ describe('AdBlockGate', () => {
 
   it('does not show the gate for the test bucket when no blocker is detected', async () => {
     resolveBucketMock.mockReturnValue('test');
-    detectAdBlockMock.mockResolvedValue(false);
+    detectAdBlockMock.mockResolvedValue(CLEAN);
     render(<AdBlockGate />);
     await act(async () => {});
     expect(screen.queryByRole('dialog')).toBeNull();
   });
 
   it('closes the gate and logs "disabled" when recheck no longer finds a blocker', async () => {
-    detectAdBlockMock.mockResolvedValueOnce(true);
+    detectAdBlockMock.mockResolvedValueOnce(BLOCKED);
     render(<AdBlockGate />);
     await screen.findByRole('dialog');
 
-    detectAdBlockMock.mockResolvedValueOnce(false);
+    detectAdBlockMock.mockResolvedValueOnce(CLEAN);
     fireEvent.click(screen.getByRole('button', { name: /ricontrolla/i }));
 
     await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
@@ -153,7 +162,7 @@ describe('AdBlockGate', () => {
   });
 
   it('offers a reload button when recheck still finds a blocker, and reload triggers window.location.reload()', async () => {
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await screen.findByRole('dialog');
 
@@ -170,7 +179,7 @@ describe('AdBlockGate', () => {
   });
 
   it('closes the gate, logs subscribe_clicked, and navigates to the subscribe page on CTA click', async () => {
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await screen.findByRole('dialog');
 
@@ -183,14 +192,20 @@ describe('AdBlockGate', () => {
 
   it('never opens while already on the subscribe placeholder page', async () => {
     mockActiveTab = 'subscribe';
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await act(async () => {});
     expect(screen.queryByRole('dialog')).toBeNull();
   });
 
-  it('logs an "abandoned" outcome if the tab is hidden while the gate is open', async () => {
-    detectAdBlockMock.mockResolvedValue(true);
+  // Hiding the tab is how a visitor reaches the browser's extension menu, i.e.
+  // the one action this gate exists to ask for. Reading it as abandonment did
+  // not merely mislabel it: logOutcome is one-shot, so it also sealed the
+  // outcome and dropped the 'disabled' that followed. GA4 over
+  // 2026-07-27..08-18 showed outcome=disabled at 0 while the in-page
+  // popup_adblock_disable counter recorded 4.
+  it('records a hidden tab as context, never as an abandoned outcome', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await screen.findByRole('dialog');
 
@@ -206,13 +221,78 @@ describe('AdBlockGate', () => {
       act(() => {
         document.dispatchEvent(new Event('visibilitychange'));
       });
+      expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'tab_hidden', 'while_open');
+    });
+    expect(trackUIInteractionMock).not.toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'abandoned');
+  });
+
+  it('logs "abandoned" when the page actually unloads with the gate untouched', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    render(<AdBlockGate />);
+    await screen.findByRole('dialog');
+
+    await waitFor(() => {
+      act(() => {
+        window.dispatchEvent(new Event('pagehide'));
+      });
       expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'abandoned');
     });
   });
 
+  it('does not call the gate\'s own reload an abandonment', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    render(<AdBlockGate />);
+    await screen.findByRole('dialog');
+
+    // A still-blocked recheck is what surfaces the reload button.
+    fireEvent.click(screen.getByRole('button', { name: /ricontrolla/i }));
+    await screen.findByRole('button', { name: /ricarica/i });
+    fireEvent.click(screen.getByRole('button', { name: /ricarica/i }));
+
+    // The reload unloads the page on purpose; that unload is not a departure.
+    act(() => { window.dispatchEvent(new Event('pagehide')); });
+    expect(trackUIInteractionMock).not.toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'abandoned');
+    expect(sessionStorage.getItem('ft_adblock_reload_pending')).toEqual(expect.any(String));
+  });
+
+  // The reload is the only path on which a paused blocker actually stops
+  // reporting itself, because cosmetic filter rules injected into the previous
+  // document survive the pause. Before this marker, that path's outcome lived
+  // in a document that no longer existed when the answer arrived.
+  it('reports "disabled" when the visitor comes back from the gate reload clean', async () => {
+    sessionStorage.setItem('ft_adblock_reload_pending', String(Date.now()));
+    detectAdBlockMock.mockResolvedValue(CLEAN);
+    render(<AdBlockGate />);
+    await act(async () => {});
+
+    expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'disabled', 'after_reload');
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(sessionStorage.getItem('ft_adblock_reload_pending')).toBeNull();
+  });
+
+  it('reports "reload_still_blocked" when the blocker survived the reload', async () => {
+    sessionStorage.setItem('ft_adblock_reload_pending', String(Date.now()));
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    render(<AdBlockGate />);
+    await screen.findByRole('dialog');
+
+    expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'reload_still_blocked', 'after_reload');
+  });
+
+  it('ignores a stale reload marker from an earlier visit', async () => {
+    sessionStorage.setItem('ft_adblock_reload_pending', String(Date.now() - 6 * 60 * 1000));
+    detectAdBlockMock.mockResolvedValue(CLEAN);
+    render(<AdBlockGate />);
+    await act(async () => {});
+
+    expect(trackUIInteractionMock).not.toHaveBeenCalledWith(
+      'adblock_gate', 'modal', 'outcome', 'disabled', 'after_reload',
+    );
+  });
+
   it('never resolves a bucket or runs detection for newsletter subscribers (#3655)', async () => {
     localStorage.setItem('newsletter_subscribed', 'true');
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await act(async () => {});
     expect(resolveBucketMock).not.toHaveBeenCalled();
@@ -222,7 +302,7 @@ describe('AdBlockGate', () => {
 
   it('never resolves a bucket or runs detection for job-alert subscribers (#3655)', async () => {
     localStorage.setItem('job_alert_subscribed', 'true');
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await act(async () => {});
     expect(resolveBucketMock).not.toHaveBeenCalled();
@@ -232,10 +312,30 @@ describe('AdBlockGate', () => {
 
   it('still shows the gate for a non-subscribed, non-job-alert visitor in the test bucket (regression guard)', async () => {
     resolveBucketMock.mockReturnValue('test');
-    detectAdBlockMock.mockResolvedValue(true);
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     const dialog = await screen.findByRole('dialog');
     expect(dialog).toBeInTheDocument();
     expect(resolveBucketMock).toHaveBeenCalled();
+  });
+
+  // Google's own recovery message has been live on this site since 2026-06-16,
+  // three weeks before this gate existed, so a visitor may well have
+  // allowlisted us through that one. Gating them again would punish exactly
+  // the action both walls were asking for.
+  it('never gates a visitor who has already allowlisted the site', async () => {
+    detectAdBlockMock.mockResolvedValue(ALLOWLISTED);
+    render(<AdBlockGate />);
+    await act(async () => {});
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
+  it('reports the allowlisting as a disabled outcome when it happened during the reload', async () => {
+    sessionStorage.setItem('ft_adblock_reload_pending', String(Date.now()));
+    detectAdBlockMock.mockResolvedValue(ALLOWLISTED);
+    render(<AdBlockGate />);
+    await act(async () => {});
+    expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'disabled', 'allowlisted');
+    expect(screen.queryByRole('dialog')).toBeNull();
   });
 });

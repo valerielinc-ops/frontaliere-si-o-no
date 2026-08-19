@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-08-17T21:39:41.031Z",
+  "assembledAt": "2026-08-19T10:29:23.551Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -71,7 +71,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -91,13 +92,13 @@
         "it": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "en": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
         "de": "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
-        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich"
+        "fr": "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Zurigo)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Global Wealth Management – Private Banker (Zurigo)"
+        "fr": "Global Wealth Management – Private Banker (Zurich)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
@@ -110,6 +111,7 @@
       "previousSlugs": [
         "global-wealth-management-privatbanker-zurigo-banca-del-sempione-zurich",
         "globales-vermogensmanagement-privatbanker-zurigo-banca-del-sempione-zurich",
+        "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich",
         "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
       ],
       "previousSlugsByLocale": {
@@ -120,6 +122,7 @@
           "globales-vermogensmanagement-privatbanker-zurigo-banca-del-sempione-zurich"
         ],
         "fr": [
+          "gestion-de-patrimoine-mondiale-banquier-prive-zurich-banca-del-sempione-zurich",
           "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
         ]
       },
@@ -140,7 +143,9 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -160,13 +165,13 @@
         "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "en": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano",
         "de": "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-        "fr": "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano"
+        "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Lugano)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Global Wealth Management – Private Banker (Lugano)"
+        "fr": "Gestion mondiale de patrimoine – banquier privé (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
@@ -185,6 +190,7 @@
         "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano-ommoy5",
         "global-wealth-management-privatbanker-banca-del-sempione-lugano",
         "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
+        "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano",
         "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       ],
       "previousSlugsByLocale": {
@@ -203,12 +209,12 @@
         ],
         "fr": [
           "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
+          "gestion-de-patrimoine-mondiale-banquier-prive-lugano-banca-del-sempione-lugano",
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -226,7 +232,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
@@ -268,14 +275,16 @@
         "gestione-della-ricchezza-globale-assistente-bancario-privato-zurigo-banca-del-sempione-zurich",
         "gestione-patrimoniale-globale-assistente-di-private-banking-zurigo-banca-del-sempione-zurich",
         "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich",
-        "banca-del-sempione-private-banking-assistant"
+        "banca-del-sempione-private-banking-assistant",
+        "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-wealth-management-assistente-bancario-privato-zurigo-banca-del-sempione-zurich",
           "gestione-della-ricchezza-globale-assistente-bancario-privato-zurigo-banca-del-sempione-zurich",
           "gestione-patrimoniale-globale-assistente-di-private-banking-zurigo-banca-del-sempione-zurich",
-          "banca-del-sempione-private-banking-assistant"
+          "banca-del-sempione-private-banking-assistant",
+          "global-wealth-management-assistente-private-banking-zurigo-banca-del-sempione-zurich"
         ],
         "fr": [
           "gestion-de-patrimoine-mondial-assistant-de-banque-privee-zurich-banca-del-sempione-zurich",
@@ -284,6 +293,7 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-08-17T21:28:42.614Z",
+  "assembledAt": "2026-08-19T09:44:55.428Z",
   "jobs": [
     {
       "id": "nant-eda937afa152",
@@ -33,7 +33,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:28:38.232Z",
+      "crawledAt": "2026-08-19T09:44:51.057Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -55,16 +55,14 @@
         "assistenza-comunitaria-e-assistente-sanitario-o-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
         "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
         "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
-        "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-        "assistente-in-cure-e-salute-comunitaria-o-operatore-socio-sanitario-a-orario-variabile-mistral-fondation-de-nant-corsier"
+        "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenza-comunitaria-e-assistente-sanitario-o-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
           "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
           "assistant-e-en-soin-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral-nant",
-          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral",
-          "assistente-in-cure-e-salute-comunitaria-o-operatore-socio-sanitario-a-orario-variabile-mistral-fondation-de-nant-corsier"
+          "assistant-e-en-soins-et-sante-communautaire-ou-aide-soignant-e-a-taux-variable-mistral"
         ],
         "en": [
           "community-care-and-health-assistant-or-mistral-variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
@@ -87,7 +85,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "nant-443ebdb017d3",
@@ -115,12 +114,13 @@
         "de": "Beschreibung von Posto di Apprendistato MISSION Die Stiftung von Nant è un -- WEITERE - An ambiente di apprentimento stimolante e completo, con l'opportunità di formarsi all - Ein Begleiter e un sostegno da parte dei formatori tutto lungo il percorso di apprentistato. - Eine clima che favorisce lo sviluppo della creatività, al fine di soddisfare le papille dei pazienti, colaboratori e visitatori. -- WE SEEK - Una persona strangea, autonoma, creativa e veloce nell-esecuzione delle tattiche che le vengono affidate. - Una persona con un buon livello scholastico e una great adaptability. - Prima di tutto, una persona motivata, che ha voglia di imparare e che vuole -- Entrata in Funzione 15 agosto 2026 -- Arbeitsort Corsier-sur-Vevey -- Contattoo Per informazioni: - Vanessa-Day Diongzon, experta GePEC, psicologa del lavoro Tel.: 021/965.71.17 - Katia Hächler, psicologa del lavoro intern Tel.: 021/965.70.74 -- Modalità di Kandidatenura Tutte die Anwendung devono essere unicamente über Internet. Wenn prega di inviare: - Motivationsschreiben - Lebenslauf - Kopie von scholastici bulins degli ultimi due anni - Kopie davon attestazioni di Stage/work Per ulteriori informazioni: www.nant.ch",
         "fr": "Institution de formation de renom, la Fondation de Nant met au concours une place d’\n\nApprentissage de Cuisinier·ère\n\nLA MISSION\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, mandaté par l’Etat pour organiser et dispenser les soins psychiatriques dans la région de l’Est vaudois.\n\nNOUS OFFRONS\nUn environnement d'apprentissage stimulant et complet avec l'opportunité de se former au sein d'une équipe engagée . Un accompagnement et un soutien de la part des formateurs tout au long du parcours d'apprentissage. Et finalement, un climat favorisant le développement de la créativité afin de satisfaire les papilles des patients, collaborateurs et autres visiteurs.\n\nNOUS CHERCHONS\nUne personne curieuse , autonome , créative et rapide dans l'exécution des tâches qui lui sont confiées. De plus, nous recherchons une personne ayant un bon niveau scolaire ainsi qu'une grande adaptabilité . Finalement nous souhaitons trouver avant tout une personne motivée qui a envie d'apprendre et d'apporter sa pierre à l'édifice de l'institution.\n\nEntrée en fonction :\n15 août 2026\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de :\n• Vanessa-Day Diongzon, spécialiste GePEC, psychologue du travail 021/965.71.17\n• Katia Hächler, stagiaire psychologue du travail 021/965.70.74\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant : lettre de motivation, CV, copie des bulletins scolaires des 2 dernières années et copies des attestations de stage/travail\nPlus d’informations sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
       },
+      "needsRetranslation": true,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/uZyK5KPP4",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:28:38.231Z",
+      "crawledAt": "2026-08-19T09:44:51.050Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "titleByLocale": {
         "it": "Infermiera in CDI al 100% DMPC",
         "en": "Nurse in CDI at 100% DMPC",
-        "de": "Krankenschwester in CDI bei 100% DMPC",
+        "de": "Infirmier·ère en CDI à 100% DMPC",
         "fr": "Infirmier·ère en CDI à 100% DMPC"
       },
       "description": "Afin de renforcer son équipe du Dispositif Mobile de Psychiatrie Communautaire (DMPC), la Fondation de Nant met au concours un poste d’\n\nInfirmier·ère en CDI à 100%\n LA MISSION\n Les infirmier·ère·s du DMPC ont pour mission d’intervenir, sur indication, auprès de personnes présentant des difficultés psychiques qui rencontrent des obstacles à l’accès aux structures de soins et d’aide habituelle. Leur intervention consiste à réaliser une évaluation clinique spécialisée et à proposer un accompagnement adapté dans le milieu de vie de la personne. La population prise en charge est âgée de 18 à 65 ans. L’équipe infirmière du DMPC assure également l’entrée en soins et le suivi spécialisé de jeunes intégrés au Programme des Jeunes Adultes (PJA). Ce programme, d’une durée de trois ans, est centré sur l’intervention précoce de troubles psychotiques (l’infirmier·ère exerce le rôle de case manager ).\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Travailler au DMPC c’est évoluer au sein du service de psychiatrie et psychothérapie communautaire, en exerçant une activité diversifiée et ce en collaboration constante avec une équipe interdisciplinaire .\n NOUS CHERCHONS\n Un·e infirmier·ère avec de l’expérience en psychiatrie (minimum 2 ans) , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmiers avec reconnaissance Croix-Rouge (ou titre jugé équivalent). Une bonne expérience en psychiatrie en particulier auprès de jeunes adultes est souhaitée. Ce poste requiert un bon sens de l’organisation , une autonomie dans son travail ainsi qu’une bonne gestion des imprévus et du stress . Avoir une bonne capacité d’analyse et de coordination interdisciplinaire est essentiel pour travailler dans ce milieu, ainsi que de bonnes capacités relationnelles , de communication et de négociation . La mobilité du poste implique d’avoir un véhicule motorisé privé.\n\nEntrée en fonction\n De suite, ou à convenir\n\nDélai de postulation\n Les candidatures seront étudiées au fur et à mesure de leur arrivée\n\nType de contrat\n CDI\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Mme Vanessa Baier, ICUS Equipe mobile communautaire, 021 965 71 06\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
@@ -199,7 +199,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:28:38.230Z",
+      "crawledAt": "2026-08-19T09:44:51.048Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -226,8 +226,7 @@
         "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
         "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
         "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-        "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+        "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -239,8 +238,7 @@
           "infirmier-ere-a-90-vaudaire-nant-corsier-sur-vevey",
           "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
           "krankenschwester-bei-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey",
-          "infermiera-in-cdi-al-100-dmpc-fondation-de-nant-corsier-sur-vevey"
+          "nurse-at-80-foehn-fondation-de-nant-corsier-sur-vevey"
         ],
         "en": [
           "infirmier-ere-en-cdi-a-100-dmpc-nant-corsier-sur-vevey",
@@ -266,40 +264,41 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
-      "id": "nant-5bed28d501c2",
-      "slug": "frequenza-variabile-fondation-de-nant-corsier-sur-vevey",
+      "id": "nant-2049772af472",
+      "slug": "infermiera-all-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
-        "it": "frequenza-variabile-fondation-de-nant-corsier-sur-vevey",
-        "en": "variable-rate-caregiver-fondation-de-nant-corsier-sur-vevey",
-        "de": "pflegekraft-mit-variablem-zinssatz-fondation-de-nant-corsier-sur-vevey",
-        "fr": "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey"
+        "fr": "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
+        "it": "infermiera-all-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
+        "en": "nurse-at-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
+        "de": "krankenschwester-bei-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
       "companyDomain": "nant.ch",
-      "title": "Aide-soignant-e à taux variable",
+      "title": "Infirmier·ère à 80% Vaudaire",
       "titleByLocale": {
-        "it": "Frequenza variabile",
-        "en": "Variable rate caregiver",
-        "de": "Pflegekraft mit variablem Zinssatz",
-        "fr": "Aide-soignant-e à taux variable"
+        "fr": "Infirmier·ère à 80% Vaudaire",
+        "it": "Infermiera all'80% Vaudaire",
+        "en": "Nurse at 80% Vaudaire",
+        "de": "Krankenschwester bei 80% Vaudaire"
       },
-      "description": "Afin de renforcer son équipe de poolistes d’aide-soignant-es, la Fondation de Nant cherche des\n\nAide-soignant-e-s à taux variable\n LA MISSION\n Les aide-soignant-es ont pour mission d’assurer, sur appel, les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire. Appelé-es à intervenir dans les unités hospitalières adultes, ils-elles ont la caractéristique d’être particulièrement flexibles .\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois, de la pédopsychiatrie à la psychogériatrie. Travailler au sein de la fondation, c’est évoluer dans un cadre de travail dynamique au cœur d’un projet institutionnel défini.\n NOUS CHERCHONS\n Un-e étudiant-e en soins infirmiers qui souhaite acquérir de l’expérience en milieu psychiatrique ou une personne détenteur-trice d’un CFC d’assistant-e en soins et santé communautaire (ou titre jugé équivalent). Nous cherchons une personne particulièrement adaptable et flexible ayant la capacité à être au service du patient , de ses collègues et de l’institution . Nous cherchons également une personne qui a des disponibilités en semaine et en week-end. Finalement nous souhaitons engager une personne motivée par la mission de la Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n A convenir\n\nDélai de postulation\n 16 août 2026\n\nConditions d’engagement\n • Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n • Lieu de travail\n • Corsier-sur-Vevey\n • Renseignements auprès de\n • Mme Morgane Wirthner, Infirmière Cheffe, 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n Plus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+      "description": "La Fondation de Nant met au concours un poste dans l’ unité hospitalière de psychiatrie adulte (UH Vaudaire), en tant qu’\n\nInfirmier·ère à 80%\n LA MISSION\n Les infirmiers·ères de l’unité hospitalière de psychiatrie adulte ont pour mission d’assurer les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire.\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Le service de psychiatrie et psychothérapie adulte (SPPA) est l’un des trois services de la Fondation de Nant. L’unité hospitalière de psychiatrie adulte comporte quatre divisions, dont Vaudaire, pouvant accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère au sein de cette division, c’est évoluer dans un cadre de travail dynamique au cœur d’une équipe interdisciplinaire .\n NOUS CHERCHONS\n Un·e Infirmier·ère avec de l’expérience en psychiatrie , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmier avec reconnaissance Croix-Rouge (ou titre jugé équivalent). De plus avoir la capacité à être au service du patient , de ses collègues et de l’institution est important pour travailler en tant qu’Infirmier·ère au sein de Vaudaire. Finalement nous souhaitons engager une personne motivée par la mission de le Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n 1er décembre 2026\n\nDélai de postulation\n 6 septembre 2026\n\nConditions d’engagement\n Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\n Corsier-sur-Vevey\n\nRenseignements auprès de\n Morgane Wirthner, Infirmière Cheffe au 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
       "descriptionByLocale": {
-        "it": "Per rafforzare il suo team di assistenti, la Fondazione Nant sta cercando\n\nCustode a tasso variabile\nMISSIONE\nI Caregivers sono responsabili di garantire, su richiesta, la cura richiesta per ogni paziente in stretta collaborazione con un team interdisciplinare. Chiamati ad intervenire in unità ospedaliere adulte, hanno la caratteristica di essere particolarmente flessibili.\n\nUFFICIO\nLa Fondazione Nant è un istituto privato riconosciuto nell'interesse pubblico, incaricato dallo Stato di organizzare e fornire cure psichiatriche nella regione della Vaud orientale, dalla psichiatria infantile alla psicogeria. Lavorare all'interno della fondazione si sta evolvendo in un ambiente di lavoro dinamico al centro di un progetto istituzionale definito.\nNoi vediamo\nUno studente infermieristico che desidera acquisire esperienza in un ambiente psichiatrico o una persona che tiene un SWC di Community Care and Health Assistant (o equivalente).\n• Stiamo cercando una persona particolarmente adattabile e flessibile con la capacità di essere al servizio del paziente, dei suoi colleghi e dell'istituzione. Siamo anche alla ricerca di qualcuno che ha la disponibilità settimana e il fine settimana. Infine vogliamo assumere una persona motivata dalla missione della Fondazione e amare il lavoro come team interdisciplinare.\n\nEntrata in servizio\nEssere d'accordo\n\nCondizioni di impegno\nSecondo la Convenzione Collettiva del Lavoro nel settore pubblico Voodoo.\n\nLuogo di lavoro\nCorsier-sur-Vevey\n\nInformazioni da\nSignora Morgane Wirthner, Capo Infermiere, 021 965 70 03\n\nNella misura in cui tutte le nostre applicazioni sono elaborate elettronicamente, vorremmo ringraziarvi per l'applicazione esclusivamente via Internet, inviandoci, al minimo, un curriculum vitae accompagnato da una lettera di copertura.\n\nMaggiori informazioni su www.nant.ch\n\nFondazione Nant — Istituzione psichiatrica nel cuore del cantone di Vaud, siti di Corsier-sur-Vevey e SPAUL (Lausanne).",
-        "en": "In order to strengthen its team of help-handlers, the Nant Foundation is seeking\n\nVariable-rate caregiver\nMISSION\nCaregivers are responsible for ensuring, on call, the care required for each patient in close collaboration with an interdisciplinary team. Called to intervene in adult hospital units, they have the characteristic of being particularly flexible.\n\nWE OFFER\nThe Nant Foundation is a private institution recognized in the public interest, mandated by the State to organize and provide psychiatric care in the eastern Vaud region, from child psychiatry to psychogeriatry. Working within the foundation is evolving in a dynamic working environment at the heart of a defined institutional project.\nWE SEEK\nA nursing student wishing to gain experience in a psychiatric setting or a person holding an SWC of Community Care and Health Assistant (or equivalent). We are looking for a particularly adaptable and flexible person with the ability to be at the service of the patient, his colleagues and the institution. We are also looking for someone who has week and weekend availability. Finally we want to hire a person motivated by the Foundation's mission and loving the work as an interdisciplinary team.\n\nEntry on duty\nTo be agreed\n\nConditions of engagement\nAccording to the Collective Labour Convention in the Voodoo public sector.\n\nPlace of work\nCorsier-sur-Vevey\n\nInformation from\nMs. Morgane Wirthner, Chief Nurse, 021 965 70 03\n\nTo the extent that all our applications are processed electronically, we would like to thank you for applying exclusively via the Internet, by sending us, at a minimum, a curriculum vitae accompanied by a cover letter.\n\nMore information on www.nant.ch\n\nNant Foundation — Psychiatric institution in the heart of the canton of Vaud, sites of Corsier-sur-Vevey and SPAUL (Lausanne).",
-        "de": "Um sein Team von Help-Handlern zu stärken, sucht die Nant Foundation\n\nPflegekraft mit variablem Zinssatz\nÜBERMITTLUNG\nPflegekräfte sind dafür verantwortlich, auf Abruf die für jeden Patienten erforderliche Versorgung in enger Zusammenarbeit mit einem interdisziplinären Team sicherzustellen. Sie sind aufgerufen, in erwachsene Krankenhauseinheiten einzugreifen, und haben die Eigenschaft, besonders flexibel zu sein.\n\nWIR ANGEBOT\nDie Nant-Stiftung ist eine private Einrichtung, die im öffentlichen Interesse anerkannt ist und vom Staat beauftragt wird, psychiatrische Versorgung in der östlichen Waadtregion zu organisieren und anzubieten, von der Kinderpsychiatrie bis zur Psychogeriatrie. Die Arbeit innerhalb der Stiftung entwickelt sich in einem dynamischen Arbeitsumfeld im Herzen eines definierten institutionellen Projekts.\nWIR SEHEN\nEin pflegestudent, der erfahrung in einer psychiatrischen umgebung sammeln möchte, oder eine person, die einen swc von community care and health assistant (oder gleichwertig) hält. Wir suchen eine besonders anpassungsfähige und flexible Person mit der Fähigkeit, dem Patienten, seinen Kollegen und der Institution zu dienen. Wir suchen auch jemanden, der wochen- und wochenendverfügbarkeit hat. Schließlich möchten wir eine Person einstellen, die von der Mission der Stiftung motiviert ist und die Arbeit als interdisziplinäres Team liebt.\n\nEingangszollstelle\nZu vereinbaren\n\nEinsatzbedingungen\nGemäß dem Kollektivarbeitsübereinkommen im öffentlichen Sektor von Voodoo.\n\nArbeitsort\nCorsier-sur-Vevey\n\nInformationen von\nFrau Morgane Wirthner, Chief Nurse, 021 965 70 03\n\nSoweit alle unsere Bewerbungen elektronisch bearbeitet werden, möchten wir uns bei Ihnen bedanken, dass Sie sich ausschließlich über das Internet bewerben, indem Sie uns mindestens einen Lebenslauf mit Anschreiben zusenden.\n\nMehr Informationen auf www.nant.ch\n\nNant Foundation — Psychiatrische Einrichtung im Herzen des Kantons Waadt, Standorte Corsier-sur-Vevey und SPAUL (Lausanne).",
-        "fr": "Afin de renforcer son équipe de poolistes d’aide-soignant-es, la Fondation de Nant cherche des\n\nAide-soignant-e-s à taux variable\n LA MISSION\n Les aide-soignant-es ont pour mission d’assurer, sur appel, les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire. Appelé-es à intervenir dans les unités hospitalières adultes, ils-elles ont la caractéristique d’être particulièrement flexibles .\n\nNOUS OFFRONS\n La Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois, de la pédopsychiatrie à la psychogériatrie. Travailler au sein de la fondation, c’est évoluer dans un cadre de travail dynamique au cœur d’un projet institutionnel défini.\n NOUS CHERCHONS\n Un-e étudiant-e en soins infirmiers qui souhaite acquérir de l’expérience en milieu psychiatrique ou une personne détenteur-trice d’un CFC d’assistant-e en soins et santé communautaire (ou titre jugé équivalent). Nous cherchons une personne particulièrement adaptable et flexible ayant la capacité à être au service du patient , de ses collègues et de l’institution . Nous cherchons également une personne qui a des disponibilités en semaine et en week-end. Finalement nous souhaitons engager une personne motivée par la mission de la Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n A convenir\n\nDélai de postulation\n 16 août 2026\n\nConditions d’engagement\n • Selon la Convention Collective de Travail dans le secteur parapublic vaudois.\n • Lieu de travail\n • Corsier-sur-Vevey\n • Renseignements auprès de\n • Mme Morgane Wirthner, Infirmière Cheffe, 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n Plus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne)."
+        "fr": "La Fondation de Nant met au concours un poste dans l’ unité hospitalière de psychiatrie adulte (UH Vaudaire), en tant qu’\n\nInfirmier·ère à 80%\n\nLA MISSION\nLes infirmiers·ères de l’unité hospitalière de psychiatrie adulte ont pour mission d’assurer les prestations de soins requises pour chaque patient et ce en étroite collaboration au sein d’une équipe interdisciplinaire.\n\nNOUS OFFRONS\nLa Fondation de Nant est une institution privée reconnue d’intérêt public, chargée par l’Etat d’organiser et dispenser des soins psychiatriques dans la région de l’Est vaudois. Le service de psychiatrie et psychothérapie adulte (SPPA) est l’un des trois services de la Fondation de Nant. L’unité hospitalière de psychiatrie adulte comporte quatre divisions, dont Vaudaire, pouvant accueillir jusqu’à 14 patients âgés de 18 à 65 ans, souffrant de troubles psychiatriques sévères. Être infirmier·ère au sein de cette division, c’est évoluer dans un cadre de travail dynamique au cœur d’une équipe interdisciplinaire .\n\nNOUS CHERCHONS\nUn·e Infirmier·ère avec de l’expérience en psychiatrie , détenteur·trice d’un Bachelor of Science HES-SO en soins infirmier avec reconnaissance Croix-Rouge (ou titre jugé équivalent). De plus avoir la capacité à être au service du patient , de ses collègues et de l’institution est important pour travailler en tant qu’Infirmier·ère au sein de Vaudaire. Finalement nous souhaitons engager une personne motivée par la mission de le Fondation et aimant le travail en équipe interdisciplinaire .\n\nEntrée en fonction\n1er décembre 2026\n\nDélai de postulation\n6 septembre 2026\n\nConditions d’engagement\nSelon la Convention Collective de Travail dans le secteur parapublic vaudois.\n\nLieu de travail :\nCorsier-sur-Vevey\n\nRenseignements auprès de\nMorgane Wirthner, Infirmière Cheffe au 021 965 70 03\n\nDans la mesure où toutes nos candidatures sont traitées de manière électronique, nous vous remercions de postuler exclusivement par internet, en nous adressant, au minimum, un curriculum vitae accompagné d’une lettre de motivation\n\nPlus d’information sur www.nant.ch\n\nFondation de Nant — Établissement psychiatrique au cœur du canton de Vaud, sites de Corsier-sur-Vevey et SPAUL (Lausanne).",
+        "it": "La Fondazione di Nant colloca una posizione nell'Unità Ospedaliera della Psichiatria Adulta (UH Vaudaire) nella competizione come una\n\nInfermiera all'80%\n LA MISSIONE\n Infermieri nell'unità ospedaliera psichiatria adulta sono responsabili di fornire l'assistenza necessaria per ogni paziente in stretta collaborazione con un team interdisciplinare.\n\nUFFICIO\n La Fondazione Nant è un istituto privato riconosciuto nell'interesse pubblico, incaricato dallo Stato di organizzare e fornire cure psichiatriche nella regione orientale di Vaud. Il Servizio di Psichiatria Adulta e Psicoterapia (SPPA) è uno dei tre servizi della Fondazione Nant. L'unità ospedaliera psichiatria per adulti ha quattro divisioni, tra cui Vaudaire, che possono ospitare fino a 14 pazienti di età compresa tra i 18 e i 65 anni con gravi disturbi psichiatrici. Essere un'infermiera all'interno di questa divisione è evolvere all'interno di un ambiente di lavoro dinamico al centro di una squadra interdisciplinare.\n Noi vediamo\n Un'infermiera con esperienza in psichiatria, titolare di un Bachelor of Science HES-SO in allattamento con il riconoscimento della Croce Rossa (o equivalente). Inoltre, avere la capacità di essere al servizio del paziente, i suoi colleghi e l'istituzione è importante per lavorare come infermiera in Vaudaire. Infine vogliamo assumere una persona motivata dalla missione della Fondazione e amare il lavoro come team interdisciplinare.\n\nEntrata in ufficio\n 1 dicembre 2026\n\nTempo di pubblicazione\n 6 settembre 2026\n\nCondizioni di impegno\n Secondo la Convenzione Collettiva del Lavoro nel settore pubblico di Vaud.\n\nLuogo di lavoro:\n Corsier-sur-Vevey\n\nInformazioni da\n Morgane Wirthner, Capo Infermiere al 021 965 70 03\n\nNella misura in cui tutte le nostre applicazioni sono elaborate elettronicamente, vorremmo ringraziarvi per l'applicazione esclusivamente via Internet, inviandoci, al minimo, un curriculum vitae accompagnato da una lettera di copertura.\n\nMaggiori informazioni su www.nant.ch\n\nFondazione Nant — Istituzione psichiatrica nel cuore del cantone di Vaud, siti di Corsier-sur-Vevey e SPAUL (Lausanne).",
+        "en": "The Foundation of Nant places a position in the Hospital Unit of Adult Psychiatry (UH Vaudaire) in the competition as a\n\nNurse at 80%\n THE MISSION\n Nurses in the adult psychiatry hospital unit are responsible for providing the care required for each patient in close collaboration with an interdisciplinary team.\n\nWE OFFER\n The Nant Foundation is a private institution recognized in the public interest, mandated by the State to organize and provide psychiatric care in the eastern Vaud region. The Adult Psychiatry and Psychotherapy Service (SPPA) is one of the three services of the Nant Foundation. The adult psychiatry hospital unit has four divisions, including Vaudaire, which can accommodate up to 14 patients aged 18 to 65 years with severe psychiatric disorders. To be a nurse within this division is to evolve within a dynamic working environment at the heart of an interdisciplinary team.\n WE SEEK\n A nurse with experience in psychiatry, holder of a Bachelor of Science HES-SO in nursing with Red Cross recognition (or equivalent). Moreover, having the capacity to be at the service of the patient, his colleagues and the institution is important for working as a nurse in Vaudaire. Finally we want to hire a person motivated by the Foundation's mission and loving the work as an interdisciplinary team.\n\nEntry into office\n 1 December 2026\n\nPosting time\n 6 September 2026\n\nConditions of engagement\n According to the Collective Labour Convention in the Parapublic Sector of Vaud.\n\nPlace of work:\n Corsier-sur-Vevey\n\nInformation from\n Morgane Wirthner, Chief Nurse at 021 965 70 03\n\nTo the extent that all our applications are processed electronically, we would like to thank you for applying exclusively via the Internet, by sending us, at a minimum, a curriculum vitae accompanied by a cover letter.\n\nMore information on www.nant.ch\n\nNant Foundation — Psychiatric institution in the heart of the canton of Vaud, sites of Corsier-sur-Vevey and SPAUL (Lausanne).",
+        "de": "Die Stiftung Nant platziert eine Stelle in der Hospital Unit of Adult Psychiatry (UH Vaudaire) im Wettbewerb als\n\nKrankenschwester bei 80%\n DIE EINLEITUNG\n Krankenschwestern in der psychiatrischen Klinik für Erwachsene sind dafür verantwortlich, die für jeden Patienten erforderliche Versorgung in enger Zusammenarbeit mit einem interdisziplinären Team zu gewährleisten.\n\nWIR ANGEBOT\n Die Nant-Stiftung ist eine im öffentlichen Interesse anerkannte private Einrichtung, die vom Staat beauftragt wird, psychiatrische Versorgung in der östlichen Waadtregion zu organisieren und bereitzustellen. Der Adult Psychiatry and Psychotherapy Service (SPPA) ist einer der drei Dienste der Nant Foundation. Die psychiatrische Klinik für Erwachsene hat vier Abteilungen, darunter Vaudaire, die bis zu 14 Patienten im Alter von 18 bis 65 Jahren mit schweren psychiatrischen Störungen aufnehmen können. Eine Krankenschwester in diesem Bereich zu sein, bedeutet, sich in einem dynamischen Arbeitsumfeld im Herzen eines interdisziplinären Teams zu entwickeln.\n WIR SEHEN\n Eine Krankenschwester mit Erfahrung in der Psychiatrie, Inhaber eines Bachelor of Science HES-SO in der Pflege mit Anerkennung des Roten Kreuzes (oder gleichwertig). Darüber hinaus ist die Fähigkeit, im Dienste des Patienten, seiner Kollegen und der Institution zu stehen, wichtig für die Arbeit als Krankenschwester in Vaudaire. Schließlich möchten wir eine Person einstellen, die von der Mission der Stiftung motiviert ist und die Arbeit als interdisziplinäres Team liebt.\n\nAmtsantritt\n 1. Dezember 2026\n\nPostzeit\n 6. September 2026\n\nEinsatzbedingungen\n Gemäß dem Kollektivarbeitsübereinkommen im halböffentlichen Sektor Waadt.\n\nArbeitsort:\n Corsier-sur-Vevey\n\nInformationen von\n Morgane Wirthner, Chefkrankenschwester 021 965 70 03\n\nSoweit alle unsere Bewerbungen elektronisch bearbeitet werden, danken wir Ihnen für Ihre Bewerbung ausschließlich über das Internet, indem Sie uns mindestens einen Lebenslauf mit Anschreiben zusenden.\n\nMehr Informationen auf www.nant.ch\n\nNant Foundation — Psychiatrische Einrichtung im Herzen des Kantons Waadt, Standorte Corsier-sur-Vevey und SPAUL (Lausanne)."
       },
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
-      "url": "https://app.beehire.com/invite/PdTkBFu_5",
+      "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-16T21:21:44.594Z",
+      "crawledAt": "2026-08-19T09:44:51.043Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -312,41 +311,44 @@
       "sector": "Santé mentale / Psychiatrie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://app.beehire.com/invite/PdTkBFu_5",
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://app.beehire.com/invite/62T5zjL5K",
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://nant.ch/carrieres/",
-      "previousSlugs": [
-        "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey",
-        "frequenza-variabile-fondation-de-nant-corsier-sur-vevey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey",
-          "frequenza-variabile-fondation-de-nant-corsier-sur-vevey"
-        ],
-        "en": [
-          "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey"
-        ],
-        "de": [
-          "aide-soignant-e-a-taux-variable-nant-corsier-sur-vevey"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T22:10:12.104Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 48400,
+          "maxValue": 73200,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-08-18T21:32:00.438Z",
+      "previousSlugs": [
+        "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
+        "infermiera-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
+        "nurse-80-vaudaire-fondation-de-nant-corsier-sur-vevey",
+        "krankenschwester-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
+          "infermiera-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
+          "nurse-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "de": [
+          "infirmier-ere-a-80-vaudaire-nant-corsier-sur-vevey",
+          "krankenschwester-80-vaudaire-fondation-de-nant-corsier-sur-vevey"
+        ]
+      }
     }
   ]
 }

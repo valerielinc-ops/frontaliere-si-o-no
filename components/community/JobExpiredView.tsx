@@ -35,6 +35,7 @@ import Callout from '@/components/shared/Callout';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
+import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 
 interface RelatedJob {
  slug: string;
@@ -382,6 +383,32 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  /**
+  * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
+  *
+  * The highest-intent placement the feature has: the reader arrived for a job
+  * that no longer exists, so "tell me when this employer posts again" is the
+  * only action left that still does something for them. Rendered inside
+  * `jobHeader`, right under the employer-hub link, in BOTH layouts — it used
+  * to hang off the company banner further down, which (as that banner's own
+  * comment notes) renders below the auth gate and the end-of-page ad in the
+  * gated layout, i.e. out of reach of the logged-out reader this CTA exists
+  * for. The component handles the anonymous case itself (email capture +
+  * double opt-in), so no session is needed to take it.
+  */
+ const companyFollowCta = job.company ? (
+   <Suspense fallback={null}>
+     <CompanyFollowCta
+       company={job.company}
+       companyKey={job.companyKey ?? null}
+       locale={locale as Locale}
+       surface="company_follow_expired"
+       sourceJobSlug={job.slug ?? null}
+       sourceJobTitle={job.title ?? null}
+     />
+   </Suspense>
+ ) : null;
+
+ /**
   * The one link on this page that still leads somewhere permanent.
   *
   * The whole thing — the existence proof, the `<a href>`, the anchor and the
@@ -448,37 +475,25 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  {employerHubCta}
+ {/* And the follow CTA right under it: same employer, same question, and the
+     one ask on this page that needs no account. It used to hang off the
+     company banner further down — which, as the banner's own comment notes,
+     renders BELOW the auth gate and the end-of-page ad in the gated layout,
+     i.e. out of reach of exactly the logged-out visitor it was written for.
+     Same move as the active ad in JobBoard, same reason. */}
+ {companyFollowCta}
  </>
  );
 
- /**
-  * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
-  *
-  * The highest-intent placement the feature has: the reader arrived for a job
-  * that no longer exists, so "tell me when this employer posts again" is the
-  * only action left that still does something for them. Rendered next to the
-  * company banner in both layouts below, gated and not, because the component
-  * handles the anonymous case itself (email capture + double opt-in).
-  */
- const companyFollowCta = job.company ? (
-   <Suspense fallback={null}>
-     <CompanyFollowCta
-       company={job.company}
-       companyKey={job.companyKey ?? null}
-       locale={locale as Locale}
-       surface="company_follow_expired"
-       sourceJobSlug={job.slug ?? null}
-       sourceJobTitle={job.title ?? null}
-     />
-   </Suspense>
- ) : null;
 
  // The banner deliberately keeps pointing at the in-app company FILTER, not at
  // the hub: it is a different destination (the live board, scoped to this
  // employer) and it is the only one that still resolves when no hub was emitted.
  // The hub link is `employerHubCta` above — one per page, and placed where a
  // logged-out visitor actually sees it, since this banner renders below the auth
- // gate and the end-of-page ad in the gated layout.
+ // gate and the end-of-page ad in the gated layout. `companyFollowCta` used to
+ // hang off THIS banner and moved up beside the hub link for exactly the reason
+ // this comment already gave: whatever sits here is below the gate.
  const companyBanner = job.company && companyHref && (
  <>
  <button
@@ -503,7 +518,6 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  </div>
  </button>
- {companyFollowCta}
  </>
  );
 
@@ -514,6 +528,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {relatedJobs.slice(0, 6).flatMap((rj, rjIdx, rjArr) => {
  const rjSlug = rj.slug;
  const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
+ const rjLocation = formatJobLocation(rj.location, rj.canton);
  const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
  const rjLogo = cdnImageUrl(resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url }));
  const rjSalary = formatRelatedSalary(rj);
@@ -538,7 +553,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="min-w-0 flex-1">
  <h3 className="text-sm sm:text-base font-bold text-heading leading-tight">{rjTitle}</h3>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
- {rj.company}{rj.location ? ` · ${rj.location}${rj.canton ? ` (${rj.canton})` : ''}` : ''}
+ {rj.company}{rjLocation ? ` · ${rjLocation}` : ''}
  </p>
  {rjSalary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">

@@ -20600,10 +20600,10 @@
         "fr": "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "en": "/en/find-jobs-solothurn/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+        "it": "/cerca-lavoro-berna/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+        "en": "/en/find-jobs-bern/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "de": "/de/jobs-im-basel/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "fr": "/fr/trouver-emploi-soleure/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
+        "fr": "/fr/trouver-emploi-berne/dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -36033,10 +36033,10 @@
         "fr": "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
-        "en": "/en/find-jobs-zurich/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
+        "it": "/cerca-lavoro-grigioni/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
+        "en": "/en/find-jobs-graubunden/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
         "de": "/de/jobs-im-bern/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels",
-        "fr": "/fr/trouver-emploi-zurich/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels"
+        "fr": "/fr/trouver-emploi-grisons/koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-mels"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42743,10 +42743,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg",
-        "en": "/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg",
+        "it": "/cerca-lavoro-obvaldo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg",
+        "en": "/en/find-jobs-obwalden/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg",
         "de": "/de/jobs-im-bern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg",
-        "fr": "/fr/trouver-emploi-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg"
+        "fr": "/fr/trouver-emploi-obwald/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-engelberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47834,6 +47834,64 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "podolog-bernaqua-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/podolog-bernaqua-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/podolog-bernaqua-bern/"
+      },
+      "queries": [
+        {
+          "query": "bernaqua jobs",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "bernaqua jobs",
+      "title": "Podolog bernaqua",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "podolog-bernaqua-bern",
+        "en": "podolog-bernaqua-bern",
+        "de": "podolog-bernaqua-bern",
+        "fr": "podolog-bernaqua-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/podolog-bernaqua-bern",
+        "en": "/en/find-jobs-bern/podolog-bernaqua-bern",
+        "de": "/de/jobs-im-bern/podolog-bernaqua-bern",
+        "fr": "/fr/trouver-emploi-berne/podolog-bernaqua-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -59275,10 +59333,10 @@
         "fr": "seller-in-food-student-help-coop-genossenschaft-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-student-help-coop-genossenschaft-bern",
-        "en": "/en/find-jobs-ticino/seller-in-food-student-help-coop-genossenschaft-bern",
-        "de": "/de/jobs-im-tessin/seller-in-food-student-help-coop-genossenschaft-bern",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-student-help-coop-genossenschaft-bern"
+        "it": "/cerca-lavoro-berna/seller-in-food-student-help-coop-genossenschaft-bern",
+        "en": "/en/find-jobs-bern/seller-in-food-student-help-coop-genossenschaft-bern",
+        "de": "/de/jobs-in-bern/seller-in-food-student-help-coop-genossenschaft-bern",
+        "fr": "/fr/trouver-emploi-berne/seller-in-food-student-help-coop-genossenschaft-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70572,10 +70630,10 @@
         "fr": "vendeur-a-salaire-horaire-denner-hunzenschwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-a-salaire-horaire-denner-hunzenschwil",
-        "en": "/en/find-jobs-zurich/vendeur-a-salaire-horaire-denner-hunzenschwil",
-        "de": "/de/jobs-in-zurich/vendeur-a-salaire-horaire-denner-hunzenschwil",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-a-salaire-horaire-denner-hunzenschwil"
+        "it": "/cerca-lavoro-turgovia/vendeur-a-salaire-horaire-denner-hunzenschwil",
+        "en": "/en/find-jobs-thurgau/vendeur-a-salaire-horaire-denner-hunzenschwil",
+        "de": "/de/jobs-im-thurgau/vendeur-a-salaire-horaire-denner-hunzenschwil",
+        "fr": "/fr/trouver-emploi-thurgovie/vendeur-a-salaire-horaire-denner-hunzenschwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72747,10 +72805,10 @@
         "fr": "venditore-in-salario-orario-denner-therwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-in-salario-orario-denner-therwil",
-        "en": "/en/find-jobs-zurich/venditore-in-salario-orario-denner-therwil",
-        "de": "/de/jobs-in-zurich/venditore-in-salario-orario-denner-therwil",
-        "fr": "/fr/trouver-emploi-zurich/venditore-in-salario-orario-denner-therwil"
+        "it": "/cerca-lavoro-turgovia/venditore-in-salario-orario-denner-therwil",
+        "en": "/en/find-jobs-thurgau/venditore-in-salario-orario-denner-therwil",
+        "de": "/de/jobs-im-thurgau/venditore-in-salario-orario-denner-therwil",
+        "fr": "/fr/trouver-emploi-thurgovie/venditore-in-salario-orario-denner-therwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72802,10 +72860,10 @@
         "fr": "venditore-nel-salario-orario-denner-schaffhausen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-nel-salario-orario-denner-schaffhausen",
-        "en": "/en/find-jobs-zurich/venditore-nel-salario-orario-denner-schaffhausen",
-        "de": "/de/jobs-in-zurich/venditore-nel-salario-orario-denner-schaffhausen",
-        "fr": "/fr/trouver-emploi-zurich/venditore-nel-salario-orario-denner-schaffhausen"
+        "it": "/cerca-lavoro-turgovia/venditore-nel-salario-orario-denner-schaffhausen",
+        "en": "/en/find-jobs-thurgau/venditore-nel-salario-orario-denner-schaffhausen",
+        "de": "/de/jobs-im-thurgau/venditore-nel-salario-orario-denner-schaffhausen",
+        "fr": "/fr/trouver-emploi-thurgovie/venditore-nel-salario-orario-denner-schaffhausen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77681,10 +77739,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-7"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/zusteller-in-briefe-und-pakete-post-7",
-        "en": "/en/find-jobs-ticino/zusteller-in-briefe-und-pakete-post-7",
-        "de": "/de/jobs-im-tessin/zusteller-in-briefe-und-pakete-post-7",
-        "fr": "/fr/trouver-emploi-tessin/zusteller-in-briefe-und-pakete-post-7"
+        "it": "/cerca-lavoro-argovia/zusteller-in-briefe-und-pakete-post-7",
+        "en": "/en/find-jobs-aargau/zusteller-in-briefe-und-pakete-post-7",
+        "de": "/de/jobs-im-aargau/zusteller-in-briefe-und-pakete-post-7",
+        "fr": "/fr/trouver-emploi-argovie/zusteller-in-briefe-und-pakete-post-7"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

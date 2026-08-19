@@ -10,7 +10,12 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/7c7b0396-4f06-449e-a540-edc7fd1270b7",
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/cd13a34c-34a0-4ad5-90d1-56ae0a739a1d",
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/9d1c41e1-4ef7-4760-afc2-0da3c1fef838",
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/f0975675-de8c-4b4f-9f8a-a601b9c40e81",
+    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/7b61df9d-07af-4295-9209-76d1896d318e",
+    "https://jobs.fust.ch/offene-stellen/prozessspezialist-in-werkstatt/94fd0df7-c5de-4ac3-b3b8-fc5b9f356e28",
+    "https://jobs.fust.ch/offene-stellen/bauleiter-in/ea2986d4-d1f5-4b70-ab7d-f04c9d87ef1d",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-warenausgang/12a2506d-b980-438b-bdd9-b2c3539b284b",
     "https://jobs.fust.ch/postes-vacants/technicien-de-service-apres-vente/672f6b1a-e452-46d4-96d5-becee1c74d8a",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-intralogistik-bereich-retouren/599ece76-70c5-4ad4-b6d9-f557792b8a60",
@@ -19,13 +24,11 @@
     "https://jobs.fust.ch/offene-stellen/verkaeufer-in-planer-in-kuechen-baeder/08be5b85-69d3-4527-858e-95a36d38b245",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/b5969fa5-3d2e-4f2c-95c9-0b7f6f8dd365",
     "https://jobs.fust.ch/offene-stellen/qualitaetsverantwortliche-r-heimlieferung/3eec0dc5-4d44-4d66-a81f-798aec116503",
-    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/ad78f06a-769d-471d-8fec-7aecff07d90e",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/9a8b83d2-42a6-4eb2-a7f7-be0f7bc6cb85",
     "https://jobs.fust.ch/offene-stellen/business-project-manager/1a7f6069-30a6-4390-9c3b-49699e400ff7",
     "https://jobs.fust.ch/postes-vacants/conseillere-ou-conseiller-de-vente-secteur-electromenager-multimedia/87dba4bc-a071-44f0-96fa-9fa56ec055f0",
     "https://jobs.fust.ch/offene-stellen/stellvertretung-leitung-wareneingang/a1a206e9-e793-4438-880e-1acf330c7b9a",
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/6f0c26b8-a1e2-49ce-8bf9-9d602e25bc07",
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/8d5dbdb0-6c49-4c70-a621-255b72a034fc",
     "https://jobs.fust.ch/offene-stellen/kundendienstmitarbeiter-in-service/d03748c8-ed39-4519-841c-03461f1eb5e6",
     "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/f964b578-aef3-441d-8430-b83c229a24db",
     "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/d48a39bf-6cd2-4351-a3b3-519964ca571d",
@@ -74,7 +77,6 @@
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/4852ded3-f19d-4d44-a13e-1e115e9d05e8",
     "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a3efc92c-3425-4351-8c1c-c89406082e18",
     "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/9d66c95e-0ae6-4407-b6d7-380188f7b3e9",
-    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/6aecee1b-2f59-4e77-bf25-f8b4f3172639",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/b8eeffad-1e70-4930-b432-6992a66a090a",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-heimservice/85ac2d87-8981-41fe-ac1c-bc9e27964387",
     "https://jobs.fust.ch/offene-stellen/2nd-level-support-engineer/22f127d6-b895-48ce-b749-2c159c2b6dc3",
@@ -84,15 +86,42 @@
     "https://jobs.fust.ch/offene-stellen/application-developer-java/1b3990f4-6254-4d19-a757-43e40cc8b5a0",
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/dd51a8e1-fd97-4a54-8d34-d0e339b56323",
     "https://jobs.fust.ch/offene-stellen/disponent-in-kuechen-baeder/d17dbd91-297d-4e0e-8c85-c6340465323c",
-    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/334cbd70-7c82-47c9-a3a0-31f1fe77caae",
-    "https://jobs.fust.ch/offene-stellen/bauleiter-in/e759dd00-96e4-498f-9bb5-4a45caa644d3",
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/a6c1f91a-86df-42c5-b502-020f144f8127",
-    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/8f537667-e488-45e9-b7b9-ecc8745a6c94"
+    "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/334cbd70-7c82-47c9-a3a0-31f1fe77caae"
   ],
   "seedMetaByUrl": {
-    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/7c7b0396-4f06-449e-a540-edc7fd1270b7": {
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/cd13a34c-34a0-4ad5-90d1-56ae0a739a1d": {
+      "location": "Lucerna",
+      "canton": "LU",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/9d1c41e1-4ef7-4760-afc2-0da3c1fef838": {
+      "location": "Vallese",
+      "canton": "VS",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/f0975675-de8c-4b4f-9f8a-a601b9c40e81": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/7b61df9d-07af-4295-9209-76d1896d318e": {
       "location": "San Gallo",
       "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/prozessspezialist-in-werkstatt/94fd0df7-c5de-4ac3-b3b8-fc5b9f356e28": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/bauleiter-in/ea2986d4-d1f5-4b70-ab7d-f04c9d87ef1d": {
+      "location": "Berna",
+      "canton": "BE",
       "company": "Fust",
       "contract": "A tempo indeterminato"
     },
@@ -144,12 +173,6 @@
       "company": "Fust",
       "contract": "A tempo indeterminato"
     },
-    "https://jobs.fust.ch/offene-stellen/werkstatt-techniker-in-fuer-elektrokleingeraete/ad78f06a-769d-471d-8fec-7aecff07d90e": {
-      "location": "San Gallo",
-      "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/9a8b83d2-42a6-4eb2-a7f7-be0f7bc6cb85": {
       "location": "Zurigo",
       "canton": "ZH",
@@ -177,12 +200,6 @@
     "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/6f0c26b8-a1e2-49ce-8bf9-9d602e25bc07": {
       "location": "San Gallo",
       "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/8d5dbdb0-6c49-4c70-a621-255b72a034fc": {
-      "location": "Lucerna",
-      "canton": "LU",
       "company": "Fust",
       "contract": "A tempo indeterminato"
     },
@@ -474,12 +491,6 @@
       "company": "Fust",
       "contract": "A tempo indeterminato"
     },
-    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/6aecee1b-2f59-4e77-bf25-f8b4f3172639": {
-      "location": "Grigioni",
-      "canton": "GR",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/b8eeffad-1e70-4930-b432-6992a66a090a": {
       "location": "Zurigo",
       "canton": "ZH",
@@ -539,26 +550,8 @@
       "canton": "BE",
       "company": "Fust",
       "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/bauleiter-in/e759dd00-96e4-498f-9bb5-4a45caa644d3": {
-      "location": "Berna",
-      "canton": "BE",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/a6c1f91a-86df-42c5-b502-020f144f8127": {
-      "location": "Vallese",
-      "canton": "VS",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/8f537667-e488-45e9-b7b9-ecc8745a6c94": {
-      "location": "Berna",
-      "canton": "BE",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-17T21:34:35.424Z"
+  "updatedAt": "2026-08-19T09:48:46.424Z"
 }

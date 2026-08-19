@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-08-17T21:31:21.667Z",
+  "generatedAt": "2026-08-19T09:46:10.720Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 153587,
-  "avgDurationMs": 153587,
+  "durationMs": 57824,
+  "avgDurationMs": 57824,
   "durationHistory": [
-    153587
+    57824
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-08-17T21:31:20.789Z",
+      "crawledAt": "2026-08-19T09:46:10.060Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -75,7 +75,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-08-17T21:31:20.789Z",
+      "crawledAt": "2026-08-19T09:46:10.060Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -115,7 +115,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-08-16T21:23:35.366Z",
+      "crawledAt": "2026-08-19T09:46:10.060Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -125,7 +125,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {

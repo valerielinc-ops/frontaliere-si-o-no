@@ -2,8 +2,9 @@
 /**
  * Precompute the per-comune evergreen topics and publish them as data.
  *
- * The article generator needs ~85 long-tail keywords of the shape "vivere a X
- * e lavorare in Y da frontaliere". Deriving them takes four site datasets —
+ * The article generator needs a few hundred long-tail keywords of the shape
+ * "vivere a X e lavorare in Y da frontaliere" (446 as of 2026-08-18; it was 85
+ * until the per-canton count cap became a commute-distance cap). Deriving them takes four site datasets —
  * municipalities, border crossings, the crossing slugs and the wait averages —
  * because the canton is assigned by geographic proximity. Those datasets have
  * 20+ and 25+ consumers in the site respectively; they are site core and cannot
@@ -58,10 +59,14 @@ function main() {
 
   // A collapse here would silently strip the generator's evergreen pool, and
   // an empty pool is not a visible failure — it just quietly narrows what gets
-  // written. Refuse rather than publish it. Floor is half the pre-#5563
-  // value: one candidate per comune now, not two.
-  if (!Array.isArray(topics) || topics.length < 50) {
-    console.error(`::error::expected at least 50 comune topics, got ${topics?.length ?? 0} — refusing to write`);
+  // written. Refuse rather than publish it.
+  //
+  // Floor raised 50 -> 300 on 2026-08-18, with the reader's twin in
+  // scripts/lib/evergreen-topic-generator.mjs: 50 was ~59% of the 85 topics
+  // this produced when it was written, and only 11% of the 437 it produces
+  // now. A floor that covers 11% is not a tripwire.
+  if (!Array.isArray(topics) || topics.length < 300) {
+    console.error(`::error::expected at least 300 comune topics, got ${topics?.length ?? 0} — refusing to write`);
     process.exit(1);
   }
 

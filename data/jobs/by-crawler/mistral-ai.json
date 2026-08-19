@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-08-17T22:02:40.527Z",
+  "assembledAt": "2026-08-19T10:16:23.374Z",
   "jobs": [
     {
       "id": "mistral-ai-a19ef62acdc4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/b5249209-1516-4ef7-bd34-5b5cb15f2dfd",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.901Z",
+      "crawledAt": "2026-08-19T10:16:20.300Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,13 +51,15 @@
       "previousSlugs": [
         "software-engineer-network-automation-wan-edge-mistral-ai-ch",
         "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich-3gxq7a",
-        "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a"
+        "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a",
+        "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "software-engineer-network-automation-wan-edge-mistral-ai-ch",
           "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich-3gxq7a",
-          "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a"
+          "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a",
+          "software-ingegnere-network-automation-wan-edge-mistral-ai-zurich"
         ],
         "en": [
           "software-engineer-network-automation-wan-edge-mistral-ai-ch-3gxq7a"
@@ -82,7 +84,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -115,7 +118,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.900Z",
+      "crawledAt": "2026-08-19T10:16:20.299Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -131,11 +134,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-scientist-research-engineer-emea-mistral-ai-ch"
+        "applied-scientist-research-engineer-emea-mistral-ai-ch",
+        "applied-scientist-ricerca-ingegnere-emea-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-scientist-research-engineer-emea-mistral-ai-ch"
+          "applied-scientist-research-engineer-emea-mistral-ai-ch",
+          "applied-scientist-ricerca-ingegnere-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-scientist-research-engineer-emea-mistral-ai-ch"
@@ -190,7 +195,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.899Z",
+      "crawledAt": "2026-08-19T10:16:20.298Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,14 +214,16 @@
         "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
         "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
         "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
-        "research-engineer-data-infrastructure-mistral-ai-ch"
+        "research-engineer-data-infrastructure-mistral-ai-ch",
+        "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
           "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
-          "research-engineer-data-infrastructure-mistral-ai-ch"
+          "research-engineer-data-infrastructure-mistral-ai-ch",
+          "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich"
         ],
         "de": [
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
@@ -273,7 +280,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.898Z",
+      "crawledAt": "2026-08-19T10:16:20.297Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -289,17 +296,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
+        "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch",
+        "applied-ai-technical-lead-forward-deployed-ai-ingegnere-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
+          "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch",
+          "applied-ai-technical-lead-forward-deployed-ai-ingegnere-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -345,7 +355,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.897Z",
+      "crawledAt": "2026-08-19T10:16:20.296Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -361,11 +371,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
+        "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
+        "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
+          "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch",
+          "applied-ai-ingegnere-ml-infrastructure-ingegnere-devops-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
@@ -387,7 +399,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -420,7 +433,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.896Z",
+      "crawledAt": "2026-08-19T10:16:20.295Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -436,11 +449,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
+        "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
+        "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
+          "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch",
+          "applied-ai-ingegnere-site-reliability-ingegnere-emea-mistral-ai-lausanne"
         ],
         "de": [
           "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
@@ -462,14 +477,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-edb17c0adfea",
       "slug": "product-manager-vibe-mistral-ai-ch",
       "slugByLocale": {
-        "en": "product-manager-vibe-mistral-ai-ch",
         "it": "product-manager-vibe-mistral-ai-ch",
+        "en": "product-manager-vibe-mistral-ai-ch",
         "de": "produktmanager-vibe-mistral-ai-zurich",
         "fr": "gestionnaire-de-produits-vibe-mistral-ai-zurich"
       },
@@ -478,24 +494,24 @@
       "companyDomain": "mistral.ai",
       "title": "Product Manager, Vibe",
       "titleByLocale": {
-        "en": "Product Manager, Vibe",
         "it": "Product Manager, Vibe",
+        "en": "Product Manager, Vibe",
         "de": "Produktmanager, Vibe",
         "fr": "Gestionnaire de produits, Vibe"
       },
       "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\n As a Product Manager on the Vibe team, you will define and execute the strategy for Mistral Vibe Code and Mistral Vibe Work —Mistral AI’s flagship interfaces for AI-driven productivity.\n Mistral Vibe Code is a coding assistant designed for developers and engineering teams. It helps users write, understand, refactor, and ship code through developer-native interfaces like the CLI, IDE, and web. It leverages Mistral’s advanced models, integrates repository context, and uses tooling and agentic workflows to automate and enhance the development process.\n Mistral Vibe Work is an agentic productivity environment tailored for enterprise knowledge work. It enables business users to complete complex, multi-step tasks—such as research, reporting, and automations—across company knowledge, tools, and workflows. AI agents, fluent in enterprise context, drive these processes, making it easier for teams to collaborate and execute high-value work.\n In this role, you’ll shape the next generation of AI-driven productivity tools, moving beyond traditional conversational AI to redefine how professionals—from developers to enterprise users—interact with information and create content. You’ll empower millions of users by building experiences that combine Mistral’s cutting-edge models with contextual understanding, tool integration, and intelligent automation.\n This role demands a blend of strategic vision , technical depth , business acumen , and user obsession . You’ll work closely with engineering, design, and go-to-market teams to deliver intuitive, high-impact solutions that align with company goals and capitalize on market opportunities. Your mission is to bridge the gap between AI innovation and real-world productivity, ensuring that Mistral’s tools are not just powerful but also practical and user-centric.\n\nWhat You Will Do\n\n• Set the vision by shaping and evangelizing a product strategy for Mistral Vibe Code and Mistral Vibe Work , ensuring alignment with company goals and market opportunities.\n\n• Lead market and UX research to uncover unmet needs, competitive gaps, and emerging trends in AI-driven productivity for developers and enterprise users.\n\n• Drive end-to-end product development, from ideation to launch and iteration, balancing speed, quality, and user delight.\n\n• Partner with design and research to craft intuitive, high-impact experiences for developer-native interfaces (CLI, IDE, web) and enterprise workflows.\n\n• Collaborate with marketing and sales to develop pricing, positioning, and adoption strategies for successful product launches.\n\n• Align engineering, design, and business teams around priorities, trade-offs, and timelines.\n\n• Maintain a dynamic roadmap that delivers quick wins while advancing long-term strategic initiatives for AI-driven productivity tools.\n\nWhat We're Looking For\n\n• 5+ years of product management experience, with a focus on building productivity-related or enterprise-grade products (B2B/B2B2C).\n\n• Experience solving complex problems in dynamic, competitive, and ambiguous environments.\n\n• Hands-on experience with generative AI, LLMs, or ML-driven products, including an understanding of technical trade-offs and agentic workflows.\n\n• Deep familiarity with product-led growth strategies, such as viral loops, onboarding optimization, and monetization.\n\n• Relentless focus on solving real user problems for developers and enterprise users, backed by data and qualitative insights.\n\n• Proven ability to align and inspire cross-functional teams (engineering, design, go-to-market) without direct authority.\n\n• Balance of big-picture thinking and hands-on problem-solving, with comfort in both roadmap planning and metrics analysis.\n\n• Strong communication skills, with the ability to tell compelling stories for executives, teams, and users.\n\n• Ability to thrive in high-velocity, dynamic settings where priorities shift quickly.\n\n• Low ego, high EQ, with a collaborative approach to building trust and driving decisions.\n\n• Self-directed with a bias for action, owning outcomes end-to-end.\n\n• Hands-on experience shipping generative AI consumer products, founder or early-stage PM experience, or the ability to prototype and dive into code when needed is a plus.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
       "descriptionByLocale": {
+        "it": "Informazioni su Mistral\nMistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\nSiamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nIl ruolo\nCome Product Manager del team Vibe, definirai ed eseguirai la strategia per Mistral Vibe Code e Mistral Vibe Work —Mistral AI’s flagship interfaces for AI-driven produttività.\nMistral Vibe Code è un assistente di codifica progettato per sviluppatori e team di ingegneria. Aiuta gli utenti a scrivere, capire, refactor e il codice di nave attraverso interfacce sviluppatore-native come CLI, IDE e web. Esso sfrutta i modelli avanzati di Mistral, integra il contesto del repository e utilizza i flussi di lavoro attrezzati e agentici per automatizzare e migliorare il processo di sviluppo.\nMistral Vibe Work è un ambiente di produttività agentic su misura per il lavoro di conoscenza aziendale. Consente agli utenti aziendali di completare attività complesse e multi-step, come la ricerca, la reportistica e l'automazione, attraverso le conoscenze aziendali, gli strumenti e i flussi di lavoro. Gli agenti dell'IA, fluenti nel contesto aziendale, guidano questi processi, rendendo più facile per i team collaborare ed eseguire lavori di alto valore.\nIn questo ruolo, formerai la prossima generazione di strumenti di produttività basati su AI, andando oltre l'intelligenza artificiale tradizionale per ridefinire come i professionisti – dagli sviluppatori agli utenti aziendali – interagiscono con l'informazione e creano contenuti. Potenzierai milioni di utenti costruendo esperienze che combinano modelli all'avanguardia di Mistral con comprensione contestuale, integrazione degli strumenti e automazione intelligente.\nQuesto ruolo richiede una miscela di visione strategica , profondità tecnica , business acumen , e l'ossessione degli utenti. Potrai lavorare a stretto contatto con team di ingegneria, design e go-to-market per fornire soluzioni intuitive e ad alto impatto che si allineano con gli obiettivi aziendali e capitalizzare sulle opportunità di mercato. La vostra missione è quella di colmare il divario tra l’innovazione AI e la produttività del mondo reale, assicurando che gli strumenti di Mistral non siano solo potenti ma anche pratici e incentrati sull’utente.\n\nCosa farai\n\n• Impostare la visione modellando ed evangelizzando una strategia di prodotto per Mistral Vibe Code e Mistral Vibe Work , garantendo l'allineamento con gli obiettivi aziendali e le opportunità di mercato.\n\n• Leader mercato e ricerca UX per scoprire le esigenze sconosciute, le lacune competitive e le tendenze emergenti nella produttività guidata dall'intelligenza artificiale per gli sviluppatori e gli utenti aziendali.\n\n• Guida lo sviluppo del prodotto end-to-end, dall'ideazione al lancio e all'iterazione, bilanciando velocità, qualità e delizia dell'utente.\n\n• Partner con progettazione e ricerca per creare esperienze intuitive e ad alto impatto per interfacce di sviluppo-native (CLI, IDE, web) e flussi di lavoro aziendali.\n\n• Collabora con marketing e vendite per sviluppare le strategie di prezzi, posizionamento e adozione per il lancio di prodotti di successo.\n\n• Allineare l'ingegneria, il design e le squadre di business intorno priorità, trade-off e timeline.\n\n• Mantenere una roadmap dinamica che offre vincite rapide, promuovendo iniziative strategiche a lungo termine per gli strumenti di produttività basati su AI.\n\nCosa stiamo cercando\n\n• 5+ anni di esperienza nella gestione dei prodotti, con un focus sulla costruzione di prodotti legati alla produttività o all'impresa (B2B/B2B2C).\n\n• Risolvere problemi complessi in ambienti dinamici, competitivi e ambigui.\n\n• Esperienza pratica con prodotti generativi AI, LLM o ML-driven, compresa la comprensione dei trade-off tecnici e dei flussi di lavoro agentici.\n\n• La profonda familiarità con le strategie di crescita del prodotto, come cappi virali, ottimizzazione di bordo e monetizzazione.\n\n• Incessante attenzione a risolvere i problemi reali degli utenti per gli sviluppatori e gli utenti aziendali, supportati da dati e insight qualitativi.\n\n• Prove capacità di allineare e ispirare team interfunzionali (ingegneria, design, go-to-market) senza autorità diretta.\n\n• Equilibrio di pensiero di grande immagine e di problem-solving hands-on, con comfort sia nella pianificazione roadmap e analisi metriche.\n\n• Forte capacità di comunicazione, con la capacità di raccontare storie convincenti per dirigenti, team e utenti.\n\n• Capacità di prosperare in impostazioni dinamiche ad alta velocità, in cui le priorità si spostano rapidamente.\n\n• Basso ego, alto QE, con un approccio collaborativo per costruire la fiducia e le decisioni di guida.\n\n• Autodiretto con un pregiudizio per l'azione, possedere risultati end-to-end.\n\n• Hands-on esperienza di spedizione prodotti generativi AI consumatori, fondatore o esperienza PM di primo stadio, o la capacità di prototipo e immersioni in codice quando necessario è un plus.\n\nCosa offriamo\nOffriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\nPer i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\nLa tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
         "en": "About Mistral\nMistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\nWe are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe Role\nAs a Product Manager on the Vibe team, you will define and execute the strategy for Mistral Vibe Code and Mistral Vibe Work —Mistral AI’s flagship interfaces for AI-driven productivity.\nMistral Vibe Code is a coding assistant designed for developers and engineering teams. It helps users write, understand, refactor, and ship code through developer-native interfaces like the CLI, IDE, and web. It leverages Mistral’s advanced models, integrates repository context, and uses tooling and agentic workflows to automate and enhance the development process.\nMistral Vibe Work is an agentic productivity environment tailored for enterprise knowledge work. It enables business users to complete complex, multi-step tasks—such as research, reporting, and automations—across company knowledge, tools, and workflows. AI agents, fluent in enterprise context, drive these processes, making it easier for teams to collaborate and execute high-value work.\nIn this role, you’ll shape the next generation of AI-driven productivity tools, moving beyond traditional conversational AI to redefine how professionals—from developers to enterprise users—interact with information and create content. You’ll empower millions of users by building experiences that combine Mistral’s cutting-edge models with contextual understanding, tool integration, and intelligent automation.\nThis role demands a blend of strategic vision , technical depth , business acumen , and user obsession . You’ll work closely with engineering, design, and go-to-market teams to deliver intuitive, high-impact solutions that align with company goals and capitalize on market opportunities. Your mission is to bridge the gap between AI innovation and real-world productivity, ensuring that Mistral’s tools are not just powerful but also practical and user-centric.\n\nWhat You Will Do\n\n• Set the vision by shaping and evangelizing a product strategy for Mistral Vibe Code and Mistral Vibe Work , ensuring alignment with company goals and market opportunities.\n\n• Lead market and UX research to uncover unmet needs, competitive gaps, and emerging trends in AI-driven productivity for developers and enterprise users.\n\n• Drive end-to-end product development, from ideation to launch and iteration, balancing speed, quality, and user delight.\n\n• Partner with design and research to craft intuitive, high-impact experiences for developer-native interfaces (CLI, IDE, web) and enterprise workflows.\n\n• Collaborate with marketing and sales to develop pricing, positioning, and adoption strategies for successful product launches.\n\n• Align engineering, design, and business teams around priorities, trade-offs, and timelines.\n\n• Maintain a dynamic roadmap that delivers quick wins while advancing long-term strategic initiatives for AI-driven productivity tools.\n\nWhat We're Looking For\n\n• 5+ years of product management experience, with a focus on building productivity-related or enterprise-grade products (B2B/B2B2C).\n\n• Experience solving complex problems in dynamic, competitive, and ambiguous environments.\n\n• Hands-on experience with generative AI, LLMs, or ML-driven products, including an understanding of technical trade-offs and agentic workflows.\n\n• Deep familiarity with product-led growth strategies, such as viral loops, onboarding optimization, and monetization.\n\n• Relentless focus on solving real user problems for developers and enterprise users, backed by data and qualitative insights.\n\n• Proven ability to align and inspire cross-functional teams (engineering, design, go-to-market) without direct authority.\n\n• Balance of big-picture thinking and hands-on problem-solving, with comfort in both roadmap planning and metrics analysis.\n\n• Strong communication skills, with the ability to tell compelling stories for executives, teams, and users.\n\n• Ability to thrive in high-velocity, dynamic settings where priorities shift quickly.\n\n• Low ego, high EQ, with a collaborative approach to building trust and driving decisions.\n\n• Self-directed with a bias for action, owning outcomes end-to-end.\n\n• Hands-on experience shipping generative AI consumer products, founder or early-stage PM experience, or the ability to prototype and dive into code when needed is a plus.\n\nWhat We Offer\nWe offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\nFor the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\nYour privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
-        "it": "Informazioni su Mistral\n Mistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\n Siamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nIl ruolo\n Come Product Manager del team Vibe, definirai ed eseguirai la strategia per Mistral Vibe Code e Mistral Vibe Work —Mistral AI’s flagship interfaces for AI-driven produttività.\n Mistral Vibe Code è un assistente di codifica progettato per sviluppatori e team di ingegneria. Aiuta gli utenti a scrivere, capire, refactor e il codice di nave attraverso interfacce sviluppatore-native come CLI, IDE e web. Esso sfrutta i modelli avanzati di Mistral, integra il contesto del repository e utilizza i flussi di lavoro attrezzati e agentici per automatizzare e migliorare il processo di sviluppo.\n Mistral Vibe Work è un ambiente di produttività agentic su misura per il lavoro di conoscenza aziendale. Consente agli utenti aziendali di completare attività complesse e multi-step, come la ricerca, la reportistica e l'automazione, attraverso le conoscenze aziendali, gli strumenti e i flussi di lavoro. Gli agenti dell'IA, fluenti nel contesto aziendale, guidano questi processi, rendendo più facile per i team collaborare ed eseguire lavori di alto valore.\n In questo ruolo, formerai la prossima generazione di strumenti di produttività basati su AI, andando oltre l'intelligenza artificiale tradizionale per ridefinire come i professionisti – dagli sviluppatori agli utenti aziendali – interagiscono con l'informazione e creano contenuti. Potenzierai milioni di utenti costruendo esperienze che combinano modelli all'avanguardia di Mistral con comprensione contestuale, integrazione degli strumenti e automazione intelligente.\n Questo ruolo richiede una miscela di visione strategica , profondità tecnica , business acumen , e l'ossessione degli utenti. Potrai lavorare a stretto contatto con team di ingegneria, design e go-to-market per fornire soluzioni intuitive e ad alto impatto che si allineano con gli obiettivi aziendali e capitalizzare sulle opportunità di mercato. La vostra missione è quella di colmare il divario tra l’innovazione AI e la produttività del mondo reale, assicurando che gli strumenti di Mistral non siano solo potenti ma anche pratici e incentrati sull’utente.\n\nCosa farai\n\n• Impostare la visione modellando ed evangelizzando una strategia di prodotto per Mistral Vibe Code e Mistral Vibe Work , garantendo l'allineamento con gli obiettivi aziendali e le opportunità di mercato.\n\n• Leader mercato e ricerca UX per scoprire le esigenze sconosciute, le lacune competitive e le tendenze emergenti nella produttività guidata dall'intelligenza artificiale per gli sviluppatori e gli utenti aziendali.\n\n• Guida lo sviluppo del prodotto end-to-end, dall'ideazione al lancio e all'iterazione, bilanciando velocità, qualità e delizia dell'utente.\n\n• Partner con progettazione e ricerca per creare esperienze intuitive e ad alto impatto per interfacce di sviluppo-native (CLI, IDE, web) e flussi di lavoro aziendali.\n\n• Collabora con marketing e vendite per sviluppare le strategie di prezzi, posizionamento e adozione per il lancio di prodotti di successo.\n\n• Allineare l'ingegneria, il design e le squadre di business intorno priorità, trade-off e timeline.\n\n• Mantenere una roadmap dinamica che offre vincite rapide, promuovendo iniziative strategiche a lungo termine per gli strumenti di produttività basati su AI.\n\nCosa stiamo cercando\n\n• 5+ anni di esperienza nella gestione dei prodotti, con un focus sulla costruzione di prodotti legati alla produttività o all'impresa (B2B/B2B2C).\n\n• Risolvere problemi complessi in ambienti dinamici, competitivi e ambigui.\n\n• Esperienza pratica con prodotti generativi AI, LLM o ML-driven, compresa la comprensione dei trade-off tecnici e dei flussi di lavoro agentici.\n\n• La profonda familiarità con le strategie di crescita del prodotto, come cappi virali, ottimizzazione di bordo e monetizzazione.\n\n• Incessante attenzione a risolvere i problemi reali degli utenti per gli sviluppatori e gli utenti aziendali, supportati da dati e insight qualitativi.\n\n• Prove capacità di allineare e ispirare team interfunzionali (ingegneria, design, go-to-market) senza autorità diretta.\n\n• Equilibrio di pensiero di grande immagine e di problem-solving hands-on, con comfort sia nella pianificazione roadmap e analisi metriche.\n\n• Forte capacità di comunicazione, con la capacità di raccontare storie convincenti per dirigenti, team e utenti.\n\n• Capacità di prosperare in impostazioni dinamiche ad alta velocità, in cui le priorità si spostano rapidamente.\n\n• Basso ego, alto QE, con un approccio collaborativo per costruire la fiducia e le decisioni di guida.\n\n• Autodiretto con un pregiudizio per l'azione, possedere risultati end-to-end.\n\n• Hands-on esperienza di spedizione prodotti generativi AI consumatori, fondatore o esperienza PM di primo stadio, o la capacità di prototipo e immersioni in codice quando necessario è un plus.\n\nCosa offriamo\n Offriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\n Per i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\n La tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
-        "de": "Über Mistral\n Mistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\n Wir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nDie Rolle\n Als Produktmanager im Vibe-Team definieren und implementieren Sie die Strategie für Mistral Vibe Code und Mistral Vibe Work – die Flaggschiff-Schnittstellen von Mistral AI für KI-gesteuerte Produktivität.\n Mistral Vibe Code ist ein Codierassistent für Entwickler und Engineering-Teams. Es hilft Benutzern beim Schreiben, Verstehen, Refactoring und Versand von Code über entwicklernative Schnittstellen wie CLI, IDE und Web. Es nutzt die fortschrittlichen Modelle von Mistral, integriert den Repository-Kontext und verwendet Tooling- und Agentic-Workflows, um den Entwicklungsprozess zu automatisieren und zu verbessern.\n Mistral Vibe Work ist eine agentische Produktivitätsumgebung, die auf die Wissensarbeit von Unternehmen zugeschnitten ist. Es ermöglicht Geschäftsanwendern, komplexe, mehrstufige Aufgaben wie Recherche, Reporting und Automatisierung über Unternehmenswissen, Tools und Workflows hinweg zu erledigen. KI-Agenten, die im Unternehmenskontext fließend sind, steuern diese Prozesse und erleichtern es Teams, zusammenzuarbeiten und hochwertige Arbeit auszuführen.\n In dieser Rolle gestalten Sie die nächste Generation von KI-gesteuerten Produktivitätstools, die über die traditionelle Konversations-KI hinausgehen, um neu zu definieren, wie Profis - von Entwicklern bis hin zu Unternehmensbenutzern - mit Informationen interagieren und Inhalte erstellen. Sie werden Millionen von Benutzern unterstützen, indem Sie Erfahrungen erstellen, die die modernsten Modelle von Mistral mit Kontextverständnis, Werkzeugintegration und intelligenter Automatisierung kombinieren.\n Diese Rolle erfordert eine Mischung aus strategischer Vision, technischer Tiefe, Geschäftssinn und Benutzerbesessenheit. Sie arbeiten eng mit Engineering-, Design- und Go-to-Market-Teams zusammen, um intuitive, wirkungsvolle Lösungen zu liefern, die sich an den Unternehmenszielen orientieren und Marktchancen nutzen. Ihre Mission ist es, die Lücke zwischen KI-Innovation und realer Produktivität zu schließen und sicherzustellen, dass die Tools von Mistral nicht nur leistungsstark, sondern auch praktisch und benutzerzentriert sind.\n\nWas Sie tun werden\n\n• Setzen Sie die Vision durch die Gestaltung und Evangelisierung einer Produktstrategie für Mistral Vibe Code und Mistral Vibe Work, um die Ausrichtung auf Unternehmensziele und Marktchancen zu gewährleisten.\n\n• Führen Sie Markt- und UX-Forschung, um unerfüllte Bedürfnisse, Wettbewerbslücken und aufkommende Trends in der KI-getriebenen Produktivität für Entwickler und Unternehmensanwender aufzudecken.\n\n• Fahren Sie die End-to-End-Produktentwicklung von der Ideenfindung über den Start und die Iteration bis hin zum Ausgleich von Geschwindigkeit, Qualität und Benutzerfreude.\n\n• Partnerschaft mit Design und Forschung, um intuitive, wirkungsvolle Erfahrungen für Entwickler-native Schnittstellen (CLI, IDE, Web) und Unternehmens-Workflows zu erstellen.\n\n• Arbeiten Sie mit Marketing und Vertrieb zusammen, um Preis-, Positionierungs- und Annahmestrategien für erfolgreiche Produkteinführungen zu entwickeln.\n\n• Ausrichtung von Engineering-, Design- und Business-Teams auf Prioritäten, Kompromisse und Zeitpläne.\n\n• Pflegen Sie eine dynamische Roadmap, die schnelle Gewinne liefert und gleichzeitig langfristige strategische Initiativen für KI-gestützte Produktivitätstools vorantreibt.\n\nWas wir suchen\n\n• 5+ Jahre Produktmanagement-Erfahrung, mit Schwerpunkt auf der Entwicklung von produktivitätsbezogenen oder Enterprise-Grade-Produkten (B2B / B2B2C).\n\n• Erleben Sie die Lösung komplexer Probleme in dynamischen, wettbewerbsorientierten und mehrdeutigen Umgebungen.\n\n• Praktische Erfahrung mit generativen KI-, LLM- oder ML-basierten Produkten, einschließlich eines Verständnisses technischer Kompromisse und agentischer Workflows.\n\n• Tiefe Vertrautheit mit produktgeführten Wachstumsstrategien wie Viral Loops, Onboarding-Optimierung und Monetarisierung.\n\n• Konzentrieren Sie sich unermüdlich auf die Lösung echter Benutzerprobleme für Entwickler und Unternehmensbenutzer, unterstützt durch Daten und qualitative Erkenntnisse.\n\n• Bewährte Fähigkeit, funktionsübergreifende Teams (Engineering, Design, Go-to-Market) ohne direkte Autorität auszurichten und zu inspirieren.\n\n• Balance von Big-Picture-Denken und praktischer Problemlösung, mit Komfort sowohl in der Roadmap-Planung als auch in der Metrikanalyse.\n\n• Starke Kommunikationsfähigkeiten mit der Fähigkeit, überzeugende Geschichten für Führungskräfte, Teams und Benutzer zu erzählen.\n\n• Die Fähigkeit, in dynamischen Umgebungen mit hoher Geschwindigkeit zu gedeihen, in denen sich die Prioritäten schnell ändern.\n\n• Niedriges Ego, hoher EQ, mit einem kollaborativen Ansatz, um Vertrauen aufzubauen und Entscheidungen zu treffen.\n\n• Selbstgesteuert mit einer voreingenommenheit für handlung, besitzen ergebnisse ende-zu-ende.\n\n• Hands-on-Erfahrung beim Versand von generativen KI-Konsumprodukten, Gründer- oder PM-Erfahrung im Frühstadium oder die Fähigkeit, bei Bedarf Prototypen zu erstellen und in Code einzutauchen, ist ein Plus.\n\nWas wir anbieten\n Wir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\n Für die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\n Ihre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
-        "fr": "À propos de Mistral\n Mistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\n Nous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nLe rôle\n En tant que gestionnaire de produit de l'équipe Vibe, vous définirez et exécuterez la stratégie pour Mistral Vibe Code et Mistral Vibe Work —Mistral AI=s interfaces phares pour la productivité induite par l'IA.\n Mistral Vibe Code est un assistant de codage conçu pour les développeurs et les équipes d'ingénierie. Il aide les utilisateurs à écrire, à comprendre, à refactorer et à expédier du code à travers des interfaces de développeur-natif comme le CLI, IDE et web. Il tire parti des modèles avancés de Mistral, intègre le contexte du dépôt et utilise des workflows d'outillage et d'agents pour automatiser et améliorer le processus de développement.\n Mistral Vibe Work est un environnement de productivité agentique adapté au travail de connaissance en entreprise. Il permet aux utilisateurs commerciaux d'accomplir des tâches complexes et en plusieurs étapes, telles que la recherche, l'établissement de rapports et l'automatisation, à travers les connaissances, les outils et les flux de travail de l'entreprise. Les agents d'IA, couramment dans le contexte de l'entreprise, conduisent ces processus, ce qui facilite la collaboration et l'exécution de travaux de grande valeur par les équipes.\n Dans ce rôle, vous façonnerez la prochaine génération d'outils de productivité axés sur l'IA, allant au-delà de l'IA conversationnelle traditionnelle pour redéfinir comment les professionnels – des développeurs aux utilisateurs d'entreprise – interagissent avec l'information et créent du contenu. Vous allez autonomiser des millions d'utilisateurs en construisant des expériences qui combinent des modèles de pointe de Mistral avec la compréhension contextuelle, l'intégration d'outils et l'automatisation intelligente.\n Ce rôle exige un mélange de vision stratégique , de profondeur technique , d' acuité commerciale et d' obsession des utilisateurs . Vous travaillerez en étroite collaboration avec des équipes d'ingénierie, de conception et de mise sur le marché pour offrir des solutions intuitives à impact élevé qui s'harmonisent avec les objectifs de l'entreprise et capitaliser sur les opportunités du marché. Votre mission est de combler l'écart entre l'innovation en matière d'IA et la productivité du monde réel, en veillant à ce que les outils Mistral sont non seulement puissants mais aussi pratiques et centrés sur l'utilisateur.\n\nCe que vous ferez\n\n• Définir la vision en façonnant et évangélisant une stratégie de produit pour Mistral Vibe Code et Mistral Vibe Work , en assurant l'alignement avec les objectifs de l'entreprise et les opportunités du marché.\n\n• Diriger la recherche sur les marchés et les UX pour découvrir les besoins non satisfaits, les lacunes concurrentielles et les nouvelles tendances de la productivité induite par l'IA pour les développeurs et les utilisateurs d'entreprise.\n\n• Conduire le développement de produits de bout en bout, de l'idée au lancement et à l'itération, équilibrer la vitesse, la qualité et le plaisir des utilisateurs.\n\n• Partenaire avec la conception et la recherche pour concevoir des expériences intuitives et à impact élevé pour les interfaces développeur-natif (CLI, IDE, web) et les workflows d'entreprise.\n\n• Collaborer avec le marketing et les ventes pour élaborer des stratégies de tarification, de positionnement et d'adoption pour réussir les lancements de produits.\n\n• Aligner les équipes d'ingénierie, de conception et d'affaires sur les priorités, les compromis et les délais.\n\n• Maintenir une feuille de route dynamique qui offre des gains rapides tout en faisant progresser les initiatives stratégiques à long terme pour les outils de productivité axés sur l'IA.\n\nCe que nous cherchons\n\n• 5+ ans d'expérience en gestion de produits, l'accent étant mis sur la construction de produits liés à la productivité ou de qualité d'entreprise (B2B/B2B2C).\n\n• Expérimentez la résolution de problèmes complexes dans des environnements dynamiques, concurrentiels et ambigus.\n\n• Expérience pratique des produits générateurs d'IA, de LLM ou de ML, y compris une compréhension des compromis techniques et des flux de travail des agents.\n\n• Connaissance approfondie des stratégies de croissance axées sur le produit, comme les boucles virales, l'optimisation de l'embarquement et la monétisation.\n\n• Se concentrer sans relâche sur la résolution de vrais problèmes d'utilisateur pour les développeurs et les utilisateurs d'entreprise, avec des données et des idées qualitatives.\n\n• Capacité éprouvée d'aligner et d'inspirer des équipes interfonctionnelles (ingénierie, conception, mise en marché) sans autorisation directe.\n\n• Équilibre entre la pensée à grande image et la résolution pratique de problèmes, avec confort dans la planification de la feuille de route et l'analyse des paramètres.\n\n• Fortes compétences en communication, avec la capacité de raconter des histoires convaincantes pour les cadres, les équipes et les utilisateurs.\n\n• Capacité de prospérer dans des environnements dynamiques et à grande vitesse où les priorités changent rapidement.\n\n• Faible ego, haute QE, avec une approche collaborative pour renforcer la confiance et conduire les décisions.\n\n• Autodirigé avec un biais pour l'action, propriétaire des résultats de bout en bout.\n\n• Expérience pratique de l'expédition de produits de consommation générateurs d'IA, expérience de fondateur ou de PM en début de phase, ou la capacité de prototype et de plonger dans le code au besoin est un plus.\n\nCe que nous offrons\n Nous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\n Pour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\n Votre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
+        "de": "Über Mistral\nMistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\nWir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nDie Rolle\nAls Produktmanager im Vibe-Team definieren und implementieren Sie die Strategie für Mistral Vibe Code und Mistral Vibe Work – die Flaggschiff-Schnittstellen von Mistral AI für KI-gesteuerte Produktivität.\nMistral Vibe Code ist ein Codierassistent für Entwickler und Engineering-Teams. Es hilft Benutzern beim Schreiben, Verstehen, Refactoring und Versand von Code über entwicklernative Schnittstellen wie CLI, IDE und Web. Es nutzt die fortschrittlichen Modelle von Mistral, integriert den Repository-Kontext und verwendet Tooling- und Agentic-Workflows, um den Entwicklungsprozess zu automatisieren und zu verbessern.\nMistral Vibe Work ist eine agentische Produktivitätsumgebung, die auf die Wissensarbeit von Unternehmen zugeschnitten ist. Es ermöglicht Geschäftsanwendern, komplexe, mehrstufige Aufgaben wie Recherche, Reporting und Automatisierung über Unternehmenswissen, Tools und Workflows hinweg zu erledigen. KI-Agenten, die im Unternehmenskontext fließend sind, steuern diese Prozesse und erleichtern es Teams, zusammenzuarbeiten und hochwertige Arbeit auszuführen.\nIn dieser Rolle gestalten Sie die nächste Generation von KI-gesteuerten Produktivitätstools, die über die traditionelle Konversations-KI hinausgehen, um neu zu definieren, wie Profis - von Entwicklern bis hin zu Unternehmensbenutzern - mit Informationen interagieren und Inhalte erstellen. Sie werden Millionen von Benutzern unterstützen, indem Sie Erfahrungen erstellen, die die modernsten Modelle von Mistral mit Kontextverständnis, Werkzeugintegration und intelligenter Automatisierung kombinieren.\nDiese Rolle erfordert eine Mischung aus strategischer Vision, technischer Tiefe, Geschäftssinn und Benutzerbesessenheit. Sie arbeiten eng mit Engineering-, Design- und Go-to-Market-Teams zusammen, um intuitive, wirkungsvolle Lösungen zu liefern, die sich an den Unternehmenszielen orientieren und Marktchancen nutzen. Ihre Mission ist es, die Lücke zwischen KI-Innovation und realer Produktivität zu schließen und sicherzustellen, dass die Tools von Mistral nicht nur leistungsstark, sondern auch praktisch und benutzerzentriert sind.\n\nWas Sie tun werden\n\n• Setzen Sie die Vision durch die Gestaltung und Evangelisierung einer Produktstrategie für Mistral Vibe Code und Mistral Vibe Work, um die Ausrichtung auf Unternehmensziele und Marktchancen zu gewährleisten.\n\n• Führen Sie Markt- und UX-Forschung, um unerfüllte Bedürfnisse, Wettbewerbslücken und aufkommende Trends in der KI-getriebenen Produktivität für Entwickler und Unternehmensanwender aufzudecken.\n\n• Fahren Sie die End-to-End-Produktentwicklung von der Ideenfindung über den Start und die Iteration bis hin zum Ausgleich von Geschwindigkeit, Qualität und Benutzerfreude.\n\n• Partnerschaft mit Design und Forschung, um intuitive, wirkungsvolle Erfahrungen für Entwickler-native Schnittstellen (CLI, IDE, Web) und Unternehmens-Workflows zu erstellen.\n\n• Arbeiten Sie mit Marketing und Vertrieb zusammen, um Preis-, Positionierungs- und Annahmestrategien für erfolgreiche Produkteinführungen zu entwickeln.\n\n• Ausrichtung von Engineering-, Design- und Business-Teams auf Prioritäten, Kompromisse und Zeitpläne.\n\n• Pflegen Sie eine dynamische Roadmap, die schnelle Gewinne liefert und gleichzeitig langfristige strategische Initiativen für KI-gestützte Produktivitätstools vorantreibt.\n\nWas wir suchen\n\n• 5+ Jahre Produktmanagement-Erfahrung, mit Schwerpunkt auf der Entwicklung von produktivitätsbezogenen oder Enterprise-Grade-Produkten (B2B / B2B2C).\n\n• Erleben Sie die Lösung komplexer Probleme in dynamischen, wettbewerbsorientierten und mehrdeutigen Umgebungen.\n\n• Praktische Erfahrung mit generativen KI-, LLM- oder ML-basierten Produkten, einschließlich eines Verständnisses technischer Kompromisse und agentischer Workflows.\n\n• Tiefe Vertrautheit mit produktgeführten Wachstumsstrategien wie Viral Loops, Onboarding-Optimierung und Monetarisierung.\n\n• Konzentrieren Sie sich unermüdlich auf die Lösung echter Benutzerprobleme für Entwickler und Unternehmensbenutzer, unterstützt durch Daten und qualitative Erkenntnisse.\n\n• Bewährte Fähigkeit, funktionsübergreifende Teams (Engineering, Design, Go-to-Market) ohne direkte Autorität auszurichten und zu inspirieren.\n\n• Balance von Big-Picture-Denken und praktischer Problemlösung, mit Komfort sowohl in der Roadmap-Planung als auch in der Metrikanalyse.\n\n• Starke Kommunikationsfähigkeiten mit der Fähigkeit, überzeugende Geschichten für Führungskräfte, Teams und Benutzer zu erzählen.\n\n• Die Fähigkeit, in dynamischen Umgebungen mit hoher Geschwindigkeit zu gedeihen, in denen sich die Prioritäten schnell ändern.\n\n• Niedriges Ego, hoher EQ, mit einem kollaborativen Ansatz, um Vertrauen aufzubauen und Entscheidungen zu treffen.\n\n• Selbstgesteuert mit einer voreingenommenheit für handlung, besitzen ergebnisse ende-zu-ende.\n\n• Hands-on-Erfahrung beim Versand von generativen KI-Konsumprodukten, Gründer- oder PM-Erfahrung im Frühstadium oder die Fähigkeit, bei Bedarf Prototypen zu erstellen und in Code einzutauchen, ist ein Plus.\n\nWas wir anbieten\nWir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\nFür die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\nIhre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
+        "fr": "À propos de Mistral\nMistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\nNous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nLe rôle\nEn tant que gestionnaire de produit de l'équipe Vibe, vous définirez et exécuterez la stratégie pour Mistral Vibe Code et Mistral Vibe Work —Mistral AI=s interfaces phares pour la productivité induite par l'IA.\nMistral Vibe Code est un assistant de codage conçu pour les développeurs et les équipes d'ingénierie. Il aide les utilisateurs à écrire, à comprendre, à refactorer et à expédier du code à travers des interfaces de développeur-natif comme le CLI, IDE et web. Il tire parti des modèles avancés de Mistral, intègre le contexte du dépôt et utilise des workflows d'outillage et d'agents pour automatiser et améliorer le processus de développement.\nMistral Vibe Work est un environnement de productivité agentique adapté au travail de connaissance en entreprise. Il permet aux utilisateurs commerciaux d'accomplir des tâches complexes et en plusieurs étapes, telles que la recherche, l'établissement de rapports et l'automatisation, à travers les connaissances, les outils et les flux de travail de l'entreprise. Les agents d'IA, couramment dans le contexte de l'entreprise, conduisent ces processus, ce qui facilite la collaboration et l'exécution de travaux de grande valeur par les équipes.\nDans ce rôle, vous façonnerez la prochaine génération d'outils de productivité axés sur l'IA, allant au-delà de l'IA conversationnelle traditionnelle pour redéfinir comment les professionnels – des développeurs aux utilisateurs d'entreprise – interagissent avec l'information et créent du contenu. Vous allez autonomiser des millions d'utilisateurs en construisant des expériences qui combinent des modèles de pointe de Mistral avec la compréhension contextuelle, l'intégration d'outils et l'automatisation intelligente.\nCe rôle exige un mélange de vision stratégique , de profondeur technique , d' acuité commerciale et d' obsession des utilisateurs . Vous travaillerez en étroite collaboration avec des équipes d'ingénierie, de conception et de mise sur le marché pour offrir des solutions intuitives à impact élevé qui s'harmonisent avec les objectifs de l'entreprise et capitaliser sur les opportunités du marché. Votre mission est de combler l'écart entre l'innovation en matière d'IA et la productivité du monde réel, en veillant à ce que les outils Mistral sont non seulement puissants mais aussi pratiques et centrés sur l'utilisateur.\n\nCe que vous ferez\n\n• Définir la vision en façonnant et évangélisant une stratégie de produit pour Mistral Vibe Code et Mistral Vibe Work , en assurant l'alignement avec les objectifs de l'entreprise et les opportunités du marché.\n\n• Diriger la recherche sur les marchés et les UX pour découvrir les besoins non satisfaits, les lacunes concurrentielles et les nouvelles tendances de la productivité induite par l'IA pour les développeurs et les utilisateurs d'entreprise.\n\n• Conduire le développement de produits de bout en bout, de l'idée au lancement et à l'itération, équilibrer la vitesse, la qualité et le plaisir des utilisateurs.\n\n• Partenaire avec la conception et la recherche pour concevoir des expériences intuitives et à impact élevé pour les interfaces développeur-natif (CLI, IDE, web) et les workflows d'entreprise.\n\n• Collaborer avec le marketing et les ventes pour élaborer des stratégies de tarification, de positionnement et d'adoption pour réussir les lancements de produits.\n\n• Aligner les équipes d'ingénierie, de conception et d'affaires sur les priorités, les compromis et les délais.\n\n• Maintenir une feuille de route dynamique qui offre des gains rapides tout en faisant progresser les initiatives stratégiques à long terme pour les outils de productivité axés sur l'IA.\n\nCe que nous cherchons\n\n• 5+ ans d'expérience en gestion de produits, l'accent étant mis sur la construction de produits liés à la productivité ou de qualité d'entreprise (B2B/B2B2C).\n\n• Expérimentez la résolution de problèmes complexes dans des environnements dynamiques, concurrentiels et ambigus.\n\n• Expérience pratique des produits générateurs d'IA, de LLM ou de ML, y compris une compréhension des compromis techniques et des flux de travail des agents.\n\n• Connaissance approfondie des stratégies de croissance axées sur le produit, comme les boucles virales, l'optimisation de l'embarquement et la monétisation.\n\n• Se concentrer sans relâche sur la résolution de vrais problèmes d'utilisateur pour les développeurs et les utilisateurs d'entreprise, avec des données et des idées qualitatives.\n\n• Capacité éprouvée d'aligner et d'inspirer des équipes interfonctionnelles (ingénierie, conception, mise en marché) sans autorisation directe.\n\n• Équilibre entre la pensée à grande image et la résolution pratique de problèmes, avec confort dans la planification de la feuille de route et l'analyse des paramètres.\n\n• Fortes compétences en communication, avec la capacité de raconter des histoires convaincantes pour les cadres, les équipes et les utilisateurs.\n\n• Capacité de prospérer dans des environnements dynamiques et à grande vitesse où les priorités changent rapidement.\n\n• Faible ego, haute QE, avec une approche collaborative pour renforcer la confiance et conduire les décisions.\n\n• Autodirigé avec un biais pour l'action, propriétaire des résultats de bout en bout.\n\n• Expérience pratique de l'expédition de produits de consommation générateurs d'IA, expérience de fondateur ou de PM en début de phase, ou la capacité de prototype et de plonger dans le code au besoin est un plus.\n\nCe que nous offrons\nNous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\nPour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\nVotre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://jobs.ashbyhq.com/mistral.ai/036efa0f-73c4-4737-b4ad-c4e834e5b31c",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.895Z",
+      "crawledAt": "2026-08-19T10:16:20.293Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -511,6 +527,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:21:47.586Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -523,8 +540,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-17T10:21:47.586Z"
+      "addressRegion": "ZH"
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -557,7 +573,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.893Z",
+      "crawledAt": "2026-08-19T10:16:20.291Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -573,11 +589,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-engineer-machine-learning-mistral-ai-ch"
+        "research-engineer-machine-learning-mistral-ai-ch",
+        "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-engineer-machine-learning-mistral-ai-ch"
+          "research-engineer-machine-learning-mistral-ai-ch",
+          "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
         ],
         "de": [
           "research-engineer-machine-learning-mistral-ai-ch"
@@ -632,7 +650,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.892Z",
+      "crawledAt": "2026-08-19T10:16:20.290Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -712,7 +730,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.886Z",
+      "crawledAt": "2026-08-19T10:16:20.288Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -728,11 +746,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+        "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
+        "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
+          "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne"
         ],
         "de": [
           "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
@@ -787,7 +807,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:37.880Z",
+      "crawledAt": "2026-08-19T10:16:20.282Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -803,11 +823,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-software-engineer-mistral-ai-ch"
+        "research-software-engineer-mistral-ai-ch",
+        "ricerca-software-ingegnere-mistral-ai-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-software-engineer-mistral-ai-ch"
+          "research-software-engineer-mistral-ai-ch",
+          "ricerca-software-ingegnere-mistral-ai-zurich"
         ],
         "de": [
           "research-software-engineer-mistral-ai-ch"

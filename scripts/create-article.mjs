@@ -65,7 +65,7 @@ import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary, estimateRequestTokens } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isLocalLlmEnabled, getStats as getAiStats, initScoreStore, flushScoresBeforeExit, recordModelContentFailure, recordModelContentSuccess, isQuotaExhaustedError, printRunSummary, estimateRequestTokens } from './lib/ai-models.mjs';
 // La disposizione di una cascata svuotata: differire o gridare. Il gemello del
 // corpus (`generator/scripts/lib/exhaustion-disposition.mjs`, issue #313/#348)
 // e' byte-identico a questo — vedi l'intestazione del modulo per le due misure
@@ -88,13 +88,14 @@ import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { describePayloadRejection } from './lib/llm-payload-diagnostics.mjs';
 import {
   factCheckFingerprint,
   totalMajorWeight,
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
   dropSourceContradictedIssues,
 } from './lib/fact-check-consensus.mjs';
-import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES } from './lib/article-factuality-gates.mjs';
+import { runFactualityGates, formatIssues, formatRemediation, buildSourceContract, FACT_CHECK_CATEGORIES, assertNoFabricatedNormAcronyms } from './lib/article-factuality-gates.mjs';
 import { loadDefectMemory, learnedDenylist, learnedSuspects } from './lib/article-defect-memory.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 import {
@@ -182,6 +183,11 @@ import {
 // l'intestazione del modulo per la differenza fra duplicare il CONTENUTO
 // (bloccato) e coprire lo stesso TEMA con due tagli (ammesso).
 import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
+// La chiave di identita' della fonte sta in un modulo a se' perche' e' pura e
+// va testata senza importare questo file. Vedi la sua intestazione per il
+// difetto che toglie (la query identificante buttata via) e per il ponte con
+// le voci gia' scritte.
+import { newsUrlKey } from './lib/news-url-key.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -489,7 +495,11 @@ relevant=<yes|no>; reason=<una frase di massimo 15 parole>`;
  *
  * @param {Array<{headline: string, url?: string, relatedHeadlines?: string[]}>} headlines
  * @param {object} [opts]
- * @param {number} [opts.maxClassifier=12]  - max LLM classifier calls per invocation
+ * @param {number} [opts.maxClassifier=headlines.length]  - max LLM classifier calls per
+ *   invocation. Il default NON e' una costante: e' la lunghezza della lista in
+ *   ingresso, cioe' «nessun tetto oltre i candidati che ci sono». Diceva `12`,
+ *   che era il default di una versione precedente e rendeva il ramo di budget
+ *   esaurito raggiungibile sulla carta e irraggiungibile nei fatti.
  * @returns {Promise<Array>} filtered headlines (preserves order)
  */
 async function applyPreSpendTopicGate(headlines, opts = {}) {
@@ -2125,15 +2135,19 @@ function saveSourceUrls(map) {
   }
 }
 
-/** Normalize a news source URL for dedup: strip query params, hash, trailing slash */
+/**
+ * Chiave del ledger per un URL di fonte.
+ *
+ * Delega a `newsUrlKey` (`lib/news-url-key.mjs`), che tiene i parametri di
+ * query IDENTIFICANTI e butta solo quelli di tracciamento. Questa funzione
+ * buttava via tutta la query, e su una fonte che identifica il documento solo
+ * li' — `ti.ch/…/dettaglio-comunicato/?NEWS_ID=<n>`, `uil.it/newssx.asp?ID_News=<n>`
+ * — ogni item del feed collassava sulla stessa chiave: il primo articolo
+ * veniva registrato e tutti i successivi della stessa fonte risultavano
+ * «gia' usati» e venivano scartati in silenzio.
+ */
 function normalizeNewsUrl(rawUrl) {
-  try {
-    const u = new URL(rawUrl);
-    // Remove tracking params, keep the path
-    return `${u.protocol}//${u.hostname}${u.pathname}`.replace(/\/$/, '').toLowerCase();
-  } catch {
-    return rawUrl.toLowerCase().replace(/\/$/, '');
-  }
+  return newsUrlKey(rawUrl);
 }
 
 function isGoogleNewsRssUrl(rawUrl) {
@@ -2225,6 +2239,29 @@ function isSourceUrlAlreadyUsed(headlineUrl) {
   // Exact match — sezione attiva per prima, poi le sorelle.
   const exact = findCrossSectionSourceDuplicate(normalized, loadAllSectionSourceUrls(), SECTION_NAME);
   if (exact.used) return exact;
+
+  // ── NESSUN PONTE VERSO LE VOCI DI FORMA 1 — e' deliberato ──
+  //
+  // La tentazione e' cercare anche sotto la chiave vecchia (path nudo), per non
+  // «liberare» per un giro le fonti gia' consumate. Misurato: sarebbe una
+  // ricerca che si accende SOLO quando `legacyKey !== normalized`, cioe' solo
+  // sugli URL con parametri identificanti — esattamente i casi che questa fix
+  // esiste per sbloccare. Quando le due chiavi coincidono la ricerca sopra ha
+  // gia' risposto, quindi il ponte non ha un solo ramo utile.
+  //
+  // E su quei casi la voce vecchia e' una chiave COLLASSATA: per
+  // `www3.ti.ch/dfe/dr/ustat/index.php` (presente nel ledger reale) un
+  // documento nuovo `...index.php?idNews=999` la colpirebbe comunque, e ogni
+  // altro documento di quella fonte con lui. Il blocco si auto-alimenta: nessuna
+  // chiave di forma 2 verrebbe mai scritta per quel path, e la voce che avvelena
+  // esce solo col trim FIFO a 500 voci di saveSourceUrls().
+  //
+  // Il prezzo di non avere il ponte e' l'opposto e finisce: il singolo documento
+  // gia' consumato sotto la chiave vecchia puo' essere ripreso UNA volta, dopo di
+  // che viene registrato in forma 2 e il dedup riprende a funzionare. Un
+  // duplicato possibile una volta per fonte, invece di ogni documento nuovo di
+  // quella fonte bloccato per ~500 articoli.
+
   // Fuzzy URL slug vs existing article ID match
   const urlWords = extractUrlSlugWords(headlineUrl);
   if (urlWords.length < 2) return { used: false };
@@ -4075,9 +4112,13 @@ async function callLLM(messages, opts = {}) {
       let itContent = null;
       let parseErr = null;
       let repaired = null;
+      // Hoisted above the try (was a `const` scoped inside it) so the
+      // diagnostic line below — which needs `parsed` even when normalization
+      // fails on an otherwise-valid document — can see it.
+      let parsed;
       try {
         repaired = repairLlmJson(result);
-        const parsed = JSON.parse(repaired);
+        parsed = JSON.parse(repaired);
         itContent = normalizeItalianContentFromPayload(parsed);
       } catch (e) {
         parseErr = e;
@@ -4091,6 +4132,18 @@ async function callLLM(messages, opts = {}) {
         // was unreproducible (no evidence of what the model actually sent).
         // Log the parse error + a snippet so a recurring malformed-JSON
         // pattern from a specific model can actually be root-caused.
+        //
+        // The line below is UNCONDITIONAL on purpose (frontaliere-si-o-no#6027,
+        // gemello di frontaliere-articles#437): the guard used to be
+        // `if (parseErr)`, which meant the majority case — JSON.parse()
+        // succeeds but normalizeItalianContentFromPayload() returns null —
+        // printed nothing at all. Measured on the corpus twin (2026-08-18):
+        // 49 of 64 collected rejections are "non normalizzabile", and in the
+        // run that spent 76% of the step regenerating, all 4 were silent.
+        // This is the only line that can tell "truncated" (lever: maxTokens)
+        // apart from "wrong shape" (lever: prompt/normalizer) — they want
+        // opposite fixes.
+        console.error(`  🧪 rigetto: ${describePayloadRejection({ raw: result, repaired, parsed, parseErr, model: modelUsedRef.model })}`);
         if (parseErr) {
           console.error(`  🔎 JSON parse fallito (${modelUsedRef.model || 'unknown'}): ${parseErr.message} — ${describeJsonParseError(repaired, parseErr)}`);
           console.error(`  📄 ${describeRawForDiagnostics(result)}`);
@@ -4117,6 +4170,17 @@ async function callLLM(messages, opts = {}) {
 
       if (missing.length > 0) {
         console.error(`  ⚠️  output JSON incompleto: ${missing.join(', ')} (tentativo ${attempt}/${maxBody2Retries}) — rigenero...`);
+        // The "missing fields" branch was as blind as the muted one above: it
+        // named the fields but not the model that actually answered (the
+        // "🤖 [1/5] ... con <modello>" banner announces the PREFERRED model,
+        // not necessarily the one that responded from the cascade), nor how
+        // long the output was, nor whether it looked truncated. `body1,
+        // body2, body3` alone is compatible with both a truncation and an
+        // extra wrapper. Same line as the branch above, so the two count
+        // together.
+        if (itContent) {
+          console.error(`  🧪 rigetto: ${describePayloadRejection({ raw: result, repaired, parsed, parseErr, model: modelUsedRef.model })}`);
+        }
         // Penalize the model only for genuine content failures, not budget-induced
         // exits. When wallBudgetExceeded() is true the throw below is caused by
         // time pressure, not by model output quality; scoring it as a failure would
@@ -5110,6 +5174,49 @@ export function parseArticleIdentityField(raw, opts = {}) {
 const PROMPT_TOKEN_BUDGET = 8000;
 
 /**
+ * Il tetto che `tests/news-prompt-token-budget.test.ts` fa rispettare OGGI.
+ * E' un RATCHET, non il traguardo: puo' solo SCENDERE, e scende fino a
+ * `PROMPT_TOKEN_BUDGET`.
+ *
+ * Vive separato dal budget perche' il traguardo (8000) non e' raggiungibile in
+ * una sola PR su QUESTO lato. Misurato dal test sul caso peggiore (fonte oltre
+ * MAX_SOURCE_CHARS, 50 id da 104 char, 4 headline correlate), DOPO la scala di
+ * riduzione completa — cioe' il numero che parte davvero, non quello prima di
+ * comprimere:
+ *
+ *   news frontaliere        9988   news frontaliere al retry   10438
+ *   news svizzera          10018   news svizzera al retry      10468
+ *   evergreen frontaliere   9428   evergreen svizzera           9458
+ *
+ * Il fixture include il messaggio di winner-fingerprint, che in produzione c'e'
+ * sempre e la scala di riduzione non puo' togliere (arriva da
+ * `data/article-performance.json`, fuori dal ladder). Ometterlo — che e' cio'
+ * che un worktree sparse invita a fare, perche' `data/` non e' materializzato —
+ * abbassava il caso peggiore misurato di ~193 token e avrebbe fatto nascere
+ * questo tetto gia' sfondato in produzione.
+ *
+ * Due cose che vanno lette insieme, perche' separate ingannano:
+ *
+ * 1. Ogni ramo e' SOPRA `PROMPT_TOKEN_BUDGET` anche a scala esaurita. Il
+ *    pre-flight qui sotto stampa `over=1` su tutti, ed e' la verita': ogni
+ *    modello con un cap di input piu' stretto viene saltato prima della
+ *    chiamata. E' la stessa forma dell'interruzione di 11 ore sul corpus il
+ *    2026-08-14 (60+ run `success` senza un articolo scritto, ogni riga di log
+ *    che nominava un modello e nessuna che nominasse il prompt).
+ * 2. Il gemello del corpus sta a 8500 con la stessa scala. La distanza NON e'
+ *    la scala di riduzione — quella e' identica byte per byte — e' l'impalcatura
+ *    statica: qui il prompt intero misura 33.645 caratteri (11.392 token)
+ *    contro i ~15.700
+ *    dichiarati dal corpus. Comprimerla e' lavoro di prompt engineering che
+ *    cambia cosa esce, non osservabilita': fuori dal perimetro della PR che ha
+ *    introdotto questa costante, e dichiarato nel suo piano di completamento.
+ *
+ * Il margine sul massimo misurato e' volutamente stretto (132 token): il
+ * prossimo blocco che si aggiunge al prompt deve trovarlo, non assorbirlo.
+ */
+const PROMPT_TOKEN_CEILING = 10600;
+
+/**
  * Il `maxTokens` che le due chiamate di generazione IT passano davvero a
  * `callLLM` piu' sotto. Estratto in una costante perche' le due chiamate non
  * possano divergere fra loro.
@@ -5120,6 +5227,65 @@ const PROMPT_TOKEN_BUDGET = 8000;
  * passato lo stesso, per restare parallelo al gemello del corpus e perche' se
  * un giorno la stima includesse anche l'output userebbe gia' il numero della
  * chiamata vera invece di uno inventato.
+ *
+ * ── Decisione di cascata (issue #6020, follow-up di #6000): resta 8000 ──
+ *
+ * Non e' un buco lasciato aperto. Il costo e' misurato, non stimato.
+ *
+ * Il pre-flight del cascade salta ogni modello il cui cap di OUTPUT sta sotto
+ * il `maxTokens` richiesto (`scripts/lib/ai-models.mjs`, guard
+ * `if (modelLimit && o.maxTokens > modelLimit)` con
+ * `modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId]`). Incrociando quella
+ * tabella con `DEFAULT_CHAIN` (101 membri), a 8000 restano fuori
+ * esattamente tre membri del roster:
+ *
+ *   cohere/command-r-08-2024      4096
+ *   cohere/command-r7b-12-2024    4096
+ *   Phi-4-mini-reasoning          4000
+ *
+ * A 4000 non ne resta fuori nessuno: il confronto e' `>`, quindi un
+ * `maxTokens` di 4000 non esclude un cap di 4000.
+ *
+ * NON e' della partita `Cohere-command-r-08-2024`, l'omonimo di GitHub
+ * Models: e' stato tolto da `AI_MODELS` il 2026-07-05 (HTTP 400
+ * `unknown_model`, ritirato live), la sua riga in
+ * `MODEL_MAX_OUTPUT_TOKENS` e' l'unico residuo, e un modello fuori dal
+ * roster non puo' «rientrare». Il membro con quel cap e' l'omonimo Cohere
+ * diretto qui sopra — due id diversi, due provider diversi.
+ *
+ * Scendere a 4000 e' cio' che ha gia' fatto il gemello del corpus
+ * (nanakokyobashi-rgb/frontaliere-articles#186, merge commit 5ed1336a,
+ * mergiata il 2026-08-10) sulla misura «~2500-3000 token per il testo IT» — 900 parole
+ * piu' faq, seo e overhead JSON — che vale anche qui, perche'
+ * `CREATE_ARTICLE_MIN_IT_WORDS` e' 900 su entrambi i lati.
+ *
+ * Perche' non ancora, QUI: quei tre modelli sono gia' saltati PRIMA, dal
+ * pre-flight sull'INPUT, e su ogni ramo. Il cap di input dichiarato per
+ * tutti e tre e' 8000 (`getDeclaredRequestTokenLimit()`, via
+ * `DEFAULT_REQUEST_TOKENS_BY_PROVIDER`), mentre il prompt assemblato pesa
+ * — misurato sul fixture del caso peggiore di
+ * `tests/news-prompt-token-budget.test.ts` — 9428 (evergreen frontaliere),
+ * 9458 (evergreen svizzera), 9988 e 10018 al primo tentativo, 10438 e 10468
+ * al retry sui due rami news. Quindi abbassare questa costante oggi
+ * comprerebbe ZERO modelli e restringerebbe solo il margine di output per
+ * tutti gli altri.
+ *
+ * Un numero da non confondere, perche' e' il modo piu' facile di leggere
+ * male questa decisione: `over=1` nel marker `[prompt-budget]` si misura
+ * contro `PROMPT_TOKEN_BUDGET` (8000), non contro `PROMPT_TOKEN_CEILING`
+ * (10600). Il tetto NON e' superato da nessun ramo — il caso peggiore
+ * misurato e' 10468 — ed e' un ratchet, non il bersaglio; il bersaglio, che
+ * ogni ramo sfora, e' il budget. L'impalcatura statica (33.645 char contro i
+ * ~15.700 del gemello, vedi il commento su `PROMPT_TOKEN_CEILING`) e' cio'
+ * che va compresso prima.
+ *
+ * Riallineamento: quando la riduzione del prompt (item 1 di #6020) porta il
+ * caso peggiore sotto `PROMPT_TOKEN_BUDGET`, questa costante va rivalutata
+ * nello stesso giro — e con lei NIENTE ALTRO, ora che il retry di
+ * parse-error la legge invece di ripetere il suo numero.
+ * `tests/create-article-cascade-decision.test.ts` tiene i tre nomi
+ * agganciati al roster misurato: se il roster cambia, il commento diventa
+ * rosso invece di invecchiare in silenzio.
  */
 const IT_GENERATION_MAX_TOKENS = 8000;
 
@@ -5806,6 +5972,23 @@ Rispondi SOLO con JSON valido, senza markdown.` },
       + `(${_promptEstTokens} > ${_promptTokenTarget}): i modelli col contesto piu' stretto verranno saltati dal pre-flight.`,
     );
   }
+  // Il tetto e' l'altra meta' del pre-flight, e distingue due situazioni che
+  // `over=1` da solo confonde: «sopra il cap della flotta, come oggi sappiamo
+  // di essere» e «sopra anche il massimo che questo repo ha mai misurato»,
+  // cioe' una crescita nuova del prompt. La seconda e' una regressione e va
+  // detta nel run, non solo scoperta dal test in CI.
+  //
+  // Prefisso DIVERSO dal marker (`[prompt-budget-ceiling]`, non
+  // `[prompt-budget]`) di proposito: un watchdog che grep-a `[prompt-budget`
+  // le trova entrambe, ma chi estrae i campi `branch=/est=/over=` dal marker
+  // non si ritrova a parsare una riga che quei campi non li ha.
+  if (_promptEstTokens > PROMPT_TOKEN_CEILING) {
+    console.error(
+      `  🔺 [prompt-budget-ceiling] est=${_promptEstTokens} ceiling=${PROMPT_TOKEN_CEILING}: il prompt supera `
+      + 'anche il tetto, che e\' un ratchet e puo\' solo scendere — il costo del blocco appena aggiunto va '
+      + 'compensato altrove, non assorbito alzando il tetto.',
+    );
+  }
 
   let itRaw;
   if (useGeminiDirect) {
@@ -5826,7 +6009,15 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     console.error(`   ${describeJsonParseError(itRepaired, parseErr)}`);
     console.error(`   ${describeRawForDiagnostics(itRaw)}`);
     const isTruncation = /Unterminated|Unexpected end/i.test(parseErr.message);
-    const retryTokens = isTruncation ? 16000 : 8000;
+    // Il ramo non-troncamento rispedisce lo STESSO budget della chiamata
+    // originale, e quel budget e' `IT_GENERATION_MAX_TOKENS`: scritto come
+    // numero letterale era l'unico punto da cui la divergenza che la costante
+    // esiste per impedire sarebbe rientrata — abbassare la costante avrebbe
+    // lasciato il retry a chiedere 8000, cioe' a farsi saltare dal pre-flight
+    // esattamente i modelli che la riduzione voleva far rientrare (vedi la
+    // decisione di cascata sul JSDoc della costante). Oggi il valore e' lo
+    // stesso: e' un no-op misurato, non un cambio di comportamento.
+    const retryTokens = isTruncation ? 16000 : IT_GENERATION_MAX_TOKENS;
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
     try {
       const itRaw2 = useGeminiDirect
@@ -9391,10 +9582,43 @@ const GOOGLE_NEWS_INJECT_MAX = Number(process.env.GOOGLE_NEWS_INJECT_MAX) || 60;
 // self-trigger chain simply advances to the next run. It is deliberately generous
 // (default 30min) so it never truncates a healthy ~15-20min run — it only fires on
 // the pathological tail. Env-overridable for tuning without a code change.
-const RUN_WALL_BUDGET_MS = Math.max(
+const DECLARED_RUN_WALL_BUDGET_MS = Math.max(
   5 * 60_000,
   Number.parseInt(process.env.CREATE_ARTICLE_MAX_WALL_MS || String(30 * 60_000), 10) || (30 * 60_000),
 );
+// The workflow's shell `timeout` wrapper (generate-article.yml) kills the WHOLE
+// process at CREATE_ARTICLE_HARD_KILL_S seconds, computed there as
+// `CREATE_ARTICLE_MAX_WALL_MS/1000 + 300` (5min grace so this in-process budget
+// always gets to finish gracefully first). Before #6052 this budget was
+// declared independently by re-parsing CREATE_ARTICLE_MAX_WALL_MS with its OWN
+// unset-fallback (30min) — a fallback that does not match the shell side's
+// arithmetic on an unset var (which yields a 300s cap, not 30min), so the two
+// could silently diverge and let deadlineMs promise more than the shell cap
+// actually leaves. Reading the shell's own hard_kill_s back and subtracting the
+// same grace it added closes that gap: whichever of the two is smaller wins.
+const SHELL_HARD_KILL_GRACE_MS = 300_000;
+// Floor for the shell-derived budget (2026-08-19, follow-up to #6072): if
+// CREATE_ARTICLE_HARD_KILL_S * 1000 - SHELL_HARD_KILL_GRACE_MS ever fell to
+// ≤0 (hard_kill_s shell < 300s), RUN_WALL_BUDGET_MS would collapse to 0 and
+// wallBudgetExceeded() would be true from the very first tick, silently
+// aborting every run. Not reachable today (the workflow's computed
+// hard_kill_s is always well above 300s) but a future edit to that shell
+// arithmetic must not be able to zero out article generation silently.
+const MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS = 60_000;
+const shellHardKillS = Number.parseInt(process.env.CREATE_ARTICLE_HARD_KILL_S || '', 10);
+const SHELL_DERIVED_RUN_WALL_BUDGET_MS = Number.isFinite(shellHardKillS) && shellHardKillS > 0
+  ? Math.max(MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS, shellHardKillS * 1000 - SHELL_HARD_KILL_GRACE_MS)
+  : Infinity;
+if (
+  Number.isFinite(shellHardKillS) && shellHardKillS > 0 &&
+  (shellHardKillS * 1000 - SHELL_HARD_KILL_GRACE_MS) < MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS
+) {
+  console.error(
+    `⚠️  CREATE_ARTICLE_HARD_KILL_S=${shellHardKillS}s yields a shell-derived wall budget below the ` +
+    `${MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS / 1000}s floor — clamped up so wallBudgetExceeded() doesn't trip on the first tick.`
+  );
+}
+const RUN_WALL_BUDGET_MS = Math.min(DECLARED_RUN_WALL_BUDGET_MS, SHELL_DERIVED_RUN_WALL_BUDGET_MS);
 const RUN_START_MS = Date.now();
 /** True once the global wall-clock budget is spent (used to stop new topic attempts). */
 function wallBudgetExceeded() {
@@ -9514,6 +9738,55 @@ function isDuplicateError(e) {
   return /DUPLICATO/i.test(String(e.message || ''));
 }
 
+/**
+ * Le uscite di `main()` passano di qui: prima si scrive il ledger, poi si esce.
+ *
+ * Il difetto che chiude (misurato il 2026-08-18 sulla run 32134269129 del
+ * corpus, che gira lo stesso engine): questo file importava `flushScores` alla
+ * riga 68 e non lo chiamava MAI, e aveva 11 `process.exit(...)`. Sul gemello
+ * del corpus il difetto e' identico (PR nanakokyobashi-rgb/frontaliere-articles#433).
+ * `process.exit()` non fa scattare `beforeExit`, che e' l'unico gancio che il
+ * ledger dei punteggi aveva per scrivere l'ultima finestra di mutazioni; il
+ * debounce da 30s e' su un timer `unref()`ato, quindi non tiene vivo il
+ * processo. Il risultato era un'asimmetria precisa: dentro `ai-models.mjs`
+ * l'unico `await flushScores()` sta sul ramo «tutti i modelli hanno fallito»,
+ * quindi i FALLIMENTI di quel ramo arrivavano al ledger e i SUCCESSI di una run
+ * riuscita no — un ledger sistematicamente pessimista, ed e' lui a decidere con
+ * `sortChainByScore()` chi viene provato per primo. Sul documento condiviso
+ * `ai_model_scores/_all`, `claude-cli/haiku` risultava `score -3, 0 successi,
+ * 1 fallimento` mentre quella run gli aveva applicato 4 successi e 4
+ * fallimenti (punteggio in memoria -207).
+ *
+ * Su QUESTO lato il percorso non e' piu' schedulato — la cadenza e' passata al
+ * corpus (`publish-journalist-articles.yml` ha perso lo schedule il 2026-08-14,
+ * il cron di `generate-article.yml` e' commentato). Restano
+ * `workflow_dispatch` e il mensile `evergreen-refresh-audit.yml`, che scrivono
+ * nello STESSO documento condiviso `ai_model_scores/_all`: raro non vuol dire
+ * innocuo, perche' e' proprio la scrittura rara a portarsi dietro un totale
+ * stantio. Il gemello e' `mode: adapted`, quindi la forma qui e' diversa da
+ * quella del corpus di proposito, ma la garanzia e' la stessa.
+ *
+ * Copre le cinque uscite dentro `main()`. Le sei del `catch` di primo livello
+ * restano `process.exit()` di proposito e sono coperte da un unico
+ * `await flushScoresBeforeExit()` in testa al catch: quel corpo viene
+ * ritagliato ed ESEGUITO da tests/roster-exhaustion-red.test.ts dentro un
+ * `new Function` sincrono, dove un `await` sarebbe un SyntaxError. Il risultato
+ * e' lo stesso — nessuna uscita di questo file lascia il ledger non scritto.
+ *
+ * Il flush e' limitato nel tempo e non lancia (vedi `flushScoresBeforeExit`):
+ * un ledger non deve poter appendere o far fallire un'uscita.
+ */
+async function exitAfterFlush(code) {
+  try {
+    await flushScoresBeforeExit();
+  } catch {
+    // flushScoresBeforeExit non lancia; il catch e' qui perche' l'uscita non
+    // dipenda mai dal ledger, nemmeno se un domani cambiasse contratto.
+  }
+  process.exit(code);
+}
+
+
 async function main() {
   // Positional <url> = first non-flag argv (so `--section=` can precede it).
   let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
@@ -9533,7 +9806,7 @@ async function main() {
         console.error(`❌ Disk critically low: ${freeMB}MB free with local LLM model "${model}" loaded.`);
         console.error('   Fix: change ARTICLE_LOCAL_MODEL repo variable to qwen2.5:7b');
         console.error('   (GitHub Settings → Secrets and variables → Actions → Variables)');
-        process.exit(1);
+        await exitAfterFlush(1);
       }
     } catch { /* ignore — df unavailable or parse error */ }
   }
@@ -10267,7 +10540,7 @@ async function main() {
       if (!selectedTopic) {
         console.error('\n⚠️  Tutte le keyword evergreen risultano già coperte dal pre-flight. Push prosegue senza nuovo articolo.');
         finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'All evergreen keywords rejected by pre-generation duplicate checks'] });
-        process.exit(0);
+        await exitAfterFlush(0);
       }
 
       // Generate article with retry — rotate to next safe keyword on post-generation duplicate.
@@ -10394,7 +10667,7 @@ async function main() {
           if (!selectedTopic) {
             console.error('\n⚠️  Nessuna keyword evergreen disponibile. Push prosegue senza nuovo articolo.');
             finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'No evergreen keyword available after duplicate checks'] });
-            process.exit(0);
+            await exitAfterFlush(0);
           }
         }
       }
@@ -10402,7 +10675,7 @@ async function main() {
       // All retry attempts exhausted
       console.error('\n⚠️  Tentativi evergreen esauriti. Push prosegue senza nuovo articolo.');
       finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'Evergreen retries exhausted'] });
-      process.exit(0);
+      await exitAfterFlush(0);
     }
     return;
   }
@@ -10411,7 +10684,7 @@ async function main() {
   if (!url || (!url.startsWith('http') && !url.startsWith('evergreen://') && !url.startsWith('stats-bfs://'))) {
     finalizeRunReport('error', { notes: [...RUN_REPORT.notes, 'Invalid URL input'] });
     console.error('❌ URL non valido. Uso: node scripts/create-article.mjs [url]');
-    process.exit(1);
+    await exitAfterFlush(1);
   }
 
   await generateAndValidateArticle(url, null);
@@ -11035,6 +11308,24 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // different language was never checked at all.
   assertNoFabricatedLaborOfficeCrossLocale(data);
 
+  // Step 3b.2: Fabricated NORM-ACRONYM check on the EN/DE/FR translations —
+  // BLOCKING, and exactly the same shape of gap as Step 3b.1 above, one
+  // pattern family over. `runFactualityGates()` (Step 3a) runs
+  // checkFabricatedNormAcronyms(), but only on `data.content.it`, and it runs
+  // BEFORE translateArticle() — so en/de/fr were never checked for a
+  // fabricated norm acronym in this path at all. That is not a theoretical
+  // hole: the whole reason this gate exists is that a fabricated acronym
+  // SURVIVES translation unchanged (LFW identical across it/en/de/fr in
+  // `apprendistato-uri-2024-2025`, LCO in `infiltrazioni-criminali-ticino-grigioni`),
+  // which is precisely the case an IT-only pre-translation check cannot see.
+  // The JSDoc of assertNoFabricatedNormAcronyms already prescribed this call
+  // site — "called directly on IT content, and again on en/de/fr after
+  // translateArticle()" — and `publish-journalist-article.mjs` wires it that
+  // way; this path had the IT half via runFactualityGates and was missing the
+  // other one. `tests/article-fabrication-generator-guard.test.ts` now fails
+  // if either producer loses its call.
+  assertNoFabricatedNormAcronyms({ en: data.content.en, de: data.content.de, fr: data.content.fr });
+
   // Step 3c: Sanitize bold + URLs + nav links on translated content
   console.error('✂️  Sanitizzazione grassetto (traduzioni):');
   sanitizeBoldFormatting(data);
@@ -11498,7 +11789,19 @@ if (invokedDirectly) {
   };
   process.stdout.on('error', handleEnospc);
   process.stderr.on('error', handleEnospc);
-  main().catch((e) => {
+  main().catch(async (e) => {
+  // ── Il ledger dei punteggi si scrive QUI, prima di qualunque ramo ─────────
+  //
+  // Ogni uscita di questo catch e' un `process.exit()`, che non fa scattare
+  // `beforeExit`: senza questa riga l'ultima finestra di mutazioni del ledger
+  // (`ai_model_scores/_all`) resta non scritta. Il flush sta in testa e non su
+  // ogni `process.exit` perche' il corpo di questo catch viene RITAGLIATO ED
+  // ESEGUITO da tests/roster-exhaustion-red.test.ts dentro un `new Function`
+  // sincrono — un `await` la' dentro sarebbe un SyntaxError, e quel test e' il
+  // solo che dimostra l'ordine veto→differimento invece di grepparlo.
+  // `flushScoresBeforeExit()` e' limitato nel tempo e non lancia, quindi non
+  // puo' appendere ne' dirottare l'uscita.
+  await flushScoresBeforeExit();
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
   // reset at 00:00 UTC, so the next scheduled run normally succeeds. Treat it as

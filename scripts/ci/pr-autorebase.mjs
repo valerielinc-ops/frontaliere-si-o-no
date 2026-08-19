@@ -16,6 +16,12 @@
  * rebase finché una review è in volo** (vedi reviewInProgress): rebasare mentre la
  * review gira la cancella, e con main caldo non concluderebbe mai (la PR
  * collision-risk va behind a ogni tick) → niente `## LGTM`, niente merge.
+ * Stessa forma, un giro prima: **defer del rebase finché un run di `tests.yml` è
+ * in volo sulla head ATTUALE** (vedi testsRunInFlightOnHead) — il push cancella
+ * il `tests` in corso, e `pr-review-loop` parte SOLO su `workflow_run[tests]`
+ * con `conclusion == success`, quindi cancellarlo cancella anche la review che
+ * non è ancora partita (#6037, 2026-08-18: 5 `tests` cancellati di fila, zero
+ * `success`).
  * (Storico: il claim "push PAT non ri-triggera pull_request" su #1587/#1526 era
  * uno zero-check-run da rebase pre-#1597 che non dispatchava, non l'assenza di
  * trigger; il push autenticato App/PAT ri-triggera, osservato su #3038.)
@@ -60,6 +66,7 @@ import {
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
+import { parseCollisionPeers, collisionGateDecision } from './auto-merge-eval.mjs';
 import {
   REOPEN_BUDGET_MARKER,
   BREAKER_LABEL,
@@ -481,23 +488,113 @@ function reviewInProgress(head) {
   return (parseInt((out || '0').trim(), 10) || 0) > 0;
 }
 
+/** Statuti NON terminali di un workflow-run GitHub: il run sta ancora
+ * occupando (o sta per occupare) uno slot di concurrency, quindi un push sulla
+ * stessa ref lo CANCELLA. `completed` è l'unico terminale. */
+const RUN_STATUS_IN_FLIGHT = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
+
+/**
+ * C'è un run di `tests.yml` ancora IN VOLO esattamente sulla head SHA corrente
+ * della PR? Puro → testabile senza rete (la lista run arriva dal chiamante).
+ *
+ * Livelock misurato il 2026-08-18 su #6037 (branch `fix/unsub-window-and-channel`):
+ * la suite `tests` dura 16-21 min, e in giornata attiva i merge su main arrivano
+ * ogni pochi minuti. `pr-autorebase.yml` scatta a OGNI merge (`pull_request:
+ * closed` + cron + `pull_request_review`), rebasa, pusha — e il push CANCELLA il
+ * `tests` in corso (`19:09 cancelled · 19:11 cancelled · 19:25 cancelled · 19:25
+ * cancelled · 19:33 cancelled`, mai un `success`). Siccome `pr-review-loop` parte
+ * SOLO su `workflow_run` di `tests` con `conclusion == success`, la review non
+ * arriva mai → la PR resta `stale-review` → l'autorebase ricomincia. Il budget di
+ * riaperture non salva: i merge commit dell'autorebase contano come «stato
+ * cambiato» e azzerano il contatore.
+ *
+ * Il confronto con `head` è la parte che rende la guardia CORRETTA e non un
+ * semplice «esiste un run in corso»: un run rimasto in volo su una head VECCHIA
+ * (PR ripushata nel frattempo) non produrrà mai il segnale che serve — il suo
+ * `workflow_run` porta il SHA sbagliato e `pr-review-loop` non gatterà la head
+ * attuale. Deferire per lui sarebbe uno stallo gratuito, quindi NON si salta.
+ *
+ * @param {{runs: Array<{id?: number, status?: string, head_sha?: string}>, head: string}} s
+ * @returns {{id: number|null, status: string}|null} il run che blocca, o null.
+ */
+export function testsRunInFlightOnHead({ runs, head }) {
+  if (!head || !Array.isArray(runs)) return null;
+  for (const r of runs) {
+    if (!r || r.head_sha !== head) continue;
+    const status = String(r.status || '');
+    if (!RUN_STATUS_IN_FLIGHT.has(status)) continue;
+    return { id: typeof r.id === 'number' ? r.id : null, status };
+  }
+  return null;
+}
+
+/** Run di `tests.yml` sul branch della PR (qualunque stato, ultimi 20): la
+ * selezione per head SHA + stato la fa `testsRunInFlightOnHead` (pura). Su
+ * errore API torna `[]` → fail-open, la guardia non blocca il rebase. */
+function testsRunsForBranch(branch) {
+  const out = gh(
+    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`],
+    { allowFail: true });
+  return (out && Array.isArray(out.workflow_runs)) ? out.workflow_runs : [];
+}
+
 /**
  * Decisione rebase per una PR near-merge che è behind>0 (valutata DOPO il check
  * CONFLITTO). Pura → testabile; il razionale del livelock è al call-site.
- * @param {{lgtm: boolean, collisionRisk: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
+ * @param {{lgtm: boolean, collisionBlocked: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
  * @returns {'rebase'|'skip'|'heal'}
- *   'rebase' = la PR va rebasata (collision-risk esige 0-behind, OPPURE
- *              vitest=failure va rebasato per ereditare i fix di main, OPPURE
- *              non-LGTM → non near-merge-as-is).
+ *   'rebase' = la PR va rebasata (collisionBlocked: il gate collisione preciso
+ *              di auto-merge-eval bloccherebbe il merge, #6039 — non più la
+ *              sola presenza della label, vedi collisionGateBlocks al call-site,
+ *              OPPURE vitest=failure va rebasato per ereditare i fix di main,
+ *              OPPURE non-LGTM → non near-merge-as-is).
  *   'skip'   = LGTM, non-collision, vitest non-failure, check vitest PRESENTE →
  *              non rebasare (main è non-strict, auto-merge la mergia behind);
  *              rebasare orfanizzerebbe l'head (LIVELOCK).
  *   'heal'   = come 'skip' MA head orfana (nessun check vitest) → dispatch tests
  *              invece di rebasare, così il vitest atterra su head stabile.
  */
-export function rebaseActionForLgtmPr({ lgtm, collisionRisk, vitestConclusion, hasVitestCheck }) {
-  if (!lgtm || collisionRisk || vitestConclusion === 'failure') return 'rebase';
+export function rebaseActionForLgtmPr({ lgtm, collisionBlocked, vitestConclusion, hasVitestCheck }) {
+  if (!lgtm || collisionBlocked || vitestConclusion === 'failure') return 'rebase';
   return hasVitestCheck ? 'skip' : 'heal';
+}
+
+/**
+ * `collision-risk` da sola NON forza più il rebase (#6039): auto-merge-eval è
+ * stato indurito da #2424 a un gate PRECISO (collisionGateDecision) che blocca
+ * il merge SOLO se un peer collidente già MERGIATO non è ancora incluso in
+ * head — non per il semplice fatto che la PR sia dietro main. Prima di questo
+ * fix le due funzioni applicavano regole diverse alla stessa label: qui si
+ * forzava sempre 'rebase', il gate di merge no → una PR verde restava behind
+ * indefinitamente, e il rebase inutile (push PAT) ri-triggerava `tests.yml`
+ * cancellando la review vera nello stesso slot di concurrency (#6023: run
+ * 32157777892 cancellato da run gemelli, PR verde 40min senza review).
+ * Replica ESATTAMENTE la stessa query (peer dai marker `<!-- COLLISION:N -->`,
+ * ancestry via compare API) e riusa `collisionGateDecision` — stessa funzione
+ * pura importata da auto-merge-eval.mjs, zero drift possibile fra le due.
+ * Conservativo su errore API (comments/peer/compare irraggiungibili): blocca
+ * (rebase), mai un salto silenzioso su dati incompleti.
+ */
+function collisionGateBlocks(num, head, behind) {
+  if (behind <= 0) return false;
+  const comments = gh(['api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
+    '--jq', '[.[].body] | join("\\n")'], { json: false, allowFail: true });
+  if (!comments) return true;
+  const peers = parseCollisionPeers(comments);
+  const mergedPeers = [];
+  for (const peer of peers) {
+    const pv = gh(['pr', 'view', String(peer), '--repo', REPO, '--json', 'state,mergeCommit'], { allowFail: true });
+    if (pv === null) {
+      mergedPeers.push({ number: peer, includedInHead: false });
+      continue;
+    }
+    if (pv.state !== 'MERGED' || !pv.mergeCommit?.oid) continue;
+    const status = gh(['api', `repos/${REPO}/compare/${pv.mergeCommit.oid}...${head}`, '--jq', '.status'],
+      { json: false, allowFail: true });
+    const included = status !== null && (status.trim() === 'ahead' || status.trim() === 'identical');
+    mergedPeers.push({ number: peer, includedInHead: included });
+  }
+  return !collisionGateDecision({ behind, mergedPeers }).allow;
 }
 
 /** Dispatcha tests.yml sul branch → il check-run vitest atterra sull'head e il
@@ -505,12 +602,19 @@ export function rebaseActionForLgtmPr({ lgtm, collisionRisk, vitestConclusion, h
  * da auto-merge-eval). Best-effort: serve PAT con scope actions:write. */
 function dispatchTests(num, branch) {
   if (DRY) { console.log(`[dry] dispatch tests.yml --ref ${branch} (#${num})`); return true; }
-  const d = gh(['workflow', 'run', 'tests.yml', '--ref', branch], { json: false, allowFail: true });
-  if (d === null) {
+  // `gh workflow run` stampa l'URL del run SOLO "if available" (spesso vuoto
+  // anche a successo, per propagazione API) → lo stesso sentinel ambiguo di
+  // gh(json:false) qui non basta a distinguere successo da errore (vedi fix
+  // di collisionGateBlocks sopra). Rileva il fallimento reale via eccezione
+  // (exit code), non via contenuto di stdout.
+  try {
+    execFileSync('gh', ['workflow', 'run', 'tests.yml', '--ref', branch],
+      { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    return true;
+  } catch {
     console.log(`::warning::PR #${num}: 'gh workflow run tests.yml --ref ${branch}' fallito — vitest potrebbe non ripartire sull'head; verifica scope actions:write del PAT.`);
     return false;
   }
-  return true;
 }
 
 /** mergeable con un poll su UNKNOWN. */
@@ -813,9 +917,14 @@ async function processPR(pr) {
   // auto-merge-eval (gate vitest==success) si blocca per sempre (circolo vizioso
   // osservato 00:30Z: #2026/#2028/#855 LGTM'd rebasati → action_required → stuck;
   // più la PR aspetta, più l'autorebase la rompe). Tocchiamo solo le PR che il
-  // rebase serve DAVVERO: collision-risk (il gate collisione esige il rebase
-  // oltre l'altra PR) e stale-review (drift/conflitto). Una LGTM'd+verde senza
-  // collisione → lasciala ad auto-merge.
+  // rebase serve DAVVERO: collision-risk SOLO quando collisionGateBlocks rileva
+  // un peer collidente già mergiato non ancora incluso in head (#6039: prima
+  // la label da sola forzava sempre 'rebase', mentre auto-merge-eval dal #2424
+  // blocca il merge solo su quell'hazard preciso — il disallineamento faceva
+  // ri-rebasare a ogni movimento di main una PR che il gate di merge avrebbe
+  // già lasciato passare, e il push del rebase cancellava la review in corso)
+  // e stale-review (drift/conflitto). Una LGTM'd+verde senza collisione REALE →
+  // lasciala ad auto-merge.
   // NB: vitest deve essere non-`failure`. Su failure va rebasata per ereditare
   // eventuali fix lato main (una PR behind+LGTM con vitest=failure NON è
   // mergeable-as-is: auto-merge-eval esige conclusion==success).
@@ -829,9 +938,10 @@ async function processPR(pr) {
   // la lascerebbe stuck (gate 3 mai success) → la SANIAMO dispatchando tests
   // (orphan-heal esteso a behind>0, prima solo behind===0), senza rebasare: il
   // check vitest atterra su una head STABILE e auto-merge la mergia behind.
+  const collisionRisk = labels.includes('collision-risk');
   const action = rebaseActionForLgtmPr({
     lgtm,
-    collisionRisk: labels.includes('collision-risk'),
+    collisionBlocked: collisionRisk && collisionGateBlocks(num, head, behind),
     vitestConclusion: vitestConclusion(head),
     hasVitestCheck: headHasVitestCheck(head),
   });
@@ -855,6 +965,34 @@ async function processPR(pr) {
   // solo tests (no push), quindi non è soggetto a questa race.
   if (reviewInProgress(head)) {
     console.log(`PR #${num}: review Claude in volo sull'head ${head.slice(0, 8)} — skip rebase questo tick (un push ora la cancellerebbe; defer finché conclude).`);
+    return;
+  }
+
+  // Tests-in-flight guard (#6037, 2026-08-18): NON rebasare mentre un run di
+  // `tests.yml` è ancora in volo sulla head ATTUALE. Ribasare adesso
+  // cancellerebbe proprio il run che sta per produrre il segnale (`tests:
+  // success`) di cui la PR ha bisogno per avanzare — `pr-review-loop` parte solo
+  // su `workflow_run` di `tests` con `conclusion == success`, quindi cancellarlo
+  // significa cancellare la review, e senza review la PR resta `stale-review`,
+  // che è la label che rimette in moto l'autorebase: il ciclo si autoalimenta
+  // (misurato: 5 `tests` cancellati di fila su `fix/unsub-window-and-channel`,
+  // zero `success`). La PR non scappa: la ripresa avviene al trigger successivo
+  // (cron, prossimo merge su main, o l'arrivo della review) — a quel punto o il
+  // run è concluso, o la sua head non è più quella attuale e la guardia non
+  // scatta più.
+  //
+  // Perché il caso CONFLICTING non è in stallo: una PR `CONFLICTING` non arriva
+  // MAI qui — è intercettata e chiusa (auto-resolve import-union, altrimenti
+  // `stale-review` + comment) diverse decine di righe più su, prima di questo
+  // punto, e quel ramo fa `return`. È corretto che sia esente: lì il rebase è
+  // RIMEDIALE (auto-merge non mergia un conflitto, quindi nessun `tests: success`
+  // farebbe avanzare la PR — il run in volo è già inutile), mentre qui il rebase
+  // è solo di ALLINEAMENTO (main è non-strict: auto-merge mergia anche behind),
+  // e il run in volo è esattamente ciò che serve. Fail-open: se l'API dei run
+  // fallisce, `testsRunsForBranch` torna `[]` e non si salta niente.
+  const inFlight = testsRunInFlightOnHead({ runs: testsRunsForBranch(branch), head });
+  if (inFlight) {
+    console.log(`PR #${num} (${branch}): run tests.yml ${inFlight.id ?? '?'} ${inFlight.status} sulla head ATTUALE ${head.slice(0, 8)} — skip rebase questo tick (il push lo cancellerebbe, ed è il run che deve produrre il 'tests: success' da cui dipende la review; riprendo al prossimo trigger).`);
     return;
   }
 

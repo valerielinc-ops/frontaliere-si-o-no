@@ -1,16 +1,16 @@
 {
   "key": "reha-andeer",
   "label": "Reha Andeer",
-  "generatedAt": "2026-08-17T21:36:50.201Z",
+  "generatedAt": "2026-08-19T09:45:07.683Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6096,
-  "avgDurationMs": 6096,
+  "durationMs": 23696,
+  "avgDurationMs": 23696,
   "durationHistory": [
-    6096
+    23696
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,14 +21,14 @@
       "companyKey": "reha-andeer",
       "companyDomain": "reha-andeer.ch",
       "title": "Pflegehelferin",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Andeer",
       "canton": "GR",
       "url": "https://reha-andeer.ch/wp-content/uploads/2026/07/Stelleninserat-Pflegehelferin.pdf",
       "applyUrl": "https://reha-andeer.ch/offene-stellen/",
       "source": "Reha Andeer Dedicated Parser (WordPress HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:36:46.397Z",
+      "crawledAt": "2026-08-19T09:45:05.823Z",
       "addressLocality": "Andeer",
       "addressRegion": "GR",
       "addressCountry": "CH",

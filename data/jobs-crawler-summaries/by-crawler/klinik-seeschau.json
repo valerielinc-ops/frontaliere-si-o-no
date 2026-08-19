@@ -1,33 +1,35 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-08-17T22:02:50.897Z",
+  "generatedAt": "2026-08-19T10:16:33.820Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3243,
-  "avgDurationMs": 3243,
+  "unchangedCount": 1,
+  "durationMs": 3532,
+  "avgDurationMs": 3532,
   "durationHistory": [
-    3243
+    3532
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "klinik-seeschau-00cb0e8ba1bb",
-      "slug": "neu-ausbildung-zur-dipl-pflegefachperson-hf-bei-uns-klinik-seeschau-kreuzlingen",
+      "id": "klinik-seeschau-b55b4bbcb606",
+      "slug": "mitarbeiterin-collaboratore-trice-op-bereich-fage-poa-pflegeassistenz-ab-50-klinik-seeschau-kreuzlingen",
       "company": "Klinik Seeschau",
       "companyKey": "klinik-seeschau",
       "companyDomain": "klinik-seeschau.ch",
-      "title": "Neu: Ausbildung zur Dipl. Pflegefachperson HF bei uns!",
-      "needsRetranslation": false,
+      "title": "Mitarbeiterin / Mitarbeiter OP-Bereich (FaGe, POA, Pflegeassistenz) ab 50 %",
+      "needsRetranslation": true,
       "location": "Kreuzlingen",
       "canton": "TG",
-      "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-00cb0e8ba1bb",
+      "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-b55b4bbcb606",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T22:02:48.597Z",
+      "crawledAt": "2026-08-18T22:04:58.037Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -35,7 +37,7 @@
       "postalCode": "8280",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "OTHER",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -43,15 +45,16 @@
       "postedDate": "2026-05-20",
       "applyUrl": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59",
       "firstSeenAt": "2026-05-20T06:05:18.214Z",
-      "_qualityScore": 85,
+      "salaryMin": 28800,
+      "salaryMax": 43500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

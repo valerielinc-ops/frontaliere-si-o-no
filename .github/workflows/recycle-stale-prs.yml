@@ -238,14 +238,33 @@ jobs:
             node scripts/ci/parked-pr-detector.mjs --dry-run
           fi
 
-      # Visibilita' needs-human: due sorgenti convergono su questa label — il
-      # 🔴-fixer al round-cap, che etichetta e STOPPA (by-design), e lo step
-      # qui sopra per le draft parcheggiate. In entrambi i casi NESSUN processo
-      # rilancia o segnala quelle PR — restano ferme finche' l'owner non guarda
-      # a mano la PR list (osservato #1526: 102h di latenza). Issue dedup
-      # giornaliera (titolo stabile, si aggiorna via recurrence-comment) finche'
-      # esistono PR needs-human aperte.
-      - name: Surface needs-human PRs (dedup, zero-Claude)
+      # Visibilita' needs-human: quattro sorgenti convergono su questa label — il
+      # 🔴-fixer al round-cap, che etichetta e STOPPA (by-design), lo step qui
+      # sopra per le draft parcheggiate, il followup-drainer per le issue
+      # too-large (:1204), e l'escalation cronica di
+      # scripts/ci/close-recovered-failure-issues.mjs. In tutti i casi NESSUN
+      # processo rilancia o segnala quell'oggetto — resta fermo finche' l'owner
+      # non guarda a mano (osservato #1526: 102h di latenza).
+      #
+      # PERCHE' ANCHE LE ISSUE, e perche' QUI. Su `needs-human` la label non e'
+      # un selettore ma un filtro di ESCLUSIONE: scripts/ci/followup-drainer.mjs
+      # la legge in isReparkableCandidate() (:794) per tenere una issue fuori dal
+      # pool dei retry parcheggiati, e a :1345 per escluderla dal rescue
+      # `agent:fix` dei crawler. Fino a questa PR nessun workflow dei due repo
+      # faceva `gh issue list --label needs-human`: una issue escalata usciva da
+      # ogni coda automatica e non entrava in nessuna coda umana. Misurato sul
+      # corpus il 2026-08-18: 13 issue aperte su 26 portavano la label.
+      # scripts/ci/loop-health-report.mjs (:251) ne pubblica il CONTEGGIO nel
+      # report giornaliero, ma un numero non dice quali sono e il corpus quel
+      # report non ce l'ha. Il canale giusto e' questo e non uno nuovo — e' la
+      # regola scritta in scripts/ci/parked-pr-detector.mjs («Riusarla significa
+      # che il segnale finisce in un canale che esiste gia' ed e' gia' letto,
+      # invece di aprirne un secondo che nessuno guarda»).
+      #
+      # Il TITOLO non cambia: e' la chiave di dedup di github-issue-creator.mjs,
+      # e rinominarlo orfanerebbe l'issue dedup gia' aperta (#5041 qui, #409 sul
+      # corpus), che nessuno chiuderebbe piu'. Le due liste stanno nel corpo.
+      - name: Surface needs-human PRs and issues (dedup, zero-Claude)
         if: always()
         continue-on-error: true
         env:
@@ -253,16 +272,24 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-          LIST=$(gh pr list --repo "$GH_REPO" --state open --label needs-human \
+          PRS=$(gh pr list --repo "$GH_REPO" --state open --label needs-human \
             --json number,title,updatedAt \
             --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
-          if [ -z "$LIST" ]; then
-            echo "Nessuna PR needs-human aperta."
+          # L'issue dedup di questo stesso step porta `automation`, non
+          # `needs-human`: non puo' auto-elencarsi.
+          ISSUES=$(gh issue list --repo "$GH_REPO" --state open --label needs-human \
+            --limit 200 --json number,title,updatedAt \
+            --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
+          if [ -z "$PRS" ] && [ -z "$ISSUES" ]; then
+            echo "Niente needs-human aperto (ne PR ne issue)."
             exit 0
           fi
-          COUNT=$(printf '%s\n' "$LIST" | wc -l | tr -d ' ')
-          echo "PR needs-human aperte: $COUNT"
-          DESC=$(printf 'Nessun processo automatico sblocchera queste PR: o il fixer dei red-flag ha raggiunto il round-cap e si e fermato (anti-loop), o sono draft parcheggiate, che ogni strato del ciclo salta by-design. Servono occhi umani:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esistono PR needs-human. Chiudila quando la lista e vuota._' "$LIST")
+          PR_COUNT=0; [ -n "$PRS" ] && PR_COUNT=$(printf '%s\n' "$PRS" | wc -l | tr -d ' ')
+          ISSUE_COUNT=0; [ -n "$ISSUES" ] && ISSUE_COUNT=$(printf '%s\n' "$ISSUES" | wc -l | tr -d ' ')
+          echo "needs-human aperti: $PR_COUNT PR, $ISSUE_COUNT issue"
+          [ -n "$PRS" ] || PRS='_(nessuna)_'
+          [ -n "$ISSUES" ] || ISSUES='_(nessuna)_'
+          DESC=$(printf 'Nessun processo automatico sblocchera questi oggetti, e su `needs-human` la label e un filtro di ESCLUSIONE dalle code del drainer, non una segnalazione. Servono occhi umani.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap e si e fermato (anti-loop), oppure sono draft parcheggiate, che ogni strato del ciclo salta by-design:\n\n%s\n\n**Issue** (%s) — escalate dal followup-drainer (too-large) o dal gate cronico di close-recovered-failure-issues.mjs (un guasto che ricorre oltre soglia). Restano fuori dal pool dei retry parcheggiati e dal rescue agent:fix dei crawler finche portano la label:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human. Chiudila quando entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
           node scripts/lib/github-issue-creator.mjs \
             --title "needs-human: PR bloccate in attesa di revisione umana" \
             --description "$DESC" \

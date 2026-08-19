@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-08-17T21:28:03.069Z",
+  "generatedAt": "2026-08-19T09:45:12.465Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11456,
-  "avgDurationMs": 11456,
+  "durationMs": 9814,
+  "avgDurationMs": 9814,
   "durationHistory": [
-    11456
+    9814
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -188,7 +187,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -225,7 +223,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -262,7 +259,7 @@
       },
       "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -410,12 +407,12 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "crawledAt": "",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -573,9 +570,9 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -614,12 +611,12 @@
       },
       "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

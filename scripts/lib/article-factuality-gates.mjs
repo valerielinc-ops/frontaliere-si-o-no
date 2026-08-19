@@ -1272,6 +1272,242 @@ export function checkFabricatedInstitutionAcronyms(text, opts = {}) {
   return issues;
 }
 
+// ─── 5b. Fabricated NORM acronyms ──────────────────────────────
+//
+// corpus#323 e la sua recidiva del 15-16/08/2026: `(LFW)` per la legge sul
+// lavoro e `(LPS)` per due leggi che non esistono sono ricomparsi in 9 corpi su
+// 4 locali DOPO che l'incidente era stato chiuso, perché nessuno dei gate di
+// questo file li poteva vedere.
+//
+// Il punto cieco è STRUTTURALE, non una voce mancante in una lista:
+// INSTITUTION_RE (sezione 5) riconosce solo nomi di ENTE — `Ufficio`,
+// `Istituto`, `Agenzia`, `Autorità`, ... — e `Legge` non è fra questi. Una
+// sigla NORMATIVA inventata non produce quindi né `fabricated-institution`,
+// né `unknown-institution`, né una observation per il learner del
+// defect-memory: attraversa tutti e tre i tier senza toccarne nessuno.
+// L'altra metà della difesa (`FABRICATED_ACRONYMS` in create-article.mjs)
+// contiene già quattro sigle di legge inventate (`LCFL`, `LFP`, `RTL`, `LTL`)
+// ma non queste due, e vive fuori da questo modulo.
+//
+// Perché una tabella byte-exact e non un'euristica «acronimo + anno»: quella
+// è già stata misurata e scartata in #261 — 41 hit su 16.676 file, per lo più
+// norme e istituzioni VERE (`SECO 2024`, `KVG 2023`, `SCP 2026`, il nome di
+// una scuola). Qui entrano solo sigle osservate dal vivo nel corpus e
+// verificate come inesistenti: le stesse che il test sui dati
+// (generator/tests/telelavoro-frontalieri-normative-citations.test.mjs) cerca
+// su tutti i corpi. Guard e test guardano la stessa lista di nomi, quindi non
+// possono divergere su cosa sia fabbricato.
+//
+// I confini sono su LETTERE e non `\b`, esattamente come nel test: `MLPS`
+// (Ministero del Lavoro e delle Politiche Sociali) e `TULPS` (Testo Unico
+// Leggi Pubblica Sicurezza) sono norme VERE e devono restare fuori match —
+// 8 file al 2026-08-18.
+//
+// Il flag `i` e' piu' permissivo di INSTITUTION_RE (`[A-Z]{2,8}`, sezione 5)
+// e la review su #6005 lo ha segnalato come rischio di falso positivo non
+// escluso: una occorrenza minuscola di `lfw`/`lps` dentro una parola
+// straniera o un acronimo di prodotto passerebbe anch'essa. Verificato
+// 2026-08-18 sull'intero corpus tirato (`packages/articles/content/`,
+// 17.872 file su it/en/de/fr): zero occorrenze minuscole o miste, solo la
+// forma maiuscola esatta della sigla inventata. Il flag oggi non cattura
+// altro che la sigla stessa: restringerlo toglierebbe copertura senza un
+// difetto reale da mostrare. Ri-misurare se il corpus cresce di molto o se
+// emerge un hit minuscolo — a quel punto il fix e' un boundary aggiuntivo o
+// la rimozione del flag, non prima.
+//
+// LCL e LCO (follow-up #6017, item 2/3 di #6005) verificate con la stessa
+// disciplina: misurate sul corpus tirato con la stessa regex a confini di
+// lettera — 3 occorrenze in 2 file (`LCL`), 7 in 4 file (`LCO`). `LCL`
+// fabbrica DUE leggi diverse e incompatibili nello stesso corpus: «legge
+// cantonale sulla naturalizzazione del Cantone di Lucerna... (LCL 2020,
+// art. 15)» in un articolo e «La legge cantonale sul lavoro (LCL) del 15
+// dicembre 1995» in un altro — stesso acronimo, domini e date che si
+// escludono, la stessa firma di fabbricazione di LFW. `LCO` («Federal Act
+// on Combating Organized Crime (LCO)», 2013) e' invece consistente ma
+// sopravvive identica a it/en/de/fr in `infiltrazioni-criminali-ticino-
+// grigioni` — nessuna legge federale svizzera con questa sigla esiste, la
+// lotta alla criminalita' organizzata e' nel Codice penale (art. 260ter
+// CP), lo stesso argomento «sopravvive alla traduzione» gia' usato per
+// LFW/LPS. Zero occorrenze minuscole/miste di `lcl`/`lco` sullo stesso
+// corpus tirato, stessa verifica di cui sopra.
+// Cue di CITAZIONE GIURIDICA, multilingue per costruzione: serve alle entry
+// che portano un `context` (oggi solo `LCL`, vedi sotto). Copre le quattro
+// lingue del corpus — it `legge/legislazione/articolo/art.`, fr `loi/article`,
+// de `Gesetz/Bundesgesetz/Artikel/Abs.`, en `law on/act on/article` — piu' i
+// riferimenti svizzeri `RS <numero>` e `cpv.`, che sono gia' locale-neutri.
+// L'obiezione «una parola come "legge" non regge su de/fr/en» e' corretta per
+// una singola parola italiana, e infatti qui non ce n'e' una sola.
+// La chiusura di ogni alternativa NON e' uniforme, ed e' deliberato: dipende
+// da come compone la lingua, e ci sono TRE casi distinti, non due.
+//
+// 1. Chiuse con `\b` — la coda del prefisso e' fitta di parole ordinarie:
+//    `Artikeln?\b` (`Artikelnummer` e' un codice prodotto, `Artikelserie` una
+//    serie giornalistica; la `n?` tiene il dativo plurale «in den Artikeln 5
+//    und 6»), `articol[oi]\b` (`articolista`, `articolistica`: chi scrive sui
+//    giornali, non chi cita una legge) e la famiglia
+//    `legg[ei]\b`/`legislazion[ei]\b`/`lois?\b`.
+// 2. Aperte a prefisso — li' la composizione va nell'altra direzione, e i
+//    composti sono TUTTI contesto di citazione normativa: `Gesetzgebung`,
+//    `Gesetzbuch`, `Gesetzentwurf`, `Gesetzeslage`, `Bundesgesetzblatt`.
+//    Chiudere `Gesetz`/`Bundesgesetz` darebbe falsi NEGATIVI, non toglierebbe
+//    falsi positivi — lo stesso difetto per cui `legislazion[ei]` ha il
+//    plurale invece del solo singolare. `articles?` sta QUI e non nel caso 1,
+//    benche' l'italiano `articol[oi]` sia chiuso: la coda inglese di
+//    `article-` non e' fitta di parole ordinarie come quella italiana, e' di
+//    nuovo dominio giuridico (`articled clerk`, `articling student` sono il
+//    praticante di studio legale). Un `\b` qui sarebbe una chiusura senza un
+//    caso che la giustifichi — e infatti la prova di mutazione la lascia
+//    verde, cioe' nessun test morirebbe togliendola.
+// 3. Aperta MA con una sola coda esclusa — `Gesetz(?:es|e)?(?!t)`. Restare
+//    aperti vale per i composti veri, cioe' per le parole che hanno `Gesetz`
+//    come RADICE; `gesetzt` non e' un composto, e' il participio di `setzen`
+//    («der Rahmen ist gesetzt», «gesetzt den Fall») piu' le sue forme declinate
+//    `gesetzte/-r/-n/-m/-s`. Condivide le prime sei lettere per coincidenza
+//    morfologica, non per composizione, ed e' parola comunissima in un pezzo
+//    de-locale: entro i 120 caratteri di `contextWindow` bastava a far scattare
+//    `fabricated-norm-acronym` `critical` su una banca legittima. La `t` e'
+//    l'unica coda esclusa perche' nessun composto giuridico con `Gesetz-` in
+//    testa comincia per `t`; `Gesetzestext` sopravvive per backtracking
+//    (`es` fallisce il lookahead, `e` lo passa lasciando `stext`).
+//
+// I test «leaves the bank LCL alone …» e «keeps German legal compounds as
+// citation cues» codificano le tre scelte insieme, perche' non vengano
+// «riparate» una per giro: chiudere le aperte fa passare il primo e rompe il
+// secondo, e togliere il `(?!t)` rompe il terzo.
+const NORM_CITATION_CUE =
+  /\b(?:legg[ei]\b|legislazion[ei]\b|lois?\b|Gesetz(?:es|e)?(?!t)|Bundesgesetz|federal\s+act\b|act\s+on\b|law\s+on\b|articol[oi]\b|articles?|Artikeln?\b|art\.|cpv\.|Abs\.|RS\s*\d)/i;
+
+export const FABRICATED_NORM_ACRONYMS = [
+  {
+    acronym: 'LFW',
+    re: /(?<![A-Za-z])LFW(?![A-Za-z])/i,
+    real: "la legge sul lavoro è LL (RS 822.11, 13 marzo 1964); per l'apprendistato è la LFPr (RS 412.10)",
+  },
+  {
+    acronym: 'LPS',
+    re: /(?<![A-Za-z])LPS(?![A-Za-z])/i,
+    real: 'non esiste: previdenza → LAVS/LAI/LPP, assicurazione malattie → LAMal/LVAMal, permesso di soggiorno → LStrI (RS 142.20)',
+  },
+  {
+    acronym: 'LCL',
+    re: /(?<![A-Za-z])LCL(?![A-Za-z])/i,
+    real: "non esiste: la legge sul lavoro è LL (RS 822.11); la cittadinanza svizzera è la LCit (RS 141.0) più il diritto cantonale, nessuna sigla ufficiale «LCL»",
+    // A bare substring match on `LCL` also matches the real French bank (ex
+    // Crédit Lyonnais) — a future article mentioning it (this corpus already
+    // has 175 files on frontalieri Francia-Svizzera and 29 naming other
+    // French banks) would be rejected as a fabricated norm.
+    //
+    // Il primo giro di questa guardia chiedeva un ANNO vicino. Non basta, ed
+    // e' misurato: «Dal 2024 LCL offre un conto dedicato ai frontalieri» —
+    // una frase bancaria del tutto ordinaria — porta un anno a due parole
+    // dalla sigla e veniva rigettata lo stesso. In un articolo su conti e
+    // mercati un anno vicino e' la norma, non l'eccezione, quindi come
+    // discriminante non separa niente.
+    //
+    // Serve invece il segno di una CITAZIONE di norma. L'obiezione con cui
+    // era stato scelto l'anno («non una parola specifica di una lingua, il
+    // check gira anche su de/fr/en») e' giusta contro UNA parola italiana, e
+    // infatti `NORM_CITATION_CUE` e' multilingue per costruzione. Entrambe le
+    // fabbricazioni reali del corpus restano rilevate — `(LCL) del 15
+    // dicembre 1995` ha «legge» 28 caratteri prima, `(LCL 2020, art. 15)` ha
+    // «art.» subito dopo — e le due sono le sole occorrenze vere: negli altri
+    // tre file la sigla e' `LCLoc`, che il lookahead `(?![A-Za-z])` esclude.
+    context: NORM_CITATION_CUE,
+    contextWindow: 120,
+  },
+  {
+    acronym: 'LCO',
+    re: /(?<![A-Za-z])LCO(?![A-Za-z])/i,
+    real: 'non esiste: il contrasto alla criminalità organizzata è nel Codice penale, art. 260ter CP (RS 311.0)',
+  },
+];
+
+/**
+ * Flags known-fabricated NORM acronyms, in any locale.
+ *
+ * Locale-independent by construction: an invented acronym survives translation
+ * unchanged — `(LFW)` arrived byte-identical in the de/fr/en bodies of
+ * `apprendistato-urie-2024-2025` — so judging it on Italian alone would let
+ * the three translations through. Same argument already written for
+ * FABRICATED_LABOR_OFFICE_ACRONYMS in create-article.mjs.
+ *
+ * @param {string} text
+ * @param {{locale?: string}} [opts]
+ * @returns {Array<{code: string, severity: string, message: string}>}
+ */
+export function checkFabricatedNormAcronyms(text, opts = {}) {
+  const issues = [];
+  if (typeof text !== 'string' || !text) return issues;
+  const locale = opts.locale || 'it';
+  for (const { acronym, re, real, context, contextWindow } of FABRICATED_NORM_ACRONYMS) {
+    // `re` is deliberately non-global: a `g` regex carries `lastIndex` across
+    // calls, and this table is module-level shared state. Lo scan qui sotto
+    // usa quindi un CLONE locale con flag `g`, mai la regex della tabella:
+    // l'invariante `entry.re.global === false` resta vera e nessuna entry
+    // diventa stateful fra due chiamate.
+    //
+    // Perche' non basta la prima occorrenza: con una guardia `context` il
+    // primo match puo' essere legittimo (la banca francese LCL) e nascondere
+    // una fabbricazione piu' in basso nello stesso testo. Senza `context` il
+    // difetto non poteva esistere, perche' il primo match era sempre anche
+    // l'issue: nasce con la guardia e va chiuso con lei.
+    const scan = new RegExp(re.source, re.flags.includes('g') ? re.flags : `${re.flags}g`);
+    let m;
+    while ((m = scan.exec(text)) !== null) {
+      if (m[0] === '') { scan.lastIndex += 1; continue; }
+      if (context) {
+        const w = contextWindow ?? 80;
+        const nearby = text.slice(Math.max(0, m.index - w), m.index + m[0].length + w);
+        if (!context.test(nearby)) continue;
+      }
+      issues.push(issue(
+        'fabricated-norm-acronym',
+        'critical',
+        `[${locale}] Sigla normativa inventata: «${acronym}» — ${real}`,
+        text.slice(Math.max(0, m.index - 90), m.index + 60),
+        'Cita la norma reale con la sua sigla ufficiale, oppure togli la citazione. '
+        + "Una sigla di legge inesistente è una fabbricazione anche quando la frase intorno è corretta, "
+        + "e sopravvive alla traduzione: va tolta nell'originale, non nei singoli locali.",
+      ));
+      break; // una sola issue per sigla, come prima
+    }
+  }
+  return issues;
+}
+
+/**
+ * BLOCKING — checkFabricatedNormAcronyms() across every locale a caller
+ * already has content for, in ONE place so every producer wires the same
+ * check the same way instead of each re-deriving it.
+ *
+ * `runFactualityGates()` already runs checkFabricatedNormAcronyms(), but only
+ * where a caller actually invokes runFactualityGates — and that is exactly
+ * where this gate leaked: create-article.mjs's AI-generation path calls it
+ * only on `data.content.it`, before translateArticle() exists, so an acronym
+ * that survives translation unchanged (see checkFabricatedNormAcronyms doc)
+ * was never re-checked on en/de/fr. publish-journalist-article.mjs never
+ * calls runFactualityGates at all — a journalist submission passed through
+ * no norm-acronym check in ANY locale, IT included. Same shape of gap as
+ * assertNoFabricatedLaborOfficeCrossLocale, and wired the same way: called
+ * directly on IT content, and again on en/de/fr after translateArticle().
+ *
+ * @param {Record<string, {title?: string, body1?: string, body2?: string, body3?: string} | undefined>} contentByLocale
+ */
+export function assertNoFabricatedNormAcronyms(contentByLocale) {
+  const issues = [];
+  for (const [locale, content] of Object.entries(contentByLocale || {})) {
+    if (!content) continue;
+    const text = [content.title || '', content.body1 || '', content.body2 || '', content.body3 || ''].join(' ');
+    for (const found of checkFabricatedNormAcronyms(text, { locale })) {
+      issues.push(found.message);
+    }
+  }
+  if (issues.length > 0) {
+    const msg = issues.map((i, idx) => `  ${idx + 1}. ${i}`).join('\n');
+    throw new Error(`Articolo rigettato — sigla normativa fabbricata:\n${msg}`);
+  }
+}
+
 // ─── 6. Contradictory dates for the same named norm ───────────────────
 //
 // "Il Decreto Omnibus è stato varato il 1° gennaio 2023" coexisted with "Il 1°
@@ -1561,6 +1797,103 @@ export function renderAnchorForPrompt(anchor) {
 }
 
 /**
+ * The RegExp that decides whether a piece of text carries `anchor`.
+ *
+ * One definition, two callers: `findAnchorSentence` uses it to pick the
+ * sentence, `truncateForPrompt` uses it to keep the fact inside the window it
+ * cuts. Two copies would drift, and this particular drift is invisible — a
+ * truncation that no longer knows what it must preserve still returns a
+ * plausible-looking quote (AGENTS.md #6: a regex needed in two places goes
+ * into one place).
+ *
+ * Returns null when the kind is unknown or the date cannot be parsed.
+ */
+function anchorNeedle(anchor) {
+  const [kind, value] = String(anchor).split(':');
+  if (kind === 'pct') return new RegExp(String.raw`${value.replace('.', '[.,]')}\s*%`);
+  if (kind === 'km') return new RegExp(String.raw`${Number(value)}\s*km`, 'i');
+  if (kind === 'org') return new RegExp(String.raw`\b${value}\b`);
+  if (kind === 'date') {
+    const [y, mo, d] = value.split('-');
+    const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
+    if (!monthName) return null;
+    return new RegExp(String.raw`${Number(d)}\s*°?\s+${monthName}\s+${y}`, 'i');
+  }
+  return null;
+}
+
+/**
+ * The source's OWN sentence carrying `anchor`, untruncated. Internal: callers
+ * that group by evidence (see `groupedAnchorEvidence`) need the full sentence
+ * as the grouping key, because two distinct sentences that share their first
+ * 237+ chars and diverge only after would otherwise collide once truncated,
+ * merging two distinct source quotations under one.
+ */
+function findAnchorSentence(sourceText, anchor) {
+  if (typeof sourceText !== 'string' || !sourceText) return '';
+  const needle = anchorNeedle(anchor);
+  if (!needle) return '';
+
+  // Sentence-ish split: enough to isolate the claim without dragging in the
+  // whole paragraph, and tolerant of the ragged text scrapers produce.
+  for (const sentence of sourceText.split(/(?<=[.!?])\s+|\n+/)) {
+    if (needle.test(sentence)) return sentence.replace(/\s+/g, ' ').trim();
+  }
+  return '';
+}
+
+/** Prompt budget for one quoted sentence, ellipsis included. */
+const EVIDENCE_MAX_CHARS = 240;
+
+/**
+ * Caps a sentence for prompt use — display only, never a grouping key.
+ *
+ * The window is cut AROUND `anchors`, not from the head of the sentence.
+ * Cutting from the head produced quotes that no longer contained the fact
+ * they were quoted FOR, and did it silently: measured on the pulled corpus
+ * of published article bodies (17.804 bodies, 65.223 anchors) 1.689 anchors
+ * across 930 documents got a 238-char quote whose datum sat past char 237.
+ * The instruction then read «reintegra DATEC — la fonte dice: "<237 chars
+ * that do not contain DATEC>"», which is precisely the "never a wrong quote"
+ * guarantee of `anchorEvidence` below, broken. Handing back the wrong
+ * sentence is worse than handing back none: the writer reinstates what it was
+ * shown, so a mis-cut quote is how a dropped fact comes back invented — the
+ * same failure the evidence was added to prevent.
+ *
+ * Sentences whose anchor already fits in the head window keep the exact old
+ * output, so this is strictly additive: 63.534 of those 65.223 anchors are
+ * byte-identical before and after.
+ */
+function truncateForPrompt(sentence, anchors = []) {
+  if (sentence.length <= EVIDENCE_MAX_CHARS) return sentence;
+  const head = EVIDENCE_MAX_CHARS - 3;
+
+  // Earliest position that must survive the cut. Anchors further right are
+  // still lost to the budget, but the first one never is — before this, none
+  // was safe.
+  let at = -1;
+  let hitLen = 0;
+  for (const a of [].concat(anchors)) {
+    const needle = anchorNeedle(a);
+    const m = needle ? sentence.match(needle) : null;
+    if (m && (at === -1 || m.index < at)) { at = m.index; hitLen = m[0].length; }
+  }
+  // Unknown anchor, or the fact already inside the head window → old behaviour.
+  if (at === -1 || at + hitLen <= head) return `${sentence.slice(0, head)}…`;
+
+  // Slide a window that keeps the fact, with some left context for sense.
+  const width = EVIDENCE_MAX_CHARS - 2; // room for the two ellipses
+  let from = Math.min(Math.max(0, at - 60), Math.max(0, sentence.length - width));
+  if (from > at) from = at; // pathological: never cut the fact off the left
+  // Snap forward to a word boundary so the quote does not open mid-word, but
+  // never far enough to eat into the fact itself.
+  const snap = sentence.slice(from, Math.min(at, from + 30)).indexOf(' ');
+  if (snap > 0) from += snap + 1;
+  const to = Math.min(sentence.length, from + width);
+  return `${from > 0 ? '…' : ''}${sentence.slice(from, to)}${to < sentence.length ? '…' : ''}`;
+}
+
+/**
  * The source's OWN sentence carrying `anchor`, trimmed for prompt use.
  *
  * A gate that only names what is missing leaves the writer to reconstruct the
@@ -1572,29 +1905,8 @@ export function renderAnchorForPrompt(anchor) {
  * instruction then degrades to naming it, never to a wrong quote).
  */
 export function anchorEvidence(sourceText, anchor) {
-  if (typeof sourceText !== 'string' || !sourceText) return '';
-  const [kind, value] = String(anchor).split(':');
-  let needle = null;
-  if (kind === 'pct') needle = new RegExp(String.raw`${value.replace('.', '[.,]')}\s*%`);
-  else if (kind === 'km') needle = new RegExp(String.raw`${Number(value)}\s*km`, 'i');
-  else if (kind === 'org') needle = new RegExp(String.raw`\b${value}\b`);
-  else if (kind === 'date') {
-    const [y, mo, d] = value.split('-');
-    const monthName = Object.keys(MONTHS_IT).find((k) => MONTHS_IT[k] === Number(mo));
-    if (!monthName) return '';
-    needle = new RegExp(String.raw`${Number(d)}\s*°?\s+${monthName}\s+${y}`, 'i');
-  }
-  if (!needle) return '';
-
-  // Sentence-ish split: enough to isolate the claim without dragging in the
-  // whole paragraph, and tolerant of the ragged text scrapers produce.
-  for (const sentence of sourceText.split(/(?<=[.!?])\s+|\n+/)) {
-    if (needle.test(sentence)) {
-      const clean = sentence.replace(/\s+/g, ' ').trim();
-      return clean.length > 240 ? `${clean.slice(0, 237)}…` : clean;
-    }
-  }
-  return '';
+  const sentence = findAnchorSentence(sourceText, anchor);
+  return sentence ? truncateForPrompt(sentence, [anchor]) : '';
 }
 
 /** Human label per anchor kind, for grouping the contract below. */
@@ -1762,19 +2074,29 @@ export function matchedAnchors(articleText, anchors) {
  * @param bullet line prefix (the two gates indent differently)
  */
 function groupedAnchorEvidence(sourceText, anchorList, bullet = '') {
+  // Keyed on the FULL, untruncated sentence: two distinct sentences sharing
+  // their first 237+ chars would collide on the truncated form and merge
+  // under one quotation (see findAnchorSentence). Truncation applies only
+  // when the line is rendered below, never to the grouping key.
   /** @type {Map<string, string[]>} evidence sentence → labels it carries */
   const byEvidence = new Map();
+  /** @type {Map<string, string[]>} same key → the anchor keys, for truncation */
+  const anchorsByEvidence = new Map();
   const withoutEvidence = [];
   for (const a of anchorList) {
     const label = renderAnchorForPrompt(a);
-    const evidence = anchorEvidence(sourceText, a);
+    const evidence = findAnchorSentence(sourceText, a);
     if (!evidence) { withoutEvidence.push(label); continue; }
-    if (!byEvidence.has(evidence)) byEvidence.set(evidence, []);
+    if (!byEvidence.has(evidence)) { byEvidence.set(evidence, []); anchorsByEvidence.set(evidence, []); }
     byEvidence.get(evidence).push(label);
+    anchorsByEvidence.get(evidence).push(a);
   }
   const lines = [];
   for (const [evidence, labels] of byEvidence) {
-    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${evidence}»`);
+    // The anchors of THIS group, so the window keeps a fact the line names
+    // instead of the first 237 chars of a sentence that may not carry any.
+    const quote = truncateForPrompt(evidence, anchorsByEvidence.get(evidence));
+    lines.push(`${bullet}${labels.join(', ')} — la fonte dice: «${quote}»`);
   }
   // Anchors the matcher could not locate in the source degrade to their name
   // only, never to a wrong quote (see anchorEvidence).
@@ -2146,6 +2468,12 @@ export function runFactualityGates(params = {}) {
   issues.push(...checkInlineArithmetic(fullText, localeOptions));
   issues.push(...checkTaxPlausibility(fullText, localeOptions));
   issues.push(...checkCrossSectionNumericConflicts(sections, localeOptions));
+  // Fuori dal ramo `locale === 'it'` di proposito: una sigla normativa
+  // inventata resta identica in de/fr/en (vedi checkFabricatedNormAcronyms),
+  // quindi il giorno in cui le traduzioni passeranno di qui il controllo
+  // c'è già e non va ricordato. `critical` → finisce in `blocking`, e il
+  // chiamante rigetta l'articolo (create-article.mjs, `if (!gateResult.passed)`).
+  issues.push(...checkFabricatedNormAcronyms(fullText, localeOptions));
 
   if (locale === 'it') {
     issues.push(...checkFabricatedInstitutionAcronyms(fullText, {

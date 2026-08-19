@@ -57,6 +57,7 @@ import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-
 import { readRunStartMs, markRunStart } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
+import { buildTrafficPriority, formatPriorityReport, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -258,14 +259,17 @@ async function main() {
     .filter((f) => f.endsWith('.json') && !f.includes('-locale-cache'))
     .sort();
 
-  // Build the batch: a flat list of translation requests + back-references so we
-  // can write each result into the right { file, jobIndex, locale, field }.
-  const requests = [];   // { id, text, from, to }
-  const targets = new Map(); // id -> { file, jobIdx, locale, field }
-  const jobsInScope = []; // { file, jobIdx } (deduped)
-  const jobSeen = new Set();
+  // Build the FULL candidate list first — no early exit on MAX_JOBS here. The
+  // old code capped mid-scan while walking sliceFiles alphabetically, so any
+  // slice sorted after wherever the cap landed (e.g. postfinance.json,
+  // richemont.json — both past position ~200/570) never got scanned, on any
+  // run, ever: a permanent starvation the falling headline count could not
+  // reveal (issue #6109 — same shape job-traffic-priority.mjs's header
+  // describes for the cascade). Ordering the full candidate set below by the
+  // same traffic-priority the cascade already uses fixes it for this free
+  // tier too, at the cost of reading every slice instead of stopping early.
+  const candidates = []; // { file, jobIdx, job, slots }
   let scannedJobs = 0;
-  let nextId = 0;
 
   for (const file of sliceFiles) {
     const filePath = path.join(BY_CRAWLER_DIR, file);
@@ -280,36 +284,56 @@ async function main() {
       const slots = missingSlots(job);
       if (slots.length === 0) continue;
 
-      if (jobsInScope.length >= MAX_JOBS) break;
-
-      const srcLang = job.sourceLang || 'it';
-      const tbl = job.titleByLocale || {};
-      const dbl = job.descriptionByLocale || {};
-      const sourceTitle = (job.title || tbl[srcLang] || '').trim();
-      const sourceDesc = (job.description || dbl[srcLang] || '').trim();
-
-      let queued = 0;
-      for (const { locale, field } of slots) {
-        const text = field === 'title' ? sourceTitle : sourceDesc;
-        if (!text) continue;
-        const id = `r${nextId++}`;
-        // Mask gender trigraphs so Argos never sees the raw code (see
-        // buildMopupRequest). The sentinels are carried on the target entry and
-        // restored — in the target locale's display form — by the write loop.
-        const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale });
-        requests.push(request);
-        targets.set(id, { file, jobIdx, locale, field, protectedTokens });
-        queued++;
-      }
-      if (queued > 0) {
-        const key = `${file}#${jobIdx}`;
-        if (!jobSeen.has(key)) { jobSeen.add(key); jobsInScope.push({ file, jobIdx }); }
-      }
+      candidates.push({ file, jobIdx, job, slots });
     }
-    if (jobsInScope.length >= MAX_JOBS) break;
   }
 
-  console.log(`📊 [local-mt] Scanned ${scannedJobs} jobs across ${sliceFiles.length} slices.`);
+  let popularity = readJson(path.join(ROOT, TRAFFIC_SOURCE_PATH));
+  if (!popularity || typeof popularity !== 'object' || Array.isArray(popularity)) {
+    console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
+    popularity = {};
+  }
+  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity);
+  for (const line of formatPriorityReport(stats)) console.log(line);
+
+  const byJob = new Map(candidates.map((c) => [c.job, c]));
+  const selected = order.slice(0, MAX_JOBS).map((job) => byJob.get(job)).filter(Boolean);
+
+  // Build the batch: a flat list of translation requests + back-references so we
+  // can write each result into the right { file, jobIndex, locale, field }.
+  const requests = [];   // { id, text, from, to }
+  const targets = new Map(); // id -> { file, jobIdx, locale, field }
+  const jobsInScope = []; // { file, jobIdx } (deduped)
+  const jobSeen = new Set();
+  let nextId = 0;
+
+  for (const { file, jobIdx, job, slots } of selected) {
+    const srcLang = job.sourceLang || 'it';
+    const tbl = job.titleByLocale || {};
+    const dbl = job.descriptionByLocale || {};
+    const sourceTitle = (job.title || tbl[srcLang] || '').trim();
+    const sourceDesc = (job.description || dbl[srcLang] || '').trim();
+
+    let queued = 0;
+    for (const { locale, field } of slots) {
+      const text = field === 'title' ? sourceTitle : sourceDesc;
+      if (!text) continue;
+      const id = `r${nextId++}`;
+      // Mask gender trigraphs so Argos never sees the raw code (see
+      // buildMopupRequest). The sentinels are carried on the target entry and
+      // restored — in the target locale's display form — by the write loop.
+      const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale });
+      requests.push(request);
+      targets.set(id, { file, jobIdx, locale, field, protectedTokens });
+      queued++;
+    }
+    if (queued > 0) {
+      const key = `${file}#${jobIdx}`;
+      if (!jobSeen.has(key)) { jobSeen.add(key); jobsInScope.push({ file, jobIdx }); }
+    }
+  }
+
+  console.log(`📊 [local-mt] Scanned ${scannedJobs} jobs across ${sliceFiles.length} slices · ${candidates.length} candidates in the queue.`);
   console.log(`   ${jobsInScope.length} jobs in scope · ${requests.length} field translations queued.\n`);
 
   if (requests.length === 0) {

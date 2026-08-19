@@ -508,7 +508,15 @@ const isDirectRun = (() => {
 })();
 
 if (isDirectRun) {
-  main().catch((err) => {
+  main().catch(async (err) => {
+    // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
+    // errore butta via gli esiti dei modelli accumulati dalla run — per lo
+    // piu' fallimenti, cioe' il segnale che serve al ledger. Bounded e
+    // non-throwing (vedi flushScoresBeforeExit).
+    // Import dinamico come nel resto del file: se ai-models non e' mai stato
+    // caricato la cache ESM lo carica ora e il flush esce subito a mani vuote.
+    const { flushScoresBeforeExit } = await import('./lib/ai-models.mjs');
+    await flushScoresBeforeExit();
     console.error(err);
     process.exit(1);
   });

@@ -1,10 +1,10 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-17T21:59:16.181Z",
+  "assembledAt": "2026-08-19T10:09:07.186Z",
   "jobs": [
     {
       "id": "alpiq-2337a63af6bb",
-      "slug": "operatore-di-gas-alpiq-olten",
+      "slug": "gas-operator-alpiq-olten",
       "slugByLocale": {
         "it": "operatore-di-gas-alpiq-olten",
         "de": "gasbetreiber-alpiq-olten",
@@ -44,7 +44,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:59:12.702Z",
+      "crawledAt": "2026-08-19T10:09:03.881Z",
+      "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
       "baseSalary": {
@@ -57,14 +58,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T10:34:12.954Z",
       "previousSlugsByLocale": {
         "it": [
-          "gas-operator-alpiq-olten"
+          "gas-operator-alpiq-olten",
+          "operatore-di-gas-alpiq-olten"
         ]
       },
       "previousSlugs": [
-        "gas-operator-alpiq-olten"
+        "gas-operator-alpiq-olten",
+        "operatore-di-gas-alpiq-olten"
       ]
     },
     {
@@ -112,7 +114,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:59:12.702Z",
+      "crawledAt": "2026-08-19T10:09:03.884Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -172,7 +174,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:59:12.701Z",
+      "crawledAt": "2026-08-19T10:09:03.884Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "salaryMin": 96000,
       "salaryMax": 146500,

@@ -4,7 +4,8 @@ import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap, upgradeBackfilledAlertConsent } from '@/services/jobAlertService';
 import ConsentNotice from '@/components/shared/ConsentNotice';
-import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
+import BottomPromptShell from '@/components/shared/BottomPromptShell';
+import { POPUP_PRIORITY } from '@/services/popupQueue';
 
 /**
  * Saved-jobs alert nudge (issue #4467, epic #4465).
@@ -48,6 +49,12 @@ export interface SavedJobsAlertNudgeProps {
   onDismissed: () => void;
   /** Called when the one-tap subscribe throws. */
   onErrored?: (error: unknown) => void;
+  /**
+   * Fired once, when the nudge is actually on screen — which, since it now
+   * queues behind higher-priority prompts, is no longer the same moment the
+   * parent decided to render it.
+   */
+  onShown?: () => void;
   /** Injectable for tests. */
   subscribe?: typeof subscribeJobAlertOneTap;
   /** Optional override for the consent-proof upgrade (used by tests). */
@@ -70,6 +77,7 @@ export default function SavedJobsAlertNudge({
   onAnonymousAccept,
   onDismissed,
   onErrored,
+  onShown,
   subscribe = subscribeJobAlertOneTap,
   upgradeConsent = upgradeBackfilledAlertConsent,
 }: SavedJobsAlertNudgeProps) {
@@ -104,21 +112,12 @@ export default function SavedJobsAlertNudge({
     onClose();
   }, [onClose, onDismissed]);
 
-  // Escape key closes the toast in any non-submitting state.
-  useEffect(() => {
-    if (status === 'submitting') return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        if (status === 'success') {
-          onClose();
-        } else {
-          handleDismiss();
-        }
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [handleDismiss, onClose, status]);
+  // Escape closes the toast in any non-submitting state. Handed to the shell
+  // rather than bound here: this component is now mounted while it WAITS for a
+  // popupQueue slot, and a `window` listener bound from its own effect would
+  // dismiss — and record the dismissal of — a toast that is not on screen.
+  const handleEscape =
+    status === 'submitting' ? undefined : status === 'success' ? onClose : handleDismiss;
 
   // Auto-dismiss after success.
   useEffect(() => {
@@ -141,14 +140,19 @@ export default function SavedJobsAlertNudge({
   const closeAriaLabel = t('common.close', 'Chiudi');
 
   return (
-    // ABOVE_MOBILE_NAV_BOTTOM keeps the CTA buttons clear of the mobile bottom nav.
-    <div
-      role="dialog"
-      aria-modal="false"
-      aria-labelledby={TITLE_ID}
-      className={`fixed ${ABOVE_MOBILE_NAV_BOTTOM} right-4 z-40 w-[calc(100%-2rem)] max-w-sm animate-slide-up`}
+    // Position + one-at-a-time arbitration come from the shell. JobBoard used to
+    // suppress this nudge outright whenever the job-detail prompt was up — the
+    // only overlap guard in the tree, and it DELETED the ask instead of
+    // deferring it. Through the queue it simply waits its turn.
+    <BottomPromptShell
+      slotId="saved-jobs-alert-nudge"
+      priority={POPUP_PRIORITY.SAVED_JOBS_NUDGE}
+      width="md"
+      ariaLabelledBy={TITLE_ID}
+      onShown={onShown}
+      onEscape={handleEscape}
     >
-      <div className="relative p-4 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
+      <div className="relative p-3.5 rounded-xl border border-accent-border bg-surface shadow-lg shadow-accent/20">
         <button
           type="button"
           onClick={status === 'success' ? onClose : handleDismiss}
@@ -166,15 +170,8 @@ export default function SavedJobsAlertNudge({
             <h3 id={TITLE_ID} className="text-sm font-bold text-heading">
               {title}
             </h3>
-            <p className="mt-1 text-xs text-subtle">{body}</p>
-            {(status === 'idle' || status === 'error') && (
-              <ConsentNotice
-                consentKey="communicationsOptIn"
-                locale={locale}
-                className="mt-2 text-[11px] text-muted leading-relaxed block"
-              />
-            )}
-            <div className="mt-3 flex items-center gap-2">
+            <p className="mt-0.5 text-xs text-subtle">{body}</p>
+            <div className="mt-2 flex items-center gap-2">
               {(status === 'idle' || status === 'submitting') && (
                 <>
                   <button
@@ -214,9 +211,20 @@ export default function SavedJobsAlertNudge({
                 </>
               )}
             </div>
+            {(status === 'idle' || status === 'error') && (
+              // Small print under the buttons, same rationale as
+              // JobDetailAlertPrompt: the sentence is the stored consent proof
+              // and stays verbatim, but it no longer sits between the promise
+              // and the CTA.
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[10px] text-muted leading-snug block"
+              />
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </BottomPromptShell>
   );
 }

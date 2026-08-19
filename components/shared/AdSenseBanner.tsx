@@ -1,19 +1,30 @@
 /**
  * AdSenseBanner — Google AdSense display ad unit with width-aware lifecycle.
  *
- * Renders an <ins class="adsbygoogle"> element and pushes to the ad queue
- * ONLY after the container has measurable width (> 0px).
+ * Renders an <ins class="adsbygoogle"> element and pushes to the ad queue ONLY
+ * after (a) the slot has come within 200px of the viewport, and (b) the
+ * container has measurable width (> 0px).
+ *
+ * (a) is the viewability contract: an impression served for a unit the visitor
+ * never reaches is counted by Active View as non-viewable and drags the whole
+ * unit's CPM down. Ad-unit 3205029282 measured 22.1% viewability on mobile
+ * (92.7k impressions / 30d) against 62.0% on desktop, where the same unit's
+ * only placement sits above the fold — the placements differ, the unit does not.
  *
  * State machine: idle → waiting_width → loading → filled | collapsed
+ * `idle` = in the DOM as a reserved box, but not yet requested.
  *
  * In development mode the component renders nothing (collapsed).
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
+import { isElementInViewport } from '@/services/adViewport';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import {
+ AD_FILL_TIMEOUT_MS,
+ AD_SLOT_VIEWPORT_ROOT_MARGIN,
  MULTIPLEX_DESKTOP_MIN_HEIGHT,
  MULTIPLEX_DESKTOP_MIN_WIDTH,
  resolveSlotPlaceholderMinHeight,
@@ -115,13 +126,6 @@ export function resolvePlaceholderMinHeight(
    resolveSlotPlaceholderMinHeight(adSlot, adFormat, adLayout, viewportWidth) ??
    getPlaceholderMinHeight(adFormat, adLayout)
  );
-}
-
-function isElementInViewport(el: HTMLElement): boolean {
- const rect = el.getBoundingClientRect();
- const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
- const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
- return rect.bottom > 0 && rect.right > 0 && rect.top < viewportHeight && rect.left < viewportWidth;
 }
 
 export default function AdSenseBanner({
@@ -273,10 +277,17 @@ export default function AdSenseBanner({
  document.head.appendChild(script);
  }, [adSlot]);
 
- // ── Lazy-load script via IntersectionObserver ─────────────
- // Only load adsbygoogle.js when the ad slot is within 200px of the viewport.
- // This eliminates Semrush "uncompressed JS" flags on pages where the ad
- // never enters view, and defers the ~45KB third-party payload past LCP.
+ // ── Arm this slot via IntersectionObserver ────────────────
+ // The observer governs TWO things, and the distinction is the whole point:
+ //   • the SCRIPT load — also reachable from the idle fallback and the first
+ //     interaction below, because Auto Ads (~95% of revenue) need
+ //     adsbygoogle.js on the page whether or not any manual slot is in view.
+ //     Never gate that (AGENTS.md Non-Negotiable #7).
+ //   • this slot's PUSH — reachable from HERE ONLY. A slot the visitor has
+ //     not come near must not spend an ad request, because the impression it
+ //     buys is unviewable by construction.
+ // Loading the script lazily also keeps the ~45KB third-party payload past LCP
+ // and off pages whose ad never enters view (the original Semrush fix).
  useEffect(() => {
  if (!IS_PROD || !enabled || !adSlot) return;
  // Per-visitor entitlement (#3655, part 2/2 of #2961): a reader with an
@@ -286,13 +297,21 @@ export default function AdSenseBanner({
  const wrapper = wrapperRef.current;
  if (!wrapper) return;
 
- // If the script is already present (e.g. another banner already triggered
- // load on this page), skip the observer and proceed to width-wait.
+ // The script may already be present (another banner, the static shell
+ // loader, or our own idle fallback injected it). Mark it ready — but do NOT
+ // arm this slot's push here. Arming on script-presence is what made every
+ // manual slot on the page request eagerly: the idle fallback below injects
+ // the script ~1.5s after mount, i.e. BEFORE the SPA job list finishes
+ // rendering, so every in-feed banner mounted afterwards took this branch and
+ // pushed at once, thousands of px below the fold. Measured live on
+ // /cerca-lavoro-ticino/ at 412×915: 5 units requested together at t≈2.6s with
+ // the visitor still at scrollY=0 — 0 of them viewable. That is the 22%
+ // mobile viewability on slot 3205029282 (the same unit scores 62% on desktop,
+ // where its only placement sits at y=133). Issue: AdSense "Assicurati che i
+ // tuoi annunci siano visualizzati" opportunity.
  if (typeof document !== 'undefined' &&
  document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
  loadAdSenseScript();
- setState('waiting_width');
- return;
  }
 
  if (typeof IntersectionObserver === 'undefined') {
@@ -331,7 +350,7 @@ export default function AdSenseBanner({
  return;
  }
  }
- }, { rootMargin: '200px 0px' });
+ }, { rootMargin: AD_SLOT_VIEWPORT_ROOT_MARGIN });
  io.observe(wrapper);
 
  // Auto Ads idle fallback: load adsbygoogle.js once the page goes idle even
@@ -359,16 +378,19 @@ export default function AdSenseBanner({
  // First-interaction trigger: load on the first real user engagement so a
  // quick-bounce mobile session that taps/scrolls before the idle fallback
  // fires still serves the anchor/in-page Auto Ads. Mirrors the interaction
- // listeners in ADSENSE_LOADER_CONTENT (build-plugins/constants.ts). Guarded
- // by `triggered` AND `pushed.current` so it never re-enters width-wait after
- // the IO/idle path has already filled this slot.
+ // listeners in ADSENSE_LOADER_CONTENT (build-plugins/constants.ts).
+ //
+ // It loads the SCRIPT ONLY and deliberately leaves the observer attached: a
+ // single scroll anywhere on the page used to arm EVERY banner at once (each
+ // one registers these listeners on `document`), which requested in-feed units
+ // the visitor had not reached and could not see. Auto Ads are unaffected —
+ // they need the script, not this slot's push — so AGENTS.md Non-Negotiable #7
+ // still holds: nothing is suppressed, only the per-slot request is deferred
+ // to the moment the slot approaches the viewport.
  function onFirstInteraction() {
  if (triggered || pushed.current) return;
- triggered = true;
  removeInteractionListeners();
- io.disconnect();
  loadAdSenseScript();
- setState('waiting_width');
  }
  if (!SKIP_FOR_BOT && typeof document !== 'undefined') {
  for (const ev of INTERACTION_EVENTS) {
@@ -454,16 +476,15 @@ export default function AdSenseBanner({
  // AdSense before it can report unfilled, leaving a 400px reservation
  // on every blocked slot for 90s. Multiple slots × 400px = 800-1200px
  // of visible dead-space below the fold on every page load (S7).
- // Most genuine fills land <2s, but Privacy Sandbox / Attestation auctions
- // can legitimately settle slower; an 8s cutoff false-collapsed late fills
- // and logged them as ad_collapsed, depressing the measured fill-rate. 12s
- // keeps the dead-space short while giving slow auctions room to fill.
+ // The budget itself lives in `AD_FILL_TIMEOUT_MS` (services/adsenseSlots.ts)
+ // because the containers Google injects need the same one — see
+ // `services/autoAdCollapse.ts`.
  fillTimeoutRef.current = setTimeout(() => {
  const status = el.getAttribute('data-ad-status');
  if (status === 'filled') return;
  cleanupAsyncWatchers();
  collapseWhenLayoutSafe(`fill timeout (status=${status})`);
- }, 12_000);
+ }, AD_FILL_TIMEOUT_MS);
 
  return true;
  };
@@ -579,6 +600,23 @@ export default function AdSenseBanner({
  {label}
  </p>
  )}
+ {/* Mounted only once this slot is ARMED (state left `idle`), never while it
+ is still waiting for the IntersectionObserver.
+
+ This is what makes the deferral real rather than cosmetic.
+ `adsbygoogle.push({})` is not bound to an element: it fills the next
+ `<ins>` in DOM ORDER that has no `data-adsbygoogle-status` yet (see the
+ note above ADSENSE_LOADER_CONTENT in build-plugins/constants.ts). With
+ every banner's `<ins>` in the DOM from first paint, the push issued for
+ the unit the visitor actually reached would bind to the first un-pushed
+ `<ins>` above it instead — an off-screen unit — and viewability would not
+ move at all. Keeping un-armed slots out of the DOM makes the set of
+ push-eligible elements exactly the set of slots that came near the
+ viewport, so each push lands on the unit that earned it.
+
+ CLS is unaffected: the reservation lives on the wrapper's `minHeight`
+ (resolved from the registry above), not on the `<ins>`. */}
+ {state !== 'idle' && (
  <ins
  ref={adRef}
  className="adsbygoogle"
@@ -590,6 +628,7 @@ export default function AdSenseBanner({
  {...(adLayoutKey ? { 'data-ad-layout-key': adLayoutKey } : {})}
  {...(adLayout ? { 'data-ad-layout': adLayout } : {})}
  />
+ )}
  </div>
  );
 }

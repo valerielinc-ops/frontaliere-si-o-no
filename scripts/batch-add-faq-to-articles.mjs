@@ -27,7 +27,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
-import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
+import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, flushScoresBeforeExit, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -1324,7 +1324,12 @@ async function main() {
 // otherwise trigger the entire batch scan as an import side effect.
 if (import.meta.url === `file://${process.argv[1]}`) {
   installSigtermCheckpoint();
-  main().catch(err => {
+  main().catch(async (err) => {
+    // Il flush allo step 6 di main() copre solo il ramo riuscito: qui
+    // `process.exit()` salta `beforeExit`, quindi senza questa attesa una
+    // run che muore a meta' batch butta via tutti gli esiti raccolti fino
+    // a quel punto. Bounded e non-throwing (vedi flushScoresBeforeExit).
+    await flushScoresBeforeExit();
     console.error(`\n💥 Fatal error: ${err.message}`);
     console.error(err.stack);
     process.exit(1);

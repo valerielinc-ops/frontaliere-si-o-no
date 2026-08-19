@@ -18,6 +18,7 @@
  * Optional env:
  * - SEO_SERP_AUTOPILOT_DAYS (default 28)
  * - SEO_SERP_AUTOPILOT_ROTATE_DAYS (default 7)
+ * - SEO_SERP_AUTOPILOT_REVALIDATE_DAYS (default 60)
  * - SEO_SERP_AUTOPILOT_MIN_PAGE_IMPRESSIONS (default 150)
  * - SEO_SERP_AUTOPILOT_MIN_TOTAL_IMPRESSIONS (default 4000)
  * - SEO_SERP_AUTOPILOT_MIN_TOTAL_CLICKS (default 80)
@@ -41,6 +42,8 @@ const LAST_RUN_PATH = path.resolve(ROOT, 'data', 'seo-serp-autopilot-last-run.js
 
 const DAYS = clampInt(process.env.SEO_SERP_AUTOPILOT_DAYS, 7, 90, 28);
 const ROTATE_DAYS = clampInt(process.env.SEO_SERP_AUTOPILOT_ROTATE_DAYS, 3, 21, 7);
+// How long a winner may hold the slot before the challengers get another turn.
+const REVALIDATE_DAYS = clampInt(process.env.SEO_SERP_AUTOPILOT_REVALIDATE_DAYS, 14, 365, 60);
 const MIN_PAGE_IMPRESSIONS = clampInt(process.env.SEO_SERP_AUTOPILOT_MIN_PAGE_IMPRESSIONS, 50, 5000, 150);
 const MIN_TOTAL_IMPRESSIONS = clampInt(process.env.SEO_SERP_AUTOPILOT_MIN_TOTAL_IMPRESSIONS, 500, 200000, 4000);
 const MIN_TOTAL_CLICKS = clampInt(process.env.SEO_SERP_AUTOPILOT_MIN_TOTAL_CLICKS, 20, 50000, 80);
@@ -167,12 +170,71 @@ function aggregateVariantCtr(history, variant, lookbackDays = 120) {
   };
 }
 
-function chooseNextVariant(currentVariant) {
-  if (!VARIANTS.includes(currentVariant)) return VARIANTS[0];
-  return currentVariant === VARIANTS[0] ? VARIANTS[1] : VARIANTS[0];
+/** Most recent snapshot timestamp for a variant, or null if never sampled. */
+function lastSampledAt(history, variant) {
+  let latest = null;
+  for (const snap of history?.snapshots || []) {
+    if (snap.variant !== variant) continue;
+    const t = new Date(snap.createdAt).getTime();
+    if (!Number.isNaN(t) && (latest === null || t > latest)) latest = t;
+  }
+  return latest;
 }
 
-function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
+/**
+ * Whose turn it is next. With two arms this is the old alternation; with three
+ * or more, picking the least recently sampled one is what stops a newly added
+ * arm from never getting a turn — the old toggle could only ever see two.
+ */
+export function chooseNextVariant(currentVariant, history, variants = VARIANTS) {
+  const others = variants.filter((v) => v !== currentVariant);
+  if (!others.length) return variants[0];
+  return others
+    .slice()
+    .sort((a, b) => (lastSampledAt(history, a) ?? -Infinity) - (lastSampledAt(history, b) ?? -Infinity))[0];
+}
+
+/**
+ * What the exploit branch would do: which arm leads, and the two margins the
+ * decision reads. Pure, so the arithmetic can be driven directly at arities
+ * `decideVariant` needs a whole history+KPI fixture to reach.
+ *
+ * The two margins are NOT interchangeable, and are named apart because
+ * conflating them is exactly the defect this function exists to prevent:
+ *
+ * - `uplift` is winner-minus-CURRENT — the gain from replacing the live arm,
+ *   and the only margin that may gate a switch. It is `null` when the winner
+ *   is already live: there is no arm being replaced, so the switch margin does
+ *   not exist rather than being zero.
+ * - `lead` is winner-minus-RUNNER-UP — how safe an already-live winner is, and
+ *   the number `winner_already_active` has always carried.
+ *
+ * With two arms they coincide whenever a switch is on the table (if the winner
+ * is not current, current IS the runner-up), which is why gating the switch on
+ * `lead` stayed invisible. At three arms they diverge: 7.60 / 7.55 / 6.00 with
+ * the worst arm live reads `lead` 0.05 — under the threshold, no switch — while
+ * `uplift` is 1.60. Read the wrong one and the autopilot pins the site to its
+ * worst arm, for REVALIDATE_DAYS at a stretch, because exploit returns before
+ * rotation can be reached.
+ *
+ * Precondition: `currentVariant` is one of `variants`. `decideVariant`
+ * guarantees it by bootstrapping out first, so there is no defensive branch
+ * here for a value that cannot arrive.
+ */
+export function chooseExploitTarget(scores, variants, currentVariant, minUplift = MIN_UPLIFT_ABS) {
+  const ranked = variants.slice().sort((a, b) => scores[b].ctr - scores[a].ctr);
+  const winner = ranked[0];
+  // A one-arm experiment has no runner-up. `variants` is injectable and
+  // `chooseNextVariant` already answers for a single arm, so this arity is
+  // reachable; reading `ranked[1]` blind makes the exploit branch evaluate
+  // `scores[undefined].ctr` and throw.
+  const runnerUp = ranked.length > 1 ? ranked[1] : winner;
+  const uplift = winner === currentVariant ? null : scores[winner].ctr - scores[currentVariant].ctr;
+  const lead = scores[winner].ctr - scores[runnerUp].ctr;
+  return { winner, runnerUp, uplift, lead, shouldSwitch: uplift !== null && uplift >= minUplift };
+}
+
+export function decideVariant({ currentVariant, history, currentKpi, nowIso, variants = VARIANTS }) {
   const decision = {
     nextVariant: currentVariant,
     reason: 'keep_current',
@@ -180,8 +242,8 @@ function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
     scores: {},
   };
 
-  if (!VARIANTS.includes(currentVariant)) {
-    decision.nextVariant = VARIANTS[0];
+  if (!variants.includes(currentVariant)) {
+    decision.nextVariant = variants[0];
     decision.reason = 'bootstrap_from_control';
     decision.mode = 'explore';
     return decision;
@@ -191,25 +253,47 @@ function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
   const lastSwitchAt = history.lastSwitchAt || null;
   const sinceSwitchDays = lastSwitchAt ? daysBetween(lastSwitchAt, nowIso) : Infinity;
 
-  const scoreA = aggregateVariantCtr(history, VARIANTS[0]);
-  const scoreB = aggregateVariantCtr(history, VARIANTS[1]);
-  decision.scores = { [VARIANTS[0]]: scoreA, [VARIANTS[1]]: scoreB };
+  // Score every arm, not just the first two: adding a third variant used to
+  // leave it permanently unscored and therefore unpickable.
+  const scores = {};
+  for (const v of variants) scores[v] = aggregateVariantCtr(history, v);
+  decision.scores = scores;
 
-  const enoughSamples = scoreA.samples >= 2 && scoreB.samples >= 2;
-  const enoughTrafficA = scoreA.impressions >= MIN_TOTAL_IMPRESSIONS;
-  const enoughTrafficB = scoreB.impressions >= MIN_TOTAL_IMPRESSIONS;
+  const comparable = variants.every(
+    (v) => scores[v].samples >= 2 && scores[v].impressions >= MIN_TOTAL_IMPRESSIONS,
+  );
 
-  if (enoughSamples && enoughTrafficA && enoughTrafficB) {
+  // A winner does not hold the slot forever. Exploit used to `return` before
+  // the rotation branch below could ever be reached, so the only thing that
+  // ever reopened the experiment was the challenger's samples ageing out of
+  // aggregateVariantCtr's 120-day lookback — about four months of silence, by
+  // accident rather than by design, and no way at all to give a newly added
+  // arm a turn. Revalidation makes that cadence deliberate: the challengers
+  // get one rotation slot back every REVALIDATE_DAYS, then the winner resumes
+  // unless the fresh sample actually beat it.
+  const dueForRevalidation = sinceSwitchDays >= REVALIDATE_DAYS;
+
+  if (comparable && !dueForRevalidation) {
     decision.mode = 'exploit';
-    const winner = scoreA.ctr >= scoreB.ctr ? VARIANTS[0] : VARIANTS[1];
-    const loser = winner === VARIANTS[0] ? VARIANTS[1] : VARIANTS[0];
-    const uplift = decision.scores[winner].ctr - decision.scores[loser].ctr;
-    if (winner !== currentVariant && uplift >= MIN_UPLIFT_ABS) {
+    // `variants`, not the VARIANTS module constant: the exploit branch has to
+    // rank the same arms the rest of the function scored, or an injected third
+    // arm gets a score and is then never ranked.
+    const { winner, uplift, lead, shouldSwitch } = chooseExploitTarget(scores, variants, currentVariant);
+    if (shouldSwitch) {
       decision.nextVariant = winner;
       decision.reason = `switch_to_winner_uplift_${uplift.toFixed(3)}`;
-    } else {
-      decision.reason = uplift >= MIN_UPLIFT_ABS ? 'winner_already_active' : 'uplift_below_threshold';
+      return decision;
     }
+    if (uplift !== null) {
+      // A switch was on the table — the winner is not the live arm — and the
+      // gain over the arm it would replace did not clear the bar.
+      decision.reason = 'uplift_below_threshold';
+      return decision;
+    }
+    // The winner is already live, so the question is no longer "should we
+    // switch" but "how safe is the lead" — and that is measured against the
+    // closest challenger.
+    decision.reason = lead >= MIN_UPLIFT_ABS ? 'winner_already_active' : 'uplift_below_threshold';
     return decision;
   }
 
@@ -218,8 +302,15 @@ function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
     return decision;
   }
 
+  if (comparable && dueForRevalidation) {
+    decision.mode = 'explore';
+    decision.nextVariant = chooseNextVariant(currentVariant, history, variants);
+    decision.reason = `revalidate_after_${REVALIDATE_DAYS}d`;
+    return decision;
+  }
+
   if (sinceSwitchDays >= ROTATE_DAYS) {
-    decision.nextVariant = chooseNextVariant(currentVariant);
+    decision.nextVariant = chooseNextVariant(currentVariant, history, variants);
     decision.reason = `rotation_every_${ROTATE_DAYS}d`;
   } else {
     decision.reason = 'rotation_cooldown';
@@ -232,6 +323,34 @@ async function getRemoteConfigTemplate() {
   const rc = await getRemoteConfig();
   const template = await rc.getTemplate();
   return { rc, template };
+}
+
+/**
+ * The client ships a hardcoded variant for when the public-config fetch fails
+ * (REMOTE_CONFIG_DEFAULTS in services/firebase.ts). Remote Config can be
+ * republished from here, that constant cannot — so every promotion silently
+ * widens the gap between what the autopilot chose and what a visitor whose
+ * config fetch failed actually gets. Nothing else compares the pair, so this
+ * run is the only place the drift can surface. Warning only: an SEO title
+ * fallback is not worth failing a scheduled job over.
+ */
+function warnIfClientFallbackDrifted(promotedVariant) {
+  try {
+    const src = fs.readFileSync(path.resolve(ROOT, 'services/firebase.ts'), 'utf8');
+    const m = /SEO_SERP_EXPERIMENT_VARIANT:\s*'([^']+)'/.exec(src);
+    if (!m) return;
+    if (m[1] !== promotedVariant) {
+      console.warn(
+        `⚠️  Client fallback drift: services/firebase.ts serves '${m[1]}' when the public config fails, `
+        + `but the promoted variant is '${promotedVariant}'. Update REMOTE_CONFIG_DEFAULTS.`,
+      );
+    }
+  } catch (err) {
+    // Never a reason to fail the run — but never silent either. Swallowing
+    // every read error means a wrong ROOT, a renamed file or a sparse checkout
+    // turns this into a check that can no longer ever fire, and nothing says so.
+    console.warn(`⚠️  Could not read services/firebase.ts to check the client fallback: ${err?.message || err}`);
+  }
 }
 
 async function main() {
@@ -346,6 +465,7 @@ async function main() {
     console.log(changed ? '🧪 DRY RUN: changes computed but not published.' : 'ℹ️ No Remote Config changes needed.');
   }
 
+  warnIfClientFallbackDrifted(desiredVariant);
   writeJson(HISTORY_PATH, history);
   writeJson(LAST_RUN_PATH, report);
 
@@ -353,7 +473,15 @@ async function main() {
   console.log(`🧾 Last run report: ${path.relative(ROOT, LAST_RUN_PATH)}`);
 }
 
-main().catch((err) => {
-  console.error('❌ SEO SERP Autopilot failed:', err?.message || err);
-  process.exit(1);
-});
+// Only run when executed directly. Without this, importing the module to test
+// decideVariant() would run the whole autopilot — hitting GSC and GA4 and
+// publishing Remote Config as a side effect of a unit test. Same guard as
+// scripts/check-unsubscribe-credential-rate.mjs.
+const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('seo-serp-autopilot.mjs');
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('❌ SEO SERP Autopilot failed:', err?.message || err);
+    process.exit(1);
+  });
+}

@@ -384,6 +384,23 @@ describe('Kuhn Rikon crawler parser', () => {
       expect(jobs).toHaveLength(1);
     });
 
+    it('parses a tile whose slug has a Jobalino collision-disambiguation suffix (regression #5998)', async () => {
+      const jsonLd = jobPostingJsonLd();
+      const tile = jobalinoTile({
+        id: 'ffee00001122', slug: 'verkaufsberater-in-outlet-landquart_0002',
+        title: jsonLd.title as string, city: 'Landquart',
+      });
+      const fetchMock = vi.fn(async (url: string) => {
+        if (url === LISTING_URL) return textResponse(200, listingJsonp(tile));
+        if (url.includes('/job/ffee00001122/')) return textResponse(200, detailHtml(jsonLd));
+        return textResponse(404, '');
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      const jobs = await fetchAllKuhnRikonJobs();
+      expect(jobs).toHaveLength(1);
+    });
+
     it('never leaks the Rikon HQ street address onto a same-canton different-city job (Zürich)', async () => {
       const rikonJsonLd = jobPostingJsonLd({
         title: 'Sachbearbeiter/in Administration Rikon (100%)',

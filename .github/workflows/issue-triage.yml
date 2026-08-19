@@ -76,6 +76,23 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
+        # Tetto Checkout (classe #5145/#5144/#5162/#5171, non coperta lì: quel
+        # giro filtrava sui job `fetch-depth: 0`, questo è già `fetch-depth: 1`).
+        # Senza tetto sullo step, un fetch degenere consuma l'intero budget del
+        # job (6min) e muore `cancelled` — stato invisibile a `if: failure()`.
+        # È esattamente ciò che ha inghiottito questo job in #5567 (fetch mai
+        # completato, cancellato dopo 6m0s). Checkout sano misurato 69-188s su
+        # 12 run (mediana ~159s): 4min di tetto sta sopra il massimo osservato,
+        # lasciando margine per i passi seguenti (~30-40s tipici).
+        #
+        # Riconfermato il 2026-08-18 su un campione piu' largo (ultime 160 run
+        # del workflow → 80 Checkout `success` di questo job): min 69s,
+        # p50 141s, p95 177s, p99 182s, max 188s — un tetto a 4min non ne
+        # ucciderebbe nemmeno uno. Le 3 run `cancelled` della finestra stanno
+        # a 352s/359s/400s, cioe' tutte sopra il tetto: e' esattamente la
+        # separazione che questo numero deve produrre. NB: il job `sweep` ha
+        # una distribuzione diversa e un tetto diverso — vedi il commento la'.
+        timeout-minutes: 4
 
       # ZERO Claude: il triage classifica con regex su titolo+label (bash puro) →
       # la quota Max NON viene toccata dal triage (era ~50 run Claude/giorno, il
@@ -225,7 +242,11 @@ jobs:
   sweep:
     if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    # 12 e non 8: il tetto sullo step qui sotto deve poter scattare PRIMA del
+    # tetto del job, altrimenti non converte niente in un fallimento visibile —
+    # e per stare sopra il massimo sano misurato (417s) deve valere 8min, che
+    # con un budget job di 8min non lascerebbe un secondo ai passi seguenti.
+    timeout-minutes: 12
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -255,6 +276,27 @@ jobs:
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
+        # Stesso costrutto del job `triage` sopra (#5567): senza tetto sullo
+        # step, un fetch degenere consuma l'intero budget del job e muore
+        # `cancelled`, invisibile a `if: failure()`.
+        #
+        # ATTENZIONE al numero, che qui NON e' lo stesso di `triage`. La prima
+        # stesura metteva 5min su un campione di 8 run. Rimisurato il
+        # 2026-08-18 sulle ultime 160 run del workflow (58 Checkout del job
+        # `sweep`, TUTTI conclusi `success`, nessuno mai `cancelled`):
+        # min 84s, p50 150s, p90 212s, p95 257s, p99 381s, max 417s.
+        # Un tetto a 5min avrebbe ucciso 3 di quelle 58 run SANE (5,2%),
+        # trasformandole in fallimenti duri che aprono una issue CI — cioe'
+        # avrebbe fabbricato il guasto che dovrebbe rilevare, su un job che
+        # quel guasto non l'ha mai avuto. 8min sta sopra il massimo osservato
+        # (417s) con 63s di margine, e i 12min di budget job lasciano 4min ai
+        # passi seguenti (~30-50s tipici).
+        #
+        # Il campione di `sweep` ha la coda grassa perche' gira a schedule su
+        # runner freddi; `triage` (evento issue) sta a max 188s. Se il p99
+        # sale ancora, la leva e' alzare entrambi i numeri insieme, non
+        # stringere solo lo step.
+        timeout-minutes: 8
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

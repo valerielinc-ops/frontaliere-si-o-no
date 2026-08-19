@@ -133,6 +133,66 @@
         "legacySunset": null
       },
       "findings": []
+    },
+    {
+      "date": "2026-08-18",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 277,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 2,
+        "noise": 2,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 2,
+        "auth_code_not_yet_valid": 2
+      },
+      "graded": 277,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 264,
+        "legacy": 13
+      },
+      "ageDaysP50": 0,
+      "ageDaysP95": 1,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
+    },
+    {
+      "date": "2026-08-19",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 234,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 1,
+        "noise": 1,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 1,
+        "auth_code_not_yet_valid": 1
+      },
+      "graded": 234,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 206,
+        "legacy": 28
+      },
+      "ageDaysP50": 0,
+      "ageDaysP95": 2,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
     }
   ]
 }

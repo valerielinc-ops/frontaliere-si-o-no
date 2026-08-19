@@ -22,7 +22,7 @@
       "fr": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-08-17T21:31:59.838Z",
+    "expiredAt": "2026-08-19T10:20:09.013Z",
     "previousSlugs": [
       "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-langenthal"
     ],
@@ -63,7 +63,7 @@
       "fr": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-08-17T21:31:59.838Z",
+    "expiredAt": "2026-08-19T10:20:09.013Z",
     "previousSlugs": [
       "kochin-koch-efz-80-100-sro-langenthal"
     ],
@@ -101,7 +101,7 @@
       "fr": "preparation-endoscopie-aemp-100-sro-ag-spital-region-oberaargau-langenthal"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-08-17T21:31:59.838Z",
+    "expiredAt": "2026-08-19T10:20:09.013Z",
     "previousSlugs": [
       "endoskopieaufbereitung-aemp-100-sro-langenthal"
     ],
@@ -113,6 +113,44 @@
     "postalCode": "4900",
     "salaryMin": 68500,
     "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "segretario-all-80-psichiatrico-ambulatorium-langenthal-sro-ag-spital-region-oberaargau-langenthal",
+    "title": "Sekretär/in 80 % Psychiatrisches Ambulatorium Langenthal",
+    "titleByLocale": {
+      "it": "Sekretär/in 80 % Psychiatrisches Ambulatorium Langenthal",
+      "de": "Sekretär/in 80 % Psychiatrisches Ambulatorium Langenthal",
+      "en": "Sekretär/in 80 % Psychiatrisches Ambulatorium Langenthal",
+      "fr": "Sekretär/in 80 % Psychiatrisches Ambulatorium Langenthal"
+    },
+    "company": "SRO AG (Spital Region Oberaargau)",
+    "companyKey": "sro",
+    "location": "Psychiatrische Dienste, Marktgasse 18",
+    "addressLocality": "Psychiatrische Dienste, Marktgasse 18",
+    "descriptionByLocale": {
+      "it": "Sekretär/in 80 % Psychiatrisches Ambulatorium Langenthal — SRO AG (Spital Region Oberaargau)"
+    },
+    "slugByLocale": {
+      "it": "segretario-all-80-psichiatrico-ambulatorium-langenthal-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "secretary-in-80-psychiatric-ambulatorium-langenthal-sro-ag-spital-region-oberaargau-langenthal",
+      "de": "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-langenthal",
+      "fr": "secretaire-dans-80-ambulateur-psychiatrique-langenthal-sro-ag-spital-region-oberaargau-langenthal"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-19T10:20:09.012Z",
+    "previousSlugs": [
+      "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-psychiatrische-dienste"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sekretar-in-80-psychiatrisches-ambulatorium-langenthal-sro-psychiatrische-dienste"
+      ]
+    },
+    "postalCode": "4900",
+    "salaryMin": 54800,
+    "salaryMax": 83200,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

@@ -36,7 +36,23 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # RIMISURATO il 2026-08-19 (era 15min, mai rimisurato da quando esiste il
+    # job): questo job e' il reconciler che rileva le morti-da-tetto su TUTTA
+    # la pipeline, quindi la sua stessa morte da tetto e' un buco cieco — ha
+    # gia' prodotto un incidente reale, issue #6040 (run 32156251050,
+    # 2026-08-18T15:44:14Z-15:59:30Z, cancelled a 916s = 15m0s + grace,
+    # annotazione letterale "The job has exceeded the maximum execution time
+    # of 15m0s"), chiusa senza fix strutturale.
+    # Misurato su 141 run `success` di questo job (finestra ~150 run,
+    # 2026-08-17 -> 08-19): min 95s, p50 171s, p95 261s, p99 460s, **max
+    # 553s** — il tetto di 900s stava gia' 347s sopra il massimo osservato,
+    # ma la singola morte reale mostra che la coda scende comunque sotto il
+    # cap in certi giorni degradati (stesso pattern actions/checkout
+    # descritto in #6051).
+    # Nuovo tetto = 2,5x il massimo osservato (553s), stessa leva di misura
+    # usata in #6051 per gli altri quattro cap. Rimisurare quando il p99 si
+    # muove, non ri-derivare a occhio.
+    timeout-minutes: 23
     steps:
       - name: Checkout
         uses: actions/checkout@v5

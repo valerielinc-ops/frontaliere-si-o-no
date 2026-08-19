@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-08-17T21:34:16.302Z",
+  "assembledAt": "2026-08-19T09:46:51.392Z",
   "jobs": [
     {
       "id": "abraxas-162b4d32f534",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-6399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:12.027Z",
+      "crawledAt": "2026-08-19T09:46:48.409Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -101,7 +101,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer – Data Migration 80 - 100%",
+        "en": "Software Engineer - Data Migration 80 - 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -117,7 +117,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-9034",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:11.547Z",
+      "crawledAt": "2026-08-19T09:46:47.917Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,40 +151,41 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
-      "id": "abraxas-d3e85aa0e117",
-      "slug": "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "id": "abraxas-5d8d6c85cc23",
+      "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "it": "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "servicenow-engineer-ki-automation-80-100-abraxas-zurich-flughafen",
-        "de": "servicenow-engineer-ki-automation-80-100-abraxas-zurich-flughafen",
-        "fr": "servicenow-ingenieur-ki-automation-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "ServiceNow Engineer KI & Automation 80-100%",
+      "title": "ServiceNow KI Solutions Engineer 80-100 %",
       "titleByLocale": {
-        "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100%",
-        "de": "ServiceNow Ingenieur KI & Automation 80-100%",
-        "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
+        "de": "ServiceNow KI Solutions Ingenieur 80-100 %",
+        "en": "ServiceNow AI Solutions Engineer 80-100%",
+        "it": "ServiceNow KI Solutions Ingegnere 80-100 %",
+        "fr": "ServiceNow KI Solutions Ingénieur 80-100 %"
       },
-      "description": "Bei Abraxas wollen wir KI in ServiceNow konsequent verankern und unsere Plattform als zentralen Hebel für Innovation, Automatisierung und Effizienz weiterentwickeln.\nDu gestaltest die nächste Generation unserer ServiceNow-Plattform – mit generativer KI, intelligenten Anwendungen, autonomen Agenten und Automation, die Mitarbeitende und Kunden spürbar entlasten. Dazu identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst sie gemeinsam mit dem Team in skalierbare, datengetriebene Lösungen für unsere Kunden und internen Prozesse.\nFür St. Gallen oder Zürich-Flughafen suchen wir eine engagierte Persönlichkeit, die ServiceNow, KI und Automation aktiv zusammenbringt und unsere Plattform auf das nächste Level hebt.\nDeine Rolle\n• KI Use Cases innerhalb der ServiceNow-Plattform identifizieren, bewerten und priorisieren\n• KI-gestützte Lösungen konzipieren, umsetzen und weiterentwickeln, zum Beispiel Virtual Agent, Predictive/Task Intelligence und GenAI Features (NOW Assist)\n• Anforderungen aus Fachbereichen und von Kunden aufnehmen und in wirksame, praxistaugliche Lösungen übersetzen\n• Die ServiceNow-Architektur mit Fokus auf Automatisierung, Skalierbarkeit und AI weiterentwickeln\n• Best Practices, Standards und Leitplanken für den Einsatz von KI in ServiceNow aufbauen\n• Strukturierte, qualitativ hochwertige Daten als Basis von KI fördern\n• PoCs und Pilotprojekte durchführen und erfolgreiche Ansätze schrittweise in den Betrieb überführen\n• Wissen ins Team transferieren und unsere KI-Strategie im ServiceNow-Umfeld aktiv mitprägen\nDein Profil\n• Nachweisbare Praxiserfahrung mit KI-Funktionalitäten in ServiceNow, etwa Predictive/Task Intelligence (Machine Learning) oder NOW Assist (GenAI)\n• Mehrjährige Erfahrung als ServiceNow Engineer, Developer oder Consultant sowie entsprechende Zertifizierung\n• Fundierte Kenntnisse zentraler ServiceNow-Module, zum Beispiel ITSM, CSM oder ITOM\n• Erfahrung in der Prozessautomatisierung mit Workflows, Flow Designer und IntegrationHub\n• Analytisches Denken und die Fähigkeit, Potenziale für Effizienzsteigerung durch KI und Automatisierung zu erkennen\n• Freude an Innovation, Experimentieren und iterativem Vorgehen mit konkretem Umsetzungsfokus\n• Gute Kommunikationsfähigkeit und Macher-Mentalität – du bewegst dich sicher zwischen Business und IT\n• Deutsch auf Muttersprachniveau und verhandlungssicheres Englisch\nDeine Benefits\n• Die aktive Mitgestaltung unserer KI-Initiative mit hoher strategischer Relevanz\n• Viel Gestaltungsspielraum und die Möglichkeit, neue Technologien früh und sinnvoll einzusetzen\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nUm unsere Kunden bei zukunftsorientierten IT-Strategien zu unterstützen, setzen wir auf Menschen, die mitdenken, Verantwortung übernehmen und den Status quo hinterfragen. Bei uns kannst du ServiceNow aktiv weiterentwickeln, neue Ideen einbringen und mit viel Entscheidungsfreiraum in einem modernen, agilen Umfeld arbeiten.\nWerde Teil unseres #TeamAbraxas. Dich erwartet ein zukunftsorientiertes Arbeitsumfeld mit moderner Arbeitsplatzgestaltung, sehr guter Verkehrsanbindung, grosszügiger Homeoffice-Regelung und ausgezeichneten Weiterbildungsmöglichkeiten.\nWir pflegen eine offene Du-Kultur – sende uns deine Bewerbung deshalb gerne direkt in der Du-Form.",
+      "description": "Künstliche Intelligenz, Generative AI und intelligente Automatisierung verändern die Art, wie Services erbracht und Prozesse unterstützt werden. Bei Abraxas wollen wir diese Möglichkeiten gezielt nutzen und unsere ServiceNow-Plattform kontinuierlich weiterentwickeln.\nDafür suchen wir eine engagierte Persönlichkeit, die ServiceNow-Erfahrung mitbringt, neue Technologien spannend findet und gemeinsam mit unserem Team innovative KI- und Automatisierungslösungen aufbauen möchte.\nOb du bereits erste Erfahrungen mit Now Assist gesammelt hast oder dich künftig stärker in Richtung AI spezialisieren möchtest: Bei uns erhältst du die Möglichkeit, dieses Zukunftsthema aktiv mitzugestalten.\nDu unterstützt unser ServiceNow-Team bei der Weiterentwicklung der Plattform und arbeitest an neuen Lösungen rund um KI, Automatisierung und digitale Services. Gemeinsam mit Fachbereichen, Kunden und Engineering-Teams identifizierst du Potenziale, entwickelst neue Ansätze und hilfst mit, innovative ServiceNow-Funktionalitäten erfolgreich einzusetzen.\nDeine Rolle\n• Weiterentwicklung unserer ServiceNow-Plattform\n• Mitarbeit bei der Umsetzung von KI- und Automatisierungsinitiativen\n• Analyse von Anforderungen und Entwicklung praxisnaher Lösungen\n• Evaluation neuer ServiceNow-Funktionalitäten und KI-Features\n• Mitarbeit bei Proof of Concepts und Pilotprojekten\n• Unterstützung beim Einsatz von Now Assist, Virtual Agent und weiteren intelligenten ServiceNow-Funktionen\n• Automatisierung von Abläufen mit Flow Designer und IntegrationHub\n• Mitarbeit bei der Definition von Standards und Best Practices\n• Wissensaustausch innerhalb des Teams\nDein Profil\n• Erfahrung als ServiceNow Engineer, Developer oder Consultant\n• Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Workflows, Flow Designer oder Integrationen\n• Interesse an den Möglichkeiten von KI, GenAI und Automatisierung\n• Freude daran, neue Technologien auszuprobieren und in Lösungen zu überführen\n• Analytische und lösungsorientierte Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse\nVon Vorteil\n• Erfahrungen mit ServiceNow KI-Funktionen wie Now Assist, Predictive Intelligence, Virtual Agent oder KI Search\n• ServiceNow-Zertifizierungen\n• Kenntnisse in JavaScript oder Integrationen\n• Erfahrungen mit Generative KI, LLMs oder KI-Assistenten\nDeine Benefits\n• Mitarbeit an einem der spannendsten Zukunftsthemen im ServiceNow-Umfeld\n• Möglichkeit, dich im Bereich KI und Automation gezielt weiterzuentwickeln\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Moderne Arbeitsformen mit Homeoffice und flexiblen Arbeitszeiten\n• Anspruchsvolle Kunden und abwechslungsreiche Projekte\n• Kollegiales Team mit hoher ServiceNow-Expertise\n• Attraktive Weiterbildungsmöglichkeiten rund um ServiceNow und AI\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
       "descriptionByLocale": {
-        "it": "A Abraxas, vogliamo costantemente ancorare AI in ServiceNow e sviluppare ulteriormente la nostra piattaforma come leva chiave per innovazione, automazione ed efficienza.\nFornite la nuova generazione della nostra piattaforma ServiceNow – con AI generativo, applicazioni intelligenti, agenti autonomi e automazione che alleviano in modo significativo i dipendenti e i clienti. Identificherai casi di utilizzo AI rilevanti, svilupperai prototipi e li convertirai insieme al team in soluzioni scalabili e basate sui dati per i nostri clienti e processi interni.\nPer l'aeroporto di St. Gallen o Zurigo, stiamo cercando una personalità impegnata che riunisce attivamente ServiceNow, AI e l'automazione e porta la nostra piattaforma al livello successivo.\nIl tuo ruolo\n• Identificare, valutare e dare priorità ai casi di utilizzo AI all'interno della piattaforma ServiceNow\n• Progettare, implementare e sviluppare ulteriormente soluzioni AI-enabled come Virtual Agent, Predictive/Task Intelligence e GenAI Features (NOW Assist)\n• Accettare i requisiti da aree specialistiche e clienti e tradurli in soluzioni pratiche ed efficaci\n• Sviluppare ulteriormente l'architettura ServiceNow con un focus su automazione, scalabilità e AI\n• Costruire le migliori pratiche, standard e linee guida per l'utilizzo di AI in ServiceNow\n• Promuovere i dati strutturati e di alta qualità come base per AI\n• Implementare PoC e progetti pilota e gradualmente trasferire approcci di successo in funzionamento\n• Trasferire la conoscenza al team e plasmare attivamente la nostra strategia AI nell'ambiente ServiceNow\nIl tuo profilo\n• Esperienza pratica dimostrabile con le funzionalità AI in ServiceNow, come Predictive/Task Intelligence (Machine Learning) o NOW Assist (GenAI)\n• Diversi anni di esperienza come ServiceNow Engineer, Sviluppatore o Consulente e certificazione corrispondente\n• Conoscenza approfondita dei moduli centrali ServiceNow, ad esempio ITSM, CSM o ITOM\n• Esperienza nell'automazione dei processi con flussi di lavoro, Flow Designer e IntegrationHub\n• Il pensiero analitico e la capacità di identificare il potenziale per il miglioramento dell'efficienza attraverso l'AI e l'automazione\n• Godetevi l'innovazione, la sperimentazione e l'approccio iterativo con un focus concreto sull'implementazione\n• Buone capacità di comunicazione e mentalità del creatore – si muove in modo sicuro tra business e IT\n• Tedesco a livello di lingua madre e inglese negoziabile\nI vantaggi\n• La partecipazione attiva della nostra iniziativa AI ad alta rilevanza strategica\n• Un sacco di libertà di progettazione e l'opportunità di utilizzare le nuove tecnologie presto e significativamente\n• Un team motivato e collaborativo con elevati standard di qualità e innovazione\n• Clienti emozionanti, problemi impegnativi e complessi ambienti ServiceNow\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nAl fine di supportare i nostri clienti nelle strategie IT orientate al futuro, ci affidiamo a persone che pensano, si assumono responsabilità e mettono in discussione lo status quo. Con noi, è possibile sviluppare attivamente ServiceNow, contribuire nuove idee e lavorare con un sacco di libertà decisionale in un ambiente moderno e agile.\nDiventa parte del nostro #TeamAbraxas. Ci si può aspettare un ambiente di lavoro orientato al futuro con il design moderno del posto di lavoro, connessioni di trasporto molto buone, regolazione generoso ufficio domestico e eccellenti opportunità di formazione.\nManteniamo una cultura aperta – quindi si prega di inviare la vostra applicazione direttamente nel modulo.",
-        "en": "At Abraxas, we want to consistently anchor AI in ServiceNow and further develop our platform as a key lever for innovation, automation and efficiency.\nYou shape the next generation of our ServiceNow platform – with generative AI, intelligent applications, autonomous agents and automation that significantly relieve employees and customers. You will identify relevant AI use cases, develop prototypes and convert them together with the team into scalable, data-driven solutions for our customers and internal processes.\nFor St. Gallen or Zurich Airport, we are looking for a committed personality who actively brings together ServiceNow, AI and automation and takes our platform to the next level.\nYour role\n• Identify, evaluate and prioritize AI use cases within the ServiceNow platform\n• Design, implement and further develop AI-enabled solutions such as Virtual Agent, Predictive/Task Intelligence and GenAI Features (NOW Assist)\n• Accept requirements from specialist areas and customers and translate them into effective, practical solutions\n• Further develop the ServiceNow architecture with a focus on automation, scalability and AI\n• Build best practices, standards and guidelines for using AI in ServiceNow\n• Promote structured, high-quality data as a basis for AI\n• Implement PoCs and pilot projects and gradually transfer successful approaches into operation\n• Transfer knowledge to the team and actively shape our AI strategy in the ServiceNow environment\nYour profile\n• Demonstrable practical experience with AI functionalities in ServiceNow, such as Predictive/Task Intelligence (Machine Learning) or NOW Assist (GenAI)\n• Several years of experience as ServiceNow Engineer, Developer or Consultant and corresponding certification\n• In-depth knowledge of central ServiceNow modules, for example ITSM, CSM or ITOM\n• Experience in process automation with workflows, Flow Designer and IntegrationHub\n• Analytical thinking and the ability to identify potential for efficiency enhancement through AI and automation\n• Enjoy innovation, experimentation and iterative approach with a concrete implementation focus\n• Good communication skills and maker mentality – you move safely between business and IT\n• German at native language level and negotiable English\nYour benefits\n• The active participation of our AI initiative with high strategic relevance\n• A lot of design freedom and the opportunity to use new technologies early and meaningfully\n• A motivated, collaborative team with high quality standards and innovation\n• Exciting customers, challenging issues and complex ServiceNow environments\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nIn order to support our customers in future-oriented IT strategies, we rely on people who think, take responsibility and question the status quo. With us, you can actively develop ServiceNow, contribute new ideas and work with a lot of decision-making freedom in a modern, agile environment.\nBecome part of our #TeamAbraxas. You can expect a future-oriented working environment with modern workplace design, very good transport connections, generous home office regulation and excellent training opportunities.\nWe maintain an open you culture – so please send us your application directly in the you form.",
-        "de": "Bei Abraxas wollen wir KI in ServiceNow konsequent verankern und unsere Plattform als zentralen Hebel für Innovation, Automatisierung und Effizienz weiterentwickeln.\nDu gestaltest die nächste Generation unserer ServiceNow-Plattform – mit generativer KI, intelligenten Anwendungen, autonomen Agenten und Automation, die Mitarbeitende und Kunden spürbar entlasten. Dazu identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst sie gemeinsam mit dem Team in skalierbare, datengetriebene Lösungen für unsere Kunden und internen Prozesse.\nFür St. Gallen oder Zürich-Flughafen suchen wir eine engagierte Persönlichkeit, die ServiceNow, KI und Automation aktiv zusammenbringt und unsere Plattform auf das nächste Level hebt.\nDeine Rolle\n• KI Use Cases innerhalb der ServiceNow-Plattform identifizieren, bewerten und priorisieren\n• KI-gestützte Lösungen konzipieren, umsetzen und weiterentwickeln, zum Beispiel Virtual Agent, Predictive/Task Intelligence und GenAI Features (NOW Assist)\n• Anforderungen aus Fachbereichen und von Kunden aufnehmen und in wirksame, praxistaugliche Lösungen übersetzen\n• Die ServiceNow-Architektur mit Fokus auf Automatisierung, Skalierbarkeit und AI weiterentwickeln\n• Best Practices, Standards und Leitplanken für den Einsatz von KI in ServiceNow aufbauen\n• Strukturierte, qualitativ hochwertige Daten als Basis von KI fördern\n• PoCs und Pilotprojekte durchführen und erfolgreiche Ansätze schrittweise in den Betrieb überführen\n• Wissen ins Team transferieren und unsere KI-Strategie im ServiceNow-Umfeld aktiv mitprägen\nDein Profil\n• Nachweisbare Praxiserfahrung mit KI-Funktionalitäten in ServiceNow, etwa Predictive/Task Intelligence (Machine Learning) oder NOW Assist (GenAI)\n• Mehrjährige Erfahrung als ServiceNow Engineer, Developer oder Consultant sowie entsprechende Zertifizierung\n• Fundierte Kenntnisse zentraler ServiceNow-Module, zum Beispiel ITSM, CSM oder ITOM\n• Erfahrung in der Prozessautomatisierung mit Workflows, Flow Designer und IntegrationHub\n• Analytisches Denken und die Fähigkeit, Potenziale für Effizienzsteigerung durch KI und Automatisierung zu erkennen\n• Freude an Innovation, Experimentieren und iterativem Vorgehen mit konkretem Umsetzungsfokus\n• Gute Kommunikationsfähigkeit und Macher-Mentalität – du bewegst dich sicher zwischen Business und IT\n• Deutsch auf Muttersprachniveau und verhandlungssicheres Englisch\nDeine Benefits\n• Die aktive Mitgestaltung unserer KI-Initiative mit hoher strategischer Relevanz\n• Viel Gestaltungsspielraum und die Möglichkeit, neue Technologien früh und sinnvoll einzusetzen\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nUm unsere Kunden bei zukunftsorientierten IT-Strategien zu unterstützen, setzen wir auf Menschen, die mitdenken, Verantwortung übernehmen und den Status quo hinterfragen. Bei uns kannst du ServiceNow aktiv weiterentwickeln, neue Ideen einbringen und mit viel Entscheidungsfreiraum in einem modernen, agilen Umfeld arbeiten.\nWerde Teil unseres #TeamAbraxas. Dich erwartet ein zukunftsorientiertes Arbeitsumfeld mit moderner Arbeitsplatzgestaltung, sehr guter Verkehrsanbindung, grosszügiger Homeoffice-Regelung und ausgezeichneten Weiterbildungsmöglichkeiten.\nWir pflegen eine offene Du-Kultur – sende uns deine Bewerbung deshalb gerne direkt in der Du-Form.",
-        "fr": "Chez Abraxas, nous voulons constamment ancrer l'IA dans ServiceNow et développer davantage notre plateforme comme levier clé pour l'innovation, l'automatisation et l'efficacité.\nVous façonnez la prochaine génération de notre plateforme ServiceNow – avec l'IA générative, les applications intelligentes, les agents autonomes et l'automatisation qui soulagent considérablement les employés et les clients. Vous identifierez les cas d'utilisation de l'IA pertinents, développerez des prototypes et les convertirez avec l'équipe en solutions évolutives et basées sur les données pour nos clients et nos processus internes.\nPour St. Gallen ou l'aéroport de Zurich, nous recherchons une personnalité engagée qui rassemble activement ServiceNow, l'IA et l'automatisation et porte notre plateforme au niveau supérieur.\nVotre rôle\n• Identifier, évaluer et prioriser les cas d'utilisation de l'IA au sein de la plateforme ServiceNow\n• Concevoir, mettre en œuvre et développer des solutions compatibles avec l'IA, telles que les agents virtuels, les renseignements prédictifs/tâches et les fonctions GenAI (aide NOW)\n• Accepter les exigences des domaines spécialisés et des clients et les traduire en solutions efficaces et pratiques\n• Développer l'architecture ServiceNow en mettant l'accent sur l'automatisation, l'évolutivité et l'IA\n• Élaborer des pratiques exemplaires, des normes et des lignes directrices pour l'utilisation de l'IA dans ServiceNow\n• Promouvoir des données structurées et de haute qualité comme base pour l'IA\n• Mettre en œuvre des programmes de pays et des projets pilotes et transférer progressivement les approches réussies en application\n• Transférer les connaissances à l'équipe et façonner activement notre stratégie d'IA dans l'environnement ServiceNow\nVotre profil\n• Expérience pratique démontrable avec les fonctionnalités d'IA dans ServiceNow, comme l'intelligence prédictive/task (apprentissage de la machine) ou NOW Assist (GenAI)\n• Plusieurs années d'expérience en tant qu'ingénieur, développeur ou consultant ServiceNow et certification correspondante\n• Connaissance approfondie des modules centraux ServiceNow, par exemple STIM, CSM ou ITOM\n• Expérience dans l'automatisation des processus avec les workflows, Flow Designer et IntegrationHub\n• La réflexion analytique et la capacité d'identifier le potentiel d'amélioration de l'efficacité par l'IA et l'automatisation\n• Profitez de l'innovation, de l'expérimentation et de l'approche itérative avec une mise en œuvre concrète\n• Bonnes compétences de communication et mentalité de fabricant – vous déplacez en toute sécurité entre l'entreprise et l'informatique\n• L'allemand au niveau de la langue maternelle et l'anglais négociable\nVos avantages\n• La participation active de notre initiative AI avec une grande pertinence stratégique\n• Beaucoup de liberté de conception et la possibilité d'utiliser les nouvelles technologies tôt et de manière significative\n• Une équipe motivée et collaborative avec des normes de qualité et de l'innovation\n• Clients passionnants, problèmes difficiles et environnements complexes ServiceNow\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nAfin de soutenir nos clients dans des stratégies de TI orientées vers l'avenir, nous comptons sur des personnes qui pensent, prennent des responsabilités et remettent en question le statu quo. Avec nous, vous pouvez développer activement ServiceNow, apporter de nouvelles idées et travailler avec beaucoup de liberté de décision dans un environnement moderne et agile.\nFaites partie de notre #TeamAbraxas. Vous pouvez vous attendre à un environnement de travail orienté vers l'avenir avec une conception moderne du lieu de travail, de très bonnes connexions de transport, une réglementation généreuse des bureaux à domicile et d'excellentes possibilités de formation.\nNous maintenons une culture ouverte pour vous, alors envoyez-nous votre candidature directement dans votre formulaire."
+        "it": "L'intelligenza artificiale, l'intelligenza generativa e l'automazione intelligente stanno cambiando il modo in cui vengono forniti i servizi e i processi sono supportati. A Abraxas, vogliamo sfruttare queste opportunità e sviluppare continuamente la nostra piattaforma ServiceNow.\nPer questo, siamo alla ricerca di una personalità dedicata che ha esperienza ServiceNow, trova nuove tecnologie entusiasmanti e vuole costruire soluzioni innovative di AI e automazione insieme al nostro team.\nSe hai già acquisito esperienza iniziale con Now Assist o vuoi specializzarti di più nella direzione di AI in futuro: Con noi avrete l'opportunità di plasmare attivamente questo argomento futuro.\nSupporti il nostro team ServiceNow nell'ulteriore sviluppo della piattaforma e lavori su nuove soluzioni per AI, automazione e servizi digitali. Insieme a dipartimenti specialistici, clienti e team di ingegneria, identificherai il potenziale, svilupperai nuovi approcci e contribuirai ad implementare con successo funzionalità innovative di ServiceNow.\nIl tuo ruolo\n• Ulteriori sviluppi della nostra piattaforma ServiceNow\n• Partecipazione all'attuazione delle iniziative AI e di automazione\n• Analisi dei requisiti e sviluppo di soluzioni pratiche\n• Valutazione delle nuove funzionalità ServiceNow e delle funzionalità AI\n• Partecipazione alla prova di concetti e progetti pilota\n• Supporto per l'uso di ora Assist, agente virtuale e altre funzioni intelligenti ServiceNow\n• Automazione dei processi con Flow Designer e IntegrationHub\n• Partecipazione alla definizione degli standard e delle migliori pratiche\n• Scambio di conoscenze all'interno del team\nIl tuo profilo\n• Esperienza come ServiceNow Ingegnere, Sviluppatore o Consulente\n• Conoscenza di ServiceNow ITSM e idealmente altri moduli come CSM o ITOM\n• Esperienza con flussi di lavoro, progettisti o integrazioni\n• Interessi nelle possibilità di AI, GenAI e automazione\n• Goditi di provare nuove tecnologie e di convertirle in soluzioni\n• Procedura analitica e orientata alla soluzione\n• Ottima conoscenza del tedesco e dell'inglese\nVantaggi\n• Esperienza con funzioni di ServiceNow AI come ora Assist, intelligenza predittiva, agente virtuale o ricerca AI\n• Certificazioni ServiceNow\n• Conoscenza di JavaScript o integrazioni\n• Esperienza con AI Generativo, LLM o Assistenti AI\nI tuoi vantaggi\n• Lavorare su uno dei temi futuri più emozionanti nell'ambiente ServiceNow\n• Opportunità di sviluppare ulteriormente nel campo dell'AI e dell'automazione\n• Molto spazio per la manovra e la responsabilità personale\n• Forme moderne di lavoro con ufficio domestico e orari di lavoro flessibili\n• Clienti esigenti e progetti vari\n• Squadra Collegiale con elevata competenza ServiceNow\n• Opportunità di formazione accattivanti intorno a ServiceNow e AI\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nAbraxas è uno dei principali fornitori di servizi IT svizzeri per il settore pubblico. Uniamo l'innovazione alla rilevanza sociale e usiamo tecnologie moderne dove fanno una vera differenza.\nSe non solo si opera ServiceNow, ma anche vuole plasmare attivamente il futuro di AI, automazione e gestione dei servizi, non vediamo l'ora della vostra applicazione.\nDiventa parte del nostro #TeamAbraxas e modella la prossima generazione di ServiceNow con noi.",
+        "en": "Artificial intelligence, generative AI and intelligent automation are changing the way services are delivered and processes are supported. At Abraxas, we want to leverage these opportunities and continuously develop our ServiceNow platform.\nFor this, we are looking for a dedicated personality who has ServiceNow experience, finds new technologies exciting and wants to build innovative AI and automation solutions together with our team.\nWhether you have already gained initial experience with Now Assist or want to specialize more in the direction of AI in the future: With us you will have the opportunity to actively shape this future topic.\nYou support our ServiceNow team in the further development of the platform and work on new solutions for AI, automation and digital services. Together with specialist departments, customers and engineering teams, you will identify potential, develop new approaches and help to successfully implement innovative ServiceNow functionalities.\nYour role\n• Further development of our ServiceNow platform\n• Participation in the implementation of AI and automation initiatives\n• Analysis of requirements and development of practical solutions\n• Evaluation of new ServiceNow functionalities and AI features\n• Participation in proof of concepts and pilot projects\n• Support for the use of Now Assist, Virtual Agent and other intelligent ServiceNow functions\n• Automation of processes with Flow Designer and IntegrationHub\n• Participation in the definition of standards and best practices\n• Exchange of knowledge within the team\nYour profile\n• Experience as a ServiceNow Engineer, Developer or Consultant\n• Knowledge of ServiceNow ITSM and ideally other modules such as CSM or ITOM\n• Experience with workflows, flow designers or integrations\n• Interest in the possibilities of AI, GenAI and automation\n• Enjoy trying out new technologies and converting them into solutions\n• Analytical and solution-oriented procedure\n• Very good knowledge of German and English\nBenefits\n• Experience with ServiceNow AI functions such as Now Assist, Predictive Intelligence, Virtual Agent or AI Search\n• ServiceNow certifications\n• Knowledge of JavaScript or integrations\n• Experience with Generative AI, LLMs or AI assistants\nYour Benefits\n• Working on one of the most exciting future topics in the ServiceNow environment\n• Opportunity to further develop in the field of AI and automation\n• A lot of room for manoeuvre and personal responsibility\n• Modern forms of work with home office and flexible working hours\n• Demanding customers and varied projects\n• Collegial team with high ServiceNow expertise\n• Attractive training opportunities around ServiceNow and AI\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nAbraxas is one of the leading Swiss IT service providers for the public sector. We combine innovation with social relevance and use modern technologies where they make a real difference.\nIf you not only operate ServiceNow, but also want to actively shape the future of AI, automation and service management, we look forward to your application.\nBecome part of our #TeamAbraxas and shape the next generation of ServiceNow with us.",
+        "de": "Künstliche Intelligenz, Generative AI und intelligente Automatisierung verändern die Art, wie Services erbracht und Prozesse unterstützt werden. Bei Abraxas wollen wir diese Möglichkeiten gezielt nutzen und unsere ServiceNow-Plattform kontinuierlich weiterentwickeln.\nDafür suchen wir eine engagierte Persönlichkeit, die ServiceNow-Erfahrung mitbringt, neue Technologien spannend findet und gemeinsam mit unserem Team innovative KI- und Automatisierungslösungen aufbauen möchte.\nOb du bereits erste Erfahrungen mit Now Assist gesammelt hast oder dich künftig stärker in Richtung AI spezialisieren möchtest: Bei uns erhältst du die Möglichkeit, dieses Zukunftsthema aktiv mitzugestalten.\nDu unterstützt unser ServiceNow-Team bei der Weiterentwicklung der Plattform und arbeitest an neuen Lösungen rund um KI, Automatisierung und digitale Services. Gemeinsam mit Fachbereichen, Kunden und Engineering-Teams identifizierst du Potenziale, entwickelst neue Ansätze und hilfst mit, innovative ServiceNow-Funktionalitäten erfolgreich einzusetzen.\nDeine Rolle\n• Weiterentwicklung unserer ServiceNow-Plattform\n• Mitarbeit bei der Umsetzung von KI- und Automatisierungsinitiativen\n• Analyse von Anforderungen und Entwicklung praxisnaher Lösungen\n• Evaluation neuer ServiceNow-Funktionalitäten und KI-Features\n• Mitarbeit bei Proof of Concepts und Pilotprojekten\n• Unterstützung beim Einsatz von Now Assist, Virtual Agent und weiteren intelligenten ServiceNow-Funktionen\n• Automatisierung von Abläufen mit Flow Designer und IntegrationHub\n• Mitarbeit bei der Definition von Standards und Best Practices\n• Wissensaustausch innerhalb des Teams\nDein Profil\n• Erfahrung als ServiceNow Engineer, Developer oder Consultant\n• Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Workflows, Flow Designer oder Integrationen\n• Interesse an den Möglichkeiten von KI, GenAI und Automatisierung\n• Freude daran, neue Technologien auszuprobieren und in Lösungen zu überführen\n• Analytische und lösungsorientierte Arbeitsweise\n• Sehr gute Deutsch- und Englisch Kenntnisse\nVon Vorteil\n• Erfahrungen mit ServiceNow KI-Funktionen wie Now Assist, Predictive Intelligence, Virtual Agent oder KI Search\n• ServiceNow-Zertifizierungen\n• Kenntnisse in JavaScript oder Integrationen\n• Erfahrungen mit Generative KI, LLMs oder KI-Assistenten\nDeine Benefits\n• Mitarbeit an einem der spannendsten Zukunftsthemen im ServiceNow-Umfeld\n• Möglichkeit, dich im Bereich KI und Automation gezielt weiterzuentwickeln\n• Viel Gestaltungsspielraum und Eigenverantwortung\n• Moderne Arbeitsformen mit Homeoffice und flexiblen Arbeitszeiten\n• Anspruchsvolle Kunden und abwechslungsreiche Projekte\n• Kollegiales Team mit hoher ServiceNow-Expertise\n• Attraktive Weiterbildungsmöglichkeiten rund um ServiceNow und AI\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
+        "fr": "L'intelligence artificielle, l'intelligence artificielle génératrice et l'automatisation intelligente modifient la façon dont les services sont fournis et les processus sont pris en charge. Chez Abraxas, nous voulons exploiter ces opportunités et développer continuellement notre plateforme ServiceNow.\nPour cela, nous recherchons une personnalité dédiée qui a l'expérience de ServiceNow, trouve de nouvelles technologies passionnantes et veut construire des solutions innovantes d'IA et d'automatisation avec notre équipe.\nQue vous ayez déjà acquis une expérience initiale avec Now Assist ou que vous souhaitiez vous spécialiser davantage dans la direction de l'IA à l'avenir : Avec nous, vous aurez l'occasion de façonner activement ce sujet futur.\nVous accompagnez notre équipe ServiceNow dans le développement de la plateforme et travaillez sur de nouvelles solutions pour l'IA, l'automatisation et les services numériques. En collaboration avec des départements spécialisés, des clients et des équipes d'ingénieurs, vous identifierez le potentiel, développerez de nouvelles approches et aiderez à mettre en place des fonctionnalités innovantes de ServiceNow.\nVotre rôle\n• Développement de notre plateforme ServiceNow\n• Participation à la mise en œuvre des initiatives d'IA et d'automatisation\n• Analyse des besoins et élaboration de solutions pratiques\n• Évaluation des nouvelles fonctionnalités et fonctionnalités d'IA de ServiceNow\n• Participation à la démonstration de concepts et de projets pilotes\n• Support pour l'utilisation de Now Assist, Virtual Agent et d'autres fonctions intelligentes ServiceNow\n• Automatisation des processus avec Flow Designer et IntegrationHub\n• Participation à la définition des normes et des meilleures pratiques\n• Échange de connaissances au sein de l'équipe\nVotre profil\n• Expérience comme ingénieur, développeur ou consultant ServiceNow\n• Connaissance de ServiceNow ITSM et idéalement d'autres modules tels que CSM ou ITOM\n• Expérience avec les workflows, les concepteurs de flux ou les intégrations\n• Intérêt pour les possibilités de l'IA, GenAI et l'automatisation\n• Profitez d'essayer de nouvelles technologies et de les transformer en solutions\n• Procédure analytique et orientée vers la solution\n• Très bonne connaissance de l'allemand et de l'anglais\nAvantages\n• Expérience avec les fonctions de ServiceNow AI telles que Now Assist, Predictive Intelligence, Virtual Agent ou AI Search\n• Certifications ServiceNow\n• Connaissance du JavaScript ou des intégrations\n• Expérience avec des assistants en AI, LLM ou AI\nVos avantages\n• Travailler sur l'un des sujets futurs les plus excitants dans l'environnement ServiceNow\n• Possibilité de se développer davantage dans le domaine de l'IA et de l'automatisation\n• Beaucoup de marge de manoeuvre et de responsabilité personnelle\n• Formes modernes de travail avec bureau à domicile et horaires de travail flexibles\n• Demande de clients et projets variés\n• Équipe collégiale à haute expertise ServiceNow\n• Possibilités de formation attrayantes autour de ServiceNow et AI\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nAbraxas est l'un des principaux fournisseurs suisses de services informatiques pour le secteur public. Nous combinons innovation et pertinence sociale et utilisons des technologies modernes où elles font une réelle différence.\nSi vous n'exploitez pas seulement ServiceNow, mais voulez également façonner activement l'avenir de l'IA, l'automatisation et la gestion de service, nous attendons avec impatience votre application.\nFaites partie de notre #TeamAbraxas et formez la prochaine génération de ServiceNow avec nous."
       },
       "location": "Zürich-Flughafen",
       "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-1720",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:11.059Z",
+      "crawledAt": "2026-08-19T09:46:47.422Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,28 +199,14 @@
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://apply.refline.ch/215876/2477/index.html?lang=de&cid=1",
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply.refline.ch/215876/2522/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2477",
+      "externalId": "215876-2522",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "servicenow-engineer-ki-automation-80-100-abraxas-zurich-flughafen",
-        "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-zurich-flughafen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicenow-engineer-ki-automation-80-100-abraxas-zurich-flughafen",
-          "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-zurich-flughafen"
-        ],
-        "fr": [
-          "servicenow-engineer-ki-automation-80-100-abraxas-zurich-flughafen"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:21:53.038Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -231,7 +218,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:46:24.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "fr": [
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -248,7 +250,7 @@
       "title": "Senior Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Software-Ingegnere 80–100 %",
-        "en": "Senior Software Engineer 80-100%",
+        "en": "Senior Software-Engineer 80–100 %",
         "de": "Senior Software-Ingenieur 80–100 %",
         "fr": "Senior Software-Ingénieur 80–100 %"
       },
@@ -264,7 +266,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:10.584Z",
+      "crawledAt": "2026-08-19T09:46:46.930Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -330,121 +333,118 @@
       }
     },
     {
-      "id": "abraxas-ba9e19c5a748",
-      "slug": "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen",
+      "id": "abraxas-77b5af7a4ae0",
+      "slug": "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "it": "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "security-architect-with-focus-on-ai-security-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
-        "fr": "security-architecte-mit-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
+        "it": "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "de": "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "senior-servicenow-ki-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "Security Architect mit Schwerpunkt AI Security 80–100 %",
+      "title": "Senior ServiceNow KI Engineer 80-100 %",
       "titleByLocale": {
-        "it": "Security Architetto con Schwerpunkt AI Security 80–100 %",
-        "en": "Security Architect with focus on AI Security 80-100%",
-        "de": "Security Architect mit Schwerpunkt AI Security 80–100 %",
-        "fr": "Security Architecte mit Schwerpunkt AI Security 80–100 %"
+        "de": "Senior ServiceNow KI Ingenieur 80-100 %",
+        "en": "Senior ServiceNow AI Engineer 80-100%",
+        "it": "Senior ServiceNow KI Ingegnere 80-100 %",
+        "fr": "Senior ServiceNow KI Ingénieur 80-100 %"
       },
-      "description": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "Künstliche Intelligenz verändert die Art, wie Services erbracht, Wissen genutzt und Prozesse automatisiert werden. ServiceNow gehört dabei zu den führenden Plattformen weltweit. Bei Abraxas haben wir das klare Ziel, KI, GenAI und intelligente Automatisierung konsequent in unsere ServiceNow-Plattform zu integrieren und daraus echten Mehrwert für Kunden, Mitarbeitende und Prozesse zu schaffen. Für diese strategisch wichtige Rolle suchen wir eine erfahrene Persönlichkeit, die ServiceNow und KI zusammenführt, neue Möglichkeiten erkennt und daraus produktive Lösungen entwickelt. Du arbeitest nicht an theoretischen Konzepten, sondern gestaltest aktiv die nächste Generation unserer ServiceNow-Plattform mit.\nDu verstärkst unser ServiceNow-Team und treibst die nächste Evolutionsstufe unserer Plattform voran: den gezielten Einsatz von KI-Assisted Features, Automatisierung und datengetriebenen Services. Im Rahmen einer strategischen Initiative identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst diese gemeinsam mit dem Team in skalierbare Lösungen für unsere Kunden und internen Prozesse.\nDeine Rolle\n• Entwicklung und Umsetzung der ServiceNow KI- und Automatisierungs-Roadmap\n• Identifikation, Bewertung und Priorisierung von KI Use Cases\n• Konzeption und Implementierung von Lösungen auf Basis von Now Assist und weiteren KI-Features\n• Aufbau von intelligenten Assistenten, KI Agents und automatisierten Service-Prozessen\n• Durchführung von Proof of Concepts und Pilotprojekten\n• Überführung erfolgreicher Lösungen in den produktiven Betrieb\n• Beratung von Kunden und internen Stakeholdern bezüglich des sinnvollen Einsatzes von KI\n• Weiterentwicklung von Architektur, Standards und Governance für den Einsatz von KI innerhalb von ServiceNow\n• Förderung einer hohen Datenqualität als Grundlage erfolgreicher KI-Lösungen\n• Aktiver Wissenstransfer innerhalb des ServiceNow-Teams\nDein Profil\n• Mehrjährige praktische Erfahrung als ServiceNow Engineer, Developer, Architect oder Senior Consultant\n• Fundierte Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Flow Designer, IntegrationHub und Automatisierungslösungen\n• Nachweisbare praktische Erfahrung mit Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Erfahrung in der Konzeption und Umsetzung produktiver AI-Lösungen\n• ServiceNow-Zertifizierungen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\nNice-to-have\n• Erfahrung mit GenAI-, LLM- oder KI-Agent-Ansätzen\n• Architektur-Erfahrung im Enterprise-Umfeld\n• Erfahrung in öffentlichen Verwaltungen oder regulierten Umfeldern\n• Kenntnisse in Data Governance und KI Governance\nDeine Benefits\n• Du erhältst die Möglichkeit, den KI-Einsatz innerhalb unserer ServiceNow-Plattform aktiv mitzugestalten und strategisch zu prägen.\n• Neue Ideen, Pilotierungen und innovative Lösungsansätze sind ausdrücklich erwünscht. Du kannst Themen von der ersten Idee bis zur produktiven Umsetzung begleiten.\n• Now Assist, AI Agents, Generative AI und intelligente Automatisierung sind für uns keine Zukunftsthemen, sondern konkrete Handlungsfelder.\n• Die von dir entwickelten Lösungen unterstützen zahlreiche Kunden, Mitarbeitende und Prozesse und schaffen messbaren Mehrwert.\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
       "descriptionByLocale": {
-        "it": "Vuoi plasmare attivamente l'uso sicuro dell'intelligenza artificiale nell'amministrazione pubblica? Sei entusiasta delle moderne architetture di sicurezza e della sicurezza cloud? Allora hai ragione con noi. In questo ruolo, assumerai una posizione chiave nello sviluppo e nello sviluppo della nostra architettura di sicurezza.\nIl tuo ruolo\n• Responsabilità per la definizione e l'ulteriore sviluppo dei nostri standard di architettura di sicurezza e architetture di riferimento\n• Condurre recensioni di sicurezza e valutazioni di architettura per progetti, piattaforme e servizi\n• Costruire e sviluppare standard di sicurezza per piattaforme AI, sistemi generativi AI, co-piloti e agenti\n• AI per la difesa cibernetica proattiva: utilizzando i moderni modelli AI per rilevare e valutare le vulnerabilità esterne, simulando scenari di attacco abilitati all'intelligenza artificiale e supportando la rapida risoluzione delle vulnerabilità identificate\n• Sviluppo delle specifiche di architettura nei settori della sicurezza dei dati, della classificazione dei dati e della prevenzione della perdita di dati (DLP)\n• Consulenza team di architettura, sviluppo e piattaforma su temi legati alla sicurezza\n• Attuazione della modellazione delle minacce, analisi dei rischi e valutazioni di sicurezza per le nuove tecnologie e soluzioni\n• Gestione tecnica e concettuale di iniziative di sicurezza e progetti di architettura\nIl tuo profilo\n• Diversi anni di esperienza come architetto di sicurezza, ingegnere di sicurezza o in un ruolo paragonabile\n• Laurea in scienze informatiche o qualifica equivalente\n• Conoscenza approfondita dell'architettura della sicurezza e della sicurezza AI richiesta, nonché analisi del rischio e modellazione delle minacce\n• Diversi anni di esperienza nella creazione di architetture di sicurezza e concetti tecnici\n• Know-how per la progettazione di architetture di sicurezza di LLM e cloud on-prem\n• Certificazioni riconosciute come CISSP, SABSA, CCSP, TOGAF, AZ-500 o certificati simili\n• Molto buona conoscenza del tedesco\n• Personalità strutturata, indipendente e comunicativa con elevata competenza di consulenza e implementazione\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Do you want to actively shape the safe use of artificial intelligence in public administration? Are you excited about modern security architectures and cloud security? Then you are exactly right with us. In this role, you will assume a key position in the development and development of our Security Architecture.\nYour role\n• Responsibility for the definition and further development of our security architecture standards and reference architectures\n• Conducting security reviews and architecture assessments for projects, platforms and services\n• Build and develop safety standards for AI platforms, generative AI, co-pilots and agent systems\n• AI for proactive cyber defense: using modern AI models to detect and assess external vulnerabilities, simulating AI-enabled attack scenarios and supporting the rapid resolution of identified vulnerabilities\n• Development of architecture specifications in the areas of data security, data classification and data loss prevention (DLP)\n• Advising architecture, development and platform teams on security-related issues\n• Implementation of threat modelling, risk analysis and security assessments for new technologies and solutions\n• Technical and conceptual management of security initiatives and architecture projects\nYour profile\n• Several years of experience as a security architect, security engineer or in a comparable role\n• Computer science degree or equivalent qualification\n• In-depth knowledge of security architecture as well as AI security required, as well as risk analysis and threat modelling\n• Several years of experience in creating security architectures and technical concepts\n• Know-how for the design of security architectures of on-prem LLMs and cloud LLMs\n• Recognized certifications such as CISSP, SABSA, CCSP, TOGAF, AZ-500 or similar certificates\n• Very good knowledge of German\n• Structured, independent and communicative personality with high consulting and implementation competence\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Möchtest du die sichere Nutzung von Künstlicher Intelligenz in der öffentlichen Verwaltung aktiv mitgestalten? Begeistern dich moderne Sicherheitsarchitekturen und Cloud Security? Dann bist du bei uns genau richtig. In dieser Rolle übernimmst du eine Schlüsselposition beim Aufbau und der Weiterentwicklung unserer Security Architecture.\nDeine Rolle\n• Verantwortung für die Definition und Weiterentwicklung unserer Security Architecture Standards und Referenzarchitekturen\n• Durchführung von Security Reviews und Architektur-Assessments für Projekte, Plattformen und Services\n• Aufbau und Weiterentwicklung von Sicherheitsstandards für AI-Plattformen, Generative AI, Copilots und Agentensysteme\n• KI zur proaktiven Cyberabwehr: Einsatz moderner KI-Modelle zur Erkennung und Bewertung externer Schwachstellen, Simulation KI-gestützter Angriffsszenarien und Unterstützung der schnellen Behebung identifizierter Sicherheitslücken\n• Entwicklung von Architekturvorgaben im Bereich Data Security, Data Classification und Data Loss Prevention (DLP)\n• Beratung von Architektur-, Entwicklungs- und Plattformteams bei sicherheitsrelevanten Fragestellungen\n• Durchführung von Threat Modelling, Risikoanalysen und Security Assessments für neue Technologien und Lösungen\n• Technische und konzeptionelle Leitung von Security-Initiativen und Architekturprojekten\nDein Profil\n• Mehrjährige Erfahrung als Security Architect, Security Engineer oder in einer vergleichbaren Rolle\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Fundierte Kenntnisse in Security Architektur sowie AI Security vorausgesetzt, sowie Risikoanalysen und Threat modelling\n• Mehrjährige Erfahrung in der Erstellung von Sicherheitsarchitekturen und technischen Konzepten\n• Knowhow für Konzeption von Sicherheitsarchitekturen von On-Prem betriebenen LLMs und Cloud LLMs\n• Anerkannte Zertifizierungen wie CISSP, SABSA, CCSP, TOGAF, AZ-500 oder vergleichbare Zertifikate\n• Sehr gute Deutschkenntnisse\n• Strukturierte, selbstständige und kommunikative Persönlichkeit mit hoher Beratungs- und Umsetzungskompetenz\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Voulez-vous façonner activement l'utilisation sécuritaire de l'intelligence artificielle dans l'administration publique? Êtes-vous excité par les architectures de sécurité modernes et la sécurité cloud? Alors vous avez raison avec nous. Dans ce rôle, vous assumerez une position clé dans le développement et le développement de notre architecture de sécurité.\nVotre rôle\n• Responsabilité de la définition et du développement de nos normes d'architecture de sécurité et de nos architectures de référence\n• Examen de la sécurité et évaluation de l'architecture des projets, des plates-formes et des services\n• Élaborer et développer des normes de sécurité pour les plates-formes d'IA, l'IA générative, les copilotes et les systèmes d'agents\n• L'IA pour la cyberdéfense proactive : utiliser des modèles modernes d'IA pour détecter et évaluer les vulnérabilités externes, simuler des scénarios d'attaque compatibles avec l'IA et soutenir la résolution rapide des vulnérabilités identifiées\n• Élaboration de spécifications d'architecture dans les domaines de la sécurité des données, de la classification des données et de la prévention des pertes de données (DLP)\n• Conseiller les équipes d ' architecture, de développement et de plate-forme sur les questions de sécurité\n• Mise en œuvre de la modélisation des menaces, de l ' analyse des risques et des évaluations de la sécurité pour les nouvelles technologies et solutions\n• Gestion technique et conceptuelle des initiatives de sécurité et des projets d'architecture\nVotre profil\n• Plusieurs années d'expérience en tant qu'architecte de sécurité, ingénieur de sécurité ou dans un rôle comparable\n• Diplôme en informatique ou diplôme équivalent\n• Connaissance approfondie de l'architecture de sécurité ainsi que de la sécurité de l'IA requise, et analyse des risques et modélisation des menaces\n• Plusieurs années d'expérience dans la création d'architectures de sécurité et de concepts techniques\n• Savoir-faire pour la conception d'architectures de sécurité des LLM sur site et des LLM en nuage\n• Certifications reconnues comme CISSP, SABSA, CCSP, TOGAF, AZ-500 ou certificats similaires\n• Très bonne connaissance de l'allemand\n• Personnalité structurée, indépendante et communicative, hautement compétente en matière de consultation et de mise en œuvre\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "L'intelligenza artificiale sta cambiando il modo in cui vengono forniti i servizi, viene utilizzata la conoscenza e i processi sono automatizzati. ServiceNow è una delle principali piattaforme in tutto il mondo. A Abraxas, abbiamo l'obiettivo chiaro di integrare costantemente AI, GenAI e l'automazione intelligente nella nostra piattaforma ServiceNow e creare valore aggiunto reale per clienti, dipendenti e processi. Per questo ruolo strategicamente importante, stiamo cercando una personalità esperta che riunisce ServiceNow e AI, riconosce nuove possibilità e sviluppa soluzioni produttive da loro. Non si lavora su concetti teorici, ma stanno attivamente modellando la prossima generazione della nostra piattaforma ServiceNow.\nPotenzierai il nostro team ServiceNow e guiderai la prossima fase evolutiva della nostra piattaforma: l'uso mirato di funzionalità, automazione e servizi basati sui dati. Nell'ambito di un'iniziativa strategica, si identificano casi di utilizzo AI rilevanti, si sviluppano prototipi e li convertono in soluzioni scalabili per i nostri clienti e processi interni insieme al team.\nIl tuo ruolo\n• Sviluppo e implementazione della roadmap ServiceNow AI e automazione\n• Identificazione, valutazione e priorità dei casi di utilizzo dell'IA\n• Concezione e realizzazione di soluzioni basate su Now Assist e altre funzionalità AI\n• Costruire assistenti intelligenti, agenti AI e processi di servizio automatizzati\n• Attuazione della prova di concetti e progetti pilota\n• Trasferimento di soluzioni di successo in operazioni produttive\n• Consultare i clienti e gli stakeholder interni sull'uso significativo dell'IA\n• Ulteriore sviluppo di architettura, standard e governance per l'uso di AI all'interno di ServiceNow\n• Promuovere l'alta qualità dei dati come base per soluzioni AI di successo\n• Trasferimento di conoscenze attivo all'interno del team ServiceNow\nIl tuo profilo\n• Diversi anni di esperienza pratica come ServiceNow Ingegnere, Sviluppatore, Architetto o Consulente senior\n• Conoscenza approfondita di ServiceNow ITSM e idealmente altri moduli come CSM o ITOM\n• Esperienza con Flow Designer, IntegrationHub e soluzioni di automazione\n• Dimostrare esperienza pratica con Ora Assist, intelligenza predittiva, Task Intelligence, agente virtuale, ricerca AI\n• Esperienza nella progettazione e realizzazione di soluzioni AI produttive\n• Certificazioni ServiceNow\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\nBello da avere\n• Esperienza con gli approcci di agente GenAI, LLM o AI\n• Esperienza di architettura nell'ambiente aziendale\n• Esperienza nelle pubbliche amministrazioni o negli ambienti regolamentati\n• Conoscenza della governance dei dati e della governance dell'IA\nI tuoi vantaggi\n• Avrete l'opportunità di modellare attivamente e plasmare strategicamente l'uso di AI all'interno della nostra piattaforma ServiceNow.\n• Le nuove idee, i progetti pilota e le soluzioni innovative sono espressamente desiderate. Puoi accompagnare argomenti dalla prima idea all'implementazione produttiva.\n• Ora Assist, Agenti AI, AI Generative e automazione intelligente non sono argomenti futuri per noi, ma campi di azione concreti.\n• Le soluzioni sviluppate supportano numerosi clienti, dipendenti e processi e creano un valore aggiunto misurabile.\n• Un team motivato e collaborativo con elevati standard di qualità e innovazione\n• Clienti emozionanti, problemi impegnativi e complessi ambienti ServiceNow\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nAbraxas è uno dei principali fornitori di servizi IT svizzeri per il settore pubblico. Uniamo l'innovazione alla rilevanza sociale e usiamo tecnologie moderne dove fanno una vera differenza.\nSe non solo si opera ServiceNow, ma anche vuole plasmare attivamente il futuro di AI, automazione e gestione dei servizi, non vediamo l'ora della vostra applicazione.\nDiventa parte del nostro #TeamAbraxas e modella la prossima generazione di ServiceNow con noi.",
+        "en": "Artificial intelligence is changing the way services are delivered, knowledge is used and processes are automated. ServiceNow is one of the leading platforms worldwide. At Abraxas, we have the clear goal of consistently integrating AI, GenAI and intelligent automation into our ServiceNow platform and creating real added value for customers, employees and processes. For this strategically important role, we are looking for an experienced personality who brings together ServiceNow and AI, recognizes new possibilities and develops productive solutions from them. You are not working on theoretical concepts, but are actively shaping the next generation of our ServiceNow platform.\nYou will strengthen our ServiceNow team and drive the next evolutionary stage of our platform: the targeted use of AI-assisted features, automation and data-driven services. As part of a strategic initiative, you will identify relevant AI use cases, develop prototypes and convert them into scalable solutions for our customers and internal processes together with the team.\nYour role\n• Development and implementation of the ServiceNow AI and automation roadmap\n• Identification, evaluation and prioritization of AI use cases\n• Conception and implementation of solutions based on Now Assist and other AI features\n• Building intelligent assistants, AI agents and automated service processes\n• Implementation of proof of concepts and pilot projects\n• Transfer of successful solutions into productive operations\n• Advising customers and internal stakeholders on the meaningful use of AI\n• Further development of architecture, standards and governance for the use of AI within ServiceNow\n• Promoting high data quality as the basis for successful AI solutions\n• Active knowledge transfer within the ServiceNow team\nYour profile\n• Several years of practical experience as ServiceNow Engineer, Developer, Architect or Senior Consultant\n• In-depth knowledge of ServiceNow ITSM and ideally other modules such as CSM or ITOM\n• Experience with Flow Designer, IntegrationHub and automation solutions\n• Demonstrate practical experience with Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Experience in the design and implementation of productive AI solutions\n• ServiceNow certifications\n• Very good knowledge of German and good knowledge of English\nNice-to-have\n• Experience with GenAI, LLM or AI agent approaches\n• Architecture experience in the enterprise environment\n• Experience in public administrations or regulated environments\n• Knowledge of Data Governance and AI Governance\nYour Benefits\n• You will have the opportunity to actively shape and strategically shape the use of AI within our ServiceNow platform.\n• New ideas, pilot projects and innovative solutions are expressly desired. You can accompany topics from the first idea to the productive implementation.\n• Now Assist, AI Agents, Generative AI and intelligent automation are not future topics for us, but concrete fields of action.\n• The solutions you develop support numerous customers, employees and processes and create measurable added value.\n• A motivated, collaborative team with high quality standards and innovation\n• Exciting customers, challenging issues and complex ServiceNow environments\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nAbraxas is one of the leading Swiss IT service providers for the public sector. We combine innovation with social relevance and use modern technologies where they make a real difference.\nIf you not only operate ServiceNow, but also want to actively shape the future of AI, automation and service management, we look forward to your application.\nBecome part of our #TeamAbraxas and shape the next generation of ServiceNow with us.",
+        "de": "Künstliche Intelligenz verändert die Art, wie Services erbracht, Wissen genutzt und Prozesse automatisiert werden. ServiceNow gehört dabei zu den führenden Plattformen weltweit. Bei Abraxas haben wir das klare Ziel, KI, GenAI und intelligente Automatisierung konsequent in unsere ServiceNow-Plattform zu integrieren und daraus echten Mehrwert für Kunden, Mitarbeitende und Prozesse zu schaffen. Für diese strategisch wichtige Rolle suchen wir eine erfahrene Persönlichkeit, die ServiceNow und KI zusammenführt, neue Möglichkeiten erkennt und daraus produktive Lösungen entwickelt. Du arbeitest nicht an theoretischen Konzepten, sondern gestaltest aktiv die nächste Generation unserer ServiceNow-Plattform mit.\nDu verstärkst unser ServiceNow-Team und treibst die nächste Evolutionsstufe unserer Plattform voran: den gezielten Einsatz von KI-Assisted Features, Automatisierung und datengetriebenen Services. Im Rahmen einer strategischen Initiative identifizierst du relevante KI Use Cases, entwickelst Prototypen und überführst diese gemeinsam mit dem Team in skalierbare Lösungen für unsere Kunden und internen Prozesse.\nDeine Rolle\n• Entwicklung und Umsetzung der ServiceNow KI- und Automatisierungs-Roadmap\n• Identifikation, Bewertung und Priorisierung von KI Use Cases\n• Konzeption und Implementierung von Lösungen auf Basis von Now Assist und weiteren KI-Features\n• Aufbau von intelligenten Assistenten, KI Agents und automatisierten Service-Prozessen\n• Durchführung von Proof of Concepts und Pilotprojekten\n• Überführung erfolgreicher Lösungen in den produktiven Betrieb\n• Beratung von Kunden und internen Stakeholdern bezüglich des sinnvollen Einsatzes von KI\n• Weiterentwicklung von Architektur, Standards und Governance für den Einsatz von KI innerhalb von ServiceNow\n• Förderung einer hohen Datenqualität als Grundlage erfolgreicher KI-Lösungen\n• Aktiver Wissenstransfer innerhalb des ServiceNow-Teams\nDein Profil\n• Mehrjährige praktische Erfahrung als ServiceNow Engineer, Developer, Architect oder Senior Consultant\n• Fundierte Kenntnisse in ServiceNow ITSM sowie idealerweise weiteren Modulen wie CSM oder ITOM\n• Erfahrung mit Flow Designer, IntegrationHub und Automatisierungslösungen\n• Nachweisbare praktische Erfahrung mit Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Erfahrung in der Konzeption und Umsetzung produktiver AI-Lösungen\n• ServiceNow-Zertifizierungen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\nNice-to-have\n• Erfahrung mit GenAI-, LLM- oder KI-Agent-Ansätzen\n• Architektur-Erfahrung im Enterprise-Umfeld\n• Erfahrung in öffentlichen Verwaltungen oder regulierten Umfeldern\n• Kenntnisse in Data Governance und KI Governance\nDeine Benefits\n• Du erhältst die Möglichkeit, den KI-Einsatz innerhalb unserer ServiceNow-Plattform aktiv mitzugestalten und strategisch zu prägen.\n• Neue Ideen, Pilotierungen und innovative Lösungsansätze sind ausdrücklich erwünscht. Du kannst Themen von der ersten Idee bis zur produktiven Umsetzung begleiten.\n• Now Assist, AI Agents, Generative AI und intelligente Automatisierung sind für uns keine Zukunftsthemen, sondern konkrete Handlungsfelder.\n• Die von dir entwickelten Lösungen unterstützen zahlreiche Kunden, Mitarbeitende und Prozesse und schaffen messbaren Mehrwert.\n• Ein motiviertes, kollegiales Team mit hohem Qualitätsanspruch und Innovationsfreude\n• Spannende Kunden, anspruchsvolle Fragestellungen und komplexe ServiceNow-Umgebungen\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nAbraxas gehört zu den führenden Schweizer IT-Dienstleistern für die öffentliche Hand. Wir verbinden Innovation mit gesellschaftlicher Relevanz und setzen moderne Technologien dort ein, wo sie einen echten Unterschied machen.\nWenn du ServiceNow nicht nur betreiben, sondern die Zukunft von KI, Automation und Service Management aktiv gestalten möchtest, freuen wir uns auf deine Bewerbung.\nWerde Teil unseres #TeamAbraxas und gestalte mit uns die nächste Generation von ServiceNow.",
+        "fr": "L'intelligence artificielle modifie la façon dont les services sont fournis, les connaissances utilisées et les processus automatisés. ServiceNow est l'une des principales plateformes dans le monde. Chez Abraxas, nous avons l'objectif clair d'intégrer systématiquement l'IA, le GenAI et l'automatisation intelligente dans notre plateforme ServiceNow et de créer une réelle valeur ajoutée pour les clients, les employés et les processus. Pour ce rôle stratégiquement important, nous recherchons une personnalité expérimentée qui rassemble ServiceNow et AI, reconnaît de nouvelles possibilités et développe des solutions productives à partir d'elles. Vous ne travaillez pas sur des concepts théoriques, mais vous façonnez activement la prochaine génération de notre plateforme ServiceNow.\nVous renforcerez notre équipe ServiceNow et piloterez la prochaine étape évolutive de notre plateforme : l'utilisation ciblée de fonctionnalités assistées par l'IA, l'automatisation et les services axés sur les données. Dans le cadre d'une initiative stratégique, vous identifierez les cas d'utilisation de l'IA pertinents, développerez des prototypes et les convertirez en solutions évolutives pour nos clients et les processus internes avec l'équipe.\nVotre rôle\n• Élaboration et mise en œuvre de la feuille de route ServiceNow AI et automatisation\n• Identification, évaluation et hiérarchisation des cas d'utilisation de l'IA\n• Conception et mise en œuvre de solutions basées sur Now Assist et d'autres fonctionnalités d'IA\n• Bâtir des assistants intelligents, des agents d'IA et des processus de service automatisés\n• Mise en œuvre de la preuve des concepts et des projets pilotes\n• Transfert de solutions réussies dans des opérations productives\n• Conseiller les clients et les intervenants internes sur l'utilisation significative de l'IA\n• Poursuite du développement de l'architecture, des normes et de la gouvernance pour l'utilisation de l'IA au sein de ServiceNow\n• Promouvoir la haute qualité des données comme base pour des solutions d'IA réussies\n• Transfert actif des connaissances au sein de l'équipe ServiceNow\nVotre profil\n• Plusieurs années d'expérience pratique en tant qu'ingénieur ServiceNow, développeur, architecte ou consultant principal\n• Connaissance approfondie de ServiceNow ITSM et idéalement d'autres modules tels que CSM ou ITOM\n• Expérience avec Flow Designer, IntegrationHub et solutions d'automatisation\n• Démontrer une expérience pratique avec Now Assist, Predictive Intelligence, Task Intelligence, Virtual Agent, AI Search\n• Expérience dans la conception et la mise en œuvre de solutions d'IA productives\n• Certifications ServiceNow\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\nJoli à avoir\n• Expérience des approches GenAI, LLM ou AI\n• Expérience en architecture dans l'environnement d'entreprise\n• Expérience dans les administrations publiques ou les environnements réglementés\n• Connaissance de la gouvernance des données et de l'IA\nVos avantages\n• Vous aurez la possibilité de façonner activement et stratégiquement l'utilisation de l'IA au sein de notre plateforme ServiceNow.\n• De nouvelles idées, des projets pilotes et des solutions innovantes sont expressément souhaités. Vous pouvez accompagner les sujets de la première idée à la mise en œuvre productive.\n• Maintenant Assistez, Agents AI, l'IA Generative et l'automatisation intelligente ne sont pas des sujets futurs pour nous, mais des champs d'action concrets.\n• Les solutions que vous développez soutiennent de nombreux clients, employés et processus et créent une valeur ajoutée mesurable.\n• Une équipe motivée et collaborative avec des normes de qualité et de l'innovation\n• Des clients passionnants, des problèmes difficiles et des environnements complexes ServiceNow\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nAbraxas est l'un des principaux fournisseurs suisses de services informatiques pour le secteur public. Nous combinons innovation et pertinence sociale et utilisons des technologies modernes où elles font une réelle différence.\nSi vous n'exploitez pas seulement ServiceNow, mais voulez également façonner activement l'avenir de l'IA, l'automatisation et la gestion de service, nous attendons avec impatience votre application.\nFaites partie de notre #TeamAbraxas et formez la prochaine génération de ServiceNow avec nous."
       },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:10.107Z",
-      "needsRetranslation": true,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
+      "crawledAt": "2026-08-19T09:46:46.440Z",
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sicurezza",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sviluppo software",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://apply.refline.ch/215876/2498/index.html?lang=de&cid=1",
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply.refline.ch/215876/2521/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2498",
+      "externalId": "215876-2521",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
-        "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen",
-          "security-architetto-con-schwerpunkt-ai-security-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "en": [
-          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "security-architect-mit-schwerpunkt-ai-security-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T13:13:03.495Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:46:23.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "fr": [
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+      ],
+      "needsRetranslation": true
     },
     {
-      "id": "abraxas-0d9b177264ff",
-      "slug": "openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "id": "abraxas-f3e387a7f60a",
+      "slug": "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
-        "it": "openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "openstack-engineer-80-100-abraxas-zurich-flughafen",
-        "de": "openstack-engineer-80-100-abraxas-zurich-flughafen",
-        "fr": "openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "it": "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "de": "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "OpenStack Engineer 80–100 %",
+      "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
-        "it": "OpenStack Ingegnere 80–100 %",
-        "en": "OpenStack Engineer 80-100%",
-        "de": "OpenStack Ingenieur 80–100 %",
-        "fr": "OpenStack Ingénieur 80–100 %"
+        "de": "Senior OpenStack Ingenieur 80–100 %",
+        "en": "Senior OpenStack Engineer 80-100%",
+        "it": "Senior OpenStack Ingegnere 80–100 %",
+        "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
       "description": "Du gestaltest die Zukunft unserer Cloud-Plattform. Als erfahrener OpenStack Engineer bist du massgeblich an der Architektur, Stabilität und Skalierung unserer OpenStack-Umgebung beteiligt.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als OpenStack Engineer.\nDeine Rolle\n• Verantwortung für Design, Weiterentwicklung und Betrieb unserer OpenStack-Plattform\n• Architektur, Implementierung und Optimierung der OpenStack-Umgebung (Compute, Storage, Network)\n• Automatisierung von Deployments und Betriebsprozessen (z.B. via Ansible, OpenTofu)\n• Analyse und Behebung komplexer Störungen im 2nd-/3rd-Level-Support\n• Enge Zusammenarbeit mit internen Fachbereichen und Infrastruktur-Teams\n• Technische Führung bei Architektur- und Technologieentscheiden\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung im Design und Betrieb von OpenStack-Architekturen\n• Fundierte Kenntnisse in den Bereichen Linux und Container-Technologien sowie Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Gutes Verständnis von verteilten Systemen, Netzwerken und Storage\n• Analytische und strukturierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "Stai plasmando il futuro della nostra piattaforma cloud. Come esperto ingegnere OpenStack, sarete strumentali nell'architettura, nella stabilità e nella scalabilità del nostro ambiente OpenStack.\nPer rafforzare il nostro team all'aeroporto di Zurigo, stiamo cercando una personalità impegnata e competente come OpenStack Engineer.\nIl tuo ruolo\n• Responsabilità per la progettazione, lo sviluppo e il funzionamento della nostra piattaforma OpenStack\n• Architettura, implementazione e ottimizzazione dell'ambiente OpenStack (Compute, Storage, Network)\n• Automazione delle implementazioni e dei processi operativi (ad esempio tramite Ansible, OpenTofu)\n• Analisi e risoluzione di interruzioni complesse nel supporto di livello 2nd/3rd\n• Una stretta collaborazione con i dipartimenti interni e i gruppi di infrastrutture\n• Leader tecnico nelle decisioni di architettura e tecnologia\nIl tuo profilo\n• Laurea completa in scienze informatiche o formazione comparabile\n• Diversi anni di esperienza nella progettazione e nel funzionamento di architetture OpenStack\n• Conoscenza approfondita delle tecnologie Linux e dei container nonché esperienza con strumenti di automazione e gestione delle configurazioni\n• Buona comprensione di sistemi, reti e storage distribuiti\n• Metodo di lavoro analitico e strutturato\n• Molto buona conoscenza del tedesco a livello C1 e buona conoscenza dell'inglese\n• Prontezza per Picetting\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You are shaping the future of our cloud platform. As an experienced OpenStack engineer, you will be instrumental in the architecture, stability and scaling of our OpenStack environment.\nTo strengthen our team at Zurich Airport, we are looking for a committed and competent personality as an OpenStack Engineer.\nYour role\n• Responsibility for the design, development and operation of our OpenStack platform\n• Architecture, implementation and optimization of the OpenStack environment (Compute, Storage, Network)\n• Automation of deployments and operational processes (e.g. via Ansible, OpenTofu)\n• Analysis and resolution of complex disruptions in 2nd/3rd level support\n• Close cooperation with internal departments and infrastructure teams\n• Technical leadership in architecture and technology decisions\nYour profile\n• Completed degree in computer science or comparable education/training\n• Several years of experience in the design and operation of OpenStack architectures\n• In-depth knowledge of Linux and container technologies as well as experience with automation and configuration management tools\n• Good understanding of distributed systems, networks and storage\n• Analytical and structured working method\n• Very good knowledge of German at C1 level and good knowledge of English\n• Readiness for Picetting\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
         "de": "Du gestaltest die Zukunft unserer Cloud-Plattform. Als erfahrener OpenStack Engineer bist du massgeblich an der Architektur, Stabilität und Skalierung unserer OpenStack-Umgebung beteiligt.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als OpenStack Engineer.\nDeine Rolle\n• Verantwortung für Design, Weiterentwicklung und Betrieb unserer OpenStack-Plattform\n• Architektur, Implementierung und Optimierung der OpenStack-Umgebung (Compute, Storage, Network)\n• Automatisierung von Deployments und Betriebsprozessen (z.B. via Ansible, OpenTofu)\n• Analyse und Behebung komplexer Störungen im 2nd-/3rd-Level-Support\n• Enge Zusammenarbeit mit internen Fachbereichen und Infrastruktur-Teams\n• Technische Führung bei Architektur- und Technologieentscheiden\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung im Design und Betrieb von OpenStack-Architekturen\n• Fundierte Kenntnisse in den Bereichen Linux und Container-Technologien sowie Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Gutes Verständnis von verteilten Systemen, Netzwerken und Storage\n• Analytische und strukturierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous façonnez l'avenir de notre plateforme cloud. En tant qu'ingénieur expérimenté d'OpenStack, vous jouerez un rôle déterminant dans l'architecture, la stabilité et l'échelle de notre environnement OpenStack.\nPour renforcer notre équipe à l'aéroport de Zurich, nous recherchons une personnalité engagée et compétente en tant qu'ingénieur OpenStack.\nVotre rôle\n• Responsabilité de la conception, du développement et du fonctionnement de notre plateforme OpenStack\n• Architecture, implémentation et optimisation de l'environnement OpenStack (Compute, Storage, Network)\n• Automatisation des déploiements et des processus opérationnels (par exemple via Ansible, OpenTofu)\n• Analyse et résolution des perturbations complexes du soutien de niveau 2/3\n• Coopération étroite avec les services internes et les équipes d'infrastructure\n• Leadership technique dans les décisions en matière d'architecture et de technologie\nVotre profil\n• Diplôme d'informatique ou d'enseignement/formation comparable\n• Plusieurs années d'expérience dans la conception et le fonctionnement des architectures OpenStack\n• Connaissance approfondie des technologies Linux et conteneur ainsi que de l'expérience des outils d'automatisation et de gestion de configuration\n• Bonne compréhension des systèmes, réseaux et stockage distribués\n• Méthode de travail analytique et structurée\n• Très bonne connaissance de l'allemand au niveau C1 et bonne connaissance de l'anglais\n• Préparation pour Picetting\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre demande directement dans votre formulaire."
+        "it": "Stai plasmando il futuro della nostra piattaforma cloud. Come esperto ingegnere OpenStack, sarete strumentali nell'architettura, nella stabilità e nella scalabilità del nostro ambiente OpenStack.\nPer rafforzare il nostro team all'aeroporto di Zurigo, stiamo cercando una personalità impegnata e competente come OpenStack Engineer.\nIl tuo ruolo\n• Responsabilità per la progettazione, lo sviluppo e il funzionamento della nostra piattaforma OpenStack\n• Architettura, implementazione e ottimizzazione dell'ambiente OpenStack (Compute, Storage, Network)\n• Automazione delle implementazioni e dei processi operativi (ad esempio tramite Ansible, OpenTofu)\n• Analisi e risoluzione di interruzioni complesse nel supporto di livello 2nd/3rd\n• Una stretta collaborazione con i dipartimenti interni e i gruppi di infrastrutture\n• Leader tecnico nelle decisioni di architettura e tecnologia\nIl tuo profilo\n• Laurea completa in scienze informatiche o formazione comparabile\n• Diversi anni di esperienza nella progettazione e nel funzionamento di architetture OpenStack\n• Conoscenza approfondita delle tecnologie Linux e dei container nonché esperienza con strumenti di automazione e gestione delle configurazioni\n• Buona comprensione di sistemi, reti e storage distribuiti\n• Metodo di lavoro analitico e strutturato\n• Molto buona conoscenza del tedesco a livello C1 e buona conoscenza dell'inglese\n• Prontezza per Picetting\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "You are shaping the future of our cloud platform. As an experienced OpenStack engineer, you will be instrumental in the architecture, stability and scaling of our OpenStack environment.\nIn order to strengthen our team at Zurich Airport, we are looking for a committed and competent personality as an OpenStack Engineer.\nYour role\n• Responsibility for the design, development and operation of our OpenStack platform\n• Architecture, implementation and optimization of the OpenStack environment (Compute, Storage, Network)\n• Automation of deployments and operational processes (e.g. via Ansible, OpenTofu)\n• Analysis and resolution of complex disruptions in 2nd/3rd level support\n• Close cooperation with internal departments and infrastructure teams\n• Technical leadership in architecture and technology decisions\nYour profile\n• Completed degree in computer science or comparable education/training\n• Several years of experience in the design and operation of OpenStack architectures\n• In-depth knowledge of Linux and container technologies as well as experience with automation and configuration management tools\n• Good understanding of distributed systems, networks and storage\n• Analytical and structured working method\n• Very good knowledge of German at C1 level and good knowledge of English\n• Readiness for Picetting\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "fr": "Vous façonnez l'avenir de notre plateforme cloud. En tant qu'ingénieur expérimenté d'OpenStack, vous jouerez un rôle déterminant dans l'architecture, la stabilité et l'échelle de notre environnement OpenStack.\nAfin de renforcer notre équipe à l'aéroport de Zurich, nous recherchons une personnalité engagée et compétente en tant qu'ingénieur OpenStack.\nVotre rôle\n• Responsabilité de la conception, du développement et du fonctionnement de notre plateforme OpenStack\n• Architecture, implémentation et optimisation de l'environnement OpenStack (Compte, Stockage, Réseau)\n• Automatisation des déploiements et des processus opérationnels (par exemple via Ansible, OpenTofu)\n• Analyse et résolution des perturbations complexes du soutien de niveau 2/3\n• Coopération étroite avec les services internes et les équipes d'infrastructure\n• Leadership technique dans les décisions en matière d'architecture et de technologie\nVotre profil\n• Diplôme d'informatique ou d'enseignement/formation comparable\n• Plusieurs années d'expérience dans la conception et le fonctionnement des architectures OpenStack\n• Connaissance approfondie des technologies Linux et conteneur ainsi que de l'expérience des outils d'automatisation et de gestion de configuration\n• Bonne compréhension des systèmes, réseaux et stockage distribués\n• Méthode de travail analytique et structurée\n• Très bonne connaissance de l'allemand au niveau C1 et bonne connaissance de l'anglais\n• Préparation pour Picetting\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "Zürich-Flughafen",
       "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/openstack-engineer-80-100-5105",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:09.628Z",
+      "crawledAt": "2026-08-19T09:46:45.938Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -454,44 +454,120 @@
       "category": "IT / Infrastruttura",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://apply.refline.ch/215876/2463/index.html?lang=de&cid=1",
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply.refline.ch/215876/2523/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2463",
+      "externalId": "215876-2523",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "openstack-engineer-80-100-abraxas-zurich-flughafen",
-        "openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "openstack-engineer-80-100-abraxas-zurich-flughafen",
-          "openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
-        ],
-        "fr": [
-          "openstack-engineer-80-100-abraxas-zurich-flughafen"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:21:51.648Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T21:41:19.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+      ]
+    },
+    {
+      "id": "abraxas-1220cfbd005b",
+      "slug": "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
+      "slugByLocale": {
+        "it": "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen",
+        "en": "senior-linux-engineer-abraxas-zurich-flughafen",
+        "de": "senior-linux-engineer-abraxas-zurich-flughafen",
+        "fr": "senior-linux-ingenieur-abraxas-informatik-ag-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Senior Linux Engineer",
+      "titleByLocale": {
+        "it": "Senior Linux Ingegnere",
+        "en": "Senior Linux Engineer",
+        "de": "Senior Linux Ingenieur",
+        "fr": "Senior Linux Ingénieur"
+      },
+      "description": "Du gestaltest die Zukunft unserer OpenStack-Plattform . Als erfahrener Linux Engineer übernimmst du eine zentrale Rolle beim Design, Betrieb und der Weiterentwicklung unserer Infrastruktur und arbeitest aktiv am Ausbau der Umgebung mit. Dabei erhältst du die Möglichkeit, dein bestehendes Linux-Know-how gezielt in Richtung Cloud- und OpenStack-Technologien weiterzuentwickeln.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als Senior Linux Engineer (Bereich OpenStack).\nDeine Rolle\n• Verantwortung für den Betrieb, die Weiterentwicklung und die Automatisierung unserer Cloud Plattformen\n• Mitarbeit beim Design, Aufbau und der Optimierung unserer OpenStack-Umgebung\n• Planung und Umsetzung von Infrastruktur- und Automatisierungslösungen mit modernen Tools wie Ansible, OpenTofu oder Terraform\n• Sicherstellung eines stabilen und effizienten Betriebs sowie kontinuierliche Optimierung von Performance, Verfügbarkeit und Security\n• Analyse und Behebung komplexer Störungen im 2nd- und 3rd-Level-Support\n• Enge Zusammenarbeit mit Infrastruktur-, Netzwerk- und Storage-Teams\n• Mitwirkung bei Architektur- und Technologieentscheiden sowie aktive Gestaltung unserer zukünftigen Cloud-Plattform\n• Schrittweise Übernahme von Verantwortung im OpenStack-Umfeld und Weiterentwicklung zum OpenStack-Spezialisten\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung als Linux System Engineer, Linux Platform Engineer oder Linux Administrator in anspruchsvollen Enterprise-Umgebungen\n• Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Vertiefte Kenntnisse über Cloud-Plattformen, Virtualisierung, Container-Technologien und Infrastructure as Code\n• Verständnis von Netzwerken, Storage-Technologien und hochverfügbaren Infrastrukturen\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft zum Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur. Fühl dich also frei, uns deine Bewerbung direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Du gestaltest die Zukunft unserer OpenStack-Plattform . Als erfahrener Linux Engineer übernimmst du eine zentrale Rolle beim Design, Betrieb und der Weiterentwicklung unserer Infrastruktur und arbeitest aktiv am Ausbau der Umgebung mit. Dabei erhältst du die Möglichkeit, dein bestehendes Linux-Know-how gezielt in Richtung Cloud- und OpenStack-Technologien weiterzuentwickeln.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als Senior Linux Engineer (Bereich OpenStack).\nDeine Rolle\n• Verantwortung für den Betrieb, die Weiterentwicklung und die Automatisierung unserer Cloud Plattformen\n• Mitarbeit beim Design, Aufbau und der Optimierung unserer OpenStack-Umgebung\n• Planung und Umsetzung von Infrastruktur- und Automatisierungslösungen mit modernen Tools wie Ansible, OpenTofu oder Terraform\n• Sicherstellung eines stabilen und effizienten Betriebs sowie kontinuierliche Optimierung von Performance, Verfügbarkeit und Security\n• Analyse und Behebung komplexer Störungen im 2nd- und 3rd-Level-Support\n• Enge Zusammenarbeit mit Infrastruktur-, Netzwerk- und Storage-Teams\n• Mitwirkung bei Architektur- und Technologieentscheiden sowie aktive Gestaltung unserer zukünftigen Cloud-Plattform\n• Schrittweise Übernahme von Verantwortung im OpenStack-Umfeld und Weiterentwicklung zum OpenStack-Spezialisten\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung als Linux System Engineer, Linux Platform Engineer oder Linux Administrator in anspruchsvollen Enterprise-Umgebungen\n• Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Vertiefte Kenntnisse über Cloud-Plattformen, Virtualisierung, Container-Technologien und Infrastructure as Code\n• Verständnis von Netzwerken, Storage-Technologien und hochverfügbaren Infrastrukturen\n• Analytische, strukturierte und lösungsorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft zum Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur. Fühl dich also frei, uns deine Bewerbung direkt in der Du-Form zu schicken.",
+        "it": "Stai modellando il futuro della nostra piattaforma OpenStack. Come esperto ingegnere Linux, assumete un ruolo centrale nella progettazione, nel funzionamento e nello sviluppo ulteriore della nostra infrastruttura e partecipate attivamente all'espansione dell'ambiente. Ottieni l'opportunità di sviluppare ulteriormente il tuo know-how Linux esistente nella direzione delle tecnologie cloud e OpenStack.\nAl fine di rafforzare il nostro team nella posizione dell'aeroporto di Zurigo, stiamo cercando una personalità impegnata e competente come Senior Linux Engineer (area OpenStack) immediatamente o con accordo.\nIl tuo ruolo\n• Responsabilità per il funzionamento, lo sviluppo e l'automazione delle nostre piattaforme cloud\n• Partecipazione alla progettazione, costruzione e ottimizzazione del nostro ambiente OpenStack\n• Progettazione e realizzazione di soluzioni infrastrutturali e di automazione con strumenti moderni come Ansible, OpenTofu o Terraform\n• Garantire un funzionamento stabile ed efficiente nonché una continua ottimizzazione delle prestazioni, della disponibilità e della sicurezza\n• Analisi e risoluzione di disordini complessi nel supporto di secondo e terzo livello\n• Una stretta collaborazione con i team di infrastruttura, rete e storage\n• Partecipazione a decisioni di architettura e tecnologia e progettazione attiva della nostra futura piattaforma cloud\n• Presunzione graduale di responsabilità nell'ambiente OpenStack e ulteriore sviluppo in uno specialista OpenStack\nIl tuo profilo\n• Laurea completa in scienze informatiche o formazione comparabile\n• Diversi anni di esperienza come Linux System Engineer, Linux Platform Engineer o Linux Administrator in ambienti aziendali esigenti\n• Esperienza con strumenti di automazione e gestione delle configurazioni\n• Conoscenza approfondita delle piattaforme cloud, virtualizzazione, tecnologie dei container e infrastrutture come codice\n• Comprendere reti, tecnologie di storage e infrastrutture altamente disponibili\n• Metodo di lavoro analitico, strutturato e orientato alla soluzione\n• Molto buona conoscenza del tedesco a livello C1 e buona conoscenza dell'inglese\n• Prontezza per Picetting\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nAbbiamo una cultura aperta. Quindi sentitevi liberi di inviarci la vostra domanda direttamente nel modulo You.",
+        "en": "You are shaping the future of our OpenStack platform. As an experienced Linux engineer, you take on a central role in the design, operation and further development of our infrastructure and actively participate in the expansion of the environment. You get the opportunity to further develop your existing Linux know-how in the direction of cloud and OpenStack technologies.\nIn order to strengthen our team at the Zurich Airport location, we are looking for a committed and competent personality as a Senior Linux Engineer (OpenStack area) immediately or by agreement.\nYour role\n• Responsibility for the operation, development and automation of our cloud platforms\n• Participation in the design, construction and optimization of our OpenStack environment\n• Planning and implementation of infrastructure and automation solutions with modern tools such as Ansible, OpenTofu or Terraform\n• Ensuring stable and efficient operation as well as continuous optimization of performance, availability and security\n• Analysis and resolution of complex disruptions in 2nd and 3rd level support\n• Close cooperation with infrastructure, network and storage teams\n• Participation in architecture and technology decisions and active design of our future cloud platform\n• Gradual assumption of responsibility in the OpenStack environment and further development into an OpenStack specialist\nYour profile\n• Completed degree in computer science or comparable education/training\n• Several years of experience as a Linux System Engineer, Linux Platform Engineer or Linux Administrator in demanding enterprise environments\n• Experience with automation and configuration management tools\n• In-depth knowledge of cloud platforms, virtualization, container technologies and infrastructure as code\n• Understanding networks, storage technologies and highly available infrastructures\n• Analytical, structured and solution-oriented working method\n• Very good knowledge of German at C1 level and good knowledge of English\n• Readiness for Picetting\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe have an open du culture. So feel free to send us your application directly in the You form.",
+        "fr": "Vous façonnez l'avenir de notre plateforme OpenStack. En tant qu'ingénieur Linux expérimenté, vous assumez un rôle central dans la conception, le fonctionnement et le développement de notre infrastructure et participez activement à l'expansion de l'environnement. Vous avez l'occasion de développer votre savoir-faire Linux existant en direction du cloud et des technologies OpenStack.\nAfin de renforcer notre équipe à l'aéroport de Zurich, nous recherchons une personnalité engagée et compétente en tant qu'ingénieur Linux senior (zone OpenStack) immédiatement ou par accord.\nVotre rôle\n• Responsabilité de l'exploitation, du développement et de l'automatisation de nos plateformes cloud\n• Participation à la conception, la construction et l'optimisation de notre environnement OpenStack\n• Planification et mise en œuvre de solutions d'infrastructure et d'automatisation avec des outils modernes comme Ansible, OpenTofu ou Terraform\n• Assurer un fonctionnement stable et efficace ainsi qu'une optimisation continue des performances, de la disponibilité et de la sécurité\n• Analyse et résolution des perturbations complexes dans l'appui aux 2e et 3e niveaux\n• Coopération étroite avec les équipes d'infrastructure, de réseau et de stockage\n• Participation aux décisions en matière d'architecture et de technologie et conception active de notre future plateforme cloud\n• Prise en charge progressive de la responsabilité dans l'environnement OpenStack et développement ultérieur d'un spécialiste OpenStack\nVotre profil\n• Diplôme d'informatique ou d'enseignement/formation comparable\n• Plusieurs années d'expérience en tant qu'ingénieur système Linux, ingénieur plate-forme Linux ou administrateur Linux dans des environnements d'entreprise exigeants\n• Expérience des outils d'automatisation et de gestion de configuration\n• Connaissance approfondie des plateformes cloud, de la virtualisation, des technologies de conteneurs et de l'infrastructure en tant que code\n• Comprendre les réseaux, les technologies de stockage et les infrastructures hautement disponibles\n• Méthode de travail analytique, structurée et orientée vers la solution\n• Très bonne connaissance de l'allemand au niveau C1 et bonne connaissance de l'anglais\n• Préparation pour Picetting\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous avons une culture ouverte. N'hésitez donc pas à nous envoyer votre demande directement dans le formulaire Vous."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-19T09:46:45.447Z",
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply.refline.ch/215876/2524/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2524",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T21:41:18.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-linux-engineer-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "senior-linux-engineer-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-linux-engineer-abraxas-zurich-flughafen"
+      ]
     },
     {
       "id": "abraxas-bc3e6930a65a",
@@ -524,7 +600,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:09.151Z",
+      "crawledAt": "2026-08-19T09:46:44.957Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -621,7 +697,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-informatikerin-plattformentwicklung-2149",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:08.676Z",
+      "crawledAt": "2026-08-19T09:46:44.450Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -705,7 +781,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:08.202Z",
+      "crawledAt": "2026-08-19T09:46:43.959Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -773,7 +849,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 - 100%",
+        "en": "Lead Software Engineer - Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -789,7 +865,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-6215",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:07.720Z",
+      "crawledAt": "2026-08-19T09:46:43.470Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -823,7 +899,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-09133f677de5",
@@ -840,7 +917,7 @@
       "title": "KI - Consultant 80–100 %",
       "titleByLocale": {
         "it": "KI - Consulente 80–100 %",
-        "en": "AI - Consultant 80-100%",
+        "en": "KI - Consultant 80–100 %",
         "de": "KI - Berater 80–100 %",
         "fr": "AI - Consultant 80-100%"
       },
@@ -856,7 +933,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-9837",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:07.233Z",
+      "crawledAt": "2026-08-19T09:46:42.979Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -915,74 +993,6 @@
       }
     },
     {
-      "id": "abraxas-48ea1a73c7c8",
-      "slug": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
-      "slugByLocale": {
-        "it": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
-        "en": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
-        "de": "it-service-manager-m-w-d-focus-change-incident-practice-management-100-abraxas-st-gallen",
-        "fr": "gestionnaire-de-services-de-ti-m-f-d-changement-de-orientation-gestion-des-incidents-et-des-pratiques-100-abraxas"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
-      "titleByLocale": {
-        "it": "IT Service Manager (m/f/d) - Focus Change, Incident & Practice Management (100%)",
-        "en": "IT Service Manager (m/f/d) - Focus Change, Incident & Practice Management (100%)",
-        "de": "IT Service Manager (m/w/d) - Focus Change, Incident & Practice Management (100%)",
-        "fr": "Gestionnaire de services de TI (m/f/d) - Changement de orientation, gestion des incidents et des pratiques (100 %)"
-      },
-      "description": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "In questa posizione chiave impegnativa, sarete situati direttamente come membro del personale alla testa di Abraxas SERVICE DESK IT. Hai la responsabilità olistica di garantire che l'intero processo dalla prima richiesta del cliente alla soluzione sostenibile funzioni senza intoppi. Sei il collegamento strategico e operativo che garantisce che le richieste (incidenti e richieste) passano attraverso la nostra organizzazione di supporto e operazioni in modo efficiente e pulito.\nPer la nostra posizione a St. Gallen o a Aeroporto di Zurigo, siamo alla ricerca di una personalità motivata come IT Service Manager (m/f/d) dal 1 settembre o d'accordo.\nIl tuo ruolo\n• Incident & Major Incident Management (Customer Focus): monitora e controlla il flusso dei messaggi guasti attraverso le unità di supporto. In caso di incidenti importanti, si assume il ruolo centrale, focalizzato sul cliente: Garantisci una comunicazione senza interruzioni, professionale e trasparente con i nostri clienti esigenti.\n• Change Management & Change Enablement: Lei è responsabile della gestione di tutti i cambiamenti IT e promuove attivamente l'attivazione dei cambiamenti. Attraverso il vostro sterzo proattivo e il controllo dell'intero processo, minimizzi il rischio di eventi legati al cambiamento in azienda e garantisca la stabilità dei sistemi dei clienti.\n• Gestione delle pratiche e gestione dei processi: si analizza continuamente le interfacce e i processi tra i requisiti del cliente, il supporto e le operazioni. Definisci gli standard, ottimizza le pratiche ITSM (CSI Approach basato su ITIL versione 5), con un focus su Service Desk & Change Enablement e assicura la loro conformità, il KPI, nell'organizzazione. Se necessario, si assicura un trasferimento di know-how nell'organizzazione, secondo il principio treno-il-trainer.\nIl tuo profilo\n• Studi completi in informatica, informatica aziendale o una qualifica paragonabile con corrispondente molti anni di esperienza professionale.\n• Pratica sonora nella gestione dei servizi IT, specificamente in caso di incidente, incidente importante, gestione dei problemi e dei cambiamenti in un ambiente aziendale o provider complesso.\n• Certificazione in ITIL 4 o superiore (di solito Gestire Professional) e profonda comprensione delle strutture operative agili e classiche.\n• Si mantiene una testa fresca in situazioni critiche, sono forti nella comunicazione e assertiva.\n• Capisci come tradurre le esigenze delle autorità e delle organizzazioni di luce blu nei processi IT professionali.\n• Il tedesco negoziabile (livello C1) e la buona conoscenza dell'inglese sono il prerequisito per questo ruolo, altre lingue nazionali sono un vantaggio.\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "In this challenging key position, you will be located directly as a staff member at the head of Abraxas SERVICE DESK IT. You have the holistic responsibility to ensure that the entire process from the first customer request to the sustainable solution works smoothly. You are the strategic and operational link that ensures that requests (incidents and requests) pass through our support and operations organization efficiently and cleanly.\nFor our location in St. Gallen or Zurich Airport, we are looking for a motivated personality as an IT Service Manager (m/f/d) from 1 September or by agreement.\nYour role\n• Incident & Major Incident Management (Customer Focus): You monitor and control the flow of failure messages through the support units. In the event of major incidents, you take on the central, customer-focused role: You ensure seamless, professional and transparent communication with our demanding customers.\n• Change Management & Change Enablement: You are responsible for managing all IT changes and actively promote change enablement. Through your proactive steering and control of the entire process, you minimize the risk of change-related events in the company and ensure the stability of customer systems.\n• Practice Management & Process Management: You continuously analyze the interfaces and processes between customer requirements, support and operations. You define standards, optimize ITSM practices (CSI Approach based on ITIL version 5), with a focus on Service Desk & Change Enablement, and ensure their compliance, the KPI, in the organization. If necessary, you ensure a know-how transfer in the organization, according to the train-the-trainer principle.\nYour profile\n• Completed studies in computer science, business informatics or a comparable qualification with corresponding many years of professional experience.\n• Sound practice in IT service management, specifically in incident, major incident, problem and change management in a complex enterprise or provider environment.\n• Certification in ITIL 4 or higher (ideally Managing Professional) as well as deep understanding of agile and classic operating structures.\n• You keep a cool head in critical situations, are strong in communication and assertive.\n• You understand how to translate the needs of authorities and blue light organizations into professional IT processes.\n• Negotiable German (C1 level) and very good knowledge of English are the prerequisite for this role, other national languages are an advantage.\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Dans ce poste-clé difficile, vous serez directement affecté en tant que membre du personnel à la tête de Abraxas SERVICE DESK IT. Vous avez la responsabilité globale de veiller à ce que l'ensemble du processus de la première demande du client à la solution durable fonctionne bien. Vous êtes le lien stratégique et opérationnel qui assure que les demandes (incidents et demandes) passent par notre organisation de soutien et d'exploitation de façon efficace et propre.\nPour notre emplacement à St. Gallen ou Zurich Airport, nous recherchons une personnalité motivée en tant que gestionnaire de services informatiques (m/f/d) à partir du 1er septembre ou par accord.\nVotre rôle\n• Incident & Major Incident Management (Customer Focus): Vous surveillez et contrôlez le flux de messages de défaillance à travers les unités de support. En cas d'incidents majeurs, vous assumez le rôle central, axé sur le client: Vous assurez une communication transparente, professionnelle et transparente avec nos clients exigeants.\n• Gestion du changement et activation du changement : Vous êtes responsable de gérer tous les changements informatiques et de promouvoir activement l'activation du changement. Grâce à votre pilotage et contrôle proactifs de l'ensemble du processus, vous minimisez le risque d'événements liés au changement dans l'entreprise et assurez la stabilité des systèmes clients.\n• Gestion des pratiques et des processus : Vous analysez en permanence les interfaces et les processus entre les exigences du client, le support et les opérations. Vous définissez des normes, optimisez les pratiques de TISM (Approche CSI basée sur la version 5 ITIL), en mettant l'accent sur le Service Desk & Change Enablement, et assurez leur conformité, l'ICP, dans l'organisation. Si nécessaire, vous assurez un transfert de savoir-faire dans l'organisation, conformément au principe de la formation des formateurs.\nVotre profil\n• Études terminées en informatique, informatique des affaires ou une qualification comparable avec des années correspondantes d'expérience professionnelle.\n• Bonne pratique dans la gestion des services de TI, en particulier en cas d'incident, d'incident majeur, de problème et de changement dans un environnement complexe d'entreprise ou de fournisseur.\n• Certification en ITIL 4 ou plus (idéalement Gestion Professionnelle) ainsi qu'une compréhension approfondie des structures d'exploitation agiles et classiques.\n• Vous gardez une tête froide dans des situations critiques, sont forts dans la communication et l'affirmation.\n• Vous comprenez comment traduire les besoins des autorités et des organismes de lumière bleue en processus informatiques professionnels.\n• L'allemand négociable (niveau C1) et la très bonne connaissance de l'anglais sont la condition préalable à ce rôle, d'autres langues nationales sont un avantage.\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-service-manager-mwd-focus-change-incident-amp-practice-management-100-8653",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:06.761Z",
-      "needsRetranslation": true,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Supporto",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://apply.refline.ch/215876/2518/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2518",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-08-10T10:45:21.722Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "abraxas-f8a55d71589b",
       "slug": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
       "slugByLocale": {
@@ -997,7 +1007,7 @@
       "title": "ICT-System Engineer Citrix 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Citrix 80–100 %",
-        "en": "ICT System Engineer Citrix 80-100%",
+        "en": "ICT-System Engineer Citrix 80–100 %",
         "de": "ICT-System Ingenieur Citrix 80–100 %",
         "fr": "ICT-System Ingénieur Citrix 80–100 %"
       },
@@ -1013,7 +1023,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:06.270Z",
+      "crawledAt": "2026-08-19T09:46:42.488Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1075,7 +1086,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1091,7 +1102,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:05.798Z",
+      "crawledAt": "2026-08-19T09:46:41.992Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1156,7 +1167,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1172,7 +1183,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:05.325Z",
+      "crawledAt": "2026-08-19T09:46:41.489Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -1253,7 +1264,7 @@
       "title": "ICT System Engineer DevOps 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere DevOps 80–100 %",
-        "en": "ICT System Engineer DevOps 80–100 %",
+        "en": "ICT System Engineer DevOps 80-100%",
         "de": "ICT System Ingenieur DevOps 80–100 %",
         "fr": "ICT System Ingénieur DevOps 80–100 %"
       },
@@ -1269,7 +1280,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:04.850Z",
+      "crawledAt": "2026-08-19T09:46:41.000Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1303,7 +1314,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-0b494c346556",
@@ -1320,7 +1332,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1336,7 +1348,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:04.375Z",
+      "crawledAt": "2026-08-19T09:46:40.510Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1403,7 +1416,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-9583",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:03.893Z",
+      "crawledAt": "2026-08-19T09:46:40.006Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1484,7 +1497,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:03.417Z",
+      "crawledAt": "2026-08-19T09:46:39.512Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1615,7 +1628,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:02.943Z",
+      "crawledAt": "2026-08-19T09:46:39.018Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1699,7 +1712,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:02.459Z",
+      "crawledAt": "2026-08-19T09:46:38.513Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1766,7 +1780,7 @@
       "title": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
       "titleByLocale": {
         "it": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren e Electronic Banking 80–100 %",
-        "en": "Abacus Account Manager Finance, Debitors, Creditors and Electronic Banking 80-100%",
+        "en": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
         "de": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
         "fr": "Abacus Account Manager Finances, débiteurs, créanciers et services bancaires électroniques 80-100%"
       },
@@ -1782,7 +1796,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:01.981Z",
+      "crawledAt": "2026-08-19T09:46:38.020Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1864,7 +1878,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:01.502Z",
+      "crawledAt": "2026-08-19T09:46:37.525Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1948,7 +1962,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:01.025Z",
+      "crawledAt": "2026-08-19T09:46:37.028Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2032,7 +2046,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:34:00.402Z",
+      "crawledAt": "2026-08-19T09:46:36.378Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2070,69 +2084,147 @@
       }
     },
     {
-      "id": "abraxas-71e7a35dbaf4",
-      "slug": "cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "id": "abraxas-bb2b96bd4142",
+      "slug": "responsabile-del-servizio-it-focus-change-gestione-incidenti-e-pratiche-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "it": "cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "de": "cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "fr": "cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        "de": "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen",
+        "it": "responsabile-del-servizio-it-focus-change-gestione-incidenti-e-pratiche-100-abraxas-informatik-ag-st-gallen",
+        "en": "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen",
+        "fr": "gestionnaire-des-services-de-ti-changement-de-cap-gestion-des-incidents-et-des-pratiques-100-abraxas-informatik-ag-st"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "Cyber Security Analyst / Engineer 80–100 %",
+      "title": "IT Service Manager - Focus Change, Incident & Practice Management (100%)",
       "titleByLocale": {
-        "it": "Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Cyber Security Analyst / Engineer 80-100%",
-        "de": "Cyber Security Analyst / Ingenieur 80–100 %",
-        "fr": "Cyber Security Analyste / Ingénieur 80–100 %"
+        "de": "IT Service Manager - Focus Change, Incident & Practice Management (100%)",
+        "en": "IT Service Manager - Focus Change, Incident & Practice Management (100%)",
+        "it": "Responsabile del Servizio IT - Focus Change, Gestione Incidenti e Pratiche (100%)",
+        "fr": "Gestionnaire des services de TI - Changement de cap, gestion des incidents et des pratiques (100 %)"
       },
-      "description": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 2 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "Sei un giocatore di squadra e non solo alla ricerca di un lavoro, ma anche vuoi plasmare attivamente la sicurezza informatica? Allora sei esattamente nel nostro team di sicurezza informatica. Nel nostro SOC, si svolge un ruolo chiave nella protezione delle infrastrutture critiche nell’ambiente delle autorità svizzere.\nCon noi, si combinano le dinamiche di un team di sicurezza altamente specializzato con la stabilità di un fornitore di servizi IT consolidato – tra cui un sacco di responsabilità personale, influenza e spazio per la manovra.\nIl tuo ruolo\n• Responsabilità per l'analisi, il triage e la risposta incidente di complessi incidenti di sicurezza nell'ambito di un team di risposta di emergenza stabilito\n• Gestione e coordinamento delle indagini sugli incidenti di sicurezza (end-to-end)\n• Partecipazione attiva e ulteriore sviluppo dei nostri servizi di sicurezza informatica e processi SOC\n• Gestione tecnica e concettuale dei progetti\n• Garantire un funzionamento stabile e altamente disponibile delle nostre piattaforme e servizi di sicurezza\n• Consulenza e risparmio di partner per i clienti (compresa l'implementazione di briefing di sicurezza a livello senior)\n• Partecipazione a gare – con la possibilità di contribuire direttamente alla vostra competenza\n• Partecipazione a incarichi di piquetting e straordinari al di fuori delle normali ore di lavoro\nIl tuo profilo\n• Almeno 2 anni di esperienza nell'analisi della sicurezza informatica e nella risposta agli incidenti (idealmente SOC/CSIRT)\n• Profonda esperienza pratica in diverse delle seguenti aree: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Ottima comprensione tecnica delle reti, sistemi operativi (Linux/Windows/macOS), firewall e analisi dei log\n• Esperienza di gestione di incidenti o progetti\n• Laurea in scienze informatiche o qualifica equivalente\n• Certificazioni di sicurezza informatica riconosciute (ad esempio GIAC, CISSP, CISM, ecc.)\n• Ottima conoscenza del tedesco e dell'inglese (tedesco C1)\n• Personalità strutturata, auto-responsabile e comunicativa con elevata affidabilità\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Are you a team player and not only looking for a job, but also want to actively shape cyber security? Then you are exactly right in our cyber security team. In our SOC, you play a key role in protecting critical infrastructures in the Swiss authorities’ environment.\nWith us, you combine the dynamics of a highly specialized security team with the stability of an established IT service provider – including a lot of personal responsibility, influence and room for manoeuvre.\nYour role\n• Responsibility for analysis, triage and incident response of complex security incidents within the framework of an established emergency response team\n• Management and coordination of security incident investigations (end-to-end)\n• Active participation and further development of our cyber security services and SOC processes\n• Technical and conceptual management of projects\n• Ensuring stable and highly available operation of our security platforms and services\n• Consulting and sparring partners for customers (including implementation of security briefings at senior level)\n• Participation in tenders – with the possibility to contribute your expertise directly\n• Participation in piquetting and extraordinary assignments outside normal working hours\nYour profile\n• At least 2 years of experience in cyber security analysis and incident response (ideally SOC/CSIRT)\n• Deep practical expertise in several of the following areas: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Very good technical understanding of networks, operating systems (Linux/Windows/macOS), firewalls and log analysis\n• Experience managing incidents or projects\n• Computer science degree or equivalent qualification\n• Recognized cyber security certifications (e.g. GIAC, CISSP, CISM, etc.)\n• Very good knowledge of German and English (German C1)\n• Structured, self-responsible and communication-strong personality with high trustworthiness\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Bist Du ein Teamplayer und suchst nicht nur einen Job, sondern möchtest Cyber Security aktiv mitgestalten? Dann bist Du in unserem Cyber Security Team genau richtig. In unserem SOC übernimmst du eine Schlüsselrolle beim Schutz kritischer Infrastrukturen im Behördenumfeld der Schweiz.\nBei uns kombinierst du die Dynamik eines hochspezialisierten Security-Teams mit der Stabilität eines etablierten IT-Dienstleisters – inklusive viel Eigenverantwortung, Einfluss und Gestaltungsspielraum.\nDeine Rolle\n• Verantwortung für Analyse, Triage und Incident Response komplexer Security Incidents im Rahmen eines etablierten Emergency Response Teams\n• Leitung und Koordination von Security Incident Investigations (End-to-End)\n• Aktive Mitgestaltung und Weiterentwicklung unserer Cyber Security Services und SOC-Prozesse\n• Technische und konzeptionelle Leitung von Projekten\n• Sicherstellung eines stabilen und hochverfügbaren Betriebs unserer Security-Plattformen und Services\n• Beratung und Sparring-Partner für Kunden (inkl. Durchführung von Security Briefings auf Senior-Level)\n• Mitwirkung in Ausschreibungen – mit der Möglichkeit, deine Expertise direkt einzubringen\n• Beteiligung am Pikettdienst und ausserordentlichen Einsätzen ausserhalb der normalen Arbeitszeit\nDein Profil\n• Mindestens 2 Jahre Erfahrung in der Cyber Security Analyse und Incident Response (idealerweise SOC/CSIRT)\n• Fundierte praktische Expertise in mehreren der folgenden Bereiche: SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Sehr gutes technisches Verständnis von Netzwerken, Betriebssystemen (Linux/Windows/macOS), Firewalls und Loganalyse\n• Erfahrung in der Leitung von Incidents oder Projekten von Vorteil\n• Hochschulabschluss in Informatik oder vergleichbare Qualifikation\n• Anerkannte Cyber Security Zertifizierungen (z. B. GIAC, CISSP, CISM etc.)\n• Sehr gute Deutsch- und Englischkenntnisse (Deutsch C1)\n• Strukturierte, eigenverantwortliche und kommunikationsstarke Persönlichkeit mit hoher Vertrauenswürdigkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Êtes-vous un joueur d'équipe et non seulement à la recherche d'un emploi, mais aussi à vouloir façonner activement la cybersécurité? Alors vous êtes exactement dans notre équipe de cybersécurité. Dans notre SOC, vous jouez un rôle clé dans la protection des infrastructures critiques dans l'environnement suisse.\nAvec nous, vous combinez la dynamique d'une équipe de sécurité hautement spécialisée avec la stabilité d'un fournisseur de services informatiques bien établi – y compris beaucoup de responsabilité personnelle, d'influence et de marge de manoeuvre.\nVotre rôle\n• Responsabilité de l'analyse, du tri et de l'intervention en cas d'incidents complexes dans le cadre d'une équipe d'intervention d'urgence établie\n• Gestion et coordination des enquêtes sur les incidents de sécurité (fin à fin)\n• Participation active et développement de nos services de cybersécurité et de nos processus SOC\n• Gestion technique et conceptuelle des projets\n• Assurer un fonctionnement stable et hautement disponible de nos plateformes et services de sécurité\n• Services de consultation et d'assistance aux clients (y compris la mise en place de séances d'information sur la sécurité au niveau supérieur)\n• Participation aux appels d'offres – avec la possibilité de contribuer directement à votre expertise\n• Participation au picting et aux missions extraordinaires en dehors des heures normales de travail\nVotre profil\n• Au moins 2 ans d'expérience dans l'analyse de la cybersécurité et la réponse aux incidents (idéalement SOC/CSIRT)\n• Une expertise pratique approfondie dans plusieurs des domaines suivants : SIEM, SOAR, EDR, NDR, Threat Intelligence, Vulnerability Management\n• Très bonne compréhension technique des réseaux, des systèmes d'exploitation (Linux/Windows/macOS), des pare-feu et de l'analyse des journaux\n• Expérience de gestion d'incidents ou de projets\n• Diplôme d'informatique ou diplôme équivalent\n• Certifications reconnues de cybersécurité (p. ex. GIAC, CISSP, CISM, etc.)\n• Très bonne connaissance de l'allemand et de l'anglais (allemand C1)\n• Personnalité structurée, autoresponsable et forte en communication avec une grande fiabilité\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "de": "In dieser anspruchsvollen Schlüsselposition bist du direkt als Stabstelle beim Leiter Abraxas SERVICE DESK IT angesiedelt. Du trägst die ganzheitliche Verantwortung dafür, dass der gesamte Ablauf vom ersten Kundenanliegen bis zur nachhaltigen Lösung reibungslos funktioniert. Du bist das strategische und operative Bindeglied, das sicherstellt, dass Anfragen (Incidents und Requests) unsere Support- und Betriebsorganisation effizient und sauber durchlaufen.\nFür unseren Standort in St. Gallen oder Zürich-Flughafen suchen wir ab dem 1. September oder nach Vereinbarung eine motivierte Persönlichkeit als IT Service Manager (m/w/d).\nDeine Rolle\n• Incident- & Major Incident Management (Kundenfokus): Du überwachst und steuerst den Fluss von Störungsmeldungen durch die Supporteinheiten. Bei kritischen Grossstörungen (Major Incidents) übernimmst du die zentrale, kundenfokussierte Rolle: Du stellst eine lückenlose, professionelle und transparente Kommunikation gegenüber unseren anspruchsvollen Kunden sicher.\n• Change Management & Change Enablement: Du verantwortest die Steuerung aller IT-Changes und treibst das Change Enablement aktiv voran. Durch deine proaktive Lenkung und Steuerung des gesamten Prozesses minimierst du das Risiko für change-bedingte Events im Betrieb und sicherst die Stabilität der Kundensysteme.\n• Practice Management & Prozesslenkung: Du analysierst kontinuierlich die Schnittstellen und Abläufe zwischen Kundenanforderung, Support und Betrieb. Du definierst Standards, optimierst die ITSM-Praktiken (CSI Approach orientiert an ITIL Version 5), mit Schwerpunkt Service Desk & Change Enablement, und stellst deren Einhaltung, der KPI, in der Organisation sicher. Wenn nötig stellst du einen Know-How Transfer in der Organisation, nach dem Train-the-Trainer-Prinzip, sicher.\nDein Profil\n• Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation mit entsprechender langjähriger Berufserfahrung.\n• Fundierte Praxis im IT Service Management, spezifisch im Incident-, Major Incident-, Problem- und Change Management in einem komplexen Enterprise- oder Provider-Umfeld.\n• Zertifizierung in ITIL 4 oder höher (idealerweise Managing Professional) sowie tiefes Verständnis für agile und klassische Betriebsstrukturen.\n• Du bewahrst in kritischen Situationen einen kühlen Kopf, bist kommunikationsstark und durchsetzungsfähig.\n• Du verstehst es, die Bedürfnisse von Behörden und Blaulichtorganisationen in professionelle IT-Prozesse zu übersetzen.\n• Verhandlungssicheres Deutsch (C1-Niveau) und sehr gute Englischkenntnisse sind die Voraussetzung für diese Rolle, weitere Landessprachen sind von Vorteil.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "In questa posizione chiave impegnativa, sarete situati direttamente come membro del personale alla testa di Abraxas SERVICE DESK IT. Hai la responsabilità olistica di garantire che l'intero processo dalla prima richiesta del cliente alla soluzione sostenibile funzioni senza intoppi. Sei il collegamento strategico e operativo che garantisce che le richieste (incidenti e richieste) passano attraverso la nostra organizzazione di supporto e operazioni in modo efficiente e pulito.\nPer la nostra posizione a St. Gallen o a Aeroporto di Zurigo, stiamo cercando una personalità motivata come IT Service Manager (m/f/d) dal 1 settembre o per accordo.\nIl tuo ruolo\n• Incident & Major Incident Management (Customer Focus): monitora e controlla il flusso dei messaggi guasti attraverso le unità di supporto. In caso di incidenti importanti, si assume il ruolo centrale, focalizzato sul cliente: Garantisci una comunicazione senza interruzioni, professionale e trasparente con i nostri clienti esigenti.\n• Change Management & Change Enablement: Lei è responsabile della gestione di tutti i cambiamenti IT e promuove attivamente l'attivazione dei cambiamenti. Attraverso il vostro sterzo proattivo e il controllo dell'intero processo, minimizzi il rischio di eventi legati al cambiamento in azienda e garantisca la stabilità dei sistemi dei clienti.\n• Gestione delle pratiche e gestione dei processi: si analizza continuamente le interfacce e i processi tra i requisiti del cliente, il supporto e le operazioni. Definisci gli standard, ottimizza le pratiche ITSM (CSI Approach basato su ITIL versione 5), con un focus su Service Desk & Change Enablement e assicura la loro conformità, il KPI, nell'organizzazione. Se necessario, si assicura un trasferimento di know-how nell'organizzazione, secondo il principio treno-il-trainer.\nIl tuo profilo\n• Studi completi in informatica, informatica aziendale o una qualifica paragonabile con corrispondente molti anni di esperienza professionale.\n• Pratica sonora nella gestione dei servizi IT, specificamente in caso di incidente, incidente importante, gestione dei problemi e dei cambiamenti in un ambiente aziendale o provider complesso.\n• Certificazione in ITIL 4 o superiore (di solito Gestire Professional) e profonda comprensione delle strutture operative agili e classiche.\n• Si mantiene una testa fresca in situazioni critiche, sono forti nella comunicazione e assertiva.\n• Capisci come tradurre le esigenze delle autorità e delle organizzazioni di luce blu nei processi IT professionali.\n• Il tedesco negoziabile (livello C1) e la buona conoscenza dell'inglese sono il prerequisito per questo ruolo, altre lingue nazionali sono un vantaggio.\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "In this challenging key position, you will be located directly as a staff member at the head of Abraxas SERVICE DESK IT. You have the holistic responsibility to ensure that the entire process from the first customer request to the sustainable solution works smoothly. You are the strategic and operational link that ensures that requests (incidents and requests) pass through our support and operations organization efficiently and cleanly.\nFor our location in St. Gallen or Zurich Airport, we are looking for a motivated personality as IT Service Manager (m/f/d) from 1 September or by agreement.\nYour role\n• Incident & Major Incident Management (Customer Focus): You monitor and control the flow of failure messages through the support units. In the event of major incidents, you take on the central, customer-focused role: You ensure seamless, professional and transparent communication with our demanding customers.\n• Change Management & Change Enablement: You are responsible for managing all IT changes and actively promote change enablement. Through your proactive steering and control of the entire process, you minimize the risk of change-related events in the company and ensure the stability of customer systems.\n• Practice Management & Process Management: You continuously analyze the interfaces and processes between customer requirements, support and operations. You define standards, optimize ITSM practices (CSI Approach based on ITIL version 5), with a focus on Service Desk & Change Enablement, and ensure their compliance, the KPI, in the organization. If necessary, you ensure a know-how transfer in the organization, according to the train-the-trainer principle.\nYour profile\n• Completed studies in computer science, business informatics or a comparable qualification with corresponding many years of professional experience.\n• Sound practice in IT service management, specifically in incident, major incident, problem and change management in a complex enterprise or provider environment.\n• Certification in ITIL 4 or higher (ideally Managing Professional) as well as deep understanding of agile and classic operating structures.\n• You keep a cool head in critical situations, are strong in communication and assertive.\n• You understand how to translate the needs of authorities and blue light organizations into professional IT processes.\n• Negotiable German (C1 level) and very good knowledge of English are the prerequisite for this role, other national languages are an advantage.\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "fr": "Dans ce poste-clé difficile, vous serez directement affecté en tant que membre du personnel à la tête de Abraxas SERVICE DESK IT. Vous avez la responsabilité globale de veiller à ce que l'ensemble du processus de la première demande du client à la solution durable fonctionne bien. Vous êtes le lien stratégique et opérationnel qui assure que les demandes (incidents et demandes) passent par notre organisation de soutien et d'exploitation de façon efficace et propre.\nPour notre emplacement à St. Gallen ou Zurich Airport, nous recherchons une personnalité motivée comme IT Service Manager (h/f/d) à partir du 1er septembre ou par accord.\nVotre rôle\n• Incident & Major Incident Management (Customer Focus): Vous surveillez et contrôlez le flux de messages de défaillance à travers les unités de support. En cas d'incidents majeurs, vous assumez le rôle central, axé sur le client: Vous assurez une communication transparente, professionnelle et transparente avec nos clients exigeants.\n• Gestion du changement et activation du changement: Vous êtes responsable de gérer tous les changements informatiques et de promouvoir activement l'activation du changement. Grâce à votre pilotage et contrôle proactifs de l'ensemble du processus, vous minimisez le risque d'événements liés au changement dans l'entreprise et assurez la stabilité des systèmes clients.\n• Gestion des pratiques et des processus: Vous analysez en permanence les interfaces et les processus entre les exigences du client, le support et les opérations. Vous définissez des normes, optimisez les pratiques de TISM (Approche CSI basée sur la version 5 ITIL), en mettant l'accent sur le Service Desk & Change Enablement, et assurez leur conformité, l'ICP, dans l'organisation. Si nécessaire, vous assurez un transfert de savoir-faire dans l'organisation, conformément au principe de la formation des formateurs.\nVotre profil\n• Études terminées en informatique, informatique des affaires ou une qualification comparable avec des années correspondantes d'expérience professionnelle.\n• Bonne pratique dans la gestion des services de TI, en particulier en cas d'incident, d'incident majeur, de problème et de changement dans un environnement complexe d'entreprise ou de fournisseur.\n• Certification en ITIL 4 ou plus (idéalement Gestion Professionnelle) ainsi qu'une compréhension approfondie des structures d'exploitation agiles et classiques.\n• Vous gardez une tête froide dans des situations critiques, sont forts dans la communication et l'affirmation.\n• Vous comprenez comment traduire les besoins des autorités et des organismes de lumière bleue en processus informatiques professionnels.\n• L'allemand négociable (niveau C1) et la très bonne connaissance de l'anglais sont la condition préalable à ce rôle, d'autres langues nationales sont un avantage.\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cyber-security-analyst-engineer-80-100-9876",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-service-manager-focus-change-incident-amp-practice-management-100-2942",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T09:54:44.312Z",
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
+      "crawledAt": "2026-08-18T21:41:15.942Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8058",
-      "streetAddress": "",
-      "category": "IT / Sicurezza",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Supporto",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-11",
-      "applyUrl": "https://apply.refline.ch/215876/2475/index.html?lang=de&cid=1",
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply.refline.ch/215876/2518/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2475",
+      "externalId": "215876-2518",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T09:46:20.512Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "it-service-manager-focus-change-incident-practice-management-100-abraxas-st-gallen"
+      ]
+    },
+    {
+      "id": "abraxas-0d9b177264ff",
+      "slug": "openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "slugByLocale": {
+        "it": "openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "de": "openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "OpenStack Engineer 80–100 %",
+      "titleByLocale": {
+        "it": "OpenStack Ingegnere 80–100 %",
+        "en": "OpenStack Engineer 80–100 %",
+        "de": "OpenStack Ingenieur 80–100 %",
+        "fr": "OpenStack Ingénieur 80–100 %"
+      },
+      "description": "Du gestaltest die Zukunft unserer Cloud-Plattform. Als erfahrener OpenStack Engineer bist du massgeblich an der Architektur, Stabilität und Skalierung unserer OpenStack-Umgebung beteiligt.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als OpenStack Engineer.\nDeine Rolle\n• Verantwortung für Design, Weiterentwicklung und Betrieb unserer OpenStack-Plattform\n• Architektur, Implementierung und Optimierung der OpenStack-Umgebung (Compute, Storage, Network)\n• Automatisierung von Deployments und Betriebsprozessen (z.B. via Ansible, OpenTofu)\n• Analyse und Behebung komplexer Störungen im 2nd-/3rd-Level-Support\n• Enge Zusammenarbeit mit internen Fachbereichen und Infrastruktur-Teams\n• Technische Führung bei Architektur- und Technologieentscheiden\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung im Design und Betrieb von OpenStack-Architekturen\n• Fundierte Kenntnisse in den Bereichen Linux und Container-Technologien sowie Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Gutes Verständnis von verteilten Systemen, Netzwerken und Storage\n• Analytische und strukturierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "it": "Stai plasmando il futuro della nostra piattaforma cloud. Come esperto ingegnere OpenStack, sarete strumentali nell'architettura, nella stabilità e nella scalabilità del nostro ambiente OpenStack.\nPer rafforzare il nostro team all'aeroporto di Zurigo, stiamo cercando una personalità impegnata e competente come OpenStack Engineer.\nIl tuo ruolo\n• Responsabilità per la progettazione, lo sviluppo e il funzionamento della nostra piattaforma OpenStack\n• Architettura, implementazione e ottimizzazione dell'ambiente OpenStack (Compute, Storage, Network)\n• Automazione delle implementazioni e dei processi operativi (ad esempio tramite Ansible, OpenTofu)\n• Analisi e risoluzione di interruzioni complesse nel supporto di livello 2nd/3rd\n• Una stretta collaborazione con i dipartimenti interni e i gruppi di infrastrutture\n• Leader tecnico nelle decisioni di architettura e tecnologia\nIl tuo profilo\n• Laurea completa in scienze informatiche o formazione comparabile\n• Diversi anni di esperienza nella progettazione e nel funzionamento di architetture OpenStack\n• Conoscenza approfondita delle tecnologie Linux e dei container nonché esperienza con strumenti di automazione e gestione delle configurazioni\n• Buona comprensione di sistemi, reti e storage distribuiti\n• Metodo di lavoro analitico e strutturato\n• Molto buona conoscenza del tedesco a livello C1 e buona conoscenza dell'inglese\n• Prontezza per Picetting\nI vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "You are shaping the future of our cloud platform. As an experienced OpenStack engineer, you will be instrumental in the architecture, stability and scaling of our OpenStack environment.\nTo strengthen our team at Zurich Airport, we are looking for a committed and competent personality as an OpenStack Engineer.\nYour role\n• Responsibility for the design, development and operation of our OpenStack platform\n• Architecture, implementation and optimization of the OpenStack environment (Compute, Storage, Network)\n• Automation of deployments and operational processes (e.g. via Ansible, OpenTofu)\n• Analysis and resolution of complex disruptions in 2nd/3rd level support\n• Close cooperation with internal departments and infrastructure teams\n• Technical leadership in architecture and technology decisions\nYour profile\n• Completed degree in computer science or comparable education/training\n• Several years of experience in the design and operation of OpenStack architectures\n• In-depth knowledge of Linux and container technologies as well as experience with automation and configuration management tools\n• Good understanding of distributed systems, networks and storage\n• Analytical and structured working method\n• Very good knowledge of German at C1 level and good knowledge of English\n• Readiness for Picetting\nYour benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du gestaltest die Zukunft unserer Cloud-Plattform. Als erfahrener OpenStack Engineer bist du massgeblich an der Architektur, Stabilität und Skalierung unserer OpenStack-Umgebung beteiligt.\nZur Verstärkung unseres Teams am Standort Zürich Flughafen suchen wir per sofort oder nach Vereinbarung eine engagierte und kompetente Persönlichkeit als OpenStack Engineer.\nDeine Rolle\n• Verantwortung für Design, Weiterentwicklung und Betrieb unserer OpenStack-Plattform\n• Architektur, Implementierung und Optimierung der OpenStack-Umgebung (Compute, Storage, Network)\n• Automatisierung von Deployments und Betriebsprozessen (z.B. via Ansible, OpenTofu)\n• Analyse und Behebung komplexer Störungen im 2nd-/3rd-Level-Support\n• Enge Zusammenarbeit mit internen Fachbereichen und Infrastruktur-Teams\n• Technische Führung bei Architektur- und Technologieentscheiden\nDein Profil\n• Abgeschlossenes Studium in Informatik oder eine vergleichbare Aus-/Weiterbildung\n• Mehrjährige Erfahrung im Design und Betrieb von OpenStack-Architekturen\n• Fundierte Kenntnisse in den Bereichen Linux und Container-Technologien sowie Erfahrung mit Automatisierungs- und Konfigurationsmanagement-Tools\n• Gutes Verständnis von verteilten Systemen, Netzwerken und Storage\n• Analytische und strukturierte Arbeitsweise\n• Sehr gute Deutschkenntnisse auf C1-Level sowie gute Englischkenntnisse\n• Bereitschaft Pikettdienst\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Vous façonnez l'avenir de notre plateforme cloud. En tant qu'ingénieur expérimenté d'OpenStack, vous jouerez un rôle déterminant dans l'architecture, la stabilité et l'échelle de notre environnement OpenStack.\nPour renforcer notre équipe à l'aéroport de Zurich, nous recherchons une personnalité engagée et compétente en tant qu'ingénieur OpenStack.\nVotre rôle\n• Responsabilité de la conception, du développement et du fonctionnement de notre plateforme OpenStack\n• Architecture, implémentation et optimisation de l'environnement OpenStack (Compute, Storage, Network)\n• Automatisation des déploiements et des processus opérationnels (par exemple via Ansible, OpenTofu)\n• Analyse et résolution des perturbations complexes du soutien de niveau 2/3\n• Coopération étroite avec les services internes et les équipes d'infrastructure\n• Leadership technique dans les décisions en matière d'architecture et de technologie\nVotre profil\n• Diplôme d'informatique ou d'enseignement/formation comparable\n• Plusieurs années d'expérience dans la conception et le fonctionnement des architectures OpenStack\n• Connaissance approfondie des technologies Linux et conteneur ainsi que de l'expérience des outils d'automatisation et de gestion de configuration\n• Bonne compréhension des systèmes, réseaux et stockage distribués\n• Méthode de travail analytique et structurée\n• Très bonne connaissance de l'allemand au niveau C1 et bonne connaissance de l'anglais\n• Préparation pour Picetting\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à la formation à 100% financière ou temporelle\n• Abonnement CFF demi-ax gratuit pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre demande directement dans votre formulaire."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/openstack-engineer-80-100-5105",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T09:46:23.102Z",
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://apply.refline.ch/215876/2463/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2463",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "openstack-engineer-80-100-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-          "cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "openstack-engineer-80-100-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "openstack-engineer-80-100-abraxas-zurich-flughafen"
         ]
       },
-      "firstSeenAt": "2026-08-11T21:51:39.186Z",
+      "firstSeenAt": "2026-08-14T10:21:51.648Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2145,7 +2237,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

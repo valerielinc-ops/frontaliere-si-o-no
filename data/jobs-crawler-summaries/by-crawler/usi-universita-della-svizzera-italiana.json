@@ -1,81 +1,18 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-08-17T22:00:34.001Z",
-  "total": 23,
-  "newCount": 2,
+  "generatedAt": "2026-08-19T09:50:31.019Z",
+  "total": 21,
+  "newCount": 0,
   "updatedCount": 21,
-  "removedCount": 0,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 119010,
-  "avgDurationMs": 119010,
+  "durationMs": 39077,
+  "avgDurationMs": 39077,
   "durationHistory": [
-    119010
+    39077
   ],
-  "newJobs": [
-    {
-      "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
-      "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
-      "title": "Segretario/a Amministrativo/a",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "segretario-a-amministrativo-a-usi-locarno",
-      "department": "Istituto ricerche solari Aldo e Cele Daccó (IRSOL)",
-      "category": "staff",
-      "datePosted": "2026-08-17",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Locarno"
-      },
-      "id": "usi-universita-della-svizzera-italiana-9ed504ad13c4",
-      "sourceLang": "it",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
-      "title": "Coordinatore",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "coordinatore-usi-lugano",
-      "department": "USI Startup Centre",
-      "category": "staff",
-      "datePosted": "2026-08-17",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-5132bcaf0603",
-      "sourceLang": "en",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -163,7 +100,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-2127129167ca",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -176,13 +113,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ials/ials-idsia-postdoc-saturna-2026.pdf",
-      "title": "Posizione postdoc",
+      "title": "Posizione post-doc",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-postdoc-usi-lugano",
+      "slug": "posizione-post-doc-usi-universita-della-svizzera-italiana-lugano",
       "department": "Institute of Argumentation, Linguistics and Semiotics – Dalle Molle Institute for Artificial Intelligence",
       "category": "researcher",
       "datePosted": "2026-06-30",
@@ -195,7 +132,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-7c10c511fa1a",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-06-30T23:23:38.579Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -227,7 +164,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -240,13 +177,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
+      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro funzionale alla genetica",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
+      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-funzionale-alla-genetica-usi-lugano",
       "department": "Institute of Oncology Research (IOR)",
       "category": "researcher",
       "datePosted": "2026-05-21",
@@ -259,7 +196,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c7a3db81dae5",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-05-21T13:45:01.598Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -291,7 +228,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-0c041bfbbfc0",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-29T22:47:38.313Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -355,7 +292,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-2b3f47cf60be",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -387,7 +324,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -419,7 +356,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-91715087b937",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-05-27T00:41:02.159Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -451,44 +388,12 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-19ab83c519f2",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-17T22:09:12.866Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://www.irsol.usi.ch/it/eventi-notizie/posizione-a-tempo-pieno-di-scienziatoingegnere-del-41206",
-      "applyUrl": "https://www.irsol.usi.ch/it/eventi-notizie/posizione-a-tempo-pieno-di-scienziatoingegnere-del-41206",
-      "title": "Posizione a tempo pieno di scienziato/ingegnere della strumentazione",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-a-tempo-pieno-di-scienziato-ingegnere-della-strumentazione-usi-universita-della-svizzera-italiana-locarno",
-      "department": "Istituto ricerche solari Aldo e Cele Daccò (IRSOL)",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Locarno"
-      },
-      "id": "usi-universita-della-svizzera-italiana-9177ed8e4482",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 9
       }
@@ -515,7 +420,7 @@
         "location": "Lugano"
       },
       "id": "usi-universita-della-svizzera-italiana-5f787a06ff5b",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-27T12:40:12.918Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -547,7 +452,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-4bd022dc1bdc",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-07-10T10:25:30.321Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -654,6 +559,38 @@
       }
     },
     {
+      "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
+      "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
+      "title": "Segretario/a Amministrativo/a",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "segretario-a-amministrativo-a-usi-locarno",
+      "department": "Istituto ricerche solari Aldo e Cele Daccó (IRSOL)",
+      "category": "staff",
+      "datePosted": "2026-08-17",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Locarno"
+      },
+      "id": "usi-universita-della-svizzera-italiana-9ed504ad13c4",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-08-17T22:00:33.993Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
+    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
       "title": "Bibliotecaria/o specializzata/o in risorse elettroniche E-resources librarian",
@@ -707,7 +644,7 @@
         "location": "Mendrisio"
       },
       "id": "usi-universita-della-svizzera-italiana-51bba80ca662",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -715,6 +652,78 @@
         "richness": 18,
         "translation": 25,
         "completeness": 9
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
+      "title": "Coordinatore",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "coordinatore-usi-lugano",
+      "department": "USI Startup Centre",
+      "category": "staff",
+      "datePosted": "2026-08-17",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-5132bcaf0603",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-08-17T22:00:33.993Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 9
+      }
+    }
+  ],
+  "removedJobs": [
+    {
+      "url": "https://www.irsol.usi.ch/it/eventi-notizie/posizione-a-tempo-pieno-di-scienziatoingegnere-del-41206",
+      "applyUrl": "https://www.irsol.usi.ch/it/eventi-notizie/posizione-a-tempo-pieno-di-scienziatoingegnere-del-41206",
+      "title": "Posizione a tempo pieno di scienziato/ingegnere della strumentazione",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-a-tempo-pieno-di-scienziato-ingegnere-della-strumentazione-usi-universita-della-svizzera-italiana-locarno",
+      "department": "Istituto ricerche solari Aldo e Cele Daccò (IRSOL)",
+      "category": "staff",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Locarno"
+      },
+      "id": "usi-universita-della-svizzera-italiana-9177ed8e4482",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
       }
     },
     {
@@ -741,15 +750,20 @@
       "id": "usi-universita-della-svizzera-italiana-20d4eef1df72",
       "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 77,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

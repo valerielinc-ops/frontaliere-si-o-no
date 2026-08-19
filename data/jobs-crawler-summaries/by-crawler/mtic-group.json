@@ -1,18 +1,48 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-08-17T21:31:03.134Z",
+  "generatedAt": "2026-08-19T09:49:52.489Z",
   "total": 4,
-  "newCount": 2,
+  "newCount": 3,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 29283,
-  "avgDurationMs": 29283,
+  "unchangedCount": 0,
+  "durationMs": 31670,
+  "avgDurationMs": 31670,
   "durationHistory": [
-    29283
+    31670
   ],
   "newJobs": [
+    {
+      "title": "Quality Assurance Manager",
+      "slug": "quality-assurance-manager-mtic-group-lugano-paradiso",
+      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager",
+      "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager",
+      "company": "MTIC Group",
+      "companyKey": "mtic-group",
+      "companyDomain": "mtic-group.org",
+      "location": "Lugano Paradiso",
+      "addressLocality": "Lugano Paradiso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "quality",
+      "sector": "Certificazione e Ispezioni",
+      "source": "mtic-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 7,
+        "translation": 20,
+        "completeness": 14
+      }
+    },
     {
       "title": "Medical Devices Certification Officer",
       "slug": "medical-devices-certification-officer-mtic-group-lugano-paradiso",
@@ -31,7 +61,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-17",
+      "postedDate": "2026-08-19",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -61,7 +91,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-17",
+      "postedDate": "2026-08-19",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -93,7 +123,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-17",
+      "postedDate": "2026-08-19",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -113,42 +143,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Quality Assurance Manager",
-      "slug": "quality-assurance-manager-mtic-group-lugano-paradiso",
-      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager",
-      "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager",
-      "company": "MTIC Group",
-      "companyKey": "mtic-group",
-      "companyDomain": "mtic-group.org",
-      "location": "Lugano Paradiso",
-      "addressLocality": "Lugano Paradiso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "quality",
-      "sector": "Certificazione e Ispezioni",
-      "source": "mtic-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-17",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "mtic-group-58d21a5d2aa1",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:08:31.777Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 7,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

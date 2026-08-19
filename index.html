@@ -486,6 +486,22 @@
          two strings against each other. Registered BEFORE the loader below;
          googlefc.callbackQueue accepts pushes before and after FC runs. -->
     <script>(function(){if(window.__ftFcConsentBridge)return;window.__ftFcConsentBridge=1;function prev(){try{return window.localStorage.getItem('frontaliere_ads_consent');}catch(e){return null;}}function record(g){var v=g?'granted':'denied';if(prev()===v)return;try{window.localStorage.setItem('frontaliere_ads_consent',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('frontaliere:ads-consent',{detail:v}));}catch(e){}}function grant(act){if(act||prev()!=='denied')record(true);}var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]){grant(act);return;}if(act){record(false);return;}if(prev()==='granted')record(false);});}});})();</script>
+    <!-- Ad-block bridge (#3654). Funding Choices already runs Google's own
+         ad-blocker detection on this page — the ad blocking recovery tag is
+         right below — and it is far better than any bait element we can write:
+         measured 2026-06-16..08-17, Google saw ~5% while our own probe saw 2.5%
+         of the same population. AD_BLOCK_DATA_READY fires once, and can fire
+         before React has mounted, so the answer is stashed on window for
+         services/adBlockDetection.ts to pick up whenever it asks.
+         getAllowAdsStatus() is the half no local probe can ever have: it says
+         the visitor already allowlisted us, so we must not gate them again.
+         eq() is not paranoia: both reads already guard the FUNCTION being
+         absent, but a bare === also matches undefined against undefined. A
+         status of undefined next to a missing enum member would then read as
+         "blocked" for a visitor who blocks nothing, and as "allowlisted" for
+         one who blocks everything — the two worst answers this bridge can
+         give, both from the same missing check. -->
+    <script>(function(){if(window.__ftFcAdBlockBridge)return;window.__ftFcAdBlockBridge=1;var g=window.googlefc=window.googlefc||{};g.callbackQueue=g.callbackQueue||[];g.callbackQueue.push({'AD_BLOCK_DATA_READY':function(){try{var E=g.AdBlockerStatusEnum||{},A=g.AllowAdsStatusEnum||{};var s=typeof g.getAdBlockerStatus==='function'?g.getAdBlockerStatus():null;var a=typeof g.getAllowAdsStatus==='function'?g.getAllowAdsStatus():null;function eq(v,e){return v!==undefined&&e!==undefined&&v===e;}window.__ftAdBlock={status:s,allowAds:a,blocked:eq(s,E.EXTENSION_LEVEL_AD_BLOCKER)||eq(s,E.NETWORK_LEVEL_AD_BLOCKER),adsAllowed:eq(a,A.ADS_ALLOWED)};try{window.dispatchEvent(new CustomEvent('frontaliere:adblock-data'));}catch(e){}}catch(e){}}});})();</script>
 
     <!-- PERF: Funding Choices scripts (loader + anti-adblock fallback below) are
          deferred until after first paint to fix mobile LCP (was 11.3s). The

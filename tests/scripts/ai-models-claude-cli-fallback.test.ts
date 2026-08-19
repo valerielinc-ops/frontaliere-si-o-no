@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // _callClaudeCli spawns `node:child_process` directly (not fetch, unlike every
@@ -7,6 +8,21 @@ const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
 import { AI_MODELS, callLLM, getPreferredModel, resetState } from '../../scripts/lib/ai-models.mjs';
+
+/**
+ * Il minimo del timeout CLI e' una TARATURA (120s → 180s il 2026-08-18, quando
+ * si e' scoperto che faceva da soffitto e non da pavimento). Fissarlo qui come
+ * letterale rendeva questi test rossi a ogni ritaratura senza che nulla si
+ * fosse rotto — la stessa lezione gia' pagata su `timeout-minutes`. Lo si
+ * legge dal sorgente e si asserisce sull'ORDINE, non sul numero.
+ */
+const AI_MODELS_SRC = readFileSync(
+  new URL('../../scripts/lib/ai-models.mjs', import.meta.url),
+  'utf-8',
+);
+const FLOOR_MS = Number(
+  /const CLAUDE_CLI_MIN_TIMEOUT_MS = ([\d_]+);/.exec(AI_MODELS_SRC)![1].replace(/_/g, ''),
+);
 
 /**
  * Claude CLI Haiku last-resort fallback (AI_MODELS.CLAUDE_CLI_HAIKU).
@@ -191,7 +207,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       vi.useRealTimers();
     });
 
-    it('disables claude-cli after repeated consecutive timeouts instead of waiting out the full 60s on every remaining call', async () => {
+    it('disables claude-cli after repeated consecutive timeouts instead of waiting out the full timeout on every remaining call', async () => {
       // Regression test for run 29824354962 (send-newsletter, 2026-07-21):
       // claude-cli/haiku is deliberately exempt from markModelExhausted's
       // normal timeout circuit breaker (see _isLastResortProvider) because for
@@ -213,10 +229,10 @@ describe('ai-models Claude CLI Haiku fallback', () => {
 
       const msgs = [{ role: 'user', content: 'Write a briefing' }];
       const chain = [AI_MODELS.CLAUDE_CLI_HAIKU];
-      const THRESHOLD = 8; // keep in sync with CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD in ai-models.mjs
+      const THRESHOLD = 3; // keep in sync with CLAUDE_CLI_TIMEOUT_STORM_THRESHOLD in ai-models.mjs
 
       for (let i = 0; i < THRESHOLD; i++) {
-        // deadlineMs shrinks _callClaudeCli's 120s floor down to its 15s
+        // deadlineMs shrinks _callClaudeCli's timeout down to its 15s
         // floor so the fake-timer advance below doesn't need to simulate two
         // full minutes per iteration.
         const deadlineMs = Date.now() + 15_000;
@@ -247,7 +263,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       vi.useRealTimers();
     });
 
-    it('raises the hard timeout floor to 120s (up from 60s) when no deadlineMs constrains it', async () => {
+    it('with no deadlineMs the call gets the declared floor, not the shorter generic provider timeout', async () => {
       // Regression test for run 30333856358 / 30243975255 (send-newsletter):
       // 0/19 production attempts ever succeeded, always the hard 60s
       // timeout. A solo local cold-start measured only ~6-12s wall time for
@@ -267,12 +283,18 @@ describe('ai-models Claude CLI Haiku fallback', () => {
 
       const msgs = [{ role: 'user', content: 'Write a briefing' }];
       const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU] });
-      const assertion = expect(promise).rejects.toThrow(/timed out after 120000ms/);
-      await vi.advanceTimersByTimeAsync(120_000);
+      // Asserzione sull'ORDINE, non sul numero: il tempo concesso senza
+      // deadline DEVE essere esattamente il minimo dichiarato nel sorgente —
+      // se un giorno tornasse sotto (il generico dei provider), il messaggio
+      // riporterebbe un altro numero e questo test lo direbbe.
+      const assertion = expect(promise).rejects.toThrow(
+        new RegExp(`timed out after ${FLOOR_MS}ms`),
+      );
+      await vi.advanceTimersByTimeAsync(FLOOR_MS);
       await assertion;
     });
 
-    it('still caps the 120s floor to the caller\'s remaining deadlineMs budget', async () => {
+    it('still caps the floor to the caller\'s remaining deadlineMs budget', async () => {
       process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
       process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
 
@@ -284,7 +306,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       }));
 
       const msgs = [{ role: 'user', content: 'Write a briefing' }];
-      const deadlineMs = Date.now() + 25_000; // well under the 120s floor
+      const deadlineMs = Date.now() + 25_000; // well under the floor
       const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU], deadlineMs });
       const assertion = expect(promise).rejects.toThrow(/timed out after \d+ms/);
       await vi.advanceTimersByTimeAsync(25_000);
@@ -312,7 +334,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       });
 
       const msgs = [{ role: 'user', content: 'Write a briefing' }];
-      const deadlineMs = Date.now() + 15_000; // shrink the 120s floor down to the 15s deadline floor
+      const deadlineMs = Date.now() + 15_000; // shrink the floor down to the 15s deadline floor
       const promise = callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU], deadlineMs });
       const assertion = expect(promise).rejects.toThrow(/Invalid API key/);
       await vi.advanceTimersByTimeAsync(15_000);

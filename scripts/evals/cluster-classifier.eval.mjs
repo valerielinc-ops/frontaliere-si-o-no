@@ -191,7 +191,15 @@ async function main() {
   process.exit(0);
 }
 
-main().catch((e) => {
+main().catch(async (e) => {
+  // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
+  // errore butta via gli esiti dei modelli accumulati dalla run — per lo
+  // piu' fallimenti, cioe' il segnale che serve al ledger. Bounded e
+  // non-throwing (vedi flushScoresBeforeExit).
+  // Import dinamico come sopra: se ai-models non e' mai stato caricato la cache
+  // ESM lo carica ora e il flush esce subito a mani vuote.
+  const { flushScoresBeforeExit } = await import('../lib/ai-models.mjs');
+  await flushScoresBeforeExit();
   console.error(`[eval] fatal: ${e?.stack || e}`);
   process.exit(2);
 });

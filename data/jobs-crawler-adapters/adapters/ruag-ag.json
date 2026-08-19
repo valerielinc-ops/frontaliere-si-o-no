@@ -10,7 +10,7 @@
     "generic_ats"
   ],
   "seedUrls": [
-    "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965",
+    "https://jobs.ruag.ch/offene-stellen/betriebselektrikerin-facility-manager-technics/190b7508-d7e8-403d-b49f-7c2f57a59965",
     "https://jobs.ruag.ch/offene-stellen/professional-ict-architect/d4302aa0-afaa-4a3c-81c4-e6e41ab1de92",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-automatiker-in-efz-2027/e5115d98-fabd-4c70-b86f-8ec2c4dd88bb",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-elektroniker-in-efz-2027/b10df6a2-4457-493a-8064-60fdb52f30b1",
@@ -52,9 +52,6 @@
     "https://jobs.ruag.ch/offene-stellen/technische-r-sachbearbeiterin/ea378ccc-d2e0-458f-8c14-b384cb3d6df3",
     "https://jobs.ruag.ch/offene-stellen/network-engineer-c5i/2c8f2241-c6d6-4dae-992b-982d9285a7b4",
     "https://jobs.ruag.ch/offene-stellen/trade-compliance-manager/dc0b49eb-620a-473b-9fbf-e01d578db690",
-    "https://jobs.ruag.ch/offene-stellen/director-business-development-suisse-romandie/133ffbe6-ef50-4332-be73-3c90b20c1e80",
-    "https://jobs.ruag.ch/emplois-vacantes/director-business-development-suisse-romandie/7957f9e1-959f-42ac-9178-700bcaf47dd3",
-    "https://jobs.ruag.ch/offene-stellen/system-manager/57941739-531f-408b-9133-870249af281a",
     "https://jobs.ruag.ch/offene-stellen/ict-solution-architect-business-applications/613755c2-74cd-4e2d-857e-cc5e56076507",
     "https://jobs.ruag.ch/offene-stellen/teamlead-mechanics-super-puma/eb975bb4-febe-42aa-9a85-9f51fa46ae0a",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-mediamatiker-in-efz-2027/5457a25f-95ff-4eef-b31e-95f8be924a6d",
@@ -73,9 +70,9 @@
     "https://jobs.ruag.ch/offene-stellen/messtechnik-spezialist-dms/45bffd3d-d924-4c32-8f74-bd8715980e7d"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-17T21:58:34.602Z",
+  "updatedAt": "2026-08-19T10:07:40.596Z",
   "seedMetaByUrl": {
-    "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
+    "https://jobs.ruag.ch/offene-stellen/betriebselektrikerin-facility-manager-technics/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
       "canton": "UR",
       "company": "RUAG AG",
@@ -326,24 +323,6 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-07-29"
-    },
-    "https://jobs.ruag.ch/offene-stellen/director-business-development-suisse-romandie/133ffbe6-ef50-4332-be73-3c90b20c1e80": {
-      "location": "Flexibel",
-      "canton": "",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-30"
-    },
-    "https://jobs.ruag.ch/emplois-vacantes/director-business-development-suisse-romandie/7957f9e1-959f-42ac-9178-700bcaf47dd3": {
-      "location": "Flexibel",
-      "canton": "",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-30"
-    },
-    "https://jobs.ruag.ch/offene-stellen/system-manager/57941739-531f-408b-9133-870249af281a": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-30"
     },
     "https://jobs.ruag.ch/offene-stellen/ict-solution-architect-business-applications/613755c2-74cd-4e2d-857e-cc5e56076507": {
       "location": "Emmen",

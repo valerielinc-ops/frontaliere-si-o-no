@@ -8,9 +8,49 @@
  *   3. Crawler-vs-dataset — does the published LOCALITY still match the one the
  *      crawler recorded in `data/jobs/by-crawler/<key>.json`?
  *   4. Nominatim — for cities not in BFS, verify country via geocoding
+ *   5. FORMAT — does the location string already say which canton it is in, so
+ *      that every UI appending `(canton)` prints it twice?
+ *
+ * Layer 5 answers a question layers 1-4 structurally cannot ask. They all
+ * adjudicate WHICH PLACE a job is in; a location can name the right place and
+ * still be malformed. "Lengnau (BE)" stamped BE is correct by every layer above
+ * and rendered "Lengnau (BE) (BE)" on the live page — 2,457 of 27,590 jobs
+ * (8.91%, measured on origin/main 2026-08-19) printed a doubled or empty
+ * parenthetical. `scripts/lib/job-location-display.mjs` now removes the
+ * duplication at render time, which is why this layer reports on the DATA
+ * rather than on the page: the crawler that emits "Konolfingen, CH" is still
+ * emitting it, and only the crawler can stop.
+ *
+ * It reports three things, all grouped BY CRAWLER so the issue names the file
+ * to edit:
+ *   · `redundantLocationMarker` — the location carries a canton/country marker.
+ *   · `locationCantonConflict`  — it names a DIFFERENT canton than the field.
+ *     Never a formatting problem: one of the two halves is factually wrong.
+ *   · `implausibleLocation`   — layer 6: what is left after the markers are
+ *     removed cannot be a municipality name at all, because a scraper leaked
+ *     page furniture into the field. Judged AFTER stripping, so the two layers
+ *     never double-report the same row: "Geneva, GENEVA, Switzerland" is a
+ *     redundancy that cleans up to "Geneva", while
+ *     "0200 Deutsch Suche Suche Masterdata Specialist" cleans up to itself.
+ *   · `descriptionCantonDuplicated` — the crawler's own description text repeats
+ *     the canton after the redundant location ("Konolfingen, CH, Kanton BE").
+ *     This is the only one of the three that survives a render-time fix, since
+ *     the string is frozen into the indexed description at crawl time.
  *
  * Layer 3 exists because layers 1-2 are BFS-only and are therefore BLIND to the
  * largest mislabel class this audit is supposed to catch — in two ways.
+ *
+ * Layer 6 exists because `unknownCity` conflates two different things, which
+ * this file's own header already calls out below: a real hamlet BFS happens not
+ * to list, and text that was never a place. Both land in the same bucket, so a
+ * count of it cannot tell a data-coverage gap from a broken parser, and the
+ * issue could name neither. Structural implausibility separates them without a
+ * gazetteer — five or more words, an adjacent repeated word, markup — and is
+ * deliberately conservative: measured 191 of 27,508 non-empty locations (0.69%)
+ * on origin/main 2026-08-19, concentrated in convit-holding 64,
+ * vf-international 39, zurich-insurance-sede-ticino 37, tether 17. The reported
+ * job that opened this work is one of them
+ * ("0200 Deutsch Suche Suche Masterdata Specialist", rado).
  *
  * A job in a hamlet BFS does not list as a municipality (Obbürgen, NW —
  * Bürgenstock Hotels AG, #4838) lands in `unknownCity`, where a wrong canton is
@@ -46,6 +86,8 @@ import {
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { splitJobLocation } from './lib/job-location-display.mjs';
+import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -75,8 +117,19 @@ const results = {
   companyDefaultFallback: [], // cantonMismatch subset where stored canton == company's modal canton
   crawlerLocationRewritten: [], // assemble replaced the locality the crawler recorded (BFS-independent)
   crawlerCantonStampDiffers: [], // same place, crawler's per-company canton stamp is stale — context only
+  redundantLocationMarker: [],   // layer 5: location already names its canton/country
+  locationCantonConflict: [],    // layer 5: location names a DIFFERENT canton than the field
+  descriptionCantonDuplicated: [], // layer 5: the description text repeats the canton after the location
+  implausibleLocation: [],       // layer 6: what remains after stripping cannot be a place name
 };
 
+/**
+ * Patterns a crawler uses to append the canton to a location inside DESCRIPTION
+ * prose. Kept next to the audit rather than in the formatter because they are
+ * label templates ("Kanton XX", "XX canton"), not location syntax — the
+ * formatter never produces them, it only has to recognise the location half.
+ * @param {string} location @param {string} canton @returns {string[]}
+ */
 /* ── Geocode cache to avoid duplicate lookups ──────────────── */
 const geocodeCache = new Map();
 
@@ -202,6 +255,49 @@ for (const job of jobsToAudit) {
   }
 
   const cantonUpper = storedCanton.toUpperCase();
+
+  // ── Layer 5: location FORMAT (see header) ──────────────────────────────
+  // Runs on `job.location` — the field every UI renders — not on the
+  // `addressLocality` fallback `city` above, because it is the rendered string
+  // whose shape is in question.
+  const rawLocation = norm(job.location || '');
+  if (rawLocation) {
+    const parts = splitJobLocation(rawLocation, cantonUpper);
+    const crawler = norm(job.companyKey || '') || company || 'unknown';
+    if (parts.conflict) {
+      results.locationCantonConflict.push({
+        id, crawler, company, location: rawLocation, storedCanton: cantonUpper,
+      });
+    } else if (parts.stripped.length) {
+      results.redundantLocationMarker.push({
+        id, crawler, company, location: rawLocation, storedCanton: cantonUpper,
+        kinds: parts.stripped, cleaned: parts.city,
+      });
+    }
+
+    // Did the duplication also get frozen into an already-published
+    // description? Checked for EVERY job, not only for those whose location
+    // still looks wrong — see descriptionRepeatsRegion() for the hour in which
+    // production proved that distinction fatal.
+    const frozen = descriptionRepeatsRegion(job, rawLocation, cantonUpper);
+    if (frozen) {
+      results.descriptionCantonDuplicated.push({
+        id, crawler, company, location: rawLocation, storedCanton: cantonUpper, evidence: frozen,
+      });
+    }
+
+    // ── Layer 6: is what is LEFT even a place name? ─────────────────────────
+    // Judged on the stripped city so a redundancy handled above is never
+    // re-reported here as junk.
+    const cleanedCity = parts.city || rawLocation;
+    const implausible = implausibilityReasons(cleanedCity);
+    if (implausible.length) {
+      results.implausibleLocation.push({
+        id, crawler, company, location: rawLocation, cleaned: cleanedCity,
+        storedCanton: cantonUpper, reasons: implausible,
+      });
+    }
+  }
 
   // Layer 3: the assemble step rewrote the location the crawler recorded.
   // BFS-independent, so it catches what layers 1-2 structurally cannot: a job
@@ -338,6 +434,10 @@ console.log(`🔤 Lowercase canton:      ${results.lowercaseCanton.length}`);
 console.log(`🏢 Company-default fallback (suspected): ${results.companyDefaultFallback.length}`);
 console.log(`📌 Crawler locality rewritten by dataset: ${results.crawlerLocationRewritten.length}${crawlerRecordById.size ? '' : ' (by-crawler slices unavailable — check skipped)'}`);
 console.log(`ℹ️  Crawler canton stamp differs (same place, benign): ${results.crawlerCantonStampDiffers.length}`);
+console.log(`🔁 Location already names its canton/country: ${results.redundantLocationMarker.length}`);
+console.log(`❗ Location names a DIFFERENT canton than the field: ${results.locationCantonConflict.length}`);
+console.log(`📝 Description text repeats the canton: ${results.descriptionCantonDuplicated.length}`);
+console.log(`🧩 Location cannot be a place name (scraper leak): ${results.implausibleLocation.length}`);
 if (enableGeocode) {
   console.log(`🌍 Geocode results:       ${results.geocodeResults.length}`);
 }
@@ -498,6 +598,119 @@ if (results.emptyLocation.length > 0) {
   }
 }
 
+// Detail: layer 5 — location format, grouped BY CRAWLER.
+// By crawler, not by company: the repair is an edit to one
+// `scripts/lib/<crawler>-job-parser.mjs`, and the crawler key IS that filename.
+// A leaderboard by company would name Coop 1,011 times and never say which file.
+/**
+ * The file a fixer should open for a crawler key, or `null`.
+ *
+ * RESOLVED BY SEARCH, NOT BY NAMING CONVENTION. The first version printed
+ * `scripts/lib/<key>-job-parser.mjs` unconditionally and the job that opened
+ * this work disproved it immediately: `rado` is crawled by
+ * `scripts/update-swatchgroup-jobs.mjs`. The convention holds for a minority —
+ * `convit-holding` lives in `update-convit-jobs.mjs`,
+ * `vf-international-the-north-face-timberland` in `update-vf-jobs.mjs`,
+ * `zurich-insurance-sede-ticino` in `update-zurich-jobs.mjs`. Pointing an
+ * autonomous fixer at a path that does not exist is worse than pointing it at
+ * nothing, because it looks like an answer, so the key is looked up in the
+ * sources instead.
+ *
+ * The index is built once, lazily, and only when there is something to report.
+ */
+let crawlerFileIndex = null;
+
+function buildCrawlerFileIndex() {
+  /** @type {Map<string, string>} */
+  const index = new Map();
+  const dirs = [
+    { dir: 'scripts', match: (f) => f.startsWith('update-') && f.endsWith('.mjs') },
+    { dir: join('scripts', 'lib'), match: (f) => f.endsWith('-job-parser.mjs') || f.endsWith('-common.mjs') },
+  ];
+  for (const { dir, match } of dirs) {
+    let entries = [];
+    try {
+      entries = readdirSync(join(ROOT, dir));
+    } catch {
+      continue;
+    }
+    for (const file of entries) {
+      if (!match(file)) continue;
+      const rel = `${dir}/${file}`;
+      let source = '';
+      try {
+        source = readFileSync(join(ROOT, rel), 'utf8');
+      } catch {
+        continue;
+      }
+      for (const m of source.matchAll(/['"]([a-z0-9]+(?:-[a-z0-9]+){0,8})['"]/g)) {
+        // First writer wins: a dedicated parser is scanned after its update-*
+        // driver only when the driver did not already claim the key.
+        if (!index.has(m[1])) index.set(m[1], rel);
+      }
+    }
+  }
+  return index;
+}
+
+/** @param {string} crawler @returns {string|null} */
+function parserFileFor(crawler) {
+  if (!crawler) return null;
+  for (const candidate of [
+    `scripts/lib/${crawler}-job-parser.mjs`,
+    `scripts/update-${crawler}-jobs.mjs`,
+  ]) {
+    if (existsSync(join(ROOT, candidate))) return candidate;
+  }
+  if (!crawlerFileIndex) crawlerFileIndex = buildCrawlerFileIndex();
+  return crawlerFileIndex.get(crawler) || null;
+}
+
+function printByCrawler(rows, heading, extra) {
+  if (!rows.length) return;
+  console.log('\n' + '─'.repeat(70));
+  console.log(heading);
+  console.log('─'.repeat(70));
+  const byCrawler = new Map();
+  for (const row of rows) {
+    if (!byCrawler.has(row.crawler)) byCrawler.set(row.crawler, []);
+    byCrawler.get(row.crawler).push(row);
+  }
+  for (const [crawler, items] of [...byCrawler].sort((a, b) => b[1].length - a[1].length)) {
+    const parser = parserFileFor(crawler);
+    console.log(`\n  ${crawler} (${items.length} jobs) — ${parser || 'file del crawler non risolto: grep del companyKey'}`);
+    const byValue = new Map();
+    for (const item of items) {
+      const key = extra(item);
+      byValue.set(key, (byValue.get(key) || 0) + 1);
+    }
+    for (const [value, count] of [...byValue].sort((a, b) => b[1] - a[1]).slice(0, 8)) {
+      console.log(`    ${String(count).padStart(4)} × ${value}`);
+    }
+  }
+}
+
+printByCrawler(
+  results.redundantLocationMarker,
+  '🔁 LOCATION ALREADY NAMES ITS CANTON / COUNTRY (every UI then appends it again)',
+  (o) => `"${o.location}" (${o.storedCanton}) → "${o.cleaned}" [${o.kinds.join('+')}]`,
+);
+printByCrawler(
+  results.locationCantonConflict,
+  '❗ LOCATION NAMES A DIFFERENT CANTON THAN THE STORED FIELD (one half is wrong)',
+  (o) => `"${o.location}" but canton=${o.storedCanton}`,
+);
+printByCrawler(
+  results.implausibleLocation,
+  '🧩 LOCATION THAT CANNOT BE A PLACE NAME (page furniture leaked into the field)',
+  (o) => `"${o.cleaned}" [${o.reasons.join('+')}]`,
+);
+printByCrawler(
+  results.descriptionCantonDuplicated,
+  '📝 DESCRIPTION TEXT REPEATS THE CANTON (frozen at crawl time — render fix does not reach it)',
+  (o) => `"${o.evidence}"`,
+);
+
 console.log('\n' + '═'.repeat(70));
 
 // Save detailed results to JSON for further analysis
@@ -519,7 +732,32 @@ writeFileSync(reportPath, JSON.stringify({
     crawlerLocationRewritten: results.crawlerLocationRewritten.length,
     crawlerCantonStampDiffers: results.crawlerCantonStampDiffers.length,
     geocodeResults: results.geocodeResults.length,
+    redundantLocationMarker: results.redundantLocationMarker.length,
+    locationCantonConflict: results.locationCantonConflict.length,
+    descriptionCantonDuplicated: results.descriptionCantonDuplicated.length,
+    implausibleLocation: results.implausibleLocation.length,
   },
+  // Layer 5 leaderboards, pre-grouped by crawler so the issue body does not have
+  // to re-aggregate 27k rows (and cannot get the aggregation subtly different
+  // from the console output above).
+  locationFormatByCrawler: (() => {
+    const acc = new Map();
+    const bump = (crawler, field) => {
+      if (!acc.has(crawler)) {
+        acc.set(crawler, { crawler, redundant: 0, conflict: 0, descriptionDuplicated: 0, implausible: 0 });
+      }
+      acc.get(crawler)[field] += 1;
+    };
+    for (const row of results.redundantLocationMarker) bump(row.crawler, 'redundant');
+    for (const row of results.locationCantonConflict) bump(row.crawler, 'conflict');
+    for (const row of results.descriptionCantonDuplicated) bump(row.crawler, 'descriptionDuplicated');
+    for (const row of results.implausibleLocation) bump(row.crawler, 'implausible');
+    for (const row of acc.values()) row.parserFile = parserFileFor(row.crawler);
+    return [...acc.values()].sort(
+      (a, b) => (b.conflict + b.descriptionDuplicated + b.implausible + b.redundant)
+        - (a.conflict + a.descriptionDuplicated + a.implausible + a.redundant),
+    );
+  })(),
   crawlerRecordsIndexed: crawlerRecordById.size,
   cantonMismatches: results.cantonMismatch,
   foreignInSwiss: results.foreignInSwiss,
@@ -530,5 +768,9 @@ writeFileSync(reportPath, JSON.stringify({
   crawlerLocationRewritten: results.crawlerLocationRewritten,
   crawlerCantonStampDiffers: results.crawlerCantonStampDiffers,
   geocodeResults: results.geocodeResults,
+  redundantLocationMarker: results.redundantLocationMarker,
+  locationCantonConflict: results.locationCantonConflict,
+  descriptionCantonDuplicated: results.descriptionCantonDuplicated,
+  implausibleLocation: results.implausibleLocation,
 }, null, 2));
 console.log(`\n📄 Detailed report saved to: data/location-audit-report.json\n`);

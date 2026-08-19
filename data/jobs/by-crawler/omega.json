@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-08-17T22:02:07.764Z",
+  "assembledAt": "2026-08-19T10:31:17.975Z",
   "jobs": [
     {
       "id": "omega-32500",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T22:02:04.952Z",
+      "crawledAt": "2026-08-19T10:31:15.165Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -99,6 +99,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -143,7 +144,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32611",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T22:01:43.528Z",
+      "crawledAt": "2026-08-19T10:30:53.861Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -170,6 +171,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:51:59.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -214,7 +216,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32650",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T22:01:21.345Z",
+      "crawledAt": "2026-08-19T10:30:32.606Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -256,14 +258,12 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
-        "avvertenza-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne",
-          "avvertenza-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-cfc-omega-biel-bienne"
@@ -284,7 +284,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32651",
@@ -317,7 +318,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32651",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T22:00:59.569Z",
+      "crawledAt": "2026-08-19T10:30:10.733Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -359,14 +360,12 @@
       },
       "previousSlugs": [
         "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-        "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne"
+        "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne",
-          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne",
-          "avvertenza-dell-ira-della-produzione-di-cfc-omega-sa-biel-bienne"
+          "apprentissage-horloger-ere-de-production-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-horloger-ere-de-production-cfc-omega-biel-bienne"
@@ -387,7 +386,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32653",
@@ -420,7 +420,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32653",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T22:00:38.151Z",
+      "crawledAt": "2026-08-19T10:29:49.360Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -460,14 +460,12 @@
       },
       "previousSlugs": [
         "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-        "attenzione-operazione-omega-sa-biel-bienne"
+        "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
-          "attenzione-operazione-omega-sa-biel-bienne"
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne"
@@ -488,7 +486,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32654",
@@ -521,7 +520,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32654",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T22:00:16.498Z",
+      "crawledAt": "2026-08-19T10:29:27.854Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -554,14 +553,12 @@
       },
       "previousSlugs": [
         "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-        "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
+        "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne",
-          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne",
-          "avviso-occupato-del-trade-swc-omega-sa-biel-bienne"
+          "apprentissage-employe-e-de-commerce-cfc-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-employe-e-de-commerce-cfc-omega-biel-bienne"
@@ -582,7 +579,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32652",
@@ -615,7 +613,7 @@
       "url": "https://www.swatchgroup.com/de/job/32652",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:59:54.697Z",
+      "crawledAt": "2026-08-19T10:29:06.438Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -656,13 +654,11 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
-        "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
+        "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne",
-          "apprendistato-come-urhmacher-in-cfc-omega-sa-biel-bienne"
+          "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-urhmacher-in-efz-omega-biel-bienne"
@@ -717,7 +713,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32655",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:59:33.133Z",
+      "crawledAt": "2026-08-19T10:28:45.014Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -757,14 +753,12 @@
       },
       "previousSlugs": [
         "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
-        "logistician-learning-cfc-omega-sa-biel-bienne"
+        "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne",
-          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne",
-          "logistician-learning-cfc-omega-sa-biel-bienne"
+          "apprentissage-logisticien-ne-cfc-omega-sa-biel-bienne"
         ],
         "de": [
           "apprentissage-logisticien-ne-cfc-omega-biel-bienne"
@@ -782,7 +776,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32658",
@@ -815,7 +810,7 @@
       "url": "https://www.swatchgroup.com/de/job/32658",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:59:10.821Z",
+      "crawledAt": "2026-08-19T10:28:23.651Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -856,13 +851,11 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
-        "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
+        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
-          "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
+          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
@@ -900,7 +893,7 @@
         "it": "SALES REPRESENTATIVE - OMEGA BOUTIQUE (M/F)",
         "en": "SALES REPRESENTATIVE - OMEGA BOUTIQUE (M/F)",
         "de": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
-        "fr": "REPRÉSENTANT DES VENTES - OMEGA BOUTIQUE (H/F)"
+        "fr": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)"
       },
       "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
       "descriptionByLocale": {
@@ -914,7 +907,7 @@
       "url": "https://www.swatchgroup.com/de/job/32801",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:58:49.357Z",
+      "crawledAt": "2026-08-19T10:28:02.282Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -957,6 +950,7 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:28:22.470Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -985,7 +979,7 @@
       "title": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
       "titleByLocale": {
         "it": "SALES RPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
-        "en": "SALES REPRESENTATIVE (M/F) 80% - OMEGA BOUTIQUE BERN",
+        "en": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
         "de": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
         "fr": "VENTES REPRÉSENTANT (H/F) 80% - OMEGA BOUTIQUE BERN"
       },
@@ -1001,7 +995,7 @@
       "url": "https://www.swatchgroup.com/de/job/32817",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:58:27.740Z",
+      "crawledAt": "2026-08-19T10:27:40.730Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1081,7 +1075,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32819",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:58:06.005Z",
+      "crawledAt": "2026-08-19T10:27:19.201Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1139,13 +1133,11 @@
         ]
       },
       "previousSlugs": [
-        "repondant-qualite-mouvement-omega-biel-bienne",
-        "circolazione-di-qualita-omega-sa-biel-bienne"
+        "repondant-qualite-mouvement-omega-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-qualite-mouvement-omega-biel-bienne",
-          "circolazione-di-qualita-omega-sa-biel-bienne"
+          "repondant-qualite-mouvement-omega-biel-bienne"
         ],
         "en": [
           "repondant-qualite-mouvement-omega-biel-bienne"
@@ -1166,16 +1158,17 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-32830",
-      "slug": "digital-communication-project-manager-m-f-omega-biel-bienne",
+      "slug": "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "en": "digital-communication-project-manager-m-f-omega-biel-bienne",
-        "it": "digital-communication-project-manager-m-f-omega-biel-bienne",
-        "de": "digital-communication-project-manager-m-f-omega-biel-bienne",
-        "fr": "digital-communication-project-manager-m-f-omega-biel-bienne"
+        "it": "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne",
+        "de": "digitale-kommunikationsprojektmanager-m-w-omega-sa-biel-bienne",
+        "fr": "gestionnaire-du-projet-de-communication-numerique-h-f-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -1183,23 +1176,23 @@
       "title": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)",
       "titleByLocale": {
         "en": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)",
-        "it": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)",
-        "de": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)",
-        "fr": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)"
+        "it": "PROGETTO DI COMUNICAZIONE DIGITALE MANAGER (M/F)",
+        "de": "DIGITALE KOMMUNIKATIONSPROJEKTMANAGER (M/W)",
+        "fr": "GESTIONNAIRE DU PROJET DE COMMUNICATION NUMÉRIQUE (H/F)"
       },
-      "description": "## Introduction de la société\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Description du poste\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profil\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Langues\n• Fluent in English. French would be an added value.",
+      "description": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profile\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Languages\n• Fluent in English. French would be an added value.",
       "descriptionByLocale": {
-        "en": "## Introduction de la société\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Description du poste\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profil\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Langues\n• Fluent in English. French would be an added value.",
-        "it": "## Introduction de la société\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Description du poste\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profil\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Langues\n• Fluent in English. French would be an added value.",
-        "de": "## Introduction de la société\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Description du poste\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profil\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Langues\n• Fluent in English. French would be an added value.",
-        "fr": "## Introduction de la société\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Description du poste\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profil\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Langues\n• Fluent in English. French would be an added value."
+        "en": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profile\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Languages\n• Fluent in English. French would be an added value.",
+        "it": "## L'azienda\nOMEGA è un prestigioso marchio globale con oltre 170 anni di impegno per la qualità, la precisione e l'innovazione. I nostri orologi sono tra i migliori al mondo, definiti dalla tecnologia leader del settore e dal fascino estetico senza tempo.\n\nNella nostra lunga storia, abbiamo impostato record di precisione, tempismo sportivo definito e siamo rimasti all'avanguardia dell'orologeria.\n\nCome marchio internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a contribuire ai loro talenti, ambizioni e ispirazioni ai nostri team in praticamente ogni continente.\n\n## Descrizione del lavoro\nLA TUA MISSIONE\n\nCome membro vitale del team Social Media, si svolgerà un ruolo fondamentale nella definizione della strategia di comunicazione di OMEGA e nella guida dell’evoluzione dell’impronta digitale del marchio. Il vostro ruolo richiede una comprensione completa dei Social Media e delle tendenze della comunicazione digitale. Dovrai essere naturalmente inquisitivo, innovativo e proattivo nella ricerca di nuove opportunità.\n\nLE PRINCIPALI RESPONSABILITÀ\n\n• Collaborare a stretto contatto con il team Marketing per creare campagne complete 360\n\n• Stabilire e gestire un programma di pubblicazione dettagliato in linea con il piano di Marketing Internazionale\n\n• Utilizzare il nostro strumento di gestione sociale per pianificare i messaggi giornalieri\n\n• Migliorare la visibilità del marchio e del prodotto su tutte le piattaforme digitali\n\n• Coordinare efficacemente i progetti cross-market\n\n• Iniziative di eventi live Spearhead\n\n• Progettare ed eseguire campagne di social media guidate da specifici KPI\n\n• Fornire report completi sulle campagne e sulle attività dei social media\n\n• Analizzare le prestazioni della campagna per trarre intuizioni attuabili e identificare le opportunità future\n\n• Monitor e report sulle tendenze digitali emergenti\n\n## Profilo\n• Uno sfondo nella comunicazione digitale nel settore del lusso (minimo 3 anni)\n\n• Esperienza prioritaria in un'agenzia digitale è un vantaggio\n\n• Un profondo interesse per il settore del lusso e dell'orologeria\n\n• Esperienza di lavoro con piattaforme di social media asiatiche (WeChat, Weibo, Douyin, LINE, ecc.)\n\n• Approccio strategico, in grado di interpretare gli ecosistemi dei dati in insight attuabili\n\n• Laurea in comunicazione/marketing\n\n• Eccellente capacità organizzativa, capacità di soddisfare le scadenze e adattarsi agli ambienti dinamici\n\n• Creatività e flessibilità accoppiata con una forte mentalità orientata al team\n\n• Forte comando di PowerPoint ed Excel; la familiarità con Adobe Creative Suite è un vantaggio\n\n## Lingue\n• Fluente in inglese. Il francese sarebbe un valore aggiunto.",
+        "de": "## Das Unternehmen\nOMEGA ist eine renommierte globale Marke mit mehr als 170 Jahren Engagement für Qualität, Präzision und Innovation. Unsere Uhren gehören zu den besten der Welt, definiert durch branchenführende Technologie und zeitlose Ästhetik.\n\nIn unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, Sport-Timing definiert und sind auf dem neuesten Stand der Uhrmacherei geblieben.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen zu treffen, die bereit sind, ihre Talente, Ambitionen und Inspirationen in unsere Teams auf praktisch jedem Kontinent einzubringen.\n\n## Stellenbeschreibung\nIHRE ÜBERMITTLUNG\n\nAls wichtiges Mitglied des Social Media Teams spielen Sie eine zentrale Rolle bei der Gestaltung der Kommunikationsstrategie von OMEGA und bei der Weiterentwicklung des digitalen Fußabdrucks der Marke. Ihre Rolle erfordert ein umfassendes Verständnis von Social Media und digitalen Kommunikationstrends. Sie müssen natürlich neugierig, innovativ und proaktiv bei der Suche nach neuen Möglichkeiten sein.\n\nIhre wichtigsten Aufgaben\n\n• Enge Zusammenarbeit mit dem Marketing-Team, um umfassende 360-Kampagnen zu erstellen\n\n• Erstellen und Verwalten eines detaillierten Publikationsplans, der mit dem International Marketing Plan übereinstimmt\n\n• Nutzen Sie unser Social-Management-Tool, um tägliche Posts zu planen\n\n• Verbesserung der Marken- und Produktsichtbarkeit auf allen digitalen Plattformen\n\n• Marktübergreifende Projekte effektiv koordinieren\n\n• Spearhead Live Event Initiativen\n\n• Design und Durchführung von Social Media Kampagnen, die von spezifischen KPIs geleitet werden\n\n• Liefern Sie umfassende Berichte über Social Media Kampagnen und Aktivitäten\n\n• Analyse der Kampagnenleistung, um umsetzbare Erkenntnisse abzuleiten und zukünftige Chancen zu identifizieren\n\n• Überwachen und Berichten über aufkommende digitale Trends\n\n## Profil\n• Ein Hintergrund in der digitalen Kommunikation im Luxussektor (mindestens 3 Jahre)\n\n• Vorkenntnisse in einer digitalen Agentur sind von Vorteil\n\n• Ein tiefes Interesse an der Luxus- und Uhrenindustrie\n\n• Erfahrung in der Arbeit mit asiatischen Social-Media-Plattformen (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategischer Ansatz, der Datenökosysteme in umsetzbare Erkenntnisse interpretieren kann\n\n• Ein Bachelor-Abschluss in Kommunikation / Marketing\n\n• Hervorragende organisatorische Fähigkeiten, Fähigkeit, Termine einzuhalten und sich an dynamische Umgebungen anzupassen\n\n• Kreativität und Flexibilität gepaart mit einer starken teamorientierten Denkweise\n\n• Starke Beherrschung von PowerPoint und Excel; Vertrautheit mit Adobe Creative Suite ist von Vorteil\n\n## Sprachen\n• fließend in Englisch. Französisch wäre ein Mehrwert.",
+        "fr": "## La société\nOMEGA est une marque mondiale prestigieuse avec plus de 170 ans d'engagement pour la qualité, la précision et l'innovation. Nos montres sont parmi les plus belles du monde, définies par la technologie leader de l'industrie et l'attrait esthétique intemporel.\n\nDans notre longue histoire, nous avons établi des records de précision, défini le calendrier sportif et sommes restés à la pointe de l'horlogerie fine.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à apporter leurs talents, ambitions et inspiration à nos équipes sur pratiquement tous les continents.\n\n## Description de l'emploi\nVotre mission\n\nEn tant que membre vital de l'équipe des médias sociaux, vous jouerez un rôle central dans l'élaboration de la stratégie de communication d'OMEGA et dans l'évolution de l'empreinte numérique de la marque. Votre rôle exige une compréhension complète des tendances des médias sociaux et de la communication numérique. Vous devrez être naturellement curieux, innovateur et proactif dans la recherche de nouvelles opportunités.\n\nVOS PRINCIPAUX RESPONSABILITÉS\n\n• Collaborer étroitement avec l'équipe marketing pour élaborer des campagnes complètes 360\n\n• Établir et gérer un calendrier de publication détaillé conforme au plan de marketing international\n\n• Utiliser notre outil de gestion sociale pour planifier les postes quotidiens\n\n• Améliorer la visibilité de la marque et des produits sur toutes les plateformes numériques\n\n• Coordonner efficacement les projets intersectoriels\n\n• Initiatives d'événements en direct Spearhead\n\n• Concevoir et exécuter des campagnes de médias sociaux guidées par des KPI spécifiques\n\n• Présenter des rapports détaillés sur les campagnes et activités des médias sociaux\n\n• Analyser les résultats de la campagne pour en tirer des enseignements concrets et identifier les possibilités futures\n\n• Surveiller les nouvelles tendances numériques et en rendre compte\n\n## Profil\n• Une formation en communication numérique dans le secteur du luxe (minimum 3 ans)\n\n• Une expérience antérieure dans une agence numérique est un avantage\n\n• Un profond intérêt pour l'industrie du luxe et de l'horlogerie\n\n• Expérience de travail avec les plateformes de médias sociaux asiatiques (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Approche stratégique, capable d'interpréter les écosystèmes de données en éléments concrets\n\n• Licence en communication/marketing\n\n• Excellentes compétences organisationnelles, capacité à respecter les délais et à s'adapter aux environnements dynamiques\n\n• Créativité et flexibilité associées à un fort état d'esprit d'équipe\n\n• Forte maîtrise de PowerPoint et Excel; la familiarité avec Adobe Creative Suite est un avantage\n\n## Langues\n• En anglais. Le français serait une valeur ajoutée."
       },
       "location": "Biel/Bienne",
       "canton": "BE",
-      "url": "https://www.swatchgroup.com/fr/job/32830",
+      "url": "https://www.swatchgroup.com/en/job/32830",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:57:44.086Z",
+      "crawledAt": "2026-08-19T10:26:57.756Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1214,7 +1207,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-17",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-272332&langCode=fr_FR&source=swatchgroup.com",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-272332&langCode=en_GB&source=swatchgroup.com",
       "requirements": [
         "A background in digital communication within the luxury sector (minimum 3 years)",
         "Prior experience in a digital agency is an advantage",
@@ -1236,12 +1229,27 @@
           "Strategic approach, capable of interpreting data ecosystems into actionable insights",
           "A bachelor's degree in communication/marketing",
           "Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments",
-          "Creativity and flexibility coupled with a strong team-oriented mindset",
-          "Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage",
-          "Fluent in English. French would be an added value."
+          "Creativity and flexibility coupled with a strong team-oriented mindset"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "digital-communication-project-manager-m-f-omega-biel-bienne",
+        "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne",
+        "digitaler-kommunikationsprojektmanager-m-w-omega-sa-biel-bienne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne",
+          "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne"
+        ],
+        "de": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne",
+          "digitaler-kommunikationsprojektmanager-m-w-omega-sa-biel-bienne"
+        ],
+        "fr": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne"
+        ]
+      },
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1254,40 +1262,40 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:57:44.086Z"
+      "firstSeenAt": "2026-08-18T21:57:20.875Z"
     },
     {
       "id": "omega-32829",
-      "slug": "deputy-boutique-director-omega-boutique-zurich-omega-zurich",
+      "slug": "deputy-boutique-direttore-omega-boutique-zurich-omega-sa-zurich",
       "slugByLocale": {
-        "de": "deputy-boutique-director-omega-boutique-zurich-omega-zurich",
-        "it": "deputy-boutique-director-omega-boutique-zurich-omega-zurich",
+        "it": "deputy-boutique-direttore-omega-boutique-zurich-omega-sa-zurich",
         "en": "deputy-boutique-director-omega-boutique-zurich-omega-zurich",
-        "fr": "deputy-boutique-director-omega-boutique-zurich-omega-zurich"
+        "de": "deputy-boutique-director-omega-boutique-zurich-omega-zurich",
+        "fr": "directeur-boutique-de-l-omega-omega-sa-zurich"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
       "companyDomain": "omegawatches.com",
       "title": "DEPUTY BOUTIQUE DIRECTOR - OMEGA BOUTIQUE ZURICH",
       "titleByLocale": {
-        "de": "DEPUTY BOUTIQUE Direktor - OMEGA BOUTIQUE ZURICH",
-        "fr": "DEPUTY BOUTIQUE DIRECTOR - OMEGA BOUTIQUE ZURICH",
         "it": "DEPUTY BOUTIQUE Direttore - OMEGA BOUTIQUE ZURICH",
-        "en": "DEPUTY BOUTIQUE DIRECTOR - OMEGA BOUTIQUE ZURICH"
+        "en": "DEPUTY BOUTIQUE DIRECTOR — OMEGA BOUTIQUE ZURICH",
+        "de": "DEPUTY BOUTIQUE Direktor - OMEGA BOUTIQUE ZURICH",
+        "fr": "DIRECTEUR BOUTIQUE DE L'OMEGA"
       },
       "description": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus.",
       "descriptionByLocale": {
+        "it": "## Introduzione della sociologia\nOMEGA è un prestigioso marchio globale che da oltre 170 anni si impegna per la massima qualità, precisione e innovazione. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie che sono leader nell'industria orologiera e sono caratterizzati da un design senza tempo.\n\nNel corso della nostra lunga storia, abbiamo stabilito dei record di precisione, svolto un ruolo decisivo nel cronometraggio sportivo e continuare a svolgere un ruolo pionieristico nell'arte dell'orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a sostenere i nostri team in praticamente ogni continente attraverso i loro talenti, ambizioni e ispirazione.\n\n## Descrizione del post\n• Lei sostiene attivamente il Boutique Director nella leadership operativa e strategica della Boutique\n\n• Sviluppare e mantenere una forte rete locale e posizionare la boutique come un riferimento indispensabile nella regione\n\n• Costruisci relazioni a lungo termine con i nostri clienti locali e internazionali e garantisci un'elevata fedeltà dei clienti\n\n• Creano una customer experience di prima classe, caratterizzata da consigli personali, eccellenze di servizio e conoscenze approfondite sul nostro marchio e le caratteristiche tecniche dei nostri orologi\n\n• Promuovano una forte cultura della clientela: impegno attivo del cliente, manutenzione del portafoglio clienti, attività di sensibilizzazione mirate e organizzazione di esperienze VIP\n\n• Essi motivano, accompagnano e sviluppano il team di vendita per garantire una cultura di team potente e stimolante\n\n• Come ambasciatore del nostro marchio, sei sempre esemplare e contribuisci all'immagine positiva della boutique\n\n## Profilo\n• Diversi anni di esperienza professionale nel segmento di lusso, idealmente nell'industria dell'orologio o dei gioielli.\n\n• Personalità aperta, aperta e comunicativa con un forte talento per la creazione di reti e relazioni, soprattutto nell'ambiente locale.\n\n• Alta flessibilità per quanto riguarda le ore di lavoro e i giorni (compreso il sabato).\n\n## Requisiti di conformità\n• Eccellente capacità di vendita e un senso intuitivo delle esigenze dei clienti esigenti.\n\n• Mantenga, aspetto rappresentativo così come un'alta qualità e la consapevolezza del servizio.\n\n## Lingue\n• Conoscenza molto buona di tedesco e inglese; Ogni altra lingua (soprattutto francese) è un plus.",
+        "en": "## Introduction of the société\nOMEGA is a prestigious global brand that has been striving for the highest quality, precision and innovation for more than 170 years. Our watches are among the best in the world, they are the result of technologies that are leaders in the watch industry and are characterized by a timeless design.\n\nOver the course of our long history, we have set precision records, played a decisive role in sports timekeeping and continue to play a pioneering role in the art of watchmaking.\n\nAs an international brand, we are always interested in meeting future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\n## Description of post\n• You actively support the Boutique Director in the operational and strategic leadership of the Boutique\n\n• Develop and maintain a strong local network and position the boutique as an indispensable reference in the region\n\n• You build long-term relationships with our local and international customers and ensure continuous high customer loyalty\n\n• They create a first-class customer experience, characterized by personal advice, service excellence and in-depth knowledge about our brand as well as the technical characteristics of our timepieces\n\n• They promote a strong clienteling culture: Proactive customer engagement, customer portfolio maintenance, targeted outreach activities and organization of VIP experiences\n\n• They motivate, accompany and develop the sales team to ensure a powerful and inspiring team culture\n\n• As an ambassador of our brand, you are always exemplary and contribute to the positive image of the boutique\n\n## Profile\n• Several years of professional experience in the luxury segment, ideally in the watch or jewelry industry.\n\n• Extraverted, open and communication-strong personality with a strong talent for networking and relationship building, especially in the local environment.\n\n• High flexibility regarding working hours and days (including Saturdays).\n\n## Competence requirements\n• Excellent sales skills and an intuitive sense of the needs of demanding customers.\n\n• Maintained, representative appearance as well as a high quality and service awareness.\n\n## Langues\n• Very good knowledge of German and English; Every other language (especially French) is a plus.",
         "de": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus.",
-        "it": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus.",
-        "en": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus.",
-        "fr": "## Introduction de la société\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äußerster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Description du poste\n• Sie unterstützen den Boutique Director aktiv in der operativen und strategischen Führung der Boutique\n\n• Sie entwickeln und pflegen ein starkes lokales Netzwerk und positionieren die Boutique als unverzichtbare Referenz in der Region\n\n• Sie bauen langfristige Beziehungen zu unserer lokalen und internationalen Kundschaft auf und sorgen für eine kontinuierlich hohe Kundenbindung\n\n• Sie schaffen ein erstklassiges Kundenerlebnis, geprägt von persönlicher Beratung, Service-Exzellenz und fundiertem Wissen über unsere Marke sowie die technischen Besonderheiten unserer Zeitmesser\n\n• Sie fördern eine ausgeprägte Clienteling‑Kultur: Proaktive Kundenansprache, Pflege des Kundenportfolios, gezielte Outreach‑Aktivitäten und Organisation von VIP‑Erlebnissen\n\n• Sie motivieren, begleiten und entwickeln das Verkaufsteam, um eine leistungsstarke und inspirierende Teamkultur sicherzustellen\n\n• Als Botschafter unserer Marke treten Sie jederzeit vorbildlich auf und tragen zur positiven Ausstrahlung der Boutique bei\n\n## Profil\n• Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.\n\n• Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.\n\n• Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).\n\n## Compétences requises\n• Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.\n\n• Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.\n\n## Langues\n• Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus."
+        "fr": "## Introduction de la société\nOMEGA est une marque mondiale prestigieuse qui s'efforce depuis plus de 170 ans d'obtenir la plus haute qualité, précision et innovation. Nos montres sont parmi les meilleures du monde, elles sont le résultat de technologies qui sont des leaders dans l'industrie horlogère et sont caractérisées par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, joué un rôle décisif dans l'horlogerie sportive et continuons de jouer un rôle pionnier dans l'art horloger.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Vous soutenez activement le directeur de la Boutique dans la direction opérationnelle et stratégique de la Boutique\n\n• Développer et maintenir un réseau local solide et positionner la boutique comme une référence indispensable dans la région\n\n• Vous établissez des relations à long terme avec nos clients locaux et internationaux et assurez une fidélité continue élevée à la clientèle\n\n• Ils créent une expérience client de première classe, caractérisée par des conseils personnels, l'excellence du service et une connaissance approfondie de notre marque ainsi que les caractéristiques techniques de nos montres\n\n• Ils favorisent une forte culture clienteling : engagement client proactif, maintenance du portefeuille client, activités de sensibilisation ciblées et organisation d'expériences VIP\n\n• Ils motivent, accompagnent et développent l'équipe de vente pour assurer une culture d'équipe puissante et inspirante\n\n• En tant qu'ambassadeur de notre marque, vous êtes toujours exemplaire et contribuez à l'image positive de la boutique\n\n## Profil\n• Plusieurs années d'expérience professionnelle dans le secteur du luxe, idéalement dans l'industrie de la montre ou des bijoux.\n\n• Personnalité extravertie, ouverte et forte en communication avec un fort talent pour le réseautage et l'établissement de relations, en particulier dans l'environnement local.\n\n• Haute flexibilité en ce qui concerne les heures et les jours de travail (y compris les samedis).\n\n## Exigences en matière de compétences\n• Excellentes compétences de vente et un sens intuitif des besoins des clients exigeants.\n\n• Maintien d'une apparence représentative ainsi que d'une haute qualité et sensibilisation au service.\n\n## Langues\n• Très bonne connaissance de l'allemand et de l'anglais; Toute autre langue (surtout le français) est un plus."
       },
       "location": "Zurich",
       "canton": "ZH",
       "url": "https://www.swatchgroup.com/fr/job/32829",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-17T21:57:22.772Z",
+      "crawledAt": "2026-08-19T10:26:36.108Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1314,14 +1322,21 @@
       "requirementsByLocale": {
         "de": [
           "Mehrjährige Berufserfahrung im Luxussegment, idealerweise in der Uhren- oder Schmuckbranche.",
-          "Extravertierte, offene und kommunikationsstarke Persönlichkeit mit ausgeprägtem Talent für Networking und Beziehungsaufbau, insbesondere im lokalen Umfeld.",
           "Hohe Flexibilität bezüglich Arbeitszeiten und -tagen (inkl. Samstage).",
           "Hervorragende verkäuferische Fähigkeiten und ein intuitives Gespür für die Bedürfnisse anspruchsvoller Kunden.",
           "Gepflegtes, repräsentatives Auftreten sowie ein hohes Qualitäts‑ und Servicebewusstsein.",
           "Sehr gute Deutsch- und Englischkenntnisse; jede weitere Sprache (insbesondere Französisch) ist ein Plus."
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "deputy-boutique-director-omega-boutique-zurich-omega-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "deputy-boutique-director-omega-boutique-zurich-omega-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-08-17T21:57:22.772Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1333,8 +1348,202 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "omega-32836",
+      "slug": "olympic-paralympic-games-senior-hospitality-manager-omega-biel-bienne",
+      "slugByLocale": {
+        "en": "olympic-paralympic-games-senior-hospitality-manager-omega-biel-bienne",
+        "it": "olympic-paralympic-games-senior-hospitality-manager-omega-biel-bienne",
+        "de": "olympic-paralympic-games-senior-hospitality-manager-omega-biel-bienne",
+        "fr": "gestionnaire-des-jeux-olympiques-et-paralympiques-omega-sa-biel-bienne"
       },
-      "firstSeenAt": "2026-08-17T21:57:22.772Z"
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "OLYMPIC & PARALYMPIC GAMES SENIOR HOSPITALITY MANAGER",
+      "titleByLocale": {
+        "en": "OLYMPIC & PARALYMPIC GAMES SENIOR HOSPITALITY MANAGER",
+        "it": "OLYMPIC & PARALYMPIC GAMES SENIOR HOSPITALITY MANAGER",
+        "de": "OLYMPIC & PARALYMPIC GAMES SENIOR HOSPITALITY MANAGER",
+        "fr": "GESTIONNAIRE DES JEUX OLYMPIQUES ET PARALYMPIQUES"
+      },
+      "description": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\nJoin OMEGA and play a key role in delivering world-class hospitality experiences at the Olympic and Paralympic Games.\n\n## Job description\nYOUR MISSION\n\nUnder the direction of the Head of Olympic & Paralympic Games, you will lead the planning, coordination, and execution of OMEGA's hospitality and guest experience programs during the Games. Working closely with international partners, local stakeholders, and internal teams, you will ensure flawless operations and premium hospitality standards that reflect OMEGA's reputation for excellence..\n\nKEY RESPONSIBILITIES\n\n• Lead the planning, coordination and delivery of OMEGA's hospitality operations and guest experience programs before and during the Olympic and Paralympic Games.\n\n• Manage relationships with key stakeholders including Organizing Committees, National Olympic Committees (NOCs), IOC-related agencies, hospitality agencies, hotels, tourism offices and suppliers.\n\n• Coordinate cross-functional teams and external partners to ensure operational readiness and flawless execution of hospitality programs.\n\n• Design and deliver premium guest experiences, including hospitality waves, VIP activities and bespoke engagement opportunities.\n\n• Oversee hospitality logistics, accommodation, transportation, catering, supplier management and on-site Games-time operations.\n\n• Manage the development and delivery of hospitality assets, invitations, guest communications, uniforms, giveaways and other event materials.\n\n• Ensure compliance with Olympic branding guidelines and coordinate internal approval processes for all related materials.\n\n• Coordinate photography and filming activities to support PR, communications and social media initiatives.\n\n• Serve as the internal point of contact for hospitality operations and staff-related matters.\n\n• Support team members, fostering collaboration, accountability and professional development.\n\n• Ensure projects are delivered on time, within scope and aligned with long-term Games preparation strategies.\n\n## Profile\n• Proven experience working on the Olympic Games or other major international sporting events.\n\n• Strong expertise in planning and delivering premium hospitality programs within complex and multicultural environments.\n\n• Excellent project management skills, with the ability to manage multiple priorities, deadlines and stakeholders simultaneously.\n\n• Demonstrated experience leading cross-functional projects involving hospitality, operations, logistics and guest services.\n\n• Proven ability to manage vendors, suppliers and operational partners while ensuring high service standards and cost efficiency.\n\n• Outstanding communication and interpersonal skills, with the ability to build trusted relationships across a wide range of international stakeholders.\n\n• Strong analytical, planning and problem-solving capabilities, combined with a calm and solution-oriented approach under pressure.\n\n• Diplomatic, culturally sensitive and comfortable working in highly international environments.\n\n• Flexible and willing to travel internationally, including extended assignments of up to two months during Games time.\n\n• Proactive, results-driven and able to work independently while fostering strong collaboration and teamwork.\n\n• Highly organized and detail-oriented, with a passion for operational excellence and flawless execution.\n\n## Languages\n• Fluent in English and French, with excellent written and verbal communication skills.",
+      "descriptionByLocale": {
+        "en": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\nJoin OMEGA and play a key role in delivering world-class hospitality experiences at the Olympic and Paralympic Games.\n\n## Job description\nYOUR MISSION\n\nUnder the direction of the Head of Olympic & Paralympic Games, you will lead the planning, coordination, and execution of OMEGA's hospitality and guest experience programs during the Games. Working closely with international partners, local stakeholders, and internal teams, you will ensure flawless operations and premium hospitality standards that reflect OMEGA's reputation for excellence..\n\nKEY RESPONSIBILITIES\n\n• Lead the planning, coordination and delivery of OMEGA's hospitality operations and guest experience programs before and during the Olympic and Paralympic Games.\n\n• Manage relationships with key stakeholders including Organizing Committees, National Olympic Committees (NOCs), IOC-related agencies, hospitality agencies, hotels, tourism offices and suppliers.\n\n• Coordinate cross-functional teams and external partners to ensure operational readiness and flawless execution of hospitality programs.\n\n• Design and deliver premium guest experiences, including hospitality waves, VIP activities and bespoke engagement opportunities.\n\n• Oversee hospitality logistics, accommodation, transportation, catering, supplier management and on-site Games-time operations.\n\n• Manage the development and delivery of hospitality assets, invitations, guest communications, uniforms, giveaways and other event materials.\n\n• Ensure compliance with Olympic branding guidelines and coordinate internal approval processes for all related materials.\n\n• Coordinate photography and filming activities to support PR, communications and social media initiatives.\n\n• Serve as the internal point of contact for hospitality operations and staff-related matters.\n\n• Support team members, fostering collaboration, accountability and professional development.\n\n• Ensure projects are delivered on time, within scope and aligned with long-term Games preparation strategies.\n\n## Profile\n• Proven experience working on the Olympic Games or other major international sporting events.\n\n• Strong expertise in planning and delivering premium hospitality programs within complex and multicultural environments.\n\n• Excellent project management skills, with the ability to manage multiple priorities, deadlines and stakeholders simultaneously.\n\n• Demonstrated experience leading cross-functional projects involving hospitality, operations, logistics and guest services.\n\n• Proven ability to manage vendors, suppliers and operational partners while ensuring high service standards and cost efficiency.\n\n• Outstanding communication and interpersonal skills, with the ability to build trusted relationships across a wide range of international stakeholders.\n\n• Strong analytical, planning and problem-solving capabilities, combined with a calm and solution-oriented approach under pressure.\n\n• Diplomatic, culturally sensitive and comfortable working in highly international environments.\n\n• Flexible and willing to travel internationally, including extended assignments of up to two months during Games time.\n\n• Proactive, results-driven and able to work independently while fostering strong collaboration and teamwork.\n\n• Highly organized and detail-oriented, with a passion for operational excellence and flawless execution.\n\n## Languages\n• Fluent in English and French, with excellent written and verbal communication skills.",
+        "it": "## L'azienda\nOMEGA è un prestigioso marchio globale con oltre 170 anni di impegno per la qualità, la precisione e l'innovazione. I nostri orologi sono tra i migliori al mondo, definiti dalla tecnologia leader del settore e dal fascino estetico senza tempo.\n\nNella nostra lunga storia, abbiamo impostato record di precisione, tempismo sportivo definito e all'avanguardia dell'orologeria.\n\nCome marchio internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a contribuire ai loro talenti, ambizioni e ispirazioni ai nostri team in praticamente ogni continente.\n\nPartecipa a OMEGA e gioca un ruolo chiave nel fornire esperienze di ospitalità di livello mondiale ai Giochi Olimpici e Paralimpici.\n\n## Descrizione del lavoro\nLA TUA MISSIONE\n\nSotto la direzione del Capo dei Giochi Olimpici e Paralimpici, guiderai la pianificazione, il coordinamento e l'esecuzione dei programmi di ospitalità e di esperienza degli ospiti di OMEGA durante i Giochi. Lavorando a stretto contatto con partner internazionali, stakeholder locali e team interni, garantirai operazioni impeccabile e standard di ospitalità premium che riflettono la reputazione di OMEGA per l'eccellenza.\n\nRISPOSTE DI LAVORO\n\n• Guidare la pianificazione, il coordinamento e la consegna delle operazioni di ospitalità di OMEGA e programmi di esperienza degli ospiti prima e durante i Giochi Olimpici e Paralimpici.\n\n• Gestisci i rapporti con le principali parti interessate, tra cui i comitati organizzativi, i comitati olimpici nazionali (NOC), le agenzie di accoglienza, gli hotel, gli uffici turistici e i fornitori.\n\n• Coordinate i team interfunzionali e i partner esterni per garantire la disponibilità operativa e l'esecuzione impeccabile dei programmi di ospitalità.\n\n• Progettare e offrire esperienze premium ospiti, tra cui onde di ospitalità, attività VIP e opportunità di fidanzamento su misura.\n\n• Superare la logistica dell'ospitalità, l'alloggio, il trasporto, la ristorazione, la gestione dei fornitori e le operazioni in loco di giochi-tempo.\n\n• Gestire lo sviluppo e la consegna di beni di ospitalità, inviti, comunicazioni degli ospiti, uniformi, giveaways e altri materiali di evento.\n\n• Assicurarsi il rispetto delle linee guida del marchio olimpico e coordinare i processi di approvazione interna per tutti i materiali correlati.\n\n• Coordinate le attività di fotografia e di film per sostenere le iniziative di PR, comunicazione e social media.\n\n• Servire come punto di contatto interno per le operazioni di ospitalità e le questioni relative al personale.\n\n• Sostenere i membri del team, promuovere la collaborazione, la responsabilità e lo sviluppo professionale.\n\n• Assicurare che i progetti vengano consegnati in tempo, entro la portata e allineati con strategie di preparazione di giochi a lungo termine.\n\n## Profilo\n• Provata esperienza di lavoro sui Giochi Olimpici o altri importanti eventi sportivi internazionali.\n\n• Forte competenza nella pianificazione e nella fornitura di programmi di ospitalità premium all'interno di ambienti complessi e multiculturali.\n\n• Eccellente capacità di gestione del progetto, con la capacità di gestire più priorità, scadenze e stakeholder contemporaneamente.\n\n• Esperienza dimostrata leader di progetti interfunzionali che coinvolgono ospitalità, operazioni, logistica e servizi ospiti.\n\n• Prova capacità di gestire fornitori, fornitori e partner operativi, garantendo elevati standard di servizio e efficienza dei costi.\n\n• Comunicazione eccezionale e competenze interpersonali, con la capacità di costruire relazioni di fiducia in una vasta gamma di stakeholder internazionali.\n\n• Forte capacità analitiche, di pianificazione e di problem solving, combinato con un approccio calmo e orientato alla soluzione sotto pressione.\n\n• Lavoro diplomatico, culturalmente sensibile e confortevole in ambienti altamente internazionali.\n\n• Flessibile e disposto a viaggiare a livello internazionale, tra cui incarichi prolungati fino a due mesi durante il tempo di Giochi.\n\n• Proattivo, guidato dai risultati e in grado di lavorare in modo indipendente, promuovendo una forte collaborazione e lavoro di squadra.\n\n• Altamente organizzato e orientato al dettaglio, con una passione per l'eccellenza operativa e l'esecuzione impeccabile.\n\n## Lingue\n• Fluente in inglese e francese, con eccellenti capacità di comunicazione scritte e verbali.",
+        "de": "## Das Unternehmen\nOMEGA ist eine renommierte globale Marke mit mehr als 170 Jahren Engagement für Qualität, Präzision und Innovation. Unsere Uhren gehören zu den besten der Welt, definiert durch branchenführende Technologie und zeitlose Ästhetik.\n\nIn unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, Sport-Timing definiert und auf dem neuesten Stand der Uhrmacherei.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen zu treffen, die bereit sind, ihre Talente, Ambitionen und Inspirationen in unsere Teams auf praktisch jedem Kontinent einzubringen.\n\nTreten Sie OMEGA bei und spielen Sie eine Schlüsselrolle bei der Bereitstellung von Weltklasse-Gastfreundschaftserlebnissen bei den Olympischen und Paralympischen Spielen.\n\n## Stellenbeschreibung\nIHRE ÜBERMITTLUNG\n\nUnter der Leitung des Leiters der Olympischen und Paralympischen Spiele leiten Sie die Planung, Koordination und Durchführung der Gastfreundschafts- und Gasterlebnisprogramme von OMEGA während der Spiele. In enger Zusammenarbeit mit internationalen Partnern, lokalen Stakeholdern und internen Teams sorgen Sie für einen einwandfreien Betrieb und erstklassige Gastlichkeitsstandards, die den Ruf von OMEGA für Exzellenz widerspiegeln.\n\nWICHTIGKEITEN\n\n• Führen Sie die Planung, Koordination und Durchführung der OMEGA Hospitality-Aktivitäten und Gästeerlebnisprogramme vor und während der Olympischen und Paralympischen Spiele.\n\n• Verwalten Sie die Beziehungen zu wichtigen Interessengruppen, darunter Organisationskomitees, Nationale Olympische Komitees (NOCs), IOC-bezogene Agenturen, Hotelagenturen, Tourismusbüros und Lieferanten.\n\n• Koordinieren Sie funktionsübergreifende Teams und externe Partner, um die Einsatzbereitschaft und die einwandfreie Durchführung von Hospitality-Programmen zu gewährleisten.\n\n• Entwerfen und liefern Sie Premium-Gästeerlebnisse, einschließlich Hospitality-Wellen, VIP-Aktivitäten und maßgeschneiderte Engagement-Möglichkeiten.\n\n• Beaufsichtigen Sie die Hotellogistik, Unterkunft, Transport, Catering, Lieferantenmanagement und den Betrieb vor Ort.\n\n• Verwalten Sie die Entwicklung und Lieferung von Hospitality-Assets, Einladungen, Gästekommunikation, Uniformen, Giveaways und anderen Veranstaltungsmaterialien.\n\n• Gewährleistung der Einhaltung der olympischen Branding-Richtlinien und Koordinierung der internen Genehmigungsprozesse für alle zugehörigen Materialien.\n\n• Koordinieren Sie Foto- und Filmaktivitäten zur Unterstützung von PR-, Kommunikations- und Social-Media-Initiativen.\n\n• Dienen Sie als interner Ansprechpartner für Hospitality-Operationen und Personalangelegenheiten.\n\n• Unterstützen Sie Teammitglieder, fördern Sie Zusammenarbeit, Rechenschaftspflicht und berufliche Entwicklung.\n\n• Stellen Sie sicher, dass Projekte pünktlich, innerhalb des Umfangs und in Übereinstimmung mit langfristigen Spielevorbereitungsstrategien geliefert werden.\n\n## Profil\n• Nachgewiesene Erfahrung in der Arbeit an den Olympischen Spielen oder anderen großen internationalen Sportveranstaltungen.\n\n• Starke Expertise in der Planung und Bereitstellung von Premium-Hospitality-Programmen in komplexen und multikulturellen Umgebungen.\n\n• Hervorragende Projektmanagementfähigkeiten mit der Fähigkeit, mehrere Prioritäten, Fristen und Stakeholder gleichzeitig zu verwalten.\n\n• Demonstrierte Erfahrung bei der Leitung von funktionsübergreifenden Projekten mit Gastfreundschaft, Betrieb, Logistik und Gästeservice.\n\n• Bewährte Fähigkeit, Anbieter, Lieferanten und operative Partner zu verwalten und gleichzeitig hohe Servicestandards und Kosteneffizienz zu gewährleisten.\n\n• Hervorragende Kommunikation und zwischenmenschliche Fähigkeiten, mit der Fähigkeit, vertrauenswürdige Beziehungen zwischen einer Vielzahl von internationalen Stakeholdern aufzubauen.\n\n• Starke Analyse-, Planungs- und Problemlösungsfähigkeiten, kombiniert mit einem ruhigen und lösungsorientierten Ansatz unter Druck.\n\n• Diplomatisch, kulturell sensibel und komfortabel arbeiten in sehr internationalen Umgebungen.\n\n• Flexibel und bereit, international zu reisen, einschließlich erweiterter Aufträge von bis zu zwei Monaten während der Spielzeit.\n\n• Proaktiv, ergebnisorientiert und in der Lage, unabhängig zu arbeiten und gleichzeitig eine starke Zusammenarbeit und Teamarbeit zu fördern.\n\n• Hoch organisiert und detailorientiert, mit einer Leidenschaft für operative Exzellenz und makellose Ausführung.\n\n## Sprachen\n• Fließend in Englisch und Französisch, mit ausgezeichneten schriftlichen und verbalen Kommunikationsfähigkeiten.",
+        "fr": "## La société\nOMEGA est une marque mondiale prestigieuse avec plus de 170 ans d'engagement pour la qualité, la précision et l'innovation. Nos montres sont parmi les plus belles du monde, définies par la technologie leader de l'industrie et l'attrait esthétique intemporel.\n\nDans notre longue histoire, nous avons établi des records de précision, défini le calendrier sportif et à l'horlogerie fine.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à apporter leurs talents, ambitions et inspiration à nos équipes sur pratiquement tous les continents.\n\nRejoignez OMEGA et jouez un rôle clé dans la prestation d'expériences d'hospitalité de calibre mondial aux Jeux olympiques et paralympiques.\n\n## Description de l'emploi\nVotre mission\n\nSous la direction du chef des Jeux olympiques et paralympiques, vous dirigerez la planification, la coordination et l'exécution des programmes d'hospitalité et d'expérience invités d'OMEGA pendant les Jeux. En étroite collaboration avec des partenaires internationaux, des intervenants locaux et des équipes internes, vous assurerez des opérations impeccables et des normes d'accueil haut de gamme qui reflètent la réputation d'OMEGA pour l'excellence.\n\nPRINCIPALES RESPONSABILITÉS\n\n• Diriger la planification, la coordination et la prestation des activités d'accueil et des programmes d'expérience invités d'OMEGA avant et pendant les Jeux olympiques et paralympiques.\n\n• Gérer les relations avec les principaux intervenants, notamment les comités organisateurs, les comités olympiques nationaux (CNO), les agences liées au CIO, les agences d'accueil, les hôtels, les bureaux de tourisme et les fournisseurs.\n\n• Coordonner les équipes interfonctionnelles et les partenaires externes pour assurer la préparation opérationnelle et l'exécution impeccable des programmes d'accueil.\n\n• Concevoir et offrir des expériences haut de gamme, y compris des vagues d'hospitalité, des activités VIP et des occasions d'engagement sur mesure.\n\n• Surveiller la logistique d'accueil, l'hébergement, le transport, la restauration, la gestion des fournisseurs et les activités sur place.\n\n• Gérer le développement et la livraison des biens d'accueil, des invitations, des communications avec les invités, des uniformes, des cadeaux et d'autres matériels d'événements.\n\n• Assurer le respect des lignes directrices sur l'image de marque olympique et coordonner les processus d'approbation interne pour tous les documents connexes.\n\n• Coordonner les activités de photographie et de tournage pour appuyer les initiatives en matière de relations publiques, de communications et de médias sociaux.\n\n• Servir de point de contact interne pour les opérations d'accueil et les questions liées au personnel.\n\n• Soutenir les membres de l'équipe, favoriser la collaboration, la responsabilisation et le perfectionnement professionnel.\n\n• Veiller à ce que les projets soient exécutés à temps, dans les limites de leur portée et conformément aux stratégies de préparation à long terme des Jeux.\n\n## Profil\n• Expérience éprouvée de travail sur les Jeux Olympiques ou d'autres grands événements sportifs internationaux.\n\n• Une solide expertise dans la planification et la prestation de programmes d'accueil haut de gamme dans des environnements complexes et multiculturels.\n\n• Excellentes compétences en gestion de projet, avec la capacité de gérer simultanément plusieurs priorités, délais et intervenants.\n\n• Expérience démontrée menant des projets interfonctionnels incluant l'accueil, les opérations, la logistique et les services aux clients.\n\n• Capacité éprouvée de gérer les fournisseurs, les fournisseurs et les partenaires opérationnels tout en garantissant des normes de service élevées et une rentabilité élevée.\n\n• Compétences en communication et en relations interpersonnelles exceptionnelles, avec la capacité d'établir des relations de confiance entre un large éventail d'intervenants internationaux.\n\n• Fortes capacités d'analyse, de planification et de résolution de problèmes, associées à une approche calme et orientée vers la solution sous pression.\n\n• Diplomatique, culturellement sensible et confortable travaillant dans des environnements très internationaux.\n\n• Flexible et disposé à voyager à l'étranger, y compris des affectations prolongées allant jusqu'à deux mois pendant les Jeux.\n\n• Proactive, axée sur les résultats et capable de travailler de façon indépendante tout en favorisant une collaboration et un travail d'équipe solides.\n\n• Très organisé et axé sur le détail, avec une passion pour l'excellence opérationnelle et l'exécution parfaite.\n\n## Langues\n• Fluent en anglais et en français, avec d'excellentes compétences en communication écrite et verbale."
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/en/job/32836",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-19T10:26:13.870Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Marketing",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-272469&langCode=en_GB&source=swatchgroup.com",
+      "requirements": [
+        "Proven experience working on the Olympic Games or other major international sporting events.",
+        "Strong expertise in planning and delivering premium hospitality programs within complex and multicultural environments.",
+        "Excellent project management skills, with the ability to manage multiple priorities, deadlines and stakeholders simultaneously.",
+        "Demonstrated experience leading cross-functional projects involving hospitality, operations, logistics and guest services.",
+        "Proven ability to manage vendors, suppliers and operational partners while ensuring high service standards and cost efficiency.",
+        "Outstanding communication and interpersonal skills, with the ability to build trusted relationships across a wide range of international stakeholders.",
+        "Strong analytical, planning and problem-solving capabilities, combined with a calm and solution-oriented approach under pressure.",
+        "Diplomatic, culturally sensitive and comfortable working in highly international environments.",
+        "Flexible and willing to travel internationally, including extended assignments of up to two months during Games time.",
+        "Proactive, results-driven and able to work independently while fostering strong collaboration and teamwork.",
+        "Highly organized and detail-oriented, with a passion for operational excellence and flawless execution.",
+        "Fluent in English and French, with excellent written and verbal communication skills."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Proven experience working on the Olympic Games or other major international sporting events.",
+          "Strong expertise in planning and delivering premium hospitality programs within complex and multicultural environments.",
+          "Diplomatic, culturally sensitive and comfortable working in highly international environments.",
+          "Flexible and willing to travel internationally, including extended assignments of up to two months during Games time.",
+          "Proactive, results-driven and able to work independently while fostering strong collaboration and teamwork.",
+          "Highly organized and detail-oriented, with a passion for operational excellence and flawless execution.",
+          "Fluent in English and French, with excellent written and verbal communication skills."
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 106500,
+      "salaryMax": 188500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 106500,
+          "maxValue": 188500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T21:56:34.639Z"
+    },
+    {
+      "id": "omega-32837",
+      "slug": "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne-68e3e4",
+      "slugByLocale": {
+        "en": "digital-communication-project-manager-m-f-omega-biel-bienne-7ubi8m",
+        "it": "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne-68e3e4",
+        "de": "digitale-kommunikationsprojektmanager-m-w-omega-sa-biel-bienne-68e3e4",
+        "fr": "gestionnaire-du-projet-de-communication-numerique-h-f-omega-sa-biel-bienne-68e3e4"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)",
+      "titleByLocale": {
+        "en": "DIGITAL COMMUNICATION PROJECT MANAGER (M/F)",
+        "it": "PROGETTO DI COMUNICAZIONE DIGITALE MANAGER (M/F)",
+        "de": "DIGITALE KOMMUNIKATIONSPROJEKTMANAGER (M/W)",
+        "fr": "GESTIONNAIRE DU PROJET DE COMMUNICATION NUMÉRIQUE (H/F)"
+      },
+      "description": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profile\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Languages\n• Fluent in English. French would be an added value.",
+      "descriptionByLocale": {
+        "en": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\nYOUR MISSION\n\nAs a vital member of the Social Media team, you will play a pivotal role in shaping OMEGA’s communication strategy and driving the evolution of the brand’s digital footprint. Your role demands a comprehensive grasp of Social Media and digital communication trends. You'll need to be naturally inquisitive, innovative, and proactive in seeking out new opportunities.\n\nYOUR MAIN RESPONSIBILITIES\n\n• Collaborate closely with the Marketing team to craft comprehensive 360 campaigns\n\n• Establish and manage a detailed publication schedule aligning with the International Marketing plan\n\n• Utilize our social management tool to schedule daily posts\n\n• Enhance brand and product visibility across all digital platforms\n\n• Coordinate cross-market projects effectively\n\n• Spearhead live event initiatives\n\n• Design and execute social media campaigns guided by specific KPIs\n\n• Deliver comprehensive reports on social media campaigns and activities\n\n• Analyze campaign performance to derive actionable insights and identify future opportunities\n\n• Monitor and report on emerging digital trends\n\n## Profile\n• A background in digital communication within the luxury sector (minimum 3 years)\n\n• Prior experience in a digital agency is an advantage\n\n• A deep interest in the luxury and watch industry\n\n• Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategic approach, capable of interpreting data ecosystems into actionable insights\n\n• A bachelor's degree in communication/marketing\n\n• Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments\n\n• Creativity and flexibility coupled with a strong team-oriented mindset\n\n• Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage\n\n## Languages\n• Fluent in English. French would be an added value.",
+        "it": "## L'azienda\nOMEGA è un prestigioso marchio globale con oltre 170 anni di impegno per la qualità, la precisione e l'innovazione. I nostri orologi sono tra i migliori al mondo, definiti dalla tecnologia leader del settore e dal fascino estetico senza tempo.\n\nNella nostra lunga storia, abbiamo impostato record di precisione, tempismo sportivo definito e siamo rimasti all'avanguardia dell'orologeria.\n\nCome marchio internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a contribuire ai loro talenti, ambizioni e ispirazioni ai nostri team in praticamente ogni continente.\n\n## Descrizione del lavoro\nLA TUA MISSIONE\n\nCome membro vitale del team Social Media, si svolgerà un ruolo fondamentale nella definizione della strategia di comunicazione di OMEGA e nella guida dell’evoluzione dell’impronta digitale del marchio. Il vostro ruolo richiede una comprensione completa dei Social Media e delle tendenze della comunicazione digitale. Dovrai essere naturalmente inquisitivo, innovativo e proattivo nella ricerca di nuove opportunità.\n\nLE PRINCIPALI RESPONSABILITÀ\n\n• Collaborare a stretto contatto con il team Marketing per creare campagne complete 360\n\n• Stabilire e gestire un programma di pubblicazione dettagliato in linea con il piano di Marketing Internazionale\n\n• Utilizzare il nostro strumento di gestione sociale per pianificare i messaggi giornalieri\n\n• Migliorare la visibilità del marchio e del prodotto su tutte le piattaforme digitali\n\n• Coordinare efficacemente i progetti cross-market\n\n• Iniziative di eventi live Spearhead\n\n• Progettare ed eseguire campagne di social media guidate da specifici KPI\n\n• Fornire report completi sulle campagne e sulle attività dei social media\n\n• Analizzare le prestazioni della campagna per trarre intuizioni attuabili e identificare le opportunità future\n\n• Monitor e report sulle tendenze digitali emergenti\n\n## Profilo\n• Uno sfondo nella comunicazione digitale nel settore del lusso (minimo 3 anni)\n\n• Esperienza prioritaria in un'agenzia digitale è un vantaggio\n\n• Un profondo interesse per il settore del lusso e dell'orologeria\n\n• Esperienza di lavoro con piattaforme di social media asiatiche (WeChat, Weibo, Douyin, LINE, ecc.)\n\n• Approccio strategico, in grado di interpretare gli ecosistemi dei dati in insight attuabili\n\n• Laurea in comunicazione/marketing\n\n• Eccellente capacità organizzativa, capacità di soddisfare le scadenze e adattarsi agli ambienti dinamici\n\n• Creatività e flessibilità accoppiata con una forte mentalità orientata al team\n\n• Forte comando di PowerPoint ed Excel; la familiarità con Adobe Creative Suite è un vantaggio\n\n## Lingue\n• Fluente in inglese. Il francese sarebbe un valore aggiunto.",
+        "de": "## Das Unternehmen\nOMEGA ist eine renommierte globale Marke mit mehr als 170 Jahren Engagement für Qualität, Präzision und Innovation. Unsere Uhren gehören zu den besten der Welt, definiert durch branchenführende Technologie und zeitlose Ästhetik.\n\nIn unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, Sport-Timing definiert und sind auf dem neuesten Stand der Uhrmacherei geblieben.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen zu treffen, die bereit sind, ihre Talente, Ambitionen und Inspirationen in unsere Teams auf praktisch jedem Kontinent einzubringen.\n\n## Stellenbeschreibung\nIHRE ÜBERMITTLUNG\n\nAls wichtiges Mitglied des Social Media Teams spielen Sie eine zentrale Rolle bei der Gestaltung der Kommunikationsstrategie von OMEGA und bei der Weiterentwicklung des digitalen Fußabdrucks der Marke. Ihre Rolle erfordert ein umfassendes Verständnis von Social Media und digitalen Kommunikationstrends. Sie müssen natürlich neugierig, innovativ und proaktiv bei der Suche nach neuen Möglichkeiten sein.\n\nIhre wichtigsten Aufgaben\n\n• Enge Zusammenarbeit mit dem Marketing-Team, um umfassende 360-Kampagnen zu erstellen\n\n• Erstellen und Verwalten eines detaillierten Publikationsplans, der mit dem International Marketing Plan übereinstimmt\n\n• Nutzen Sie unser Social-Management-Tool, um tägliche Posts zu planen\n\n• Verbesserung der Marken- und Produktsichtbarkeit auf allen digitalen Plattformen\n\n• Marktübergreifende Projekte effektiv koordinieren\n\n• Spearhead Live Event Initiativen\n\n• Design und Durchführung von Social Media Kampagnen, die von spezifischen KPIs geleitet werden\n\n• Liefern Sie umfassende Berichte über Social Media Kampagnen und Aktivitäten\n\n• Analyse der Kampagnenleistung, um umsetzbare Erkenntnisse abzuleiten und zukünftige Chancen zu identifizieren\n\n• Überwachen und Berichten über aufkommende digitale Trends\n\n## Profil\n• Ein Hintergrund in der digitalen Kommunikation im Luxussektor (mindestens 3 Jahre)\n\n• Vorkenntnisse in einer digitalen Agentur sind von Vorteil\n\n• Ein tiefes Interesse an der Luxus- und Uhrenindustrie\n\n• Erfahrung in der Arbeit mit asiatischen Social-Media-Plattformen (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Strategischer Ansatz, der Datenökosysteme in umsetzbare Erkenntnisse interpretieren kann\n\n• Ein Bachelor-Abschluss in Kommunikation / Marketing\n\n• Hervorragende organisatorische Fähigkeiten, Fähigkeit, Termine einzuhalten und sich an dynamische Umgebungen anzupassen\n\n• Kreativität und Flexibilität gepaart mit einer starken teamorientierten Denkweise\n\n• Starke Beherrschung von PowerPoint und Excel; Vertrautheit mit Adobe Creative Suite ist von Vorteil\n\n## Sprachen\n• fließend in Englisch. Französisch wäre ein Mehrwert.",
+        "fr": "## La société\nOMEGA est une marque mondiale prestigieuse avec plus de 170 ans d'engagement pour la qualité, la précision et l'innovation. Nos montres sont parmi les plus belles du monde, définies par la technologie leader de l'industrie et l'attrait esthétique intemporel.\n\nDans notre longue histoire, nous avons établi des records de précision, défini le calendrier sportif et sommes restés à la pointe de l'horlogerie fine.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à apporter leurs talents, ambitions et inspiration à nos équipes sur pratiquement tous les continents.\n\n## Description de l'emploi\nVotre mission\n\nEn tant que membre vital de l'équipe des médias sociaux, vous jouerez un rôle central dans l'élaboration de la stratégie de communication d'OMEGA et dans l'évolution de l'empreinte numérique de la marque. Votre rôle exige une compréhension complète des tendances des médias sociaux et de la communication numérique. Vous devrez être naturellement curieux, innovateur et proactif dans la recherche de nouvelles opportunités.\n\nVOS PRINCIPAUX RESPONSABILITÉS\n\n• Collaborer étroitement avec l'équipe marketing pour élaborer des campagnes complètes 360\n\n• Établir et gérer un calendrier de publication détaillé conforme au plan de marketing international\n\n• Utiliser notre outil de gestion sociale pour planifier les postes quotidiens\n\n• Améliorer la visibilité de la marque et des produits sur toutes les plateformes numériques\n\n• Coordonner efficacement les projets intersectoriels\n\n• Initiatives d'événements en direct Spearhead\n\n• Concevoir et exécuter des campagnes de médias sociaux guidées par des KPI spécifiques\n\n• Présenter des rapports détaillés sur les campagnes et activités des médias sociaux\n\n• Analyser les résultats de la campagne pour en tirer des enseignements concrets et identifier les possibilités futures\n\n• Surveiller les nouvelles tendances numériques et en rendre compte\n\n## Profil\n• Une formation en communication numérique dans le secteur du luxe (minimum 3 ans)\n\n• Une expérience antérieure dans une agence numérique est un avantage\n\n• Un profond intérêt pour l'industrie du luxe et de l'horlogerie\n\n• Expérience de travail avec les plateformes de médias sociaux asiatiques (WeChat, Weibo, Douyin, LINE, etc.)\n\n• Approche stratégique, capable d'interpréter les écosystèmes de données en éléments concrets\n\n• Licence en communication/marketing\n\n• Excellentes compétences organisationnelles, capacité à respecter les délais et à s'adapter aux environnements dynamiques\n\n• Créativité et flexibilité associées à un fort état d'esprit d'équipe\n\n• Forte maîtrise de PowerPoint et Excel; la familiarité avec Adobe Creative Suite est un avantage\n\n## Langues\n• En anglais. Le français serait une valeur ajoutée."
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/en/job/32837",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-19T10:25:52.198Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Management",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-272489&langCode=en_GB&source=swatchgroup.com",
+      "requirements": [
+        "A background in digital communication within the luxury sector (minimum 3 years)",
+        "Prior experience in a digital agency is an advantage",
+        "A deep interest in the luxury and watch industry",
+        "Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)",
+        "Strategic approach, capable of interpreting data ecosystems into actionable insights",
+        "A bachelor's degree in communication/marketing",
+        "Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments",
+        "Creativity and flexibility coupled with a strong team-oriented mindset",
+        "Strong command of PowerPoint and Excel; familiarity with Adobe Creative Suite is an advantage",
+        "Fluent in English. French would be an added value."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "A background in digital communication within the luxury sector (minimum 3 years)",
+          "Prior experience in a digital agency is an advantage",
+          "A deep interest in the luxury and watch industry",
+          "Experience working with Asian social media platforms (WeChat, Weibo, Douyin, LINE, etc.)",
+          "Strategic approach, capable of interpreting data ecosystems into actionable insights",
+          "A bachelor's degree in communication/marketing",
+          "Excellent organizational skills, ability to meet deadlines, and adapt to dynamic environments",
+          "Creativity and flexibility coupled with a strong team-oriented mindset"
+        ]
+      },
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T21:56:13.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne",
+          "digital-communication-project-manager-m-f-omega-biel-bienne-2",
+          "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne-68e3e4"
+        ],
+        "en": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne"
+        ],
+        "de": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne-2",
+          "digitaler-kommunikationsprojektmanager-m-w-omega-sa-biel-bienne-68e3e4"
+        ],
+        "fr": [
+          "digital-communication-project-manager-m-f-omega-biel-bienne-2"
+        ]
+      },
+      "previousSlugs": [
+        "digital-communication-project-manager-m-f-omega-biel-bienne",
+        "digital-communication-project-manager-m-f-omega-biel-bienne-2",
+        "progetto-di-comunicazione-digitale-manager-m-f-omega-sa-biel-bienne-68e3e4",
+        "digitaler-kommunikationsprojektmanager-m-w-omega-sa-biel-bienne-68e3e4"
+      ]
     }
   ]
 }

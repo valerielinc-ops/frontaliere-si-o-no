@@ -9,7 +9,6 @@ import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
 
 import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
-import TopAutoAdReserve from '@/components/shared/TopAutoAdReserve';
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
@@ -307,6 +306,23 @@ const App: React.FC = () => {
  // Blog hero images load from jsDelivr (CDN). If it's unreachable, swap the
  // failing <img> to its raw.githubusercontent fallback (same SHA).
  useEffect(() => { installBlogImageCdnFallback(); }, []);
+
+ // Google's own Auto Ad containers hold ~280px each even when the ad request
+ // never comes back (no `data-ad-status`, no iframe) — the case neither CSS
+ // collapse rule can express. Give that space back after the same fill budget
+ // our own slots use. See services/autoAdCollapse.ts.
+ //
+ // Imported dynamically: it pulls the slot registry (for the shared fill
+ // budget) and the bot patterns, and none of that belongs in the entry chunk
+ // for work that cannot start before adsbygoogle.js has injected a container.
+ useEffect(() => {
+ let teardown: (() => void) | null = null;
+ let cancelled = false;
+ import('@/services/autoAdCollapse')
+ .then(({ installAutoAdCollapse }) => { if (!cancelled) teardown = installAutoAdCollapse(); })
+ .catch(() => { /* ads are best-effort; a failed chunk must not break the app */ });
+ return () => { cancelled = true; teardown?.(); };
+ }, []);
 
  // Version badge commit hash — fetched at runtime (services/buildInfo.ts)
  // instead of a Vite `define`. Baking it into the bundle put a fresh value in
@@ -1083,6 +1099,18 @@ const App: React.FC = () => {
  email: normalizedEmail,
  sourceChannel: 'unsubscribe_link',
  sourcePage: window.location.pathname,
+ // WHAT GOT THIS PERSON OUT, in the Cloud Function's own vocabulary
+ // (#5719). Both roads into this write require the `ac`: the authenticated
+ // one only reaches it after `exchangeNewsletterAuthCode` succeeded, and
+ // the session-less fall-through above returns unless `autologinCode` is
+ // present and unforged. So this is never the email HMAC — it is the
+ // autologin fallback, i.e. precisely the cohort that loses its exit the
+ // day #5724 puts a TTL on `ac`. Omitting it made every one of these
+ // events score `missing` in
+ // scripts/check-unsubscribe-credential-rate.mjs, which drops `missing`
+ // from its denominator: 52 of 209 events in the 7 days to 2026-08-18,
+ // the population the monitor exists to size, invisible to the monitor.
+ credential: autologinCode ? 'autologin_code' : 'legacy_auth_token',
  });
  setUnsubscribeMsg(t('newsletter.unsubscribed'));
  localStorage.removeItem('newsletter_subscribed');
@@ -2662,17 +2690,6 @@ const App: React.FC = () => {
  />
  )}
  </>)}
-
- {/* CLS: reserve space for the top in-page Google Auto Ad.
-  * On the homepage Google injects a `.google-auto-placed` ad as a flow sibling
-  * directly above <main>, pushing content down ~250-298px after hydration
-  * (measured live CLS 0.19 desktop / 0.25 mobile — the dominant shift). It is a
-  * column child, so the placeholder below reserves the space at first paint and
-  * the CSS rule `.app-shell-col:has(> .google-auto-placed) > .autoad-top-reserve`
-  * collapses it the instant the ad lands → the gap height stays constant and
-  * <main> never moves. Rendered only where auto-ads actually inject (homepage,
-  * prod host, non-bot) so no-ad users never see an empty gap. */}
- {!staticOverlay && activeTab === 'calculator' && <TopAutoAdReserve />}
 
  {/* Main Content
   *

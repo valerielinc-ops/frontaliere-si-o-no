@@ -337,6 +337,31 @@ export function shouldPlaceInfeedAd(position1Based: number): boolean {
  * by `tests/adsense-placeholder-registry.test.ts`.
  */
 
+/** How close to the viewport an ad slot must come before it is allowed to spend
+ *  an ad request — the single viewability lever shared by the two render paths.
+ *
+ *  An impression served for a unit the visitor never scrolls to is counted by
+ *  Active View as a non-viewable impression: it earns ~nothing and drags the
+ *  unit's measured viewability (hence its CPM) down for every OTHER placement
+ *  of the same ad unit. Ad-unit 3205029282 is the worked example — 22.1%
+ *  viewability across 92.7k mobile impressions/30d, against 62.0% on desktop
+ *  where its only placement renders above the fold. Same unit, same creatives:
+ *  the difference is entirely whether the request was spent on something the
+ *  visitor could see.
+ *
+ *  ONE constant for both twins on purpose (AGENTS.md Non-Negotiable #6): the
+ *  SPA (`components/shared/AdSenseBanner.tsx`) and the static-shell loader
+ *  (`build-plugins/constants.ts` → `ADSENSE_LOADER_CONTENT`) implement the same
+ *  policy in two languages, and a literal copied into both would drift.
+ *
+ *  Tuning note: this margin trades viewability against fill. Too small and a
+ *  fast scroller passes the slot before AdSense returns a creative (the unit
+ *  collapses, no impression at all); too large and it degenerates back into
+ *  requesting units nobody reaches. 200px is the value both paths already used
+ *  to gate the SCRIPT load, so adopting it for the per-slot request keeps the
+ *  change to one variable — WHAT is deferred, not by how much. */
+export const AD_SLOT_VIEWPORT_ROOT_MARGIN = '200px 0px';
+
 /** Widest viewport (px) still treated as the registry's mobile/SSR floor for
  *  the multiplex desktop uplift below. Mirrors the `xl:` Tailwind breakpoint
  *  used by the `xl:min-h-[600px]` Suspense fallbacks. */
@@ -346,6 +371,21 @@ export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
  *  ~550-650px on desktop (wider grid → more ad rows), so the registry's
  *  mobile/SSR floor is lifted to this on wide viewports. */
 export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
+
+/**
+ * How long a reserved ad box may stay unresolved before its space is given
+ * back. An ad that has not reported `data-ad-status` by then is not "slow",
+ * it is blocked — Privacy Sandbox / Attestation / ad blockers cut AdSense off
+ * before it can answer `unfilled`, so the box would hold its reserve forever.
+ *
+ * 12s is the value measured for our own slots: most genuine fills land under
+ * 2s, but Privacy Sandbox auctions can legitimately settle slower, and an 8s
+ * cutoff false-collapsed late fills (depressing the measured fill rate). Both
+ * consumers — `AdSenseBanner` for the slots we declare and `autoAdCollapse`
+ * for the containers Google injects — must use the SAME budget: two different
+ * timeouts would collapse two halves of the same page at two different moments.
+ */
+export const AD_FILL_TIMEOUT_MS = 12_000;
 
 function slotReserveKey(
   adSlot: string | undefined,

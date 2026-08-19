@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-08-17T21:35:40.277Z",
+  "assembledAt": "2026-08-19T10:25:24.058Z",
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "en": "vp-system-architecture-anybotics-ch",
-        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "de": "vp-system-architecture-anybotics-zurich-switzerland",
         "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP Systemarchitektur",
+        "de": "VP System Architecture",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:37.334Z",
+      "crawledAt": "2026-08-19T10:25:21.288Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
+        "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "vp-system-architecture-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch"
+          "vp-system-architecture-anybotics-ch",
+          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
         ],
         "de": [
+          "vp-systemarchitektur-anybotics-zurich-switzerland",
           "vp-system-architecture-anybotics-zurich-switzerland"
         ],
         "fr": [
@@ -64,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +114,7 @@
       "url": "https://jobs.lever.co/anybotics/32d2b35b-b255-416c-9ad7-ce2462cc89f0",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:37.032Z",
+      "crawledAt": "2026-08-19T10:25:20.986Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -125,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verification-testing-engineer-anybotics-ch"
+        "verification-testing-engineer-anybotics-ch",
+        "verification-testing-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verification-testing-engineer-anybotics-ch"
+          "verification-testing-engineer-anybotics-ch",
+          "verification-testing-ingegnere-anybotics-zurich"
         ],
         "de": [
           "verification-testing-engineer-anybotics-ch"
@@ -184,7 +191,7 @@
       "url": "https://jobs.lever.co/anybotics/7e305a48-4628-4a6a-b054-0367b6f6e586",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:36.730Z",
+      "crawledAt": "2026-08-19T10:25:20.685Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,13 +212,15 @@
         "elektrotechnik-praktikum-anybotics-zurich",
         "genie-electrique-stage-anybotics-zurich",
         "software-engineering-internship-anybotics-ch",
-        "software-engineering-internship-ai-platform-anybotics-ch"
+        "software-engineering-internship-ai-platform-anybotics-ch",
+        "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegneria-elettrica-stage-anybotics-zurich",
           "software-engineering-internship-anybotics-ch",
-          "software-engineering-internship-ai-platform-anybotics-ch"
+          "software-engineering-internship-ai-platform-anybotics-ch",
+          "interno-di-ingegneria-del-software-anybotics-zurich-switzerland"
         ],
         "en": [
           "electrical-engineering-internship-anybotics-ch"
@@ -226,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:50:16.522Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -271,7 +281,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:36.427Z",
+      "crawledAt": "2026-08-19T10:25:20.385Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,11 +297,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -346,7 +358,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:36.125Z",
+      "crawledAt": "2026-08-19T10:25:20.083Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,89 +374,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "anybotics-896bf8fdbb13",
-      "slug": "senior-procurement-specialista-anybotics-zurich",
-      "slugByLocale": {
-        "it": "senior-procurement-specialista-anybotics-zurich",
-        "en": "senior-procurement-specialist-anybotics-ch",
-        "de": "senior-procurement-spezialist-anybotics-zurich",
-        "fr": "senior-procurement-specialiste-anybotics-zurich"
-      },
-      "company": "ANYbotics",
-      "companyKey": "anybotics",
-      "companyDomain": "anybotics.com",
-      "title": "Senior Procurement Specialist",
-      "titleByLocale": {
-        "it": "Senior Procurement Specialista",
-        "en": "Senior Procurement Specialist",
-        "de": "Senior Procurement Spezialist",
-        "fr": "Senior Procurement Spécialiste"
-      },
-      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAt ANYbotics, we build autonomous, end-to-end robotic solutions that automate routine industrial inspections in complex and hazardous environments. As a Senior Procurement Specialist , you will play a pivotal, high-ownership role in shaping the supply chain foundation for our next-generation robotics platform.\n\nOperating at the intersection of strategic sourcing and industrialization, you will drive critical procurement activities from early prototype phases straight through to full production ramp-up. You won't just be managing transactional purchase orders—you will build scalable procurement processes from scratch, secure high-performing global supplier networks, and directly influence the cost, quality, and delivery of cutting-edge robotic hardware.\n\nThe Market & Our Technology\n\nIndustrial facilities present some of the world's most severe operating conditions. Our autonomous quadrupedal platforms navigate multi-story plants, stairs, and hazardous areas—delivering continuous operational insight without human risk. Bringing a next-generation, high-complexity mechatronic product like ANYmal from concept to serial production demands a resilient, agile, and cost-effective supply chain. Sourcing high-precision mechanical parts, advanced electronics, and specialized electromechanical systems requires a strategic procurement leader who thrives in fast-paced hardware environments.\n\nYour Impact\n\n•\n Establish and execute the end-to-end procurement strategy for the new ANYmal project across both prototype and production phases\n\n•\n Secure critical suppliers and manage complex global sourcing networks across Europe and Asia\n\n•\n Lead high-stakes RFQs, contract negotiations, and cost-optimization initiatives to meet ambitious target costs and timelines\n\n•\n Identify, assess, and proactively mitigate single-source and supply chain risks for high-criticality components\n\n•\n Drive supplier qualification, capacity planning, and onboarding in close alignment with industrialization roadmaps\n\n•\n Partner cross-functionally with Engineering, Operations, Quality, and Supply Chain teams to ensure seamless NPI transition\n\nYour Profile\n\n•\n 10+ years of hands-on experience in procurement, strategic sourcing, and supplier management within a complex industrial or hardware environment (robotics, automotive, aerospace, electronics, or industrial automation)\n\n•\n Proven track record of managing procurement activities throughout the entire product lifecycle—from early-stage NPI prototypes to serial production ramp-up\n\n•\n Deep expertise in sourcing custom mechanical, electrical, and complex electromechanical components\n\n•\n Strong mastery of strategic sourcing, contract negotiations, supplier agreements, and long-term commercial terms\n\n•\n Demonstrated ability to build supplier networks and procurement processes from the ground up in fast-growing or dynamic hardware organizations\n\n•\n Experience working effectively with international supplier bases, particularly across Europe and Asia\n\n•\n Collaborative approach with strong experience influencing and partnering with cross-functional Engineering, Quality, and Operations teams\n\n•\n Business fluency in English\n\nBonus Points\n\n•\n Deep domain knowledge in sourcing specialized robotic hardware such as electronics, PCBAs, high-density batteries, motors, or drives\n\n•\n Fluency in German for local supplier communication\n\n•\n Background in low-to-medium volume, high-complexity hardware manufacturing environments\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-      "descriptionByLocale": {
-        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn ANYbotics, costruiamo soluzioni robotiche autonome e end-to-end che automatizzano le ispezioni industriali di routine in ambienti complessi e pericolosi. In qualità di Senior Procurement Specialist , si svolgerà un ruolo fondamentale, ad alta proprietà nella modellazione della catena di fornitura fondazione per la nostra piattaforma robotica di nuova generazione, ANYmal D2.\n\nOperando all'incrocio di sourcing strategico e industrializzazione, guiderete le attività di approvvigionamento critico dalle prime fasi prototipi fino alla completa dilatazione di produzione. Non sarà solo la gestione degli ordini di acquisto transazionali - si costruirà processi di approvvigionamento scalabile da zero, sicuro reti di fornitori globali ad alta prestazione, e direttamente influenzare il costo, la qualità e la consegna di hardware robotico all'avanguardia.\n\nIl mercato e la nostra tecnologia\n\nLe strutture industriali presentano alcune delle condizioni operative più severe del mondo. Le nostre piattaforme quadrupede autonome navigano in impianti a più piani, scale e aree pericolose, con una continua intuizione operativa senza rischi umani. Portare un prodotto meccatronico di nuova generazione, ad alta complessità come ANYmal D2 dal concetto alla produzione seriale richiede una catena di fornitura resiliente, agile e conveniente. Sourcing parti meccaniche ad alta precisione, elettronica avanzata e sistemi elettromeccanici specializzati richiede un leader di approvvigionamento strategico che prospera in ambienti hardware veloci.\n\nIl tuo impatto\n\n•\nStabilire ed eseguire la strategia di approvvigionamento end-to-end per il nuovo progetto ANYmal D2 in entrambe le fasi del prototipo e della produzione\n\n•\nFornitori critici sicuri e gestire complesse reti di approvvigionamento globale in Europa e Asia\n\n•\nCondurre le RFQ, le trattative contrattuali e le iniziative di ottimizzazione dei costi per soddisfare i costi e le tempistiche ambiziosi\n\n•\nIdentificare, valutare e mitigare proattivamente i rischi per le singole risorse e la supply chain per i componenti ad alta criticità\n\n•\nQualifica del fornitore del motore, pianificazione della capacità e onboarding in stretto allineamento con le roadmap di industrializzazione\n\n•\nPartner cross-funzionale con i team Engineering, Operations, Quality e Supply Chain per garantire una transizione senza interruzioni NPI\n\nIl tuo profilo\n\n•\n10+ anni di esperienza pratica nell'approvvigionamento, nell'approvvigionamento strategico e nella gestione dei fornitori all'interno di un complesso ambiente industriale o hardware (robotica, automotive, aerospaziale, elettronica o automazione industriale)\n\n•\nProvato record di gestione delle attività di approvvigionamento in tutto il ciclo di vita del prodotto, dai prototipi NPI di fase iniziale alla rampa di produzione seriale\n\n•\nProfonda competenza nell'approvvigionamento di componenti elettromeccanici, elettrici e complessi\n\n•\nForte padronanza di approvvigionamento strategico, trattative contrattuali, accordi di fornitori e termini commerciali a lungo termine\n\n•\nCapacità dimostrata di costruire reti di fornitori e processi di approvvigionamento da zero in organizzazioni hardware in rapida crescita o dinamiche\n\n•\nEsperienza di lavoro efficace con basi di fornitori internazionali, in particolare in Europa e Asia\n\n•\nApproccio collaborativo con una forte esperienza che influenza e collabora con i team di Ingegneria, Qualità e Operazioni\n\n•\nFluency aziendale in inglese\n\nPunti bonus\n\n•\nConoscenze di dominio profondo nel sourcing hardware robotico specializzato come elettronica, PCBA, batterie ad alta densità, motori o unità\n\n•\nFluency in tedesco per la comunicazione dei fornitori locali\n\n•\nSfondo in ambienti di produzione hardware ad alta complessità a basso volume medio\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un attraente piano di azionariato dei dipendenti e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
-        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAt ANYbotics, we build autonomous, end-to-end robotic solutions that automate routine industrial inspections in complex and hazardous environments. As a Senior Procurement Specialist , you will play a pivotal, high-ownership role in shaping the supply chain foundation for our next-generation robotics platform.\n\nOperating at the intersection of strategic sourcing and industrialization, you will drive critical procurement activities from early prototype phases straight through to full production ramp-up. You won't just be managing transactional purchase orders—you will build scalable procurement processes from scratch, secure high-performing global supplier networks, and directly influence the cost, quality, and delivery of cutting-edge robotic hardware.\n\nThe Market & Our Technology\n\nIndustrial facilities present some of the world's most severe operating conditions. Our autonomous quadrupedal platforms navigate multi-story plants, stairs, and hazardous areas—delivering continuous operational insight without human risk. Bringing a next-generation, high-complexity mechatronic product like ANYmal from concept to serial production demands a resilient, agile, and cost-effective supply chain. Sourcing high-precision mechanical parts, advanced electronics, and specialized electromechanical systems requires a strategic procurement leader who thrives in fast-paced hardware environments.\n\nYour Impact\n\n•\nEstablish and execute the end-to-end procurement strategy for the new ANYmal project across both prototype and production phases\n\n•\nSecure critical suppliers and manage complex global sourcing networks across Europe and Asia\n\n•\nLead high-stakes RFQs, contract negotiations, and cost-optimization initiatives to meet ambitious target costs and timelines\n\n•\nIdentify, assess, and proactively mitigate single-source and supply chain risks for high-criticality components\n\n•\nDrive supplier qualification, capacity planning, and onboarding in close alignment with industrialization roadmaps\n\n•\nPartner cross-functionally with Engineering, Operations, Quality, and Supply Chain teams to ensure seamless NPI transition\n\nYour Profile\n\n•\n10+ years of hands-on experience in procurement, strategic sourcing, and supplier management within a complex industrial or hardware environment (robotics, automotive, aerospace, electronics, or industrial automation)\n\n•\nProven track record of managing procurement activities throughout the entire product lifecycle—from early-stage NPI prototypes to serial production ramp-up\n\n•\nDeep expertise in sourcing custom mechanical, electrical, and complex electromechanical components\n\n•\nStrong mastery of strategic sourcing, contract negotiations, supplier agreements, and long-term commercial terms\n\n•\nDemonstrated ability to build supplier networks and procurement processes from the ground up in fast-growing or dynamic hardware organizations\n\n•\nExperience working effectively with international supplier bases, particularly across Europe and Asia\n\n•\nCollaborative approach with strong experience influencing and partnering with cross-functional Engineering, Quality, and Operations teams\n\n•\nBusiness fluency in English\n\nBonus Points\n\n•\nDeep domain knowledge in sourcing specialized robotic hardware such as electronics, PCBAs, high-density batteries, motors, or drives\n\n•\nFluency in German for local supplier communication\n\n•\nBackground in low-to-medium volume, high-complexity hardware manufacturing environments\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nBei ANYbotics bauen wir autonome End-to-End-Roboterlösungen, die routinemäßige industrielle Inspektionen in komplexen und gefährlichen Umgebungen automatisieren. Als Senior Procurement Specialist spielen Sie eine zentrale und inhabernahe Rolle bei der Gestaltung der Supply-Chain-Grundlage für unsere Robotik-Plattform der nächsten Generation, ANYmal D2.\n\nAn der Schnittstelle von strategischer Beschaffung und Industrialisierung treiben Sie wichtige Beschaffungsaktivitäten von frühen Prototypenphasen bis hin zum Anlauf der Vollproduktion voran. Sie verwalten nicht nur transaktionale Bestellungen – Sie erstellen skalierbare Beschaffungsprozesse von Grund auf neu, sichern leistungsstarke globale Lieferantennetzwerke und beeinflussen direkt Kosten, Qualität und Lieferung von modernster Roboterhardware.\n\nDer Markt & unsere Technologie\n\nIndustrieanlagen stellen einige der schwersten Betriebsbedingungen der Welt dar. Unsere autonomen Vierbettplattformen navigieren durch mehrstöckige Anlagen, Treppen und gefährliche Bereiche und liefern kontinuierliche operative Einblicke ohne menschliches Risiko. Ein hochkomplexes mechatronisches Produkt der nächsten Generation wie ANYmal D2 vom Konzept zur Serienproduktion zu bringen, erfordert eine belastbare, agile und kostengünstige Lieferkette. Die Beschaffung hochpräziser mechanischer Teile, fortschrittlicher Elektronik und spezialisierter elektromechanischer Systeme erfordert einen strategischen Beschaffungsführer, der in schnelllebigen Hardwareumgebungen erfolgreich ist.\n\nIhre Wirkung\n\n•\nEtablierung und Umsetzung der End-to-End-Beschaffungsstrategie für das neue ANYmal D2-Projekt sowohl in der Prototyp- als auch in der Produktionsphase\n\n•\nSicherung kritischer Lieferanten und Verwaltung komplexer globaler Sourcing-Netzwerke in Europa und Asien\n\n•\nFühren Sie High-Stakes-RFQs, Vertragsverhandlungen und Kostenoptimierungsinitiativen, um ehrgeizige Zielkosten und Zeitpläne zu erreichen\n\n•\nIdentifizierung, Bewertung und proaktive Minderung von Single-Source- und Supply-Chain-Risiken für hochkritische Komponenten\n\n•\nQualifizierung von Lieferanten, Kapazitätsplanung und Onboarding in enger Abstimmung mit den Industrialisierungs-Roadmaps\n\n•\nPartner funktionsübergreifend mit Engineering-, Operations-, Qualitäts- und Supply Chain-Teams, um einen nahtlosen NPI-Übergang zu gewährleisten\n\nIhr Profil\n\n•\n10+ Jahre praktische Erfahrung in Beschaffung, strategischem Sourcing und Lieferantenmanagement in einer komplexen Industrie- oder Hardwareumgebung (Robotik, Automobil, Luft- und Raumfahrt, Elektronik oder industrielle Automatisierung)\n\n•\nBewährte Erfolgsbilanz bei der Verwaltung von Beschaffungsaktivitäten während des gesamten Produktlebenszyklus - von NPI-Prototypen in der Frühphase bis hin zur Serienproduktion\n\n•\nTiefe Expertise in der Beschaffung kundenspezifischer mechanischer, elektrischer und komplexer elektromechanischer Komponenten\n\n•\nStarke Beherrschung von strategischer Beschaffung, Vertragsverhandlungen, Lieferantenvereinbarungen und langfristigen Geschäftsbedingungen\n\n•\nDemonstrierte Fähigkeit, Lieferantennetzwerke und Beschaffungsprozesse von Grund auf in schnell wachsenden oder dynamischen Hardware-Organisationen aufzubauen\n\n•\nErfahrung in der effektiven Zusammenarbeit mit internationalen Lieferantenbasen, insbesondere in Europa und Asien\n\n•\nKollaborativer Ansatz mit starker Erfahrung bei der Beeinflussung und Partnerschaft mit funktionsübergreifenden Engineering-, Qualitäts- und Betriebsteams\n\n•\nBusiness fließend in Englisch\n\nBonuspunkte\n\n•\nTiefes Fachwissen in der Beschaffung von spezialisierter Roboterhardware wie Elektronik, PCBAs, Batterien mit hoher Dichte, Motoren oder Antrieben\n\n•\nDeutsch fließend für die lokale Lieferantenkommunikation\n\n•\nHintergrund in Hardware-Fertigungsumgebungen mit geringem bis mittlerem Volumen und hoher Komplexität\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
-        "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nChez Anybotics, nous construisons des solutions robotiques de bout en bout autonomes qui automatisent les inspections industrielles de routine dans des environnements complexes et dangereux. En tant que spécialiste principal de l'approvisionnement, vous jouerez un rôle de premier plan dans la formation de la base de la chaîne d'approvisionnement de notre plateforme robotique de nouvelle génération, Anymal D2.\n\nEn travaillant à l'intersection de l'approvisionnement stratégique et de l'industrialisation, vous dirigerez les activités d'approvisionnement critiques des premières phases de prototypes directement jusqu'à la mise en production complète. Vous ne vous contenterez pas de gérer les bons de commande transactionnels – vous allez construire des processus d'approvisionnement évolutives à partir de zéro, sécuriser des réseaux de fournisseurs mondiaux performants, et influencer directement le coût, la qualité et la livraison de matériel robotique de pointe.\n\nLe marché et notre technologie\n\nLes installations industrielles présentent certaines des conditions d'exploitation les plus graves au monde. Nos plates-formes quadrupèdes autonomes naviguent dans des usines, des escaliers et des zones dangereuses à plusieurs étages. Apporter un produit mécatronique à haute complexité de prochaine génération comme Anymal D2 du concept à la production en série exige une chaîne d'approvisionnement résistante, agile et rentable. Pour assainir les pièces mécaniques de haute précision, l'électronique de pointe et les systèmes électromécaniques spécialisés, il faut un leader stratégique en matière d'approvisionnement qui prospère dans des environnements matériels rapides.\n\nVotre impact\n\n•\nÉtablir et exécuter la stratégie d'approvisionnement de bout en bout pour le nouveau projet Anymal D2 au cours des phases de prototype et de production\n\n•\nSécuriser les fournisseurs essentiels et gérer les réseaux mondiaux complexes d'approvisionnement en Europe et en Asie\n\n•\nDiriger les QDP à haut niveau, les négociations contractuelles et les initiatives d'optimisation des coûts afin de respecter des coûts et des échéances ambitieux\n\n•\nIdentifier, évaluer et atténuer de façon proactive les risques liés à une source unique et à la chaîne d'approvisionnement pour les composants à haute criticité\n\n•\nConduire la qualification des fournisseurs, la planification des capacités et l'embarquement en étroite harmonie avec les feuilles de route pour l'industrialisation\n\n•\nPartenaire interfonctionnel avec les équipes de l'ingénierie, des opérations, de la qualité et de la chaîne d'approvisionnement pour assurer une transition sans faille de l'IPN\n\nVotre profil\n\n•\n10 ans et plus d'expérience pratique en matière d'approvisionnement, d'approvisionnement stratégique et de gestion des fournisseurs dans un environnement industriel ou matériel complexe (robotique, automobile, aérospatiale, électronique ou automatisation industrielle)\n\n•\nExpérience éprouvée de la gestion des activités d'approvisionnement tout au long du cycle de vie du produit — des prototypes d'IPN en phase initiale à la mise en service de la production en série\n\n•\nUne expertise approfondie dans l'approvisionnement de composants mécaniques, électriques et électromécaniques complexes\n\n•\nForte maîtrise de l'approvisionnement stratégique, des négociations contractuelles, des accords avec les fournisseurs et des conditions commerciales à long terme\n\n•\nCapacité démontrée de construire des réseaux de fournisseurs et des processus d'approvisionnement à partir du terrain dans des organisations matérielles dynamiques ou en croissance rapide\n\n•\nExpérience de travail efficace avec les fournisseurs internationaux, en particulier en Europe et en Asie\n\n•\nApproche collaborative avec une solide expérience d'influence et de partenariat avec des équipes interfonctionnelles d'ingénierie, de qualité et d'exploitation\n\n•\nMaîtrise des affaires en anglais\n\nPoints bonus\n\n•\nConnaissance approfondie du domaine dans l'approvisionnement en matériel robotique spécialisé comme l'électronique, PCBA, batteries haute densité, moteurs ou lecteurs\n\n•\nFluidité en allemand pour la communication avec les fournisseurs locaux\n\n•\nContexte dans les environnements de fabrication de matériel à volume faible à moyen, haute complexité\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en croissance rapide et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
-      "source": "ANYbotics Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:35.823Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Robotica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "applyUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-procurement-specialist-anybotics-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-procurement-specialist-anybotics-ch"
-        ],
-        "de": [
-          "senior-procurement-specialist-anybotics-ch"
-        ],
-        "fr": [
-          "senior-procurement-specialist-anybotics-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-24T11:13:08.609Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -490,7 +430,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:35.522Z",
+      "crawledAt": "2026-08-19T10:25:19.782Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -506,11 +446,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -520,6 +462,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.094Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -565,7 +508,7 @@
       "url": "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:35.220Z",
+      "crawledAt": "2026-08-19T10:25:19.481Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -582,12 +525,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-electronics-engineer-anybotics-ch",
-        "senior-electrical-engineer-anybotics-ch"
+        "senior-electrical-engineer-anybotics-ch",
+        "senior-electronics-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-electronics-engineer-anybotics-ch",
-          "senior-electrical-engineer-anybotics-ch"
+          "senior-electrical-engineer-anybotics-ch",
+          "senior-electronics-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "senior-electronics-engineer-anybotics-ch"
@@ -645,7 +590,7 @@
       "url": "https://jobs.lever.co/anybotics/b73e0848-ce51-4d45-8e0d-8abe63698ff6",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:34.918Z",
+      "crawledAt": "2026-08-19T10:25:19.179Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -661,11 +606,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-test-engineer-anybotics-ch"
+        "robotics-test-engineer-anybotics-ch",
+        "robotics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-test-engineer-anybotics-ch"
+          "robotics-test-engineer-anybotics-ch",
+          "robotics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "robotics-test-engineer-anybotics-ch"
@@ -720,7 +667,7 @@
       "url": "https://jobs.lever.co/anybotics/9755ae0f-f740-40bc-bc13-be52c505748b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:34.616Z",
+      "crawledAt": "2026-08-19T10:25:18.877Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -736,14 +683,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-lab-technician-intern-anybotics-ch"
+        "robotics-lab-technician-intern-anybotics-ch",
+        "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-lab-technician-intern-anybotics-ch"
+          "robotics-lab-technician-intern-anybotics-ch",
+          "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:20.867Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -789,7 +739,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:34.314Z",
+      "crawledAt": "2026-08-19T10:25:18.576Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -805,11 +755,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch"
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -864,7 +816,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:34.011Z",
+      "crawledAt": "2026-08-19T10:25:18.275Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -880,11 +832,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch"
+        "product-data-management-internship-anybotics-ch",
+        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch"
+          "product-data-management-internship-anybotics-ch",
+          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -939,7 +893,7 @@
       "url": "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:33.709Z",
+      "crawledAt": "2026-08-19T10:25:17.973Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -955,11 +909,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pcb-layout-designer-ecad-engineer-anybotics-ch"
+        "pcb-layout-designer-ecad-engineer-anybotics-ch",
+        "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pcb-layout-designer-ecad-engineer-anybotics-ch"
+          "pcb-layout-designer-ecad-engineer-anybotics-ch",
+          "pcb-layout-designer-ecad-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "pcb-layout-designer-ecad-engineer-anybotics-ch"
@@ -1014,7 +970,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:33.407Z",
+      "crawledAt": "2026-08-19T10:25:17.671Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1031,11 +987,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-engineer-anybotics-ch",
-        "manufacturing-engineer-anybotics-zurich-switzerland"
+        "manufacturing-engineer-anybotics-zurich-switzerland",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "en": [
           "manufacturing-engineer-anybotics-zurich-switzerland"
@@ -1093,7 +1051,7 @@
       "url": "https://jobs.lever.co/anybotics/9d34ce1f-0dae-4cf3-85b0-d231dfb4851b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:33.105Z",
+      "crawledAt": "2026-08-19T10:25:17.369Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1109,11 +1067,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-reinforcement-learning-for-navigation-anybotics-ch"
+        "internship-reinforcement-learning-for-navigation-anybotics-ch",
+        "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-reinforcement-learning-for-navigation-anybotics-ch"
+          "internship-reinforcement-learning-for-navigation-anybotics-ch",
+          "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland"
         ],
         "de": [
           "internship-reinforcement-learning-for-navigation-anybotics-ch"
@@ -1123,6 +1083,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:56:05.657Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1168,7 +1129,7 @@
       "url": "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:32.803Z",
+      "crawledAt": "2026-08-19T10:25:17.068Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1184,11 +1145,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "industrialization-electronics-test-engineer-anybotics-ch"
+        "industrialization-electronics-test-engineer-anybotics-ch",
+        "industrialization-electronics-test-ingegnere-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "industrialization-electronics-test-engineer-anybotics-ch"
+          "industrialization-electronics-test-engineer-anybotics-ch",
+          "industrialization-electronics-test-ingegnere-anybotics-zurich"
         ],
         "de": [
           "industrialization-electronics-test-engineer-anybotics-ch"
@@ -1243,7 +1206,7 @@
       "url": "https://jobs.lever.co/anybotics/ea8d77e2-423f-4e79-9836-10da898d60d4",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:35:32.499Z",
+      "crawledAt": "2026-08-19T10:25:16.764Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1259,11 +1222,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-field-engineer-industrial-robotics-anybotics-ch"
+        "senior-field-engineer-industrial-robotics-anybotics-ch",
+        "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-field-engineer-industrial-robotics-anybotics-ch"
+          "senior-field-engineer-industrial-robotics-anybotics-ch",
+          "senior-field-ingegnere-industrial-robotics-anybotics-zurich"
         ],
         "de": [
           "senior-field-engineer-industrial-robotics-anybotics-ch"
@@ -1285,7 +1250,84 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "anybotics-896bf8fdbb13",
+      "slug": "senior-procurement-specialista-anybotics-zurich",
+      "slugByLocale": {
+        "it": "senior-procurement-specialista-anybotics-zurich",
+        "en": "senior-procurement-specialist-anybotics-ch",
+        "de": "senior-procurement-spezialist-anybotics-zurich",
+        "fr": "senior-procurement-specialiste-anybotics-zurich"
+      },
+      "company": "ANYbotics",
+      "companyKey": "anybotics",
+      "companyDomain": "anybotics.com",
+      "title": "Senior Procurement Specialist",
+      "titleByLocale": {
+        "it": "Senior Procurement Specialista",
+        "en": "Senior Procurement Specialist",
+        "de": "Senior Procurement Spezialist",
+        "fr": "Senior Procurement Spécialiste"
+      },
+      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAt ANYbotics, we build autonomous, end-to-end robotic solutions that automate routine industrial inspections in complex and hazardous environments. As a Senior Procurement Specialist , you will play a pivotal, high-ownership role in shaping the supply chain foundation for our next-generation robotics platform.\n\nOperating at the intersection of strategic sourcing and industrialization, you will drive critical procurement activities from early prototype phases straight through to full production ramp-up. You won't just be managing transactional purchase orders—you will build scalable procurement processes from scratch, secure high-performing global supplier networks, and directly influence the cost, quality, and delivery of cutting-edge robotic hardware.\n\nThe Market & Our Technology\n\nIndustrial facilities present some of the world's most severe operating conditions. Our autonomous quadrupedal platforms navigate multi-story plants, stairs, and hazardous areas—delivering continuous operational insight without human risk. Bringing a next-generation, high-complexity mechatronic product like ANYmal from concept to serial production demands a resilient, agile, and cost-effective supply chain. Sourcing high-precision mechanical parts, advanced electronics, and specialized electromechanical systems requires a strategic procurement leader who thrives in fast-paced hardware environments.\n\nYour Impact\n\n•\n Establish and execute the end-to-end procurement strategy for the new ANYmal project across both prototype and production phases\n\n•\n Secure critical suppliers and manage complex global sourcing networks across Europe and Asia\n\n•\n Lead high-stakes RFQs, contract negotiations, and cost-optimization initiatives to meet ambitious target costs and timelines\n\n•\n Identify, assess, and proactively mitigate single-source and supply chain risks for high-criticality components\n\n•\n Drive supplier qualification, capacity planning, and onboarding in close alignment with industrialization roadmaps\n\n•\n Partner cross-functionally with Engineering, Operations, Quality, and Supply Chain teams to ensure seamless NPI transition\n\nYour Profile\n\n•\n 10+ years of hands-on experience in procurement, strategic sourcing, and supplier management within a complex industrial or hardware environment (robotics, automotive, aerospace, electronics, or industrial automation)\n\n•\n Proven track record of managing procurement activities throughout the entire product lifecycle—from early-stage NPI prototypes to serial production ramp-up\n\n•\n Deep expertise in sourcing custom mechanical, electrical, and complex electromechanical components\n\n•\n Strong mastery of strategic sourcing, contract negotiations, supplier agreements, and long-term commercial terms\n\n•\n Demonstrated ability to build supplier networks and procurement processes from the ground up in fast-growing or dynamic hardware organizations\n\n•\n Experience working effectively with international supplier bases, particularly across Europe and Asia\n\n•\n Collaborative approach with strong experience influencing and partnering with cross-functional Engineering, Quality, and Operations teams\n\n•\n Business fluency in English\n\nBonus Points\n\n•\n Deep domain knowledge in sourcing specialized robotic hardware such as electronics, PCBAs, high-density batteries, motors, or drives\n\n•\n Fluency in German for local supplier communication\n\n•\n Background in low-to-medium volume, high-complexity hardware manufacturing environments\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+      "descriptionByLocale": {
+        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia.\n\nL'opportunità\n\nIn ANYbotics, costruiamo soluzioni robotiche autonome e end-to-end che automatizzano le ispezioni industriali di routine in ambienti complessi e pericolosi. In qualità di Senior Procurement Specialist , si svolgerà un ruolo fondamentale, ad alta proprietà nella modellazione della catena di fornitura fondazione per la nostra piattaforma robotica di nuova generazione, ANYmal D2.\n\nOperando all'incrocio di sourcing strategico e industrializzazione, guiderete le attività di approvvigionamento critico dalle prime fasi prototipi fino alla completa dilatazione di produzione. Non sarà solo la gestione degli ordini di acquisto transazionali - si costruirà processi di approvvigionamento scalabile da zero, sicuro reti di fornitori globali ad alta prestazione, e direttamente influenzare il costo, la qualità e la consegna di hardware robotico all'avanguardia.\n\nIl mercato e la nostra tecnologia\n\nLe strutture industriali presentano alcune delle condizioni operative più severe del mondo. Le nostre piattaforme quadrupede autonome navigano in impianti a più piani, scale e aree pericolose, con una continua intuizione operativa senza rischi umani. Portare un prodotto meccatronico di nuova generazione, ad alta complessità come ANYmal D2 dal concetto alla produzione seriale richiede una catena di fornitura resiliente, agile e conveniente. Sourcing parti meccaniche ad alta precisione, elettronica avanzata e sistemi elettromeccanici specializzati richiede un leader di approvvigionamento strategico che prospera in ambienti hardware veloci.\n\nIl tuo impatto\n\n•\nStabilire ed eseguire la strategia di approvvigionamento end-to-end per il nuovo progetto ANYmal D2 in entrambe le fasi del prototipo e della produzione\n\n•\nFornitori critici sicuri e gestire complesse reti di approvvigionamento globale in Europa e Asia\n\n•\nCondurre le RFQ, le trattative contrattuali e le iniziative di ottimizzazione dei costi per soddisfare i costi e le tempistiche ambiziosi\n\n•\nIdentificare, valutare e mitigare proattivamente i rischi per le singole risorse e la supply chain per i componenti ad alta criticità\n\n•\nQualifica del fornitore del motore, pianificazione della capacità e onboarding in stretto allineamento con le roadmap di industrializzazione\n\n•\nPartner cross-funzionale con i team Engineering, Operations, Quality e Supply Chain per garantire una transizione senza interruzioni NPI\n\nIl tuo profilo\n\n•\n10+ anni di esperienza pratica nell'approvvigionamento, nell'approvvigionamento strategico e nella gestione dei fornitori all'interno di un complesso ambiente industriale o hardware (robotica, automotive, aerospaziale, elettronica o automazione industriale)\n\n•\nProvato record di gestione delle attività di approvvigionamento in tutto il ciclo di vita del prodotto, dai prototipi NPI di fase iniziale alla rampa di produzione seriale\n\n•\nProfonda competenza nell'approvvigionamento di componenti elettromeccanici, elettrici e complessi\n\n•\nForte padronanza di approvvigionamento strategico, trattative contrattuali, accordi di fornitori e termini commerciali a lungo termine\n\n•\nCapacità dimostrata di costruire reti di fornitori e processi di approvvigionamento da zero in organizzazioni hardware in rapida crescita o dinamiche\n\n•\nEsperienza di lavoro efficace con basi di fornitori internazionali, in particolare in Europa e Asia\n\n•\nApproccio collaborativo con una forte esperienza che influenza e collabora con i team di Ingegneria, Qualità e Operazioni\n\n•\nFluency aziendale in inglese\n\nPunti bonus\n\n•\nConoscenze di dominio profondo nel sourcing hardware robotico specializzato come elettronica, PCBA, batterie ad alta densità, motori o unità\n\n•\nFluency in tedesco per la comunicazione dei fornitori locali\n\n•\nSfondo in ambienti di produzione hardware ad alta complessità a basso volume medio\n\nVi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un attraente piano di azionariato dei dipendenti e un lavoro nella città di Zurigo.\n\nPolitica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
+        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAt ANYbotics, we build autonomous, end-to-end robotic solutions that automate routine industrial inspections in complex and hazardous environments. As a Senior Procurement Specialist , you will play a pivotal, high-ownership role in shaping the supply chain foundation for our next-generation robotics platform.\n\nOperating at the intersection of strategic sourcing and industrialization, you will drive critical procurement activities from early prototype phases straight through to full production ramp-up. You won't just be managing transactional purchase orders—you will build scalable procurement processes from scratch, secure high-performing global supplier networks, and directly influence the cost, quality, and delivery of cutting-edge robotic hardware.\n\nThe Market & Our Technology\n\nIndustrial facilities present some of the world's most severe operating conditions. Our autonomous quadrupedal platforms navigate multi-story plants, stairs, and hazardous areas—delivering continuous operational insight without human risk. Bringing a next-generation, high-complexity mechatronic product like ANYmal from concept to serial production demands a resilient, agile, and cost-effective supply chain. Sourcing high-precision mechanical parts, advanced electronics, and specialized electromechanical systems requires a strategic procurement leader who thrives in fast-paced hardware environments.\n\nYour Impact\n\n•\nEstablish and execute the end-to-end procurement strategy for the new ANYmal project across both prototype and production phases\n\n•\nSecure critical suppliers and manage complex global sourcing networks across Europe and Asia\n\n•\nLead high-stakes RFQs, contract negotiations, and cost-optimization initiatives to meet ambitious target costs and timelines\n\n•\nIdentify, assess, and proactively mitigate single-source and supply chain risks for high-criticality components\n\n•\nDrive supplier qualification, capacity planning, and onboarding in close alignment with industrialization roadmaps\n\n•\nPartner cross-functionally with Engineering, Operations, Quality, and Supply Chain teams to ensure seamless NPI transition\n\nYour Profile\n\n•\n10+ years of hands-on experience in procurement, strategic sourcing, and supplier management within a complex industrial or hardware environment (robotics, automotive, aerospace, electronics, or industrial automation)\n\n•\nProven track record of managing procurement activities throughout the entire product lifecycle—from early-stage NPI prototypes to serial production ramp-up\n\n•\nDeep expertise in sourcing custom mechanical, electrical, and complex electromechanical components\n\n•\nStrong mastery of strategic sourcing, contract negotiations, supplier agreements, and long-term commercial terms\n\n•\nDemonstrated ability to build supplier networks and procurement processes from the ground up in fast-growing or dynamic hardware organizations\n\n•\nExperience working effectively with international supplier bases, particularly across Europe and Asia\n\n•\nCollaborative approach with strong experience influencing and partnering with cross-functional Engineering, Quality, and Operations teams\n\n•\nBusiness fluency in English\n\nBonus Points\n\n•\nDeep domain knowledge in sourcing specialized robotic hardware such as electronics, PCBAs, high-density batteries, motors, or drives\n\n•\nFluency in German for local supplier communication\n\n•\nBackground in low-to-medium volume, high-complexity hardware manufacturing environments\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
+        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie.\n\nDie Chance\n\nBei ANYbotics bauen wir autonome End-to-End-Roboterlösungen, die routinemäßige industrielle Inspektionen in komplexen und gefährlichen Umgebungen automatisieren. Als Senior Procurement Specialist spielen Sie eine zentrale und inhabernahe Rolle bei der Gestaltung der Supply-Chain-Grundlage für unsere Robotik-Plattform der nächsten Generation, ANYmal D2.\n\nAn der Schnittstelle von strategischer Beschaffung und Industrialisierung treiben Sie wichtige Beschaffungsaktivitäten von frühen Prototypenphasen bis hin zum Anlauf der Vollproduktion voran. Sie verwalten nicht nur transaktionale Bestellungen – Sie erstellen skalierbare Beschaffungsprozesse von Grund auf neu, sichern leistungsstarke globale Lieferantennetzwerke und beeinflussen direkt Kosten, Qualität und Lieferung von modernster Roboterhardware.\n\nDer Markt & unsere Technologie\n\nIndustrieanlagen stellen einige der schwersten Betriebsbedingungen der Welt dar. Unsere autonomen Vierbettplattformen navigieren durch mehrstöckige Anlagen, Treppen und gefährliche Bereiche und liefern kontinuierliche operative Einblicke ohne menschliches Risiko. Ein hochkomplexes mechatronisches Produkt der nächsten Generation wie ANYmal D2 vom Konzept zur Serienproduktion zu bringen, erfordert eine belastbare, agile und kostengünstige Lieferkette. Die Beschaffung hochpräziser mechanischer Teile, fortschrittlicher Elektronik und spezialisierter elektromechanischer Systeme erfordert einen strategischen Beschaffungsführer, der in schnelllebigen Hardwareumgebungen erfolgreich ist.\n\nIhre Wirkung\n\n•\nEtablierung und Umsetzung der End-to-End-Beschaffungsstrategie für das neue ANYmal D2-Projekt sowohl in der Prototyp- als auch in der Produktionsphase\n\n•\nSicherung kritischer Lieferanten und Verwaltung komplexer globaler Sourcing-Netzwerke in Europa und Asien\n\n•\nFühren Sie High-Stakes-RFQs, Vertragsverhandlungen und Kostenoptimierungsinitiativen, um ehrgeizige Zielkosten und Zeitpläne zu erreichen\n\n•\nIdentifizierung, Bewertung und proaktive Minderung von Single-Source- und Supply-Chain-Risiken für hochkritische Komponenten\n\n•\nQualifizierung von Lieferanten, Kapazitätsplanung und Onboarding in enger Abstimmung mit den Industrialisierungs-Roadmaps\n\n•\nPartner funktionsübergreifend mit Engineering-, Operations-, Qualitäts- und Supply Chain-Teams, um einen nahtlosen NPI-Übergang zu gewährleisten\n\nIhr Profil\n\n•\n10+ Jahre praktische Erfahrung in Beschaffung, strategischem Sourcing und Lieferantenmanagement in einer komplexen Industrie- oder Hardwareumgebung (Robotik, Automobil, Luft- und Raumfahrt, Elektronik oder industrielle Automatisierung)\n\n•\nBewährte Erfolgsbilanz bei der Verwaltung von Beschaffungsaktivitäten während des gesamten Produktlebenszyklus - von NPI-Prototypen in der Frühphase bis hin zur Serienproduktion\n\n•\nTiefe Expertise in der Beschaffung kundenspezifischer mechanischer, elektrischer und komplexer elektromechanischer Komponenten\n\n•\nStarke Beherrschung von strategischer Beschaffung, Vertragsverhandlungen, Lieferantenvereinbarungen und langfristigen Geschäftsbedingungen\n\n•\nDemonstrierte Fähigkeit, Lieferantennetzwerke und Beschaffungsprozesse von Grund auf in schnell wachsenden oder dynamischen Hardware-Organisationen aufzubauen\n\n•\nErfahrung in der effektiven Zusammenarbeit mit internationalen Lieferantenbasen, insbesondere in Europa und Asien\n\n•\nKollaborativer Ansatz mit starker Erfahrung bei der Beeinflussung und Partnerschaft mit funktionsübergreifenden Engineering-, Qualitäts- und Betriebsteams\n\n•\nBusiness fließend in Englisch\n\nBonuspunkte\n\n•\nTiefes Fachwissen in der Beschaffung von spezialisierter Roboterhardware wie Elektronik, PCBAs, Batterien mit hoher Dichte, Motoren oder Antrieben\n\n•\nDeutsch fließend für die lokale Lieferantenkommunikation\n\n•\nHintergrund in Hardware-Fertigungsumgebungen mit geringem bis mittlerem Volumen und hoher Komplexität\n\nWir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich.\n\nAgenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
+        "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe.\n\nL'opportunité\n\nChez Anybotics, nous construisons des solutions robotiques de bout en bout autonomes qui automatisent les inspections industrielles de routine dans des environnements complexes et dangereux. En tant que spécialiste principal de l'approvisionnement, vous jouerez un rôle de premier plan dans la formation de la base de la chaîne d'approvisionnement de notre plateforme robotique de nouvelle génération, Anymal D2.\n\nEn travaillant à l'intersection de l'approvisionnement stratégique et de l'industrialisation, vous dirigerez les activités d'approvisionnement critiques des premières phases de prototypes directement jusqu'à la mise en production complète. Vous ne vous contenterez pas de gérer les bons de commande transactionnels – vous allez construire des processus d'approvisionnement évolutives à partir de zéro, sécuriser des réseaux de fournisseurs mondiaux performants, et influencer directement le coût, la qualité et la livraison de matériel robotique de pointe.\n\nLe marché et notre technologie\n\nLes installations industrielles présentent certaines des conditions d'exploitation les plus graves au monde. Nos plates-formes quadrupèdes autonomes naviguent dans des usines, des escaliers et des zones dangereuses à plusieurs étages. Apporter un produit mécatronique à haute complexité de prochaine génération comme Anymal D2 du concept à la production en série exige une chaîne d'approvisionnement résistante, agile et rentable. Pour assainir les pièces mécaniques de haute précision, l'électronique de pointe et les systèmes électromécaniques spécialisés, il faut un leader stratégique en matière d'approvisionnement qui prospère dans des environnements matériels rapides.\n\nVotre impact\n\n•\nÉtablir et exécuter la stratégie d'approvisionnement de bout en bout pour le nouveau projet Anymal D2 au cours des phases de prototype et de production\n\n•\nSécuriser les fournisseurs essentiels et gérer les réseaux mondiaux complexes d'approvisionnement en Europe et en Asie\n\n•\nDiriger les QDP à haut niveau, les négociations contractuelles et les initiatives d'optimisation des coûts afin de respecter des coûts et des échéances ambitieux\n\n•\nIdentifier, évaluer et atténuer de façon proactive les risques liés à une source unique et à la chaîne d'approvisionnement pour les composants à haute criticité\n\n•\nConduire la qualification des fournisseurs, la planification des capacités et l'embarquement en étroite harmonie avec les feuilles de route pour l'industrialisation\n\n•\nPartenaire interfonctionnel avec les équipes de l'ingénierie, des opérations, de la qualité et de la chaîne d'approvisionnement pour assurer une transition sans faille de l'IPN\n\nVotre profil\n\n•\n10 ans et plus d'expérience pratique en matière d'approvisionnement, d'approvisionnement stratégique et de gestion des fournisseurs dans un environnement industriel ou matériel complexe (robotique, automobile, aérospatiale, électronique ou automatisation industrielle)\n\n•\nExpérience éprouvée de la gestion des activités d'approvisionnement tout au long du cycle de vie du produit — des prototypes d'IPN en phase initiale à la mise en service de la production en série\n\n•\nUne expertise approfondie dans l'approvisionnement de composants mécaniques, électriques et électromécaniques complexes\n\n•\nForte maîtrise de l'approvisionnement stratégique, des négociations contractuelles, des accords avec les fournisseurs et des conditions commerciales à long terme\n\n•\nCapacité démontrée de construire des réseaux de fournisseurs et des processus d'approvisionnement à partir du terrain dans des organisations matérielles dynamiques ou en croissance rapide\n\n•\nExpérience de travail efficace avec les fournisseurs internationaux, en particulier en Europe et en Asie\n\n•\nApproche collaborative avec une solide expérience d'influence et de partenariat avec des équipes interfonctionnelles d'ingénierie, de qualité et d'exploitation\n\n•\nMaîtrise des affaires en anglais\n\nPoints bonus\n\n•\nConnaissance approfondie du domaine dans l'approvisionnement en matériel robotique spécialisé comme l'électronique, PCBA, batteries haute densité, moteurs ou lecteurs\n\n•\nFluidité en allemand pour la communication avec les fournisseurs locaux\n\n•\nContexte dans les environnements de fabrication de matériel à volume faible à moyen, haute complexité\n\nNous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en croissance rapide et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich.\n\nPolitique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
+      "source": "ANYbotics Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-18T22:03:44.146Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Robotica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "applyUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-procurement-specialist-anybotics-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-procurement-specialist-anybotics-ch"
+        ],
+        "de": [
+          "senior-procurement-specialist-anybotics-ch"
+        ],
+        "fr": [
+          "senior-procurement-specialist-anybotics-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-24T11:13:08.609Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "crawlerMissStreak": 1
     }
   ]
 }

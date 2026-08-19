@@ -157,18 +157,46 @@ jobs:
   lighthouse:
     needs: probe
     runs-on: ubuntu-latest
-    # 45 min, measured — NOT a guess. 6 URLs x numberOfRuns:3 costs ~4-5 min per
-    # URL on a runner (mobile leg, 2026-08-07: 10:42:39 → 11:00:06 for 5 URLs),
-    # so one leg needs ~27 min of collection plus checkout/setup. The probe is no
-    # longer part of this budget — it is its own job now (see `probe` above).
+    # 100 min, measured — NOT a guess. One full leg (6 URLs x numberOfRuns:3)
+    # costs ~27 min of collection plus checkout/setup (mobile leg, 2026-08-07:
+    # 10:42:39 → 11:00:06 for 5 URLs). The probe is no longer part of this
+    # budget — it is its own job now (see `probe` above).
     #
-    # The previous value was 15, which this job could never finish in: a run
-    # dispatched 2026-08-07 was still on URL 5 of 6 at the 20-minute mark. So
-    # even on the days the deploy chain did fire, the audit would have been
-    # cancelled mid-collection — GitHub reports a `timeout-minutes` overrun as
-    # `cancelled`, which is indistinguishable at a glance from the concurrency
-    # cancellations upstream. Two independent faults were hiding each other.
-    timeout-minutes: 45
+    # The previous value was 45, sized for exactly one attempt. #5993: the
+    # desktop leg crashed mid-collection on 2026-08-18 (headless Chrome DevTools
+    # session dropped — "Protocol error (Page.enable): Session closed", a
+    # documented Puppeteer/Lighthouse flake, see GoogleChrome/lighthouse-ci#428
+    # and #495) with 4/6 URLs already collected cleanly; `lhci collect` aborts
+    # the WHOLE run on that error, so no assertion was ever evaluated and the
+    # "regression" issue it opened was a false positive. A single retry was
+    # added and 70 min sized for two full attempts.
+    #
+    # #6084: the SAME crash signature recurred on the mobile leg on
+    # 2026-08-19 — and this time on BOTH the first attempt AND the retry, in
+    # both cases on the same URL (`/premi-cassa-malati/ticino/`, the 5th of 5
+    # reachable URLs that run). `lhci collect` launches one shared Chrome
+    # instance for the whole leg (all URLs x all numberOfRuns), so a crash
+    # landing late in the sequence is consistent with cumulative memory/CDP
+    # pressure across ~12+ prior throttled (cpuSlowdownMultiplier: 4) mobile
+    # runs tipping an already-slow-to-quiesce page over the edge — the
+    # `waitFor:warn Timed out waiting for page load` on that URL shows it was
+    # still waiting on an in-flight Firestore realtime channel past
+    # `maxWaitForLoad` (60s), unlike the other URLs in the same run. Official
+    # LHCI guidance for this exact "Session closed" class of error is retry
+    # logic (it is a transient CI/Chrome-resource flake, not a code bug); one
+    # retry is evidently not always enough, so this adds a second retry
+    # (three attempts total) rather than raising `maxWaitForLoad` or altering
+    # any assertion threshold. Worst case is now three full attempts: ~27 min
+    # x 3 + checkout/setup ≈ 86 min. 100 min leaves headroom without being
+    # open-ended.
+    #
+    # (History: an even earlier value of 15 min could never finish a single
+    # attempt — a run dispatched 2026-08-07 was still on URL 5 of 6 at the
+    # 20-minute mark, so the audit was cancelled mid-collection even on days
+    # the deploy chain fired. GitHub reports a `timeout-minutes` overrun as
+    # `cancelled`, indistinguishable at a glance from the concurrency
+    # cancellations upstream — two independent faults were hiding each other.)
+    timeout-minutes: 100
     # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
     # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
     # on the old build — auditing it via workflow_run would measure something
@@ -254,8 +282,65 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
+      # One retry when the FIRST attempt fails — not a genuine-vs-crash
+      # distinction (the action gives us no way to tell them apart from YAML),
+      # but a legitimate flaky-collection mitigation: the thresholds evaluated
+      # are byte-identical on both attempts, nothing is relaxed. A collection
+      # crash (see timeout-minutes comment above, #5993) is non-deterministic
+      # and typically clears on retry; a genuine budget breach is a stable,
+      # reproducible measurement and will almost always fail again — so the
+      # retry does not mask real regressions, it only stops a one-off Chrome
+      # crash from being reported as one.
+      - name: Retry Lighthouse CI after collection failure
+        id: lhci-retry
+        continue-on-error: true
+        if: needs.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'failure'
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: ${{ needs.probe.outputs.urls }}
+          configPath: ${{ matrix.config }}
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      # Second retry when BOTH prior attempts fail — #6084: the first attempt
+      # and the single retry above both crashed with the same "Session closed"
+      # signature on the same URL (cumulative Chrome/CDP resource pressure
+      # across one shared browser instance running the whole leg, see
+      # timeout-minutes comment). One retry did not reliably clear it; this
+      # is the same flaky-collection mitigation as the retry above, not a
+      # relaxed threshold — byte-identical config on all three attempts.
+      - name: Retry Lighthouse CI after second collection failure
+        id: lhci-retry-2
+        continue-on-error: true
+        if: >-
+          needs.probe.outputs.run_audit == 'true' &&
+          steps.lhci.outcome == 'failure' &&
+          steps.lhci-retry.outcome == 'failure'
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: ${{ needs.probe.outputs.urls }}
+          configPath: ${{ matrix.config }}
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      # Combined verdict for the steps below: success if ANY attempt
+      # succeeded. When an earlier attempt already succeeded, the later retry
+      # step(s) were skipped (`outcome` == 'skipped'), so the first successful
+      # branch alone decides — the `||` chain only matters when a retry
+      # actually ran.
+      - name: Determine Lighthouse outcome
+        id: lhci-outcome
+        if: needs.probe.outputs.run_audit == 'true'
+        run: |
+          set -uo pipefail
+          if [ "${{ steps.lhci.outcome }}" = "success" ] || [ "${{ steps.lhci-retry.outcome }}" = "success" ] || [ "${{ steps.lhci-retry-2.outcome }}" = "success" ]; then
+            echo "outcome=success" >> "$GITHUB_OUTPUT"
+          else
+            echo "outcome=failure" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Upload Lighthouse reports on regression
-        if: steps.lhci.outcome == 'failure'
+        if: needs.probe.outputs.run_audit == 'true' && steps.lhci-outcome.outputs.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           # Per-leg name: two matrix legs uploading the same artifact name would
@@ -275,7 +360,7 @@ jobs:
       # the canonical issue instead (matches the other post-deploy reporters in
       # deploy.yml / post-deploy-validate-*.yml). Paired with the resolve step.
       - name: Open issue on regression
-        if: needs.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'failure'
+        if: needs.probe.outputs.run_audit == 'true' && steps.lhci-outcome.outputs.outcome == 'failure'
         run: |
           set -uo pipefail
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
@@ -312,7 +397,7 @@ jobs:
       # Recovery → auto-close the canonical issue so a fixed gate doesn't leave a
       # stale open issue (mirror of the failure reporter; best-effort, exits 0).
       - name: Resolve issue on recovery
-        if: needs.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'success'
+        if: needs.probe.outputs.run_audit == 'true' && steps.lhci-outcome.outputs.outcome == 'success'
         run: |
           set -uo pipefail
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -271,6 +271,7 @@
     "lint:workflow-input-injection": "node scripts/ci/check-workflow-input-injection.mjs",
     "lint:hardcoded-locale-segments": "node scripts/ci/check-hardcoded-locale-segments.mjs",
     "lint:hardcoded-locale-segments:rebaseline": "node scripts/ci/check-hardcoded-locale-segments.mjs --write-baseline",
+    "check:evergreen-comune-topics": "node scripts/build-evergreen-comune-topics.mjs --check",
     "audit:no-dotfile-html": "node scripts/audit-no-dotfile-html.mjs",
     "audit:active-jobs-regression": "node scripts/check-active-jobs-regression.mjs",
     "audit:active-jobs-regression:rebaseline": "node scripts/check-active-jobs-regression.mjs --rebaseline",
