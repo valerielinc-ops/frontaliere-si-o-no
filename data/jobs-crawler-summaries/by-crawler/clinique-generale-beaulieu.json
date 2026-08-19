@@ -1,16 +1,16 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-08-18T21:51:50.991Z",
-  "total": 2,
+  "generatedAt": "2026-08-19T10:21:19.014Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5585,
-  "avgDurationMs": 5585,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5149,
+  "avgDurationMs": 5149,
   "durationHistory": [
-    5585
+    5149
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T21:51:46.370Z",
+      "crawledAt": "2026-08-19T10:21:14.762Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-generale-beaulieu-2bea9edc46a1",
       "slug": "cura-della-maternita-cgb-clinique-generale-beaulieu-geneve",
@@ -95,5 +94,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
