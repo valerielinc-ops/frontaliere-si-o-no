@@ -149,6 +149,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
 import { SkeletonJobDetail, SkeletonJobBoard, SkeletonLine } from '@/components/shared/Skeletons';
 import { useExpiredJob, hasSeededExpiredData, seededJobMatchesSlug } from '@/hooks/useExpiredJob';
+import { readClusterSearchSeed } from '@/services/clusterSearchSeed';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
@@ -1943,6 +1944,18 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  return queryTokens.every((token) => haystack.includes(token));
 }
 
+/** Date-range facet → lookback window. Module-level because both the strict
+ * tier and the build-seed tier derive their cutoff from it; inline copies would
+ * be the same literal in two places. */
+const DATE_RANGE_MS: Record<DateRange, number> = {
+  all: 0,
+  '24h': 24 * 60 * 60 * 1000,
+  '3d': 3 * 24 * 60 * 60 * 1000,
+  '7d': 7 * 24 * 60 * 60 * 1000,
+  '30d': 30 * 24 * 60 * 60 * 1000,
+  '90d': 90 * 24 * 60 * 60 * 1000,
+};
+
 // --- Memoized JobCard to avoid re-renders on filter/sort ---
 interface JobCardProps {
  job: JobListing;
@@ -2133,7 +2146,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flash, no wait on the ~1.2 MB (gzip) slim index. The full index load below
  // replaces this array; `finalize` re-applies any detail fetched meanwhile and
  // keeps the seed if the loaded shard doesn't contain it (clobber-proof).
- const [jobs, setJobs] = useState<JobListing[]>(() => (seededJob ? [seededJob] : []));
+ /**
+  * Build-computed result set for a related-search cluster landing. The page's
+  * static HTML lists jobs this SPA cannot re-find: the emitter matches against
+  * the job DESCRIPTION, the slim index this board loads carries none (measured:
+  * 30 jobs printed, 6 surviving the client matcher, and the losses are
+  * on-intent). Rather than recompute a worse answer, take the one the build
+  * already published. Same `[initialJobSlug]` dep as `seededJob`: the inline
+  * script belongs to ONE document and must go stale on a soft navigation —
+  * `readClusterSearchSeed` re-checks the pathname it was emitted for.
+  */
+ const clusterSeed = useMemo(
+   () => (typeof window === 'undefined' ? null : readClusterSearchSeed(window.location.pathname)),
+   [initialJobSlug],
+ );
+ const clusterSeedJobs = useMemo<JobListing[]>(
+   () => (clusterSeed ? dedupeJobsForListing(clusterSeed.j.map((raw) => normalizeIncomingJob(raw))) : []),
+   [clusterSeed],
+ );
+ // Seeded into `jobs` too (not just into the result list) so the first frame
+ // can resolve a card the user clicks before any shard has landed.
+ const [jobs, setJobs] = useState<JobListing[]>(() => (seededJob ? [seededJob] : clusterSeedJobs));
  // Cross-canton fallback pool: the locale-wide unscoped corpus loaded by
  // `loadLegacyLocaleJobs` BEFORE `scopeJobsToCanton` narrows it. When a
  // canton-scoped search yields zero strict+OR matches we re-run the OR-match
@@ -3998,15 +4031,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // and "davos" but many have one of the two.
  const strictFilteredJobs = useMemo(() => {
  const now = Date.now();
- const dateRangeMs: Record<DateRange, number> = {
- all: 0,
- '24h': 24 * 60 * 60 * 1000,
- '3d': 3 * 24 * 60 * 60 * 1000,
- '7d': 7 * 24 * 60 * 60 * 1000,
- '30d': 30 * 24 * 60 * 60 * 1000,
- '90d': 90 * 24 * 60 * 60 * 1000,
- };
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
  const query = deferredSearchQuery.trim();
  return sortedJobs.filter((job) => {
  if (!passingNonSearchFilters(job, now, cutoff)) return false;
@@ -4469,6 +4494,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // replacing it: in-canton matches first, then the city-aware broadened tail,
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
+ /**
+  * True while the build's seeded result set is still the right answer for what
+  * is on screen: the visitor has not changed the query away from the one this
+  * page is about, and is not in a company/location view (those have their own
+  * loaders and their own corpora). Facet filters are deliberately NOT part of
+  * this test — they narrow the seeded set inside the tier rather than throwing
+  * it away, which is what a visitor ticking "ultime 24h" expects.
+  */
+ const clusterSeedApplies = clusterSeedJobs.length > 0
+   && !!clusterSeed
+   && deferredSearchQuery.trim() === clusterSeed.q.trim()
+   && !companySlugFilter
+   && !locationSlugFilter;
+
  const filteredJobs = useMemo<JobListing[]>(() => {
  // Sponsored ads matching the query surface above organic results, even when
  // they arrive via a fallback tier (e.g. a sponsored ad from another canton
@@ -4478,6 +4517,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!list.some((j) => j.featured)) return list;
  return [...list.filter((j) => j.featured), ...list.filter((j) => !j.featured)];
  };
+ // Tier 0 — the answer the BUILD computed for this exact page. It is not a
+ // faster route to the same set: it is a set this board cannot reach, because
+ // the emitter matched against job descriptions and the slim index carries
+ // none. Recomputing here would silently drop on-intent results the crawler
+ // and the first paint both already showed.
+ //
+ // Scope is deliberately narrow. It holds only while the query is still the
+ // page's own (`clusterSeed.q`, derived by the same parseSearchSlugFilter the
+ // search box is prefilled with) and no company/location view is active — the
+ // moment the visitor types, the normal tiers take over and this never fires
+ // again for that keystroke. Facet filters still apply, so picking a canton or
+ // a contract narrows the seeded set instead of discarding it.
+ if (clusterSeedApplies) {
+ const now = Date.now();
+ const cutoff = deferredSelectedDateRange === 'all'
+ ? 0
+ : now - DATE_RANGE_MS[deferredSelectedDateRange];
+ return featuredFirst(clusterSeedJobs.filter((job) => passingNonSearchFilters(job, now, cutoff)));
+ }
  // Merge the strict AND matches (first) with the in-canton OR-fill tail
  // (already excludes strict ids) so a thin strict tier is topped up to the
  // static cluster page's job set instead of collapsing to a single result.
@@ -4496,7 +4554,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (crossCantonFallbackJobs.length > 0) return featuredFirst(crossCantonFallbackJobs);
  if (companyBroadeningFallbackJobs.length > 0) return featuredFirst(companyBroadeningFallbackJobs);
  return featuredFirst(crossLocaleFallbackJobs);
- }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
+ }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
+ strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being
@@ -4514,6 +4573,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || crossLocaleFetchAttempted.current;
  const resultsResolving =
  (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
+ // ...unless the build already handed us the answer. With the cluster seed
+ // applied `filteredJobs` is not provisional — it is the exact set this page
+ // was emitted with, complete on the first frame — so holding the skeleton
+ // until the shards land would spend the whole win on an animation. Every
+ // window below is about waiting for a corpus we no longer need to wait for.
+ && !clusterSeedApplies
  && (
  fullLoadPending
  || (filteredJobs.length === 0 && (

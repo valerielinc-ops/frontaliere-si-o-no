@@ -72,8 +72,13 @@ import {
 import {
   getJobBoardSectionSlug,
   getSearchSlugPrefix,
+  parseSearchSlugFilter,
   stripSearchQueryBoilerplate,
 } from '../services/relatedSearchClusters';
+import {
+  CLUSTER_SEARCH_SEED_GLOBAL,
+  buildClusterSearchSeed,
+} from '../services/clusterSearchSeed';
 import { isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
 import { isPromptPlaceholder } from '../scripts/lib/prompt-placeholder.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
@@ -2216,6 +2221,29 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     (s) => escapeForBudget(s).length,
   );
 
+  // Hand the SPA the job set this build just computed, so hydration STOPS
+  // recomputing a smaller one. The two sides read different corpora — this
+  // plugin's haystack includes the job description, JobBoard's slim index
+  // deliberately does not — so the client can only ever find a subset of what
+  // is printed above. Measured on
+  // /cerca-lavoro-svizzera/ricerca-offerte-lavoro-assistente-psicologo/: 30
+  // jobs here, 6 surviving the SPA matcher, and the losses are on-intent
+  // ("Psicologo-psicoterapeuta in Psicologia"). See services/clusterSearchSeed.ts
+  // for the full derivation and for why the field set is trimmed rather than
+  // reusing SLIM_INDEX_FIELDS.
+  //
+  // `q` is derived with parseSearchSlugFilter — the SAME function JobBoard uses
+  // to prefill its search box from the slug — so the two agree by construction
+  // and the SPA can tell "still the page's own query" from "the user typed".
+  // In the head, not in bodyHtml: that <main> is moved into #root and replaced
+  // by React at hydration, and the seed must be readable before that.
+  const seedQuery = parseSearchSlugFilter(candidate.slug) ?? '';
+  const seedScript = ctx.matchingJobs.length > 0 && seedQuery
+    ? `<script>window.${CLUSTER_SEARCH_SEED_GLOBAL}=${inlineScriptJson(
+        buildClusterSearchSeed(urlPath, seedQuery, ctx.matchingJobs as unknown as ReadonlyArray<Record<string, unknown>>),
+      )};</script>`
+    : '';
+
   const html = buildSeoPageHtml({
     locale,
     title,
@@ -2226,6 +2254,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     ogLocale: OG_LOCALE[locale],
     hreflangHtml,
     jsonLdScripts,
+    extraHeadHtml: seedScript,
     bodyHtml,
     distDir,
     // No hubChrome: the SPA renders its own sub-nav inside `#root`. A
