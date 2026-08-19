@@ -10157,6 +10157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Living in Venegono and working in Ticino: tax guide 2024',
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Borders between Italy and Ticino: the new agreement from 2024 changes taxation, contributions and deductibles. What are the practical implications for those living in Venegono Superiore?',
     'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano lake at sunrise with Alpine mountains, representing the Ticino landscape for cross-border workers.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Living in San Bartolomeo Val Cavargna, working in Ticino',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Practical guide for border workers: crossings, taxation, LAMal, G permit, fixed costs, first assignment procedure and economic convenience scenarios between Italy and Switzerland.',
+    'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Road connection from San Bartolomeo Val Cavargna to Ticino border at sunset',
 };
 
 export default blogMetaEn;
