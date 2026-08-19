@@ -10096,6 +10096,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ferrera-varese-frontaliere-ticino.title': 'Leben in Ferrera di Varese und Arbeiten im Tessin als Grenzgänger',
     'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'Neues Abkommen 2024, Schweizer Quellensteuer, Selbstbehalte von € 7.500- € 10.000 und italienische Steuererklärung für diejenigen, die im Kanton Tessin arbeiten.',
     'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Grenzgänger auf dem Weg zur Arbeit im Kanton Tessin von der italienischen Grenzregion',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.title': 'Leben in Centro Valle Intelvi und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.excerpt': 'Steuereinstellung, Genehmigungen und Vorteile der Übertragung',
+    'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich in Centro Valle Intelvi umsiedelt und in Ticino arbeitet',
 };
 
 export default blogMetaDe;
