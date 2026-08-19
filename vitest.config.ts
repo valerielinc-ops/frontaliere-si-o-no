@@ -138,6 +138,7 @@ const JSDOM_TS_FILES = [
   'tests/analytics-seo.test.ts',
   'tests/artisa-job-parser.test.ts',
   'tests/authGateExperiment.test.ts',
+  'tests/auto-ad-collapse.test.ts',
   'tests/behavior-tracker.test.ts',
   'tests/bot-gate-parity.test.ts',
   'tests/build-plugins/earlyBootSelfHeal.test.ts',

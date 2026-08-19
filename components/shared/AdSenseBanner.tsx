@@ -11,9 +11,11 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
+import { isElementInViewport } from '@/services/adViewport';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import {
+ AD_FILL_TIMEOUT_MS,
  MULTIPLEX_DESKTOP_MIN_HEIGHT,
  MULTIPLEX_DESKTOP_MIN_WIDTH,
  resolveSlotPlaceholderMinHeight,
@@ -115,13 +117,6 @@ export function resolvePlaceholderMinHeight(
    resolveSlotPlaceholderMinHeight(adSlot, adFormat, adLayout, viewportWidth) ??
    getPlaceholderMinHeight(adFormat, adLayout)
  );
-}
-
-function isElementInViewport(el: HTMLElement): boolean {
- const rect = el.getBoundingClientRect();
- const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
- const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
- return rect.bottom > 0 && rect.right > 0 && rect.top < viewportHeight && rect.left < viewportWidth;
 }
 
 export default function AdSenseBanner({
@@ -454,16 +449,15 @@ export default function AdSenseBanner({
  // AdSense before it can report unfilled, leaving a 400px reservation
  // on every blocked slot for 90s. Multiple slots × 400px = 800-1200px
  // of visible dead-space below the fold on every page load (S7).
- // Most genuine fills land <2s, but Privacy Sandbox / Attestation auctions
- // can legitimately settle slower; an 8s cutoff false-collapsed late fills
- // and logged them as ad_collapsed, depressing the measured fill-rate. 12s
- // keeps the dead-space short while giving slow auctions room to fill.
+ // The budget itself lives in `AD_FILL_TIMEOUT_MS` (services/adsenseSlots.ts)
+ // because the containers Google injects need the same one — see
+ // `services/autoAdCollapse.ts`.
  fillTimeoutRef.current = setTimeout(() => {
  const status = el.getAttribute('data-ad-status');
  if (status === 'filled') return;
  cleanupAsyncWatchers();
  collapseWhenLayoutSafe(`fill timeout (status=${status})`);
- }, 12_000);
+ }, AD_FILL_TIMEOUT_MS);
 
  return true;
  };

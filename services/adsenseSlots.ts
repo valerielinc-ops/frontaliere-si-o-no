@@ -347,6 +347,21 @@ export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
  *  mobile/SSR floor is lifted to this on wide viewports. */
 export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
 
+/**
+ * How long a reserved ad box may stay unresolved before its space is given
+ * back. An ad that has not reported `data-ad-status` by then is not "slow",
+ * it is blocked — Privacy Sandbox / Attestation / ad blockers cut AdSense off
+ * before it can answer `unfilled`, so the box would hold its reserve forever.
+ *
+ * 12s is the value measured for our own slots: most genuine fills land under
+ * 2s, but Privacy Sandbox auctions can legitimately settle slower, and an 8s
+ * cutoff false-collapsed late fills (depressing the measured fill rate). Both
+ * consumers — `AdSenseBanner` for the slots we declare and `autoAdCollapse`
+ * for the containers Google injects — must use the SAME budget: two different
+ * timeouts would collapse two halves of the same page at two different moments.
+ */
+export const AD_FILL_TIMEOUT_MS = 12_000;
+
 function slotReserveKey(
   adSlot: string | undefined,
   adFormat: string | undefined,

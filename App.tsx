@@ -307,6 +307,23 @@ const App: React.FC = () => {
  // failing <img> to its raw.githubusercontent fallback (same SHA).
  useEffect(() => { installBlogImageCdnFallback(); }, []);
 
+ // Google's own Auto Ad containers hold ~280px each even when the ad request
+ // never comes back (no `data-ad-status`, no iframe) — the case neither CSS
+ // collapse rule can express. Give that space back after the same fill budget
+ // our own slots use. See services/autoAdCollapse.ts.
+ //
+ // Imported dynamically: it pulls the slot registry (for the shared fill
+ // budget) and the bot patterns, and none of that belongs in the entry chunk
+ // for work that cannot start before adsbygoogle.js has injected a container.
+ useEffect(() => {
+ let teardown: (() => void) | null = null;
+ let cancelled = false;
+ import('@/services/autoAdCollapse')
+ .then(({ installAutoAdCollapse }) => { if (!cancelled) teardown = installAutoAdCollapse(); })
+ .catch(() => { /* ads are best-effort; a failed chunk must not break the app */ });
+ return () => { cancelled = true; teardown?.(); };
+ }, []);
+
  // Version badge commit hash — fetched at runtime (services/buildInfo.ts)
  // instead of a Vite `define`. Baking it into the bundle put a fresh value in
  // the entry every build → ~100% deploy churn.

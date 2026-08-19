@@ -18,6 +18,10 @@
  *   4. Reports any element where the rendered min-height is 0 or "auto" but
  *      our component intends a reservation. That's the smoking gun for
  *      stripping.
+ *   5. Reports Auto Ad containers that hold space with NO creative in them
+ *      (`stuck`), and the total blank px per page. Height alone said
+ *      "reservation intact" on a box that was in fact empty — measured live
+ *      2026-08-19 at 840-1120px per page. See `services/autoAdCollapse.ts`.
  *
  * Usage:
  *   node scripts/audit-cls-stripping.mjs                   # mobile + desktop, default URLs
@@ -80,6 +84,15 @@ async function probeOne(page, url, viewport, label) {
     const placed = document.querySelectorAll('.google-auto-placed');
     placed.forEach((el) => {
       const cs = getComputedStyle(el);
+      const insEl = el.querySelector('ins');
+      // A reserve is only healthy if an ad is IN it. Reading the computed
+      // height alone reports a 280px box as "reservation intact" while it is
+      // in fact blank — the failure this audit exists to catch. `stuck` is the
+      // silent no-answer case: an <ins> was inserted, adsbygoogle marked it
+      // done, and no `data-ad-status` and no creative ever arrived, so neither
+      // CSS collapse rule in index.css can see it (services/autoAdCollapse.ts).
+      const hasIframe = !!el.querySelector('iframe');
+      const adStatus = insEl ? insEl.getAttribute('data-ad-status') : null;
       out.autoPlaced.push({
         class: el.className,
         computedMinHeight: cs.minHeight,
@@ -88,6 +101,10 @@ async function probeOne(page, url, viewport, label) {
         computedContain: cs.contain,
         inlineStyle: el.getAttribute('style') || '',
         offsetHeight: el.offsetHeight,
+        hasIframe,
+        adStatus,
+        collapsed: el.hasAttribute('data-ft-autoad-collapsed'),
+        stuck: !hasIframe && adStatus === null && el.offsetHeight > 0,
       });
     });
     return out;
@@ -144,8 +161,11 @@ for (const url of urls) {
           console.log(`    slot=${i.slot} fmt=${i.format} status=${i.adStatus || 'pending'}  parent.minHeight=${i.parentComputedMinHeight} ${stripped ? '🔴 STRIPPED' : ''}`);
         }
         for (const ap of data.autoPlaced) {
-          console.log(`    auto-placed offsetH=${ap.offsetHeight}px  contain=${ap.computedContain}  ar=${ap.computedAspectRatio}`);
+          const flag = ap.stuck ? '🔴 STUCK (no creative, no status)' : '';
+          console.log(`    auto-placed offsetH=${ap.offsetHeight}px  status=${ap.adStatus || 'pending'} iframe=${ap.hasIframe ? 'yes' : 'no'}${ap.collapsed ? ' collapsed' : ''}  contain=${ap.computedContain} ${flag}`);
         }
+        const deadPx = data.autoPlaced.filter((ap) => ap.stuck).reduce((n, ap) => n + ap.offsetHeight, 0);
+        if (deadPx > 0) console.log(`    🔴 ${deadPx}px of blank Auto Ad space on this page`);
       }
     } catch (e) {
       results.push({ url, viewport: label, error: e.message });
