@@ -449,7 +449,15 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: |
           set -euo pipefail
-          git fetch origin "$BASE_REF" --quiet || true
+          # Explicit destination refspec (sibling of issue #6058, tests.yml): a
+          # bare `git fetch origin "$BASE_REF"` only updates FETCH_HEAD, never
+          # `refs/remotes/origin/$BASE_REF` — this checkout is of the PR head
+          # SHA (`ref: ${{ github.event.pull_request.head.sha }}` above), so
+          # that ref was never created either. `--base "origin/$BASE_REF"`
+          # below therefore never resolved, and resolve-merge-base.mjs's
+          # blocking-skip (issue #5195) fired on every run instead of the
+          # sibling analysis actually running.
+          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
           node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
@@ -559,7 +567,15 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
         run: |
           set -euo pipefail
-          git fetch origin "$BASE_REF" --quiet || true
+          # Explicit destination refspec (sibling of issue #6058, tests.yml): a
+          # bare `git fetch origin "$BASE_REF"` only updates FETCH_HEAD, never
+          # `refs/remotes/origin/$BASE_REF` — this checkout is of the PR head
+          # SHA (`ref: ${{ github.event.pull_request.head.sha }}` above), so
+          # that ref was never created either. `--base "origin/$BASE_REF"`
+          # below therefore never resolved, and resolve-merge-base.mjs's
+          # blocking-skip (issue #5195) fired on every run instead of the
+          # sibling analysis actually running.
+          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
           node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
           node -e "
             const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
