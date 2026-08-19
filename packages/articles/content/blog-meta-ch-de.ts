@@ -3439,6 +3439,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.annuncio-discriminatorio-zurigo-lpar.title': 'Diskriminierende Anzeige Zürich: Was das ParG vorsieht',
     'blog.article.annuncio-discriminatorio-zurigo-lpar.excerpt': 'Eine Schreinerei in Zürich hat eine Anzeige nach Geschlecht und Alter geschaltet. Ein Anwalt erklärt, was das Schweizer Diskriminierungsgesetz vorsieht.',
     'blog.article.annuncio-discriminatorio-zurigo-lpar.imageAlt': 'Professionelle Arbeitsumgebung in der Schweiz mit Fokus auf Einstellung und Arbeitsrecht',
+    'blog.article.onu-sanzioni-sesam-2026.title': 'UNO-Sanktionen: automatische Anwendung in der Schweiz',
+    'blog.article.onu-sanzioni-sesam-2026.excerpt': 'Der Bundesrat nimmt die UNO-Sanktionslisten seit 2016 automatisch in das schweizerische Recht auf. SESAM-Update vom 19. August 2026.',
+    'blog.article.onu-sanzioni-sesam-2026.imageAlt': 'Aussicht auf den Luganer See mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaChDe;
