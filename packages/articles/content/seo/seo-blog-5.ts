@@ -69959,6 +69959,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cerano-intelvi-pendolare-ticino': {
+    title: 'Cerano d\'Intelvi: vivere e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Permesso G, fiscalità, imposta alla fonte, ristorni e valichi per frontalieri che risiedono a Cerano d\'Intelvi e lavorano nel Canton Ticino. Guida completa',
+    keywords: 'frontalieri, ticino, svizzera, italia, cerano, intelvi, vivere, lavorare',
+    ogTitle: 'Cerano d\'Intelvi: vivere e lavorare in Ticino',
+    ogDescription: 'Guida pratica per frontalieri che vivono a Cerano d\'Intelvi e lavorano in Ticino: aliquote, permesso G, valichi, ristorni fiscali e procedure amministrative 2024-2026.',
+    canonicalPath: '/articoli-frontaliere/cerano-intelvi-pendolare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cerano d'Intelvi: vivere e lavorare in Ticino",
+      "description": "Permesso G, fiscalità, imposta alla fonte, ristorni e valichi per frontalieri che risiedono a Cerano d'Intelvi e lavorano nel Canton Ticino. Guida completa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cerano-intelvi-pendolare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio della Valle d'Intelvi con vista verso il Ticino e le Alpi Svizzere, meta quotidiana di frontalieri che lavorano nel Canton Ticino"
+      },
+      "datePublished": "2026-08-19T11:58:27+00:00",
+      "dateModified": "2026-08-19T11:58:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cerano-intelvi-pendolare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

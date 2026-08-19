@@ -10115,6 +10115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-ponna-lavorare-ticino.title': 'Living in Ponna and working in Ticino: border guide',
     'blog.article.vivere-ponna-lavorare-ticino.excerpt': 'Living in Ponna and working in Ticino: analysis of border commuting between cost of living, taxation, AVS, LPP and practical considerations for transfer.',
     'blog.article.vivere-ponna-lavorare-ticino.imageAlt': 'Ticino landscape view from the border, symbolizing commuting between Ponna, Italy and Ticino, Switzerland',
+    'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d \'Intelvi: living and working in Ticino',
+    'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Permit G, tax rates, crossings and refunds for those residing in the Valle d \'Intelvi and working in the Canton of Ticino: practical guide for border workers 2024-2026',
+    'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'View of Intelvi Valley toward Ticino and Swiss Alps, daily destination for thousands of commuters working in Canton Ticino',
 };
 
 export default blogMetaEn;
