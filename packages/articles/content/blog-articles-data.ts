@@ -30369,6 +30369,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bene-lario-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-19T17:04:17.689Z',
+ image: '/images/blog/bene-lario-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

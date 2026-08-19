@@ -70271,6 +70271,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bene-lario-frontaliere-ticino': {
+    title: 'Vivere a Bene Lario, lavorare in Ticino da frontaliere',
+    description: 'Guida completa per frontalieri: fiscalità, Permesso G, franchigia €10.000, assicurazione malattia, costi e procedure per trasferirsi a Bene Lario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, bene, lario, lavorare',
+    ogTitle: 'Bene Lario e Ticino: guida fiscale frontaliere 2024',
+    ogDescription: 'Trasferirsi a Bene Lario per lavorare in Ticino: scopri il nuovo regime fiscale frontalieri, franchigia €10.000, Permesso G, costi e procedure amministrative complete.',
+    canonicalPath: '/articoli-frontaliere/bene-lario-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Bene Lario, lavorare in Ticino da frontaliere",
+      "description": "Guida completa per frontalieri: fiscalità, Permesso G, franchigia €10.000, assicurazione malattia, costi e procedure per trasferirsi a Bene Lario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bene-lario-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del waterfront di Bene Lario sul Lago di Como con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-08-19T17:04:17+00:00",
+      "dateModified": "2026-08-19T17:04:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bene-lario-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
