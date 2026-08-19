@@ -10134,6 +10134,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.capiago-intimiano-vivere-ticino.title': 'Vivere a Capiago Intimiano, lavorare in Ticino',
     'blog.article.capiago-intimiano-vivere-ticino.excerpt': 'Guida pratica per frontalieri: localizzazione, tempi di pendolarismo, fiscalità, costi di vita e checklist prima del trasferimento.',
     'blog.article.capiago-intimiano-vivere-ticino.imageAlt': 'Veduta del valico di Brogeda al confine tra Italia e Ticino, con segnaletica svizzera e paesaggio di montagna sullo sfondo',
+    'blog.article.faggeto-lario-ticino-frontaliere.title': 'Vivere a Faggeto Lario e lavorare in Ticino',
+    'blog.article.faggeto-lario-ticino-frontaliere.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri cambia la tassazione. Scopri Permesso G, imposta alla fonte, AVS e LAMal per chi risiede a Faggeto Lario e lavora nel Ticino.',
+    'blog.article.faggeto-lario-ticino-frontaliere.imageAlt': 'Veduta di Mendrisio, Ticino, al confine con Como: location ideale per frontalieri che lavorano nel cantone',
 };
 
 export default blogMetaIt;
