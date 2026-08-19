@@ -118,9 +118,15 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
   const mail = email !== undefined ? email : user?.email ?? null;
 
   return (
-    // A reserving fallback, not `null`. On the job detail this CTA now renders
-    // in the header, above the fold: a null fallback means the whole block
-    // appears out of nowhere when the chunk lands and shoves the article down.
+    // A reserving fallback, not `null`. Nothing under this boundary suspends
+    // today — `CompanyFollowButton` is a plain import — so this is the
+    // defensive half: the reservation that actually fires is the button's own
+    // `loading` return (the findCompanyAlert round trip) plus the Suspense
+    // JobBoard puts around the `lazyRetry` import of THIS component. Kept
+    // consistent so the three boundaries cannot disagree about what an
+    // unresolved follow CTA looks like — which matters now that it renders in
+    // the job-detail header, above the fold, where an unreserved insertion
+    // shoves the whole article down.
     // See components/community/CompanyFollowPlaceholder.tsx.
     <Suspense fallback={<CompanyFollowPlaceholder />}>
       <CompanyFollowButton
