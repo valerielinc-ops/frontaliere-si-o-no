@@ -10114,6 +10114,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-ponna-lavorare-ticino.title': 'Leben in Ponna und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.vivere-ponna-lavorare-ticino.excerpt': 'Leben in Ponna und Arbeiten im Tessin: Analyse des Grenzpendelns zwischen Lebenshaltungskosten, Besteuerung, AHV, BVG und praktischen Überlegungen für den Umzug.',
     'blog.article.vivere-ponna-lavorare-ticino.imageAlt': 'Tessiner Landschaftsansicht von der Grenze, das Pendeln zwischen Ponna, Italien und dem Tessin symbolisierend',
+    'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d \'Intelvi: Leben und Arbeiten im Tessin',
+    'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Bewilligung G, Steuersätze, Passagen und Rückerstattungen für Personen, die im Valle d \'Intelvi wohnen und im Kanton Tessin arbeiten: Praktischer Leitfaden für Grenzgänger 2024-2026',
+    'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'Blick auf das Intelvi-Tal in Richtung Tessin und Schweizer Alpen, tägliches Ziel für tausende Grenzgänger',
 };
 
 export default blogMetaDe;

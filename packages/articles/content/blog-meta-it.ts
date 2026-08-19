@@ -10116,6 +10116,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-ponna-lavorare-ticino.title': 'Vivere a Ponna e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-ponna-lavorare-ticino.excerpt': 'Vivere a Ponna e lavorare in Ticino: analisi del pendolarismo frontaliero tra costo della vita, tassazione, AVS, LPP e considerazioni pratiche per il trasferimento.',
     'blog.article.vivere-ponna-lavorare-ticino.imageAlt': 'Vista del paesaggio ticinese dal confine, simbolo del pendolarismo tra Ponna in Italia e il Ticino in Svizzera',
+    'blog.article.cerano-intelvi-pendolare-ticino.title': 'Cerano d\'Intelvi: vivere e lavorare in Ticino',
+    'blog.article.cerano-intelvi-pendolare-ticino.excerpt': 'Permesso G, aliquote fiscali, valichi e ristorni per chi risiede nella Valle d\'Intelvi e lavora nel Canton Ticino: guida pratica del frontaliere 2024-2026',
+    'blog.article.cerano-intelvi-pendolare-ticino.imageAlt': 'Paesaggio della Valle d\'Intelvi con vista verso il Ticino e le Alpi Svizzere, meta quotidiana di frontalieri che lavorano nel Canton Ticino',
 };
 
 export default blogMetaIt;
