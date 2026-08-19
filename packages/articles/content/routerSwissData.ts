@@ -1173,6 +1173,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'due-no-iniziative-settembre': { it: 'due-no-iniziative-settembre', en: 'two-no-initiatives-september', de: 'zwei-nein-initiativen-september', fr: 'deux-non-initiatives-septembre' },
  'annuncio-discriminatorio-zurigo-lpar': { it: 'annuncio-discriminatorio-zurigo-lpar', en: 'job-ad-discrimination-zurich-equality', de: 'stellenanzeige-diskriminierung-zurich-pagg', fr: 'annonce-travail-discrimination-zurich-leg' },
  'onu-sanzioni-sesam-2026': { it: 'onu-sanzioni-sesam-2026', en: 'onu-sanctions-sesam-2026', de: 'uno-sanktionen-sesam-2026', fr: 'onu-sanctions-sesam-2026' },
+ 'comprare-casa-canton-basilea-citta': { it: 'comprare-casa-canton-basilea-citta', en: 'comprare-casa-canton-basilea-citta-en', de: 'comprare-casa-canton-basilea-citta-de', fr: 'comprare-casa-canton-basilea-citta-fr' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

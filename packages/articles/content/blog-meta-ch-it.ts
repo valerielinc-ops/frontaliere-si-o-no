@@ -3442,6 +3442,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.onu-sanzioni-sesam-2026.title': 'Sanzioni ONU: applicazione automatica in Svizzera',
     'blog.article.onu-sanzioni-sesam-2026.excerpt': 'Il Consiglio federale dal 2016 incorpora automaticamente le liste di sanzioni ONU nel diritto svizzero. Aggiornamento SESAM del 19 agosto 2026.',
     'blog.article.onu-sanzioni-sesam-2026.imageAlt': 'Veduta del lago di Lugano con la città sullo sfondo',
+    'blog.article.comprare-casa-canton-basilea-citta.title': 'Comprare casa in Cantone di Basilea Città: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'I prezzi medi delle case nel Cantone di Basilea Città possono variare a seconda della zona e del tipo di proprietà.',
+    'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Immagine di un edificio nella zona di Basilea Città.',
 };
 
 export default blogMetaChIt;

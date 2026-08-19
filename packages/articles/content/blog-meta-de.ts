@@ -10135,6 +10135,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.faggeto-lario-ticino-frontaliere.title': 'Leben in Faggeto Lario und Arbeiten im Tessin',
     'blog.article.faggeto-lario-ticino-frontaliere.excerpt': 'Ab dem 1. Januar 2024 ändert die Neue Grenzgängervereinbarung die Besteuerung. Entdecken Sie die Bewilligung G, Quellensteuer, AHV und KVG für diejenigen, die in Faggeto Lario wohnen und im Tessin arbeiten.',
     'blog.article.faggeto-lario-ticino-frontaliere.imageAlt': 'Aussicht auf Mendrisio, Tessin, an der Grenze zu Como: idealer Ort für Grenzgänger im Kanton',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.title': 'Umzug nach Vertemate von Grenzgänger Tessin',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.excerpt': 'Leben in Vertemate mit Minoprio und Arbeiten in der Schweiz: Vorteile des neuen Abkommens 2024 mit € 10\'000-Franchise, Besteuerung, G-Genehmigung und administrativer Checkliste.',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.imageAlt': 'Hauptstraße von Vertemate con Minoprio in der Provinz Como mit lombardischer Architektur und Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

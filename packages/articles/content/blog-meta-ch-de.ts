@@ -3442,6 +3442,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.onu-sanzioni-sesam-2026.title': 'UNO-Sanktionen: automatische Anwendung in der Schweiz',
     'blog.article.onu-sanzioni-sesam-2026.excerpt': 'Der Bundesrat nimmt die UNO-Sanktionslisten seit 2016 automatisch in das schweizerische Recht auf. SESAM-Update vom 19. August 2026.',
     'blog.article.onu-sanzioni-sesam-2026.imageAlt': 'Aussicht auf den Luganer See mit der Stadt Lugano im Hintergrund',
+    'blog.article.comprare-casa-canton-basilea-citta.title': 'Haus kaufen im Kanton Basel-Stadt: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'Die durchschnittlichen Hauspreise im Kanton Basel-Stadt können je nach Gebiet und Art der Immobilie variieren.',
+    'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Bild eines Gebäudes im Basler Stadtgebiet.',
 };
 
 export default blogMetaChDe;
