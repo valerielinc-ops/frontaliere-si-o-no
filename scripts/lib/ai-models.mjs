@@ -1449,16 +1449,30 @@ function getSchemaMode() {
  * ('GitHub') or the PROVIDER.* constant returned by getProvider() ('github').
  * See _normalizeProviderKey.
  *
- * THIS IS THE SINGLE SOURCE OF TRUTH for "does this provider receive the
- * schema". Both halves that need the answer ask it: the send side
- * (_callOpenAICompatible / _callGeminiRaw, which build the request body) and
- * the estimate side (estimateRequestTokens, which sizes that same body for the
- * pre-flight skip-guard). Do not re-derive the answer from
- * PROVIDERS_WITH_STRICT_JSON_SCHEMA at a new call site: the two halves
- * disagreeing is precisely the defect this function was widened to close —
- * the estimator used to add the serialized schema unconditionally, so Groq
- * (not in the set, never sent the schema) was pre-flight-skipped on ~516
- * phantom tokens it would never have received.
+ * THIS IS THE SOURCE OF TRUTH for "does this OpenAI-compat-shaped provider
+ * receive the schema" — the send side (_callOpenAICompatible / _callGeminiRaw,
+ * which build the request body) and the estimate side (estimateRequestTokens,
+ * which sizes that same body for the pre-flight skip-guard) both ask it. Do
+ * not re-derive the answer from PROVIDERS_WITH_STRICT_JSON_SCHEMA at a new
+ * call site: the two halves disagreeing is precisely the defect this function
+ * was widened to close — the estimator used to add the serialized schema
+ * unconditionally, so Groq (not in the set, never sent the schema) was
+ * pre-flight-skipped on ~516 phantom tokens it would never have received.
+ *
+ * NOT a third sender: `claude_cli` isn't OpenAI-compat, isn't in
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA, and this function correctly returns
+ * false for it — yet `_callClaudeCli` sends the (relaxed) schema via
+ * `--json-schema` whenever `getSchemaMode() !== 'off'`, unconditionally on
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA/_learnedSchemaIncompatible. That earlier
+ * claim ("both halves that need the answer ask it") was false the moment
+ * _callClaudeCli started sending a schema: estimateRequestTokens' call to
+ * THIS function under-counted every claude-cli/* request with a schema by
+ * ~1805 bytes ≈ 452 tokens. See `_schemaBytesWillBeSent` below, which is what
+ * estimateRequestTokens actually calls now — it defers to this function for
+ * every OpenAI-compat/Gemini provider and answers the CLI case separately, on
+ * purpose: folding claude_cli into PROVIDERS_WITH_STRICT_JSON_SCHEMA would
+ * change SEND behavior (this function doubles as the send-time gate), not
+ * just the estimate.
  *
  * Exported for tests / smoke probes.
  */
@@ -1471,6 +1485,38 @@ export function shouldUseSchemaMode(providerName, hasSchema = true, modelForTrac
   const key = _normalizeProviderKey(providerName);
   if (key === _normalizeProviderKey(PROVIDER.GEMINI)) return true;
   return PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(key);
+}
+
+/**
+ * Whether the schema bytes a call constructs actually leave the process — the
+ * question estimateRequestTokens needs answered, across EVERY sender, not
+ * just the OpenAI-compat/Gemini one shouldUseSchemaMode() gates.
+ *
+ * Deliberately NOT folded into shouldUseSchemaMode(): that function is also
+ * the SEND-time decision for _callOpenAICompatible/_callGeminiRaw (it builds
+ * `response_format`), so adding `claude_cli` to
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA to make this predicate true for it would
+ * change what those functions send, not just what this counts — and
+ * claude_cli isn't OpenAI-compat in the first place (it takes a CLI flag, not
+ * a `response_format`), so it was never a candidate for that Set on its own
+ * merits. This function exists so the estimate can know a fact the send-time
+ * gate was never meant to encode.
+ *
+ * Mirrors _callClaudeCli's OWN condition for pushing `--json-schema`
+ * (`opts.jsonSchema && getSchemaMode() !== 'off'`) exactly — not
+ * shouldUseSchemaMode()'s: the CLI never consults
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA or _learnedSchemaIncompatible, so this
+ * predicate doesn't either for that provider. If _callClaudeCli's condition
+ * changes, this one has to change with it — there's no import to enforce
+ * that, only tests/scripts/ai-models-claude-cli-schema-estimate.test.ts
+ * asserting the two conditions stay textually in sync.
+ */
+function _schemaBytesWillBeSent(providerName, hasSchema, modelForTracking) {
+  if (!hasSchema) return false;
+  if (_normalizeProviderKey(providerName) === _normalizeProviderKey(PROVIDER.CLAUDE_CLI)) {
+    return getSchemaMode() !== 'off';
+  }
+  return shouldUseSchemaMode(providerName, hasSchema, modelForTracking);
 }
 
 /**
@@ -4143,10 +4189,12 @@ function _learnSchemaIncompatible(modelForTracking) {
  *
  * `providerName`, when given, makes the jsonSchema term provider-accurate: the
  * serialized schema is only added for providers that actually RECEIVE it, as
- * decided by shouldUseSchemaMode() — the same call the send side makes when it
- * builds the body. Omit it and the schema is counted unconditionally, which is
- * the conservative upper bound across the fleet and preserves the estimate
- * every existing provider-agnostic caller already relies on.
+ * decided by `_schemaBytesWillBeSent()` — which defers to shouldUseSchemaMode()
+ * for the OpenAI-compat/Gemini send side, and answers claude_cli separately
+ * (see that function's docstring for why it isn't folded in). Omit
+ * `providerName` and the schema is counted unconditionally, which is the
+ * conservative upper bound across the fleet and preserves the estimate every
+ * existing provider-agnostic caller already relies on.
  *
  * Why it matters: this codebase's article schema serializes to ~1805 chars ≈
  * 516 tokens. Groq is deliberately NOT in PROVIDERS_WITH_STRICT_JSON_SCHEMA
@@ -4159,6 +4207,18 @@ function _learnSchemaIncompatible(modelForTracking) {
  * `modelForTracking` extends the same fidelity to the per-model
  * _learnedSchemaIncompatible set and to the AI_MODELS_SCHEMA_MODE=off
  * kill-switch, both of which also stop the schema from being sent.
+ *
+ * claude_cli is the mirror-image bug (2026-08-19): shouldUseSchemaMode()
+ * correctly says false for it (not OpenAI-compat, not in
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA), but _callClaudeCli sends the schema
+ * anyway via `--json-schema` — so counting via shouldUseSchemaMode() alone
+ * UNDER-counted every claude-cli/* request with a schema by ~1805 bytes ≈
+ * 452 tokens, the same class of defect as the Groq one above with the sign
+ * flipped. And the bytes that actually leave the process for claude_cli
+ * aren't the raw schema: _callClaudeCli passes it through
+ * relaxSchemaForClaudeCli() first (drops nullable props from `required`),
+ * which changes the byte count, so this function mirrors that transform too
+ * — counting the unrelaxed schema would still be the wrong number.
  *
  * Exported for tests / smoke probes.
  */
@@ -4175,13 +4235,23 @@ export function estimateRequestTokens(messages, opts = {}, providerName = undefi
       }
     }
   }
-  // jsonSchema is serialized and sent in response_format → counts toward body,
-  // but ONLY for the providers that receive it. With no providerName the
-  // caller is asking a provider-agnostic question, so keep the upper bound.
+  // jsonSchema is serialized and sent in response_format (or, for claude_cli,
+  // via --json-schema) → counts toward body, but ONLY for the providers that
+  // receive it. With no providerName the caller is asking a provider-agnostic
+  // question, so keep the upper bound.
   const schemaIsSent = providerName === undefined
-    || shouldUseSchemaMode(providerName, true, modelForTracking);
+    || _schemaBytesWillBeSent(providerName, true, modelForTracking);
   if (opts.jsonSchema?.schema && schemaIsSent) {
-    try { chars += JSON.stringify(opts.jsonSchema.schema).length; } catch { /* noop */ }
+    // claude_cli never receives the raw schema — _callClaudeCli relaxes it
+    // first (relaxSchemaForClaudeCli drops nullable props from `required`),
+    // and that changes the byte count. Count the schema each provider
+    // actually gets, not the one every provider might get.
+    const isClaudeCli = providerName !== undefined
+      && _normalizeProviderKey(providerName) === _normalizeProviderKey(PROVIDER.CLAUDE_CLI);
+    const schemaForCount = isClaudeCli
+      ? relaxSchemaForClaudeCli(opts.jsonSchema.schema)
+      : opts.jsonSchema.schema;
+    try { chars += JSON.stringify(schemaForCount).length; } catch { /* noop */ }
   }
   return Math.ceil(chars / 3.5) + SAFETY_MARGIN;
 }
