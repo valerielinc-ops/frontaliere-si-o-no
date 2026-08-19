@@ -3382,6 +3382,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.easygov-pmi-svizzere.title': 'EasyGov alleggerisce le PMI svizzere',
     'blog.article.easygov-pmi-svizzere.excerpt': 'Studio dell\'Università di San Gallo per SECO: EasyGov riduce tempi e costi amministrativi per le PMI svizzere. Analisi condotta ad agosto 2026.',
     'blog.article.easygov-pmi-svizzere.imageAlt': 'Ufficio amministrativo svizzero con dipendenti che lavorano su computer con dashboard digitali per la gestione della burocrazia',
+    'blog.article.ticino-neutralita-sondaggio-2026.title': 'Neutralità svizzera: il Ticino contraddice il Paese',
+    'blog.article.ticino-neutralita-sondaggio-2026.excerpt': 'Sondaggio 20 minuti/Tamedia: 62% degli svizzeri contrari all\'iniziativa sulla neutralità. Ma il Ticino vota sì con il 52%. Votazione il 27 settembre 2026.',
+    'blog.article.ticino-neutralita-sondaggio-2026.imageAlt': 'Camera del Parlamento federale svizzero durante una sessione di dibattito, con bandiera svizzera sullo sfondo',
 };
 
 export default blogMetaChIt;

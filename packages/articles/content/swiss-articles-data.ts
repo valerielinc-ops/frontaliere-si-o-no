@@ -10144,6 +10144,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ticino-neutralita-sondaggio-2026',
+    category: 'novita',
+    date: '2026-08-19T06:02:59.547Z',
+    image: '/images/blog/ticino-neutralita-sondaggio-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

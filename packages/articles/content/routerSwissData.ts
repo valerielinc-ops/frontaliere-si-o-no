@@ -1153,6 +1153,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stipendi-radiologi-bonus-svizzera': { it: 'stipendi-radiologi-bonus-svizzera', en: 'salaries-radiologists-bonus-switzerland', de: 'gehaelter-radiologen-bonus-schweiz', fr: 'salaires-radiologues-bonus-suisse' },
  'soglie-patrimonio-banche-svizzera': { it: 'soglie-patrimonio-banche-svizzera', en: 'wealth-thresholds-swiss-banks', de: 'vermoegens-schwellen-schweizer-banken', fr: 'seuils-patrimoine-banques-suisse' },
  'easygov-pmi-svizzere': { it: 'easygov-pmi-svizzere', en: 'easygov-smes-switzerland', de: 'easygov-kmb-schweiz', fr: 'easygov-pme-suisse' },
+ 'ticino-neutralita-sondaggio-2026': { it: 'ticino-neutralita-sondaggio-2026', en: 'ticino-neutrality-survey-2026', de: 'tessin-neutralitaet-umfrage-2026', fr: 'tessin-neutralite-sondage-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
