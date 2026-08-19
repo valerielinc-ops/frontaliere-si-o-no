@@ -10104,6 +10104,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Vivere a Laglio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Impostazioni fiscali, permessi e doppia imposizione: cosa devi sapere se sei frontaliere e vivi a Laglio, ma lavori in Ticino.',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Frontaliere a Masciago Primo: lavoro e vita in Ticino',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Vivere a Masciago Primo e lavorare in Ticino: Nuovo Accordo 2024, tassazione, AVS, LAMal, ristorni e tutto ciò che serve sapere per trasferirsi da frontaliere.',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'Vista del Lago di Como al confine con il Ticino, con le sponde italiane in primo piano e le montagne svizzere sullo sfondo.',
 };
 
 export default blogMetaIt;

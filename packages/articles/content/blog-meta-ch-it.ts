@@ -3403,6 +3403,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bilancio-federale-2026-surplus.title': 'Bilancio 2026: da deficit a surplus di 800 milioni',
     'blog.article.bilancio-federale-2026-surplus.excerpt': 'Le maggiori entrate fiscali dalle imprese portano il bilancio federale oltre le aspettative, con un surplus di 800 milioni anziché il previsto deficit.',
     'blog.article.bilancio-federale-2026-surplus.imageAlt': 'Veduta della capitale svizzera Berna, sede della Confederazione e governo federale',
+    'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Furgoni elettrici equiparati ai tradizionali: le novità dal 1° ottobre 2026',
+    'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'Il Consiglio federale equipara i veicoli commerciali elettrici fino a 4,25 tonnellate agli autofurgoni tradizionali dal 1° ottobre 2026. Circolazione a 120 km/h in autostrada, esenzione tachigrafo nazionale: tutto ciò che devi sapere.',
+    'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'Un moderno furgone commerciale elettrico blu in viaggio su un\'autostrada svizzera con le Alpi sullo sfondo.',
 };
 
 export default blogMetaChIt;

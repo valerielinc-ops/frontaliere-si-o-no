@@ -10105,6 +10105,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Vivre à Laglio et travailler dans le Tessin en tant que frontalier',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Paramètres fiscaux, permis et double imposition : ce que vous devez savoir si vous êtes frontalier et que vous vivez à Laglio, mais que vous travaillez au Tessin.',
     'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Frontière à Masciago Primo : travail et vie au Tessin',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Vivre à Masciago Primo et travailler au Tessin : Nouvel accord 2024, fiscalité, AVS, LAMal, restaurants et tout ce que vous devez savoir pour déménager en tant que frontalier.',
+    'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'Vue du lac de Côme à la frontière suisse avec le rivage italien en avant-plan et les Alpes suisses en arrière-plan.',
 };
 
 export default blogMetaFr;
