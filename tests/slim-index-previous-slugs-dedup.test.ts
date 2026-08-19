@@ -310,18 +310,34 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     // A stale seed prepends the previous job to the listing via `finalize`, and
     // routes the load effect down the requestIdleCallback branch on a page where
     // the index is the above-the-fold content. Both need the memo to re-run.
-    expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[initialJobSlug\]\)/);
+    // The key is the PATHNAME, which is what `onSeededDocument` above actually
+    // compares. It used to be `initialJobSlug`, a strictly coarser signal: two
+    // different pathnames can share one route slug (the `ricerca-` keyword-page
+    // and search-cluster families overlap), and on such a navigation the memo
+    // would not re-run — leaving the guard unreachable and the stale seed in
+    // place, which is the very leak this test is about.
+    expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[seedPathname\]\)/);
+    expect(src).toMatch(/const seedPathname = typeof window === 'undefined' \? '' : window\.location\.pathname;/);
     expect(src).not.toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
   });
 
   it('bridgeTargetSlug re-reads per route instead of pinning at mount', () => {
     // A `[]` dep list would defeat the pathname guard above: the memo would
     // never re-run, so the stale value would survive every soft-navigation.
-    expect(src).toMatch(
-      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[initialJobSlug\]\)/,
-    );
     expect(src).not.toMatch(
       /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[\]\)/,
+    );
+    // Keyed on the PATHNAME, not `initialJobSlug` (cluster-seed follow-up):
+    // readBridgeTargetSlug's own guard (onSeededDocument) compares pathnames,
+    // and `initialJobSlug` can stay equal across two different pathnames (the
+    // `ricerca-`/search-cluster families overlap — same leak class as
+    // `seededJob` above, one level up). A slug-keyed memo left the guard
+    // unreachable on that navigation and pinned the previous bridge slug.
+    expect(src).toMatch(
+      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[seedPathname\]\)/,
+    );
+    expect(src).not.toMatch(
+      /const bridgeTargetSlug = useMemo\(\(\) => readBridgeTargetSlug\(\), \[initialJobSlug\]\)/,
     );
   });
 

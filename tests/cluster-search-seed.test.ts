@@ -205,6 +205,22 @@ describe('cluster search seed — wiring', () => {
     expect(PLUGIN).toContain('const jobLinksHtml = ctx.matchingJobs');
   });
 
+  it('keys the seed memo on the pathname, not on the route slug', () => {
+    // `/cerca-lavoro-ticino/ricerca-X/` and `/cerca-lavoro-svizzera/ricerca-X/`
+    // are different pages with the SAME initialJobSlug, and some slugs exist in
+    // both families. Keyed on the slug the memo would not re-run between them
+    // and the previous page's results would stay on screen.
+    expect(BOARD).toMatch(/const clusterSeed = useMemo\(\s*\(\) => \(seedPathname \? readClusterSearchSeed\(seedPathname\) : null\),\s*\[seedPathname\],/);
+    expect(BOARD).not.toMatch(/readClusterSearchSeed\(window\.location\.pathname\)[\s\S]{0,80}\[initialJobSlug\]/);
+  });
+
+  it('keeps exactly one date-range table in the file', () => {
+    // The extraction only pays off if nothing re-inlines it: this file carried
+    // five identical copies, four of which this PR's predecessor left behind.
+    expect(BOARD).not.toContain('const dateRangeMs');
+    expect(BOARD.match(/const DATE_RANGE_MS: Record<DateRange, number>/g)).toHaveLength(1);
+  });
+
   it('gates the JobBoard tier on the query and the company/location views', () => {
     const decl = /const clusterSeedApplies = [\s\S]{0,400}?;/.exec(BOARD);
     expect(decl, 'clusterSeedApplies must be declared').not.toBeNull();
