@@ -121,8 +121,8 @@ function queuedForMs(job, now) {
   return Number.isFinite(t) ? now - t : null;
 }
 
-/** Whitespace-insensitive equality — a re-wrapped copy is still a copy. */
-const sameText = (a, b) => a.split(/\s+/).join(' ') === b.split(/\s+/).join(' ');
+/** Whitespace-insensitive key — a re-wrapped copy is still a copy. */
+const textKey = (t) => String(t || '').trim().split(/\s+/).join(' ');
 
 /**
  * Count the jobs the site is serving in the wrong language RIGHT NOW because
@@ -155,12 +155,22 @@ export function measureTranslationQueue(
     if (!job?.needsRetranslation) continue;
     queuedJobs += 1;
 
-    const sourceLang = String(job?.sourceLang || 'de').toLowerCase();
+    // NO DEFAULT SOURCE LANGUAGE. "Copied from the source" is meaningless
+    // without knowing which slot the source is, and guessing turns a wrong
+    // guess into a confident defect count. Measured 2026-08-19: 0 of the 11,637
+    // queued jobs lack `sourceLang` (de 8,999 · en 1,818 · fr 589 · it 231), so
+    // this skip costs nothing today and cannot start lying tomorrow. The rest
+    // of this file defaults to 'it' and this section deliberately does not
+    // adopt that — a display fallback and a measurement are different things.
+    const sourceLang = String(job?.sourceLang || '').toLowerCase();
+    if (!sourceLang) continue;
     const source = String(job?.descriptionByLocale?.[sourceLang] || '').trim();
     if (source.length < MIN_DESCRIPTION_CHARS) continue;
+    // Normalised once, not once per locale: these are multi-KB strings and the
+    // loop runs across the whole corpus.
+    const sourceKey = textKey(source);
     const copied = LOCALES.filter(
-      (locale) => locale !== sourceLang
-        && sameText(String(job?.descriptionByLocale?.[locale] || '').trim(), source),
+      (locale) => locale !== sourceLang && textKey(job?.descriptionByLocale?.[locale]) === sourceKey,
     );
     if (!copied.length) continue;
     sourceCopyJobs += 1;

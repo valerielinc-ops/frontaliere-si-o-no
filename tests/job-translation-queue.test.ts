@@ -181,6 +181,15 @@ describe('measureTranslationQueue', () => {
     expect(q.topLocations).toEqual([{ key: '(vuota)', count: 1 }]);
   });
 
+  it('skips a job with no declared sourceLang instead of guessing one', () => {
+    // Guessing the source slot would turn a wrong guess into a confident defect
+    // count. 0 of the 11,637 queued jobs measured on 2026-08-19 lack the field,
+    // so this costs nothing — it just cannot start lying later.
+    const q = measure([job({ sourceLang: undefined })]);
+    expect(q.queuedJobs).toBe(1);
+    expect(q.sourceCopyJobs).toBe(0);
+  });
+
   it('is empty and safe on junk input', () => {
     for (const input of [[], null, undefined, [null, {}, { needsRetranslation: true }]]) {
       const q = measureTranslationQueue(input as never, { now: NOW });
