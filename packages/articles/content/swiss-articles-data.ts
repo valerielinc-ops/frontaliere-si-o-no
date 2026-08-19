@@ -10243,6 +10243,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sunrise-147-tagli-posti-lavoro',
+    category: 'novita',
+    date: '2026-08-19T12:04:42.054Z',
+    image: '/images/blog/sunrise-147-tagli-posti-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
