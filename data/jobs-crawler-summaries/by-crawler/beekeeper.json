@@ -1,18 +1,19 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-08-18T22:16:12.218Z",
+  "generatedAt": "2026-08-19T09:54:57.647Z",
   "total": 5,
-  "newCount": 3,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3519,
-  "avgDurationMs": 3519,
+  "durationMs": 3892,
+  "avgDurationMs": 3892,
   "durationHistory": [
-    3519
+    3892
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "beekeeper-9e07ba368d0d",
       "slug": "marketing-assistant-internship-f-m-zurich-beekeeper-zurich",
@@ -20,13 +21,13 @@
       "companyKey": "beekeeper",
       "companyDomain": "beekeeper.io",
       "title": "Marketing Assistant - Internship (F/M) - Zurich",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.lumapps.com/jobs/8181037-marketing-assistant-internship-f-m-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T22:16:08.951Z",
+      "crawledAt": "2026-08-19T09:54:55.130Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -43,11 +44,12 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://job.lumapps.com/jobs/8181037-marketing-assistant-internship-f-m-zurich",
       "jobReqId": "d356de32-06ce-4641-8f80-a0f4cff33344",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-18T22:16:08.951Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -58,13 +60,13 @@
       "companyKey": "beekeeper",
       "companyDomain": "beekeeper.io",
       "title": "Senior Account Manager",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T22:16:08.954Z",
+      "crawledAt": "2026-08-19T09:54:55.133Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -81,11 +83,12 @@
       "postedDate": "2026-07-16",
       "applyUrl": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "jobReqId": "8bfece5f-35a3-4792-801e-9b9d07ea15e6",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-18T22:16:08.954Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -96,13 +99,13 @@
       "companyKey": "beekeeper",
       "companyDomain": "beekeeper.io",
       "title": "Forward Deployed Engineer (FDE), Zurich",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T22:16:08.956Z",
+      "crawledAt": "2026-08-19T09:54:55.134Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -119,16 +122,15 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "jobReqId": "d743f232-8d35-4489-8226-dbb9f7f6ccb2",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-08-18T22:16:08.956Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "beekeeper-70cd41465d83",
       "slug": "customer-success-manager-fr-speaking-beekeeper-zurich",
@@ -142,7 +144,7 @@
       "url": "https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T22:16:08.957Z",
+      "crawledAt": "2026-08-19T09:54:55.136Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -181,7 +183,7 @@
       "url": "https://job.lumapps.com/jobs/7854973-director-of-account-management-f-m-zurich-hybrid-or-germany-remote",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-18T22:16:08.958Z",
+      "crawledAt": "2026-08-19T09:54:55.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
