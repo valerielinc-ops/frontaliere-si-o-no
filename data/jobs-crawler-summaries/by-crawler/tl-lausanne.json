@@ -1,16 +1,16 @@
 {
   "key": "tl-lausanne",
   "label": "tl (Transports publics de la région lausannoise)",
-  "generatedAt": "2026-08-19T09:48:29.055Z",
+  "generatedAt": "2026-08-19T21:44:19.538Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5788,
-  "avgDurationMs": 5788,
+  "durationMs": 5675,
+  "avgDurationMs": 5675,
   "durationHistory": [
-    5788
+    5675
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-ferroviaire-Installations-de-S%C3%A9curit%C3%A9/1425742733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:48:24.730Z",
+      "crawledAt": "2026-08-19T21:44:15.057Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Approvisionnement-Supply-Chain-Ferroviaire/1424618233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:48:25.341Z",
+      "crawledAt": "2026-08-19T21:44:15.580Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Environnement/1422101133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:48:25.958Z",
+      "crawledAt": "2026-08-19T21:44:16.082Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T09:48:26.582Z",
+      "crawledAt": "2026-08-19T21:44:16.607Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,47 +167,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "tl-lausanne-0050186a1d33",
-      "slug": "analizzare-i-sistemi-finanziari-tl-transports-publics-de-la-region-lausannoise-lausanne",
-      "company": "tl (Transports publics de la région lausannoise)",
-      "companyKey": "tl-lausanne",
-      "companyDomain": "t-l.ch",
-      "title": "Analyste Systèmes Financiers",
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://carrieres.t-l.ch/job/Lausanne-Analyste-Syst%C3%A8mes-Financiers/1418290333/",
-      "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-17T21:32:06.503Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1020",
-      "category": "Trasporto pubblico urbano (TPL)",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Trasporto pubblico urbano (TPL)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://carrieres.t-l.ch/talentcommunity/apply/1418290333/?locale=fr_FR",
-      "streetAddress": "Chemin du Closel 15-17",
-      "firstSeenAt": "2026-07-23T22:06:27.045Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
