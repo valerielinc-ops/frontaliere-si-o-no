@@ -47,6 +47,7 @@ import {
   inferConvitCanton,
 } from './lib/convit-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { splitJobLocation } from './lib/job-location-display.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -201,6 +202,15 @@ async function enrichWithDetails(listings) {
   const relevant = enriched.filter((job) => isConvitTicinoRelevant(job.location));
   for (const job of relevant) {
     job.canton = inferConvitCanton(job.location);
+    // The JSON-LD fallback in parseConvitDetailPage() joins
+    // [addressLocality, addressRegion, addressCountry] ("Bellinzona, Ticino, CH"),
+    // so the raw location already carries the canton and country.
+    // buildConvitLocalizedContent() then appends the region again ("...in
+    // Ticino"), freezing the duplicate into the stored description — same
+    // defect scripts/lib/nestle-job-parser.mjs fixes at the point the crawler
+    // assigns canton. Strip it once, here, so the stored field, the
+    // description and the page all read the clean city.
+    job.location = splitJobLocation(job.location, job.canton).city || job.location;
   }
   const tiCount = relevant.filter((j) => j.canton === 'TI').length;
   const grCount = relevant.filter((j) => j.canton === 'GR').length;
