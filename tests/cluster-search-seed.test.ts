@@ -102,6 +102,31 @@ describe('cluster search seed — payload shape', () => {
     ]);
   });
 
+  it('flattens the per-locale title and slug onto the plain fields', () => {
+    // ctx.matchingJobs are MASTER records — the emitter localizes at render
+    // time — so without this the de/fr/en pages (3 locales, ~117k of the 156k)
+    // would seed Italian titles and link with Italian slugs.
+    const master = {
+      ...realisticJob(1),
+      title: 'Assistente psicologo',
+      slug: 'assistente-psicologo-zurigo',
+      titleByLocale: { it: 'Assistente psicologo', de: 'Assistenzpsychologe' },
+      slugByLocale: { it: 'assistente-psicologo-zurigo', de: 'assistenzpsychologe-zuerich' },
+    };
+    expect(pickClusterSeedJob(master, 'de')).toMatchObject({
+      title: 'Assistenzpsychologe',
+      slug: 'assistenzpsychologe-zuerich',
+    });
+    // Falls back to the plain field when that locale has no entry.
+    expect(pickClusterSeedJob(master, 'fr')).toMatchObject({
+      title: 'Assistente psicologo',
+      slug: 'assistente-psicologo-zurigo',
+    });
+    // The maps themselves never ship — they are 4x the bytes of what is used.
+    expect(pickClusterSeedJob(master, 'de')).not.toHaveProperty('titleByLocale');
+    expect(pickClusterSeedJob(master, 'de')).not.toHaveProperty('slugByLocale');
+  });
+
   it('stays inside the per-record byte budget measured on the live corpus', () => {
     const seed = buildClusterSearchSeed(
       '/cerca-lavoro-svizzera/ricerca-offerte-lavoro-assistente-psicologo/',
@@ -271,6 +296,45 @@ describe('cluster search seed — rendered page', () => {
     expect(m[1]).not.toContain('ats.example');
     expect(m[1]).not.toContain('xxx');
     expect(m[1].length).toBeLessThan(1200);
+  });
+
+  it('seeds the localized title and slug on a non-Italian cluster page', () => {
+    const page = renderClusterPage({
+      distDir: makeDist(),
+      dateStamp: '2026-08-19',
+      ctx: {
+        candidate: {
+          slug: 'suche-stellenangebote-assistenzpsychologe',
+          locale: 'de',
+          jobCount: 3,
+          sampleTerms: ['stellenangebote assistenzpsychologe'],
+          editorialCollision: null,
+        },
+        keyword: 'assistenzpsychologe',
+        city: null,
+        matchingJobs: [
+          {
+            id: 'd1', canton: 'ZH', company: 'Stadtspital', location: 'Zürich',
+            title: 'Assistente psicologo', slug: 'assistente-psicologo-zurigo',
+            titleByLocale: { it: 'Assistente psicologo', de: 'Assistenzpsychologe' },
+            slugByLocale: { it: 'assistente-psicologo-zurigo', de: 'assistenzpsychologe-zuerich' },
+          },
+          { id: 'd2', canton: 'BE', company: 'Spital', location: 'Bern', title: 'Psicologo', slug: 'psicologo-berna', titleByLocale: { de: 'Psychologe' }, slugByLocale: { de: 'psychologe-bern' } },
+          { id: 'd3', canton: 'SG', company: 'PSG', location: 'Wil', title: 'Pedopsichiatra', slug: 'pedopsichiatra-wil', titleByLocale: { de: 'Kinderpsychiater' }, slugByLocale: { de: 'kinderpsychiater-wil' } },
+        ],
+        topCompanies: ['Stadtspital'],
+        cantonGroup: '_AGGREGATE_',
+        legacyCantonGroup: 'ZH',
+      } as never,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+    const m = /window\.__SEARCH_SEED__=(\{.*?\});<\/script>/s.exec(page.html);
+    expect(m, 'seed script must be present on a de page').not.toBeNull();
+    const seed = JSON.parse(m![1]) as { j: Array<Record<string, unknown>> };
+    expect(seed.j.map((j) => j.title)).toEqual(['Assistenzpsychologe', 'Psychologe', 'Kinderpsychiater']);
+    expect(seed.j.map((j) => j.slug)).toEqual(['assistenzpsychologe-zuerich', 'psychologe-bern', 'kinderpsychiater-wil']);
   });
 
   it('puts the seed in the head, before the main React replaces', () => {

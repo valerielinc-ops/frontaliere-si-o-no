@@ -2240,7 +2240,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const seedQuery = parseSearchSlugFilter(candidate.slug) ?? '';
   const seedScript = ctx.matchingJobs.length > 0 && seedQuery
     ? `<script>window.${CLUSTER_SEARCH_SEED_GLOBAL}=${inlineScriptJson(
-        buildClusterSearchSeed(urlPath, seedQuery, ctx.matchingJobs as unknown as ReadonlyArray<Record<string, unknown>>),
+        buildClusterSearchSeed(urlPath, seedQuery, ctx.matchingJobs as unknown as ReadonlyArray<Record<string, unknown>>, locale),
       )};</script>`
     : '';
 

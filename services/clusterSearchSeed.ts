@@ -73,15 +73,42 @@ export interface ClusterSearchSeed {
   readonly j: ReadonlyArray<Record<string, unknown>>;
 }
 
-/** Trim one job to the seed field set, dropping every falsy value. */
-export function pickClusterSeedJob(job: Record<string, unknown>): Record<string, unknown> {
+/** Fields the job corpus carries a `<field>ByLocale` map for. */
+const LOCALIZED_SEED_FIELDS: ReadonlySet<string> = new Set(['title', 'slug']);
+
+/**
+ * Trim one job to the seed field set, dropping every falsy value, and FLATTEN
+ * the per-locale fields onto their plain names.
+ *
+ * The flatten is load-bearing, not tidiness. `ctx.matchingJobs` are master
+ * records: the emitter localizes at render time (`titleByLocale?.[locale]`,
+ * `jobLocalizedUrl(job, locale)`), so passing them through untouched would seed
+ * the ITALIAN title and slug onto every de/fr/en cluster page — 3 locales out
+ * of 4, ~117k of the 156k pages, showing one language and linking with another
+ * language's slug. Flattened here instead of at read time because that is the
+ * shape the consumer already expects: `deriveLocalizedJobSlug` documents that
+ * "when loaded from the slim locale index, slugByLocale is stripped but the
+ * slug field is already flattened to the correct locale value".
+ */
+export function pickClusterSeedJob(
+  job: Record<string, unknown>,
+  locale?: string,
+): Record<string, unknown> {
+  const byLocale = (plain: string): unknown => {
+    if (!locale) return job[plain];
+    const map = job[`${plain}ByLocale`];
+    const localized = map && typeof map === 'object'
+      ? (map as Record<string, unknown>)[locale]
+      : undefined;
+    return localized || job[plain];
+  };
   const out: Record<string, unknown> = {};
   for (const field of CLUSTER_SEARCH_SEED_FIELDS) {
-    const value = job[field];
     // `0` is falsy but meaningless for every field here (an id/slug/title of 0
     // does not occur, and salaryMin 0 carries no more than its absence), so a
     // plain truthiness test is the whole rule — no per-field exceptions to
     // drift out of sync with the field list above.
+    const value = LOCALIZED_SEED_FIELDS.has(field) ? byLocale(field) : job[field];
     if (value) out[field] = value;
   }
   return out;
@@ -91,8 +118,9 @@ export function buildClusterSearchSeed(
   pathname: string,
   query: string,
   jobs: ReadonlyArray<Record<string, unknown>>,
+  locale?: string,
 ): ClusterSearchSeed {
-  return { p: pathname, q: query, j: jobs.map(pickClusterSeedJob) };
+  return { p: pathname, q: query, j: jobs.map((job) => pickClusterSeedJob(job, locale)) };
 }
 
 /**
