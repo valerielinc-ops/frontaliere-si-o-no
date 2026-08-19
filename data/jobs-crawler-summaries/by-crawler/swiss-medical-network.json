@@ -1,18 +1,244 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-08-18T21:35:49.142Z",
-  "total": 67,
-  "newCount": 11,
-  "updatedCount": 51,
-  "removedCount": 1,
-  "unchangedCount": 5,
-  "durationMs": 48018,
-  "avgDurationMs": 48018,
+  "generatedAt": "2026-08-19T09:49:33.028Z",
+  "total": 63,
+  "newCount": 7,
+  "updatedCount": 56,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 50420,
+  "avgDurationMs": 50420,
   "durationHistory": [
-    48018
+    50420
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144271639-dipl-pflegefachperson-hf-fh-oder-dipl-ota-im-herzkatheterlabor-50-60-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144271639-dipl-pflegefachperson-hf-fh-oder-dipl-ota-im-herzkatheterlabor-50-60-?oga=true",
+      "title": "Dipl. Pflegefachperson HF/FH oder Dipl. OTA im Herzkatheterlabor (50-60%)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8044",
+      "slug": "dipl-pflegefachperson-hf-fh-oder-dipl-ota-im-herzkatheterlabor-50-60-swiss-medical-network",
+      "category": "nursing",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Argovia",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "canton": "AG",
+      "country": "CH",
+      "postalCode": "5734",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Reinach"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143782226-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143782226-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Egerkingen",
+      "addressLocality": "Egerkingen",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4622",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Egerkingen"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138085727-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138085727-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
+      "country": "CH",
+      "postalCode": "6222",
+      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "LU",
+        "location": "Beromünster"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137621779-physiotherapeute",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137621779-physiotherapeute?oga=true",
+      "title": "Physiothérapeute",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Glion",
+      "addressLocality": "Glion",
+      "addressRegion": "VD",
+      "canton": "VD",
+      "country": "CH",
+      "postalCode": "1823",
+      "slug": "physiotherapeute-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Glion"
+      },
+      "sourceLang": "fr",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133558908-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133558908-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Wengen",
+      "addressLocality": "Wengen",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3823",
+      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Wengen"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132123413-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-?oga=true",
+      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin 50 - 100%",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Schaffhausen",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "canton": "SH",
+      "country": "CH",
+      "postalCode": "8203",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-08-19",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SH",
+        "location": "Schaffhausen"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144075814-medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144075814-medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-?oga=true",
@@ -37,11 +263,12 @@
         "location": "Biel"
       },
       "sourceLang": "fr",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -69,11 +296,12 @@
         "location": "Saint-Imier"
       },
       "sourceLang": "fr",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -101,11 +329,12 @@
         "location": "Biel"
       },
       "sourceLang": "de",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -133,11 +362,12 @@
         "location": "Grindelwald"
       },
       "sourceLang": "de",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -165,11 +395,12 @@
         "location": "Murten"
       },
       "sourceLang": "de",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -197,176 +428,15 @@
         "location": "Glion"
       },
       "sourceLang": "fr",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Beromünster",
-      "addressLocality": "Beromünster",
-      "addressRegion": "LU",
-      "canton": "LU",
-      "country": "CH",
-      "postalCode": "6222",
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-08-18",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "LU",
-        "location": "Beromünster"
-      },
-      "sourceLang": "de",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143782226-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143782226-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Egerkingen",
-      "addressLocality": "Egerkingen",
-      "addressRegion": "SO",
-      "canton": "SO",
-      "country": "CH",
-      "postalCode": "4622",
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-08-18",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Egerkingen"
-      },
-      "sourceLang": "de",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141675019-physiotherapeute",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141675019-physiotherapeute?oga=true",
-      "title": "Physiothérapeute",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "slug": "physiotherapeute-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-08-18",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
-      "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Stein am Rhein",
-      "addressLocality": "Stein am Rhein",
-      "addressRegion": "SH",
-      "canton": "SH",
-      "country": "CH",
-      "postalCode": "8260",
-      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-08-18",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SH",
-        "location": "Stein am Rhein"
-      },
-      "sourceLang": "de",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138086609-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138086609-facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-?oga=true",
-      "title": "Fachärztin/Facharzt für Allgemeine Innere Medizin 50-100%",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Schaffhausen",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "canton": "SH",
-      "country": "CH",
-      "postalCode": "8200",
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-08-18",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SH",
-        "location": "Schaffhausen"
-      },
-      "sourceLang": "de",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144028419-dipl-pflegefachperson-hf",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144028419-dipl-pflegefachperson-hf?oga=true",
@@ -392,11 +462,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-08-18T09:50:28.631Z",
-      "_qualityScore": 56,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -425,11 +495,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-08-18T09:50:28.631Z",
-      "_qualityScore": 56,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -458,11 +528,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-08-18T09:50:28.631Z",
-      "_qualityScore": 56,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -491,11 +561,11 @@
       },
       "sourceLang": "fr",
       "firstSeenAt": "2026-08-18T09:50:28.631Z",
-      "_qualityScore": 56,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -632,35 +702,35 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
       "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Argovia",
-      "addressLocality": "Argovia",
-      "addressRegion": "AG",
-      "canton": "AG",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
       "country": "CH",
-      "postalCode": "5734",
+      "postalCode": "6222",
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
       "datePosted": "2026-08-18",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "AG",
-        "location": "Reinach"
+        "canton": "LU",
+        "location": "Beromünster"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-08-18T09:50:28.631Z",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -1064,6 +1134,39 @@
       }
     },
     {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141675019-physiotherapeute",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141675019-physiotherapeute?oga=true",
+      "title": "Physiothérapeute",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "physiotherapeute-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-08-18",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-08-18T21:35:49.117Z",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 12
+      }
+    },
+    {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141172969-montchoisi-motionlab",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141172969-montchoisi-motionlab?oga=true",
       "title": "Montchoisi-MotionLab",
@@ -1132,406 +1235,9 @@
         "translation": 25,
         "completeness": 12
       }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140902119-stagiaire-events-project-management",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140902119-stagiaire-events-project-management?oga=true",
-      "title": "Stagiaire Events – Project Management",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Genolier",
-      "addressLocality": "Genolier",
-      "addressRegion": "VD",
-      "canton": "VD",
-      "country": "CH",
-      "postalCode": "1272",
-      "slug": "stagiaire-events-project-management-swiss-medical-network",
-      "category": "management",
-      "datePosted": "2026-07-31",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Genolier"
-      },
-      "sourceLang": "fr",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-31T22:09:21.544Z",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931805-medecin-angiologue-h-f-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931805-medecin-angiologue-h-f-?oga=true",
-      "title": "Médecin Angiologue (H/F)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "St-Imier",
-      "addressLocality": "St-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "slug": "medecin-angiologue-h-f-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-07-27",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "St-Imier"
-      },
-      "sourceLang": "fr",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3759,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-07-27T12:39:27.880Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920001-fullstack-developer-ai-digital-health-fr",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920001-fullstack-developer-ai-digital-health-fr?oga=true",
-      "title": "Fullstack Developer – AI & Digital Health - FR",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Genolier",
-      "addressLocality": "Genolier",
-      "addressRegion": "VD",
-      "canton": "VD",
-      "country": "CH",
-      "postalCode": "1272",
-      "slug": "fullstack-developer-ai-digital-health-fr-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-07-27",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Genolier"
-      },
-      "sourceLang": "fr",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-27T12:39:27.880Z",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920480-fullstack-developer-ai-digital-health-de",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139920480-fullstack-developer-ai-digital-health-de?oga=true",
-      "title": "Fullstack Developer – AI & Digital Health - DE",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "8044",
-      "slug": "fullstack-developer-ai-digital-health-de-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-07-27",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-27T12:39:27.880Z",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139314989-tecnico-di-sala-operatoria-infermiere-strumentista",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139314989-tecnico-di-sala-operatoria-infermiere-strumentista?oga=true",
-      "title": "Tecnico di sala operatoria / Infermiere strumentista",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6500",
-      "slug": "tecnico-di-sala-operatoria-infermiere-strumentista-swiss-medical-network",
-      "category": "nursing",
-      "datePosted": "2026-07-23",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "sourceLang": "it",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-23T22:08:25.302Z",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139147964-produkt-owner-informationssysteme-der-ambulanten-zentren",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139147964-produkt-owner-informationssysteme-der-ambulanten-zentren?oga=true",
-      "title": "Produkt Owner: Informationssysteme der ambulanten Zentren",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Opfikon",
-      "addressLocality": "Opfikon",
-      "addressRegion": "ZH",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "8152",
-      "slug": "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network",
-      "category": "technology",
-      "datePosted": "2026-07-22",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Opfikon"
-      },
-      "sourceLang": "de",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3704,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-07-22T22:09:02.216Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139144739-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139144739-medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung?oga=true",
-      "title": "Medizintechnik Ingenieur, spezialisiert auf medizinische Bildgebung",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "8044",
-      "slug": "medizintechnik-ingenieur-spezialisiert-auf-medizinische-bildgebung-swiss-medical-network",
-      "category": "technical",
-      "datePosted": "2026-07-22",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "sourceLang": "de",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3355,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-07-22T22:09:02.216Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 12
-      }
     }
   ],
   "removedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143748445-cgb-aide-soignant-e-maternite",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143748445-cgb-aide-soignant-e-maternite?oga=true",
-      "title": "CGB_Aide soignant(e) maternité",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "canton": "GE",
-      "country": "CH",
-      "postalCode": "1206",
-      "slug": "cura-della-maternita-cgb-swiss-medical-network-geneve",
-      "category": "technology",
-      "datePosted": "2026-08-17",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Genève"
-      },
-      "sourceLang": "fr",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-17T09:58:17.887Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143812155-medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143812155-medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-?oga=true",
-      "title": "Médecin adjoint(e) en Psychiatrie bilingue (allemand - français)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2502",
-      "slug": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-08-17",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel"
-      },
-      "sourceLang": "fr",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-17T21:31:00.265Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143060621-medecin-pediatre-h-f-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143060621-medecin-pediatre-h-f-?oga=true",
-      "title": "Médecin Pédiatre (H/F)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-08-12",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-08-12T10:19:25.361Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141665809-assistenzarzt-in-in-der-ambulanten-psychiatrie",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000141665809-assistenzarzt-in-in-der-ambulanten-psychiatrie?oga=true",
-      "title": "Assistenzärzt/-in in der ambulanten Psychiatrie",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Biel",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2502",
-      "slug": "assistenzarzt-in-in-der-ambulanten-psychiatrie-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-08-05",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel"
-      },
-      "sourceLang": "de",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3229,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-08-05T11:32:10.179Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143843119-medecin-assistant-ou-chef-de-clinique-adjoint-en-medecine-nucleaire-80-100-isfm-b-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143843119-medecin-assistant-ou-chef-de-clinique-adjoint-en-medecine-nucleaire-80-100-isfm-b-?oga=true",
@@ -1606,5 +1312,6 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
