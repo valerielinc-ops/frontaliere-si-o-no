@@ -10064,6 +10064,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-moltrasio-lavorare-ticino.title': 'Leben in Moltrasio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-moltrasio-lavorare-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Besteuerung, neues Abkommen und Alltag zwischen Moltrasio und dem Kanton Tessin.',
     'blog.article.vivere-moltrasio-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee nahe der italienisch-schweizerischen Grenze',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.title': 'Leben in Brezzo di Bedero und Arbeiten im Tessin',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.excerpt': 'Praktischer Leitfaden für grenzüberschreitende Pendler: G-Genehmigung, Quellensteuer, AHV, BVG, KVG, Rabatte. Alles über Steuern und soziale Sicherheit für diejenigen, die in Brezzo leben und im Tessin arbeiten.',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.imageAlt': 'Lago Maggiore bei Locarno mit Alpengipfeln im Hintergrund und Hafengebiet in frühem Licht',
 };
 
 export default blogMetaDe;

@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, callLLM, getRunOutcomes, getScoreBoard, resetState } from '../../scripts/lib/ai-models.mjs';
 
 /**
  * Il minimo per-chiamata del CLI, LETTO DAL SORGENTE e non ricopiato.
@@ -110,6 +110,30 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
 
   const INIT = `${JSON.stringify({ type: 'system', subtype: 'init', session_id: 's' })}\n`;
   const ASSISTANT = `${JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: 'x' }] } })}\n`;
+
+  /**
+   * Un `assistant` che NON porta niente di recuperabile: solo un blocco
+   * `thinking`.
+   *
+   * Serve da quando il timeout salva il payload gia' arrivato invece di
+   * buttarlo (vedi l'ultimo describe di questo file). Prima bastava un
+   * `assistant` qualunque per provare la diagnostica, perche' qualunque
+   * `assistant` finiva comunque in errore; ora un blocco `text` non vuoto e'
+   * contenuto valido, e usarlo qui proverebbe l'opposto di cio' che il test
+   * dice. La forma qui sotto e' quella vera dei timeout di produzione sotto
+   * `--json-schema`: thinking + tool_use, con `textlen: 0` su ogni evento, e
+   * il SIGKILL che cade prima del primo tool_use completo.
+   */
+  const ASSISTANT_PENSIERO = `${JSON.stringify({
+    type: 'assistant',
+    message: { content: [{ type: 'thinking', thinking: 'sto pensando' }] },
+  })}\n`;
+
+  /** Un `assistant` che chiude un `tool_use` StructuredOutput: il canale vero. */
+  const assistantStrutturato = (input: unknown) => `${JSON.stringify({
+    type: 'assistant',
+    message: { content: [{ type: 'tool_use', id: 'tu_1', name: 'StructuredOutput', input }] },
+  })}\n`;
   const RATE_LIMIT = `${JSON.stringify({
     type: 'rate_limit_event',
     rate_limit_info: { status: 'rejected', rateLimitType: 'five_hour', resetsAt: 1787066400 },
@@ -195,8 +219,11 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
       await expect(chiama()).rejects.toThrow(/model not found/);
     });
 
-    it('un\'uscita senza evento result non passa per successo, e lo dice', async () => {
-      spawnMock.mockImplementation(cliChe([INIT, ASSISTANT]));
+    it('un\'uscita senza evento result e senza niente di recuperabile non passa per successo, e lo dice', async () => {
+      // `ASSISTANT_PENSIERO` e non un `assistant` con testo: da quando il
+      // payload gia' arrivato viene salvato, un blocco `text` non vuoto E'
+      // un risultato: vedi il test gemello nell'ultimo describe.
+      spawnMock.mockImplementation(cliChe([INIT, ASSISTANT_PENSIERO]));
 
       await expect(chiama()).rejects.toThrow(/senza evento result/);
     });
@@ -246,7 +273,7 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
       // L'unico dei tre casi in cui alzare il floor sarebbe il rimedio giusto.
       spawnMock.mockImplementation(cliAppesoDopo([
         { dopoMs: 942, riga: INIT },
-        { dopoMs: 4123, riga: ASSISTANT },
+        { dopoMs: 4123, riga: ASSISTANT_PENSIERO },
       ]));
 
       const promise = chiama();
@@ -302,4 +329,159 @@ describe('claude CLI: il flusso stream-json rende diagnosticabile il timeout', (
       await assertion;
     });
   });
+
+  /**
+   * ── IL PAYLOAD GIA' PAGATO NON SI BUTTA ─────────────────────────────────
+   *
+   * La diagnostica dei describe qui sopra ha portato alla causa vera, che non
+   * era ne' il floor ne' il semaforo: con `--json-schema` la CLI espone un
+   * tool sintetico `StructuredOutput` — lo dichiara in `system/init` anche con
+   * `--tools ''` — ne valida l'input LOCALMENTE, e se manca una proprieta'
+   * `required` risponde con un `tool_result` `is_error: true`
+   * («Output does not match required schema: root: must have required property
+   * 'reason'»). Il modello allora rigenera l'articolo DA CAPO. Ogni giro costa
+   * ~3m30s e ~6800 token di output; il SIGKILL cade a meta' di un giro
+   * qualunque. I 224-288 eventi e i 110-160 KB di stdout che i timeout di
+   * produzione mostravano sono N giri di quell'anello — riprodotto con la CLI
+   * 2.1.235 e gli argomenti esatti di produzione il 2026-08-18.
+   *
+   * L'anello non e' limitabile da qui: quella versione della CLI non ha
+   * `--max-turns` (verificato). Quindi il rimedio non e' fermare l'anello ma
+   * non buttare via cio' che ha gia' prodotto: nella riproduzione il tentativo
+   * rifiutato era un articolo completo e pubblicabile, a cui mancava solo
+   * `reason` — che lo schema ammette null.
+   *
+   * LA TRAPPOLA, ed e' la ragione per cui questi test esistono: il contenuto
+   * NON sta nei blocchi `text`. Sotto `--json-schema` ogni evento `assistant`
+   * di produzione ha `textlen: 0` e porta il payload dentro `tool_use.input`.
+   * Un salvataggio che concatena i `text` recupera stringa vuota su ogni
+   * chiamata reale, e lo fa in silenzio: sembra funzionare in test e non
+   * recupera mai niente in produzione.
+   *
+   * I test unitari del collettore stanno nel gemello del corpus
+   * (`generator/tests/claude-cli-stream-salvage.test.mjs`, gia' dentro con
+   * nanako#483). Qui si prova che il PROCESSO lo usi davvero, capo a capo.
+   */
+  describe('il payload gia\' arrivato viene usato invece di essere scartato', () => {
+    const ARTICOLO = {
+      title: 'Frontalieri, la nuova soglia',
+      body: 'Testo lungo e completo dell\'articolo.',
+      slug: 'frontalieri-nuova-soglia',
+    };
+
+    describe('quando il processo resta appeso fino al SIGKILL', () => {
+      beforeEach(() => { vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'] }); });
+
+      it('un tool_use StructuredOutput completo diventa il risultato della chiamata', async () => {
+        // Il caso di produzione: N giri dell\'anello, il primo tentativo e\'
+        // buono, il timeout cade prima del `result`. Prima questa chiamata
+        // buttava via l\'articolo intero e tornava un errore.
+        spawnMock.mockImplementation(cliAppesoDopo([
+          { dopoMs: 942, riga: INIT },
+          { dopoMs: 4123, riga: ASSISTANT_PENSIERO },
+          { dopoMs: 2100, riga: assistantStrutturato(ARTICOLO) },
+        ]));
+
+        const promise = chiama();
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+
+        expect(JSON.parse(await promise)).toEqual(ARTICOLO);
+      });
+
+      it('fra piu\' tentativi di schema vince l\'ultimo, non il primo', async () => {
+        // L\'anello rigenera perche\' il tentativo precedente e\' stato
+        // rifiutato: tenere il piu\' vecchio significherebbe scegliere
+        // deliberatamente quello che la CLI ha gia\' bocciato.
+        const primo = { ...ARTICOLO, title: 'BOZZA RIFIUTATA' };
+        spawnMock.mockImplementation(cliAppesoDopo([
+          { dopoMs: 942, riga: INIT },
+          { dopoMs: 3000, riga: assistantStrutturato(primo) },
+          { dopoMs: 3000, riga: assistantStrutturato(ARTICOLO) },
+        ]));
+
+        const promise = chiama();
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+
+        expect(JSON.parse(await promise).title).toBe(ARTICOLO.title);
+      });
+
+      it('senza schema il canale e\' il testo, e un testo intero viene usato', async () => {
+        spawnMock.mockImplementation(cliAppesoDopo([
+          { dopoMs: 942, riga: INIT },
+          { dopoMs: 4123, riga: `${JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: 'Prima meta\'. ' }] } })}\n` },
+          { dopoMs: 1000, riga: `${JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: 'Seconda meta\'.' }] } })}\n` },
+        ]));
+
+        const promise = chiama();
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+
+        await expect(promise).resolves.toBe('Prima meta\'. Seconda meta\'.');
+      });
+
+      it('un testo senza punteggiatura terminale (troncato a meta\' parola) NON viene spacciato per risultato', async () => {
+        // Senza schema il testo arriva a delta come il JSON: un frammento
+        // tagliato dal SIGKILL a meta' di una parola/frase non ha modo di
+        // essere distinto da uno completo se non guardando la punteggiatura
+        // finale.
+        spawnMock.mockImplementation(cliAppesoDopo([
+          { dopoMs: 942, riga: INIT },
+          { dopoMs: 4123, riga: `${JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: 'Il candidato ideale ha esperien' }] } })}\n` },
+        ]));
+
+        const promise = chiama();
+        const assertion = expect(promise).rejects.toThrow(/timed out after/);
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+        await assertion;
+      });
+
+      it('un JSON troncato a meta\' NON viene spacciato per risultato', async () => {
+        // La differenza fra recuperare e indovinare. I blocchi `tool_use`
+        // arrivano solo interi, quindi il ramo strutturato e\' sicuro per
+        // costruzione; il testo no, e un oggetto tagliato a meta\' e\' l\'unico
+        // caso in cui si riconosce con certezza che manca qualcosa.
+        spawnMock.mockImplementation(cliAppesoDopo([
+          { dopoMs: 942, riga: INIT },
+          { dopoMs: 4123, riga: `${JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: '{"title":"Frontalieri","bo' }] } })}\n` },
+        ]));
+
+        const promise = chiama();
+        const assertion = expect(promise).rejects.toThrow(/timed out after/);
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+        await assertion;
+      });
+
+      it('un guasto di trasporto non abbassa il punteggio del modello, ma resta contato', async () => {
+        // `claude-cli/haiku` e\' il modello a pagamento che deve funzionare
+        // sempre. Nove timeout consecutivi lo avevano portato a -356: un
+        // punteggio che descriveva il trasporto, non la qualita\' delle sue
+        // risposte, e che lo spingeva in fondo alla cascata. E\' la stessa
+        // scelta che il ramo `topic-gate-abort` fa gia\' deliberatamente.
+        //
+        // «Non punire» non vuol dire «non guardare»: il fallimento resta nel
+        // conteggio della run, altrimenti il registro direbbe 0 errori mentre
+        // il modello sta fallendo a ogni chiamata.
+        spawnMock.mockImplementation(cliAppesoDopo([{ dopoMs: 942, riga: INIT }]));
+
+        const promise = chiama();
+        const assertion = expect(promise).rejects.toThrow(/timed out after/);
+        await vi.advanceTimersByTimeAsync(FLOOR_MS);
+        await assertion;
+
+        const voce = getScoreBoard().find((v) => v.model === AI_MODELS.CLAUDE_CLI_HAIKU);
+        expect(voce === undefined || voce.score === 0).toBe(true);
+
+        const esito = getRunOutcomes().find((v) => v.model === AI_MODELS.CLAUDE_CLI_HAIKU);
+        expect(esito?.failures).toBe(1);
+      });
+    });
+
+    it('anche un\'uscita pulita senza evento result recupera il payload strutturato', async () => {
+      // Stessa perdita, altra porta: il processo termina invece di restare
+      // appeso, ma il contenuto era gia\' arrivato lo stesso.
+      spawnMock.mockImplementation(cliChe([INIT, assistantStrutturato(ARTICOLO)], 0));
+
+      expect(JSON.parse(await chiama())).toEqual(ARTICOLO);
+    });
+  });
+
 });

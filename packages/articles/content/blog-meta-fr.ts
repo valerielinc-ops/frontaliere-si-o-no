@@ -10067,6 +10067,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-moltrasio-lavorare-ticino.title': 'Vivre à Moltrasio et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-moltrasio-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers : fiscalité, nouvel accord et vie quotidienne entre Moltrasio et le canton du Tessin.',
     'blog.article.vivere-moltrasio-lavorare-ticino.imageAlt': 'Vue panoramique sur le lac de Lugano près de la frontière italo-suisse',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.title': 'Vivre à Brezzo di Bedero et travailler au Tessin',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.excerpt': 'Guide pratique pour les frontaliers : permis G, impôt à la source, AVS, LPP, LAMal, restaurations. Tout sur les impôts et la prévoyance pour ceux qui vivent à Brezzo et travaillent au Tessin.',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.imageAlt': 'Lac Majeur côté tessinois, baie de Locarno avec montagnes des Alpes à l\'horizon',
 };
 
 export default blogMetaFr;

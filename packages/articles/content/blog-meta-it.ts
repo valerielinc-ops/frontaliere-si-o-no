@@ -10066,6 +10066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-moltrasio-lavorare-ticino.title': 'Vivere a Moltrasio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-moltrasio-lavorare-ticino.excerpt': 'Guida pratica per frontalieri: fiscalità, nuovo accordo e vita quotidiana tra Moltrasio e il Canton Ticino.',
     'blog.article.vivere-moltrasio-lavorare-ticino.imageAlt': 'Vista panoramica sul Lago di Lugano vicino al confine italo-svizzero',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.title': 'Vivere a Brezzo di Bedero e lavorare in Ticino',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.excerpt': 'Guida pratica per frontalieri: permesso G, imposta alla fonte, AVS, LPP, LAMal, ristorni. Tutto sulle tasse e previdenza per chi vive a Brezzo e lavora in Ticino.',
+    'blog.article.vivere-brezzo-bedero-lavorare-ticino.imageAlt': 'Panorama del lago Maggiore dalla sponda ticinese con Alpi sullo sfondo, porto di Locarno al tramonto',
 };
 
 export default blogMetaIt;

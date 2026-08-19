@@ -30,15 +30,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse (X-Mas Market) 30%",
-        "en": "Mitarbeiter*in Kasse (X-Mas Market) 30%",
         "de": "Mitarbeiter*in Kasse (X-Mas Market) 30%",
-        "fr": "Mitarbeiter*in Kasse (X-Mas Market) 30%"
+        "en": "Mitarbeiter*in Kasse (X-Mas Market) 30%",
+        "fr": "Mitarbeiter* à Kasse (marché X-Mas) 30%"
       },
       "sourceLang": "it",
-      "id": "manor-f9a93082bdf5",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-f9a93082bdf5",
       "salaryMin": 24900,
       "salaryMax": 38300,
       "currency": "CHF",
@@ -54,7 +53,8 @@
       },
       "addressLocality": "Zürich Mitarbeiterin Kasse (X",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Mitarbeiter*in Logistik 80%",
@@ -138,15 +138,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse (X-Mas Market) 40%",
-        "en": "Mitarbeiter*in Kasse (X-Mas Market) 40%",
         "de": "Mitarbeiter*in Kasse (X-Mas Market) 40%",
-        "fr": "Mitarbeiter*in Kasse (X-Mas Market) 40%"
+        "en": "Mitarbeiter*in Kasse (X-Mas Market) 40%",
+        "fr": "Mitarbeiter*in Kasse (marché X-Mas) 40%"
       },
       "sourceLang": "it",
-      "id": "manor-2b2093fbdd37",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-2b2093fbdd37",
       "salaryMin": 33200,
       "salaryMax": 51000,
       "currency": "CHF",
@@ -162,7 +161,8 @@
       },
       "addressLocality": "Zürich Mitarbeiterin Kasse (X",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 60%",
@@ -186,29 +186,20 @@
       "slug": "collaboratore-trice-in-kasse-x-mas-market-60-manor-ag-zurich-mitarbeiterin-kasse-x",
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-x-mas-market-60-manor-ag-zurich-mitarbeiterin-kasse-x",
-        "en": "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x",
+        "en": "employee-in-cash-x-mas-market-60-manor-ag-zurich-mitarbeiterin-kasse-x",
         "de": "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x",
-        "fr": "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
+        "fr": "employe-en-especes-marche-x-mas-60-manor-ag-zurich-mitarbeiterin-kasse-x"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse (X-Mas Market) 60%",
-        "en": "Mitarbeiter*in Kasse (X-Mas Market) 60%",
         "de": "Mitarbeiter*in Kasse (X-Mas Market) 60%",
-        "fr": "Mitarbeiter*in Kasse (X-Mas Market) 60%"
+        "en": "Employee in cash (X-Mas Market) 60%",
+        "fr": "Employé en espèces (marché X-Mas) 60%"
       },
       "sourceLang": "de",
-      "id": "manor-652d9b00fd34",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
-        ]
-      },
-      "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
-      ],
+      "needsRetranslation": true,
+      "id": "manor-652d9b00fd34",
       "salaryMin": 49800,
       "salaryMax": 76500,
       "currency": "CHF",
@@ -224,7 +215,22 @@
       },
       "addressLocality": "Zürich Mitarbeiterin Kasse (X",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-x-mas-market-60-zurich-mitarbeiterin-kasse-x"
+      ]
     },
     {
       "title": "Collaborateur/trice cuisine (Manora) 80%",
@@ -245,24 +251,23 @@
       },
       "postedDate": "2026-08-18",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora",
+      "slug": "cucina-collaboratrice-trice-manora-80-manor-ag-nyon-collaborateurtrice-cuisine-manora",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora",
+        "it": "cucina-collaboratrice-trice-manora-80-manor-ag-nyon-collaborateurtrice-cuisine-manora",
         "en": "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora",
-        "de": "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora",
-        "fr": "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora"
+        "de": "kollaborateur-trike-kuche-manora-80-manor-ag-nyon-collaborateurtrice-cuisine-manora",
+        "fr": "collaborateur-gaterie-manora-80-manor-ag-nyon-collaborateurtrice-cuisine-manora"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice cuisine (Manora) 80%",
+        "it": "Cucina collaboratrice/trice (Manora) 80%",
         "en": "Collaborateur/trice cuisine (Manora) 80%",
-        "de": "Collaborateur/trice cuisine (Manora) 80%",
-        "fr": "Collaborateur/trice cuisine (Manora) 80%"
+        "de": "Kollaborateur/trike Küche (Manora) 80%",
+        "fr": "Collaborateur/gâterie (Manora) 80%"
       },
       "sourceLang": "en",
-      "id": "manor-9b04fffd9dce",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-9b04fffd9dce",
       "salaryMin": 52400,
       "salaryMax": 66000,
       "currency": "CHF",
@@ -278,7 +283,22 @@
       },
       "addressLocality": "Nyon Collaborateurtrice cuisine (Manora)",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora"
+        ],
+        "de": [
+          "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-cuisine-manora-80-nyon-collaborateurtrice-cuisine-manora"
+      ]
     },
     {
       "title": "Mitarbeiter*in Supermarkt 80%",
@@ -515,24 +535,22 @@
       },
       "postedDate": "2026-08-18",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
+      "slug": "collaboratore-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-        "en": "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-        "de": "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
+        "it": "collaboratore-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food",
+        "en": "collaborator-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food",
+        "de": "mitarbeiter-caisse-lebensmittel-60-manor-ag-nyon-collaborateurtrice-caisse-food",
         "fr": "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice caisse (Food) 60%",
-        "en": "Collaborateur/trice caisse (Food) 60%",
-        "de": "Collaborateur/trice caisse (Food) 60%",
-        "fr": "Collaborateur/trice caisse (Food) 60%"
+        "it": "Collaboratore caisse (Food) 60%",
+        "fr": "Collaborateur/trice caisse (Food) 60%",
+        "en": "Collaborator caisse (Food) 60%",
+        "de": "Mitarbeiter Caisse (Lebensmittel) 60%"
       },
       "sourceLang": "fr",
-      "id": "manor-4b2841d3763e",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
+      "id": "manor-4b2841d3763e",
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -548,7 +566,22 @@
       },
       "addressLocality": "Nyon Collaborateurtrice caisse (Food)",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
+        ],
+        "en": [
+          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
+        ],
+        "de": [
+          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
+      ]
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 100%",
@@ -578,15 +611,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse (X-Mas Market) 100%",
-        "en": "Mitarbeiter*in Kasse (X-Mas Market) 100%",
         "de": "Mitarbeiter*in Kasse (X-Mas Market) 100%",
-        "fr": "Mitarbeiter*in Kasse (X-Mas Market) 100%"
+        "en": "Mitarbeiter*in Kasse (X-Mas Market) 100%",
+        "fr": "Mitarbeiter*in Kasse (marché X-Mas) 100%"
       },
       "sourceLang": "it",
-      "id": "manor-9ca3e0229bda",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-9ca3e0229bda",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -602,7 +634,8 @@
       },
       "addressLocality": "Zürich Mitarbeiterin Kasse (X",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Collaborateur/trice Merchandising (Décoration Non Food) 100%",
@@ -686,31 +719,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Merchandising 40%",
-        "en": "Employee* in Merchandising 40 %",
         "de": "Mitarbeiter*in Merchandising 40%",
+        "en": "Employee* in Merchandising 40 %",
         "fr": "Employé* en marchandisation 40 %"
       },
       "sourceLang": "de",
-      "id": "manor-b11f2650bdc3",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40",
-        "collaboratore-trice-in-merchandising-40-manor-ag-zurich-mitarbeiterin-merchandising-40"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40",
-          "collaboratore-trice-in-merchandising-40-manor-ag-zurich-mitarbeiterin-merchandising-40"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T22:02:51.026Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-b11f2650bdc3",
       "salaryMin": 29400,
       "salaryMax": 44600,
       "currency": "CHF",
@@ -726,7 +742,22 @@
       },
       "addressLocality": "Zürich Mitarbeiterin Merchandising 40",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-17T22:02:51.026Z",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
+        ]
+      }
     },
     {
       "title": "Mitarbeiter*in Logistik 80%",
@@ -756,31 +787,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 80%",
-        "en": "Employees* in Logistics 80 %",
         "de": "Mitarbeiter*in Logistik 80%",
+        "en": "Employees* in Logistics 80 %",
         "fr": "Employés* en logistique 80 %"
       },
       "sourceLang": "de",
-      "id": "manor-ad55a114389f",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80",
-        "collaboratore-trice-in-logistik-80-manor-ag-mohlin-mitarbeiterin-logistik-80"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80",
-          "collaboratore-trice-in-logistik-80-manor-ag-mohlin-mitarbeiterin-logistik-80"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T22:02:51.026Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-ad55a114389f",
       "salaryMin": 49600,
       "salaryMax": 75200,
       "currency": "CHF",
@@ -796,7 +810,22 @@
       },
       "addressLocality": "Möhlin Mitarbeiterin Logistik 80",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-17T22:02:51.026Z",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-logistik-80-mohlin-mitarbeiterin-logistik-80"
+        ]
+      }
     },
     {
       "title": "Praktikant*in Logistik 80%",
@@ -882,7 +911,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Visual Merchandising 60%",
         "en": "Mitarbeiter in Visual Merchandising 60%",
-        "de": "Mitarbeiter*in Visual Merchandising 60%",
+        "de": "Mitarbeiter in Visual Merchandising 60%",
         "fr": "Mitarbeiter en marchandisation visuelle 60%"
       },
       "sourceLang": "it",
@@ -941,7 +970,6 @@
       },
       "sourceLang": "it",
       "id": "manor-7248838867be",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:36:13.546Z",
       "crawledAt": "",
       "salaryMin": 103500,
@@ -996,13 +1024,11 @@
       "sourceLang": "de",
       "id": "manor-8cb33796890e",
       "previousSlugs": [
-        "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30",
-        "collaboratore-trice-in-kundendienst-30-manor-ag-winterthur-mitarbeiterin-kundendienst-30"
+        "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30",
-          "collaboratore-trice-in-kundendienst-30-manor-ag-winterthur-mitarbeiterin-kundendienst-30"
+          "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30"
         ],
         "en": [
           "manor-mitarbeiter-in-kundendienst-30-winterthur-mitarbeiterin-kundendienst-30"
@@ -1114,7 +1140,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistic/Wareneingang 80%",
         "en": "Mitarbeiter*in Logistic/Wareneingang 80%",
-        "de": "Mitarbeiter*in Logistic/Wareneingang 80%",
+        "de": "Mitarbeiter*in Logistik/Wareneingang 80%",
         "fr": "Mitarbeiter*in Logistic/Wareneingang 80%"
       },
       "sourceLang": "it",
@@ -1223,7 +1249,7 @@
         "it": "Collaborateur/trice Caisse (Home & Ménage) 50%",
         "en": "Collaborateur/trice Caisse (Home & Ménage) 50%",
         "de": "Collaborateur/trice Caisse (Home & Ménage) 50%",
-        "fr": "Collaborateur/trice Caisse (Home & Ménage) 50%"
+        "fr": "Collaborateur/trice Caisse (Maison & Ménage) 50%"
       },
       "sourceLang": "it",
       "id": "manor-db312f93484d",
@@ -1367,7 +1393,7 @@
       "description": "Wir suchen einen MA der neben dem Verkauf noch zusätzliche Aufgaben, Verantwortung übernehmen kann.\n\n- Erste Erfahrung in der Mitarbeiterführung oder die Motivation, diese Verantwortung zu übernehmen.\n- Organisationstalent und eine selbständige, zuverlässige Arbeitsweise.\n- Verantwortungsbewusstsein und die Fähigkeit, auch in Abwesenheit des Floors den überblick zu behalten.\n- Flexibel und Freude daran, aktiv anzupacken.",
       "descriptionIt": "Wir suchen einen MA der neben dem Verkauf noch zusätzliche Aufgaben, Verantwortung übernehmen kann.\n\n- Erste Erfahrung in der Mitarbeiterführung oder die Motivation, diese Verantwortung zu übernehmen.\n- Organisationstalent und eine selbständige, zuverlässige Arbeitsweise.\n- Verantwortungsbewusstsein und die Fähigkeit, auch in Abwesenheit des Floors den überblick zu behalten.\n- Flexibel und Freude daran, aktiv anzupacken.",
       "descriptionByLocale": {
-        "it": "Wir suchen einen MA der neben dem Verkauf noch zusätzliche Aufgaben, Verantwortung übernehmen kann.\n\n- Erste Erfahrung in der Mitarbeiterführung oder die Motivation, diese Verantwortung zu übernehmen.\n- Organisationstalent und eine selbständige, zuverlässige Arbeitsweise.\n- Verantwortungsbewusstsein und die Fähigkeit, auch in Abwesenheit des Floors den überblick zu behalten.\n- Flexibel und Freude daran, aktiv anzupacken.",
+        "it": "Stiamo cercando un MA che, oltre alla vendita, può assumere ulteriori compiti, responsabilità.\n\n- Prima esperienza nella gestione dei dipendenti o la motivazione di assumersi questa responsabilità.\n- Talenti organizzativi e un metodo di lavoro indipendente e affidabile.\n- Responsabilità e la capacità di tenere traccia anche in assenza del pavimento.\n- Flessibile e piacevole da affrontare attivamente.",
         "en": "Mitarbeiter*in Verkauf Fashion 100% at Manor, located in Zürich Mitarbeiterin Verkauf Fashion, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Wir suchen einen MA der neben dem Verkauf noch zusätzliche Aufgaben, Verantwortung übernehmen kann.\n\n- Erste Erfahrung in der Mitarbeiterführung oder die Motivation, diese Verantwortung zu übernehmen.\n- Organisationstalent und eine selbständige, zuverlässige Arbeitsweise.\n- Verantwortungsbewusstsein und die Fähigkeit, auch in Abwesenheit des Floors den überblick zu behalten.\n- Flexibel und Freude daran, aktiv anzupacken.",
         "fr": "Mitarbeiter*in Verkauf Fashion 100% chez Manor, situé à Zürich Mitarbeiterin Verkauf Fashion, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -1390,13 +1416,11 @@
       "sourceLang": "de",
       "id": "manor-274de7bdc492",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion",
-        "collaboratore-trice-in-vendita-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion"
+        "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion",
-          "collaboratore-trice-in-vendita-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion"
+          "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
         ]
       },
       "needsRetranslation": true,
@@ -1447,13 +1471,12 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager 100%",
-        "en": "Assistant*in Floor Manager 100%",
+        "en": "Assistant Floor Manager 100%",
         "de": "Assistent*in Floor Manager 100%",
         "fr": "Gestionnaire adjoint d'étage 100%"
       },
       "sourceLang": "de",
       "id": "manor-3d285e6236e0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:44:23.566Z",
       "crawledAt": "",
       "salaryMin": 101500,
@@ -1485,7 +1508,7 @@
       "description": "- Produktkenntnisse in den Rayons\n- Kenntnis über aktuelle Angebote (online und offline)\n- Kenntnis der Prozesse Instore Ordering und Click and\nCollect\n- Prozess Kundenreklamationen\n- Einkassierungsprozess\nProfessionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und Garantiefällen\n- Einkassieren gemäss Vorgaben",
       "descriptionIt": "- Produktkenntnisse in den Rayons\n- Kenntnis über aktuelle Angebote (online und offline)\n- Kenntnis der Prozesse Instore Ordering und Click and\nCollect\n- Prozess Kundenreklamationen\n- Einkassierungsprozess\nProfessionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und Garantiefällen\n- Einkassieren gemäss Vorgaben",
       "descriptionByLocale": {
-        "it": "- Produktkenntnisse in den Rayons\n- Kenntnis über aktuelle Angebote (online und offline)\n- Kenntnis der Prozesse Instore Ordering und Click and\nCollect\n- Prozess Kundenreklamationen\n- Einkassierungsprozess\nProfessionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und Garantiefällen\n- Einkassieren gemäss Vorgaben",
+        "it": "- Conoscenza del prodotto nei rayons\n- Conoscenza delle offerte attuali (online e offline)\n- Conoscenza di Instore Ordinazione e Clicca e\nRaccoglitore\n- Elaborare reclami dei clienti\n- Processo di cash-in\nConsulenza professionale, completa e competente\ndi clienti (necessari valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma fedeltà\n- Assicurare ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e dei casi di garanzia\n- Contanti secondo le specifiche",
         "en": "Mitarbeiter*in Verkauf Fashion 40% at Manor, located in Wattwil Mitarbeiterin Verkauf Fashion, Canton of St. Gallen, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "- Produktkenntnisse in den Rayons\n- Kenntnis über aktuelle Angebote (online und offline)\n- Kenntnis der Prozesse Instore Ordering und Click and\nCollect\n- Prozess Kundenreklamationen\n- Einkassierungsprozess\nProfessionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und Garantiefällen\n- Einkassieren gemäss Vorgaben",
         "fr": "Mitarbeiter*in Verkauf Fashion 40% chez Manor, situé à Wattwil Mitarbeiterin Verkauf Fashion, Canton de Saint-Gall, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -1508,13 +1531,11 @@
       "sourceLang": "de",
       "id": "manor-6d5cec865419",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion",
-        "collaboratore-trice-in-vendita-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion"
+        "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion",
-          "collaboratore-trice-in-vendita-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion"
+          "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
         ]
       },
       "needsRetranslation": true,
@@ -1694,13 +1715,11 @@
       "sourceLang": "de",
       "id": "manor-eeb8e7bb1b47",
       "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-kundendienst-80-affoltern-am-albis-mitarbeiterin",
-        "collaboratore-trice-in-kasse-kundendienst-80-manor-ag-affoltern-am-albis-mitarbeiterin"
+        "manor-mitarbeiter-in-kasse-kundendienst-80-affoltern-am-albis-mitarbeiterin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kasse-kundendienst-80-affoltern-am-albis-mitarbeiterin",
-          "collaboratore-trice-in-kasse-kundendienst-80-manor-ag-affoltern-am-albis-mitarbeiterin"
+          "manor-mitarbeiter-in-kasse-kundendienst-80-affoltern-am-albis-mitarbeiterin"
         ],
         "en": [
           "manor-mitarbeiter-in-kasse-kundendienst-80-affoltern-am-albis-mitarbeiterin"
@@ -1823,7 +1842,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 45%",
-        "de": "Mitarbeiter*in Verkauf 45%",
+        "de": "Mitarbeiter im Verkauf 45%",
         "en": "Mitarbeiter*in Sales 45%",
         "fr": "Mitarbeiter*in Vente 45%"
       },
@@ -1986,7 +2005,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Kommissionierung 100%",
         "en": "Mitarbeiter*in Logistik Kommetteerung 100%",
-        "de": "Mitarbeiter*in Logistik Kommissionierung 100%",
+        "de": "Mitarbeiter*in Logistik Kommetterung 100%",
         "fr": "Mitarbeiter*in Logistik Kommetteerung 100%"
       },
       "sourceLang": "it",
@@ -2211,12 +2230,12 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Kommissionierung 100%",
-        "en": "Mitarbeiter*in Logistik Kommissionierung 100%",
-        "de": "Mitarbeiter*in Logistik Kommissionierung 100%",
-        "fr": "Mitarbeiter*in Logistik Kommissionierung 100%"
+        "de": "Mitarbeiter*in Logistik Kommetterung 100%",
+        "en": "Mitarbeiter*in Logistik Kommetteerung 100%",
+        "fr": "Mitarbeiter*in Logistik Kommetteerung 100%"
       },
       "sourceLang": "it",
-      "id": "manor-55540c4b7526",
+      "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
@@ -2228,8 +2247,7 @@
         "collaboratore-trice-in-logistik-kommissionierung-100-manor-ag-hochdorf-mitarbeiterin-logistik-kommissionierung"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
-      "crawledAt": "",
+      "id": "manor-55540c4b7526",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -2245,7 +2263,8 @@
       },
       "addressLocality": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Papeterie/Multimedia 70%",
@@ -2330,7 +2349,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Visual Merchandising 20%",
         "en": "Mitarbeiter in Visual Merchandising 20%",
-        "de": "Mitarbeiter*in Visual Merchandising 20%",
+        "de": "Mitarbeiter in Visual Merchandising 20%",
         "fr": "Mitarbeiter en marchandisation visuelle 20%"
       },
       "sourceLang": "it",
@@ -2367,7 +2386,7 @@
       "description": "• Duftkompetenz: Gutes Unterscheidungsvermögen für Düfte und Kenntnis über olfaktorische Familien (Klassiker und Neuheiten).\n• Beratungskompetenz: Fähigkeit, die Wünsche und den Typ des Kunden zu erkennen, um passende Alternativen vorzuschlagen.\n• Gepflegtes Äusseres: Vorbildliche Hygiene und ein stilvolles, zum Luxusbereich passendes Auftreten.",
       "descriptionIt": "• Duftkompetenz: Gutes Unterscheidungsvermögen für Düfte und Kenntnis über olfaktorische Familien (Klassiker und Neuheiten).\n• Beratungskompetenz: Fähigkeit, die Wünsche und den Typ des Kunden zu erkennen, um passende Alternativen vorzuschlagen.\n• Gepflegtes Äusseres: Vorbildliche Hygiene und ein stilvolles, zum Luxusbereich passendes Auftreten.",
       "descriptionByLocale": {
-        "it": "• Duftkompetenz: Gutes Unterscheidungsvermögen für Düfte und Kenntnis über olfaktorische Familien (Klassiker und Neuheiten).\n• Beratungskompetenz: Fähigkeit, die Wünsche und den Typ des Kunden zu erkennen, um passende Alternativen vorzuschlagen.\n• Gepflegtes Äusseres: Vorbildliche Hygiene und ein stilvolles, zum Luxusbereich passendes Auftreten.",
+        "it": "• Competenza del profumo: buon discernimento per le fragranze e la conoscenza delle famiglie olfattive (classiche e novità).\n• Competence di consulenza: Capacità di riconoscere i desideri e il tipo del cliente per suggerire alternative adeguate.\n• Esterno attento: igiene esemplare e un aspetto elegante adatto al settore del lusso.",
         "en": "Mitarbeiter*in Verkauf Parfümerie 20% at Manor, located in Zug Mitarbeiterin Verkauf Parfümerie, Canton of Zug, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• Duftkompetenz: Gutes Unterscheidungsvermögen für Düfte und Kenntnis über olfaktorische Familien (Klassiker und Neuheiten).\n• Beratungskompetenz: Fähigkeit, die Wünsche und den Typ des Kunden zu erkennen, um passende Alternativen vorzuschlagen.\n• Gepflegtes Äusseres: Vorbildliche Hygiene und ein stilvolles, zum Luxusbereich passendes Auftreten.",
         "fr": "Mitarbeiter*in Verkauf Parfümerie 20% chez Manor, situé à Zug Mitarbeiterin Verkauf Parfümerie, Canton de Zoug, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -2390,13 +2409,11 @@
       "sourceLang": "de",
       "id": "manor-64b9c774c0d7",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
-        "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
-          "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
+          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
         ]
       },
       "needsRetranslation": true,
@@ -2616,13 +2633,11 @@
       "sourceLang": "de",
       "id": "manor-4461ee60f4f2",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-springer-10-solothurn-mitarbeiterin-verkauf-springer",
-        "collaboratore-trice-in-vendita-springer-10-manor-ag-solothurn-mitarbeiterin-verkauf-springer"
+        "manor-mitarbeiter-in-verkauf-springer-10-solothurn-mitarbeiterin-verkauf-springer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-springer-10-solothurn-mitarbeiterin-verkauf-springer",
-          "collaboratore-trice-in-vendita-springer-10-manor-ag-solothurn-mitarbeiterin-verkauf-springer"
+          "manor-mitarbeiter-in-verkauf-springer-10-solothurn-mitarbeiterin-verkauf-springer"
         ]
       },
       "needsRetranslation": true,
@@ -2674,7 +2689,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 50%",
         "en": "Mitarbeiter* in Kasse 50%",
-        "de": "Mitarbeiter*in Kasse 50%",
+        "de": "Mitarbeiter* in Kasse 50%",
         "fr": "Mitarbeiter* dans Kasse 50%"
       },
       "sourceLang": "it",
@@ -2722,34 +2737,30 @@
       "slugByLocale": {
         "it": "pane-orecchie-100-manor-ag-geneve-1-boulangerere-100",
         "en": "baker-ear-100-manor-ag-geneve-1-boulangerere-100",
-        "de": "boulanger-ere-100-manor-ag-geneve-1-boulangerere-100",
+        "de": "backer-ohr-100-manor-ag-geneve-1-boulangerere-100",
         "fr": "manor-boulanger-ere-100-geneve-1-boulangerere-100"
       },
       "titleByLocale": {
         "it": "Pane/orecchie 100%",
         "en": "Baker/Ear 100%",
-        "de": "Boulanger/ère 100%",
+        "de": "Bäcker/Ohr 100%",
         "fr": "Boulanger/ère 100%"
       },
       "sourceLang": "fr",
       "id": "manor-09e5a4f816d2",
       "previousSlugs": [
         "manor-boulanger-ere-100-geneve-1-boulangerere-100",
-        "backer-ohr-100-manor-ag-geneve-1-boulangerere-100",
-        "pane-orecchie-100-manor-ag-geneve-1-boulangerere-100",
         "boulanger-ere-100-manor-ag-geneve-1-boulangerere-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-boulanger-ere-100-geneve-1-boulangerere-100",
-          "pane-orecchie-100-manor-ag-geneve-1-boulangerere-100"
+          "manor-boulanger-ere-100-geneve-1-boulangerere-100"
         ],
         "en": [
           "manor-boulanger-ere-100-geneve-1-boulangerere-100"
         ],
         "de": [
           "manor-boulanger-ere-100-geneve-1-boulangerere-100",
-          "backer-ohr-100-manor-ag-geneve-1-boulangerere-100",
           "boulanger-ere-100-manor-ag-geneve-1-boulangerere-100"
         ]
       },
@@ -2808,13 +2819,11 @@
       "sourceLang": "de",
       "id": "manor-591540f58271",
       "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-40-basel-mitarbeiterin-kasse-40",
-        "collaboratore-trice-in-kasse-40-manor-ag-basel-mitarbeiterin-kasse-40"
+        "manor-mitarbeiter-in-kasse-40-basel-mitarbeiterin-kasse-40"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kasse-40-basel-mitarbeiterin-kasse-40",
-          "collaboratore-trice-in-kasse-40-manor-ag-basel-mitarbeiterin-kasse-40"
+          "manor-mitarbeiter-in-kasse-40-basel-mitarbeiterin-kasse-40"
         ],
         "en": [
           "manor-mitarbeiter-in-kasse-40-basel-mitarbeiterin-kasse-40"
@@ -2878,13 +2887,11 @@
       "sourceLang": "de",
       "id": "manor-009e743943c8",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
-        "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30"
+        "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
-          "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30"
+          "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
         ]
       },
       "needsRetranslation": true,
@@ -2988,7 +2995,7 @@
         "fr": "manor-collaborateur-trice-vente-bijouterie-montres-20-fribourg-collaborateurtrice-vente-bijouterie"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Bijouterie & Montres) 20%",
+        "it": "Vendita Collaboratore (Bijouterie & Orologi) 20%",
         "en": "Collaborator sales (Bijouterie & Watches) 20%",
         "de": "Mitarbeiterverkäufe (Bijouterie & Uhren) 20%",
         "fr": "Collaborateur/trice vente (Bijouterie & Montres) 20%"
@@ -2997,14 +3004,12 @@
       "id": "manor-313fdce6a89a",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-bijouterie-montres-20-fribourg-collaborateurtrice-vente-bijouterie",
-        "collaborateur-trice-vente-bijouterie-montres-20-manor-ag-fribourg-collaborateurtrice-vente-bijouterie",
-        "vendita-collaboratore-bijouterie-orologi-20-manor-ag-fribourg-collaborateurtrice-vente-bijouterie"
+        "collaborateur-trice-vente-bijouterie-montres-20-manor-ag-fribourg-collaborateurtrice-vente-bijouterie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-bijouterie-montres-20-fribourg-collaborateurtrice-vente-bijouterie",
-          "collaborateur-trice-vente-bijouterie-montres-20-manor-ag-fribourg-collaborateurtrice-vente-bijouterie",
-          "vendita-collaboratore-bijouterie-orologi-20-manor-ag-fribourg-collaborateurtrice-vente-bijouterie"
+          "collaborateur-trice-vente-bijouterie-montres-20-manor-ag-fribourg-collaborateurtrice-vente-bijouterie"
         ],
         "en": [
           "manor-collaborateur-trice-vente-bijouterie-montres-20-fribourg-collaborateurtrice-vente-bijouterie"
@@ -3013,7 +3018,6 @@
           "manor-collaborateur-trice-vente-bijouterie-montres-20-fribourg-collaborateurtrice-vente-bijouterie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:39:31.381Z",
       "crawledAt": "",
       "salaryMin": 15500,
@@ -3060,7 +3064,7 @@
         "fr": "manor-collaborateur-trice-caisse-parfumerie-30-fribourg-collaborateurtrice-caisse-parfumerie"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice caisse (Parfumerie) 30%",
+        "it": "Collaboratore caisse (Parfumerie) 30%",
         "en": "Collaborator caisse (Parfumerie) 30%",
         "de": "Mitarbeiter caisse (Parfumerie) 30%",
         "fr": "Collaborateur/trice caisse (Parfumerie) 30%"
@@ -3070,15 +3074,13 @@
       "previousSlugs": [
         "manor-collaborateur-trice-caisse-parfumerie-30-fribourg-collaborateurtrice-caisse-parfumerie",
         "manor-collaborateur-trice-caisse-parfumerie-40-morges-collaborateurtrice-caisse-parfumerie",
-        "collaborateur-trice-caisse-parfumerie-30-manor-ag-fribourg-collaborateurtrice-caisse-parfumerie",
-        "collaboratore-caisse-parfumerie-30-manor-ag-fribourg-collaborateurtrice-caisse-parfumerie"
+        "collaborateur-trice-caisse-parfumerie-30-manor-ag-fribourg-collaborateurtrice-caisse-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-parfumerie-30-fribourg-collaborateurtrice-caisse-parfumerie",
           "manor-collaborateur-trice-caisse-parfumerie-40-morges-collaborateurtrice-caisse-parfumerie",
-          "collaborateur-trice-caisse-parfumerie-30-manor-ag-fribourg-collaborateurtrice-caisse-parfumerie",
-          "collaboratore-caisse-parfumerie-30-manor-ag-fribourg-collaborateurtrice-caisse-parfumerie"
+          "collaborateur-trice-caisse-parfumerie-30-manor-ag-fribourg-collaborateurtrice-caisse-parfumerie"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-parfumerie-30-fribourg-collaborateurtrice-caisse-parfumerie"
@@ -3090,7 +3092,6 @@
           "manor-collaborateur-trice-caisse-parfumerie-40-morges-collaborateurtrice-caisse-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:39:31.381Z",
       "crawledAt": "",
       "salaryMin": 23300,
@@ -3193,7 +3194,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 40%",
         "en": "Mitarbeiter in Service 40%",
-        "de": "Mitarbeiter*in Service 40%",
+        "de": "Mitarbeiter im Service 40%",
         "fr": "Mitarbeiter en service 40%"
       },
       "sourceLang": "it",
@@ -3319,13 +3320,11 @@
       "sourceLang": "de",
       "id": "manor-e1f202a44e53",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
-        "collaboratore-trice-in-vendita-haushalt-vorhange-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt"
+        "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
-          "collaboratore-trice-in-vendita-haushalt-vorhange-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt"
+          "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
         ]
       },
       "needsRetranslation": true,
@@ -3377,7 +3376,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 10%",
         "en": "Mitarbeiter* in Kasse 10%",
-        "de": "Mitarbeiter*in Kasse 10%",
+        "de": "Mitarbeiter* in Kasse 10%",
         "fr": "Mitarbeiter* en Kasse 10%"
       },
       "sourceLang": "it",
@@ -3422,7 +3421,7 @@
       "description": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
       "descriptionIt": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
       "descriptionByLocale": {
-        "it": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
+        "it": "• Forte capacità di vendita e consulenza.\n• Alto orientamento al cliente e al servizio.\n• Entusiasmo per bellezza, profumeria e cura della pelle e trucco.\n• Comunicazione forte e aspetto convincente.\n• Gioia delle vendite attive e raggiungimento degli obiettivi di vendita.\n• Aspetto attento, professionale e di marca.\n• Metodo di lavoro indipendente, affidabile e strutturato.\n• Lavoro di squadra e competenze sociali elevate.",
         "en": "Mitarbeiter*in Verkauf Parfümerie 80% at Manor, located in Emmen Mitarbeiterin Verkauf Parfümerie, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
         "fr": "Mitarbeiter*in Verkauf Parfümerie 80% chez Manor, situé à Emmen Mitarbeiterin Verkauf Parfümerie, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -3445,13 +3444,11 @@
       "sourceLang": "de",
       "id": "manor-df312bdb64a0",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
-        "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
-          "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
+          "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
         ]
       },
       "needsRetranslation": true,
@@ -3486,7 +3483,7 @@
       "description": "• Strong organizational skills and communication skills (collaborate closely with a Sales Manager in the team)\n• Competent in bringing people together, building cooperative relationships\n• Strong analytical skills; advanced Excel/Sheets\n• Comfortable with product feeds, tagging standards, UTMs and basic tracking concepts\n• Excellent project management across multiple stakeholders and suppliers; structured, reliable and detail‑oriented\n• Customer and solution focused; able to translate data into actionable recommendations\n• Languages: strong proficiency in English; German or French is a plus",
       "descriptionIt": "• Strong organizational skills and communication skills (collaborate closely with a Sales Manager in the team)\n• Competent in bringing people together, building cooperative relationships\n• Strong analytical skills; advanced Excel/Sheets\n• Comfortable with product feeds, tagging standards, UTMs and basic tracking concepts\n• Excellent project management across multiple stakeholders and suppliers; structured, reliable and detail‑oriented\n• Customer and solution focused; able to translate data into actionable recommendations\n• Languages: strong proficiency in English; German or French is a plus",
       "descriptionByLocale": {
-        "it": "• Strong organizational skills and communication skills (collaborate closely with a Sales Manager in the team)\n• Competent in bringing people together, building cooperative relationships\n• Strong analytical skills; advanced Excel/Sheets\n• Comfortable with product feeds, tagging standards, UTMs and basic tracking concepts\n• Excellent project management across multiple stakeholders and suppliers; structured, reliable and detail‑oriented\n• Customer and solution focused; able to translate data into actionable recommendations\n• Languages: strong proficiency in English; German or French is a plus",
+        "it": "• Forte capacità organizzative e capacità di comunicazione (collaborare a stretto contatto con un Sales Manager del team)\n• Competente nel riunire le persone, costruire relazioni cooperative\n• Forte capacità analitiche; avanzato Excel/Sheets\n• Confortevole con mangimi di prodotto, standard di tagging, UTM e concetti di tracciamento di base\n• Eccellente gestione del progetto su più stakeholder e fornitori; strutturato, affidabile e orientato al dettaglio\n• Clienti e soluzioni focalizzate; in grado di tradurre i dati in raccomandazioni attuabili\n• Lingue: forte competenza in inglese; tedesco o francese è un plus",
         "en": "• Strong organizational skills and communication skills (collaborate closely with a Sales Manager in the team)\n• Competent in bringing people together, building cooperative relationships\n• Strong analytical skills; advanced Excel/Sheets\n• Comfortable with product feeds, tagging standards, UTMs and basic tracking concepts\n• Excellent project management across multiple stakeholders and suppliers; structured, reliable and detail‑oriented\n• Customer and solution focused; able to translate data into actionable recommendations\n• Languages: strong proficiency in English; German or French is a plus",
         "de": "Retail Media Coordinator 100% bei Manor, gelegen in Basel Retail Media Coordinator, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Retail Media Coordinator 100% chez Manor, situé à Basel Retail Media Coordinator, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -3507,10 +3504,8 @@
         "fr": "Retail Media Coordinateur 100%"
       },
       "sourceLang": "en",
-      "id": "manor-24de8fb27a46",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
+      "id": "manor-24de8fb27a46",
       "salaryMin": 74000,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -3526,7 +3521,8 @@
       },
       "addressLocality": "Basel Retail Media Coordinator",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T10:15:44.805Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf Parfümerie 30%",
@@ -3563,13 +3559,11 @@
       "sourceLang": "de",
       "id": "manor-85f22e37af67",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-30-basel-mitarbeiterin-verkauf-parfumerie",
-        "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-basel-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-30-basel-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-parfumerie-30-basel-mitarbeiterin-verkauf-parfumerie",
-          "collaboratore-trice-in-vendita-parfumerie-30-manor-ag-basel-mitarbeiterin-verkauf-parfumerie"
+          "manor-mitarbeiter-in-verkauf-parfumerie-30-basel-mitarbeiterin-verkauf-parfumerie"
         ]
       },
       "needsRetranslation": true,
@@ -3627,13 +3621,11 @@
       "sourceLang": "de",
       "id": "manor-544f0390e916",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-bijouterie-80-basel-mitarbeiterin-verkauf-bijouterie",
-        "collaboratore-trice-in-vendita-bijouterie-80-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
+        "manor-mitarbeiter-in-verkauf-bijouterie-80-basel-mitarbeiterin-verkauf-bijouterie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-bijouterie-80-basel-mitarbeiterin-verkauf-bijouterie",
-          "collaboratore-trice-in-vendita-bijouterie-80-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
+          "manor-mitarbeiter-in-verkauf-bijouterie-80-basel-mitarbeiterin-verkauf-bijouterie"
         ]
       },
       "needsRetranslation": true,
@@ -3691,13 +3683,11 @@
       "sourceLang": "de",
       "id": "manor-1b0563d4cf7a",
       "previousSlugs": [
-        "manor-kassierer-in-fashion-30-baden-kassiererin-fashion-30",
-        "cashier-in-moda-30-manor-ag-baden-kassiererin-fashion-30"
+        "manor-kassierer-in-fashion-30-baden-kassiererin-fashion-30"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-kassierer-in-fashion-30-baden-kassiererin-fashion-30",
-          "cashier-in-moda-30-manor-ag-baden-kassiererin-fashion-30"
+          "manor-kassierer-in-fashion-30-baden-kassiererin-fashion-30"
         ],
         "en": [
           "manor-kassierer-in-fashion-30-baden-kassiererin-fashion-30"
@@ -3753,7 +3743,7 @@
         "fr": "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Bijouterie/Montres) 80%",
+        "it": "Collaboratore di vendita (Bijouterie/Montres) 80%",
         "en": "Sales Collaborator (Bijouterie/Montres) 80%",
         "de": "Vertriebsmitarbeiter (Bijouterie/Montres) 80%",
         "fr": "Collaborateur/trice vente (Bijouterie/Montres) 80%"
@@ -3761,13 +3751,11 @@
       "sourceLang": "fr",
       "id": "manor-c1e77b8bf2fe",
       "previousSlugs": [
-        "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres",
-        "collaboratore-di-vendita-bijouterie-montres-80-manor-ag-morges-collaborateurtrice-vente-bijouteriemontres"
+        "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres",
-          "collaboratore-di-vendita-bijouterie-montres-80-manor-ag-morges-collaborateurtrice-vente-bijouteriemontres"
+          "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres"
         ],
         "en": [
           "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres"
@@ -3776,7 +3764,6 @@
           "manor-collaborateur-trice-vente-bijouterie-montres-80-morges-collaborateurtrice-vente-bijouteriemontres"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:41:30.615Z",
       "crawledAt": "",
       "salaryMin": 57600,
@@ -3830,7 +3817,6 @@
       },
       "sourceLang": "it",
       "id": "manor-c320dd3f3381",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
       "salaryMin": 13900,
@@ -3872,9 +3858,9 @@
       "slug": "manor-mitarbeiter-in-logistik-20-hochdorf-mitarbeiterin-logistik-20",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-logistik-20-hochdorf-mitarbeiterin-logistik-20",
-        "en": "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20",
+        "en": "logistics-employee-20-manor-ag-hochdorf-mitarbeiterin-logistik-20",
         "de": "manor-mitarbeiter-in-logistik-20-hochdorf-mitarbeiterin-logistik-20",
-        "fr": "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
+        "fr": "employe-e-logistique-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 20%",
@@ -3886,8 +3872,6 @@
       "id": "manor-d77d0ab78a76",
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz",
-        "logistics-employee-20-manor-ag-hochdorf-mitarbeiterin-logistik-20",
-        "employe-e-logistique-20-manor-ag-hochdorf-mitarbeiterin-logistik-20",
         "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
       ],
       "previousSlugsByLocale": {
@@ -3895,14 +3879,12 @@
           "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
         ],
         "en": [
-          "logistics-employee-20-manor-ag-hochdorf-mitarbeiterin-logistik-20",
           "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
         ],
         "de": [
           "manor-mitarbeiter-in-logistik-vz-20-hochdorf-mitarbeiterin-logistik-vz"
         ],
         "fr": [
-          "employe-e-logistique-20-manor-ag-hochdorf-mitarbeiterin-logistik-20",
           "mitarbeiter-in-logistik-20-manor-ag-hochdorf-mitarbeiterin-logistik-20"
         ]
       },
@@ -4081,14 +4063,12 @@
       "id": "manor-e5c9d4b8be94",
       "previousSlugs": [
         "manor-mitarbeiter-in-parfumerie-40-solothurn-mitarbeiterin-parfumerie-40",
-        "manor-drogist-in-dermacenter-40-solothurn-drogistin-dermacenter-40",
-        "collaboratore-trice-in-parfumerie-40-manor-ag-solothurn-mitarbeiterin-parfumerie-40"
+        "manor-drogist-in-dermacenter-40-solothurn-drogistin-dermacenter-40"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-parfumerie-40-solothurn-mitarbeiterin-parfumerie-40",
-          "manor-drogist-in-dermacenter-40-solothurn-drogistin-dermacenter-40",
-          "collaboratore-trice-in-parfumerie-40-manor-ag-solothurn-mitarbeiterin-parfumerie-40"
+          "manor-drogist-in-dermacenter-40-solothurn-drogistin-dermacenter-40"
         ],
         "en": [
           "manor-mitarbeiter-in-parfumerie-40-solothurn-mitarbeiterin-parfumerie-40"
@@ -4153,7 +4133,6 @@
       "id": "manor-a0346983571b",
       "firstSeenAt": "2026-07-28T12:07:44.810Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 34800,
       "salaryMax": 53000,
       "currency": "CHF",
@@ -4262,7 +4241,7 @@
       },
       "titleByLocale": {
         "it": "Product Manager Assistant 100%",
-        "en": "Assistant Product Manager 100%",
+        "en": "Product Manager Assistant 100%",
         "de": "Assistent Product Manager 100%",
         "fr": "Assistant Product Manager 100%"
       },
@@ -4276,7 +4255,6 @@
           "manor-assistant-product-manager-100-basel-assistant-product-manager-3"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:28:51.990Z",
       "crawledAt": "",
       "salaryMin": 85500,
@@ -4385,13 +4363,11 @@
       "sourceLang": "de",
       "id": "manor-86ab337ffa8d",
       "previousSlugs": [
-        "manor-mitarbeiter-in-supermarkt-30-chur-mitarbeiterin-supermarkt-30",
-        "collaboratore-trice-in-supermarkt-30-manor-ag-chur-mitarbeiterin-supermarkt-30"
+        "manor-mitarbeiter-in-supermarkt-30-chur-mitarbeiterin-supermarkt-30"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-supermarkt-30-chur-mitarbeiterin-supermarkt-30",
-          "collaboratore-trice-in-supermarkt-30-manor-ag-chur-mitarbeiterin-supermarkt-30"
+          "manor-mitarbeiter-in-supermarkt-30-chur-mitarbeiterin-supermarkt-30"
         ],
         "en": [
           "manor-mitarbeiter-in-supermarkt-30-chur-mitarbeiterin-supermarkt-30"
@@ -4455,13 +4431,11 @@
       "sourceLang": "de",
       "id": "manor-a3269dbb2485",
       "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-20-chur-mitarbeiterin-kasse-20",
-        "collaboratore-trice-in-kasse-20-manor-ag-chur-mitarbeiterin-kasse-20"
+        "manor-mitarbeiter-in-kasse-20-chur-mitarbeiterin-kasse-20"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kasse-20-chur-mitarbeiterin-kasse-20",
-          "collaboratore-trice-in-kasse-20-manor-ag-chur-mitarbeiterin-kasse-20"
+          "manor-mitarbeiter-in-kasse-20-chur-mitarbeiterin-kasse-20"
         ],
         "en": [
           "manor-mitarbeiter-in-kasse-20-chur-mitarbeiterin-kasse-20"
@@ -4536,7 +4510,6 @@
           "caisse-service-client-30-manor-ag-thun-mitarbeiterin-kasse"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T22:35:47.906Z",
       "crawledAt": "",
       "salaryMin": 23300,
@@ -4591,13 +4564,11 @@
       "sourceLang": "fr",
       "id": "manor-0111735dfaa3",
       "previousSlugs": [
-        "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain",
-        "gestione-settoriale-pagina-e-pasticceria-100-manor-ag-monthey-responsable-secteur-pain"
+        "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain",
-          "gestione-settoriale-pagina-e-pasticceria-100-manor-ag-monthey-responsable-secteur-pain"
+          "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain"
         ],
         "en": [
           "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain"
@@ -4606,7 +4577,6 @@
           "manor-responsable-secteur-pain-patisserie-100-monthey-responsable-secteur-pain"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T22:35:47.906Z",
       "crawledAt": "",
       "salaryMin": 83500,
@@ -5016,19 +4986,17 @@
         "it": "Polydesigner*in 3D 80%",
         "en": "Polydesigner*in 3D 80%",
         "de": "Polydesigner*in 3D 80%",
-        "fr": "Polydesigner*in 3D 80%"
+        "fr": "Polydesigner* en 3D 80%"
       },
       "sourceLang": "it",
       "id": "manor-3629c012450f",
       "previousSlugsByLocale": {
         "it": [
-          "manor-polydesigner-in-3d-80-hinwil-polydesignerin-3d-80",
-          "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80"
+          "manor-polydesigner-in-3d-80-hinwil-polydesignerin-3d-80"
         ]
       },
       "previousSlugs": [
-        "manor-polydesigner-in-3d-80-hinwil-polydesignerin-3d-80",
-        "manor-visual-merchandiser-80-hinwil-visual-merchandiser-80"
+        "manor-polydesigner-in-3d-80-hinwil-polydesignerin-3d-80"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
@@ -5182,37 +5150,32 @@
         "it": "ristorante-aggiunto-100-manor-ag-baden-assistentin-restaurant-100",
         "en": "assistant-restaurant-100-manor-ag-baden-assistentin-restaurant-100",
         "de": "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-        "fr": "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
+        "fr": "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100"
       },
       "titleByLocale": {
         "it": "Ristorante aggiunto 100%",
         "en": "Assistant restaurant 100%",
         "de": "Assistent*in Restaurant 100%",
-        "fr": "Assistent*in Restaurant 100%"
+        "fr": "Restaurant adjoint 100%"
       },
       "sourceLang": "de",
       "id": "manor-db2c3bdf35e4",
       "previousSlugs": [
         "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-        "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100",
-        "ristorante-aggiunto-100-manor-ag-baden-assistentin-restaurant-100",
         "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-          "ristorante-aggiunto-100-manor-ag-baden-assistentin-restaurant-100"
+          "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100"
         ],
         "en": [
           "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100"
         ],
         "fr": [
           "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-          "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100",
           "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -5259,7 +5222,7 @@
         "fr": "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Parfumerie) 100%",
+        "it": "Collaboratore di vendita (Parfumerie) 100%",
         "en": "Sales Collaborator (Parfumerie) 100%",
         "de": "Vertriebsmitarbeiter (Parfumerie) 100%",
         "fr": "Collaborateur/trice vente (Parfumerie) 100%"
@@ -5268,14 +5231,12 @@
       "id": "manor-92ec4abf57fa",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie",
-        "collaborateur-trice-vente-parfumerie-100-manor-ag-yverdon-collaborateurtrice-vente-parfumerie",
-        "collaboratore-di-vendita-parfumerie-100-manor-ag-yverdon-collaborateurtrice-vente-parfumerie"
+        "collaborateur-trice-vente-parfumerie-100-manor-ag-yverdon-collaborateurtrice-vente-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie",
-          "collaborateur-trice-vente-parfumerie-100-manor-ag-yverdon-collaborateurtrice-vente-parfumerie",
-          "collaboratore-di-vendita-parfumerie-100-manor-ag-yverdon-collaborateurtrice-vente-parfumerie"
+          "collaborateur-trice-vente-parfumerie-100-manor-ag-yverdon-collaborateurtrice-vente-parfumerie"
         ],
         "en": [
           "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie"
@@ -5284,7 +5245,6 @@
           "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
       "salaryMin": 72000,
@@ -5464,8 +5424,7 @@
       "addressLocality": "Hochdorf Mitarbeiterin Logistik 100",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "title": "Mitarbeiter*in Kasse/Kundendienst 50%",
@@ -5502,13 +5461,11 @@
       "sourceLang": "de",
       "id": "manor-5b2a5811d1af",
       "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-kundendienst-50-solothurn-mitarbeiterin-kassekundendienst-50",
-        "collaboratore-trice-in-kasse-kundendienst-50-manor-ag-solothurn-mitarbeiterin-kassekundendienst-50"
+        "manor-mitarbeiter-in-kasse-kundendienst-50-solothurn-mitarbeiterin-kassekundendienst-50"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kasse-kundendienst-50-solothurn-mitarbeiterin-kassekundendienst-50",
-          "collaboratore-trice-in-kasse-kundendienst-50-manor-ag-solothurn-mitarbeiterin-kassekundendienst-50"
+          "manor-mitarbeiter-in-kasse-kundendienst-50-solothurn-mitarbeiterin-kassekundendienst-50"
         ],
         "en": [
           "manor-mitarbeiter-in-kasse-kundendienst-50-solothurn-mitarbeiterin-kassekundendienst-50"
@@ -5566,7 +5523,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 20%",
         "en": "Mitarbeiter* in Kasse 20%",
-        "de": "Mitarbeiter*in Kasse 20%",
+        "de": "Mitarbeiter* in Kasse 20%",
         "fr": "Mitarbeiter* dans Kasse 20%"
       },
       "sourceLang": "it",
@@ -5674,7 +5631,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Parfümerie 20%",
         "en": "Mitarbeiter in Parfümerie 20%",
-        "de": "Mitarbeiter*in Parfümerie 20%",
+        "de": "Mitarbeiter in der Parfümerie 20%",
         "fr": "Mitarbeiter à Parfumerie 20%"
       },
       "sourceLang": "it",
@@ -5787,7 +5744,6 @@
       },
       "sourceLang": "it",
       "id": "manor-83aa99d8d8d1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T13:02:14.490Z",
       "crawledAt": "",
       "salaryMin": 14700,
@@ -5884,7 +5840,7 @@
       "description": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionIt": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionByLocale": {
-        "it": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
+        "it": "Compiti fondamentali COMMERCIAL:\n- Consulenza professionale, completa e competente\ndi clienti (necessari valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma fedeltà\n- Assicurare ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e\nCasi di garanzia\n- Contanti secondo le specifiche\nFunzioni fondamentali AMMINISTRATIVE:\n- ottenere informazioni indipendentemente sulla base delle statistiche:\nVendite, portafoglio prodotti, statistiche omnicanale\n(Instore Order / Click&Collect (Express) ecc.).",
         "en": "Mitarbeiter/in Verkauf Damenmode/Lingerie 50% at Manor, located in Luzern Mitarbeiterin Verkauf DamenmodeLingerie, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
         "fr": "Mitarbeiter/in Verkauf Damenmode/Lingerie 50% chez Manor, situé à Luzern Mitarbeiterin Verkauf DamenmodeLingerie, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -5907,19 +5863,16 @@
       "sourceLang": "de",
       "id": "manor-d75710c130c9",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-damenmode-lingerie-50-luzern-mitarbeiterin-verkauf-damenmodelingerie",
-        "addetto-a-alle-vendite-damenmode-lingerie-50-manor-ag-luzern-mitarbeiterin-verkauf-damenmodelingerie"
+        "manor-mitarbeiter-in-verkauf-damenmode-lingerie-50-luzern-mitarbeiterin-verkauf-damenmodelingerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-damenmode-lingerie-50-luzern-mitarbeiterin-verkauf-damenmodelingerie",
-          "addetto-a-alle-vendite-damenmode-lingerie-50-manor-ag-luzern-mitarbeiterin-verkauf-damenmodelingerie"
+          "manor-mitarbeiter-in-verkauf-damenmode-lingerie-50-luzern-mitarbeiterin-verkauf-damenmodelingerie"
         ],
         "en": [
           "manor-mitarbeiter-in-verkauf-damenmode-lingerie-50-luzern-mitarbeiterin-verkauf-damenmodelingerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T13:02:14.490Z",
       "crawledAt": "",
       "salaryMin": 39500,
@@ -5961,7 +5914,7 @@
       "slug": "manor-koch-kochin-100-basel-kochkochin-100",
       "slugByLocale": {
         "it": "manor-koch-kochin-100-basel-kochkochin-100",
-        "en": "koch-kochin-80-100-manor-ag-basel-kochkochin-80-100",
+        "en": "cook-100-manor-ag-basel-kochkochin-100",
         "de": "manor-koch-kochin-100-basel-kochkochin-100",
         "fr": "cuire-100-manor-ag-basel-kochkochin-100"
       },
@@ -5976,7 +5929,6 @@
       "previousSlugs": [
         "koch-kochin-100-manor-ag-basel-kochkochin-100",
         "manor-koch-kochin-80-100-basel-kochkochin-80-100",
-        "cook-100-manor-ag-basel-kochkochin-100",
         "koch-kochin-80-100-manor-ag-basel-kochkochin-80-100"
       ],
       "previousSlugsByLocale": {
@@ -5985,7 +5937,6 @@
         ],
         "en": [
           "koch-kochin-100-manor-ag-basel-kochkochin-100",
-          "cook-100-manor-ag-basel-kochkochin-100",
           "koch-kochin-80-100-manor-ag-basel-kochkochin-80-100"
         ]
       },
@@ -6148,7 +6099,7 @@
       "slugByLocale": {
         "it": "manor-collaborateur-trice-merchandising-100-fribourg-collaborateurtrice-merchandising-100",
         "en": "merchandising-associate-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
-        "de": "merchandising-assistent-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
+        "de": "merchandising-mitarbeiter-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
         "fr": "travaille-avec-l-entreprise-l-entreprise-etait-100-marchandisation-manor-ag-fribourg-collaborateurtrice-merchandising"
       },
       "titleByLocale": {
@@ -6160,12 +6111,10 @@
       "sourceLang": "it",
       "id": "manor-2a11cda83371",
       "previousSlugs": [
-        "merchandising-mitarbeiter-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
         "merchandising-assistent-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "merchandising-mitarbeiter-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100",
           "merchandising-assistent-in-100-manor-ag-fribourg-collaborateurtrice-merchandising-100"
         ]
       },
@@ -6218,7 +6167,7 @@
         "it": "Collaborateur/trice caisse (Home & Voyage) étudiant/e 20%",
         "en": "Collaborateur/trice caisse (Home & Voyage) étudiant/e 20%",
         "de": "Collaborateur/trice caisse (Home & Voyage) étudiant/e 20%",
-        "fr": "Collaborateur/trice caisse (Home & Voyage) étudiant/e 20%"
+        "fr": "Collaborateur/trice caisse (Accueil & Voyage) étudiant/e 20%"
       },
       "sourceLang": "it",
       "id": "manor-d71c6b9b9852",
@@ -6269,7 +6218,7 @@
         "fr": "manor-collaborateur-trice-service-manora-50-geneve-1-collaborateurtrice-service"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice service (Manora) 50%",
+        "it": "Servizio Collaboratore (Manora) 50%",
         "en": "Service Collaborator (Manora) 50%",
         "de": "Service Collaborator (Manora) 50%",
         "fr": "Collaborateur/trice service (Manora) 50%"
@@ -6285,8 +6234,7 @@
         "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
         "manor-collaborateur-trice-service-manora-70-geneve-1-collaborateurtrice-service",
         "collaboratore-di-servizi-manora-70-manor-ag-geneve-1-collaborateurtrice-service",
-        "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service",
-        "servizio-collaboratore-manora-50-manor-ag-geneve-1-collaborateurtrice-service"
+        "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6298,8 +6246,7 @@
           "manor-collaborateur-trice-service-manora-50-sion-collaborateurtrice-service-manora",
           "manor-collaborateur-trice-service-manora-70-geneve-1-collaborateurtrice-service",
           "collaboratore-di-servizi-manora-70-manor-ag-geneve-1-collaborateurtrice-service",
-          "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service",
-          "servizio-collaboratore-manora-50-manor-ag-geneve-1-collaborateurtrice-service"
+          "service-collaborator-manora-70-manor-ag-geneve-1-collaborateurtrice-service"
         ],
         "en": [
           "manor-collaborateur-trice-service-manora-50-geneve-1-collaborateurtrice-service",
@@ -6312,7 +6259,6 @@
           "manor-collaborateur-trice-service-manora-70-geneve-1-collaborateurtrice-service"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T11:40:44.759Z",
       "crawledAt": "",
       "salaryMin": 32800,
@@ -6367,13 +6313,11 @@
       "sourceLang": "de",
       "id": "manor-f599bb951582",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-kasse-parfumerie-damen-40-winterthur-mitarbeiterin-verkauf-kasse",
-        "collaboratore-trice-in-vendita-kasse-parfumerie-damen-40-manor-ag-winterthur-mitarbeiterin-verkauf-kasse"
+        "manor-mitarbeiter-in-verkauf-kasse-parfumerie-damen-40-winterthur-mitarbeiterin-verkauf-kasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-kasse-parfumerie-damen-40-winterthur-mitarbeiterin-verkauf-kasse",
-          "collaboratore-trice-in-vendita-kasse-parfumerie-damen-40-manor-ag-winterthur-mitarbeiterin-verkauf-kasse"
+          "manor-mitarbeiter-in-verkauf-kasse-parfumerie-damen-40-winterthur-mitarbeiterin-verkauf-kasse"
         ]
       },
       "needsRetranslation": true,
@@ -6431,13 +6375,11 @@
       "sourceLang": "de",
       "id": "manor-5676d259db4f",
       "previousSlugs": [
-        "manor-mitarbeiter-in-warenbewirtschaftung-non-food-30-m-w-d-winterthur-mitarbeiterin-warenbewirtschaftung-non",
-        "collaboratore-trice-in-warenbewirtschaftung-non-food-30-m-w-d-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung-non"
+        "manor-mitarbeiter-in-warenbewirtschaftung-non-food-30-m-w-d-winterthur-mitarbeiterin-warenbewirtschaftung-non"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-warenbewirtschaftung-non-food-30-m-w-d-winterthur-mitarbeiterin-warenbewirtschaftung-non",
-          "collaboratore-trice-in-warenbewirtschaftung-non-food-30-m-w-d-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung-non"
+          "manor-mitarbeiter-in-warenbewirtschaftung-non-food-30-m-w-d-winterthur-mitarbeiterin-warenbewirtschaftung-non"
         ]
       },
       "needsRetranslation": true,
@@ -6487,7 +6429,7 @@
         "fr": "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice cuisine (Manora) 100 %",
+        "it": "Cucina (Manora) 100%",
         "en": "Kitchen worker (Manora) 100%",
         "de": "Küchenarbeiter (Manora) 100%",
         "fr": "Collaborateur/trice cuisine (Manora) 100 %"
@@ -6495,13 +6437,11 @@
       "sourceLang": "fr",
       "id": "manor-16ce0f9bdc7c",
       "previousSlugs": [
-        "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine",
-        "cucina-manora-100-manor-ag-geneve-1-collaborateurtrice-cuisine"
+        "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine",
-          "cucina-manora-100-manor-ag-geneve-1-collaborateurtrice-cuisine"
+          "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine"
         ],
         "en": [
           "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine"
@@ -6510,7 +6450,6 @@
           "manor-collaborateur-trice-cuisine-manora-100-geneve-1-collaborateurtrice-cuisine"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T11:40:44.759Z",
       "crawledAt": "",
       "salaryMin": 65500,
@@ -6607,7 +6546,7 @@
       "description": "• Minimum 3 ans d'expérience en cuisine professionnelle ou collective.\n• Expérience en cuisine chaude et froide.\n• Connaissances en pâtisserie de base et préparation des céréales.\n• Maîtrise des normes d'hygiène et de sécurité alimentaire (HACCP).\n• Capacité à travailler de manière autonome et à gérer les priorités.Excellentes compétences en communication et aisance relationnelle avec les clients",
       "descriptionIt": "• Minimum 3 ans d'expérience en cuisine professionnelle ou collective.\n• Expérience en cuisine chaude et froide.\n• Connaissances en pâtisserie de base et préparation des céréales.\n• Maîtrise des normes d'hygiène et de sécurité alimentaire (HACCP).\n• Capacité à travailler de manière autonome et à gérer les priorités.Excellentes compétences en communication et aisance relationnelle avec les clients",
       "descriptionByLocale": {
-        "it": "• Minimum 3 ans d'expérience en cuisine professionnelle ou collective.\n• Expérience en cuisine chaude et froide.\n• Connaissances en pâtisserie de base et préparation des céréales.\n• Maîtrise des normes d'hygiène et de sécurité alimentaire (HACCP).\n• Capacité à travailler de manière autonome et à gérer les priorités.Excellentes compétences en communication et aisance relationnelle avec les clients",
+        "it": "• Esperienza minima di 3 anni in cucina professionale o collettiva.\n• Esperienza nella cucina calda e fredda.\n• Conoscenza di base della pasticceria e preparazione dei cereali.\n• Controllo degli standard di sicurezza e igiene alimentare (HACCP).\n• Capacità di lavorare in modo indipendente e gestire le priorità. Eccellente capacità di comunicazione e rapporto facilità con i clienti",
         "en": "Cuisinier/ère polyvalent/e 80% at Manor, located in Chavannes de Bogis Cuisinierère, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Cuisinier/ère polyvalent/e 80% bei Manor, gelegen in Chavannes de Bogis Cuisinierère, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Minimum 3 ans d'expérience en cuisine professionnelle ou collective.\n• Expérience en cuisine chaude et froide.\n• Connaissances en pâtisserie de base et préparation des céréales.\n• Maîtrise des normes d'hygiène et de sécurité alimentaire (HACCP).\n• Capacité à travailler de manière autonome et à gérer les priorités.Excellentes compétences en communication et aisance relationnelle avec les clients"
@@ -6631,14 +6570,12 @@
       "id": "manor-6ca5a971c75d",
       "previousSlugs": [
         "manor-cuisinier-ere-polyvalent-e-chavannes-de-bogis-cuisinierere",
-        "manor-cuisinier-ere-polyvalent-e-80-chavannes-de-bogis-cuisinierere",
-        "cucina-multiuso-manor-ag-chavannes-de-bogis-cuisinierere"
+        "manor-cuisinier-ere-polyvalent-e-80-chavannes-de-bogis-cuisinierere"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-cuisinier-ere-polyvalent-e-chavannes-de-bogis-cuisinierere",
-          "manor-cuisinier-ere-polyvalent-e-80-chavannes-de-bogis-cuisinierere",
-          "cucina-multiuso-manor-ag-chavannes-de-bogis-cuisinierere"
+          "manor-cuisinier-ere-polyvalent-e-80-chavannes-de-bogis-cuisinierere"
         ],
         "en": [
           "manor-cuisinier-ere-polyvalent-e-chavannes-de-bogis-cuisinierere"
@@ -6647,7 +6584,6 @@
           "manor-cuisinier-ere-polyvalent-e-chavannes-de-bogis-cuisinierere"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T12:02:19.603Z",
       "crawledAt": "",
       "salaryMin": 52400,
@@ -6871,7 +6807,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kasse 20%",
         "en": "Mitarbeiter in Kasse 40%",
-        "de": "Mitarbeiter*in Kasse 20%",
+        "de": "Mitarbeiter* in Kasse 20%",
         "fr": "Mitarbeiter en Kasse 40%"
       },
       "sourceLang": "it",
@@ -6995,13 +6931,11 @@
       "id": "manor-93af5d770dbf",
       "previousSlugs": [
         "manor-boulanger-ere-patissier-ere-100-fribourg-boulangerere-patissierere-100",
-        "boulanger-ere-patissier-ere-100-manor-ag-fribourg-boulangerere-patissierere-100",
-        "panificio-pasticceria-ordinaria-100-manor-ag-fribourg-boulangerere-patissierere-100"
+        "boulanger-ere-patissier-ere-100-manor-ag-fribourg-boulangerere-patissierere-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-boulanger-ere-patissier-ere-100-fribourg-boulangerere-patissierere-100",
-          "panificio-pasticceria-ordinaria-100-manor-ag-fribourg-boulangerere-patissierere-100"
+          "manor-boulanger-ere-patissier-ere-100-fribourg-boulangerere-patissierere-100"
         ],
         "en": [
           "boulanger-ere-patissier-ere-100-manor-ag-fribourg-boulangerere-patissierere-100"
@@ -7010,7 +6944,6 @@
           "boulanger-ere-patissier-ere-100-manor-ag-fribourg-boulangerere-patissierere-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:44:23.566Z",
       "crawledAt": "",
       "salaryMin": 67500,
@@ -7059,7 +6992,7 @@
       "titleByLocale": {
         "it": "Fischverkäufer*in 40%",
         "en": "Fischverkäufer in 40%",
-        "de": "Fischverkäufer*in 40%",
+        "de": "Fischverkäufer in 40%",
         "fr": "Fischverkäufer dans 40%"
       },
       "sourceLang": "it",
@@ -7150,7 +7083,7 @@
       "description": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
       "descriptionIt": "Gute mündliche Deutschkenntnisse \nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden \n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag. \nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
       "descriptionByLocale": {
-        "it": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
+        "it": "Buone competenze mediche\nCapacità fisica\nMetodi di lavoro autonomi e strutturati\nAlta affidabilità e precisione\nFlessibilità con cambio\n• Compiti - in caso di vacanze assenze Supporto per l'abbonamento della Camion il lunedì, mercoledì e venerdì alle 06.00 - 11.00\nL'esperienza con i processi di gestione della merce è un vantaggio\nFlessibilità nelle assegnazioni, un must il lunedì, il mercoledì e il venerdì dalle 07.00 alle 12.00 - per le vacanze anche come il lunedì al venerdì.\nInteressi nei beni di moda (donne, uomini, bambini, lingerie e sport), perché il lavoro è principalmente beni di moda dopo la presentazione visiva per prepararsi alla zona di vendita (idealmente una donna).",
         "en": "Mitarbeiter/in Logistik 40% at Manor, located in Winterthur Mitarbeiterin Logistik 40, Canton of Zurich, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Gute mündliche Deutschkenntnisse\nKörperliche Belastbarkeit\nSelbständige und strukturierte Arbeitsweise\nHohe Zuverlässigkeit und Genauigkeit\nFlexibilität bei wechselnden\n• Aufgaben - bei Ferienabwesenheiten Unterstützung beim Ablad des Camion am Montag, Mittwoch und Freitag um 06.00 Uhr - 11.00 Uhr\nErfahrung mit Warenwirtschaftsprozessen von Vorteil\nFlexibilität bei den Einsätzen, ein Muss am Montag, Mittwoch und Freitag von 07.00 Uhr - 12.00 Uhr - bei Ferienabwesenheiten auch gerne Montag bis Freitag.\nInteresse an Fashion Ware (Damen, Herren, Kinder, Lingerie und Sport), denn die Arbeit ist Hauptsächlich Fashion Ware nach Visual Briefing für die Verkaufsfläche vorzubereiten (idealerweise eine Frau).",
         "fr": "Mitarbeiter/in Logistik 40% chez Manor, situé à Winterthur Mitarbeiterin Logistik 40, Canton de Zurich, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -7175,14 +7108,12 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
         "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40",
-        "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
-        "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+        "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-40-winterthur-mitarbeiterin-logistik-40",
-          "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20",
-          "addetto-a-alla-logistica-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
+          "manor-mitarbeiter-in-logistik-20-60-winterthur-mitarbeiterin-logistik-20"
         ],
         "en": [
           "mitarbeiter-in-logistik-40-manor-ag-winterthur-mitarbeiterin-logistik-40"
@@ -7226,7 +7157,7 @@
       "description": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
       "descriptionIt": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
       "descriptionByLocale": {
-        "it": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
+        "it": "Compiti fondamentali COMMERCIAL:\n- Professionale, completo e competente\nConsulenza clienti (vendita aggiuntiva, ordinazione in negozio),\nChiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- L'offerta e le informazioni di Manor Mastercard\nDare sul programma fedeltà\n- Trattamento dei rendimenti e dei casi di garanzia\n- Garantire alta qualità\nImballaggio e trattamento dei prodotti\n- Aiuto con le vendite e il servizio nei paesi vicini\nDivisioni\n- Cura quotidiana dei fondi (ordine, pulizia)\nFunzioni fondamentali AMMINISTRATIVE:\n- informarsi autonomamente sulle statistiche:\nVendite, portafoglio merci, omnicanale\nStatistiche (Instore Order /Click & Collect (Express))",
         "en": "Kassierer*in Fashion 50% at Manor, located in Basel Kassiererin Fashion 50, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
         "fr": "Kassierer*in Fashion 50% chez Manor, situé à Basel Kassiererin Fashion 50, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -7249,13 +7180,11 @@
       "sourceLang": "de",
       "id": "manor-aa83724989ba",
       "previousSlugs": [
-        "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50",
-        "cashier-in-fashion-50-manor-ag-basel-kassiererin-fashion-50"
+        "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50",
-          "cashier-in-fashion-50-manor-ag-basel-kassiererin-fashion-50"
+          "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50"
         ],
         "en": [
           "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50"
@@ -7264,7 +7193,6 @@
           "manor-kassierer-in-fashion-50-basel-kassiererin-fashion-50"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T22:50:13.417Z",
       "crawledAt": "",
       "salaryMin": 37000,
@@ -7319,13 +7247,11 @@
       "sourceLang": "de",
       "id": "manor-b9e9b8f0e34e",
       "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-hochdorf-mitarbeiterin-logistik-weihnachtenwinter",
-        "collaboratore-trice-in-logistik-weihnachten-winter-sale-2026-manor-ag-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
+        "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-hochdorf-mitarbeiterin-logistik-weihnachtenwinter",
-          "collaboratore-trice-in-logistik-weihnachten-winter-sale-2026-manor-ag-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
+          "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
         ]
       },
       "needsRetranslation": true,
@@ -7384,14 +7310,12 @@
       "id": "manor-4d335233519c",
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-bijouterie-20-basel-mitarbeiterin-verkauf-bijouterie",
-        "manor-mitarbeiter-in-verkauf-bijouterie-30-basel-mitarbeiterin-verkauf-bijouterie",
-        "addetto-a-alle-vendite-bijouterie-20-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
+        "manor-mitarbeiter-in-verkauf-bijouterie-30-basel-mitarbeiterin-verkauf-bijouterie"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-bijouterie-20-basel-mitarbeiterin-verkauf-bijouterie",
-          "manor-mitarbeiter-in-verkauf-bijouterie-30-basel-mitarbeiterin-verkauf-bijouterie",
-          "addetto-a-alle-vendite-bijouterie-20-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
+          "manor-mitarbeiter-in-verkauf-bijouterie-30-basel-mitarbeiterin-verkauf-bijouterie"
         ],
         "en": [
           "manor-mitarbeiter-in-verkauf-bijouterie-20-basel-mitarbeiterin-verkauf-bijouterie"
@@ -7400,7 +7324,6 @@
           "manor-mitarbeiter-in-verkauf-bijouterie-20-basel-mitarbeiterin-verkauf-bijouterie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-09T12:31:12.967Z",
       "crawledAt": "",
       "salaryMin": 22200,
@@ -7449,7 +7372,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik Kommissionierung",
         "en": "Mitarbeiter*in Logistik Kommetteerung",
-        "de": "Mitarbeiter*in Logistik Kommissionierung",
+        "de": "Mitarbeiter*in Logistik Kommetterung",
         "fr": "Mitarbeiter*in Logistik Kommetteerung"
       },
       "sourceLang": "it",
@@ -7509,13 +7432,11 @@
       "sourceLang": "de",
       "id": "manor-d1de0463d4a1",
       "previousSlugs": [
-        "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-60-hochdorf-mitarbeiterin-logistik-weihnachtenwinter",
-        "collaboratore-trice-in-logistik-weihnachten-winter-sale-2026-60-manor-ag-hochdorf-mitarbeiterin-logistik"
+        "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-60-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-60-hochdorf-mitarbeiterin-logistik-weihnachtenwinter",
-          "collaboratore-trice-in-logistik-weihnachten-winter-sale-2026-60-manor-ag-hochdorf-mitarbeiterin-logistik"
+          "manor-mitarbeiter-in-logistik-weihnachten-winter-sale-2026-60-hochdorf-mitarbeiterin-logistik-weihnachtenwinter"
         ]
       },
       "needsRetranslation": true,
@@ -7618,7 +7539,7 @@
         "fr": "manor-collaborateur-trice-vente-home-menage-70-monthey-collaborateurtrice-vente-home"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Home & Ménage) 70%",
+        "it": "Collaboratore di vendita (Home & Household) 70%",
         "en": "Sales Collaborator (Home & Household) 70%",
         "de": "Vertriebsmitarbeiter (Home & Household) 70%",
         "fr": "Collaborateur/trice vente (Home & Ménage) 70%"
@@ -7627,17 +7548,14 @@
       "id": "manor-5b17fb92a999",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-home-menage-70-monthey-collaborateurtrice-vente-home",
-        "collaborateur-trice-vente-home-menage-70-manor-ag-monthey-collaborateurtrice-vente-home",
-        "collaboratore-di-vendita-home-household-70-manor-ag-monthey-collaborateurtrice-vente-home"
+        "collaborateur-trice-vente-home-menage-70-manor-ag-monthey-collaborateurtrice-vente-home"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-home-menage-70-monthey-collaborateurtrice-vente-home",
-          "collaborateur-trice-vente-home-menage-70-manor-ag-monthey-collaborateurtrice-vente-home",
-          "collaboratore-di-vendita-home-household-70-manor-ag-monthey-collaborateurtrice-vente-home"
+          "collaborateur-trice-vente-home-menage-70-manor-ag-monthey-collaborateurtrice-vente-home"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 50400,
@@ -7686,12 +7604,11 @@
       "titleByLocale": {
         "it": "Boulanger/ère 70%",
         "en": "Boulanger and 70%",
-        "de": "Boulanger/ère 70%",
+        "de": "Boulanger und 70%",
         "fr": "Boulanger et 70%"
       },
       "sourceLang": "it",
       "id": "manor-d2e0948ddd2a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 47300,
@@ -7947,7 +7864,7 @@
       "description": "- Sehr hohe Kommunikations- und Moderationsfähigkeit\n- Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n- Sicheres Auftreten sowie Erwartungs- und Stakeholder-Management\n- Nachgewiesene Erfahrung in Prozessautomatisierung sowie Workflow-, RPA- und KI-gestützten Prozessschritten\n- Erfahrung mit Projektmanagement-Tools (z. B. Jira, DevOps, Confluence)\n- Sprachkenntnisse: DEUTSCH und / oder ENGLISCH",
       "descriptionIt": "- Sehr hohe Kommunikations- und Moderationsfähigkeit\n- Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n- Sicheres Auftreten sowie Erwartungs- und Stakeholder-Management\n- Nachgewiesene Erfahrung in Prozessautomatisierung sowie Workflow-, RPA- und KI-gestützten Prozessschritten\n- Erfahrung mit Projektmanagement-Tools (z. B. Jira, DevOps, Confluence)\n- Sprachkenntnisse: DEUTSCH und / oder ENGLISCH",
       "descriptionByLocale": {
-        "it": "- Sehr hohe Kommunikations- und Moderationsfähigkeit\n- Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n- Sicheres Auftreten sowie Erwartungs- und Stakeholder-Management\n- Nachgewiesene Erfahrung in Prozessautomatisierung sowie Workflow-, RPA- und KI-gestützten Prozessschritten\n- Erfahrung mit Projektmanagement-Tools (z. B. Jira, DevOps, Confluence)\n- Sprachkenntnisse: DEUTSCH und / oder ENGLISCH",
+        "it": "- Molto elevata capacità di comunicazione e moderazione\n- Metodo di lavoro strutturato, indipendente e orientato alla soluzione\n- Apparizione e attesa sicuri e gestione degli stakeholder\n- Esperienza comprovata nell'automazione dei processi e nei passaggi di processo supportati da RPA e AI\n- Esperienza con strumenti di gestione del progetto (ad esempio Jira, DevOps, Confluence)\n- Competenze linguistiche: tedesco e/o inglese",
         "en": "Senior Project Manager*in 100% at Manor, located in Basel Senior Project Managerin, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "- Sehr hohe Kommunikations- und Moderationsfähigkeit\n- Strukturierte, selbständige und lösungsorientierte Arbeitsweise\n- Sicheres Auftreten sowie Erwartungs- und Stakeholder-Management\n- Nachgewiesene Erfahrung in Prozessautomatisierung sowie Workflow-, RPA- und KI-gestützten Prozessschritten\n- Erfahrung mit Projektmanagement-Tools (z. B. Jira, DevOps, Confluence)\n- Sprachkenntnisse: DEUTSCH und / oder ENGLISCH",
         "fr": "Senior Project Manager*in 100% chez Manor, situé à Basel Senior Project Managerin, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -7963,7 +7880,7 @@
       },
       "titleByLocale": {
         "it": "Senior Project Manager 100%",
-        "en": "Senior Project Manager*in 100%",
+        "en": "Senior Project Manager 100%",
         "de": "Senior Project Manager*in zu 100 %",
         "fr": "Gestionnaire de projet principal 100 %"
       },
@@ -7971,7 +7888,6 @@
       "id": "manor-e71e1c9a8b7e",
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "currency": "CHF",
@@ -8218,15 +8134,13 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-3",
         "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang",
-        "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-2",
-        "collaboratore-trice-in-logistik-warenausgang-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenausgang-d295d8"
+        "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-3",
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang",
-          "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-2",
-          "collaboratore-trice-in-logistik-warenausgang-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenausgang-d295d8"
+          "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang-2"
         ],
         "en": [
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang"
@@ -8291,14 +8205,12 @@
       "id": "manor-b9076329ad2c",
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang",
-        "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100",
-        "dipendenti-nella-logistica-delle-merci-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenausgang"
+        "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang",
-          "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100",
-          "dipendenti-nella-logistica-delle-merci-100-manor-ag-hochdorf-mitarbeiterin-logistik-warenausgang"
+          "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100"
         ],
         "de": [
           "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100"
@@ -8336,7 +8248,7 @@
       "description": "• Excellente connaissance du secteur des fruits et légumes\n• Respect rigoureux des directives liées aux produits frais et au budget salarial\n• Expérience en gestion et encadrement d'une équipe de 10 personnes\n• Capacité à organiser le travail, gérer les priorités et assurer la satisfaction client\n• Bon sens du leadership, esprit d'équipe et compétences en communication",
       "descriptionIt": "• Excellente connaissance du secteur des fruits et légumes\n• Respect rigoureux des directives liées aux produits frais et au budget salarial\n• Expérience en gestion et encadrement d'une équipe de 10 personnes\n• Capacité à organiser le travail, gérer les priorités et assurer la satisfaction client\n• Bon sens du leadership, esprit d'équipe et compétences en communication",
       "descriptionByLocale": {
-        "it": "• Excellente connaissance du secteur des fruits et légumes\n• Respect rigoureux des directives liées aux produits frais et au budget salarial\n• Expérience en gestion et encadrement d'une équipe de 10 personnes\n• Capacité à organiser le travail, gérer les priorités et assurer la satisfaction client\n• Bon sens du leadership, esprit d'équipe et compétences en communication",
+        "it": "• Ottima conoscenza del settore ortofrutticolo\n• Rigoroso rispetto delle direttive di bilancio del prodotto fresco e del salario\n• Esperienza nella gestione e supervisione di un team di 10 persone\n• Capacità di organizzare il lavoro, gestire le priorità e garantire la soddisfazione del cliente\n• Buon senso di leadership, lavoro di squadra e capacità di comunicazione",
         "en": "Responsable secteur (Fruits légumes / take out) 100% at Manor, located in Vevey Responsable secteur (Fruits, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Responsable secteur (Fruits légumes / take out) 100% bei Manor, gelegen in Vevey Responsable secteur (Fruits, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Excellente connaissance du secteur des fruits et légumes\n• Respect rigoureux des directives liées aux produits frais et au budget salarial\n• Expérience en gestion et encadrement d'une équipe de 10 personnes\n• Capacité à organiser le travail, gérer les priorités et assurer la satisfaction client\n• Bon sens du leadership, esprit d'équipe et compétences en communication"
@@ -8359,16 +8271,13 @@
       "sourceLang": "fr",
       "id": "manor-18f6f49743f8",
       "previousSlugs": [
-        "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits",
-        "gestione-settoriale-frutte-vegetali-take-out-100-manor-ag-vevey-responsable-secteur-fruits"
+        "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits",
-          "gestione-settoriale-frutte-vegetali-take-out-100-manor-ag-vevey-responsable-secteur-fruits"
+          "manor-responsable-secteur-fruits-legumes-take-out-100-vevey-responsable-secteur-fruits"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 101500,
@@ -8400,7 +8309,7 @@
       "description": "• Maîtrise de base de la machine à café (préparation espresso, cappuccino, latte)\n• Sens du service client et excellente communication\n• Rapidité et efficacité en période de rush\n• Capacité à vendre et proposer des produits complémentaires (upselling)\n• Préparation de produits frais (salades, sandwiches) de manière autonome\n• Respect strict des règles d'hygiène et sécurité alimentaire\n• Organisation et gestion du poste de travail",
       "descriptionIt": "• Maîtrise de base de la machine à café (préparation espresso, cappuccino, latte)\n• Sens du service client et excellente communication\n• Rapidité et efficacité en période de rush\n• Capacité à vendre et proposer des produits complémentaires (upselling)\n• Préparation de produits frais (salades, sandwiches) de manière autonome\n• Respect strict des règles d'hygiène et sécurité alimentaire\n• Organisation et gestion du poste de travail",
       "descriptionByLocale": {
-        "it": "• Maîtrise de base de la machine à café (préparation espresso, cappuccino, latte)\n• Sens du service client et excellente communication\n• Rapidité et efficacité en période de rush\n• Capacité à vendre et proposer des produits complémentaires (upselling)\n• Préparation de produits frais (salades, sandwiches) de manière autonome\n• Respect strict des règles d'hygiène et sécurité alimentaire\n• Organisation et gestion du poste de travail",
+        "it": "• Macchina di base per caffè (preparazione espresso, cappuccino, latte)\n• Servizio clienti e ottima comunicazione\n• Velocità ed efficienza durante la corsa\n• Capacità di vendere e offrire prodotti complementari (upselling)\n• Preparazione di prodotti freschi (salate, panini) indipendentemente\n• Rigoroso rispetto delle regole di igiene e sicurezza alimentare\n• Organizzazione e gestione delle workstation",
         "en": "Collaborateur/trice service (Vente Appunto Self) 50% at Manor, located in Chavannes de Bogis Collaborateurtrice, Canton of Vaud, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Collaborateur/trice service (Vente Appunto Self) 50% bei Manor, gelegen in Chavannes de Bogis Collaborateurtrice, Kanton Waadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Maîtrise de base de la machine à café (préparation espresso, cappuccino, latte)\n• Sens du service client et excellente communication\n• Rapidité et efficacité en période de rush\n• Capacité à vendre et proposer des produits complémentaires (upselling)\n• Préparation de produits frais (salades, sandwiches) de manière autonome\n• Respect strict des règles d'hygiène et sécurité alimentaire\n• Organisation et gestion du poste de travail"
@@ -8415,7 +8324,7 @@
         "fr": "manor-collaborateur-trice-service-vente-appunto-self-50-nyon-collaborateurtrice-service-vente"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice service (Vente Appunto Self) 50%",
+        "it": "Servizio partner (Vente Appunto Self) 50%",
         "en": "Partner service (Vente Appunto Self) 50%",
         "de": "Partnerservice (Vente Appunto Self) 50%",
         "fr": "Collaborateur/trice service (Vente Appunto Self) 50 %"
@@ -8426,21 +8335,18 @@
         "manor-collaborateur-trice-service-vente-appunto-self-50-nyon-collaborateurtrice-service-vente",
         "collaborateur-trice-service-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente",
         "collaboratore-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente",
-        "manor-collaborateur-trice-service-vente-appunto-self-50-chavannes-de-bogis-collaborateurtrice",
-        "servizio-partner-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente"
+        "manor-collaborateur-trice-service-vente-appunto-self-50-chavannes-de-bogis-collaborateurtrice"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-service-vente-appunto-self-50-nyon-collaborateurtrice-service-vente",
           "collaborateur-trice-service-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente",
           "collaboratore-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente",
-          "manor-collaborateur-trice-service-vente-appunto-self-50-chavannes-de-bogis-collaborateurtrice",
-          "servizio-partner-vente-appunto-self-50-manor-ag-nyon-collaborateurtrice-service-vente"
+          "manor-collaborateur-trice-service-vente-appunto-self-50-chavannes-de-bogis-collaborateurtrice"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 36000,
       "salaryMax": 55500,
       "currency": "CHF",
@@ -8488,12 +8394,11 @@
       "titleByLocale": {
         "it": "Drogist*in CFC Derma Center 80%",
         "en": "Druggist EFZ Derma Center 80%",
-        "de": "Drogist*in EFZ Derma Center 80%",
+        "de": "Drogist*in im EFZ Derma Center 80%",
         "fr": "Drogiste* dans EFZ Derma Center 80%"
       },
       "sourceLang": "it",
       "id": "manor-20da51270318",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 69200,
@@ -8541,13 +8446,12 @@
       },
       "titleByLocale": {
         "it": "Store Visual Merchandiser 100% 100%",
-        "en": "Store Visual Merchandiser 100% 100%",
+        "en": "Visual Merchandiser 100%",
         "de": "Visual Merchandiser 100%",
         "fr": "Marchandiser visuel 100%"
       },
       "sourceLang": "it",
       "id": "manor-536598fb2c6f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 68500,
@@ -8687,7 +8591,7 @@
       "description": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionIt": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionByLocale": {
-        "it": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
+        "it": "• Esperienza confermata nel commercio al dettaglio\n• Forte orientamento del cliente e senso del servizioOttima capacità relazionali e di comunicazione\n• Prima esperienza nella gestione o nell'animazione del team\n• Capacità di organizzazione e priorità delle attività operative\n• Responsabilità e autonomia\n• Orientamento dei risultati e raggiungimento degli obiettivi commerciali\n• Buon controllo degli indicatori di performance (KPI)\n• Flessibilità e adattabilità in un ambiente dinamico\n• Masterizzazione di strumenti informatici comuni (MS Office)",
         "en": "Assistant/e Floor Manager (Confection dames) 100% at Manor, located in Genève 1 Assistante Floor, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Assistant/e Floor Manager (Confection dames) 100% bei Manor, gelegen in Genève 1 Assistante Floor, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)"
@@ -8703,7 +8607,7 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager 100%",
-        "en": "Assistant/e Floor Manager (Confection dames) 100%",
+        "en": "Assistant Floor Manager 100%",
         "de": "Assistent/e Floor Manager (Confection dames) 100%",
         "fr": "Assistante/Chef de Floor E (Confiserie Dames) à 100 %"
       },
@@ -8717,7 +8621,6 @@
           "manor-assistant-floor-manager-confection-dames-100-geneve-1-assistant-floor"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 83500,
@@ -8749,7 +8652,7 @@
       "description": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionIt": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionByLocale": {
-        "it": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
+        "it": "• Esperienza confermata nel commercio al dettaglio\n• Forte orientamento del cliente e senso del servizioOttima capacità relazionali e di comunicazione\n• Prima esperienza nella gestione o nell'animazione del team\n• Capacità di organizzazione e priorità delle attività operative\n• Responsabilità e autonomia\n• Orientamento dei risultati e raggiungimento degli obiettivi commerciali\n• Buon controllo degli indicatori di performance (KPI)\n• Flessibilità e adattabilità in un ambiente dinamico\n• Masterizzazione di strumenti informatici comuni (MS Office)",
         "en": "Assistant/e Floor Manager (Beauty) 100% at Manor, located in Genève 1 Assistante Floor, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Assistant/e Floor Manager (Beauty) 100% bei Manor, gelegen in Genève 1 Assistante Floor, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)"
@@ -8765,13 +8668,12 @@
       },
       "titleByLocale": {
         "it": "Assistant Floor Manager (Beauty) 100%",
-        "en": "Assistant/e Floor Manager (Beauty) 100%",
+        "en": "Assistant Floor Manager (Beauty) 100%",
         "de": "Assistent/e Floor Manager (Beauty) 100%",
         "fr": "Assistant/e Floor Manager (Beauty) 100%"
       },
       "sourceLang": "fr",
       "id": "manor-7c4d54be71da",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:19.718Z",
       "crawledAt": "",
       "salaryMin": 116500,
@@ -8803,7 +8705,7 @@
       "description": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionIt": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionByLocale": {
-        "it": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
+        "it": "Consulenza professionale, completa e competente\ndi clienti (necessari valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma fedeltà\n- Assicurare ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e\nCasi di garanzia\n- Contanti secondo le specifiche\nFunzioni fondamentali AMMINISTRATIVE:\n- ottenere informazioni indipendentemente sulla base delle statistiche:\nVendite, portafoglio prodotti, statistiche omnicanale\n(Instore Order / Click&Collect (Express) ecc.).",
         "en": "Mitarbeiter*in Verkauf Herrenkonfektion / Sport 40% at Manor, located in Luzern Mitarbeiterin Verkauf Herrenkonfektion, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
         "fr": "Mitarbeiter*in Verkauf Herrenkonfektion / Sport 40% chez Manor, situé à Luzern Mitarbeiterin Verkauf Herrenkonfektion, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -8826,16 +8728,13 @@
       "sourceLang": "de",
       "id": "manor-eff23418f097",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-herrenkonfektion-sport-40-luzern-mitarbeiterin-verkauf-herrenkonfektion",
-        "abbigliamento-uomo-sport-40-manor-ag-luzern-mitarbeiterin-verkauf-herrenkonfektion"
+        "manor-mitarbeiter-in-verkauf-herrenkonfektion-sport-40-luzern-mitarbeiterin-verkauf-herrenkonfektion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-herrenkonfektion-sport-40-luzern-mitarbeiterin-verkauf-herrenkonfektion",
-          "abbigliamento-uomo-sport-40-manor-ag-luzern-mitarbeiterin-verkauf-herrenkonfektion"
+          "manor-mitarbeiter-in-verkauf-herrenkonfektion-sport-40-luzern-mitarbeiterin-verkauf-herrenkonfektion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 31600,
@@ -8884,7 +8783,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 50%",
         "en": "Mitarbeiter in Service 50%",
-        "de": "Mitarbeiter*in Service 50%",
+        "de": "Mitarbeiter im Service 50%",
         "fr": "Mitarbeiter en service 50%"
       },
       "sourceLang": "it",
@@ -8947,7 +8846,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 60%",
         "en": "Mitarbeiter in Service 60%",
-        "de": "Mitarbeiter*in Service 60%",
+        "de": "Mitarbeiter im Service 60%",
         "fr": "Mitarbeiter en service 60%"
       },
       "sourceLang": "it",
@@ -9008,7 +8907,7 @@
       "description": "• -freundliches und gepflegte Auftreten, sowie Gästeorientierung,\n• -Zuverlässigkeit, Pünktlichkeit und Verantwortungsbewusstseins, sowie Flexibilität\n• -Kenntnisse Service Standard und Hygienerichtlinien\n• -Teamfähigkeit und Belastbarkeit bei stressigen Situationen\n• -Kassieren der Gäste und tägliche Kasseabrechnung.\n• -Gute Deutsch Kenntnisse",
       "descriptionIt": "• -freundliches und gepflegte Auftreten, sowie Gästeorientierung,\n• -Zuverlässigkeit, Pünktlichkeit und Verantwortungsbewusstseins, sowie Flexibilität\n• -Kenntnisse Service Standard und Hygienerichtlinien\n• -Teamfähigkeit und Belastbarkeit bei stressigen Situationen\n• -Kassieren der Gäste und tägliche Kasseabrechnung.\n• -Gute Deutsch Kenntnisse",
       "descriptionByLocale": {
-        "it": "• -freundliches und gepflegte Auftreten, sowie Gästeorientierung,\n• -Zuverlässigkeit, Pünktlichkeit und Verantwortungsbewusstseins, sowie Flexibilität\n• -Kenntnisse Service Standard und Hygienerichtlinien\n• -Teamfähigkeit und Belastbarkeit bei stressigen Situationen\n• -Kassieren der Gäste und tägliche Kasseabrechnung.\n• -Gute Deutsch Kenntnisse",
+        "it": "• - aspetto amichevole e curato, così come l'orientamento degli ospiti,\n• Affidabilità, puntualità e responsabilità, nonché flessibilità\n• Conoscenza dei servizi Linee guida standard e igiene\n• Lavoro di squadra e resilienza in situazioni stressanti\n• -Cashing ospiti e checkout giornaliero.\n• Buona conoscenza del tedesco",
         "en": "Mitarbeiter*in Service 60% at Manor, located in Emmen Mitarbeiterin Service 60, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• -freundliches und gepflegte Auftreten, sowie Gästeorientierung,\n• -Zuverlässigkeit, Pünktlichkeit und Verantwortungsbewusstseins, sowie Flexibilität\n• -Kenntnisse Service Standard und Hygienerichtlinien\n• -Teamfähigkeit und Belastbarkeit bei stressigen Situationen\n• -Kassieren der Gäste und tägliche Kasseabrechnung.\n• -Gute Deutsch Kenntnisse",
         "fr": "Mitarbeiter*in Service 60% chez Manor, situé à Emmen Mitarbeiterin Service 60, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9165,14 +9064,12 @@
       "id": "manor-f54b427d1c2c",
       "previousSlugs": [
         "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-20-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
-        "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
-        "dipendenti-nella-gestione-delle-merci-giocattoli-20-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
+        "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-20-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
-          "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren",
-          "dipendenti-nella-gestione-delle-merci-giocattoli-20-manor-ag-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
+          "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
         ],
         "de": [
           "manor-mitarbeiter-in-warenbewirtschaftung-spielwaren-30-winterthur-mitarbeiterin-warenbewirtschaftung-spielwaren"
@@ -9403,16 +9300,13 @@
       "sourceLang": "fr",
       "id": "manor-a3f7de131ec8",
       "previousSlugs": [
-        "manor-polydesigner-3d-food-60-chavannes-de-bogis-polydesigner",
-        "polydesigner-3d-cibo-60-manor-ag-chavannes-de-bogis-polydesigner"
+        "manor-polydesigner-3d-food-60-chavannes-de-bogis-polydesigner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-polydesigner-3d-food-60-chavannes-de-bogis-polydesigner",
-          "polydesigner-3d-cibo-60-manor-ag-chavannes-de-bogis-polydesigner"
+          "manor-polydesigner-3d-food-60-chavannes-de-bogis-polydesigner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 36300,
@@ -9444,7 +9338,7 @@
       "description": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop,\nIllustrator\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
       "descriptionIt": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop, \nIllustrator\n- Interessiert an neuen Technologien / \nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
       "descriptionByLocale": {
-        "it": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop,\nIllustrator\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
+        "it": "Specialista della moda\n- Eccellente immaginazione spaziale\n- Capacità di artigianato\n- Senso di colore e forme\nConoscenze IT / competenze digitali:\n- Conoscenze di Microsoft Office\n- Conoscenza approfondita di Adobe InDesign, Photoshop,\nIllustrazione\n- Interessato a nuove tecnologie /\nSoluzioni software\n- Rapida percezione dell'ambiente digitale",
         "en": "Visual Merchandising Manager 100% at Manor, located in Chur Visual Merchandising Manager, Canton of Graubünden, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop,\nIllustrator\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
         "fr": "Visual Merchandising Manager 100% chez Manor, situé à Chur Visual Merchandising Manager, Canton de Grisons, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9466,7 +9360,6 @@
       },
       "sourceLang": "de",
       "id": "manor-5487a3fd4c3d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 79000,
@@ -9584,7 +9477,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Supermarkt Epicerie 50%",
         "en": "Employee Supermarket Epicerie 50%",
-        "de": "Mitarbeiter*in Supermarkt Epicerie 50%",
+        "de": "Mitarbeiter*in im Supermarkt Epicerie 50%",
         "fr": "Mitarbeiter* dans Supermarkt Epicerie 50%"
       },
       "sourceLang": "it",
@@ -9653,14 +9546,12 @@
       "id": "manor-f007b3b6df1e",
       "previousSlugs": [
         "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei",
-        "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
-        "collaboratore-trice-in-supermarkt-backerei-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei"
+        "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-supermarkt-backerei-40-chur-mitarbeiterin-supermarkt-backerei",
-          "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei",
-          "collaboratore-trice-in-supermarkt-backerei-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei"
+          "dipendenti-al-supermarket-bakers-40-manor-ag-chur-mitarbeiterin-supermarkt-backerei"
         ]
       },
       "needsRetranslation": true,
@@ -9695,7 +9586,7 @@
       "description": "• Ausgeprägte Kundenorientierung und Freude am Verkauf\n• Freundliches, gepflegtes und sicheres Auftreten\n• Hohe Einsatzbereitschaft und Flexibilität\n• Selbstständige und zuverlässige Arbeitsweise\n• Teamfähigkeit und positive Ausstrahlung\n• Belastbarkeit auch bei hohem Kundenaufkommen\n• Verantwortungsbewusstsein für Verkaufsfläche und Warenbestand\n• Grundverständnis für Warenbewirtschaftung\n• Bereitschaft, aktiv mitanzupacken\n• Ordnungssinn und Auge fürs Detail",
       "descriptionIt": "• Ausgeprägte Kundenorientierung und Freude am Verkauf\n• Freundliches, gepflegtes und sicheres Auftreten\n• Hohe Einsatzbereitschaft und Flexibilität\n• Selbstständige und zuverlässige Arbeitsweise\n• Teamfähigkeit und positive Ausstrahlung\n• Belastbarkeit auch bei hohem Kundenaufkommen\n• Verantwortungsbewusstsein für Verkaufsfläche und Warenbestand\n• Grundverständnis für Warenbewirtschaftung\n• Bereitschaft, aktiv mitanzupacken\n• Ordnungssinn und Auge fürs Detail",
       "descriptionByLocale": {
-        "it": "• Ausgeprägte Kundenorientierung und Freude am Verkauf\n• Freundliches, gepflegtes und sicheres Auftreten\n• Hohe Einsatzbereitschaft und Flexibilität\n• Selbstständige und zuverlässige Arbeitsweise\n• Teamfähigkeit und positive Ausstrahlung\n• Belastbarkeit auch bei hohem Kundenaufkommen\n• Verantwortungsbewusstsein für Verkaufsfläche und Warenbestand\n• Grundverständnis für Warenbewirtschaftung\n• Bereitschaft, aktiv mitanzupacken\n• Ordnungssinn und Auge fürs Detail",
+        "it": "• Forte orientamento del cliente e piacere nelle vendite\n• Amichevole, curato e sicuro aspetto\n• Alta disponibilità operativa e flessibilità\n• Metodo di lavoro indipendente e affidabile\n• Lavoro di squadra e carisma positivo\n• Resilienza anche con volumi di clienti elevati\n• Responsabilità per la zona di vendita e lo stock\n• Comprensione di base della gestione dei beni\n• Volontà a partecipare attivamente\n• Un senso di ordine e un occhio per i dettagli",
         "en": "Mitarbeiter*in Verkauf Fashion 60% at Manor, located in Langenthal Mitarbeiterin Verkauf Fashion, Canton of Bern, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• Ausgeprägte Kundenorientierung und Freude am Verkauf\n• Freundliches, gepflegtes und sicheres Auftreten\n• Hohe Einsatzbereitschaft und Flexibilität\n• Selbstständige und zuverlässige Arbeitsweise\n• Teamfähigkeit und positive Ausstrahlung\n• Belastbarkeit auch bei hohem Kundenaufkommen\n• Verantwortungsbewusstsein für Verkaufsfläche und Warenbestand\n• Grundverständnis für Warenbewirtschaftung\n• Bereitschaft, aktiv mitanzupacken\n• Ordnungssinn und Auge fürs Detail",
         "fr": "Mitarbeiter*in Verkauf Fashion 60% chez Manor, situé à Langenthal Mitarbeiterin Verkauf Fashion, Canton de Berne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9718,13 +9609,11 @@
       "sourceLang": "de",
       "id": "manor-c1b100998a3a",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion",
-        "collaboratore-trice-in-vendita-fashion-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
+        "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion",
-          "collaboratore-trice-in-vendita-fashion-60-manor-ag-langenthal-mitarbeiterin-verkauf-fashion"
+          "manor-mitarbeiter-in-verkauf-fashion-60-langenthal-mitarbeiterin-verkauf-fashion"
         ]
       },
       "needsRetranslation": true,
@@ -9759,7 +9648,7 @@
       "description": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionIt": "• Strong negotiation and deal-structuring skills \n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionByLocale": {
-        "it": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
+        "it": "• Forte negoziazione e capacità di strutturazione degli accordi\n• Media pianificazione e fluidità delle prestazioni: CPC, CPM, CTR, ROAS, quota di scaffale, portata/frequenza, media di vendita al dettaglio KPI\n• PowerPoint avanzato ed Excel (modelli di partenza, previsioni, pianificazione dello scenario, tabelle pivot)\n• Frequenza e ottimizzazione dei ricavi\n• Confidente presentatore agli stakeholder senior (CMO/Head of Media/Procurement)\n• Buono storyteller di PowerPoint e costruttore di mazzi; in grado di tradurre i dati e le proposizioni in narrazioni chiare e visivamente convincenti\n• Lingua: fluenza in inglese e almeno una lingua nazionale svizzera (tedesco, francese o italiano)\n• Risultati orientati, auto-starter con elevata proprietà e resilienza\n• L'approccio orientato al cliente\n• Forte acume commerciale e mentalità analitica; confortevole con numeri e decisioni basate su prove\n• Strutturato, organizzato e in grado di dare priorità a un grande libro di business\n• Prova e impara la mentalità con un'unità cacciatrice equilibrata e capacità di relazione di stile contadino\n• Alta integrità, costruttore di fiducia e comunicatore efficace (scritto e verbale)\n• Sensibilizzazione legale/conformità nella pubblicità e nella privacy dei dati (GDPR/DSG), standard di sicurezza del marchio",
         "en": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
         "de": "Retail Media Sales Manager 100% bei Manor, gelegen in Basel Retail Media Sales, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Retail Media Sales Manager 100% chez Manor, situé à Basel Retail Media Sales, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9782,13 +9671,11 @@
       "sourceLang": "en",
       "id": "manor-6b511a7746f3",
       "previousSlugs": [
-        "manor-retail-media-sales-manager-100-basel-retail-media-sales",
-        "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales"
+        "manor-retail-media-sales-manager-100-basel-retail-media-sales"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-retail-media-sales-manager-100-basel-retail-media-sales",
-          "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales"
+          "manor-retail-media-sales-manager-100-basel-retail-media-sales"
         ],
         "en": [
           "manor-retail-media-sales-manager-100-basel-retail-media-sales"
@@ -9862,7 +9749,6 @@
           "manor-buyer-herren-fashion-100-basel-buyer-herren-fashion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -9894,7 +9780,7 @@
       "description": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionIt": "• Strong negotiation and deal-structuring skills \n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionByLocale": {
-        "it": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
+        "it": "• Forte negoziazione e capacità di strutturazione degli accordi\n• Media pianificazione e fluidità delle prestazioni: CPC, CPM, CTR, ROAS, quota di scaffale, portata/frequenza, media di vendita al dettaglio KPI\n• PowerPoint avanzato ed Excel (modelli di partenza, previsioni, pianificazione dello scenario, tabelle pivot)\n• Frequenza e ottimizzazione dei ricavi\n• Confidente presentatore agli stakeholder senior (CMO/Head of Media/Procurement)\n• Buono storyteller di PowerPoint e costruttore di mazzi; in grado di tradurre i dati e le proposizioni in narrazioni chiare e visivamente convincenti\n• Lingua: fluenza in inglese e almeno una lingua nazionale svizzera (tedesco, francese o italiano)\n• Risultati orientati, auto-starter con elevata proprietà e resilienza\n• L'approccio orientato al cliente\n• Forte acume commerciale e mentalità analitica; confortevole con numeri e decisioni basate su prove\n• Strutturato, organizzato e in grado di dare priorità a un grande libro di business\n• Prova e impara la mentalità con un'unità cacciatrice equilibrata e capacità di relazione di stile contadino\n• Alta integrità, costruttore di fiducia e comunicatore efficace (scritto e verbale)\n• Sensibilizzazione legale/conformità nella pubblicità e nella privacy dei dati (GDPR/DSG), standard di sicurezza del marchio",
         "en": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
         "de": "Retail Media Sales Manager 100% bei Manor, gelegen in Basel Retail Media Sales, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Retail Media Sales Manager 100% chez Manor, situé à Basel Retail Media Sales, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9918,14 +9804,12 @@
       "id": "manor-5b4f22fa8769",
       "previousSlugs": [
         "manor-retail-media-sales-manager-100-basel-retail-media-sales-2",
-        "manor-retail-media-sales-manager-100-basel-retail-media-sales",
-        "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales-83ad86"
+        "manor-retail-media-sales-manager-100-basel-retail-media-sales"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-retail-media-sales-manager-100-basel-retail-media-sales-2",
-          "manor-retail-media-sales-manager-100-basel-retail-media-sales",
-          "responsabile-vendite-media-al-dettaglio-al-100-manor-ag-basel-retail-media-sales-83ad86"
+          "manor-retail-media-sales-manager-100-basel-retail-media-sales"
         ],
         "de": [
           "manor-retail-media-sales-manager-100-basel-retail-media-sales-2"
@@ -10052,7 +9936,6 @@
       },
       "sourceLang": "it",
       "id": "manor-81ac708866e7",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -10155,7 +10038,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 30%",
         "en": "Mitarbeiter*in Sales Parfümerie 30%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 30%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 30%",
         "fr": "Mitarbeiter*in Vente Parfümerie 30%"
       },
       "sourceLang": "it",
@@ -10348,14 +10231,12 @@
       "id": "manor-9828dca9e6a1",
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
-        "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
-        "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
+        "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-cardshop-20-zurich-mitarbeiterin-verkauf-cardshop",
-          "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop",
-          "collaboratore-trice-in-vendita-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
+          "vendita-di-dipendenti-cardshop-20-manor-ag-zurich-mitarbeiterin-verkauf-cardshop"
         ]
       },
       "needsRetranslation": true,
@@ -10413,13 +10294,11 @@
       "sourceLang": "de",
       "id": "manor-06b4ec00d71c",
       "previousSlugs": [
-        "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung",
-        "dipendenti-nel-reparto-vini-del-supermercato-20-manor-ag-chur-mitarbeiterin-supermarkt-weinabteilung"
+        "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung",
-          "dipendenti-nel-reparto-vini-del-supermercato-20-manor-ag-chur-mitarbeiterin-supermarkt-weinabteilung"
+          "manor-mitarbeiter-in-supermarkt-weinabteilung-20-chur-mitarbeiterin-supermarkt-weinabteilung"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
@@ -10475,7 +10354,6 @@
       },
       "sourceLang": "fr",
       "id": "manor-19934496adb1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 83500,
@@ -10649,7 +10527,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 60%",
         "en": "Mitarbeiter*in Sales Parfümerie 60%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 60%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 60%",
         "fr": "Mitarbeiter*in Vente Parfümerie 60%"
       },
       "sourceLang": "it",
@@ -10888,7 +10766,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 30%",
         "en": "Mitarbeiter*in Sales Parfümerie 30%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 30%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 30%",
         "fr": "Mitarbeiter*in Vente Parfümerie 30%"
       },
       "sourceLang": "it",
@@ -11020,7 +10898,6 @@
       },
       "sourceLang": "it",
       "id": "manor-3e0aad57cf64",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 60500,
@@ -11077,18 +10954,15 @@
       "previousSlugs": [
         "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food",
         "manor-kassierer-in-non-food-20-winterthur-kassiererin-non-food",
-        "manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
-        "cashier-non-alimentare-30-manor-ag-winterthur-kassiererin-non-food"
+        "manor-kassierer-in-non-food-50-thun-kassiererin-non-food"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-kassierer-in-non-food-30-winterthur-kassiererin-non-food",
           "manor-kassierer-in-non-food-20-winterthur-kassiererin-non-food",
-          "manor-kassierer-in-non-food-50-thun-kassiererin-non-food",
-          "cashier-non-alimentare-30-manor-ag-winterthur-kassiererin-non-food"
+          "manor-kassierer-in-non-food-50-thun-kassiererin-non-food"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 24900,
@@ -11236,7 +11110,7 @@
       "description": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
       "descriptionIt": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
       "descriptionByLocale": {
-        "it": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
+        "it": "- Creare un'atmosfera ospitale con l'aiuto di un servizio ospitale\n- Attuazione dei concetti di Manora con i metodi di lavoro definiti\n- Rispetto delle regole igieniche\n- Pulire e pulire l'intero ristorante (a buffet, sala, cucina incl.) Lavatrice piatti\n- Contanti in\n- Operazione e preparazione di bevande al bar del caffè\n- Flessibile",
         "en": "Mitarbeiter*in Service 50% at Manor, located in Thun Mitarbeiterin Service 50, Canton of Bern, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
         "fr": "Mitarbeiter*in Service 50% chez Manor, situé à Thun Mitarbeiterin Service 50, Canton de Berne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -11261,15 +11135,13 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
         "dipendenti-in-servizio-50-manor-ag-thun-mitarbeiterin-service-50",
-        "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100",
-        "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50"
+        "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-service-50-thun-mitarbeiterin-service-50",
           "dipendenti-in-servizio-50-manor-ag-thun-mitarbeiterin-service-50",
-          "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100",
-          "collaboratore-trice-in-service-50-manor-ag-thun-mitarbeiterin-service-50"
+          "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100"
         ],
         "de": [
           "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100"
@@ -11337,7 +11209,6 @@
           "manor-store-manager-100-liestal-store-manager-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 85500,
@@ -11392,13 +11263,11 @@
       "sourceLang": "de",
       "id": "manor-78e29222cfbc",
       "previousSlugs": [
-        "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte",
-        "dipendenti-in-frutta-e-verdura-al-supermercato-50-manor-ag-chur-mitarbeiterin-supermarkt-fruchte"
+        "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte",
-          "dipendenti-in-frutta-e-verdura-al-supermercato-50-manor-ag-chur-mitarbeiterin-supermarkt-fruchte"
+          "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte"
         ]
       },
       "needsRetranslation": true,
@@ -11433,7 +11302,7 @@
       "description": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
       "descriptionIt": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
       "descriptionByLocale": {
-        "it": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
+        "it": "• -Consulenza professionale dei clienti e colloqui di vendita\n• - Raccomandazione orientata al bisogno di fragranza, cura e prodotti cosmetici\n• Vendite aggiuntive e aggiuntive attive (cross- e up-selling)\n• Gestione delle merci e organizzazione di stoccaggio\n• Sostegno e motivazione dei dipendenti nelle attività quotidiane\n• -Introduzione e accompagnamento di nuovi membri del team\n• Comunicazione chiara e apprezzata",
         "en": "Mitarbeiter*in Verkauf Parfümerie 60% at Manor, located in Emmen Mitarbeiterin Verkauf Parfümerie, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
         "fr": "Mitarbeiter*in Verkauf Parfümerie 60% chez Manor, situé à Emmen Mitarbeiterin Verkauf Parfümerie, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -11456,13 +11325,11 @@
       "sourceLang": "de",
       "id": "manor-416ef1bddace",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie",
-        "dipendenti-nella-profumeria-di-vendita-60-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie",
-          "dipendenti-nella-profumeria-di-vendita-60-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
+          "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie"
         ]
       },
       "needsRetranslation": true,
@@ -11497,7 +11364,7 @@
       "description": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
       "descriptionIt": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen \n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
       "descriptionByLocale": {
-        "it": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
+        "it": "Contattare Cayn Huggler per la lista in modo che l'elenco possa essere specificato\n\nEsperienza di leadership iniziale\n• Progetto organizzativo e esperienza progettuale\n• Sensibilizzazione dei costi\n• Forte comprensione delle questioni di sicurezza sul lavoro / disponibilità a frequentare corsi di formazione KOBAS\n• Molto buone capacità di lingua orale e scritta in tedesco",
         "en": "Teamleiter*in Facility & Security Non Food 100% at Manor, located in Hochdorf Teamleiterin Facility &, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
         "fr": "Teamleiter*in Facility & Security Non Food 100% chez Manor, situé à Hochdorf Teamleiterin Facility &, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -11573,7 +11440,6 @@
       },
       "sourceLang": "it",
       "id": "manor-5772f9031c59",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 68000,
