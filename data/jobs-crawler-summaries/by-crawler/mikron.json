@@ -1,18 +1,85 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-18T21:36:25.460Z",
-  "total": 3,
-  "newCount": 0,
-  "updatedCount": 3,
+  "generatedAt": "2026-08-19T10:01:58.206Z",
+  "total": 5,
+  "newCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 14680,
-  "avgDurationMs": 14680,
+  "unchangedCount": 2,
+  "durationMs": 15121,
+  "avgDurationMs": 15121,
   "durationHistory": [
-    14680
+    15121
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-svizzero-tedesca",
+      "applyUrl": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-svizzero-tedesca",
+      "title": "Tecnico venditore junior con conoscenza della lingua svizzero-tedesca",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Agno",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6982",
+      "streetAddress": "Via Ginnasio 17, 6982 Agno",
+      "slug": "tecnico-venditore-junior-con-conoscenza-della-lingua-svizzero-tedesca-mikron",
+      "sourceLang": "it",
+      "category": "general",
+      "datePosted": "2026-08-19",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Agno"
+      },
+      "addressLocality": "Agno",
+      "addressRegion": "TI",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-francese",
+      "applyUrl": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-francese",
+      "title": "Tecnico venditore junior con conoscenza della lingua francese",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Agno",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6982",
+      "streetAddress": "Via Ginnasio 17, 6982 Agno",
+      "slug": "tecnico-venditore-junior-con-conoscenza-della-lingua-francese-mikron",
+      "sourceLang": "it",
+      "category": "general",
+      "datePosted": "2026-08-19",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Agno"
+      },
+      "addressLocality": "Agno",
+      "addressRegion": "TI",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -48,7 +115,10 @@
         "translation": 23,
         "completeness": 15
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/quality-engineer-mfd",
       "applyUrl": "https://www.mikron.com/en/quality-engineer-mfd",
@@ -72,16 +142,22 @@
         "canton": "NE",
         "location": "Boudry"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
-      "_qualityScore": 81,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 5987,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -111,15 +187,17 @@
       "firstSeenAt": "2026-07-16T22:40:19.781Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
