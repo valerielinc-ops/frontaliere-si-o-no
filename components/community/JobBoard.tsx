@@ -208,6 +208,7 @@ import type { Article } from '@/data/blog-articles-data';
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
+import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -2011,7 +2012,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  )}
  </h2>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
- {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
+ {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
  </p>
  {salary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
@@ -8141,7 +8142,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
  </h3>
  <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
- {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
+ {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton)}
  </p>
  {jobSalary && (
  <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">

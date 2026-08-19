@@ -13,6 +13,39 @@ name: location-quality-audit
 # trend is visible over time. This is NOT a deploy gate — report-only, same
 # shape as audit-404-risk.yml. Zero-Claude (deterministic script + node/gh
 # issue creation).
+#
+# LAYER 5 (2026-08-19) — location FORMAT, not location TRUTH. The four original
+# layers all adjudicate WHICH PLACE a job is in; none of them asks whether the
+# location string is well-formed. "Lengnau (BE)" stamped BE is correct by every
+# one of them, and the live job page rendered it "Lengnau (BE) (BE)" — 2,457 of
+# 27,590 jobs (8.91%) printed a doubled or empty parenthetical.
+# `scripts/lib/job-location-display.mjs` removes the duplication at RENDER time
+# on every surface, so the three rows layer 5 adds are about the DATA, which
+# only the crawler can fix:
+#   · redundant marker      — informational: the render fix already hides it.
+#   · canton CONFLICT       — a bug: the location and the field name different
+#                             cantons, so one of the two is factually wrong.
+#   · description duplicated — a bug: the string is frozen into the indexed
+#                             description at crawl time, where no render fix
+#                             reaches it.
+# The per-crawler table names `scripts/lib/<crawler>-job-parser.mjs` outright so
+# the queued fixer has the file to edit without re-deriving it.
+#
+# ROUTING is deliberately left on the queue, unchanged: `priority:medium` plus
+# the labels below classify as `other` in scripts/lib/classify-issue.mjs =>
+# `route: queue` => `agent:fix-queued`, drained one at a time by
+# followup-drainer. The immediate `agent:fix` bypass is reserved for category
+# `crawler` (production-critical, low volume) and this weekly snapshot is
+# neither — the same call job-title-locale-audit.yml documents.
+#
+# CLOSURE is UNCHANGED and deliberately not a `--resolve` twin. This workflow
+# posts the numeric snapshot on the canonical issue EVERY run — that comment
+# thread IS the trend line the header above promises — and signals health by
+# dropping to `priority:low` instead of closing. That is not the
+# alert-pat-down.mjs failure mode (an alert naming a closer that did not exist):
+# the issue is reachable, deduped by title, and its priority moves. Adding a
+# closer here would delete the trend history, so layer 5 only adds rows to the
+# existing `hasRealBugs` condition.
 
 on:
   schedule:
@@ -85,7 +118,19 @@ jobs:
           // so "crawler said BS, we published ZH" is usually just the crawler's
           // constant being stale. Alarming on it buried the real rewrites under
           // ~775 false positives.
-          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0 || rewritten > 0;
+          // Layer 5. `redundant` is deliberately NOT a bug signal: the render fix in
+          // scripts/lib/job-location-display.mjs already stops it reaching a reader,
+          // so alarming on 2,457 rows would bury the two that still hurt. `conflict`
+          // and `descDup` do: the first means one of location/canton is factually
+          // wrong, the second is frozen into indexed description text where no
+          // render-time fix can reach it.
+          const redundant = s.redundantLocationMarker || 0;
+          const conflict = s.locationCantonConflict || 0;
+          const descDup = s.descriptionCantonDuplicated || 0;
+          const byCrawler = r.locationFormatByCrawler || [];
+
+          const hasRealBugs = s.cantonMismatch > 0 || s.foreignInSwiss > 0 || rewritten > 0
+            || conflict > 0 || descDup > 0;
 
           let md = `## Location data quality snapshot\n\n`;
           md += `Audited ${r.audited} / ${r.totalJobs} jobs (geocoding ${r.geocodingEnabled ? 'ON' : 'OFF'}).\n\n`;
@@ -98,11 +143,35 @@ jobs:
           md += `| 🏢 Suspected company-default fallback | ${s.companyDefaultFallback} | ${pct(s.companyDefaultFallback)}% |\n`;
           md += `| 📭 Empty location | ${s.emptyLocation} | ${pct(s.emptyLocation)}% |\n`;
           md += `| 🔤 Lowercase canton (stored) | ${s.lowercaseCanton} | ${pct(s.lowercaseCanton)}% |\n`;
-          md += `| ℹ️ Crawler canton stamp differs (same place — context, not a bug) | ${stampDiffers} | ${pct(stampDiffers)}% |\n\n`;
+          md += `| ℹ️ Crawler canton stamp differs (same place — context, not a bug) | ${stampDiffers} | ${pct(stampDiffers)}% |\n`;
+          md += `| 🔁 Location already names its canton/country (render fix hides it) | ${redundant} | ${pct(redundant)}% |\n`;
+          md += `| ❗ Location names a DIFFERENT canton than the field | ${conflict} | ${pct(conflict)}% |\n`;
+          md += `| 📝 Description text repeats the canton (frozen at crawl time) | ${descDup} | ${pct(descDup)}% |\n\n`;
           md += hasRealBugs
             ? `🚨 **Canton mismatch, foreign-tagged-as-Swiss and/or published-locality-rewritten are non-zero** — these are the three categories the dataset must never produce (location must always resolve to a real Swiss canton, and the published locality must never contradict the crawler's own record). Check the full report artifact for offending companies/cities.\n\n`
             : `No canton-mismatch / foreign-tagged-as-Swiss / locality-rewritten bugs this run.\n\n`;
           md += `_\`📌 Published locality contradicts the crawler record\` is BFS-independent, which is exactly why it matters: it catches jobs moved onto a city that IS a real BFS municipality, so every BFS-backed row above signs them off as correct. The destination is usually an everyday word that happens to name a village — "Alle" (JU) is German for "all" — so start from the "Rewritten INTO" table in the artifact and add repeat offenders to \`TEXT_RESCUE_AMBIGUOUS_TOKENS\`. ${r.crawlerRecordsIndexed || 0} crawler records indexed this run._\n\n`;
+          if (byCrawler.length) {
+            // BY CRAWLER, not by company: the repair is an edit to exactly one
+            // scripts/lib/<crawler>-job-parser.mjs, and the crawler key IS that
+            // filename. A company leaderboard would name Coop a thousand times
+            // and still never say which file to open.
+            md += `### Location format, by crawler\n\n`;
+            md += `| crawler | file to edit | ❗ conflict | 📝 description | 🔁 redundant |\n|---|---|---:|---:|---:|\n`;
+            for (const row of byCrawler.slice(0, 15)) {
+              md += `| \`${row.crawler}\` | \`scripts/lib/${row.crawler}-job-parser.mjs\` | ${row.conflict} | ${row.descriptionDuplicated} | ${row.redundant} |\n`;
+            }
+            if (byCrawler.length > 15) {
+              md += `\n_${byCrawler.length - 15} further crawlers omitted — the full list is in the artifact._\n`;
+            }
+            md += `\n### How to repair each column\n\n`;
+            md += `- **❗ conflict** — the location names one canton and \`job.canton\` another (e.g. \`"Reinach (AG)"\` stamped \`BL\`; both Reinachs exist). One half is wrong. Decide from the employer's own posting, then fix whichever the crawler derives incorrectly. The page currently prints the location verbatim and appends NO canton, so a reader sees one place, not a contradiction.\n`;
+            md += `- **📝 description** — the crawler wrote the canton into description prose right after a location that already carried it (\`"Konolfingen, CH, Kanton BE"\`). Strip the marker from the location ONCE where the crawler assigns it — see the \`splitJobLocation()\` call in \`scripts/lib/nestle-job-parser.mjs\`, which fixes the stored field, the description and the page together.\n`;
+            md += `- **🔁 redundant** — informational. \`formatJobLocation()\` already removes it on every surface; listed so a crawler that starts emitting a NEW marker shape is visible before it turns into one of the two rows above.\n\n`;
+            md += `Offenders with the literal values are under \`redundantLocationMarker\`, \`locationCantonConflict\` and \`descriptionCantonDuplicated\` in the artifact.\n\n`;
+            md += `### Reproduce\n\n\`\`\`bash\nnode scripts/assemble-jobs-dataset.mjs\nnpm run audit:job-locations\n\`\`\`\n\n`;
+            md += `**Formatter:** \`scripts/lib/job-location-display.mjs\` · **Gate:** \`tests/job-location-display.test.ts\`\n\n`;
+          }
           md += `**Run:** ${process.env.RUN_URL}\n`;
           md += `Full per-job detail: \`location-audit-report\` workflow artifact (30-day retention).\n`;
           md += `Script: \`scripts/audit-job-locations.mjs\`\n`;
