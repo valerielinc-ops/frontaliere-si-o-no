@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-08-18T22:03:22.342Z",
+  "assembledAt": "2026-08-19T10:25:02.579Z",
   "jobs": [
     {
       "id": "gkb-d9aa8d946fdc",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:18.493Z",
+      "crawledAt": "2026-08-19T10:25:00.035Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:17.502Z",
+      "crawledAt": "2026-08-19T10:24:59.021Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -151,6 +151,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -196,7 +197,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:16.497Z",
+      "crawledAt": "2026-08-19T10:24:58.021Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -230,6 +231,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:12:16.682Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 85500,
       "baseSalary": {
@@ -275,7 +277,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:15.648Z",
+      "crawledAt": "2026-08-19T10:24:55.362Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -361,7 +363,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1952/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:13.648Z",
+      "crawledAt": "2026-08-19T10:24:54.443Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -429,7 +431,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -445,7 +447,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:11.247Z",
+      "crawledAt": "2026-08-19T10:24:53.524Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -484,6 +486,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
+      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "baseSalary": {
@@ -529,7 +532,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:10.481Z",
+      "crawledAt": "2026-08-19T10:24:52.590Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -614,7 +617,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:09.711Z",
+      "crawledAt": "2026-08-19T10:24:51.662Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -697,7 +700,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:08.938Z",
+      "crawledAt": "2026-08-19T10:24:50.741Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -750,36 +753,36 @@
     },
     {
       "id": "gkb-10125680ca47",
-      "slug": "assistent-in-hypotheken-thusis-40-gkb-ch",
+      "slug": "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis",
       "slugByLocale": {
+        "it": "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis",
+        "en": "assistant-in-mortgage-thusis-40-graubundner-kantonalbank-thusis",
         "de": "assistent-in-hypotheken-thusis-40-gkb-ch",
-        "it": "assistent-in-hypotheken-thusis-40-gkb-ch",
-        "en": "assistent-in-hypotheken-thusis-40-gkb-ch",
-        "fr": "assistent-in-hypotheken-thusis-40-gkb-ch"
+        "fr": "assistante-en-hypotheques-de-sosis-40-graubundner-kantonalbank-thusis"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
       "companyDomain": "gkb.ch",
       "title": "Assistent:in Hypotheken Thusis (40%)",
       "titleByLocale": {
+        "it": "Assistente: in Mortgage Sois (40%)",
+        "en": "Assistant: in Mortgage Thusis (40%)",
         "de": "Assistent:in Hypotheken Thusis (40%)",
-        "it": "Assistent:in Hypotheken Thusis (40%)",
-        "en": "Assistent:in Hypotheken Thusis (40%)",
-        "fr": "Assistent:in Hypotheken Thusis (40%)"
+        "fr": "Assistante : en hypothèques de Sosis (40%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 18.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
+        "it": "Graubündner Kantonalbank | online da: 18.08.2026 | Qualunque sia il tuo futuro. A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Ti piace una funzione di assistente versatile, come pensare lungo e sono alla ricerca di un compito a lungo termine in cui si può contribuire? Allora hai proprio ragione con noi! | da ora in poi o per accordo |\n• Supporto del team Mortgage\n• Trattamento indipendente degli ordini dei clienti\n• Telefono e contatto personale del cliente\n• Varie attività amministrative\n• Organizzazione e trattamento dei due rinnovi annuali |\n• Istruzione commerciale, preferibilmente bancario o stage\n• La conoscenza preventiva dell'attività di finanziamento è un vantaggio\n• Alto orientamento del cliente, disponibilità a svolgere e resilienza\n• Personalità flessibile e orientata al team con metodi di lavoro indipendenti e affidabili\n• In combinazione con gli studi part-time possibili | Sei pronto per il tuo futuro migliore? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei candidarmi",
+        "en": "Graubündner Kantonalbank | online since: 18.08.2026 | Whatever your future will look like. At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. Do you enjoy a versatile assistant function, like to think along and are looking for a long-term task in which you can contribute? Then you are exactly right with us! | from now on or by agreement |\n• Support of the Mortgage Team\n• Independent processing of client orders\n• Telephone and personal customer contact\n• Miscellaneous administrative activities\n• Organization and processing of annually due renewals |\n• Commercial education, preferably banking or internship\n• Prior knowledge of the financing business is an advantage\n• High customer orientation, willingness to perform and resilience\n• Flexible, team-oriented personality with independent, reliable working methods\n• In combination with part-time studies possible | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
         "de": "Graubündner Kantonalbank | online seit: 18.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
-        "it": "Graubündner Kantonalbank | online seit: 18.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
-        "en": "Graubündner Kantonalbank | online seit: 18.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
-        "fr": "Graubündner Kantonalbank | online seit: 18.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben"
+        "fr": "Graubündner Kantonalbank en ligne depuis: 18.08.2026 Quel que soit votre avenir. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Profitez-vous d'une fonction d'assistant polyvalente, comme réfléchir et êtes-vous à la recherche d'une tâche à long terme dans laquelle vous pouvez contribuer? Alors tu as raison avec nous ! Désormais ou par accord\n• Soutien de l'équipe d'hypothèques\n• Traitement indépendant des commandes des clients\n• Téléphone et contact client personnel\n• Activités administratives diverses\n• Organisation et traitement des renouvellements annuels dus\n• Éducation commerciale, de préférence bancaire ou de stage\n• La connaissance préalable de l'entreprise de financement est un avantage\n• Orientation client élevée, volonté de performance et résilience\n• Personnalité flexible, axée sur l'équipe, avec des méthodes de travail indépendantes et fiables\n• En combinaison avec des études à temps partiel possibles. Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous – que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
       },
       "location": "Thusis",
       "canton": "GR",
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:03:08.013Z",
+      "crawledAt": "2026-08-19T10:24:49.814Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -794,14 +797,29 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Region Thusis / RTHU",
       "pensumMin": 40,
       "pensumMax": 40,
       "pensum": "40%",
+      "previousSlugs": [
+        "assistent-in-hypotheken-thusis-40-gkb-ch",
+        "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-hypotheken-thusis-40-gkb-ch",
+          "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
+        ],
+        "en": [
+          "assistent-in-hypotheken-thusis-40-gkb-ch"
+        ],
+        "fr": [
+          "assistent-in-hypotheken-thusis-40-gkb-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T22:03:08.013Z",
       "salaryMin": 23000,
       "salaryMax": 34800,
       "baseSalary": {
@@ -814,8 +832,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-08-18T22:03:08.013Z"
+      "addressRegion": "GR"
     },
     {
       "id": "gkb-b97c3c483871",
@@ -872,14 +889,12 @@
         "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
-        "specialist-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur",
-        "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
+        "specialist-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
-          "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
         ],
         "de": [
           "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
@@ -904,7 +919,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

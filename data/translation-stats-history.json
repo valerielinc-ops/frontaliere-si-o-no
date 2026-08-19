@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-28T23:05:36.553Z",
-    "label": "before",
-    "total": 24840,
-    "needsRetranslation": 1652,
-    "suppressed": 35,
-    "incomplete": 120,
-    "complete": 24720,
-    "missingByLocale": {
-      "it": 65,
-      "en": 41,
-      "de": 58,
-      "fr": 57
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 35
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 7
-      },
-      {
-        "company": "Manor AG",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "PEMSA",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-29T00:08:12.411Z",
-    "label": "after",
-    "total": 24840,
-    "needsRetranslation": 660,
-    "suppressed": 34,
-    "incomplete": 108,
-    "complete": 24732,
-    "missingByLocale": {
-      "it": 63,
-      "en": 39,
-      "de": 54,
-      "fr": 55
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 35
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 11
-      },
-      {
-        "company": "IKEA",
-        "pending": 7
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Orell Füssli Thalia",
-        "pending": 3
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 2
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-29T06:46:54.656Z",
     "label": "before",
     "total": 24923,
@@ -12254,6 +12140,162 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 223
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-19T07:33:58.418Z",
+    "label": "before",
+    "total": 27575,
+    "needsRetranslation": 11332,
+    "suppressed": 54,
+    "incomplete": 12029,
+    "complete": 15546,
+    "slotsPresent": 15546,
+    "flaggedAmongSlotsPresent": 503,
+    "verifiedTranslated": 15043,
+    "sourceCopyExcused": 684,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 122,
+      "en": 80,
+      "de": 82,
+      "fr": 117
+    },
+    "queueAge": {
+      "count": 11332,
+      "withTimestamp": 11332,
+      "oldestAgeDays": 127.9,
+      "p50AgeDays": 19.3,
+      "p90AgeDays": 68.8,
+      "buckets": {
+        "0-7d": 2084,
+        "7-30d": 5247,
+        "30-90d": 3518,
+        "90-180d": 483,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2092
+      },
+      {
+        "company": "Roche",
+        "pending": 559
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 493
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 353
+      },
+      {
+        "company": "VOLG",
+        "pending": 284
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 267
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 257
+      },
+      {
+        "company": "BKW",
+        "pending": 228
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 224
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 196
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-19T08:22:16.809Z",
+    "label": "after",
+    "total": 27575,
+    "needsRetranslation": 10879,
+    "suppressed": 55,
+    "incomplete": 12029,
+    "complete": 15546,
+    "slotsPresent": 15546,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15546,
+    "sourceCopyExcused": 684,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 122,
+      "en": 80,
+      "de": 82,
+      "fr": 117
+    },
+    "queueAge": {
+      "count": 10879,
+      "withTimestamp": 10879,
+      "oldestAgeDays": 127.9,
+      "p50AgeDays": 18.9,
+      "p90AgeDays": 69.8,
+      "buckets": {
+        "0-7d": 2003,
+        "7-30d": 5083,
+        "30-90d": 3295,
+        "90-180d": 498,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2092
+      },
+      {
+        "company": "Roche",
+        "pending": 559
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 493
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 353
+      },
+      {
+        "company": "VOLG",
+        "pending": 284
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 267
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 257
+      },
+      {
+        "company": "BKW",
+        "pending": 228
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 224
       },
       {
         "company": "Interdiscount",

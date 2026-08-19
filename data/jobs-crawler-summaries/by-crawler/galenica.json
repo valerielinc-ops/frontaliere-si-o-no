@@ -1,54 +1,52 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-18T22:22:44.979Z",
-  "total": 385,
+  "generatedAt": "2026-08-19T09:52:16.467Z",
+  "total": 386,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 123746,
-  "avgDurationMs": 123746,
+  "unchangedCount": 0,
+  "durationMs": 380694,
+  "avgDurationMs": 380694,
   "durationHistory": [
-    123746
+    380694
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Head of Marketing (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Coop Vitality  (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3121306.4036317",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692373",
+      "location": "Frauenfeld",
+      "canton": "TG",
       "country": "CH",
-      "category": "marketing",
-      "descriptionIt": "Head of Marketing (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "category": "healthcare",
+      "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Frauenfeld, EKZ Schlosspark, Zürcherstrasse 138, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692373-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-frauenfeld-tg-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "responsabile-marketing-w-m-d-galenica-ag-galenica-bern-acd82c",
-      "id": "galenica-4c3ba980de9d",
+      "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-frauenfeld",
+      "id": "galenica-2842ad03c96d",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 106500,
-      "salaryMax": 188500,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
       "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

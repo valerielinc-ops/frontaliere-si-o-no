@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-08-18T22:02:54.060Z",
+  "assembledAt": "2026-08-19T10:24:35.661Z",
   "jobs": [
     {
       "id": "hermes-c29e4ff59493",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:50.429Z",
+      "crawledAt": "2026-08-19T10:24:32.560Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T07:53:06.117Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -104,7 +105,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:49.812Z",
+      "crawledAt": "2026-08-19T10:24:31.902Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,6 +153,154 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hermes-15455aba22d4",
+      "slug": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
+      "slugByLocale": {
+        "it": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
+        "en": "communication-1-year-f-h-hermes-geneve-geneva-switzerland",
+        "de": "mitteilung-1-jahr-f-h-hermes-geneve-geneva-switzerland",
+        "fr": "stage-communication-1an-f-h-hermes-ch"
+      },
+      "company": "Hermès",
+      "companyKey": "hermes",
+      "companyDomain": "hermes.com",
+      "title": "Stage Communication 1an (F/H)",
+      "titleByLocale": {
+        "it": "Comunicazione 1 anno (F/H)",
+        "en": "Communication 1 year (F/H)",
+        "de": "Mitteilung 1 Jahr (F/H)",
+        "fr": "Stage Communication 1an (F/H)"
+      },
+      "description": "Votre principale mission consiste à assister l’équipe Communication en participant activement à l’organisation de différents événements et en venant en support à notre équipe dans ses relations avec les médias, la presse ou l’influence.\n\n• Participation à l’organisation d’événements : soirées VIP, événements en magasin,...\n\n• Contrôle des factures du département Communication et suivi des engagements budgétaires\n\n• Gestion et suivi des mailings pour les événements de Relations Publiques organisés par Hermès (Suisse) SA\n\n• En support à l’attachée de Presse : réalisation de reportings et réponses à des demandes de journalistes\n\n• En support à la directrice de Communication : mise en ligne des campagnes digitales, préparation assets pour les campagnes print et affichage.\n\nVous préparez un Master avec une orientation Communication et vous possédez les qualités suivantes :\n\n• Un excellent relationnel\n\n• De la curiosité d’esprit et une belle capacité d’adaptation\n\n• De la rigueur\n\n• Une très bonne maîtrise des outils bureautiques et de communication digitale\n\n• La pratique courante du français et de l’anglais est nécessaire. Un bon niveau d’allemand est un plus\n\n• Une première expérience dans le domaine de la communication est vivement souhaitée\n\n• Et l'envie de participer au déploiement d'événements inoubliables\n\n• Une convention de stage est obligatoire pour la réalisation de ce stage à 100% de décembre 2026 à décembre 2027",
+      "descriptionByLocale": {
+        "it": "La vostra missione principale è di assistere il team di comunicazione partecipando attivamente all'organizzazione di eventi diversi e sostenendo il nostro team nelle sue relazioni con i media, la stampa o l'influenza.\n• Partecipazione all'organizzazione degli eventi: serate VIP, eventi in-store, ecc.\n• Controllo delle fatture del dipartimento di comunicazione e monitoraggio degli impegni di bilancio\n• Gestione e monitoraggio delle mailings per gli eventi di pubbliche relazioni organizzati da Hermès (Svizzera) SA\n• A sostegno di Pressanneé: produzione di report e risposte alle richieste dei giornalisti\n• A sostegno del Direttore della Comunicazione: campagne digitali online, preparazione di attività per campagne di stampa e visualizzazione. Prepari un Master con un orientamento di Comunicazione e hai le seguenti qualità:\n• Una relazione eccellente\n• Dalla curiosità della mente e una bella capacità di adattamento\n• Strictness\n• Una buona padronanza dell'automazione degli uffici e degli strumenti di comunicazione digitale\n• La pratica comune di francese e inglese è necessaria. Un buon livello di tedesco è un plus\n• Una prima esperienza nel campo della comunicazione è fortemente desiderata\n• E il desiderio di partecipare alla distribuzione di eventi indimenticabili\n• Un accordo di stage è obbligatorio per il completamento di questo tirocinio 100% dal dicembre 2026 al dicembre 2027",
+        "en": "Your main mission is to assist the Communication Team by actively participating in the organization of different events and supporting our team in its relations with the media, the press or influence.\n• Participation in the organisation of events: VIP evenings, in-store events, etc.\n• Control of the invoices of the Communication department and monitoring of budget commitments\n• Management and monitoring of mailings for public relations events organized by Hermès (Switzerland) SA\n• In support of Press attaché: production of reports and responses to requests from journalists\n• In support of the Director of Communication: online digital campaigns, assets preparation for print campaigns and display. You prepare a Master with a Communication orientation and you have the following qualities:\n• An excellent relational\n• From curiosity of mind and a beautiful ability to adapt\n• Strictness\n• A very good mastery of office automation and digital communication tools\n• The common practice of French and English is necessary. A good level of German is a plus\n• A first experience in the field of communication is strongly desired\n• And the desire to participate in the deployment of unforgettable events\n• An internship agreement is mandatory for the completion of this 100% internship from December 2026 to December 2027",
+        "de": "Ihre Hauptaufgabe besteht darin, das Kommunikationsteam zu unterstützen, indem Sie sich aktiv an der Organisation verschiedener Veranstaltungen beteiligen und unser Team bei seinen Beziehungen zu den Medien, der Presse oder Influencern unterstützen.\n• Mitwirkung bei der Organisation von Veranstaltungen: VIP-Abende, In-Store-Events usw.\n• Kontrolle der Rechnungen der Kommunikationsabteilung und Überwachung der Budgetverpflichtungen\n• Verwaltung und Überwachung von Mailings für von Hermès (Schweiz) SA organisierte PR-Veranstaltungen\n• Unterstützung des Presseattachés: Erstellung von Berichten und Antworten auf Anfragen von Journalisten\n• Unterstützung des Kommunikationsdirektors: Online-Schaltung digitaler Kampagnen, Vorbereitung von Assets für Print- und Display-Kampagnen. Sie bereiten einen Masterstudiengang mit Kommunikationsorientierung vor und verfügen über die folgenden Eigenschaften:\n• Hervorragende zwischenmenschliche Fähigkeiten\n• Neugier und große Anpassungsfähigkeit\n• Genauigkeit\n• Sehr gute Beherrschung der Büroautomation und digitaler Kommunikationsmittel\n• Fließende Kenntnisse in Französisch und Englisch sind erforderlich. Gute Deutschkenntnisse sind von Vorteil\n• Erste Erfahrungen im Bereich Kommunikation sind unbedingt erwünscht\n• Und der Wunsch, sich an der Umsetzung unvergesslicher Events zu beteiligen\n• Für die Absolvierung dieses Praktikums zu 100 % von Dezember 2026 bis Dezember 2027 ist ein Praktikumsvertrag zwingend erforderlich",
+        "fr": "Votre principale mission consiste à assister l’équipe Communication en participant activement à l’organisation de différents événements et en venant en support à notre équipe dans ses relations avec les médias, la presse ou l’influence.\n\n• Participation à l’organisation d’événements : soirées VIP, événements en magasin,...\n\n• Contrôle des factures du département Communication et suivi des engagements budgétaires\n\n• Gestion et suivi des mailings pour les événements de Relations Publiques organisés par Hermès (Suisse) SA\n\n• En support à l’attachée de Presse : réalisation de reportings et réponses à des demandes de journalistes\n\n• En support à la directrice de Communication : mise en ligne des campagnes digitales, préparation assets pour les campagnes print et affichage.\n\nVous préparez un Master avec une orientation Communication et vous possédez les qualités suivantes :\n\n• Un excellent relationnel\n\n• De la curiosité d’esprit et une belle capacité d’adaptation\n\n• De la rigueur\n\n• Une très bonne maîtrise des outils bureautiques et de communication digitale\n\n• La pratique courante du français et de l’anglais est nécessaire. Un bon niveau d’allemand est un plus\n\n• Une première expérience dans le domaine de la communication est vivement souhaitée\n\n• Et l'envie de participer au déploiement d'événements inoubliables\n\n• Une convention de stage est obligatoire pour la réalisation de ce stage à 100% de décembre 2026 à décembre 2027"
+      },
+      "location": "Geneve, Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
+      "source": "Hermès Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-19T10:24:31.254Z",
+      "addressLocality": "Geneve, Geneva, Switzerland",
+      "postalCode": "1204",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Luxury goods / fashion / watchmaking",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stage-communication-1an-f-h-hermes-ch",
+        "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-communication-1an-f-h-hermes-ch",
+          "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-06-11T07:52:59.019Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hermes-611960534235",
+      "slug": "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland",
+      "slugByLocale": {
+        "it": "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland",
+        "en": "cdi-welcome-host-w-m-hermes-ch",
+        "de": "cdi-welcome-host-w-m-hermes-ch",
+        "fr": "cdi-accueil-h-f-hermes-zurich-switzerland"
+      },
+      "company": "Hermès",
+      "companyKey": "hermes",
+      "companyDomain": "hermes.com",
+      "title": "CDI - Welcome Host - (W/M)",
+      "titleByLocale": {
+        "it": "CDI - Host di benvenuto - (W/M)",
+        "en": "CDI - Welcome Host - (M/F)",
+        "de": "CDI - Welcome Host - (W/M)",
+        "fr": "CDI - Welcome Host - (W/M)"
+      },
+      "description": "Ihr Arbeitsalltag\n\n• Jeden Besucher herzlich und stilvoll zu empfangen, dabei die Eleganz des Hauses zu verkörpern und einen gepflegten, unvergesslichen ersten Eindruck zu hinterlassen.\n\n• Die Erwartungen des Kunden bereits bei seiner Ankunft zu erkennen und ihn taktvoll zu dem Bereich, Ort oder Ansprechpartner zu leiten, der am besten zu ihm passt, um ihm ein reibungsloses und individuelles Erlebnis zu bieten.\n\n• Sorgen Sie für eine harmonische und ruhige Atmosphäre im Empfangsbereich, indem Sie Gelassenheit, Höflichkeit und Flexibilität an den Tag legen – auch zu Stoßzeiten.\n\n• Sorgen Sie für eine einwandfreie Koordination mit den verschiedenen Teams (Verkauf, Betrieb, Sicherheit), indem Sie Ankünfte und Termine in Echtzeit weitergeben, um eine optimale Betreuung zu gewährleisten.\n\n• Verwalten Sie den Terminkalender präzise, indem Sie Ankünfte, Verschiebungen und Stornierungen aktualisieren und gleichzeitig für eine lückenlose Nachverfolgung sorgen.\n\n• Nutzen Sie ein spezielles digitales Tool, um den Besucherstrom zu steuern, die Besucherzahlen im Geschäft in Echtzeit zu verfolgen und den Ablauf des Kundenbesuchs zu optimieren.\n\n• Bieten Sie einen aufmerksamen und proaktiven Service an, wie zum Beispiel Hilfe beim Regenschirm, einen Getränkeservice oder eine zuvorkommende Begleitung bis zum Ausgang oder zum Fahrzeug.\n\n• Sorgen Sie für ein angenehmes Erlebnis für wartende Kunden, indem Sie taktvoll kommunizieren, wenn das Geschäft seine maximale Kapazität erreicht hat, und darauf achten, die Wartezeiten so kurz wie möglich zu halten.\n\nDie Schlüssel zu Ihrem Erfolg\n\n• Nachweisbare Erfahrung im Gastgewerbe oder im Premium-Einzelhandel im Umgang mit einer anspruchsvollen Kundschaft sowie ein ausgeprägtes Gespür für Servicequalität.\n\n• Hervorragende Kompetenzen im Kundenservice, gepaart mit einer herzlichen, professionellen und auf Kundenzufriedenheit ausgerichteten Haltung.\n\n• Sehr gute Kenntnisse der Region, um Besucher über Genf und Umgebung zu informieren und ihnen Orientierung zu bieten.\n\n• Die Fähigkeit, in Stoßzeiten gelassen und professionell zu agieren und dabei stets einen aufmerksamen Empfang zu gewährleisten.\n\n• Herzliche und authentische Art, die einen reibungslosen und positiven Umgang mit jedem Kunden fördert und gleichzeitig eine diskrete Haltung bewahrt.\n\n• Perfekte Beherrschung der deutschen und der englischen Sprache, um lokale und internationale Kunden problemlos zu empfangen\n\nAls verantwortungsvoller Arbeitgeber setzen wir uns für Ethik, Vielfalt und Integration ein. Begleiten Sie das menschliche Abenteuer von Hermès!",
+      "descriptionByLocale": {
+        "it": "Il tuo lavoro quotidiano\n\n• Per accogliere ogni visitatore in modo caloroso ed elegante, incarnando l'eleganza della casa e lasciando una prima impressione ben curata e indimenticabile.\n\n• Riconoscere le aspettative del cliente non appena arrivano e guidarli con tatto alla zona, alla posizione o alla persona di contatto che meglio si adatta a loro per offrire loro un'esperienza liscia e individuale.\n\n• Assicurare un'atmosfera armoniosa e calma nell'area reception mostrando serenità, cortesia e flessibilità – anche nelle ore di punta.\n\n• Assicurare un perfetto coordinamento con le varie squadre (vendita, operazioni, sicurezza) condividendo arrivi e appuntamenti in tempo reale per garantire un supporto ottimale.\n\n• Gestisci con precisione il programma aggiornando arrivi, posticipazioni e cancellazioni, garantendo al contempo un monitoraggio senza interruzioni.\n\n• Utilizzare uno speciale strumento digitale per controllare il flusso dei visitatori, monitorare il numero di visitatori nel negozio in tempo reale e ottimizzare il flusso delle visite dei clienti.\n\n• Offrire un servizio attento e proattivo, come l'assistenza ombrellone, servizio bevande, o cortese escort all'uscita o al veicolo.\n\n• Assicurare un'esperienza piacevole per i clienti in attesa comunicando con tatto quando il negozio ha raggiunto la sua capacità massima e assicurarsi di mantenere i tempi di attesa il più breve possibile.\n\nLe chiavi del tuo successo\n\n• Esperienza dimostrabile nel settore dell'ospitalità o nel retail premium nel trattare con un cliente esigente e un forte senso di qualità del servizio.\n\n• Competenze eccellenti nel servizio clienti, accoppiate con un atteggiamento caldo, professionale e orientato alla soddisfazione del cliente.\n\n• Ottima conoscenza della regione per informare i visitatori di Ginevra e della zona circostante e fornire loro orientamento.\n\n• La capacità di agire serenamente e professionalmente nelle ore di punta, assicurando sempre una reception attenta.\n\n• Un modo cordiale e autentico che promuove un approccio liscio e positivo a ogni cliente pur mantenendo un atteggiamento discreto.\n\n• Comando perfetto di tedesco e inglese per ricevere facilmente clienti locali e internazionali\n\nCome datore di lavoro responsabile, ci impegniamo per l'etica, la diversità e l'inclusione. Unisciti all'avventura umana di Hermès!",
+        "en": "Your everyday work\n\n• To welcome every visitor warmly and stylishly, embodying the elegance of the house and leaving a well-kept, unforgettable first impression.\n\n• Recognize the customer’s expectations as soon as they arrive and tactfully guide them to the area, location or contact person that best suits them in order to offer them a smooth and individual experience.\n\n• Ensure a harmonious and calm atmosphere in the reception area by showing serenity, courtesy and flexibility – even at peak hours.\n\n• Ensure perfect coordination with the various teams (sales, operations, security) by sharing arrivals and appointments in real time to ensure optimal support.\n\n• Precisely manage the schedule by updating arrivals, postponements and cancellations while ensuring seamless tracking.\n\n• Use a special digital tool to control the flow of visitors, track the number of visitors in the store in real time and optimize the flow of customer visits.\n\n• Offer an attentive and proactive service, such as umbrella assistance, drink service, or courteous escort to the exit or vehicle.\n\n• Ensure an enjoyable experience for waiting customers by tactfully communicating when the store has reached its maximum capacity and making sure to keep waiting times as short as possible.\n\nThe Keys to Your Success\n\n• Demonstrable experience in the hospitality industry or in premium retail in dealing with a demanding customer as well as a strong sense of service quality.\n\n• Excellent skills in customer service, coupled with a warm, professional and customer satisfaction-oriented attitude.\n\n• Very good knowledge of the region to inform visitors about Geneva and the surrounding area and provide them with orientation.\n\n• The ability to act serenely and professionally in peak hours while always ensuring an attentive reception.\n\n• A cordial and authentic manner that promotes a smooth and positive approach to each customer while maintaining a discreet attitude.\n\n• Perfect command of German and English to easily receive local and international customers\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the human adventure of Hermès!",
+        "de": "Ihr Arbeitsalltag\n\n• Jeden Besucher herzlich und stilvoll zu empfangen, dabei die Eleganz des Hauses zu verkörpern und einen gepflegten, unvergesslichen ersten Eindruck zu hinterlassen.\n\n• Die Erwartungen des Kunden bereits bei seiner Ankunft zu erkennen und ihn taktvoll zu dem Bereich, Ort oder Ansprechpartner zu leiten, der am besten zu ihm passt, um ihm ein reibungsloses und individuelles Erlebnis zu bieten.\n\n• Sorgen Sie für eine harmonische und ruhige Atmosphäre im Empfangsbereich, indem Sie Gelassenheit, Höflichkeit und Flexibilität an den Tag legen – auch zu Stoßzeiten.\n\n• Sorgen Sie für eine einwandfreie Koordination mit den verschiedenen Teams (Verkauf, Betrieb, Sicherheit), indem Sie Ankünfte und Termine in Echtzeit weitergeben, um eine optimale Betreuung zu gewährleisten.\n\n• Verwalten Sie den Terminkalender präzise, indem Sie Ankünfte, Verschiebungen und Stornierungen aktualisieren und gleichzeitig für eine lückenlose Nachverfolgung sorgen.\n\n• Nutzen Sie ein spezielles digitales Tool, um den Besucherstrom zu steuern, die Besucherzahlen im Geschäft in Echtzeit zu verfolgen und den Ablauf des Kundenbesuchs zu optimieren.\n\n• Bieten Sie einen aufmerksamen und proaktiven Service an, wie zum Beispiel Hilfe beim Regenschirm, einen Getränkeservice oder eine zuvorkommende Begleitung bis zum Ausgang oder zum Fahrzeug.\n\n• Sorgen Sie für ein angenehmes Erlebnis für wartende Kunden, indem Sie taktvoll kommunizieren, wenn das Geschäft seine maximale Kapazität erreicht hat, und darauf achten, die Wartezeiten so kurz wie möglich zu halten.\n\nDie Schlüssel zu Ihrem Erfolg\n\n• Nachweisbare Erfahrung im Gastgewerbe oder im Premium-Einzelhandel im Umgang mit einer anspruchsvollen Kundschaft sowie ein ausgeprägtes Gespür für Servicequalität.\n\n• Hervorragende Kompetenzen im Kundenservice, gepaart mit einer herzlichen, professionellen und auf Kundenzufriedenheit ausgerichteten Haltung.\n\n• Sehr gute Kenntnisse der Region, um Besucher über Genf und Umgebung zu informieren und ihnen Orientierung zu bieten.\n\n• Die Fähigkeit, in Stoßzeiten gelassen und professionell zu agieren und dabei stets einen aufmerksamen Empfang zu gewährleisten.\n\n• Herzliche und authentische Art, die einen reibungslosen und positiven Umgang mit jedem Kunden fördert und gleichzeitig eine diskrete Haltung bewahrt.\n\n• Perfekte Beherrschung der deutschen und der englischen Sprache, um lokale und internationale Kunden problemlos zu empfangen\n\nAls verantwortungsvoller Arbeitgeber setzen wir uns für Ethik, Vielfalt und Integration ein. Begleiten Sie das menschliche Abenteuer von Hermès!",
+        "fr": "Votre travail quotidien\n\n• Accueillir chaleureusement et élégamment chaque visiteur, incarner l'élégance de la maison et laisser une première impression bien gardée et inoubliable.\n\n• Reconnaître les attentes du client dès leur arrivée et les guider avec tact vers la zone, l'emplacement ou la personne de contact qui leur convient le mieux afin de leur offrir une expérience fluide et individuelle.\n\n• Assurer une atmosphère harmonieuse et calme dans la zone d'accueil en faisant preuve de sérénité, de courtoisie et de flexibilité, même aux heures de pointe.\n\n• Assurer une parfaite coordination avec les différentes équipes (ventes, opérations, sécurité) en partageant les arrivées et les rendez-vous en temps réel pour assurer un soutien optimal.\n\n• Gérer précisément le calendrier en mettant à jour les arrivées, les reports et les annulations tout en assurant un suivi transparent.\n\n• Utilisez un outil numérique spécial pour contrôler le flux des visiteurs, suivre le nombre de visiteurs dans le magasin en temps réel et optimiser le flux des visites des clients.\n\n• Offrez un service attentif et proactif, comme l'aide au parapluie, le service de boissons ou l'escorte courtoise à la sortie ou au véhicule.\n\n• Assurer une expérience agréable pour les clients d'attente en communiquant avec tact quand le magasin a atteint sa capacité maximale et en veillant à garder les temps d'attente aussi courts que possible.\n\nLes clés de votre réussite\n\n• Expérience démontrée dans l'industrie de l'hôtellerie ou dans le commerce de détail haut de gamme dans le traitement d'un client exigeant ainsi que d'un sens fort de la qualité du service.\n\n• Excellentes compétences en service à la clientèle, associées à une attitude chaleureuse, professionnelle et axée sur la satisfaction du client.\n\n• Très bonne connaissance de la région pour informer les visiteurs sur Genève et les environs et leur donner une orientation.\n\n• La capacité d'agir sereinement et professionnellement en heures de pointe tout en assurant toujours une réception attentive.\n\n• Une manière cordiale et authentique qui favorise une approche douce et positive pour chaque client tout en maintenant une attitude discrète.\n\n• Commande parfaite de l'allemand et de l'anglais pour recevoir facilement des clients locaux et internationaux\n\nEn tant qu'employeur responsable, nous sommes attachés à l'éthique, à la diversité et à l'inclusion. Rejoignez l'aventure humaine d'Hermès !"
+      },
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
+      "source": "Hermès Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-19T10:24:30.508Z",
+      "addressLocality": "Zurich, Switzerland",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Luxury goods / fashion / watchmaking",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-26",
+      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "cdi-welcome-host-w-m-hermes-ch",
+        "cdi-hote-de-bienvenue-w-m-hermes-zurich-switzerland",
+        "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-welcome-host-w-m-hermes-ch",
+          "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland"
+        ],
+        "fr": [
+          "cdi-hote-de-bienvenue-w-m-hermes-zurich-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-26T10:53:20.130Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -252,79 +401,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "hermes-15455aba22d4",
-      "slug": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
-      "slugByLocale": {
-        "it": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
-        "en": "communication-1-year-f-h-hermes-geneve-geneva-switzerland",
-        "de": "mitteilung-1-jahr-f-h-hermes-geneve-geneva-switzerland",
-        "fr": "stage-communication-1an-f-h-hermes-ch"
       },
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "Stage Communication 1an (F/H)",
-      "titleByLocale": {
-        "it": "Comunicazione 1 anno (F/H)",
-        "en": "Communication 1 year (F/H)",
-        "de": "Mitteilung 1 Jahr (F/H)",
-        "fr": "Stage Communication 1an (F/H)"
-      },
-      "description": "Votre principale mission consiste à assister l’équipe Communication en participant activement à l’organisation de différents événements et en venant en support à notre équipe dans ses relations avec les médias, la presse ou l’influence.\n\n• Participation à l’organisation d’événements : soirées VIP, événements en magasin,...\n\n• Contrôle des factures du département Communication et suivi des engagements budgétaires\n\n• Gestion et suivi des mailings pour les événements de Relations Publiques organisés par Hermès (Suisse) SA\n\n• En support à l’attachée de Presse : réalisation de reportings et réponses à des demandes de journalistes\n\n• En support à la directrice de Communication : mise en ligne des campagnes digitales, préparation assets pour les campagnes print et affichage.\n\nVous préparez un Master avec une orientation Communication et vous possédez les qualités suivantes :\n\n• Un excellent relationnel\n\n• De la curiosité d’esprit et une belle capacité d’adaptation\n\n• De la rigueur\n\n• Une très bonne maîtrise des outils bureautiques et de communication digitale\n\n• La pratique courante du français et de l’anglais est nécessaire. Un bon niveau d’allemand est un plus\n\n• Une première expérience dans le domaine de la communication est vivement souhaitée\n\n• Et l'envie de participer au déploiement d'événements inoubliables\n\n• Une convention de stage est obligatoire pour la réalisation de ce stage à 100% de décembre 2026 à décembre 2027",
-      "descriptionByLocale": {
-        "it": "La vostra missione principale è di assistere il team di comunicazione partecipando attivamente all'organizzazione di eventi diversi e sostenendo il nostro team nelle sue relazioni con i media, la stampa o l'influenza.\n• Partecipazione all'organizzazione degli eventi: serate VIP, eventi in-store, ecc.\n• Controllo delle fatture del dipartimento di comunicazione e monitoraggio degli impegni di bilancio\n• Gestione e monitoraggio delle mailings per gli eventi di pubbliche relazioni organizzati da Hermès (Svizzera) SA\n• A sostegno di Pressanneé: produzione di report e risposte alle richieste dei giornalisti\n• A sostegno del Direttore della Comunicazione: campagne digitali online, preparazione di attività per campagne di stampa e visualizzazione. Prepari un Master con un orientamento di Comunicazione e hai le seguenti qualità:\n• Una relazione eccellente\n• Dalla curiosità della mente e una bella capacità di adattamento\n• Strictness\n• Una buona padronanza dell'automazione degli uffici e degli strumenti di comunicazione digitale\n• La pratica comune di francese e inglese è necessaria. Un buon livello di tedesco è un plus\n• Una prima esperienza nel campo della comunicazione è fortemente desiderata\n• E il desiderio di partecipare alla distribuzione di eventi indimenticabili\n• Un accordo di stage è obbligatorio per il completamento di questo tirocinio 100% dal dicembre 2026 al dicembre 2027",
-        "en": "Your main mission is to assist the Communication Team by actively participating in the organization of different events and supporting our team in its relations with the media, the press or influence.\n• Participation in the organisation of events: VIP evenings, in-store events, etc.\n• Control of the invoices of the Communication department and monitoring of budget commitments\n• Management and monitoring of mailings for public relations events organized by Hermès (Switzerland) SA\n• In support of Press attaché: production of reports and responses to requests from journalists\n• In support of the Director of Communication: online digital campaigns, assets preparation for print campaigns and display. You prepare a Master with a Communication orientation and you have the following qualities:\n• An excellent relational\n• From curiosity of mind and a beautiful ability to adapt\n• Strictness\n• A very good mastery of office automation and digital communication tools\n• The common practice of French and English is necessary. A good level of German is a plus\n• A first experience in the field of communication is strongly desired\n• And the desire to participate in the deployment of unforgettable events\n• An internship agreement is mandatory for the completion of this 100% internship from December 2026 to December 2027",
-        "de": "Ihre Hauptaufgabe besteht darin, das Kommunikationsteam zu unterstützen, indem Sie sich aktiv an der Organisation verschiedener Veranstaltungen beteiligen und unser Team bei seinen Beziehungen zu den Medien, der Presse oder Influencern unterstützen.\n• Mitwirkung bei der Organisation von Veranstaltungen: VIP-Abende, In-Store-Events usw.\n• Kontrolle der Rechnungen der Kommunikationsabteilung und Überwachung der Budgetverpflichtungen\n• Verwaltung und Überwachung von Mailings für von Hermès (Schweiz) SA organisierte PR-Veranstaltungen\n• Unterstützung des Presseattachés: Erstellung von Berichten und Antworten auf Anfragen von Journalisten\n• Unterstützung des Kommunikationsdirektors: Online-Schaltung digitaler Kampagnen, Vorbereitung von Assets für Print- und Display-Kampagnen. Sie bereiten einen Masterstudiengang mit Kommunikationsorientierung vor und verfügen über die folgenden Eigenschaften:\n• Hervorragende zwischenmenschliche Fähigkeiten\n• Neugier und große Anpassungsfähigkeit\n• Genauigkeit\n• Sehr gute Beherrschung der Büroautomation und digitaler Kommunikationsmittel\n• Fließende Kenntnisse in Französisch und Englisch sind erforderlich. Gute Deutschkenntnisse sind von Vorteil\n• Erste Erfahrungen im Bereich Kommunikation sind unbedingt erwünscht\n• Und der Wunsch, sich an der Umsetzung unvergesslicher Events zu beteiligen\n• Für die Absolvierung dieses Praktikums zu 100 % von Dezember 2026 bis Dezember 2027 ist ein Praktikumsvertrag zwingend erforderlich",
-        "fr": "Votre principale mission consiste à assister l’équipe Communication en participant activement à l’organisation de différents événements et en venant en support à notre équipe dans ses relations avec les médias, la presse ou l’influence.\n\n• Participation à l’organisation d’événements : soirées VIP, événements en magasin,...\n\n• Contrôle des factures du département Communication et suivi des engagements budgétaires\n\n• Gestion et suivi des mailings pour les événements de Relations Publiques organisés par Hermès (Suisse) SA\n\n• En support à l’attachée de Presse : réalisation de reportings et réponses à des demandes de journalistes\n\n• En support à la directrice de Communication : mise en ligne des campagnes digitales, préparation assets pour les campagnes print et affichage.\n\nVous préparez un Master avec une orientation Communication et vous possédez les qualités suivantes :\n\n• Un excellent relationnel\n\n• De la curiosité d’esprit et une belle capacité d’adaptation\n\n• De la rigueur\n\n• Une très bonne maîtrise des outils bureautiques et de communication digitale\n\n• La pratique courante du français et de l’anglais est nécessaire. Un bon niveau d’allemand est un plus\n\n• Une première expérience dans le domaine de la communication est vivement souhaitée\n\n• Et l'envie de participer au déploiement d'événements inoubliables\n\n• Une convention de stage est obligatoire pour la réalisation de ce stage à 100% de décembre 2026 à décembre 2027"
-      },
-      "location": "Geneve, Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-18T22:02:48.473Z",
-      "addressLocality": "Geneve, Geneva, Switzerland",
-      "postalCode": "1204",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stage-communication-1an-f-h-hermes-ch",
-        "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-communication-1an-f-h-hermes-ch",
-          "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-06-11T07:52:59.019Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "hermes-b0c6f7aac2bc",
@@ -341,7 +420,7 @@
       "title": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
       "titleByLocale": {
         "it": "CDI - Sales Associate Zurich (80% - 5 giorni) (H/F)",
-        "en": "CDI - Sales Associate Zurich (80% - 5 days) (M/F)",
+        "en": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
         "de": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
         "fr": "CDI - Sales Associate Zurich (80% - 5 jours) (H/F)"
       },
@@ -398,145 +477,9 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "hermes-611960534235",
-      "slug": "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland",
-      "slugByLocale": {
-        "it": "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland",
-        "en": "cdi-welcome-host-w-m-hermes-ch",
-        "de": "cdi-welcome-host-w-m-hermes-ch",
-        "fr": "cdi-accueil-h-f-hermes-zurich-switzerland"
       },
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - Welcome Host - (W/M)",
-      "titleByLocale": {
-        "it": "CDI - Host di benvenuto - (W/M)",
-        "en": "CDI - Welcome Host - (M/F)",
-        "de": "CDI - Welcome Host - (W/M)",
-        "fr": "CDI - Accueil - (H/F)"
-      },
-      "description": "Ihr Arbeitsalltag\n\n• Jeden Besucher herzlich und stilvoll zu empfangen, dabei die Eleganz des Hauses zu verkörpern und einen gepflegten, unvergesslichen ersten Eindruck zu hinterlassen.\n\n• Die Erwartungen des Kunden bereits bei seiner Ankunft zu erkennen und ihn taktvoll zu dem Bereich, Ort oder Ansprechpartner zu leiten, der am besten zu ihm passt, um ihm ein reibungsloses und individuelles Erlebnis zu bieten.\n\n• Sorgen Sie für eine harmonische und ruhige Atmosphäre im Empfangsbereich, indem Sie Gelassenheit, Höflichkeit und Flexibilität an den Tag legen – auch zu Stoßzeiten.\n\n• Sorgen Sie für eine einwandfreie Koordination mit den verschiedenen Teams (Verkauf, Betrieb, Sicherheit), indem Sie Ankünfte und Termine in Echtzeit weitergeben, um eine optimale Betreuung zu gewährleisten.\n\n• Verwalten Sie den Terminkalender präzise, indem Sie Ankünfte, Verschiebungen und Stornierungen aktualisieren und gleichzeitig für eine lückenlose Nachverfolgung sorgen.\n\n• Nutzen Sie ein spezielles digitales Tool, um den Besucherstrom zu steuern, die Besucherzahlen im Geschäft in Echtzeit zu verfolgen und den Ablauf des Kundenbesuchs zu optimieren.\n\n• Bieten Sie einen aufmerksamen und proaktiven Service an, wie zum Beispiel Hilfe beim Regenschirm, einen Getränkeservice oder eine zuvorkommende Begleitung bis zum Ausgang oder zum Fahrzeug.\n\n• Sorgen Sie für ein angenehmes Erlebnis für wartende Kunden, indem Sie taktvoll kommunizieren, wenn das Geschäft seine maximale Kapazität erreicht hat, und darauf achten, die Wartezeiten so kurz wie möglich zu halten.\n\nDie Schlüssel zu Ihrem Erfolg\n\n• Nachweisbare Erfahrung im Gastgewerbe oder im Premium-Einzelhandel im Umgang mit einer anspruchsvollen Kundschaft sowie ein ausgeprägtes Gespür für Servicequalität.\n\n• Hervorragende Kompetenzen im Kundenservice, gepaart mit einer herzlichen, professionellen und auf Kundenzufriedenheit ausgerichteten Haltung.\n\n• Sehr gute Kenntnisse der Region, um Besucher über Genf und Umgebung zu informieren und ihnen Orientierung zu bieten.\n\n• Die Fähigkeit, in Stoßzeiten gelassen und professionell zu agieren und dabei stets einen aufmerksamen Empfang zu gewährleisten.\n\n• Herzliche und authentische Art, die einen reibungslosen und positiven Umgang mit jedem Kunden fördert und gleichzeitig eine diskrete Haltung bewahrt.\n\n• Perfekte Beherrschung der deutschen und der englischen Sprache, um lokale und internationale Kunden problemlos zu empfangen\n\nAls verantwortungsvoller Arbeitgeber setzen wir uns für Ethik, Vielfalt und Integration ein. Begleiten Sie das menschliche Abenteuer von Hermès!",
-      "descriptionByLocale": {
-        "it": "Il tuo lavoro quotidiano\n\n• Per accogliere ogni visitatore in modo caloroso ed elegante, incarnando l'eleganza della casa e lasciando una prima impressione ben curata e indimenticabile.\n\n• Riconoscere le aspettative del cliente non appena arrivano e guidarli con tatto alla zona, alla posizione o alla persona di contatto che meglio si adatta a loro per offrire loro un'esperienza liscia e individuale.\n\n• Assicurare un'atmosfera armoniosa e calma nell'area reception mostrando serenità, cortesia e flessibilità – anche nelle ore di punta.\n\n• Assicurare un perfetto coordinamento con le varie squadre (vendita, operazioni, sicurezza) condividendo arrivi e appuntamenti in tempo reale per garantire un supporto ottimale.\n\n• Gestisci con precisione il programma aggiornando arrivi, posticipazioni e cancellazioni, garantendo al contempo un monitoraggio senza interruzioni.\n\n• Utilizzare uno speciale strumento digitale per controllare il flusso dei visitatori, monitorare il numero di visitatori nel negozio in tempo reale e ottimizzare il flusso delle visite dei clienti.\n\n• Offrire un servizio attento e proattivo, come l'assistenza ombrellone, servizio bevande, o cortese escort all'uscita o al veicolo.\n\n• Assicurare un'esperienza piacevole per i clienti in attesa comunicando con tatto quando il negozio ha raggiunto la sua capacità massima e assicurarsi di mantenere i tempi di attesa il più breve possibile.\n\nLe chiavi del tuo successo\n\n• Esperienza dimostrabile nel settore dell'ospitalità o nel retail premium nel trattare con un cliente esigente e un forte senso di qualità del servizio.\n\n• Competenze eccellenti nel servizio clienti, accoppiate con un atteggiamento caldo, professionale e orientato alla soddisfazione del cliente.\n\n• Ottima conoscenza della regione per informare i visitatori di Ginevra e della zona circostante e fornire loro orientamento.\n\n• La capacità di agire serenamente e professionalmente nelle ore di punta, assicurando sempre una reception attenta.\n\n• Un modo cordiale e autentico che promuove un approccio liscio e positivo a ogni cliente pur mantenendo un atteggiamento discreto.\n\n• Comando perfetto di tedesco e inglese per ricevere facilmente clienti locali e internazionali\n\nCome datore di lavoro responsabile, ci impegniamo per l'etica, la diversità e l'inclusione. Unisciti all'avventura umana di Hermès!",
-        "en": "Your everyday work\n\n• To welcome every visitor warmly and stylishly, embodying the elegance of the house and leaving a well-kept, unforgettable first impression.\n\n• Recognize the customer’s expectations as soon as they arrive and tactfully guide them to the area, location or contact person that best suits them in order to offer them a smooth and individual experience.\n\n• Ensure a harmonious and calm atmosphere in the reception area by showing serenity, courtesy and flexibility – even at peak hours.\n\n• Ensure perfect coordination with the various teams (sales, operations, security) by sharing arrivals and appointments in real time to ensure optimal support.\n\n• Precisely manage the schedule by updating arrivals, postponements and cancellations while ensuring seamless tracking.\n\n• Use a special digital tool to control the flow of visitors, track the number of visitors in the store in real time and optimize the flow of customer visits.\n\n• Offer an attentive and proactive service, such as umbrella assistance, drink service, or courteous escort to the exit or vehicle.\n\n• Ensure an enjoyable experience for waiting customers by tactfully communicating when the store has reached its maximum capacity and making sure to keep waiting times as short as possible.\n\nThe Keys to Your Success\n\n• Demonstrable experience in the hospitality industry or in premium retail in dealing with a demanding customer as well as a strong sense of service quality.\n\n• Excellent skills in customer service, coupled with a warm, professional and customer satisfaction-oriented attitude.\n\n• Very good knowledge of the region to inform visitors about Geneva and the surrounding area and provide them with orientation.\n\n• The ability to act serenely and professionally in peak hours while always ensuring an attentive reception.\n\n• A cordial and authentic manner that promotes a smooth and positive approach to each customer while maintaining a discreet attitude.\n\n• Perfect command of German and English to easily receive local and international customers\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the human adventure of Hermès!",
-        "de": "Ihr Arbeitsalltag\n\n• Jeden Besucher herzlich und stilvoll zu empfangen, dabei die Eleganz des Hauses zu verkörpern und einen gepflegten, unvergesslichen ersten Eindruck zu hinterlassen.\n\n• Die Erwartungen des Kunden bereits bei seiner Ankunft zu erkennen und ihn taktvoll zu dem Bereich, Ort oder Ansprechpartner zu leiten, der am besten zu ihm passt, um ihm ein reibungsloses und individuelles Erlebnis zu bieten.\n\n• Sorgen Sie für eine harmonische und ruhige Atmosphäre im Empfangsbereich, indem Sie Gelassenheit, Höflichkeit und Flexibilität an den Tag legen – auch zu Stoßzeiten.\n\n• Sorgen Sie für eine einwandfreie Koordination mit den verschiedenen Teams (Verkauf, Betrieb, Sicherheit), indem Sie Ankünfte und Termine in Echtzeit weitergeben, um eine optimale Betreuung zu gewährleisten.\n\n• Verwalten Sie den Terminkalender präzise, indem Sie Ankünfte, Verschiebungen und Stornierungen aktualisieren und gleichzeitig für eine lückenlose Nachverfolgung sorgen.\n\n• Nutzen Sie ein spezielles digitales Tool, um den Besucherstrom zu steuern, die Besucherzahlen im Geschäft in Echtzeit zu verfolgen und den Ablauf des Kundenbesuchs zu optimieren.\n\n• Bieten Sie einen aufmerksamen und proaktiven Service an, wie zum Beispiel Hilfe beim Regenschirm, einen Getränkeservice oder eine zuvorkommende Begleitung bis zum Ausgang oder zum Fahrzeug.\n\n• Sorgen Sie für ein angenehmes Erlebnis für wartende Kunden, indem Sie taktvoll kommunizieren, wenn das Geschäft seine maximale Kapazität erreicht hat, und darauf achten, die Wartezeiten so kurz wie möglich zu halten.\n\nDie Schlüssel zu Ihrem Erfolg\n\n• Nachweisbare Erfahrung im Gastgewerbe oder im Premium-Einzelhandel im Umgang mit einer anspruchsvollen Kundschaft sowie ein ausgeprägtes Gespür für Servicequalität.\n\n• Hervorragende Kompetenzen im Kundenservice, gepaart mit einer herzlichen, professionellen und auf Kundenzufriedenheit ausgerichteten Haltung.\n\n• Sehr gute Kenntnisse der Region, um Besucher über Genf und Umgebung zu informieren und ihnen Orientierung zu bieten.\n\n• Die Fähigkeit, in Stoßzeiten gelassen und professionell zu agieren und dabei stets einen aufmerksamen Empfang zu gewährleisten.\n\n• Herzliche und authentische Art, die einen reibungslosen und positiven Umgang mit jedem Kunden fördert und gleichzeitig eine diskrete Haltung bewahrt.\n\n• Perfekte Beherrschung der deutschen und der englischen Sprache, um lokale und internationale Kunden problemlos zu empfangen\n\nAls verantwortungsvoller Arbeitgeber setzen wir uns für Ethik, Vielfalt und Integration ein. Begleiten Sie das menschliche Abenteuer von Hermès!",
-        "fr": "Votre travail quotidien\n\n• Accueillir chaleureusement et élégamment chaque visiteur, incarner l'élégance de la maison et laisser une première impression bien gardée et inoubliable.\n\n• Reconnaître les attentes du client dès leur arrivée et les guider avec tact vers la zone, l'emplacement ou la personne de contact qui leur convient le mieux afin de leur offrir une expérience fluide et individuelle.\n\n• Assurer une atmosphère harmonieuse et calme dans la zone d'accueil en faisant preuve de sérénité, de courtoisie et de flexibilité, même aux heures de pointe.\n\n• Assurer une parfaite coordination avec les différentes équipes (ventes, opérations, sécurité) en partageant les arrivées et les rendez-vous en temps réel pour assurer un soutien optimal.\n\n• Gérer précisément le calendrier en mettant à jour les arrivées, les reports et les annulations tout en assurant un suivi transparent.\n\n• Utilisez un outil numérique spécial pour contrôler le flux des visiteurs, suivre le nombre de visiteurs dans le magasin en temps réel et optimiser le flux des visites des clients.\n\n• Offrez un service attentif et proactif, comme l'aide au parapluie, le service de boissons ou l'escorte courtoise à la sortie ou au véhicule.\n\n• Assurer une expérience agréable pour les clients d'attente en communiquant avec tact quand le magasin a atteint sa capacité maximale et en veillant à garder les temps d'attente aussi courts que possible.\n\nLes clés de votre réussite\n\n• Expérience démontrée dans l'industrie de l'hôtellerie ou dans le commerce de détail haut de gamme dans le traitement d'un client exigeant ainsi que d'un sens fort de la qualité du service.\n\n• Excellentes compétences en service à la clientèle, associées à une attitude chaleureuse, professionnelle et axée sur la satisfaction du client.\n\n• Très bonne connaissance de la région pour informer les visiteurs sur Genève et les environs et leur donner une orientation.\n\n• La capacité d'agir sereinement et professionnellement en heures de pointe tout en assurant toujours une réception attentive.\n\n• Une manière cordiale et authentique qui favorise une approche douce et positive pour chaque client tout en maintenant une attitude discrète.\n\n• Commande parfaite de l'allemand et de l'anglais pour recevoir facilement des clients locaux et internationaux\n\nEn tant qu'employeur responsable, nous sommes attachés à l'éthique, à la diversité et à l'inclusion. Rejoignez l'aventure humaine d'Hermès !"
-      },
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:47.189Z",
-      "addressLocality": "Zurich, Switzerland",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "cdi-welcome-host-w-m-hermes-ch",
-        "cdi-hote-de-bienvenue-w-m-hermes-zurich-switzerland",
-        "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cdi-welcome-host-w-m-hermes-ch",
-          "cdi-host-di-benvenuto-w-m-hermes-zurich-switzerland"
-        ],
-        "fr": [
-          "cdi-hote-de-bienvenue-w-m-hermes-zurich-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-26T10:53:20.130Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hermes-833caf19b0b2",
-      "slug": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
-      "slugByLocale": {
-        "it": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
-        "en": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
-        "de": "cdi-in-store-visual-merchandiser-f-h-hermes-ch",
-        "fr": "cdi-merchandiser-visuel-sur-place-f-h-hermes-geneve-geneva-switzerland"
-      },
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - In-Store Visual Merchandiser (F/H)",
-      "titleByLocale": {
-        "it": "CDI - In-Store Visual Merchandiser (M/F)",
-        "en": "CDI - In-Store Visual Merchandiser (F/H)",
-        "de": "CDI - In-Store Visual Merchandiser (M/W)",
-        "fr": "CDI - Merchandiser visuel sur place (F/H)"
-      },
-      "description": "RESPONSIBILITIES\n\n• The In-Store Visual Merchandiser of the Geneva Flagship Store carries out the daily rotation of collections in full alignment with Hermès Group Visual Merchandising guidelines, working closely with the Geneva Store VM Manager, the Switzerland & Central Europe VM Manager, and all store teams.\n\n• Support the VM Manager in the preparation and execution of special events, including product launches, commercial events, and in-store animations.\n\n• Deliver inspiring, dynamic, and meaningful visual displays, fully consistent with Hermès VM guidelines and aligned with the monthly VM schedule.\n\n• Build strong working relationships with all store functions, including Métiers Ambassadors, Sales Advisors, and Stock Teams, to ensure the correct execution of Visual Merchandising activities. Ensure that products, pricing, and stock are properly arranged and consistently maintained, in full compliance with store and company rules.\n\n• Consistently document VM work and actively contribute to, develop, animate, and inspire the Visual Merchandising community.\n\n• Monitor in-store presentation materials (PLV): ensure correct use, maintenance, timely ordering or replacement when needed, and proper storage, with regular checks performed.\n\n• Organize and optimize secondary displays (drawers, concealed shelving, counters), supporting the store in structuring them according to Hermès VM guidelines to facilitate sales. Propose practical solutions regarding space management and product positioning when needed.\n\nPROFILE\n\n• Bachelor’s and/or Master’s degree, preferably in art, design, fashion, or visual merchandising.\n\n• Strong aesthetic sensitivity and creative mindset, with a high level of attention to detail.\n\n• Solid understanding of retail dynamics, business challenges, and commercial priorities within a fast-paced store environment.\n\n• Proven talent with first experience in Visual Merchandising role, managing complex assortments in a multi-category or multi-store context.\n\n• Excellent collaboration and influencing skills, with demonstrated flexibility and the ability to manage the unexpected challenges typical of retail.\n\n• Ability to translate global corporate guidelines into relevant and effective local market execution.\n\n• Strong problem-solving mindset, hands-on attitude, and ease of approach.\n\n• Strong service orientation and natural ability to build trust with store teams.\n\n• French and English proficiency are required\n\n• Part Time 50% role requiring a 7:00 AM start; flexible schedule across 4-5 days\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure !",
-      "descriptionByLocale": {
-        "it": "RISPOSIZIONI\n\n• L'In-Store Visual Merchandiser del Flagship Store di Ginevra effettua la rotazione quotidiana delle collezioni in pieno allineamento con le linee guida di Hermès Group Visual Merchandising, lavorando a stretto contatto con il Gestore VM di Geneva Store, il Gestore VM di Svizzera & Central Europe e tutti i team di store.\n\n• Supporta il VM Manager nella preparazione e nell'esecuzione di eventi speciali, tra cui lanci di prodotti, eventi commerciali e animazioni in-store.\n\n• Fornire display visivi ispiranti, dinamici e significativi, pienamente conformi alle linee guida di Hermès VM e allineati con il calendario mensile delle VM.\n\n• Costruire forti rapporti di lavoro con tutte le funzioni del negozio, tra cui gli Ambasciatori Métiers, i Vendite Advisors e i Team Stock, per garantire la corretta esecuzione delle attività di Visual Merchandising. Assicurarsi che i prodotti, i prezzi e le azioni sono adeguatamente organizzati e costantemente mantenuti, nel pieno rispetto delle regole del negozio e dell'azienda.\n\n• Documentare costantemente il lavoro della VM e contribuire attivamente a, sviluppare, animare e ispirare la comunità di Visual Merchandising.\n\n• Monitorare i materiali di presentazione in-store (PLV): garantire l'uso corretto, la manutenzione, l'ordine tempestivo o la sostituzione quando necessario, e la conservazione corretta, con controlli regolari eseguiti.\n\n• Organizzare e ottimizzare i display secondari (trasporti, scaffali nascosti, contatori), supportando il negozio nella strutturazione secondo le linee guida di Hermès VM per facilitare le vendite. Proporre soluzioni pratiche per la gestione dello spazio e il posizionamento dei prodotti quando necessario.\n\nPROFESSIONALE\n\n• Corso di laurea e/o master, preferibilmente in arte, design, moda o visual merchandising.\n\n• Forte sensibilità estetica e mentalità creativa, con un alto livello di attenzione ai dettagli.\n\n• Una solida comprensione delle dinamiche di vendita al dettaglio, delle sfide aziendali e delle priorità commerciali in un ambiente di vendita veloce.\n\n• Talenti collaudati con la prima esperienza nel ruolo di Visual Merchandising, gestendo complessi assortimento in un contesto multi-categoria o multi-store.\n\n• Ottima collaborazione e competenze influenti, con dimostrata flessibilità e capacità di gestire le sfide inaspettate tipiche del retail.\n\n• Capacità di tradurre le linee guida aziendali globali in esecuzione di mercato locale rilevante ed efficace.\n\n• Forte mentalità problem-solving, atteggiamento hands-on e facilità di approccio.\n\n• Forte orientamento al servizio e naturale capacità di costruire fiducia con i team di negozio.\n\n• La competenza francese e inglese è richiesta\n\n• Part Time 50% ruolo che richiede un inizio di 7:00 AM; programma flessibile in 4-5 giorni\n\nCome datore di lavoro responsabile, ci impegniamo per l'etica, la diversità e l'inclusione. Unisciti all'avventura umana di Hermès!",
-        "en": "RESPONSIBILITIES\n\n• The In-Store Visual Merchandiser of the Geneva Flagship Store carries out the daily rotation of collections in full alignment with Hermès Group Visual Merchandising guidelines, working closely with the Geneva Store VM Manager, the Switzerland & Central Europe VM Manager, and all store teams.\n\n• Support the VM Manager in the preparation and execution of special events, including product launches, commercial events, and in-store animations.\n\n• Deliver inspiring, dynamic, and meaningful visual displays, fully consistent with Hermès VM guidelines and aligned with the monthly VM schedule.\n\n• Build strong working relationships with all store functions, including Métiers Ambassadors, Sales Advisors, and Stock Teams, to ensure the correct execution of Visual Merchandising activities. Ensure that products, pricing, and stock are properly arranged and consistently maintained, in full compliance with store and company rules.\n\n• Consistently document VM work and actively contribute to, develop, animate, and inspire the Visual Merchandising community.\n\n• Monitor in-store presentation materials (PLV): ensure correct use, maintenance, timely ordering or replacement when needed, and proper storage, with regular checks performed.\n\n• Organize and optimize secondary displays (drawers, concealed shelving, counters), supporting the store in structuring them according to Hermès VM guidelines to facilitate sales. Propose practical solutions regarding space management and product positioning when needed.\n\nPROFILE\n\n• Bachelor’s and/or Master’s degree, preferably in art, design, fashion, or visual merchandising.\n\n• Strong aesthetic sensitivity and creative mindset, with a high level of attention to detail.\n\n• Solid understanding of retail dynamics, business challenges, and commercial priorities within a fast-paced store environment.\n\n• Proven talent with first experience in Visual Merchandising role, managing complex assortments in a multi-category or multi-store context.\n\n• Excellent collaboration and influencing skills, with demonstrated flexibility and the ability to manage the unexpected challenges typical of retail.\n\n• Ability to translate global corporate guidelines into relevant and effective local market execution.\n\n• Strong problem-solving mindset, hands-on attitude, and ease of approach.\n\n• Strong service orientation and natural ability to build trust with store teams.\n\n• French and English proficiency are required\n\n• Part Time 50% role requiring a 7:00 AM start; flexible schedule across 4-5 days\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure !",
-        "de": "VERANTWORTUNGEN\n\n• Der In-Store Visual Merchandiser des Geneva Flagship Store führt die tägliche Rotation der Kollektionen in voller Übereinstimmung mit den Richtlinien der Hermès Group Visual Merchandising durch und arbeitet eng mit dem Geneva Store VM Manager, dem Switzerland & Central Europe VM Manager und allen Filialteams zusammen.\n\n• Unterstützen Sie den VM-Manager bei der Vorbereitung und Durchführung von Sonderveranstaltungen, einschließlich Produkteinführungen, kommerziellen Veranstaltungen und In-Store-Animationen.\n\n• Liefern Sie inspirierende, dynamische und aussagekräftige visuelle Displays, die vollständig den VM-Richtlinien von Hermès entsprechen und auf den monatlichen VM-Zeitplan abgestimmt sind.\n\n• Aufbau starker Arbeitsbeziehungen zu allen Filialfunktionen, einschließlich Métiers Botschaftern, Verkaufsberatern und Lagerteams, um die korrekte Ausführung von Visual Merchandising-Aktivitäten sicherzustellen. Stellen Sie sicher, dass Produkte, Preise und Lager ordnungsgemäß organisiert und konsequent gepflegt werden, in voller Übereinstimmung mit den Regeln des Geschäfts und des Unternehmens.\n\n• Dokumentieren Sie konsequent die VM-Arbeit und tragen Sie aktiv dazu bei, entwickeln, animieren und inspirieren Sie die Visual Merchandising-Community.\n\n• Überwachen Sie In-Store-Präsentationsmaterialien (PLV): Stellen Sie die korrekte Verwendung, Wartung, rechtzeitige Bestellung oder Austausch bei Bedarf und eine ordnungsgemäße Lagerung sicher, wobei regelmäßige Kontrollen durchgeführt werden.\n\n• Organisieren und optimieren Sie Sekundärdisplays (Schubladen, versteckte Regale, Theken) und unterstützen Sie den Laden bei der Strukturierung nach Hermès VM-Richtlinien, um den Verkauf zu erleichtern. Schlagen Sie bei Bedarf praktische Lösungen für das Raummanagement und die Produktpositionierung vor.\n\nPROFIL\n\n• Bachelor- und / oder Master-Abschluss, vorzugsweise in Kunst, Design, Mode oder Visual Merchandising.\n\n• Starke ästhetische Sensibilität und kreative Denkweise, mit einem hohen Maß an Liebe zum Detail.\n\n• Ein solides Verständnis der Einzelhandelsdynamik, der geschäftlichen Herausforderungen und der kommerziellen Prioritäten in einer schnelllebigen Ladenumgebung.\n\n• Bewährte Talente mit erster Erfahrung in der Rolle von Visual Merchandising und der Verwaltung komplexer Sortimente in einem Multi-Kategorie- oder Multi-Store-Kontext.\n\n• Hervorragende Zusammenarbeit und beeinflussende Fähigkeiten, mit demonstrierter Flexibilität und der Fähigkeit, die unerwarteten Herausforderungen des Einzelhandels zu bewältigen.\n\n• Fähigkeit, globale Unternehmensrichtlinien in relevante und effektive lokale Marktausführung zu übersetzen.\n\n• Starke Problemlösungsmentalität, praktische Haltung und einfache Herangehensweise.\n\n• Starke Serviceorientierung und natürliche Fähigkeit, Vertrauen mit Store-Teams aufzubauen.\n\n• Französische und englische Kenntnisse sind erforderlich\n\n• Teilzeit 50% Rolle erfordert einen 7:00 Start; flexibler Zeitplan über 4-5 Tage\n\nAls verantwortungsvoller Arbeitgeber bekennen wir uns zu Ethik, Diversität und Inklusion. Nehmen Sie am menschlichen Abenteuer Hermès teil!",
-        "fr": "RESPONSABLES\n\n• Le Marchandisateur Visual In-Store du Geneva Flagship Store effectue la rotation quotidienne des collections en alignement complet avec les directives du Groupe Hermès, en collaboration étroite avec le Geneva Store VM Manager, le Suisse & Europe centrale VM Manager et toutes les équipes de magasins.\n\n• Soutenir le gestionnaire de VM dans la préparation et l'exécution d'événements spéciaux, y compris les lancements de produits, les événements commerciaux et les animations en magasin.\n\n• Offrez des affichages visuels inspirants, dynamiques et significatifs, entièrement conformes aux directives Hermès VM et alignés sur le calendrier mensuel VM.\n\n• Établir des relations de travail solides avec toutes les fonctions de magasin, y compris les ambassadeurs de Métiers, les conseillers commerciaux et les équipes de stock, pour assurer la bonne exécution des activités de marchandisation visuelle. S'assurer que les produits, les prix et les stocks sont bien disposés et maintenus, en pleine conformité avec les règles du magasin et de l'entreprise.\n\n• Documenter de façon cohérente le travail de la VM et contribuer activement au développement, à l'animation et à l'inspiration de la communauté des marchands visuels.\n\n• Surveiller les documents de présentation en magasin (PLV) : veiller à l'utilisation correcte, à l'entretien, à la commande ou au remplacement en temps opportun, au besoin, et à l'entreposage approprié, avec des vérifications régulières.\n\n• Organisez et optimisez les présentoirs secondaires (tiroirs, étagères cachées, comptoirs), en les structurant selon les directives Hermès VM pour faciliter les ventes. Proposer des solutions pratiques concernant la gestion de l'espace et le positionnement des produits au besoin.\n\nPROFIL\n\n• Baccalauréat et/ou maîtrise, de préférence en art, design, mode ou merchandising visuel.\n\n• Sensibilité esthétique forte et esprit créatif, avec un haut niveau d'attention au détail.\n\n• Compréhension solide de la dynamique du commerce de détail, des défis commerciaux et des priorités commerciales dans un environnement de magasin rapide.\n\n• Un talent éprouvé avec une première expérience dans le rôle de marchandisation visuelle, la gestion d'assortiments complexes dans un contexte multi-catégorie ou multi-magasin.\n\n• Excellente collaboration et influence des compétences, avec une flexibilité démontrée et la capacité de gérer les défis inattendus typiques du commerce de détail.\n\n• Capacité de traduire les lignes directrices mondiales des entreprises en une exécution locale pertinente et efficace des marchés.\n\n• Forte résolution de problèmes, attitude pratique et facilité d'approche.\n\n• Forte orientation du service et la capacité naturelle de renforcer la confiance avec les équipes de magasin.\n\n• Les compétences en français et en anglais sont requises\n\n• Temps partiel 50% de rôle nécessitant un départ de 7:00 AM; horaire flexible sur 4-5 jours\n\nEn tant qu'employeur responsable, nous sommes attachés à l'éthique, à la diversité et à l'inclusion. Rejoignez l'aventure humaine Hermès !"
-      },
-      "location": "Geneve, Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/22674/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-17T21:32:26.438Z",
-      "addressLocality": "Geneve, Geneva, Switzerland",
-      "postalCode": "1204",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22674/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-03T22:12:44.509Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

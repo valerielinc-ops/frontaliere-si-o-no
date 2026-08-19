@@ -56,6 +56,10 @@ on:
         description: 'Percentage points of headroom below the ratchet under which a still-green gate is alerted. Default: repo var JOB_DESC_LOCALE_MIN_HEADROOM_PP, else 0.05.'
         required: false
         default: ''
+      queue_stale_alert:
+        description: 'Number of jobs queued >7d while still serving their source-language description, above which the issue is opened. Default: repo var JOB_DESC_QUEUE_STALE_ALERT, else 100.'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -103,6 +107,7 @@ jobs:
         if: steps.audit.outcome == 'success'
         env:
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          QUEUE_STALE_ALERT: ${{ inputs.queue_stale_alert || vars.JOB_DESC_QUEUE_STALE_ALERT || '100' }}
         run: |
           set -euo pipefail
           mkdir -p /tmp/jdl
@@ -120,7 +125,24 @@ jobs:
             writeFileSync('/tmp/jdl/body.md', '');
             console.log('No job dataset — skipping issue update.');
           } else {
-            const unhealthy = r.breached || r.thinMargin || r.gateBlind;
+            // THE QUEUE IS A THIRD, INDEPENDENT ALARM. `breached` / `thinMargin` /
+            // `gateBlind` are all statements about the RATE, and the rate skips
+            // `needsRetranslation` jobs in its numerator by design. A job that is
+            // queued and never drains therefore serves its source-language text
+            // on a foreign-locale page indefinitely without moving any of the
+            // three. `queue.staleSourceCopyJobs` is that population.
+            //
+            // THRESHOLD 100, derived from the shape of the queue rather than
+            // picked round. Measured 2026-08-19 on the committed slices: 419
+            // stale-eligible jobs sit in 0-7d (normal churn — the drain runs 5x
+            // a day), only 4 survive into 8-30d, and then 370 pile up beyond 30
+            // days. A healthy drain leaves single digits behind; 100 sits an
+            // order of magnitude above that and well under the 376 tail, so it
+            // is red today, opens work, and can actually go green again.
+            const q = r.queue || {};
+            const queueStaleAlert = Number(process.env.QUEUE_STALE_ALERT || '100');
+            const queueStuck = Number(q.staleSourceCopyJobs || 0) > queueStaleAlert;
+            const unhealthy = r.breached || r.thinMargin || r.gateBlind || queueStuck;
             let md = `## Descrizioni in lingua sbagliata — snapshot\n\n`;
             md += r.gateBlind
               ? `🔴 **GATE CIECA.** Solo **${r.servedSlots}/${r.slots}** slot (${(r.servedShare * 100).toFixed(1)}%) sono serviti come traduzioni finite, sotto il floor del ${(r.minServedShare * 100).toFixed(0)}%. Il tasso qui sotto e' verde perche' la gate non vede quasi niente, non perche' il corpus sia sano: la coda \`needsRetranslation\` si e' mangiata la popolazione.\n\n`
@@ -141,6 +163,41 @@ jobs:
             for (const o of r.offenders.slice(0, 15)) {
               md += `- \`${o.company}/${o.slug}\` [${o.locale}] => ${o.detected} (${o.confidence})`;
               md += o.sourceCopy ? ` — **copia del sorgente ${o.sourceLang}**\n` : `\n`;
+            }
+
+            if (q.queuedJobs !== undefined) {
+              md += `\n### La coda di traduzione — la popolazione che il tasso qui sopra NON vede\n\n`;
+              md += `**${q.queuedJobs}** job sono in coda (\`needsRetranslation\`). Di questi, **${q.sourceCopyJobs}** servono ancora una descrizione byte-identica al sorgente, e **${q.staleSourceCopyJobs}** lo fanno da piu' di ${q.staleDays} giorni (il piu' vecchio: ${q.oldestStaleDays}g).\n\n`;
+              md += queueStuck
+                ? `🔴 **La coda non drena per ${q.staleSourceCopyJobs} job** (soglia ${queueStaleAlert}). Ognuno serve testo ${'`'}sourceLang${'`'} su una pagina di un'altra lingua, ogni giorno, e **nessuna delle metriche qui sopra lo conta**: il ratchet salta i job in coda nel numeratore per scelta, \`MIN_SERVED_SHARE\` e' un floor da catastrofe, e \`QUEUE_AGE_ALERT_DAYS\` (150) guarda l'eta' del singolo job piu' vecchio, non quanti sono.\n\n`
+                : `✅ Sotto la soglia di ${queueStaleAlert}: la coda sta drenando.\n\n`;
+              md += `| eta' in coda | job che servono il sorgente |\n|---|---:|\n`;
+              for (const [bucket, n] of Object.entries(q.byAge || {})) md += `| ${bucket} | ${n} |\n`;
+              if (q.staleNonSwissMeasured && q.staleSourceCopyJobs > 0) {
+                const share = ((q.staleNonSwiss / q.staleSourceCopyJobs) * 100).toFixed(1);
+                md += `\n**Dove sono questi job: ${q.staleNonSwiss} su ${q.staleSourceCopyJobs} (${share}%) non sono in un comune svizzero.**\n\n`;
+                if ((q.topLocations || []).length) {
+                  md += `| job fermi | sede |\n|---:|---|\n`;
+                  for (const l of q.topLocations) md += `| ${l.count} | ${String(l.key).replace(/\|/g, '\\|')} |\n`;
+                  md += `\n`;
+                }
+                md += `Questo cambia la diagnosi, e va letto prima di trattare il numero come un arretrato di traduzione. Un annuncio a Shanghai o a Madrid non ha pubblico frontaliero, quindi non raccoglie traffico; l'ordinamento della coda e' traffic-first, quindi non lo pesca mai; e l'unico meccanismo che potrebbe pescarlo e' la riserva oldest-first del 20%. Non e' la cascata che fallisce su questi job: e' che non arrivano mai al suo turno. **La domanda da porsi e' perche' siano nel corpus**, non come alzare il cap di traduzione — \`scripts/audit-job-locations.mjs\` (layer 2, \`foreignInSwiss\`) misura la stessa popolazione dal lato località.\n\n`;
+              }
+
+              md += `\n_Lo scalino fra le fasce e' il segnale: se \`8-30d\` e' quasi vuoto e \`31-90d\` e' pieno, non e' un arretrato che si smaltisce piano — e' un insieme di job che la cascata non prende mai._\n\n`;
+              if ((q.topCompanies || []).length) {
+                md += `| job fermi | azienda |\n|---:|---|\n`;
+                for (const c of q.topCompanies) md += `| ${c.count} | ${c.key} |\n`;
+                md += `\n`;
+              }
+              if ((q.samples || []).length) {
+                md += `<details><summary>Primi ${q.samples.length} job fermi</summary>\n\n`;
+                for (const sm of q.samples) {
+                  md += `- \`${sm.companyKey || sm.company}/${sm.slug}\` — ${sm.waitedDays}g in coda, ${sm.sourceLang} copiato in [${sm.copiedLocales.join(', ')}]\n`;
+                }
+                md += `\n</details>\n\n`;
+              }
+              md += `**Da dove partire.** L'ordinamento della coda e' \`scripts/lib/job-traffic-priority.mjs\`: prima il traffico, con \`RESERVE_FOR_OLDEST\` (20%) di ogni batch pescato oldest-first proprio per non affamare la coda. Se questi job restano fermi mentre la riserva gira, la domanda giusta non e' "alzare il cap" ma **perche' questi specifici job non vengono mai presi** — cominciare dalle aziende in cima alla tabella, che sono poche e concentrate. Il mop-up gratuito \`local-mt-mopup.mjs\` (Phase 2a) ripara le copie byte-identiche senza consumare quota, quindi una coda ferma di sole copie del sorgente non e' spiegabile con la quota AI.\n\n`;
             }
 
             md += `\n### Riprodurre\n\n\`\`\`bash\nnode scripts/assemble-jobs-dataset.mjs\nnode scripts/audit-job-description-locale.mjs\nnpx vitest run tests/job-locale-consistency.test.ts\n\`\`\`\n\n`;

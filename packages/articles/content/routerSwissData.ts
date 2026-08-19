@@ -1153,6 +1153,17 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stipendi-radiologi-bonus-svizzera': { it: 'stipendi-radiologi-bonus-svizzera', en: 'salaries-radiologists-bonus-switzerland', de: 'gehaelter-radiologen-bonus-schweiz', fr: 'salaires-radiologues-bonus-suisse' },
  'soglie-patrimonio-banche-svizzera': { it: 'soglie-patrimonio-banche-svizzera', en: 'wealth-thresholds-swiss-banks', de: 'vermoegens-schwellen-schweizer-banken', fr: 'seuils-patrimoine-banques-suisse' },
  'easygov-pmi-svizzere': { it: 'easygov-pmi-svizzere', en: 'easygov-smes-switzerland', de: 'easygov-kmb-schweiz', fr: 'easygov-pme-suisse' },
+ 'ticino-neutralita-sondaggio-2026': { it: 'ticino-neutralita-sondaggio-2026', en: 'ticino-neutrality-survey-2026', de: 'tessin-neutralitaet-umfrage-2026', fr: 'tessin-neutralite-sondage-2026' },
+ 'revisione-lex-koller-immobiliare': { it: 'revisione-lex-koller-immobiliare', en: 'lex-koller-revision-real-estate', de: 'lex-koller-revision-immobilien', fr: 'revision-lex-koller-immobilier' },
+ 'migros-tre-partenze-vertici': { it: 'migros-tre-partenze-vertici', en: 'migros-three-departures-executives', de: 'migros-drei-abgaenge-spitze', fr: 'migros-trois-departs-direction' },
+ 'industria-costruzione-crescita-q2': { it: 'industria-costruzione-crescita-q2', en: 'industry-construction-growth-q2', de: 'industrie-bau-wachstum-q2', fr: 'industrie-construction-croissance-q2' },
+ 'difesa-aerea-svizzera-investimenti': { it: 'difesa-aerea-svizzera-investimenti', en: 'swiss-air-defense-investments', de: 'schweizer-luftverteidigung-investitionen', fr: 'investissements-defense-aerienne-suisse' },
+ 'indennita-malattia-sistema-funziona-bene': { it: 'indennita-malattia-sistema-funziona-bene', en: 'illness-daily-allowance-system-sufficient', de: 'krankengeld-system-ausreichend', fr: 'indemnite-maladie-systeme-suffisant' },
+ 'bilancio-federale-2026-surplus': { it: 'bilancio-federale-2026-surplus', en: 'federal-budget-2026-surplus', de: 'bundeshaushalt-2026-ueberschuss', fr: 'budget-federal-2026-excedent' },
+ 'furgoni-elettrici-equiparazione-federale': { it: 'furgoni-elettrici-equiparazione-federale', en: 'electric-vans-federal-alignment', de: 'elektro-lieferwagen-bundesgleichstellung', fr: 'fourgons-electriques-egalisation-federale' },
+ 'eccedenza-federale-2026-800-milioni': { it: 'eccedenza-federale-2026-800-milioni', en: 'federal-surplus-2026-800-million', de: 'bundeshaushaltsuberschuss-2026-800-millionen', fr: 'excedent-federal-2026-800-millions' },
+ 'difesa-970-milioni-consiglio-federale': { it: 'difesa-970-milioni-consiglio-federale', en: 'defense-970-million-federal-council', de: 'verteidigung-970-millionen-bundesrat', fr: 'defense-970-millions-conseil-federal' },
+ 'burckhardt-compression-tagli-posti': { it: 'burckhardt-compression-tagli-posti', en: 'burckhardt-compression-job-cuts', de: 'burckhardt-compression-stellenabbau', fr: 'burckhardt-compression-suppression-postes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

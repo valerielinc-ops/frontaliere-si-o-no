@@ -8,6 +8,28 @@
  *   3. Crawler-vs-dataset — does the published LOCALITY still match the one the
  *      crawler recorded in `data/jobs/by-crawler/<key>.json`?
  *   4. Nominatim — for cities not in BFS, verify country via geocoding
+ *   5. FORMAT — does the location string already say which canton it is in, so
+ *      that every UI appending `(canton)` prints it twice?
+ *
+ * Layer 5 answers a question layers 1-4 structurally cannot ask. They all
+ * adjudicate WHICH PLACE a job is in; a location can name the right place and
+ * still be malformed. "Lengnau (BE)" stamped BE is correct by every layer above
+ * and rendered "Lengnau (BE) (BE)" on the live page — 2,457 of 27,590 jobs
+ * (8.91%, measured on origin/main 2026-08-19) printed a doubled or empty
+ * parenthetical. `scripts/lib/job-location-display.mjs` now removes the
+ * duplication at render time, which is why this layer reports on the DATA
+ * rather than on the page: the crawler that emits "Konolfingen, CH" is still
+ * emitting it, and only the crawler can stop.
+ *
+ * It reports three things, all grouped BY CRAWLER so the issue names the file
+ * to edit:
+ *   · `redundantLocationMarker` — the location carries a canton/country marker.
+ *   · `locationCantonConflict`  — it names a DIFFERENT canton than the field.
+ *     Never a formatting problem: one of the two halves is factually wrong.
+ *   · `descriptionCantonDuplicated` — the crawler's own description text repeats
+ *     the canton after the redundant location ("Konolfingen, CH, Kanton BE").
+ *     This is the only one of the three that survives a render-time fix, since
+ *     the string is frozen into the indexed description at crawl time.
  *
  * Layer 3 exists because layers 1-2 are BFS-only and are therefore BLIND to the
  * largest mislabel class this audit is supposed to catch — in two ways.
@@ -46,6 +68,7 @@ import {
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { splitJobLocation } from './lib/job-location-display.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -75,7 +98,26 @@ const results = {
   companyDefaultFallback: [], // cantonMismatch subset where stored canton == company's modal canton
   crawlerLocationRewritten: [], // assemble replaced the locality the crawler recorded (BFS-independent)
   crawlerCantonStampDiffers: [], // same place, crawler's per-company canton stamp is stale — context only
+  redundantLocationMarker: [],   // layer 5: location already names its canton/country
+  locationCantonConflict: [],    // layer 5: location names a DIFFERENT canton than the field
+  descriptionCantonDuplicated: [], // layer 5: the description text repeats the canton after the location
 };
+
+/**
+ * Patterns a crawler uses to append the canton to a location inside DESCRIPTION
+ * prose. Kept next to the audit rather than in the formatter because they are
+ * label templates ("Kanton XX", "XX canton"), not location syntax — the
+ * formatter never produces them, it only has to recognise the location half.
+ * @param {string} location @param {string} canton @returns {string[]}
+ */
+const descriptionCantonPatterns = (location, canton) => [
+  `${location} (${canton})`,
+  `${location}, Kanton ${canton}`,
+  `${location} (Kanton ${canton})`,
+  `${location}, ${canton} canton`,
+  `${location}, Cantone ${canton}`,
+  `${location}, canton ${canton}`,
+];
 
 /* ── Geocode cache to avoid duplicate lookups ──────────────── */
 const geocodeCache = new Map();
@@ -202,6 +244,40 @@ for (const job of jobsToAudit) {
   }
 
   const cantonUpper = storedCanton.toUpperCase();
+
+  // ── Layer 5: location FORMAT (see header) ──────────────────────────────
+  // Runs on `job.location` — the field every UI renders — not on the
+  // `addressLocality` fallback `city` above, because it is the rendered string
+  // whose shape is in question.
+  const rawLocation = norm(job.location || '');
+  if (rawLocation) {
+    const parts = splitJobLocation(rawLocation, cantonUpper);
+    const crawler = norm(job.companyKey || '') || company || 'unknown';
+    if (parts.conflict) {
+      results.locationCantonConflict.push({
+        id, crawler, company, location: rawLocation, storedCanton: cantonUpper,
+      });
+    } else if (parts.stripped.length) {
+      results.redundantLocationMarker.push({
+        id, crawler, company, location: rawLocation, storedCanton: cantonUpper,
+        kinds: parts.stripped, cleaned: parts.city,
+      });
+      // Did the duplication also get frozen into the description? Only this
+      // class needs a crawler-side repair of already-published text.
+      const texts = [job.description, ...Object.values(job.descriptionByLocale || {})]
+        .filter(Boolean)
+        .map(String);
+      if (texts.length && cantonUpper) {
+        const hit = descriptionCantonPatterns(rawLocation, cantonUpper)
+          .find((pattern) => texts.some((text) => text.includes(pattern)));
+        if (hit) {
+          results.descriptionCantonDuplicated.push({
+            id, crawler, company, location: rawLocation, storedCanton: cantonUpper, evidence: hit,
+          });
+        }
+      }
+    }
+  }
 
   // Layer 3: the assemble step rewrote the location the crawler recorded.
   // BFS-independent, so it catches what layers 1-2 structurally cannot: a job
@@ -338,6 +414,9 @@ console.log(`🔤 Lowercase canton:      ${results.lowercaseCanton.length}`);
 console.log(`🏢 Company-default fallback (suspected): ${results.companyDefaultFallback.length}`);
 console.log(`📌 Crawler locality rewritten by dataset: ${results.crawlerLocationRewritten.length}${crawlerRecordById.size ? '' : ' (by-crawler slices unavailable — check skipped)'}`);
 console.log(`ℹ️  Crawler canton stamp differs (same place, benign): ${results.crawlerCantonStampDiffers.length}`);
+console.log(`🔁 Location already names its canton/country: ${results.redundantLocationMarker.length}`);
+console.log(`❗ Location names a DIFFERENT canton than the field: ${results.locationCantonConflict.length}`);
+console.log(`📝 Description text repeats the canton: ${results.descriptionCantonDuplicated.length}`);
 if (enableGeocode) {
   console.log(`🌍 Geocode results:       ${results.geocodeResults.length}`);
 }
@@ -498,6 +577,49 @@ if (results.emptyLocation.length > 0) {
   }
 }
 
+// Detail: layer 5 — location format, grouped BY CRAWLER.
+// By crawler, not by company: the repair is an edit to one
+// `scripts/lib/<crawler>-job-parser.mjs`, and the crawler key IS that filename.
+// A leaderboard by company would name Coop 1,011 times and never say which file.
+function printByCrawler(rows, heading, extra) {
+  if (!rows.length) return;
+  console.log('\n' + '─'.repeat(70));
+  console.log(heading);
+  console.log('─'.repeat(70));
+  const byCrawler = new Map();
+  for (const row of rows) {
+    if (!byCrawler.has(row.crawler)) byCrawler.set(row.crawler, []);
+    byCrawler.get(row.crawler).push(row);
+  }
+  for (const [crawler, items] of [...byCrawler].sort((a, b) => b[1].length - a[1].length)) {
+    console.log(`\n  ${crawler} (${items.length} jobs) — scripts/lib/${crawler}-job-parser.mjs`);
+    const byValue = new Map();
+    for (const item of items) {
+      const key = extra(item);
+      byValue.set(key, (byValue.get(key) || 0) + 1);
+    }
+    for (const [value, count] of [...byValue].sort((a, b) => b[1] - a[1]).slice(0, 8)) {
+      console.log(`    ${String(count).padStart(4)} × ${value}`);
+    }
+  }
+}
+
+printByCrawler(
+  results.redundantLocationMarker,
+  '🔁 LOCATION ALREADY NAMES ITS CANTON / COUNTRY (every UI then appends it again)',
+  (o) => `"${o.location}" (${o.storedCanton}) → "${o.cleaned}" [${o.kinds.join('+')}]`,
+);
+printByCrawler(
+  results.locationCantonConflict,
+  '❗ LOCATION NAMES A DIFFERENT CANTON THAN THE STORED FIELD (one half is wrong)',
+  (o) => `"${o.location}" but canton=${o.storedCanton}`,
+);
+printByCrawler(
+  results.descriptionCantonDuplicated,
+  '📝 DESCRIPTION TEXT REPEATS THE CANTON (frozen at crawl time — render fix does not reach it)',
+  (o) => `"${o.evidence}"`,
+);
+
 console.log('\n' + '═'.repeat(70));
 
 // Save detailed results to JSON for further analysis
@@ -519,7 +641,28 @@ writeFileSync(reportPath, JSON.stringify({
     crawlerLocationRewritten: results.crawlerLocationRewritten.length,
     crawlerCantonStampDiffers: results.crawlerCantonStampDiffers.length,
     geocodeResults: results.geocodeResults.length,
+    redundantLocationMarker: results.redundantLocationMarker.length,
+    locationCantonConflict: results.locationCantonConflict.length,
+    descriptionCantonDuplicated: results.descriptionCantonDuplicated.length,
   },
+  // Layer 5 leaderboards, pre-grouped by crawler so the issue body does not have
+  // to re-aggregate 27k rows (and cannot get the aggregation subtly different
+  // from the console output above).
+  locationFormatByCrawler: (() => {
+    const acc = new Map();
+    const bump = (crawler, field) => {
+      if (!acc.has(crawler)) {
+        acc.set(crawler, { crawler, redundant: 0, conflict: 0, descriptionDuplicated: 0 });
+      }
+      acc.get(crawler)[field] += 1;
+    };
+    for (const row of results.redundantLocationMarker) bump(row.crawler, 'redundant');
+    for (const row of results.locationCantonConflict) bump(row.crawler, 'conflict');
+    for (const row of results.descriptionCantonDuplicated) bump(row.crawler, 'descriptionDuplicated');
+    return [...acc.values()].sort(
+      (a, b) => (b.conflict + b.descriptionDuplicated + b.redundant) - (a.conflict + a.descriptionDuplicated + a.redundant),
+    );
+  })(),
   crawlerRecordsIndexed: crawlerRecordById.size,
   cantonMismatches: results.cantonMismatch,
   foreignInSwiss: results.foreignInSwiss,
@@ -530,5 +673,8 @@ writeFileSync(reportPath, JSON.stringify({
   crawlerLocationRewritten: results.crawlerLocationRewritten,
   crawlerCantonStampDiffers: results.crawlerCantonStampDiffers,
   geocodeResults: results.geocodeResults,
+  redundantLocationMarker: results.redundantLocationMarker,
+  locationCantonConflict: results.locationCantonConflict,
+  descriptionCantonDuplicated: results.descriptionCantonDuplicated,
 }, null, 2));
 console.log(`\n📄 Detailed report saved to: data/location-audit-report.json\n`);

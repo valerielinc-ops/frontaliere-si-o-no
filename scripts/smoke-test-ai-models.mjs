@@ -37,7 +37,9 @@ for (const model of MODELS) {
   try {
     const out = await callLLM(
       [{ role: 'user', content: "Reply with 'ok'." }],
-      { temperature: 0, maxTokens: 8, chain: [model], retries: 0 }
+      // recordScore:false — this is a diagnostic ping, not production usage;
+      // its pass/fail must not write to ai_model_scores/_all (see #6065).
+      { temperature: 0, maxTokens: 8, chain: [model], retries: 0, recordScore: false }
     );
     status = out ? 'pass' : 'empty';
     detail = String(out || '').slice(0, 60);

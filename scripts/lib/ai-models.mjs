@@ -939,9 +939,20 @@ const CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL = 'StructuredOutput';
 // Il canale `text` di `trace.salvage()` arriva a delta (a differenza del
 // `tool_use`, sempre a blocco intero): senza punteggiatura terminale
 // riconoscibile non c'e' modo di distinguere una frase completa da un
-// frammento tagliato a meta' parola dal SIGKILL. `.`/`!`/`?`/`…`, seguiti da
-// eventuale chiusura di virgolette/parentesi, sono l'unico segnale disponibile.
-const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…][)\]'"’”»]*$/;
+// frammento tagliato a meta' parola dal SIGKILL. `.`/`!`/`?`/`…`/`:`/`;`/em-dash,
+// seguiti da eventuale chiusura di virgolette/parentesi (incluse le virgolette
+// basse tedesche „…" e ‚…', che chiudono con U+201C/U+2018, non U+201D/U+2019),
+// sono l'unico segnale disponibile. `:`/`;`/em-dash sono terminazioni legittime
+// in liste/markdown, non solo `.!?…`: escluderli scartava testo completo come
+// "troncato" e forzava un fallback DeepL non necessario sui locale non-IT.
+const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…:;—][)\]'"’”»“‘]*$/;
+
+// Cap sul buffer di `feed()` in createClaudeCliStreamTrace fra due `\n`.
+// Ogni evento `stream-json` legittimo (compreso un `tool_use` con l'intero
+// articolo strutturato) resta ben sotto: oltre questa soglia una riga senza
+// terminatore non e' un evento grande, e' anomala — senza cap crescerebbe
+// senza limite fino al timeout (follow-up #6034 item 3).
+const CLAUDE_CLI_STREAM_LINE_CAP = 1_000_000;
 
 // Tetto per una singola chiamata al CLI, per quanto grande sia l'allowance
 // residua. Serve a impedire che una sezione lunga (allowance 2400s) regali
@@ -1340,6 +1351,19 @@ const DEFAULT_OPTS = {
    * Vedi il blocco di commento su applyPreferOverride.
    */
   prefer: undefined,
+  /**
+   * Se `false`, l'esito di questa chiamata NON tocca `ai_model_scores/_all` —
+   * niente recordModelSuccess/recordModelFailure, quindi niente scrittura sul
+   * ledger di produzione. Serve ai chiamanti puramente diagnostici (es.
+   * smoke-test-ai-models.mjs, che pinga ogni modello di DEFAULT_CHAIN una volta
+   * al giorno solo per verificare disponibilita'): callLLM() auto-inizializza lo
+   * score store al primo uso, quindi senza questo flag un ping diagnostico
+   * fallito abbassa il punteggio di un modello sano nello stesso documento che
+   * ordina la cascata di produzione, inquinando l'ordinamento reale con dati che
+   * non descrivono un uso di produzione. Default `true`: ogni altro chiamante
+   * (crawler, generazione articoli, ecc.) continua a scrivere come prima.
+   */
+  recordScore: true,
 };
 
 /**
@@ -1445,16 +1469,30 @@ function getSchemaMode() {
  * ('GitHub') or the PROVIDER.* constant returned by getProvider() ('github').
  * See _normalizeProviderKey.
  *
- * THIS IS THE SINGLE SOURCE OF TRUTH for "does this provider receive the
- * schema". Both halves that need the answer ask it: the send side
- * (_callOpenAICompatible / _callGeminiRaw, which build the request body) and
- * the estimate side (estimateRequestTokens, which sizes that same body for the
- * pre-flight skip-guard). Do not re-derive the answer from
- * PROVIDERS_WITH_STRICT_JSON_SCHEMA at a new call site: the two halves
- * disagreeing is precisely the defect this function was widened to close —
- * the estimator used to add the serialized schema unconditionally, so Groq
- * (not in the set, never sent the schema) was pre-flight-skipped on ~516
- * phantom tokens it would never have received.
+ * THIS IS THE SOURCE OF TRUTH for "does this OpenAI-compat-shaped provider
+ * receive the schema" — the send side (_callOpenAICompatible / _callGeminiRaw,
+ * which build the request body) and the estimate side (estimateRequestTokens,
+ * which sizes that same body for the pre-flight skip-guard) both ask it. Do
+ * not re-derive the answer from PROVIDERS_WITH_STRICT_JSON_SCHEMA at a new
+ * call site: the two halves disagreeing is precisely the defect this function
+ * was widened to close — the estimator used to add the serialized schema
+ * unconditionally, so Groq (not in the set, never sent the schema) was
+ * pre-flight-skipped on ~516 phantom tokens it would never have received.
+ *
+ * NOT a third sender: `claude_cli` isn't OpenAI-compat, isn't in
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA, and this function correctly returns
+ * false for it — yet `_callClaudeCli` sends the (relaxed) schema via
+ * `--json-schema` whenever `getSchemaMode() !== 'off'`, unconditionally on
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA/_learnedSchemaIncompatible. That earlier
+ * claim ("both halves that need the answer ask it") was false the moment
+ * _callClaudeCli started sending a schema: estimateRequestTokens' call to
+ * THIS function under-counted every claude-cli/* request with a schema by
+ * ~1805 bytes ≈ 452 tokens. See `_schemaBytesWillBeSent` below, which is what
+ * estimateRequestTokens actually calls now — it defers to this function for
+ * every OpenAI-compat/Gemini provider and answers the CLI case separately, on
+ * purpose: folding claude_cli into PROVIDERS_WITH_STRICT_JSON_SCHEMA would
+ * change SEND behavior (this function doubles as the send-time gate), not
+ * just the estimate.
  *
  * Exported for tests / smoke probes.
  */
@@ -1467,6 +1505,38 @@ export function shouldUseSchemaMode(providerName, hasSchema = true, modelForTrac
   const key = _normalizeProviderKey(providerName);
   if (key === _normalizeProviderKey(PROVIDER.GEMINI)) return true;
   return PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(key);
+}
+
+/**
+ * Whether the schema bytes a call constructs actually leave the process — the
+ * question estimateRequestTokens needs answered, across EVERY sender, not
+ * just the OpenAI-compat/Gemini one shouldUseSchemaMode() gates.
+ *
+ * Deliberately NOT folded into shouldUseSchemaMode(): that function is also
+ * the SEND-time decision for _callOpenAICompatible/_callGeminiRaw (it builds
+ * `response_format`), so adding `claude_cli` to
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA to make this predicate true for it would
+ * change what those functions send, not just what this counts — and
+ * claude_cli isn't OpenAI-compat in the first place (it takes a CLI flag, not
+ * a `response_format`), so it was never a candidate for that Set on its own
+ * merits. This function exists so the estimate can know a fact the send-time
+ * gate was never meant to encode.
+ *
+ * Mirrors _callClaudeCli's OWN condition for pushing `--json-schema`
+ * (`opts.jsonSchema && getSchemaMode() !== 'off'`) exactly — not
+ * shouldUseSchemaMode()'s: the CLI never consults
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA or _learnedSchemaIncompatible, so this
+ * predicate doesn't either for that provider. If _callClaudeCli's condition
+ * changes, this one has to change with it — there's no import to enforce
+ * that, only tests/scripts/ai-models-claude-cli-schema-estimate.test.ts
+ * asserting the two conditions stay textually in sync.
+ */
+function _schemaBytesWillBeSent(providerName, hasSchema, modelForTracking) {
+  if (!hasSchema) return false;
+  if (_normalizeProviderKey(providerName) === _normalizeProviderKey(PROVIDER.CLAUDE_CLI)) {
+    return getSchemaMode() !== 'off';
+  }
+  return shouldUseSchemaMode(providerName, hasSchema, modelForTracking);
 }
 
 /**
@@ -1966,7 +2036,23 @@ const SCORE_EXHAUSTED        = -50;
 
 // ── Time-decay for persisted scores ──────────────────────────
 
-/** Apply time-based decay to a persisted score */
+/**
+ * Apply time-based decay to a persisted score.
+ *
+ * `lastUsedISO` is the decay ANCHOR, not a "last touched" stamp — it only
+ * advances on a genuine SUCCESS (see `_persistScoresToFirestore`). A model
+ * that fails on every run but is still attempted every run would otherwise
+ * get `lastUsed` reset to "now" on each of those failures too, so this
+ * function would always see a small `ageH` (roughly the inter-run cadence)
+ * regardless of how long the model has actually been broken — decay by
+ * "since last run" instead of by real elapsed time. With the anchor gated to
+ * successes, a permanently-broken model's `lastUsed` stops advancing after
+ * its last success (or is never set), so `ageH` grows without bound across
+ * runs and the >24h bucket (0.10×) takes over — instead of the model
+ * settling on the `s = 0.75·s − 3 → s ≈ −12` fixed point that the 1-6h
+ * bucket produces when reapplied every run, which can outrank a model
+ * genuinely succeeding ~70% of the time.
+ */
 function _decayScore(score, lastUsedISO) {
   if (!lastUsedISO || !score) return 0;
   const ageMs = Date.now() - new Date(lastUsedISO).getTime();
@@ -2708,13 +2794,21 @@ async function _persistScoresToFirestore() {
   for (const modelId of toPersist) {
     const details = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
     const score = _modelScores.get(modelId) || 0;
+    const counterDelta = deltaSnapshot.get(modelId);
 
     const entry = {
       modelId,                 // Original model ID (with slashes)
       score,
-      lastUsed: now,
       updatedAt: now,
     };
+
+    // `lastUsed` anchors `_decayScore` (see its doc comment) — only advance it
+    // when this cycle actually contains a SUCCESS. Omitting the field on a
+    // failure-only (or delta-less) cycle leaves whatever `lastUsed` is already
+    // in Firestore untouched (`{merge: true}`), so decay keeps measuring real
+    // elapsed time since the model last demonstrably worked instead of resetting
+    // to "now" on every run that merely attempted and failed it.
+    if (counterDelta?.successes) entry.lastUsed = now;
 
     // successes/failures go out as an ATOMIC INCREMENT of this process's delta,
     // never as the absolute total (see _pendingCounterDeltas for the measured
@@ -2722,7 +2816,6 @@ async function _persistScoresToFirestore() {
     // an outcome — a learned token limit, a schema incompatibility — and then it
     // has no delta: the counter fields are OMITTED rather than written as 0,
     // because restating a stale absolute is exactly the defect being removed.
-    const counterDelta = deltaSnapshot.get(modelId);
     if (counterDelta) {
       if (_firestoreFieldValue && typeof _firestoreFieldValue.increment === 'function') {
         if (counterDelta.successes) entry.successes = _firestoreFieldValue.increment(counterDelta.successes);
@@ -4139,10 +4232,12 @@ function _learnSchemaIncompatible(modelForTracking) {
  *
  * `providerName`, when given, makes the jsonSchema term provider-accurate: the
  * serialized schema is only added for providers that actually RECEIVE it, as
- * decided by shouldUseSchemaMode() — the same call the send side makes when it
- * builds the body. Omit it and the schema is counted unconditionally, which is
- * the conservative upper bound across the fleet and preserves the estimate
- * every existing provider-agnostic caller already relies on.
+ * decided by `_schemaBytesWillBeSent()` — which defers to shouldUseSchemaMode()
+ * for the OpenAI-compat/Gemini send side, and answers claude_cli separately
+ * (see that function's docstring for why it isn't folded in). Omit
+ * `providerName` and the schema is counted unconditionally, which is the
+ * conservative upper bound across the fleet and preserves the estimate every
+ * existing provider-agnostic caller already relies on.
  *
  * Why it matters: this codebase's article schema serializes to ~1805 chars ≈
  * 516 tokens. Groq is deliberately NOT in PROVIDERS_WITH_STRICT_JSON_SCHEMA
@@ -4155,6 +4250,18 @@ function _learnSchemaIncompatible(modelForTracking) {
  * `modelForTracking` extends the same fidelity to the per-model
  * _learnedSchemaIncompatible set and to the AI_MODELS_SCHEMA_MODE=off
  * kill-switch, both of which also stop the schema from being sent.
+ *
+ * claude_cli is the mirror-image bug (2026-08-19): shouldUseSchemaMode()
+ * correctly says false for it (not OpenAI-compat, not in
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA), but _callClaudeCli sends the schema
+ * anyway via `--json-schema` — so counting via shouldUseSchemaMode() alone
+ * UNDER-counted every claude-cli/* request with a schema by ~1805 bytes ≈
+ * 452 tokens, the same class of defect as the Groq one above with the sign
+ * flipped. And the bytes that actually leave the process for claude_cli
+ * aren't the raw schema: _callClaudeCli passes it through
+ * relaxSchemaForClaudeCli() first (drops nullable props from `required`),
+ * which changes the byte count, so this function mirrors that transform too
+ * — counting the unrelaxed schema would still be the wrong number.
  *
  * Exported for tests / smoke probes.
  */
@@ -4171,13 +4278,23 @@ export function estimateRequestTokens(messages, opts = {}, providerName = undefi
       }
     }
   }
-  // jsonSchema is serialized and sent in response_format → counts toward body,
-  // but ONLY for the providers that receive it. With no providerName the
-  // caller is asking a provider-agnostic question, so keep the upper bound.
+  // jsonSchema is serialized and sent in response_format (or, for claude_cli,
+  // via --json-schema) → counts toward body, but ONLY for the providers that
+  // receive it. With no providerName the caller is asking a provider-agnostic
+  // question, so keep the upper bound.
   const schemaIsSent = providerName === undefined
-    || shouldUseSchemaMode(providerName, true, modelForTracking);
+    || _schemaBytesWillBeSent(providerName, true, modelForTracking);
   if (opts.jsonSchema?.schema && schemaIsSent) {
-    try { chars += JSON.stringify(opts.jsonSchema.schema).length; } catch { /* noop */ }
+    // claude_cli never receives the raw schema — _callClaudeCli relaxes it
+    // first (relaxSchemaForClaudeCli drops nullable props from `required`),
+    // and that changes the byte count. Count the schema each provider
+    // actually gets, not the one every provider might get.
+    const isClaudeCli = providerName !== undefined
+      && _normalizeProviderKey(providerName) === _normalizeProviderKey(PROVIDER.CLAUDE_CLI);
+    const schemaForCount = isClaudeCli
+      ? relaxSchemaForClaudeCli(opts.jsonSchema.schema)
+      : opts.jsonSchema.schema;
+    try { chars += JSON.stringify(schemaForCount).length; } catch { /* noop */ }
   }
   return Math.ceil(chars / 3.5) + SAFETY_MARGIN;
 }
@@ -4315,7 +4432,7 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // (daily-limit-looking response, stale local/OmniRoute auth 401) must
         // never hard-ban a last-resort provider. See _isLastResortProvider.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking)) {
+          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
             markModelExhausted(modelForTracking);
             _stats.exhausted++;
           }
@@ -4327,16 +4444,20 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // Learn the real size cap from `raw` while it's still untruncated —
           // the Error message below slices it to 300 chars (and callers slice
           // further to 200 for logging), which is why this can't be recovered
-          // after the fact from logs.
-          _learnRequestTokenLimit(modelForTracking, raw);
-          // Same reasoning: a 400 with this exact shape only happens when we
-          // requested schema mode (responseFormat.type === 'json_schema') and
-          // the model rejected it — remember it so future cascade passes stop
-          // paying the round-trip for a request shape this model never accepts.
-          if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
-            _learnSchemaIncompatible(modelForTracking);
+          // after the fact from logs. Gated like markModelExhausted below —
+          // diagnostic-only callers (see DEFAULT_OPTS.recordScore) must not
+          // teach the shared cascade a runtime-learned cap either.
+          if (opts.recordScore !== false) {
+            _learnRequestTokenLimit(modelForTracking, raw);
+            // Same reasoning: a 400 with this exact shape only happens when we
+            // requested schema mode (responseFormat.type === 'json_schema') and
+            // the model rejected it — remember it so future cascade passes stop
+            // paying the round-trip for a request shape this model never accepts.
+            if (nrc.reason === 'schema_unsupported' && responseFormat?.type === 'json_schema') {
+              _learnSchemaIncompatible(modelForTracking);
+            }
           }
-          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking)) {
+          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
             markModelExhausted(modelForTracking, 'nonretryable', `HTTP ${res.status}`);
             _stats.exhausted++;
           }
@@ -5137,6 +5258,13 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
         buffer = buffer.slice(nl + 1);
         nl = buffer.indexOf('\n');
       }
+      // Nessun `\n` trovato e il residuo ha superato il cap: si scarta come
+      // riga illeggibile invece di continuare ad accumulare — vedi
+      // CLAUDE_CLI_STREAM_LINE_CAP.
+      if (buffer.length > CLAUDE_CLI_STREAM_LINE_CAP) {
+        state.malformed += 1;
+        buffer = '';
+      }
     },
     /**
      * A processo chiuso il residuo senza `\n` e' una riga intera — e nei mock
@@ -5348,20 +5476,27 @@ async function _callGeminiRaw(model, messages, opts) {
       if (!res.ok) {
         // Quota / rate-limit — mark exhausted if it looks permanent
         if (isDailyLimitError(res.status, raw)) {
-          markModelExhausted(model);
-          _stats.exhausted++;
+          if (opts.recordScore !== false) {
+            markModelExhausted(model);
+            _stats.exhausted++;
+          }
           throw new Error(`[${model}] Daily quota reached`);
         }
         // Non-retryable client errors (unknown model, context too small)
         const nrc = classifyNonRetryableError(res.status, raw);
         if (nrc.nonRetryable) {
           // Learn the real size cap from `raw` while it's still untruncated —
-          // see the matching call in _callOpenAICompatible for why.
-          _learnRequestTokenLimit(model, raw);
-          if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
-            _learnSchemaIncompatible(model);
+          // see the matching call in _callOpenAICompatible for why. Gated like
+          // markModelExhausted below — diagnostic-only callers (see
+          // DEFAULT_OPTS.recordScore) must not teach the shared cascade a
+          // runtime-learned cap either.
+          if (opts.recordScore !== false) {
+            _learnRequestTokenLimit(model, raw);
+            if (nrc.reason === 'schema_unsupported' && useGeminiSchema) {
+              _learnSchemaIncompatible(model);
+            }
           }
-          if (nrc.markExhausted) {
+          if (nrc.markExhausted && opts.recordScore !== false) {
             // 'nonretryable', NOT the default 'quota': this is the Gemini twin
             // of the _callOpenAICompatible non-retryable branch, which already
             // labels correctly. Left at the default, a 404/unknown-model here
@@ -5913,7 +6048,8 @@ export async function callLLM(messages, opts = {}) {
       const result = await _callModel(model, messages, o);
 
       // ✅ Success — boost this model's score so it stays near the top
-      recordModelSuccess(model);
+      // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
+      if (o.recordScore !== false) recordModelSuccess(model);
       _consecutive429.delete(model); // FRO-325: reset 429 counter on success
       _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
       _recordLastResortOutcome(model, 'served');
@@ -5981,7 +6117,7 @@ export async function callLLM(messages, opts = {}) {
         // PROVIDER.LOCAL carve-out on recordModelContentFailure above: no
         // external quota, so exhausting it mid-run just guarantees zero
         // output for the rest of the wall-clock budget.
-        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model)) {
+        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model) && o.recordScore !== false) {
           markModelExhausted(model);
           _stats.exhausted++;
           console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
@@ -6015,7 +6151,7 @@ export async function callLLM(messages, opts = {}) {
           console.warn(`⏱️  [${model}] Timed out at the adaptive ${Math.round((e.adaptiveTimeoutMs || 0) / 1000)}s ceiling (caller asked ${Math.round((o.timeout || 0) / 1000)}s) — not exhausting on our own guess (${n}/${ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES})`);
         }
       }
-      if (isTimeoutFailure && !spared && !_isLastResortProvider(model)) {
+      if (isTimeoutFailure && !spared && !_isLastResortProvider(model) && o.recordScore !== false) {
         markModelExhausted(model, 'timeout');
         _stats.exhausted++;
         markedExhausted = true;
@@ -6062,11 +6198,14 @@ export async function callLLM(messages, opts = {}) {
       // NON e' toccato — quello conta i guasti del canale, ed e' il posto
       // giusto dove contarli.
       const transportOnly = !!e.transportFault && provider === PROVIDER.CLAUDE_CLI;
-      recordModelFailure(model, {
-        nonRetryable: !!e.nonRetryable,
-        exhausted: isExhausted || isTimeoutFailure,
-        transportOnly,
-      });
+      // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
+      if (o.recordScore !== false) {
+        recordModelFailure(model, {
+          nonRetryable: !!e.nonRetryable,
+          exhausted: isExhausted || isTimeoutFailure,
+          transportOnly,
+        });
+      }
 
       const scoreNote = transportOnly
         ? `guasto di trasporto, score invariato → ${_modelScores.get(model) || 0}`

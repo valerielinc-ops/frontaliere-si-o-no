@@ -32,7 +32,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041646EXTERNALENGLOBAL/Software-Senior-Engineer---Desktop",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041998EXTERNALENGLOBAL/Software-Senior-Engineer---Mobile-APPs",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042202EXTERNALENGLOBAL/Technical-Sales-Support-Engineer--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042238EXTERNALENGLOBAL/HR-Ops-specialist--m-f-d---80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042511EXTERNALENGLOBAL/Shift-Leader-Test-IPU-B-S--m-f-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042923EXTERNALENGLOBAL/Production-Engineering-Technician--f-m-d--80-100",
@@ -49,7 +48,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044324EXTERNALENGLOBAL/R-D-Senior-Motor-Designer--w-m-d"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-08-18T21:35:57.702Z",
+  "updatedAt": "2026-08-19T09:50:39.803Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041646EXTERNALENGLOBAL/Software-Senior-Engineer---Desktop": {
       "location": "Bergamo, Bergamo, Italy",
@@ -310,14 +309,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018236EXTERNALENGLOBAL/Head-of-Trade---Structured-Finance": {
       "location": "Zurich, Zurich, Switzerland",
       "canton": "ZH",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00042202EXTERNALENGLOBAL/Technical-Sales-Support-Engineer--80-100": {
-      "location": "Frauenfeld, Thurgau, Switzerland",
-      "canton": "TG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",

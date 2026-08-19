@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-08-18T22:09:46.787Z",
+  "generatedAt": "2026-08-19T10:14:43.490Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4468,
-  "avgDurationMs": 4468,
+  "durationMs": 4389,
+  "avgDurationMs": 4389,
   "durationHistory": [
-    4468
+    4389
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T22:09:44.340Z",
+      "crawledAt": "2026-08-19T10:14:40.925Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -40,13 +40,12 @@
       "featured": false,
       "postedDate": "2026-08-18",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:51:18.113Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/71519aea-c081-4704-be57-8a2a6786f33f/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-18T22:09:44.776Z",
+      "crawledAt": "2026-08-19T10:14:41.256Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -76,13 +75,12 @@
       "featured": false,
       "postedDate": "2026-08-18",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/71519aea-c081-4704-be57-8a2a6786f33f/?source=[platform]",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:51:18.449Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     }
