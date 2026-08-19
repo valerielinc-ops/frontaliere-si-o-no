@@ -10063,6 +10063,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.title': 'Vivere a Faloppio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.excerpt': 'Impostazioni fiscali, permessi, vantaggi e svantaggi del trasferimento',
     'blog.article.vivere-faloppio-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino e risiede a Faloppio',
+    'blog.article.vivere-moltrasio-lavorare-ticino.title': 'Vivere a Moltrasio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-moltrasio-lavorare-ticino.excerpt': 'Guida pratica per frontalieri: fiscalità, nuovo accordo e vita quotidiana tra Moltrasio e il Canton Ticino.',
+    'blog.article.vivere-moltrasio-lavorare-ticino.imageAlt': 'Vista panoramica sul Lago di Lugano vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;
