@@ -3385,6 +3385,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ticino-neutralita-sondaggio-2026.title': 'Schweizer Neutralität: Das Tessin widerspricht dem Land',
     'blog.article.ticino-neutralita-sondaggio-2026.excerpt': '20-Minuten-Umfrage/Tamedia: 62% der Schweizer sind gegen die Neutralitätsinitiative. Doch das Tessin stimmt mit 52 Prozent mit Ja. Abstimmung am 27. September 2026.',
     'blog.article.ticino-neutralita-sondaggio-2026.imageAlt': 'Schweizer Bundesrat während einer Debattensitzung mit Schweizer Flagge im Hintergrund',
+    'blog.article.revisione-lex-koller-immobiliare.title': 'Lex Koller: Engstirnigkeit bei ausländischen Immobilienkäufen',
+    'blog.article.revisione-lex-koller-immobiliare.excerpt': 'Die WAK-N schlägt vor, die Änderungen der letzten 40 Jahre am Immobiliengesetz rückgängig zu machen, um die Spekulation einzudämmen und den Mittelstand zu schützen.',
+    'blog.article.revisione-lex-koller-immobiliare.imageAlt': 'Baustelle eines Wohnkomplexes in einer Schweizer Stadt vor einer Bergkulisse.',
 };
 
 export default blogMetaChDe;

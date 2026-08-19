@@ -3385,6 +3385,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ticino-neutralita-sondaggio-2026.title': 'Neutralità svizzera: il Ticino contraddice il Paese',
     'blog.article.ticino-neutralita-sondaggio-2026.excerpt': 'Sondaggio 20 minuti/Tamedia: 62% degli svizzeri contrari all\'iniziativa sulla neutralità. Ma il Ticino vota sì con il 52%. Votazione il 27 settembre 2026.',
     'blog.article.ticino-neutralita-sondaggio-2026.imageAlt': 'Camera del Parlamento federale svizzero durante una sessione di dibattito, con bandiera svizzera sullo sfondo',
+    'blog.article.revisione-lex-koller-immobiliare.title': 'Lex Koller: stretta sugli acquisti immobiliari esteri',
+    'blog.article.revisione-lex-koller-immobiliare.excerpt': 'La CET-N propone di annullare le modifiche degli ultimi 40 anni alla legge sugli immobili per frenare la speculazione e tutelare il ceto medio.',
+    'blog.article.revisione-lex-koller-immobiliare.imageAlt': 'Cantiere edile di un complesso residenziale in una città svizzera con montagne sullo sfondo.',
 };
 
 export default blogMetaChIt;
