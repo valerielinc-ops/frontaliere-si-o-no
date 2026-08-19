@@ -3057,7 +3057,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // bodies live in the shared per-job `<style>` block (see lines ~2350+).
  // Style applied via `.rja > img` in seo-static.css (no inline style attr).
  const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40);
- const li = `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)}${formatJobLocation(r.location, r.canton) ? ` · ${esc(formatJobLocation(r.location, r.canton))}` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ // Hoisted: this runs once per related card, per job page, per locale — the
+ // hottest string path in the SSG walk. Calling the formatter twice to test
+ // and then to print it would double that for no reason.
+ const rLocation = formatJobLocation(r.location, r.canton);
+ const li = `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)}${rLocation ? ` · ${esc(rLocation)}` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  // One in-feed ad `<li>` after every Nth related card (shared `shouldPlaceInfeedAd`
  // cadence), never after the last — same logic as `jobCardListBody`. `.rul` is a
  // plain block list (not a grid), so no `spanFull` is needed.
