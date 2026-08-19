@@ -16,6 +16,12 @@
  * rebase finché una review è in volo** (vedi reviewInProgress): rebasare mentre la
  * review gira la cancella, e con main caldo non concluderebbe mai (la PR
  * collision-risk va behind a ogni tick) → niente `## LGTM`, niente merge.
+ * Stessa forma, un giro prima: **defer del rebase finché un run di `tests.yml` è
+ * in volo sulla head ATTUALE** (vedi testsRunInFlightOnHead) — il push cancella
+ * il `tests` in corso, e `pr-review-loop` parte SOLO su `workflow_run[tests]`
+ * con `conclusion == success`, quindi cancellarlo cancella anche la review che
+ * non è ancora partita (#6037, 2026-08-18: 5 `tests` cancellati di fila, zero
+ * `success`).
  * (Storico: il claim "push PAT non ri-triggera pull_request" su #1587/#1526 era
  * uno zero-check-run da rebase pre-#1597 che non dispatchava, non l'assenza di
  * trigger; il push autenticato App/PAT ri-triggera, osservato su #3038.)
@@ -481,6 +487,56 @@ function reviewInProgress(head) {
   return (parseInt((out || '0').trim(), 10) || 0) > 0;
 }
 
+/** Statuti NON terminali di un workflow-run GitHub: il run sta ancora
+ * occupando (o sta per occupare) uno slot di concurrency, quindi un push sulla
+ * stessa ref lo CANCELLA. `completed` è l'unico terminale. */
+const RUN_STATUS_IN_FLIGHT = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
+
+/**
+ * C'è un run di `tests.yml` ancora IN VOLO esattamente sulla head SHA corrente
+ * della PR? Puro → testabile senza rete (la lista run arriva dal chiamante).
+ *
+ * Livelock misurato il 2026-08-18 su #6037 (branch `fix/unsub-window-and-channel`):
+ * la suite `tests` dura 16-21 min, e in giornata attiva i merge su main arrivano
+ * ogni pochi minuti. `pr-autorebase.yml` scatta a OGNI merge (`pull_request:
+ * closed` + cron + `pull_request_review`), rebasa, pusha — e il push CANCELLA il
+ * `tests` in corso (`19:09 cancelled · 19:11 cancelled · 19:25 cancelled · 19:25
+ * cancelled · 19:33 cancelled`, mai un `success`). Siccome `pr-review-loop` parte
+ * SOLO su `workflow_run` di `tests` con `conclusion == success`, la review non
+ * arriva mai → la PR resta `stale-review` → l'autorebase ricomincia. Il budget di
+ * riaperture non salva: i merge commit dell'autorebase contano come «stato
+ * cambiato» e azzerano il contatore.
+ *
+ * Il confronto con `head` è la parte che rende la guardia CORRETTA e non un
+ * semplice «esiste un run in corso»: un run rimasto in volo su una head VECCHIA
+ * (PR ripushata nel frattempo) non produrrà mai il segnale che serve — il suo
+ * `workflow_run` porta il SHA sbagliato e `pr-review-loop` non gatterà la head
+ * attuale. Deferire per lui sarebbe uno stallo gratuito, quindi NON si salta.
+ *
+ * @param {{runs: Array<{id?: number, status?: string, head_sha?: string}>, head: string}} s
+ * @returns {{id: number|null, status: string}|null} il run che blocca, o null.
+ */
+export function testsRunInFlightOnHead({ runs, head }) {
+  if (!head || !Array.isArray(runs)) return null;
+  for (const r of runs) {
+    if (!r || r.head_sha !== head) continue;
+    const status = String(r.status || '');
+    if (!RUN_STATUS_IN_FLIGHT.has(status)) continue;
+    return { id: typeof r.id === 'number' ? r.id : null, status };
+  }
+  return null;
+}
+
+/** Run di `tests.yml` sul branch della PR (qualunque stato, ultimi 20): la
+ * selezione per head SHA + stato la fa `testsRunInFlightOnHead` (pura). Su
+ * errore API torna `[]` → fail-open, la guardia non blocca il rebase. */
+function testsRunsForBranch(branch) {
+  const out = gh(
+    ['api', `repos/${REPO}/actions/workflows/tests.yml/runs?branch=${encodeURIComponent(branch)}&per_page=20`],
+    { allowFail: true });
+  return (out && Array.isArray(out.workflow_runs)) ? out.workflow_runs : [];
+}
+
 /**
  * Decisione rebase per una PR near-merge che è behind>0 (valutata DOPO il check
  * CONFLITTO). Pura → testabile; il razionale del livelock è al call-site.
@@ -855,6 +911,34 @@ async function processPR(pr) {
   // solo tests (no push), quindi non è soggetto a questa race.
   if (reviewInProgress(head)) {
     console.log(`PR #${num}: review Claude in volo sull'head ${head.slice(0, 8)} — skip rebase questo tick (un push ora la cancellerebbe; defer finché conclude).`);
+    return;
+  }
+
+  // Tests-in-flight guard (#6037, 2026-08-18): NON rebasare mentre un run di
+  // `tests.yml` è ancora in volo sulla head ATTUALE. Ribasare adesso
+  // cancellerebbe proprio il run che sta per produrre il segnale (`tests:
+  // success`) di cui la PR ha bisogno per avanzare — `pr-review-loop` parte solo
+  // su `workflow_run` di `tests` con `conclusion == success`, quindi cancellarlo
+  // significa cancellare la review, e senza review la PR resta `stale-review`,
+  // che è la label che rimette in moto l'autorebase: il ciclo si autoalimenta
+  // (misurato: 5 `tests` cancellati di fila su `fix/unsub-window-and-channel`,
+  // zero `success`). La PR non scappa: la ripresa avviene al trigger successivo
+  // (cron, prossimo merge su main, o l'arrivo della review) — a quel punto o il
+  // run è concluso, o la sua head non è più quella attuale e la guardia non
+  // scatta più.
+  //
+  // Perché il caso CONFLICTING non è in stallo: una PR `CONFLICTING` non arriva
+  // MAI qui — è intercettata e chiusa (auto-resolve import-union, altrimenti
+  // `stale-review` + comment) diverse decine di righe più su, prima di questo
+  // punto, e quel ramo fa `return`. È corretto che sia esente: lì il rebase è
+  // RIMEDIALE (auto-merge non mergia un conflitto, quindi nessun `tests: success`
+  // farebbe avanzare la PR — il run in volo è già inutile), mentre qui il rebase
+  // è solo di ALLINEAMENTO (main è non-strict: auto-merge mergia anche behind),
+  // e il run in volo è esattamente ciò che serve. Fail-open: se l'API dei run
+  // fallisce, `testsRunsForBranch` torna `[]` e non si salta niente.
+  const inFlight = testsRunInFlightOnHead({ runs: testsRunsForBranch(branch), head });
+  if (inFlight) {
+    console.log(`PR #${num} (${branch}): run tests.yml ${inFlight.id ?? '?'} ${inFlight.status} sulla head ATTUALE ${head.slice(0, 8)} — skip rebase questo tick (il push lo cancellerebbe, ed è il run che deve produrre il 'tests: success' da cui dipende la review; riprendo al prossimo trigger).`);
     return;
   }
 
