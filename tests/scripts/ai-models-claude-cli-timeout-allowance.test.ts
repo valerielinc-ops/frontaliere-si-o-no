@@ -73,13 +73,20 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
   // Senza questa riga la meta' «alza il floor» del lavoro non ha presidio.
   const MORTE_OSSERVATA_MS = 120_000;
 
-  it('il minimo sta SOPRA la durata a cui le chiamate morivano davvero', () => {
+  // Margine di sicurezza esplicito: un confronto stretto (`MIN() > MORTE_OSSERVATA_MS`)
+  // passerebbe anche con un floor ritarato a 120_001ms, verde pur restando a un
+  // millisecondo dal comportamento quasi-originale. 30s tengono la taratura onesta
+  // senza pinnare il numero corrente (margine attuale MIN-MORTE_OSSERVATA_MS = 60s).
+  const MARGINE_SICUREZZA_MS = 30_000;
+
+  it('il minimo sta SOPRA la durata a cui le chiamate morivano davvero, con margine', () => {
     assert.ok(
-      MIN() > MORTE_OSSERVATA_MS,
+      MIN() >= MORTE_OSSERVATA_MS + MARGINE_SICUREZZA_MS,
       `minimo ${MIN()}ms: non basta stare sotto il tetto, deve stare SOPRA i ` +
-      `${MORTE_OSSERVATA_MS}ms a cui la run 32161215947 troncava chiamate ancora ` +
-      'vive. Un floor pari o inferiore a quella soglia ripropone il difetto ' +
-      'ogni volta che l\'allowance residua e\' scarsa e la quota non lo alza.',
+      `${MORTE_OSSERVATA_MS}ms a cui la run 32161215947 troncava chiamate ancora vive, ` +
+      `con almeno ${MARGINE_SICUREZZA_MS / 1000}s di margine. Un floor appena sopra la ` +
+      'soglia osservata (es. 120_001ms) tornerebbe a fare da soffitto in pratica pur ' +
+      'passando un confronto stretto: il margine e\' cio\' che lo impedisce.',
     );
   });
 
