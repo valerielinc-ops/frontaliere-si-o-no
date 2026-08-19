@@ -9423,8 +9423,6 @@
         "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
         "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich"
       ],
-      "firstSeenAt": "2026-08-17T21:51:16.840Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9436,7 +9434,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T21:51:16.840Z"
     },
     {
       "id": "stadtspital-zuerich-b5f339037696",

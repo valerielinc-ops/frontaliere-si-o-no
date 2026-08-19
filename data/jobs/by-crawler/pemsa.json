@@ -380,7 +380,7 @@
         "it": "ELETTROMECCANICO PER IMPIANTI DI BETONAGGIO",
         "en": "ELECTROMECANIC FOR BETONAGGING",
         "de": "ELEKTROMEKANISCHE FÜR BETONAGGING",
-        "fr": "ÉLECTROMÉCANIQUE POUR L'ÉTABLISSEMENT"
+        "fr": "ÉLECTROMÉCANIQUE POUR LA BÉTONAGAGE"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di elettromeccanico per impianti di betonaggio\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\nesperienza maturata sul territorio svizzero\n·manutenzione ordinaria e straordinaria degli impianti di betonaggio\n·verifica del corretto funzionamento di componenti meccaniche, elettriche e pneumatiche\n·interventi di riparazione e ricerca guasti\n·controllo periodico degli impianti\n·disponibilità immediata\n·automunito",
@@ -836,7 +836,7 @@
       "description": "Pemsa Valais vi accompagna nella ricerca di un impiego, sia che si tratti di incarichi a tempo determinato che di posti di lavoro a tempo indeterminato.\n\n## Il tuo incarico:\n• Preparazione del cantiere\n• Preparazione della superficie di applicazione\n• Tutti i tipi di pittura, intonacatura e finiture decorative\n• Posa della carta da parati\n• Posa della tela di vetro (Scandatex, Variolies)\n• Posa dell’isolamento perimetrale\n• Liscatura di piccola entità, intonacatura\n• Nuove costruzioni e ristrutturazioni di grande entità\n\n## E ora parliamo di te?\nNon esitare a inviarci la tua candidatura completa (CV, lettera di motivazione, diploma, certificati di lavoro, documento d’identità). Risponderemo solo alle candidature il cui profilo corrisponda a quanto richiesto.",
       "titleByLocale": {
         "it": "Imbianchino",
-        "en": "Imbianchino",
+        "en": "Whitening",
         "de": "Aufhellung",
         "fr": "Blanchiment"
       },
@@ -848,11 +848,12 @@
       },
       "slugByLocale": {
         "it": "imbianchino-pemsa-riddes",
-        "en": "imbianchino-pemsa-riddes",
+        "en": "whitening-pemsa-riddes",
         "de": "aufhellung-pemsa-riddes",
         "fr": "blanchiment-pemsa-riddes"
       },
       "id": "pemsa-cdb3bf154177",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -866,16 +867,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T21:36:04.826Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "whitening-pemsa-riddes"
-        ]
-      },
-      "previousSlugs": [
-        "whitening-pemsa-riddes"
-      ],
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-17T21:36:04.826Z"
     },
     {
       "title": "Piastrellista (M/F)",
@@ -1633,7 +1625,8 @@
         }
       },
       "firstSeenAt": "2026-08-14T21:34:29.990Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Falegname/a installatore/trice",
@@ -2822,7 +2815,8 @@
         }
       },
       "firstSeenAt": "2026-08-13T10:23:26.209Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Muratore e carpentiere",

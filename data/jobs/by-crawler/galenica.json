@@ -1661,11 +1661,9 @@
         "it": "Assistant en pharmacie / Assistante en pharmacie (f/m/d)",
         "en": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)",
         "de": "Assistent en pharmacie / Assistante en pharmacie (f/h/d)",
-        "fr": "Assistant en pharmacie / Assistante en pharmacie (f/h/d)"
+        "fr": "Assistant en pharmacie / Assistant en pharmacie (h/f/d)"
       },
       "id": "galenica-828541a40d03",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1683,7 +1681,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -2112,11 +2111,10 @@
         "it": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (f/m/d)",
         "en": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (f/h/d)",
         "de": "Acheteur(se) opérationnel(le)/ordinatur(trice) achats, (m/w/d)",
-        "fr": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (f/h/d)"
+        "fr": "Acheteur(se) opérationnel(le) / coordinateur(trice) achats, (h/f/d)"
       },
       "id": "galenica-120b48be1a75",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2134,7 +2132,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
@@ -2167,20 +2166,19 @@
       "titleByLocale": {
         "it": "Apotheker come Stellvertretung / Apothekerin come Stellvertretung (w/m/d)",
         "en": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
-        "de": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
+        "de": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (m/w/d)",
         "fr": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (h/f/d)"
       },
       "id": "galenica-ed7c5e1f5f78",
-      "previousSlugs": [
-        "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2198,7 +2196,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",

@@ -237,17 +237,17 @@
       "companyDomain": "pallas-kliniken.ch",
       "title": "Fachspezialist/-in ambulante Tarife 40-100%",
       "titleByLocale": {
+        "de": "Fachspezialist/-in ambulante Tarife 40-100%",
         "it": "Specializzato/in tariffe ambulatoriali 40-100 %",
         "en": "Specialist/in ambulatory tariffs 40-100 %",
-        "de": "Fachspezialist/-in ambulante Tarife 40-100%",
         "fr": "Tarifs spécialisés/en ambulatoires 40-100 %"
       },
       "description": "Unsere Abteilung Patientenadministration & Tarife leistet einen wesentlichen Beitrag zu einem reibungslosen Patientenprozess und stellt eine korrekte, effiziente und termingerechte Abrechnung sicher. Gemeinsam mit unseren medizinischen und administrativen Teams sorgt sie dafür, dass unsere Patientinnen und Patienten sowie unsere Partner jederzeit auf eine professionelle und zuverlässige Abwicklung vertrauen können. Dabei stehen Qualität, Serviceorientierung und eine enge interdisziplinäre Zusammenarbeit im Mittelpunkt. Für die Unterstützung unserer Abteilung Patientenadministration & Tarife suchen wir eine verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit als Fachspezialist/-in ambulante Tarife 40-100%",
       "descriptionByLocale": {
-        "it": "Il nostro dipartimento di amministrazione e tariffe dei pazienti contribuisce in modo significativo a un processo paziente regolare e garantisce una corretta fatturazione, efficiente e tempestiva. Insieme ai nostri team medici e amministrativi, assicura che i nostri pazienti e i nostri partner possano contare su una gestione professionale e affidabile in ogni momento. L'attenzione è rivolta alla qualità, all'orientamento dei servizi e alla stretta cooperazione interdisciplinare. Per il supporto del nostro reparto Amministrazione e Tariffe Pazienti, stiamo cercando una personalità responsabile e orientata al servizio come tariffa specializzata/in ambulatorio 40-100 %",
-        "en": "Our Patient Administration & Tariffs department makes a significant contribution to a smooth patient process and ensures correct, efficient and timely billing. Together with our medical and administrative teams, it ensures that our patients and our partners can rely on professional and reliable handling at all times. The focus is on quality, service orientation and close interdisciplinary cooperation. For the support of our Patient Administration & Tariffs department, we are looking for a responsible and service-oriented personality as a specialist/in ambulatory tariffs 40-100 %",
         "de": "Unsere Abteilung Patientenadministration & Tarife leistet einen wesentlichen Beitrag zu einem reibungslosen Patientenprozess und stellt eine korrekte, effiziente und termingerechte Abrechnung sicher. Gemeinsam mit unseren medizinischen und administrativen Teams sorgt sie dafür, dass unsere Patientinnen und Patienten sowie unsere Partner jederzeit auf eine professionelle und zuverlässige Abwicklung vertrauen können. Dabei stehen Qualität, Serviceorientierung und eine enge interdisziplinäre Zusammenarbeit im Mittelpunkt. Für die Unterstützung unserer Abteilung Patientenadministration & Tarife suchen wir eine verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit als Fachspezialist/-in ambulante Tarife 40-100%",
-        "fr": "Notre service de l'administration et des tarifs des patients apporte une contribution importante à un processus sans heurt et assure une facturation correcte, efficace et en temps opportun. Avec nos équipes médicales et administratives, elle permet à nos patients et à nos partenaires de compter en tout temps sur un traitement professionnel et fiable. L'accent est mis sur la qualité, l'orientation des services et une coopération interdisciplinaire étroite. Pour le soutien de notre service Administration des patients & Tarifs, nous recherchons une personnalité responsable et orientée vers le service en tant que spécialiste/en tarifs ambulatoires 40-100 %"
+        "it": "Il nostro reparto Amministrazione e Tariffe Pazienti offre un contributo significativo a un processo paziente liscio e garantisce una corretta, efficiente e tempestiva fatturazione. Insieme ai nostri team medici e amministrativi, assicura che i nostri pazienti e i nostri partner possano contare su una gestione professionale e affidabile in ogni momento. L'attenzione è rivolta alla qualità, all'orientamento dei servizi e alla stretta cooperazione interdisciplinare. Per il supporto del nostro reparto Amministrazione e Tariffe Pazienti, stiamo cercando una personalità responsabile e orientata al servizio come specialista / in tariffe ambulatoriali 40-100 %",
+        "en": "Our Patient Administration & Tariffs department makes a significant contribution to a smooth patient process and ensures correct, efficient and timely billing. Together with our medical and administrative teams, it ensures that our patients and our partners can rely on professional and reliable handling at all times. The focus is on quality, service orientation and close interdisciplinary cooperation. For the support of our Patient Administration & Tariffs department, we are looking for a responsible and service-oriented personality as a specialist / in ambulatory tariffs 40-100 %",
+        "fr": "Notre service de l'administration et des tarifs des patients apporte une contribution importante à un processus sans heurt et assure une facturation correcte, efficace et opportune. Avec nos équipes médicales et administratives, il garantit que nos patients et nos partenaires peuvent compter en tout temps sur un traitement professionnel et fiable. L'accent est mis sur la qualité, l'orientation des services et une coopération interdisciplinaire étroite. Pour le soutien de notre service Administration des patients & Tarifs, nous recherchons une personnalité responsable et orientée vers le service en tant que spécialiste / dans les tarifs ambulatoires 40-100 %"
       },
       "needsRetranslation": true,
       "location": "Olten",
@@ -273,6 +273,19 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PpKO52AN",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T21:48:29.264Z",
       "previousSlugs": [
         "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten",
         "specializzato-in-tariffe-ambulatoriali-40-100-pallas-kliniken-olten"
@@ -288,19 +301,6 @@
         "fr": [
           "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten"
         ]
-      },
-      "firstSeenAt": "2026-08-18T21:48:29.264Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -415,7 +415,6 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n• Wir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere als Augenärztin oder Augenarzt optimal zu unterstützen. Zur Ergänzung unseres bestehenden Teams in unserer Klinikgruppe suchen wir Sie als initiative und selbstständige Persönlichkeit. Assistenzärztin/Assistenzarzt Ophthalmologie 80-100%, Region Aargau",
         "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de façon optimale votre carrière en tant qu'ophtalmologiste. Pour compléter notre équipe existante dans notre groupe de cliniques, nous vous recherchons comme une initiative et une personnalité indépendante. Médecin adjoint en ophtalmologie 80-100%, Région d'Argovie"
       },
-      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PmTir2AF",

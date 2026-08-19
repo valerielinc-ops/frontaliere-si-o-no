@@ -818,31 +818,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Supermarkt 80%",
-        "en": "Employee in supermarket 80%",
         "de": "Mitarbeiter*in Supermarkt 80%",
+        "en": "Employee in supermarket 80%",
         "fr": "Employé dans le supermarché 80%"
       },
       "sourceLang": "de",
-      "id": "manor-db76fd684b7c",
-      "previousSlugs": [
-        "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80",
-        "collaboratore-trice-in-supermarkt-80-manor-ag-chur-mitarbeiterin-supermarkt-80"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80",
-          "collaboratore-trice-in-supermarkt-80-manor-ag-chur-mitarbeiterin-supermarkt-80"
-        ],
-        "en": [
-          "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80"
-        ],
-        "fr": [
-          "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:03:33.834Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-db76fd684b7c",
       "salaryMin": 54800,
       "salaryMax": 84000,
       "currency": "CHF",
@@ -858,7 +841,24 @@
       },
       "addressLocality": "Chur Mitarbeiterin Supermarkt 80",
       "addressRegion": "GR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T22:03:33.834Z",
+      "previousSlugs": [
+        "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80",
+        "collaboratore-trice-in-supermarkt-80-manor-ag-chur-mitarbeiterin-supermarkt-80"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80",
+          "collaboratore-trice-in-supermarkt-80-manor-ag-chur-mitarbeiterin-supermarkt-80"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-supermarkt-80-chur-mitarbeiterin-supermarkt-80"
+        ]
+      }
     },
     {
       "title": "Mitarbeiter*in Verkauf Fashion 50%",
@@ -942,15 +942,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 20%",
-        "de": "Mitarbeiter*in Verkauf 20%",
+        "de": "Mitarbeiter im Verkauf 20%",
         "en": "Mitarbeiter*in Sales 20%",
         "fr": "Mitarbeiter*in Vente 20%"
       },
       "sourceLang": "it",
-      "id": "manor-dfab97bc0b31",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:03:33.834Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-dfab97bc0b31",
       "salaryMin": 16600,
       "salaryMax": 25500,
       "currency": "CHF",
@@ -966,7 +965,8 @@
       },
       "addressLocality": "Hinwil Mitarbeiterin Verkauf 20",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T22:03:33.834Z"
     },
     {
       "title": "Mitarbeiter*in Kasse (X-Mas Market) 100%",
@@ -1120,15 +1120,14 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Bäckerei 30%",
+        "de": "Mitarbeiter in der Bäckerei 30%",
         "en": "Mitarbeiter in Bäckerei 30%",
-        "de": "Mitarbeiter*in Bäckerei 30%",
         "fr": "Mitarbeiter à Bäckerei 30%"
       },
       "sourceLang": "it",
-      "id": "manor-b78c355c10c5",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:03:33.834Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-b78c355c10c5",
       "salaryMin": 20600,
       "salaryMax": 31500,
       "currency": "CHF",
@@ -1144,7 +1143,8 @@
       },
       "addressLocality": "Sargans Mitarbeiterin Bäckerei 30",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-18T22:03:33.834Z"
     },
     {
       "title": "Mitarbeiter*in Logistik 80%",
@@ -1370,7 +1370,7 @@
         "it": "Praktikant*in Logistik 80%",
         "en": "Praktikant*in Logistik 80%",
         "de": "Praktikant*in Logistik 80%",
-        "fr": "Praktikant*in Logistik 80%"
+        "fr": "Praktikan*in Logistik 80%"
       },
       "sourceLang": "it",
       "id": "manor-ac7260125ed9",
@@ -2108,7 +2108,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 60%",
         "en": "Mitarbeiter*in Sales Parfümerie 60%",
-        "de": "Mitarbeiter*in Verkauf Parfümerie 60%",
+        "de": "Mitarbeiter in Verkauf Parfümerie 60%",
         "fr": "Mitarbeiter*in Vente Parfümerie 60%"
       },
       "sourceLang": "it",
@@ -2145,7 +2145,7 @@
       "description": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
       "descriptionIt": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM \n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten. \nIT Affinität wird vorausgesetzt.",
       "descriptionByLocale": {
-        "it": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
+        "it": "Compiti fondamentali:\ncompiti di gestione del core 70%:\n• Supporto olistico dei progetti operativi centrale FM, grandi magazzini e centri di distribuzione\n• Supporto e ottimizzazione continua dei processi operativi FM\n\n20% compiti fondamentali STRATEGIC:\n• Iniziazione di modifiche ottimizzate operativamente. (Innovazione)\n\n10% compiti fondamentali ADMINISTRATIVE:\n•Coordinamento Termink e coordinamento delle riunioni con le società contraenti, la gestione dei protocolli, l'assistenza nella pianificazione degli eventi interni, la creazione di un grafico di organizzazione, il supporto amministrativo nel team FM BAZ. Centralizzazione e standardizzazione delle attività amministrative.\nL'affinità IT è necessaria.",
         "en": "Projektleiter Facility Management 100% at Manor, located in Basel Projektleiter Facility Management, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
         "fr": "Projektleiter Facility Management 100% chez Manor, situé à Basel Projektleiter Facility Management, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -2183,7 +2183,6 @@
       },
       "firstSeenAt": "2026-08-17T22:02:51.026Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -2213,7 +2212,7 @@
       "description": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
       "descriptionIt": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM \n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten. \nIT Affinität wird vorausgesetzt.",
       "descriptionByLocale": {
-        "it": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
+        "it": "Compiti fondamentali:\ncompiti di gestione del core 70%:\n• Supporto olistico dei progetti operativi centrale FM, grandi magazzini e centri di distribuzione\n• Supporto e ottimizzazione continua dei processi operativi FM\n\n20% compiti fondamentali STRATEGIC:\n• Iniziazione di modifiche ottimizzate operativamente. (Innovazione)\n\n10% compiti fondamentali ADMINISTRATIVE:\n•Coordinamento Termink e coordinamento delle riunioni con le società contraenti, la gestione dei protocolli, l'assistenza nella pianificazione degli eventi interni, la creazione di un grafico di organizzazione, il supporto amministrativo nel team FM BAZ. Centralizzazione e standardizzazione delle attività amministrative.\nL'affinità IT è necessaria.",
         "en": "Projektleiter Facility Management 100% at Manor, located in Basel Projektleiter Facility Management, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
         "fr": "Projektleiter Facility Management 100% chez Manor, situé à Basel Projektleiter Facility Management, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -2249,7 +2248,6 @@
       },
       "firstSeenAt": "2026-08-17T22:02:51.026Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -3105,7 +3103,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice*in Kundendienst 20%",
         "en": "Mitarbeiter* in Kundendienst 20%",
-        "de": "Mitarbeiter*in Kundendienst 20%",
+        "de": "Mitarbeiter* im Kundendienst 20%",
         "fr": "Mitarbeiter* en Kundendienst 20%"
       },
       "sourceLang": "it",

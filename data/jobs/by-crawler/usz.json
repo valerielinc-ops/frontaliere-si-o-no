@@ -12708,22 +12708,40 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
-        "infermiera-temporanea-emato-oncologia-60-100-universitatsspital-zurich-usz-campus"
+        "infermiera-temporanea-emato-oncologia-60-100-universitatsspital-zurich-usz-campus",
+        "infermiera-emato-oncologia-medicina-interna-60-100-universitatsspital-zurich-usz-campus",
+        "nurse-hemato-oncology-internal-medicine-60-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-hamato-onkologie-innere-medizin-60-100-usz-ch",
+        "infirmiere-en-hematologie-medecine-interne-60-100-universitatsspital-zurich-usz-campus",
+        "infermiere-specializzato-in-emato-oncologia-medicina-interna-60-100-universitatsspital-zurich-usz-campus",
+        "argomento-infermieristico-hemato-oncology-medicina-interna-60-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-hamato-onkologie-60-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
-          "infermiera-temporanea-emato-oncologia-60-100-universitatsspital-zurich-usz-campus"
+          "infermiera-temporanea-emato-oncologia-60-100-universitatsspital-zurich-usz-campus",
+          "infermiera-emato-oncologia-medicina-interna-60-100-universitatsspital-zurich-usz-campus",
+          "nurse-hemato-oncology-internal-medicine-60-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-hamato-onkologie-innere-medizin-60-100-usz-ch",
+          "infirmiere-en-hematologie-medecine-interne-60-100-universitatsspital-zurich-usz-campus",
+          "infermiere-specializzato-in-emato-oncologia-medicina-interna-60-100-universitatsspital-zurich-usz-campus",
+          "argomento-infermieristico-hemato-oncology-medicina-interna-60-100-universitatsspital-zurich-usz-campus",
+          "pflegefachperson-hamato-onkologie-60-100-usz-ch"
         ],
         "en": [
-          "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch"
+          "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
+          "nurse-hemato-oncology-internal-medicine-60-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch"
+          "temporar-pflegefachperson-hamato-onkologie-60-100-usz-ch",
+          "infirmiere-en-hematologie-medecine-interne-60-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "pflegefachperson-hamato-onkologie-innere-medizin-60-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-08-11T22:22:51.461Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -12735,7 +12753,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "usz-fada670116f2",
@@ -15037,7 +15056,7 @@
       "title": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) mit Schwerpunkt Gipsversorgung 80-100%",
       "titleByLocale": {
         "it": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) con Schwerpunkt Gipsversorgung 80-100%",
-        "en": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) mit Schwerpunkt Gipsversorgung 80-100%",
+        "en": "Special care: Dipl. Expertin / Dipl. Expert NDS Emergency Care (m/f/d) with focus on plaster supply 80-100 %",
         "de": "Spezialpflege: Dipl. Expertin / Dipl. Experte NDS Notfallpflege (w/m/d) mit Schwerpunkt Gipsversorgung 80-100%",
         "fr": "Soins spéciaux: Dipl. Expertin / Dipl. Expert NDS Emergency Care (h/f/d) avec un accent sur l'approvisionnement en plâtre 80-100 %"
       },
@@ -15070,18 +15089,7 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50421",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
-        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
-          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:56:52.944Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -15093,7 +15101,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-17T21:56:52.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
+          "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsverso",
+        "spezialpflege-dipl-expertin-dipl-experte-nds-notfallpflege-w-m-d-mit-schwerpunkt-gipsversorgung-80-100-universitatsspita"
+      ]
     },
     {
       "id": "usz-813f2411a285",
@@ -16044,17 +16063,17 @@
       "companyDomain": "usz.ch",
       "title": "Klinische:r Fachspezialist:in in der Klinik für Herzchirurgie 100%",
       "titleByLocale": {
+        "de": "Klinische:r Fachspezialist:in in der Klinik für Herzchirurgie 100%",
         "it": "Klinische:r Fachspezialist:in in der Klinik per Herzchirurgie 100%",
         "en": "Clinical:r Specialist:in the clinic for cardiac surgery",
-        "de": "Klinische:r Fachspezialist:in in der Klinik für Herzchirurgie 100%",
-        "fr": "Spécialiste clinique: à la clinique de chirurgie cardiaque"
+        "fr": "Spécialiste clinique: dans la clinique de chirurgie cardiaque"
       },
       "description": "Wir suchen eine tatkräftige, motivierte und engagierte Verstärkung für unser Team auf unserer Station der Klinik für Herzchirurgie<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Durchführen von klinisch-medizinischen Tätigkeiten (Schreiben von EKGs, Entfernen von Pacemaker-Elektroden, Entfernen von Thoraxdrainagen)\n\n• Durchführung tägliche Visiten mit klinischer Untersuchung und Dokumentation\n\n• Generelle Betreuung der Patienten der herzchirurgischen Bettenstation in enger Abstimmung mit der Ärzteschaft\n\n• Führen von Patienten- und Angehörigengesprächen zur Erläuterung der Diagnose(n) und des Behandlungsplans\n\n• Organisation von Patientenverlegungen und Patientenüberweisungen inklusive Rehabilitations-Anmeldungen\n\n• Verfassen von verschiedenen Berichten (Austrittsberichte, Überweisungsberichte, Verlegungsberichte)\n\n• Dokumentation der Ein- und Austritte der herzchirurgischen Bettenstation\n\n• Erstellen von ärztlichen Verordnungen (bildgebende Diagnostik, Einzeluntersuchungen, Konsilien)\n\n• Erheben der Anamnese sowie Statuserhebung bei Eintritt, Durchführen von Assessments\n\n• Fachliche und administrative Unterstützung des ärztlichen und nichtärztlichen Personals der herzchirurgischen Bettenstation\n\n• Mitwirken bei Prozessveränderungen (Weisungsanpassungen, Leitlinienanpassungen, Einführung von neuen Prozessen)\n\n• Überprüfung und Vervollständigung der Aufklärungsunterlagen (bspw. Aufklärungsprotokolle, Generalkonsent)\n\n• First-Level-Support für Patienten und anderweitige Beteiligte der herzchirurgischen Bettenstation\n\n• Massnahmen der Gesundheitsförderung und Prävention\n\n• Wahrnehmen der Koordinationsfunktion im interdisziplinären Team\n\nAnforderungen:\n• Grundausbildung zur FaGe und/oder med. Praxisassistent/in\n\n• Weiterbildung zur Pflegefachperson HF / FH\n\n• CAS Klinische/r Fachspezialist/in\n\n• Erfahrung im Gesundheitswesen, vorteilhafterweise in gleicher oder ähnlicher Funktion\n\n• Muttersprache Deutsch, Grundkenntnisse Englisch, Französisch und/oder Italienisch von Vorteil\n\n• Guter Umgang mit MS Office (Word, Excel, Outlook, Power-Point)\n\n• Strukturierte Arbeitsweise mit hoher Selbstdisziplin und Eigeninitiative\n\n• Kommunikationstarke, teamfähige Persönlichkeit\n\nWir bieten:\nWir bieten Ihnen eine vielseitige, anspruchsvolle und abwechslungsreiche Tätigkeit in einer dynamischen Umgebung. In Ihrer Funktion unterstützen Sie das Team der herzchirurgischen Abteilung in diversen Bereichen und tragen auf vielfältige Weise dazu bei, dass sich unsere Patienten und deren Angehörige optimal aufgehoben fühlen. Dabei können Sie Prozesse und patientenzentrierte Abläufe aktiv mitgestalten und weiterentwickeln. Sie sind am Puls des Geschehens!",
       "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un rinforzo attivo, motivato e impegnato per il nostro team presso la nostra sede della Clinica per la Chirurgia del Cuore I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Effettuare attività cliniche (scrivendo ECG, rimuovendo elettrodi Pacemaker, rimuovendo drinageno toracico)\n\n• Eseguire visite giornaliere con esame clinico e documentazione\n\n• Cura generale dei pazienti del letto chirurgico cardiaco in stretta coordinazione con la professione medica\n\n• Condurre riunioni del paziente e della famiglia per spiegare la diagnosi e il piano di trattamento\n\n• Organizzazione di trasferimenti e rinvii di pazienti, comprese le registrazioni di riabilitazione\n\n• Scrivere varie relazioni (relazioni di uscita, relazioni di trasferimento, relazioni di trasferimento)\n\n• Documentazione degli ingressi e delle uscite della stazione del letto cardiaco\n\n• Preparazione delle prescrizioni mediche (imaging diagnostics, esami individuali, consulenti)\n\n• Registrazione dell'anamnesis e dell'indagine sull'ingresso, valutazione di condotta\n\n• Assistenza specialistica e amministrativa per il personale medico e non medico della stazione del letto chirurgico cardiaco\n\n• Partecipazione ai cambiamenti di processo (aggiustamenti alle regole, adeguamenti alle linee guida, introduzione di nuovi processi)\n\n• Revisione e completamento dei documenti di intelligenza (ad esempio protocolli di intelligenza, consenso generale)\n\n• Supporto di primo livello per i pazienti e altri partecipanti al reparto letto cardiaco\n\n• Misure di promozione e prevenzione della salute\n\n• Percepire la funzione di coordinamento nel team interdisciplinare\n\nRequisiti\n• Formazione di base per FaGe e/o medicina. Assistente pratico/\n\n• Ulteriore istruzione come infermiera HF / FH\n\n• CAS Specialista clinica\n\n• Esperienza nella sanità, vantaggiosa nella stessa o simile funzione\n\n• lingua madre Tedesco, conoscenza di base di inglese, francese e/o italiano benefico\n\n• Buona gestione di MS Office (Word, Excel, Outlook, Power-Point)\n\n• Metodo di lavoro strutturato con alta autodisciplina e auto-iniziativa\n\n• Persona capace di comunicare, capace di squadra\n\nOffriamo:\nVi offriamo un'attività versatile, impegnativa e varia in un ambiente dinamico. Nel tuo ruolo, supporta il team del reparto di chirurgia cardiaca in varie aree e contribuisce in molti modi a garantire che i nostri pazienti e i loro parenti si sentano curati in modo ottimale. È possibile modellare attivamente e sviluppare ulteriormente i processi e i processi concentrati sul paziente. Sei sul polso degli eventi!",
-        "en": "We are looking for an active, motivated and committed reinforcement for our team at our station of the Clinic for Heart Surgery<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• Carrying out clinical-medical activities (writing ECGs, removing Pacemaker electrodes, removing chest drinagen)\n\n• Perform daily visits with clinical examination and documentation\n\n• General care of patients of the cardiac surgical bed ward in close coordination with the medical profession\n\n• Conduct patient and family meetings to explain the diagnosis(s) and treatment plan\n\n• Organization of patient transfers and referrals including rehabilitation registrations\n\n• Writing of various reports (exit reports, transfer reports, transfer reports)\n\n• Documentation of the entrances and exits of the cardiac bed station\n\n• Preparation of medical prescriptions (imaging diagnostics, individual examinations, consultants)\n\n• Recording of the anamnesis as well as status survey on entry, conducting assessments\n\n• Specialist and administrative support for the medical and non-medical staff of the cardiac surgical bed station\n\n• Participation in process changes (adjustments to the rules, adjustments to the guidelines, introduction of new processes)\n\n• Review and completion of the intelligence documents (e.g. intelligence protocols, general consensus)\n\n• First-level support for patients and other participants in the cardiac bed ward\n\n• Health promotion and prevention measures\n\n• Perceiving the coordination function in the interdisciplinary team\n\nRequirements\n• Basic training for FaGe and/or med. Practical Assistant/\n\n• Further education as a nurse HF / FH\n\n• CAS Clinical specialist\n\n• Experience in healthcare, advantageously in the same or similar function\n\n• native language German, basic knowledge of English, French and/or Italian beneficial\n\n• Good handling of MS Office (Word, Excel, Outlook, Power-Point)\n\n• Structured working method with high self-discipline and self-initiative\n\n• Communication-strong, team-capable personality\n\nWe offer:\nWe offer you a versatile, challenging and varied activity in a dynamic environment. In your role, you support the team of the cardiac surgery department in various areas and contribute in many ways to ensuring that our patients and their relatives feel optimally looked after. You can actively shape and further develop processes and patient-centered processes. You are on the pulse of events!",
         "de": "Wir suchen eine tatkräftige, motivierte und engagierte Verstärkung für unser Team auf unserer Station der Klinik für Herzchirurgie<br/>Das Universitätsspital Zürich ist eines der grössten Spitäler in der Schweiz. Unsere über 8'600 Mitarbeitenden und rund 700 Auszubildende setzen sich täglich für das Wohl unserer Patient:innen ein.\n\nAufgaben:\n• Durchführen von klinisch-medizinischen Tätigkeiten (Schreiben von EKGs, Entfernen von Pacemaker-Elektroden, Entfernen von Thoraxdrainagen)\n\n• Durchführung tägliche Visiten mit klinischer Untersuchung und Dokumentation\n\n• Generelle Betreuung der Patienten der herzchirurgischen Bettenstation in enger Abstimmung mit der Ärzteschaft\n\n• Führen von Patienten- und Angehörigengesprächen zur Erläuterung der Diagnose(n) und des Behandlungsplans\n\n• Organisation von Patientenverlegungen und Patientenüberweisungen inklusive Rehabilitations-Anmeldungen\n\n• Verfassen von verschiedenen Berichten (Austrittsberichte, Überweisungsberichte, Verlegungsberichte)\n\n• Dokumentation der Ein- und Austritte der herzchirurgischen Bettenstation\n\n• Erstellen von ärztlichen Verordnungen (bildgebende Diagnostik, Einzeluntersuchungen, Konsilien)\n\n• Erheben der Anamnese sowie Statuserhebung bei Eintritt, Durchführen von Assessments\n\n• Fachliche und administrative Unterstützung des ärztlichen und nichtärztlichen Personals der herzchirurgischen Bettenstation\n\n• Mitwirken bei Prozessveränderungen (Weisungsanpassungen, Leitlinienanpassungen, Einführung von neuen Prozessen)\n\n• Überprüfung und Vervollständigung der Aufklärungsunterlagen (bspw. Aufklärungsprotokolle, Generalkonsent)\n\n• First-Level-Support für Patienten und anderweitige Beteiligte der herzchirurgischen Bettenstation\n\n• Massnahmen der Gesundheitsförderung und Prävention\n\n• Wahrnehmen der Koordinationsfunktion im interdisziplinären Team\n\nAnforderungen:\n• Grundausbildung zur FaGe und/oder med. Praxisassistent/in\n\n• Weiterbildung zur Pflegefachperson HF / FH\n\n• CAS Klinische/r Fachspezialist/in\n\n• Erfahrung im Gesundheitswesen, vorteilhafterweise in gleicher oder ähnlicher Funktion\n\n• Muttersprache Deutsch, Grundkenntnisse Englisch, Französisch und/oder Italienisch von Vorteil\n\n• Guter Umgang mit MS Office (Word, Excel, Outlook, Power-Point)\n\n• Strukturierte Arbeitsweise mit hoher Selbstdisziplin und Eigeninitiative\n\n• Kommunikationstarke, teamfähige Persönlichkeit\n\nWir bieten:\nWir bieten Ihnen eine vielseitige, anspruchsvolle und abwechslungsreiche Tätigkeit in einer dynamischen Umgebung. In Ihrer Funktion unterstützen Sie das Team der herzchirurgischen Abteilung in diversen Bereichen und tragen auf vielfältige Weise dazu bei, dass sich unsere Patienten und deren Angehörige optimal aufgehoben fühlen. Dabei können Sie Prozesse und patientenzentrierte Abläufe aktiv mitgestalten und weiterentwickeln. Sie sind am Puls des Geschehens!",
-        "fr": "Nous recherchons un renforcement actif, motivé et engagé pour notre équipe à notre station de la Clinique de Chirurgie cardiaque<br/ >L'Hôpital Universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Mener des activités cliniques et médicales (écriture d'ECG, enlèvement d'électrodes Pacemaker, enlèvement de drinagène thoracique)\n\n• Effectuer des visites quotidiennes avec examen clinique et documentation\n\n• Prise en charge générale des patients de la chambre à lits de chirurgie cardiaque en étroite coordination avec la profession médicale\n\n• Organiser des réunions de patients et de familles pour expliquer le ou les diagnostics et le plan de traitement\n\n• Organisation des transferts de patients et des aiguillages, y compris les enregistrements de réadaptation\n\n• Rédaction de divers rapports (rapports de sortie, rapports de transfert, rapports de transfert)\n\n• Documentation des entrées et sorties de la station du lit cardiaque\n\n• Préparation des prescriptions médicales (diagnostics, examens individuels, consultants)\n\n• Enregistrement de l'anamnèse ainsi que de l'état à l'entrée, réalisation d'évaluations\n\n• Soutien spécialisé et administratif au personnel médical et non médical du poste de chirurgie cardiaque\n\n• Participation aux changements de processus (adaptations aux règles, modifications aux lignes directrices, introduction de nouveaux processus)\n\n• Examen et établissement des documents de renseignement (p. ex. protocoles de renseignement, consensus général)\n\n• Soutien de premier niveau aux patients et aux autres participants à la chambre à lits cardiaques\n\n• Mesures de promotion et de prévention de la santé\n\n• Percevoir la fonction de coordination dans l'équipe interdisciplinaire\n\nExigences\n• Formation de base pour FaGe et/ou med. Assistant pratique/\n\n• Enseignement complémentaire en tant qu'infirmière HF / FH\n\n• CAS Spécialiste clinique\n\n• Expérience dans les soins de santé, avantageusement dans la même fonction ou similaire\n\n• langue maternelle Allemand, connaissance de base de l'anglais, du français et/ou de l'italien bénéfique\n\n• Bonne gestion de MS Office (Word, Excel, Outlook, Power-Point)\n\n• Méthode de travail structurée avec haute autodiscipline et auto-initiative\n\n• Personnalité forte en communication et capable d'équipe\n\nNous offrons:\nNous vous proposons une activité polyvalente, stimulante et variée dans un environnement dynamique. Dans votre rôle, vous soutenez l'équipe du service de chirurgie cardiaque dans divers domaines et contribuez de nombreuses façons à assurer que nos patients et leurs proches se sentent parfaitement soignés. Vous pouvez façonner et développer activement les processus et les processus centrés sur le patient. Vous êtes sur le pouls des événements!"
+        "it": "Siamo alla ricerca di un rinforzo attivo, motivato e impegnato per il nostro team presso la nostra sede della Clinica per la Chirurgia del Cuore I nostri oltre 8.600 dipendenti e circa 700 tirocinanti lavorano ogni giorno per il benessere dei nostri pazienti.\n\nCompiti:\n• Effettuare attività cliniche (scrivere ECG, rimuovere gli elettrodi Pacemaker, rimuovere il drinage del torace)\n\n• Eseguire visite giornaliere con esame clinico e documentazione\n\n• Cura generale dei pazienti del letto chirurgico cardiaco in stretta coordinazione con la professione medica\n\n• Condurre riunioni del paziente e della famiglia per spiegare la diagnosi e il piano di trattamento\n\n• Organizzazione di trasferimenti e rinvii di pazienti, comprese le registrazioni di riabilitazione\n\n• Scrittura di varie relazioni (relazioni di uscita, relazioni di trasferimento, relazioni di trasferimento)\n\n• Documentazione delle entrate e uscite della stazione del letto cardiaco\n\n• Preparazione di prescrizioni mediche (imaging diagnostics, esami individuali, consulenti)\n\n• Raccolta di anamnesi e valutazione dello stato sull'ingresso, valutazioni di comportamento\n\n• Assistenza specialistica e amministrativa per il personale medico e non medico del reparto del letto chirurgico cardiaco\n\n• Partecipazione ai cambiamenti di processo (aggiustamenti istruttivi, aggiustamenti di orientamento, introduzione di nuovi processi)\n\n• Revisione e completamento dei documenti di intelligenza (ad esempio protocolli di intelligenza, consenso generale)\n\n• Supporto di primo livello per i pazienti e altri partecipanti al reparto letto cardiaco\n\n• Misure di promozione e prevenzione della salute\n\n• Percepire la funzione di coordinamento nel team interdisciplinare\n\nRequisiti\n• Formazione di base per FaGe e/o medicina. Assistente pratico/\n\n• Ulteriore istruzione come infermiera HF / FH\n\n• CAS Specialista clinica\n\n• Esperienza nella sanità, vantaggiosa nella stessa o simile funzione\n\n• lingua madre Tedesco, conoscenza di base di inglese, francese e/o italiano benefico\n\n• Buona gestione di MS Office (Word, Excel, Outlook, Power-Point)\n\n• Metodo di lavoro strutturato con alta autodisciplina e auto-iniziativa\n\n• Persona di comunicazione forte e capace di squadra\n\nOffriamo:\nVi offriamo un'attività versatile, impegnativa e varia in un ambiente dinamico. Nel tuo ruolo, supporta il team del reparto di chirurgia cardiaca in varie aree e contribuisce in molti modi a garantire che i nostri pazienti e i loro parenti si sentano curati in modo ottimale. È possibile plasmare attivamente e sviluppare ulteriormente i processi e i processi concentrati sul paziente. Sei sul polso degli eventi!",
+        "en": "We are looking for an active, motivated and committed reinforcement for our team at our station of the Clinic for Heart Surgery<br/ >The University Hospital Zurich is one of the largest hospitals in Switzerland. Our more than 8,600 employees and around 700 trainees work every day for the well-being of our patients.\n\nTasks:\n• Carrying out clinical-medical activities (writing ECGs, removing Pacemaker electrodes, removing chest drinagen)\n\n• Perform daily visits with clinical examination and documentation\n\n• General care of patients of the cardiac surgical bed ward in close coordination with the medical profession\n\n• Conduct patient and family meetings to explain the diagnosis(s) and treatment plan\n\n• Organization of patient transfers and referrals including rehabilitation registrations\n\n• Writing of various reports (exit reports, transfer reports, transfer reports)\n\n• Documentation of the entrances and exits of the cardiac bed station\n\n• Preparation of medical prescriptions (imaging diagnostics, individual examinations, consultants)\n\n• Collection of anamnesis as well as status assessment on entry, conducting assessments\n\n• Specialist and administrative support for medical and non-medical staff of the cardiac surgical bed ward\n\n• Participation in process changes (instructional adjustments, guidance adjustments, introduction of new processes)\n\n• Review and completion of the intelligence documents (e.g. intelligence protocols, general consensus)\n\n• First-level support for patients and other participants in the cardiac bed ward\n\n• Health promotion and prevention measures\n\n• Perceiving the coordination function in the interdisciplinary team\n\nRequirements\n• Basic training for FaGe and/or med. Practical Assistant/\n\n• Further education as a nurse HF / FH\n\n• CAS Clinical specialist\n\n• Experience in healthcare, advantageously in the same or similar function\n\n• native language German, basic knowledge of English, French and/or Italian beneficial\n\n• Good handling of MS Office (Word, Excel, Outlook, Power-Point)\n\n• Structured working method with high self-discipline and self-initiative\n\n• Communication-strong, team-capable personality\n\nWe offer:\nWe offer you a versatile, challenging and varied activity in a dynamic environment. In your role, you support the team of the cardiac surgery department in various areas and contribute in many ways to ensuring that our patients and their relatives feel optimally looked after. You can actively shape and further develop processes and patient-centered processes. You are on the pulse of events!",
+        "fr": "Nous recherchons un renforcement actif, motivé et engagé pour notre équipe à notre station de la Clinique de Chirurgie cardiaque<br/ >L'hôpital universitaire de Zurich est l'un des plus grands hôpitaux de Suisse. Nos plus de 8 600 employés et quelque 700 stagiaires travaillent chaque jour pour le bien-être de nos patients.\n\nTâches :\n• Mener des activités cliniques et médicales (écriture d'ECG, enlèvement d'électrodes Pacemaker, enlèvement de drinagen thoracique)\n\n• Effectuer des visites quotidiennes avec examen clinique et documentation\n\n• Soins généraux des patients de la chambre à lits de chirurgie cardiaque en étroite coordination avec la profession médicale\n\n• Organiser des réunions de patients et de famille pour expliquer le ou les diagnostics et le plan de traitement\n\n• Organisation des transferts de patients et des aiguillages, y compris les enregistrements de réadaptation\n\n• Rédaction de divers rapports (rapports de sortie, rapports de transfert, rapports de transfert)\n\n• Documentation des entrées et sorties de la station du lit cardiaque\n\n• Préparation des prescriptions médicales (diagnostics, examens individuels, consultants)\n\n• Collecte de l'anamnèse et évaluation de l'état à l'entrée, réalisation d'évaluations\n\n• Assistance spécialisée et administrative au personnel médical et non médical du service de chirurgie cardiaque\n\n• Participation aux changements de processus (ajustements d'instruction, ajustements d'orientation, introduction de nouveaux processus)\n\n• Examen et établissement des documents de renseignement (p. ex. protocoles de renseignement, consensus général)\n\n• Soutien de premier niveau pour les patients et les autres participants au service des lits cardiaques\n\n• Mesures de promotion et de prévention de la santé\n\n• Percevoir la fonction de coordination dans l'équipe interdisciplinaire\n\nExigences\n• Formation de base pour FaGe et/ou med. Assistant pratique/\n\n• Enseignement supérieur en tant qu'infirmière HF / FH\n\n• CAS Spécialiste clinique\n\n• Expérience dans les soins de santé, avantageusement dans la même fonction ou similaire\n\n• langue maternelle Allemand, connaissance de base de l'anglais, du français et/ou de l'italien bénéfique\n\n• Bonne gestion de MS Office (Word, Excel, Outlook, Power-Point)\n\n• Méthode de travail structurée avec haute autodiscipline et auto-initiative\n\n• Personnalité forte en communication, capable d'équipe\n\nNous offrons:\nNous vous proposons une activité polyvalente, stimulante et variée dans un environnement dynamique. Dans votre rôle, vous aidez l'équipe du service de chirurgie cardiaque dans divers domaines et contribuez de nombreuses façons à faire en sorte que nos patients et leurs proches se sentent parfaitement soignés. Vous pouvez façonner et développer activement les processus et les processus axés sur le patient. Vous êtes sur le pouls des événements!"
       },
       "location": "Campus",
       "canton": "ZH",
@@ -16078,11 +16097,7 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USZ&career_ns=job_application&career_job_req_id=50863",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "klinische-r-fachspezialist-in-in-der-klinik-fur-herzchirurgie-usz-ch",
-        "klinische-r-fachspezialist-in-in-der-klinik-fur-herzchirurgie-100-usz-ch",
-        "klinische-r-fachspezialist-in-der-klinik-per-herzchirurgie-universitatsspital-zurich-usz-campus"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "klinische-r-fachspezialist-in-in-der-klinik-fur-herzchirurgie-usz-ch",
@@ -16096,8 +16111,11 @@
           "klinische-r-fachspezialist-in-in-der-klinik-fur-herzchirurgie-usz-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:08:31.238Z",
+      "previousSlugs": [
+        "klinische-r-fachspezialist-in-in-der-klinik-fur-herzchirurgie-usz-ch",
+        "klinische-r-fachspezialist-in-in-der-klinik-fur-herzchirurgie-100-usz-ch",
+        "klinische-r-fachspezialist-in-der-klinik-per-herzchirurgie-universitatsspital-zurich-usz-campus"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -16109,7 +16127,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T22:08:31.238Z"
     },
     {
       "id": "usz-64eb71d52cb0",

@@ -5292,12 +5292,19 @@
       "jobReqId": "744000143995165",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychologue-a-l-unite-d-hospitalisation-du-service-de-psychiatrie-de-l-enfant-et-de-l",
-        "psicologo-presso-il-servizio-di-psichiatria-infantile-e-adolescente-60-hug-geneve",
-        "psychologist-at-the-child-and-adolescent-psychiatry-service-60-hug-geneve",
-        "psicologo-presso-l-unita-di-ospedalizzazione-del-servizio-di-psichiatria-infantile-e-adolescente-60-hug-geneve"
-      ],
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T09:49:51.648Z",
       "previousSlugsByLocale": {
         "it": [
           "psychologue-a-l-unite-d-hospitalisation-du-service-de-psychiatrie-de-l-enfant-et-de-l",
@@ -5312,19 +5319,12 @@
           "psychologue-a-l-unite-d-hospitalisation-du-service-de-psychiatrie-de-l-enfant-et-de-l"
         ]
       },
-      "firstSeenAt": "2026-08-18T09:49:51.648Z",
-      "salaryMin": 36300,
-      "salaryMax": 54900,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36300,
-          "maxValue": 54900,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "psychologue-a-l-unite-d-hospitalisation-du-service-de-psychiatrie-de-l-enfant-et-de-l",
+        "psicologo-presso-il-servizio-di-psichiatria-infantile-e-adolescente-60-hug-geneve",
+        "psychologist-at-the-child-and-adolescent-psychiatry-service-60-hug-geneve",
+        "psicologo-presso-l-unita-di-ospedalizzazione-del-servizio-di-psichiatria-infantile-e-adolescente-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-e383ca95f918",

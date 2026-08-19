@@ -13520,25 +13520,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "consultant-in-the-garden-jumbo-division-der-coop-genossenschaft-frauenfeld",
-        "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
-        "consultant-dans-le-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld",
-        "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
-        "consultant-in-the-garden-jumbo-frauenfeld",
-        "consultant-dans-le-jardin-jumbo-frauenfeld",
-        "consulente-di-vendita-garden-jumbo-frauenfeld",
-        "verkausberater-in-garten-jumbo-frauenfeld",
-        "consulente-in-giardino-jumbo-frauenfeld",
-        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-bern",
-        "consultant-in-garden-jumbo-division-der-coop-genossenschaft-bern",
-        "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-bern-ibn3ix",
-        "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-bern",
-        "verkausberater-in-garden-jumbo-bern",
-        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-3zywc0",
-        "mitarbeiter-in-logistik-jumbo-frauenfeld",
-        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "consultant-in-the-garden-jumbo-division-der-coop-genossenschaft-frauenfeld",
@@ -13575,8 +13556,26 @@
           "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-bern"
         ]
       },
+      "previousSlugs": [
+        "consultant-in-the-garden-jumbo-division-der-coop-genossenschaft-frauenfeld",
+        "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau-yy06by",
+        "consultant-dans-le-jardin-jumbo-division-der-coop-genossenschaft-frauenfeld",
+        "verkausberater-in-garten-jumbo-division-der-coop-genossenschaft-frauenfeld-thurgau",
+        "consultant-in-the-garden-jumbo-frauenfeld",
+        "consultant-dans-le-jardin-jumbo-frauenfeld",
+        "consulente-di-vendita-garden-jumbo-frauenfeld",
+        "verkausberater-in-garten-jumbo-frauenfeld",
+        "consulente-in-giardino-jumbo-frauenfeld",
+        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-bern",
+        "consultant-in-garden-jumbo-division-der-coop-genossenschaft-bern",
+        "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-bern-ibn3ix",
+        "consultant-en-jardin-jumbo-division-der-coop-genossenschaft-bern",
+        "verkausberater-in-garden-jumbo-bern",
+        "verkausberater-in-garten-jumbo-frauenfeld-thurgau-3zywc0",
+        "mitarbeiter-in-logistik-jumbo-frauenfeld",
+        "consulente-in-giardino-jumbo-division-der-coop-genossenschaft-frauenfeld"
+      ],
       "firstSeenAt": "2026-08-03T12:35:40.788Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -20276,9 +20275,9 @@
       "id": "jumbo-98220b41-376",
       "slug": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
       "slugByLocale": {
+        "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich-qrc75h",
         "it": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
         "en": "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil",
-        "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-hinwil-zurich-qrc75h",
         "fr": "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-hinwil"
       },
       "company": "JUMBO",
@@ -20335,12 +20334,20 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-hinwil",
-        "sales-consultant-in-do-it-jumbo-hinwil",
-        "consultant-en-ventes-a-do-it-jumbo-hinwil",
-        "consulente-di-vendita-in-do-it-jumbo-hinwil"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-18T09:49:47.247Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-hinwil",
@@ -20358,20 +20365,12 @@
           "verkaufsberater-in-do-it-jumbo-hinwil"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:49:47.247Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-hinwil",
+        "sales-consultant-in-do-it-jumbo-hinwil",
+        "consultant-en-ventes-a-do-it-jumbo-hinwil",
+        "consulente-di-vendita-in-do-it-jumbo-hinwil"
+      ]
     },
     {
       "id": "jumbo-c5f5a325-1b4",
@@ -20432,19 +20431,7 @@
           "• Vous êtes de bonne constitution et la manutention ne vous pose aucun problème"
         ]
       },
-      "previousSlugs": [
-        "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman"
-        ],
-        "fr": [
-          "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:49:47.244Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -20456,15 +20443,32 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:49:47.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman",
+          "consultant-sales-advisor-leisure-e-h-d-jumbo-allaman"
+        ],
+        "fr": [
+          "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman"
+        ],
+        "en": [
+          "consultant-sales-advisor-leisure-e-h-d-jumbo-allaman"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman",
+        "consultant-sales-advisor-leisure-e-h-d-jumbo-allaman"
+      ]
     },
     {
       "id": "jumbo-8bfa3caf-53f",
       "slug": "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
       "slugByLocale": {
+        "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
         "it": "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
         "en": "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen-284197",
-        "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-49vqru",
         "fr": "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen-284197"
       },
       "company": "JUMBO",
@@ -20520,31 +20524,45 @@
           "• Einsatzzeiten? Da bist du sehr flexibel."
         ]
       },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
+          "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
+          "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-jsw1f0",
+          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen",
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-jsw1f0",
+          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen",
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+          "district-manager-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen"
+        ],
+        "en": [
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
+          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-feuerthalen",
+          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen"
+        ],
+        "fr": [
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
+          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen",
+          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen"
+        ],
+        "de": [
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-jsw1f0"
+        ]
+      },
       "previousSlugs": [
         "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
         "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-feuerthalen",
         "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen",
-        "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen"
+        "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
+        "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-jsw1f0",
+        "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen",
+        "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-jsw1f0",
+        "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-division-der-coop-genossenschaft-feuerthalen",
+        "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+        "district-manager-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
-          "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen"
-        ],
-        "en": [
-          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
-          "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-feuerthalen"
-        ],
-        "fr": [
-          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
-          "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen"
-        ],
-        "de": [
-          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:49:47.236Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -20556,7 +20574,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-18T09:49:47.236Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-6cc68aa9-9b1",

@@ -623,13 +623,7 @@
       "applyUrl": "https://emp.jobylon.com/jobs/376670-localsearch-verkauferin-im-aussendienst/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-5",
-        "verkaufer-in-im-aussendienst-localsearch-ch",
-        "verkaufer-in-im-aussendienst-localsearch-zurich",
-        "vendeuse-vendeur-sur-le-terrain-localsearch-zurich",
-        "venditore-nel-settore-localsearch-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-aussendienst-localsearch-ch-5",
@@ -645,8 +639,13 @@
           "verkaufer-in-im-aussendienst-localsearch-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:51:40.660Z",
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch-5",
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-zurich",
+        "vendeuse-vendeur-sur-le-terrain-localsearch-zurich",
+        "venditore-nel-settore-localsearch-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -659,7 +658,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-18T09:51:40.660Z"
     },
     {
       "id": "localsearch-73befd4577ca",
@@ -1199,13 +1199,7 @@
       "applyUrl": "https://emp.jobylon.com/jobs/376681-localsearch-verkauferin-im-aussendienst/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufer-in-im-aussendienst-localsearch-ch-12",
-        "verkaufer-in-im-aussendienst-localsearch-ch",
-        "verkaufer-in-im-aussendienst-localsearch-urdorf",
-        "vendeuse-vendeur-sur-le-terrain-localsearch-urdorf",
-        "venditore-nel-settore-localsearch-urdorf"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-aussendienst-localsearch-ch-12",
@@ -1221,8 +1215,13 @@
           "verkaufer-in-im-aussendienst-localsearch-urdorf"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T09:51:32.075Z",
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch-12",
+        "verkaufer-in-im-aussendienst-localsearch-ch",
+        "verkaufer-in-im-aussendienst-localsearch-urdorf",
+        "vendeuse-vendeur-sur-le-terrain-localsearch-urdorf",
+        "venditore-nel-settore-localsearch-urdorf"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1235,7 +1234,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-18T09:51:32.075Z"
     },
     {
       "id": "localsearch-e7115f7c71c6",

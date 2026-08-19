@@ -4117,6 +4117,19 @@
       "hiringOrganizationName": "Siemens Mobility AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-17T21:28:18.001Z",
       "previousSlugs": [
         "siemens-graduate-program-business-development-strategy-switzerland-siemens-wallisellen",
         "siemens-graduate-program-sviluppo-aziendale-e-strategia-svizzera-siemens-wallisellen"
@@ -4132,21 +4145,7 @@
         "fr": [
           "siemens-graduate-program-business-development-strategy-switzerland-siemens-wallisellen"
         ]
-      },
-      "firstSeenAt": "2026-08-17T21:28:18.001Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "siemens-957fe7c07082",

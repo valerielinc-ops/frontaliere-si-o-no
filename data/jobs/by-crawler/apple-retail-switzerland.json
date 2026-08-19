@@ -1271,10 +1271,10 @@
       },
       "description": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish.\n\nAs part of our efforts to protect our users, Apple is looking for a world-class security engineer to join a team of threat intelligence analysts and security engineers. This team works together and cross-functionally to drive efforts to solve security engineering challenges, with an emphasis on supporting decisions that provide the greatest long-term security. The success we are striving for is the result of very skilled people working in an environment that cultivates creativity, partnership, and solving old problems in new ways.",
       "descriptionByLocale": {
-        "it": "Immagina cosa puoi fare qui. A Apple, le nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Porta la passione e la dedizione al tuo lavoro e non c'e' niente da dire a cosa potresti realizzare.\n\nNell'ambito dei nostri sforzi per proteggere i nostri utenti, Apple sta cercando un ingegnere di sicurezza di livello mondiale per unirsi a un team di analisti di minacce e ingegneri di sicurezza. Questo team lavora insieme e multifunzionalmente per guidare gli sforzi per risolvere le sfide dell'ingegneria della sicurezza, con l'accento sul sostegno delle decisioni che forniscono la massima sicurezza a lungo termine. Il successo che stiamo cercando è il risultato di persone molto abili che lavorano in un ambiente che coltiva creatività, partnership e risolvendo vecchi problemi in modi nuovi.",
         "en": "Imagine what you could do here. At Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion and dedication to your job and there's no telling what you could accomplish.\n\nAs part of our efforts to protect our users, Apple is looking for a world-class security engineer to join a team of threat intelligence analysts and security engineers. This team works together and cross-functionally to drive efforts to solve security engineering challenges, with an emphasis on supporting decisions that provide the greatest long-term security. The success we are striving for is the result of very skilled people working in an environment that cultivates creativity, partnership, and solving old problems in new ways.",
+        "it": "Immagina cosa potresti fare qui. A Apple, nuove idee hanno un modo di diventare prodotti straordinari, servizi e esperienze dei clienti molto rapidamente. Portate la passione e la dedizione al vostro lavoro e non c'è da dire ciò che potreste realizzare.\n\nNell'ambito dei nostri sforzi per proteggere i nostri utenti, Apple sta cercando un ingegnere di sicurezza di livello mondiale per unirsi a un team di analisti di minacce e ingegneri di sicurezza. Questo team lavora insieme e multifunzionalmente per guidare gli sforzi per risolvere le sfide dell'ingegneria della sicurezza, con l'accento sul sostegno delle decisioni che forniscono la massima sicurezza a lungo termine. Il successo che stiamo cercando è il risultato di persone molto abili che lavorano in un ambiente che coltiva creatività, partnership e risolvendo vecchi problemi in modi nuovi.",
         "de": "Stellen Sie sich vor, was Sie hier tun könnten. Bei Apple können neue Ideen sehr schnell zu außergewöhnlichen Produkten, Dienstleistungen und Kundenerfahrungen werden. Bringen Sie Leidenschaft und Hingabe in Ihren Job und es ist nicht abzusehen, was Sie erreichen könnten.\n\nAls Teil unserer Bemühungen, unsere Benutzer zu schützen, sucht Apple nach einem Weltklasse-Sicherheitsingenieur, der sich einem Team von Threat Intelligence Analysten und Sicherheitsingenieuren anschließt. Dieses Team arbeitet zusammen und funktionsübergreifend, um die Bemühungen zur Lösung von Herausforderungen im Bereich Security Engineering voranzutreiben, wobei der Schwerpunkt auf der Unterstützung von Entscheidungen liegt, die die größte langfristige Sicherheit bieten. Der Erfolg, den wir anstreben, ist das Ergebnis sehr qualifizierter Menschen, die in einem Umfeld arbeiten, das Kreativität, Partnerschaft und die Lösung alter Probleme auf neue Weise fördert.",
-        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées peuvent devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir.\n\nDans le cadre de nos efforts pour protéger nos utilisateurs, Apple est à la recherche d'un ingénieur de sécurité de classe mondiale pour rejoindre une équipe d'analystes du renseignement de menace et d'ingénieurs de sécurité. Cette équipe travaille de concert et de façon interfonctionnelle pour mener des efforts visant à résoudre les problèmes d'ingénierie de la sécurité, en mettant l'accent sur le soutien des décisions qui assurent la plus grande sécurité à long terme. Le succès que nous recherchons est le résultat de personnes très qualifiées travaillant dans un environnement qui cultive la créativité, le partenariat et la résolution de vieux problèmes de nouvelles façons."
+        "fr": "Imaginez ce que vous pourriez faire ici. Chez Apple, de nouvelles idées ont une façon de devenir des produits, des services et des expériences client extraordinaires très rapidement. Apportez de la passion et du dévouement à votre travail et il n'y a rien à dire sur ce que vous pourriez accomplir.\n\nDans le cadre de nos efforts pour protéger nos utilisateurs, Apple est à la recherche d'un ingénieur de sécurité de classe mondiale pour rejoindre une équipe d'analystes de renseignement de menace et d'ingénieurs de sécurité. Cette équipe travaille ensemble et interfonctionnellement pour stimuler les efforts visant à résoudre les problèmes d'ingénierie de la sécurité, en mettant l'accent sur le soutien aux décisions qui assurent la plus grande sécurité à long terme. Le succès que nous recherchons est le résultat de personnes très qualifiées travaillant dans un environnement qui cultive la créativité, le partenariat et la résolution de vieux problèmes de nouvelles façons."
       },
       "location": "Zurich",
       "canton": "ZH",
@@ -1296,6 +1296,20 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200677276/security-engineer?team=SFTWR",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-18T22:00:35.563Z",
       "previousSlugs": [
         "security-engineer-apple-retail-switzerland-ch",
         "security-ingegnere-apple-retail-switzerland-zurich"
@@ -1311,21 +1325,7 @@
         "fr": [
           "security-engineer-apple-retail-switzerland-ch"
         ]
-      },
-      "firstSeenAt": "2026-08-18T22:00:35.563Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
+      }
     },
     {
       "id": "apple-retail-switzerland-3d4b15d6efc3",

@@ -593,21 +593,6 @@
         ]
       },
       "sfJobId": "1165282655",
-      "previousSlugs": [
-        "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
-        "senior-underwriter-liability-company-international-m-f-d-die-mobiliar-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
-          "senior-underwriter-liability-company-international-m-f-d-die-mobiliar-zurich"
-        ],
-        "fr": [
-          "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T21:42:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -620,7 +605,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-17T21:42:30.371Z",
+      "previousSlugs": [
+        "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
+        "senior-underwriter-liability-company-international-m-f-d-die-mobiliar-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch",
+          "senior-underwriter-liability-company-international-m-f-d-die-mobiliar-zurich"
+        ],
+        "fr": [
+          "senior-underwriter-haftpflicht-unternehmen-international-w-m-d-mobiliar-ch"
+        ]
+      }
     },
     {
       "id": "mobiliar-615c097c96f8",
