@@ -13154,6 +13154,11 @@ ${staticAnalyticsHtml}
  if (crossLocaleExpiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleExpiredCount} cross-locale reconciliation pages for expired jobs`);
  }
+ // #6134: the stretch from here to the previousSlugs-bridges checkpoint
+ // below was the only unlogged span between "after expired-softlandings"
+ // and collector.flush() — the 2026-08-19 OOM died somewhere in it with no
+ // [mem] line to localize which phase. Checkpointing here narrows that gap.
+ logBuildMem('jobsSeoPages: after cross-locale-expired', collector);
 
  // Cross-locale-expired-bridge was the last reader of `expiredSoftLandingCache`
  // (populated during the expired-soft-landing emit, ~152k entries × ~9 KB ≈
@@ -13279,6 +13284,21 @@ ${staticAnalyticsHtml}
  `\x1b[36m[jobs-seo-pages]\x1b[0m previous-slug winners: ${previousSlugClaimants.size} claimed slugs, ${multiClaimantKeys} contested → resolved via registry + heuristic`,
  );
  }
+
+ // previousSlugClaimants/cantonByKey were the last reader of themselves —
+ // their only purpose was resolving winnerByPrevSlugKey above (`.size` on
+ // the line just above is their last read). Both stay dead state for the
+ // rest of closeBundle: the emit loop below reads winnerByPrevSlugKey only.
+ // Mirrors expiredSoftLandingCache.clear()+forceGc() a few hundred lines up
+ // (same "clear the dead map before the next big emit" pattern, #6134):
+ // free them before the ~65k-page previousSlugs full-content loop, the
+ // largest remaining phase before the OOM observed 2026-08-19 (7/8 deploys,
+ // exit 134 "Ineffective mark-compacts near heap limit" shortly after the
+ // "after expired-softlandings" [mem] checkpoint, no further checkpoint
+ // logged before the crash).
+ previousSlugClaimants.clear();
+ cantonByKey.clear();
+ forceGc();
 
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
@@ -13518,6 +13538,9 @@ ${staticAnalyticsHtml}
  ? ` (${bridgeSkippedNotWinner} duplicate emits skipped — see data/previous-slug-winners.json for the canonical owner per slug)`
  : '';
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages${skipNote}`);
+ // #6134: second half of the previously-unlogged stretch (see the
+ // "after cross-locale-expired" checkpoint above).
+ logBuildMem('jobsSeoPages: after previousSlugs-bridges', collector);
  // Backpressure between previousSlugs full-content (~65k pages) and
  // the next big emit (cross-locale-active-bridge ~56k pages).
  await collector.awaitDrainSlot(2);
