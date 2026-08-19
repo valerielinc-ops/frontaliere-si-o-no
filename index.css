@@ -529,8 +529,8 @@ body.modal-open .google-auto-placed {
 }
 /* Stacked slots (second or later .google-auto-placed sibling in the same parent)
    don't pre-reserve 250px. Starting at 0 means they never collapse, eliminating
-   the 250→0 CLS on unfilled stacked ads. The first slot is managed by
-   TopAutoAdReserve.tsx via JS adaptive reserve. (#2907) */
+   the 250→0 CLS on unfilled stacked ads. The first slot keeps the 250px
+   floor from the rule above. (#2907) */
 .google-auto-placed ~ .google-auto-placed {
   min-height: 0;
 }
@@ -543,26 +543,20 @@ body.modal-open .google-auto-placed {
   margin-bottom: 0 !important;
 }
 
-/* ===== Top in-page Auto Ad CLS reserve (homepage) ════════════════════════
-   Google injects `.google-auto-placed` as a flow sibling directly above
-   <main> on the homepage, pushing content down ~250-298px after hydration
-   (measured live CLS 0.19 desktop / 0.25 mobile — the dominant shift). The
-   #2190 mitigation above (contain/min-height) CANNOT prevent this:
-   `contain: layout` isolates a box's INTERNAL layout, it does not stop an
-   in-flow sibling injected above <main> from displacing <main> downward.
+/* ===== Top in-page Auto Ad reserve — REMOVED 2026-08-19 ══════════════════
+   `.autoad-top-reserve` (TopAutoAdReserve.tsx) held 250px above <main> on the
+   homepage for a top in-page Auto Ad, mirroring the ad's height so <main> never
+   moved (#2629 / #2655 / #2905). Google no longer places an ad there: measured
+   live on frontaliereticino.ch (/ and /fr/, consent granted, ads serving), all
+   four `.google-auto-placed` containers land inside <footer> and none is a child
+   of `.app-shell-col`, so the placeholder had nothing to mirror — it held its
+   250px floor on every load and rendered as a permanent blank band between the
+   sub-nav and the content (reserve 181→431px, <main> pushed to 431).
 
-   <TopAutoAdReserve> renders `.autoad-top-reserve` as a column child at first
-   paint with this 250px floor, so <main> starts at its post-ad position. The
-   component then mirrors the ad's effective height via a MutationObserver
-   (collapse to 0 when the ad occupies space, re-expand to 250 when the ad is
-   absent / unfilled / empty), keeping the total gap constant so <main> never
-   moves either way. A pure-CSS `:has()` collapse can't express the unfilled
-   case ("ad exists AND not unfilled") because `:has()` may not be nested —
-   keying only on existence left <main> jumping up 250px when AdSense collapsed
-   an unfilled ad (observed live), so the collapse logic lives in JS instead. */
-.autoad-top-reserve {
-  min-height: 250px;
-}
+   If a top in-page placement ever comes back, so does the CLS it caused — but
+   the reserve must then be gated on a *measured* placement (reserve only once
+   we've actually seen the ad in that slot, persisted across loads), never on a
+   fixed 250px guess, which is exactly what turned into dead space here. */
 @media (max-width: 767px) {
   .google-auto-placed {
     max-height: 250px;
