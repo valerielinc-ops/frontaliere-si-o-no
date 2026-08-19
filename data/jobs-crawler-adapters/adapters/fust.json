@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/7038c668-ad58-40e3-b474-618e43f64dbc",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/cd13a34c-34a0-4ad5-90d1-56ae0a739a1d",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/9d1c41e1-4ef7-4760-afc2-0da3c1fef838",
     "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/f0975675-de8c-4b4f-9f8a-a601b9c40e81",
@@ -28,7 +29,6 @@
     "https://jobs.fust.ch/offene-stellen/business-project-manager/1a7f6069-30a6-4390-9c3b-49699e400ff7",
     "https://jobs.fust.ch/postes-vacants/conseillere-ou-conseiller-de-vente-secteur-electromenager-multimedia/87dba4bc-a071-44f0-96fa-9fa56ec055f0",
     "https://jobs.fust.ch/offene-stellen/stellvertretung-leitung-wareneingang/a1a206e9-e793-4438-880e-1acf330c7b9a",
-    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/6f0c26b8-a1e2-49ce-8bf9-9d602e25bc07",
     "https://jobs.fust.ch/offene-stellen/kundendienstmitarbeiter-in-service/d03748c8-ed39-4519-841c-03461f1eb5e6",
     "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/f964b578-aef3-441d-8430-b83c229a24db",
     "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/d48a39bf-6cd2-4351-a3b3-519964ca571d",
@@ -89,6 +89,12 @@
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/334cbd70-7c82-47c9-a3a0-31f1fe77caae"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/7038c668-ad58-40e3-b474-618e43f64dbc": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/cd13a34c-34a0-4ad5-90d1-56ae0a739a1d": {
       "location": "Lucerna",
       "canton": "LU",
@@ -192,12 +198,6 @@
       "contract": "A tempo indeterminato"
     },
     "https://jobs.fust.ch/offene-stellen/stellvertretung-leitung-wareneingang/a1a206e9-e793-4438-880e-1acf330c7b9a": {
-      "location": "San Gallo",
-      "canton": "SG",
-      "company": "Fust",
-      "contract": "A tempo indeterminato"
-    },
-    "https://jobs.fust.ch/offene-stellen/mitarbeiter-in-facility-management-betriebsunterhalt/6f0c26b8-a1e2-49ce-8bf9-9d602e25bc07": {
       "location": "San Gallo",
       "canton": "SG",
       "company": "Fust",
@@ -553,5 +553,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-19T09:48:46.424Z"
+  "updatedAt": "2026-08-19T21:44:35.290Z"
 }
