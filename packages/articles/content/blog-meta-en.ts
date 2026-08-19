@@ -10094,6 +10094,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brissago-valtravaglia-ticino.title': 'Living in Brissago-Valtravaglia, working in Ticino: border guide',
     'blog.article.vivere-brissago-valtravaglia-ticino.excerpt': 'Permit G, taxation, AVS, LAMal: everything you need to know to move to Brissago-Valtravaglia and work as a border worker in Ticino in 2026.',
     'blog.article.vivere-brissago-valtravaglia-ticino.imageAlt': 'Panoramic view of Lake Maggiore from Brissago with Ticino mountains in background',
+    'blog.article.ferrera-varese-frontaliere-ticino.title': 'Living in Ferrera di Varese and working in Ticino as a border worker',
+    'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'New 2024 agreement, Swiss source tax, deductibles €7,500-€10,000 and Italian tax return for those working in the Canton of Ticino.',
+    'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Cross-border commuters heading to work in Ticino canton from Italian border region at dawn',
 };
 
 export default blogMetaEn;

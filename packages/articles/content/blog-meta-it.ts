@@ -10095,6 +10095,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-brissago-valtravaglia-ticino.title': 'Vivere a Brissago-Valtravaglia, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-brissago-valtravaglia-ticino.excerpt': 'Permesso G, tassazione, AVS, LAMal: tutto quello che devi sapere per trasferirsi a Brissago-Valtravaglia e lavorare da frontaliere in Ticino nel 2026.',
     'blog.article.vivere-brissago-valtravaglia-ticino.imageAlt': 'Vista panoramica del Lago Maggiore da Brissago-Valtravaglia con montagne ticinesi sullo sfondo',
+    'blog.article.ferrera-varese-frontaliere-ticino.title': 'Vivere a Ferrera di Varese e lavorare in Ticino da frontaliere',
+    'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'Nuovo accordo 2024, imposta alla fonte svizzera, franchigie €7.500–€10.000 e dichiarazione redditi italiana per chi lavora nel Canton Ticino.',
+    'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Pendolari che si recano al lavoro nel Canton Ticino al mattino dalla regione di confine italiana',
 };
 
 export default blogMetaIt;

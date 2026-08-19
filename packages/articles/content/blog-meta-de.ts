@@ -10093,6 +10093,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-brissago-valtravaglia-ticino.title': 'Arbeiten im Tessin, wohnen in Brissago-Valtravaglia: Grenzüberschreitendes Fahren',
     'blog.article.vivere-brissago-valtravaglia-ticino.excerpt': 'Bewilligung G, Besteuerung, AHV, KVG: Alles, was Sie wissen müssen, um 2026 nach Brissago-Valtravaglia zu ziehen und als Grenzgänger im Tessin zu arbeiten.',
     'blog.article.vivere-brissago-valtravaglia-ticino.imageAlt': 'Panoramablick auf den Lago Maggiore von Brissago mit Tessiner Bergen im Hintergrund',
+    'blog.article.ferrera-varese-frontaliere-ticino.title': 'Leben in Ferrera di Varese und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.ferrera-varese-frontaliere-ticino.excerpt': 'Neues Abkommen 2024, Schweizer Quellensteuer, Selbstbehalte von € 7.500- € 10.000 und italienische Steuererklärung für diejenigen, die im Kanton Tessin arbeiten.',
+    'blog.article.ferrera-varese-frontaliere-ticino.imageAlt': 'Grenzgänger auf dem Weg zur Arbeit im Kanton Tessin von der italienischen Grenzregion',
 };
 
 export default blogMetaDe;
