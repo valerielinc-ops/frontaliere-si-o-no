@@ -358,12 +358,18 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     // an ad unit never requested at all, which is worse than the bug this file
     // was opened for.
     //
+    // The old handler called `io.disconnect()` before arming, so after any
+    // interaction the observer was gone and the slot could only ever be armed
+    // by that same handler. Reintroduce that and the slot stays dead forever —
+    // an ad unit never requested at all, which is worse than the bug this file
+    // was opened for.
+    //
     // This has to be asserted on the observer's OWN state, not inferred from a
-    // later `intersect()`: the stub's `disconnect()` records a flag, it does not
-    // stop the test from invoking the callback the way a real browser would. An
-    // "it still arms afterwards" check therefore stays green through the exact
-    // regression it claims to pin — the same class of blind guard this file
-    // exists to prevent.
+    // later `intersect()`: the stub invokes `io.callback(...)` directly and
+    // never checks `io.disconnected`, so it keeps firing after a real
+    // `disconnect()` the way a browser would not. An "it still arms afterwards"
+    // check therefore stays green through the exact regression it claims to
+    // pin — the same class of blind guard this file exists to prevent.
     expect(io.disconnected).toBe(false);
 
     // …and, with the observer intact, the slot does arm when it is reached.

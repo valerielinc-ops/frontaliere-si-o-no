@@ -80,16 +80,29 @@ describe('claude CLI: il tetto al thinking arriva al processo', () => {
     { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU] },
   );
 
-  it('lo spawn riceve MAX_THINKING_TOKENS', async () => {
+  it('di DEFAULT non imposta MAX_THINKING_TOKENS: il tetto non legava', () => {
+    // Dodici campioni post-merge, su run verificate `ahead`: 1.444 · 12.602 ·
+    // 7.728 · 1.517 · 10.474 · 7.766 · 2.492 · 2.007 · 3.020 · 5.320 · 2.504 ·
+    // 4.767. Nove su dodici sopra il tetto di 2.048, e il massimo piu' alto di
+    // qualunque campione pre-fix. Un knob che non fa cio' che il nome dice e'
+    // peggio di nessun knob.
+    expect(claudeCliChildEnv({ PATH: '/usr/bin' }).MAX_THINKING_TOKENS).toBeUndefined();
+  });
+
+  it('lo spawn riceve comunque l\'ambiente che l\'helper produce', async () => {
+    // La plumbing resta: il knob e' opt-in, e il valore che AGISCE esiste ed
+    // e' `0` (misurato in locale: thinking 56 -> 0).
     spawnMock.mockImplementation(cliChe([RESULT]));
     await chiama();
     const [, , opts] = spawnMock.mock.calls[0] as [string, string[], { env: Record<string, string> }];
-    expect(opts.env.MAX_THINKING_TOKENS).toBe('2048');
+    expect(opts.env.CLAUDE_CODE_OAUTH_TOKEN).toBe('test-oauth-token');
   });
 
-  it('un valore gia\' impostato nell\'ambiente vince', async () => {
+  it('un valore gia\' impostato nell\'ambiente arriva intatto al processo', async () => {
     // Chi lo imposta in un workflow lo fa apposta: una costante di libreria che
-    // glielo cancella e' un override invisibile.
+    // glielo cancella sarebbe un override invisibile. Col default a `null`
+    // l'helper non tocca niente, ma la regola resta scritta perche' torna a
+    // mordere appena qualcuno imposta CLAUDE_CLI_MAX_THINKING_TOKENS.
     process.env.MAX_THINKING_TOKENS = '512';
     spawnMock.mockImplementation(cliChe([RESULT]));
     await chiama();
@@ -110,19 +123,23 @@ describe('claude CLI: il tetto al thinking arriva al processo', () => {
     expect(base.MAX_THINKING_TOKENS).toBeUndefined();
   });
 
-  it('una stringa vuota non conta come «impostato»', () => {
-    // E' cio' che produce un `env:` di GitHub Actions con un valore non
-    // risolto: trattarla come scelta esplicita spegnerebbe il tetto proprio in
-    // CI, cioe' dove serve.
-    expect(claudeCliChildEnv({ MAX_THINKING_TOKENS: '' }).MAX_THINKING_TOKENS).toBe('2048');
+  it('la regola sulla stringa vuota resta nel sorgente', () => {
+    // `env: {MAX_THINKING_TOKENS: ''}` e' cio' che produce un `env:` di GitHub
+    // Actions con un valore non risolto. Col default a `null` l'effetto
+    // osservabile e' identico in ogni caso, quindi la proprieta' si fissa dove
+    // vive: nella forma del sorgente.
+    expect(claudeCliChildEnv({ MAX_THINKING_TOKENS: '' }).MAX_THINKING_TOKENS).toBe('');
+    expect(AI_MODELS_SRC).toMatch(/String\(base\.MAX_THINKING_TOKENS\)\.trim\(\) !== ''/);
   });
 
-  it('il default sta SOTTO il thinking osservato, o sarebbe un no-op', () => {
-    const m = /const CLAUDE_CLI_MAX_THINKING_TOKENS = \(\(\) => \{[\s\S]*?if \(!raw\) return (\d+);/.exec(AI_MODELS_SRC);
-    expect(m).not.toBe(null);
-    const tetto = Number(m![1]);
-    expect(tetto).toBeLessThan(7601); // il minimo osservato in produzione
-    expect(tetto).toBeGreaterThan(1024); // il minimo interno che la CLI sembra applicare
+  it('il default e\' «non impostare», e la misura resta accanto alla decisione', () => {
+    // Davanti a un knob inerte la tentazione naturale e' rimettere un default:
+    // e' esattamente cio' che e' gia' stato provato e smentito, quindi i numeri
+    // che lo smentiscono devono restare leggibili qui accanto.
+    expect(AI_MODELS_SRC).toMatch(/const CLAUDE_CLI_MAX_THINKING_TOKENS = \(\(\) => \{[\s\S]*?if \(!raw\) return null;/);
+    expect(AI_MODELS_SRC).not.toMatch(/if \(!raw\) return 2048;/);
+    expect(AI_MODELS_SRC).toMatch(/12\.602/);
+    expect(AI_MODELS_SRC).toMatch(/interruttore/);
   });
 
   it('non tocca nessuna delle tre leve gia\' spese alla cieca', () => {

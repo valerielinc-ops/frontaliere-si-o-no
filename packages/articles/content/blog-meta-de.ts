@@ -10159,6 +10159,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.title': 'Leben in San Bartolomeo Val Cavargna, Arbeiten im Tessin',
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Grenzübergänge, Besteuerung, KVG, Bewilligung G, Fixkosten, Erstauftragsverfahren und Szenarien wirtschaftlicher Nutzen zwischen Italien und der Schweiz.',
     'blog.article.san-bartolomeo-val-cavargna-frontaliere-ticino.imageAlt': 'Verbindungsstraße von San Bartolomeo Val Cavargna zur Tessiner Grenze bei Sonnenuntergang',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.title': 'Grenzgänger Tessin wächst im Q2 2026: 79.121 Einheiten',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.excerpt': '79.121 Grenzgänger im Tessin Q2 2026: Wachstum von 0,64% QoQ, Rückgang von 0,57% YoY. BfS-Daten mit demografischer Analyse und Implikationen für diejenigen, die an der italienisch-schweizerischen Grenze arbeiten.',
+    'blog.article.frontalieri-ticino-crescita-q2-2026.imageAlt': 'Luftaufnahme des Lugano-Sees mit Bergen an der Schweizer-italienischen Grenze bei Sonnenuntergang.',
 };
 
 export default blogMetaDe;
