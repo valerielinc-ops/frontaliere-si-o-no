@@ -310,7 +310,14 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     // A stale seed prepends the previous job to the listing via `finalize`, and
     // routes the load effect down the requestIdleCallback branch on a page where
     // the index is the above-the-fold content. Both need the memo to re-run.
-    expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[initialJobSlug\]\)/);
+    // The key is the PATHNAME, which is what `onSeededDocument` above actually
+    // compares. It used to be `initialJobSlug`, a strictly coarser signal: two
+    // different pathnames can share one route slug (the `ricerca-` keyword-page
+    // and search-cluster families overlap), and on such a navigation the memo
+    // would not re-run — leaving the guard unreachable and the stale seed in
+    // place, which is the very leak this test is about.
+    expect(src).toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[seedPathname\]\)/);
+    expect(src).toMatch(/const seedPathname = typeof window === 'undefined' \? '' : window\.location\.pathname;/);
     expect(src).not.toMatch(/const seededJob = useMemo\(\(\) => readSeededJob\(\), \[\]\)/);
   });
 
