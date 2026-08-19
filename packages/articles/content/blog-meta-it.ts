@@ -10140,6 +10140,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.title': 'Trasferirsi a Vertemate da frontaliere Ticino',
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.excerpt': 'Vivere a Vertemate con Minoprio e lavorare in Svizzera: vantaggi del nuovo accordo 2024 con franchigia €10\'000, tassazione, permesso G e checklist amministrativa.',
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.imageAlt': 'Via principale di Vertemate con Minoprio in provincia di Como, con architettura lombarda e sullo sfondo le montagne svizzere',
+    'blog.article.bene-lario-frontaliere-ticino.title': 'Vivere a Bene Lario, lavorare in Ticino da frontaliere',
+    'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario è una delle zone italiane più scelte da chi commuta quotidianamente in Ticino. Guida fiscale, tempi, costo della vita e la procedura per lavorare come frontaliere.',
+    'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'Veduta del waterfront di Bene Lario sul Lago di Como con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

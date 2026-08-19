@@ -10139,6 +10139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.title': 'Moving to Vertemate from border crossing Ticino',
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.excerpt': 'Living in Vertemate with Minoprio and working in Switzerland: advantages of the new 2024 agreement with €10,000 deductible, taxation, G permit and administrative checklist.',
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.imageAlt': 'Main street of Vertemate con Minoprio in Como province, with Lombard architecture and Swiss mountains in the distance',
+    'blog.article.bene-lario-frontaliere-ticino.title': 'Living in Bene Lario, working in Ticino as a border worker',
+    'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario is one of the Italian areas most chosen by those who commute daily in Ticino. Tax guide, time, cost of living and the procedure to work as a border worker.',
+    'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'View of Bene Lario waterfront on Lake Como with Alps in the background',
 };
 
 export default blogMetaEn;

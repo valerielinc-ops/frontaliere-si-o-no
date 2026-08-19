@@ -10141,6 +10141,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.title': 'Déménager à Vertemate en tant que frontalier Tessin',
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.excerpt': 'Vivre à Vertemate avec Minoprio et travailler en Suisse : avantages du nouvel accord 2024 avec franchise € 10\'000, fiscalité, permis G et checklist administrative.',
     'blog.article.trasferirsi-vertemate-minoprio-frontaliere.imageAlt': 'Rue principale de Vertemate con Minoprio dans la province de Côme, avec l\'architecture lombarde et les montagnes suisses en arrière-plan',
+    'blog.article.bene-lario-frontaliere-ticino.title': 'Vivre à Bene Lario, travailler au Tessin en tant que frontalier',
+    'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario est l\'une des zones italiennes les plus choisies par ceux qui commutent quotidiennement au Tessin. Guide fiscal, temps, coût de la vie et procédure pour travailler en tant que frontalier.',
+    'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'Vue du front de mer de Bene Lario sur le lac de Côme avec les Alpes en arrière-plan',
 };
 
 export default blogMetaFr;
