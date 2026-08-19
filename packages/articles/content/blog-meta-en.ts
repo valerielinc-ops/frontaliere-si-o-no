@@ -10106,6 +10106,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Border crossing in Masciago Primo: work and life in Ticino',
     'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Living in Masciago Primo and working in Ticino: New 2024 Agreement, taxation, AVS, LAMal, restaurants and everything you need to know to move from border crossings.',
     'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'View of Lake Como at the Switzerland-Italy border, with Italian shoreline in foreground and Swiss mountains in the background.',
+    'blog.article.posta-riduce-tagli-informatica.title': 'Mail, reduce staff cuts in IT',
+    'blog.article.posta-riduce-tagli-informatica.excerpt': 'The Tech Acceleration reorganisation of the Post Office brings up to 40 redundancies and around twenty contract changes as of 1 January 2027.',
+    'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Posta corporate office building in Switzerland',
 };
 
 export default blogMetaEn;

@@ -10105,6 +10105,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-masciago-primo-lavorare-ticino.title': 'Grenzgänger in Masciago Primo: Arbeit und Leben im Tessin',
     'blog.article.vivere-masciago-primo-lavorare-ticino.excerpt': 'Leben in Masciago Primo und Arbeiten im Tessin: Neues Abkommen 2024, Besteuerung, AHV, KVG, Rückerstattungen und alles, was Sie wissen müssen, um als Grenzgänger umzuziehen.',
     'blog.article.vivere-masciago-primo-lavorare-ticino.imageAlt': 'Blick auf den Comersee an der Schweizer Grenze mit italienischem Ufer im Vordergrund und Schweizer Alpen im Hintergrund.',
+    'blog.article.posta-riduce-tagli-informatica.title': 'Post, Personalabbau in der Informatik reduziert',
+    'blog.article.posta-riduce-tagli-informatica.excerpt': 'Die Reorganisation Tech Acceleration der Post führt ab dem 1. Januar 2027 zu bis zu 40 Entlassungen und rund zwanzig Vertragsänderungen.',
+    'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Posta Firmengebaeude in der Schweiz',
 };
 
 export default blogMetaDe;
