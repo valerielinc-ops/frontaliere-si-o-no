@@ -43934,6 +43934,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migros-tre-partenze-vertici': {
+    title: 'Migros, tre partenze ai vertici annunciate nello stesso giorno',
+    description: 'Tre dirigenti Migros lasciano Online, Delica e Migros Bank. Katrin Tschannen fine marzo 2027, Thomas Gubler pensionato, Markus Schawalder nuova sfida',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, partenze, vertici, annunciate',
+    ogTitle: 'Migros, tre partenze ai vertici',
+    ogDescription: 'Migros annuncia tre cambiamenti contemporanei ai vertici di Online, Delica e Migros Bank. Katrin Tschannen, Thomas Gubler e Markus Schawalder lasciano fra fine 2026 e marzo 2027. Transizione generazionale e implicazioni sul mercato del lavoro',
+    canonicalPath: '/articoli-svizzera/migros-tre-partenze-vertici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros, tre partenze ai vertici annunciate nello stesso giorno",
+      "description": "Tre dirigenti Migros lasciano Online, Delica e Migros Bank. Katrin Tschannen fine marzo 2027, Thomas Gubler pensionato, Markus Schawalder nuova sfida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-tre-partenze-vertici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere commerciale svizzero con edifici per uffici che rappresentano le grandi aziende dell'economia nazionale"
+      },
+      "datePublished": "2026-08-19T08:23:05+00:00",
+      "dateModified": "2026-08-19T08:23:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-tre-partenze-vertici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

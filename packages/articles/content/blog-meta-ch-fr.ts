@@ -3388,6 +3388,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.revisione-lex-koller-immobiliare.title': 'Lex Koller : resserrement des achats immobiliers étrangers',
     'blog.article.revisione-lex-koller-immobiliare.excerpt': 'La CET-N propose d\'annuler les modifications apportées à la loi sur l\'immobilier au cours des 40 dernières années afin de freiner la spéculation et de protéger la classe moyenne.',
     'blog.article.revisione-lex-koller-immobiliare.imageAlt': 'Chantier d\'un complexe résidentiel dans une ville suisse avec des montagnes en arrière-plan.',
+    'blog.article.migros-tre-partenze-vertici.title': 'Migros, trois départs aux sommets annoncés le même jour',
+    'blog.article.migros-tre-partenze-vertici.excerpt': 'Trois cadres Migros quittent Online, Delica et Migros Bank le même jour. Katrin Tschannen fin mars 2027, Thomas Gubler à la retraite, Markus Schawalder nouveau challenge.',
+    'blog.article.migros-tre-partenze-vertici.imageAlt': 'District commercial suisse avec immeubles de bureaux représentant les grandes entreprises de l\'économie nationale',
 };
 
 export default blogMetaChFr;

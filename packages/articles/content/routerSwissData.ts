@@ -1155,6 +1155,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'easygov-pmi-svizzere': { it: 'easygov-pmi-svizzere', en: 'easygov-smes-switzerland', de: 'easygov-kmb-schweiz', fr: 'easygov-pme-suisse' },
  'ticino-neutralita-sondaggio-2026': { it: 'ticino-neutralita-sondaggio-2026', en: 'ticino-neutrality-survey-2026', de: 'tessin-neutralitaet-umfrage-2026', fr: 'tessin-neutralite-sondage-2026' },
  'revisione-lex-koller-immobiliare': { it: 'revisione-lex-koller-immobiliare', en: 'lex-koller-revision-real-estate', de: 'lex-koller-revision-immobilien', fr: 'revision-lex-koller-immobilier' },
+ 'migros-tre-partenze-vertici': { it: 'migros-tre-partenze-vertici', en: 'migros-three-departures-executives', de: 'migros-drei-abgaenge-spitze', fr: 'migros-trois-departs-direction' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
