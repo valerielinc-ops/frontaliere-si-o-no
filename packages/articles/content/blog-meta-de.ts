@@ -10099,6 +10099,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.title': 'Leben in Centro Valle Intelvi und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.excerpt': 'Steuereinstellung, Genehmigungen und Vorteile der Übertragung',
     'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich in Centro Valle Intelvi umsiedelt und in Ticino arbeitet',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Leben in Laglio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Besteuerung, Genehmigungen und Doppelbesteuerung: Was Sie wissen müssen, wenn Sie Grenzgänger sind und in Laglio leben, aber im Tessin arbeiten.',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaDe;
