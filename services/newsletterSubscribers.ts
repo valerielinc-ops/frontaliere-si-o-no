@@ -711,6 +711,23 @@ export async function recordNewsletterEvent(
  // pre-deploy residue but a second writer the field never reached. The
  // monitor scored them `missing` and dropped them from its denominator, so
  // the number the LPD rollout decision reads was half the population.
+ //
+ // Non-unsubscribe events (confirm, subscribe_completed, delivery) never set
+ // `input.credential`, so this now writes an explicit `credential: null` on
+ // every one of them — a key that did not exist on those docs before this
+ // line. That is not a new special case: `user_id`, `campaign_id`,
+ // `message_id`, `variant`, `section_id`, `source_locale`, `source_page`,
+ // `source_cta`, `link_url`, `link_label`, `target_url`, `job_slug`,
+ // `job_search_query` and `geo_country` above already follow the same
+ // uniform-shape-with-null-placeholders convention. Checked both readers of
+ // this field for a null-vs-missing-key split: `classifyCredential()` in
+ // `scripts/lib/unsubscribeCredentialMetrics.mjs` falls through to `missing`
+ // for anything that isn't one of the three known values (undefined and null
+ // alike, pinned by the "folds anything else … into missing" test), and
+ // `scripts/check-unsubscribe-credential-rate.mjs` normalizes with
+ // `data.credential ?? null` before ever reaching that classifier. Neither
+ // queries Firestore on this field's presence. No consumer distinguishes the
+ // two shapes today.
  credential: sanitizeString(input.credential),
  metadata: input.metadata || null,
  timestamp: serverTimestamp(),
