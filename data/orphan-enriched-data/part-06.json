@@ -9071,6 +9071,16 @@
       },
       "queries": [
         {
+          "query": "offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "offerte lavoro svizzera per italiani",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "offerte di lavoro per autisti in svizzera",
           "clicks": 0,
           "impressions": 4
@@ -9131,6 +9141,21 @@
           "impressions": 1
         },
         {
+          "query": "cercasi lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "posto di lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "lavoro autista",
           "clicks": 0,
           "impressions": 1
@@ -9144,36 +9169,11 @@
           "query": "stipendio autista",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "alri",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "autista",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "autista ticino",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "autobus",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "ditte di trasporti che cercano autisti in svizzera",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 43,
+      "totalImpressions": 56,
       "totalClicks": 4,
-      "topQuery": "offerte di lavoro per autisti in svizzera",
+      "topQuery": "offerte di lavoro ticino",
       "title": "Autisti",
       "titleByLocale": {
         "it": "",
@@ -25535,17 +25535,17 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 167
+          "impressions": 169
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 110
+          "impressions": 112
         },
         {
           "query": "politica sanitaria canton ticino anziani",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "elderly care jobs in switzerland",
@@ -25613,6 +25613,11 @@
           "impressions": 1
         },
         {
+          "query": "geriatria",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "i link?",
           "clicks": 0,
           "impressions": 1
@@ -25626,14 +25631,9 @@
           "query": "italian language",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "ja bitte",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 317,
+      "totalImpressions": 323,
       "totalClicks": 2,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -79936,6 +79936,64 @@
         "en": "/en/find-jobs-st-gallen/zuzwil",
         "de": "/de/jobs-im-st-gallen/zuzwil",
         "fr": "/fr/trouver-emploi-saint-gall/zuzwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "allrounder-in-equans-switzerland-chur",
+      "locale": "de",
+      "path": "/de/jobs-in-graubunden/allrounder-in-equans-switzerland-chur/",
+      "observedPaths": {
+        "de": "/de/jobs-in-graubunden/allrounder-in-equans-switzerland-chur/"
+      },
+      "queries": [
+        {
+          "query": "equans chur",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "equans chur",
+      "title": "Allrounder in equans switzerland",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "allrounder-in-equans-switzerland-chur",
+        "en": "allrounder-in-equans-switzerland-chur",
+        "de": "allrounder-in-equans-switzerland-chur",
+        "fr": "allrounder-in-equans-switzerland-chur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/allrounder-in-equans-switzerland-chur",
+        "en": "/en/find-jobs-graubunden/allrounder-in-equans-switzerland-chur",
+        "de": "/de/jobs-im-graubunden/allrounder-in-equans-switzerland-chur",
+        "fr": "/fr/trouver-emploi-grisons/allrounder-in-equans-switzerland-chur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

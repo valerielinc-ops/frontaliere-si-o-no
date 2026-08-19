@@ -67119,12 +67119,12 @@
         {
           "query": "software house canton ticino",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 20
         },
         {
           "query": "sviluppatore ugello",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
@@ -67197,7 +67197,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 225,
+      "totalImpressions": 227,
       "totalClicks": 1,
       "topQuery": "software house ticino",
       "title": "Sviluppatori",
@@ -79802,6 +79802,73 @@
       "source": [
         "gsc",
         "slug-registry",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg/"
+      },
+      "queries": [
+        {
+          "query": "jobs schwarzenburg",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job schwarzenburg",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offres d'emploi chez coop genossenschaft",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 4,
+      "totalClicks": 0,
+      "topQuery": "jobs schwarzenburg",
+      "title": "Produits alimentaires caisse coop genossenschaft schwarzenburg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+        "en": "produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+        "de": "produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+        "fr": "produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+        "en": "/en/find-jobs-bern/produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+        "de": "/de/jobs-im-bern/produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg",
+        "fr": "/fr/trouver-emploi-berne/produits-alimentaires-caisse-coop-genossenschaft-schwarzenburg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs"
       ]
     }
