@@ -3466,6 +3466,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-basilea-citta-conversione.title': 'Driving license Basel City: conversion and exams',
     'blog.article.patente-guida-basilea-citta-conversione.excerpt': 'How to convert a foreign license in the Canton of Basel-City, theoretical and practical exams, compulsory courses and procedures at the traffic office.',
     'blog.article.patente-guida-basilea-citta-conversione.imageAlt': 'Swiss driving license and circulation office in Canton Basel-Stadt',
+    'blog.article.assegni-familiari-basilea-campagna.title': 'Family allowances Canton Basel Countryside: amounts and demand',
+    'blog.article.assegni-familiari-basilea-campagna.excerpt': 'How to request them, monthly amounts per child, conditions and compensation fund: practical guide to family allowances in the Canton of Basel-Country.',
+    'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Regional cantonal office with documents for family allowance applications',
 };
 
 export default blogMetaChEn;
