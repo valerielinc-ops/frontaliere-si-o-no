@@ -30432,6 +30432,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ticino-crescita-q2-2026',
+ category: 'novita',
+ date: '2026-08-19T20:24:11.313Z',
+ image: '/images/blog/frontalieri-ticino-crescita-q2-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
