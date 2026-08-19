@@ -72,6 +72,23 @@
  *   b) the listing fallback inside `searchIssuesByTitlePrefix` — covers the
  *      cross-PROCESS case (two scans, or this scan racing another reporter), which
  *      (a) by construction cannot see.
+ *
+ * BRANCH-SCOPED TITLE (#6036): `close-recovered-failure-issues.mjs` measures
+ * recurrence/chronic-escalation on `gh run list -w <workflow> -b main` — a population
+ * that by construction never contains a `pull_request` (or any non-`main`) run. This
+ * scanner, unlike that reconciler, lists runs across every branch/trigger on purpose
+ * (a timeout is worth seeing wherever it happens). Left unguarded, a PR-branch timeout
+ * reported under the plain `CI Failure: <workflow>` title lands in the SAME thread the
+ * reconciler reads as "main's health": it can reopen/comment on an issue the recurrence
+ * gate can never corroborate, and its `🔁` recurrence marker inflates the chronic-escalation
+ * count with events from a population that gate was never measuring. `scopedTitle()` below
+ * keeps the plain title only for `head_branch === 'main'` (the exact population
+ * `recentCompletedRuns()` queries); anything else gets the trigger folded into the title,
+ * FIRST — before the workflow name — since dedup only compares the first 60 chars
+ * (`DEDUP_TITLE_PREFIX_LEN` in `github-issue-creator.mjs`) and a suffix would be silently
+ * dropped for long workflow names. The reshaped title no longer matches `TITLE_RE` in
+ * `close-recovered-failure-issues.mjs`, so that reconciler leaves it alone entirely —
+ * separate population, separate thread, no cross-contamination either direction.
  */
 import { execFileSync } from 'node:child_process';
 import { createGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
@@ -138,6 +155,22 @@ function listRunsByStatus(status, cutoffMs) {
 function listJobs(runId) {
   const data = ghJson(repoPath(`actions/runs/${runId}/jobs?per_page=100`));
   return data?.jobs || [];
+}
+
+// The one branch `close-recovered-failure-issues.mjs` measures (`-b main` there). Kept as
+// a local literal, same convention that file uses for its own `-b main` — see the
+// BRANCH-SCOPED TITLE note in the module docstring above.
+const RECURRENCE_GATE_BRANCH = 'main';
+
+/**
+ * `CI Failure: <workflow>` for a run on the branch the recurrence gate measures, else
+ * `CI Failure (<event>): <workflow>` — discriminant FIRST, so it survives the 60-char
+ * dedup-prefix cut and the reshaped title falls outside `TITLE_RE` in
+ * `close-recovered-failure-issues.mjs` on purpose. See the module docstring.
+ */
+export function scopedTitle(run) {
+  if (run?.head_branch === RECURRENCE_GATE_BRANCH) return `CI Failure: ${run.name}`;
+  return `CI Failure (${run?.event || 'unknown'}): ${run.name}`;
 }
 
 function findTimeoutAnnotation(job) {
@@ -235,7 +268,7 @@ export async function main() {
 
       console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
       await emit({
-        title: `CI Failure: ${run.name}`,
+        title: scopedTitle(run),
         description,
         labels: ['Bug', 'ci-timeout'],
         workflow: run.name,
@@ -280,7 +313,7 @@ export async function main() {
 
       console.log(`[scan-job-timeouts] HOST-KILL: ${run.name} / ${job.name} (run ${run.id})`);
       await emit({
-        title: `CI Failure: ${run.name}`,
+        title: scopedTitle(run),
         description,
         labels: ['Bug', 'ci-host-kill'],
         workflow: run.name,
