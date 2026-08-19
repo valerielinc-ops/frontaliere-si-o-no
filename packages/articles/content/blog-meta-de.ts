@@ -10120,6 +10120,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.title': 'Lurate Caccivio: Leben und Arbeiten als Grenzgänger im Tessin',
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.excerpt': 'Leben im grenznahen Italien und Arbeiten in der Schweiz: Steuer-, Vorsorge- und Praxisleitfaden für Grenzgänger mit Bewilligung G. Quellensteuer, AHV/BVG, KVG und Verfahren.',
     'blog.article.vivere-lurate-caccivio-lavorare-ticino.imageAlt': 'Grenzlandschaft Tessin-Como in der Morgenröte: Ein Grenzgänger überquert die Schweizer-italienische Grenze während seiner täglichen Fahrt zur Arbeit.',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.title': 'Als Grenzgänger im Tessin arbeiten: Was ändert sich?',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Das neue Grenzabkommen: Was sind die Neuerungen und Konsequenzen für Grenzgänger, die in Oltrona di San Mamette leben und im Tessin arbeiten?',
+    'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Bild von Oltrona di San Mamette mit einem Frontalier in der Vordergrund',
 };
 
 export default blogMetaDe;
