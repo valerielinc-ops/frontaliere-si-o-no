@@ -14158,12 +14158,12 @@
     },
     {
       "id": "solothurner-spitaeler-23545e601d5f",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch",
+      "slug": "dipl-infermieristica-professionale-infermieristica-stazione-d0-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch"
+        "it": "dipl-infermieristica-professionale-infermieristica-stazione-d0-m-f-d-solothurner-spitaler-soh-solothurn",
+        "en": "dipl-nursing-professional-nursing-specialist-station-d0-m-f-d-solothurner-spitaler-soh-solothurn",
+        "fr": "dipl-specialiste-des-soins-infirmiers-et-infirmiers-station-d0-h-f-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -14220,7 +14220,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:43:16.271Z"
+      "firstSeenAt": "2026-08-18T21:43:16.271Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-station-d0-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-4f253e7d49c6",
@@ -15018,12 +15032,12 @@
     },
     {
       "id": "solothurner-spitaeler-e6afd3606833",
-      "slug": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch",
+      "slug": "medico-senior-endocrinologia-senior-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch",
-        "it": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch",
-        "en": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch",
-        "fr": "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch"
+        "it": "medico-senior-endocrinologia-senior-m-f-d-solothurner-spitaler-soh-solothurn",
+        "en": "senior-physician-senior-physician-endocrinology-m-f-d-solothurner-spitaler-soh-solothurn",
+        "fr": "medecin-principal-medecin-principal-endocrinologie-h-f-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15080,16 +15094,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:43:16.270Z"
+      "firstSeenAt": "2026-08-18T21:43:16.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-endokrinologie-w-m-d-soh-ch"
+      ]
     },
     {
       "id": "solothurner-spitaeler-bf88da421c4a",
-      "slug": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten",
+      "slug": "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "neuropsychologin-neuropsychologe-w-m-d-soh-ch",
-        "it": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten",
-        "fr": "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
+        "it": "neuropsicologo-neuropsicologo-m-f-d-solothurner-spitaler-soh-olten",
+        "en": "neuropsychologist-neuropsychologist-m-f-d-solothurner-spitaler-soh-olten",
+        "fr": "neuropsychologue-neuropsychologue-h-f-d-solothurner-spitaler-soh-olten"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -15136,11 +15164,19 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-w-m-d-soh-ch"
+          "neuropsychologin-neuropsychologe-w-m-d-soh-ch",
+          "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
+        ],
+        "en": [
+          "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
+        ],
+        "fr": [
+          "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
         ]
       },
       "previousSlugs": [
-        "neuropsychologin-neuropsychologe-w-m-d-soh-ch"
+        "neuropsychologin-neuropsychologe-w-m-d-soh-ch",
+        "neuropsychologin-neuropsychologe-w-m-d-solothurner-spitaler-soh-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

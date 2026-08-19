@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische",
-        "foundation-diakoniewerk-neumunster-application-manager-clinical-processs-middle-office-diakoniewerk-neumunster"
+        "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische",
-          "foundation-diakoniewerk-neumunster-application-manager-clinical-processs-middle-office-diakoniewerk-neumunster"
+          "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
         ],
         "en": [
           "stiftung-diakoniewerk-neumunster-applikationsmanager-applikationsmanagerin-klinische"
@@ -133,7 +131,6 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
           "dipl-professionnels-des-soins-infirmiers-dipl-nephrologie-professionnelle-des-soins-infirmiers-diakoniewerk-neumunster",
           "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
-          "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-diakoniewerk-neumunster-gesundheitswelt",
           "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-diakoniewerk-neumunster-gesundheitswelt"
         ],
         "en": [
@@ -147,7 +144,6 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
         "dipl-professionnels-des-soins-infirmiers-dipl-nephrologie-professionnelle-des-soins-infirmiers-diakoniewerk-neumunster",
         "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
-        "dipl-infermieristica-professionale-dipl-nefologia-professionale-infermieristica-diakoniewerk-neumunster-gesundheitswelt",
         "dipl-professionnels-des-soins-infirmiers-dipl-piscine-professionnelle-de-soins-diakoniewerk-neumunster-gesundheitswelt"
       ],
       "salaryMin": 73500,
@@ -323,12 +319,12 @@
     },
     {
       "id": "diakoniewerk-neumuenster-2dc0ab825315",
-      "slug": "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "medicina-interna-professionale-salute-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg"
+        "it": "medicina-interna-professionale-salute-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "en": "professional-health-station-internal-medicine-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "fr": "professional-health-station-medecine-interne-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -383,16 +379,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-station-innere-medizin-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-1d6e2c1a9001",
-      "slug": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
+      "slug": "istruzione-responsabile-istruzione-responsabile-hf-fh-care-fh-midwives-middle-office-diakoniewerk-neumunster",
       "slugByLocale": {
         "de": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
-        "it": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
-        "en": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
-        "fr": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        "it": "istruzione-responsabile-istruzione-responsabile-hf-fh-care-fh-midwives-middle-office-diakoniewerk-neumunster",
+        "en": "education-responsible-education-responsible-hf-fh-care-fh-midwives-middle-office-diakoniewerk-neumunster-gesundheitswelt",
+        "fr": "responsable-de-l-education-responsable-de-l-education-hf-fh-care-fh-midwives-middle-office-diakoniewerk-neumunster"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
       "companyKey": "diakoniewerk-neumuenster",
@@ -447,7 +457,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        ],
+        "en": [
+          "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        ],
+        "fr": [
+          "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        ]
+      },
+      "previousSlugs": [
+        "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-da48334350d2",

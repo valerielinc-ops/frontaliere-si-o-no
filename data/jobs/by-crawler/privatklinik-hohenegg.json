@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch",
         "it": "fachperson-gesundheit-cfc-apprendistato-privatklinik-hohenegg-meilen",
-        "en": "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch",
-        "fr": "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch"
+        "en": "health-professional-efz-apprenticeship-privatklinik-hohenegg-meilen",
+        "fr": "professionnels-de-la-sante-efz-apprentissage-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -59,6 +59,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-lehrstelle-privatklinik-hohenegg-ch"
         ]
       },
       "previousSlugs": [
@@ -80,12 +86,12 @@
     },
     {
       "id": "privatklinik-hohenegg-63d8db42b814",
-      "slug": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
+      "slug": "dipl-infermieristica-professionale-hf-in-formazione-privatklinik-hohenegg-meilen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-        "it": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
-        "en": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-        "fr": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+        "it": "dipl-infermieristica-professionale-hf-in-formazione-privatklinik-hohenegg-meilen",
+        "en": "dipl-nursing-professional-hf-in-training-privatklinik-hohenegg-meilen",
+        "fr": "dipl-soins-infirmiers-professionnels-en-formation-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -133,11 +139,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+        "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -205,13 +219,11 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d"
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-          "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen-78a10d"
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
         ],
         "en": [
           "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"

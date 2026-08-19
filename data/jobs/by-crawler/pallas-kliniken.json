@@ -133,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-manager-in-kis-pis-80-100-pallas-kliniken-olten",
-        "gestione-delle-applicazioni-in-kis-pis-80-100-pallas-kliniken-olten"
+        "application-manager-in-kis-pis-80-100-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-manager-in-kis-pis-80-100-pallas-kliniken-olten",
-          "gestione-delle-applicazioni-in-kis-pis-80-100-pallas-kliniken-olten"
+          "application-manager-in-kis-pis-80-100-pallas-kliniken-olten"
         ],
         "fr": [
           "application-manager-in-kis-pis-80-100-pallas-kliniken-olten"
@@ -224,12 +222,12 @@
     },
     {
       "id": "pallas-kliniken-31d9fe940d01",
-      "slug": "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten",
+      "slug": "specializzato-in-tariffe-ambulatoriali-40-100-pallas-kliniken-olten",
       "slugByLocale": {
         "de": "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten",
-        "it": "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten",
-        "en": "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten",
-        "fr": "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten"
+        "it": "specializzato-in-tariffe-ambulatoriali-40-100-pallas-kliniken-olten",
+        "en": "specialist-in-ambulatory-tariffs-40-100-pallas-kliniken-olten",
+        "fr": "tarifs-specialises-en-ambulatoires-40-100-pallas-kliniken-olten"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
@@ -286,7 +284,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:48:29.264Z"
+      "firstSeenAt": "2026-08-18T21:48:29.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten"
+        ],
+        "en": [
+          "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten"
+        ],
+        "fr": [
+          "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-ambulante-tarife-40-100-pallas-kliniken-olten"
+      ]
     },
     {
       "id": "pallas-kliniken-dbd4865195b0",
@@ -339,18 +351,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-patientenadministration-fakturierung-80-100-pallas-kliniken-olten",
-        "leiter-in-patientenadministration-tarife-80-100-pallas-kliniken-olten",
-        "responsabile-patientenadministration-fakturierung-80-100-pallas-kliniken-olten"
+        "leiter-in-patientenadministration-tarife-80-100-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "leiter-in-patientenadministration-tarife-80-100-pallas-kliniken-olten",
-          "leiter-in-patientenadministration-fakturierung-80-100-pallas-kliniken-olten"
+          "leiter-in-patientenadministration-tarife-80-100-pallas-kliniken-olten"
         ],
         "it": [
           "leiter-in-patientenadministration-fakturierung-80-100-pallas-kliniken-olten",
-          "leiter-in-patientenadministration-tarife-80-100-pallas-kliniken-olten",
-          "responsabile-patientenadministration-fakturierung-80-100-pallas-kliniken-olten"
+          "leiter-in-patientenadministration-tarife-80-100-pallas-kliniken-olten"
         ],
         "en": [
           "leiter-in-patientenadministration-fakturierung-80-100-pallas-kliniken-olten"
@@ -423,13 +432,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten",
-        "assistente-medico-oftalmologia-80-100-regione-aargau-pallas-kliniken-olten"
+        "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten",
-          "assistente-medico-oftalmologia-80-100-regione-aargau-pallas-kliniken-olten"
+          "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
@@ -506,8 +513,7 @@
         "assistente-di-studio-medico-80-100-oftalmologia-pallas-kliniken-olten",
         "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten",
         "medizinische-r-praxisassistent-in-80-100-ophthalmologie-pallas-kliniken-olten",
-        "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten",
-        "medico-assistente-in-oftalmologia-80-100-pallas-kliniken-olten"
+        "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -515,8 +521,7 @@
           "assistente-di-studio-medico-80-100-oftalmologia-pallas-kliniken-olten",
           "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten",
           "medizinische-r-praxisassistent-in-80-100-ophthalmologie-pallas-kliniken-olten",
-          "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten",
-          "medico-assistente-in-oftalmologia-80-100-pallas-kliniken-olten"
+          "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten"
         ],
         "en": [
           "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten"
@@ -593,13 +598,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal",
-        "medico-specialista-in-oftalmologia-60-80-pallas-kliniken-langenthal"
+        "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal",
-          "medico-specialista-in-oftalmologia-60-80-pallas-kliniken-langenthal"
+          "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:54.694Z",
@@ -682,13 +685,11 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen",
-        "medico-specialista-in-oftalmologia-60-100-pallas-kliniken-wohlen"
+        "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen",
-          "medico-specialista-in-oftalmologia-60-100-pallas-kliniken-wohlen"
+          "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:53.494Z",
@@ -770,13 +771,11 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-dermatologie-m-w-d-60-100-pallas-kliniken-winterthur",
-        "specialista-in-dermatologia-m-f-d-60-100-pallas-kliniken-winterthur"
+        "facharztin-facharzt-dermatologie-m-w-d-60-100-pallas-kliniken-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-dermatologie-m-w-d-60-100-pallas-kliniken-winterthur",
-          "specialista-in-dermatologia-m-f-d-60-100-pallas-kliniken-winterthur"
+          "facharztin-facharzt-dermatologie-m-w-d-60-100-pallas-kliniken-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:52.184Z",

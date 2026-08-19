@@ -69,13 +69,11 @@
       "contractDuration": "permanent",
       "department": "Medizin",
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und",
-        "medico-specialista-in-medicina-interna-generale-con-focus-su-psicosomatica-e-psicologia-sociale-per-il-centro-di"
+        "facharztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und",
-          "medico-specialista-in-medicina-interna-generale-con-focus-su-psicosomatica-e-psicologia-sociale-per-il-centro-di"
+          "facharztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:30.029Z",
@@ -175,13 +173,11 @@
       "contractDuration": "permanent",
       "department": "Medizin",
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und",
-        "medico-specialista-in-psichiatria-e-psicoterapia-con-focus-su-medicina-psicosomatica-e-psicologica-per-il-centro-di"
+        "facharztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und",
-          "medico-specialista-in-psichiatria-e-psicoterapia-con-focus-su-medicina-psicosomatica-e-psicologica-per-il-centro-di"
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:30.555Z",
@@ -255,13 +251,11 @@
       "contractDuration": "permanent",
       "department": "Medizin",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation",
-        "assistente-medico-medicina-psicosomatica-riabilitazione-muscoloscheletrica-o-medicina-interna-100-rehaklinik-hasliberg"
+        "assistenzarztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation",
-          "assistente-medico-medicina-psicosomatica-riabilitazione-muscoloscheletrica-o-medicina-interna-100-rehaklinik-hasliberg"
+          "assistenzarztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:31.636Z",
@@ -362,8 +356,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
         "it": "fachperson-gesundheit-efz-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "en": "fachperson-gesundheit-efz-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "fr": "fachperson-gesundheit-efz-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "en": "health-professional-efz-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
+        "fr": "professionnels-de-la-sante-efz-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
       },
       "company": "Rehaklinik Hasliberg",
       "companyKey": "rehaklinik-hasliberg",
@@ -489,13 +483,11 @@
       "contractDuration": "permanent",
       "department": "Pflege- und Betreuungsberufe",
       "previousSlugs": [
-        "pflegefachpersonal-fur-pflegepool-10-40-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "infermiere-professionale-per-pool-di-assistenza-10-40-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "pflegefachpersonal-fur-pflegepool-10-40-rehaklinik-hasliberg-hasliberg-hohfluh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachpersonal-fur-pflegepool-10-40-rehaklinik-hasliberg-hasliberg-hohfluh",
-          "infermiere-professionale-per-pool-di-assistenza-10-40-rehaklinik-hasliberg-hasliberg-hohfluh"
+          "pflegefachpersonal-fur-pflegepool-10-40-rehaklinik-hasliberg-hasliberg-hohfluh"
         ]
       },
       "firstSeenAt": "2026-05-20T06:03:31.100Z",
@@ -519,7 +511,7 @@
         "de": "mitarbeiter-in-rezeption-und-empfang-60-80-rehaklinik-hasliberg-hasliberg-hohfluh",
         "it": "collaboratore-trice-rezeption-e-empfang-60-80-rehaklinik-hasliberg-hohfluh",
         "en": "mitarbeiter-in-rezeption-und-empfang-60-80-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "fr": "mitarbeiter-in-rezeption-und-empfang-60-80-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "fr": "collaborateur-trice-rezeption-und-empfang-60-80-rehaklinik-hasliberg-hasliberg-hohfluh"
       },
       "company": "Rehaklinik Hasliberg",
       "companyKey": "rehaklinik-hasliberg",
@@ -568,6 +560,9 @@
       "department": "Administration",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-rezeption-und-empfang-60-80-rehaklinik-hasliberg-hasliberg-hohfluh"
+        ],
+        "fr": [
           "mitarbeiter-in-rezeption-und-empfang-60-80-rehaklinik-hasliberg-hasliberg-hohfluh"
         ]
       },
@@ -643,16 +638,14 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80",
-          "stv-leiter-in-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-          "stv-leitung-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+          "stv-leiter-in-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
         ],
         "it": [
           "stv-leitung-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
           "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80",
           "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80-100-privatklinik-meiringen",
           "assistenzpsychologin-assistenzpsychologe-o-stationspsychologin-stationspsychologe-80-100-privatklinik-meiringen",
-          "stv-leiter-in-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-          "stv-responsabile-del-coordinamento-della-terapia-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+          "stv-leiter-in-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-oder-stationspsychologin-stationspsychologe-80",
@@ -673,8 +666,7 @@
         "assistenzpsychologin-assistenzpsychologe-o-stationspsychologin-stationspsychologe-80-100-privatklinik-meiringen",
         "assistant-psychologist-or-station-psychologist-80-100-privatklinik-meiringen-meiringen",
         "psychologue-adjoint-ou-psychologue-de-poste-80-100-privatklinik-meiringen-meiringen",
-        "stv-leiter-in-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "stv-responsabile-del-coordinamento-della-terapia-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "stv-leiter-in-therapiekoordination-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
       ],
       "firstSeenAt": "2026-07-22T22:29:20.681Z",
       "salaryMin": 94500,
@@ -744,15 +736,13 @@
         "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
         "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
         "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh",
-        "summer-2027-apprenticeship-professional-health-efz-professional-health-efz-rehabilitation-care-100-rehaklinik-hasliberg",
-        "apprendistato-estivo-2027-assistente-sanitario-efz-tecnico-sanitario-efz-reparto-riabilitazione-100-rehaklinik-hasliberg"
+        "summer-2027-apprenticeship-professional-health-efz-professional-health-efz-rehabilitation-care-100-rehaklinik-hasliberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
           "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
-          "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh",
-          "apprendistato-estivo-2027-assistente-sanitario-efz-tecnico-sanitario-efz-reparto-riabilitazione-100-rehaklinik-hasliberg"
+          "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh"
         ],
         "en": [
           "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
@@ -832,13 +822,11 @@
       "contractDuration": "permanent",
       "department": "Therapien",
       "previousSlugs": [
-        "craniosacraltherapeut-in-20-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "terapeuta-del-craniosacrale-in-20-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "craniosacraltherapeut-in-20-rehaklinik-hasliberg-hasliberg-hohfluh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "craniosacraltherapeut-in-20-rehaklinik-hasliberg-hasliberg-hohfluh",
-          "terapeuta-del-craniosacrale-in-20-rehaklinik-hasliberg-hasliberg-hohfluh"
+          "craniosacraltherapeut-in-20-rehaklinik-hasliberg-hasliberg-hohfluh"
         ],
         "en": [
           "craniosacraltherapeut-in-20-rehaklinik-hasliberg-hasliberg-hohfluh"
@@ -863,12 +851,12 @@
     },
     {
       "id": "rehaklinik-hasliberg-2d7f21b2dfec",
-      "slug": "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
+      "slug": "psicologo-senior-psicologo-senior-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
       "slugByLocale": {
         "de": "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "it": "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "en": "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "fr": "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "it": "psicologo-senior-psicologo-senior-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
+        "en": "senior-psychologist-senior-psychologist-80-100-rehaklinik-hasliberg-hasliberg-hohfluh",
+        "fr": "psychologue-senior-psychologue-senior-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
       },
       "company": "Rehaklinik Hasliberg",
       "companyKey": "rehaklinik-hasliberg",
@@ -926,7 +914,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T21:53:03.400Z"
+      "firstSeenAt": "2026-08-18T21:53:03.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        ],
+        "en": [
+          "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        ],
+        "fr": [
+          "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-psychologin-leitender-psychologe-80-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+      ]
     },
     {
       "id": "rehaklinik-hasliberg-0ef5c1738f42",
@@ -983,15 +985,13 @@
       "previousSlugs": [
         "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
         "formazione-professionale-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "hauptberufliche-r-berufsbildner-in-pflege-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-        "formatore-professionale-centrale-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+        "hauptberufliche-r-berufsbildner-in-pflege-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
           "formazione-professionale-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-          "hauptberufliche-r-berufsbildner-in-pflege-50-100-rehaklinik-hasliberg-hasliberg-hohfluh",
-          "formatore-professionale-centrale-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
+          "hauptberufliche-r-berufsbildner-in-pflege-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
         ],
         "en": [
           "zentrale-r-berufsbildner-in-50-100-rehaklinik-hasliberg-hasliberg-hohfluh"
@@ -1023,8 +1023,8 @@
       "slugByLocale": {
         "de": "arzt-spitalsekretar-in-fur-das-zentrum-fur-schmerz-und-stressmedizin-bern-60-rehaklinik",
         "it": "arzt-spitalsekretar-in-per-das-zentrum-per-schmerz-e-stressmedizin-bern-60-rehaklinik-hasliberg-bern",
-        "en": "arzt-spitalsekretar-in-fur-das-zentrum-fur-schmerz-und-stressmedizin-bern-60-rehaklinik",
-        "fr": "arzt-spitalsekretar-in-fur-das-zentrum-fur-schmerz-und-stressmedizin-bern-60-rehaklinik"
+        "en": "medical-hospital-secretary-for-the-center-for-pain-and-stress-medicine-bern-60-rehaklinik-hasliberg-bern",
+        "fr": "secretaire-medical-hospitalier-pour-le-centre-de-medecine-de-la-douleur-et-du-stress-berne-60-rehaklinik-hasliberg-bern"
       },
       "company": "Rehaklinik Hasliberg",
       "companyKey": "rehaklinik-hasliberg",
@@ -1073,6 +1073,12 @@
       "department": "Medizin",
       "previousSlugsByLocale": {
         "it": [
+          "arzt-spitalsekretar-in-fur-das-zentrum-fur-schmerz-und-stressmedizin-bern-60-rehaklinik"
+        ],
+        "en": [
+          "arzt-spitalsekretar-in-fur-das-zentrum-fur-schmerz-und-stressmedizin-bern-60-rehaklinik"
+        ],
+        "fr": [
           "arzt-spitalsekretar-in-fur-das-zentrum-fur-schmerz-und-stressmedizin-bern-60-rehaklinik"
         ]
       },

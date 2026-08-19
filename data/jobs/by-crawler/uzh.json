@@ -10329,7 +10329,7 @@
       "slugByLocale": {
         "en": "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
         "it": "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich",
-        "de": "professorship-of-gastroenterology-and-hepatology-uzh-zurich",
+        "de": "professur-fur-gastroenterologie-und-hepatologie-universitat-zurich-zurich",
         "fr": "professorship-of-gastroenterology-and-hepatology-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
@@ -10376,6 +10376,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "professorship-of-gastroenterology-and-hepatology-uzh-zurich"
+        ],
+        "de": [
           "professorship-of-gastroenterology-and-hepatology-uzh-zurich"
         ]
       },
@@ -10545,12 +10548,12 @@
     },
     {
       "id": "uzh-c85e255cfc37",
-      "slug": "studentische-hilfskraft-uzh-zurich",
+      "slug": "assistente-per-studenti-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-hilfskraft-uzh-zurich",
-        "it": "studentische-hilfskraft-uzh-zurich",
-        "en": "studentische-hilfskraft-uzh-zurich",
-        "fr": "studentische-hilfskraft-uzh-zurich"
+        "it": "assistente-per-studenti-universitat-zurich-zurich",
+        "en": "student-assistant-universitat-zurich-zurich-347ad5",
+        "fr": "assistant-etudiant-universitat-zurich-zurich-347ad5"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10606,7 +10609,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:14:10.516Z"
+      "firstSeenAt": "2026-08-18T22:14:10.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-hilfskraft-uzh-zurich"
+        ],
+        "en": [
+          "studentische-hilfskraft-uzh-zurich"
+        ],
+        "fr": [
+          "studentische-hilfskraft-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-hilfskraft-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-47138959af33",
@@ -10614,8 +10631,8 @@
       "slugByLocale": {
         "de": "professur-fur-allgemeine-erziehungswissenschaft-und-bildungstheorie-uzh-zurich",
         "it": "professur-per-allgemeine-erziehungswissenschaft-e-bildungstheorie-universitat-zurich",
-        "en": "professur-fur-allgemeine-erziehungswissenschaft-und-bildungstheorie-uzh-zurich",
-        "fr": "professur-fur-allgemeine-erziehungswissenschaft-und-bildungstheorie-uzh-zurich"
+        "en": "professorship-for-general-educational-science-and-educational-theory-universitat-zurich-zurich",
+        "fr": "professeur-de-sciences-generales-de-l-education-et-de-theorie-de-l-education-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10663,6 +10680,12 @@
       "previousSlugsByLocale": {
         "it": [
           "professur-fur-allgemeine-erziehungswissenschaft-und-bildungstheorie-uzh-zurich"
+        ],
+        "en": [
+          "professur-fur-allgemeine-erziehungswissenschaft-und-bildungstheorie-uzh-zurich"
+        ],
+        "fr": [
+          "professur-fur-allgemeine-erziehungswissenschaft-und-bildungstheorie-uzh-zurich"
         ]
       },
       "previousSlugs": [
@@ -10684,12 +10707,12 @@
     },
     {
       "id": "uzh-d54ba3a6d5ae",
-      "slug": "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich",
+      "slug": "professore-nelle-fondazioni-di-istruzione-e-teoria-educativa-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich",
-        "it": "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich",
-        "de": "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich",
-        "fr": "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich"
+        "it": "professore-nelle-fondazioni-di-istruzione-e-teoria-educativa-universitat-zurich-zurich",
+        "de": "professur-in-den-grundlagen-der-bildung-und-bildungstheorie-universitat-zurich-zurich",
+        "fr": "professeur-dans-les-fondations-de-l-education-et-de-la-theorie-de-l-education-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10745,7 +10768,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:14:10.503Z"
+      "firstSeenAt": "2026-08-18T22:14:10.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich"
+        ],
+        "de": [
+          "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich"
+        ],
+        "fr": [
+          "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "professorship-in-the-foundations-of-education-and-educational-theory-uzh-zurich"
+      ]
     }
   ]
 }

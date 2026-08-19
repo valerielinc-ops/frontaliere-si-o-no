@@ -5608,8 +5608,8 @@
       "slugByLocale": {
         "de": "ict-projektleiter-in-80-100-fmi-unterseen",
         "it": "ict-responsabile-di-progetto-80-100-spitaler-fmi-ag-unterseen",
-        "en": "ict-projektleiter-in-80-100-fmi-unterseen",
-        "fr": "ict-projektleiter-in-80-100-fmi-unterseen"
+        "en": "ict-project-manager-80-100-spitaler-fmi-ag-unterseen",
+        "fr": "ict-chef-de-projet-80-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5654,6 +5654,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ict-projektleiter-in-80-100-fmi-unterseen"
+        ],
+        "en": [
+          "ict-projektleiter-in-80-100-fmi-unterseen"
+        ],
+        "fr": [
           "ict-projektleiter-in-80-100-fmi-unterseen"
         ]
       },

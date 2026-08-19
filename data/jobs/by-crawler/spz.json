@@ -1114,8 +1114,7 @@
         "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil",
         "apprenticeship-gardener-in-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
         "lehrstelle-gartner-in-eba-spz-nottwil",
-        "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "giardiniere-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1126,8 +1125,7 @@
           "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil",
           "apprenticeship-gardener-in-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
           "lehrstelle-gartner-in-eba-spz-nottwil",
-          "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
-          "giardiniere-schweizer-paraplegiker-zentrum-spz-nottwil"
+          "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
         ],
         "en": [
           "gartner-in-spz-nottwil",
@@ -2768,8 +2766,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-abwaschkuche-spz-nottwil",
         "it": "collaboratore-trice-in-abwaschkuche-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "employees-in-the-dishwashing-room-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "fr": "employes-dans-la-salle-de-vaisselle-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "en": "employees-in-the-dishwashing-room-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "employes-dans-la-salle-de-vaisselle-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -2813,19 +2811,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-abwaschkuche-spz-nottwil",
-          "collaboratore-trice-in-abwaschkuche-schweizer-paraplegiker-zentrum-spz-nottwil"
+          "mitarbeiter-in-abwaschkuche-spz-nottwil"
         ],
         "en": [
-          "mitarbeiter-in-abwaschkuche-spz-nottwil"
+          "mitarbeiter-in-abwaschkuche-spz-nottwil",
+          "employees-in-the-dishwashing-room-schweizer-paraplegiker-zentrum-spz-nottwil"
         ],
         "fr": [
-          "mitarbeiter-in-abwaschkuche-spz-nottwil"
+          "mitarbeiter-in-abwaschkuche-spz-nottwil",
+          "employes-dans-la-salle-de-vaisselle-schweizer-paraplegiker-zentrum-spz-nottwil"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-abwaschkuche-spz-nottwil",
-        "collaboratore-trice-in-abwaschkuche-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "employees-in-the-dishwashing-room-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "employes-dans-la-salle-de-vaisselle-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2847,8 +2847,8 @@
       "slugByLocale": {
         "de": "lehrstelle-gartner-in-eba-spz-nottwil",
         "it": "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "apprenticeship-gardener-in-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "fr": "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "en": "apprenticeship-gardener-in-eba-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "apprentissage-jardinier-en-eba-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -2892,19 +2892,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-gartner-in-eba-spz-nottwil",
-          "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil"
+          "lehrstelle-gartner-in-eba-spz-nottwil"
         ],
         "en": [
-          "lehrstelle-gartner-in-eba-spz-nottwil"
+          "lehrstelle-gartner-in-eba-spz-nottwil",
+          "apprenticeship-gardener-in-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
         ],
         "fr": [
-          "lehrstelle-gartner-in-eba-spz-nottwil"
+          "lehrstelle-gartner-in-eba-spz-nottwil",
+          "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
         ]
       },
       "previousSlugs": [
         "lehrstelle-gartner-in-eba-spz-nottwil",
-        "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "apprenticeship-gardener-in-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "apprentissage-jardinier-en-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -2925,9 +2927,9 @@
       "slug": "applikationsmanager-in-medizinische-applikationen-spz-nottwil",
       "slugByLocale": {
         "de": "applikationsmanager-in-medizinische-applikationen-spz-nottwil",
-        "it": "applikationsmanager-in-medizinische-applikationen-spz-nottwil",
-        "en": "applikationsmanager-in-medizinische-applikationen-spz-nottwil",
-        "fr": "applikationsmanager-in-medizinische-applikationen-spz-nottwil"
+        "it": "applikationsmanager-in-medizinische-applikationen-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "applikationsmanager-in-medizinische-applikationen-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "applikationsmanager-in-medizinische-applikationen-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",

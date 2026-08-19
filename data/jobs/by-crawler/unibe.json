@@ -4319,13 +4319,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern",
-        "zwei-ausbildungsstellen-come-wissenschaftliche-r-bibliothekar-in-mas-biw-universitat-bern"
+        "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern",
-          "zwei-ausbildungsstellen-come-wissenschaftliche-r-bibliothekar-in-mas-biw-universitat-bern"
+          "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern"
         ],
         "en": [
           "zwei-ausbildungsstellen-als-wissenschaftliche-r-bibliothekar-in-mas-biw-unibe-bern"
@@ -4587,12 +4585,12 @@
     },
     {
       "id": "unibe-4071c185baaa",
-      "slug": "teamleiter-in-assistenzteam-unibe-bern",
+      "slug": "team-leader-team-di-assistenza-universitat-bern-bern",
       "slugByLocale": {
         "de": "teamleiter-in-assistenzteam-unibe-bern",
-        "it": "teamleiter-in-assistenzteam-unibe-bern",
-        "en": "teamleiter-in-assistenzteam-unibe-bern",
-        "fr": "teamleiter-in-assistenzteam-unibe-bern"
+        "it": "team-leader-team-di-assistenza-universitat-bern-bern",
+        "en": "team-leader-assistance-team-universitat-bern-bern",
+        "fr": "chef-d-equipe-equipe-d-assistance-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4648,7 +4646,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:11:06.620Z"
+      "firstSeenAt": "2026-08-18T22:11:06.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-assistenzteam-unibe-bern"
+        ],
+        "en": [
+          "teamleiter-in-assistenzteam-unibe-bern"
+        ],
+        "fr": [
+          "teamleiter-in-assistenzteam-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-assistenzteam-unibe-bern"
+      ]
     }
   ]
 }

@@ -309,12 +309,12 @@
     },
     {
       "id": "spital-zollikerberg-20f5722d2472",
-      "slug": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
+      "slug": "medicina-interna-professionale-salute-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
+        "it": "medicina-interna-professionale-salute-spital-zollikerberg-zollikerberg",
+        "en": "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
+        "fr": "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -373,22 +373,30 @@
       "previousSlugsByLocale": {
         "it": [
           "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
-          "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
+          "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
         ]
       },
       "previousSlugs": [
         "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
-        "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
+        "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg",
+        "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
       ]
     },
     {
       "id": "spital-zollikerberg-50131970d306",
-      "slug": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
+      "slug": "istruzione-responsabile-istruzione-responsabile-hf-fh-care-fh-midwives-middle-office-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
-        "it": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
-        "en": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office",
-        "fr": "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        "it": "istruzione-responsabile-istruzione-responsabile-hf-fh-care-fh-midwives-middle-office-spital-zollikerberg-zollikerberg",
+        "en": "education-responsible-education-responsible-hf-fh-care-fh-midwives-middle-office-spital-zollikerberg-zollikerberg",
+        "fr": "responsable-de-l-education-responsable-de-l-education-hf-fh-care-fh-midwives-middle-office-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -443,7 +451,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        ],
+        "en": [
+          "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        ],
+        "fr": [
+          "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+        ]
+      },
+      "previousSlugs": [
+        "bildungsverantwortliche-bildungsverantwortlicher-hf-fh-pflege-fh-hebammen-middle-office"
+      ]
     },
     {
       "id": "spital-zollikerberg-8d40758de128",

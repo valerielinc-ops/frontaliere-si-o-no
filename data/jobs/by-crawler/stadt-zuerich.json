@@ -6043,14 +6043,11 @@
       "referenceNumber": "50955",
       "previousSlugs": [
         "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
-        "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
-        "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich",
-        "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich"
+        "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955",
-          "formazione-specialistica-dell-amministrazione-e-delle-operazioni-di-deposito-stadt-zurich-zurich"
+          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zuerich-zurigo-50955"
         ],
         "en": [
           "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich"
@@ -9863,12 +9860,12 @@
     },
     {
       "id": "stadt-zuerich-50335e171c57",
-      "slug": "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352",
+      "slug": "professionista-della-salute-sito-gehrenholz-100-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352",
-        "it": "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352",
-        "en": "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352",
-        "fr": "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352"
+        "it": "professionista-della-salute-sito-gehrenholz-100-stadt-zurich-zurich",
+        "en": "health-professional-gehrenholz-site-100-stadt-zurich-zurich",
+        "fr": "professionnels-de-la-sante-site-gehrenholz-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -9927,7 +9924,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T22:04:56.235Z"
+      "firstSeenAt": "2026-08-18T22:04:56.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352"
+        ],
+        "en": [
+          "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352"
+        ],
+        "fr": [
+          "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-standort-gehrenholz-100-stadt-zuerich-zurigo-51352"
+      ]
     },
     {
       "id": "stadt-zuerich-a4f0c200c894",
@@ -9935,8 +9946,8 @@
       "slugByLocale": {
         "de": "lehrstelle-2027-kochin-koch-efz-stadt-zuerich-zurigo-51353",
         "it": "apprendistato-2027-kochin-koch-cfc-stadt-zurich",
-        "en": "lehrstelle-2027-kochin-koch-efz-stadt-zuerich-zurigo-51353",
-        "fr": "lehrstelle-2027-kochin-koch-efz-stadt-zuerich-zurigo-51353"
+        "en": "apprenticeship-2027-chef-koch-efz-stadt-zurich-zurich",
+        "fr": "apprentissage-2027-chef-koch-efz-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -9986,6 +9997,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-2027-kochin-koch-efz-stadt-zuerich-zurigo-51353"
+        ],
+        "en": [
+          "lehrstelle-2027-kochin-koch-efz-stadt-zuerich-zurigo-51353"
+        ],
+        "fr": [
           "lehrstelle-2027-kochin-koch-efz-stadt-zuerich-zurigo-51353"
         ]
       },

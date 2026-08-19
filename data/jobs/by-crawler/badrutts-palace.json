@@ -276,12 +276,12 @@
     },
     {
       "id": "badrutts-palace-7fc4aec52ba7",
-      "slug": "elektriker-m-w-d-badrutts-palace-ch",
+      "slug": "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "de": "elektriker-m-w-d-badrutts-palace-ch",
-        "it": "elektriker-m-w-d-badrutts-palace-ch",
-        "en": "elektriker-m-w-d-badrutts-palace-ch",
-        "fr": "elektriker-m-w-d-badrutts-palace-ch"
+        "it": "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "electricians-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "electriciens-h-f-d-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -336,7 +336,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-18T21:52:03.897Z"
+      "firstSeenAt": "2026-08-18T21:52:03.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektriker-m-w-d-badrutts-palace-ch"
+        ],
+        "en": [
+          "elektriker-m-w-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "elektriker-m-w-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektriker-m-w-d-badrutts-palace-ch"
+      ]
     },
     {
       "id": "badrutts-palace-a7df20059638",

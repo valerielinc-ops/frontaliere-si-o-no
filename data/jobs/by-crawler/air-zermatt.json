@@ -9,7 +9,7 @@
         "de": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "it": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
         "en": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
-        "fr": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
+        "fr": "bourse-atc-fondation-suisse-sherpa-air-zermatt-ag-raron-53e924"
       },
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
@@ -68,8 +68,8 @@
       "slugByLocale": {
         "de": "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
         "it": "transport-o-rettungssanitater-in-con-anteil-flugbetrieb-100-air-zermatt-ag-raron",
-        "en": "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
-        "fr": "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
+        "en": "transport-or-rescue-panitatives-with-a-proportion-air-operation-100-air-zermatt-ag-raron",
+        "fr": "panitatives-de-transport-ou-de-resultat-un-fonctionnement-aerien-de-proportion-100-air-zermatt-ag-raron"
       },
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
@@ -110,6 +110,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
+        ],
+        "en": [
+          "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
+        ],
+        "fr": [
           "transport-oder-rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt"
         ]
       },

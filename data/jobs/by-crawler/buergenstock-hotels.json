@@ -3141,8 +3141,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen",
         "it": "collaboratore-trice-gebaudeunterhalt-100-m-w-i-burgenstock-hotels-ag-obburgen",
-        "en": "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen",
-        "fr": "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen"
+        "en": "employees-building-maintenance-100-m-f-i-burgenstock-hotels-ag-obburgen",
+        "fr": "employes-entretien-des-batiments-100-m-f-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3188,6 +3188,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
           "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen"
         ]
       },
@@ -3279,7 +3285,7 @@
         "de": "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "it": "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "f-b-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3324,6 +3330,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
           "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },
