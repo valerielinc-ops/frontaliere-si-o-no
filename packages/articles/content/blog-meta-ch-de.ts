@@ -3406,6 +3406,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Elektrotransporter ab 1. Okt. 2026 gleichgestellt',
     'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'Der Bundesrat stellt ab dem 1. Oktober 2026 Elektro-Nutzfahrzeuge bis 4,25 Tonnen traditionellen Lieferwagen gleich. Fahrt mit 120 km/h auf der Autobahn, nationale Fahrtenschreiberbefreiung: Alles, was Sie wissen müssen.',
     'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'Ein moderner blauer elektrischer Lieferwagen fährt auf einer Schweizer Autobahn mit Alpen im Hintergrund.',
+    'blog.article.eccedenza-federale-2026-800-milioni.title': 'Bundesüberschuss 2026: +800 Mio.',
+    'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'Der Bund rechnet für das Jahr 2026 mit einem Überschuss von knapp 800 Mio. CHF, gegenüber dem veranschlagten Defizit von 700 Mio. CHF. Die Verbesserung ist auf die Erhöhung der Gewinnsteuer um 1,4 Milliarden zurückzuführen.',
+    'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Bundesrat-Gebäude in Bern, Sitz des Schweizer Bundesrats',
 };
 
 export default blogMetaChDe;

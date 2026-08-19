@@ -3406,6 +3406,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Electric vans compared to traditional vans: new from 1 October 2026',
     'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'The Federal Council will equate electric commercial vehicles up to 4.25 tonnes with traditional vans from 1 October 2026. Driving at 120 km/h on the motorway, national tachograph exemption: everything you need to know.',
     'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'A modern electric commercial van in blue drives on a Swiss highway with Alpine mountains visible in the background.',
+    'blog.article.eccedenza-federale-2026-800-milioni.title': 'Federal surplus 2026: +800 million',
+    'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'The Confederation expects a surplus of just under CHF 800 million for 2026, against the budgeted deficit of CHF 700 million. The improvement is due to the increase in income tax of 1.4 billion.',
+    'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Swiss Federal Palace in Bern, seat of the Swiss Federal Council',
 };
 
 export default blogMetaChEn;

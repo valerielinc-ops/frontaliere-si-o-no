@@ -3406,6 +3406,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Furgoni elettrici equiparati ai tradizionali: le novità dal 1° ottobre 2026',
     'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'Il Consiglio federale equipara i veicoli commerciali elettrici fino a 4,25 tonnellate agli autofurgoni tradizionali dal 1° ottobre 2026. Circolazione a 120 km/h in autostrada, esenzione tachigrafo nazionale: tutto ciò che devi sapere.',
     'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'Un moderno furgone commerciale elettrico blu in viaggio su un\'autostrada svizzera con le Alpi sullo sfondo.',
+    'blog.article.eccedenza-federale-2026-800-milioni.title': 'Eccedenza federale 2026: +800 milioni',
+    'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'La Confederazione attende un\'eccedenza di poco meno di 800 milioni CHF per il 2026, contro il disavanzo di 700 milioni preventivato. Il miglioramento è dovuto all\'aumento dell\'imposta sull\'utile di 1,4 miliardi.',
+    'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Palazzo federale a Berna, sede del Consiglio federale svizzero',
 };
 
 export default blogMetaChIt;

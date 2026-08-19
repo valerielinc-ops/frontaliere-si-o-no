@@ -3406,6 +3406,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.furgoni-elettrici-equiparazione-federale.title': 'Fourgons électriques: du neuf dès le 1er octobre 2026',
     'blog.article.furgoni-elettrici-equiparazione-federale.excerpt': 'Le Conseil fédéral assimile les véhicules utilitaires électriques jusqu\'à 4,25 tonnes aux camionnettes traditionnelles à partir du 1er octobre 2026. Circulation à 120 km/h sur autoroute, exemption tachygraphe national : tout ce que vous devez savoir.',
     'blog.article.furgoni-elettrici-equiparazione-federale.imageAlt': 'Un fourgon commercial électrique bleu moderne circule sur l\'autoroute suisse avec les Alpes en arrière-plan.',
+    'blog.article.eccedenza-federale-2026-800-milioni.title': 'Excédent fédéral 2026 : +800 millions',
+    'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'La Confédération s\'attend à un excédent d\'un peu moins de 800 millions de CHF pour 2026, contre un déficit de 700 millions prévu. L\'amélioration est due à l\'augmentation de l\'impôt sur le bénéfice de 1,4 milliard.',
+    'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral suisse',
 };
 
 export default blogMetaChFr;

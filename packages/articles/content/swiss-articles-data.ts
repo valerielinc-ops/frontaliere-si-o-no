@@ -10216,6 +10216,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'eccedenza-federale-2026-800-milioni',
+    category: 'novita',
+    date: '2026-08-19T10:46:57.766Z',
+    image: '/images/blog/eccedenza-federale-2026-800-milioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
