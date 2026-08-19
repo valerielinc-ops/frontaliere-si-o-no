@@ -3460,6 +3460,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.serfontana-fotovoltaico-parcheggio.title': 'Serfontana accélère avec système photovoltaïque au parking',
     'blog.article.serfontana-fotovoltaico-parcheggio.excerpt': 'Le centre commercial de Morbio Inferiore réalise une couverture photovoltaïque de 1 736 kWp : 1 900 MWh d\'énergie renouvelable par an d\'ici le printemps 2027.',
     'blog.article.serfontana-fotovoltaico-parcheggio.imageAlt': 'Auvent photovoltaïque de parking moderne avec modules solaires innovants dans un paysage tessinois ensoleillé.',
+    'blog.article.ordinanza-iran-formulari-agosto.title': 'DEFR : nouveaux formulaires pour les transferts vers l\'Iran',
+    'blog.article.ordinanza-iran-formulari-agosto.excerpt': 'Le 19 août, le Département fédéral de l\'économie a adapté les formulaires de déclaration. À partir du 26 août, seuls les modèles mis à jour seront obligatoires.',
+    'blog.article.ordinanza-iran-formulari-agosto.imageAlt': 'Siège de l\'administration fédérale suisse à Berne, où se trouve le Département fédéral de l\'économie.',
 };
 
 export default blogMetaChFr;

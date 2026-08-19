@@ -10154,6 +10154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vedano-olona-frontaliere-ticino.title': 'Living in Vedano Olona and working in Ticino: a complete guide',
     'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Residence in Lombardy, work in Switzerland: border taxation, permits, bilateral agreements and tax deadlines 2024-2025.',
     'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'View of Ticino from Vedano Olona border, Lombard hills and cross-border landscape.',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Living in Venegono and working in Ticino: tax guide 2024',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Borders between Italy and Ticino: the new agreement from 2024 changes taxation, contributions and deductibles. What are the practical implications for those living in Venegono Superiore?',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano lake at sunrise with Alpine mountains, representing the Ticino landscape for cross-border workers.',
 };
 
 export default blogMetaEn;

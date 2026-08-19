@@ -10378,6 +10378,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ordinanza-iran-formulari-agosto',
+    category: 'novita',
+    date: '2026-08-19T19:07:52.517Z',
+    image: '/images/blog/ordinanza-iran-formulari-agosto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

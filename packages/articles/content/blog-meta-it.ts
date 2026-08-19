@@ -10155,6 +10155,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vedano-olona-frontaliere-ticino.title': 'Vivere a Vedano Olona e lavorare in Ticino: guida completa',
     'blog.article.vedano-olona-frontaliere-ticino.excerpt': 'Residenza in Lombardia, lavoro in Svizzera: tassazione frontalieri, permessi, convenzioni bilaterali e scadenze fiscali 2024-2025.',
     'blog.article.vedano-olona-frontaliere-ticino.imageAlt': 'Vista del Ticino dal confine di Vedano Olona, colline lombarde e paesaggio transfrontaliero.',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.title': 'Vivere a Venegono e lavorare in Ticino: guida fiscale 2024',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.excerpt': 'Frontalieri tra Italia e Ticino: il nuovo accordo dal 2024 cambia tassazione, contributi e franchigie. Quali sono le implicazioni pratiche per chi risiede a Venegono Superiore?',
+    'blog.article.vivere-venegono-superiore-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago di Lugano all\'alba con le Alpi in sfondo, illustra il contesto geografico del Ticino per i frontalieri che lavorano nella regione.',
 };
 
 export default blogMetaIt;

@@ -30414,6 +30414,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-venegono-superiore-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-19T18:59:29.597Z',
+ image: '/images/blog/vivere-venegono-superiore-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
