@@ -3469,6 +3469,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-basilea-campagna.title': 'Assegni familiari Canton Basilea Campagna: importi e domanda',
     'blog.article.assegni-familiari-basilea-campagna.excerpt': 'Come richiederli, importi mensili per figlio, condizioni e cassa di compensazione: guida pratica agli assegni familiari nel Canton Basilea Campagna.',
     'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Ufficio cantonale con documenti e modulistica per le domande di assegni familiari',
+    'blog.article.apprendistato-formazione-basilea-campagna.title': 'Apprendistato in Svizzera: contratti, retribuzione e maturità',
+    'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Contratti di tirocinio, retribuzione, contributi obbligatori e maturità professionale: guida all\'apprendistato nel sistema svizzero di formazione.',
+    'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Giovane apprendista al lavoro in laboratorio durante la formazione professionale svizzera',
 };
 
 export default blogMetaChIt;

@@ -3469,6 +3469,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-basilea-campagna.title': 'Familienzulagen Kanton Basel-Landschaft: Beträge und Antrag',
     'blog.article.assegni-familiari-basilea-campagna.excerpt': 'Wie man sie anfordert, monatliche Beträge pro Kind, Konditionen und Ausgleichskasse: Praktischer Leitfaden zur Familienzulage im Kanton Basel-Landschaft.',
     'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Kantonal Büro mit Unterlagen für Familienbeihilfeanträge',
+    'blog.article.apprendistato-formazione-basilea-campagna.title': 'Lehre in der Schweiz: Verträge, Vergütung und Maturität',
+    'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Lehrverträge, Entgelt, Pflichtbeiträge und Berufsmaturität: Leitfaden zur Lehre im schweizerischen Bildungssystem.',
+    'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Junger Lehrling bei der praktischen Ausbildung in einer Schweizer Berufsschule',
 };
 
 export default blogMetaChDe;
