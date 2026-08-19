@@ -70310,6 +70310,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-colonno-lavorare-ticino': {
+    title: 'Vivere a Colonno, lavorare in Ticino: guida frontaliere',
+    description: 'Distanze, tempi di viaggio, costo della vita e procedure fiscali: tutto ciò che devi sapere per vivere a Colonno e lavorare come frontaliere in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, colonno, lavorare, distanze',
+    ogTitle: 'Vivere a Colonno, lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Scopri come vivere a Colonno e lavorare in Ticino: valichi (Brogeda, Chiasso, Gaggiolo), tempi di viaggio, costo della vita, fiscalità del Nuovo Accordo Frontalieri (esenzione €7.500-€10.000), diritti LAMal/AVS/LPP e procedura completa per richiedere',
+    canonicalPath: '/articoli-frontaliere/vivere-colonno-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Colonno, lavorare in Ticino: guida frontaliere",
+      "description": "Distanze, tempi di viaggio, costo della vita e procedure fiscali: tutto ciò che devi sapere per vivere a Colonno e lavorare come frontaliere in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-colonno-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta della sponda nord del Lago di Como da Colonno verso il valico di Brogeda e il Canton Ticino sullo sfondo"
+      },
+      "datePublished": "2026-08-19T17:23:43+00:00",
+      "dateModified": "2026-08-19T17:23:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-colonno-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

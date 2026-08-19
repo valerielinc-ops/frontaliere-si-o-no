@@ -10142,6 +10142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bene-lario-frontaliere-ticino.title': 'Living in Bene Lario, working in Ticino as a border worker',
     'blog.article.bene-lario-frontaliere-ticino.excerpt': 'Bene Lario is one of the Italian areas most chosen by those who commute daily in Ticino. Tax guide, time, cost of living and the procedure to work as a border worker.',
     'blog.article.bene-lario-frontaliere-ticino.imageAlt': 'View of Bene Lario waterfront on Lake Como with Alps in the background',
+    'blog.article.vivere-colonno-lavorare-ticino.title': 'Living in Column, working in Ticino: border guide',
+    'blog.article.vivere-colonno-lavorare-ticino.excerpt': 'Distances, travel times, cost of living and tax procedures: everything you need to know to live in Colonno and work as a border worker in Ticino.',
+    'blog.article.vivere-colonno-lavorare-ticino.imageAlt': 'View of Lake Como from Colonno towards the Brogeda border crossing and Canton Ticino in the background',
 };
 
 export default blogMetaEn;
