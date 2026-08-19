@@ -3436,6 +3436,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.due-no-iniziative-settembre.title': 'Vote 27 septembre : deux non aux initiatives',
     'blog.article.due-no-iniziative-settembre.excerpt': 'Sondage Leewas : 36 % oui à l\'initiative neutralité (62 % non), 31 % oui alimentation (65 % non). Analyse pour les partis et les cantons sur deux ballottages.',
     'blog.article.due-no-iniziative-settembre.imageAlt': 'Électeurs suisses au bureau de vote lors d\'un scrutin fédéral',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.title': 'Annonce discriminatoire Zurich : ce que prévoit la LPar',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.excerpt': 'Une menuiserie de Zurich a publié une annonce avec des critères de sexe et d\'âge. Un avocat explique ce que prévoit la loi suisse sur la discrimination.',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.imageAlt': 'Environnement de travail professionnel en Suisse mettant l\'accent sur l\'embauche et le droit du travail',
 };
 
 export default blogMetaChFr;
