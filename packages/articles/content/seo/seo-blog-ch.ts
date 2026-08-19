@@ -44441,6 +44441,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cop31-novembre-antalya-2026': {
+    title: 'COP31: mandato delegazione Svizzera approvato | Frontaliere Ticino',
+    description: 'Il Consiglio federale approva il mandato della delegazione per la COP31 ad Antalya (novembre 2026). Svizzera si impegna su clima e rinnovabili. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cop31, mandato, delegazione, approvato',
+    ogTitle: 'COP31: mandato delegazione Svizzera approvato',
+    ogDescription: 'Il 19 agosto 2026 il Consiglio federale approva il mandato della delegazione svizzera per la COP31. Albert Rösti rappresenterà la Svizzera ad Antalya dal 9 al 20 novembre 2026. L\'impegno della Svizzera per la transizione energetica e il clima',
+    canonicalPath: '/articoli-svizzera/cop31-novembre-antalya-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "COP31: mandato delegazione Svizzera approvato",
+      "description": "Il Consiglio federale approva il mandato della delegazione per la COP31 ad Antalya (novembre 2026). Svizzera si impegna su clima e rinnovabili. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cop31-novembre-antalya-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama alpino svizzero con lago di montagna simbolo della transizione energetica e delle energie rinnovabili"
+      },
+      "datePublished": "2026-08-19T13:29:15+00:00",
+      "dateModified": "2026-08-19T13:29:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cop31-novembre-antalya-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

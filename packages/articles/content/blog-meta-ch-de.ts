@@ -3427,6 +3427,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-eccezionali-standard-federali.title': 'Sondertransporte: die neuen Bundesstandards',
     'blog.article.trasporti-eccezionali-standard-federali.excerpt': 'UVEK regelt die privaten Vorräte für Sondertransporte einheitlich. Bundesabfrage bis 20. November 2026.',
     'blog.article.trasporti-eccezionali-standard-federali.imageAlt': 'Schweizer Autobahn mit übergroßem Lastwagen unter Eskortenfahrzeugbegleitung',
+    'blog.article.cop31-novembre-antalya-2026.title': 'COP31: Mandat Delegation Schweiz genehmigt',
+    'blog.article.cop31-novembre-antalya-2026.excerpt': 'Der Bundesrat genehmigt das Mandat der Delegation für die COP31 in Antalya (November 2026). Die Schweiz engagiert sich für Klima und Erneuerbare.',
+    'blog.article.cop31-novembre-antalya-2026.imageAlt': 'Schweizer Alpenlandschaft mit Bergsee als Symbol für Energiewende und erneuerbare Energiequellen',
 };
 
 export default blogMetaChDe;
