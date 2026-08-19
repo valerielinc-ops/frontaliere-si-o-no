@@ -30360,6 +30360,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasferirsi-vertemate-minoprio-frontaliere',
+ category: 'pratico',
+ date: '2026-08-19T16:43:17.364Z',
+ image: '/images/blog/trasferirsi-vertemate-minoprio-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

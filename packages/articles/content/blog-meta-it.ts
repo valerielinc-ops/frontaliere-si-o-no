@@ -10137,6 +10137,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.faggeto-lario-ticino-frontaliere.title': 'Vivere a Faggeto Lario e lavorare in Ticino',
     'blog.article.faggeto-lario-ticino-frontaliere.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri cambia la tassazione. Scopri Permesso G, imposta alla fonte, AVS e LAMal per chi risiede a Faggeto Lario e lavora nel Ticino.',
     'blog.article.faggeto-lario-ticino-frontaliere.imageAlt': 'Veduta di Mendrisio, Ticino, al confine con Como: location ideale per frontalieri che lavorano nel cantone',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.title': 'Trasferirsi a Vertemate da frontaliere Ticino',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.excerpt': 'Vivere a Vertemate con Minoprio e lavorare in Svizzera: vantaggi del nuovo accordo 2024 con franchigia €10\'000, tassazione, permesso G e checklist amministrativa.',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.imageAlt': 'Via principale di Vertemate con Minoprio in provincia di Como, con architettura lombarda e sullo sfondo le montagne svizzere',
 };
 
 export default blogMetaIt;

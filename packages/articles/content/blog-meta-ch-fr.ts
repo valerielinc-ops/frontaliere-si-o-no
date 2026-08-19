@@ -3442,6 +3442,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.onu-sanzioni-sesam-2026.title': 'Sanctions ONU : application automatique en Suisse',
     'blog.article.onu-sanzioni-sesam-2026.excerpt': 'Depuis 2016, le Conseil fédéral intègre automatiquement les listes de sanctions de l\'ONU dans le droit suisse. Mise à jour SESAM du 19 août 2026.',
     'blog.article.onu-sanzioni-sesam-2026.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.comprare-casa-canton-basilea-citta.title': 'Acheter une maison dans le canton de Bâle-Ville : prix et hypothèque',
+    'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'Les prix moyens des maisons dans le canton de Bâle-Ville peuvent varier en fonction de la région et du type de propriété.',
+    'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Image d\'un bâtiment dans la zone de Bâle-Ville.',
 };
 
 export default blogMetaChFr;

@@ -10136,6 +10136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.faggeto-lario-ticino-frontaliere.title': 'Living in Faggeto Lario and working in Ticino',
     'blog.article.faggeto-lario-ticino-frontaliere.excerpt': 'From 1 January 2024, the New Frontier Agreement changes the taxation. Discover Permit G, tax at source, AVS and LAMal for those who reside in Faggeto Lario and work in Ticino.',
     'blog.article.faggeto-lario-ticino-frontaliere.imageAlt': 'View of Mendrisio, Ticino, at the border with Como: ideal location for cross-border workers in the canton',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.title': 'Moving to Vertemate from border crossing Ticino',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.excerpt': 'Living in Vertemate with Minoprio and working in Switzerland: advantages of the new 2024 agreement with €10,000 deductible, taxation, G permit and administrative checklist.',
+    'blog.article.trasferirsi-vertemate-minoprio-frontaliere.imageAlt': 'Main street of Vertemate con Minoprio in Como province, with Lombard architecture and Swiss mountains in the distance',
 };
 
 export default blogMetaEn;

@@ -3442,6 +3442,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.onu-sanzioni-sesam-2026.title': 'UN sanctions: automatic application in Switzerland',
     'blog.article.onu-sanzioni-sesam-2026.excerpt': 'Since 2016, the Federal Council has automatically incorporated the UN sanctions lists into Swiss law. SESAM update of 19 August 2026.',
     'blog.article.onu-sanzioni-sesam-2026.imageAlt': 'View of Lake Lugano with Lugano city in the background',
+    'blog.article.comprare-casa-canton-basilea-citta.title': 'Buying a house in the Canton of Basel-City: prices and mortgage',
+    'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'Average house prices in the Canton of Basel-City may vary depending on the area and type of property.',
+    'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Image of a building in the Basle City area.',
 };
 
 export default blogMetaChEn;
