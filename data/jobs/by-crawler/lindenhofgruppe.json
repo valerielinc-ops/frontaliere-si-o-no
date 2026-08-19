@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lindenhofgruppe",
-  "assembledAt": "2026-08-18T22:02:21.577Z",
+  "assembledAt": "2026-08-19T10:05:25.556Z",
   "jobs": [
     {
       "id": "lindenhofgruppe-2d023dadd7eb",
@@ -33,7 +33,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-fachfrau-mann-operationstechnik-hf/bd79ef21-83e1-4b31-8712-c0e047446b6b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.241Z",
+      "crawledAt": "2026-08-19T10:05:20.735Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,6 +60,151 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:57:57.776Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "lindenhofgruppe-c4d62952eb5b",
+      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
+      "slugByLocale": {
+        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
+        "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Dipl. Pflegefachfrau/-mann FH/HF",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "en": "Dipl. Nursing specialist FH/HF",
+        "de": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "fr": "Infirmier/ère diplômé/e HES/HF"
+      },
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nUnsere Patientinnen und Patienten pflegen und betreuen Sie in Schichtdiensten mit hoher Eigenverantwortung.\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n\n• Für die Erreichung der Bereichs- und Abteilungsziele übernehmen Sie Mitverantwortung und engagieren sich für die fortlaufenden Optimierung von Pflegeabläufen.\n\n• Zudem unterstützen Sie unsere Lernenden und Studierenden in ihrer Ausbildung.\n\nAnforderungen:\nSie sind diplomierte/r Pflegefachfrau/-mann (AKP/DN II/HF/FH) und bringen idealerweise Erfahrung im Akutbereich mit.\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n\n• Gute Deutschkenntnisse runden Ihr Profil ab.\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
+      "descriptionByLocale": {
+        "it": "Descrizione Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti - I nostri pazienti si prendono cura e mantengono alta responsabilità nei servizi a turni. - In questo modo, si esegue il processo di cura (compreso il rilevamento delle prestazioni del materiale e della cura) secondo le ultime scoperte, supportato dal Sistema Informativo Clinico KISIM. - Per raggiungere l'area e gli obiettivi di reparto, si assume la responsabilità e si impegna nella continua ottimizzazione dei processi di cura. - Inoltre, supporta i nostri studenti e studenti nella loro formazione.\n• Requisiti - Sono professionisti qualificati di assistenza (AKP/DN II/HF/FH) e portano idealmente esperienza nella zona acuta. - Il benessere dei pazienti è al centro del vostro lavoro e incontrate le persone con rispetto e apprezzamento. - Le competenze di squadra così come il lavoro indipendente e di qualità-cosciente ti caratterizza. - Buona conoscenza del tedesco completa il tuo profilo. Cosa? - La qualità della cura e la cura hanno una lunga tradizione nel gruppo Lindenhof. In qualità di ospedale specializzato, misuramo la cura una priorità alta e organizzato come una zona di business separata. Siamo in prima linea nei nuovi sviluppi: Garantiamo questa posizione pionieristica lavorando a stretto contatto con le aziende di formazione e formazione e sviluppando nuovi corsi. - Fa parte della nostra squadra di cura! I processi e i servizi del gruppo Lindenhof si basano interamente sulle esigenze dei pazienti, e la nostra collaborazione è caratterizzata da apertura, collegialità e valore-consapevolezza. Vi offriamo l'opportunità di sviluppare professionalmente e consentono di creare la pianificazione di carriera individuale. Impara il nuovo in un ambiente di lavoro avanzato e piacevole ogni giorno.",
+        "en": "Descrizione Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks - Our patients take care of and maintain high self-responsibility in shift services. - In doing so, you carry out the care process (including performance detection of material and care) according to the latest findings, supported by the Clinic Information System KISIM. - In order to achieve the area and department goals, you take responsibility and engage in the continuous optimization of care processes. - In addition, you support our learners and students in their training.\n• Requirements - They are qualified care professional (AKP/DN II/HF/FH) and ideally bring experience in the acute area. - The well-being of patients is at the heart of your work and you meet people with respect and appreciation. - Team skills as well as independent and quality-conscious work characterizes you. - Good knowledge of German complete your profile.\n• Cosa offriamo - Care quality and care training have a long tradition at the Lindenhof group. As a specialist hospital, we measure the care a high priority and organized it as a separate business area. We are at the forefront of new developments: We ensure this pioneering position by working closely with training and training companies and by developing new courses. - Be part of our care team! The processes and services in the Lindenhof group are based entirely on the needs of patients, and our cooperation is characterised by openness, collegiateness and value-awareness.\n• We offer you the opportunity to develop professionally and allow you to create individual career planning. Learn new in an advanced, pleasant working environment every day.",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nUnsere Patientinnen und Patienten pflegen und betreuen Sie in Schichtdiensten mit hoher Eigenverantwortung.\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n\n• Für die Erreichung der Bereichs- und Abteilungsziele übernehmen Sie Mitverantwortung und engagieren sich für die fortlaufenden Optimierung von Pflegeabläufen.\n\n• Zudem unterstützen Sie unsere Lernenden und Studierenden in ihrer Ausbildung.\n\nAnforderungen:\nSie sind diplomierte/r Pflegefachfrau/-mann (AKP/DN II/HF/FH) und bringen idealerweise Erfahrung im Akutbereich mit.\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n\n• Gute Deutschkenntnisse runden Ihr Profil ab.\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
+        "fr": "Descrizione Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches - Nos patients prennent soin et maintiennent une grande responsabilité dans les services de quart. - Ce faisant, vous effectuez le processus de soins (y compris la détection des performances du matériel et des soins) selon les dernières découvertes, soutenues par le système d'information clinique KISIM. - Afin d'atteindre les objectifs du secteur et du département, vous assumez la responsabilité et vous engagez dans l'optimisation continue des processus de soins. - En outre, vous aidez nos apprenants et étudiants dans leur formation.\n• Exigences - Ils sont des professionnels de soins qualifiés (AKP/DN II/HF/FH) et apportent idéalement de l'expérience dans le domaine aigu. - Le bien-être des patients est au cœur de votre travail et vous rencontrez les gens avec respect et reconnaissance. - Les compétences d'équipe ainsi que le travail indépendant et soucieux de qualité vous caractérisent. - Bonne connaissance de l'allemand compléter votre profil.\n• Cosa offriamo - La qualité des soins et la formation aux soins ont une longue tradition au sein du groupe Lindenhof. En tant qu'hôpital spécialisé, nous mesurons les soins comme une priorité élevée et nous les organisons comme un secteur d'activité distinct. Nous sommes à l'avant-garde des nouveaux développements : Nous assurons cette position de pionnier en collaborant étroitement avec les entreprises de formation et en développant de nouveaux cours. - Faites partie de notre équipe de soins ! Les processus et les services du groupe Lindenhof sont entièrement basés sur les besoins des patients, et notre coopération se caractérise par l'ouverture, la collégialité et la connaissance de la valeur. Nous vous offrons la possibilité de vous développer professionnellement et de vous permettre de créer une planification de carrière individuelle. Apprenez-en davantage dans un environnement de travail avancé et agréable chaque jour."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/694cd906-d05d-4f2c-ae63-840ec84dc3e0",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-19T10:05:20.734Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-02-09",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/dipl-pflegefachfrau-mann-fhhf-de-f2063.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
+        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
+        "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
+        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
+        "technicien-ne-en-radiologie-dipl-hf-lindenhofgruppe-bern",
+        "dipl-specialista-della-radiologia-lindenhofgruppe-bern",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern-9x2kyf",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-pn8s4z",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
+        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
+        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-pn8s4z",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
+          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
+          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T21:57:57.775Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -104,7 +249,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-operationstechnik/cb4be6b0-f503-4ea8-8352-351c6f904bda",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.240Z",
+      "crawledAt": "2026-08-19T10:05:20.734Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -210,7 +355,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.239Z",
+      "crawledAt": "2026-08-19T10:05:20.733Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -277,150 +422,6 @@
       }
     },
     {
-      "id": "lindenhofgruppe-c4d62952eb5b",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
-      },
-      "company": "Lindenhofgruppe",
-      "companyKey": "lindenhofgruppe",
-      "companyDomain": "lindenhofgruppe.ch",
-      "title": "Dipl. Pflegefachfrau/-mann FH/HF",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
-        "en": "Dipl. Nursing specialist FH/HF",
-        "de": "Dipl. Pflegefachfrau/-mann FH/HF",
-        "fr": "Infirmier/ère diplômé/e HES/HF"
-      },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nUnsere Patientinnen und Patienten pflegen und betreuen Sie in Schichtdiensten mit hoher Eigenverantwortung.\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n\n• Für die Erreichung der Bereichs- und Abteilungsziele übernehmen Sie Mitverantwortung und engagieren sich für die fortlaufenden Optimierung von Pflegeabläufen.\n\n• Zudem unterstützen Sie unsere Lernenden und Studierenden in ihrer Ausbildung.\n\nAnforderungen:\nSie sind diplomierte/r Pflegefachfrau/-mann (AKP/DN II/HF/FH) und bringen idealerweise Erfahrung im Akutbereich mit.\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n\n• Gute Deutschkenntnisse runden Ihr Profil ab.\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
-      "descriptionByLocale": {
-        "it": "Descrizione Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti - I nostri pazienti si prendono cura e mantengono alta responsabilità nei servizi a turni. - In questo modo, si esegue il processo di cura (compreso il rilevamento delle prestazioni del materiale e della cura) secondo le ultime scoperte, supportato dal Sistema Informativo Clinico KISIM. - Per raggiungere l'area e gli obiettivi di reparto, si assume la responsabilità e si impegna nella continua ottimizzazione dei processi di cura. - Inoltre, supporta i nostri studenti e studenti nella loro formazione.\n• Requisiti - Sono professionisti qualificati di assistenza (AKP/DN II/HF/FH) e portano idealmente esperienza nella zona acuta. - Il benessere dei pazienti è al centro del vostro lavoro e incontrate le persone con rispetto e apprezzamento. - Le competenze di squadra così come il lavoro indipendente e di qualità-cosciente ti caratterizza. - Buona conoscenza del tedesco completa il tuo profilo. Cosa? - La qualità della cura e la cura hanno una lunga tradizione nel gruppo Lindenhof. In qualità di ospedale specializzato, misuramo la cura una priorità alta e organizzato come una zona di business separata. Siamo in prima linea nei nuovi sviluppi: Garantiamo questa posizione pionieristica lavorando a stretto contatto con le aziende di formazione e formazione e sviluppando nuovi corsi. - Fa parte della nostra squadra di cura! I processi e i servizi del gruppo Lindenhof si basano interamente sulle esigenze dei pazienti, e la nostra collaborazione è caratterizzata da apertura, collegialità e valore-consapevolezza. Vi offriamo l'opportunità di sviluppare professionalmente e consentono di creare la pianificazione di carriera individuale. Impara il nuovo in un ambiente di lavoro avanzato e piacevole ogni giorno.",
-        "en": "Descrizione Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks - Our patients take care of and maintain high self-responsibility in shift services. - In doing so, you carry out the care process (including performance detection of material and care) according to the latest findings, supported by the Clinic Information System KISIM. - In order to achieve the area and department goals, you take responsibility and engage in the continuous optimization of care processes. - In addition, you support our learners and students in their training.\n• Requirements - They are qualified care professional (AKP/DN II/HF/FH) and ideally bring experience in the acute area. - The well-being of patients is at the heart of your work and you meet people with respect and appreciation. - Team skills as well as independent and quality-conscious work characterizes you. - Good knowledge of German complete your profile.\n• Cosa offriamo - Care quality and care training have a long tradition at the Lindenhof group. As a specialist hospital, we measure the care a high priority and organized it as a separate business area. We are at the forefront of new developments: We ensure this pioneering position by working closely with training and training companies and by developing new courses. - Be part of our care team! The processes and services in the Lindenhof group are based entirely on the needs of patients, and our cooperation is characterised by openness, collegiateness and value-awareness.\n• We offer you the opportunity to develop professionally and allow you to create individual career planning. Learn new in an advanced, pleasant working environment every day.",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nUnsere Patientinnen und Patienten pflegen und betreuen Sie in Schichtdiensten mit hoher Eigenverantwortung.\n• Dabei führen Sie den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach neuesten Erkenntnissen durch, unterstützt durch das Klinik-Informationssystem KISIM.\n\n• Für die Erreichung der Bereichs- und Abteilungsziele übernehmen Sie Mitverantwortung und engagieren sich für die fortlaufenden Optimierung von Pflegeabläufen.\n\n• Zudem unterstützen Sie unsere Lernenden und Studierenden in ihrer Ausbildung.\n\nAnforderungen:\nSie sind diplomierte/r Pflegefachfrau/-mann (AKP/DN II/HF/FH) und bringen idealerweise Erfahrung im Akutbereich mit.\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum Ihrer Arbeit und Sie begegnen Menschen mit Respekt und Wertschätzung.\n\n• Teamfähigkeit sowie eigenverantwortliches und qualitätsbewusstes Arbeiten zeichnet Sie aus.\n\n• Gute Deutschkenntnisse runden Ihr Profil ab.\n\nWir bieten:\nPflegequalität und Pflegeausbildung haben bei der Lindenhofgruppe eine langjährige Tradition. Als Belegarztspital messen wir der Pflege einen hohen Stellenwert zu und haben sie als eigenen Geschäftsbereich organisiert. Bei neuen Entwicklungen sind wir an vorderster Front dabei: Diese Vorreiterstellung sichern wir durch eine enge Zusammenarbeit mit Aus- und Weiterbildungsbetrieben und durch die Entwicklung neuer Lehrgänge.\n\nWerden Sie Teil unseres Pflegeteams! Die Abläufe und Dienstleistungen in der Lindenhofgruppe orientieren sich ganz an den Bedürfnissen der Patientinnen und Patienten, und unsere Zusammenarbeit ist geprägt von Offenheit, Kollegialität und wertschätzendem Umgang. Wir bieten Ihnen die Möglichkeit, sich beruflich zu entwickeln, und ermöglichen Ihnen eine individuelle Karriereplanung. Lernen Sie täglich Neues in einer fortschrittlichen, angenehmen Arbeitsumgebung.",
-        "fr": "Descrizione Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches - Nos patients prennent soin et maintiennent une grande responsabilité dans les services de quart. - Ce faisant, vous effectuez le processus de soins (y compris la détection des performances du matériel et des soins) selon les dernières découvertes, soutenues par le système d'information clinique KISIM. - Afin d'atteindre les objectifs du secteur et du département, vous assumez la responsabilité et vous engagez dans l'optimisation continue des processus de soins. - En outre, vous aidez nos apprenants et étudiants dans leur formation.\n• Exigences - Ils sont des professionnels de soins qualifiés (AKP/DN II/HF/FH) et apportent idéalement de l'expérience dans le domaine aigu. - Le bien-être des patients est au cœur de votre travail et vous rencontrez les gens avec respect et reconnaissance. - Les compétences d'équipe ainsi que le travail indépendant et soucieux de qualité vous caractérisent. - Bonne connaissance de l'allemand compléter votre profil.\n• Cosa offriamo - La qualité des soins et la formation aux soins ont une longue tradition au sein du groupe Lindenhof. En tant qu'hôpital spécialisé, nous mesurons les soins comme une priorité élevée et nous les organisons comme un secteur d'activité distinct. Nous sommes à l'avant-garde des nouveaux développements : Nous assurons cette position de pionnier en collaborant étroitement avec les entreprises de formation et en développant de nouveaux cours. - Faites partie de notre équipe de soins ! Les processus et les services du groupe Lindenhof sont entièrement basés sur les besoins des patients, et notre coopération se caractérise par l'ouverture, la collégialité et la connaissance de la valeur. Nous vous offrons la possibilité de vous développer professionnellement et de vous permettre de créer une planification de carrière individuelle. Apprenez-en davantage dans un environnement de travail avancé et agréable chaque jour."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/694cd906-d05d-4f2c-ae63-840ec84dc3e0",
-      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.239Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-02-09",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/dipl-pflegefachfrau-mann-fhhf-de-f2063.html?agid=20",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
-        "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
-        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
-        "technicien-ne-en-radiologie-dipl-hf-lindenhofgruppe-bern",
-        "dipl-specialista-della-radiologia-lindenhofgruppe-bern",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern-9x2kyf",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-pn8s4z",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
-        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
-        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
-        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
-        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
-        "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
-        "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-pn8s4z",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-11",
-          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
-          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
-          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
-          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
-          "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
-        ],
-        "fr": [
-          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
-          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
-          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-ab776c",
-          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
-          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
-          "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-9a81d9",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T21:57:57.775Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "lindenhofgruppe-cdd10f158093",
       "slug": "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
       "slugByLocale": {
@@ -451,7 +452,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/ce745069-0f27-4caf-b4d6-8b9b9173c51a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.238Z",
+      "crawledAt": "2026-08-19T10:05:20.732Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -529,7 +530,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.238Z",
+      "crawledAt": "2026-08-19T10:05:20.732Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -569,6 +570,7 @@
         "cure-di-stoccaggio-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.774Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -613,7 +615,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.237Z",
+      "crawledAt": "2026-08-19T10:05:20.731Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -676,7 +678,7 @@
       "title": "Dipl. Experte / Expertin Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Esperto / Esperta in Anestesia NDS HF",
-        "en": "Dipl. Expert / Expert Anesthesia NDS HF",
+        "en": "Dipl. Experte / Expertin Anästhesie NDS HF",
         "de": "Dipl. Experte / Expertin Anästhesie NDS HF",
         "fr": "Expert(e) en anesthésie NDS HF"
       },
@@ -692,7 +694,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-experte-expertin-anaesthesie-nds-hf/5adceb3d-3a8a-420e-9261-52ee6dbe40c9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.237Z",
+      "crawledAt": "2026-08-19T10:05:20.731Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -726,6 +728,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.771Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -770,7 +773,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.236Z",
+      "crawledAt": "2026-08-19T10:05:20.730Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -848,7 +851,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruehling-2027/807758b7-3a09-43dc-ae54-b9e6261a4d22",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.236Z",
+      "crawledAt": "2026-08-19T10:05:20.730Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -912,7 +915,7 @@
       "title": "Dipl. Expertin/Experte Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expert/Expert Anesthesia NDS HF",
+        "en": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "de": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "fr": "Dipl. Expert/Dipl. Expert Anesthésie Soins NDS HF"
       },
@@ -928,7 +931,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-nds-hf/ded5d810-044f-4250-96dd-dd60ebfab8cd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.235Z",
+      "crawledAt": "2026-08-19T10:05:20.729Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -970,6 +973,7 @@
         "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.762Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1014,7 +1018,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.234Z",
+      "crawledAt": "2026-08-19T10:05:20.728Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1081,7 +1085,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Expert terapia intensiva NDS HF o specialista infermieristico dipl. con corso IMC",
-        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
+        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expertin/Expert soins intensifs NDS HF ou dipl. spécialiste des soins infirmiers avec cours IMC"
       },
@@ -1097,7 +1101,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs/d729996e-84a5-483b-a3d0-e98c11d281f3",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.233Z",
+      "crawledAt": "2026-08-19T10:05:20.727Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1131,6 +1135,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:51.847Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1175,7 +1180,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin/46c96a5c-a4b1-4f78-9ca3-8c19fb1dc1c1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.231Z",
+      "crawledAt": "2026-08-19T10:05:20.724Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1236,7 +1241,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmière diplômée FH/HF"
@@ -1253,7 +1258,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/0f4376e0-3adb-4d5a-a234-70e94913025a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.227Z",
+      "crawledAt": "2026-08-19T10:05:20.720Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1312,6 +1317,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:03:30.775Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1356,7 +1362,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/koch-koechin-efz-in-ausbildung/502d4904-f78d-4644-ab66-a79f7cd5591b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.224Z",
+      "crawledAt": "2026-08-19T10:05:20.717Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1390,6 +1396,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.996Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1434,7 +1441,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie/8727df5a-af23-4ee7-848f-e2ccdbaedb98",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.221Z",
+      "crawledAt": "2026-08-19T10:05:20.714Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1513,7 +1520,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital/6e207f18-cc31-4a93-b690-c030b4f2b98c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.217Z",
+      "crawledAt": "2026-08-19T10:05:20.711Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1547,6 +1554,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.968Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1574,7 +1582,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Registered Nurse FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/infirmière diplômé(e) FH/HF"
@@ -1591,7 +1599,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/7a607ba4-bbff-491b-9d81-e7ca55e6107b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.214Z",
+      "crawledAt": "2026-08-19T10:05:20.708Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1635,6 +1643,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:31:36.606Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1662,7 +1671,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1679,7 +1688,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/e510ac1f-cdc1-42ac-ae56-d88c48b6f4e8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.211Z",
+      "crawledAt": "2026-08-19T10:05:20.704Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1719,6 +1728,7 @@
         ]
       },
       "firstSeenAt": "2026-07-18T21:58:23.063Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1746,7 +1756,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1763,7 +1773,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/791ceed8-d154-4785-8cfe-19f032d5baf6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.208Z",
+      "crawledAt": "2026-08-19T10:05:20.701Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1803,6 +1813,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:09:01.939Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1830,7 +1841,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1847,7 +1858,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/17b5a6a9-54eb-410c-902d-3729d668ac6e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.205Z",
+      "crawledAt": "2026-08-19T10:05:20.698Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1901,6 +1912,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T22:16:44.389Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1928,7 +1940,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1945,7 +1957,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/193720a6-297c-46c6-9be6-893c8669c2b6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.202Z",
+      "crawledAt": "2026-08-19T10:05:20.696Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1985,6 +1997,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:59:40.952Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2012,7 +2025,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2029,7 +2042,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/341e9372-91f2-4996-9213-08cf5a700c0b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.199Z",
+      "crawledAt": "2026-08-19T10:05:20.693Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2077,6 +2090,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:27:43.405Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2121,7 +2135,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann-oder-med-praxisassistent-in/b229f97b-ea46-4da1-8d80-727956e674f0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.196Z",
+      "crawledAt": "2026-08-19T10:05:20.691Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2198,7 +2212,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-fuer-unseren-pflegepool/3a285673-ab11-4c1b-9ae4-28fcb7c44d0f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.193Z",
+      "crawledAt": "2026-08-19T10:05:20.688Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2273,7 +2287,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica Focus F - Neonatologia",
+        "it": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "en": "Dipl. Nursing specialist Focus F - Neonatology",
         "de": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "fr": "Dipl. Spécialiste des soins infirmiers Focus F - Néonatologie"
@@ -2290,7 +2304,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fokus-f-neonatologie/09d72517-c3ce-47d6-b53a-2737e8edf0a6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.189Z",
+      "crawledAt": "2026-08-19T10:05:20.685Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2328,6 +2342,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.711Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2355,7 +2370,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale FH/HF",
+        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -2372,7 +2387,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/f9beb725-7a87-4203-9129-ad85239e50f5",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.183Z",
+      "crawledAt": "2026-08-19T10:05:20.681Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2417,6 +2432,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:55:52.059Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2444,7 +2460,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Radiologiefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Specialista della radiologia",
+        "it": "Dipl. Radiologiefachfrau/-mann",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -2461,7 +2477,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann/8f89efbb-059a-4b27-9e14-81da0df076d1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.179Z",
+      "crawledAt": "2026-08-19T10:05:20.677Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2499,6 +2515,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:09:50.994Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2543,7 +2560,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/7f8eaa5f-3400-452f-a7ed-58249d24312a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.176Z",
+      "crawledAt": "2026-08-19T10:05:20.670Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2625,7 +2642,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027/8a34afda-98fe-4d53-b4cf-f8de42c114fd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.172Z",
+      "crawledAt": "2026-08-19T10:05:20.667Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2705,7 +2722,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-medizinische-klinik/b062ead3-8ea2-4aa9-960d-b97f01f4e4df",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.168Z",
+      "crawledAt": "2026-08-19T10:05:20.661Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2747,6 +2764,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:41.538Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2791,7 +2809,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-intensivpflege-weiterbildungsstelle/14584d68-0227-4b64-8de2-c908bc7e1c30",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.162Z",
+      "crawledAt": "2026-08-19T10:05:20.658Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2877,7 +2895,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegeassistent-in/7e1f6b59-f302-4f23-b437-84d6f4648415",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.158Z",
+      "crawledAt": "2026-08-19T10:05:20.654Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2913,6 +2931,7 @@
         ]
       },
       "firstSeenAt": "2026-07-21T23:03:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2922,83 +2941,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "lindenhofgruppe-27379d4f3a37",
-      "slug": "bereichsleiter-in-pflege-therapie-e-beratungsdienste-lindenhofgruppe-lindenhofspital",
-      "slugByLocale": {
-        "it": "bereichsleiter-in-pflege-therapie-e-beratungsdienste-lindenhofgruppe-lindenhofspital",
-        "en": "area-manager-nursing-therapy-and-counselling-services-lindenhofgruppe-lindenhofspital",
-        "de": "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch",
-        "fr": "gestionnaire-regional-services-de-soins-infirmiers-de-therapie-et-de-counseling-lindenhofgruppe-lindenhofspital"
-      },
-      "company": "Lindenhofgruppe",
-      "companyKey": "lindenhofgruppe",
-      "companyDomain": "lindenhofgruppe.ch",
-      "title": "Bereichsleiter/in Pflege-, Therapie- und Beratungsdienste",
-      "titleByLocale": {
-        "it": "Bereichsleiter/in Pflege-, Therapie- e Beratungsdienste",
-        "en": "Area manager/nursing, therapy and counselling services",
-        "de": "Bereichsleiter/in Pflege-, Therapie- und Beratungsdienste",
-        "fr": "Gestionnaire régional/services de soins infirmiers, de thérapie et de counseling"
-      },
-      "description": "Aufgaben:\n• Du leitest gemeinsam mit engagierten interprofessionellen Teams ein vielseitiges Portfolio - von Diabetesberatung, Pflegepool, Ernährungsberatung und -therapie, Stomaberatung, ambulante Angebote bis zum prästationären Ambulatorium, das du kontinuierlich weiterentwickelst.\n\n• Du erkennst Potenziale und nutzt diese konsequent. Dabei steht für dich nicht nur die einzelne Fachdisziplin im Fokus, sondern die vernetzte, ganzheitliche und integrierte Versorgung.\n\n• Du liebst Herausforderungen und sie spornen dich zu Höchstleistungen an.\n\n• Mit deiner integrativen Persönlichkeit begeisterst du Menschen, setzt Impulse und gestaltest Veränderung nachhaltig.\n\nAnforderungen:\n• Deine beruflichen Wurzeln liegen in einem Gesundheitsberuf, ergänzt durch einen Masterabschluss Management und Leadership oder einen vergleichbaren Abschluss.\n\n• Du bringst mehrjährige Führungserfahrung mit.\n\n• Du kommunizierst auf Augenhöhe und überzeugst mit hoher Sozialkompetenz und einer Prise Humor.\n\n• Du verbindest betriebswirtschaftliches Denken mit einem konsequenten Fokus auf den Menschen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• zusätzliche 5 Ferientage\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Überdurchschnittliche Kaderversicherung\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Insieme a team interprofessionali impegnati, gestisci un portafoglio versatile - dalla consulenza per il diabete, dalla piscina per la cura, dalla consulenza nutrizionale e dalla terapia, dalla consulenza stoma, dai servizi ambulatoriale all'ambulatorio pre-stazionario, che sviluppi continuamente.\n\n• Riconosci il potenziale e lo usi costantemente. Per voi, l'attenzione non è solo sulla disciplina individuale, ma anche sulla cura in rete, olistica e integrata.\n\n• Amate le sfide e vi spingono all'eccellenza.\n\n• Con la vostra personalità integrativa, ispirate le persone, impostate gli impulsi e la forma cambiano in modo sostenibile.\n\nRequisiti\n• Le vostre radici professionali si trovano in una professione sanitaria, completato da un master in gestione e leadership o un grado simile.\n\n• Porti diversi anni di esperienza di leadership.\n\n• Comunichi a livello degli occhi e convinci con alte abilità sociali e un pizzico di umorismo.\n\n• Unisci il pensiero aziendale con un focus coerente sulle persone.\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 vacanze\n\n• Possibilità di acquistare una vacanza\n\n• Ulteriori 5 giorni\nGestione della salute sul lavoro (BGM) – “ZÄME GSUND”\n• Misure per rafforzare la salute\n\n• Laboratorio Cadre e Team con focus sulla salute\nLavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\nVantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\nPrecauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Assicurazione quadri sopra la media\n\n• Prosecuzione salariale generale in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
-        "en": "Tasks:\n• Together with committed interprofessional teams, you manage a versatile portfolio - from diabetes counselling, nursing pool, nutritional counselling and therapy, stoma counselling, outpatient services to the pre-stationary ambulatory, which you continuously develop.\n\n• You recognize potential and use it consistently. For you, the focus is not only on the individual discipline, but also on networked, holistic and integrated care.\n\n• You love challenges and they spur you on to excellence.\n\n• With your integrative personality, you inspire people, set impulses and shape change sustainably.\n\nRequirements\n• Your professional roots lie in a health profession, supplemented by a master’s degree in management and leadership or a comparable degree.\n\n• You bring several years of leadership experience.\n\n• You communicate at eye level and convince with high social skills and a pinch of humor.\n\n• You combine business thinking with a consistent focus on people.\n\nWe offer:\nHolidays and leisure\n• Mind. 26 holidays\n\n• Possibility to buy a holiday\n\n• Additional 5 holidays\nOccupational Health Management (BGM) – “ZÄME GSUND”\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\nWork and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\nAdvantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\nPrecautions\n• Half coordination deduction according to BVG\n\n• Above-average cadre insurance\n\n• Generous wage continuation in the event of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
-        "de": "Aufgaben:\n• Du leitest gemeinsam mit engagierten interprofessionellen Teams ein vielseitiges Portfolio - von Diabetesberatung, Pflegepool, Ernährungsberatung und -therapie, Stomaberatung, ambulante Angebote bis zum prästationären Ambulatorium, das du kontinuierlich weiterentwickelst.\n\n• Du erkennst Potenziale und nutzt diese konsequent. Dabei steht für dich nicht nur die einzelne Fachdisziplin im Fokus, sondern die vernetzte, ganzheitliche und integrierte Versorgung.\n\n• Du liebst Herausforderungen und sie spornen dich zu Höchstleistungen an.\n\n• Mit deiner integrativen Persönlichkeit begeisterst du Menschen, setzt Impulse und gestaltest Veränderung nachhaltig.\n\nAnforderungen:\n• Deine beruflichen Wurzeln liegen in einem Gesundheitsberuf, ergänzt durch einen Masterabschluss Management und Leadership oder einen vergleichbaren Abschluss.\n\n• Du bringst mehrjährige Führungserfahrung mit.\n\n• Du kommunizierst auf Augenhöhe und überzeugst mit hoher Sozialkompetenz und einer Prise Humor.\n\n• Du verbindest betriebswirtschaftliches Denken mit einem konsequenten Fokus auf den Menschen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• zusätzliche 5 Ferientage\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\nArbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\nVergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\nVorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Überdurchschnittliche Kaderversicherung\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "fr": "Tâches :\n• Avec des équipes interprofessionnelles engagées, vous gérez un portefeuille polyvalent - du counseling sur le diabète, du pool d'infirmières, du counseling et de la thérapie nutritionnelle, du counseling en stoma, des services ambulatoires pré-stationnaires, que vous développez continuellement.\n\n• Vous reconnaissez le potentiel et l'utilisez régulièrement. Pour vous, l'accent est non seulement sur la discipline individuelle, mais aussi sur les soins en réseau, holistiques et intégrés.\n\n• Vous aimez les défis et ils vous poussent à l'excellence.\n\n• Avec votre personnalité intégrative, vous inspirez les gens, vous mettez des impulsions et vous façonnez le changement de façon durable.\n\nExigences\n• Vos racines professionnelles résident dans une profession de santé, complétée par un master en gestion et leadership ou un diplôme comparable.\n\n• Vous apportez plusieurs années d'expérience en leadership.\n\n• Vous communiquez au niveau des yeux et convainquez avec des compétences sociales élevées et une pincée d'humour.\n\n• Vous combinez la pensée d'entreprise avec un accent cohérent sur les gens.\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours fériés\n\n• Possibilité d'acheter des vacances\n\n• 5 jours fériés supplémentaires\nGestion de la santé au travail (BGM) – -ZÄME\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\nTravail et famille\n• KITA – horaires d'ouverture axés sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\nAvantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\nPrécautions\n• Déduction pour demi-coordination selon BVG\n\n• Assurance-cadre supérieure à la moyenne\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100%, puis indemnités journalières à 90%)"
-      },
-      "location": "Lindenhofspital",
-      "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bereichsleiter-in-pflege-therapie-und-beratungsdienste/165846eb-b263-42b7-9945-bd4bbce6f3f2",
-      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.155Z",
-      "addressLocality": "Lindenhofspital",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3012",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-24",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/bereichsleiterin-pflege-therapie-und-beratungsdienste-de-f2856.html?agid=20",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
-        ],
-        "en": [
-          "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
-        ],
-        "fr": [
-          "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-24T22:16:04.624Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -3034,7 +2976,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau-mann-mit-ndk-ueberwachungspflege/734b2e6d-af14-4c8d-8873-5c8326968451",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.152Z",
+      "crawledAt": "2026-08-19T10:05:20.650Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3103,7 +3045,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
+        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -3119,7 +3061,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-notfallpflege/278f8287-b7c1-421b-8ba6-4f800dd90365",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.149Z",
+      "crawledAt": "2026-08-19T10:05:20.643Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3152,6 +3094,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:31:34.545Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3196,7 +3139,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/teamleiter-in-fuer-fachfrau-mann-apotheke-bzw-pharma-assistentin-assistent/79795f88-4108-4ee9-9bc8-9c09c5acc25a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.145Z",
+      "crawledAt": "2026-08-19T10:05:20.637Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3275,7 +3218,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-pflege/03ec6256-7d80-4d3b-9cd6-d91104a9d88a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.142Z",
+      "crawledAt": "2026-08-19T10:05:20.628Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3353,7 +3296,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-cand-med/c1f70a97-5b77-41e2-9f90-ecbb0cbf1afb",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.135Z",
+      "crawledAt": "2026-08-19T10:05:20.625Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3415,7 +3358,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale",
+        "it": "Dipl. Pflegefachfrau/-mann",
         "en": "Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau/-mann",
         "fr": "Dipl. Professionnels des soins infirmiers"
@@ -3432,7 +3375,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann/843443ca-b174-4703-b4a1-e4bd5e0a752a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.131Z",
+      "crawledAt": "2026-08-19T10:05:20.613Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3468,6 +3411,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:23:40.522Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3512,7 +3456,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/med-praxisassistent-in-oder-fachfrau-mann-gesundheit/6741af00-8e4c-434a-b4f8-8b7a7bd559cb",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.126Z",
+      "crawledAt": "2026-08-19T10:05:20.603Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3589,7 +3533,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-sekretariat-radiologie/04c2a51e-f52f-4c27-b084-47e89f6ed0c8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:15.068Z",
+      "crawledAt": "2026-08-19T10:05:20.597Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3635,6 +3579,157 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "lindenhofgruppe-72a1adc5a911",
+      "slug": "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-lindenhofspital",
+      "slugByLocale": {
+        "de": "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-ch",
+        "it": "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-lindenhofspital",
+        "en": "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-lindenhofspital",
+        "fr": "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-lindenhofspital"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Abteilungsleiter/in Anästhesiepflege",
+      "titleByLocale": {
+        "de": "Abteilungsleiter/in Anästhesiepflege",
+        "it": "Abteilungsleiter/in Anästhesiepflege",
+        "en": "Abteilungsleiter/in Anästhesiepflege",
+        "fr": "Abteilungsleiter/in Anästhesiepflege"
+      },
+      "description": "Aufgaben:\nFührung übernehmen. Entwicklung gestalten. Gemeinsam mit einem starken Führungsteam die Anästhesiepflege weiterentwickeln.\n\n• Du übernimmst die Gesamtverantwortung für die Anästhesiepflege mit rund 60 Mitarbeitenden und gestaltest die Führung gemeinem mit deinem Führungsteam.\n\n• Du prägst Strukturen, Prozesse und die fachliche Ausrichtung der Abteilung und stellst die qualifikationsgerechte Personaleinsatzplanung sicher.\n\n• Du sicherst die qualitätsorientierte Umsetzung der Weiterbildung NDS Anästhesiepflege.\n\n• Gemeinsam mit den Anästhesieärztinnen und Anästhesieärzten initiierst und koordinierst du mit dem Team das anästhesiologische Angebot.\n\n• Du bringst Veränderungsprozesse und bereichsübergreifende Projekte voran und stellst den Informationsfluss sicher.\n\n• Du förderst die Zusammenarbeit über Berufs- und Fachgrenzen hinweg.\n\n• Du verbindest deine Führungsrolle mit regelmässiger Mitarbeit in der direkten Patientenversorgung im OP.\n\nAnforderungen:\n• Du bist Dipl. Experte/Expertin Anästhesiepflege NDS HF und bringst mehrjährige Expertenerfahrung mit.\n\n• Du verfügst über fundierte Führungserfahrung und eine Managementausbildung im Gesundheitswesen.\n\n• Du führst integrativ, wertschätzend und partizipativ und bringst unterschiedliche Perspektiven zusammen.\n\n• Du kommunizierst klar, handelst ziel- und lösungsorientiert und begeisterst Menschen für Veränderungen.\n\n• Du begegnest Menschen auf Augenhöhe, schaffst Vertrauen und gestaltest Zusammenarbeit verbindlich.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+      "descriptionByLocale": {
+        "de": "Aufgaben:\nFührung übernehmen. Entwicklung gestalten. Gemeinsam mit einem starken Führungsteam die Anästhesiepflege weiterentwickeln.\n\n• Du übernimmst die Gesamtverantwortung für die Anästhesiepflege mit rund 60 Mitarbeitenden und gestaltest die Führung gemeinem mit deinem Führungsteam.\n\n• Du prägst Strukturen, Prozesse und die fachliche Ausrichtung der Abteilung und stellst die qualifikationsgerechte Personaleinsatzplanung sicher.\n\n• Du sicherst die qualitätsorientierte Umsetzung der Weiterbildung NDS Anästhesiepflege.\n\n• Gemeinsam mit den Anästhesieärztinnen und Anästhesieärzten initiierst und koordinierst du mit dem Team das anästhesiologische Angebot.\n\n• Du bringst Veränderungsprozesse und bereichsübergreifende Projekte voran und stellst den Informationsfluss sicher.\n\n• Du förderst die Zusammenarbeit über Berufs- und Fachgrenzen hinweg.\n\n• Du verbindest deine Führungsrolle mit regelmässiger Mitarbeit in der direkten Patientenversorgung im OP.\n\nAnforderungen:\n• Du bist Dipl. Experte/Expertin Anästhesiepflege NDS HF und bringst mehrjährige Expertenerfahrung mit.\n\n• Du verfügst über fundierte Führungserfahrung und eine Managementausbildung im Gesundheitswesen.\n\n• Du führst integrativ, wertschätzend und partizipativ und bringst unterschiedliche Perspektiven zusammen.\n\n• Du kommunizierst klar, handelst ziel- und lösungsorientiert und begeisterst Menschen für Veränderungen.\n\n• Du begegnest Menschen auf Augenhöhe, schaffst Vertrauen und gestaltest Zusammenarbeit verbindlich.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "it": "Aufgaben:\nFührung übernehmen. Entwicklung gestalten. Gemeinsam mit einem starken Führungsteam die Anästhesiepflege weiterentwickeln.\n\n• Du übernimmst die Gesamtverantwortung für die Anästhesiepflege mit rund 60 Mitarbeitenden und gestaltest die Führung gemeinem mit deinem Führungsteam.\n\n• Du prägst Strukturen, Prozesse und die fachliche Ausrichtung der Abteilung und stellst die qualifikationsgerechte Personaleinsatzplanung sicher.\n\n• Du sicherst die qualitätsorientierte Umsetzung der Weiterbildung NDS Anästhesiepflege.\n\n• Gemeinsam mit den Anästhesieärztinnen und Anästhesieärzten initiierst und koordinierst du mit dem Team das anästhesiologische Angebot.\n\n• Du bringst Veränderungsprozesse und bereichsübergreifende Projekte voran und stellst den Informationsfluss sicher.\n\n• Du förderst die Zusammenarbeit über Berufs- und Fachgrenzen hinweg.\n\n• Du verbindest deine Führungsrolle mit regelmässiger Mitarbeit in der direkten Patientenversorgung im OP.\n\nAnforderungen:\n• Du bist Dipl. Experte/Expertin Anästhesiepflege NDS HF und bringst mehrjährige Expertenerfahrung mit.\n\n• Du verfügst über fundierte Führungserfahrung und eine Managementausbildung im Gesundheitswesen.\n\n• Du führst integrativ, wertschätzend und partizipativ und bringst unterschiedliche Perspektiven zusammen.\n\n• Du kommunizierst klar, handelst ziel- und lösungsorientiert und begeisterst Menschen für Veränderungen.\n\n• Du begegnest Menschen auf Augenhöhe, schaffst Vertrauen und gestaltest Zusammenarbeit verbindlich.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "en": "Aufgaben:\nFührung übernehmen. Entwicklung gestalten. Gemeinsam mit einem starken Führungsteam die Anästhesiepflege weiterentwickeln.\n\n• Du übernimmst die Gesamtverantwortung für die Anästhesiepflege mit rund 60 Mitarbeitenden und gestaltest die Führung gemeinem mit deinem Führungsteam.\n\n• Du prägst Strukturen, Prozesse und die fachliche Ausrichtung der Abteilung und stellst die qualifikationsgerechte Personaleinsatzplanung sicher.\n\n• Du sicherst die qualitätsorientierte Umsetzung der Weiterbildung NDS Anästhesiepflege.\n\n• Gemeinsam mit den Anästhesieärztinnen und Anästhesieärzten initiierst und koordinierst du mit dem Team das anästhesiologische Angebot.\n\n• Du bringst Veränderungsprozesse und bereichsübergreifende Projekte voran und stellst den Informationsfluss sicher.\n\n• Du förderst die Zusammenarbeit über Berufs- und Fachgrenzen hinweg.\n\n• Du verbindest deine Führungsrolle mit regelmässiger Mitarbeit in der direkten Patientenversorgung im OP.\n\nAnforderungen:\n• Du bist Dipl. Experte/Expertin Anästhesiepflege NDS HF und bringst mehrjährige Expertenerfahrung mit.\n\n• Du verfügst über fundierte Führungserfahrung und eine Managementausbildung im Gesundheitswesen.\n\n• Du führst integrativ, wertschätzend und partizipativ und bringst unterschiedliche Perspektiven zusammen.\n\n• Du kommunizierst klar, handelst ziel- und lösungsorientiert und begeisterst Menschen für Veränderungen.\n\n• Du begegnest Menschen auf Augenhöhe, schaffst Vertrauen und gestaltest Zusammenarbeit verbindlich.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "fr": "Aufgaben:\nFührung übernehmen. Entwicklung gestalten. Gemeinsam mit einem starken Führungsteam die Anästhesiepflege weiterentwickeln.\n\n• Du übernimmst die Gesamtverantwortung für die Anästhesiepflege mit rund 60 Mitarbeitenden und gestaltest die Führung gemeinem mit deinem Führungsteam.\n\n• Du prägst Strukturen, Prozesse und die fachliche Ausrichtung der Abteilung und stellst die qualifikationsgerechte Personaleinsatzplanung sicher.\n\n• Du sicherst die qualitätsorientierte Umsetzung der Weiterbildung NDS Anästhesiepflege.\n\n• Gemeinsam mit den Anästhesieärztinnen und Anästhesieärzten initiierst und koordinierst du mit dem Team das anästhesiologische Angebot.\n\n• Du bringst Veränderungsprozesse und bereichsübergreifende Projekte voran und stellst den Informationsfluss sicher.\n\n• Du förderst die Zusammenarbeit über Berufs- und Fachgrenzen hinweg.\n\n• Du verbindest deine Führungsrolle mit regelmässiger Mitarbeit in der direkten Patientenversorgung im OP.\n\nAnforderungen:\n• Du bist Dipl. Experte/Expertin Anästhesiepflege NDS HF und bringst mehrjährige Expertenerfahrung mit.\n\n• Du verfügst über fundierte Führungserfahrung und eine Managementausbildung im Gesundheitswesen.\n\n• Du führst integrativ, wertschätzend und partizipativ und bringst unterschiedliche Perspektiven zusammen.\n\n• Du kommunizierst klar, handelst ziel- und lösungsorientiert und begeisterst Menschen für Veränderungen.\n\n• Du begegnest Menschen auf Augenhöhe, schaffst Vertrauen und gestaltest Zusammenarbeit verbindlich.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)"
+      },
+      "location": "Lindenhofspital",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/abteilungsleiter-in-anaesthesiepflege/29afdb6b-dce6-4a2c-ad69-a90d7a1844d8",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-19T10:05:20.546Z",
+      "addressLocality": "Lindenhofspital",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3012",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/abteilungsleiter-in-anaesthesiepflege-de-f2897.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-anasthesiepflege-lindenhofgruppe-ch"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-19T10:05:20.546Z"
+    },
+    {
+      "id": "lindenhofgruppe-27379d4f3a37",
+      "slug": "bereichsleiter-in-pflege-therapie-e-beratungsdienste-lindenhofgruppe-lindenhofspital",
+      "slugByLocale": {
+        "it": "bereichsleiter-in-pflege-therapie-e-beratungsdienste-lindenhofgruppe-lindenhofspital",
+        "en": "area-manager-nursing-therapy-and-counselling-services-lindenhofgruppe-lindenhofspital",
+        "de": "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch",
+        "fr": "gestionnaire-regional-services-de-soins-infirmiers-de-therapie-et-de-counseling-lindenhofgruppe-lindenhofspital"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Bereichsleiter/in Pflege-, Therapie- und Beratungsdienste",
+      "titleByLocale": {
+        "it": "Bereichsleiter/in Pflege-, Therapie- e Beratungsdienste",
+        "en": "Area manager/nursing, therapy and counselling services",
+        "de": "Bereichsleiter/in Pflege-, Therapie- und Beratungsdienste",
+        "fr": "Gestionnaire régional/services de soins infirmiers, de thérapie et de counseling"
+      },
+      "description": "Aufgaben:\n• Du leitest gemeinsam mit engagierten interprofessionellen Teams ein vielseitiges Portfolio - von Diabetesberatung, Pflegepool, Ernährungsberatung und -therapie, Stomaberatung, ambulante Angebote bis zum prästationären Ambulatorium, das du kontinuierlich weiterentwickelst.\n\n• Du erkennst Potenziale und nutzt diese konsequent. Dabei steht für dich nicht nur die einzelne Fachdisziplin im Fokus, sondern die vernetzte, ganzheitliche und integrierte Versorgung.\n\n• Du liebst Herausforderungen und sie spornen dich zu Höchstleistungen an.\n\n• Mit deiner integrativen Persönlichkeit begeisterst du Menschen, setzt Impulse und gestaltest Veränderung nachhaltig.\n\nAnforderungen:\n• Deine beruflichen Wurzeln liegen in einem Gesundheitsberuf, ergänzt durch einen Masterabschluss Management und Leadership oder einen vergleichbaren Abschluss.\n\n• Du bringst mehrjährige Führungserfahrung mit.\n\n• Du kommunizierst auf Augenhöhe und überzeugst mit hoher Sozialkompetenz und einer Prise Humor.\n\n• Du verbindest betriebswirtschaftliches Denken mit einem konsequenten Fokus auf den Menschen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• zusätzliche 5 Ferientage\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Überdurchschnittliche Kaderversicherung\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Insieme a team interprofessionali impegnati, gestisci un portafoglio versatile - dalla consulenza per il diabete, dalla piscina per la cura, dalla consulenza nutrizionale e dalla terapia, dalla consulenza stoma, dai servizi ambulatoriale all'ambulatorio pre-stazionario, che sviluppi continuamente.\n\n• Riconosci il potenziale e lo usi costantemente. Per voi, l'attenzione non è solo sulla disciplina individuale, ma anche sulla cura in rete, olistica e integrata.\n\n• Amate le sfide e vi spingono all'eccellenza.\n\n• Con la vostra personalità integrativa, ispirate le persone, impostate gli impulsi e la forma cambiano in modo sostenibile.\n\nRequisiti\n• Le vostre radici professionali si trovano in una professione sanitaria, completato da un master in gestione e leadership o un grado simile.\n\n• Porti diversi anni di esperienza di leadership.\n\n• Comunichi a livello degli occhi e convinci con alte abilità sociali e un pizzico di umorismo.\n\n• Unisci il pensiero aziendale con un focus coerente sulle persone.\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 vacanze\n\n• Possibilità di acquistare una vacanza\n\n• Ulteriori 5 giorni\nGestione della salute sul lavoro (BGM) – “ZÄME GSUND”\n• Misure per rafforzare la salute\n\n• Laboratorio Cadre e Team con focus sulla salute\nLavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\nVantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\nPrecauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Assicurazione quadri sopra la media\n\n• Prosecuzione salariale generale in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
+        "en": "Tasks:\n• Together with committed interprofessional teams, you manage a versatile portfolio - from diabetes counselling, nursing pool, nutritional counselling and therapy, stoma counselling, outpatient services to the pre-stationary ambulatory, which you continuously develop.\n\n• You recognize potential and use it consistently. For you, the focus is not only on the individual discipline, but also on networked, holistic and integrated care.\n\n• You love challenges and they spur you on to excellence.\n\n• With your integrative personality, you inspire people, set impulses and shape change sustainably.\n\nRequirements\n• Your professional roots lie in a health profession, supplemented by a master’s degree in management and leadership or a comparable degree.\n\n• You bring several years of leadership experience.\n\n• You communicate at eye level and convince with high social skills and a pinch of humor.\n\n• You combine business thinking with a consistent focus on people.\n\nWe offer:\nHolidays and leisure\n• Mind. 26 holidays\n\n• Possibility to buy a holiday\n\n• Additional 5 holidays\nOccupational Health Management (BGM) – “ZÄME GSUND”\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\nWork and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\nAdvantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\nPrecautions\n• Half coordination deduction according to BVG\n\n• Above-average cadre insurance\n\n• Generous wage continuation in the event of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
+        "de": "Aufgaben:\n• Du leitest gemeinsam mit engagierten interprofessionellen Teams ein vielseitiges Portfolio - von Diabetesberatung, Pflegepool, Ernährungsberatung und -therapie, Stomaberatung, ambulante Angebote bis zum prästationären Ambulatorium, das du kontinuierlich weiterentwickelst.\n\n• Du erkennst Potenziale und nutzt diese konsequent. Dabei steht für dich nicht nur die einzelne Fachdisziplin im Fokus, sondern die vernetzte, ganzheitliche und integrierte Versorgung.\n\n• Du liebst Herausforderungen und sie spornen dich zu Höchstleistungen an.\n\n• Mit deiner integrativen Persönlichkeit begeisterst du Menschen, setzt Impulse und gestaltest Veränderung nachhaltig.\n\nAnforderungen:\n• Deine beruflichen Wurzeln liegen in einem Gesundheitsberuf, ergänzt durch einen Masterabschluss Management und Leadership oder einen vergleichbaren Abschluss.\n\n• Du bringst mehrjährige Führungserfahrung mit.\n\n• Du kommunizierst auf Augenhöhe und überzeugst mit hoher Sozialkompetenz und einer Prise Humor.\n\n• Du verbindest betriebswirtschaftliches Denken mit einem konsequenten Fokus auf den Menschen.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Ferientage\n\n• Möglichkeit Ferienkauf\n\n• zusätzliche 5 Ferientage\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\nArbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\nVergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\nVorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Überdurchschnittliche Kaderversicherung\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "fr": "Tâches :\n• Avec des équipes interprofessionnelles engagées, vous gérez un portefeuille polyvalent - du counseling sur le diabète, du pool d'infirmières, du counseling et de la thérapie nutritionnelle, du counseling en stoma, des services ambulatoires pré-stationnaires, que vous développez continuellement.\n\n• Vous reconnaissez le potentiel et l'utilisez régulièrement. Pour vous, l'accent est non seulement sur la discipline individuelle, mais aussi sur les soins en réseau, holistiques et intégrés.\n\n• Vous aimez les défis et ils vous poussent à l'excellence.\n\n• Avec votre personnalité intégrative, vous inspirez les gens, vous mettez des impulsions et vous façonnez le changement de façon durable.\n\nExigences\n• Vos racines professionnelles résident dans une profession de santé, complétée par un master en gestion et leadership ou un diplôme comparable.\n\n• Vous apportez plusieurs années d'expérience en leadership.\n\n• Vous communiquez au niveau des yeux et convainquez avec des compétences sociales élevées et une pincée d'humour.\n\n• Vous combinez la pensée d'entreprise avec un accent cohérent sur les gens.\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours fériés\n\n• Possibilité d'acheter des vacances\n\n• 5 jours fériés supplémentaires\nGestion de la santé au travail (BGM) – -ZÄME\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\nTravail et famille\n• KITA – horaires d'ouverture axés sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\nAvantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\nPrécautions\n• Déduction pour demi-coordination selon BVG\n\n• Assurance-cadre supérieure à la moyenne\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100%, puis indemnités journalières à 90%)"
+      },
+      "location": "Lindenhofspital",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bereichsleiter-in-pflege-therapie-und-beratungsdienste/165846eb-b263-42b7-9945-bd4bbce6f3f2",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T22:02:15.155Z",
+      "addressLocality": "Lindenhofspital",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3012",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-24",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/bereichsleiterin-pflege-therapie-und-beratungsdienste-de-f2856.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "bereichsleiter-in-pflege-therapie-und-beratungsdienste-lindenhofgruppe-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-24T22:16:04.624Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "lindenhofgruppe-b074cd571e80",
@@ -3719,7 +3814,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "lindenhofgruppe-c5f412203f72",
@@ -3811,7 +3906,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
