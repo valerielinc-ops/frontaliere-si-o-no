@@ -10075,6 +10075,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Vivere a Dongo, lavorare in Ticino da frontaliere',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Guida pratica: costo della vita, fiscalità frontaliere, permesso G, contributi AVS e LAMal, tempi di percorrenza Dongo-Lugano, vantaggi e svantaggi del trasferimento transfrontaliero.',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Vista del lungolago di Dongo sul Lago di Como con monti sullo sfondo e architettura lacustre storica',
+    'blog.article.bollettino-frontaliere-2026-08-19.title': 'Bollettino del frontaliere – 19 agosto 2026: 935 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-19.excerpt': 'I numeri di oggi, 19 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'I numeri del giorno per i frontalieri – 19 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Bollettino frontalieri del 19 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'I numeri del 19 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

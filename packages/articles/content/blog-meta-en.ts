@@ -10074,6 +10074,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Living in Dongo, working in Ticino as a border worker',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Practical guide: cost of living, border taxation, G permit, AVS and LAMal contributions, Dongo-Lugano travel times, advantages and disadvantages of cross-border transfer.',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Waterfront view of Dongo on Lake Como with mountains and historic lakeside architecture',
+    'blog.article.bollettino-frontaliere-2026-08-19.title': 'Cross-border daily brief – August 19, 2026: 935 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-19.excerpt': 'Today\'s numbers, August 19, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'The day\'s numbers for cross-border commuters – August 19, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Cross-border brief, August 19, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'The numbers for August 19, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

@@ -10073,6 +10073,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.title': 'Leben in Dongo, Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden: Lebenshaltungskosten, Grenzbesteuerung, Bewilligung G, AHV- und KVG-Beiträge, Reisezeiten Dongo-Lugano, Vor- und Nachteile des grenzüberschreitenden Transfers.',
     'blog.article.vivere-dongo-lavorare-ticino-frontaliere.imageAlt': 'Seeuferwelt von Dongo am Comer See mit Bergen und historischer Seeuferbebauung',
+    'blog.article.bollettino-frontaliere-2026-08-19.title': 'Grenzgänger-Tagesbulletin – 19. August 2026: 935 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-19.excerpt': 'Die Zahlen von heute, 19. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-19.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 19. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-19.seoDescription': 'Grenzgänger-Bulletin vom 19. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-19.ogDescription': 'Die Zahlen vom 19. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
