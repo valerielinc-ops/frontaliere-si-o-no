@@ -76070,10 +76070,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "wms-praktikant-in-klinik-sonnenhalde-riehen",
-        "en": "wms-praktikant-in-klinik-sonnenhalde-riehen",
-        "de": "wms-praktikant-in-klinik-sonnenhalde-riehen",
-        "fr": "wms-praktikant-in-klinik-sonnenhalde-riehen"
+        "de": "wms-praktikant-in-klinik-sonnenhalde-riehen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/wms-praktikant-in-klinik-sonnenhalde-riehen",
@@ -76087,6 +76084,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
