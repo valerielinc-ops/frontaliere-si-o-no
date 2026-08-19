@@ -3382,6 +3382,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.easygov-pmi-svizzere.title': 'EasyGov entlastet Schweizer KMU',
     'blog.article.easygov-pmi-svizzere.excerpt': 'Studie der Universität St. Gallen für SECO: EasyGov reduziert Zeit und Verwaltungskosten für Schweizer KMU. Die Analyse wurde im August 2026 durchgeführt.',
     'blog.article.easygov-pmi-svizzere.imageAlt': 'Schweizer Verwaltungsbüro mit Mitarbeitern an Computern und digitalen Dashboards zur Verwaltung',
+    'blog.article.ticino-neutralita-sondaggio-2026.title': 'Schweizer Neutralität: Das Tessin widerspricht dem Land',
+    'blog.article.ticino-neutralita-sondaggio-2026.excerpt': '20-Minuten-Umfrage/Tamedia: 62% der Schweizer sind gegen die Neutralitätsinitiative. Doch das Tessin stimmt mit 52 Prozent mit Ja. Abstimmung am 27. September 2026.',
+    'blog.article.ticino-neutralita-sondaggio-2026.imageAlt': 'Schweizer Bundesrat während einer Debattensitzung mit Schweizer Flagge im Hintergrund',
 };
 
 export default blogMetaChDe;

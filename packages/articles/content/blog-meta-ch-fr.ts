@@ -3382,6 +3382,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.easygov-pmi-svizzere.title': 'EasyGov soulage les PME suisses',
     'blog.article.easygov-pmi-svizzere.excerpt': 'Étude de l\'Université de Saint-Gall pour SECO : EasyGov réduit les délais et les coûts administratifs pour les PME suisses. Analyse réalisée en août 2026.',
     'blog.article.easygov-pmi-svizzere.imageAlt': 'Bureau administratif suisse avec personnel travaillant sur des ordinateurs et tableaux de bord numériques',
+    'blog.article.ticino-neutralita-sondaggio-2026.title': 'Neutralité suisse : le Tessin contredit le pays',
+    'blog.article.ticino-neutralita-sondaggio-2026.excerpt': 'Sondage 20 minutes/Tamedia : 62% des Suisses opposés à l\'initiative sur la neutralité. Mais le Tessin vote oui avec 52 %. Vote le 27 septembre 2026.',
+    'blog.article.ticino-neutralita-sondaggio-2026.imageAlt': 'Chambre du Parlement fédéral suisse lors d\'une séance de débat avec le drapeau suisse en arrière-plan',
 };
 
 export default blogMetaChFr;
