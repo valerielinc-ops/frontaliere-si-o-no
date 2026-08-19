@@ -357,6 +357,14 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     // stays dead forever — an ad unit never requested at all, which is worse
     // than the bug this file was opened for. Assert the observer SURVIVED the
     // interactions and still arms the slot when it is actually reached.
+    //
+    // The slot assertion below is not enough on its own: the Stub's
+    // `intersect()` invokes `io.callback(...)` directly and never checks
+    // `io.disconnected`, so it would keep firing even after a real
+    // `disconnect()` call — unlike a real browser IntersectionObserver.
+    // Assert `disconnected` directly so a reintroduced `io.disconnect()`
+    // inside `onFirstInteraction` fails here instead of staying green.
+    expect(io.disconnected).toBe(false);
     await act(async () => { intersect(io, io.targets); });
     expect(document.querySelector('ins.adsbygoogle')).not.toBeNull();
   });
