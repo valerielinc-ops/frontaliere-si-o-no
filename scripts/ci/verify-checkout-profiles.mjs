@@ -1,0 +1,101 @@
+#!/usr/bin/env node
+/**
+ * Verifica che lo sparse-checkout scritto nei workflow sia ancora coerente col
+ * codice che quei workflow eseguono.
+ *
+ * E' il guard che rende sostenibile l'operazione. Il rischio di uno sparse
+ * checkout non e' il giorno in cui lo scrivi — e' il mese dopo, quando qualcuno
+ * fa leggere `data/jobs/` a uno script che prima non lo leggeva e il job muore
+ * in produzione con ENOENT. Qui quel cambiamento diventa una CI rossa.
+ *
+ * Controlla tre cose:
+ *   1. nessun file di CODICE che il job carica finisce fra gli esclusi;
+ *   2. i pattern sono ben formati (`/*` per primo, poi solo negazioni);
+ *   3. le esclusioni scritte non sono piu' larghe di quelle che l'analizzatore
+ *      calcola oggi — cioe' il workflow non sta escludendo qualcosa che il suo
+ *      codice ha cominciato a usare.
+ *
+ * Il verso del confronto conta: escludere MENO del calcolato e' legittimo (una
+ * scelta prudente a mano), escludere DI PIU' no.
+ *
+ *   node scripts/ci/verify-checkout-profiles.mjs
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import YAML from 'yaml';
+import { analyzeWorkflow, ROOT, BUCKETS } from './checkout-profile-analyzer.mjs';
+
+const WF_DIR = path.join(ROOT, '.github/workflows');
+
+export function verifyCheckoutProfiles() {
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  const problems = [];
+  let jobs = 0, withSparse = 0;
+
+  for (const f of fs.readdirSync(WF_DIR).filter((x) => /\.ya?ml$/.test(x)).sort()) {
+    const full = path.join(WF_DIR, f);
+    const raw = fs.readFileSync(full, 'utf8');
+    let doc;
+    try { doc = YAML.parse(raw, { logLevel: 'silent' }); } catch (e) { problems.push(`${f}: YAML illeggibile — ${e.message}`); continue; }
+    const analysis = analyzeWorkflow(full, pkg.scripts);
+
+    for (const job of analysis.jobs) {
+      jobs++;
+      const step = (doc?.jobs?.[job.jobId]?.steps ?? [])
+        .find((s) => typeof s?.uses === 'string' && s.uses.startsWith('actions/checkout@'));
+      const sparse = step?.with?.['sparse-checkout'];
+      if (sparse === undefined) continue;
+      withSparse++;
+      const where = `${f}:${job.jobId}`;
+
+      const lines = String(sparse).split('\n').map((l) => l.trim()).filter(Boolean);
+      // Gli sparse scritti a mano possono usare una allow-list (un solo file):
+      // si riconoscono perche' non cominciano con `/*`, e non li si giudica qui.
+      if (lines[0] !== '/*') continue;
+      for (const l of lines.slice(1)) {
+        if (!/^!\/[\w./-]+$/.test(l)) problems.push(`${where}: pattern malformato «${l}»`);
+      }
+      if (step.with['sparse-checkout-cone-mode'] !== false) {
+        problems.push(`${where}: i pattern con negazione richiedono sparse-checkout-cone-mode: false`);
+      }
+
+      const excluded = lines.slice(1).map((l) => l.slice(2));
+      const isPathOutsideCheckout = (p) => excluded.some((e) => (e.endsWith('/') ? p.startsWith(e) : p === e));
+
+      // 1. il codice che il job carica deve sopravvivere
+      for (const rel of (job.closure ?? [])) {
+        if (isPathOutsideCheckout(rel)) problems.push(`${where}: escluderebbe il codice ${rel}`);
+      }
+
+      // 3. non escludere piu' di quanto l'analisi consenta oggi
+      // Un'esclusione e' legittima se:
+      //   a) e' esattamente un bucket che l'analisi dichiara non necessario;
+      //   b) e' CONTENUTA in uno di quei bucket (`public/images/events` dentro
+      //      `public/images/`) — togliere meno di quanto concesso e' sempre ok;
+      //   c) CONTIENE solo bucket concessi (`public/` sopra `public/images/` e
+      //      `public/data/`): il residuo e' materiale di baseline, ed e' una
+      //      scelta esplicita di chi ha scritto il profilo a mano.
+      const allowed = new Set(job.exclude);
+      for (const e of excluded) {
+        const inside = [...allowed].some((b) => e.startsWith(b));
+        const covering = BUCKETS.some((b) => b.id.startsWith(e)) &&
+          BUCKETS.filter((b) => b.id.startsWith(e)).every((b) => allowed.has(b.id));
+        if (allowed.has(e) || inside || covering) continue;
+        problems.push(`${where}: esclude «${e}», ma il codice del job lo usa ora. ` +
+          `Rigenera con: node scripts/ci/apply-checkout-profiles.mjs`);
+      }
+    }
+  }
+  return { problems, jobs, withSparse };
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const { problems, jobs, withSparse } = verifyCheckoutProfiles();
+  console.log(`job esaminati: ${jobs} | con sparse-checkout: ${withSparse}`);
+  if (problems.length) {
+    console.error(`\n❌ ${problems.length} problemi:`);
+    for (const p of problems) console.error('   ' + p);
+    process.exit(1);
+  }
+  console.log('✅ profili di checkout coerenti col codice');
+}

@@ -209,6 +209,27 @@ jobs:
           # (Il rischio non è solo di lentezza: è il partial clone ad aver
           # stallato un Checkout per 11 MINUTI su questo stesso job — run
           # 27672265799, PR #2394 — lasciando la review idle senza diagnosi.)
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
         timeout-minutes: 8
 
       # Headroom install (~63s misurati su run 30353920865) in BACKGROUND: è

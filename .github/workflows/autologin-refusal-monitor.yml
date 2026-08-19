@@ -72,6 +72,21 @@ jobs:
           # rebase sotto) e rimanda i blob.
           filter: blob:none
           persist-credentials: true
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/packages/articles/content/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+          sparse-checkout-cone-mode: false
         timeout-minutes: 7
 
       - name: Setup Node

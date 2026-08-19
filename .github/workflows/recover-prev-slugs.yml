@@ -84,6 +84,19 @@ jobs:
           # documentata in pr-review-loop.yml (11 minuti su un solo Checkout).
           # Stesso motivo per cui non si può usare sparse-checkout: actions/checkout
           # lo implementa attivando `--filter=blob:none`.
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/packages/articles/content/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/evidence-index.json
+            !/data/health-premiums/
+          sparse-checkout-cone-mode: false
         # Il tetto resta comunque utile: Checkout misurato 744-1115s su 10 run
         # (fino al 74% di un cap da 25min) e un fetch degenere qui ucciderebbe il
         # job `cancelled`, invisibile agli `if: failure()`. 21min stanno sopra il
