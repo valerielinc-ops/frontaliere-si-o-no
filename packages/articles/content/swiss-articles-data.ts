@@ -10225,6 +10225,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'difesa-970-milioni-consiglio-federale',
+    category: 'novita',
+    date: '2026-08-19T11:04:28.890Z',
+    image: '/images/blog/difesa-970-milioni-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

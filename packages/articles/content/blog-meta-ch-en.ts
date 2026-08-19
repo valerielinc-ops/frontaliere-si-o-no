@@ -3409,6 +3409,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.eccedenza-federale-2026-800-milioni.title': 'Federal surplus 2026: +800 million',
     'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'The Confederation expects a surplus of just under CHF 800 million for 2026, against the budgeted deficit of CHF 700 million. The improvement is due to the increase in income tax of 1.4 billion.',
     'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Swiss Federal Palace in Bern, seat of the Swiss Federal Council',
+    'blog.article.difesa-970-milioni-consiglio-federale.title': 'Air defense: 970 million from the Federal Council',
+    'blog.article.difesa-970-milioni-consiglio-federale.excerpt': 'The Federal Council is asking for 970 million for air defence: 250 million short range, 650 million average, 60 million radar, 10 million drones. Self-protection 100 mln by 2029.',
+    'blog.article.difesa-970-milioni-consiglio-federale.imageAlt': 'Fighter jets flying in formation over Swiss Alpine landscape, symbol of national air defense capability.',
 };
 
 export default blogMetaChEn;

@@ -1162,6 +1162,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bilancio-federale-2026-surplus': { it: 'bilancio-federale-2026-surplus', en: 'federal-budget-2026-surplus', de: 'bundeshaushalt-2026-ueberschuss', fr: 'budget-federal-2026-excedent' },
  'furgoni-elettrici-equiparazione-federale': { it: 'furgoni-elettrici-equiparazione-federale', en: 'electric-vans-federal-alignment', de: 'elektro-lieferwagen-bundesgleichstellung', fr: 'fourgons-electriques-egalisation-federale' },
  'eccedenza-federale-2026-800-milioni': { it: 'eccedenza-federale-2026-800-milioni', en: 'federal-surplus-2026-800-million', de: 'bundeshaushaltsuberschuss-2026-800-millionen', fr: 'excedent-federal-2026-800-millions' },
+ 'difesa-970-milioni-consiglio-federale': { it: 'difesa-970-milioni-consiglio-federale', en: 'defense-970-million-federal-council', de: 'verteidigung-970-millionen-bundesrat', fr: 'defense-970-millions-conseil-federal' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

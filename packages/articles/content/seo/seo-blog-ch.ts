@@ -44207,6 +44207,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-difesa-970-milioni-consiglio-federale': {
+    title: 'Difesa aerea: 970 milioni dal Consiglio federale',
+    description: 'Il Consiglio federale chiede 970 milioni di franchi al Parlamento per accelerare l\'acquisto di sistemi di difesa aerea. Ripartizione tra difesa terra-aria',
+    keywords: 'frontalieri, ticino, svizzera, italia, difesa, aerea, milioni, consiglio',
+    ogTitle: 'Difesa aerea: 970 milioni dal Consiglio federale',
+    ogDescription: 'Consiglio federale chiede 970 milioni al Parlamento per la difesa aerea svizzera: 250 mln difesa corta gittata, 650 mln media gittata, 60 mln radar, 10 mln anti-droni. Piano di autoprotezione di 60+ basi entro 2029 con ulteriori 100 milioni.',
+    canonicalPath: '/articoli-svizzera/difesa-970-milioni-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Difesa aerea: 970 milioni dal Consiglio federale",
+      "description": "Il Consiglio federale chiede 970 milioni di franchi al Parlamento per accelerare l'acquisto di sistemi di difesa aerea. Ripartizione tra difesa terra-aria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/difesa-970-milioni-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aerei da caccia in formazione su paesaggio alpino svizzero, simbolo della difesa aerea nazionale."
+      },
+      "datePublished": "2026-08-19T11:04:28+00:00",
+      "dateModified": "2026-08-19T11:04:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/difesa-970-milioni-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

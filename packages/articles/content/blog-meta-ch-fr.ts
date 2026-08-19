@@ -3409,6 +3409,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.eccedenza-federale-2026-800-milioni.title': 'Excédent fédéral 2026 : +800 millions',
     'blog.article.eccedenza-federale-2026-800-milioni.excerpt': 'La Confédération s\'attend à un excédent d\'un peu moins de 800 millions de CHF pour 2026, contre un déficit de 700 millions prévu. L\'amélioration est due à l\'augmentation de l\'impôt sur le bénéfice de 1,4 milliard.',
     'blog.article.eccedenza-federale-2026-800-milioni.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral suisse',
+    'blog.article.difesa-970-milioni-consiglio-federale.title': 'Défense aérienne : 970 millions du Conseil fédéral',
+    'blog.article.difesa-970-milioni-consiglio-federale.excerpt': 'Le Conseil fédéral demande 970 millions pour la défense aérienne : 250 millions de courte portée, 650 millions de moyenne, 60 millions de radar, 10 millions de drones. Autoprotection 100 millions d\'ici 2029.',
+    'blog.article.difesa-970-milioni-consiglio-federale.imageAlt': 'Avions de combat en formation au-dessus des Alpes suisses, symbole de la défense aérienne nationale.',
 };
 
 export default blogMetaChFr;
