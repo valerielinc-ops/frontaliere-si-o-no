@@ -44987,6 +44987,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-formazione-basilea-campagna': {
+    title: 'Apprendistato in Svizzera: contratti, retribuzione e maturità',
+    description: 'Contratti di tirocinio, retribuzione, contributi obbligatori e maturità professionale: guida all\'apprendistato nel sistema svizzero di formazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, contratti, retribuzione, maturità',
+    ogTitle: 'Apprendistato in Svizzera: contratti, retribuzione e maturità',
+    ogDescription: 'Scopri come funziona l\'apprendistato in Svizzera: regole per contratti, retribuzioni, diritti dell\'apprendista, contributi obbligatori (AVS, AD, LAINF) e maturità professionale. Guida pratica per giovani in formazione.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-basilea-campagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato in Svizzera: contratti, retribuzione e maturità",
+      "description": "Contratti di tirocinio, retribuzione, contributi obbligatori e maturità professionale: guida all'apprendistato nel sistema svizzero di formazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-basilea-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista al lavoro in laboratorio durante la formazione professionale svizzera"
+      },
+      "datePublished": "2026-08-19T21:31:55+00:00",
+      "dateModified": "2026-08-19T21:31:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-basilea-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

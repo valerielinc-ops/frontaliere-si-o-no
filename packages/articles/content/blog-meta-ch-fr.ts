@@ -3469,6 +3469,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-basilea-campagna.title': 'Allocations familiales Canton de Bâle-Campagne : montants et demande',
     'blog.article.assegni-familiari-basilea-campagna.excerpt': 'Comment les demander, montants mensuels par enfant, conditions et caisse de compensation : guide pratique des allocations familiales dans le canton de Bâle-Campagne.',
     'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Bureau cantonal avec documents pour les demandes de prestations familiales',
+    'blog.article.apprendistato-formazione-basilea-campagna.title': 'Apprentissage en Suisse : contrats, rémunération et maturité',
+    'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Contrats de stage, rémunération, cotisations obligatoires et maturité professionnelle : guide de l\'apprentissage dans le système suisse de formation.',
+    'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Jeune apprenti en formation professionnelle dans un atelier de travail pratique en Suisse',
 };
 
 export default blogMetaChFr;

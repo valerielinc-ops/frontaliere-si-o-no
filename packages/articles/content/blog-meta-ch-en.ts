@@ -3469,6 +3469,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-basilea-campagna.title': 'Family allowances Canton Basel Countryside: amounts and demand',
     'blog.article.assegni-familiari-basilea-campagna.excerpt': 'How to request them, monthly amounts per child, conditions and compensation fund: practical guide to family allowances in the Canton of Basel-Country.',
     'blog.article.assegni-familiari-basilea-campagna.imageAlt': 'Regional cantonal office with documents for family allowance applications',
+    'blog.article.apprendistato-formazione-basilea-campagna.title': 'Apprenticeship in Switzerland: contracts, salary and maturity',
+    'blog.article.apprendistato-formazione-basilea-campagna.excerpt': 'Internship contracts, remuneration, compulsory contributions and professional maturity: an apprenticeship guide in the Swiss training system.',
+    'blog.article.apprendistato-formazione-basilea-campagna.imageAlt': 'Young apprentice working in vocational training workshop during hands-on professional education',
 };
 
 export default blogMetaChEn;
