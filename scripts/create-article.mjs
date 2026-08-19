@@ -9597,10 +9597,27 @@ const DECLARED_RUN_WALL_BUDGET_MS = Math.max(
 // actually leaves. Reading the shell's own hard_kill_s back and subtracting the
 // same grace it added closes that gap: whichever of the two is smaller wins.
 const SHELL_HARD_KILL_GRACE_MS = 300_000;
+// Floor for the shell-derived budget (2026-08-19, follow-up to #6072): if
+// CREATE_ARTICLE_HARD_KILL_S * 1000 - SHELL_HARD_KILL_GRACE_MS ever fell to
+// ≤0 (hard_kill_s shell < 300s), RUN_WALL_BUDGET_MS would collapse to 0 and
+// wallBudgetExceeded() would be true from the very first tick, silently
+// aborting every run. Not reachable today (the workflow's computed
+// hard_kill_s is always well above 300s) but a future edit to that shell
+// arithmetic must not be able to zero out article generation silently.
+const MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS = 60_000;
 const shellHardKillS = Number.parseInt(process.env.CREATE_ARTICLE_HARD_KILL_S || '', 10);
 const SHELL_DERIVED_RUN_WALL_BUDGET_MS = Number.isFinite(shellHardKillS) && shellHardKillS > 0
-  ? Math.max(0, shellHardKillS * 1000 - SHELL_HARD_KILL_GRACE_MS)
+  ? Math.max(MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS, shellHardKillS * 1000 - SHELL_HARD_KILL_GRACE_MS)
   : Infinity;
+if (
+  Number.isFinite(shellHardKillS) && shellHardKillS > 0 &&
+  (shellHardKillS * 1000 - SHELL_HARD_KILL_GRACE_MS) < MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS
+) {
+  console.error(
+    `⚠️  CREATE_ARTICLE_HARD_KILL_S=${shellHardKillS}s yields a shell-derived wall budget below the ` +
+    `${MIN_SHELL_DERIVED_RUN_WALL_BUDGET_MS / 1000}s floor — clamped up so wallBudgetExceeded() doesn't trip on the first tick.`
+  );
+}
 const RUN_WALL_BUDGET_MS = Math.min(DECLARED_RUN_WALL_BUDGET_MS, SHELL_DERIVED_RUN_WALL_BUDGET_MS);
 const RUN_START_MS = Date.now();
 /** True once the global wall-clock budget is spent (used to stop new topic attempts). */
