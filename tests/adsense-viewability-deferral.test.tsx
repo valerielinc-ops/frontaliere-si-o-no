@@ -382,10 +382,16 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
         if (full.endsWith('components/shared/AdSenseBanner.tsx')) continue;
         const src = readFileSync(full, 'utf8');
         if (!src.includes('adsbygoogle')) continue;
-        // `<ins>` built and inserted at runtime, in any of the three ways it can
-        // reach the DOM from JS.
+        // `<ins>` built and inserted at runtime, in any of the ways it can
+        // reach the DOM from JS: imperative DOM APIs, dangerouslySetInnerHTML
+        // (its own alternative — a case-sensitive `innerHTML` check does NOT
+        // match it, the "I" is capitalized), or declarative JSX with a
+        // literal adsbygoogle class. JSX requires `className` (not `class`),
+        // which also keeps this from tripping on prose in doc comments that
+        // describe the rendered HTML with `class="adsbygoogle"`.
         if (/createElement\(\s*['"]ins['"]\s*\)/.test(src) ||
-            /(innerHTML|insertAdjacentHTML|outerHTML)\s*[=(][\s\S]{0,200}adsbygoogle/.test(src)) {
+            /(innerHTML|insertAdjacentHTML|outerHTML|dangerouslySetInnerHTML)\s*[=(][\s\S]{0,200}adsbygoogle/.test(src) ||
+            /<ins\b[^>]{0,200}\bclassName\s*=\s*["'][^"']*\badsbygoogle\b/.test(src)) {
           offenders.push(full.slice(root.length + 1));
         }
       }
