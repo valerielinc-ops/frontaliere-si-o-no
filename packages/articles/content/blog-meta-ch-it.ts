@@ -3400,6 +3400,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Indennità malattia: il sistema funziona bene',
     'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Consiglio federale conferma: il sistema di protezione per i lavoratori in caso di malattia è adeguato. Copertura all\'85-90% nelle aziende, solo lo 0,13% dei lavoratori escluso.',
     'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Edificio federale di Berna con bandiere ufficiali di giorno. Lavoratori attraversano la zona amministrativa federale.',
+    'blog.article.bilancio-federale-2026-surplus.title': 'Bilancio 2026: da deficit a surplus di 800 milioni',
+    'blog.article.bilancio-federale-2026-surplus.excerpt': 'Le maggiori entrate fiscali dalle imprese portano il bilancio federale oltre le aspettative, con un surplus di 800 milioni anziché il previsto deficit.',
+    'blog.article.bilancio-federale-2026-surplus.imageAlt': 'Veduta della capitale svizzera Berna, sede della Confederazione e governo federale',
 };
 
 export default blogMetaChIt;

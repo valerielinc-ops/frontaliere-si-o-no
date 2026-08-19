@@ -3400,6 +3400,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.indennita-malattia-sistema-funziona-bene.title': 'Krankengeld: Das System funktioniert gut',
     'blog.article.indennita-malattia-sistema-funziona-bene.excerpt': 'Bundesrat bestätigt: Das Schutzsystem für Arbeitnehmer im Krankheitsfall ist angemessen. 85-90% Deckung in den Betrieben, nur 0,13% der Arbeitnehmer ausgeschlossen.',
     'blog.article.indennita-malattia-sistema-funziona-bene.imageAlt': 'Schweizer Bundesgebäude in Bern mit offiziellen Fahnen tagsüber. Arbeitnehmer gehen durch das Bundesverwaltungsgebiet.',
+    'blog.article.bilancio-federale-2026-surplus.title': 'Bilanz 2026: von Defizit zu Überschuss von 800 Millionen',
+    'blog.article.bilancio-federale-2026-surplus.excerpt': 'Die höheren Steuereinnahmen der Unternehmen bringen den Bundeshaushalt über die Erwartungen hinaus, mit einem Überschuss von 800 Millionen statt des prognostizierten Defizits.',
+    'blog.article.bilancio-federale-2026-surplus.imageAlt': 'Blick auf Bern, Schweizer Bundeshauptstadt und Sitz der Bundesregierung',
 };
 
 export default blogMetaChDe;

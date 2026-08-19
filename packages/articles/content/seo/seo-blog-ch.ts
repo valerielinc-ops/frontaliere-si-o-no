@@ -44090,6 +44090,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bilancio-federale-2026-surplus': {
+    title: 'Bilancio 2026: da deficit a surplus di 800 milioni',
+    description: 'Il bilancio federale svizzero 2026 passa da un deficit di 700 milioni a un surplus di 800 milioni grazie alle maggiori entrate da imposta sull\'utile',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilancio, deficit, surplus, milioni',
+    ogTitle: 'Bilancio 2026: da deficit a surplus di 800 milioni',
+    ogDescription: 'Conti federali in positivo: il bilancio ordinario 2026 della Confederazione svizzera passa da un deficit di 700 milioni a un surplus di 800 milioni, grazie alle maggiori entrate da imposta sull\'utile delle imprese. Il Consiglio federale destina 970',
+    canonicalPath: '/articoli-svizzera/bilancio-federale-2026-surplus/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilancio 2026: da deficit a surplus di 800 milioni",
+      "description": "Il bilancio federale svizzero 2026 passa da un deficit di 700 milioni a un surplus di 800 milioni grazie alle maggiori entrate da imposta sull'utile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bilancio-federale-2026-surplus.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta della capitale svizzera Berna, sede della Confederazione e governo federale"
+      },
+      "datePublished": "2026-08-19T10:16:52+00:00",
+      "dateModified": "2026-08-19T10:16:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bilancio-federale-2026-surplus/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
