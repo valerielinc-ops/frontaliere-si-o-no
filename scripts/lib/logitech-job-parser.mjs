@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
+import { splitJobLocation } from './job-location-display.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -280,6 +281,13 @@ export async function fetchAllLogitechJobs() {
       location = rescueSwissCityFromText(detailDescription) || 'Lausanne';
     }
     const canton = inferSwissTargetCanton(location) || 'VD';
+    // Same defect as scripts/lib/nestle-job-parser.mjs, same repair: Workday
+    // hands back "Lausanne, Switzerland", that string was stored verbatim as
+    // `location`/`addressLocality`, and every consumer then appended the canton
+    // on top of it — the `• Location:` line below would read
+    // "Lausanne, Switzerland, VD canton, Switzerland". 4 of 4 slice rows carry
+    // the marker (measured on origin/main 2026-08-19). Strip it ONCE, here.
+    location = splitJobLocation(location, canton).city || location;
 
     // TEMPORARY fallback: only used when the Workday detail endpoint refuses
     // the request (anti-bot or 4xx). Long-term we expect the detail fetch to
