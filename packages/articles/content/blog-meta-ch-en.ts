@@ -3436,6 +3436,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.due-no-iniziative-settembre.title': 'Vote 27 September: two no to initiatives',
     'blog.article.due-no-iniziative-settembre.excerpt': 'Leewas survey: 36% yes to the neutrality initiative (62% no), 31% yes to food (65% no). Analysis for parties and cantons on two ballots.',
     'blog.article.due-no-iniziative-settembre.imageAlt': 'Swiss voters at a polling station during a federal election day',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.title': 'Discriminatory announcement Zurich: what the LPar provides',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.excerpt': 'A carpenter\'s shop in Zurich posted an ad with gender and age criteria. A lawyer explains what Swiss discrimination law provides for.',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.imageAlt': 'Professional workplace in Switzerland highlighting hiring and labor law compliance',
 };
 
 export default blogMetaChEn;

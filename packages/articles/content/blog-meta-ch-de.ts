@@ -3436,6 +3436,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.due-no-iniziative-settembre.title': 'Bewertung 27. September: zwei Nein zu Initiativen',
     'blog.article.due-no-iniziative-settembre.excerpt': 'Leewas-Umfrage: 36% Ja zur Neutralitätsinitiative (62% Nein), 31% Ja zur Ernährung (65% Nein). Analyse für Parteien und Kantone bei zwei Stichwahlen.',
     'blog.article.due-no-iniziative-settembre.imageAlt': 'Schweizer Wähler an der Wahlurne während einer Bundesabstimmung',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.title': 'Diskriminierende Anzeige Zürich: Was das ParG vorsieht',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.excerpt': 'Eine Schreinerei in Zürich hat eine Anzeige nach Geschlecht und Alter geschaltet. Ein Anwalt erklärt, was das Schweizer Diskriminierungsgesetz vorsieht.',
+    'blog.article.annuncio-discriminatorio-zurigo-lpar.imageAlt': 'Professionelle Arbeitsumgebung in der Schweiz mit Fokus auf Einstellung und Arbeitsrecht',
 };
 
 export default blogMetaChDe;
