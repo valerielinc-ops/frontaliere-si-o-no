@@ -69608,6 +69608,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-villa-guardia-lavorare-ticino': {
+    title: 'Villa Guardia: vivere e lavorare come frontaliere',
+    description: 'Guida completa al frontalierismo da Villa Guardia verso il Ticino: permesso G, tasse, AVS, LAMal, vantaggi e procedure pratiche per trasferirsi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, villa, guardia, vivere, lavorare',
+    ogTitle: 'Villa Guardia: vivere e lavorare come frontaliere',
+    ogDescription: 'Scopri come vivere a Villa Guardia e lavorare in Ticino come frontaliere. Guida su permesso G, tasse Svizzera-Italia, AVS, LAMal, Nuovo Accordo Frontalieri 2024 e procedure pratiche per il trasferimento.',
+    canonicalPath: '/articoli-frontaliere/vivere-villa-guardia-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Villa Guardia: vivere e lavorare come frontaliere",
+      "description": "Guida completa al frontalierismo da Villa Guardia verso il Ticino: permesso G, tasse, AVS, LAMal, vantaggi e procedure pratiche per trasferirsi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-villa-guardia-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio mattutino della regione di Mendrisio nel Canton Ticino con valle nebbiosa, abitazioni residenziali e pendii alpini"
+      },
+      "datePublished": "2026-08-19T07:27:02+00:00",
+      "dateModified": "2026-08-19T07:27:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-villa-guardia-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

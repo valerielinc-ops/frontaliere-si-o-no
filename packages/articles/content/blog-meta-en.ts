@@ -10088,6 +10088,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castello-cabiaglio-frontaliere-ticino.title': 'Living in Castello Cabiaglio and working in Ticino as a border worker',
     'blog.article.castello-cabiaglio-frontaliere-ticino.excerpt': 'Practical guide to the transfer: location, new 2024 agreements taxes, AVS/LPP contributions, LAMal, G permit procedure, costs and advantages.',
     'blog.article.castello-cabiaglio-frontaliere-ticino.imageAlt': 'Aerial view of Ticino-Varese border crossing with Alpine hills and frontier landscape, realistic DSLR photography',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.title': 'Villa Guardia: living and working as a border worker',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.excerpt': 'Complete guide for border workers from Villa Guardia to Ticino: G permit, taxes, AVS, LAMal, advantages and transfer procedures.',
+    'blog.article.vivere-villa-guardia-lavorare-ticino.imageAlt': 'Morning landscape of Mendrisio region in Canton Ticino with misty valley, residential buildings and Alpine slopes',
 };
 
 export default blogMetaEn;
