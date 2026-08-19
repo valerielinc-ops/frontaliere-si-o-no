@@ -69647,6 +69647,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-brissago-valtravaglia-ticino': {
+    title: 'Vivere a Brissago-Valtravaglia, lavorare in Ticino: guida frontaliere',
+    description: 'Guida completa per frontalieri a Brissago-Valtravaglia: tassazione, Permesso G, AVS, LAMal e procedure 2026 per vivere in Italia e lavorare in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, brissago-valtravaglia, lavorare, permesso',
+    ogTitle: 'Frontaliere Brissago-Valtravaglia: guida tassazione 2026',
+    ogDescription: 'Come vivere a Brissago-Valtravaglia e lavorare in Ticino da frontaliere? Scopri tassazione, Permesso G, contributi AVS/LPP e procedura di trasferimento nel 2026.',
+    canonicalPath: '/articoli-frontaliere/vivere-brissago-valtravaglia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Brissago-Valtravaglia, lavorare in Ticino: guida frontaliere",
+      "description": "Guida completa per frontalieri a Brissago-Valtravaglia: tassazione, Permesso G, AVS, LAMal e procedure 2026 per vivere in Italia e lavorare in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-brissago-valtravaglia-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago Maggiore da Brissago-Valtravaglia con montagne ticinesi sullo sfondo"
+      },
+      "datePublished": "2026-08-19T08:00:08+00:00",
+      "dateModified": "2026-08-19T08:00:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-brissago-valtravaglia-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
