@@ -3454,6 +3454,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Salari e mercato del lavoro a Basilea Città',
     'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'Sistema di contributi, orari e diritti dei lavoratori nel cantone di Basilea Città: norme federali, previdenza obbligatoria e regole cantonali per chi lavora in Svizzera.',
     'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Centro storico di Basilea Città con il Reno e grattacieli moderni sullo sfondo',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Mercato lavoro Basilea Città: salari, settori e contratti',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guida ai livelli salariali per grado di formazione, settori che assumono, contratti collettivi e meccanismi del mercato del lavoro nel Cantone di Basilea Città.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Centro di Basilea Città con edifici moderni e fiume Reno, simbolo del mercato del lavoro svizzero',
 };
 
 export default blogMetaChIt;

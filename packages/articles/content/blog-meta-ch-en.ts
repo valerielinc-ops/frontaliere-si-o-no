@@ -3454,6 +3454,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Wages and the labour market in Basel City',
     'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'System of contributions, hours and workers\' rights in the canton of Basel-City: federal rules, compulsory social security and cantonal rules for those working in Switzerland.',
     'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Basel-Stadt historic city centre with Rhine River and modern office skyline',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Labour market Basel City: wages, sectors and contracts',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guide to wage levels by education level, hiring sectors, collective agreements and labour market mechanisms in the Canton of Basel-City.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Basel city center with modern buildings and Rhine river, Swiss labor market business district',
 };
 
 export default blogMetaChEn;

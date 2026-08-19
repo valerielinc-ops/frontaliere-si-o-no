@@ -3454,6 +3454,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-basilea-citta.title': 'Salaires et marché du travail à Bâle-Ville',
     'blog.article.salari-mercato-lavoro-basilea-citta.excerpt': 'Système de cotisations, horaires et droits des travailleurs dans le canton de Bâle-Ville : règles fédérales, prévoyance obligatoire et règles cantonales pour ceux qui travaillent en Suisse.',
     'blog.article.salari-mercato-lavoro-basilea-citta.imageAlt': 'Centre historique de Bâle avec le Rhin et bâtiments d\'affaires modernes',
+    'blog.article.settori-salari-basilea-livelli-formazione.title': 'Marché du travail Bâle-Ville : salaires, secteurs et contrats',
+    'blog.article.settori-salari-basilea-livelli-formazione.excerpt': 'Guide des niveaux de salaire par niveau de formation, secteurs qu\'ils embauchent, conventions collectives et mécanismes du marché du travail dans le canton de Bâle-Ville.',
+    'blog.article.settori-salari-basilea-livelli-formazione.imageAlt': 'Centre-ville de Bâle avec bâtiments modernes et fleuve Rhin, marché du travail suisse',
 };
 
 export default blogMetaChFr;
