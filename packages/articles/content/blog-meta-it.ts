@@ -10110,6 +10110,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.posta-riduce-tagli-informatica.title': 'Posta, ridotti i tagli di personale nell’informatica',
     'blog.article.posta-riduce-tagli-informatica.excerpt': 'La riorganizzazione Tech Acceleration della Posta porta fino a 40 licenziamenti e una ventina di modifiche contrattuali a partire dal 1 gennaio 2027.',
     'blog.article.posta-riduce-tagli-informatica.imageAlt': 'Sede aziendale della Posta in Svizzera',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.title': 'Vivere a Porto Valtravaglia e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per chi vive a Porto Valtravaglia e lavora in Ticino: collegamenti, imposta alla fonte, previdenza e aspetti del pendolarismo.',
+    'blog.article.vivere-porto-valtravaglia-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Porto Valtravaglia sul Lago Maggiore vicino al confine svizzero',
 };
 
 export default blogMetaIt;
