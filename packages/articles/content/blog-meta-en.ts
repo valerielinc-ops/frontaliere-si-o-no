@@ -10130,6 +10130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-albese-cassano-lavorare-ticino.title': 'Living in Albese with Cassano and working in Ticino',
     'blog.article.vivere-albese-cassano-lavorare-ticino.excerpt': 'Albese with Cassano is a convenient choice for Ticino border crossers: cost of living, G permit, 2024 taxes and border crossings illustrated in detail.',
     'blog.article.vivere-albese-cassano-lavorare-ticino.imageAlt': 'Aerial view of Como Lake and Ticino border at sunset, Alpine landscape',
+    'blog.article.capiago-intimiano-vivere-ticino.title': 'Living in Capiago Intimiano, working in Ticino',
+    'blog.article.capiago-intimiano-vivere-ticino.excerpt': 'Practical guide for border workers: location, commuting times, taxation, living costs and checklist before transfer.',
+    'blog.article.capiago-intimiano-vivere-ticino.imageAlt': 'Aerial view of Brogeda border crossing between Italy and Ticino with Swiss road signs and mountains in the background',
 };
 
 export default blogMetaEn;
