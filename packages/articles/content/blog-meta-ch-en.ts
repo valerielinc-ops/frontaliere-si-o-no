@@ -3412,6 +3412,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.difesa-970-milioni-consiglio-federale.title': 'Air defense: 970 million from the Federal Council',
     'blog.article.difesa-970-milioni-consiglio-federale.excerpt': 'The Federal Council is asking for 970 million for air defence: 250 million short range, 650 million average, 60 million radar, 10 million drones. Self-protection 100 mln by 2029.',
     'blog.article.difesa-970-milioni-consiglio-federale.imageAlt': 'Fighter jets flying in formation over Swiss Alpine landscape, symbol of national air defense capability.',
+    'blog.article.burckhardt-compression-tagli-posti.title': 'Burckhardt Compression: 220 jobs at risk',
+    'blog.article.burckhardt-compression-tagli-posti.excerpt': 'The Swiss manufacturer Burckhardt Compression announces cuts for 220 total jobs, of which 150 in Winterthur and 70 in international locations.',
+    'blog.article.burckhardt-compression-tagli-posti.imageAlt': 'Burckhardt Compression company headquarters in Winterthur',
 };
 
 export default blogMetaChEn;

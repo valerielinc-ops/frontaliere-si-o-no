@@ -3412,6 +3412,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.difesa-970-milioni-consiglio-federale.title': 'Luftverteidigung: 970 Mio. vom Bundesrat',
     'blog.article.difesa-970-milioni-consiglio-federale.excerpt': 'Der Bundesrat beantragt 970 Millionen für die Luftverteidigung: 250 Millionen für Kurzstreckenraketen, 650 Millionen für Mittelstreckenraketen, 60 Millionen für Radar und 10 Millionen für Drohnen. Für die Selbstverteidigung sind bis 2029 100 Millionen vorgesehen.',
     'blog.article.difesa-970-milioni-consiglio-federale.imageAlt': 'Kampfflugzeuge im Formationsflug über Schweizer Alpengipfel, Symbol der nationalen Luftverteidigung.',
+    'blog.article.burckhardt-compression-tagli-posti.title': 'Burckhardt Compression: 220 Arbeitsplätze gefährdet',
+    'blog.article.burckhardt-compression-tagli-posti.excerpt': 'Der Schweizer Hersteller Burckhardt Compression kündigt Kürzungen für insgesamt 220 Stellen an, davon 150 in Winterthur und 70 an internationalen Standorten.',
+    'blog.article.burckhardt-compression-tagli-posti.imageAlt': 'Firmensitz von Burckhardt Compression in Winterthur',
 };
 
 export default blogMetaChDe;

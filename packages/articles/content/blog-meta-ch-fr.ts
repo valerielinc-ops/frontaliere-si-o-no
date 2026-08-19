@@ -3412,6 +3412,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.difesa-970-milioni-consiglio-federale.title': 'Défense aérienne : 970 millions du Conseil fédéral',
     'blog.article.difesa-970-milioni-consiglio-federale.excerpt': 'Le Conseil fédéral demande 970 millions pour la défense aérienne : 250 millions de courte portée, 650 millions de moyenne, 60 millions de radar, 10 millions de drones. Autoprotection 100 millions d\'ici 2029.',
     'blog.article.difesa-970-milioni-consiglio-federale.imageAlt': 'Avions de combat en formation au-dessus des Alpes suisses, symbole de la défense aérienne nationale.',
+    'blog.article.burckhardt-compression-tagli-posti.title': 'Burckhardt Compression : 220 emplois à risque',
+    'blog.article.burckhardt-compression-tagli-posti.excerpt': 'Le fabricant suisse Burckhardt Compression annonce des coupes pour 220 emplois au total, dont 150 à Winterthour et 70 sur les sites internationaux.',
+    'blog.article.burckhardt-compression-tagli-posti.imageAlt': 'Siege de l\'entreprise Burckhardt Compression a Winterthur',
 };
 
 export default blogMetaChFr;
