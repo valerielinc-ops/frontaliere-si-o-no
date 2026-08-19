@@ -1501,6 +1501,71 @@ function sanitizeSchemaForGemini(schema) {
   return out;
 }
 
+/**
+ * ── IL `required` CHE FA RIGENERARE L'ARTICOLO DA CAPO (misurato 2026-08-19) ─
+ *
+ * Sotto `--json-schema` il CLI non manda lo schema a un backend: crea un tool
+ * sintetico `StructuredOutput`, e quando il modello lo chiama **valida in
+ * locale**. Se manca una prop `required` non degrada e non tronca — restituisce
+ * un `tool_result` d'errore, e il modello RIGENERA l'articolo intero. La
+ * riproduzione con i flag esatti di produzione (vedi il blocco su
+ * CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL) la mostra per esteso:
+ *
+ *     user  tool_result is_error:true
+ *           «Output does not match required schema:
+ *            root: must have required property 'reason'»
+ *
+ * Ogni giro costa ~3m30s e ~6.800 token di output. E' questo l'anello dietro i
+ * «timeout» del CLI: non uno stream fermo, N rigenerazioni complete.
+ *
+ * PERCHE' LO SCHEMA E' FATTO COSI', E PERCHE' NON SI TOCCA ALLA SORGENTE.
+ * Lo schema `article_primary_locale` deve ammettere DUE payload validi — o
+ * l'articolo pieno, o l'abort di REGOLA #0 `{abort_topical_relevance, reason}` —
+ * e lo fa con l'idioma strict di OpenAI: *ogni* prop in `required`, e
+ * l'opzionalita' espressa come tipo nullable. Li' e' obbligatorio: un provider
+ * OpenAI-compat in strict mode rifiuta con 400 uno schema in cui una prop
+ * dichiarata manca da `required`. Togliere `required` in create-article.mjs
+ * riparerebbe il CLI e romperebbe i quattro provider di
+ * PROVIDERS_WITH_STRICT_JSON_SCHEMA. Per questo la rilassatura sta QUI, sul
+ * confine di un solo mittente, come sanitizeSchemaForGemini.
+ *
+ * PERCHE' NON SI PERDE NIENTE. Per una prop nullable il validatore puo'
+ * imporre solo la PRESENZA della chiave: il valore `null` era gia' legale.
+ * `chiave assente` e `chiave a null` portano la stessa informazione a chi
+ * legge — create-article.mjs testa `itData?.abort_topical_relevance === true` e
+ * `String(itData.reason || '')`, che trattano `undefined` e `null` allo stesso
+ * modo. Cio' che il vincolo serviva davvero a garantire NON e' nullable e
+ * resta intatto; misurato sullo schema 'full':
+ *
+ *     root.required              11 prop → 0     (tutte nullable per costruzione)
+ *     content.it.required        title, excerpt, body1, body2, body3, faq  ← invariato
+ *     seo.required               7 prop                                    ← invariato
+ *     imageAlt/slugs.required    it, en, de, fr                            ← invariato
+ *
+ * Cioe' la guardia che lo schema era nato per dare — «il modello non puo'
+ * omettere body2/body3» — sopravvive parola per parola.
+ *
+ * IL SEGNALE E' `type`, NON `anyOf`. Una prop e' considerata opzionale solo se
+ * il suo `type` ammette `'null'`. Uno schema che esprimesse la nullabilita' con
+ * `anyOf: [..., {type: 'null'}]` resterebbe `required`: conservativo di
+ * proposito, perche' l'errore in questa direzione costa un giro di
+ * rigenerazione, nell'altra un vincolo perso in silenzio.
+ */
+export function relaxSchemaForClaudeCli(node) {
+  if (!node || typeof node !== 'object') return node;
+  if (Array.isArray(node)) return node.map(relaxSchemaForClaudeCli);
+  const out = {};
+  for (const [k, v] of Object.entries(node)) out[k] = relaxSchemaForClaudeCli(v);
+  if (Array.isArray(out.required) && out.properties && typeof out.properties === 'object') {
+    out.required = out.required.filter((name) => {
+      const t = out.properties[name]?.type;
+      return !(t === 'null' || (Array.isArray(t) && t.includes('null')));
+    });
+    if (out.required.length === 0) delete out.required;
+  }
+  return out;
+}
+
 // ── Run-level state (reset only between process invocations) ─
 const _exhaustedModels = new Set();
 // GitHub Models PAT indices that hit their per-account daily limit this run, so
@@ -4776,7 +4841,25 @@ async function _callClaudeCli(model, messages, opts) {
     '--safe-mode',
   ];
   if (systemPrompt) args.push('--system-prompt', systemPrompt);
-  if (opts.jsonSchema) args.push('--json-schema', JSON.stringify(opts.jsonSchema.schema || opts.jsonSchema));
+  // Lo schema passa da relaxSchemaForClaudeCli: `required` su una prop nullable
+  // e' cio' che fa rifiutare il tool_result al validatore locale del CLI, e ogni
+  // rifiuto e' una rigenerazione completa dell'articolo (~3m30s, ~6.800 token).
+  //
+  // E `getSchemaMode()` va chiesto anche qui. Il commento di shouldUseSchemaMode
+  // dice «entrambe le meta' che hanno bisogno della risposta la chiedono» e ne
+  // elenca due, il send OpenAI-compat e l'estimatore — ma i mittenti sono TRE:
+  // questo e' il terzo, e finora era l'unico che `AI_MODELS_SCHEMA_MODE=off` non
+  // spegneva. Cioe' l'interruttore d'emergenza scritto apposta «se una
+  // regressione di schema rompe di nuovo la generazione» non copriva il
+  // provider su cui la regressione e' successa. Qui si chiede getSchemaMode()
+  // direttamente e non shouldUseSchemaMode(): il CLI non e' OpenAI-compat e non
+  // sta in PROVIDERS_WITH_STRICT_JSON_SCHEMA (prende un flag, non un
+  // response_format), quindi entrare in quel Set cambierebbe anche il conteggio
+  // dell'estimatore. Vedi il corpo della PR per quel disallineamento, misurato
+  // e lasciato fuori di proposito.
+  if (opts.jsonSchema && getSchemaMode() !== 'off') {
+    args.push('--json-schema', JSON.stringify(relaxSchemaForClaudeCli(opts.jsonSchema.schema || opts.jsonSchema)));
+  }
 
   // Floor raised 60s -> 120s (T2 diagnosis, 2026-07-28: run 30333856358 /
   // 30243975255, 0/19 production successes, always the hard 60s timeout). A
