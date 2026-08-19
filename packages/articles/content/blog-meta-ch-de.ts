@@ -3430,6 +3430,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cop31-novembre-antalya-2026.title': 'COP31: Mandat Delegation Schweiz genehmigt',
     'blog.article.cop31-novembre-antalya-2026.excerpt': 'Der Bundesrat genehmigt das Mandat der Delegation für die COP31 in Antalya (November 2026). Die Schweiz engagiert sich für Klima und Erneuerbare.',
     'blog.article.cop31-novembre-antalya-2026.imageAlt': 'Schweizer Alpenlandschaft mit Bergsee als Symbol für Energiewende und erneuerbare Energiequellen',
+    'blog.article.finanze-federali-bilancio-2026.title': 'Bundeshaushalt 2026: Überschuss von 0,8 Milliarden',
+    'blog.article.finanze-federali-bilancio-2026.excerpt': 'Der Bundesrat prognostiziert für 2026 einen Überschuss von 0.8 Milliarden CHF durch ausserordentliche Ertragsteuereinnahmen. Auswirkungen auf die Steuerzahler und die öffentlichen Finanzen.',
+    'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Bundespalast in Bern, Sitz des Schweizer Bundesrats und Parlaments',
 };
 
 export default blogMetaChDe;
