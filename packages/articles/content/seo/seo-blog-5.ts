@@ -70076,6 +70076,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-a-brinzio-e-lavorare-in-ticino': {
+    title: 'Vivere a Brinzio e lavorare in Ticino da frontaliere',
+    description: 'Guida completa per vivere a Brinzio e lavorare in Ticino: imposta alla fonte, nuovo accordo frontalieri, contributi previdenziali e costi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, brinzio, lavorare, pratica',
+    ogTitle: 'Vivere a Brinzio e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri tutte le informazioni utili per chi vive a Brinzio e lavora in Ticino: fiscalità, accordo frontalieri, contributi e aspetti pratici.',
+    canonicalPath: '/articoli-frontaliere/vivere-a-brinzio-e-lavorare-in-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Brinzio e lavorare in Ticino da frontaliere",
+      "description": "Guida completa per vivere a Brinzio e lavorare in Ticino: imposta alla fonte, nuovo accordo frontalieri, contributi previdenziali e costi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-a-brinzio-e-lavorare-in-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Brinzio vicino al confine con il Ticino per frontalieri"
+      },
+      "datePublished": "2026-08-19T13:05:35+00:00",
+      "dateModified": "2026-08-19T13:05:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-a-brinzio-e-lavorare-in-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

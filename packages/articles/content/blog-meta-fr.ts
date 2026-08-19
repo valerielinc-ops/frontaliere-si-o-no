@@ -10126,6 +10126,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.title': 'Travailler au Tessin en tant que frontalier : qu\'est-ce qui change ?',
     'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.excerpt': 'Le nouvel accord frontalier : quelles sont les nouveautés et les conséquences pour les frontaliers qui vivent à Oltrona di San Mamette et travaillent au Tessin ?',
     'blog.article.vivere-oltiona-di-san-mamette-e-lavorare-in-ticino-da-frontaliere.imageAlt': 'Image d\'Oltrona di San Mamette avec un frontalier en avant-plan',
+    'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.title': 'Vivre à Brinzio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.excerpt': 'Guide pratique pour ceux qui vivent à Brinzio et travaillent dans le canton du Tessin : liens, coûts, régime fiscal et aspects à prendre en compte pour le transfert.',
+    'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.imageAlt': 'Vue de Brinzio près de la frontière suisse',
 };
 
 export default blogMetaFr;
