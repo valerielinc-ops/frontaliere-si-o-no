@@ -30252,6 +30252,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-laglio-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-19T09:26:25.397Z',
+ image: '/images/blog/vivere-laglio-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

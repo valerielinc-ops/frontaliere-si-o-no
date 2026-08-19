@@ -10100,6 +10100,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.title': 'Living in Centro Valle Intelvi and working in Ticino as a border worker',
     'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.excerpt': 'Tax Setup, Permits and Transfer Benefits',
     'blog.article.vivere-centro-valle-intelvi-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere who is moving to Centro Valle Intelvi and working in Ticino',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.title': 'Living in Laglio and working in Ticino as a border worker',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.excerpt': 'Tax settings, permits and double taxation: what you need to know if you are a border worker and live in Laglio, but work in Ticino.',
+    'blog.article.vivere-laglio-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino',
 };
 
 export default blogMetaEn;
