@@ -37,6 +37,35 @@
  * One module reachable from all three is the only shape in which this logic
  * cannot be copy-pasted back apart.
  *
+ * DISPLAY ONLY. NEVER BACKFILL THE STORED FIELD WITH THIS.
+ * The obvious "completion" of this fix — rewrite `job.location` in the slices
+ * so the marker is gone at rest — is measurably WRONG, and the measurement is
+ * pinned in tests/job-location-display.test.ts so nobody has to rediscover it.
+ * Run over the 2,348 marker-carrying locations on origin/main 2026-08-19,
+ * against `isKnownSwissMunicipality()`:
+ *
+ *   BFS could not resolve it -> can after stripping :  1,980
+ *   BFS could resolve it     -> CANNOT after        :     50
+ *
+ * Those 50 are the municipalities whose OFFICIAL name carries the canton
+ * precisely because the bare name is ambiguous — Stein AG (vs Stein AR),
+ * Kirchberg BE, Muri (AG), Oberwil BL, Rüti ZH, Hauterive (FR). `Stein AG`
+ * resolves; `Stein` does not. Stripping at rest destroys their identity and
+ * every downstream consumer that looks the city up — `sanitizeLocalityForRegion()`
+ * in build-plugins/shared/jobPostingSchema.ts among them, which falls back to
+ * the canton capital when the lookup fails. Consumers therefore keep reading
+ * the RAW `job.location`; only the rendered string goes through here.
+ *
+ * KNOWN COLLISION, measured rather than assumed. `bare-code` strips a trailing
+ * two-letter uppercase token, and `AG` is also the German company suffix
+ * (Aktiengesellschaft). Across all 74 distinct bare-code shapes in the corpus,
+ * 73 are the official disambiguating forms above and exactly one is the
+ * collision: `XpertCenter AG` (3 jobs) — a company name sitting in the location
+ * field, i.e. already-broken data, where the output `XpertCenter (AG)` is no
+ * worse than the input `XpertCenter AG (AG)`. It is pinned in the tests so the
+ * behaviour is visible rather than surprising, and `audit-job-locations.mjs`
+ * reports the underlying junk location through `unknownCity`.
+ *
  * THE CONFLICT CASE IS DELIBERATE. When the location's own marker disagrees
  * with `job.canton` — `Reinach (AG)` stamped `BL`, a real pair in the dataset —
  * this does NOT print both and does NOT overwrite one with the other. It prints

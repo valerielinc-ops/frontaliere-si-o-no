@@ -113,6 +113,52 @@ describe('formatJobLocation', () => {
   });
 });
 
+describe('the stored field must never be backfilled with this', () => {
+  // The obvious "completion" of the fix is to strip the marker at rest. It is
+  // measurably wrong, and this is where that measurement lives so a future
+  // author meets it before writing the migration. Over the 2,348
+  // marker-carrying locations on origin/main 2026-08-19, stripping makes 1,980
+  // resolvable against BFS and makes 50 UNRESOLVABLE — the ones whose official
+  // name carries the canton because the bare name is ambiguous.
+  it('produces a city that alone would not identify the municipality', () => {
+    for (const [stored, displayed] of [
+      ['Stein AG', 'Stein'],        // vs Stein AR
+      ['Kirchberg BE', 'Kirchberg'], // vs Kirchberg SG / Kirchberg BE
+      ['Muri (AG)', 'Muri'],         // vs Muri bei Bern
+      ['Oberwil BL', 'Oberwil'],
+      ['Rüti ZH', 'Rüti'],
+      ['Hauterive (FR)', 'Hauterive'], // vs Hauterive NE
+    ] as const) {
+      const canton = /\(?([A-Z]{2})\)?$/.exec(stored)![1];
+      // The DISPLAY drops the marker — "Stein (AG)" is the right thing to read...
+      expect(formatJobLocation(stored, canton)).toBe(`${displayed} (${canton})`);
+      // ...but the city half alone is a different, ambiguous place name, which
+      // is why consumers that look the municipality up keep reading the raw
+      // stored value instead of this.
+      expect(splitJobLocation(stored, canton).city).toBe(displayed);
+      expect(displayed).not.toBe(stored);
+    }
+  });
+});
+
+describe('known collisions, pinned rather than hidden', () => {
+  it('treats the German company suffix AG as the canton when the canton IS AG', () => {
+    // `AG` is both Aargau and Aktiengesellschaft. Measured across all 74
+    // distinct bare-code shapes in the corpus, this is the ONLY collision:
+    // `XpertCenter AG` (3 jobs), a company name sitting in the location field.
+    // The input was already broken data and the output is no worse than the
+    // `XpertCenter AG (AG)` it replaces — audit-job-locations.mjs reports the
+    // underlying junk location through `unknownCity`.
+    expect(formatJobLocation('XpertCenter AG', 'AG')).toBe('XpertCenter (AG)');
+    // With any other canton the codes disagree, so nothing is stripped.
+    expect(formatJobLocation('XpertCenter AG', 'ZH')).toBe('XpertCenter AG');
+  });
+
+  it('passes junk through without inventing a place', () => {
+    expect(formatJobLocation('8440 MWST CHE', 'BS')).toBe('8440 MWST (BS)');
+  });
+});
+
 describe('splitJobLocation', () => {
   it('reports which marker it removed, so an audit can group by cause', () => {
     expect(splitJobLocation('Lengnau (BE)', 'BE')).toEqual({
