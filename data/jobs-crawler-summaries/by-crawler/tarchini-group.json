@@ -1,18 +1,49 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-08-19T09:44:54.909Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-08-19T21:34:24.992Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4110,
-  "avgDurationMs": 4110,
+  "durationMs": 5470,
+  "avgDurationMs": 5470,
   "durationHistory": [
-    4110
+    5470
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sekretär/in - Swiss Energy Program",
+      "slug": "sekretar-in-swiss-energy-program-tarchini-group-manno",
+      "url": "https://www.tarchinigroup.com/it/work/1543/sekret-r-in-swiss-energy-program",
+      "applyUrl": "mailto:info@tarchinigroup.com?subject=Sekret%C3%A4r%2Fin%20-%20Swiss%20Energy%20Program",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Manno",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "admin",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Technisch-kaufmännische Fachperson Projekt Swiss Energy Program",
