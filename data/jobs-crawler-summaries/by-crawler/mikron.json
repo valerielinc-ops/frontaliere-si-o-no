@@ -1,18 +1,53 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-08-19T10:01:58.206Z",
-  "total": 5,
-  "newCount": 2,
-  "updatedCount": 1,
+  "generatedAt": "2026-08-19T22:00:18.025Z",
+  "total": 6,
+  "newCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 15121,
-  "avgDurationMs": 15121,
+  "unchangedCount": 3,
+  "durationMs": 17398,
+  "avgDurationMs": 17398,
   "durationHistory": [
-    15121
+    17398
   ],
   "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/vision-engineer-customer-service-mfd",
+      "applyUrl": "https://www.mikron.com/en/vision-engineer-customer-service-mfd",
+      "title": "Vision Engineer – Customer Service (m/f/d)",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Boudry",
+      "canton": "NE",
+      "country": "CH",
+      "postalCode": "2017",
+      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
+      "slug": "vision-engineer-customer-service-m-f-d-mikron",
+      "sourceLang": "fr",
+      "category": "technology",
+      "datePosted": "2026-08-19",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Boudry"
+      },
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-svizzero-tedesca",
       "applyUrl": "https://www.mikron.com/en/tecnico-venditore-junior-con-conoscenza-della-lingua-svizzero-tedesca",
@@ -36,6 +71,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "firstSeenAt": "2026-08-19T10:01:58.202Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "_qualityScore": 66,
@@ -69,6 +105,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "firstSeenAt": "2026-08-19T10:01:58.202Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "_qualityScore": 66,
@@ -80,7 +117,8 @@
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
       "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -108,17 +146,18 @@
       "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
-      "_qualityScore": 81,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 23,
-        "completeness": 15
+        "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/quality-engineer-mfd",
       "applyUrl": "https://www.mikron.com/en/quality-engineer-mfd",
@@ -151,7 +190,7 @@
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5987,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -190,7 +229,7 @@
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
