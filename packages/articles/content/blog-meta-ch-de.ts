@@ -3445,6 +3445,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-canton-basilea-citta.title': 'Haus kaufen im Kanton Basel-Stadt: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'Die durchschnittlichen Hauspreise im Kanton Basel-Stadt können je nach Gebiet und Art der Immobilie variieren.',
     'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Bild eines Gebäudes im Basler Stadtgebiet.',
+    'blog.article.avs-prestazioni-complementari-basilea.title': 'AHV und Ergänzungsleistungen: Führer Kanton Basel-Stadt',
+    'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'Erste Säule und kantonale Ausgleichskasse: Wie die AHV-Rentenberechnung funktioniert, Beitragslücken schliessen und Ergänzungsleistungen für das Existenzminimum in Basel-Stadt beziehen.',
+    'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'AHV-Dokumente und Ergänzungsleistungen im Büro der kantonalen Ausgleichskasse',
 };
 
 export default blogMetaChDe;

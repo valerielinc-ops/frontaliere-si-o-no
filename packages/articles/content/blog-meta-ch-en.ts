@@ -3445,6 +3445,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-canton-basilea-citta.title': 'Buying a house in the Canton of Basel-City: prices and mortgage',
     'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'Average house prices in the Canton of Basel-City may vary depending on the area and type of property.',
     'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Image of a building in the Basle City area.',
+    'blog.article.avs-prestazioni-complementari-basilea.title': 'AVS and complementary services: guide Canton Basel City',
+    'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'First pillar and cantonal compensation fund: how the calculation of the AVS annuity works, fill contribution gaps and access supplementary benefits for the minimum living wage in Basel-City.',
+    'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'AVS pension documents and complementary benefits at the cantonal compensation fund office',
 };
 
 export default blogMetaChEn;

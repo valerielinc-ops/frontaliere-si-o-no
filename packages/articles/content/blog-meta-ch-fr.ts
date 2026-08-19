@@ -3445,6 +3445,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-canton-basilea-citta.title': 'Acheter une maison dans le canton de Bâle-Ville : prix et hypothèque',
     'blog.article.comprare-casa-canton-basilea-citta.excerpt': 'Les prix moyens des maisons dans le canton de Bâle-Ville peuvent varier en fonction de la région et du type de propriété.',
     'blog.article.comprare-casa-canton-basilea-citta.imageAlt': 'Image d\'un bâtiment dans la zone de Bâle-Ville.',
+    'blog.article.avs-prestazioni-complementari-basilea.title': 'AVS et prestations complémentaires : guide Canton Bâle-Ville',
+    'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'Premier pilier et caisse de compensation cantonale : comment fonctionne le calcul de la rente AVS, combler les lacunes en matière de cotisations et accéder aux prestations complémentaires pour le minimum vital à Bâle-Ville.',
+    'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'Documents AVS et prestations complémentaires au bureau de la caisse de compensation cantonale',
 };
 
 export default blogMetaChFr;
