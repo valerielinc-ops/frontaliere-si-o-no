@@ -1170,6 +1170,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'trasporti-eccezionali-standard-federali': { it: 'trasporti-eccezionali-standard-federali', en: 'exceptional-transport-federal-standards', de: 'aussergewoehliche-transport-standards-bundes', fr: 'transports-exceptionnels-standards-federaux' },
  'cop31-novembre-antalya-2026': { it: 'cop31-novembre-antalya-2026', en: 'cop31-november-antalya-2026', de: 'cop31-november-antalya-2026', fr: 'cop31-mandat-delegation-suisse-approuve' },
  'finanze-federali-bilancio-2026': { it: 'finanze-federali-bilancio-2026', en: 'federal-finances-budget-2026', de: 'bundesfinanzen-budgetprognose-2026', fr: 'finances-federales-budget-2026' },
+ 'due-no-iniziative-settembre': { it: 'due-no-iniziative-settembre', en: 'two-no-initiatives-september', de: 'zwei-nein-initiativen-september', fr: 'deux-non-initiatives-septembre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

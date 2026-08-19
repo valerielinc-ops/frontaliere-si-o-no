@@ -3433,6 +3433,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanze-federali-bilancio-2026.title': 'Federal budget 2026: surplus of 0.8 billion',
     'blog.article.finanze-federali-bilancio-2026.excerpt': 'The Federal Council projects a surplus of CHF 0.8 billion in 2026 thanks to windfall income tax revenues. Implications for taxpayers and public finances.',
     'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Federal Palace in Bern, seat of Swiss Federal Council and Parliament',
+    'blog.article.due-no-iniziative-settembre.title': 'Vote 27 September: two no to initiatives',
+    'blog.article.due-no-iniziative-settembre.excerpt': 'Leewas survey: 36% yes to the neutrality initiative (62% no), 31% yes to food (65% no). Analysis for parties and cantons on two ballots.',
+    'blog.article.due-no-iniziative-settembre.imageAlt': 'Swiss voters at a polling station during a federal election day',
 };
 
 export default blogMetaChEn;

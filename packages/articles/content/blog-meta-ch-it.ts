@@ -3433,6 +3433,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.finanze-federali-bilancio-2026.title': 'Bilancio federale 2026: eccedenza da 0.8 miliardi',
     'blog.article.finanze-federali-bilancio-2026.excerpt': 'Il Consiglio federale proietta un\'eccedenza di 0.8 miliardi CHF nel 2026 grazie a entrate straordinarie da imposta sull\'utile. Implicazioni per i contribuenti e le finanze pubbliche.',
     'blog.article.finanze-federali-bilancio-2026.imageAlt': 'Palazzo federale di Berna, sede del Consiglio federale e del Parlamento svizzero',
+    'blog.article.due-no-iniziative-settembre.title': 'Voto 27 settembre: due no alle iniziative',
+    'blog.article.due-no-iniziative-settembre.excerpt': 'Sondaggio Leewas: 36% sì all\'iniziativa neutralità (62% no), 31% sì alimentazione (65% no). Analisi per partiti e cantoni su due ballottamenti.',
+    'blog.article.due-no-iniziative-settembre.imageAlt': 'Votanti al seggio durante una votazione federale svizzera',
 };
 
 export default blogMetaChIt;

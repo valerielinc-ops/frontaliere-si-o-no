@@ -44519,6 +44519,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-due-no-iniziative-settembre': {
+    title: 'Voto 27 settembre: due no alle iniziative | Frontaliere Ticino',
+    description: 'Il sondaggio Leewas mostra che il 62% voterà no all\'iniziativa sulla neutralità e il 65% all\'iniziativa sull\'alimentazione il 27 settembre. Analisi',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, settembre, alle, iniziative',
+    ogTitle: 'Voto 27 settembre: sondaggi per due iniziative',
+    ogDescription: 'Leewas ha intervistato 13.154 svizzeri il 12-13 agosto: il 62% dice no alla neutralità, il 65% dice no all\'alimentazione. Scopri come votano i diversi cantoni e partiti il 27 settembre.',
+    canonicalPath: '/articoli-svizzera/due-no-iniziative-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto 27 settembre: due no alle iniziative",
+      "description": "Il sondaggio Leewas mostra che il 62% voterà no all'iniziativa sulla neutralità e il 65% all'iniziativa sull'alimentazione il 27 settembre. Analisi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/due-no-iniziative-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Votanti al seggio durante una votazione federale svizzera"
+      },
+      "datePublished": "2026-08-19T14:25:41+00:00",
+      "dateModified": "2026-08-19T14:25:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/due-no-iniziative-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
