@@ -110,6 +110,21 @@ describe('opts.prefer — preferenza per-chiamata dopo il sort per punteggio', (
     expect(applyModelsPrefer(['a', 'b', 'c'], ['b'])).toEqual(['b', 'a', 'c']);
   });
 
+  it('opts.prefer whitespace-only degrada al default MA lo segnala (#6018)', () => {
+    // Prima della fix, `.trim()` sulla condizione di warn azzerava anche il
+    // segnale: un input malformato ("   ") si comportava da "nessuna
+    // preferenza" senza lasciare traccia — indistinguibile da un chiamante
+    // che semplicemente non passa `prefer`.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      expect(applyModelsPrefer(['a', 'b'], '   ')).toEqual(['a', 'b']);
+      const detti = warn.mock.calls.map((c) => String(c[0])).join('\n');
+      expect(detti).toContain('non ha voci utilizzabili');
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
   it('AI_MODELS_PREFER="" spegne ANCHE il prefer per-chiamata (il percorso di produzione)', () => {
     // PERCHE' IL TEST «resta la leva di rollback istantaneo» QUI SOPRA NON BASTAVA.
     //

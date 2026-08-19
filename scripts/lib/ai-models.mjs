@@ -3098,7 +3098,12 @@ function _normalizePrefer(prefer) {
     const id = String(item || '').trim();
     if (id && !out.includes(id)) out.push(id);
   }
-  if (!out.length && (Array.isArray(prefer) ? prefer.length : String(prefer).trim())) {
+  // `.length`, non `.trim()`: un input whitespace-only (es. `'   '`) e' gia'
+  // truthy al guard `!prefer` sopra — il chiamante ha mandato QUALCOSA — e va
+  // trattato come le voci CSV vuote-ma-presenti, non come "niente da
+  // segnalare". `.trim()` qui riduceva "   " a stringa vuota e sopprimeva il
+  // warning proprio nel caso peggiore (#6018).
+  if (!out.length && (Array.isArray(prefer) ? prefer.length : String(prefer).length)) {
     if (!_preferredModelsWarned) {
       _preferredModelsWarned = true;
       console.warn(`⚠️  prefer=${JSON.stringify(prefer)} non ha voci utilizzabili — ignorato.`);
