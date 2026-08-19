@@ -52,7 +52,14 @@ permissions:
 jobs:
   watchdog:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # 10, not 5: every recorded timeout (#5056 — 2026-08-03, 08-17, 08-19) was
+    # the job-level ceiling hitting mid-`Checkout` (a transient runner-side
+    # `git fetch` stall), before the watchdog's own logic ever ran — the
+    # script steps never got a chance to execute or skip cleanly. The sibling
+    # watchdogs of the same shape (border-live-data-watchdog.yml,
+    # app-auth-health-monitor.yml, article-hub-landing-watchdog.yml) already
+    # run at 10.
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v5
