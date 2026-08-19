@@ -105,7 +105,7 @@ describe('taxonomy invariants', () => {
 
   it('every alias resolves back to its own entry (collision guard)', () => {
     // Regression guard: an alias added to one entry can silently steal a
-    // query from another entry via tokenMatchesAlias's typing-prefix rule
+    // query from another entry via matchProfession's typing-prefix rule
     // (a ≥5-char token fuzzy-matches any alias whose stem starts with the
     // token's stem) combined with the longest-alias tie-break. Feeding
     // every alias back through matchProfession catches that shape whenever
