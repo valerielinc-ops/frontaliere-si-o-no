@@ -10128,6 +10128,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.title': 'Vivere a Brinzio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.excerpt': 'Guida pratica per chi vive a Brinzio e lavora nel Canton Ticino: collegamenti, costi, regime fiscale e aspetti da considerare per il trasferimento.',
     'blog.article.vivere-a-brinzio-e-lavorare-in-ticino.imageAlt': 'Panorama di Brinzio vicino al confine con il Ticino per frontalieri',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.title': 'Vivere ad Albese con Cassano e lavorare in Ticino',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.excerpt': 'Albese con Cassano è una scelta conveniente per frontalieri ticinesi: costo della vita, permesso G, tasse 2024 e valichi di confine illustrati nel dettaglio.',
+    'blog.article.vivere-albese-cassano-lavorare-ticino.imageAlt': 'Veduta aerea del lago di Como e della valle d\'Intelvi, confine Ticino-Italia al tramonto',
 };
 
 export default blogMetaIt;

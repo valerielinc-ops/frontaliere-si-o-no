@@ -70115,6 +70115,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-albese-cassano-lavorare-ticino': {
+    title: 'Vivere ad Albese con Cassano e lavorare in Ticino',
+    description: 'Guida completa per frontalieri a Albese con Cassano: permesso G, tasse 2024, contributi AVS/LPP, dichiarazione 730, assicurazione malattia e procedure pratiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, albese, cassano, lavorare',
+    ogTitle: 'Vivere ad Albese con Cassano e lavorare in Ticino',
+    ogDescription: 'Come vivere ad Albese con Cassano e lavorare in Ticino da frontaliere: permesso G, tasse, contributi, valichi, procedura dichiarativa 2024–2033.',
+    canonicalPath: '/articoli-frontaliere/vivere-albese-cassano-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere ad Albese con Cassano e lavorare in Ticino",
+      "description": "Guida completa per frontalieri a Albese con Cassano: permesso G, tasse 2024, contributi AVS/LPP, dichiarazione 730, assicurazione malattia e procedure pratiche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-albese-cassano-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del lago di Como e della valle d'Intelvi, confine Ticino-Italia al tramonto"
+      },
+      "datePublished": "2026-08-19T13:23:02+00:00",
+      "dateModified": "2026-08-19T13:23:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-albese-cassano-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
