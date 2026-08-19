@@ -543,6 +543,28 @@ body.modal-open .google-auto-placed {
   margin-bottom: 0 !important;
 }
 
+/* The third outcome of an Auto Ad request, the one the two `:empty` /
+   `unfilled` rules below cannot see: the <ins> is inserted, adsbygoogle marks
+   it done, and no answer ever arrives — no `data-ad-status`, no iframe. The
+   container is not empty and nothing is flagged unfilled, so it holds Google's
+   inline ~280px forever. Measured live 2026-08-19: 4 stuck containers on `/`,
+   3 on `/cerca-lavoro-ticino/`, 3 on `/statistiche/` (12% of that page's
+   height as blank).
+
+   `services/autoAdCollapse.ts` sets the attribute below, and ONLY after
+   `AD_FILL_TIMEOUT_MS` with no creative — the same budget AdSenseBanner gives
+   our own slots — removing it the moment one arrives. So this never hides a
+   live ad and is not an Auto Ads opt-out (AGENTS.md §7); it gives back space
+   an ad already declined to use. `!important` because Google writes the height
+   inline on the <ins>, and `overflow: hidden` is what clips it. */
+.google-auto-placed[data-ft-autoad-collapsed] {
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
 /* ===== Top in-page Auto Ad reserve — REMOVED 2026-08-19 ══════════════════
    `.autoad-top-reserve` (TopAutoAdReserve.tsx) held 250px above <main> on the
    homepage for a top in-page Auto Ad, mirroring the ad's height so <main> never
