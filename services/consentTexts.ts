@@ -274,14 +274,25 @@ const entry = (e: ConsentProofEntry): ConsentProofEntry =>
   Object.freeze({ ...e, texts: e.texts ? Object.freeze({ ...e.texts }) : undefined });
 
 /**
- * The second half of both displayed formulas: what the page answers, and which
- * version of it the person was pointed at.
+ * The second half of both displayed formulas: where the conditions live, and
+ * which revision of them the person was pointed at.
  *
- * Four questions, in the order somebody actually asks them, and then the
- * address. Nothing here states a cadence — the words are "con che frequenza",
- * a pointer to the answer rather than the answer — for the same reason as
- * before (#5679): a frequency inside a consent formula cannot change without
- * collecting consent again.
+ * It used to enumerate the four questions the page answers ("Cosa ricevo, con
+ * che frequenza, come disdire e chi tratta i dati"). Owner decision of
+ * 2026-08-19: drop the enumeration, keep the link. The clause was 100
+ * characters of table of contents printed at the moment somebody is deciding
+ * whether to proceed, and on a phone it was three of the notice's five lines.
+ *
+ * What left the sentence did NOT leave the disclosure: `CONSENT_PAGE_PATH`
+ * carries all four answers and then some — categories, cadence per channel,
+ * the opt-out routes, and the controller in its own `#titolare` section
+ * (`build-plugins/communicationsPagePlugin.ts`). Shortening a pointer is only
+ * legitimate while the thing it points at is complete, which is why that is
+ * asserted rather than assumed.
+ *
+ * Still nothing here states a cadence, for the same reason as before (#5679):
+ * a frequency inside a consent formula cannot change without collecting
+ * consent again.
  *
  * `COMMUNICATIONS_PAGE_VERSION` is inside the sentence, not beside it, so that
  * it survives into `consent_text` without any call site remembering to attach
@@ -290,10 +301,10 @@ const entry = (e: ConsentProofEntry): ConsentProofEntry =>
  * have made the register weaker instead of clearer.
  */
 const POINTER: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: `Cosa ricevo, con che frequenza, come disdire e chi tratta i dati: ${CONSENT_PAGE_LABEL} (versione ${COMMUNICATIONS_PAGE_VERSION}).`,
-  en: `What I receive, how often, how to stop it and who processes the data: ${CONSENT_PAGE_LABEL} (version ${COMMUNICATIONS_PAGE_VERSION}).`,
-  de: `Was ich erhalte, wie oft, wie ich abbestelle und wer die Daten bearbeitet: ${CONSENT_PAGE_LABEL} (Version ${COMMUNICATIONS_PAGE_VERSION}).`,
-  fr: `Ce que je reçois, à quelle fréquence, comment me désinscrire et qui traite les données : ${CONSENT_PAGE_LABEL} (version ${COMMUNICATIONS_PAGE_VERSION}).`,
+  it: `Condizioni: ${CONSENT_PAGE_LABEL} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  en: `Terms: ${CONSENT_PAGE_LABEL} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  de: `Bedingungen: ${CONSENT_PAGE_LABEL} (V. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  fr: `Conditions : ${CONSENT_PAGE_LABEL} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
 });
 
 /**
@@ -359,7 +370,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-14.1',
+    version: '2026-08-19.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -385,7 +396,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-14.1',
+    version: '2026-08-19.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -417,7 +428,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-08-14.1',
+    version: '2026-08-19.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,

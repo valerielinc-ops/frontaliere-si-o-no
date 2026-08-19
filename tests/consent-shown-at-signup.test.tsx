@@ -944,23 +944,45 @@ describe('what the displayed formulas may and may not say', () => {
     }
   });
 
-  it('says where the controller is named, and the page says who it is', () => {
+  it('announces that conditions exist, and the page carries the controller', () => {
     /**
      * art. 19 nLPD, and the point of #5675: the recipient of an unwanted email
-     * must be able to tell who to write to. Until #5765 the formula carried the
-     * name and the address itself; it now carries the QUESTION and the address
-     * of the page that answers it, because a ~700-character paragraph at the
-     * moment of deciding is read by nobody.
+     * must be able to tell who to write to.
      *
-     * That is a relocation only if the page really carries it, so the second
-     * half is asserted here and not assumed. Deleting the controller section
-     * from the page fails this test, which is the only thing standing between
-     * "the disclosure moved" and "the disclosure went".
+     * THREE FORMS, AND WHAT EACH GAVE UP. Until #5765 the formula carried the
+     * controller's name and address inline — complete, and ~700 characters
+     * nobody read. #5765 replaced it with the QUESTION ("chi tratta i dati")
+     * plus the address of the page that answers it. Owner decision of
+     * 2026-08-19: drop the enumerated questions too, keep a conditions word and
+     * the link, because on a phone that clause was three of the notice's five
+     * lines at the exact moment somebody decides whether to proceed.
+     *
+     * SO THIS TEST CHANGED SHAPE, AND THE LOSS IS REAL, NOT HIDDEN: the
+     * sentence no longer tells the reader that the controller is among the
+     * things the page answers. It tells them there are conditions and where
+     * they are; they learn who processes the data by opening the page. That is
+     * a layered notice, which is normal, and it is one notch less signposted
+     * than what came before. Recorded here so the next person reads a decision
+     * instead of inferring an omission.
+     *
+     * WHAT IS STILL ASSERTED, AND IS THE HALF THAT MATTERS. A pointer is only
+     * a relocation while the destination is complete: the page must print the
+     * controller identity FROM THE SHARED SOURCE (so it cannot drift from the
+     * mail footers) and link the full privacy notice. Deleting the controller
+     * section from the page fails this test — that is the line between "the
+     * disclosure moved" and "the disclosure went", and it did not move.
+     *
+     * The formula side keeps two teeth: it must NAME the page (a bare URL with
+     * no word for what is behind it is a dangling link, not a disclosure), and
+     * it must carry a conditions/terms word in the visitor's own language.
      */
+    const CONDITIONS_WORD = /Condizioni|Terms|Bedingungen|Conditions/;
     for (const proof of displayed) {
       for (const locale of CONSENT_LOCALES) {
-        expect(proof.texts?.[locale], `${proof.id}/${locale} must ask the controller question`)
-          .toMatch(/chi tratta i dati|who processes the data|wer die Daten bearbeitet|qui traite les données/);
+        expect(
+          proof.texts?.[locale],
+          `${proof.id}/${locale} must say that conditions exist, not just link a URL`,
+        ).toMatch(CONDITIONS_WORD);
         expect(proof.texts?.[locale], `${proof.id}/${locale}`).toContain(CONSENT_PAGE_LABEL);
       }
     }
