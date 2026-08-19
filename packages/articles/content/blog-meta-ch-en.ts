@@ -3448,6 +3448,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea.title': 'AVS and complementary services: guide Canton Basel City',
     'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'First pillar and cantonal compensation fund: how the calculation of the AVS annuity works, fill contribution gaps and access supplementary benefits for the minimum living wage in Basel-City.',
     'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'AVS pension documents and complementary benefits at the cantonal compensation fund office',
+    'blog.article.salari-mercato-lavoro-basilea.title': 'Wages and work in Switzerland: training levels',
+    'blog.article.salari-mercato-lavoro-basilea.excerpt': 'How Swiss wages work by level of training, compulsory social contributions, collective agreements and cantonal minimum wage.',
+    'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Swiss workplace with salary documents and employment contracts on desk',
 };
 
 export default blogMetaChEn;

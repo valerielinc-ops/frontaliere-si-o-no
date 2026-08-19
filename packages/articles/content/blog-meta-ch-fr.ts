@@ -3448,6 +3448,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea.title': 'AVS et prestations complémentaires : guide Canton Bâle-Ville',
     'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'Premier pilier et caisse de compensation cantonale : comment fonctionne le calcul de la rente AVS, combler les lacunes en matière de cotisations et accéder aux prestations complémentaires pour le minimum vital à Bâle-Ville.',
     'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'Documents AVS et prestations complémentaires au bureau de la caisse de compensation cantonale',
+    'blog.article.salari-mercato-lavoro-basilea.title': 'Salaires et emploi en Suisse : niveaux de formation',
+    'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Comment fonctionnent les salaires suisses par niveau de formation, cotisations sociales obligatoires, conventions collectives et salaire minimum cantonal.',
+    'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Environnement de travail suisse avec fiches de paie et contrats collectifs',
 };
 
 export default blogMetaChFr;

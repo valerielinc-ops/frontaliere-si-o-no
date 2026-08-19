@@ -3448,6 +3448,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea.title': 'AHV und Ergänzungsleistungen: Führer Kanton Basel-Stadt',
     'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'Erste Säule und kantonale Ausgleichskasse: Wie die AHV-Rentenberechnung funktioniert, Beitragslücken schliessen und Ergänzungsleistungen für das Existenzminimum in Basel-Stadt beziehen.',
     'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'AHV-Dokumente und Ergänzungsleistungen im Büro der kantonalen Ausgleichskasse',
+    'blog.article.salari-mercato-lavoro-basilea.title': 'Löhne und Arbeit in der Schweiz: Bildungsstand',
+    'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Wie funktionieren die Schweizer Löhne nach Bildungsgrad, obligatorischen Sozialbeiträgen, Tarifverträgen und kantonalen Mindestlöhnen?',
+    'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Schweizer Arbeitsplatz mit Gehaltsdokumenten und Kollektivverträgen',
 };
 
 export default blogMetaChDe;

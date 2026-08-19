@@ -3448,6 +3448,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilea.title': 'AVS e prestazioni complementari: guida Canton Basilea Città',
     'blog.article.avs-prestazioni-complementari-basilea.excerpt': 'Primo pilastro e cassa di compensazione cantonale: come funziona il calcolo della rendita AVS, colmare le lacune contributive e accedere alle prestazioni complementari per il minimo vitale a Basilea Città.',
     'blog.article.avs-prestazioni-complementari-basilea.imageAlt': 'Documenti AVS e prestazioni complementari nella sede della cassa di compensazione cantonale',
+    'blog.article.salari-mercato-lavoro-basilea.title': 'Salari e lavoro in Svizzera: livelli di formazione',
+    'blog.article.salari-mercato-lavoro-basilea.excerpt': 'Come funzionano i salari svizzeri per grado di formazione, contributi sociali obbligatori, contratti collettivi e salario minimo cantonale.',
+    'blog.article.salari-mercato-lavoro-basilea.imageAlt': 'Ambiente di lavoro svizzero con documenti di stipendio e contratti collettivi in primo piano',
 };
 
 export default blogMetaChIt;
