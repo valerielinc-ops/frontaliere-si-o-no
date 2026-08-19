@@ -142,6 +142,42 @@ Gli 8 profili scritti a mano non sono stati toccati: alcuni sono **piu'** snelli
 di quanto l'analisi sappia produrre (`measure-deploy-delta.yml` si porta giu' un
 solo file `.py`), e sovrascriverli sarebbe stata una regressione.
 
+**Deroghe per i job opachi.** Un job che builda o testa resta pieno per regola,
+ma a volte UNA cartella pesante e' dimostrabilmente non letta. Per quei casi c'e'
+`scripts/ci/checkout-profile-overrides.json`, una voce per job, che aggiunge
+pattern di esclusione oltre a quelli calcolati. Non e' una scorciatoia: il guard
+rifiuta una deroga senza un `why` che riporti la prova e senza la data del
+controllo, e tutti gli altri controlli restano attivi.
+
+Oggi ce n'e' una sola. `tests.yml:vitest` era il passo di checkout piu' costoso
+del repo (215s a ogni PR) e `public/images/events/` da solo pesa 3'944 MB —
+il **58% dell'intero albero**. La suite non lo legge da disco: l'unico accesso e'
+`mirrorEventImage` (`scripts/lib/events-utils.mjs`), che fa
+`mkdirSync(..., { recursive: true })` prima di scrivere, quindi funziona con la
+cartella assente. Il job scende da 6'829 MB a 2'885 MB.
+
+Attenzione a cosa NON e' stato escluso: `public/images/brands/` pesa 1,2 MB ma
+`seoContentTokens.ts:resolveBrandLogoUrl` ci fa `existsSync` **costruendo il path
+da variabile**. Nessuna ricerca di percorsi letterali lo vede — e' il limite
+strutturale dell'analisi statica, e la ragione per cui una deroga vuole occhi
+umani e una prova scritta.
+
+**L'unico modo di fallire silenzioso, e come riconoscerlo.** Quasi tutti i
+guasti possibili qui sono rumorosi: un file che manca da' ENOENT. L'eccezione e'
+un job che **modifica un file gia' tracciato** dentro un percorso escluso.
+Misurato su questo repo:
+
+| azione | esito |
+|---|---|
+| `git status` | mostra ` M <file>` — la modifica si vede |
+| `git add -A` | **non** la mette in staging, senza dire niente |
+| `git add <path>` | rifiuta, ma con un warning e **exit 0** |
+
+Quindi un workflow che riscrive un file escluso e poi committa **non fallisce**:
+committa senza quella modifica. I percorsi letterali sono coperti dal guard, ma
+se aggiungi un job che scrive dentro `data/` o `public/` costruendo il path da
+una variabile, verifica a mano che il suo bucket sia incluso.
+
 **Manutenzione.** Il rischio non e' il giorno in cui scrivi i pattern: e' il
 mese dopo, quando qualcuno fa leggere `data/jobs/` a uno script che prima non lo
 leggeva, e il job muore in produzione con ENOENT mentre la CI resta verde.

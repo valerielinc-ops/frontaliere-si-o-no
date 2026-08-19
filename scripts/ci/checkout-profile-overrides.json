@@ -1,0 +1,15 @@
+{
+  "_comment": "Deroghe esplicite, una per job, per i casi che l'analisi statica non puo' decidere da sola. Ogni voce DEVE avere `why` con la prova, e `verified` con la data. Il guard rifiuta una deroga senza motivazione, e i controlli di verify-checkout-profiles.mjs si applicano lo stesso: se il codice del job legge un percorso letterale li' sotto, la CI diventa rossa.",
+  "overrides": {
+    "tests.yml:vitest": {
+      "alsoExclude": [
+        "public/images/events/"
+      ],
+      "why": "3'944 MB / 5'283 file, il 58% dell'intero albero, ed e' il passo di checkout piu' costoso del repo (215s a ogni PR). La suite non legge quella cartella da disco: l'unico accesso e' `mirrorEventImage` in scripts/lib/events-utils.mjs, che fa `mkdirSync(..., { recursive: true })` prima di scrivere, quindi funziona con la cartella assente; e tests/events-nationwide-sources.test.ts ci scrive solo la propria fixture e la rimuove in afterEach. Tutti gli altri riferimenti a `/images/events/` nei test sono URL asserite, non percorsi su disco. NON si esclude `public/images/brands/`: seoContentTokens.ts:resolveBrandLogoUrl fa `existsSync` li' sotto costruendo il path da variabile, quindi nessun grep letterale lo vedrebbe.",
+      "verified": "2026-08-19",
+      "mb": {
+        "public/images/events/": 3944
+      }
+    }
+  }
+}
