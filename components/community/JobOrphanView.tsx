@@ -397,17 +397,6 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  /**
-  * The one permanent destination an orphan slug can still offer.
-  *
-  * Shared with JobExpiredView and with the ACTIVE ad in JobBoard — the link,
-  * the existence proof and the anchor all live in
-  * `components/community/EmployerHubCta.tsx`. `slugParts.company` is only a
-  * heuristic read of the URL, so it is passed as a CANDIDATE: the component
-  * resolves it through `canonicalCompanyProfileSlug` and renders nothing
-  * unless that slug is present, above the floor, in the map the emitter
-  * publishes for pages it actually wrote.
-  */
- /**
   * CompanyAlert (#5012) — «Segui questa azienda» on an ORPHAN slug.
   *
   * The ad is not in the current dataset, so there is nothing left to apply to;
@@ -429,6 +418,17 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
    </Suspense>
  ) : null;
 
+ /**
+  * The one permanent destination an orphan slug can still offer.
+  *
+  * Shared with JobExpiredView and with the ACTIVE ad in JobBoard — the link,
+  * the existence proof and the anchor all live in
+  * `components/community/EmployerHubCta.tsx`. `slugParts.company` is only a
+  * heuristic read of the URL, so it is passed as a CANDIDATE: the component
+  * resolves it through `canonicalCompanyProfileSlug` and renders nothing
+  * unless that slug is present, above the floor, in the map the emitter
+  * publishes for pages it actually wrote.
+  */
  const employerHubCta = (
  <EmployerHubCta company={slugParts.company} companyKey={derivedCompanyKey} locale={locale as Locale} />
  );

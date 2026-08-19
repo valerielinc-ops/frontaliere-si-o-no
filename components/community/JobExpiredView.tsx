@@ -382,27 +382,17 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  /**
-  * The one link on this page that still leads somewhere permanent.
-  *
-  * The whole thing — the existence proof, the `<a href>`, the anchor and the
-  * analytics label — lives in `components/community/EmployerHubCta.tsx`,
-  * shared with JobOrphanView and with the ACTIVE ad in JobBoard. Read that
-  * file for why it is an `<a href>` while the company NAME below stays a
-  * `<button>`: the two are opposites on purpose, and only the hub has the
-  * emitted-page proof that makes a full navigation safe.
-  *
-  * Rendered inside `jobHeader`, so it lands directly under the job title in
-  * BOTH layouts — including the logged-out auth gate, where it is the only
-  * useful destination a visitor can reach without signing in.
-  */
- /**
   * CompanyAlert (#5012) — «Segui questa azienda» on an EXPIRED ad.
   *
   * The highest-intent placement the feature has: the reader arrived for a job
   * that no longer exists, so "tell me when this employer posts again" is the
-  * only action left that still does something for them. Rendered next to the
-  * company banner in both layouts below, gated and not, because the component
-  * handles the anonymous case itself (email capture + double opt-in).
+  * only action left that still does something for them. Rendered inside
+  * `jobHeader`, right under the employer-hub link, in BOTH layouts — it used
+  * to hang off the company banner further down, which (as that banner's own
+  * comment notes) renders below the auth gate and the end-of-page ad in the
+  * gated layout, i.e. out of reach of the logged-out reader this CTA exists
+  * for. The component handles the anonymous case itself (email capture +
+  * double opt-in), so no session is needed to take it.
   */
  const companyFollowCta = job.company ? (
    <Suspense fallback={null}>
@@ -417,6 +407,20 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
    </Suspense>
  ) : null;
 
+ /**
+  * The one link on this page that still leads somewhere permanent.
+  *
+  * The whole thing — the existence proof, the `<a href>`, the anchor and the
+  * analytics label — lives in `components/community/EmployerHubCta.tsx`,
+  * shared with JobOrphanView and with the ACTIVE ad in JobBoard. Read that
+  * file for why it is an `<a href>` while the company NAME below stays a
+  * `<button>`: the two are opposites on purpose, and only the hub has the
+  * emitted-page proof that makes a full navigation safe.
+  *
+  * Rendered inside `jobHeader`, so it lands directly under the job title in
+  * BOTH layouts — including the logged-out auth gate, where it is the only
+  * useful destination a visitor can reach without signing in.
+  */
  const employerHubCta = (
  <EmployerHubCta company={job.company} companyKey={job.companyKey} locale={locale as Locale} />
  );
@@ -486,7 +490,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  // employer) and it is the only one that still resolves when no hub was emitted.
  // The hub link is `employerHubCta` above — one per page, and placed where a
  // logged-out visitor actually sees it, since this banner renders below the auth
- // gate and the end-of-page ad in the gated layout.
+ // gate and the end-of-page ad in the gated layout. `companyFollowCta` used to
+ // hang off THIS banner and moved up beside the hub link for exactly the reason
+ // this comment already gave: whatever sits here is below the gate.
  const companyBanner = job.company && companyHref && (
  <>
  <button
