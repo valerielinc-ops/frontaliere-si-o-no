@@ -10149,6 +10149,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Vivere a Nesso e lavorare in Ticino da frontaliere',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Guida completa: permesso G, fiscalità bilaterale, imposta alla fonte, esenzioni €7.500–€10.000, AVS, LAMal, ristorni. Procedure e checklist per iniziare come frontaliere Italia-Ticino.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Veduta del Lago di Como da Nesso con lo sfondo delle Alpi ticinesi al confine svizzero',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Vivere a Orsenigo e lavorare in Ticino da frontaliere: cosa cambia?',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Il nuovo accordo fiscale per i frontalieri: come funziona e cosa significa per i residenti di Orsenigo.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Immagine di un frontaliere in Ticino',
 };
 
 export default blogMetaIt;

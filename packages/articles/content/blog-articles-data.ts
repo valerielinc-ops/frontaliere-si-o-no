@@ -30396,6 +30396,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-orsenigo-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-19T18:08:58.371Z',
+ image: '/images/blog/vivere-orsenigo-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

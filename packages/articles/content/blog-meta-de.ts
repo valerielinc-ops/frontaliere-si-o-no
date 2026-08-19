@@ -10147,6 +10147,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nesso-frontaliere-ticino-guida.title': 'Leben in Nesso und Arbeiten im Tessin als Grenzgänger',
     'blog.article.nesso-frontaliere-ticino-guida.excerpt': 'Komplette Anleitung: G-Bewilligung, bilaterale Besteuerung, Quellensteuer, Befreiungen € 7.500- € 10.000, AHV, KVG, Rückerstattungen. Verfahren und Checklisten für den Einstieg als Grenzgänger Italien-Tessin.',
     'blog.article.nesso-frontaliere-ticino-guida.imageAlt': 'Blick auf den Comer See von Nesso mit Schweizer Alpen an der Tessiner Grenze',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.title': 'Wohnen in Orsenigo und Arbeiten im Tessin als Grenzgänger: Was ändert sich?',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.excerpt': 'Das neue Steuerabkommen für Grenzgänger: Wie es funktioniert und was es für die Bewohner von Orsenigo bedeutet.',
+    'blog.article.vivere-orsenigo-lavorare-ticino-frontaliere.imageAlt': 'Bild eines Ticino Frontalierers',
 };
 
 export default blogMetaDe;
