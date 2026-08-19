@@ -337,6 +337,7 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     // asserted here so a future edit that puts arming back into this handler —
     // the exact regression #6120 fixed — fails instead of silently returning.
     await renderBanner();
+    const io = bannerIo();
     await act(async () => {
       document.dispatchEvent(new Event('touchstart'));
       document.dispatchEvent(new Event('pointerdown'));
@@ -345,7 +346,35 @@ describe('SPA <AdSenseBanner> — near-simultaneous interaction events', () => {
     });
     expect(document.querySelectorAll(ADSENSE_SELECTOR)).toHaveLength(1);
     expect(document.querySelector('ins.adsbygoogle')).toBeNull();
+
+    // Covers the stricter regression: a handler that pushes DIRECTLY, bypassing
+    // the observer entirely. Nothing has intersected yet, so any push here is
+    // one this slot did not earn.
     expect(pushCount()).toBe(0);
+
+    // The old handler called `io.disconnect()` before arming, so after any
+    // interaction the observer was gone and the slot could only ever be armed
+    // by that same handler. Reintroduce that and the slot stays dead forever —
+    // an ad unit never requested at all, which is worse than the bug this file
+    // was opened for.
+    //
+    // The old handler called `io.disconnect()` before arming, so after any
+    // interaction the observer was gone and the slot could only ever be armed
+    // by that same handler. Reintroduce that and the slot stays dead forever —
+    // an ad unit never requested at all, which is worse than the bug this file
+    // was opened for.
+    //
+    // This has to be asserted on the observer's OWN state, not inferred from a
+    // later `intersect()`: the stub invokes `io.callback(...)` directly and
+    // never checks `io.disconnected`, so it keeps firing after a real
+    // `disconnect()` the way a browser would not. An "it still arms afterwards"
+    // check therefore stays green through the exact regression it claims to
+    // pin — the same class of blind guard this file exists to prevent.
+    expect(io.disconnected).toBe(false);
+
+    // …and, with the observer intact, the slot does arm when it is reached.
+    await act(async () => { intersect(io, io.targets); });
+    expect(document.querySelector('ins.adsbygoogle')).not.toBeNull();
   });
 });
 
@@ -382,6 +411,15 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
         if (full.endsWith('components/shared/AdSenseBanner.tsx')) continue;
         const src = readFileSync(full, 'utf8');
         if (!src.includes('adsbygoogle')) continue;
+        // Comments stripped before the markup check below. Prose that DESCRIBES
+        // the rendered HTML (`<ins class="adsbygoogle">` in a docblock) is not
+        // an insertion, and this file is full of exactly that — stripping is
+        // what lets the check look for the markup itself instead of having to
+        // require `className`, which is the narrower proxy.
+        const code = src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+        // Directory boundary, not a substring: `full.includes('/build-plugins/')`
+        // would also exempt a future `components/build-plugins-preview/…`.
+        const isBuildPlugin = full.slice(root.length + 1).split(/[/\\]/)[0] === 'build-plugins';
         // `<ins>` built and inserted at runtime, in any of the ways it can
         // reach the DOM from JS: imperative DOM APIs, dangerouslySetInnerHTML
         // (its own alternative — a case-sensitive `innerHTML` check does NOT
@@ -391,7 +429,20 @@ describe('no ad markup is inserted into the DOM outside <AdSenseBanner>', () => 
         // describe the rendered HTML with `class="adsbygoogle"`.
         if (/createElement\(\s*['"]ins['"]\s*\)/.test(src) ||
             /(innerHTML|insertAdjacentHTML|outerHTML|dangerouslySetInnerHTML)\s*[=(][\s\S]{0,200}adsbygoogle/.test(src) ||
-            /<ins\b[^>]{0,200}\bclassName\s*=\s*["'][^"']*\badsbygoogle\b/.test(src)) {
+            /<ins\b[^>]{0,200}\bclassName\s*=\s*["'][^"']*\badsbygoogle\b/.test(src) ||
+            // Ad markup held as a STRING, anywhere in a runtime file — the
+            // indirection the #6126 review flagged as still open: a service
+            // exporting `const AD = '<ins class="adsbygoogle">…'` and a
+            // component injecting it elsewhere defeats every check above. The
+            // component has the injection API but not the word `adsbygoogle`
+            // (so it fails the pre-filter), and the service has the word but no
+            // injection API. Each file passes; the pair does not.
+            //
+            // Scoped away from `build-plugins/`, where that same string is the
+            // LEGITIMATE product (`lib/adSlotHtml.ts`): its markup lands in the
+            // initial HTML, which is exactly what the static loader snapshots,
+            // so it is never the gap.
+            (!isBuildPlugin && /<ins\b[^>]*adsbygoogle/i.test(code))) {
           offenders.push(full.slice(root.length + 1));
         }
       }
