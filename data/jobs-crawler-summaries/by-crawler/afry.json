@@ -1,18 +1,80 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-08-19T10:30:48.942Z",
-  "total": 56,
-  "newCount": 1,
-  "updatedCount": 55,
-  "removedCount": 0,
+  "generatedAt": "2026-08-19T21:53:26.072Z",
+  "total": 55,
+  "newCount": 2,
+  "updatedCount": 53,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 121685,
-  "avgDurationMs": 121685,
+  "durationMs": 111446,
+  "avgDurationMs": 111446,
   "durationHistory": [
-    121685
+    111446
   ],
   "newJobs": [
+    {
+      "title": "Dessinateur-Projeteur en génie civil (f/h/d) 80-100% – Delémont",
+      "slug": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont",
+      "url": "https://afry.com/en/career/available-jobs/REF14755F-dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000130710099-dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Delémont",
+      "addressLocality": "Delémont",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "canton": "JU",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-19",
+      "validThrough": "2026-06-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Ingénieur de projet en génie civil orientation structure 80-100% (f/h/d) – Fribourg",
+      "slug": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
+      "url": "https://afry.com/en/career/available-jobs/REF14419M-ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000124380339-ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Fribourg",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-19",
+      "validThrough": "2026-05-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Capo progetto Evacuazione Acque (f/m/d) 80-100% - Bellinzona",
       "slug": "capo-progetto-evacuazione-acque-f-m-d-80-100-bellinzona-afry-bellinzona",
@@ -35,16 +97,20 @@
       "validThrough": "2026-08-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 68,
+      "id": "afry-1e33fd7f2b76",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-19T10:30:48.927Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
         "translation": 16,
-        "completeness": 14
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Projektleiter:in Elektro Infrastrukturprojekte 80-100% - Zürich",
       "slug": "projektleiter-in-elektro-infrastrukturprojekte-80-100-zurich-afry-zurich",
@@ -179,7 +245,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -828,42 +893,6 @@
       }
     },
     {
-      "title": "Dessinateur-Projeteur en génie civil (f/h/d) 80-100% – Delémont",
-      "slug": "dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-afry-delemont",
-      "url": "https://afry.com/en/career/available-jobs/REF14755F-dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000130710099-dessinateur-projeteur-en-genie-civil-f-h-d-80-100-delemont-?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Delémont",
-      "addressLocality": "Delémont",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-19",
-      "validThrough": "2026-06-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-dec3fc266431",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:10:24.367Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "Chef de projet senior en génie civil orientation structure 80-100% (f/h/d) – Fribourg",
       "slug": "chef-de-projet-senior-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
       "url": "https://afry.com/en/career/available-jobs/REF14710W-chef-de-projet-senior-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg",
@@ -892,7 +921,6 @@
       "postalCode": "1700",
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -971,42 +999,6 @@
         "richness": 18,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Ingénieur de projet en génie civil orientation structure 80-100% (f/h/d) – Fribourg",
-      "slug": "ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg-afry-fribourg",
-      "url": "https://afry.com/en/career/available-jobs/REF14419M-ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000124380339-ingenieur-de-projet-en-genie-civil-orientation-structure-80-100-f-h-d-fribourg?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Fribourg",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-19",
-      "validThrough": "2026-05-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-8bea64c7d661",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T22:10:24.367Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
@@ -1116,8 +1108,82 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Pianificatore Elettricista AFC (f/m/d) (secondo apprendistato) – Bellinzona",
+      "slug": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona",
+      "url": "https://afry.com/en/career/available-jobs/REF11645J-pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000119534037-pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-08-19",
+      "validThrough": "2026-04-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "afry-fff44725da83",
+      "salaryMin": 42640,
+      "salaryMax": 61000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-07-01T21:43:04.412Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Ingénieur civil EPF/HES – Chef de projet Infrastructures 80-100% (f/h/d) – Lausanne",
+      "slug": "ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne-afry-lausanne",
+      "url": "https://afry.com/en/career/available-jobs/REF5755A-ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne",
+      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000073267305-ingenieur-civil-epf-hes-chef-de-projet-infrastructures-80-100-f-h-d-lausanne?oga=true",
+      "company": "AFRY",
+      "companyKey": "afry",
+      "companyDomain": "afry.com",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria & Consulenza",
+      "source": "afry-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-07-01",
+      "validThrough": "2025-07-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "afry-0cdeedc7a354",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-07-01T21:43:04.412Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
