@@ -42,7 +42,12 @@ permissions:
 jobs:
   broadcast:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Raised from 10 → 20 (#6182): same dataset-growth pattern as
+    # fb-jobs-daily-schedule.yml (#4764) and reddit-jobs-daily-schedule.yml —
+    # this job's daily (jobs) mode also runs `assemble-jobs-dataset.mjs
+    # --stats` on a full checkout (sparse removed in #6133, above the 1.5GB
+    # crossover), so it shares the same shrinking margin as its two siblings.
+    timeout-minutes: 20
     env:
       # Weekly cron ⇒ border; daily cron / manual ⇒ input or 'jobs'.
       MODE: ${{ github.event.inputs.mode || (github.event.schedule == '0 7 * * 1' && 'border' || 'jobs') }}
