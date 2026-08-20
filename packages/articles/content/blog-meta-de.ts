@@ -10278,6 +10278,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-limido-comasco-frontaliere.title': 'Leben in Limido Comasco, Arbeiten im Tessin: Der Guide',
     'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Bewilligung G, Selbstbehalt € 7.500–€ 10.000, Steuern 2024, AHV/BVG/KVG, 730 Italienisch und Schritt-für-Schritt-Verfahren: alles, was Sie für Grenzgänger Italien-Tessin benötigen.',
     'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Grenzgänger am Tessiner-italienischen Grenzübergang während der morgendlichen Pendelzeit',
+    'blog.article.formazione-oltre-20km-riqualifica.title': 'Berufsausbildung Grenzgänger 2026: Praktisches Fahren über 20 km',
+    'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Umschulungskurse für Grenzgänger: Analyse der steuerlichen Auswirkungen, AHV-Beiträge und grenzüberschreitende Chancen im Jahr 2026.',
+    'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Grenzgänger während beruflicher Schulung im Tessin, modernes Lernumfeld mit Computern und Schulungsmaterialien',
 };
 
 export default blogMetaDe;

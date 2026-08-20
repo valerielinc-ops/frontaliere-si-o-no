@@ -72065,6 +72065,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-oltre-20km-riqualifica': {
+    title: 'Formazione prof. frontalieri 2026: guida pratica oltre 20 km',
+    description: 'Scopri come la formazione professionale influisce sui contributi AVS e sulla tassazione frontalieri nel 2026. Guida pratica con checklist. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, prof, pratica, oltre',
+    ogTitle: 'Formazione frontalieri 2026: scenari e tassazione oltre 20 km',
+    ogDescription: 'Frontalieri in formazione professionale nel 2026: come il nuovo accordo, l\'AVS e la tassazione alla fonte influenzano la scelta dei corsi. Scenari pratici e checklist.',
+    canonicalPath: '/articoli-frontaliere/formazione-oltre-20km-riqualifica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione prof. frontalieri 2026: guida pratica oltre 20 km",
+      "description": "Scopri come la formazione professionale influisce sui contributi AVS e sulla tassazione frontalieri nel 2026. Guida pratica con checklist. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-oltre-20km-riqualifica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in corso di formazione professionale in Ticino, ambiente di apprendimento moderno con computer e materiale didattico"
+      },
+      "datePublished": "2026-08-20T18:03:07+00:00",
+      "dateModified": "2026-08-20T18:03:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-oltre-20km-riqualifica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

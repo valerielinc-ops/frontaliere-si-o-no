@@ -10281,6 +10281,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-limido-comasco-frontaliere.title': 'Vivre à Limido Comasco, travailler au Tessin : le guide',
     'blog.article.vivere-limido-comasco-frontaliere.excerpt': 'Permis G, franchise € 7.500- € 10.000, taxes 2024, AVS/LPP/LAMal, 730 italien et procédure étape par étape : tout ce dont vous avez besoin pour frontalier Italie-Tessin.',
     'blog.article.vivere-limido-comasco-frontaliere.imageAlt': 'Frontalier au poste frontière Tessin-Italie pendant les heures de navette du matin',
+    'blog.article.formazione-oltre-20km-riqualifica.title': 'Formation prof. frontaliers 2026 : guide pratique plus de 20 km',
+    'blog.article.formazione-oltre-20km-riqualifica.excerpt': 'Cours de recyclage pour frontaliers : analyse des implications fiscales, des cotisations AVS et des opportunités au-delà de la frontière en 2026.',
+    'blog.article.formazione-oltre-20km-riqualifica.imageAlt': 'Travailleur frontalier en formation professionnelle au Tessin, environnement d\'apprentissage moderne avec ordinateurs et matériel pédagogique',
 };
 
 export default blogMetaFr;
