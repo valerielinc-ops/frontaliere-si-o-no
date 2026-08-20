@@ -3511,6 +3511,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Premi cassa malati Canton Sciaffusa e riduzione',
     'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Obblighi, franchigie, modelli di copertura e procedura per richiedere il sussidio cantonale nel Canton Sciaffusa: guida pratica.',
     'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Scrivania di un ufficio amministrativo svizzero con documenti e moduli per l\'assicurazione malattia LAMal',
+    'blog.article.sciaffusa-permesso-dimora-b.title': 'Permesso dimora B Sciaffusa: requisiti e rinnovo',
+    'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Il permesso B è un permesso rinnovabile per risiedere e lavorare in Svizzera, gestito da SEM. Scopri come ottenerlo e rinnovarlo nel canton Sciaffusa.',
+    'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Ufficio della migrazione cantonale dove si richiedono e rinnovano i permessi di dimora B',
 };
 
 export default blogMetaChIt;

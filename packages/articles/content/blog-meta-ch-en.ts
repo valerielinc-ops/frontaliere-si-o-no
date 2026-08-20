@@ -3511,6 +3511,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-assicurazione-malati-sciaffusa.title': 'Health insurance premiums Canton Schaffhausen and reduction',
     'blog.article.premi-assicurazione-malati-sciaffusa.excerpt': 'Obligations, deductibles, coverage models and procedure to apply for cantonal subsidy in the Canton of Schaffhausen: practical guide.',
     'blog.article.premi-assicurazione-malati-sciaffusa.imageAlt': 'Swiss health administration office desk with health insurance forms and documents for mandatory coverage',
+    'blog.article.sciaffusa-permesso-dimora-b.title': 'Residence permit B Schaffhausen: requirements and renewal',
+    'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Permit B is a renewable permit to reside and work in Switzerland, managed by SEM. Find out how to get it and renew it in the canton of Schaffhausen.',
+    'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Cantonal migration office where residence permits category B are processed and renewed',
 };
 
 export default blogMetaChEn;
