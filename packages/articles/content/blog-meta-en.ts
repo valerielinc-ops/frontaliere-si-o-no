@@ -10240,6 +10240,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Living in Lurago Marinone and working in Ticino as a border worker',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Comprehensive analysis for those who choose to live in Lurago Marinone and take the border crossing in Ticino between connections, taxation and costs.',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'View of Lake Lugano in Canton Ticino',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'LAINF border 2026: practical injury procedure',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'LAINF for border workers: accident coverage, 0.7-1.5% rates, complaint procedure and practical simulations. Complete checklist and differences with occupational disease.',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Workers insurance LAINF documents and injury claim procedure for Ticino cross-border workers',
 };
 
 export default blogMetaEn;

@@ -10239,6 +10239,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.title': 'Leben in Lurago Marinone und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.excerpt': 'Komplette Analyse für diejenigen, die sich entscheiden, in Lurago Marinone zu leben und im Tessin als Grenzgänger zwischen Verbindungen, Steuern und Kosten zu arbeiten.',
     'blog.article.vivere-lurago-marinone-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee im Tessin',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'UVG Grenzgänger 2026: Praktisches Unfallverfahren',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'UVG für Grenzgänger: Unfalldeckung, Sätze 0.7-1.5 %, Meldeverfahren und praktische Simulationen. Umfassende Checkliste und Unterschiede zur Berufskrankheit.',
+    'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Versicherungsdokumente und Meldeverfahren für Arbeitsunfälle LAINF für Grenzgänger Tessin',
 };
 
 export default blogMetaDe;
