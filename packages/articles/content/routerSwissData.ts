@@ -1202,6 +1202,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esportazioni-svizzera-luglio-record': { it: 'esportazioni-svizzera-luglio-record', en: 'swiss-exports-july-record', de: 'schweizerische-exporte-juli-rekord', fr: 'exportations-suisse-juillet-record' },
  'orologi-export-svizzera-augusto-2026': { it: 'orologi-export-svizzera-augusto-2026', en: 'swiss-watch-export-august-2026', de: 'schweizer-uhr-export-august-2026', fr: 'export-horloges-suisse-aout-2026' },
  'rallentamento-crescita-demografica-2025': { it: 'rallentamento-crescita-demografica-2025', en: 'demographic-slowdown-2025-switzerland', de: 'demografischer-rueckgang-2025-schweiz', fr: 'ralentissement-demographie-2025-suisse' },
+ 'lombard-odier-patrimoni-record': { it: 'lombard-odier-patrimoni-record', en: 'lombard-odier-assets-record', de: 'lombard-odier-vermogen-rekord', fr: 'lombard-odier-patrimoines-record' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

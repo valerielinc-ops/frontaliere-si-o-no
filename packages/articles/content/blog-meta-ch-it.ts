@@ -3529,6 +3529,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rallentamento-crescita-demografica-2025.title': 'Rallentamento demografico nel 2025: +0,8%',
     'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'Al 31 dicembre 2025 la Svizzera conta 9,127 milioni di abitanti. La crescita rallenta all\'0,8%, gli anziani superano per la prima volta i giovani. Implicazioni su AVS, LPP e welfare.',
     'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Veduta aerea di città svizzera con persone di diverse età, simbolo dell\'invecchiamento demografico',
+    'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier: patrimoni a record nel primo semestre',
+    'blog.article.lombard-odier-patrimoni-record.excerpt': 'Banca ginevrina raggiunge 367 miliardi CHF di patrimoni totali. Ricavi +9%, utile netto +25% nel primo semestre 2026.',
+    'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Professionisti finanziari esaminano dati di gestione patrimoniale in ufficio bancario svizzero moderno',
 };
 
 export default blogMetaChIt;

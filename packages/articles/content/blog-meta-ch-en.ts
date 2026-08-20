@@ -3529,6 +3529,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rallentamento-crescita-demografica-2025.title': 'Demographic slowdown in 2025: +0.8%',
     'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'As of December 31, 2025, Switzerland has 9.127 million inhabitants. Growth slows to 0.8%, the elderly outnumber the young for the first time. Implications on AVS, LPP and welfare.',
     'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Aerial view of Swiss city with people of different ages representing demographic aging',
+    'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier: record assets in the first half of the year',
+    'blog.article.lombard-odier-patrimoni-record.excerpt': 'Geneva bank reaches CHF 367 billion in total assets. Revenues +9%, net profit +25% in the first half of 2026.',
+    'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Financial professionals examining asset management data in a modern Swiss banking office',
 };
 
 export default blogMetaChEn;
