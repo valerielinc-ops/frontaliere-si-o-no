@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-08-19T22:10:51.589Z",
+  "generatedAt": "2026-08-20T10:10:22.674Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 1060,
-  "avgDurationMs": 1060,
+  "durationMs": 5879,
+  "avgDurationMs": 5879,
   "durationHistory": [
-    1060
+    5879
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,45 +50,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Software Engineer",
-      "slug": "senior-software-engineer-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-27",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-08-25",
-      "id": "board-international-af8a64818a76",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6830",
-      "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "UX Designer",
