@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-08-20T10:07:43.299Z",
+  "assembledAt": "2026-08-20T21:52:07.690Z",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Unterassistenten Innere Medizin",
         "en": "Assistant Internal Medicine",
-        "de": "Unter assistants Innere Medizin",
+        "de": "Unterassistenten Innere Medizin",
         "fr": "Sous-assistants en médecine interne"
       },
       "description": "Unterassistenten Innere Medizin — Kantonsspital Uri",
@@ -31,7 +31,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Innere-Medizin-de-j34.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-20T10:07:40.476Z",
+      "crawledAt": "2026-08-20T21:52:05.252Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Gynaekologie-und-Geburtshilfe-de-j37.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:39.774Z",
+      "crawledAt": "2026-08-20T21:52:04.737Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -121,11 +121,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistenten-gynakologie-und-geburtshilfe-kantonsspital-uri-altdorf"
+        "unterassistenten-gynakologie-und-geburtshilfe-kantonsspital-uri-altdorf",
+        "sotto-assistenti-ginecologia-e-ostetricia-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenten-gynakologie-und-geburtshilfe-kantonsspital-uri-altdorf"
+          "unterassistenten-gynakologie-und-geburtshilfe-kantonsspital-uri-altdorf",
+          "sotto-assistenti-ginecologia-e-ostetricia-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:29.883Z",
@@ -171,7 +173,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Chirurgie-und-Orthopaedie-de-j35.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:39.101Z",
+      "crawledAt": "2026-08-20T21:52:04.217Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -190,12 +192,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "unterassistenten-chirurgie-und-orthopadie-kantonsspital-uri-altdorf",
-        "sotto-assistenti-chirurgia-e-ortopedia-kantonsspital-uri-altdorf"
+        "sotto-assistenti-chirurgia-e-ortopedia-kantonsspital-uri-altdorf",
+        "unterassistenten-chirurgie-e-orthopala-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistenten-chirurgie-und-orthopadie-kantonsspital-uri-altdorf",
-          "sotto-assistenti-chirurgia-e-ortopedia-kantonsspital-uri-altdorf"
+          "sotto-assistenti-chirurgia-e-ortopedia-kantonsspital-uri-altdorf",
+          "unterassistenten-chirurgie-e-orthopala-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:29.294Z",
@@ -244,7 +248,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-mit-Zusatzfunktion-als-Berufsbildnerin-w-de-j409.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:38.560Z",
+      "crawledAt": "2026-08-20T21:52:03.803Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -285,13 +289,15 @@
         "fisioterapista-in-funzione-aggiuntiva-come-designer-professionista-in-w-m-d-80-100-kantonsspital-uri-altdorf",
         "physiotherapeut-in-con-zusatzfunktion-come-berufsbildner-in-w-m-d-80-100-kantonsspital-uri-altdorf",
         "physiotherapist-in-with-additional-function-as-a-professional-designer-in-w-m-d-80-100-kantonsspital-uri-altdorf",
-        "kinesitherapeute-en-fonction-supplementaire-en-tant-que-concepteur-professionnel-en-w-m-d-80-100-kantonsspital-uri"
+        "kinesitherapeute-en-fonction-supplementaire-en-tant-que-concepteur-professionnel-en-w-m-d-80-100-kantonsspital-uri",
+        "fisioterapista-con-funzione-aggiuntiva-come-formatore-uomo-donna-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri",
           "fisioterapista-in-funzione-aggiuntiva-come-designer-professionista-in-w-m-d-80-100-kantonsspital-uri-altdorf",
-          "physiotherapeut-in-con-zusatzfunktion-come-berufsbildner-in-w-m-d-80-100-kantonsspital-uri-altdorf"
+          "physiotherapeut-in-con-zusatzfunktion-come-berufsbildner-in-w-m-d-80-100-kantonsspital-uri-altdorf",
+          "fisioterapista-con-funzione-aggiuntiva-come-formatore-uomo-donna-kantonsspital-uri-altdorf"
         ],
         "en": [
           "physiotherapist-in-with-additional-function-as-a-professional-designer-in-w-m-d-80-100-kantonsspital-uri-altdorf"
@@ -346,7 +352,7 @@
       "url": "https://stellen.ksuri.ch/Pflegefachperson-FHHF-oder-FaGe-Schmerzmedizin-40-wmd-de-j427.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:38.028Z",
+      "crawledAt": "2026-08-20T21:52:03.374Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -453,7 +459,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-arzt-Innere-Medizin-mit-Schwerpunkt-Intensivme-de-j391.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:37.513Z",
+      "crawledAt": "2026-08-20T21:52:02.944Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -473,12 +479,14 @@
       "previousSlugs": [
         "oberarztin-arzt-oder-leitende-r-arztin-arzt-mit-schwerpunkt-intensivmedizin-40-100-m-w-d",
         "oberarztin-arzt-intensivmedizin-40-100-m-w-d-kantonsspital-uri-altdorf",
-        "oberarztin-arzt-innere-medizin-mit-schwerpunkt-intensivmedizin-40-100-m-w-d-kantonsspital"
+        "oberarztin-arzt-innere-medizin-mit-schwerpunkt-intensivmedizin-40-100-m-w-d-kantonsspital",
+        "oberarztin-arzt-o-leitende-r-arztin-arzt-con-schwerpunkt-intensivmedizin-40-100-m-w-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-oder-leitende-r-arztin-arzt-mit-schwerpunkt-intensivmedizin-40-100-m-w-d",
-          "oberarztin-arzt-innere-medizin-mit-schwerpunkt-intensivmedizin-40-100-m-w-d-kantonsspital"
+          "oberarztin-arzt-innere-medizin-mit-schwerpunkt-intensivmedizin-40-100-m-w-d-kantonsspital",
+          "oberarztin-arzt-o-leitende-r-arztin-arzt-con-schwerpunkt-intensivmedizin-40-100-m-w-d-kantonsspital-uri-altdorf"
         ],
         "en": [
           "oberarztin-arzt-oder-leitende-r-arztin-arzt-mit-schwerpunkt-intensivmedizin-40-100-m-w-d"
@@ -537,7 +545,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-Oberarzt-Kardiologie-50-100-wmd-de-j367.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:36.979Z",
+      "crawledAt": "2026-08-20T21:52:02.511Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -555,11 +563,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-kardiologie-50-100-w-m-d-kantonsspital-uri-altdorf"
+        "oberarztin-oberarzt-kardiologie-50-100-w-m-d-kantonsspital-uri-altdorf",
+        "medico-specialista-in-cardiologia-50-100-w-m-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kardiologie-50-100-w-m-d-kantonsspital-uri-altdorf"
+          "oberarztin-oberarzt-kardiologie-50-100-w-m-d-kantonsspital-uri-altdorf",
+          "medico-specialista-in-cardiologia-50-100-w-m-d-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:27.730Z",
@@ -608,7 +618,7 @@
       "url": "https://stellen.ksuri.ch/MPA-im-Patientenmanagement-Gynaekologie-und-Geburtshilfe-8-de-j326.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:36.279Z",
+      "crawledAt": "2026-08-20T21:52:01.969Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -685,7 +695,7 @@
       "url": "https://stellen.ksuri.ch/Mitarbeiterin-Empfang-und-Patientenaufnahme-40-wmd-de-j424.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:35.564Z",
+      "crawledAt": "2026-08-20T21:52:01.422Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -703,11 +713,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-empfang-und-patientenaufnahme-40-w-m-d-kantonsspital-uri-altdorf"
+        "mitarbeiter-in-empfang-und-patientenaufnahme-40-w-m-d-kantonsspital-uri-altdorf",
+        "collaboratore-trice-empfang-e-patientenaufnahme-40-m-w-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-und-patientenaufnahme-40-w-m-d-kantonsspital-uri-altdorf"
+          "mitarbeiter-in-empfang-und-patientenaufnahme-40-w-m-d-kantonsspital-uri-altdorf",
+          "collaboratore-trice-empfang-e-patientenaufnahme-40-m-w-d-kantonsspital-uri-altdorf"
         ],
         "fr": [
           "mitarbeiter-in-empfang-und-patientenaufnahme-40-w-m-d-kantonsspital-uri-altdorf"
@@ -759,7 +771,7 @@
       "url": "https://stellen.ksuri.ch/Leitender-aerztinArzt-Innere-Medizin-mit-Schwerpunkt-Inten-de-j429.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:34.866Z",
+      "crawledAt": "2026-08-20T21:52:00.899Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -822,7 +834,7 @@
       "url": "https://stellen.ksuri.ch/Leitende-aerztin-Leitender-Arzt-Innere-Medizin-80-100-wmd-de-j425.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:34.080Z",
+      "crawledAt": "2026-08-20T21:52:00.384Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -840,11 +852,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-innere-medizin-80-100-w-m-d-kantonsspital-uri-altdorf"
+        "leitende-arztin-leitender-arzt-innere-medizin-80-100-w-m-d-kantonsspital-uri-altdorf",
+        "medicina-interna-medica-senior-80-100-f-m-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-innere-medizin-80-100-w-m-d-kantonsspital-uri-altdorf"
+          "leitende-arztin-leitender-arzt-innere-medizin-80-100-w-m-d-kantonsspital-uri-altdorf",
+          "medicina-interna-medica-senior-80-100-f-m-d-kantonsspital-uri-altdorf"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-innere-medizin-80-100-w-m-d-kantonsspital-uri-altdorf"
@@ -899,7 +913,7 @@
       "url": "https://stellen.ksuri.ch/Leitende-aerztin-Leitender-Arzt-Gastroenterologie-60-100-w-de-j426.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:33.495Z",
+      "crawledAt": "2026-08-20T21:51:59.963Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -917,11 +931,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-gastroenterologie-60-100-w-m-d-kantonsspital-uri-altdorf"
+        "leitende-arztin-leitender-arzt-gastroenterologie-60-100-w-m-d-kantonsspital-uri-altdorf",
+        "piombo-medico-piombo-gastroenterologia-medico-60-100-f-m-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-gastroenterologie-60-100-w-m-d-kantonsspital-uri-altdorf"
+          "leitende-arztin-leitender-arzt-gastroenterologie-60-100-w-m-d-kantonsspital-uri-altdorf",
+          "piombo-medico-piombo-gastroenterologia-medico-60-100-f-m-d-kantonsspital-uri-altdorf"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-gastroenterologie-60-100-w-m-d-kantonsspital-uri-altdorf"
@@ -976,7 +992,7 @@
       "url": "https://stellen.ksuri.ch/Lehrstelle-Fachfrau-Fachmann-Gesundheit-EFZ-wmd-de-j418.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:32.678Z",
+      "crawledAt": "2026-08-20T21:51:59.428Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -994,11 +1010,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-efz-w-m-d-kantonsspital-uri-altdorf"
+        "lehrstelle-fachfrau-fachmann-gesundheit-efz-w-m-d-kantonsspital-uri-altdorf",
+        "apprendistato-fachfrau-fachmann-gesundheit-cfc-m-w-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-efz-w-m-d-kantonsspital-uri-altdorf"
+          "lehrstelle-fachfrau-fachmann-gesundheit-efz-w-m-d-kantonsspital-uri-altdorf",
+          "apprendistato-fachfrau-fachmann-gesundheit-cfc-m-w-d-kantonsspital-uri-altdorf"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-gesundheit-efz-w-m-d-kantonsspital-uri-altdorf"
@@ -1053,7 +1071,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Operationstechnik-HF-wmd-80-100-de-j143.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:32.077Z",
+      "crawledAt": "2026-08-20T21:51:58.993Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1071,11 +1089,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf"
+        "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf",
+        "tecnico-di-sala-operatoria-m-f-d-80-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf"
+          "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf",
+          "tecnico-di-sala-operatoria-m-f-d-80-100-kantonsspital-uri-altdorf"
         ],
         "en": [
           "fachperson-operationstechnik-hf-w-m-d-80-100-kantonsspital-uri-altdorf"
@@ -1127,7 +1147,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Gesundheit-FaGe-wmd-40-100-de-j399.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:31.326Z",
+      "crawledAt": "2026-08-20T21:51:58.472Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1145,11 +1165,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-fage-w-m-d-40-100-kantonsspital-uri-altdorf"
+        "fachperson-gesundheit-fage-w-m-d-40-100-kantonsspital-uri-altdorf",
+        "professionista-della-salute-fage-m-f-d-40-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-w-m-d-40-100-kantonsspital-uri-altdorf"
+          "fachperson-gesundheit-fage-w-m-d-40-100-kantonsspital-uri-altdorf",
+          "professionista-della-salute-fage-m-f-d-40-100-kantonsspital-uri-altdorf"
         ],
         "en": [
           "fachperson-gesundheit-fage-w-m-d-40-100-kantonsspital-uri-altdorf"
@@ -1198,12 +1220,13 @@
         "de": "DEINE AUFGABEN:\n\n• Du stellst den handwerklichen und technischen Support im Betriebsunterhalt der baulichen Infrastruktur und Gebäudetechnik sicher, insbesondere im Bereich HLKS.\n• Du bearbeitest Störungen, führst Reparaturen sowie Instandhaltungsarbeiten aus und trägst zur laufenden Optimierung unserer Anlagen bei.\n• Du organisierst und koordinierst Wartungs- und Unterhaltsarbeiten mit externen Handwerksbetrieben und Dienstleistern.\n• Du hilfst beim Unterhalt und bei der Pflege der Aussenanlagen, des Gartens sowie beim Winterdienst gemäss Einsatzplan mit.\n• Du unterstützt bei Umzügen, Veranstaltungen und besonderen Anlässen.\n• Du wirkst bei der Umsetzung von Sicherheits-, Hygiene- und Qualitätsstandards mit.\n• Du leistest Pikettdienst während rund 8 bis 9 Wochen pro Jahr sowie gelegentliche Einsätze ausserhalb der regulären Arbeitszeit nach Einsatzplanung.\n• Du unterstützt den Berufsbildner bei der Ausbildung der Lernenden im Betriebsunterhalt.\n• Du arbeitest bei der Umsetzung technischer Projekte mit.\n• Du führst Daten in der Instandhaltungssoftware CAFM und bewirtschaftest die Dokumentenablage in deinem Aufgabengebiet.\n\nDEIN PROFIL:\n\n• Du verfügst über eine abgeschlossene Ausbildung als Fachfrau/Fachmann Betriebsunterhalt EFZ oder über eine gleichwertige handwerkliche Ausbildung EFZ.\n• Du bringst Erfahrung im Betrieb und Unterhalt baulicher Infrastruktur mit.\n• Du hast handwerkliches Geschick sowie ein gutes Verständnis für technische und interdisziplinäre Zusammenhänge.\n• Du bist sicher im Umgang mit MS Office und hast Freude an der Arbeit mit spezifischen Software-Applikationen.\n• Du bist eine teamfähige, kommunikative Persönlichkeit mit hoher Sozialkompetenz und ausgeprägtem Dienstleistungsverständnis.\n• Du arbeitest selbstständig, zuverlässig und strukturiert und behältst auch in anspruchsvollen Situationen den Überblick.\n• Du bist flexibel, belastbar und bereit, teilweise unregelmässige Arbeitszeiten sowie Piketteinsätze zu leisten.\n\nUnser Angebot:\n\n• Ein vielseitiges und sinnstiftendes Arbeitsumfeld in einem modernen Spitalbetrieb.\n• Moderne Medizin- und Gebäudetechniklösungen sowie spannende Projekte in einer zukunftsorientierten Infrastruktur.\n• Die Möglichkeit, aktiv an der Weiterentwicklung eines zeitgemässen Facility Managements mitzuwirken.\n• Ein motiviertes Team, das Wert auf Zusammenarbeit, Eigenverantwortung und gegenseitige Unterstützung legt.\n• Attraktive Anstellungsbedingungen, Weiterbildungsmöglichkeiten und gezielte Förderung deiner beruflichen Entwicklung. Werde Teil unseres Teams und gestalte die Zukunft der Medizin- und Gebäudetechnik in einem innovativen und modernen Umfeld mit. Unser Teamleiter Medizin- und Gebäudetechnik, Urban Zurfluh, steht dir für Fragen oder weitere Auskünfte gerne unter +41 875 51 89 zur Verfügung. Wir freuen uns auf deine Bewerbung.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Urban Zurfluh\n• Teamleiter Medizin- und Gebäudetechnik\n• +41 41 875 51 89\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
         "fr": "Vos fonctions :\n\n• Vous fournissez de l'artisanat et un soutien technique dans l'entretien opérationnel de l'infrastructure et de la technologie de construction, en particulier dans le domaine de CVC.\n• Vous travaillerez sur les défauts, effectuerez des travaux de réparation et d'entretien et contribuerez à l'optimisation continue de nos installations.\n• Vous organisez et coordonnez les travaux de maintenance et d'entretien avec des entreprises artisanales et des fournisseurs de services externes.\n• Vous aidez à l'entretien et l'entretien des installations extérieures, le jardin et le service d'hiver selon le plan opérationnel.\n• Vous supportez les mouvements, les événements et les événements spéciaux.\n• Vous participez à la mise en œuvre des normes de sécurité, d'hygiène et de qualité.\n• Vous offrez des services de piquetage pendant environ 8 à 9 semaines par année ainsi que des affectations occasionnelles en dehors des heures normales de travail après la planification de l'affectation.\n• Vous aidez le formateur professionnel à former les apprenants à la maintenance d'entreprise.\n• Vous participez à la réalisation de projets techniques.\n• Vous conservez les données dans le logiciel de maintenance CAFM et gérez le stockage de documents dans votre zone de responsabilité.\n\nVotre profil:\n\n• Vous avez suivi une formation en tant qu'entreprise spécialisée dans la maintenance de l'EFZ ou en tant qu'entreprise équivalente.\n• Vous apportez de l'expérience dans le fonctionnement et l'entretien des infrastructures structurelles.\n• Vous avez de l'artisanat et une bonne compréhension des contextes techniques et interdisciplinaires.\n• Vous êtes confiant dans vos relations avec MS Office et aimez travailler avec des applications logicielles spécifiques.\n• Vous êtes une personnalité communicative, capable d'équipe, avec un haut niveau de compétence sociale et une forte compréhension des services.\n• Vous travaillez de manière indépendante, fiable et structurée et gardez un aperçu même dans des situations exigeantes.\n• Vous êtes flexible, résilient et prêt à effectuer des heures de travail parfois irrégulières ainsi que des tâches de piquette.\n\nNotre offre :\n\n• Un environnement de travail polyvalent et significatif dans un hôpital moderne.\n• Des solutions médicales et technologiques modernes ainsi que des projets passionnants dans une infrastructure orientée vers l'avenir.\n• L'occasion de participer activement au développement d'une gestion des installations contemporaine.\n• Une équipe motivée qui valorise la coopération, l'appropriation et le soutien mutuel.\n• Des conditions d'emploi attrayantes, des possibilités d'éducation et une promotion ciblée de votre perfectionnement professionnel. Faites partie de notre équipe et façonnez l'avenir de la technologie médicale et du bâtiment dans un environnement innovant et moderne. Notre chef d'équipe de technologie médicale et de construction, Urban Zurfluh, est à votre disposition pour toute question ou information complémentaire sur +41 875 51 89. Nous attendons avec impatience votre candidature.\n• Poussière d'Andrina\n• Chef d'équipe Services RH\n• +41 41 875 53 34\n• Zurfluh urbain\n• Chef d'équipe médical et technique du bâtiment\n• +41 41 875 51 89\n• Empreinte\n• Protection des données\n•\n•\n•\n•\n•\n• Paramètres des cookies"
       },
+      "needsRetranslation": false,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Fachperson-Betriebsunterhalt-wmd-80-100-de-j430.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:30.726Z",
+      "crawledAt": "2026-08-20T21:51:58.035Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1220,6 +1243,22 @@
       "applyUrl": "https://stellen.ksuri.ch/Fachperson-Betriebsunterhalt-wmd-80-100-de-j430.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf",
+        "manutenzione-professionale-m-f-d-80-100-kantonsspital-uri-altdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf",
+          "manutenzione-professionale-m-f-d-80-100-kantonsspital-uri-altdorf"
+        ],
+        "en": [
+          "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf"
+        ]
+      },
       "firstSeenAt": "2026-08-19T10:17:27.628Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1232,21 +1271,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf"
-        ],
-        "en": [
-          "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf"
-        ],
-        "fr": [
-          "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-betriebsunterhalt-w-m-d-80-100-kantonsspital-uri-altdorf"
-      ]
+      }
     },
     {
       "id": "kantonsspital-uri-74ac3a3fa4ba",
@@ -1274,12 +1299,13 @@
         "de": "DEINE AUFGABEN:\n\n• Überwachung und Betreuung unserer intensivpflichtigen Patientinnen und Patienten\n• Patientenorientierte Pflege aller Intensivpatientinnen und -patienten\n• Mitarbeit und Mitgestaltung bei der Weiterentwicklung organisatorischer und administrativer Abläufe\n• Begleitung und Betreuung der Studierenden NDS HF in Intensivpflege\n\nDEIN PROFIL:\n\n• Du bist eine Fachperson mit NDS Intensivpflege und hast deine Passion in der Intensivpflege gefunden\n• Verantwortungsbewusste, engagierte Persönlichkeit, die ihre Erfahrung wirkungsvoll einbringt und gerne Wissen weitergibt\n• Teamorientiert, kommunikativ und offen für den interdisziplinären Austausch\n\nDEINE PERSPEKTIVEN:\n\n• Ein eingespieltes, engagiertes Team aus Pflege und Ärzteschaft\n• Flache Hierarchien, ein familiäres Umfeld und eine gelebte DU-Kultur\n• Attraktive Anstellungsbedingungen mit umfangreichen Sozialleistungen\n• Möglichkeit eines Schnuppertags , um unser Tätigkeitsfeld und Team persönlich kennenzulernen Unsere Leiterin Intensivpflege, Evelyne Simon, erteilt dir unter 041 875 55 00 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Evelyne Simon\n• Leiterin Intensivpflege\n• +41 41 875 53 37\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
         "fr": "Mansioni - Surveillance et prise en charge de nos patients nécessitant des soins intensifs - Soins axés sur les patients de tous les patients en soins intensifs - Participation et participation à la poursuite du développement des processus organisationnels et administratifs - Accompagnement et prise en charge des étudiants NDS HF en soins intensifs\n• Requisiti - Tu es un professionnel avec NDS en soins intensifs et tu as trouvé ta passion dans les soins intensifs - Personnalité responsable et engagée qui apporte son expérience de manière efficace et transmet volontiers ses connaissances - Orientée vers l'équipe, communicative et ouverte à l'échange interdisciplinaire\n• Cosa offriamo - Une équipe bien rodée et engagée composée de soins et de médecins - Une hiérarchie horizontale, un environnement familial et une culture de l'UA véctée - Des conditions d'emploi attrayantes avec de nombreuses prestations sociales - Possibilité d'une journée découverte pour connaître personnellement notre domaine d'activité et notre équipe Contatto - Notre responsable des soins intensifs, Evelyne Simon, se fera un plaisir de te fournir de plus amples informations au 041 875 55 00. Nous nous réjouissons de votre candidature ! - Mme Andrina Staub - Chef d'équipe HR Services - +41 41 875 53 34 - Mme Evelyne Simon - Responsable des soins intensifs - +41 41 875 53 37 - Mentions légales - Protection des données"
       },
+      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Expert-in-Intensivpflege-NDS-HF-wmd-60-100-de-j347.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:30.012Z",
+      "crawledAt": "2026-08-20T21:51:57.519Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1325,11 +1351,13 @@
         ]
       },
       "previousSlugs": [
-        "expert-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+        "expert-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+        "esperto-a-in-cure-intensive-nds-hf-f-m-d-60-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+          "expert-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+          "esperto-a-in-cure-intensive-nds-hf-f-m-d-60-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:23.429Z",
@@ -1351,9 +1379,9 @@
       "slug": "dietista-m-f-d-40-kantonsspital-uri-altdorf",
       "slugByLocale": {
         "it": "dietista-m-f-d-40-kantonsspital-uri-altdorf",
-        "en": "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf",
+        "en": "dietician-m-w-d-40-kantonsspital-uri-altdorf",
         "de": "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
-        "fr": "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf"
+        "fr": "conseiller-ere-en-nutrition-m-w-d-40-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
       "companyKey": "kantonsspital-uri",
@@ -1372,12 +1400,13 @@
         "de": "DEINE AUFGABEN:\n\n• Ernährungstherapeutische Betreuung von stationären Patientinnen und Patienten mit Mangelernährung, enteraler und parenteraler Ernährung, Diabetes mellitus, gastrointestinalen Erkrankungen und nach Operationen\n• Beratung und Begleitung von ambulanten Patientinnen und Patienten mit Schwerpunkt Adipositas, Diabetes mellitus, Mangelernährung, gastrointestinalen oder onkologischen Erkrankungen, Nahrungsmittelintoleranzen\n• Gestaltung und Durchführung von internen Schulungen, Unterrichtseinheiten und Vorträgen (Ärzteschaft, Service Excellence, Pflege)\n• Mitbetreuung von Studierenden der Fachhochschule im Rahmen der Praktika\n• Enge interdisziplinäre Zusammenarbeit mit der Endokrinologie, Onkologie, Chirurgie, inneren Medizin, Gastroenterologie, Pflege, Service Excellence und Diätküche\n• Aktive Teilnahme an Rapporten und Mitgestaltung von Projekten zur Weiterentwicklung ernährungstherapeutischer Konzepte\n\nDEINE PERSPEKTIVEN:\n\n• Ein Arbeitsumfeld in einem Neubau mit modernster Infrastruktur\n• Flache Hierarchien und eine offene DU-Kultur, die den Austausch und die Zusammenarbeit auf Augenhöhe fördern\n• Die Möglichkeit, Dein Aufgabengebiet selbstständig und eigenverantwortlich zu gestalten, wobei Deine Expertise und Ideen geschätzt werden\n• Ein engagiertes und kollegiales Team, das Wert auf gegenseitige Unterstützung und ein wertschätzendes Arbeitsklima legt\n• Eine abwechslungsreiche Tätigkeit, um eine optimale Work-Life-Balance zu gewährleisten Unsere Ernährungsberaterin, Melanie Indergand, steht dir für Fragen oder weitere Auskünfte gerne unter +41 875 51 10 zur Verfügung.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Astrid Hurni\n• Chefarzt-Stellvertreterin Innere Medizin\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
         "fr": "DIVULGATION:\n• thérapie nutritionnelle des patients en situation stationnaire souffrant de malnutrition, de nutrition entérale et parentérale, de diabète sucré, de maladies gastro-intestinales et après les opérations\n• Consultation et accompagnement des patients externes axés sur l'obésité, le diabète sucré, la malnutrition, les maladies gastro-intestinales ou oncologiques, les intolérances alimentaires\n• Conception et mise en oeuvre de formations internes, d'unités d'enseignement et de conférences (document, excellence de service, soins)\n• Soutenir les étudiants de l'Université des sciences appliquées dans le cadre des stages\n• Coopération interdisciplinaire étroite avec endocrinologie, oncologie, chirurgie, médecine interne, gastroentérologie, soins, excellence de service et cuisine diététique\n• Participation active aux rapports et co-conception de projets visant à développer des concepts nutritionnels VOS PERSPECTIVES :\n• Un environnement de travail dans un nouveau bâtiment avec les infrastructures les plus modernes\n• Hiérarchies plates et culture ouverte de l'UD qui favorisent l'échange et la coopération au niveau des yeux\n• La capacité de concevoir votre tâche de façon indépendante et indépendante, avec votre expertise et vos idées appréciées\n• Une équipe dévouée et collégiale qui attache de la valeur au soutien mutuel et à un environnement de travail précieux\n• Notre nutritionniste, Melanie Indergand, est disponible pour toute question ou information complémentaire au +41 875 51 10.\n• Poussière d'Andrina\n• Chef d'équipe Services RH\n• +41 41 875 53 34\n• Mme Astrid Hurni\n• Médecin-chef en médecine interne\n• Empreinte\n• Protection des données\n•\n• Paramètres des cookies"
       },
+      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Ernaehrungsberaterin-mwd-40-de-j400.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:29.262Z",
+      "crawledAt": "2026-08-20T21:51:56.988Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1399,20 +1428,26 @@
         "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
         "dietician-m-f-d-40-kantonsspital-uri-altdorf",
         "conseiller-ere-en-nutrition-m-f-d-40-kantonsspital-uri-altdorf",
+        "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf",
+        "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf",
+        "dietista-m-f-d-40-kantonsspital-uri-altdorf",
         "dietician-m-w-d-40-kantonsspital-uri-altdorf",
         "conseiller-ere-en-nutrition-m-w-d-40-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
-          "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf"
+          "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
+          "dietista-m-f-d-40-kantonsspital-uri-altdorf"
         ],
         "en": [
           "dietician-m-f-d-40-kantonsspital-uri-altdorf",
+          "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf",
           "dietician-m-w-d-40-kantonsspital-uri-altdorf"
         ],
         "fr": [
           "conseiller-ere-en-nutrition-m-f-d-40-kantonsspital-uri-altdorf",
+          "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf",
           "conseiller-ere-en-nutrition-m-w-d-40-kantonsspital-uri-altdorf"
         ]
       },
@@ -1456,12 +1491,13 @@
         "de": "DEINE AUFGABEN:\n\n• Als Teil des Führungsteams bist du zuständig für die pflegerische Qualitätsentwicklung in der Praxis\n• Als Mitglied der Steuergruppe Fachverantwortung bist du mitverantwortlich für die Umsetzung der Spitalstrategie im Bereich Pflege und Therapie\n• Du arbeitest aktiv im Schichtbetrieb mit und gibst dein Fachwissen den Mitarbeitenden, Studierenden und Lernenden weiter\n• Du bringst dein Wissen in Projektgruppen ein\n\nDEIN PROFIL:\n\n• Beruflich abgeschlossene Ausbildung auf Stufe FH oder die Bereitschaft das Bachelorstudium berufsbegleitend zu absolvieren\n• Idealerweise mehrjährige Berufserfahrung in der Akutpflege\n• Grundkenntnisse in wissenschaftlicher Recherche und Best Practice\n• Erfahrung in Projekt- und Konzeptarbeit von Vorteil\n• Eine kommunikative und empathische Persönlichkeit mit hoher Sozialkompetenz und Eigenverantwortung\n\nDEINE PERSPEKTIVEN:\n\n• Eine herausfordernde und abwechslungsreiche Tätigkeit in einem Spital mit topmoderner Infrastruktur und einem sich dynamisch entwickelnden Umfeld\n• Eine familiäre und wertschätzende Unternehmenskultur (DU-Kultur) sowie ein motiviertes und gut eingespieltes Team\n• Persönliche Entwicklung im Rahmen unserer internen und externen Fort- und Weiterbildungsmöglichkeiten\n• Zeitgemässe Arbeitsbedingungen mit umfangreichen Sozialleistungen. Unsere Leiterin Akutpflege, Bettina Imholz-Rieder erteilt dir unter 041 875 53 54 gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Bettina Imholz-Rieder\n• Leiterin Akutpflege\n• +41 41 875 53 54\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
         "fr": "Mansioni - En tant que membre de l'équipe de direction, vous êtes responsable du développement de la qualité des soins infirmiers dans la pratique - En tant que membre du groupe de pilotage de la responsabilité spécialisée, vous êtes conjointement responsable de la mise en œuvre de la stratégie hospitalière dans le domaine des soins et de la thérapie - Vous travaillez activement par équipes et transmettez vos connaissances spécialisées aux employés, étudiants et apprentis - Vous apportez vos connaissances à des groupes de projet\n• Exigences - Formation professionnelle complète au niveau FH ou volonté d'obtenir un baccalauréat parallèlement à votre travail - Idéalement plusieurs années d'expérience professionnelle dans le domaine des soins aigus - Connaissances de base en sciences recherche et meilleures pratiques - Une expérience dans le travail de projet et de conception est un avantage - Une personnalité communicative et empathique avec des compétences sociales élevées et une responsabilité personnelle\n• Cosa offriamo - Un travail stimulant et varié dans un hôpital doté d'une infrastructure de pointe et d'un environnement en développement dynamique - Une culture d'entreprise familiale et appréciée (culture DU) ainsi qu'une équipe motivée et bien coordonnée - Développement personnel dans le cadre de nos opportunités de formation continue internes et externes - Conditions de travail contemporaines avec de nombreux avantages sociaux. Notre responsable des soins aigus, Bettina Imholz-Rieder, se fera un plaisir de vous donner de plus amples informations au 041 875 53 54. Nous attendons votre candidature avec impatience. Contact - Mme Andrina Staub - Team Leader HR Services - +41 41 875 53 34 - Mme Bettina Imholz-Rieder - Responsable des soins aigus - +41 41 875 53 54 - Mentions légales - Protection des données - - - - - - Paramètres Cookies"
       },
+      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Dipl-Pflegefachperson-FH-mit-Fachverantwortung-Akutpflege--de-j369.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:28.406Z",
+      "crawledAt": "2026-08-20T21:51:56.475Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1504,11 +1540,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-fh-mit-fachverantwortung-akutpflege-w-m-d-70-100-kantonsspital-uri"
+        "dipl-pflegefachperson-fh-mit-fachverantwortung-akutpflege-w-m-d-70-100-kantonsspital-uri",
+        "infermiere-a-diplomato-a-sup-con-responsabilita-specialistica-in-cure-acute-f-m-d-70-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-fh-mit-fachverantwortung-akutpflege-w-m-d-70-100-kantonsspital-uri"
+          "dipl-pflegefachperson-fh-mit-fachverantwortung-akutpflege-w-m-d-70-100-kantonsspital-uri",
+          "infermiere-a-diplomato-a-sup-con-responsabilita-specialistica-in-cure-acute-f-m-d-70-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:21.720Z",
@@ -1551,12 +1589,13 @@
         "de": "Anforderungen:\n\n• Als Fachfrau/Fachmann Gesundheit (FAGE) EFZ kannst du mit der zweijährigen, verkürzten Ausbildung starten.\n• Mit einer abgeschlossenen Ausbildung in Sekundarstufe 2 oder einer Berufsbildung EFZ wählst du die dreijährige Ausbildung.\n• Weitere Berufsspezifische Anforderungen und für die Ausbildung relevante Informationen sind auf der XUND Homepage nachzulesen www.xund.ch Das Bildungszentrum XUND, unser Ausbildungspartner befindet sich in Luzern wo du die modularen Schulblöcke besuchst.",
         "fr": "Exigences - En tant que spécialiste de la santé (FAGE) EFZ, vous pouvez commencer par une formation raccourcie de deux ans. - Après avoir terminé un apprentissage en niveau secondaire 2 ou en formation professionnelle (EFZ), vous choisissez l'apprentissage de trois ans. - D'autres exigences spécifiques au poste et des informations pertinentes à la formation sont disponibles sur la page d'accueil du XUND www.xund.ch Le centre de formation XUD, notre partenaire de formation, est situé à Lucerne où vous fréquenterez les blocs modulaires de l'école."
       },
+      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Ausbildungsplaetze-Pflegefachfrau-mann-HF-wmd-100-de-j59.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:27.536Z",
+      "crawledAt": "2026-08-20T21:51:55.959Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1581,11 +1620,13 @@
         ]
       },
       "previousSlugs": [
-        "ausbildungsplatze-pflegefachfrau-mann-hf-w-m-d-100-kantonsspital-uri-altdorf"
+        "ausbildungsplatze-pflegefachfrau-mann-hf-w-m-d-100-kantonsspital-uri-altdorf",
+        "formazione-come-assistente-di-cura-professionale-hf-w-m-d-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatze-pflegefachfrau-mann-hf-w-m-d-100-kantonsspital-uri-altdorf"
+          "ausbildungsplatze-pflegefachfrau-mann-hf-w-m-d-100-kantonsspital-uri-altdorf",
+          "formazione-come-assistente-di-cura-professionale-hf-w-m-d-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:21.146Z",
@@ -1634,7 +1675,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Radiologiefachperson-HF-wmd-100-de-j397.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:26.907Z",
+      "crawledAt": "2026-08-20T21:51:55.531Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1652,11 +1693,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf"
+        "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf",
+        "operatore-radiologico-hf-w-m-d-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf"
+          "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf",
+          "operatore-radiologico-hf-w-m-d-100-kantonsspital-uri-altdorf"
         ],
         "en": [
           "ausbildungsplatz-radiologiefachperson-hf-w-m-d-100-kantonsspital-uri-altdorf"
@@ -1691,7 +1734,7 @@
       "title": "Ausbildungsplatz Experte/-in Anästhesiepflege NDS HF (w/m/d) 100%",
       "titleByLocale": {
         "it": "Esperto/-a in Anestesia NDS HF (w/m/d) 100%",
-        "en": "Training place Expert/-in anesthesia care NDS HF (m/f/d) 100%",
+        "en": "Ausbildungsplatz Experte/-in Anästhesiepflege NDS HF (w/m/d) 100%",
         "de": "Ausbildungsplatz Experte/-in Anästhesiepflege NDS HF (w/m/d) 100%",
         "fr": "Spécialiste en soins anesthésie NDS HF (h/f/d) 100%"
       },
@@ -1708,7 +1751,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Anaesthesiepflege-NDS-HF-wmd-1-de-j407.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:26.322Z",
+      "crawledAt": "2026-08-20T21:51:55.093Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1726,11 +1769,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildungsplatz-experte-in-anasthesiepflege-nds-hf-w-m-d-100-kantonsspital-uri-altdorf"
+        "ausbildungsplatz-experte-in-anasthesiepflege-nds-hf-w-m-d-100-kantonsspital-uri-altdorf",
+        "esperto-a-in-anestesia-nds-hf-w-m-d-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-experte-in-anasthesiepflege-nds-hf-w-m-d-100-kantonsspital-uri-altdorf"
+          "ausbildungsplatz-experte-in-anasthesiepflege-nds-hf-w-m-d-100-kantonsspital-uri-altdorf",
+          "esperto-a-in-anestesia-nds-hf-w-m-d-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:20.105Z",
@@ -1779,7 +1824,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Dipl-FachfrauFachmann-Operationstechnik-H-de-j213.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:25.553Z",
+      "crawledAt": "2026-08-20T21:51:54.580Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1797,11 +1842,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildungsplatz-dipl-fachfrau-fachmann-operationstechnik-hf-w-m-d-kantonsspital-uri"
+        "ausbildungsplatz-dipl-fachfrau-fachmann-operationstechnik-hf-w-m-d-kantonsspital-uri",
+        "diplomato-tecnico-di-sala-operatoria-w-m-d-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-dipl-fachfrau-fachmann-operationstechnik-hf-w-m-d-kantonsspital-uri"
+          "ausbildungsplatz-dipl-fachfrau-fachmann-operationstechnik-hf-w-m-d-kantonsspital-uri",
+          "diplomato-tecnico-di-sala-operatoria-w-m-d-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:19.545Z",
@@ -1850,7 +1897,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Intensivpflege-NDS-HF-wmd-60-1-de-j210.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:24.794Z",
+      "crawledAt": "2026-08-20T21:51:54.049Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1868,11 +1915,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+        "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+        "stage-per-esperto-a-di-cure-intensive-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+          "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+          "stage-per-esperto-a-di-cure-intensive-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
         ],
         "en": [
           "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
@@ -1927,7 +1976,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Allgemeine-Innere-Medizin-w-de-j222.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:24.071Z",
+      "crawledAt": "2026-08-20T21:51:53.520Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1945,11 +1994,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-w-m-d-100-kantonsspital-uri"
+        "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-w-m-d-100-kantonsspital-uri",
+        "assistente-medico-assistente-medico-medicina-interna-generale-w-m-d-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-w-m-d-100-kantonsspital-uri"
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-w-m-d-100-kantonsspital-uri",
+          "assistente-medico-assistente-medico-medicina-interna-generale-w-m-d-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.917Z",
@@ -1992,12 +2043,13 @@
         "de": "UNSER ANGEBOT:\nDu hast dein Staatsexamen in der Tasche und möchtest deine fachärztliche Ausbildung in Gynäkologie und Geburtshilfe starten oder vertiefen? Vielleicht möchtest du im Rahmen eines Fremdjahres die Grundlagen dieser spannenden Fachrichtung erlernen? Dann bist du bei uns genau richtig! Du schätzt die Arbeit in einem regionalen Spital, das durch eine familiäre Atmosphäre und ein breites medizinisches Angebot überzeugt. Eine erstklassige Ausbildung und die Zusammenarbeit in einem interdisziplinären Team sind dir wichtig. Ausserdem bringst du gute Deutschkenntnisse mit (mindestens Niveau C1), um dich problemlos mit Kolleginnen, Kollegen und Patientinnen auszutauschen. Wenn du Lust hast, in einem dynamischen Umfeld zu arbeiten und deine berufliche Entwicklung in einem unterstützenden Team voranzutreiben, freuen wir uns darauf, dich kennenzulernen! Unser Chefarzt Gynäkologie und Geburtshilfe, Dr. med. Panagiotis Kanellos, MHBA erteilt dir gerne weitere Auskünfte.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Herr Panagiotis Kanellos\n• Chefarzt Gynäkologie und Geburtshilfe\n• +41 41 875 55 56\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
         "fr": "Description NOTRE OFFRE : Vous avez votre examen d'État en poche et vous souhaitez débuter ou approfondir votre formation spécialisée en gynécologie et obstétrique ? Peut-être aimeriez-vous apprendre les bases de ce sujet passionnant lors d’une année à l’étranger ? Alors vous êtes au bon endroit ! Vous appréciez travailler dans un hôpital régional qui impressionne par son ambiance familiale et sa large gamme de services médicaux. Une formation de premier ordre et le travail au sein d’une équipe interdisciplinaire sont importants pour vous. Vous disposez également d'une bonne connaissance de l'allemand (au moins niveau C1) afin de pouvoir communiquer facilement avec vos collègues et les patients. Si vous souhaitez travailler dans un environnement dynamique et progresser dans votre développement professionnel au sein d'une équipe solidaire, nous avons hâte de faire votre connaissance ! Notre médecin-chef en gynécologie et obstétrique, le Dr med. Panagiotis Kanellos, MHBA se fera un plaisir de vous fournir de plus amples informations. Mansioni - Vous avez votre examen d'État à votre actif et souhaitez commencer ou approfondir votre formation spécialisée en gynécologie et obstétrique - Peut-être aimeriez-vous apprendre les bases de ce domaine passionnant pendant une année à l'étranger - Vous appréciez travailler dans un hôpital régional qui impressionne par une atmosphère familiale et une large gamme de services médicaux - Une formation de premier ordre et le travail dans une équipe interdisciplinaire sont importants pour vous - Vous avez également une bonne connaissance de l'allemand (au moins niveau C1) pour pouvoir vous intégrer facilement Échanger des collègues, des collègues et les patients - Si vous souhaitez travailler dans un environnement dynamique et progresser dans votre évolution professionnelle au sein d'une équipe solidaire, nous avons hâte de faire votre connaissance.\n• Requisiti - Vous avez votre examen d'État à votre actif - Vous souhaitez commencer ou approfondir votre formation de spécialiste en gynécologie et obstétrique - Peut-être aimeriez-vous apprendre les bases de cette spécialité lors d'une année à l'étranger - Vous appréciez travailler dans un hôpital régional qui impressionne par son atmosphère familiale et sa large gamme de services médicaux - Une formation de premier ordre et Travailler dans une équipe interdisciplinaire est important pour vous - Vous avez également une bonne connaissance de l'allemand (au moins niveau C1)\n• Cosa offriamo - Travailler dans un hôpital régional avec une ambiance familiale - Large gamme de services médicaux - Formation de premier ordre - Travailler dans une équipe interdisciplinaire - Accompagner votre développement professionnel dans un environnement dynamique Contatto - Andrina Staub - Chef d'équipe Services RH - 41 41 875 53 34 - M. Panagiotis Kanellos - Médecin-chef Gynécologie et Obstétrique - 41 41 875 55 56 - Mentions légales - Protection des données"
       },
+      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Gynaekologie-und-Geburtshil-de-j402.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-20T10:07:23.345Z",
+      "crawledAt": "2026-08-20T21:51:52.999Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -2015,11 +2067,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-gynakologie-und-geburtshilfe-w-m-d-100-kantonsspital-uri"
+        "assistenzarztin-assistenzarzt-gynakologie-und-geburtshilfe-w-m-d-100-kantonsspital-uri",
+        "assistente-medico-ginecologia-e-ostetricia-m-f-d-100-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-gynakologie-und-geburtshilfe-w-m-d-100-kantonsspital-uri"
+          "assistenzarztin-assistenzarzt-gynakologie-und-geburtshilfe-w-m-d-100-kantonsspital-uri",
+          "assistente-medico-ginecologia-e-ostetricia-m-f-d-100-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.341Z",
