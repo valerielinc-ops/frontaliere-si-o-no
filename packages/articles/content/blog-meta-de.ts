@@ -10272,6 +10272,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Leben in Barasso und Arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Bewilligung G, Befreiung € 7.500, Quellensteuer und Vorsorge AHV/BVG: Alles, was Sie brauchen, um ab 2024 in Barasso zu leben und im Tessin zu arbeiten.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Auto eines Grenzgängers am Brogeda-Grenzübergang zwischen Varese und Tessin, mit Schweizer Zollschildern und Morgennebel',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Leben in Lab und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Umzug nach Caglio, um im Tessin zu arbeiten: Steuern, Bewilligung G, AHV, KVG, Verfahren. Vollständiger Leitfaden für Grenzgänger zwischen Italien und der Schweiz.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Grenzstrasse zwischen Caglio (Bergamo) und dem Schweizer Kanton Tessin mit Alpenlandschaft.',
 };
 
 export default blogMetaDe;

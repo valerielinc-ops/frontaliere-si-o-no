@@ -10275,6 +10275,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Vivre à Barasso et travailler au Tessin : guide frontalier',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permis G, exonération 7 500 € , impôt à la source et prévoyance AVS/LPP : tout ce dont vous avez besoin pour vivre à Barasso et travailler au Tessin à partir de 2024.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Voiture d\'un frontalier au poste de contrôle Brogeda entre Varèse et le Tessin, avec panneaux douaniers suisses',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Vivre à Caglio et travailler au Tessin en tant que frontalière',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Déménager à Caglio pour travailler au Tessin : fiscalité, permis G, AVS, LAMal, procédures. Guide complet pour les frontaliers entre l\'Italie et la Suisse.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Route frontalière entre Caglio (province de Bergame) et le canton du Tessin suisse.',
 };
 
 export default blogMetaFr;
