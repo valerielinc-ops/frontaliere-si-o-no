@@ -1,49 +1,18 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-08-19T21:38:27.864Z",
+  "generatedAt": "2026-08-20T10:02:03.757Z",
   "total": 6,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 16395,
-  "avgDurationMs": 16395,
+  "unchangedCount": 5,
+  "durationMs": 12966,
+  "avgDurationMs": 12966,
   "durationHistory": [
-    16395
+    12966
   ],
-  "newJobs": [
-    {
-      "title": "Precious Metal Control Manager",
-      "slug": "precious-metal-control-manager-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
-      "applyUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "general",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-19",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Technical Drawer &amp; Tooling Warehouse Specialist",
@@ -84,6 +53,42 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Precious Metal Control Manager",
+      "slug": "precious-metal-control-manager-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+      "applyUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-19",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "mks-pamp-a1552294ce80",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-19T21:38:27.862Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 19
+      }
+    },
     {
       "title": "Tecnico di laboratorio",
       "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
