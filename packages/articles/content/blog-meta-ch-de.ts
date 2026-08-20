@@ -3616,6 +3616,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'Prämien KVG Appenzell Ausserrhoden und Prämienverbilligung',
     'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Prämienleitfaden KVG im Kanton Appenzell Ausserrhoden: Franchisen, verfügbare Versicherungsmodelle, Kantonsbeiträge und Verfahren zur Beantragung der einkommensabhängigen Reduktion.',
     'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Schweizer Kantonsamt für Krankenversicherung, Mitarbeiter unterstützt Bewohner bei Subsidy-Antrag',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.title': 'Neue Kernanlage: 14 bis 43 Milliarden Franken',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.excerpt': 'Ein Bericht der Schweizer Akademien schätzt die Kosten auf 14 bis 43 Milliarden CHF. Staatliche Unterstützung für den Bau eines Kernkraftwerks in der Schweiz erforderlich.',
+    'blog.article.centrale-nucleare-costi-14-43-miliardi.imageAlt': 'Luftaufnahme eines Schweizer Atomkraftwerks mit Kühltuermen und Alpenpanorama',
 };
 
 export default blogMetaChDe;

@@ -10846,6 +10846,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'centrale-nucleare-costi-14-43-miliardi',
+    category: 'novita',
+    date: '2026-08-20T23:22:00.381Z',
+    image: '/images/blog/centrale-nucleare-costi-14-43-miliardi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

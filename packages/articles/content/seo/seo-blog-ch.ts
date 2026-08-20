@@ -46898,6 +46898,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centrale-nucleare-costi-14-43-miliardi': {
+    title: 'Nuovo impianto nucleare: da 14 a 43 miliardi di franchi',
+    description: 'Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, impianto, nucleare, miliardi',
+    ogTitle: 'Nuovo impianto nucleare: da 14 a 43 miliardi di franchi',
+    ogDescription: 'Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.',
+    canonicalPath: '/articoli-svizzera/centrale-nucleare-costi-14-43-miliardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo impianto nucleare: da 14 a 43 miliardi di franchi",
+      "description": "Un rapporto delle Accademie svizzere stima costi tra 14 e 43 miliardi CHF. Necessario sostegno statale per la costruzione di una centrale nucleare in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrale-nucleare-costi-14-43-miliardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di una centrale nucleare svizzera con torri di raffreddamento e paesaggio alpino sullo sfondo"
+      },
+      "datePublished": "2026-08-20T23:22:00+00:00",
+      "dateModified": "2026-08-20T23:22:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centrale-nucleare-costi-14-43-miliardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
