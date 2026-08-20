@@ -1,19 +1,21 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-08-20T10:23:42.821Z",
+  "generatedAt": "2026-08-20T21:46:49.766Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3766,
-  "avgDurationMs": 3766,
+  "unchangedCount": 1,
+  "durationMs": 3893,
+  "avgDurationMs": 3893,
   "durationHistory": [
-    3766
+    3893
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-gut-3876-b66bf517a50f",
       "slug": "collaboratore-trice-empfang-80-100-klinik-gut-ag-st-moritz",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
