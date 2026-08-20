@@ -3544,6 +3544,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-due-franchi-agosto-2026.title': 'Benzina sopra 2 franchi: primo aumento dal 2022',
     'blog.article.benzina-due-franchi-agosto-2026.excerpt': 'Il prezzo della benzina senza piombo 95 supera i 2 franchi al litro per la prima volta dal 2022. Diesel a 2,27 franchi. Le cause: conflitti in Medio Oriente e crisi logistica sul Reno.',
     'blog.article.benzina-due-franchi-agosto-2026.imageAlt': 'Distributore di benzina svizzero al tramonto, con vista sulle montagne Alpine sullo sfondo',
+    'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, utile in calo nel primo semestre',
+    'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'La banca svizzera chiude il primo semestre con 103 milioni di franchi di utile netto: ricavi interessi -10,6%, patrimonio clientela +3,3% a 117,5 miliardi',
+    'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Paesaggio urbano di Lugano con grattacieli bancari e lago sullo sfondo, simbolo dell\'economia e finanza svizzera.',
 };
 
 export default blogMetaChIt;

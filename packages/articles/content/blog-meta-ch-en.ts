@@ -3544,6 +3544,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-due-franchi-agosto-2026.title': 'Petrol above 2 francs: first increase since 2022',
     'blog.article.benzina-due-franchi-agosto-2026.excerpt': 'The price of unleaded petrol 95 exceeds 2 francs per litre for the first time since 2022. Diesel at CHF 2.27. The causes: conflicts in the Middle East and logistics crisis on the Rhine.',
     'blog.article.benzina-due-franchi-agosto-2026.imageAlt': 'Swiss petrol station at dusk with Alpine mountains in the background',
+    'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, profit down in the first half',
+    'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'The Swiss bank closed the first half of the year with 103 million francs of net profit: interest revenues -10.6%, customer equity +3.3% at 117.5 billion',
+    'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Lugano city skyline with banking buildings and lake, representing Swiss economy and financial sector.',
 };
 
 export default blogMetaChEn;

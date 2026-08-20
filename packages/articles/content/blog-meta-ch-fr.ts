@@ -3544,6 +3544,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-due-franchi-agosto-2026.title': 'Essence au-dessus de 2 francs : première augmentation depuis 2022',
     'blog.article.benzina-due-franchi-agosto-2026.excerpt': 'Le prix de l\'essence sans plomb 95 dépasse 2 francs le litre pour la première fois depuis 2022. Diesel à 2,27 francs. Les causes : conflits au Moyen-Orient et crise logistique sur le Rhin.',
     'blog.article.benzina-due-franchi-agosto-2026.imageAlt': 'Station-service suisse au crépuscule avec vue sur les Alpes',
+    'blog.article.postfinance-utile-calo-primo-semestre.title': 'PostFinance, bénéfice en baisse au premier semestre',
+    'blog.article.postfinance-utile-calo-primo-semestre.excerpt': 'La banque suisse clôture le premier semestre avec 103 millions de francs de bénéfice net : produits d\'intérêts -10,6%, patrimoine client +3,3% à 117,5 milliards',
+    'blog.article.postfinance-utile-calo-primo-semestre.imageAlt': 'Vue de Lugano avec immeubles bancaires et lac, symbole de l\'économie et du secteur financier suisse.',
 };
 
 export default blogMetaChFr;

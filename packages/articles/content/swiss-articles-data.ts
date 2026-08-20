@@ -10630,6 +10630,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'postfinance-utile-calo-primo-semestre',
+    category: 'novita',
+    date: '2026-08-20T11:15:18.714Z',
+    image: '/images/blog/postfinance-utile-calo-primo-semestre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
