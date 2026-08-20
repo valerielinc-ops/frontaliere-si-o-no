@@ -10215,6 +10215,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-imposta-2026-single.title': 'Steuergutschrift 2026: Einzelgrenzgänger fahren',
     'blog.article.credito-imposta-2026-single.excerpt': 'Einzelne Grenzgänger: Berechnung der Steuergutschrift 2026, Selbstbeteiligung € 7.500- € 10.000, IRPEF-Sätze, Zusammenstellung des EG-Rahmens 730 und Rückerstattungen bis Mai.',
     'blog.article.credito-imposta-2026-single.imageAlt': 'Steuerberater überprüft Grenzgänger-Steuererklärung mit Tessiner Grenzlandschaft im Hintergrund',
+    'blog.article.coordinamento-avs-inps-frontaliere.title': 'Grenzgängerrente 2026: AHV und NISF',
+    'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'Koordination AHV-INPS ab 2024: Zusammenrechnung von Beiträgen, Quellensteuer und Rückerstattungen. 10.000 € Franchise für neue Grenzgänger.',
+    'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Der Luganersee mit Tessiner Bergen, Symbol der Grenzregion Tessin-Italien.',
 };
 
 export default blogMetaDe;

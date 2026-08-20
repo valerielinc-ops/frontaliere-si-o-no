@@ -3520,6 +3520,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.esportazioni-aumento-svizzera.title': 'Swiss exports on the rise',
     'blog.article.esportazioni-aumento-svizzera.excerpt': 'Swiss exports grew by 13.8% in July, while imports fell by 4.5% compared to the previous month.',
     'blog.article.esportazioni-aumento-svizzera.imageAlt': 'A scenic view of Lake Lugano with a sailing boat in the foreground.',
+    'blog.article.esportazioni-svizzera-luglio-record.title': 'Swiss exports accelerate in July 2026',
+    'blog.article.esportazioni-svizzera-luglio-record.excerpt': 'In July 2026, Swiss exports reached CHF 27.8 billion (+13.8% monthly). The pharmaceutical sector is growing by 25%. Surplus trade balance: CHF 8.1 billion.',
+    'blog.article.esportazioni-svizzera-luglio-record.imageAlt': 'Cargo containers at a Swiss port facility with Alpine mountains in the background',
 };
 
 export default blogMetaChEn;
