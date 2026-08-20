@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/45364b0a-facc-415c-838d-718632db9f57",
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/0dac06fc-8d42-4700-9df4-0cabc77f489d",
     "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/211dd557-2fa2-4b01-8403-92eb77225a26",
     "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/2f08313e-23ed-4ff6-99ea-57918393e378",
@@ -18,10 +19,14 @@
     "https://jobs.ems-group.com/offene-stellen/it-supporter/fa8d0255-f3e5-46d0-b3fd-9d30e3b36c60",
     "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/ce43cfb2-744a-4fad-a776-e6ecb6423392",
     "https://jobs.ems-group.com/offene-stellen/it-system-engineer-m-w-d/a238ed13-c436-45c8-8636-9436130f7f79",
-    "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/761f5228-25d8-406c-9e44-864f117b997f",
-    "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/df3e52ad-62a5-4fe4-877a-4489b04e4c0a"
+    "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/df3e52ad-62a5-4fe4-877a-4489b04e4c0a",
+    "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/761f5228-25d8-406c-9e44-864f117b997f"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/45364b0a-facc-415c-838d-718632db9f57": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/0dac06fc-8d42-4700-9df4-0cabc77f489d": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -62,15 +67,15 @@
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     },
-    "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/761f5228-25d8-406c-9e44-864f117b997f": {
+    "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/df3e52ad-62a5-4fe4-877a-4489b04e4c0a": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     },
-    "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/df3e52ad-62a5-4fe4-877a-4489b04e4c0a": {
+    "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/761f5228-25d8-406c-9e44-864f117b997f": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
     }
   },
   "notes": "Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.",
-  "updatedAt": "2026-08-19T21:32:52.599Z"
+  "updatedAt": "2026-08-20T10:08:23.666Z"
 }
