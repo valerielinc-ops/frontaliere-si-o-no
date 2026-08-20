@@ -46430,6 +46430,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-monopattini-casco-sicurezza': {
+    title: 'Obbligo casco monopattini: piano Consiglio federale',
+    description: 'Il Consiglio federale propone l\'obbligo del casco per i monopattini elettrici dopo l\'aumento degli incidenti. Scopri cosa cambierà in Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, obbligo, casco, monopattini, piano',
+    ogTitle: 'Obbligo casco monopattini: decisione Consiglio federale',
+    ogDescription: 'Il Consiglio federale svizzero propone l\'obbligo del casco per chi usa monopattini elettrici in risposta all\'aumento degli incidenti nelle zone pedonali. Il governo scarta immatricolazione e assicurazione.',
+    canonicalPath: '/articoli-svizzera/monopattini-casco-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Obbligo casco monopattini: piano Consiglio federale",
+      "description": "Il Consiglio federale propone l'obbligo del casco per i monopattini elettrici dopo l'aumento degli incidenti. Scopri cosa cambierà in Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/monopattini-casco-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Monopattini elettrici parcheggiati su una strada urbana svizzera con casco di sicurezza"
+      },
+      "datePublished": "2026-08-20T17:02:35+00:00",
+      "dateModified": "2026-08-20T17:02:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/monopattini-casco-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -3580,6 +3580,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-cina-dazi-export.title': 'Svizzera-Cina, svolta storica: verso l\'addio ai dazi sull\'export elvetico',
     'blog.article.svizzera-cina-dazi-export.excerpt': 'La Svizzera e la Cina hanno concluso i negoziati sull\'ottimizzazione dell\'accordo di libero scambio, permettendo al 99,8% delle esportazioni svizzere di accedere al mercato cinese in esenzione doganale.',
     'blog.article.svizzera-cina-dazi-export.imageAlt': 'Mercato di prodotti svizzeri a Pechino',
+    'blog.article.monopattini-casco-sicurezza.title': 'Obbligo casco monopattini: piano Consiglio federale',
+    'blog.article.monopattini-casco-sicurezza.excerpt': 'Il Consiglio federale propone l\'obbligo del casco per i monopattini elettrici dopo l\'aumento degli incidenti. Scopri cosa cambierà in Svizzera.',
+    'blog.article.monopattini-casco-sicurezza.imageAlt': 'Monopattini elettrici parcheggiati su una strada urbana svizzera con casco di sicurezza',
 };
 
 export default blogMetaChIt;
