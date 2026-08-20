@@ -71051,6 +71051,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-imposta-2026-calcolo-limiti': {
+    title: 'Credito d\'imposta frontalieri 2026: guida al calcolo',
+    description: 'Credito d\'imposta 2026 per frontalieri Ticino-Italia: calcolo, franchigie €7.500 e €10.000, quadro CE modello 730, Nuovo Accordo vigore 1° gennaio 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, ottenere',
+    ogTitle: 'Credito d\'imposta frontalieri 2026: guida al calcolo',
+    ogDescription: 'Credito d\'imposta frontalieri 2026: calcolo, franchigie vecchi e nuovi frontalieri, compilazione modello 730 con quadro CE, rimborsi e scadenze. Guida pratica al Nuovo Accordo entrato in vigore il 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-2026-calcolo-limiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta frontalieri 2026: guida al calcolo",
+      "description": "Credito d'imposta 2026 per frontalieri Ticino-Italia: calcolo, franchigie €7.500 e €10.000, quadro CE modello 730, Nuovo Accordo vigore 1° gennaio 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-2026-calcolo-limiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulente fiscale esamina documenti di dichiarazione imposta per frontaliere al confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-20T05:30:24+00:00",
+      "dateModified": "2026-08-20T05:30:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-2026-calcolo-limiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-20': {
+    title: 'Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 20 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 20 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-20',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 20 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-20.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 20 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-20T05:34:30+00:00",
+      "dateModified": "2026-08-20T05:34:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-20/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

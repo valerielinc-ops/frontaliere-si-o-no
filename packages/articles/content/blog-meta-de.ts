@@ -10198,6 +10198,14 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Lohnabrechnung Grenzgänger 2026: Netto und Familienabzüge',
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'Neues Frontalieri-Abkommen in Kraft seit dem 1. Januar 2024: Funktionsweise der schweizerischen Lohnabrechnung, AHV/BVG-SÄTZE, Befreiung €7.500/ € 10.000 und italienische Steuergutschrift.',
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Lohnabrechnung eines Grenzgängers auf Schreibtisch mit Schweizer Alpenpanorama im Fenster sichtbar',
+    'blog.article.credito-imposta-2026-calcolo-limiti.title': 'Grenzgängersteuergutschrift 2026: Berechnungsleitfaden',
+    'blog.article.credito-imposta-2026-calcolo-limiti.excerpt': 'So erhalten Sie die Steuergutschrift in der italienischen Erklärung, neue Franchisen 2024 und Übergangsregelung für alte Grenzgänger: praktischer Leitfaden.',
+    'blog.article.credito-imposta-2026-calcolo-limiti.imageAlt': 'Steuerberater prüft Steuererklärung für Grenzgänger in der Grenzregion Tessin-Italien',
+    'blog.article.bollettino-frontaliere-2026-08-20.title': 'Grenzgänger-Tagesbulletin – 20. August 2026: 601 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-20.excerpt': 'Die Zahlen von heute, 20. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 20. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Grenzgänger-Bulletin vom 20. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'Die Zahlen vom 20. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

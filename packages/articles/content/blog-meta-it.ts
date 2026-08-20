@@ -10200,6 +10200,14 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.title': 'Busta paga frontaliere 2026: netto e deduzioni famiglia',
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.excerpt': 'Nuovo Accordo Frontalieri vigente dal 1° gennaio 2024: come funziona la busta paga svizzera, aliquote AVS/LPP, esenzione €7.500/€10.000 e credito d\'imposta italiano.',
     'blog.article.netto-busta-paga-frontaliere-2026-famiglia.imageAlt': 'Documento di busta paga svizzera di un frontaliere sul tavolo di lavoro, paesaggio alpino sullo sfondo',
+    'blog.article.credito-imposta-2026-calcolo-limiti.title': 'Credito d\'imposta frontalieri 2026: guida al calcolo',
+    'blog.article.credito-imposta-2026-calcolo-limiti.excerpt': 'Come ottenere il credito d\'imposta in dichiarazione italiana, nuove franchigie 2024 e regime transitorio per vecchi frontalieri: guida pratica.',
+    'blog.article.credito-imposta-2026-calcolo-limiti.imageAlt': 'Consulente fiscale esamina documenti di dichiarazione imposta per frontaliere al confine Ticino-Italia',
+    'blog.article.bollettino-frontaliere-2026-08-20.title': 'Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-20.excerpt': 'I numeri di oggi, 20 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'I numeri del giorno per i frontalieri – 20 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Bollettino frontalieri del 20 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'I numeri del 20 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
