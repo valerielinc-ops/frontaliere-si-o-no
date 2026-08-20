@@ -1193,6 +1193,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-impresa-basilea-campagna': { it: 'aprire-impresa-basilea-campagna', en: 'starting-business-basel-landschaft', de: 'unternehmen-gruenden-basel-landschaft', fr: 'creer-entreprise-bale-campagne' },
  'canton-basilea-campagna-settori': { it: 'canton-basilea-campagna-settori', en: 'canton-basel-landschaft-sectors', de: 'kanton-basel-landschaft-sektoren', fr: 'canton-bale-campagne-secteurs' },
  'canton-sciaffusa-aliquote-deduzioni': { it: 'canton-sciaffusa-aliquote-deduzioni', en: 'canton-schaffhausen-taxes-deductions', de: 'kanton-schaffhausen-steuersaetze-abzuege', fr: 'canton-schaffhouse-impots-deductions' },
+ 'sondaggio-neutralita-ticinese-voto': { it: 'sondaggio-neutralita-ticinese-voto', en: 'ticino-neutrality-poll-vote', de: 'tessiner-neutralitaets-umfrage', fr: 'sondage-neutralite-tessin' },
+ 'studio-axa-assenze-psicologiche-pmi': { it: 'studio-axa-assenze-psicologiche-pmi', en: 'axa-study-staff-absences-mental-health-smes', de: 'axa-studie-personalabwesenheiten-psychische-gesundheit', fr: 'etude-axa-absences-personnel-sante-mentale' },
+ 'premi-assicurazione-malati-sciaffusa': { it: 'premi-assicurazione-malati-sciaffusa', en: 'health-insurance-premiums-schaffhausen', de: 'krankenversicherungspraemien-schaffhausen', fr: 'primes-assurance-maladie-schaffhouse' },
+ 'sciaffusa-permesso-dimora-b': { it: 'sciaffusa-permesso-dimora-b', en: 'schaffhausen-residence-permit-category-b', de: 'schaffhausen-aufenthaltsgenehmigung-kategorie-b', fr: 'schaffhouse-permis-de-sejour-categorie-b' },
+ 'esportazioni-svizzera-luglio-2026': { it: 'esportazioni-svizzera-luglio-2026', en: 'swiss-exports-july-2026-recovery', de: 'schweizer-exporte-juli-2026-erholung', fr: 'exportations-suisse-juillet-2026-reprise' },
+ 'esportazioni-aumento-svizzera': { it: 'esportazioni-aumento-svizzera', en: 'switzerland-export-growth', de: 'schweiz-export-zuwachs', fr: 'croissance-export-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

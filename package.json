@@ -12,7 +12,7 @@
     "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
     "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/prebuild-webp.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
     "build": "NODE_OPTIONS='--max-old-space-size=18432' FAST_BUILD=1 vite build && npx tsx scripts/verify-spa-entry-assets.mjs",
-    "build:ci": "NODE_OPTIONS='--max-old-space-size=12288 --expose-gc' vite build --minify esbuild && npx tsx scripts/verify-spa-entry-assets.mjs",
+    "build:ci": "NODE_OPTIONS='--max-old-space-size=14336 --expose-gc' vite build --minify esbuild && npx tsx scripts/verify-spa-entry-assets.mjs",
     "build:prod": "NODE_OPTIONS='--max-old-space-size=18432' vite build && npx tsx scripts/verify-spa-entry-assets.mjs",
     "preview": "vite preview",
     "test": "vitest run",

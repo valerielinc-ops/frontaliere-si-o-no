@@ -13055,9 +13055,11 @@ ${staticAnalyticsHtml}
  // 5000-entry batches of large soft-landing HTML ≈ 12 GB) and the
  // deploy build OOM'd in this exact phase (run 27520709430,
  // "Ineffective mark-compacts near heap limit"). Draining each
- // iteration caps peak at ~7 batches (~1 GB); mirrors the
- // awaitDrainSlot(6) the active-jobs emit loops already use.
- await collector.awaitDrainSlot(6);
+ // iteration caps the backlog; 2 e non 6 dal #6134 — qui l'heap e' gia'
+ // oltre gli 8.5 GB e 3 batch (~450 MB, il default documentato di
+ // awaitDrainSlot) sono il bound giusto, mentre 7 batch (~1 GB) erano
+ // tarati sulle fasi iniziali a heap basso.
+ await collector.awaitDrainSlot(2);
  }
 
  // Write expired jobs sitemap
@@ -13147,7 +13149,7 @@ ${staticAnalyticsHtml}
  // Sibling backpressure (AGENTS.md #6): same unbounded background-flush
  // risk as the expired-soft-landing loop above — drain INSIDE the emit
  // loop so _pendingFlushes can't balloon during the cross-locale sweep.
- await collector.awaitDrainSlot(6);
+ await collector.awaitDrainSlot(2);
  }
  }
  }
@@ -13168,11 +13170,28 @@ ${staticAnalyticsHtml}
  // heap=10.8 GB during this stretch; freeing ~1.4 GB here puts the heap
  // back well under the 12 GB cap before the heavier write/flush phases run.
  expiredSoftLandingCache.clear();
+ // #6134 (strutturale): l'intero universo "expired" e' morto qui insieme
+ // alla cache. Ultimi lettori: `expiredJobsData` il loop cross-locale-expired
+ // qui sopra (L13099), `expiredBySlug` la render dei soft-landing (L12289),
+ // `orphanGscData` idem (L12333, e porta il FULL CONTENT di ~43k slug
+ // orfani). Le fasi previousSlugs/cross-locale-active che seguono leggono da
+ // validJobs/jobHtmlCache, mai da queste. Tenerle vive fino a fine
+ // closeBundle significava attraversare le due fasi piu' pesanti rimaste con
+ // l'object graph di expired-jobs.json (~65 MB su disco) ancora in pancia.
+ expiredJobsData = [];
+ expiredBySlug.clear();
+ orphanGscData.clear();
  // Force a major GC so the freed ~1.4 GB is returned to the OS immediately
  // instead of waiting for the next idle scavenge. `global.gc` is exposed by
  // NODE_OPTIONS=--expose-gc in `build:ci` (see PR #627); guarded for local
  // dev runs without the flag.
  forceGc();
+ // Post-cleanup baseline (#6139 item 6): the checkpoint above (L13161) fires
+ // BEFORE this clear()+forceGc(), so it captures pre-cleanup memory and
+ // can't tell apart "cross-locale-expired loop was heavy" from "cleanup
+ // didn't free what we expected". This one gives the previousSlugs prescan
+ // below a known-clean starting point without losing the earlier signal.
+ logBuildMem('jobsSeoPages: after cross-locale-expired-cleanup', collector);
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
  // Serve identical full-content pages at old URLs (bookmarks, search engines).
@@ -13296,7 +13315,7 @@ ${staticAnalyticsHtml}
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
  for (const job of validJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
+  await collector.awaitDrainSlot(2); // bound flush backlog (#1290; 2 e non 6: heap gia' al picco in coda al plugin, #6134)
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -13579,9 +13598,31 @@ ${staticAnalyticsHtml}
  // combination where the foreign-locale slug differs from the base-locale
  // slug. Content is served in the base URL's locale; canonical points to
  // the base locale's current slug URL. No redirect, no countdown.
+ // #6134 (strutturale): `jobHtmlCache` (una pagina HTML completa da
+ // ~30-50 KB per ogni job attivo del locale posseduto) ha il suo ULTIMO
+ // lettore in questo loop, ma veniva svuotata solo alla fine (clear() sotto)
+ // — quindi la fase attraversava il proprio picco con l'intera cache in
+ // pancia, ed e' esattamente il tratto dove i run 32315058310 e 32319344037
+ // sono morti (exit 134, heap 9431 MB al checkpoint precedente). Refcount
+ // esatto invece di delete-al-primo-uso: due job possono condividere uno
+ // slug (il caso convit-holding dei previousSlugs), quindi una entry si
+ // libera solo quando il suo ultimo lettore l'ha consumata. Il pre-pass
+ // replica ESATTAMENTE il predicato di lettura del loop (slug non vuoto +
+ // shouldEmitLocale sul baseLocale): se i due divergono, l'effetto e' solo
+ // memoria non liberata, mai una lettura mancata.
+ const crossLocaleCacheReads = new Map<string, number>();
+ for (const job of validJobs) {
+ for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue;
+ const s = localizedSlug(job, locale);
+ if (!s) continue;
+ const k = `${locale}:${s}`;
+ crossLocaleCacheReads.set(k, (crossLocaleCacheReads.get(k) ?? 0) + 1);
+ }
+ }
  let crossLocaleCount = 0;
  for (const job of validJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
+  await collector.awaitDrainSlot(2); // bound flush backlog (#1290; 2 e non 6: qui l'heap e' gia' al picco, vedi il commento del refcount sopra)
  // Sibling guard to the active-job/previousSlug legacy-TI bridges above
  // (PR #3052, isCompanyHubNamespaceSlug): a non-TI job whose foreign slug
  // merely starts with azienda-/company-/unternehmen-/entreprise- must not
@@ -13612,7 +13653,19 @@ ${staticAnalyticsHtml}
  // still built for ALL locales above so foreignSlugs detection is unaffected.
  // No-op in the all-locale build.
  if (!shouldEmitLocale(baseLocale)) continue;
- const cachedHtml = jobHtmlCache.get(`${baseLocale}:${baseSlug}`);
+ const crossLocaleCacheKey = `${baseLocale}:${baseSlug}`;
+ const cachedHtml = jobHtmlCache.get(crossLocaleCacheKey);
+ // Eviction all'ultimo lettore (vedi il refcount pre-pass sopra): la cache
+ // scende progressivamente DURANTE il loop invece di restare piatta fino al
+ // clear() in coda. Il decremento avviene anche su cache-miss, perche' il
+ // pre-pass ha contato lo stesso predicato, non la presenza in cache.
+ const remainingReads = (crossLocaleCacheReads.get(crossLocaleCacheKey) ?? 1) - 1;
+ if (remainingReads <= 0) {
+ crossLocaleCacheReads.delete(crossLocaleCacheKey);
+ jobHtmlCache.delete(crossLocaleCacheKey);
+ } else {
+ crossLocaleCacheReads.set(crossLocaleCacheKey, remainingReads);
+ }
  if (!cachedHtml) continue;
  const foreignSlugs = new Set<string>();
  for (const otherLocale of localeList) {
@@ -13668,6 +13721,12 @@ ${staticAnalyticsHtml}
  if (crossLocaleCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleCount} cross-locale reconciliation pages`);
  }
+ // #6134: prima di questo checkpoint la finestra cieca andava da
+ // previousSlugs-bridges fino a fine plugin (378 righe con le due fasi piu'
+ // pesanti dentro) — i run del 19/20-08 sono morti li' senza una riga [mem]
+ // che dicesse dove. Pre-cleanup di proposito, come la coppia di checkpoint
+ // del blocco cross-locale-expired (#6139 item 6).
+ logBuildMem('jobsSeoPages: after cross-locale-active-bridges', collector);
 
  // `jobHtmlCache` (populated during the ~85k active-job-page render
  // phase) was read for the last time above, in the cross-locale-active
@@ -13677,8 +13736,26 @@ ${staticAnalyticsHtml}
  // already fixed once for `expiredSoftLandingCache` above. Free it here
  // so the tail of the build isn't carrying tens of thousands of
  // full-HTML strings it no longer needs.
+ // (Dopo il refcount-eviction nel loop qui sopra questo clear() e' quasi un
+ // no-op — restano solo le entry che il predicato del pre-pass non ha
+ // contato. Resta come rete di sicurezza, non come meccanismo.)
  jobHtmlCache.clear();
+ // #6134 (strutturale): anche il CORPUS e' morto qui. `validJobs` (la
+ // spread-copy dei ~22k job di data/jobs.json, con i bucket related e la
+ // companyMap che puntano agli stessi oggetti) ha il suo ultimo lettore nel
+ // loop cross-locale-active qui sopra; il self-heal legge `tracking` e
+ // `_writtenPaths`, mai i job. Svuotare l'array NON basta da solo — ogni
+ // container che punta agli stessi oggetti va svuotato nello stesso punto,
+ // o il rilascio e' un no-op silenzioso. Il checkpoint subito sotto dice al
+ // prossimo deploy se questo blocco libera davvero (pattern DUAL PURPOSE di
+ // buildMemLog.ts).
+ validJobs.length = 0;
+ sitemapEligibleJobs.length = 0;
+ relatedJobsByCategory.clear();
+ relatedJobsByLocation.clear();
+ companyMap.clear();
  forceGc();
+ logBuildMem('jobsSeoPages: after corpus-release', collector);
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
@@ -13779,6 +13856,11 @@ ${staticAnalyticsHtml}
  if (healedCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Self-healed ${healedCount} tracking paths with no prior coverage`);
  }
+ // #6134: issue #5864 (run 31798646143) e' morta "right after the self-heal
+ // log line" senza un [mem] a dire con quanto heap ci era arrivata. Chiude
+ // l'ultima finestra cieca del plugin: da qui a fine closeBundle restano
+ // solo flush + sitemap patch + report.
+ logBuildMem('jobsSeoPages: after self-heal', collector);
 
  /* ── Flush all buffered writes in parallel batches ── */
  const t0 = Date.now();

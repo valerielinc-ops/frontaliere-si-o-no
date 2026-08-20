@@ -45416,6 +45416,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sondaggio-neutralita-ticinese-voto': {
+    title: 'Sondaggio neutralità: Ticino al 52% e Svizzera al 36%',
+    description: 'Scopri i dati del sondaggio Tamedia sull\'iniziativa sulla neutralità del 27 settembre. Il Ticino approva al 52% contro il 36% nazionale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sondaggio, neutralità, vista, voto',
+    ogTitle: 'Iniziativa sulla neutralità: il Ticino al 52% nei sondaggi Tamedia',
+    ogDescription: 'In vista del voto del 27 settembre, il sondaggio Tamedia sull\'iniziativa sulla neutralità mostra una netta divergenza tra il Ticino al cinquantadue percento e la media nazionale al trentasei percento.',
+    canonicalPath: '/articoli-svizzera/sondaggio-neutralita-ticinese-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sondaggio neutralità: Ticino al 52% e Svizzera al 36%",
+      "description": "Scopri i dati del sondaggio Tamedia sull'iniziativa sulla neutralità del 27 settembre. Il Ticino approva al 52% contro il 36% nazionale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sondaggio-neutralita-ticinese-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di voto e urna elettorale in Svizzera per il voto sulla neutralità"
+      },
+      "datePublished": "2026-08-20T04:46:46+00:00",
+      "dateModified": "2026-08-20T04:46:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sondaggio-neutralita-ticinese-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-studio-axa-assenze-psicologiche-pmi': {
+    title: 'Assenze del personale in aumento nelle PMI svizzere: lo studio AXA',
+    description: 'Scopri i dati dello studio AXA sulle assenze del personale e i problemi di salute mentale nelle piccole e medie imprese svizzere. Tutti i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assenze, personale, aumento, nelle',
+    ogTitle: 'Assenze del personale in aumento nelle PMI svizzere',
+    ogDescription: 'Analisi e dati dello studio AXA sulle assenze per motivi psicologici nelle piccole e medie imprese svizzere. Scopri l\'impatto sulla gestione aziendale.',
+    canonicalPath: '/articoli-svizzera/studio-axa-assenze-psicologiche-pmi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assenze del personale in aumento nelle PMI svizzere: lo studio AXA",
+      "description": "Scopri i dati dello studio AXA sulle assenze del personale e i problemi di salute mentale nelle piccole e medie imprese svizzere. Tutti i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/studio-axa-assenze-psicologiche-pmi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio AXA sulle assenze del personale e salute mentale nelle PMI svizzere"
+      },
+      "datePublished": "2026-08-20T05:08:56+00:00",
+      "dateModified": "2026-08-20T05:08:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/studio-axa-assenze-psicologiche-pmi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-assicurazione-malati-sciaffusa': {
+    title: 'Premi cassa malati Canton Sciaffusa e riduzione',
+    description: 'Franchigie LAMal, modelli di copertura e procedura per richiedere il sussidio cantonale nel Canton Sciaffusa: guida pratica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
+    ogTitle: 'Premi cassa malati Canton Sciaffusa e riduzione',
+    ogDescription: 'Scopri come funziona la LAMal nel Canton Sciaffusa: franchigie disponibili, comparazione assicuratori, procedura per richiedere la riduzione premi. Guida pratica e step-by-step.',
+    canonicalPath: '/articoli-svizzera/premi-assicurazione-malati-sciaffusa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Canton Sciaffusa e riduzione",
+      "description": "Franchigie LAMal, modelli di copertura e procedura per richiedere il sussidio cantonale nel Canton Sciaffusa: guida pratica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-assicurazione-malati-sciaffusa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di un ufficio amministrativo svizzero con documenti e moduli per l'assicurazione malattia LAMal"
+      },
+      "datePublished": "2026-08-20T05:38:37+00:00",
+      "dateModified": "2026-08-20T05:38:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-assicurazione-malati-sciaffusa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sciaffusa-permesso-dimora-b': {
+    title: 'Permesso dimora B Sciaffusa: requisiti e rinnovo',
+    description: 'Guida completa al permesso B (dimora) per il canton Sciaffusa: requisiti di accesso, documenti necessari, durata e procedura di rinnovo del permesso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, sciaffusa, requisiti',
+    ogTitle: 'Permesso B Sciaffusa: guida completa',
+    ogDescription: 'Il permesso di dimora B è il documento necessario per risiedere e lavorare nel canton Sciaffusa. Scopri requisiti, documenti, durata e procedura di rinnovo nella nostra guida pratica step-by-step.',
+    canonicalPath: '/articoli-svizzera/sciaffusa-permesso-dimora-b/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso dimora B Sciaffusa: requisiti e rinnovo",
+      "description": "Guida completa al permesso B (dimora) per il canton Sciaffusa: requisiti di accesso, documenti necessari, durata e procedura di rinnovo del permesso.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciaffusa-permesso-dimora-b.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione cantonale dove si richiedono e rinnovano i permessi di dimora B"
+      },
+      "datePublished": "2026-08-20T06:03:39+00:00",
+      "dateModified": "2026-08-20T06:03:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sciaffusa-permesso-dimora-b/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-esportazioni-svizzera-luglio-2026': {
+    title: 'Luglio 2026: ripresa esportazioni svizzere | Frontaliere Ticino',
+    description: 'Luglio 2026: esportazioni +13,8%, importazioni -4,5%. Bilancia commerciale record: +8,1 mld CHF. Chimico-farmaceutico traino della ripresa economica svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luglio, ripresa, esportazioni, svizzere',
+    ogTitle: 'Luglio 2026: ripresa esportazioni svizzere',
+    ogDescription: 'Esportazioni svizzere in forte ripresa: +13,8% a luglio 2026. Importazioni giù del 4,5%. La bilancia commerciale tocca il record di +8,1 miliardi CHF con il chimico-farmaceutico come settore trainante della crescita economica nazionale.',
+    canonicalPath: '/articoli-svizzera/esportazioni-svizzera-luglio-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luglio 2026: ripresa esportazioni svizzere",
+      "description": "Luglio 2026: esportazioni +13,8%, importazioni -4,5%. Bilancia commerciale record: +8,1 mld CHF. Chimico-farmaceutico traino della ripresa economica svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esportazioni-svizzera-luglio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto doganale svizzero con containers merci e operazioni logistiche durante il giorno"
+      },
+      "datePublished": "2026-08-20T06:17:58+00:00",
+      "dateModified": "2026-08-20T06:17:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esportazioni-svizzera-luglio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-esportazioni-aumento-svizzera': {
+    title: 'Esportazioni svizzere in forte aumento | Frontaliere Ticino',
+    description: 'Le esportazioni svizzere sono cresciute del 13,8% in luglio, mentre le importazioni hanno segnato una flessione del 4,5% rispetto al mese precedente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esportazioni, svizzere, forte, aumento',
+    ogTitle: 'Esportazioni svizzere in forte aumento',
+    ogDescription: 'La crescita delle esportazioni svizzere è un segno di ripresa dell\'economia svizzera e di recupero sui mercati globali.',
+    canonicalPath: '/articoli-svizzera/esportazioni-aumento-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esportazioni svizzere in forte aumento",
+      "description": "Le esportazioni svizzere sono cresciute del 13,8% in luglio, mentre le importazioni hanno segnato una flessione del 4,5% rispetto al mese precedente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esportazioni-aumento-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena del Lago di Lugano con una barca a vela in primo piano."
+      },
+      "datePublished": "2026-08-20T06:39:03+00:00",
+      "dateModified": "2026-08-20T06:39:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esportazioni-aumento-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

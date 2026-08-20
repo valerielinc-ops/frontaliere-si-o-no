@@ -70973,6 +70973,279 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busta-paga-calcolata-frontalieri-20km': {
+    title: 'Busta paga 2026: come leggerla da frontaliere entro 20 km',
+    description: 'Guida completa alla busta paga svizzera 2026 per frontalieri entro 20 km: trattenute AVS/LPP, imposta alla fonte, credito d\'imposta italiano, esenzione €7.500',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, leggerla, entro',
+    ogTitle: 'Busta paga 2026: come leggerla da frontaliere entro 20 km',
+    ogDescription: 'Nuovo Accordo 2024 spiegato: trattenute svizzere (AVS 5,3%, LPP 7–18%), credito d\'imposta italiano, esenzione €7.500/€10.000. Calcola il tuo netto reale con la nostra guida operativa.',
+    canonicalPath: '/articoli-frontaliere/busta-paga-calcolata-frontalieri-20km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga 2026: come leggerla da frontaliere entro 20 km",
+      "description": "Guida completa alla busta paga svizzera 2026 per frontalieri entro 20 km: trattenute AVS/LPP, imposta alla fonte, credito d'imposta italiano, esenzione €7.500",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/busta-paga-calcolata-frontalieri-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere esamina la busta paga svizzera 2026 su tablet al confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-20T04:40:38+00:00",
+      "dateModified": "2026-08-20T04:40:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busta-paga-calcolata-frontalieri-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-netto-busta-paga-frontaliere-2026-famiglia': {
+    title: 'Busta paga frontaliere 2026: netto e deduzioni famiglia',
+    description: 'Come funziona la busta paga di un frontaliere in Svizzera nel 2026: aliquote AVS/LPP, imposta alla fonte, esenzione €7.500/€10.000 e credito d\'imposta italiano',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, netto, deduzioni',
+    ogTitle: 'Busta paga frontaliere 2026: netto e deduzioni famiglia',
+    ogDescription: 'Scopri come funziona la busta paga di un frontaliere che lavora in Svizzera: aliquote 2026, trattenute, esenzione €7.500/€10.000 e come massimizzare il netto reale con famiglia. Nuovo Accordo Frontalieri vigente dal 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/netto-busta-paga-frontaliere-2026-famiglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga frontaliere 2026: netto e deduzioni famiglia",
+      "description": "Come funziona la busta paga di un frontaliere in Svizzera nel 2026: aliquote AVS/LPP, imposta alla fonte, esenzione €7.500/€10.000 e credito d'imposta italiano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/netto-busta-paga-frontaliere-2026-famiglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento di busta paga svizzera di un frontaliere sul tavolo di lavoro, paesaggio alpino sullo sfondo"
+      },
+      "datePublished": "2026-08-20T05:00:02+00:00",
+      "dateModified": "2026-08-20T05:00:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/netto-busta-paga-frontaliere-2026-famiglia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-imposta-2026-calcolo-limiti': {
+    title: 'Credito d\'imposta frontalieri 2026: guida al calcolo',
+    description: 'Credito d\'imposta 2026 per frontalieri Ticino-Italia: calcolo, franchigie €7.500 e €10.000, quadro CE modello 730, Nuovo Accordo vigore 1° gennaio 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, ottenere',
+    ogTitle: 'Credito d\'imposta frontalieri 2026: guida al calcolo',
+    ogDescription: 'Credito d\'imposta frontalieri 2026: calcolo, franchigie vecchi e nuovi frontalieri, compilazione modello 730 con quadro CE, rimborsi e scadenze. Guida pratica al Nuovo Accordo entrato in vigore il 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-2026-calcolo-limiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta frontalieri 2026: guida al calcolo",
+      "description": "Credito d'imposta 2026 per frontalieri Ticino-Italia: calcolo, franchigie €7.500 e €10.000, quadro CE modello 730, Nuovo Accordo vigore 1° gennaio 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-2026-calcolo-limiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulente fiscale esamina documenti di dichiarazione imposta per frontaliere al confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-20T05:30:24+00:00",
+      "dateModified": "2026-08-20T05:30:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-2026-calcolo-limiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-20': {
+    title: 'Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 20 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 20 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-20',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 20 agosto 2026: 601 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 20 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-20.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 20 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-20T05:34:30+00:00",
+      "dateModified": "2026-08-20T05:34:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-20/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-dichiarazione-redditi-2026': {
+    title: 'Credito d\'imposta 2026: la guida frontalieri oltre 20 km',
+    description: 'Credito d\'imposta 2026 per frontalieri: calcolo del quadro CE, franchigia €7.500 (vecchi) e €10.000 (nuovi), dichiarazione 730 e checklist operativa',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, oltre, gennaio',
+    ogTitle: 'Credito d\'imposta 2026: la guida frontalieri oltre 20 km',
+    ogDescription: 'Dal 1° gennaio 2024 il Nuovo Accordo riforma il credito d\'imposta. Franchigia €10.000 nuovi frontalieri, €7.500 vecchi. Quadro CE 730 e calcolo nel 2026: guida pratica.',
+    canonicalPath: '/articoli-frontaliere/credito-dichiarazione-redditi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta 2026: la guida frontalieri oltre 20 km",
+      "description": "Credito d'imposta 2026 per frontalieri: calcolo del quadro CE, franchigia €7.500 (vecchi) e €10.000 (nuovi), dichiarazione 730 e checklist operativa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-dichiarazione-redditi-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere esamina documenti fiscali Swiss-italiani alla scrivania durante l'ora d'oro"
+      },
+      "datePublished": "2026-08-20T05:57:45+00:00",
+      "dateModified": "2026-08-20T05:57:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-dichiarazione-redditi-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-imposta-2026-oltre-20km': {
+    title: 'Credito d\'imposta 2026: oltre 20 km, calcolo e 730',
+    description: 'Guida al credito d\'imposta per frontalieri 2026. Come compilare il quadro CE, recuperare la trattenuta svizzera, differenze tra vecchi e nuovi frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, oltre, calcolo',
+    ogTitle: 'Credito d\'imposta 2026: oltre 20 km, calcolo e 730',
+    ogDescription: 'Frontaliere in Svizzera? Il credito d\'imposta nel 730 2026 recupera la trattenuta svizzera. Scopri la procedura, le franchigie per vecchi e nuovi frontalieri, scenari di calcolo e come massimizzare il recupero.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-2026-oltre-20km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta 2026: oltre 20 km, calcolo e 730",
+      "description": "Guida al credito d'imposta per frontalieri 2026. Come compilare il quadro CE, recuperare la trattenuta svizzera, differenze tra vecchi e nuovi frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-2026-oltre-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al lavoro su un computer con modello 730 e documenti fiscali, paesaggio ticinese sullo sfondo."
+      },
+      "datePublished": "2026-08-20T06:11:12+00:00",
+      "dateModified": "2026-08-20T06:11:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-2026-oltre-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-imposta-2026-single': {
+    title: 'Credito imposta 2026: guida frontaliere single',
+    description: 'Frontalieri single: credito d\'imposta 2026, franchigia €7500–€10000, IRPEF 23–43%, quadro CE 730. Guida calcolo, ristorni e scadenze maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, single, calcolare',
+    ogTitle: 'Credito imposta 2026: frontalieri single',
+    ogDescription: 'Come calcolare il credito d\'imposta nel 2026 per frontalieri single? Franchigia €7500 o €10000, aliquote IRPEF, compilazione quadro CE 730, ristorni e scadenze maggio: guida completa con scenari.',
+    canonicalPath: '/articoli-frontaliere/credito-imposta-2026-single',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito imposta 2026: guida frontaliere single",
+      "description": "Frontalieri single: credito d'imposta 2026, franchigia €7500–€10000, IRPEF 23–43%, quadro CE 730. Guida calcolo, ristorni e scadenze maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-imposta-2026-single.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulente fiscale rivede dichiarazione redditi frontaliere con paesaggio di confine ticinese sullo sfondo"
+      },
+      "datePublished": "2026-08-20T06:33:37+00:00",
+      "dateModified": "2026-08-20T06:33:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-imposta-2026-single/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
