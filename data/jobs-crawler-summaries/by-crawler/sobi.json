@@ -1,16 +1,16 @@
 {
   "key": "sobi",
   "label": "Sobi",
-  "generatedAt": "2026-08-19T10:03:59.120Z",
-  "total": 10,
+  "generatedAt": "2026-08-20T09:46:12.779Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8373,
-  "avgDurationMs": 8373,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10273,
+  "avgDurationMs": 10273,
   "durationHistory": [
-    8373
+    10273
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000141444319-senior-manager-market-access-specialty-care?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.506Z",
+      "crawledAt": "2026-08-20T09:46:04.236Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000140960680-global-quality-gvp-manager?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.511Z",
+      "crawledAt": "2026-08-20T09:46:04.248Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000140636769-msat-technical-lead-drug-substance-biologics?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.509Z",
+      "crawledAt": "2026-08-20T09:46:04.250Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000140010205-junior-product-manager-?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.516Z",
+      "crawledAt": "2026-08-20T09:46:04.247Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000139613459-head-of-global-gxp-quality-system-and-compliance?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.517Z",
+      "crawledAt": "2026-08-20T09:46:04.240Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000134725369-global-product-safety-science-lead?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.518Z",
+      "crawledAt": "2026-08-20T09:46:04.253Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000132996289-head-of-global-medical-publications?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:52.520Z",
+      "crawledAt": "2026-08-20T09:46:04.254Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000131421024-senior-director-medicine-development-leader?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:55.650Z",
+      "crawledAt": "2026-08-20T09:46:04.256Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://jobs.smartrecruiters.com/Sobi/744000123888995-it-operations-manager-full-stack-developer-azure-ai?oga=true",
       "source": "Sobi Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-19T10:03:55.651Z",
+      "crawledAt": "2026-08-20T09:46:07.134Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -348,8 +348,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "sobi-6c7c8951ca54",
       "slug": "esperto-analitico-associato-sobi-basel",
@@ -390,5 +389,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
