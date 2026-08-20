@@ -158,8 +158,14 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
     // Ritarato il 2026-08-20 con la quota a 1/2 (issue del corpus #518): la serie
     // idealizzata vale 1 - (1/2)³ = 0,875, e su questa allowance il tetto
     // CLAUDE_CLI_MAX_TIMEOUT_MS taglia la prima chiamata, quindi la
-    // simulazione misura ~84%. Il bound a 0,9 tiene entrambe e continua a
-    // respingere una quota da 0,55 in su (serie ≥ 0,909). Era 0,75, derivato
+    // simulazione misura ~84%. Il bound a 0,9 tiene entrambe. La soglia di
+    // rigetto pero' NON e' 0,55 come diceva la prima stesura: quello e' il
+    // limite idealizzato senza tetto (1-(1-s)³ ≥ 0,909). La simulazione
+    // vera include il tetto, che smorza la prima chiamata, e con la
+    // taratura corrente (min 180s, tetto 600s, soglia 3) supera 0,9 da
+    // quota ~0,62 in su — ricalcolato chiamata per chiamata il 2026-08-20
+    // (0,55 → 600+561+252 = 1413s su 1620s, cioe' 87,2%, sotto il bound;
+    // 0,62 → 600+600+260 = 1460s, cioe' 90,1%). Era 0,75, derivato
     // dalla quota a 1/3 (serie 0,704): non e' un allentamento gratuito —
     // cio' che serve alla cascata e' tempo ASSOLUTO, e quello e' presidiato
     // dall'asserzione sotto, nuova, che a 1/3 non esisteva.
@@ -175,8 +181,8 @@ describe('il timeout del CLI claude cresce dentro l\'allowance residua', () => {
     assert.ok(
       frazione < 0.9,
       `con quota ${SHARE()} e soglia ${SOGLIA()}, su un'allowance ampia (${ampia / 1000}s) ` +
-      `una tempesta spende il ${(frazione * 100).toFixed(1)}%: a questo livello la serie ` +
-      'geometrica implica una quota >= 0,55 e non resta sezione utile per i modelli dopo claude-cli',
+      `una tempesta spende il ${(frazione * 100).toFixed(1)}%: a questo livello la quota ` +
+      'supera ~0,62 con la taratura corrente e non resta sezione utile per i modelli dopo claude-cli',
     );
     // Il fallback dominante misurato (nvidia, run 32230961988: 59 chiamate
     // su 62) risponde in <60s: dopo una tempesta piena devono restare ALMENO
