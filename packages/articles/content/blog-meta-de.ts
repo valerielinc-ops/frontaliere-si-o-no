@@ -10174,6 +10174,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-re-lavorare-ticino-frontaliere.title': 'Als Grenzgänger im Tessin leben und arbeiten',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.excerpt': 'Wie man den Alltag als Grenzgänger in Re angeht und im Tessin arbeitet. Konkrete Daten und Verfahren für Grenzgänger.',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier in einem Zimmer mit einer Karte von Re und einem Computer.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Leben in Alserio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Besteuerung, Doppelbesteuerung und Rückerstattung: Das ändert sich für Grenzgänger, die in Alserio leben und im Tessin arbeiten.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der in der Schweiz arbeitet und in Alserio lebt',
 };
 
 export default blogMetaDe;

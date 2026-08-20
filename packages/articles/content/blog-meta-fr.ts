@@ -10177,6 +10177,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-re-lavorare-ticino-frontaliere.title': 'Vivre à Re et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.excerpt': 'Comment aborder la vie quotidienne en tant que frontalière à Rey et travailler au Tessin. Données concrètes et procédures pour les frontaliers.',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier dans une pièce avec une carte de Re et un ordinateur.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Vivre à Alserio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Paramètres fiscaux, double imposition et restauration : ce qui change pour les frontaliers qui vivent à Alserio et travaillent au Tessin.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier qui travaille en Suisse et réside à Alserio',
 };
 
 export default blogMetaFr;

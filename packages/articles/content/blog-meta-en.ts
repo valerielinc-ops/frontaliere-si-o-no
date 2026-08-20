@@ -10175,6 +10175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-re-lavorare-ticino-frontaliere.title': 'Living in Re and working in Ticino as a border worker',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.excerpt': 'How to face daily life as a frontier worker in Re and work in Ticino. Concrete data and procedures for border workers.',
     'blog.article.vivere-re-lavorare-ticino-frontaliere.imageAlt': 'A frontalier in a room with a map of Re and a computer.',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.title': 'Living in Alserio and working in Ticino as a border worker',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.excerpt': 'Tax settings, double taxation and refunds: what changes for border workers living in Alserio and working in Ticino?',
+    'blog.article.vivere-alserio-lavorare-ticino-frontaliere.imageAlt': 'A Ticino-based worker living in Alserio',
 };
 
 export default blogMetaEn;
