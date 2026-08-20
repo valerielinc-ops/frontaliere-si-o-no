@@ -3532,6 +3532,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lombard-odier-patrimoni-record.title': 'Lombard Odier: patrimoni a record nel primo semestre',
     'blog.article.lombard-odier-patrimoni-record.excerpt': 'Banca ginevrina raggiunge 367 miliardi CHF di patrimoni totali. Ricavi +9%, utile netto +25% nel primo semestre 2026.',
     'blog.article.lombard-odier-patrimoni-record.imageAlt': 'Professionisti finanziari esaminano dati di gestione patrimoniale in ufficio bancario svizzero moderno',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Over 65 superano under 20: la svolta demografica svizzera',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Gli over 65 (1,811 mln) superano per la prima volta gli under 20 (1,804 mln) in Svizzera. Popolazione cresce dello 0,8%, con forti implicazioni su AVS, LPP e cassa malati.',
+    'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Vista del lago di Lugano circondato dalle Alpi e da cittadine svizzere, paesaggio alpino sereno',
 };
 
 export default blogMetaChIt;
