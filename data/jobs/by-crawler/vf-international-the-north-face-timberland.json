@@ -133,7 +133,7 @@
         "it": "ecommerce-merchandiser-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-dg3r78",
         "en": "ecommerce-merchandiser-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-dg3r78",
         "de": "e-commerce-merchandiser-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
-        "fr": "merchandiser-ecommerce-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "fr": "commerce-electronique-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
@@ -756,7 +756,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-6k8qwj",
@@ -850,8 +851,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-tqt3cy",
