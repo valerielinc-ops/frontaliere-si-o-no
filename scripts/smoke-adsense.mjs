@@ -192,13 +192,21 @@ function checkNoDirectPush() {
   for (const file of tsFiles) {
     const rel = path.relative(ROOT, file);
     if (rel === 'components/shared/AdSenseBanner.tsx') continue;
+    // tests/ fixtures reference the push idiom in prose/assertions for the ad
+    // system itself, not as violations — out of scope for this runtime check.
+    if (rel.split(path.sep)[0] === 'tests') continue;
     const content = readFile(file);
+    // Empty-object `.push({})` is AdSense's own push signature (see
+    // AdSenseBanner.tsx) — distinctive enough to flag on its own, without also
+    // requiring the word 'adsbygoogle' in the SAME file. That same-file AND-gate
+    // missed the two-file indirection closed for markup detection in
+    // tests/adsense-viewability-deferral.test.tsx (Check 3's `<ins>` scan): a
+    // service holding the ad queue reference (has the word, no push call) and a
+    // component pushing on the imported reference (has the push call, no word in
+    // that file) each passed this check alone.
     if (/adsbygoogle.*push\(/.test(content) || /\.push\(\s*\{\s*\}\s*\)/.test(content)) {
-      // Only flag if it's paired with adsbygoogle context
-      if (content.includes('adsbygoogle')) {
-        fail(`Direct adsbygoogle.push() call in ${rel} — should only be in AdSenseBanner.tsx`);
-        clean = false;
-      }
+      fail(`Direct adsbygoogle.push() call in ${rel} — should only be in AdSenseBanner.tsx`);
+      clean = false;
     }
   }
   if (clean) pass('adsbygoogle.push() confined to AdSenseBanner.tsx');
