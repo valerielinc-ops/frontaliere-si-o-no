@@ -10222,6 +10222,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Border pension 2026: AVS-INPS coordination',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Excess €10,000 for new frontier workers, €7,500 for old ones. Total AVS/INPS and social security plan with children in 2026.',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Lake Lugano panoramic view from Switzerland with Italian border villages',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'First day in Ticino: border document checklist',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'New Agreement 2024: G permit, LAMal, AVS, tax exemptions. Here\'s what to prepare for your first day as a frontier worker.',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Frontalier worker on first day at Ticino office holding employment contract and documents',
 };
 
 export default blogMetaEn;

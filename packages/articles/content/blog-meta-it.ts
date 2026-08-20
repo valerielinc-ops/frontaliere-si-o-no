@@ -10223,6 +10223,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Pensione frontaliere 2026: coordinamento AVS-INPS',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Franchigia €10\'000 per nuovi frontalieri, €7\'500 per vecchi. Totalizzazione AVS/INPS e piano previdenziale con figli nel 2026.',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Vista del Lago di Lugano dal lato svizzero con monti e villaggi italiani sullo sfondo',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'Primo giorno in Ticino: checklist documenti frontalieri',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'Nuovo Accordo 2024: permesso G, LAMal, AVS, franchigie fiscali. Ecco cosa preparare per il tuo primo giorno come frontaliere.',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Frontaliere al primo giorno in ufficio in Ticino con contratto e documenti in mano',
 };
 
 export default blogMetaIt;

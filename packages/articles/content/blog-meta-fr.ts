@@ -10224,6 +10224,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Pension frontalière 2026 : coordination AVS-INPS',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Franchise 10\'000 € pour les nouveaux frontaliers, 7\'500 € pour les anciens. Totalisation AVS/INPS et plan de prévoyance avec enfants en 2026.',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Vue panoramique du lac de Lugano depuis la Suisse avec villages frontaliers italiens',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'Premier jour au Tessin : liste de contrôle des documents frontaliers',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'Nouvel accord 2024 : permis G, LAMal, AVS, franchises fiscales. Voici ce qu\'il faut préparer pour votre premier jour en tant que frontalier.',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Travailleur frontalier le premier jour au bureau au Tessin avec contrat et documents',
 };
 
 export default blogMetaFr;

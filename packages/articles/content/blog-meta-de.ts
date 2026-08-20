@@ -10221,6 +10221,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Grenzgängerrente 2026: AHV-INPS-Koordination',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Selbstbehalt € 10\'000 für neue Grenzgänger, € 7\'500 für alte Grenzgänger. Summe AHV/NISF und Vorsorgeplan mit Kindern im Jahr 2026.',
     'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Panoramablick auf den Luganer See von der Schweiz mit italienischen Grenzgemeinden',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'Erster Tag im Tessin: Checkliste Grenzdokumente',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'Neue Vereinbarung 2024: Bewilligung G, KVG, AHV, Steuerfreibeträge. So bereiten Sie sich auf Ihren ersten Tag als Grenzgänger vor.',
+    'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Grenzgänger am ersten Arbeitstag im Tessin-Büro mit Arbeitsvertrag und Dokumenten',
 };
 
 export default blogMetaDe;
