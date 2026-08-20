@@ -3610,6 +3610,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.title': 'AVS et prestations complémentaires Schaffhouse',
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.excerpt': 'La caisse de compensation cantonale gère le calcul de la rente AVS et l\'accès aux prestations complémentaires dans le canton de Schaffhouse, en garantissant le minimum vital.',
     'blog.article.avs-prestazioni-complementari-sciaffusa-cassa.imageAlt': 'Panorama du paysage alpin suisse depuis les montagnes du nord',
+    'blog.article.imposta-successione-donazione-sciaffusa.title': 'Impôt sur les successions et les donations Schaffhouse : taux',
+    'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Découvrez les taux, les exonérations pour conjoint et descendants, les procédures et les délais pour l\'impôt sur les successions dans le canton de Schaffhouse. Guide complet pour les héritiers.',
+    'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'Un conseiller fiscal examine les documents de succession dans un bureau cantonal suisse',
 };
 
 export default blogMetaChFr;

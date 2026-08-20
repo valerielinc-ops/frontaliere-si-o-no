@@ -1229,6 +1229,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-affitti-schiaffusa': { it: 'mercato-affitti-schiaffusa', en: 'sciaffusa-rental-market', de: 'schaffhausen-mietmarkt', fr: 'schaffhouse-marche-locatif' },
  'affitti-sciaffusa-diritto-locazione': { it: 'affitti-sciaffusa-diritto-locazione', en: 'schaffhausen-rentals-rights-and-procedure', de: 'schaffhausen-mietwohnungen-rechte-verfahren', fr: 'schaffhouse-locations-droits-locataires' },
  'avs-prestazioni-complementari-sciaffusa-cassa': { it: 'avs-prestazioni-complementari-sciaffusa-cassa', en: 'avs-complementary-benefits-schaffhausen-compensation-fund', de: 'avs-ergaenzungsleistungen-schaffhausen-ausgleichskasse', fr: 'avs-prestations-complementaires-schaffhouse-caisse-compensation' },
+ 'imposta-successione-donazione-sciaffusa': { it: 'imposta-successione-donazione-sciaffusa', en: 'shaffhausen-inheritance-donation-tax-rates', de: 'schaffhausen-erbschaft-schenkungsteuer-saetze', fr: 'schaffhouse-impot-succession-donation-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
