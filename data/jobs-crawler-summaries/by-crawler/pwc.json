@@ -1,23 +1,23 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-08-19T21:43:48.127Z",
+  "generatedAt": "2026-08-20T09:51:11.989Z",
   "total": 131,
-  "newCount": 4,
-  "updatedCount": 79,
-  "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 3515,
-  "avgDurationMs": 3515,
+  "newCount": 1,
+  "updatedCount": 81,
+  "removedCount": 1,
+  "unchangedCount": 13,
+  "durationMs": 3445,
+  "avgDurationMs": 3445,
   "durationHistory": [
-    3515
+    3445
   ],
   "newJobs": [
     {
-      "title": "Manager – Fund Tax Reporting",
-      "slug": "manager-fund-tax-reporting-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-fund-tax-reporting/0c36729e-7ccb-4a76-9c93-cea8ba7776c0",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Manager---Fund-Tax-Reporting_753047WD/apply",
+      "title": "Associate - Sustainable Finance (Financial Services)",
+      "slug": "associate-sustainable-finance-financial-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-sustainable-finance-financial-services/209be93b-6508-4ee0-8d7f-59c5f2b8313d",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/XMLNAME--Senior--Associate---Sustainable-Finance--Financial-Services-_749753WD-1/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
@@ -31,48 +31,25 @@
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-19",
-      "validThrough": "2036-08-15",
+      "postedDate": "2026-08-17",
+      "validThrough": "2036-08-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Associate - Fund Tax Reporting",
-      "slug": "associate-fund-tax-reporting-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-fund-tax-reporting/32082a7b-b28e-4140-8092-43142f0010d9",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Associate---Fund-Tax-Reporting_753048WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-19",
-      "validThrough": "2026-09-17",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 75,
+      "id": "pwc-f0934cdcea29",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-17T21:34:37.035Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Senior Manager - Capability Leader Data Security",
       "slug": "senior-manager-capability-leader-data-security-pwc-zurich",
@@ -95,12 +72,18 @@
       "validThrough": "2036-08-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 70,
+      "id": "pwc-f4f60ce34aad",
+      "needsRetranslation": true,
+      "salaryMin": 113000,
+      "salaryMax": 180000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-19T21:43:48.084Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 16,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -125,16 +108,20 @@
       "validThrough": "2036-08-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 70,
+      "id": "pwc-cbfbc4470567",
+      "salaryMin": 92500,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:43:48.084Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Junior Legal Counsel (Fokus Datenschutz und Compliance)",
       "slug": "junior-legal-counsel-fokus-datenschutz-und-compliance-pwc-zurich",
@@ -198,7 +185,6 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T21:54:15.110Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1114,76 +1100,9 @@
         "translation": 16,
         "completeness": 14
       }
-    },
-    {
-      "title": "Junior Sachbearbeiter:in Rechnungswesen 70–100 %",
-      "slug": "junior-sachbearbeiter-in-rechnungswesen-70-100-pwc-basel",
-      "url": "https://jobs.pwc.ch/job-vacancies/junior-sachbearbeiter-in-rechnungswesen-70/37fcf05a-4234-4248-8f5e-b403e93e4873",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Sachbearbeiter-in-Rechnungswesen-70-100--_741013WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Basel",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "canton": "BS",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-30",
-      "validThrough": "2036-06-26",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Senior Associate – Marketing Technology Specialist",
-      "slug": "senior-associate-marketing-technology-specialist-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-marketing-technology-specialist/9d4353a0-46cd-4428-8251-95ab25c59500",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Marketing-Technology-Lead_739501WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-29",
-      "validThrough": "2036-06-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-6feef3f0f407",
-      "salaryMin": 113000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-29T22:44:12.274Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "(Senior) Associate - Sustainable Finance (Financial Services)",
       "slug": "senior-associate-sustainable-finance-financial-services-pwc-zurich",
@@ -1216,6 +1135,80 @@
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "title": "Manager – Fund Tax Reporting",
+      "slug": "manager-fund-tax-reporting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-fund-tax-reporting/0c36729e-7ccb-4a76-9c93-cea8ba7776c0",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Manager---Fund-Tax-Reporting_753047WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-19",
+      "validThrough": "2036-08-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-0a7b648f84b7",
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-19T21:43:48.084Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Associate - Fund Tax Reporting",
+      "slug": "associate-fund-tax-reporting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-fund-tax-reporting/32082a7b-b28e-4140-8092-43142f0010d9",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Associate---Fund-Tax-Reporting_753048WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-19",
+      "validThrough": "2026-09-17",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-7be577f3ac1a",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-19T21:43:48.084Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
         "completeness": 19
       }
     },
