@@ -602,6 +602,18 @@ const EVENT_IMAGE_DIR = path.join(REPO_ROOT, 'public', 'images', 'events');
 const EVENT_IMAGE_MAX_BYTES = 4 * 1024 * 1024; // 4MB guard against a mis-served asset
 const EVENT_IMAGE_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 
+// Re-encode before storing: the source sites serve print-resolution originals
+// (measured 2026-08-20 over the whole folder: 4'089 jpg/png averaging 936-1'226 KB,
+// the largest 4.1 MB), and this crawler runs daily, so storing the bytes verbatim
+// added 3'154 MB to the repo in 30 days — 46% of the entire tracked tree in a
+// single month. 1600px is deliberately above what any layout requests, so the
+// saving comes from the format and not from throwing away resolution: on a
+// 12-file sample spanning the size distribution, most sources are already
+// <=1600px wide and are not resized at all, yet the sample still comes down 87%.
+const EVENT_IMAGE_MAX_WIDTH = 1600;
+const EVENT_IMAGE_WEBP_QUALITY = 82;
+const EVENT_IMAGE_WEBP_EFFORT = 6;
+
 function extFromContentType(contentType) {
   const ct = String(contentType || '').toLowerCase();
   if (ct.includes('png')) return 'png';
@@ -610,12 +622,47 @@ function extFromContentType(contentType) {
 }
 
 /**
+ * Re-encode a downloaded event image to WebP, capped at EVENT_IMAGE_MAX_WIDTH.
+ * Returns `{ buf, ext }` — always something storable, never throws.
+ *
+ * Two deliberate fallbacks to the original bytes, both of which keep the image
+ * rather than losing it:
+ *   • sharp unavailable or unable to decode → store the source as-is. The job of
+ *     this function is to mirror the image; an optimiser that fails must not cost
+ *     the events funnel its picture. It logs, because a silent fallback here means
+ *     the growth quietly resumes.
+ *   • re-encode came out no smaller → keep the original. Sources that already
+ *     serve an optimised WebP (ge-agenda ships 2.5-5 KB files) would otherwise be
+ *     made bigger by a pointless round-trip. Same guard as
+ *     scripts/backfill-blog-webp.mjs.
+ */
+async function encodeEventImage(buf, contentType) {
+  const originalExt = extFromContentType(contentType);
+  try {
+    const sharp = (await import('sharp')).default;
+    const out = await sharp(buf)
+      .resize({ width: EVENT_IMAGE_MAX_WIDTH, withoutEnlargement: true })
+      .webp({ quality: EVENT_IMAGE_WEBP_QUALITY, effort: EVENT_IMAGE_WEBP_EFFORT })
+      .toBuffer();
+    if (out.length >= buf.length) return { buf, ext: originalExt };
+    return { buf: out, ext: 'webp' };
+  } catch (err) {
+    console.warn(`[events] image re-encode failed, storing original: ${err?.message || err}`);
+    return { buf, ext: originalExt };
+  }
+}
+
+/**
  * Download an event's source image once and store it locally under
  * `public/images/events/<sourceKey>-<rawId>.<ext>`. Returns the site-relative
- * path (e.g. `/images/events/guidle-Acv6rYJ.jpg`) on success, or `null` on any
+ * path (e.g. `/images/events/guidle-Acv6rYJ.webp`) on success, or `null` on any
  * failure (missing URL, network error, oversized/non-image response) — callers
  * MUST treat a null return as "no image" (never fall back to the original
  * remote URL, that would defeat the no-hotlink requirement).
+ *
+ * The stored extension is normally `webp` — encodeEventImage re-encodes what
+ * was downloaded; the source's own extension survives only when that is
+ * skipped.
  */
 export async function mirrorEventImage(sourceUrl, stableId) {
   if (!sourceUrl || !/^https?:\/\//i.test(sourceUrl)) return null;
@@ -633,9 +680,9 @@ export async function mirrorEventImage(sourceUrl, stableId) {
     if (!res.ok) return null;
     const contentType = res.headers.get('content-type') || '';
     if (!contentType.startsWith('image/')) return null;
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.byteLength === 0 || buf.byteLength > EVENT_IMAGE_MAX_BYTES) return null;
-    const ext = extFromContentType(contentType);
+    const raw = Buffer.from(await res.arrayBuffer());
+    if (raw.byteLength === 0 || raw.byteLength > EVENT_IMAGE_MAX_BYTES) return null;
+    const { buf, ext } = await encodeEventImage(raw, contentType);
     const fileName = `${safeId}.${ext}`;
     writeFileSync(path.join(EVENT_IMAGE_DIR, fileName), buf);
     return `/images/events/${fileName}`;
