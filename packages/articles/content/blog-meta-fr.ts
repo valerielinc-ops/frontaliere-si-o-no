@@ -10221,6 +10221,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-frontaliere.title': 'Pension frontalière 2026 : AVS et INPS',
     'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'Coordination AVS-INPS à partir de 2024 : totalisation des cotisations, de l\'impôt à la source et des restaurations. Franchise de 10 000 € pour les nouveaux frontaliers.',
     'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Le lac de Lugano avec les montagnes du Tessin, symbole de la région transfrontalière Tessin-Italie.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Pension frontalière 2026 : coordination AVS-INPS',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Franchise 10\'000 € pour les nouveaux frontaliers, 7\'500 € pour les anciens. Totalisation AVS/INPS et plan de prévoyance avec enfants en 2026.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Vue panoramique du lac de Lugano depuis la Suisse avec villages frontaliers italiens',
 };
 
 export default blogMetaFr;

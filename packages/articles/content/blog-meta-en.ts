@@ -10219,6 +10219,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coordinamento-avs-inps-frontaliere.title': 'Border pension 2026: AVS and INPS',
     'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'AVS-INPS coordination from 2024: totalisation of contributions, tax at source and refunds. Excess €10,000 for new frontier workers.',
     'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Lake Lugano with Ticino mountains, symbol of the Ticino-Italy cross-border region.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.title': 'Border pension 2026: AVS-INPS coordination',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.excerpt': 'Excess €10,000 for new frontier workers, €7,500 for old ones. Total AVS/INPS and social security plan with children in 2026.',
+    'blog.article.coordinamento-pensione-famiglia-figli-2026.imageAlt': 'Lake Lugano panoramic view from Switzerland with Italian border villages',
 };
 
 export default blogMetaEn;

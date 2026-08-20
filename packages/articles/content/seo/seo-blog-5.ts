@@ -71285,6 +71285,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coordinamento-pensione-famiglia-figli-2026': {
+    title: 'Pensione frontaliere 2026: coordinamento AVS-INPS',
+    description: 'Coordinamento AVS-INPS per frontalieri con famiglia nel 2026: franchigie, totalizzazione, busta paga e pianificazione previdenziale con figli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, coordinamento, avs-inps, franchigia',
+    ogTitle: 'Pensione frontaliere 2026: coordinamento AVS-INPS',
+    ogDescription: 'Nel 2026 il coordinamento AVS-INPS diventa cruciale per i frontalieri con figli. Scopri franchigie (€10\'000 nuovi, €7\'500 vecchi), totalizzazione e busta paga svizzera. Piano previdenziale e checklist operativa.',
+    canonicalPath: '/articoli-frontaliere/coordinamento-pensione-famiglia-figli-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontaliere 2026: coordinamento AVS-INPS",
+      "description": "Coordinamento AVS-INPS per frontalieri con famiglia nel 2026: franchigie, totalizzazione, busta paga e pianificazione previdenziale con figli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coordinamento-pensione-famiglia-figli-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano dal lato svizzero con monti e villaggi italiani sullo sfondo"
+      },
+      "datePublished": "2026-08-20T07:48:17+00:00",
+      "dateModified": "2026-08-20T07:48:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coordinamento-pensione-famiglia-figli-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
