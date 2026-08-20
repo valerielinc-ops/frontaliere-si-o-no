@@ -3586,6 +3586,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-sciaffusa-guida.title': 'Apprendistato e formazione nel canton Sciaffusa',
     'blog.article.apprendistato-sciaffusa-guida.excerpt': 'L\'apprendistato svizzero: come trovare un tirocinio, sottoscrivere il contratto, la retribuzione progressiva e il percorso verso la maturità professionale (MP) e l\'AFC.',
     'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprendisti in formazione pratica in un laboratorio di scuola professionale svizzera moderna',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Croce Rossa: azione legale per uso improprio del nome',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'La CRS avvia azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Documenti legali e emblema della Croce Rossa in uno studio legale svizzero durante una consultazione.',
 };
 
 export default blogMetaChIt;

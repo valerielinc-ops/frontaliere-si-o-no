@@ -3586,6 +3586,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-sciaffusa-guida.title': 'Apprentissage et formation dans le canton de Schaffhouse',
     'blog.article.apprendistato-sciaffusa-guida.excerpt': 'L\'apprentissage suisse : comment trouver un stage, souscrire le contrat, la rémunération progressive et le parcours vers la maturité professionnelle (MP) et l\'AFC.',
     'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprentis en formation pratique dans un atelier d\'école professionnelle suisse moderne',
+    'blog.article.croce-rossa-azione-legale-nome.title': 'Croix-Rouge : action en justice pour utilisation abusive du nom',
+    'blog.article.croce-rossa-azione-legale-nome.excerpt': 'La CRS engage une action en justice contre Souveraineté suisse pour l\'utilisation abusive de son nom dans la campagne sur la neutralité en votation le 27 septembre.',
+    'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Documents juridiques et emblème de la Croix-Rouge sur un bureau dans un cabinet juridique suisse.',
 };
 
 export default blogMetaChFr;
