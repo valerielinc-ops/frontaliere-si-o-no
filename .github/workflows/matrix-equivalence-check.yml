@@ -50,6 +50,13 @@ jobs:
         with:
           ref: ${{ github.event.inputs.sha }}
           path: build
+      # Review di #6150: questo job lancia `npm run build:ci` (tetto V8
+      # 14336 MB) e senza lo swapfile il runtime NON e' quello del deploy che
+      # deve byte-matchare — e il preflight di buildMemoryGuard lo fermerebbe
+      # comunque. Script dal checkout `tooling` (il commit di build puo'
+      # precedere lo script).
+      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
+        run: bash tooling/scripts/ci/grow-build-swap.sh
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:

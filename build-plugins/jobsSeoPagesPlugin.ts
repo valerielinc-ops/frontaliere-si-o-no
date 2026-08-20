@@ -13659,12 +13659,20 @@ ${staticAnalyticsHtml}
  // scende progressivamente DURANTE il loop invece di restare piatta fino al
  // clear() in coda. Il decremento avviene anche su cache-miss, perche' il
  // pre-pass ha contato lo stesso predicato, non la presenza in cache.
- const remainingReads = (crossLocaleCacheReads.get(crossLocaleCacheKey) ?? 1) - 1;
+ // Review di #6154: il default `?? 1` trasformava una divergenza di
+ // predicato (chiave letta ma mai contata) in una EVIZIONE PREMATURA al
+ // primo lettore — l'opposto dell'invariante dichiarata. Una chiave non
+ // contata ora non viene mai evitta: il costo della divergenza torna a
+ // essere solo memoria (fino al clear() di coda), mai una lettura mancata.
+ const countedReads = crossLocaleCacheReads.get(crossLocaleCacheKey);
+ if (countedReads !== undefined) {
+ const remainingReads = countedReads - 1;
  if (remainingReads <= 0) {
  crossLocaleCacheReads.delete(crossLocaleCacheKey);
  jobHtmlCache.delete(crossLocaleCacheKey);
  } else {
  crossLocaleCacheReads.set(crossLocaleCacheKey, remainingReads);
+ }
  }
  if (!cachedHtml) continue;
  const foreignSlugs = new Set<string>();
@@ -13754,7 +13762,27 @@ ${staticAnalyticsHtml}
  relatedJobsByCategory.clear();
  relatedJobsByLocation.clear();
  companyMap.clear();
- forceGc();
+ // Review di #6154 (finding 3): anche questi puntano agli stessi oggetti
+ // job, e uno basta a tenere vivo il grafo. Ultimi lettori verificati:
+ // sortedForPagination L8681, implicitPreviousSlugs L11766,
+ // companyActiveJobsMap L12342, selectRecentJobs (unico lettore di
+ // recentJobPool) L12712 — tutti prima di questo punto; il self-heal legge
+ // solo tracking/_writtenPaths/activeJobDirs (che infatti NON vengono
+ // toccati qui). jobsByCantonCity/cantonLatestJobs della review NON sono
+ // qui: sono block-scoped nella fase city-hubs (tsc li rifiuta a questo
+ // punto), quindi escono di scope da soli.
+ sortedForPagination.length = 0;
+ implicitPreviousSlugs.length = 0;
+ companyActiveJobsMap.clear();
+ recentJobPool.length = 0;
+ crossLocaleCacheReads.clear();
+ // NIENTE forceGc() esplicito prima del checkpoint (review di #6154,
+ // finding 1): logBuildMem fotografa heapUsed, POI esegue la sua GC e
+ // riporta gcFreed come delta. Con una GC gia' fatta qui il checkpoint
+ // avrebbe letto gcFreed≈0 per costruzione, rendendo inosservabile la
+ // verifica dichiarata («il rilascio libera davvero?») e sempre-vero il
+ // revert-trigger. Cosi' invece gcFreed AL checkpoint E' la misura del
+ // rilascio.
  logBuildMem('jobsSeoPages: after corpus-release', collector);
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */

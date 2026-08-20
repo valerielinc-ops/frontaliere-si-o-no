@@ -381,39 +381,24 @@ jobs:
           df -h /
           echo "::endgroup::"
 
-      # I build-locale muoiono con exit 134 sul muro V8 (12288 MB) mentre
-      # l'host ha ancora ~2 GB di MemAvailable e ~3 GB di SwapFree (run
-      # 32319344037, leg it, 2026-08-20). Il tetto V8 sale quindi a 14336
-      # (package.json build:ci) — ma alzarlo senza dare all'host capacita' di
-      # evizione sposterebbe solo il kill dall'heap all'host: i leg VERDI
-      # chiudono gia' a 12,3-12,5 GB di RSS su 15,99 GB totali con ~3 GB di
-      # swap usati (buildMemoryGuard.ts, run 31747139648). Con 8 GB extra su
-      # /mnt (SSD locale del runner) la capacita' anonima totale sale a
-      # ~28 GB: il grafo Vite/Rollup (~4 GB, fermo durante la fase SSG che
-      # gira DENTRO closeBundle) e le arene glibc pinnate diventano
-      # evacuabili invece che residenti obbligati. buildMemoryGuard e' stato
-      # reso swap-aware nello stesso giro, altrimenti il suo tetto RSS
-      # (12,9 GB) sarebbe diventato lui il nuovo muro.
-      # Revert-trigger: se un leg muore host-kill (step in_progress senza
-      # exit code) o il wall-time dello step Build cresce >20% con lo swap
-      # attivo, togliere questo step e il rialzo del tetto V8 insieme, e
-      # riaprire l'indagine retention (issue #6134).
-      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
-        shell: bash
-        run: |
-          if [ -d /mnt ] && [ "$(df -m /mnt | awk 'NR==2{print $4}')" -gt 12288 ]; then
-            sudo fallocate -l 8G /mnt/build-swapfile
-            sudo chmod 600 /mnt/build-swapfile
-            sudo mkswap /mnt/build-swapfile
-            sudo swapon /mnt/build-swapfile
-          else
-            echo "::warning::/mnt assente o con meno di 12 GB liberi: swap extra non creato, si prosegue col solo swap di default del runner"
-          fi
-          swapon --show || true
-          free -m
-
       - name: Checkout
         uses: actions/checkout@v5
+
+      # I build-locale morivano exit 134 sul muro V8 (12288 MB) con l'host
+      # ancora largo (~2 GB MemAvailable, ~3 GB SwapFree — run 32319344037):
+      # il tetto V8 e' salito a 14336 (package.json build:ci) e regge solo
+      # con capacita' di evizione in piu'. Lo swapfile, i suoi numeri e il
+      # razionale stanno in UN posto solo: scripts/ci/grow-build-swap.sh
+      # (review di #6150 — la copia inline era duplicata 3 volte e ha
+      # lasciato scoperti 2 workflow). Il ramo fail-open dello script e'
+      # coperto dal preflight di buildMemoryGuard, che ferma in 5 secondi
+      # qualunque build:ci parta col tetto alzato senza questo swap.
+      # Revert-trigger: se un leg muore host-kill (step in_progress senza
+      # exit code) o il wall-time dello step Build cresce >20% con lo swap
+      # attivo, togliere script e rialzo del tetto V8 insieme, e riaprire
+      # l'indagine retention (issue #6134).
+      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
+        run: bash scripts/ci/grow-build-swap.sh
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -560,11 +545,15 @@ jobs:
           set -o pipefail
           breach=''
           peak=''
+          peak_anon=''
           avail=''
+          swap_free=''
           if [ -f /tmp/build-memory-peak.json ]; then
             breach=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.breach??""))' || true)
             peak=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakRssMb??""))' || true)
+            peak_anon=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.peakAnonMb??""))' || true)
             avail=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minHostAvailMb??""))' || true)
+            swap_free=$(node -e 'const r=require("/tmp/build-memory-peak.json");process.stdout.write(String(r.minSwapFreeMb??""))' || true)
             cat /tmp/build-memory-peak.json
           else
             echo "[memguard] nessun referto: il processo di build non ha mai chiuso (host-kill) o il guard non era armato"
@@ -572,7 +561,9 @@ jobs:
           {
             echo "breach=$breach"
             echo "peak_rss_mb=$peak"
+            echo "peak_anon_mb=$peak_anon"
             echo "min_host_avail_mb=$avail"
+            echo "min_swap_free_mb=$swap_free"
           } >> "$GITHUB_OUTPUT"
 
       - name: Verify critical dist pages before upload
@@ -2393,8 +2384,10 @@ jobs:
           diag-file: /tmp/build-failure-diag.txt
           context: |
             - **Soglia sfondata:** `${{ steps.memguard.outputs.breach }}`
+            - **Picco del footprint anonimo (RSS+VmSwap):** ${{ steps.memguard.outputs.peak_anon_mb }} MB
             - **Picco RSS del processo di build:** ${{ steps.memguard.outputs.peak_rss_mb }} MB
             - **MemAvailable minimo dell'host:** ${{ steps.memguard.outputs.min_host_avail_mb }} MB
+            - **SwapFree minimo dell'host:** ${{ steps.memguard.outputs.min_swap_free_mb }} MB
             - Il build è stato fermato di proposito **prima** che l'host lo uccidesse.
               Un kill dell'host lascia lo step su `in_progress` senza exit code, e in
               quello stato nessuno step `if: failure()` viene valutato — è così che il
@@ -2407,9 +2400,12 @@ jobs:
               `[mem] jobsSeoPages: after company-landing`. Grep sul log del run:
               `[mem] `, `[profile-mem] `, `[hostmem] `.
             - Le soglie e la loro derivazione stanno in
-              `build-plugins/shared/buildMemoryGuard.ts`. **Non alzarle**: il tetto è già
-              calibrato sotto il punto di kill osservato su questo runner, alzarlo
-              riporta il guasto opaco.
+              `build-plugins/shared/buildMemoryGuard.ts`. **Non alzarle**: il tetto è
+              una frazione della capacità anonima dell'host (RAM+swap, credito cappato)
+              confrontata col footprint RSS+VmSwap del processo, e i pavimenti su
+              MemAvailable/SwapFree sono l'ultima linea prima del kill opaco. Se questa
+              issue è aperta, la strada è ridurre la retention (vedi i checkpoint
+              `[mem]` di jobsSeoPagesPlugin), non allargare le soglie.
 
       - name: Resolve build memory issue on green
         if: success()

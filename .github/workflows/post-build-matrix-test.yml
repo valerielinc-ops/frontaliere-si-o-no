@@ -49,6 +49,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # Review di #6150: questo job lancia `npm run build:ci` come MONOLITE
+      # (nessun BUILD_LOCALE — il profilo di memoria peggiore) col tetto V8 a
+      # 14336 MB: senza lo swapfile e' la configurazione che il 19-08 ha
+      # ucciso 7 deploy su 8, e il preflight di buildMemoryGuard la ferma.
+      - name: Grow swap (il tetto V8 a 14336 MB vuole headroom sull'host)
+        run: bash scripts/ci/grow-build-swap.sh
+
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
