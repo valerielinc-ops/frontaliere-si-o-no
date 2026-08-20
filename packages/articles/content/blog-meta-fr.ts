@@ -10287,6 +10287,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-strada-frontalieri-cantello.title': 'Collision entre Varèse et Cantello : deux blessés',
     'blog.article.incidente-strada-frontalieri-cantello.excerpt': 'Collision entre deux voitures sur la SP3 entre Cantello et Varèse : trois personnes impliquées, deux blessés à l\'hôpital et de lourds ralentissements pour les frontaliers.',
     'blog.article.incidente-strada-frontalieri-cantello.imageAlt': 'Accident sur la route provinciale entre Varese et Cantello',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.title': 'Frontières au Tessin : le transfert de Morazzone',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord frontalier de 2024 et les avantages pour les frontaliers qui déménagent à Morazzone',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.imageAlt': 'Image d\'un travailleur frontalier à Lugano',
 };
 
 export default blogMetaFr;

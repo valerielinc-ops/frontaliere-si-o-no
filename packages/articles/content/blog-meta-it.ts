@@ -10286,6 +10286,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-strada-frontalieri-cantello.title': 'Scontro tra Varese e Cantello: due feriti',
     'blog.article.incidente-strada-frontalieri-cantello.excerpt': 'Scontro tra due auto sulla SP3 tra Cantello e Varese: tre persone coinvolte, due feriti in ospedale e pesanti rallentamenti per i frontalieri.',
     'blog.article.incidente-strada-frontalieri-cantello.imageAlt': 'Incidente sulla strada provinciale tra Varese e Cantello',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.title': 'Frontalieri in Ticino: il trasferimento da Morazzone',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.excerpt': 'Il nuovo accordo frontaliere del 2024 e i benefici per i frontalieri che si trasferiscono a Morazzone',
+    'blog.article.vivere-morazzone-lavorare-ticino-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora a Lugano',
 };
 
 export default blogMetaIt;
