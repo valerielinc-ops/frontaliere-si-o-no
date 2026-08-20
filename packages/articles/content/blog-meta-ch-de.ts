@@ -3535,6 +3535,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Über 65 über 20: Die demografische Wende in der Schweiz',
     'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Die über 65-Jährigen (1.811 Mio.) übertreffen in der Schweiz erstmals die unter 20-Jährigen (1.804 Mio.). Die Bevölkerung wächst um 0,8%, mit starken Auswirkungen auf AHV, BVG und Krankenkasse.',
     'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Blick auf den Luganersee umgeben von Alpenbergen und Schweizer Ortschaften, ruhige Alpenlandschaft',
+    'blog.article.statent-2024-occupazione-svizzera.title': 'Statent 2024: 5,68 Millionen Arbeitsplätze in der Schweiz',
+    'blog.article.statent-2024-occupazione-svizzera.excerpt': 'Im Jahr 2024 verzeichnete die Schweiz 5,68 Millionen Arbeitsplätze, was laut BfS einem Wachstum von 0,6% gegenüber dem Vorjahr entspricht.',
+    'blog.article.statent-2024-occupazione-svizzera.imageAlt': 'Überblick über den Schweizer Wirtschaftsraum mit Beschäftigungsdaten',
 };
 
 export default blogMetaChDe;

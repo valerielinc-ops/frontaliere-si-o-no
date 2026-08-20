@@ -3535,6 +3535,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Plus de 65 ans et moins de 20 ans : le tournant démographique suisse',
     'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Les plus de 65 ans (1,811 million) dépassent pour la première fois les moins de 20 ans (1,804 million) en Suisse. La population augmente de 0,8 %, avec de fortes implications sur l\'AVS, la LPP et la caisse-maladie.',
     'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Vue du lac Lugano entouré des Alpes et villages suisses, paysage alpin tranquille',
+    'blog.article.statent-2024-occupazione-svizzera.title': 'Statent 2024: 5,68 millions d\'emplois en Suisse',
+    'blog.article.statent-2024-occupazione-svizzera.excerpt': 'En 2024, la Suisse a enregistré 5,68 millions d\'emplois, soit une croissance de 0,6% par rapport à l\'année précédente selon l\'OFS.',
+    'blog.article.statent-2024-occupazione-svizzera.imageAlt': 'Aperçu du marché économique suisse avec des données sur l\'emploi',
 };
 
 export default blogMetaChFr;

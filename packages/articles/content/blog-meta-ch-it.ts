@@ -3535,6 +3535,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.invecchiamento-popolazione-svizzera-2025.title': 'Over 65 superano under 20: la svolta demografica svizzera',
     'blog.article.invecchiamento-popolazione-svizzera-2025.excerpt': 'Gli over 65 (1,811 mln) superano per la prima volta gli under 20 (1,804 mln) in Svizzera. Popolazione cresce dello 0,8%, con forti implicazioni su AVS, LPP e cassa malati.',
     'blog.article.invecchiamento-popolazione-svizzera-2025.imageAlt': 'Vista del lago di Lugano circondato dalle Alpi e da cittadine svizzere, paesaggio alpino sereno',
+    'blog.article.statent-2024-occupazione-svizzera.title': 'Statent 2024: 5,68 milioni di impieghi in Svizzera',
+    'blog.article.statent-2024-occupazione-svizzera.excerpt': 'Nel 2024 la Svizzera ha registrato 5,68 milioni di impieghi, con una crescita dello 0,6% rispetto all\'anno precedente secondo l\'UST.',
+    'blog.article.statent-2024-occupazione-svizzera.imageAlt': 'Panoramica della piazza economica svizzera con dati sull\'occupazione',
 };
 
 export default blogMetaChIt;
