@@ -71129,6 +71129,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-dichiarazione-redditi-2026': {
+    title: 'Credito d\'imposta 2026: la guida frontalieri oltre 20 km',
+    description: 'Credito d\'imposta 2026 per frontalieri: calcolo del quadro CE, franchigia €7.500 (vecchi) e €10.000 (nuovi), dichiarazione 730 e checklist operativa',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, oltre, gennaio',
+    ogTitle: 'Credito d\'imposta 2026: la guida frontalieri oltre 20 km',
+    ogDescription: 'Dal 1° gennaio 2024 il Nuovo Accordo riforma il credito d\'imposta. Franchigia €10.000 nuovi frontalieri, €7.500 vecchi. Quadro CE 730 e calcolo nel 2026: guida pratica.',
+    canonicalPath: '/articoli-frontaliere/credito-dichiarazione-redditi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta 2026: la guida frontalieri oltre 20 km",
+      "description": "Credito d'imposta 2026 per frontalieri: calcolo del quadro CE, franchigia €7.500 (vecchi) e €10.000 (nuovi), dichiarazione 730 e checklist operativa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-dichiarazione-redditi-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere esamina documenti fiscali Swiss-italiani alla scrivania durante l'ora d'oro"
+      },
+      "datePublished": "2026-08-20T05:57:45+00:00",
+      "dateModified": "2026-08-20T05:57:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-dichiarazione-redditi-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

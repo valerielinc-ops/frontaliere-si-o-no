@@ -10207,6 +10207,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-20.imageAlt': 'The day\'s numbers for cross-border commuters – August 20, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-20.seoDescription': 'Cross-border brief, August 20, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-20.ogDescription': 'The numbers for August 20, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.credito-dichiarazione-redditi-2026.title': '2026 tax credit: frontier driving over 20 km',
+    'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'From 1 January 2024, the New Frontier Agreement modifies the tax credit. Here is an excess of €7,500 (old) and €10,000 (new), calculation in the CE 730 framework and operational checklist.',
+    'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Cross-border worker reviews Swiss-Italian tax documents at desk in golden hour lighting',
 };
 
 export default blogMetaEn;
