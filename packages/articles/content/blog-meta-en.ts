@@ -10169,6 +10169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gravidanza-lamal-cmi-frontaliera.title': 'Pregnant frontier: choose LAMal or CMI?',
     'blog.article.gravidanza-lamal-cmi-frontaliera.excerpt': 'The choice between LAMal and CMI during pregnancy is decisive. Deductibles, covers and procedure: complete guide for border with G permit.',
     'blog.article.gravidanza-lamal-cmi-frontaliera.imageAlt': 'Pregnant woman with healthcare insurance documents overlooking Lake Lugano in Ticino',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.title': 'Living in Intragna, working in Ticino: border guide',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.excerpt': 'Timing of crossings, G permit, border taxation, refreshments, cost of living: how to move from Intragna and work in Ticino.',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.imageAlt': 'Lake Lugano separates Switzerland from Italy: the natural border between Ticino and Verbano-Cusio-Ossola where cross-border workers live',
 };
 
 export default blogMetaEn;

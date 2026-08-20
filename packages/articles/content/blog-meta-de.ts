@@ -10168,6 +10168,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gravidanza-lamal-cmi-frontaliera.title': 'Stirnband in der Schwangerschaft: KVG oder MHK wählen?',
     'blog.article.gravidanza-lamal-cmi-frontaliera.excerpt': 'Die Wahl zwischen KVG und MHK während der Schwangerschaft ist entscheidend. Selbstbehalte, Deckungen und Verfahren: Kompletter Leitfaden für Grenzgänger mit Ausweis G.',
     'blog.article.gravidanza-lamal-cmi-frontaliera.imageAlt': 'Schwangere Frau mit Krankenversicherungsdokumenten mit Blick auf den Luganer See im Tessin',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.title': 'Leben in Intragna, Arbeiten im Tessin: Grenzführer',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.excerpt': 'Grenzübergangszeiten, G-Genehmigung, Grenzbesteuerung, Erstattungen, Lebenshaltungskosten: So ziehen Sie nach Intragna und arbeiten im Tessin.',
+    'blog.article.vivere-intragna-lavorare-ticino-frontaliere.imageAlt': 'Der Luganersee trennt die Schweiz von Italien: die natürliche Grenze zwischen dem Tessin und dem Verbano-Cusio-Ossola, wo Grenzgänger arbeiten',
 };
 
 export default blogMetaDe;
