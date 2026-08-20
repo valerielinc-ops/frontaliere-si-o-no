@@ -3550,6 +3550,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazioni-svizzera-risultati-2025.title': 'Swiss insurance: profits +136% in 2025',
     'blog.article.assicurazioni-svizzera-risultati-2025.excerpt': 'Swiss insurance companies recorded CHF 24.4 billion in profits in 2025 (+136%). FINMA certifies enhanced financial strength and high solvency of the sector.',
     'blog.article.assicurazioni-svizzera-risultati-2025.imageAlt': 'Swiss financial district cityscape with modern skyscrapers at sunset',
+    'blog.article.preventivo-confederazione-2027.title': 'Federal Council adopts 2027 budget',
+    'blog.article.preventivo-confederazione-2027.excerpt': 'On August 19, the Federal Council approves the 2027 budget with PICF 2028-2030. Document available online at aff.admin.ch.',
+    'blog.article.preventivo-confederazione-2027.imageAlt': 'Swiss Federal Administration: federal budget documents and confederation financial planning.',
 };
 
 export default blogMetaChEn;

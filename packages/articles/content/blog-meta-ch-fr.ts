@@ -3550,6 +3550,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazioni-svizzera-risultati-2025.title': 'Assurances suisses : bénéfices +136% en 2025',
     'blog.article.assicurazioni-svizzera-risultati-2025.excerpt': 'Les compagnies d\'assurance suisses enregistrent un bénéfice de CHF 24,4 milliards en 2025 (+136%). La FINMA certifie une solidité financière renforcée et une solvabilité élevée du secteur.',
     'blog.article.assicurazioni-svizzera-risultati-2025.imageAlt': 'Quartier financier suisse avec gratte-ciel modernes au coucher du soleil',
+    'blog.article.preventivo-confederazione-2027.title': 'Le Conseil fédéral adopte le budget 2027',
+    'blog.article.preventivo-confederazione-2027.excerpt': 'Le 19 août, le Conseil fédéral approuve le budget 2027 avec le PICF 2028-2030. Document disponible en ligne sur aff.admin.ch.',
+    'blog.article.preventivo-confederazione-2027.imageAlt': 'Administration fédérale suisse : documents budgétaires et planification financière de la Confédération.',
 };
 
 export default blogMetaChFr;
