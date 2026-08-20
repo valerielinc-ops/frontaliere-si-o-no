@@ -10188,6 +10188,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.clima-ticino-anno.title': 'Clima e meteo Ticino: stagioni caratteristiche',
     'blog.article.clima-ticino-anno.excerpt': 'Temperature medie, precipitazioni, fenomeni meteorologici rari nel Ticino.',
     'blog.article.clima-ticino-anno.imageAlt': 'Vista panoramica del Lago di Lugano, Ticino, Svizzera, con un\'enfasi sulle stagioni',
+    'blog.article.trasporti-ticino-abbonamenti.title': 'Trasporti pubblici Ticino: guida agli abbonamenti',
+    'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Rete Arcobaleno e abbonamenti: come il frontaliere ottimizza pendolarismo e budget con app e biglietti digitali per lavoro in Ticino.',
+    'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Treno regionale alla stazione di Lugano, frontalieri in attesa di salire a bordo durante l\'ora di punta mattutina',
 };
 
 export default blogMetaIt;

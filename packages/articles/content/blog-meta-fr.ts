@@ -10189,6 +10189,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.clima-ticino-anno.title': 'Climat et météo Tessin : saisons caractéristiques',
     'blog.article.clima-ticino-anno.excerpt': 'Températures moyennes, précipitations, phénomènes météorologiques rares au Tessin.',
     'blog.article.clima-ticino-anno.imageAlt': 'Vue panoramique du lac de Lugano, Tessin, Suisse, avec un focus sur les saisons',
+    'blog.article.trasporti-ticino-abbonamenti.title': 'Transports publics Tessin : guide des abonnements',
+    'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Réseau Arc-en-ciel et abonnements : comment le frontalier optimise les déplacements et le budget avec des applications et des billets numériques pour le travail au Tessin.',
+    'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Train régional à la gare de Lugano, navetteurs attendant de monter à bord pendant l\'heure de pointe',
 };
 
 export default blogMetaFr;
