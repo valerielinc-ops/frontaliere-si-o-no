@@ -1,16 +1,16 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-08-19T21:48:18.281Z",
+  "generatedAt": "2026-08-20T09:59:39.597Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4340,
-  "avgDurationMs": 4340,
+  "durationMs": 4325,
+  "avgDurationMs": 4325,
   "durationHistory": [
-    4340
+    4325
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/transport-oder-rettungssanitaeterin-mit-anteil-flugbetrieb-100--571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:48:16.167Z",
+      "crawledAt": "2026-08-20T09:59:37.121Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T22:00:47.781Z",
       "_qualityScore": 85,
@@ -75,7 +75,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:48:16.501Z",
+      "crawledAt": "2026-08-20T09:59:37.386Z",
       "firstSeenAt": "2026-08-18T22:00:48.081Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -86,46 +86,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "air-zermatt-a88db8fd4ebd",
-      "slug": "trasporto-o-emergenza-tecnico-medico-100-air-zermatt-ag-raron",
-      "company": "Air Zermatt AG",
-      "companyKey": "air-zermatt",
-      "companyDomain": "air-zermatt.ch",
-      "title": "TRANSPORT OR EMERGENCY MEDICAL TECHNICIAN (100%)",
-      "location": "Raron",
-      "canton": "VS",
-      "addressLocality": "Raron",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3942",
-      "category": "general",
-      "sector": "Aviazione / Servizi di soccorso",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "url": "https://www.air-zermatt.ch/en/service/vacancies/transport-or-emergency-medical-technician-100--571",
-      "applyUrl": "https://www.air-zermatt.ch/en/service/vacancies/transport-or-emergency-medical-technician-100--571",
-      "source": "Air Zermatt Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-18T10:16:31.001Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-18T10:16:31.001Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
