@@ -1,16 +1,16 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-08-19T21:39:53.599Z",
-  "total": 6,
+  "generatedAt": "2026-08-20T09:54:54.869Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 13975,
-  "avgDurationMs": 13975,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 13398,
+  "avgDurationMs": 13398,
   "durationHistory": [
-    13975
+    13398
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:39:48.927Z",
+      "crawledAt": "2026-08-20T09:54:50.362Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-19T21:39:49.790Z",
+      "crawledAt": "2026-08-20T09:54:50.955Z",
       "addressLocality": "Geneve, Geneva, Switzerland",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -98,7 +98,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:39:50.408Z",
+      "crawledAt": "2026-08-20T09:54:51.672Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -134,7 +134,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-19T21:39:51.017Z",
+      "crawledAt": "2026-08-20T09:54:52.260Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -159,47 +159,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "hermes-b0c6f7aac2bc",
-      "slug": "cdi-sales-associate-zurich-80-5-giorni-h-f-hermes-zurich-switzerland",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/23012/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-18T22:02:47.835Z",
-      "addressLocality": "Zurich, Switzerland",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-26",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23012/",
-      "firstSeenAt": "2026-07-26T10:53:20.742Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
+  "removedJobs": [
     {
       "id": "hermes-5314624ea213",
       "slug": "cdd-coordinatore-del-progetto-di-manutenzione-f-h-hermes-geneve-geneva-switzerland",
@@ -239,6 +199,46 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "id": "hermes-b0c6f7aac2bc",
+      "slug": "cdi-sales-associate-zurich-80-5-giorni-h-f-hermes-zurich-switzerland",
+      "company": "Hermès",
+      "companyKey": "hermes",
+      "companyDomain": "hermes.com",
+      "title": "CDI - Sales Associate Zürich (80% - 5 Tage) (H/F)",
+      "location": "Zurich, Switzerland",
+      "canton": "ZH",
+      "url": "https://talents.hermes.com/en/sites/CX/jobs/23012/",
+      "source": "Hermès Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-18T22:02:47.835Z",
+      "addressLocality": "Zurich, Switzerland",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Luxury goods / fashion / watchmaking",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-26",
+      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23012/",
+      "firstSeenAt": "2026-07-26T10:53:20.742Z",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
