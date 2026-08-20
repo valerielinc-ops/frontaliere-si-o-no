@@ -3484,6 +3484,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-basilea-campagna.title': 'Naturalization in the Canton of Basel Countryside: requirements and procedure',
     'blog.article.naturalizzazione-canton-basilea-campagna.excerpt': 'The naturalisation process in the Canton of Basel-Country: required years, integration and language tests, fees to be paid and duration of the procedure.',
     'blog.article.naturalizzazione-canton-basilea-campagna.imageAlt': 'View of the city of Basilea Campagna, Switzerland, with a focus on the naturalization process.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.title': 'Swiss health system LAMal in the Canton of Vaud',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.excerpt': 'Complete guide to the Swiss health system in the Canton of Vaud: LAMal obligation, choice of the sick fund, deductibles and cantonal subsidies.',
+    'blog.article.sistema-sanitario-lamal-2026-vaud.imageAlt': 'Healthcare system and LAMal in Canton Vaud',
 };
 
 export default blogMetaChEn;

@@ -10450,6 +10450,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'sistema-sanitario-lamal-2026-vaud',
+    category: 'pratico',
+    date: '2026-08-20T02:15:48.837Z',
+    image: '/images/blog/sistema-sanitario-lamal-2026-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
