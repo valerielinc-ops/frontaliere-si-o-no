@@ -7906,7 +7906,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
  <div className="flex-1 min-w-0">
- <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
+ <h1 className="text-xl font-bold font-display text-heading leading-tight break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
  <a
  href={gateCompanyHref}
@@ -7937,6 +7937,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <span className={`inline-flex items-center gap-1${gateIsNew ? ' font-semibold text-accent' : ''}`}><Calendar size={14} />{gatePosted}</span>
  </div>
  </div>
+
+ {/* Save toggle, same node and same corner as the unlocked header. It was
+     missing from this branch entirely, so the ONE surface where the reader
+     has no account — the only reader who cannot come back to the ad from a
+     saved list — was also the only one with no way to keep it. Anonymous
+     taps never write: handleToggleSave stashes the intent in
+     services/pendingSaveJob.ts and opens the sign-in modal, which is the
+     account-gating path #4466 already built, and the replay effect saves
+     for real once sign-in completes (in this tab or a fresh one). */}
+ <button
+ type="button"
+ onClick={() => handleToggleSave(selectedJob, 'detail')}
+ aria-pressed={savedJobIds.has(selectedJob.id)}
+ aria-label={savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
+ className={`shrink-0 justify-center min-w-[44px] px-2.5 sm:px-3 py-2 min-h-[44px] rounded-full inline-flex items-center gap-1.5 text-xs font-semibold border transition-colors ${
+ savedJobIds.has(selectedJob.id)
+ ? 'bg-accent-subtle text-accent border-accent-border'
+ : 'bg-surface/90 text-subtle border-edge hover:text-accent hover:border-accent-border'
+ }`}
+ >
+ <Bookmark className={`w-3.5 h-3.5 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
+ <span className="hidden sm:inline">{savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}</span>
+ </button>
  </div>
  {/* The employer's evergreen hub — the ONE destination a logged-out reader
      can reach from this gate without signing in, and the only link here
@@ -8748,7 +8771,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </a>
  <div className="min-w-0 flex-1">
- <h1 className="text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight">
+ <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight break-words [hyphens:auto]">
  <a
  href={isInHouseApply ? '#candidatura' : applyUrl}
  target={isInHouseApply ? undefined : '_blank'}
@@ -8765,7 +8788,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
- <p className="mt-1 text-sm text-body">
+ <p className="mt-1 text-sm text-body break-words">
  <a
  href={companySearchHref}
  onClickCapture={openCompanyFilter}
@@ -8798,44 +8821,36 @@ const JobBoard: React.FC<JobBoardProps> = ({
      in that strip. Still in flow and still rendered from first paint, so
      the zero-CLS property the chip was built for is unchanged — it is the
      same node in a different flex parent, not a `fixed`/`absolute` overlay
-     that would have to be reserved for. */}
+     that would have to be reserved for.
+     Icon-only below `sm`, because `shrink-0` + a visible label claimed
+     ~110px of a ~313px row at 390px and left the h1 a ~148px column: a
+     single long word (`Collaborateur*trice`, ~240px at 24px) then
+     overflowed `min-w-0 flex-1` and painted OVER this button. The label
+     survives for assistive tech in `aria-label`, which is why it is set
+     here and not left to the text node. */}
  <button
  type="button"
  onClick={() => handleToggleSave(selectedJob, 'detail')}
  aria-pressed={savedJobIds.has(selectedJob.id)}
- className={`shrink-0 px-3 py-2 min-h-[44px] rounded-full inline-flex items-center gap-1.5 text-xs font-semibold border transition-colors ${
+ aria-label={savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
+ className={`shrink-0 justify-center min-w-[44px] px-2.5 sm:px-3 py-2 min-h-[44px] rounded-full inline-flex items-center gap-1.5 text-xs font-semibold border transition-colors ${
  savedJobIds.has(selectedJob.id)
  ? 'bg-accent-subtle text-accent border-accent-border'
  : 'bg-surface/90 text-subtle border-edge hover:text-accent hover:border-accent-border'
  }`}
  >
  <Bookmark className={`w-3.5 h-3.5 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
- {savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
+ <span className="hidden sm:inline">{savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}</span>
  </button>
  </div>
 
- {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
-     link into the STATIC job page, so a crawler saw it and the reader lost
-     it the moment React hydrated over the shell — this is the hydrated
-     half of the same link, and it is the surface where reader intent is
-     highest (the expired and orphan views have carried it for longer). */}
- <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
-
- {/* CompanyAlert (#5012): "Segui questa azienda", now in the employer block
-     of the header instead of ~200 lines down the page, under the apply/share
-     row. Two reasons it moved rather than being duplicated up here:
-       · it is the same subscription the hub link's employer is about, so the
-         two controls answer one question — "this company" — and reading them
-         together is what makes the second one obvious;
-       · CompanyFollowButton holds its follow/unfollow state locally and
-         resolves it with its own `findCompanyAlert` call. A second instance
-         on the same page would not just re-query: after one click the two
-         would disagree, and clicking the stale one writes a SECOND alert
-         document for the same employer, burning one of the visitor's few
-         alert slots.
-         One control, moved. */}
- {companyFollowCta(selectedJob, 'company_follow_button')}
-
+ {/* Meta pills (category, contract, freshness, "new", salary) — moved up
+     from the header's LAST child to the title's own block. They used to sit
+     below EmployerHubCta + the follow CTA + its consent notice, so at 390px
+     the salary — the one metadatum a reader scans for — landed roughly two
+     blocks below the fold, while the gated header (`!hasAccess`) has always
+     carried the same six values directly under the h1. Same values, same
+     order, one position; the two branches now agree. */}
  <div className="mt-4 flex flex-wrap gap-2 text-xs">
  <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
  {t(categoryTranslationKey(selectedJob))}
@@ -8859,6 +8874,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </span>
  )}
  </div>
+
+ {/* The employer's evergreen hub. `jobsSeoPagesPlugin` already emits this
+     link into the STATIC job page, so a crawler saw it and the reader lost
+     it the moment React hydrated over the shell — this is the hydrated
+     half of the same link, and it is the surface where reader intent is
+     highest (the expired and orphan views have carried it for longer). */}
+ <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
+
+ {/* CompanyAlert (#5012): "Segui questa azienda", now in the employer block
+     of the header instead of ~200 lines down the page, under the apply/share
+     row. Two reasons it moved rather than being duplicated up here:
+       · it is the same subscription the hub link's employer is about, so the
+         two controls answer one question — "this company" — and reading them
+         together is what makes the second one obvious;
+       · CompanyFollowButton holds its follow/unfollow state locally and
+         resolves it with its own `findCompanyAlert` call. A second instance
+         on the same page would not just re-query: after one click the two
+         would disagree, and clicking the stale one writes a SECOND alert
+         document for the same employer, burning one of the visitor's few
+         alert slots.
+         One control, moved. */}
+ {companyFollowCta(selectedJob, 'company_follow_button')}
  </header>
 
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
