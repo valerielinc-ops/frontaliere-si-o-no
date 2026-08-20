@@ -201,12 +201,19 @@ function hasAnyClaudeReview(num) {
   );
 }
 
-/** Re-trigger DETERMINISTICO di review+tests per una PR classe-A: il push PAT
- * non ri-triggera `pull_request` in modo affidabile e pr-review-loop non ha
- * workflow_dispatch — ma un close+reopen via PAT emette `reopened`, che
- * triggera SIA pr-review-loop SIA tests.yml. Senza questo, una PR rebasata ma
- * senza review resta senza LGTM fino al recycle 24h (finestra morta ~22h
- * osservata, dead-end #4 della mappa loop 2026-06-12). */
+/** Re-trigger di review+tests per una PR classe-A: il push PAT non ri-triggera
+ * `pull_request` in modo affidabile e pr-review-loop non ha workflow_dispatch.
+ * Fino a #5925 (2026-08-15) un close+reopen via PAT emetteva `reopened`, che
+ * triggerava SIA pr-review-loop SIA tests.yml — ma quello stesso canale era
+ * anche ciò che rendeva costoso OGNI reopen (suite intera + review, misurato
+ * 42 vitest run/~12,6h di CI su due sole PR, #5896/#5906). Decisione owner
+ * (#5925): `tests.yml` non ascolta più `reopened`, quindi un close+reopen
+ * SENZA commit nuovo ora non triggera più nulla (0 costo, ma anche 0 effetto:
+ * questa funzione diventa un no-op osservabile per la classe-A). Resta
+ * corretto per il caso "reopen con codice cambiato", che passa comunque da un
+ * push `synchronize`. La rescue classe-A "review mai partita senza un nuovo
+ * commit" non ha più un canale automatico — vedi `## Non implementato` della
+ * PR che ha introdotto questo commento per lo stato dichiarato. */
 function reopenToRetrigger(num) {
   if (DRY) { console.log(`[dry] close+reopen #${num} (re-trigger review+tests)`); return true; }
   // BUDGET GUARD (#5145/#5144). Questa è la sola sezione NON ATOMICA dello
@@ -303,10 +310,14 @@ function normalizedVitestConclusion(head) {
  *
  * TUTTE le riaperture passano di qui: chiamare `reopenToRetrigger` direttamente
  * rimetterebbe in piedi il loop misurato su #5896/#5906 (12 e 10 riaperture,
- * 55% di tutta la CI del repo in 8h). Il breaker non è un extra: il close+reopen
- * emette `reopened`, e `tests.yml` ha `on: pull_request` senza `types:` →
- * eredita `[opened, synchronize, reopened]`, quindi OGNI giro sbagliato costa
- * una vitest intera (~18min) su una coda serializzata.
+ * 55% di tutta la CI del repo in 8h). Da #5925 (2026-08-15) `tests.yml` non
+ * ascolta più `reopened` (era il canale che rendeva OGNI giro sbagliato
+ * costoso, ~18min di vitest a testa): un reopen non innesca più nulla, quindi
+ * il breaker qui sotto non ha più un costo CI da fermare. Resta attivo come
+ * difesa in profondità (bound sui tentativi, segnalazione umana a
+ * `needs-human`) invece che come unico argine: più economico da lasciare che
+ * da rimuovere, e copre il caso in cui `reopened` tornasse a triggerare
+ * qualcosa in futuro.
  *
  * `stuckRedReason`: la reason di `stuckRedRescueReason(head)` quando la PR è
  * nel flusso come rescue STUCK-RED — cioè quando questo stesso run ha PROVATO
@@ -1097,8 +1108,21 @@ async function processPR(pr) {
     // è appena stato PROVATO non attribuibile (red-main/stale) e il reopen è
     // esattamente la ri-esecuzione promessa — `stuckRedReason` disattiva la
     // sola precondizione (il budget del breaker conta comunque).
-    if (guardedReopen(num, head, { stuckRedReason })) {
-      console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (${why}) → review+redflag ri-triggerati drift-free.`);
+    const reopened = guardedReopen(num, head, { stuckRedReason });
+    // #5925: `tests.yml` non ascolta più `reopened` (owner decision, vedi il
+    // commento in tests.yml e su reopenToRetrigger) — il close+reopen qui
+    // sopra NON fa più atterrare da solo un check vitest sull'head rebasata.
+    // Senza questo dispatch esplicito l'head resterebbe SENZA nessun check
+    // (dead-end: gate 3 di auto-merge-eval mai soddisfatto), lo stesso
+    // "zero archi uscenti" che il resto di questo script evita ovunque.
+    // Dispatch best-effort, indipendente dall'esito del reopen: la review
+    // classe-A/🔴 invece non ha più un canale automatico — resta ferma finché
+    // non arriva un push reale (synchronize) o un intervento manuale.
+    dispatchTests(num, branch);
+    if (reopened) {
+      console.log(`✅ PR #${num}: rebasata, pushata, ri-aperta (${why}) e tests dispatchati — la review NON si ri-innesca più da un reopen senza commit nuovo (#5925): serve un push reale o un intervento manuale.`);
+    } else {
+      console.log(`PR #${num}: rebasata, pushata, tests dispatchati; reopen negato dal breaker.`);
     }
     return;
   }

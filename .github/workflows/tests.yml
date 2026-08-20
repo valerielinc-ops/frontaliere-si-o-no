@@ -31,6 +31,20 @@ name: tests
 on:
   pull_request:
     branches: [main]
+    # SENZA `types:` GitHub eredita `[opened, synchronize, reopened]`: un
+    # `reopened` (close+reopen, es. `pr-autorebase.mjs` -> `reopenToRetrigger`,
+    # o una riapertura manuale) faceva ripartire la suite intera (~18min) senza
+    # che nessun commit fosse cambiato. Misurato su #5896/#5906 (issue #5925):
+    # 12 e 10 riaperture in ~8h = 42 vitest run costati ~12,6h di CI, il 55%
+    # dell'intera CI del repo nella finestra. `reopened` è anche l'unico modo
+    # con cui `reopenToRetrigger` faceva ripartire `pr-review-loop` (gated su
+    # `workflow_run` di questo workflow con `event == 'pull_request'`), quindi
+    # escluderlo qui chiude ANCHE quel canale — decisione esplicita
+    # dell'owner (issue #5925, 2026-08-15): un reopen senza codice cambiato
+    # non deve più costare né vitest né una review Claude. Un reopen CON
+    # codice cambiato passa comunque da un push, che rimane `synchronize` e
+    # continua a triggerare normalmente.
+    types: [opened, synchronize]
   push:
     branches: [main]
   # Dispatchable so pr-autorebase.yml can re-run vitest on a freshly-rebased PR
