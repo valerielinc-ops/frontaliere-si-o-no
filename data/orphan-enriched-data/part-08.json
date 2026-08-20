@@ -39713,10 +39713,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug",
-        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug"
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug-rqvksg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zugo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zug",
@@ -39730,6 +39727,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
