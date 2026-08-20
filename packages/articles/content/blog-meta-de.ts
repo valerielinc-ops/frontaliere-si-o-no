@@ -10257,6 +10257,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vignone-trasferimento-frontaliere.title': 'Leben in Vignone, Arbeiten im Tessin: Praktischer Leitfaden',
     'blog.article.vignone-trasferimento-frontaliere.excerpt': 'Grenzlage, Bewilligung G, vorteilhafte Besteuerung und geringere Kosten: So wohnen Sie in Vignone und arbeiten als Grenzgänger im Tessin.',
     'blog.article.vignone-trasferimento-frontaliere.imageAlt': 'Blick auf das Tal und die Grenzverbindungen Tessin, ideales Gebiet für Grenzgänger in Vignone',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Leben in Carimate, Arbeiten im Tessin: Vor- und Nachteile',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'Mit dem neuen Steuerabkommen können Grenzgänger eine Selbstbeteiligung von € 10\'000 und eine Übergangsregelung bis 2033 in Anspruch nehmen.',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino, die in Italien arbeiten',
 };
 
 export default blogMetaDe;

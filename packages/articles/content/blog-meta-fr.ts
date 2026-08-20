@@ -10260,6 +10260,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vignone-trasferimento-frontaliere.title': 'Vivre à Vignone, travailler au Tessin : guide pratique',
     'blog.article.vignone-trasferimento-frontaliere.excerpt': 'Emplacement frontalier, permis G, fiscalité avantageuse et coûts réduits : voici comment vivre à Vignone et travailler au Tessin en tant que frontalier.',
     'blog.article.vignone-trasferimento-frontaliere.imageAlt': 'Vue de la vallée et des connexions frontalières du Tessin, zone idéale pour travailleurs frontaliers à Vignone',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Vivre à Carimate, travailler au Tessin : avantages et inconvénients',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'Avec le nouvel accord fiscal, les frontaliers pourront bénéficier d\'une franchise de 10\'000 € et d\'un régime transitoire jusqu\'en 2033.',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontaliers en Suisse, qui travaillent en Italie',
 };
 
 export default blogMetaFr;

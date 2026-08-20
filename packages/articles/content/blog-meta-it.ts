@@ -10259,6 +10259,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vignone-trasferimento-frontaliere.title': 'Vivere a Vignone, lavorare in Ticino: guida pratica',
     'blog.article.vignone-trasferimento-frontaliere.excerpt': 'Ubicazione di confine, Permesso G, fiscalità vantaggiosa e costi inferiori: ecco come vivere a Vignone e lavorare in Ticino da frontaliere.',
     'blog.article.vignone-trasferimento-frontaliere.imageAlt': 'Veduta della valle e dei collegamenti Ticino, zona di confine ideale per frontalieri che vivono a Vignone',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.title': 'Vivere a Carimate, lavorare in Ticino: vantaggi e svantaggi',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.excerpt': 'Con il nuovo accordo fiscale, i frontalieri potranno godere di una franchigia di €10\'000 e di un regime transitorio fino al 2033.',
+    'blog.article.vivere-carimate-lavorare-ticino-frontaliere.imageAlt': 'Frontalieri in Ticino che lavorano in Italia',
 };
 
 export default blogMetaIt;
