@@ -71402,6 +71402,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-novita-frontalieri-legge-217-2025': {
+    title: 'Frontalieri Ticino: novità 2026 su telelavoro e rientro',
+    description: 'Legge 217/2025 introduce tolleranza 45 giorni rientro, telelavoro 25%, chiarimenti su Accordo IT-CH. Novità Protocollo modifica per frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, novità, telelavoro, rientro, legge',
+    ogTitle: 'Frontalieri 2026: telelavoro 25% e tolleranza 45 giorni',
+    ogDescription: 'La legge 217/2025 ratifica il Protocollo IT-CH con tolleranza di 45 giorni per mancato rientro, telelavoro fino al 25%, e chiarimenti su applicabilità dell\'Accordo per frontalieri Italia-Svizzera. Scopri come cambia il regime fiscale nel 2026.',
+    canonicalPath: '/articoli-frontaliere/novita-frontalieri-legge-217-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Ticino: novità 2026 su telelavoro e rientro",
+      "description": "Legge 217/2025 introduce tolleranza 45 giorni rientro, telelavoro 25%, chiarimenti su Accordo IT-CH. Novità Protocollo modifica per frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/novita-frontalieri-legge-217-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico mattutino al valico di confine Ticino-Italia con automobili in coda e paesaggio alpino"
+      },
+      "datePublished": "2026-08-20T09:20:03+00:00",
+      "dateModified": "2026-08-20T09:20:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/novita-frontalieri-legge-217-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

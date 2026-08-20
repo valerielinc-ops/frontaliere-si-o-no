@@ -10229,6 +10229,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'Primo giorno lavoro in Ticino: documenti essenziali',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Checklist completa del frontaliere: Permesso G, contratto, LAMal, dati bancari e imposta alla fonte. Tutto ciò che serve sapere dal primo giorno di assunzione.',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'Primo giorno di lavoro in Ticino: frontaliere esamina contratto e documenti essenziali in ufficio',
+    'blog.article.novita-frontalieri-legge-217-2025.title': 'Frontalieri Ticino: novità 2026 su telelavoro e rientro',
+    'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Legge 217/2025 ratifica Protocollo IT-CH: tolleranza 45 giorni rientro quotidiano, telelavoro fino al 25%, chiarimenti su sede datore lavoro.',
+    'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Traffico mattutino al valico di confine Ticino-Italia con automobili in coda e paesaggio alpino',
 };
 
 export default blogMetaIt;

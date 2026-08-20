@@ -10227,6 +10227,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'Erster Arbeitstag im Tessin: Wesentliche Dokumente',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Vollständige Checkliste des Grenzgängers: G-Bewilligung, Vertrag, KVG, Bankdaten und Quellensteuer. Alles, was Sie ab dem ersten Tag der Einnahme wissen müssen.',
     'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'Erster Arbeitstag im Tessin: Grenzgänger überprüft Arbeitsvertrag und notwendige Dokumente am Schreibtisch',
+    'blog.article.novita-frontalieri-legge-217-2025.title': 'Grenzgänger Tessin: Neuheiten 2026 zu Telearbeit und Rückkehr',
+    'blog.article.novita-frontalieri-legge-217-2025.excerpt': 'Gesetz 217/2025 ratifiziert das IT-CH-Protokoll: 45-Tage-Toleranz für die tägliche Rückkehr, Telearbeit bis zu 25%, Erläuterungen zum Arbeitgeberstandort.',
+    'blog.article.novita-frontalieri-legge-217-2025.imageAlt': 'Morgenverkehr an der Schweiz-Grenze mit wartenden Fahrzeugen und Alpenlandschaft',
 };
 
 export default blogMetaDe;
