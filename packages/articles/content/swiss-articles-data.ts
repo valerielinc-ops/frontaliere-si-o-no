@@ -10747,6 +10747,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'apprendistato-sciaffusa-guida',
+    category: 'pratico',
+    date: '2026-08-20T17:50:42.222Z',
+    image: '/images/blog/apprendistato-sciaffusa-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

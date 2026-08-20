@@ -3583,6 +3583,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.monopattini-casco-sicurezza.title': 'Obligation casque trottinettes : plan Conseil fédéral',
     'blog.article.monopattini-casco-sicurezza.excerpt': 'Le Conseil fédéral propose l\'obligation du casque pour les trottinettes électriques après l\'augmentation des accidents. Découvrez ce qui va changer en Suisse.',
     'blog.article.monopattini-casco-sicurezza.imageAlt': 'Trottinettes électriques garées sur une rue urbaine suisse avec casque de sécurité',
+    'blog.article.apprendistato-sciaffusa-guida.title': 'Apprentissage et formation dans le canton de Schaffhouse',
+    'blog.article.apprendistato-sciaffusa-guida.excerpt': 'L\'apprentissage suisse : comment trouver un stage, souscrire le contrat, la rémunération progressive et le parcours vers la maturité professionnelle (MP) et l\'AFC.',
+    'blog.article.apprendistato-sciaffusa-guida.imageAlt': 'Apprentis en formation pratique dans un atelier d\'école professionnelle suisse moderne',
 };
 
 export default blogMetaChFr;
