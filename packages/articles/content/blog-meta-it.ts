@@ -10226,6 +10226,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'Primo giorno in Ticino: checklist documenti frontalieri',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'Nuovo Accordo 2024: permesso G, LAMal, AVS, franchigie fiscali. Ecco cosa preparare per il tuo primo giorno come frontaliere.',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Frontaliere al primo giorno in ufficio in Ticino con contratto e documenti in mano',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'Primo giorno lavoro in Ticino: documenti essenziali',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Checklist completa del frontaliere: Permesso G, contratto, LAMal, dati bancari e imposta alla fonte. Tutto ciò che serve sapere dal primo giorno di assunzione.',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'Primo giorno di lavoro in Ticino: frontaliere esamina contratto e documenti essenziali in ufficio',
 };
 
 export default blogMetaIt;

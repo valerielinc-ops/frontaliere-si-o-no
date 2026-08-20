@@ -10224,6 +10224,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.title': 'Erster Tag im Tessin: Checkliste Grenzdokumente',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.excerpt': 'Neue Vereinbarung 2024: Bewilligung G, KVG, AHV, Steuerfreibeträge. So bereiten Sie sich auf Ihren ersten Tag als Grenzgänger vor.',
     'blog.article.inizio-lavoro-ticino-frontaliere-checklist.imageAlt': 'Grenzgänger am ersten Arbeitstag im Tessin-Büro mit Arbeitsvertrag und Dokumenten',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.title': 'Erster Arbeitstag im Tessin: Wesentliche Dokumente',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.excerpt': 'Vollständige Checkliste des Grenzgängers: G-Bewilligung, Vertrag, KVG, Bankdaten und Quellensteuer. Alles, was Sie ab dem ersten Tag der Einnahme wissen müssen.',
+    'blog.article.primo-contratto-ticino-frontaliere-procedura.imageAlt': 'Erster Arbeitstag im Tessin: Grenzgänger überprüft Arbeitsvertrag und notwendige Dokumente am Schreibtisch',
 };
 
 export default blogMetaDe;
