@@ -10302,6 +10302,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.title': 'Leben in Sormano und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.excerpt': 'Steuerliche Regelungen, Doppelbesteuerung, Arbeits- und Aufenthaltsgenehmigungen: Was Sie wissen müssen, um als Grenzgänger im Tessin zu arbeiten und in Sormano zu leben.',
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich nach Sormano verlegt, in Ticino arbeitet und die Steuern und Gebühren in beiden Ländern verwalten muss.',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.title': 'Leben in Besozzo und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.excerpt': 'Der Grenzgänger, der nach Besozzo zieht, kann eine schnelle Verbindung mit dem Tessin genießen, mit Fahrzeiten von 20-30 Minuten.',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der nach Besozzo zieht, kann einen schnellen Anschluss an das Tessin mit Reisezeiten von 20-30 Minuten genießen.',
 };
 
 export default blogMetaDe;
