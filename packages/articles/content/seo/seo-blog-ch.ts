@@ -46547,6 +46547,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-sciaffusa-mutuo': {
+    title: 'Comprare casa Sciaffusa: prezzi, mutuo e imposte',
+    description: 'Guida all\'acquisto immobiliare nel canton Sciaffusa: fondi propri, mutuo ipotecario, imposta sui trapassi, spese notarili e procedura completa step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, sciaffusa, prezzi',
+    ogTitle: 'Comprare casa Sciaffusa: mutuo e imposte 2026',
+    ogDescription: 'Acquistare casa nel canton Sciaffusa? Scopri i requisiti del mutuo ipotecario, imposte dovute (trapassi, federale, cantonale), spese notarili e fondi propri necessari. Guida operativa con procedura step-by-step per compratori.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-sciaffusa-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Sciaffusa: prezzi, mutuo e imposte",
+      "description": "Guida all'acquisto immobiliare nel canton Sciaffusa: fondi propri, mutuo ipotecario, imposta sui trapassi, spese notarili e procedura completa step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-sciaffusa-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in paesaggio alpino svizzero con veduta sul territorio."
+      },
+      "datePublished": "2026-08-20T18:36:04+00:00",
+      "dateModified": "2026-08-20T18:36:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-sciaffusa-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

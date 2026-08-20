@@ -3589,6 +3589,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.croce-rossa-azione-legale-nome.title': 'Croce Rossa: azione legale per uso improprio del nome',
     'blog.article.croce-rossa-azione-legale-nome.excerpt': 'La CRS avvia azione legale contro Souveraineté suisse per l\'uso indebitato del suo nome nella campagna sulla neutralità in votazione il 27 settembre.',
     'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Documenti legali e emblema della Croce Rossa in uno studio legale svizzero durante una consultazione.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Comprare casa Sciaffusa: prezzi, mutuo e imposte',
+    'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Guida operativa all\'acquisto immobiliare nel canton Sciaffusa: fondi propri richiesti, sostenibilità del mutuo, imposta sui trapassi cantonale, spese notarili e procedura step-by-step.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Casa moderna in paesaggio alpino svizzero con veduta sul territorio.',
 };
 
 export default blogMetaChIt;

@@ -3589,6 +3589,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.croce-rossa-azione-legale-nome.title': 'Croix-Rouge : action en justice pour utilisation abusive du nom',
     'blog.article.croce-rossa-azione-legale-nome.excerpt': 'La CRS engage une action en justice contre Souveraineté suisse pour l\'utilisation abusive de son nom dans la campagne sur la neutralité en votation le 27 septembre.',
     'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Documents juridiques et emblème de la Croix-Rouge sur un bureau dans un cabinet juridique suisse.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Acheter maison Schaffhouse : prix, hypothèque et taxes',
+    'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Guide opérationnel pour l\'achat immobilier dans le canton de Schaffhouse : fonds propres requis, viabilité du prêt, taxe sur les passages cantonaux, frais de notaire et procédure étape par étape.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Maison résidentielle moderne en paysage alpin suisse avec architecture contemporaine.',
 };
 
 export default blogMetaChFr;

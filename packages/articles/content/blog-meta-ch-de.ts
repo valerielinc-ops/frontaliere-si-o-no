@@ -3589,6 +3589,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.croce-rossa-azione-legale-nome.title': 'Rotes Kreuz: Klage wegen Namensmissbrauch',
     'blog.article.croce-rossa-azione-legale-nome.excerpt': 'Das SRK leitet rechtliche Schritte gegen Souveraineté suisse wegen der missbräuchlichen Verwendung seines Namens in der Neutralitätskampagne ein, über die am 27. September abgestimmt wird.',
     'blog.article.croce-rossa-azione-legale-nome.imageAlt': 'Rechtliche Dokumente und Rotes-Kreuz-Emblem auf einem Schreibtisch in einem Schweizer Anwaltsbüro.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.title': 'Haus kaufen Schaffhausen: Preise, Hypothek und Steuern',
+    'blog.article.comprare-casa-sciaffusa-mutuo.excerpt': 'Operativer Leitfaden zum Immobilienkauf im Kanton Schaffhausen: erforderliche Eigenmittel, Tragbarkeit des Darlehens, kantonale Stempelsteuer, Notarkosten und Schritt-für-Schritt-Verfahren.',
+    'blog.article.comprare-casa-sciaffusa-mutuo.imageAlt': 'Modernes Schweizer Wohnhaus in Alpenlandschaft mit zeitgenössischer Architektur.',
 };
 
 export default blogMetaChDe;
