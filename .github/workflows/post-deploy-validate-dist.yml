@@ -1024,42 +1024,6 @@ jobs:
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
-          # ── REPORT-ONLY CADENCE ────────────────────────────────────────────
-          # Two tasks in this pool are, by their own headers and by their
-          # hard-coded `rc=0` rows, NOT gates: `audit:discover-eligibility`
-          # (#5440) and `seo/meta-description-audit`. Their rc never reaches
-          # /tmp/post-build-failures.txt nor `failed_gates`, so no verdict in
-          # this workflow can turn on them.
-          #
-          # On run 32261742920 they were nonetheless the two LONGEST tasks
-          # here — 1570.20 s and 1865.15 s of the ~9540 s of CPU this step
-          # spends across 4 vCPU. That is 36 % of the step's work, every
-          # deploy, on output that cannot fail anything; and it is RSS held
-          # alongside `audit:all`, which OOM-killed at rc=134 on that same run.
-          #
-          # So they run on a CADENCE now, not on every deploy. What this is
-          # not: it is not a gate that stopped running, and it is not a
-          # threshold that moved — neither task has either.
-          #
-          # WHY 7, AND WHY IT MUST STAY ODD. audit:discover-eligibility reads
-          # AUDIT_SAMPLE_SALT=run_number with AUDIT_SAMPLE_RATE=0.25, i.e. it
-          # walks bucket `run_number % 4`. Any EVEN cadence shares a factor
-          # with 4 and pins the report to a subset of buckets forever — at
-          # cadence 8, `run_number % 8 == 0` implies `run_number % 4 == 0`, so
-          # it would re-scan bucket 0 on every single report and never look at
-          # the other 75 % of the corpus again. A cadence coprime with 4 walks
-          # all four buckets in rotation, unchanged; it only takes 7× as many
-          # deploys to get round. Deploys land ~every 2.2 h, so that is ~1.6
-          # reports/day and full corpus coverage in ~2.5 days for a trend
-          # report nothing gates on.
-          REPORT_ONLY_EVERY=${REPORT_ONLY_EVERY:-7}
-          if [ "$REPORT_ONLY_EVERY" -le 1 ] || [ $(( ${{ github.run_number }} % REPORT_ONLY_EVERY )) -eq 0 ]; then
-            RUN_REPORT_ONLY=1
-          else
-            RUN_REPORT_ONLY=0
-          fi
-          echo "[report-only cadence] REPORT_ONLY_EVERY=$REPORT_ONLY_EVERY run_number=${{ github.run_number }} → RUN_REPORT_ONLY=$RUN_REPORT_ONLY"
-
           # The sliding-window primitive lives in ONE place since #5130
           # (scripts/lib/bounded-parallel.sh) — this step is where the idiom
           # was first proven, and deploy.yml's section fan-outs now use the
@@ -1349,9 +1313,6 @@ jobs:
           #  • AUDIT_STRICT='1' from this step's env is inert here: it is read
           #    only by runAudits() in scripts/lib/audit-runner.mjs, and this
           #    script's standalone path never calls it.
-          # Cadence, not every deploy — see REPORT_ONLY_EVERY at the top of this
-          # step for the arithmetic and for why the divisor must stay odd.
-          if [ "$RUN_REPORT_ONLY" = 1 ]; then
           wait_slot
           (
             set +e
@@ -1367,15 +1328,6 @@ jobs:
             awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:discover-eligibility(report-only)\", $end-$start}" \
               >> /tmp/post-build-timings.txt
           ) &
-          else
-            # A skipped report must SAY it was skipped. An absent log plus an
-            # absent timings row reads exactly like a task that vanished, which
-            # is how "this used to be covered" becomes unfalsifiable later.
-            echo "[report-only] audit:discover-eligibility SKIPPED this run (cadence 1-in-$REPORT_ONLY_EVERY; run_number=${{ github.run_number }}). Not a gate — see issue #5440. Force with REPORT_ONLY_EVERY=1." \
-              > /tmp/discover-eligibility.log
-            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:discover-eligibility(skipped)\", 0}" \
-              >> /tmp/post-build-timings.txt
-          fi
 
           # 0-tolerance: dotfile `dist/**\/.html` files mean a plugin produced
           # `<dir>/.html` via `path + '.html'` where `path` ended in `/`.
@@ -1388,27 +1340,8 @@ jobs:
             npm run audit:no-dotfile-html
           spawn_capped audit:hreflang                /tmp/g14.log \
             npm run audit:hreflang
-          # audit:sitemap-canonicals is NOT spawned here any more — it was
-          # running TWICE per deploy. `validate:sitemap-pages` above is the
-          # consolidated validator that re-implements this exact check as its
-          # check 1 (see that script's "Differences PRESERVED" header), over
-          # the same dist/sitemap-*.xml set, in this same job, in this same
-          # run. Two processes were re-parsing 89 sitemaps and re-reading the
-          # <head> of ~245'000 pages to answer one question twice, and on run
-          # 32261742920 they answered it identically: one offender, the same
-          # one, reported under two gate names.
-          #
-          # The consolidated copy is also the STRICTER-scoped of the two: it
-          # filters URLs served by the article shard repos
-          # (scripts/lib/externally-served-paths.mjs), which is why the
-          # standalone reported `missing-html: 85` on pages that are not this
-          # build's to emit while the consolidated one reported 0. Dropping
-          # the standalone therefore removes 127.18 s and a duplicate red
-          # name, and removes no coverage.
-          #
-          # What it does remove is the `gate-offenders sitemap-canonicals`
-          # observability line; the same counts now come out under
-          # `validate-sitemap-pages`.
+          spawn_capped audit:sitemap-canonicals      /tmp/g15.log \
+            npm run audit:sitemap-canonicals
           spawn_capped audit:canonical-trailing-slash /tmp/g15b.log \
             npm run audit:canonical-trailing-slash
           spawn_capped audit:news-sitemap            /tmp/g16.log \
@@ -1525,10 +1458,6 @@ jobs:
           # goes to /tmp, never into the checked-out tree, and not into
           # dist/audit-reports/ whose `gate-offenders` jq line below expects a
           # gate-shaped record.
-          # Cadence, not every deploy — see REPORT_ONLY_EVERY at the top of this
-          # step. This one does a FULL dist walk (no sampling), so the divisor's
-          # parity is irrelevant to it; it shares the flag for one dial, not two.
-          if [ "$RUN_REPORT_ONLY" = 1 ]; then
           wait_slot
           (
             set +e
@@ -1545,12 +1474,6 @@ jobs:
             awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(report-only)\", $end-$start}" \
               >> /tmp/post-build-timings.txt
           ) &
-          else
-            echo "[report-only] seo/meta-description-audit SKIPPED this run (cadence 1-in-$REPORT_ONLY_EVERY; run_number=${{ github.run_number }}). Not a gate. Force with REPORT_ONLY_EVERY=1." \
-              > /tmp/meta-description-audit.log
-            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(skipped)\", 0}" \
-              >> /tmp/post-build-timings.txt
-          fi
 
           # dist:quality-tests — REAL GATE (issue #5656 item 1). It used to run
           # FIVE vitest files (`npm run gate:dist-quality`), each asserting a
