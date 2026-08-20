@@ -10274,6 +10274,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Vivere a Barasso e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permesso G, esenzione €7.500, imposta alla fonte e previdenza AVS/LPP: tutto ciò che serve per vivere a Barasso e lavorare nel Ticino dal 2024.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Auto di un frontaliere al valico Brogeda tra Varese e Ticino, con segnaletica doganale svizzera e nebbia mattutina',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Vivere a Caglio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Trasferirsi a Caglio per lavorare in Ticino: fisco, Permesso G, AVS, LAMal, procedure. Guida completa per frontalieri tra Italia e Svizzera.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Strada di confine tra Caglio (Bergamo) e il Canton Ticino svizzero con paesaggio alpino.',
 };
 
 export default blogMetaIt;

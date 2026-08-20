@@ -10273,6 +10273,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Living in Barasso and working in Ticino: border guide',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permit G, exemption €7,500, tax at source and AVS/LPP pension: everything you need to live in Barasso and work in Ticino from 2024.',
     'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Commuter car at Brogeda border crossing between Varese and Ticino, with Swiss customs signage and morning mist',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.title': 'Living in Caglio and working in Ticino as a border worker',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.excerpt': 'Moving to Caglio to work in Ticino: tax, G Permit, AVS, LAMal, procedures. Complete guide for border workers between Italy and Switzerland.',
+    'blog.article.vivere-caglio-lavorare-ticino-frontaliere.imageAlt': 'Border road between Caglio (Bergamo province) and Swiss Ticino canton with alpine landscape.',
 };
 
 export default blogMetaEn;
