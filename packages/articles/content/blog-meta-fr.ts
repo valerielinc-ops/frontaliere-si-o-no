@@ -10212,6 +10212,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-dichiarazione-redditi-2026.title': 'Crédit d\'impôt 2026 : le guide frontalier plus de 20 km',
     'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'À partir du 1er janvier 2024, le nouvel accord frontalier modifie le crédit d\'impôt. Voici la franchise 7 500 € ( anciens) et 10 000 € ( nouveaux), calcul dans le cadre CE 730 et checklist opérationnelle.',
     'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Frontalier examine des documents fiscaux Suisse-Italie à son bureau en heure dorée',
+    'blog.article.credito-imposta-2026-oltre-20km.title': 'Crédit d\'impôt 2026 : plus de 20 km, calcul et 730',
+    'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'Comment récupérer la retenue suisse via le cadre CE sur le modèle 730. Nouveaux et anciens frontaliers : comparaison des franchises, procédure étape par étape.',
+    'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Travailleur frontalier à l\'ordinateur avec formulaires de déclaration fiscale, paysage tessinois en arrière-plan.',
 };
 
 export default blogMetaFr;

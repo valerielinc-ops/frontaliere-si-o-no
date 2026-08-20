@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 05:57:45 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 06:11:12 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,61 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>2026 tax credit: over 20 km, calculation and 730</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/tax-credit-2026-beyond-20km/</link>
+      <description><![CDATA[How to recover the Swiss withholding tax using the CE framework in the 730 model. New and old frontier workers: exemptions in comparison, step-by-step procedure.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Source tax withdrawn only in Switzerland, then recovered via tax credit in Italy
+- New Frontier Agreement in force from 1 January 2024 with two regimes: old (€7,500) and new (€10,000)
+- Italian EC framework declaration of 730 is the tool to recover Swiss taxation
+
+## Key facts
+- **What**: Tax credit to avoid double taxation on cross-border work income
+- When: Annual declaration at 730, standard Italian regulatory deadline
+- Where: Switzerland (tax withdrawal), Italy (recovery through EC framework)
+- Who: Border workers resident in Italy who work in Switzerland
+- Legal basis: Italian-Swiss Convention of 9 December 1976, New Agreement 23 December 2020 (effective from 1 January 2024)
+
+The taxation system for border workers Ticino-Italy is based on a fundamental principle: the income tax at source is levied exclusively in Switzerland. It is not a simultaneous double taxation, but a sequential management where Italy intervenes subsequently to avoid overcharges through the tax credit. This regulatory fix is at the heart of the mechanism that makes cross-border work tax-efficient compared to scenarios without double taxation protection.
+
+The Convention between Italy and Switzerland signed on 9 December 1976 has governed this mechanism for half a century. However, the landscape has been modernised by the New Deal
+### Calculation Scenarios: How the Tax Credit Changes the Net Payroll
+
+For the border worker, the tax credit is one of the most relevant factors in the annual financial statements. The Swiss withholding takes place monthly on the paycheck, while the Italian compensation is resolved only with the tax return, in the spring of the following year. This creates a liquidity differential over the course of the year: the frontier worker pays gradually in Switzerland, but recovers the credit only on declaration.
+
+On an annual gross income from employment, after the Swiss withholding tax, the border worker receives a net paycheck. On that part taxed in Switzerland, Italy does not apply additional IRPEF thanks to the credit, as long as the declaration is correctly completed in the EC framework.
+
+Italian IRPEF is progressive in stages:
+- Up to €28,000: rate 23%
+- From €28,001 to €50,000: 35% rate
+- Over €50,000: 43% rate
+
+If the border worker falls into the deductible (old border workers €7,500, new €10,000), that fee is not taxed in Italy even as a minimum. Above the deductible, the Italian tax applies, but the Swiss credit compensates for it. A new frontier with €10,000 deductible and gross income of €40,000 has an Italian tax base of €30,000 (€40,000 – €10,000), on which the IRPEF is charged by combining the brackets: 23% on €2,000 (up to €28,000) and 35% on €2,000 (from €28,001 to
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+### How to complete the EC framework and recover the tax credit in 2026
+
+The procedure is structured in precise steps. The border worker must:
+
+**1. Collect Swiss documentation **
+First of all, obtain from the database of the Swiss tax system (managed by AFC - Federal Tax Administration) the tax certificate paid during the year. This document shows: federal rate (common to all), cantonal rate (varies by canton of residence of the company, often Ticino), municipal rate, monthly withholdings at source, annual total. It is the key document for filling in the EC framework.
+
+2. Complete the CE framework in the model 730
+The CE framework contains sections dedicated to gross income from foreign employment (Switzerland), tax paid in Switzerland (amount in CHF, then converted into EUR at the Agency's annual average exchange rate), applied deductible (Old border brand expiring in 2033 or New border brand from 2024), calculation of the credit carried out semi-automatically by the 730 software or by the Agency itself.
+
+3. Send the declaration by the Italian regulatory deadline
+The 730 relating to 2025 income (completed in 2026) has an ordinary expiry date according to the Revenue Agency calendar. For 2024 incomes, the deadline was set at spring 2025. Safety margin: anticipate the declaration by May. Many border workers rely on accountants specialising in cross-border taxation to avoid mistakes.
+
+4.
+
+Check [tax deadlines](nav:calendar) for cross-border workers: returns, Swiss declarations, rebates — all dates in one interactive calendar.]]></content:encoded>
+      <pubDate>Thu, 20 Aug 2026 06:11:12 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/credito-imposta-2026-oltre-20km</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/credito-imposta-2026-oltre-20km.webp" medium="image"/>
+    </item>
     <item>
       <title>2026 tax credit: frontier driving over 20 km</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/tax-credit-income-declaration-2026/</link>
@@ -3217,43 +3272,6 @@ Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter g
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-faloppio-lavorare-ticino-da-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-faloppio-lavorare-ticino-da-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Oggebbio and working in Ticino as a border worker</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/living-oggebbio-working-ticino/</link>
-      <description><![CDATA[Practical guide to move to Oggebbio and become a border worker in Ticino: connections, tax at source, costs and new agreement.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Residence in Oggebbio and work in Ticino as a border worker
-- Withholding tax withheld in Switzerland with tax credit in Italy
-- Rules of the New Agreement entered into force on 1 January 2024
-- Management of commuting along the shore of Lake Maggiore
-
-## Key facts
-- **What**: Cross-border CH-IT relocation and work
-- When: Legislation in force from 1 January 2024
-- Where: Oggebbio and Canton Ticino
-- Who: Frontier workers and tax administrations
-- Amount: Exemption exemption for new frontier workers equal to 10,000 euros
-
-The municipality of Oggebbio, located on the picturesque Piedmontese shore of Lake Maggiore, is a strategic residential choice for those who intend to work in the nearby Canton of Ticino. The geographical position makes it possible to evaluate the transfer in a landscape context of strong attraction, while maintaining a logistical proximity to the border crossings that lead to the Ticino economic centres such as Locarno, Bellinzona and Lugano. Many workers choose this area to combine the quality of life on the lake with the employment opportunities offered by the Swiss market. For those who move daily, it is essential to understand the complex regulatory architecture that regulates border worker status, especially after the entry into force of the updated regulatory framework.
-
-### Regulatory aspects of the new agreement
-The framework for workers residing in Oggebbio and
-The transfer to Oggebbio requires a careful analysis of road connections and daily travel times to Ticino. Roads along the state road that runs along Lake Maggiore require planning during peak hours, especially to reach the main customs crossings and continue towards the places of use. From the social security and insurance point of view, the frontier worker must face the mandatory contributions provided for by the Swiss legal system. The paycheck shows the deductions for the AVS/AI/IPG set at 5.3% for the employee share, the AD/AC unemployment insurance at 1.1% calculated up to the maximum of 148,200 Swiss francs, the LAINF accident coverage between 0.7% and 1.5%, and the LPP occupational pension payments ranging from 7% to 18% based on age groups from 25 years.
-
-### Healthcare and assistance with LAMal
-A central chapter for those who live in Oggebbio and work in Ticino concerns health coverage. Border workers classified as category G exercise the right of option between the Swiss and Italian health systems, often opting for LAMal (health insurance), which provides exemptions for adults between 300 and 2,500 Swiss francs. This choice directly affects the fixed monthly costs of family management and requires a comparative evaluation with respect to the benefits offered in the two States.
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-Before formalising the transfer of residence to Oggebbio and the start of work in Ticino, it is advisable to follow a structured procedure to verify any bureaucratic and tax compliance. First, you need to analyze your income and contribution position using the simulation tools available online. Subsequently, it is advisable to check the requirements relating to the G work permit, managed by the competent authorities in migration matters such as the State Secretariat for Migration (SEM), and plan the opening of a bank account suitable for the management of the currency exchange between Swiss francs and euros.
-
-### Deadlines and operational tools
-The management of the tax return in Italy requires particular attention to the correct indication of the income received in Switzerland within the tax forms, avoiding errors in the determination of the tax credit. To accurately calculate the impact of tax and contribution deductions on monthly pay, you can use the [calcolatore](nav:calculator) dedicated to border workers Ticino, a fundamental tool to estimate actual net income before facing the transfer to Oggebbio.]]></content:encoded>
-      <pubDate>Tue, 18 Aug 2026 13:10:26 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-oggebbio-lavorare-ticino</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-oggebbio-lavorare-ticino.webp" medium="image"/>
     </item>
   </channel>
 </rss>

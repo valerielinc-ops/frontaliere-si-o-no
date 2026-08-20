@@ -10210,6 +10210,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-dichiarazione-redditi-2026.title': '2026 tax credit: frontier driving over 20 km',
     'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'From 1 January 2024, the New Frontier Agreement modifies the tax credit. Here is an excess of €7,500 (old) and €10,000 (new), calculation in the CE 730 framework and operational checklist.',
     'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Cross-border worker reviews Swiss-Italian tax documents at desk in golden hour lighting',
+    'blog.article.credito-imposta-2026-oltre-20km.title': '2026 tax credit: over 20 km, calculation and 730',
+    'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'How to recover the Swiss withholding tax using the CE framework in the 730 model. New and old frontier workers: exemptions in comparison, step-by-step procedure.',
+    'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Cross-border worker typing on laptop with tax forms and fiscal documents, Ticino landscape visible through window.',
 };
 
 export default blogMetaEn;

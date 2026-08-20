@@ -10211,6 +10211,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-dichiarazione-redditi-2026.title': 'Credito d\'imposta 2026: la guida frontalieri oltre 20 km',
     'blog.article.credito-dichiarazione-redditi-2026.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri rimodula il credito d\'imposta. Ecco franchigia €7.500 (vecchi) e €10.000 (nuovi), calcolo nel quadro CE 730 e checklist operativa.',
     'blog.article.credito-dichiarazione-redditi-2026.imageAlt': 'Frontaliere esamina documenti fiscali Swiss-italiani alla scrivania durante l\'ora d\'oro',
+    'blog.article.credito-imposta-2026-oltre-20km.title': 'Credito d\'imposta 2026: oltre 20 km, calcolo e 730',
+    'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'Come recuperare la trattenuta svizzera tramite quadro CE nel modello 730. Nuovi e vecchi frontalieri: franchigie a confronto, procedura step-by-step.',
+    'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Frontaliere al lavoro su un computer con modello 730 e documenti fiscali, paesaggio ticinese sullo sfondo.',
 };
 
 export default blogMetaIt;

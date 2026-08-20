@@ -30576,6 +30576,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'credito-imposta-2026-oltre-20km',
+ category: 'fiscale',
+ date: '2026-08-20T06:11:12.824Z',
+ image: '/images/blog/credito-imposta-2026-oltre-20km.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
