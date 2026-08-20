@@ -30675,6 +30675,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pensionamento-anticipato-frontalieri-errori',
+ category: 'pensione',
+ date: '2026-08-20T12:00:50.715Z',
+ image: '/images/blog/pensionamento-anticipato-frontalieri-errori.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

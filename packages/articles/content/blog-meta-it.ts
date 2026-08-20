@@ -10244,6 +10244,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'LAINF frontaliere 2026: procedura infortunio pratica',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'LAINF per frontalieri: copertura infortuni, aliquote 0.7-1.5%, procedura denuncia e simulazioni pratiche. Checklist completa e differenze con malattia professionale.',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Documenti di assicurazione infortuni LAINF e procedure di denuncia per frontalieri Ticino',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Pensionamento anticipato frontalieri: 5 errori comuni',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Anticipare la pensione per frontalieri Ticino-Italia comporta scelte complesse su AVS, LPP e doppia imposizione. Scopri gli errori da evitare con il Nuovo Accordo 2024.',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Documento pianificazione pensionistica con foglio di calcolo e moduli SECO su scrivania, vista su valico frontaliero Ticino-Italia',
 };
 
 export default blogMetaIt;

@@ -71597,6 +71597,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensionamento-anticipato-frontalieri-errori': {
+    title: 'Pensionamento anticipato frontalieri: 5 errori comuni',
+    description: 'Anticipare pensione frontalieri Ticino-Italia: impatto AVS/LPP, doppia imposizione, Nuovo Accordo 2024. Evita 5 errori comuni con checklist operativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionamento, anticipato, errori, comuni',
+    ogTitle: 'Pensionamento anticipato frontalieri: 5 errori da evitare',
+    ogDescription: 'Pianificazione pensionamento anticipato frontalieri Ticino-Italia. Come gestire AVS, LPP, fiscalità e Nuovo Accordo Frontalieri (2024). Checklist e simulazioni online.',
+    canonicalPath: '/articoli-frontaliere/pensionamento-anticipato-frontalieri-errori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionamento anticipato frontalieri: 5 errori comuni",
+      "description": "Anticipare pensione frontalieri Ticino-Italia: impatto AVS/LPP, doppia imposizione, Nuovo Accordo 2024. Evita 5 errori comuni con checklist operativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensionamento-anticipato-frontalieri-errori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento pianificazione pensionistica con foglio di calcolo e moduli SECO su scrivania, vista su valico frontaliero Ticino-Italia"
+      },
+      "datePublished": "2026-08-20T12:00:50+00:00",
+      "dateModified": "2026-08-20T12:00:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensionamento-anticipato-frontalieri-errori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

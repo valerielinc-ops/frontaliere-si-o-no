@@ -10245,6 +10245,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'LAA frontalière 2026 : procédure accident pratique',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'LAA pour les frontaliers : couverture des accidents, taux de 0,7 à 1,5 %, procédure de plainte et simulations pratiques. Liste de contrôle complète et différences avec la maladie professionnelle.',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Documents d\'assurance accidents du travail LAINF et procédure de déclaration pour frontaliers Tessin',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Retraite anticipée frontalière : 5 erreurs courantes',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Anticiper la pension pour frontaliers Tessin-Italie implique des choix complexes sur l\'AVS, la LPP et la double imposition. Découvrez les erreurs à éviter avec le Nouvel Accord 2024.',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Document de planification de retraite avec feuille de calcul et formulaires SECO, vue sur le passage frontalier Tessin-Italie',
 };
 
 export default blogMetaFr;

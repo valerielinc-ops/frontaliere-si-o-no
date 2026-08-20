@@ -10243,6 +10243,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.title': 'LAINF border 2026: practical injury procedure',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.excerpt': 'LAINF for border workers: accident coverage, 0.7-1.5% rates, complaint procedure and practical simulations. Complete checklist and differences with occupational disease.',
     'blog.article.lainf-2026-frontaliere-simulazione-pratica.imageAlt': 'Workers insurance LAINF documents and injury claim procedure for Ticino cross-border workers',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.title': 'Frontier early retirement: 5 common mistakes',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.excerpt': 'Anticipating the pension for border workers Ticino-Italy involves complex choices on AVS, LPP and double taxation. Discover the mistakes to avoid with the New 2024 Agreement.',
+    'blog.article.pensionamento-anticipato-frontalieri-errori.imageAlt': 'Pension planning document with spreadsheet and SECO forms on desk workspace overlooking Ticino-Italy border crossing',
 };
 
 export default blogMetaEn;
