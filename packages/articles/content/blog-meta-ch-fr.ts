@@ -3514,6 +3514,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sciaffusa-permesso-dimora-b.title': 'Permis de séjour B Schaffhouse : exigences et renouvellement',
     'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Le permis B est un permis renouvelable pour résider et travailler en Suisse, géré par SEM. Découvrez comment l\'obtenir et le renouveler dans le canton de Schaffhouse.',
     'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Bureau cantonal des migrations pour le traitement et renouvellement des permis de séjour',
+    'blog.article.esportazioni-svizzera-luglio-2026.title': 'Juillet 2026 : reprise des exportations suisses',
+    'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Les exportations suisses progressent de 13,8 % en juillet 2026 après des mois de stagnation. Importations en baisse de 4,5 %. Record de la balance commerciale : +8,1 milliards de CHF.',
+    'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Installation douanière suisse avec conteneurs de fret et opérations logistiques',
 };
 
 export default blogMetaChFr;

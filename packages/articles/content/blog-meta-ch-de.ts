@@ -3514,6 +3514,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sciaffusa-permesso-dimora-b.title': 'Aufenthaltsbewilligung B Schaffhausen: Voraussetzungen und Verlängerung',
     'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Die Bewilligung B ist eine erneuerbare Bewilligung zum Aufenthalt und Arbeiten in der Schweiz, die von sem verwaltet wird. Erfahren Sie, wie Sie es im Kanton Schaffhausen beziehen und erneuern können.',
     'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Kantonales Migrationsamt, wo Aufenthaltsgenehmigungen bearbeitet und verlängert werden',
+    'blog.article.esportazioni-svizzera-luglio-2026.title': 'Juli 2026: Wiederbelebung der Schweizer Exporte',
+    'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Die Schweizer Exporte steigen im Juli 2026 nach Monaten der Stagnation um 13,8%. Die Importe gingen um 4,5% zurück. Handelsbilanzrekord: +8,1 Mrd. CHF.',
+    'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Schweizer Zollanlage mit Frachtbehältern und Logistikbetrieb bei Tageslich',
 };
 
 export default blogMetaChDe;

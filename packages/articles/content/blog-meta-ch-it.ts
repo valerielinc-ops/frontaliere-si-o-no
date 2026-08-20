@@ -3514,6 +3514,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sciaffusa-permesso-dimora-b.title': 'Permesso dimora B Sciaffusa: requisiti e rinnovo',
     'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Il permesso B è un permesso rinnovabile per risiedere e lavorare in Svizzera, gestito da SEM. Scopri come ottenerlo e rinnovarlo nel canton Sciaffusa.',
     'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Ufficio della migrazione cantonale dove si richiedono e rinnovano i permessi di dimora B',
+    'blog.article.esportazioni-svizzera-luglio-2026.title': 'Luglio 2026: ripresa esportazioni svizzere',
+    'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Le esportazioni svizzere salgono del 13,8% a luglio 2026 dopo mesi di stagnazione. Importazioni in calo del 4,5%. Record della bilancia commerciale: +8,1 miliardi CHF.',
+    'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Impianto doganale svizzero con containers merci e operazioni logistiche durante il giorno',
 };
 
 export default blogMetaChIt;

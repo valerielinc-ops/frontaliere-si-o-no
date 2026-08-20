@@ -3514,6 +3514,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sciaffusa-permesso-dimora-b.title': 'Residence permit B Schaffhausen: requirements and renewal',
     'blog.article.sciaffusa-permesso-dimora-b.excerpt': 'Permit B is a renewable permit to reside and work in Switzerland, managed by SEM. Find out how to get it and renew it in the canton of Schaffhausen.',
     'blog.article.sciaffusa-permesso-dimora-b.imageAlt': 'Cantonal migration office where residence permits category B are processed and renewed',
+    'blog.article.esportazioni-svizzera-luglio-2026.title': 'July 2026: resumption of Swiss exports',
+    'blog.article.esportazioni-svizzera-luglio-2026.excerpt': 'Swiss exports are up 13.8% in July 2026 after months of stagnation. Imports down 4.5%. Trade balance record: CHF +8.1 billion.',
+    'blog.article.esportazioni-svizzera-luglio-2026.imageAlt': 'Swiss customs facility with freight containers and logistics operations in daylight',
 };
 
 export default blogMetaChEn;
