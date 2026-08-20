@@ -3499,6 +3499,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canton-basilea-campagna-settori.title': 'Arbeitsmarkt Basel-Landschaft: Löhne und Branchen',
     'blog.article.canton-basilea-campagna-settori.excerpt': 'Praktischer Leitfaden zu Löhnen, Arbeitszeiten, Ansprüchen und Vorsorge auf dem Schweizer Arbeitsmarkt. Entdecken Sie AHV-Beiträge, BVG, kantonale Besteuerung und wie Sie ein Angebot bewerten.',
     'blog.article.canton-basilea-campagna-settori.imageAlt': 'Modernes Schweizer Büro mit Fachleuten, die Arbeitsverträge und Gehälter besprechen',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.title': 'Kantonale Steuern Schaffhausen: Steuersätze und Abzüge',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.excerpt': 'Praktischer Leitfaden zum System der Kantons- und Gemeindesteuern im Kanton Schaffhausen. Steuersätze, zulässige Abzüge, Anmeldefristen und Zugang zum Online-Portal der Steuerverwaltung.',
+    'blog.article.canton-sciaffusa-aliquote-deduzioni.imageAlt': 'Modernes kantonales Steuerbürogebäude in einer schweizerischen Verwaltungsstadt bei Tageslicht.',
 };
 
 export default blogMetaChDe;
