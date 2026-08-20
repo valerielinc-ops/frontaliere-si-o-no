@@ -3571,6 +3571,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.monopattini-obbligo-casco.title': 'Electric scooters: mandatory helmet in sight?',
     'blog.article.monopattini-obbligo-casco.excerpt': 'The Federal Council will evaluate the obligation of the helmet for scooters. Accidents doubled, trauma risks higher than cyclists.',
     'blog.article.monopattini-obbligo-casco.imageAlt': 'View of a Swiss urban street with cycle lanes and e-scooter mobility infrastructure',
+    'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Switzerland-China: Optimised trade agreement',
+    'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Negotiations concluded: 99.8% of Swiss exports to China will have customs exemption. Signature expected in 2026.',
+    'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Swiss federal building in Bern with international flags, representing Swiss commercial diplomacy with China',
 };
 
 export default blogMetaChEn;

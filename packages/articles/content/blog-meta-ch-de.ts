@@ -3571,6 +3571,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.monopattini-obbligo-casco.title': 'Elektroroller: Helmpflicht in Sicht?',
     'blog.article.monopattini-obbligo-casco.excerpt': 'Der Bundesrat wird die Helmpflicht für Roller prüfen. Verdoppelte Unfälle, Trauma-Risiken höher als bei Radfahrern.',
     'blog.article.monopattini-obbligo-casco.imageAlt': 'Schweizer Straßenszene mit Fahrradspuren und E-Scooter-Mobilität',
+    'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Schweiz-China: Optimiertes Handelsabkommen',
+    'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Nach Abschluss der Verhandlungen werden 99,8% der Schweizer Exporte nach China zollfrei sein. Die Unterzeichnung ist für 2026 geplant.',
+    'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Schweizer Bundesgebäude in Bern mit internationalen Flaggen, Symbol der Handelsdiplomatie mit China',
 };
 
 export default blogMetaChDe;
