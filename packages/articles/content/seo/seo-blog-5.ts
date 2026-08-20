@@ -70895,6 +70895,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasporti-ticino-abbonamenti': {
+    title: 'Trasporti pubblici Ticino: guida agli abbonamenti',
+    description: 'Rete Arcobaleno: come il frontaliere sceglie abbonamenti, usa app per orari e biglietti, e risparmia sui costi di pendolarismo in Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, pubblici, agli, abbonamenti',
+    ogTitle: 'Trasporti pubblici Ticino: guida agli abbonamenti',
+    ogDescription: 'Scopri come il frontaliere ottimizza pendolarismo e budget con la rete Arcobaleno: abbonamenti integrati, app digitali, e risparmi significativi vs auto privata in Ticino.',
+    canonicalPath: '/articoli-frontaliere/trasporti-ticino-abbonamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti pubblici Ticino: guida agli abbonamenti",
+      "description": "Rete Arcobaleno: come il frontaliere sceglie abbonamenti, usa app per orari e biglietti, e risparmia sui costi di pendolarismo in Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasporti-ticino-abbonamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale alla stazione di Lugano, frontalieri in attesa di salire a bordo durante l'ora di punta mattutina"
+      },
+      "datePublished": "2026-08-20T02:58:23+00:00",
+      "dateModified": "2026-08-20T02:58:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-ticino-abbonamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

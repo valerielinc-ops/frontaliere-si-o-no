@@ -10187,6 +10187,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.clima-ticino-anno.title': 'Climate and weather Ticino: characteristic seasons',
     'blog.article.clima-ticino-anno.excerpt': 'Average temperatures, rainfall, rare weather phenomena in Ticino.',
     'blog.article.clima-ticino-anno.imageAlt': 'Panoramic view of Lake Lugano, Ticino, Switzerland, with a focus on the seasons',
+    'blog.article.trasporti-ticino-abbonamenti.title': 'Ticino public transport: a guide to subscriptions',
+    'blog.article.trasporti-ticino-abbonamenti.excerpt': 'Rainbow network and subscriptions: how the border crossing optimises commuting and budgets with apps and digital tickets for work in Ticino.',
+    'blog.article.trasporti-ticino-abbonamenti.imageAlt': 'Regional train at Lugano station, commuters waiting to board during morning rush hour',
 };
 
 export default blogMetaEn;
