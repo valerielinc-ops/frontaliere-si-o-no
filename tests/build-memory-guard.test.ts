@@ -9,8 +9,13 @@ import {
   HOST_AVAIL_FLOOR_FRACTION,
   DEFAULT_CONSECUTIVE_SAMPLES,
   FAILURE_ISSUE_TITLE,
+  SWAP_CEILING_CREDIT_CAP_MB,
+  DEFAULT_SWAP_FLOOR_MB,
+  SWAP_FLOOR_FRACTION,
+  SWAP_FLOOR_MIN_TOTAL_MB,
   readHostAvailableMb,
   readHostTotalMb,
+  readHostSwapMb,
   applyTighteningOverride,
   resolveThresholds,
   createGuardState,
@@ -62,10 +67,14 @@ function tmpMeminfo(content: string): string {
   return p;
 }
 
-/** Soglie del runner GitHub, senza dipendere dall'host che esegue i test. */
+/** Soglie del runner GitHub, senza dipendere dall'host che esegue i test.
+ * `swapFreeFloorMb: null` = il regime storico pre-swap-awareness: i quattro
+ * leg verdi del run 31747139648 non hanno una serie SwapFree campionata,
+ * quindi qui si pinna solo cio' che quel run ha misurato davvero. */
 const RUNNER: GuardThresholds = {
   rssCeilingMb: Math.round(15988 * RSS_CEILING_FRACTION), // 12902
   hostAvailFloorMb: DEFAULT_HOST_AVAIL_FLOOR_MB, // 768
+  swapFreeFloorMb: null,
   consecutiveSamples: DEFAULT_CONSECUTIVE_SAMPLES, // 3
 };
 
@@ -233,7 +242,7 @@ describe('observeSample — i quattro leg VERDI devono restare verdi', () => {
       // 40 campioni al picco sostenuto: molto piu' dei 3 consecutivi
       // richiesti, quindi non e' la finestra a salvarlo — sono le soglie.
       for (let i = 0; i < 40; i += 1) {
-        expect(observeSample(state, { rssMb: peakRssMb, hostAvailMb: minAvailMb }, RUNNER)).toBeNull();
+        expect(observeSample(state, { rssMb: peakRssMb, hostAvailMb: minAvailMb, swapFreeMb: null }, RUNNER)).toBeNull();
       }
       expect(state.breach).toBeNull();
       expect(state.peakRssMb).toBe(peakRssMb);
@@ -245,18 +254,18 @@ describe('observeSample — i quattro leg VERDI devono restare verdi', () => {
 describe('observeSample — scatta quando la pressione e\' quella che uccide', () => {
   it('il pavimento host vuole 3 campioni CONSECUTIVI', () => {
     const state = createGuardState();
-    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700 }, RUNNER)).toBeNull();
-    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 640 }, RUNNER)).toBeNull();
-    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 500 }, RUNNER)).toBe('host-floor');
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 640, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 500, swapFreeMb: null }, RUNNER)).toBe('host-floor');
   });
 
   it('due campioni sotto e poi un recupero NON fanno fallire — un flush non e\' uno stato', () => {
     const state = createGuardState();
-    observeSample(state, { rssMb: 11000, hostAvailMb: 700 }, RUNNER);
-    observeSample(state, { rssMb: 11000, hostAvailMb: 640 }, RUNNER);
-    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 3000 }, RUNNER)).toBeNull();
-    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700 }, RUNNER)).toBeNull();
-    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700 }, RUNNER)).toBeNull();
+    observeSample(state, { rssMb: 11000, hostAvailMb: 700, swapFreeMb: null }, RUNNER);
+    observeSample(state, { rssMb: 11000, hostAvailMb: 640, swapFreeMb: null }, RUNNER);
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 3000, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 700, swapFreeMb: null }, RUNNER)).toBeNull();
     expect(state.breach).toBeNull();
     // il minimo osservato resta registrato anche se non ha fatto scattare nulla
     expect(state.minHostAvailMb).toBe(640);
@@ -264,30 +273,132 @@ describe('observeSample — scatta quando la pressione e\' quella che uccide', (
 
   it('il tetto RSS scatta a 3 campioni sopra soglia', () => {
     const state = createGuardState();
-    expect(observeSample(state, { rssMb: 13000, hostAvailMb: 4000 }, RUNNER)).toBeNull();
-    expect(observeSample(state, { rssMb: 13050, hostAvailMb: 4000 }, RUNNER)).toBeNull();
-    expect(observeSample(state, { rssMb: 13090, hostAvailMb: 4000 }, RUNNER)).toBe('rss-ceiling');
+    expect(observeSample(state, { rssMb: 13000, hostAvailMb: 4000, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 13050, hostAvailMb: 4000, swapFreeMb: null }, RUNNER)).toBeNull();
+    expect(observeSample(state, { rssMb: 13090, hostAvailMb: 4000, swapFreeMb: null }, RUNNER)).toBe('rss-ceiling');
     expect(state.peakRssMb).toBe(13090);
   });
 
   it('quando entrambe sfondano vince host-floor: e\' quella che descrive il kill', () => {
     const state = createGuardState();
-    for (let i = 0; i < 2; i += 1) observeSample(state, { rssMb: 13500, hostAvailMb: 400 }, RUNNER);
-    expect(observeSample(state, { rssMb: 13500, hostAvailMb: 400 }, RUNNER)).toBe('host-floor');
+    for (let i = 0; i < 2; i += 1) observeSample(state, { rssMb: 13500, hostAvailMb: 400, swapFreeMb: null }, RUNNER);
+    expect(observeSample(state, { rssMb: 13500, hostAvailMb: 400, swapFreeMb: null }, RUNNER)).toBe('host-floor');
   });
 
   it('su un host senza /proc/meminfo il tetto RSS resta armato da solo', () => {
     const noFloor: GuardThresholds = { ...RUNNER, hostAvailFloorMb: null };
     const state = createGuardState();
-    for (let i = 0; i < 2; i += 1) observeSample(state, { rssMb: 13500, hostAvailMb: null }, noFloor);
-    expect(observeSample(state, { rssMb: 13500, hostAvailMb: null }, noFloor)).toBe('rss-ceiling');
+    for (let i = 0; i < 2; i += 1) observeSample(state, { rssMb: 13500, hostAvailMb: null, swapFreeMb: null }, noFloor);
+    expect(observeSample(state, { rssMb: 13500, hostAvailMb: null, swapFreeMb: null }, noFloor)).toBe('rss-ceiling');
+  });
+});
+
+/**
+ * Il tetto swap-aware (issue #6134, 2026-08-20). La campagna OOM del 19-08
+ * (7 deploy su 8, exit 134) e' morta sul muro V8 con ~2 GB di MemAvailable e
+ * ~3 GB di SwapFree ancora liberi: il modello «RSS ≥ 80,7% di MemTotal ⇒
+ * kill imminente» era falso su un host CON swap. Il tetto ora conta la
+ * capacita' anonima totale (RAM + swap, con credito cappato), e a presidiare
+ * l'esaurimento della capacita' nuova c'e' il pavimento su SwapFree.
+ */
+describe('il tetto RSS e\' swap-aware', () => {
+  function meminfoWithSwap(totalMb: number, swapTotalMb: number, swapFreeMb = swapTotalMb): string {
+    return [
+      `MemTotal:       ${totalMb * 1024} kB`,
+      `MemFree:          423936 kB`,
+      `MemAvailable:    6594560 kB`,
+      `SwapTotal:      ${swapTotalMb * 1024} kB`,
+      `SwapFree:       ${swapFreeMb * 1024} kB`,
+    ].join('\n') + '\n';
+  }
+
+  it('readHostSwapMb legge ENTRAMBE le righe, e torna null se manca SwapTotal', () => {
+    const p = tmpMeminfo(meminfoWithSwap(15988, 4096, 3072));
+    expect(readHostSwapMb(p)).toEqual({ totalMb: 4096, freeMb: 3072 });
+    // Il fixture storico senza SwapTotal deve leggersi come «host senza swap»:
+    // e' cio' che tiene i vecchi pin del tetto validi senza riscriverli.
+    expect(readHostSwapMb(tmpMeminfo(MEMINFO_16GB))).toBeNull();
+    expect(readHostSwapMb('/nope/meminfo')).toBeNull();
+  });
+
+  it('senza swap leggibile il tetto e\' IDENTICO a prima — nessun cambio sul regime storico', () => {
+    const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(MEMINFO_16GB));
+    expect(t.rssCeilingMb).toBe(12902);
+    expect(t.swapFreeFloorMb).toBeNull();
+  });
+
+  it('con lo swap di default del runner (4 GB) il tetto sale del credito pieno', () => {
+    const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(meminfoWithSwap(15988, 4096)));
+    expect(t.rssCeilingMb).toBe(Math.round((15988 + 4096) * RSS_CEILING_FRACTION)); // 16208
+    // Il pavimento swap e' armato: 4096 ≥ 2048, e max(512, 4096×0,04=164) = 512.
+    expect(t.swapFreeFloorMb).toBe(DEFAULT_SWAP_FLOOR_MB);
+  });
+
+  it('il credito swap e\' CAPPATO: uno swapfile enorme non rende il ratchet vacuo', () => {
+    const t = resolveThresholds({} as NodeJS.ProcessEnv, tmpMeminfo(meminfoWithSwap(15988, 32768)));
+    expect(t.rssCeilingMb).toBe(
+      Math.round((15988 + SWAP_CEILING_CREDIT_CAP_MB) * RSS_CEILING_FRACTION), // 19513
+    );
+    // …mentre il pavimento segue lo swap VERO, non il credito cappato:
+    // e' un pavimento di esaurimento, non un tetto di pressione.
+    expect(t.swapFreeFloorMb).toBe(Math.round(32768 * SWAP_FLOOR_FRACTION)); // 1311
+  });
+
+  it('sotto i 2 GB di SwapTotal il pavimento swap resta SPENTO — sarebbe sfondato a riposo', () => {
+    const t = resolveThresholds(
+      {} as NodeJS.ProcessEnv,
+      tmpMeminfo(meminfoWithSwap(15988, SWAP_FLOOR_MIN_TOTAL_MB - 1024)),
+    );
+    expect(t.swapFreeFloorMb).toBeNull();
+    // …ma il credito sul tetto vale comunque: e' capacita' anonima reale.
+    expect(t.rssCeilingMb).toBe(Math.round((15988 + 1024) * RSS_CEILING_FRACTION));
+  });
+
+  it('BUILD_MEM_SWAP_FLOOR_MB puo\' solo STRINGERE (alzare), come le altre env', () => {
+    const meminfo = tmpMeminfo(meminfoWithSwap(15988, 12288));
+    const loosened = resolveThresholds({ BUILD_MEM_SWAP_FLOOR_MB: '100' } as NodeJS.ProcessEnv, meminfo);
+    // 12288 × 0,04 = 492 perde contro l'assoluto: max(512, 492) = 512.
+    expect(loosened.swapFreeFloorMb).toBe(DEFAULT_SWAP_FLOOR_MB);
+    expect(loosened.ignoredOverrides).toContain('BUILD_MEM_SWAP_FLOOR_MB');
+    const tightened = resolveThresholds({ BUILD_MEM_SWAP_FLOOR_MB: '1024' } as NodeJS.ProcessEnv, meminfo);
+    expect(tightened.swapFreeFloorMb).toBe(1024);
+  });
+
+  it('il pavimento swap scatta a 3 campioni consecutivi, e host-floor gli passa davanti', () => {
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 400 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 300 }, withSwap)).toBeNull();
+    expect(observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 200 }, withSwap)).toBe('swap-floor');
+    expect(state.minSwapFreeMb).toBe(200);
+
+    // Quando host-floor e swap-floor sfondano insieme, vince host-floor:
+    // e' quello che descrive il kill imminente.
+    const both = createGuardState();
+    for (let i = 0; i < 2; i += 1) {
+      observeSample(both, { rssMb: 11000, hostAvailMb: 400, swapFreeMb: 200 }, withSwap);
+    }
+    expect(observeSample(both, { rssMb: 11000, hostAvailMb: 400, swapFreeMb: 200 }, withSwap)).toBe('host-floor');
+  });
+
+  it('la diagnosi swap-floor nomina SwapFree, il pavimento e i numeri', () => {
+    const withSwap: GuardThresholds = { ...RUNNER, swapFreeFloorMb: 512 };
+    const state = createGuardState();
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 2000, swapFreeMb: 128 }, withSwap);
+    }
+    const text = formatBreachDiagnosis('swap-floor', state, withSwap);
+    expect(text).toContain(FAILURE_ISSUE_TITLE);
+    expect(text).toContain('SwapFree');
+    expect(text).toContain('minSwapFreeMb=128');
+    expect(text).toContain('swapFreeFloorMb=512');
   });
 });
 
 describe('la diagnosi dice CHE COSA e\' cresciuto', () => {
   it('nomina il titolo della issue e i due numeri, non solo il fatto', () => {
     const state = createGuardState();
-    for (let i = 0; i < 3; i += 1) observeSample(state, { rssMb: 13500, hostAvailMb: 400 }, RUNNER);
+    for (let i = 0; i < 3; i += 1) observeSample(state, { rssMb: 13500, hostAvailMb: 400, swapFreeMb: null }, RUNNER);
     const text = formatBreachDiagnosis('host-floor', state, RUNNER);
     expect(text).toContain(FAILURE_ISSUE_TITLE);
     expect(text).toContain('peakRssMb=13500');
