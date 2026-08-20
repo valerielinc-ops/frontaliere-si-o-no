@@ -1200,6 +1200,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'esportazioni-svizzera-luglio-2026': { it: 'esportazioni-svizzera-luglio-2026', en: 'swiss-exports-july-2026-recovery', de: 'schweizer-exporte-juli-2026-erholung', fr: 'exportations-suisse-juillet-2026-reprise' },
  'esportazioni-aumento-svizzera': { it: 'esportazioni-aumento-svizzera', en: 'switzerland-export-growth', de: 'schweiz-export-zuwachs', fr: 'croissance-export-suisse' },
  'esportazioni-svizzera-luglio-record': { it: 'esportazioni-svizzera-luglio-record', en: 'swiss-exports-july-record', de: 'schweizerische-exporte-juli-rekord', fr: 'exportations-suisse-juillet-record' },
+ 'orologi-export-svizzera-augusto-2026': { it: 'orologi-export-svizzera-augusto-2026', en: 'swiss-watch-export-august-2026', de: 'schweizer-uhr-export-august-2026', fr: 'export-horloges-suisse-aout-2026' },
+ 'rallentamento-crescita-demografica-2025': { it: 'rallentamento-crescita-demografica-2025', en: 'demographic-slowdown-2025-switzerland', de: 'demografischer-rueckgang-2025-schweiz', fr: 'ralentissement-demographie-2025-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

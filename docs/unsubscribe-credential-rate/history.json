@@ -49,6 +49,21 @@
       "graded": 99,
       "fallbackRate": 0.010101010101010102,
       "findings": []
+    },
+    {
+      "date": "2026-08-20",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 9,
+        "email_token": 121,
+        "legacy_auth_token": 0,
+        "missing": 51
+      },
+      "graded": 130,
+      "fallbackRate": 0.06923076923076923,
+      "findings": [
+        "uncredentialed_share"
+      ]
     }
   ]
 }

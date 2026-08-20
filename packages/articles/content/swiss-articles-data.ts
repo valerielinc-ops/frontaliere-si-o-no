@@ -10567,6 +10567,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'orologi-export-svizzera-augusto-2026',
+    category: 'fiscale',
+    date: '2026-08-20T07:55:53.742Z',
+    image: '/images/blog/orologi-export-svizzera-augusto-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'rallentamento-crescita-demografica-2025',
+    category: 'novita',
+    date: '2026-08-20T08:09:11.095Z',
+    image: '/images/blog/rallentamento-crescita-demografica-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

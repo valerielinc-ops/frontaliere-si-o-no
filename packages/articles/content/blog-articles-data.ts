@@ -30603,6 +30603,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'coordinamento-pensione-famiglia-figli-2026',
+ category: 'pensione',
+ date: '2026-08-20T07:48:16.979Z',
+ image: '/images/blog/coordinamento-pensione-famiglia-figli-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

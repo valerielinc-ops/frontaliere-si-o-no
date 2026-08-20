@@ -3523,6 +3523,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esportazioni-svizzera-luglio-record.title': 'Schweizer Exporte beschleunigen sich im Juli 2026',
     'blog.article.esportazioni-svizzera-luglio-record.excerpt': 'Im Juli 2026 erreichten die Schweizer Exporte 27,8 Milliarden CHF (+13,8% pro Monat). Die Pharmabranche wächst um 25 %. Handelsbilanzüberschuss: CHF 8,1 Mrd.',
     'blog.article.esportazioni-svizzera-luglio-record.imageAlt': 'Frachtcontainer bei einer Schweizer Hafenanlage mit Alpen im Hintergrund',
+    'blog.article.orologi-export-svizzera-augusto-2026.title': 'Trump stoppt den Export von Schweizer Uhren nicht: im Juli auf 10%',
+    'blog.article.orologi-export-svizzera-augusto-2026.excerpt': 'Die Schweizer Uhrenexporte verzeichneten im Juli einen deutlichen Anstieg, was bestätigt, dass Trump den Export von Schweizer Uhren nicht aufhält: im Juli um 10%. Das Wachstum betrug 9,6 Prozent gegenüber dem Vorjahr auf insgesamt 2,63 Milliarden Franken.',
+    'blog.article.orologi-export-svizzera-augusto-2026.imageAlt': 'Umsatzsteigerung der Schweizer Uhrenexporte',
+    'blog.article.rallentamento-crescita-demografica-2025.title': 'Bevölkerungsabschwächung im Jahr 2025: +0,8%',
+    'blog.article.rallentamento-crescita-demografica-2025.excerpt': 'Zum 31. Dezember 2025 hat die Schweiz 9,127 Millionen Einwohner. Das Wachstum verlangsamt sich auf 0,8%, die Alten überholen erstmals die Jungen. Auswirkungen auf AHV, BVG und Wohlfahrt.',
+    'blog.article.rallentamento-crescita-demografica-2025.imageAlt': 'Luftaufnahme einer Schweizer Stadt mit Menschen verschiedener Altersgruppen',
 };
 
 export default blogMetaChDe;
