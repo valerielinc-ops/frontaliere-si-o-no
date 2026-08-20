@@ -3574,6 +3574,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-cina-accordo-libero-scambio.title': 'Svizzera-Cina: accordo commerciale ottimizzato',
     'blog.article.svizzera-cina-accordo-libero-scambio.excerpt': 'Conclusi i negoziati: il 99,8% delle esportazioni svizzere verso la Cina avrà esenzione doganale. Firma prevista nel 2026.',
     'blog.article.svizzera-cina-accordo-libero-scambio.imageAlt': 'Palazzo federale di Berna con bandiere internazionali, simbolo della diplomazia commerciale svizzera verso la Cina',
+    'blog.article.dimora-b-svizzera-guida-pratica.title': 'Permesso di dimora B: come richiederlo e rinnovarlo',
+    'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Permesso di dimora B in Svizzera: requisiti essenziali, documentazione, autorità competenti (SEM), tempi e procedure di rinnovo. Guida per stranieri extra-UE.',
+    'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Ufficio della migrazione cantonale dove si richiedono i permessi di dimora per stranieri in Svizzera',
 };
 
 export default blogMetaChIt;
