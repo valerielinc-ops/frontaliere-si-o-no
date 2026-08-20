@@ -45104,6 +45104,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-sanitario-svizzero-lamal-2026-canton-zurigo': {
+    title: 'Sanità in Svizzera: LAMal, franchigie e rimborsi',
+    description: 'Il sistema sanitario svizzero è basato sull\'assicurazione malattia LAMal obbligatoria per residenti. I premi variano a seconda del cantone e della regione',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanità, lamal, franchigie, rimborsi',
+    ogTitle: 'Guida al sistema sanitario svizzero: obbligo LAMal, scelta della cassa, franchigie e rimborsi.',
+    ogDescription: 'Il sistema sanitario svizzero è basato sull\'assicurazione malattia LAMal obbligatoria per residenti. I premi variano a seconda del cantone e della regione. Il canton Zurigo offre franchigie per adulti da CHF 300 a CHF 2500.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-svizzero-lamal-2026-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanità in Svizzera: LAMal, franchigie e rimborsi",
+      "description": "Il sistema sanitario svizzero è basato sull'assicurazione malattia LAMal obbligatoria per residenti. I premi variano a seconda del cantone e della regione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-sanitario-svizzero-lamal-2026-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un medico svizzero"
+      },
+      "datePublished": "2026-08-20T01:43:20+00:00",
+      "dateModified": "2026-08-20T01:43:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-svizzero-lamal-2026-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

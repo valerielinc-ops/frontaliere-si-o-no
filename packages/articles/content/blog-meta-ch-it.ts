@@ -3478,6 +3478,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.antara-tantra-festival-lenk.title': 'Antara Tantra Festival a Lenk: le nuove regole',
     'blog.article.antara-tantra-festival-lenk.excerpt': 'Il Tantra Festival Switzerland cambia nome e diventa Antara Tantra Festival, introducendo regole rigide sul consenso e manuali di sicurezza a Lenk.',
     'blog.article.antara-tantra-festival-lenk.imageAlt': 'Antara Tantra Festival a Lenk nel canton Berna',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.title': 'Sanità in Svizzera: LAMal, franchigie e rimborsi',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.excerpt': 'Il sistema sanitario svizzero è basato sull\'assicurazione malattia LAMal obbligatoria per residenti. I premi variano a seconda del cantone e della regione. Il canton Zurigo offre franchigie per adulti da CHF 300 a CHF 2500.',
+    'blog.article.sistema-sanitario-svizzero-lamal-2026-canton-zurigo.imageAlt': 'Immagine di un medico svizzero',
 };
 
 export default blogMetaChIt;
