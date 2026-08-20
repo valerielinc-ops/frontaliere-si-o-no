@@ -599,7 +599,7 @@ export function resolveItalianFrontierComuni(geo, { maxKm = 15 } = {}) {
 // brand/provider logos. Idempotent: skips the network fetch when the file
 // already exists, so re-running a crawler doesn't re-download unchanged images.
 const EVENT_IMAGE_DIR = path.join(REPO_ROOT, 'public', 'images', 'events');
-const EVENT_IMAGE_MAX_BYTES = 4 * 1024 * 1024; // 4MB guard against a mis-served asset
+export const EVENT_IMAGE_MAX_BYTES = 4 * 1024 * 1024; // 4MB guard against a mis-served asset
 const EVENT_IMAGE_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 
 // Re-encode before storing: the source sites serve print-resolution originals

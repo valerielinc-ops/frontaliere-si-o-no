@@ -22,7 +22,17 @@ import {
   mirrorEventImage,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
+  EVENT_IMAGE_MAX_BYTES,
 } from '../scripts/lib/events-utils.mjs';
+
+// Sanity-check margin for the noise fixtures below: derived from the real
+// mirrorEventImage reject cutoff (EVENT_IMAGE_MAX_BYTES) rather than a bare
+// literal, so the two stay in sync if the cutoff ever changes. Measured
+// empirically (2026-08-20, sharp 0.34.5/libvips bundled build) at quality 80
+// this pseudo-random noise source jpeg-encodes to ~1.0MB for both fixture
+// shapes below — comfortably inside this half-of-cutoff margin, not
+// borderline.
+const NOISE_FIXTURE_SANITY_BYTES = EVENT_IMAGE_MAX_BYTES / 2;
 
 describe('EVENT_SOURCES nationwide registry', () => {
   it('registers guidle and myswitzerland as canton-agnostic (canton: null)', () => {
@@ -258,7 +268,7 @@ describe('mirrorEventImage', () => {
     // Keep the fixture well clear of EVENT_IMAGE_MAX_BYTES (4MB), or a future
     // libjpeg would make mirrorEventImage return null and this test would fail
     // for a reason that has nothing to do with what it checks.
-    expect(source.byteLength).toBeLessThan(2 * 1024 * 1024);
+    expect(source.byteLength).toBeLessThan(NOISE_FIXTURE_SANITY_BYTES);
 
     vi.stubGlobal(
       'fetch',
@@ -288,7 +298,7 @@ describe('mirrorEventImage', () => {
     const source = await sharp(raw, { raw: { width: 800, height: 2400, channels: 3 } })
       .jpeg({ quality: 80 })
       .toBuffer();
-    expect(source.byteLength).toBeLessThan(2 * 1024 * 1024);
+    expect(source.byteLength).toBeLessThan(NOISE_FIXTURE_SANITY_BYTES);
 
     vi.stubGlobal(
       'fetch',
