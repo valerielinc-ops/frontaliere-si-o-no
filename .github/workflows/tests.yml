@@ -143,11 +143,27 @@ jobs:
       # non riuscita» (exit 2), mai come pass.
       NODE_OPTIONS: --max-old-space-size=8192
     steps:
-      # Checkout PIENO, come il job vitest sotto e per la stessa ragione
-      # misurata (uno sparse-checkout porterebbe actions/checkout su
-      # `--filter=blob:none`, +125% sul Checkout). Qui in più è un requisito di
-      # correttezza: senza `data/` e `public/` mancano ~160 moduli importati e
-      # tsc produrrebbe TS2307 d'ambiente, cioè un rosso falso.
+      # Checkout sparse, al contrario del job vitest sotto — e il commento che
+      # stava qui diceva l'opposto, quindi vale la pena spiegare perché i due
+      # job divergono.
+      #
+      # L'osservazione originale era giusta: uno sparse-checkout porta
+      # actions/checkout su `--filter=blob:none`, e su `tests.yml` era stato
+      # misurato +125% (run 30361290650). Ma il segno dipende da QUANTO resta da
+      # scaricare, non dal fatto di usare lo sparse: i blob non esclusi arrivano
+      # con una seconda richiesta pigra, che conviene solo se ne restano pochi.
+      # La soglia misurata è ~1,5 GB (`CROSSOVER_MB`, vedi
+      # docs/REPO-WEIGHT-STRATEGY.md). `vitest` resta a 2'885 MB anche togliendo
+      # tutto il possibile → sopra la soglia → checkout pieno, ed è la stessa
+      # cosa che l'osservazione originale aveva colto. `typecheck` scende a
+      # 475 MB → sotto la soglia → 211s misurati prima, 25-33s adesso.
+      #
+      # Il requisito di correttezza dell'altro commento resta e NON è violato:
+      # servono i ~160 moduli importati da `data/` e `public/`, altrimenti tsc
+      # produce TS2307 d'ambiente, cioè un rosso falso. Verificato che i 152
+      # import TS risolti verso quelle cartelle sopravvivono tutti al profilo —
+      # sono file piccoli, e il profilo esclude solo foglie sopra 15 MB.
+      # Il guard non lo copre ancora per costruzione: vedi la issue di follow-up.
       - uses: actions/checkout@v5
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
