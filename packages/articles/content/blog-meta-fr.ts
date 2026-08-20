@@ -10296,6 +10296,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.title': 'Vivre à Erba, travailler au Tessin en tant que frontalier',
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.excerpt': 'Erba est un emplacement stratégique pour les frontaliers qui travaillent au Tessin. Découvrez le permis G, la fiscalité italo-suisse, LAMal et les frais de gestion.',
     'blog.article.vivere-erba-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Mendrisio et de la région frontalière entre Como et le Tessin avec montagnes et paysage alpin.',
+    'blog.article.eupilio-ticino-frontaliere-guida.title': 'Vivre à Eupilio et travailler au Tessin : guide frontalier',
+    'blog.article.eupilio-ticino-frontaliere-guida.excerpt': 'Eupilio à 20 km de la frontière suisse : temps, fiscalité, permis G, AVS/LPP et checklist pratique du transfert de frontalier.',
+    'blog.article.eupilio-ticino-frontaliere-guida.imageAlt': 'Vue du paysage alpin tessinois avec vallées, lacs et zones résidentielles typiques de la région frontalière.',
 };
 
 export default blogMetaFr;
