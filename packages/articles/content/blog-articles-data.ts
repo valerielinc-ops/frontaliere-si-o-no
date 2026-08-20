@@ -30855,6 +30855,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-besozzo-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-20T22:56:35.594Z',
+ image: '/images/blog/vivere-besozzo-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

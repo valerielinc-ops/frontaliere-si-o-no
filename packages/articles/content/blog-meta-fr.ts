@@ -10305,6 +10305,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.title': 'Vivre à Sormano et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.excerpt': 'Paramètres fiscaux, double imposition, permis de travail et résidence : ce qu\'il faut savoir pour travailler au Tessin en tant que frontalier et vivre à Sormano.',
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier qui se déplace à Sormano, travaille en Tessin et doit gérer les impôts et les frais dans les deux pays.',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.title': 'Vivre à Besozzo et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.excerpt': 'Le frontalier qui déménage à Besozzo peut profiter d\'une connexion rapide avec le Tessin, avec des temps de trajet de 20 à 30 minutes.',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier qui se transfère à Besozzo peut profiter d\'une connexion rapide avec le Tessin, avec des temps de trajet de 20-30 minutes.',
 };
 
 export default blogMetaFr;

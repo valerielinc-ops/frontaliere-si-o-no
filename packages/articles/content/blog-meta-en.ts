@@ -10303,6 +10303,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.title': 'Living in Sormano and working in Ticino as a border worker',
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.excerpt': 'Tax settings, double taxation, work and residence permits: what you need to know to work in Ticino as a border worker and live in Sormano.',
     'blog.article.vivere-sormano-lavorare-ticino-frontaliere.imageAlt': 'A foreigner who moves to Sormano, works in Ticino and must manage taxes and fees in both countries.',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.title': 'Living in Besozzo and working in Ticino as a border worker',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.excerpt': 'The border worker who moves to Besozzo can enjoy a quick connection with Ticino, with travel times of 20-30 minutes.',
+    'blog.article.vivere-besozzo-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere who moves to Besozzo can enjoy a fast connection to Ticino, with travel times of 20-30 minutes.',
 };
 
 export default blogMetaEn;
