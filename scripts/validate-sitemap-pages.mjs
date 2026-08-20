@@ -100,8 +100,13 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
-import { JOB_BOARD_SECTION_RX, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { isExternallyServedUrl, isExternallyServedPath } from './lib/externally-served-paths.mjs';
+import {
+  classifyCanonicalMismatch,
+  isLegitLegacyAliasCanonicalization,
+  isLegitJobCanonicalConsolidation,
+} from './lib/canonicalExemptions.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -293,35 +298,12 @@ function extractCanonical_vc(content) {
   return match ? match[1] : null;
 }
 
-const LEGACY_ALIAS_CANONICALS = new Map([
-  ['/about/', '/en/about-us/'],
-  ['/about', '/en/about-us/'],
-  ['/contact/', '/en/contact-us/'],
-  ['/contact', '/en/contact-us/'],
-  ['/privacy-policy/', '/en/privacy/'],
-  ['/privacy-policy', '/en/privacy/'],
-]);
-
-function isLegitLegacyAlias(url, canonical) {
-  const urlPath = url.replace(HOST, '');
-  const canonPath = canonical.replace(HOST, '');
-  const expected = LEGACY_ALIAS_CANONICALS.get(urlPath);
-  if (!expected) return false;
-  return canonPath === expected;
-}
+const isLegitLegacyAlias = isLegitLegacyAliasCanonicalization;
 
 // Same-section check generalised to any canton's job-board (was TI-only —
-// see scripts/lib/jobBoardSections.mjs:getJobBoardSectionPrefix).
-function isLegitJobConsolidation(url, canonical) {
-  const urlPath = url.replace(HOST, '');
-  const canonPath = canonical.replace(HOST, '');
-  const urlSection = getJobBoardSectionPrefix(urlPath);
-  const canonSection = getJobBoardSectionPrefix(canonPath);
-  if (!urlSection || !canonSection || urlSection !== canonSection) return false;
-  const canonSubPath = canonPath.slice(canonSection.length).replace(/\/$/, '');
-  if (!canonSubPath) return false;
-  return true;
-}
+// see scripts/lib/jobBoardSections.mjs:getJobBoardSectionPrefix). Now the
+// shared definition, so check 1 above and check 2 below cannot disagree.
+const isLegitJobConsolidation = isLegitJobCanonicalConsolidation;
 
 /** validate-soft404: public/sitemap-*.xml minus sitemap-jobs.xml. */
 function loadSoft404Urls() {
@@ -436,6 +418,8 @@ function runAuditSitemapCanonicals() {
   }
 
   const offenders = [];
+  /** @type {Record<string, number>} Legitimate non-self canonicals, by reason. */
+  const exempt = Object.create(null);
   let okCount = 0;
   let totalChecked = 0;
   const LIMIT = 50;
@@ -472,6 +456,18 @@ function runAuditSitemapCanonicals() {
       continue;
     }
     if (normalizeUrlAudit(canonical) !== normalizeUrlAudit(loc)) {
+      // Same shared ruleset the standalone gate now uses — see
+      // scripts/lib/canonicalExemptions.mjs. Check 2 below (validate-canonical)
+      // already skipped these; this check inherited the ORIGINAL's total
+      // absence of bridge logic (documented in this file's own "Differences
+      // PRESERVED" table, point 5), so one legitimate slug rename made check 1
+      // FAIL and check 2 PASS on the very same page in the very same run.
+      const exemption = classifyCanonicalMismatch({ url: loc, canonical, html });
+      if (exemption) {
+        exempt[exemption] = (exempt[exemption] ?? 0) + 1;
+        okCount++;
+        continue;
+      }
       offenders.push({ category: 'mismatch', sitemap, loc, canonical });
       continue;
     }
@@ -481,9 +477,15 @@ function runAuditSitemapCanonicals() {
   const counts = { mismatch: 0, 'missing-html': 0, 'missing-canonical': 0 };
   for (const o of offenders) counts[o.category]++;
 
+  const exemptPairs = Object.entries(exempt).sort((a, b) => b[1] - a[1]);
+  const exemptTotal = exemptPairs.reduce((n, [, v]) => n + v, 0);
+
   out.push(
     `audit-sitemap-canonicals: scanned ${sitemapFiles.length} sitemap file(s), checked ${totalChecked} URL(s)\n` +
-    `OK: ${okCount}, mismatches: ${counts.mismatch}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n`
+    `OK: ${okCount}, mismatches: ${counts.mismatch}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n` +
+    (exemptTotal > 0
+      ? `legitimate non-self canonicals: ${exemptTotal} (${exemptPairs.map(([k, v]) => `${k}=${v}`).join(', ')})\n`
+      : '')
   );
 
   const hardFailers = offenders.filter(o => o.category !== 'missing-html');
