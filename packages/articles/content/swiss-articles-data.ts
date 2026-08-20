@@ -10837,6 +10837,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'premi-lamal-appenzello-esterno-riduzione',
+    category: 'pratico',
+    date: '2026-08-20T23:06:24.555Z',
+    image: '/images/blog/premi-lamal-appenzello-esterno-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

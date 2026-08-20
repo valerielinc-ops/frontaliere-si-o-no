@@ -3613,6 +3613,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-sciaffusa.title': 'Erbschafts- und Schenkungssteuer Schaffhausen: Steuersätze',
     'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Entdecken Sie Steuersätze, Befreiungen für Ehepartner und Nachkommen, Verfahren und Fristen für die Erbschaftssteuer im Kanton Schaffhausen. Komplette Anleitung für Erben.',
     'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'Ein Steuerberater prüft Erbschaftsdokumente in einem Schweizer Kantonsamt Schaffhausen',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'Prämien KVG Appenzell Ausserrhoden und Prämienverbilligung',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Prämienleitfaden KVG im Kanton Appenzell Ausserrhoden: Franchisen, verfügbare Versicherungsmodelle, Kantonsbeiträge und Verfahren zur Beantragung der einkommensabhängigen Reduktion.',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Schweizer Kantonsamt für Krankenversicherung, Mitarbeiter unterstützt Bewohner bei Subsidy-Antrag',
 };
 
 export default blogMetaChDe;

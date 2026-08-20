@@ -3613,6 +3613,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-sciaffusa.title': 'Tax succession and donation Schaffhausen: rates',
     'blog.article.imposta-successione-donazione-sciaffusa.excerpt': 'Discover rates, exemptions for spouses and descendants, procedures and terms for inheritance tax in the canton of Schaffhausen. Complete guide for heirs.',
     'blog.article.imposta-successione-donazione-sciaffusa.imageAlt': 'A tax consultant reviews inheritance succession documents in a Swiss cantonal office',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.title': 'LAMal External Appenzello Rewards and premium reduction',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.excerpt': 'Guide to LAMal premiums in the Canton of Appenzell Outer: deductibles, available insurance models, cantonal subsidies and procedure to apply for the income-based reduction.',
+    'blog.article.premi-lamal-appenzello-esterno-riduzione.imageAlt': 'Swiss cantonal health insurance office with staff assisting resident filing for insurance subsidy reduction',
 };
 
 export default blogMetaChEn;
