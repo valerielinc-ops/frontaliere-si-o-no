@@ -10213,6 +10213,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-imposta-2026-oltre-20km.title': '2026 tax credit: over 20 km, calculation and 730',
     'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'How to recover the Swiss withholding tax using the CE framework in the 730 model. New and old frontier workers: exemptions in comparison, step-by-step procedure.',
     'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Cross-border worker typing on laptop with tax forms and fiscal documents, Ticino landscape visible through window.',
+    'blog.article.credito-imposta-2026-single.title': '2026 Tax Credit: Single Border Guide',
+    'blog.article.credito-imposta-2026-single.excerpt': 'Single frontier workers: how to calculate the 2026 tax credit, €7,500-€10,000 deductible, IRPEF rates, compilation of the EC 730 framework and refunds by May.',
+    'blog.article.credito-imposta-2026-single.imageAlt': 'Tax advisor reviewing income declaration for a single border worker with Ticino mountains in background',
 };
 
 export default blogMetaEn;

@@ -10215,6 +10215,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-imposta-2026-oltre-20km.title': 'Crédit d\'impôt 2026 : plus de 20 km, calcul et 730',
     'blog.article.credito-imposta-2026-oltre-20km.excerpt': 'Comment récupérer la retenue suisse via le cadre CE sur le modèle 730. Nouveaux et anciens frontaliers : comparaison des franchises, procédure étape par étape.',
     'blog.article.credito-imposta-2026-oltre-20km.imageAlt': 'Travailleur frontalier à l\'ordinateur avec formulaires de déclaration fiscale, paysage tessinois en arrière-plan.',
+    'blog.article.credito-imposta-2026-single.title': 'Crédit d\'impôt 2026 : guide frontalier célibataire',
+    'blog.article.credito-imposta-2026-single.excerpt': 'Frontaliers célibataires : comment calculer le crédit d\'impôt 2026, franchise € 7.500-€ 10.000, taux IRPEF, compilation cadre CE 730 et restaurations d\'ici mai.',
+    'blog.article.credito-imposta-2026-single.imageAlt': 'Conseiller fiscal examinant la déclaration fiscale d\'un travailleur frontalier avec le paysage tessinois en arrière-plan',
 };
 
 export default blogMetaFr;
