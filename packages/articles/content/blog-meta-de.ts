@@ -10263,6 +10263,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte frontieriere: Leben und Arbeiten im Tessin',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'Neue Frontalieri-Vereinbarung, Besteuerung, Selbstbehalt von 10.000 €, G-Bewilligung und Steuerrückerstattungen: vollständiger Leitfaden für diejenigen, die in Castelmarte wohnen und im Kanton Tessin arbeiten.',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme des Ortes Castelmarte mit Comer See im Hintergrund, Wohnhäuser auf grünem Hang, Tessiner Grenzregion.',
+    'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno frontiere Ticino: Kosten und Genehmigungen',
+    'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Wohnen in Lezzeno und Arbeiten im Tessin als Grenzgänger: € 10k-Franchise, Schweizer Quellensteuer, KVG, Pendelzeiten und Transfer-Checkliste.',
+    'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Luftaufnahme des Luganer Sees bei Sonnenuntergang mit Schweizer Seedörfern und Grenzstraßen zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

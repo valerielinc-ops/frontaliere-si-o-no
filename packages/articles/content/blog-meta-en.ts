@@ -10264,6 +10264,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.castelmarte-lavorare-ticino-frontaliere.title': 'Castelmarte Frontier: living and working in Ticino',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.excerpt': 'New Frontier Agreement, taxation, deductible €10,000, G Permit and tax refunds: complete guide for those residing in Castelmarte and working in the Canton of Ticino.',
     'blog.article.castelmarte-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Castelmarte village with Lake Como background, residential houses on green hillside, Swiss-Italian border region landscape.',
+    'blog.article.lezzeno-frontaliere-ticino.title': 'Lezzeno border crossing Ticino: costs and permits',
+    'blog.article.lezzeno-frontaliere-ticino.excerpt': 'Living in Lezzeno and working in Ticino as a border worker: €10k deductible, Swiss source tax, LAMal, commuting times and transfer checklist.',
+    'blog.article.lezzeno-frontaliere-ticino.imageAlt': 'Aerial view of Lake Lugano at sunset with Swiss lakeside villages and border roads between Italy and Switzerland',
 };
 
 export default blogMetaEn;
