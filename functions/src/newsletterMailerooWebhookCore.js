@@ -4,6 +4,7 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
+import { campaignIdFromTags } from './lib/mailerooRef.js';
 import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
@@ -61,12 +62,20 @@ function mapMailerooEvent(type) {
 
 // ── Extract identifiers from a Maileroo event ────────────────
 
+/**
+ * Maileroo echoes `tags` back in BOTH shapes depending on the event, and the
+ * array form was silently unhandled until 2026-08-20: the `!Array.isArray`
+ * guard below used to skip it and fall through to the message id, so every
+ * lifecycle send whose tags arrived as `[{name:'campaign_id', value:'...'}]`
+ * was filed under a raw message id instead of its campaign. Measured over
+ * 1-20 August 2026 that was 7.945 messages whose campaign could not be told
+ * from the event alone. campaignIdFromTags accepts both shapes; the fallback
+ * to the message id stays, because an event with no campaign tag at all still
+ * needs a stable key.
+ */
 function extractCampaignId(event) {
-  const tags = event.tags || {};
-  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
-    if (tags.campaign_id) return String(tags.campaign_id);
-    if (tags.campaign) return String(tags.campaign);
-  }
+  const fromTags = campaignIdFromTags(event.tags);
+  if (fromTags) return fromTags;
   return event.message_reference_id || event.message_id || 'unknown';
 }
 

@@ -54,6 +54,12 @@ function extractCampaignId(data) {
  const vars = data.custom_variables || {};
  if (vars.campaign) return String(vars.campaign);
  if (vars.campaign_id) return String(vars.campaign_id);
+ // `category` is what the cascade actually sets for this provider
+ // (sendViaMailtrap: `body.category = campaignIdTag(email)`), and Mailtrap
+ // echoes it back on every event — the two halves had simply never been
+ // connected, so the campaign fell through to the message id here exactly as
+ // it did on Mailgun and Maileroo (same defect class, found 2026-08-20).
+ if (data.category) return String(data.category);
  return data.message_id || 'unknown';
 }
 

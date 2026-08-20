@@ -41,6 +41,7 @@ export * from '../../functions/src/emailCascade.js';
 
 import { sendEmailCascade as baseSendEmailCascade } from '../../functions/src/emailCascade.js';
 import { auditSentEmail, formatAuditReport } from '../../functions/src/lib/emailLinkAudit.js';
+import { makeMailerooRefOnSent } from '../../functions/src/lib/mailerooRef.js';
 import { isOwnerEmail } from './canaryAd.mjs';
 import path from 'node:path';
 
@@ -141,8 +142,50 @@ export async function auditCanarySend(emails, result, opts = {}) {
  * existing `import { sendEmailCascade } from './lib/email-cascade.mjs'` call
  * site picks up the audit with no edit.
  */
+/**
+ * Lazy Firestore handle for the Maileroo ref writer.
+ *
+ * A thunk, not a handle: a sender that never reaches Maileroo — or runs without
+ * credentials at all, like preview-welcome-email.mjs — must not pay for an
+ * admin-SDK init it does not need, and must not fail because of one.
+ */
+let _refDbPromise = null;
+function getRefDb() {
+  if (!_refDbPromise) {
+    _refDbPromise = import('./firestore-admin.mjs').then((m) => m.getFirestoreDb());
+  }
+  return _refDbPromise;
+}
+
+/**
+ * The cascade every scripts/ sender actually calls.
+ *
+ * Two post-send concerns are attached HERE rather than per sender, because
+ * "every sender remembered to do it" is precisely the assumption that failed:
+ *
+ *   1. the link audit (#5682) — one place where every sent body passes;
+ *   2. the Maileroo lookup record — without it that provider's opens and clicks
+ *      are unattributable and the webhook discards them. Measured 1-20 August
+ *      2026, before this wrapper existed: 7.876 messages with zero recorded
+ *      engagement, all of them from senders that simply never wrote the record.
+ *      See functions/src/lib/mailerooRef.js for the full account.
+ *
+ * The ref write runs FIRST and the caller's own `onSent` after it, so a sender
+ * that keeps its own bookkeeping (send-job-alerts.mjs) sees no change in order.
+ * It is idempotent (`merge: true`, keyed by message id), so a sender that still
+ * writes its own record cannot conflict with this one.
+ */
 export async function sendEmailCascade(emails, opts = {}) {
-  const result = await baseSendEmailCascade(emails, opts);
+  const channel = resolveChannel();
+  const optsWithRef = {
+    ...opts,
+    onSent: makeMailerooRefOnSent(getRefDb, {
+      defaultCampaignId: channel.id,
+      isJobAlert: channel.id === 'job-alert',
+      next: opts.onSent || null,
+    }),
+  };
+  const result = await baseSendEmailCascade(emails, optsWithRef);
   await auditCanarySend(emails, result);
   return result;
 }

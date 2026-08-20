@@ -248,3 +248,50 @@ describe('newsletterMailtrapWebhookCore — a provider opt-out leaves a COMPLETE
     expect(subscriberSet!.data.unsubscribedAt).toBeTruthy();
   });
 });
+
+/**
+ * Campaign attribution (2026-08-20). sendViaMailtrap sets `body.category =
+ * campaignIdTag(email)` and Mailtrap echoes it back on every event, but
+ * extractCampaignId only ever looked at `custom_variables` — so the two halves
+ * were never connected and the campaign fell through to the message id, the
+ * same defect class found on Mailgun and Maileroo.
+ */
+describe('newsletterMailtrapWebhookCore — campaign attribution', () => {
+  const campaignOf = (db: any) => {
+    const added = db.__adds.find((a: any) => a.collection.endsWith('/events'));
+    return added?.data?.campaign_id;
+  };
+
+  it('reads the campaign from `category`, which is what the cascade actually sets', async () => {
+    const db = createFakeDb();
+    await persistMailtrapEvent(db as any, {
+      event: 'open',
+      email: 'seeker@example.com',
+      message_id: 'mt-message-id',
+      category: 'daily-brief-2026-08-20',
+    } as any);
+    expect(campaignOf(db)).toBe('daily-brief-2026-08-20');
+  });
+
+  it('still prefers custom_variables when both are present', async () => {
+    const db = createFakeDb();
+    await persistMailtrapEvent(db as any, {
+      event: 'open',
+      email: 'seeker@example.com',
+      message_id: 'mt-message-id',
+      category: 'ignored',
+      custom_variables: { campaign_id: 'weekly_2026-08-17' },
+    } as any);
+    expect(campaignOf(db)).toBe('weekly_2026-08-17');
+  });
+
+  it('falls back to the message id when neither is present', async () => {
+    const db = createFakeDb();
+    await persistMailtrapEvent(db as any, {
+      event: 'open',
+      email: 'seeker@example.com',
+      message_id: 'mt-message-id',
+    } as any);
+    expect(campaignOf(db)).toBe('mt-message-id');
+  });
+});

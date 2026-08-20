@@ -28,6 +28,7 @@ import {
   confirmationConfirmUrl,
   confirmationFrameForAttempt,
 } from './lib/confirmationEmailContent.js';
+import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import {
   confirmationSendRefusal,
   isConfirmationCycleSend,
@@ -210,7 +211,19 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  },
  recipient: { email: normalizedEmail },
  meta: {},
- }]);
+ }], {
+ // Cloud-Functions senders import the cascade directly and so bypass
+ // scripts/lib/email-cascade.mjs, where every scripts/ sender gets this for
+ // free. Without the lookup record, Maileroo's open/click webhooks have no
+ // recipient to attribute to and are discarded: measured 1-20 August 2026,
+ // 482 confirmation emails via Maileroo recorded 0,00% opens. The real
+ // campaign id travels in `tags` already, so the fallback below only covers
+ // a tag list that lost it. See functions/src/lib/mailerooRef.js.
+ onSent: makeMailerooRefOnSent(async () => db, {
+ defaultCampaignId: 'confirmation',
+ isJobAlert: false,
+ }),
+ });
 
  if (failed.length > 0) {
  console.error('[newsletterConfirmation] send error:', failed[0].error);

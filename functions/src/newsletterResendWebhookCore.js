@@ -500,8 +500,15 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  }, { merge: true });
 
  // ── Raw event log (subcollection) ───────────────────────────
+ // `provider` is NOT optional here even though this branch only ever runs for
+ // Resend: the other four job-alert webhooks all stamp it, and any report that
+ // groups engagement by provider reads this field. Its absence (until
+ // 2026-08-20) made every Resend job-alert event provider-less, so a
+ // collectionGroup('events') roll-up had to guess the provider from the parent
+ // collection instead of reading it.
  await subscriberRef.collection('events').add({
  email,
+ provider: 'resend',
  event_type: type,
  alert_id: alertId,
  message_id: messageId,

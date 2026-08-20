@@ -42,6 +42,7 @@ import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-
 import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
+import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
@@ -1659,19 +1660,17 @@ async function persistDelivery(recipient, messageId, meta) {
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
-    // no tags). Persist an authoritative lookup keyed by that id so the webhook can
-    // resolve the subscriber + real campaign for opens/clicks. Stored under
-    // newsletter_subscribers/_meta_/maileroo_refs (same family as the rest of the
-    // tracking) rather than a top-level collection. See
-    // functions/src/newsletterMailerooWebhookCore.js.
-    if (meta.provider === 'maileroo' && messageId) {
-      await metaDocRef().collection('maileroo_refs').doc(String(messageId)).set({
-        email,
-        campaign_id: meta.campaignId,
-        is_job_alert: false,
-        updated_at: new Date(),
-      }, { merge: true });
-    }
+    // no tags), so the webhook can attribute them only through this lookup. The
+    // write itself lives in functions/src/lib/mailerooRef.js — one writer for
+    // every sender, so the shape cannot drift between copies. See
+    // functions/src/newsletterMailerooWebhookCore.js for the read side.
+    await recordMailerooRef(db, {
+      provider: meta.provider,
+      messageId,
+      email,
+      campaignId: meta.campaignId,
+      isJobAlert: false,
+    });
     // Update subscriber-level counters
     const subUpdate = {
       last_sent_at: new Date(),

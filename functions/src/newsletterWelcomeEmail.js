@@ -30,6 +30,7 @@ import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl, wrapAuthenticatedHrefs } from './lib/newsletterUrls.js';
 import { shouldSkipSubscriber } from './jobAlertBackfillCore.js';
 import { inferInterest, resolveDripSegment } from './lib/newsletterSegments.js';
+import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 const RECENCY_WINDOW_MS = 48 * 60 * 60 * 1000; // 48h
@@ -371,7 +372,18 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     },
     recipient: { email: normalizedEmail },
     meta: {},
-  }]);
+  }], {
+    // Cloud-Functions senders import the cascade directly and so bypass
+    // scripts/lib/email-cascade.mjs, where every scripts/ sender gets this for
+    // free. Without the lookup record, Maileroo's open/click webhooks have no
+    // recipient to attribute to and are discarded: measured 1-20 August 2026,
+    // 1.246 welcome emails via Maileroo recorded 0,00% opens while the same
+    // email via Mailgun recorded 46,43%. See functions/src/lib/mailerooRef.js.
+    onSent: makeMailerooRefOnSent(async () => db, {
+      defaultCampaignId: campaignId,
+      isJobAlert: false,
+    }),
+  });
 
   if (failed.length > 0) {
     console.error('[newsletterWelcomeEmail] send error:', failed[0].error);
