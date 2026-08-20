@@ -62,6 +62,7 @@ import {
   savePendingSaveJobIntent,
   consumePendingSaveJobIntent,
   peekPendingSaveJobIntent,
+  type SaveJobSurface,
 } from '@/services/pendingSaveJob';
 import {
  type BehaviorData,
@@ -2476,7 +2477,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // magic-link email opened in a brand new tab) + open the sign-in modal.
  // The authUser?.uid replay effect below fires the actual save once sign-in
  // completes, in THIS tab or a fresh one.
- const handleToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail' = 'list') => {
+ const handleToggleSave = useCallback((job: JobListing, surface: SaveJobSurface = 'list') => {
  const uid = authUser?.uid ?? null;
  if (!uid) {
  savePendingSaveJobIntent({
@@ -2724,6 +2725,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
+
+ // A save tapped on the GATE, then unlocked by the email-capture form instead
+ // of by signing in. `emailAccessGranted` grants access with NO Firebase uid,
+ // so the replay effect above — correctly gated on uid, since `ensureSavedJob`
+ // cannot write without one — never fires, and the intent would sit in
+ // localStorage until its 15-minute TTL while the now-unlocked header shows
+ // the bookmark as un-saved. The reader tapped save and nothing happened.
+ // Re-ask instead of dropping it: the modal is the same one their tap opened,
+ // and this is the moment it can actually be satisfied. Once per mount — a
+ // ref, not state, so re-asking cannot loop through its own re-render.
+ const gateSaveReaskedRef = useRef(false);
+ useEffect(() => {
+ if (!hasAccess || authUser?.uid || gateSaveReaskedRef.current) return;
+ const intent = peekPendingSaveJobIntent();
+ if (intent?.kind !== 'save_job' || intent.surface !== 'detail_gate') return;
+ gateSaveReaskedRef.current = true;
+ requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
+ setSaveAuthPromptOpen(true);
+ Analytics.trackEvent('save_signin_prompt_shown', { job_id: intent.entry.id, surface: 'detail_gate_unlocked' });
+ }, [hasAccess, authUser?.uid]);
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.
  // Hoisted above the slug-filter memos below: its presence is the authoritative
  // "this URL is a JOB page, not a filter landing" signal, and they need it.
@@ -7948,7 +7969,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      for real once sign-in completes (in this tab or a fresh one). */}
  <button
  type="button"
- onClick={() => handleToggleSave(selectedJob, 'detail')}
+ onClick={() => handleToggleSave(selectedJob, 'detail_gate')}
  aria-pressed={savedJobIds.has(selectedJob.id)}
  aria-label={savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
  className={`shrink-0 justify-center min-w-[44px] px-2.5 sm:px-3 py-2 min-h-[44px] rounded-full inline-flex items-center gap-1.5 text-xs font-semibold border transition-colors ${
