@@ -10218,6 +10218,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-imposta-2026-single.title': 'Crédit d\'impôt 2026 : guide frontalier célibataire',
     'blog.article.credito-imposta-2026-single.excerpt': 'Frontaliers célibataires : comment calculer le crédit d\'impôt 2026, franchise € 7.500-€ 10.000, taux IRPEF, compilation cadre CE 730 et restaurations d\'ici mai.',
     'blog.article.credito-imposta-2026-single.imageAlt': 'Conseiller fiscal examinant la déclaration fiscale d\'un travailleur frontalier avec le paysage tessinois en arrière-plan',
+    'blog.article.coordinamento-avs-inps-frontaliere.title': 'Pension frontalière 2026 : AVS et INPS',
+    'blog.article.coordinamento-avs-inps-frontaliere.excerpt': 'Coordination AVS-INPS à partir de 2024 : totalisation des cotisations, de l\'impôt à la source et des restaurations. Franchise de 10 000 € pour les nouveaux frontaliers.',
+    'blog.article.coordinamento-avs-inps-frontaliere.imageAlt': 'Le lac de Lugano avec les montagnes du Tessin, symbole de la région transfrontalière Tessin-Italie.',
 };
 
 export default blogMetaFr;

@@ -24603,7 +24603,7 @@ const RAW_ARTICLES = [
  id: 'eventi-weekend-ticino',
  category: 'novita',
  date: '2026-06-29',
- updatedAt: '2026-08-13',
+ updatedAt: '2026-08-20',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
  authorSlug: 'redazione',
@@ -30593,6 +30593,15 @@ const RAW_ARTICLES = [
  hasCalculator: true,
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'coordinamento-avs-inps-frontaliere',
+ category: 'pensione',
+ date: '2026-08-20T07:15:48.669Z',
+ image: '/images/blog/coordinamento-avs-inps-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
 ] satisfies Article[];
 
