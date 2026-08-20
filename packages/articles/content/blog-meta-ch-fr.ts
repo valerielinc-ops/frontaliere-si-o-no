@@ -3577,6 +3577,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dimora-b-svizzera-guida-pratica.title': 'Permis de séjour B : comment le demander et le renouveler',
     'blog.article.dimora-b-svizzera-guida-pratica.excerpt': 'Permis de séjour B en Suisse : exigences essentielles, documentation, autorités compétentes (SEM), délais et procédures de renouvellement. Guide pour les étrangers non-UE.',
     'blog.article.dimora-b-svizzera-guida-pratica.imageAlt': 'Bureau de migration cantonal où sont demandés les permis de séjour pour étrangers en Suisse',
+    'blog.article.svizzera-cina-dazi-export.title': 'Svizzera-Cina, un tournant historique : dazi sull\'export',
+    'blog.article.svizzera-cina-dazi-export.excerpt': 'La Suisse et la Chine ont conclu les négociations sur l\'optimisation de l\'accord de libre-échange, permettant à 99,8 % des exportations suisses d\'accéder au marché chinois en franchise de douane.',
+    'blog.article.svizzera-cina-dazi-export.imageAlt': 'Marché suisse à Pékin',
 };
 
 export default blogMetaChFr;

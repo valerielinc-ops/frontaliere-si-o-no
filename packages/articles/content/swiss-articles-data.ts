@@ -10729,6 +10729,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-cina-dazi-export',
+    category: 'fiscale',
+    date: '2026-08-20T16:20:14.803Z',
+    image: '/images/blog/svizzera-cina-dazi-export.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

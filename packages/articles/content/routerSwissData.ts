@@ -1218,6 +1218,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'monopattini-obbligo-casco': { it: 'monopattini-obbligo-casco', en: 'e-scooter-helmet-mandate', de: 'e-scooter-helmflicht', fr: 'trottinette-casque-obligatoire' },
  'svizzera-cina-accordo-libero-scambio': { it: 'svizzera-cina-accordo-libero-scambio', en: 'switzerland-china-free-trade-agreement', de: 'schweiz-china-freihandelsabkommen', fr: 'suisse-chine-accord-libre-echange' },
  'dimora-b-svizzera-guida-pratica': { it: 'dimora-b-svizzera-guida-pratica', en: 'residence-permit-b-switzerland-guide', de: 'aufenthaltserlaubnis-b-schweiz-leitfaden', fr: 'permis-sejour-b-suisse-guide' },
+ 'svizzera-cina-dazi-export': { it: 'svizzera-cina-dazi-export', en: 'switzerland-china-export-tariffs', de: 'schweiz-china-export-zolle', fr: 'suisse-chine-export-droits' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
