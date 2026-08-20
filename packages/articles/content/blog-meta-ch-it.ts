@@ -3556,6 +3556,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Pianificazione ospedaliera Ticino: dati 2019 adeguati?',
     'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'L\'interrogazione PLR sulla consultazione iniziata il 1° giugno 2026 solleva dubbi sulla base statistica del fabbisogno ospedaliero nel cantone.',
     'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'L\'ospedale dell\'EOC a Bellinzona, al centro della questione sulla pianificazione ospedaliera ticinese',
+    'blog.article.uss-pensionati-rendite-2027.title': 'L\'USS chiede rendite più alte per i pensionati svizzeri',
+    'blog.article.uss-pensionati-rendite-2027.excerpt': 'L\'Unione Sindacale Svizzera (USS) chiede un tasso d\'interesse minimo del 3% per il 2027 e rendite più alte per i pensionati svizzeri',
+    'blog.article.uss-pensionati-rendite-2027.imageAlt': 'Una donna svizzera con un passaporto in mano guarda fuori dalla finestra con un\'espressione seria',
 };
 
 export default blogMetaChIt;

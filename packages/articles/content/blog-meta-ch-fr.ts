@@ -3556,6 +3556,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Planification hospitalière Tessin : données 2019 adéquates ?',
     'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'La question PLR sur la consultation lancée le 1er juin 2026 soulève des doutes sur la base statistique des besoins hospitaliers dans le canton.',
     'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'Bâtiment hospitalier moderne en Suisse, au cœur du débat sur la planification hospitalière du Tessin',
+    'blog.article.uss-pensionati-rendite-2027.title': 'L\'USS demande des rentes plus élevées pour les retraités suisses',
+    'blog.article.uss-pensionati-rendite-2027.excerpt': 'L\'Union syndicale suisse (USS) demande un taux d\'intérêt minimum de 3% pour 2027 et des rentes plus élevées pour les retraités suisses',
+    'blog.article.uss-pensionati-rendite-2027.imageAlt': 'Une femme suisse avec un passeport dans sa main regarde par la fenêtre avec un air sérieux',
 };
 
 export default blogMetaChFr;

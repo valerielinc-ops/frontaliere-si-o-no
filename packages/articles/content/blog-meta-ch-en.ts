@@ -3556,6 +3556,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pianificazione-ospedaliera-ticino-2026.title': 'Ticino hospital planning: adequate 2019 data?',
     'blog.article.pianificazione-ospedaliera-ticino-2026.excerpt': 'The PLR question on the consultation started on 1 June 2026 raises doubts about the statistical basis of hospital needs in the canton.',
     'blog.article.pianificazione-ospedaliera-ticino-2026.imageAlt': 'A modern Swiss hospital building, related to Ticino\'s hospital planning debate',
+    'blog.article.uss-pensionati-rendite-2027.title': 'USS calls for higher pensions for Swiss pensioners',
+    'blog.article.uss-pensionati-rendite-2027.excerpt': 'The Swiss Union of Trade Unions (USS) is calling for a minimum interest rate of 3% by 2027 and higher pensions for Swiss pensioners',
+    'blog.article.uss-pensionati-rendite-2027.imageAlt': 'A Swiss woman with a passport in her hand looks out the window with a serious expression',
 };
 
 export default blogMetaChEn;
