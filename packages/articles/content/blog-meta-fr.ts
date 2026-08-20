@@ -10272,6 +10272,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.title': 'Suisse : une 13e également pour la caisse de pension',
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.excerpt': 'La Suisse versera une treizième à partir de décembre et l\'Union syndicale suisse demandera une augmentation des rentes du deuxième pilier d\'ici 2027.',
     'blog.article.svizzera-una-13esima-per-la-cassa-pensione.imageAlt': 'Une femme s\'ajuste les lunettes sur les collines de Locarno',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.title': 'Vivre à Barasso et travailler au Tessin : guide frontalier',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.excerpt': 'Permis G, exonération 7 500 € , impôt à la source et prévoyance AVS/LPP : tout ce dont vous avez besoin pour vivre à Barasso et travailler au Tessin à partir de 2024.',
+    'blog.article.vivere-barasso-lavorare-ticino-frontaliere.imageAlt': 'Voiture d\'un frontalier au poste de contrôle Brogeda entre Varèse et le Tessin, avec panneaux douaniers suisses',
 };
 
 export default blogMetaFr;
